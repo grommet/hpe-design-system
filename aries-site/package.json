@@ -2,7 +2,6 @@
   "name": "aries-site",
   "version": "1.0.0",
   "description": "Website app for aries",
-  "keywords": [],
   "license": "Apache-2.0",
   "main": "index.js",
   "dependencies": {
@@ -15,7 +14,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
