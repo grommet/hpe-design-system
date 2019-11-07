@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { grommet, Box, Heading, Grommet, Paragraph } from "grommet";
+import { grommet, Box, Heading, Grommet, Paragraph } from 'grommet';
 
 export const Header = () => (
   <Grommet theme={grommet}>
