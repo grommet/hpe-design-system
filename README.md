@@ -1,0 +1,55 @@
+# aries monorepo
+
+Welcome to HPE Design System.
+Aries is a monorepo built form two modules. 
+1. aries-core
+2. aries-site
+
+The Monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
+
+Packages are automatically linked together, meaning you can do cross-package work within the repo. woot-woot!
+
+
+### Basic structure and configurations
+
+```
+packages/
+  aries-*/
+    src/js/
+      index.js
+    package.json         // package-specific deps and scripts
+    README.md            // shown in npmjs.com. included in npm artifact
+
+.eslintignore            // eslint (linter) ignored directories/files
+.eslintrc                // eslint (linter) configuration based on @hpe/project-scripts
+.gitignore               // github's default node gitignore with customizations
+.prettierrc.js           // prettier (formatter) configuration based on @hpe/project-scripts
+package.json             // common dev deps and workspace-wide scripts WIP
+README.md                // workspace-wide information. shown in github
+yarn.lock                // the only lock file in the repo. all packages combined
+```
+
+## Getting Started
+
+```
+yarn install
+```
+
+Running 'yarn install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
+
+Run aries-site in development mode:
+
+```
+cd aries-site
+yarn start
+```
+
+Running in production mode:
+
+```
+yarn build
+```
+
+## Netlify Config
+TBD once aries-site is up and running.
+

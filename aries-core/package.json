@@ -1,0 +1,28 @@
+{
+  "name": "aries-core",
+  "version": "1.0.0",
+  "description": "Design System for HPE",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "main": "src/js/index.js",
+  "dependencies": {
+    "grommet": "^2.7.11",
+    "grommet-icons": "^4.4.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@hpe/project-scripts": "^1.0.5",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  }
+}
