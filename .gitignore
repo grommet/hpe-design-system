@@ -3,6 +3,8 @@
 
 # production
 *dist
+*out
+*.next
 
 #logs
 npm-debug.log*

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { grommet, Box, Heading, Grommet, Paragraph } from "grommet";
+import { grommet, Box, Heading, Grommet, Paragraph } from 'grommet';
 
 export const Header = () => (
   <Grommet theme={grommet}>
@@ -9,7 +9,7 @@ export const Header = () => (
         <strong>Hello World</strong>
       </Heading>
       <Paragraph>
-        Hello from a Aries! In order to understand how monorepo works in-action,
+        Hello from Aries! In order to understand how monorepo works in-action,
         change the Header component on aries-core and see how it immediately
         impacts aries-site.
       </Paragraph>

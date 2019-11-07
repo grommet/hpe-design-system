@@ -1,0 +1,28 @@
+{
+  "name": "aries-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "export": "yarn run test && yarn run build && next export",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "aries-core": "*",
+    "grommet": "^2.7.11",
+    "grommet-icons": "^4.4.0",
+    "grommet-theme-hpe": "^0.4.2",
+    "next": "^9.1.2",
+    "next-transpile-modules": "^2.3.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
