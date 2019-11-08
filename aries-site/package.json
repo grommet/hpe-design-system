@@ -1,30 +1,28 @@
 {
   "name": "aries-site",
   "version": "1.0.0",
-  "description": "Website app for aries",
+  "description": "A website for aries",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "src/pages/index.js",
+  "private": true,
   "dependencies": {
     "aries-core": "*",
     "grommet": "^2.7.11",
     "grommet-icons": "^4.4.0",
+    "next": "^9.1.2",
+    "next-transpile-modules": "^2.3.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
+    "jest": "^24.9.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot --port 3005",
-    "build": "webpack --mode production"
+    "build": "next build",
+    "dev": "next",
+    "export": "yarn build && next export",
+    "start": "next start",
+    "test": "jest"
   }
 }
