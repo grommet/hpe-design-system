@@ -41,7 +41,7 @@ Run aries-site in development mode:
 
 ```
 cd aries-site
-yarn start
+yarn dev
 ```
 
 Running in production mode:
