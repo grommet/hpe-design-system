@@ -21,7 +21,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
-    "export": "yarn build && next export",
+    "export": "yarn test && yarn build && next export",
     "start": "next start",
     "test": "jest"
   }
