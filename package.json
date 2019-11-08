@@ -2,6 +2,7 @@
   "name": "aries",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "aries-core",
+    "aries-site"
   ]
 }

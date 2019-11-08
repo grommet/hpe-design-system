@@ -1,13 +1,14 @@
 {
   "name": "aries-site",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "description": "A website for Aries",
+  "license": "Apache-2.0",
+  "main": "src/pages/index.js",
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next",
-    "export": "yarn run test && yarn run build && next export",
+    "export": "yarn build && next export",
     "start": "next start",
     "test": "jest"
   },
