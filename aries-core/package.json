@@ -25,10 +25,12 @@
   "scripts": {
     "build": "webpack --mode production",
     "lint": "eslint src",
-    "lint-fix": "eslint src --fix"
+    "lint-fix": "eslint src --fix",
+    "test": "jest"
   },
   "pre-commit": [
-    "lint-fix"
+    "lint-fix",
+    "test"
   ],
   "keywords": [
     "accessibility",
