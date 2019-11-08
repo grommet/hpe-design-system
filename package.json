@@ -3,6 +3,7 @@
   "private": true,
   "workspaces": [
     "aries-core",
-    "aries-site"
+    "aries-site",
+    "cra-site"
   ]
 }
