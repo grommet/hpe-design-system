@@ -1,6 +1,9 @@
 {
   "name": "aries",
   "private": true,
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "workspaces": [
     "aries-core",
     "aries-site"

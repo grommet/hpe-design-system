@@ -15,14 +15,14 @@
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.1"
   },
-  "devDependencies": {
-    "jest": "^24.9.0"
-  },
   "scripts": {
     "build": "next build",
-    "dev": "next",
     "export": "yarn build && next export",
-    "start": "next start",
+    "start": "next",
     "test": "jest"
-  }
+  },
+  "pre-commit": [
+    "lint-fix",
+    "test"
+  ]
 }
