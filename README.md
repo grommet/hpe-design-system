@@ -5,7 +5,7 @@
 Live Site - https://aries.hpe.design/
 
 Welcome to HPE Design System.
-Aries is a monorepo built form two modules. 
+Aries is a monorepo built from two modules. 
 1. aries-core
 2. aries-site
 
