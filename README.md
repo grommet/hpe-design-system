@@ -13,7 +13,7 @@ Packages are automatically linked together, meaning you can do cross-package wor
 ### Basic structure and configurations
 
 ```
-packages/
+aries/
   aries-*/
     src/js/
       index.js
