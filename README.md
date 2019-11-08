@@ -1,14 +1,18 @@
 # aries monorepo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys)
+
+Live Site - https://aries.hpe.design/
+
 Welcome to HPE Design System.
-Aries is a monorepo built form two modules. 
+Aries is a monorepo built from two modules.
+
 1. aries-core
 2. aries-site
 
 The Monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
 
 Packages are automatically linked together, meaning you can do cross-package work within the repo. woot-woot!
-
 
 ### Basic structure and configurations
 
@@ -51,5 +55,5 @@ yarn build
 ```
 
 ## Netlify Config
-TBD once aries-site is up and running.
 
+TBD once aries-site is up and running.
