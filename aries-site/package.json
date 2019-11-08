@@ -1,22 +1,14 @@
 {
   "name": "aries-site",
   "version": "1.0.0",
-  "description": "A website for Aries",
+  "description": "A website for aries",
   "license": "Apache-2.0",
   "main": "src/pages/index.js",
   "private": true,
-  "scripts": {
-    "build": "next build",
-    "dev": "next",
-    "export": "yarn build && next export",
-    "start": "next start",
-    "test": "jest"
-  },
   "dependencies": {
     "aries-core": "*",
     "grommet": "^2.7.11",
     "grommet-icons": "^4.4.0",
-    "grommet-theme-hpe": "^0.4.2",
     "next": "^9.1.2",
     "next-transpile-modules": "^2.3.1",
     "react": "^16.11.0",
@@ -25,5 +17,12 @@
   },
   "devDependencies": {
     "jest": "^24.9.0"
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "export": "yarn build && next export",
+    "start": "next start",
+    "test": "jest"
   }
 }
