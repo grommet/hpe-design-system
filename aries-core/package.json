@@ -17,6 +17,10 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@hpe/project-scripts": "^1.0.5",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "babel-loader": "^8.0.5",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
@@ -26,13 +30,17 @@
     "build": "webpack --mode production",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "pre-commit": [
     "lint-fix",
     "test"
   ],
   "keywords": [
+    "aries",
+    "aries-core",
     "accessibility",
     "component",
     "design system",
