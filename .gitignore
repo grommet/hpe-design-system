@@ -4,6 +4,9 @@
 # testing
 /coverage
 
+#lock files
+*package-lock.json
+
 # production
 *dist
 *out
