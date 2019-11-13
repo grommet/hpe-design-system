@@ -19,7 +19,9 @@
     "build": "next build",
     "export": "yarn build && next export",
     "start": "next",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix"
   },
   "pre-commit": [
     "lint-fix",
