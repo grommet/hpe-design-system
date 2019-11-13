@@ -54,7 +54,3 @@ Running in production mode:
 ```
 yarn build
 ```
-
-## Netlify Config
-
-TBD once aries-site is up and running.
