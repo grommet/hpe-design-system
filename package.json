@@ -1,7 +1,15 @@
 {
   "name": "aries",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpe-design/aries.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hpe-design/aries/issues"
+  },
   "devDependencies": {
+    "@hpe/project-scripts": "^1.0.6",
     "jest": "^24.9.0"
   },
   "workspaces": [
