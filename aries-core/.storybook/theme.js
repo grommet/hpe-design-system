@@ -1,14 +1,15 @@
 import { create } from '@storybook/theming';
-import logo from '../.storybook/public/hpe.svg';
-// https://storybook.js.org/docs/configurations/theming/
+import logo from './public/hpe.svg';
 
+const HpeBrand = '#00C781';
+
+// https://storybook.js.org/docs/configurations/theming/
 export default create({
   base: 'dark',
 
-  barSelectedColor: '#00C781',
-  colorSecondary: '#00C781',
+  barSelectedColor: HpeBrand,
+  colorSecondary: HpeBrand,
 
-  brandTitle: 'Aries',
   brandUrl: 'https://aries.hpe.design/',
   brandImage: logo,
 });
