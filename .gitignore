@@ -11,6 +11,7 @@
 *dist
 *out
 *.next
+*storybook-static
 
 #logs
 npm-debug.log*
