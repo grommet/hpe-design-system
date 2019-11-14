@@ -6,7 +6,7 @@ const Index = () => (
   <div>
     <Head>
       <title>Aries | HPE Design System</title>
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" href="/static/favicon.ico" />
     </Head>
     <Header />
   </div>
