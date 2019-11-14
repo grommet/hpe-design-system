@@ -22,9 +22,10 @@ if (process.env.CI === 'true') {
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit('stable updated again'))
       .then(() => git(localFolder).push('origin', 'stable'))
-      .catch(err => console.error('failed: ', err));
+      .catch(err => console.error('failed: ', err)); // eslint-disable-line no-console
   });
 } else {
+  // eslint-disable-next-line no-console
   console.warn(
     'Skipping release. Release:stable task should be executed by CI only.',
   );

@@ -4,11 +4,8 @@ module.exports = function(api) {
   const presets = ['@babel/preset-env', '@babel/preset-react'];
   const plugins = ['@babel/plugin-proposal-class-properties'];
 
-  const ignore = [
-    'src/**/*.test.js', // test.js files
-    'src/**/__tests__', // __test__ directories
-    'src/**/stories', // stories directories
-  ];
+  /* Ignoring test files, test directories, and stories from /dist */
+  const ignore = ['src/**/*.test.js', 'src/**/__tests__', 'src/**/stories'];
 
   return {
     presets,
