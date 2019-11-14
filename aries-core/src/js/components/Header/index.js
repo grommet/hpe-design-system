@@ -3,7 +3,7 @@ import React from 'react';
 import { grommet, Box, Heading, Grommet, Paragraph } from 'grommet';
 
 export const Header = () => (
-  <Grommet theme={grommet}>
+  <Grommet theme={grommet} full>
     <Box pad="small">
       <Heading level={3}>
         <strong>Hello World</strong>
