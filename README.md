@@ -1,9 +1,13 @@
 # aries monorepo
+### Aries Site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys) - https://aries.hpe.design/  
 
-Live Site - https://aries.hpe.design/
-Storybook - http://storybook.hpe.design/
+
+
+### Storybook
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4cb8d72-f3c0-4490-a4d7-54273ac277ed/deploy-status)](https://app.netlify.com/sites/thirsty-shockley-2b7675/deploys) - http://storybook.hpe.design/
 
 Welcome to HPE Design System.
 Aries is a monorepo built from two modules.
