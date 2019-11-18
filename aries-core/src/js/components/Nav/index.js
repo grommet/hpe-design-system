@@ -7,7 +7,7 @@ export const Nav = ({ title, children }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box background="white">
+    <Box pad={{ horizontal: size !== 'small' ? 'large' : undefined }}>
       <Box
         as="nav"
         direction="row"
