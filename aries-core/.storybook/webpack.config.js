@@ -5,7 +5,5 @@ module.exports = function({ config }) {
     enforce: 'pre',
   });
 
-  // config.resolve.alias.aries = path.resolve(__dirname, '../src/js');
-
   return config;
 };

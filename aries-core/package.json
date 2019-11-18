@@ -7,6 +7,7 @@
   "dependencies": {
     "grommet": "^2.7.11",
     "grommet-icons": "^4.4.0",
+    "grommet-theme-hpe": "^0.4.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "styled-components": "^4.4.1"

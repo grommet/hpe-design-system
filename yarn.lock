@@ -340,11 +340,6 @@
     regenerator-runtime "^0.13.3"
     v8flags "^3.1.1"
 
-"@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.4.3", "@babel/parser@^7.6.4", "@babel/parser@^7.7.0", "@babel/parser@^7.7.2":
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.7.2.tgz#ea8334dc77416bfd9473eb470fd00d8245b3943b"
-  integrity sha512-DDaR5e0g4ZTb9aP7cpSZLkACEBdoLGwJDWgHtBhrGX7Q1RjhdoMOfexICj5cqTAtpowjGQWfcvfnQG7G2kAB5w==
-
 "@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.4.3", "@babel/parser@^7.6.0", "@babel/parser@^7.6.4", "@babel/parser@^7.7.0", "@babel/parser@^7.7.2":
   version "7.7.3"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.7.3.tgz#5fad457c2529de476a248f75b0f090b3060af043"
@@ -5883,6 +5878,11 @@ grommet-styles@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
+
+grommet-theme-hpe@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-0.4.2.tgz#f2c4d02341056a34d32f1fbc4f843b523912dce5"
+  integrity sha512-3GlnYNBM2DM90hgzrSedm40BsxIJaN6eDr5Ezeyqpp4SvwQnXpaEzlWkXiokTsgDlMhtNI/WoxWG9l/l9+y9oQ==
 
 grommet@^2.7.11:
   version "2.8.0"
