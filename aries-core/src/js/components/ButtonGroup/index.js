@@ -1,0 +1,14 @@
+/* eslint-disable no-nested-ternary */
+import React from 'react';
+import { Button } from 'grommet';
+
+export const ButtonGroup = ({ items }) => {
+  return (
+    <>
+      {items &&
+        items.map((item, index) => (
+          <Button key={index} label={item.label} icon={item.icon} />
+        ))}
+    </>
+  );
+};
