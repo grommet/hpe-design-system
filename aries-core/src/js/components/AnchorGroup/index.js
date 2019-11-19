@@ -19,7 +19,6 @@ export const AnchorGroup = ({ items }) => {
               icon={item.icon}
               label={item.label}
               margin="small"
-              color="dark-2"
               {...item}
             />
           </ThemeContext.Extend>
