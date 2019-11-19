@@ -20,6 +20,7 @@ export const AnchorGroup = ({ items }) => {
               label={item.label}
               margin="small"
               color="dark-2"
+              {...item}
             />
           </ThemeContext.Extend>
         ))}
