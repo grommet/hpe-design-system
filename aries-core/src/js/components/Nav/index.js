@@ -2,19 +2,20 @@ import React, { useState, useContext } from 'react';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
 import { Close, Hpe, Menu } from 'grommet-icons';
 
-export const Nav = ({ title, children }) => {
+export const Nav = ({ href, title, children }) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
 
   return (
-    <Box pad={{ horizontal: size !== 'small' ? 'large' : undefined }}>
+    <Box>
       <Box
         as="nav"
         direction="row"
         justify="between"
-        pad={{ vertical: 'small', horizontal: 'medium' }}
+        pad={{ vertical: 'small', horizontal: 'xlarge' }}
       >
-        <Button>
+        {/* Assume the logo should return to the index page by default */}
+        <Button href={href || '/'}>
           <Box direction="row" align="center" gap="medium">
             <Hpe color="#01a982" size="large" />
             <Box direction="row" gap="xsmall">
