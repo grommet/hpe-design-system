@@ -32,10 +32,10 @@ const Layout = ({ children }) => {
       <Nav title="Aries">
         <AnchorGroup
           items={[
-            { label: 'Start' },
-            { label: 'Foundation' },
-            { label: 'Design' },
-            { label: 'Develop' },
+            { label: 'Start', href: '/' },
+            { label: 'Foundation', href: '/foundation' },
+            { label: 'Design', href: '/design' },
+            { label: 'Develop', href: '/develop' },
             { label: 'Resources' },
           ]}
         />
