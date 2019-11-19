@@ -26,5 +26,8 @@
   "pre-commit": [
     "lint-fix",
     "test"
-  ]
+  ],
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.6"
+  }
 }
