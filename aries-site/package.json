@@ -9,6 +9,7 @@
     "aries-core": "*",
     "grommet": "^2.7.11",
     "grommet-icons": "^4.4.0",
+    "grommet-theme-hpe": "^0.4.2",
     "next": "^9.1.2",
     "next-transpile-modules": "^2.3.1",
     "react": "^16.11.0",
