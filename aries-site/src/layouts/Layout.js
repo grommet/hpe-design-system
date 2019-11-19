@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
           </Box>
         )}
         <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
-          {children[0]}
+          {children[1]}
         </Box>
       </Box>
     </Grommet>
