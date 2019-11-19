@@ -43,11 +43,11 @@ const Layout = ({ children }) => {
       <Box direction="row">
         {sidebar && (
           <Box background="light-1" fill="vertical">
-            {sidebar[0]}
+            {children[0]}
           </Box>
         )}
         <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
-          {mainContent[0]}
+          {children[1]}
         </Box>
       </Box>
     </Grommet>
