@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
 const Subsection = ({ children }) => {
-  return <Box margin={{ bottom: 'small' }}>{children}</Box>;
+  return (
+    <Box margin={{ bottom: 'small' }} gap="small">
+      {children}
+    </Box>
+  );
 };
 
 Subsection.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
 export default Subsection;
