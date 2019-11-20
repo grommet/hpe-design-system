@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { Anchor, Box, Text } from 'grommet';
 import { FormNext } from 'grommet-icons';
 
