@@ -17,7 +17,7 @@ import {
 
 const Index = () => (
   <>
-    <Layout>
+    <Layout title="Principles">
       <SideBar>
         <Text>Secondary Nav</Text>
       </SideBar>

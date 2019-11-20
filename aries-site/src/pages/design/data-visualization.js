@@ -6,7 +6,7 @@ import { MainHeading } from '../../components';
 
 const Index = () => (
   <>
-    <Layout>
+    <Layout title="Data-visualization">
       <SideBar>
         <Text>Secondary Nav</Text>
       </SideBar>
