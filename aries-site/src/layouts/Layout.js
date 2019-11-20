@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
             { label: 'Foundation', href: '/foundation' },
             { label: 'Design', href: '/design' },
             { label: 'Develop', href: '/develop' },
-            { label: 'Resources' },
+            { label: 'Resources', href: '/resources' },
           ]}
         />
       </Nav>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { Text } from 'grommet';
 
 import { ContentSection, Layout, MainContent, SideBar } from '../../layouts';
