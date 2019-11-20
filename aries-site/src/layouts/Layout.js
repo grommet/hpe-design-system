@@ -20,7 +20,7 @@ const filterChildren = (children, type) => {
 };
 
 const Layout = ({ children }) => {
-  const mainContent = filterChildren(children, 'MainContent');
+  // const mainContent = filterChildren(children, 'MainContent');
   const sidebar = filterChildren(children, 'SideBar');
   const size = useContext(ResponsiveContext);
 
