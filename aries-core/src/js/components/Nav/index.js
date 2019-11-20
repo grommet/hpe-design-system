@@ -12,7 +12,10 @@ export const Nav = ({ href, title, children }) => {
         as="nav"
         direction="row"
         justify="between"
-        pad={{ vertical: 'small', horizontal: 'xlarge' }}
+        pad={{
+          vertical: 'small',
+          horizontal: size !== 'small' ? 'xlarge' : 'large',
+        }}
       >
         {/* Assume the logo should return to the index page by default */}
         <Button href={href || '/'}>
@@ -43,6 +46,7 @@ export const Nav = ({ href, title, children }) => {
               <Button
                 icon={!open ? <Menu /> : <Close />}
                 onClick={() => setOpen(!open)}
+                plain
               />
             ))}
         </Box>
