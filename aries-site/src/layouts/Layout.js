@@ -28,6 +28,8 @@ const Layout = ({ children }) => {
     <Grommet theme={hpe} full>
       <Head>
         <link rel="icon" href="/static/favicon.ico" />
+        <title>Aries | HPE Design System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Nav title="Aries">
         <AnchorGroup

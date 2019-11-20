@@ -7,9 +7,6 @@ import { MainDescription, MainHeading } from '../../components';
 
 const Index = () => (
   <>
-    <Head>
-      <title>Aries | HPE Design System</title>
-    </Head>
     <Layout>
       <SideBar>
         <Text>Secondary Nav</Text>
