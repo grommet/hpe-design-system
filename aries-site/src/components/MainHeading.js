@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { Heading } from 'grommet';
 
 export const MainHeading = ({ children }) => {
-  return <Heading level={1}>{children}</Heading>;
+  return (
+    <Heading level={1} margin={{ vertical: 'small' }}>
+      {children}
+    </Heading>
+  );
 };
 
 MainHeading.propTypes = {
