@@ -19,7 +19,7 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   // const mainContent = filterChildren(children, 'MainContent');
   const sidebar = filterChildren(children, 'SideBar');
 
@@ -30,7 +30,9 @@ const Layout = ({ children }) => {
           <>
             <Head>
               <link rel="icon" href="/static/favicon.ico" />
-              <title>Aries | HPE Design System</title>
+              <title>
+                {title ? `${title} — Aries` : 'Aries | HPE Design System'}
+              </title>
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1.0"
@@ -66,6 +68,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  title: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  title: undefined,
 };
 
 export default Layout;
