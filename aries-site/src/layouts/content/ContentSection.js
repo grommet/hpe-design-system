@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext } from 'grommet';
 
-const ContentSection = ({ children, lastSection }) => {
+export const ContentSection = ({ children, lastSection }) => {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -26,5 +26,3 @@ ContentSection.propTypes = {
 ContentSection.defaultProps = {
   lastSection: false,
 };
-
-export default ContentSection;
