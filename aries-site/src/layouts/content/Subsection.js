@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
-const Subsection = ({ children }) => {
+export const Subsection = ({ children }) => {
   return (
     <Box margin={{ bottom: 'small' }} gap="small">
       {children}
@@ -11,7 +11,6 @@ const Subsection = ({ children }) => {
 };
 
 Subsection.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
 };
-
-export default Subsection;

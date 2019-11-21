@@ -19,7 +19,7 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-const Layout = ({ children, title }) => {
+export const Layout = ({ children, title }) => {
   // const mainContent = filterChildren(children, 'MainContent');
   const sidebar = filterChildren(children, 'SideBar');
 
@@ -74,5 +74,3 @@ Layout.propTypes = {
 Layout.defaultProps = {
   title: undefined,
 };
-
-export default Layout;
