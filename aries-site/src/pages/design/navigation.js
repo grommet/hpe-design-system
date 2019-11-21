@@ -1,22 +1,16 @@
 import React from 'react';
-import { Text } from 'grommet';
 
-import { ContentSection, Layout, MainContent, SideBar } from '../../layouts';
+import { ContentSection, PageLayout, MainContent } from '../../layouts';
 import { MainHeading } from '../../components';
 
 const Index = () => (
-  <>
-    <Layout title="Navigation">
-      <SideBar>
-        <Text>Secondary Nav</Text>
-      </SideBar>
-      <MainContent>
-        <ContentSection>
-          <MainHeading>Navigation</MainHeading>
-        </ContentSection>
-      </MainContent>
-    </Layout>
-  </>
+  <PageLayout title="Navigation">
+    <MainContent>
+      <ContentSection>
+        <MainHeading>Navigation</MainHeading>
+      </ContentSection>
+    </MainContent>
+  </PageLayout>
 );
 
 export default Index;
