@@ -1,4 +1,2 @@
-export * from './content/BulletedList';
-export * from './headings/MainHeading';
-export * from './content/MainDescription';
-export * from './headings/Subheading';
+export * from './content';
+export * from './headings';
