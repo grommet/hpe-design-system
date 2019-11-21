@@ -5,11 +5,11 @@
   "license": "Apache-2.0",
   "main": "src/js/index.js",
   "dependencies": {
-    "grommet": "^2.7.11",
+    "grommet": "^2.8.0",
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "^0.4.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
