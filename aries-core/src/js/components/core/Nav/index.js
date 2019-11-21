@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
 import { Close, Hpe, Menu } from 'grommet-icons';
 
@@ -17,8 +18,7 @@ export const Nav = ({ href, title, children }) => {
           horizontal: size !== 'small' ? 'xlarge' : 'large',
         }}
       >
-        {/* Assume the logo should return to the index page by default */}
-        <Button href={href || '/'}>
+        <Button href={href}>
           <Box direction="row" align="center" gap="medium">
             <Hpe color="#01a982" size="large" />
             <Box direction="row" gap="xsmall">
@@ -66,4 +66,16 @@ export const Nav = ({ href, title, children }) => {
       )}
     </Box>
   );
+};
+
+Nav.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  href: PropTypes.string,
+  title: PropTypes.string,
+};
+
+Nav.defaultProps = {
+  children: undefined,
+  href: '/',
+  title: undefined,
 };
