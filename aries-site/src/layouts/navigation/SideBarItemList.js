@@ -14,7 +14,7 @@ export const SideBarItemList = {
     'Interaction',
     'Photography',
     'Data-visualization',
-    'Illustartaion',
+    'Illustration',
   ],
   develop: ['Code', 'Components', 'Start'],
   resources: ['Examples', 'Videos', 'Designer', 'Themer', 'Grommet'],

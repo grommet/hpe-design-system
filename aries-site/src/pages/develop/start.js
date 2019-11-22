@@ -3,7 +3,7 @@ import React from 'react';
 import { ContentSection, PageLayout } from '../../layouts';
 import { MainHeading } from '../../components';
 
-const title = 'start';
+const title = 'Start';
 
 const Start = () => (
   <PageLayout title={title}>
