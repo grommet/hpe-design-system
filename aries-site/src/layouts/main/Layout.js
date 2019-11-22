@@ -8,19 +8,22 @@ import { AnchorGroup, Nav } from 'aries-core';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
-    return child.type.name === type ? child : null;
+    return child.props[type] ? child : null;
   });
+
   if (filteredChildren.length > 1) {
     console.warn(
       `Expected a single ${type}, received ${filteredChildren.length}.`,
       `Only first ${type} element will be rendered.`,
     );
   }
+
   return filteredChildren;
 };
 
 export const Layout = ({ children, title }) => {
-  // const mainContent = filterChildren(children, 'MainContent');
+  // Only expect a single child of the following types
+  const mainContent = filterChildren(children, 'MainContent');
   const sidebar = filterChildren(children, 'SideBar');
 
   return (
@@ -52,11 +55,11 @@ export const Layout = ({ children, title }) => {
             <Box direction="row">
               {sidebar && (
                 <Box background="light-1" fill="vertical">
-                  {children[0]}
+                  {sidebar[0]}
                 </Box>
               )}
               <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
-                {children[1]}
+                {mainContent[0]}
               </Box>
             </Box>
           </>
