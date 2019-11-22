@@ -19,6 +19,11 @@ export const MainContent = ({ children }) => {
   );
 };
 
+MainContent.defaultProps = {
+  /* eslint-disable-next-line react/default-props-match-prop-types */
+  MainContent: true,
+};
+
 MainContent.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
