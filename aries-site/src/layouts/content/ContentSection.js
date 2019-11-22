@@ -8,7 +8,7 @@ export const ContentSection = ({ children, lastSection }) => {
   return (
     <Box border={!lastSection ? { side: 'bottom' } : undefined}>
       <Box
-        pad={{ vertical: size !== 'small' ? 'large' : 'xlarge' }}
+        pad={{ bottom: size !== 'small' ? 'large' : 'xlarge' }}
         gap="medium"
         width="large"
       >

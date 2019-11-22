@@ -4,7 +4,7 @@ import { Heading } from 'grommet';
 
 export const MainHeading = ({ children }) => {
   return (
-    <Heading level={1} margin={{ vertical: 'small' }}>
+    <Heading level={1} margin={{ vertical: 'none' }}>
       {children}
     </Heading>
   );
