@@ -3,9 +3,9 @@ import React from 'react';
 import { ContentSection, PageLayout } from '../../layouts';
 import { MainHeading } from '../../components';
 
-const title = 'Videos';
+const title = 'Examples';
 
-const Videos = () => (
+const Examples = () => (
   <PageLayout title={title}>
     <ContentSection>
       <MainHeading>{title}</MainHeading>
@@ -13,4 +13,4 @@ const Videos = () => (
   </PageLayout>
 );
 
-export default Videos;
+export default Examples;
