@@ -25,7 +25,7 @@ const About = () => (
       <Box direction="row" gap="medium">
         <Anchor
           label="Our Principles"
-          href="/principles"
+          href="/start/principles"
           icon={<FormNext />}
           reverse
           color="brand"
