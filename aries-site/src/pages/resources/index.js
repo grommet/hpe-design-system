@@ -1,16 +1,7 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, MainContent } from '../../layouts';
-import { MainHeading } from '../../components';
+import Examples from './examples';
 
-const Index = () => (
-  <PageLayout title="Resources">
-    <MainContent>
-      <ContentSection>
-        <MainHeading>Examples</MainHeading>
-      </ContentSection>
-    </MainContent>
-  </PageLayout>
-);
+const Index = () => <Examples />;
 
 export default Index;
