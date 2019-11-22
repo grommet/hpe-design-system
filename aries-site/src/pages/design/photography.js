@@ -1,17 +1,15 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, MainContent } from '../../layouts';
+import { ContentSection, PageLayout } from '../../layouts';
 
 import { MainHeading } from '../../components';
 
-const Index = () => (
+const Photography = () => (
   <PageLayout title="Photography">
-    <MainContent>
-      <ContentSection>
-        <MainHeading>Photography</MainHeading>
-      </ContentSection>
-    </MainContent>
+    <ContentSection>
+      <MainHeading>Photography</MainHeading>
+    </ContentSection>
   </PageLayout>
 );
 
-export default Index;
+export default Photography;
