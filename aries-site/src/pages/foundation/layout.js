@@ -3,11 +3,13 @@ import React from 'react';
 import { ContentSection, PageLayout, MainContent } from '../../layouts';
 import { MainHeading } from '../../components';
 
+const title = 'Layout';
+
 const Index = () => (
-  <PageLayout title="Layout">
+  <PageLayout title={title}>
     <MainContent>
       <ContentSection>
-        <MainHeading>Layout</MainHeading>
+        <MainHeading>{title}</MainHeading>
       </ContentSection>
     </MainContent>
   </PageLayout>
