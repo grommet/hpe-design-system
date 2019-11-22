@@ -24,6 +24,9 @@ const filterChildren = (children, type) => {
 export const Layout = ({ children, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
+
+  // selectedNav should be retrived from aries-core
+  // as the selected element of the NavBar
   const selectedNav = 'start';
 
   return (
