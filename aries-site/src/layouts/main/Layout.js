@@ -26,7 +26,7 @@ export const Layout = ({ children, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
 
-  // selectedNav should be retrived from aries-core
+  // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
   const selectedNav = 'start';
 
@@ -48,7 +48,7 @@ export const Layout = ({ children, title }) => {
             <Nav title="Aries">
               <AnchorGroup
                 items={[
-                  { label: 'Start', href: '/' },
+                  { label: 'Start', href: '/start' },
                   { label: 'Foundation', href: '/foundation' },
                   { label: 'Design', href: '/design' },
                   { label: 'Develop', href: '/develop' },
@@ -65,7 +65,10 @@ export const Layout = ({ children, title }) => {
               }}
             >
               <Box fill="vertical">
-                <SideBar items={SideBarItemList[selectedNav]} />
+                <SideBar
+                  items={SideBarItemList[selectedNav]}
+                  prefix={selectedNav}
+                />
               </Box>
               <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
                 {mainContent[0]}

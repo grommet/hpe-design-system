@@ -6,7 +6,9 @@ export const BulletedList = ({ items }) => {
   return (
     <>
       {items.map(item => (
-        <Text margin={{ bottom: 'xsmall' }}>— {item}</Text>
+        <Text margin={{ bottom: 'xsmall' }} key={item}>
+          — {item}
+        </Text>
       ))}
     </>
   );
