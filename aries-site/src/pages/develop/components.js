@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, MainContent } from '../../layouts';
+import { ContentSection, PageLayout } from '../../layouts';
 import { MainHeading } from '../../components';
 
-const Index = () => (
-  <PageLayout title="Components">
-    <MainContent>
-      <ContentSection>
-        <MainHeading>Components</MainHeading>
-      </ContentSection>
-    </MainContent>
+const title = 'Components';
+
+const Components = () => (
+  <PageLayout title={title}>
+    <ContentSection>
+      <MainHeading>{title}</MainHeading>
+    </ContentSection>
   </PageLayout>
 );
 
-export default Index;
+export default Components;

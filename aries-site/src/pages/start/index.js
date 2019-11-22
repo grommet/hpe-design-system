@@ -1,6 +1,6 @@
 import React from 'react';
 
-import About from './start/about';
+import About from './about';
 
 const Index = () => <About />;
 
