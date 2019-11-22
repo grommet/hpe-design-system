@@ -52,7 +52,14 @@ export const Layout = ({ children, title }) => {
                 ]}
               />
             </Nav>
-            <Box direction="row">
+            <Box
+              direction="row"
+              // pad uses Nav pad from aries-core
+              pad={{
+                horizontal: size !== 'small' ? 'xlarge' : 'large',
+                vertical: 'large',
+              }}
+            >
               {sidebar && (
                 <Box background="light-1" fill="vertical">
                   {sidebar[0]}
