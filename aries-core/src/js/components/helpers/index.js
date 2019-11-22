@@ -1,3 +1,3 @@
 export * from './NavSection';
-export * from './AnchorGroup';
+export * from './Anchors';
 export * from './ButtonGroup';
