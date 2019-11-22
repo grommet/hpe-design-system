@@ -63,7 +63,7 @@ export const Layout = ({ children, title }) => {
                 vertical: 'large',
               }}
             >
-              <Box background="light-1" fill="vertical">
+              <Box fill="vertical">
                 <SideBar items={SideBarItemList[selectedNav]} />
               </Box>
               <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
