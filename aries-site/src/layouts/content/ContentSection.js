@@ -6,12 +6,16 @@ export const ContentSection = ({ children, lastSection }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Box border={!lastSection ? { side: 'bottom' } : undefined}>
-      <Box
-        pad={{ bottom: size !== 'small' ? 'large' : 'xlarge' }}
-        gap="medium"
-        width="large"
-      >
+    <Box
+      border={!lastSection ? { side: 'bottom' } : undefined}
+      margin={
+        !lastSection
+          ? { bottom: size !== 'small' ? 'large' : 'xlarge' }
+          : undefined
+      }
+      pad={{ bottom: size !== 'small' ? 'large' : 'xlarge' }}
+    >
+      <Box gap="medium" width="large">
         {children}
       </Box>
     </Box>
