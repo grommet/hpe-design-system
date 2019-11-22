@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, ThemeContext } from 'grommet';
+import { AnchorUndecorated } from './AnchorUndecorated';
 
 export const AnchorGroup = ({ items }) => {
   return (
-    <ThemeContext.Extend
-      value={{
-        anchor: {
-          textDecoration: 'none',
-        },
-      }}
-    >
+    <>
       {items &&
         items.map((item, index) => (
-          <Anchor
+          <AnchorUndecorated
             tabIndex={0}
             key={index}
             icon={item.icon}
@@ -22,7 +16,7 @@ export const AnchorGroup = ({ items }) => {
             {...item}
           />
         ))}
-    </ThemeContext.Extend>
+    </>
   );
 };
 
