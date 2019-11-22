@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
 import { Close, Hpe, Menu } from 'grommet-icons';
 
-export const Nav = ({ href, title, children }) => {
+const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
+
+export const Nav = ({ href, title, children, pad }) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
 
@@ -13,10 +15,12 @@ export const Nav = ({ href, title, children }) => {
         as="nav"
         direction="row"
         justify="between"
-        pad={{
-          vertical: 'small',
-          horizontal: size !== 'small' ? 'xlarge' : 'large',
-        }}
+        pad={
+          pad || {
+            vertical: 'small',
+            horizontal: size !== 'small' ? 'xlarge' : 'large',
+          }
+        }
       >
         <Button href={href}>
           <Box direction="row" align="center" gap="medium">
@@ -72,10 +76,35 @@ Nav.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   href: PropTypes.string,
   title: PropTypes.string,
+  pad: PropTypes.oneOfType([
+    PropTypes.oneOf(['none', ...PAD_SIZES]),
+    PropTypes.shape({
+      bottom: PropTypes.oneOfType([
+        PropTypes.oneOf(PAD_SIZES),
+        PropTypes.string,
+      ]),
+      horizontal: PropTypes.oneOfType([
+        PropTypes.oneOf(PAD_SIZES),
+        PropTypes.string,
+      ]),
+      left: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      right: PropTypes.oneOfType([
+        PropTypes.oneOf(PAD_SIZES),
+        PropTypes.string,
+      ]),
+      top: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      vertical: PropTypes.oneOfType([
+        PropTypes.oneOf(PAD_SIZES),
+        PropTypes.string,
+      ]),
+    }),
+    PropTypes.string,
+  ]),
 };
 
 Nav.defaultProps = {
   children: undefined,
   href: '/',
   title: undefined,
+  pad: undefined,
 };
