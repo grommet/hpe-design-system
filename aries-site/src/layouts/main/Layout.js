@@ -3,8 +3,8 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { Box, Grommet, ResponsiveContext } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-
 import { AnchorGroup, Nav } from 'aries-core';
+import { SideBar, SideBarItemList } from '../navigation';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
@@ -24,7 +24,7 @@ const filterChildren = (children, type) => {
 export const Layout = ({ children, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
-  const sidebar = filterChildren(children, 'SideBar');
+  const selectedNav = 'start';
 
   return (
     <Grommet theme={hpe} full>
@@ -52,12 +52,17 @@ export const Layout = ({ children, title }) => {
                 ]}
               />
             </Nav>
-            <Box direction="row">
-              {sidebar && (
-                <Box background="light-1" fill="vertical">
-                  {sidebar[0]}
-                </Box>
-              )}
+            <Box
+              direction="row"
+              // pad uses Nav pad from aries-core
+              pad={{
+                horizontal: size !== 'small' ? 'xlarge' : 'large',
+                vertical: 'large',
+              }}
+            >
+              <Box background="light-1" fill="vertical">
+                <SideBar items={SideBarItemList[selectedNav]} />
+              </Box>
               <Box flex pad={size !== 'small' ? { right: 'large' } : undefined}>
                 {mainContent[0]}
               </Box>
