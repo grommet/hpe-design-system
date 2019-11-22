@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, MainContent } from '../../layouts';
+import { ContentSection, PageLayout } from '../../layouts';
 import { MainHeading } from '../../components';
 
+const title = 'Data-visualization';
+
 const Index = () => (
-  <PageLayout title="Data-visualization">
-    <MainContent>
-      <ContentSection>
-        <MainHeading>Data-visualization</MainHeading>
-      </ContentSection>
-    </MainContent>
+  <PageLayout title={title}>
+    <ContentSection>
+      <MainHeading>{title}</MainHeading>
+    </ContentSection>
   </PageLayout>
 );
 

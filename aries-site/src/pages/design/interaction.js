@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, MainContent } from '../../layouts';
+import { ContentSection, PageLayout } from '../../layouts';
 import { MainHeading } from '../../components';
 
-const Index = () => (
-  <PageLayout title="Interaction">
-    <MainContent>
-      <ContentSection>
-        <MainHeading>Interaction</MainHeading>
-      </ContentSection>
-    </MainContent>
+const title = 'Interaction';
+
+const Interaction = () => (
+  <PageLayout title={title}>
+    <ContentSection>
+      <MainHeading>{title}</MainHeading>
+    </ContentSection>
   </PageLayout>
 );
 
-export default Index;
+export default Interaction;
