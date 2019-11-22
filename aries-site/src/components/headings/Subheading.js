@@ -4,7 +4,7 @@ import { Heading } from 'grommet';
 
 export const Subheading = ({ children }) => {
   return (
-    <Heading level={2} margin={{ vertical: 'xsmall' }}>
+    <Heading level={2} margin={{ vertical: 'none' }}>
       {children}
     </Heading>
   );

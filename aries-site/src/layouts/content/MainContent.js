@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 
 export const MainContent = ({ children }) => {
   return (
-    <Box pad={{ horizontal: 'large' }}>
+    <Box>
       {children &&
         (children.length > 1
           ? children.map((child, index) => {
