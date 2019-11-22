@@ -3,11 +3,13 @@ import React from 'react';
 import { ContentSection, PageLayout, MainContent } from '../../layouts';
 import { MainDescription, MainHeading } from '../../components';
 
+const title = 'Primer';
+
 const Index = () => (
-  <PageLayout title="Foundation">
+  <PageLayout title={title}>
     <MainContent>
       <ContentSection>
-        <MainHeading>Primer</MainHeading>
+        <MainHeading>{title}</MainHeading>
         <MainDescription>
           HPE Aries is an open-source library and the official design system of
           HPE for all digital products and experiences. Aries consists of
