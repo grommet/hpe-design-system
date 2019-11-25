@@ -46,7 +46,7 @@ export const aries = deepMerge(hpe, {
       'active-background': 'background-weak',
       'active-text': 'text-strong',
       'selected-background': 'brand',
-      'selected-text': '',
+      // 'selected-text': undefined,
       'status-critical': '#FF4040',
       'status-warning': '#FFAA15',
       'status-ok': '#00C781',
