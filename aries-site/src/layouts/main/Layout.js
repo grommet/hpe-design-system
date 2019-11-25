@@ -2,8 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { Box, Grommet, ResponsiveContext } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
 import { AnchorGroup, Nav } from 'aries-core';
+
+import { aries } from '../../themes/aries';
 import { SideBar, SideBarItemList } from '../navigation';
 
 const filterChildren = (children, type) => {
@@ -30,7 +31,7 @@ export const Layout = ({ children, title }) => {
   const selectedNav = 'start';
 
   return (
-    <Grommet theme={hpe} full>
+    <Grommet theme={aries} full>
       <ResponsiveContext.Consumer>
         {size => (
           <>
