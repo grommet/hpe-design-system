@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
 import { AnchorUndecorated } from './AnchorUndecorated';
 
-export const AnchorGroup = ({ items }) => {
+export const AnchorGroup = ({ activeHref, items }) => {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -24,6 +24,12 @@ export const AnchorGroup = ({ items }) => {
                   }
                 : 'small'
             }
+            active={
+              activeHref === item.href ||
+              // Assume the intended path matches the nav item label by default
+              activeHref === `/${item.label.toLowerCase()}`
+            }
+            href={item.href || `/${item.label.toLowerCase()}`}
             {...item}
           />
         ))}
@@ -32,5 +38,12 @@ export const AnchorGroup = ({ items }) => {
 };
 
 AnchorGroup.propTypes = {
+  activeHref: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
+  href: PropTypes.string,
+};
+
+AnchorGroup.defaultProps = {
+  activeHref: undefined,
+  href: undefined,
 };

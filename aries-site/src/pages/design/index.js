@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Primer from './Primer';
+import Primer from './primer';
 
 const Index = () => <Primer />;
 

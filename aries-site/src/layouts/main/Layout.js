@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Grommet, ResponsiveContext } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -25,9 +26,13 @@ export const Layout = ({ children, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
 
-  // TODO selectedNav should be retrived from aries-core
-  // as the selected element of the NavBar
-  const selectedNav = 'start';
+  // Set-up routing variables to be given to aries-core components
+  const router = useRouter();
+
+  // Selects the prefix path such as "/start" but ignores any secondary nav
+  // information such as "/about"
+  const prefixRegex = new RegExp(/^\/[a-z-]*/);
+  const selectedNavItem = prefixRegex.exec(router.pathname)[0].substring(1);
 
   return (
     <Grommet theme={hpe} full>
@@ -44,15 +49,18 @@ export const Layout = ({ children, title }) => {
                 content="width=device-width, initial-scale=1.0"
               />
             </Head>
-            <Nav title="Aries">
+            <Nav title="Aries" href="/start/about">
               <AnchorGroup
                 items={[
-                  { label: 'Start', href: '/start' },
-                  { label: 'Foundation', href: '/foundation' },
-                  { label: 'Design', href: '/design' },
-                  { label: 'Develop', href: '/develop' },
-                  { label: 'Resources', href: '/resources' },
+                  { label: 'Start', href: '/start/about' },
+                  { label: 'Foundation', href: '/foundation/primer' },
+                  { label: 'Design', href: '/design/primer' },
+                  { label: 'Develop', href: '/develop/code' },
+                  { label: 'Resources', href: '/resources/examples' },
                 ]}
+                // We only want to see which main nav item is selected,
+                // but don't care about which secondary nav item is selected
+                activeHref={`/${selectedNavItem}`}
               />
             </Nav>
             <Box
@@ -66,8 +74,9 @@ export const Layout = ({ children, title }) => {
               {size !== 'small' && (
                 <Box fill="vertical">
                   <SideBar
-                    items={SideBarItemList[selectedNav]}
-                    prefix={selectedNav}
+                    items={SideBarItemList[selectedNavItem]}
+                    prefix={selectedNavItem}
+                    activeItem={router.pathname}
                   />
                 </Box>
               )}
