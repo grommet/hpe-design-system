@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 
 export const MainContent = ({ children }) => {
   return (
-    <Box pad={{ horizontal: 'large' }}>
+    <>
       {children &&
         (children.length > 1
           ? children.map((child, index) => {
@@ -15,7 +15,7 @@ export const MainContent = ({ children }) => {
           : React.cloneElement(children, {
               lastSection: true,
             }))}
-    </Box>
+    </>
   );
 };
 
