@@ -9,6 +9,8 @@ export const AnchorGroup = ({ currentPath, items, level }) => {
   if (currentPath) {
     // create an array with each navSubdirectory as an item
     navSubDirectories = currentPath.split('/');
+    // remove the first item which is always an empty string ""
+    navSubDirectories.splice(0, 1);
   }
 
   return (
@@ -53,5 +55,5 @@ AnchorGroup.propTypes = {
 
 AnchorGroup.defaultProps = {
   currentPath: undefined,
-  level: 1,
+  level: 0,
 };
