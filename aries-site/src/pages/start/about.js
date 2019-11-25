@@ -15,7 +15,7 @@ const About = () => (
         HPE Aries is an open-source library and the official design system of
         HPE for all digital products and experiences. Aries consists of working
         code, best practices, design resources, human interface guidelines, and
-        a virbant community of contributors.
+        a vibrant community of contributors.
       </MainDescription>
       <Text>
         HPE's Aries connects the ideas, technology, and creativity from Hewlett
