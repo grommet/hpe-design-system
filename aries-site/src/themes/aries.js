@@ -89,11 +89,6 @@ export const aries = deepMerge(hpe, {
       background: 'selected-background',
       color: 'selected-text',
     },
-    graph: {
-      colors: {
-        light: ['brand', 'status-warning'],
-      },
-    },
   },
   anchor: {
     fontWeight: 400,
