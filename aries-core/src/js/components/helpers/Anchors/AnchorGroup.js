@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
 import { AnchorUndecorated } from './AnchorUndecorated';
 
-export const AnchorGroup = ({ activeHref, items }) => {
+export const AnchorGroup = ({ activeHref, items, level }) => {
   const size = useContext(ResponsiveContext);
+  let navSubDirectories;
+  if (activeHref) {
+    // create an array with each navSubdirectory as an item
+    navSubDirectories = activeHref.split('/');
+  }
 
   return (
     <>
@@ -25,11 +30,14 @@ export const AnchorGroup = ({ activeHref, items }) => {
                 : 'small'
             }
             active={
-              activeHref === item.href ||
-              // Assume the intended path matches the nav item label by default
-              activeHref === `/${item.label.toLowerCase()}`
+              navSubDirectories &&
+              navSubDirectories[level] ===
+                // formats labels to be in slug format of 'this-is-my-url'
+                item.label
+                  .split(' ')
+                  .join('-')
+                  .toLowerCase()
             }
-            href={item.href || `/${item.label.toLowerCase()}`}
             {...item}
           />
         ))}
@@ -40,10 +48,10 @@ export const AnchorGroup = ({ activeHref, items }) => {
 AnchorGroup.propTypes = {
   activeHref: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
-  href: PropTypes.string,
+  level: PropTypes.number,
 };
 
 AnchorGroup.defaultProps = {
   activeHref: undefined,
-  href: undefined,
+  level: 1,
 };

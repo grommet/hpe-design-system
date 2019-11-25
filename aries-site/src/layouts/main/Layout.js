@@ -60,7 +60,7 @@ export const Layout = ({ children, title }) => {
                 ]}
                 // We only want to see which main nav item is selected,
                 // but don't care about which secondary nav item is selected
-                activeHref={`/${selectedNavItem}`}
+                activeHref={router.pathname}
               />
             </Nav>
             <Box
