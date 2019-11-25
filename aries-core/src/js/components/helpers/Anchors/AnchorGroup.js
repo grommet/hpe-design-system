@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ResponsiveContext } from 'grommet';
 import { AnchorUndecorated } from './AnchorUndecorated';
 
 export const AnchorGroup = ({ items }) => {
+  const size = useContext(ResponsiveContext);
+
   return (
     <>
       {items &&
@@ -12,7 +15,15 @@ export const AnchorGroup = ({ items }) => {
             key={index}
             icon={item.icon}
             label={item.label}
-            margin="small"
+            // On desktop, allow final nav item to be completely right justified
+            margin={
+              index === items.length - 1 && size !== 'small'
+                ? {
+                    vertical: 'small',
+                    left: 'small',
+                  }
+                : 'small'
+            }
             {...item}
           />
         ))}
