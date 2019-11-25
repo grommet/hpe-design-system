@@ -26,13 +26,9 @@ export const Layout = ({ children, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
 
-  // Set-up routing variables to be given to aries-core components
+  // Set-up routing variables to be given to nav/sidebar
   const router = useRouter();
-
-  // Selects the prefix path such as "/start" but ignores any secondary nav
-  // information such as "/about"
-  const prefixRegex = new RegExp(/^\/[a-z-]*/);
-  const selectedNavItem = prefixRegex.exec(router.pathname)[0].substring(1);
+  const selectedNavItem = router.pathname.split('/')[1];
 
   return (
     <Grommet theme={hpe} full>
@@ -58,9 +54,7 @@ export const Layout = ({ children, title }) => {
                   { label: 'Develop', href: '/develop/code' },
                   { label: 'Resources', href: '/resources/examples' },
                 ]}
-                // We only want to see which main nav item is selected,
-                // but don't care about which secondary nav item is selected
-                activeHref={router.pathname}
+                currentPath={router.pathname}
               />
             </Nav>
             <Box

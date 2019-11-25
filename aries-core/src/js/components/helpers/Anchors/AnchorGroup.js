@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
 import { AnchorUndecorated } from './AnchorUndecorated';
 
-export const AnchorGroup = ({ activeHref, items, level }) => {
+export const AnchorGroup = ({ currentPath, items, level }) => {
   const size = useContext(ResponsiveContext);
   let navSubDirectories;
-  if (activeHref) {
+  if (currentPath) {
     // create an array with each navSubdirectory as an item
-    navSubDirectories = activeHref.split('/');
+    navSubDirectories = currentPath.split('/');
   }
 
   return (
@@ -46,12 +46,12 @@ export const AnchorGroup = ({ activeHref, items, level }) => {
 };
 
 AnchorGroup.propTypes = {
-  activeHref: PropTypes.string,
+  currentPath: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
   level: PropTypes.number,
 };
 
 AnchorGroup.defaultProps = {
-  activeHref: undefined,
+  currentPath: undefined,
   level: 1,
 };
