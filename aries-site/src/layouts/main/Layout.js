@@ -45,7 +45,7 @@ export const Layout = ({ children, title }) => {
                 content="width=device-width, initial-scale=1.0"
               />
             </Head>
-            <Nav title="Aries">
+            <Nav title="Aries" background="background-subtle">
               <AnchorGroup
                 items={[
                   { label: 'Start', href: '/start' },
