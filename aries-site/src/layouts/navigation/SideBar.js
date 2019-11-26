@@ -13,7 +13,7 @@ const SideBarItem = ({ item, prefix }) => (
 
 export const SideBar = ({ children, items, prefix }) => {
   return (
-    <Box width="small">
+    <Box width="small" margin={{ right: 'medium' }}>
       {items.map(item => (
         <SideBarItem item={item} key={item} prefix={prefix} />
       ))}
