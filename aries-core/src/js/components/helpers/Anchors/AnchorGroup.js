@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
-import { AnchorUndecorated } from './AnchorUndecorated';
+import { AnchorNavLink } from './AnchorNavLink';
 
 export const AnchorGroup = ({ items }) => {
   const size = useContext(ResponsiveContext);
@@ -10,7 +10,7 @@ export const AnchorGroup = ({ items }) => {
     <>
       {items &&
         items.map((item, index) => (
-          <AnchorUndecorated
+          <AnchorNavLink
             tabIndex={0}
             key={index}
             icon={item.icon}
