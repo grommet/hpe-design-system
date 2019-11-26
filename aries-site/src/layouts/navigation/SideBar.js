@@ -1,31 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
-import { AnchorUndecorated } from 'aries-core';
+import { Nav } from 'aries-core';
 
-const SideBarItem = ({ activeItem, item, prefix }) => (
-  <Box pad={{ vertical: 'small' }}>
-    <AnchorUndecorated
-      size="medium"
-      active={activeItem === `/${prefix}/${item.toLowerCase()}`}
-      href={`/${prefix}/${item.toLowerCase()}`}
-    >
-      {item}
-    </AnchorUndecorated>
-  </Box>
-);
+const sideBarItems = (items, prefix) => {
+  const itemArray = [];
+  items.forEach(item => {
+    const formattedItem = {
+      label: item,
+      href: `/${prefix}/${item.toLowerCase()}`,
+    };
+    itemArray.push(formattedItem);
+  });
+  return itemArray;
+};
 
-export const SideBar = ({ children, activeItem, items, prefix }) => {
+export const SideBar = ({ children, currentPath, items, prefix }) => {
   return (
     <Box width="small" margin={{ right: 'medium' }}>
-      {items.map(item => (
-        <SideBarItem
-          activeItem={activeItem}
-          item={item}
-          key={item}
-          prefix={prefix}
-        />
-      ))}
+      <Nav
+        level={2}
+        currentPath={currentPath}
+        direction="vertical"
+        items={sideBarItems(items, prefix)}
+      />
       {children}
     </Box>
   );
@@ -33,23 +31,11 @@ export const SideBar = ({ children, activeItem, items, prefix }) => {
 
 SideBar.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  activeItem: PropTypes.string,
+  currentPath: PropTypes.string,
   items: PropTypes.array,
   prefix: PropTypes.string,
 };
 
 SideBar.defaultProps = {
   items: [],
-};
-
-SideBarItem.propTypes = {
-  activeItem: PropTypes.string,
-  item: PropTypes.string,
-  prefix: PropTypes.string,
-};
-
-SideBarItem.defaultProps = {
-  activeItem: '',
-  item: '',
-  prefix: 'start',
 };

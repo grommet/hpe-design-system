@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Grommet, ResponsiveContext } from 'grommet';
-import { AnchorGroup, Nav } from 'aries-core';
+import { Nav } from 'aries-core';
 
 import { aries } from '../../themes/aries';
 import { SideBar, SideBarItemList } from '../navigation';
@@ -46,18 +46,18 @@ export const Layout = ({ children, title }) => {
                 content="width=device-width, initial-scale=1.0"
               />
             </Head>
-            <Nav title="Aries" background="background-subtle">
-              <AnchorGroup
-                items={[
-                  { label: 'Start', href: '/start/about' },
-                  { label: 'Foundation', href: '/foundation/primer' },
-                  { label: 'Design', href: '/design/primer' },
-                  { label: 'Develop', href: '/develop/code' },
-                  { label: 'Resources', href: '/resources/examples' },
-                ]}
-                currentPath={router.pathname}
-              />
-            </Nav>
+            <Nav
+              background="background-subtle"
+              title="Aries"
+              currentPath={router.pathname}
+              items={[
+                { label: 'Start', href: '/start' },
+                { label: 'Foundation', href: '/foundation' },
+                { label: 'Design', href: '/design' },
+                { label: 'Develop', href: '/develop' },
+                { label: 'Resources', href: '/resources' },
+              ]}
+            />
             <Box
               direction="row"
               // pad uses Nav pad from aries-core
@@ -69,9 +69,9 @@ export const Layout = ({ children, title }) => {
               {size !== 'small' && (
                 <Box fill="vertical">
                   <SideBar
-                    items={SideBarItemList[selectedNavItem]}
-                    prefix={selectedNavItem}
-                    activeItem={router.pathname}
+                    items={SideBarItemList[selectedNavItem || 'start']}
+                    prefix={selectedNavItem || 'start'}
+                    currentPath={router.pathname}
                   />
                 </Box>
               )}

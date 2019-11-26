@@ -1,11 +1,24 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
 import { Close, Hpe, Menu } from 'grommet-icons';
+import { AnchorGroup } from '../../helpers';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
-export const Nav = ({ href, title, children, background, pad }) => {
+export const Nav = ({
+  background,
+  children,
+  currentPath,
+  defaultActivePath,
+  direction,
+  href,
+  items,
+  level,
+  pad,
+  title,
+}) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
 
@@ -16,56 +29,81 @@ export const Nav = ({ href, title, children, background, pad }) => {
         direction="row"
         justify="between"
         pad={
-          pad || {
-            vertical: 'small',
-            horizontal: size !== 'small' ? 'xlarge' : 'large',
-          }
+          pad || direction === 'vertical'
+            ? 'none'
+            : {
+                vertical: 'small',
+                horizontal: size !== 'small' ? 'xlarge' : 'large',
+              }
         }
       >
-        <Button href={href}>
-          <Box direction="row" align="center" gap="medium">
-            <Hpe color="#01a982" size="large" />
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>{title}</Text>
+        {/* Show HPE logo and service name only on primary nav */}
+        {level === 1 && (
+          <Button href={href}>
+            <Box direction="row" align="center" gap="medium">
+              <Hpe color="#01a982" size="large" />
+              <Box direction="row" gap="xsmall">
+                <Text weight="bold">HPE</Text>
+                <Text>{title}</Text>
+              </Box>
             </Box>
-          </Box>
-        </Button>
-        <Box direction="row" gap="medium" align="center">
-          {children &&
-            // eslint-disable-next-line no-nested-ternary
-            (size !== 'small' ? (
-              children.length > 1 ? (
-                children.map((child, index) => {
-                  return React.cloneElement(child, {
-                    lastSection: index === children.length - 1,
-                  });
-                })
-              ) : (
-                React.cloneElement(children, {
-                  lastSection: true,
-                })
-              )
-            ) : (
-              <Button
-                icon={!open ? <Menu /> : <Close />}
-                onClick={() => setOpen(!open)}
-                plain
+          </Button>
+        )}
+        <Box
+          direction={direction === 'vertical' ? 'column' : 'row'}
+          gap="medium"
+          align={direction === 'vertical' ? 'start' : 'center'}
+        >
+          {size !== 'small' ? (
+            // By default, treat nav item as anchors
+            // unless children are provided
+            !children ? (
+              <AnchorGroup
+                items={items}
+                level={level}
+                currentPath={currentPath}
+                defaultActivePath={defaultActivePath}
+                direction={direction}
               />
-            ))}
-        </Box>
-      </Box>
-      {size === 'small' && (
-        <Collapsible background="white" open={open}>
-          {children.length > 1
-            ? children.map((child, index) => {
+            ) : children.length > 1 ? (
+              children.map((child, index) => {
                 return React.cloneElement(child, {
                   lastSection: index === children.length - 1,
                 });
               })
-            : React.cloneElement(children, {
+            ) : (
+              React.cloneElement(children, {
                 lastSection: true,
-              })}
+              })
+            )
+          ) : (
+            <Button
+              icon={!open ? <Menu /> : <Close />}
+              onClick={() => setOpen(!open)}
+              plain
+            />
+          )}
+        </Box>
+      </Box>
+      {size === 'small' && (
+        <Collapsible background="white" open={open}>
+          {children &&
+            (children.length > 1
+              ? children.map((child, index) => {
+                  return React.cloneElement(child, {
+                    lastSection: index === children.length - 1,
+                  });
+                })
+              : React.cloneElement(children, {
+                  lastSection: true,
+                }))}
+          {!children && (
+            <AnchorGroup
+              items={items}
+              level={level}
+              currentPath={currentPath}
+            />
+          )}
         </Collapsible>
       )}
     </Box>
@@ -74,7 +112,11 @@ export const Nav = ({ href, title, children, background, pad }) => {
 
 Nav.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  currentPath: PropTypes.string,
+  defaultActivePath: PropTypes.string,
+  direction: PropTypes.string,
   href: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
   background: PropTypes.oneOfType([
     PropTypes.string,
@@ -83,6 +125,7 @@ Nav.propTypes = {
       light: PropTypes.string,
     }),
   ]),
+  level: PropTypes.number,
   pad: PropTypes.oneOfType([
     PropTypes.oneOf(['none', ...PAD_SIZES]),
     PropTypes.shape({
@@ -111,7 +154,10 @@ Nav.propTypes = {
 
 Nav.defaultProps = {
   children: undefined,
+  defaultActivePath: undefined,
+  direction: 'horizontal',
   href: '/',
+  level: 1,
   title: undefined,
   background: undefined,
   pad: undefined,

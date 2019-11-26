@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
 import { AnchorUndecorated } from './AnchorUndecorated';
 
-export const AnchorGroup = ({ currentPath, items, level }) => {
+export const AnchorGroup = ({ currentPath, direction, items, level }) => {
   const size = useContext(ResponsiveContext);
   let navSubDirectories;
   if (currentPath) {
     // create an array with each navSubdirectory as an item
     navSubDirectories = currentPath.split('/');
-    // remove the first item which is always an empty string ""
-    navSubDirectories.splice(0, 1);
   }
 
   return (
@@ -24,21 +22,27 @@ export const AnchorGroup = ({ currentPath, items, level }) => {
             label={item.label}
             // On desktop, allow final nav item to be completely right justified
             margin={
+              // eslint-disable-next-line no-nested-ternary
               index === items.length - 1 && size !== 'small'
                 ? {
                     vertical: 'small',
-                    left: 'small',
+                    left: direction !== 'vertical' && 'small',
                   }
-                : 'small'
+                : direction !== 'vertical'
+                ? 'small'
+                : {
+                    vertical: 'small',
+                  }
             }
             active={
               navSubDirectories &&
-              navSubDirectories[level] ===
-                // formats labels to be in slug format of 'this-is-my-url'
-                item.label
-                  .split(' ')
-                  .join('-')
-                  .toLowerCase()
+              ((!navSubDirectories[level] && index === 0) ||
+                navSubDirectories[level] ===
+                  // formats labels to be in slug format of 'this-is-my-url'
+                  item.label
+                    .split(' ')
+                    .join('-')
+                    .toLowerCase())
             }
             {...item}
           />
@@ -49,11 +53,13 @@ export const AnchorGroup = ({ currentPath, items, level }) => {
 
 AnchorGroup.propTypes = {
   currentPath: PropTypes.string,
+  direction: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
   level: PropTypes.number,
 };
 
 AnchorGroup.defaultProps = {
   currentPath: undefined,
-  level: 0,
+  direction: 'horizontal',
+  level: 1,
 };
