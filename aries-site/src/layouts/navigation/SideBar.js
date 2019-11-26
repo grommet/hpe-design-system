@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
-import { AnchorUndecorated } from 'aries-core';
+import { AnchorNavLink } from 'aries-core';
 
 const SideBarItem = ({ item, prefix }) => (
   <Box pad={{ vertical: 'small' }}>
-    <AnchorUndecorated size="medium" href={`/${prefix}/${item.toLowerCase()}`}>
+    <AnchorNavLink size="medium" href={`/${prefix}/${item.toLowerCase()}`}>
       {item}
-    </AnchorUndecorated>
+    </AnchorNavLink>
   </Box>
 );
 
