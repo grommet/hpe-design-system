@@ -5,12 +5,12 @@ import { Close, Hpe, Menu } from 'grommet-icons';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
-export const Nav = ({ href, title, children, pad }) => {
+export const Nav = ({ href, title, children, background, pad }) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
 
   return (
-    <Box>
+    <Box background={background}>
       <Box
         as="nav"
         direction="row"
@@ -76,6 +76,13 @@ Nav.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   href: PropTypes.string,
   title: PropTypes.string,
+  background: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      dark: PropTypes.string,
+      light: PropTypes.string,
+    }),
+  ]),
   pad: PropTypes.oneOfType([
     PropTypes.oneOf(['none', ...PAD_SIZES]),
     PropTypes.shape({
@@ -106,5 +113,6 @@ Nav.defaultProps = {
   children: undefined,
   href: '/',
   title: undefined,
+  background: undefined,
   pad: undefined,
 };
