@@ -17,7 +17,7 @@ const SideBarItem = ({ activeItem, item, prefix }) => (
 
 export const SideBar = ({ children, activeItem, items, prefix }) => {
   return (
-    <Box width="small">
+    <Box width="small" margin={{ right: 'medium' }}>
       {items.map(item => (
         <SideBarItem
           activeItem={activeItem}
