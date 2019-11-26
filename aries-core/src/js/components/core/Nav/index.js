@@ -61,7 +61,6 @@ export const Nav = ({
                 items={items}
                 level={level}
                 currentPath={currentPath}
-                defaultActivePath={defaultActivePath}
                 direction={direction}
               />
             ) : children.length > 1 ? (
