@@ -1,10 +1,27 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 
+const baseSpacing = 24;
+
+const fontSizing = factor => {
+  const scale = baseSpacing * 0.25;
+  const baseFontSize = baseSpacing - scale;
+
+  const size = baseFontSize + factor * scale;
+  const height = baseSpacing + factor * scale;
+  const maxWidth = baseSpacing * size;
+
+  return {
+    size: `${size}px`,
+    height: `${height}px`,
+    maxWidth: `${maxWidth}px`,
+  };
+};
+
 export const aries = deepMerge(hpe, {
   name: 'HPE 2',
   rounding: 6,
-  spacing: 24,
+  spacing: baseSpacing,
   defaultMode: 'dark',
   global: {
     colors: {
@@ -26,7 +43,7 @@ export const aries = deepMerge(hpe, {
         light: '#CCCCCC90',
       },
       text: {
-        dark: '#EEEEEE',
+        dark: '#FFFFFF',
         light: '#333333',
       },
       'text-strong': {
@@ -96,15 +113,20 @@ export const aries = deepMerge(hpe, {
   heading: {
     level: {
       1: {
-        font: {
-          weight: 700,
-        },
+        medium: fontSizing(5),
       },
       2: {
-        font: {
-          weight: 700,
-        },
+        medium: fontSizing(3),
+      },
+      3: {
+        medium: fontSizing(0),
       },
     },
+    weight: 700,
+  },
+  text: {
+    medium: fontSizing(0),
+    large: fontSizing(1),
+    xlarge: fontSizing(2),
   },
 });

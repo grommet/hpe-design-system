@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text } from 'grommet';
 
 export const MainDescription = ({ children }) => {
-  return <Text size="xlarge">{children}</Text>;
+  return <Text size="large">{children}</Text>;
 };
 
 MainDescription.propTypes = {
