@@ -11,7 +11,6 @@ export const Nav = ({
   background,
   children,
   currentPath,
-  defaultActivePath,
   direction,
   href,
   items,
@@ -113,7 +112,6 @@ export const Nav = ({
 Nav.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   currentPath: PropTypes.string,
-  defaultActivePath: PropTypes.string,
   direction: PropTypes.string,
   href: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
@@ -154,7 +152,6 @@ Nav.propTypes = {
 
 Nav.defaultProps = {
   children: undefined,
-  defaultActivePath: undefined,
   direction: 'horizontal',
   href: '/',
   level: 1,
