@@ -1,24 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, ThemeContext } from 'grommet';
+import { Anchor } from 'grommet';
 import { FormNext } from 'grommet-icons';
 
-export const AnchorCallToAction = ({ color, ...rest }) => {
-  return (
-    <ThemeContext.Extend
-      value={{
-        anchor: {
-          extend: {
-            'font-weight': '700',
-          },
-          textDecoration: 'none',
-        },
-      }}
-    >
-      <Anchor color={color} icon={<FormNext />} reverse {...rest} />
-    </ThemeContext.Extend>
-  );
-};
+export const AnchorCallToAction = ({ color, ...rest }) => (
+  <Anchor color={color} icon={<FormNext />} reverse {...rest} />
+);
 
 AnchorCallToAction.defaultProps = {
   color: 'brand',

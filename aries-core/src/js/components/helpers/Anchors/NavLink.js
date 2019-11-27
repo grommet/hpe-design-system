@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Anchor, ThemeContext } from 'grommet';
 import { css } from 'styled-components';
 
-export const AnchorNavLink = ({ ...rest }) => {
+export const NavLink = ({ ...rest }) => {
   return (
     <ThemeContext.Extend
       value={{
@@ -18,7 +18,7 @@ export const AnchorNavLink = ({ ...rest }) => {
             },
             textDecoration: 'none',
           },
-          textDecoration: 'none',
+          fontWeight: 400,
         },
       }}
     >
@@ -27,6 +27,6 @@ export const AnchorNavLink = ({ ...rest }) => {
   );
 };
 
-AnchorNavLink.propTypes = {
+NavLink.propTypes = {
   active: PropTypes.bool,
 };
