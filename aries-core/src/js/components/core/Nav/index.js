@@ -24,7 +24,7 @@ export const Nav = ({
   return (
     <Box background={background}>
       <Box
-        as="nav"
+        role="navigation"
         direction="row"
         justify="between"
         pad={
