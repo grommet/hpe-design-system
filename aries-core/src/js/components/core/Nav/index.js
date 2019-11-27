@@ -28,12 +28,12 @@ export const Nav = ({
         direction="row"
         justify="between"
         pad={
-          pad || direction === 'vertical'
-            ? 'none'
-            : {
-                vertical: 'small',
-                horizontal: size !== 'small' ? 'xlarge' : 'large',
-              }
+          pad || {
+            vertical: direction !== 'vertical' && 'small',
+            horizontal:
+              direction !== 'vertical' &&
+              (size !== 'small' ? 'xlarge' : 'large'),
+          }
         }
       >
         {/* Show HPE logo and service name only on primary nav */}
