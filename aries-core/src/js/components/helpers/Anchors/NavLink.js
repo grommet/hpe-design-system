@@ -16,7 +16,6 @@ export const NavLink = ({ ...rest }) => {
             extend: {
               opacity: '100%',
             },
-            textDecoration: 'none',
           },
           fontWeight: 400,
         },

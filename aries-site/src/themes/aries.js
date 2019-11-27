@@ -114,6 +114,9 @@ export const aries = deepMerge(hpe, {
   anchor: {
     fontWeight: 700,
     textDecoration: 'none',
+    hover: {
+      textDecoration: 'none',
+    },
   },
   heading: {
     level: {
