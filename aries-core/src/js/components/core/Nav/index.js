@@ -29,10 +29,13 @@ export const Nav = ({
         justify="between"
         pad={
           pad || {
-            vertical: direction !== 'vertical' && 'small',
+            vertical: direction !== 'vertical' ? 'small' : undefined,
             horizontal:
-              direction !== 'vertical' &&
-              (size !== 'small' ? 'xlarge' : 'large'),
+              direction !== 'vertical'
+                ? size !== 'small'
+                  ? 'xlarge'
+                  : 'large'
+                : undefined,
           }
         }
       >
