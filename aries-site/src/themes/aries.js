@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { css } from 'styled-components';
 
 const baseSpacing = 24;
 
@@ -112,6 +113,15 @@ export const aries = deepMerge(hpe, {
     },
   },
   anchor: {
+    extend: css`
+      ${props =>
+        props.navItem &&
+        `opacity: 70%;
+        font-weight: 400;
+        :hover {opacity: 100%}
+      `}
+      ${props => props.active && 'opacity: 100%'}
+    `,
     fontWeight: 700,
     textDecoration: 'none',
     hover: {
