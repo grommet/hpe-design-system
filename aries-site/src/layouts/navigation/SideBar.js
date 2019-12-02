@@ -5,9 +5,7 @@ import { NavLink } from 'aries-core';
 
 const SideBarItem = ({ item, prefix }) => (
   <Box pad={{ vertical: 'small' }}>
-    <NavLink size="medium" href={`/${prefix}/${item.toLowerCase()}`}>
-      {item}
-    </NavLink>
+    <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
   </Box>
 );
 
