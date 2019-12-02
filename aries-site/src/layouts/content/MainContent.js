@@ -6,7 +6,7 @@ export const MainContent = ({ children }) => {
     <>
       {children &&
         (children.length > 1
-          ? children.map((child, index) => {
+          ? React.Children.map(children, (child, index) => {
               return React.cloneElement(child, {
                 lastSection: index === children.length - 1,
               });
