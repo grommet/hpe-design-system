@@ -15,5 +15,5 @@ NavLink.propTypes = {
 };
 
 NavLink.defaultProps = {
-  size: 'large',
+  size: 'medium',
 };
