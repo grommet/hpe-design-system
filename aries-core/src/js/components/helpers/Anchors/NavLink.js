@@ -8,7 +8,10 @@ export const NavLink = ({ size, ...rest }) => {
 
 NavLink.propTypes = {
   active: PropTypes.bool,
-  size: PropTypes.string,
+  size: PropTypes.oneOfType([
+    PropTypes.oneOf(['medium', 'large']),
+    PropTypes.string,
+  ]),
 };
 
 NavLink.defaultProps = {
