@@ -1,6 +1,5 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { css } from 'styled-components';
 
 const baseSpacing = 24;
 
