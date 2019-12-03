@@ -113,15 +113,6 @@ export const aries = deepMerge(hpe, {
     },
   },
   anchor: {
-    extend: css`
-      ${props =>
-        props.navItem &&
-        `opacity: 0.7;
-        font-weight: 400;
-        :hover {opacity: 1}
-      `}
-      ${props => props.active && 'opacity: 1'}
-    `,
     fontWeight: 700,
     textDecoration: 'none',
     hover: {
