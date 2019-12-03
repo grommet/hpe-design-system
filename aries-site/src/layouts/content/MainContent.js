@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
 
 export const MainContent = ({ children }) => {
   return (
     <>
       {children &&
         (children.length > 1
-          ? children.map((child, index) => {
+          ? React.Children.map(children, (child, index) => {
               return React.cloneElement(child, {
                 lastSection: index === children.length - 1,
               });
