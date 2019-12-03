@@ -14,7 +14,7 @@ export const AnchorGroup = ({ items }) => {
             tabIndex={0}
             key={index}
             icon={item.icon}
-            label={item.label}
+            // label={item.label}
             // On desktop, allow final nav item to be completely right justified
             margin={
               index === items.length - 1 && size !== 'small'
