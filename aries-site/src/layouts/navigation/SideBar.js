@@ -15,12 +15,13 @@ const sideBarItems = (items, prefix) => {
   return itemArray;
 };
 
-export const SideBar = ({ children, currentPath, items, prefix }) => {
+export const SideBar = ({ children, activePath, items, prefix }) => {
   return (
     <Box width="small" margin={{ right: 'medium' }}>
       <Nav
         level={2}
-        currentPath={currentPath}
+        activePath={activePath}
+        defaultActiveItem={0}
         direction="vertical"
         items={sideBarItems(items, prefix)}
       />
@@ -31,7 +32,7 @@ export const SideBar = ({ children, currentPath, items, prefix }) => {
 
 SideBar.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  currentPath: PropTypes.string,
+  activePath: PropTypes.string,
   items: PropTypes.array,
   prefix: PropTypes.string,
 };

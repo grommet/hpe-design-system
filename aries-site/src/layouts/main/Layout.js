@@ -47,9 +47,10 @@ export const Layout = ({ children, title }) => {
               />
             </Head>
             <Nav
-              background="background-subtle"
               title="Aries"
-              currentPath={router.pathname}
+              background="background-subtle"
+              activePath={router.pathname}
+              defaultActiveItem={0}
               items={[
                 { label: 'Start', href: '/start' },
                 { label: 'Foundation', href: '/foundation' },
@@ -71,7 +72,7 @@ export const Layout = ({ children, title }) => {
                   <SideBar
                     items={SideBarItemList[selectedNavItem || 'start']}
                     prefix={selectedNavItem || 'start'}
-                    currentPath={router.pathname}
+                    activePath={router.pathname}
                   />
                 </Box>
               )}
