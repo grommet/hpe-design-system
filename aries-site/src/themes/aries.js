@@ -7,8 +7,8 @@ const fontSizing = factor => {
   const scale = baseSpacing * 0.25;
   const baseFontSize = baseSpacing - scale;
 
-  const size = baseFontSize + factor * scale;
-  const height = baseSpacing + factor * scale;
+  const size = Math.round(baseFontSize + factor * scale);
+  const height = Math.round(baseSpacing + factor * scale);
   const maxWidth = baseSpacing * size;
 
   return {
@@ -114,6 +114,11 @@ export const aries = deepMerge(hpe, {
   anchor: {
     fontWeight: 400,
   },
+  button: {
+    border: {
+      radius: '6px',
+    },
+  },
   heading: {
     level: {
       1: {
@@ -129,6 +134,7 @@ export const aries = deepMerge(hpe, {
     weight: 700,
   },
   text: {
+    small: fontSizing(-0.3),
     medium: fontSizing(0),
     large: fontSizing(1),
     xlarge: fontSizing(2),
