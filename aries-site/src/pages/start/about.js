@@ -3,7 +3,7 @@ import { Anchor, Box, Text } from 'grommet';
 import { FormNext } from 'grommet-icons';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { MainDescription, MainHeading, Subheading } from '../../components';
+import { MainDescription, MainHeading } from '../../components';
 
 const title = 'About';
 
@@ -39,8 +39,7 @@ const About = () => (
       </Box>
     </ContentSection>
     <ContentSection>
-      <Subsection>
-        <Subheading>Why Aries?</Subheading>
+      <Subsection name="Why Aries?">
         <Text>
           In Latin, Aries means ram. In Greek Mythology, Aries is the symbol of
           the ram responsible for the golden fleece too Poseidon and is a symbol
@@ -48,8 +47,7 @@ const About = () => (
           preparedness, responsibiltiy, and resolute performance above all else.
         </Text>
       </Subsection>
-      <Subsection>
-        <Subheading>What HPE Aries is</Subheading>
+      <Subsection name="What HPE Aries is">
         <Text>
           This library provides language, guidelines, design tools, code, and
           best practices to succeed when using HPE’s Design Language for your
@@ -59,8 +57,7 @@ const About = () => (
           at HPE on the Aries team.
         </Text>
       </Subsection>
-      <Subsection>
-        <Subheading>What HPE Aries is not</Subheading>
+      <Subsection name="What HPE Aries is not">
         <Text>
           This library is not just a brand or style guide, it is a living
           breathing animal. It is not just a list of list of assets or a design
