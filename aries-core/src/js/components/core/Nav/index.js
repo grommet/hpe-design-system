@@ -9,9 +9,9 @@ import NavContext from '../../helpers/NavContext';
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 export const Nav = ({
+  activePath,
   background,
   children,
-  activePath,
   defaultActiveItem,
   direction,
   href,
@@ -120,13 +120,7 @@ export const Nav = ({
 };
 
 Nav.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   activePath: PropTypes.string,
-  defaultActiveItem: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  direction: PropTypes.string,
-  href: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
   background: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -134,6 +128,11 @@ Nav.propTypes = {
       light: PropTypes.string,
     }),
   ]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  defaultActiveItem: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  direction: PropTypes.string,
+  href: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
   level: PropTypes.number,
   pad: PropTypes.oneOfType([
     PropTypes.oneOf(['none', ...PAD_SIZES]),
@@ -159,15 +158,18 @@ Nav.propTypes = {
     }),
     PropTypes.string,
   ]),
+  title: PropTypes.string,
 };
 
 Nav.defaultProps = {
+  activePath: undefined,
+  background: undefined,
   children: undefined,
   defaultActiveItem: undefined,
   direction: 'horizontal',
   href: '/',
+  items: undefined,
   level: 1,
-  title: undefined,
-  background: undefined,
   pad: undefined,
+  title: undefined,
 };
