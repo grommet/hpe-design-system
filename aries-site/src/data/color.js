@@ -1,4 +1,4 @@
-import { aries as theme } from '../../../themes/aries';
+import { aries as theme } from '../themes/aries';
 
 /*
  * The following is holding content until Content Management Solution
