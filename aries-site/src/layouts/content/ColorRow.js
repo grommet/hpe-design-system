@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box, Grid, ResponsiveContext, Text } from 'grommet';
+
+const columns = {
+  small: ['auto', 'auto'],
+  medium: ['auto', 'auto', 'auto', 'auto'],
+};
+
+const rows = {
+  small: ['xxsmall'],
+  medium: ['xxsmall'],
+};
+
+const gridAreas = {
+  small: [
+    { name: 'colorSwatch', start: [0, 0], end: [0, 0] },
+    { name: 'hex', start: [1, 0], end: [1, 0] },
+  ],
+  medium: [
+    { name: 'colorSwatch', start: [0, 0], end: [0, 0] },
+    { name: 'hex', start: [1, 0], end: [1, 0] },
+    { name: 'rgb', start: [2, 0], end: [2, 0] },
+    { name: 'hsl', start: [3, 0], end: [3, 0] },
+  ],
+};
 
 export const ColorRow = ({ colorSpec }) => {
   const { value, name, hex, rgb, hsl } = colorSpec;
+  const size = useContext(ResponsiveContext);
+  const gridSizing = size === 'small' ? size : 'medium';
 
   return (
-    <Box
-      direction="row"
+    <Grid
+      rows={rows[gridSizing]}
+      columns={columns[gridSizing]}
+      areas={gridAreas[gridSizing]}
       align="center"
-      gap="large"
-      pad={{ bottom: 'small', top: 'xsmall' }}
+      margin={{ vertical: 'small' }}
     >
-      <Box direction="row" align="center" gap="medium" width="small">
+      <Box
+        gridArea="colorSwatch"
+        direction="row"
+        align="center"
+        gap="medium"
+        width="small"
+      >
         <Box
           background={value}
           round="large"
@@ -23,16 +55,20 @@ export const ColorRow = ({ colorSpec }) => {
           {name}
         </Text>
       </Box>
-      <Text color="text-weak" weight={400}>
+      <Text gridArea="hex" color="text-weak" weight={400}>
         {hex}
       </Text>
-      <Text color="text-weak" weight={400}>
-        {rgb}
-      </Text>
-      <Text color="text-weak" weight={400}>
-        {hsl}
-      </Text>
-    </Box>
+      {size === 'small' ? null : (
+        <>
+          <Text gridArea="rgb" color="text-weak" weight={400}>
+            {rgb}
+          </Text>
+          <Text gridArea="hsl" color="text-weak" weight={400}>
+            {hsl}
+          </Text>
+        </>
+      )}
+    </Grid>
   );
 };
 

@@ -140,12 +140,12 @@ const Color = () => (
           }
           primary
         />
-        <LastUpdated date={new Date('2019-07-17')} />
+        <LastUpdated date={new Date('2019-07-17T03:24:00')} />
       </Box>
     </ContentSection>
     <ContentSection>
       <Subsection>
-        <Subheading>Primary</Subheading>
+        <Subheading size="small">Primary</Subheading>
         <Text>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
@@ -153,34 +153,43 @@ const Color = () => (
           use the custom color specifications seen here to maintain consistency
           across channels and media.
         </Text>
-        {primaryColors &&
-          primaryColors.map(color => {
-            return <ColorRow colorSpec={color} />;
-          })}
+        {primaryColors && (
+          <Box margin={{ top: 'medium' }}>
+            {primaryColors.map(color => {
+              return <ColorRow colorSpec={color} key={color.name} />;
+            })}
+          </Box>
+        )}
       </Subsection>
       <Subsection>
-        <Subheading>Supporting</Subheading>
+        <Subheading size="small">Supporting</Subheading>
         <Text>
           Our supporting color palette enhances data visualization and
           storytelling by amplifying vibrant colors for a more elegant look and
           feel and creates contrast to our our core color.
         </Text>
-        {supportingColors &&
-          supportingColors.map(color => {
-            return <ColorRow colorSpec={color} />;
-          })}
+        {supportingColors && (
+          <Box margin={{ top: 'medium' }}>
+            {supportingColors.map(color => {
+              return <ColorRow colorSpec={color} key={color.name} />;
+            })}
+          </Box>
+        )}
       </Subsection>
       <Subsection>
-        <Subheading>Greyscale</Subheading>
+        <Subheading size="small">Greyscale</Subheading>
         <Text>
           The greyscale palette offers a set of steps that can be using in
           tertiary elements to to create more subtle separation to ensure
           content has a balanced composition.
         </Text>
-        {greyscaleColors &&
-          greyscaleColors.map(color => {
-            return <ColorRow colorSpec={color} />;
-          })}
+        {greyscaleColors && (
+          <Box margin={{ top: 'medium' }}>
+            {greyscaleColors.map(color => {
+              return <ColorRow colorSpec={color} key={color.name} />;
+            })}
+          </Box>
+        )}
       </Subsection>
     </ContentSection>
   </PageLayout>
