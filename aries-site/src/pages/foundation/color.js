@@ -139,6 +139,9 @@ const Color = () => (
             </Text>
           }
           primary
+          onClick={() => {
+            // Download color swatch pack (once content is available)
+          }}
         />
         <LastUpdated date={new Date('2019-07-17T03:24:00')} />
       </Box>
