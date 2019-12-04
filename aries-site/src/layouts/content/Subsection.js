@@ -29,7 +29,7 @@ export const Subsection = ({ children, name }) => {
           <Subheading>{name}</Subheading>
           <Anchor
             href={`#${id}`}
-            icon={<LinkIcon color={over ? 'text-xweak' : 'background'} />}
+            icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
           />
         </Box>
       )}
