@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveContext } from 'grommet';
-import { AnchorUndecorated } from './AnchorUndecorated';
+import { NavLink } from './NavLink';
 
 export const AnchorGroup = ({ direction, items }) => {
   const size = useContext(ResponsiveContext);
@@ -9,30 +9,28 @@ export const AnchorGroup = ({ direction, items }) => {
   return (
     <>
       {items &&
-        items.map((item, index) => {
-          return (
-            <AnchorUndecorated
-              index={index}
-              key={index}
-              // On desktop, allow final nav item to be completely
-              // right justified
-              margin={{
-                vertical: 'small',
-                left:
-                  direction !== 'vertical' && size !== 'small'
-                    ? 'small'
-                    : undefined,
-                right:
-                  direction !== 'vertical' &&
-                  index !== items.length - 1 &&
-                  size !== 'small'
-                    ? 'small'
-                    : undefined,
-              }}
-              {...item}
-            />
-          );
-        })}
+        items.map((item, index) => (
+          <NavLink
+            index={index}
+            key={index}
+            // On desktop, allow final nav item to be completely
+            // right justified
+            margin={{
+              vertical: 'small',
+              left:
+                direction !== 'vertical' && size !== 'small'
+                  ? 'small'
+                  : undefined,
+              right:
+                direction !== 'vertical' &&
+                index !== items.length - 1 &&
+                size !== 'small'
+                  ? 'small'
+                  : undefined,
+            }}
+            {...item}
+          />
+        ))}
     </>
   );
 };

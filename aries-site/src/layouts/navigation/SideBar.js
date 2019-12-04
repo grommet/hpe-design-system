@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
+<<<<<<< HEAD
 import { Nav } from 'aries-core';
 
 const sideBarItems = (items, prefix) => {
@@ -14,6 +15,15 @@ const sideBarItems = (items, prefix) => {
   });
   return itemArray;
 };
+=======
+import { NavLink } from 'aries-core';
+
+const SideBarItem = ({ item, prefix }) => (
+  <Box pad={{ vertical: 'small' }}>
+    <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
+  </Box>
+);
+>>>>>>> master
 
 export const SideBar = ({ children, activePath, items, prefix }) => {
   return (
