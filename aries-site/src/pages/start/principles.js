@@ -22,6 +22,8 @@ const Principles = () => (
         designers and non-designers alike, anyone authoring or authorizing any
         form of design on behalf of HPE.
       </MainDescription>
+    </ContentSection>
+    <ContentSection>
       <Subsection>
         <Subheading>Innovative and Adventurous</Subheading>
         <Text>
