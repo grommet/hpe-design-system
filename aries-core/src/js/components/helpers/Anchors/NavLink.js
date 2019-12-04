@@ -4,7 +4,7 @@ import { Anchor, Text } from 'grommet';
 
 export const NavLink = ({ active, children, label, size, ...rest }) => {
   const activeTextColor = active ? 'text' : null;
-  const defaultTextColor = 'text-weak';
+  const defaultTextColor = 'text-xweak';
   const fontWeight = 400;
   const [textColor, setTextColor] = useState(defaultTextColor);
 
