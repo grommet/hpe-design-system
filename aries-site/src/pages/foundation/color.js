@@ -13,7 +13,7 @@ import {
   MainHeading,
   Subheading,
 } from '../../components';
-import { greyscaleColors, primaryColors, supportingColors } from './data';
+import { greyscaleColors, primaryColors, supportingColors } from '../../data';
 
 const title = 'Color';
 
