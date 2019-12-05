@@ -1,6 +1,6 @@
 import React from 'react';
-import { Anchor, Box, Text } from 'grommet';
-import { FormNext } from 'grommet-icons';
+import { Box, Text } from 'grommet';
+import { AnchorCallToAction } from 'aries-core';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import { MainDescription, MainHeading } from '../../components';
@@ -23,19 +23,8 @@ const About = () => (
         of learning and building experiences that reach a broader audience.
       </Text>
       <Box direction="row" gap="medium">
-        <Anchor
-          label="Our Principles"
-          href="/start/principles"
-          icon={<FormNext />}
-          reverse
-          color="brand"
-        />
-        <Anchor
-          label="Our Community"
-          icon={<FormNext />}
-          reverse
-          color="brand"
-        />
+        <AnchorCallToAction label="Our Principles" href="/start/principles" />
+        <AnchorCallToAction label="Our Community" href="" />
       </Box>
     </ContentSection>
     <ContentSection>
