@@ -31,6 +31,7 @@
   ],
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "cypress": "^3.7.0"
+    "cypress": "^3.7.0",
+    "cypress-plugin-tab": "^1.0.4"
   }
 }

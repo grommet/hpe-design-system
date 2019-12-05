@@ -50,4 +50,15 @@ context('Navigation', () => {
     // reload the page without using the cache
     cy.reload(true);
   });
+
+  it('allows tab to be used to navigate', () => {
+    // Tab to HPE Aries button --> Start --> Foundation
+    cy.get('body')
+      .tab()
+      .tab()
+      .tab()
+      .click();
+
+    cy.location('pathname').should('include', 'foundation');
+  });
 });
