@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Text } from 'grommet';
+import { Box, Text } from 'grommet';
+import { Button } from 'aries-core';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import {
@@ -22,15 +23,11 @@ const Color = () => (
       </MainDescription>
       <Box gap="medium" pad={{ vertical: 'medium' }}>
         <Button
-          label={
-            <Text
-              color={{ dark: 'text-strong', light: 'text-strong' }}
-              weight={500}
-            >
-              Download Color Swatches Pack
-            </Text>
-          }
+          label="Download Color Swatches Pack"
           primary
+          onClick={() => {
+            // Download color swatch pack (once content is available)
+          }}
         />
         <LastUpdated date={new Date('2019-07-17')} />
       </Box>
