@@ -30,6 +30,7 @@
     "test"
   ],
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6"
+    "babel-plugin-styled-components": "^1.10.6",
+    "cypress": "^3.7.0"
   }
 }
