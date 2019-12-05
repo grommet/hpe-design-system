@@ -4,7 +4,7 @@ import { Anchor, Box } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 
-export const Subsection = ({ children, name }) => {
+export const Subsection = ({ children, name, ...rest }) => {
   const [over, setOver] = useState(false);
 
   const id = name
@@ -23,7 +23,7 @@ export const Subsection = ({ children, name }) => {
       onBlur={() => setOver(false)}
     >
       <Box direction="row" justify="between">
-        <Subheading>{name}</Subheading>
+        <Subheading {...rest}>{name}</Subheading>
         <Anchor
           href={`#${id}`}
           icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
@@ -37,5 +37,6 @@ export const Subsection = ({ children, name }) => {
 Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
+  headingSize: PropTypes.string,
   name: PropTypes.string.isRequired,
 };
