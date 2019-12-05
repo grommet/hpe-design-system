@@ -45,34 +45,36 @@ export const Layout = ({ children, title }) => {
                 content="width=device-width, initial-scale=1.0"
               />
             </Head>
-            <Nav title="Aries" background="background-subtle">
-              <AnchorGroup
-                items={[
-                  { label: 'Start', href: '/start' },
-                  { label: 'Foundation', href: '/foundation' },
-                  { label: 'Design', href: '/design' },
-                  { label: 'Develop', href: '/develop' },
-                  { label: 'Resources', href: '/resources' },
-                ]}
-              />
-            </Nav>
-            <Box
-              direction="row"
-              // pad uses Nav pad from aries-core
-              pad={{
-                horizontal: size !== 'small' ? 'xlarge' : 'large',
-                vertical: 'large',
-              }}
-            >
-              {size !== 'small' && (
-                <Box fill="vertical">
-                  <SideBar
-                    items={SideBarItemList[selectedNav]}
-                    prefix={selectedNav}
-                  />
-                </Box>
-              )}
-              <Box flex>{mainContent[0]}</Box>
+            <Box width={{ max: 'xlarge' }} margin="auto">
+              <Nav title="Aries" background="background-subtle">
+                <AnchorGroup
+                  items={[
+                    { label: 'Start', href: '/start' },
+                    { label: 'Foundation', href: '/foundation' },
+                    { label: 'Design', href: '/design' },
+                    { label: 'Develop', href: '/develop' },
+                    { label: 'Resources', href: '/resources' },
+                  ]}
+                />
+              </Nav>
+              <Box
+                direction="row"
+                // pad uses Nav pad from aries-core
+                pad={{
+                  horizontal: size !== 'small' ? 'xlarge' : 'large',
+                  vertical: 'large',
+                }}
+              >
+                {size !== 'small' && (
+                  <Box fill="vertical">
+                    <SideBar
+                      items={SideBarItemList[selectedNav]}
+                      prefix={selectedNav}
+                    />
+                  </Box>
+                )}
+                <Box flex>{mainContent[0]}</Box>
+              </Box>
             </Box>
           </>
         )}
