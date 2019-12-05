@@ -2,12 +2,7 @@ import React from 'react';
 import { Box, Button, Text } from 'grommet';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import {
-  MainDescription,
-  LastUpdated,
-  MainHeading,
-  Subheading,
-} from '../../components';
+import { MainDescription, LastUpdated, MainHeading } from '../../components';
 
 const title = 'Color';
 
@@ -36,8 +31,7 @@ const Color = () => (
       </Box>
     </ContentSection>
     <ContentSection>
-      <Subsection>
-        <Subheading>Primary</Subheading>
+      <Subsection name="Primary">
         <Text>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
@@ -46,16 +40,14 @@ const Color = () => (
           across channels and media.
         </Text>
       </Subsection>
-      <Subsection>
-        <Subheading>Supporting</Subheading>
+      <Subsection name="Supporting">
         <Text>
           Our supporting color palette enhances data visualization and
           storytelling by amplifying vibrant colors for a more elegant look and
           feel and creates contrast to our our core color.
         </Text>
       </Subsection>
-      <Subsection>
-        <Subheading>Greyscale</Subheading>
+      <Subsection name="Greyscale">
         <Text>
           The greyscale palette offers a set of steps that can be using in
           tertiary elements to to create more subtle separation to ensure

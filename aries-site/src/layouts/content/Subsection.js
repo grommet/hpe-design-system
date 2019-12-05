@@ -7,32 +7,28 @@ import { Subheading } from '../../components';
 export const Subsection = ({ children, name }) => {
   const [over, setOver] = useState(false);
 
-  let id;
-  if (name) {
-    id = name
-      .split(' ')
-      .join('-')
-      .toLowerCase();
-  }
+  const id = name
+    .split(' ')
+    .join('-')
+    .toLowerCase();
 
   return (
-    <Box id={id} margin={{ bottom: 'small' }} gap="small">
-      {name && (
-        <Box
-          direction="row"
-          gap="xsmall"
-          onMouseOver={() => setOver(true)}
-          onMouseOut={() => setOver(false)}
-          onFocus={() => setOver(true)}
-          onBlur={() => setOver(false)}
-        >
-          <Subheading>{name}</Subheading>
-          <Anchor
-            href={`#${id}`}
-            icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-          />
-        </Box>
-      )}
+    <Box
+      id={id}
+      margin={{ bottom: 'small' }}
+      gap="small"
+      onMouseOver={() => setOver(true)}
+      onMouseOut={() => setOver(false)}
+      onFocus={() => setOver(true)}
+      onBlur={() => setOver(false)}
+    >
+      <Box direction="row" justify="between">
+        <Subheading>{name}</Subheading>
+        <Anchor
+          href={`#${id}`}
+          icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
+        />
+      </Box>
       {children}
     </Box>
   );
@@ -41,9 +37,5 @@ export const Subsection = ({ children, name }) => {
 Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
-  name: PropTypes.string,
-};
-
-Subsection.defaultProps = {
-  name: '',
+  name: PropTypes.string.isRequired,
 };
