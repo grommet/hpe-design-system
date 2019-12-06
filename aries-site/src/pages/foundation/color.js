@@ -1,24 +1,14 @@
 import React from 'react';
 import { Box, Button, Text } from 'grommet';
 
-<<<<<<< HEAD
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { MainDescription, LastUpdated, MainHeading } from '../../components';
-=======
 import {
   ColorRow,
   ContentSection,
   PageLayout,
   Subsection,
 } from '../../layouts';
-import {
-  MainDescription,
-  LastUpdated,
-  MainHeading,
-  Subheading,
-} from '../../components';
+import { MainDescription, LastUpdated, MainHeading } from '../../components';
 import { greyscaleColors, primaryColors, supportingColors } from '../../data';
->>>>>>> master
 
 const title = 'Color';
 
@@ -50,12 +40,7 @@ const Color = () => (
       </Box>
     </ContentSection>
     <ContentSection>
-<<<<<<< HEAD
-      <Subsection name="Primary">
-=======
-      <Subsection>
-        <Subheading size="small">Primary</Subheading>
->>>>>>> master
+      <Subsection name="Primary" headingSize="small">
         <Text>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
@@ -71,12 +56,7 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-<<<<<<< HEAD
-      <Subsection name="Supporting">
-=======
-      <Subsection>
-        <Subheading size="small">Supporting</Subheading>
->>>>>>> master
+      <Subsection name="Supporting" headingSize="small">
         <Text>
           Our supporting color palette enhances data visualization and
           storytelling by amplifying vibrant colors for a more elegant look and
@@ -90,12 +70,7 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-<<<<<<< HEAD
-      <Subsection name="Greyscale">
-=======
-      <Subsection>
-        <Subheading size="small">Greyscale</Subheading>
->>>>>>> master
+      <Subsection name="Greyscale" headingSize="small">
         <Text>
           The greyscale palette offers a set of steps that can be using in
           tertiary elements to to create more subtle separation to ensure
