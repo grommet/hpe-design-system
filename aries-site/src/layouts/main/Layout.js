@@ -48,11 +48,11 @@ export const Layout = ({ children, title }) => {
             <Nav title="Aries" background="background-subtle">
               <AnchorGroup
                 items={[
-                  { label: 'Start', href: '/start' },
-                  { label: 'Foundation', href: '/foundation' },
-                  { label: 'Design', href: '/design' },
-                  { label: 'Develop', href: '/develop' },
-                  { label: 'Resources', href: '/resources' },
+                  { label: 'Start', href: '/start/about' },
+                  { label: 'Foundation', href: '/foundation/primer' },
+                  { label: 'Design', href: '/design/primer' },
+                  { label: 'Develop', href: '/develop/code' },
+                  { label: 'Resources', href: '/resources/examples' },
                 ]}
               />
             </Nav>
