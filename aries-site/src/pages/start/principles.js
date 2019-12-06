@@ -3,12 +3,7 @@ import { Text } from 'grommet';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-import {
-  BulletedList,
-  MainDescription,
-  MainHeading,
-  Subheading,
-} from '../../components';
+import { BulletedList, MainDescription, MainHeading } from '../../components';
 
 const title = 'Principles';
 
@@ -24,8 +19,7 @@ const Principles = () => (
       </MainDescription>
     </ContentSection>
     <ContentSection>
-      <Subsection>
-        <Subheading>Innovative and Adventurous</Subheading>
+      <Subsection name="Innovative and Adventurous">
         <Text>
           We are a company reborn, a new culture, and in a new space. We live in
           markets that ravenous and cutthroat when we are respectful and humane.
@@ -43,8 +37,7 @@ const Principles = () => (
           ]}
         />
       </Subsection>
-      <Subsection>
-        <Subheading>Purposeful and Useful</Subheading>
+      <Subsection name="Purposeful and Useful">
         <Text>
           Presenting a long list of features or giving the user too much choice
           is not the business we’re in. Usefulness should be born out of a
@@ -66,8 +59,7 @@ const Principles = () => (
           ]}
         />
       </Subsection>
-      <Subsection>
-        <Subheading>Integrated but Composable</Subheading>
+      <Subsection name="Integrated but Composable">
         <Text>
           To ensure every experience we define is part of a cohesive direction,
           it is important to ask where this product lives in the ecosystem of

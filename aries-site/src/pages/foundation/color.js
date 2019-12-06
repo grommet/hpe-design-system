@@ -7,12 +7,7 @@ import {
   PageLayout,
   Subsection,
 } from '../../layouts';
-import {
-  MainDescription,
-  LastUpdated,
-  MainHeading,
-  Subheading,
-} from '../../components';
+import { MainDescription, LastUpdated, MainHeading } from '../../components';
 import { greyscaleColors, primaryColors, supportingColors } from '../../data';
 
 const title = 'Color';
@@ -45,8 +40,7 @@ const Color = () => (
       </Box>
     </ContentSection>
     <ContentSection>
-      <Subsection>
-        <Subheading size="small">Primary</Subheading>
+      <Subsection name="Primary" headingSize="small">
         <Text>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
@@ -62,8 +56,7 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-      <Subsection>
-        <Subheading size="small">Supporting</Subheading>
+      <Subsection name="Supporting" headingSize="small">
         <Text>
           Our supporting color palette enhances data visualization and
           storytelling by amplifying vibrant colors for a more elegant look and
@@ -77,8 +70,7 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-      <Subsection>
-        <Subheading size="small">Greyscale</Subheading>
+      <Subsection name="Greyscale" headingSize="small">
         <Text>
           The greyscale palette offers a set of steps that can be using in
           tertiary elements to to create more subtle separation to ensure
