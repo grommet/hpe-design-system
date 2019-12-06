@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Heading } from 'grommet';
 
-export const Subheading = ({ children, ...rest }) => {
+export const Subheading = ({ children, headingSize, level }) => {
   return (
-    <Heading level={2} margin={{ vertical: 'none' }} {...rest}>
+    <Heading level={level} margin={{ vertical: 'none' }} size={headingSize}>
       {children}
     </Heading>
   );
@@ -12,4 +12,11 @@ export const Subheading = ({ children, ...rest }) => {
 
 Subheading.propTypes = {
   children: PropTypes.string.isRequired,
+  level: PropTypes.number,
+  headingSize: PropTypes.string,
+};
+
+Subheading.defaultProps = {
+  level: 2,
+  headingSize: undefined,
 };
