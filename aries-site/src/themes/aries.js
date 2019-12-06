@@ -129,6 +129,7 @@ export const aries = deepMerge(hpe, {
         medium: fontSizing(5),
       },
       2: {
+        small: fontSizing(1),
         medium: fontSizing(3),
       },
       3: {
