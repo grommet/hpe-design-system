@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grommet, ResponsiveContext } from 'grommet';
+import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 import { AnchorGroup, Nav } from 'aries-core';
 
 import { aries } from '../../themes/aries';
@@ -61,7 +61,7 @@ export const Layout = ({ children }) => {
                   />
                 </Box>
               )}
-              <Box flex>{mainContent[0]}</Box>
+              <Main flex>{mainContent[0]}</Main>
             </Box>
           </>
         )}
