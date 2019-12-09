@@ -3,12 +3,21 @@ import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { MainDescription, MainHeading } from '../../components';
+import { MainDescription, MainHeading, Meta } from '../../components';
 
 const title = 'About';
+const description =
+  'HPE Aries is an open-source library and the official ' +
+  'design system of HPE for all digital products and experiences. Aries ' +
+  'consists of working code, best practices, design resources, and more.';
 
 const About = () => (
-  <PageLayout title={title}>
+  <PageLayout>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/start/about"
+    />
     <ContentSection>
       <MainHeading>{title}</MainHeading>
       <MainDescription>
