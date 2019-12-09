@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { Box, Grommet, ResponsiveContext } from 'grommet';
 import { AnchorGroup, Nav } from 'aries-core';
@@ -22,7 +21,7 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const Layout = ({ children, title }) => {
+export const Layout = ({ children }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(children, 'MainContent');
 
@@ -35,16 +34,6 @@ export const Layout = ({ children, title }) => {
       <ResponsiveContext.Consumer>
         {size => (
           <>
-            <Head>
-              <link rel="icon" href="/static/favicon.ico" />
-              <title>
-                {title ? `${title} — Aries` : 'Aries | HPE Design System'}
-              </title>
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0"
-              />
-            </Head>
             <Nav title="Aries" background="background-subtle">
               <AnchorGroup
                 items={[
@@ -83,9 +72,4 @@ export const Layout = ({ children, title }) => {
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  title: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  title: undefined,
 };
