@@ -39,6 +39,7 @@ export const Nav = ({ href, title, children, background, pad }) => {
                 children.map((child, index) => {
                   return React.cloneElement(child, {
                     lastSection: index === children.length - 1,
+                    key: index,
                   });
                 })
               ) : (
@@ -57,15 +58,17 @@ export const Nav = ({ href, title, children, background, pad }) => {
       </Box>
       {size === 'small' && (
         <Collapsible background="white" open={open}>
-          {children.length > 1
-            ? children.map((child, index) => {
-                return React.cloneElement(child, {
-                  lastSection: index === children.length - 1,
-                });
-              })
-            : React.cloneElement(children, {
-                lastSection: true,
-              })}
+          {children &&
+            (children.length > 1
+              ? children.map((child, index) => {
+                  return React.cloneElement(child, {
+                    lastSection: index === children.length - 1,
+                    key: index,
+                  });
+                })
+              : React.cloneElement(children, {
+                  lastSection: true,
+                }))}
         </Collapsible>
       )}
     </Box>
