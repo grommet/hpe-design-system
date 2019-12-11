@@ -5,6 +5,7 @@ import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 
 const GAP_SIZE = {
+  1: 'medium',
   2: 'small',
   3: undefined,
 };
@@ -38,10 +39,12 @@ export const Subsection = ({ children, level, name, ...rest }) => {
           <Subheading level={level} {...rest}>
             {name}
           </Subheading>
-          <Anchor
-            href={`#${id}`}
-            icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-          />
+          {level > 1 && (
+            <Anchor
+              href={`#${id}`}
+              icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
+            />
+          )}
         </Box>
         {React.Children.map(children, (child, index) => {
           if (index === 0) {
@@ -72,5 +75,5 @@ Subsection.propTypes = {
 };
 
 Subsection.defaultProps = {
-  level: 2,
+  level: 1,
 };

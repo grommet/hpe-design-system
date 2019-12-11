@@ -14,7 +14,10 @@ export const ContentSection = ({ children, lastSection }) => {
           ? { bottom: size !== 'small' ? 'large' : 'xlarge' }
           : undefined
       }
-      pad={{ bottom: size !== 'small' ? 'large' : 'xlarge' }}
+      pad={{
+        bottom: size !== 'small' ? 'large' : 'xlarge',
+        horizontal: 'small',
+      }}
     >
       <Box gap="medium" width="large" align="start">
         {children}
