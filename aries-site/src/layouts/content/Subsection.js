@@ -10,7 +10,7 @@ const GAP_SIZE = {
   3: undefined,
 };
 
-export const Subsection = ({ children, level, name, ...rest }) => {
+export const Subsection = ({ children, level, name }) => {
   const [over, setOver] = useState(false);
 
   const id = name
@@ -36,9 +36,7 @@ export const Subsection = ({ children, level, name, ...rest }) => {
        */}
       <Box gap={GAP_SIZE[level]}>
         <Box direction="row" justify="between" align="center">
-          <Subheading level={level} {...rest}>
-            {name}
-          </Subheading>
+          <Subheading level={level}>{name}</Subheading>
           {level > 1 && (
             <Anchor
               href={`#${id}`}
