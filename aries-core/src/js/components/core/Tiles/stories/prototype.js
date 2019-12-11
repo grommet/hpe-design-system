@@ -1,11 +1,11 @@
 import React from 'react';
-import { Tile } from 'aries-core';
+import { Tile, Tiles } from 'aries-core';
 import { storiesOf } from '@storybook/react';
 
 import { grommet, Grommet, Box, Text } from 'grommet';
 import { deepMerge } from 'grommet/utils';
-// import { hpe } from 'grommet-theme-hpe';
 
+// Should be removed once we'll finalize HPE theme
 export const hpeFont = deepMerge(grommet, {
   global: {
     font: {
@@ -37,30 +37,25 @@ export const hpeFont = deepMerge(grommet, {
 
 export const Prototype = () => (
   <Grommet theme={hpeFont} full>
-    <Box
-      fill
-      direction="row-responsive"
-      gap="medium"
-      pad="large"
-      background="light-2"
-    >
-      {[1, 2, 3, 4].map(value => (
-        <Tile
-          background="white"
-          height="small"
-          width="small"
-          elevation="none"
-          key={`Tile ${value}`}
-          pad={{ horizontal: 'small', top: 'small' }}
-        >
-          <Text size="small" weight="bold">
-            Service Name
-          </Text>
-          <Text size="xsmall">Category Name</Text>
-        </Tile>
-      ))}
+    <Box pad="large" height="100%" background="light-2">
+      <Tiles gap="medium" rows="small">
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(value => (
+          <Tile
+            background="white"
+            elevation=""
+            key={`Tile ${value}`}
+            pad={{ horizontal: 'small', top: 'small' }}
+            onClick={() => {}}
+          >
+            <Text size="small" weight="bold">
+              Service Name
+            </Text>
+            <Text size="xsmall">Category Name</Text>
+          </Tile>
+        ))}
+      </Tiles>
     </Box>
   </Grommet>
 );
 
-storiesOf('Tile', module).add('Prototype', () => <Prototype />);
+storiesOf('Tiles', module).add('Prototype', () => <Prototype />);
