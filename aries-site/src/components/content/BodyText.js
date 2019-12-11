@@ -6,7 +6,7 @@ import { Text } from 'grommet';
 // h2, h3, etc.
 const TEXT_SIZE = {
   1: 'large',
-  2: 'medium', // use default text size
+  2: 'medium', // default font size
   3: 'small',
 };
 
@@ -24,5 +24,5 @@ BodyText.propTypes = {
 };
 
 BodyText.defaultProps = {
-  level: 1,
+  level: 2,
 };
