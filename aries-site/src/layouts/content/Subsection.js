@@ -75,5 +75,5 @@ Subsection.propTypes = {
 };
 
 Subsection.defaultProps = {
-  level: 1,
+  level: 2,
 };
