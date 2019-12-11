@@ -7,6 +7,7 @@ export const ContentSection = ({ children, lastSection }) => {
 
   return (
     <Box
+      as="section"
       border={!lastSection ? { side: 'bottom' } : undefined}
       margin={
         !lastSection
