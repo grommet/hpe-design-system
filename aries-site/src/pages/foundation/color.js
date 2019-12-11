@@ -7,7 +7,12 @@ import {
   PageLayout,
   Subsection,
 } from '../../layouts';
-import { LastUpdated, BodyText } from '../../components';
+import {
+  MainHeading,
+  MainDescription,
+  LastUpdated,
+  BodyText,
+} from '../../components';
 import { greyscaleColors, primaryColors, supportingColors } from '../../data';
 
 const title = 'Color';
@@ -15,33 +20,32 @@ const title = 'Color';
 const Color = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <Subsection name={title}>
-        <BodyText>
-          Our color palette brings out the depth and dimension of our identity.
-          From sophisticated, neutral hues reflective of technology to vibrant,
-          saturated colors that evoke energy and inspiration.
-        </BodyText>
-        <Box gap="medium" pad={{ vertical: 'medium' }} align="start">
-          <Button
-            label={
-              <Text
-                color={{ dark: 'text-strong', light: 'text-strong' }}
-                weight={500}
-              >
-                Download Color Swatches Pack
-              </Text>
-            }
-            primary
-            onClick={() => {
-              // Download color swatch pack (once content is available)
-            }}
-          />
-          <LastUpdated date={new Date('2019-07-17T03:24:00')} />
-        </Box>
-      </Subsection>
+      <MainHeading>{title}</MainHeading>
+      <MainDescription>
+        Our color palette brings out the depth and dimension of our identity.
+        From sophisticated, neutral hues reflective of technology to vibrant,
+        saturated colors that evoke energy and inspiration.
+      </MainDescription>
+      <Box gap="medium" pad={{ vertical: 'medium' }}>
+        <Button
+          label={
+            <Text
+              color={{ dark: 'text-strong', light: 'text-strong' }}
+              weight={500}
+            >
+              Download Color Swatches Pack
+            </Text>
+          }
+          primary
+          onClick={() => {
+            // Download color swatch pack (once content is available)
+          }}
+        />
+        <LastUpdated date={new Date('2019-07-17T03:24:00')} />
+      </Box>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Color Palettes" level={2}>
+      <Subsection name="Color Palettes">
         <BodyText>
           Color is a key way we express our brand. Using color on interface
           elements, how typography is presented, displaying data visualizations,
