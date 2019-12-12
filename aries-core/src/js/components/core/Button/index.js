@@ -6,7 +6,7 @@ const StyledButton = ({ label, ...rest }) => {
   return (
     <Button
       label={
-        <Text color="text-strong" weight={500}>
+        <Text color="text-strong" weight={700}>
           {label}
         </Text>
       }
