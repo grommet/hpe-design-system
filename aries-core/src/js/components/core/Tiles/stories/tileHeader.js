@@ -11,6 +11,7 @@ import {
   Heading,
   Paragraph,
 } from 'grommet';
+
 import { More } from 'grommet-icons';
 import { hpeFont } from './prototype';
 
@@ -32,7 +33,11 @@ export const TileHeader = () => (
           </Paragraph>
         </Box>
         <Box flex />
-        <Footer pad="small" background="light-4">
+        <Footer
+          pad="medium"
+          background="light-4"
+          round={{ size: 'small', corner: 'bottom' }}
+        >
           Hi! I'm a Footer
         </Footer>
       </Tile>
