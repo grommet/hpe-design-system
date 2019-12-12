@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, Box } from 'grommet';
+import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 
@@ -35,7 +35,7 @@ export const Subsection = ({ children, level, name }) => {
        * removes that extra space.
        */}
       <Box gap={GAP_SIZE[level]}>
-        <Box direction="row" justify="between" align="center">
+        <Header>
           <Subheading level={level}>{name}</Subheading>
           {level > 1 && (
             <Anchor
@@ -44,7 +44,7 @@ export const Subsection = ({ children, level, name }) => {
               icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
             />
           )}
-        </Box>
+        </Header>
         {React.Children.map(children, (child, index) => {
           if (index === 0) {
             return React.cloneElement(child, {
