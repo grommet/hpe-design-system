@@ -20,6 +20,7 @@ export const Subsection = ({ children, level, name }) => {
 
   return (
     <Box
+      align="start"
       as="section"
       id={id}
       margin={{ bottom: 'small' }}
