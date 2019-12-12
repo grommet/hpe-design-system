@@ -15,9 +15,9 @@ const content = [
 ];
 
 const TileCollection = () =>
-  [0, 1, 2].map(index => (
-    <Tile key={index} pad heading={`Tile ${index + 1}`}>
-      {content[index]}
+  content.map((item, index) => (
+    <Tile key={item} pad heading={`Tile ${index + 1}`}>
+      {item}
       {index === 0 && (
         <Anchor
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement"
