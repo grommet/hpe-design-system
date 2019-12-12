@@ -12,13 +12,7 @@ const TEXT_SIZE = {
 
 export const BodyText = ({ children, level, size, ...rest }) => {
   return (
-    <Paragraph
-      size={size || TEXT_SIZE[level]}
-      fill
-      color="text-weak"
-      margin="none"
-      {...rest}
-    >
+    <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
       {children}
     </Paragraph>
   );
