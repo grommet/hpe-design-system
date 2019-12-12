@@ -46,6 +46,9 @@ export const Subsection = ({ children, level, name }) => {
             />
           )}
         </Header>
+        {/* Isolates the first child to ensure the gap between heading and
+         * first child is correct size. See comment on line 33 for reasoning.
+         */}
         {React.Children.map(children, (child, index) => {
           if (index === 0) {
             return React.cloneElement(child, {
@@ -55,6 +58,7 @@ export const Subsection = ({ children, level, name }) => {
           return undefined;
         })}
       </Box>
+      {/* Renders rest of children */}
       {React.Children.map(children, (child, index) => {
         if (index === 0) {
           return undefined;
