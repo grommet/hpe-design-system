@@ -25,6 +25,7 @@ export const Subsection = ({ children, name, ...rest }) => {
       <Box direction="row" justify="between">
         <Subheading {...rest}>{name}</Subheading>
         <Anchor
+          a11yTitle={`Jump to section titled ${name}`}
           href={`#${id}`}
           icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
         />
