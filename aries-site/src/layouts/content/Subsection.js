@@ -39,6 +39,7 @@ export const Subsection = ({ children, level, name }) => {
           <Subheading level={level}>{name}</Subheading>
           {level > 1 && (
             <Anchor
+              a11yTitle={`Jump to section titled ${name}`}
               href={`#${id}`}
               icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
             />

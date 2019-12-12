@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Button, Text } from 'grommet';
+
+import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
+import { Button } from 'aries-core';
+
 import {
   ColorRow,
   ContentSection,
@@ -28,14 +31,7 @@ const Color = () => (
       </MainDescription>
       <Box gap="medium" pad={{ vertical: 'medium' }}>
         <Button
-          label={
-            <Text
-              color={{ dark: 'text-strong', light: 'text-strong' }}
-              weight={500}
-            >
-              Download Color Swatches Pack
-            </Text>
-          }
+          label="Download Color Swatches Pack"
           primary
           onClick={() => {
             // Download color swatch pack (once content is available)
