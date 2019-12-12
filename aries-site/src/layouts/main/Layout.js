@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { Box, Grommet, ResponsiveContext } from 'grommet';
+import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 import { AnchorGroup, Nav } from 'aries-core';
 
 import { aries } from '../../themes/aries';
@@ -45,14 +45,14 @@ export const Layout = ({ children, title }) => {
                 content="width=device-width, initial-scale=1.0"
               />
             </Head>
-            <Nav title="Aries" background="background-subtle">
+            <Nav title="Aries">
               <AnchorGroup
                 items={[
-                  { label: 'Start', href: '/start' },
-                  { label: 'Foundation', href: '/foundation' },
-                  { label: 'Design', href: '/design' },
-                  { label: 'Develop', href: '/develop' },
-                  { label: 'Resources', href: '/resources' },
+                  { label: 'Start', href: '/start/about' },
+                  { label: 'Foundation', href: '/foundation/primer' },
+                  { label: 'Design', href: '/design/primer' },
+                  { label: 'Develop', href: '/develop/code' },
+                  { label: 'Resources', href: '/resources/examples' },
                 ]}
               />
             </Nav>
@@ -72,7 +72,7 @@ export const Layout = ({ children, title }) => {
                   />
                 </Box>
               )}
-              <Box flex>{mainContent[0]}</Box>
+              <Main flex>{mainContent[0]}</Main>
             </Box>
           </>
         )}
