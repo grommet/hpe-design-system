@@ -36,7 +36,6 @@ export const TileHeader = () => (
         <Footer
           pad="medium"
           background="light-4"
-          round={{ size: 'small', corner: 'bottom' }}
         >
           Hi! I'm a Footer
         </Footer>
