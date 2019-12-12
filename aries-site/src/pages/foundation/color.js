@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Box, Text } from 'grommet';
-import { AnchorCallToAction } from 'aries-core';
-import { Button } from 'aries-core';
+import { Box } from 'grommet';
+import { AnchorCallToAction, Button } from 'aries-core';
 
 import {
   ColorRow,
