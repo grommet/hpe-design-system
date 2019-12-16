@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { Grommet } from 'grommet';
 
 import { aries } from '../../themes/aries';
-import { Header, Head, NavLayout } from '..';
+import { Header, Head, SidebarLayout } from '..';
 
 export const Layout = ({ children, title, isLanding }) => {
   return (
     <Grommet theme={aries} full>
       <Head title={title} />
       <Header showLinks={!isLanding} />
-      {!isLanding ? <NavLayout mainContentChildren={children} /> : children}
+      {!isLanding ? <SidebarLayout mainContentChildren={children} /> : children}
     </Grommet>
   );
 };
