@@ -20,7 +20,7 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const NavLayout = ({ mainContentChildren }) => {
+export const SidebarLayout = ({ mainContentChildren }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(mainContentChildren, 'MainContent');
 
@@ -55,7 +55,7 @@ export const NavLayout = ({ mainContentChildren }) => {
   );
 };
 
-NavLayout.propTypes = {
+SidebarLayout.propTypes = {
   mainContentChildren: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.array,

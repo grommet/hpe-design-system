@@ -1,4 +1,4 @@
 export * from './Header';
 export * from './Layout';
 export * from './PageLayout';
-export * from './NavLayout';
+export * from './SidebarLayout';
