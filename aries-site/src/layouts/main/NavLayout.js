@@ -20,9 +20,9 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const NavLayout = ({ mainContentChilds }) => {
+export const NavLayout = ({ mainContentChildren }) => {
   // Only expect a single child of the following types
-  const mainContent = filterChildren(mainContentChilds, 'MainContent');
+  const mainContent = filterChildren(mainContentChildren, 'MainContent');
 
   // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
@@ -56,5 +56,8 @@ export const NavLayout = ({ mainContentChilds }) => {
 };
 
 NavLayout.propTypes = {
-  mainContentChilds: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  mainContentChildren: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+  ]),
 };
