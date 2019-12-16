@@ -34,7 +34,7 @@ export const Layout = ({ children, title }) => {
     <Grommet theme={aries} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <>
+          <Box background="background-back">
             <Head>
               <link rel="icon" href="/static/favicon.ico" />
               <title>
@@ -74,7 +74,7 @@ export const Layout = ({ children, title }) => {
               )}
               <Main flex>{mainContent[0]}</Main>
             </Box>
-          </>
+          </Box>
         )}
       </ResponsiveContext.Consumer>
     </Grommet>

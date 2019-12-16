@@ -16,6 +16,7 @@ export const Subsection = ({ children, name, ...rest }) => {
     <Box
       id={id}
       margin={{ bottom: 'small' }}
+      fill="horizontal"
       gap="small"
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
