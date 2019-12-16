@@ -4,6 +4,8 @@ import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 
+// Depending on the level of the heading, we need to adjust the amount of gap
+// between the heading and the first child in the subsection.
 const GAP_SIZE = {
   1: 'medium',
   2: 'small',
@@ -18,9 +20,26 @@ export const Subsection = ({ children, level, name }) => {
     .join('-')
     .toLowerCase();
 
+  const firstChild = React.Children.map(children, (child, index) => {
+    if (index === 0) {
+      return React.cloneElement(child, {
+        level,
+      });
+    }
+    return undefined;
+  });
+
+  const remainingChildren = React.Children.map(children, (child, index) => {
+    if (index === 0) {
+      return undefined;
+    }
+    return React.cloneElement(child, {
+      level,
+    });
+  });
+
   return (
     <Box
-      align="start"
       as="section"
       id={id}
       margin={{ bottom: 'small' }}
@@ -49,24 +68,9 @@ export const Subsection = ({ children, level, name }) => {
         {/* Isolates the first child to ensure the gap between heading and
          * first child is correct size. See comment on line 33 for reasoning.
          */}
-        {React.Children.map(children, (child, index) => {
-          if (index === 0) {
-            return React.cloneElement(child, {
-              level,
-            });
-          }
-          return undefined;
-        })}
+        {firstChild}
       </Box>
-      {/* Renders rest of children */}
-      {React.Children.map(children, (child, index) => {
-        if (index === 0) {
-          return undefined;
-        }
-        return React.cloneElement(child, {
-          level,
-        });
-      })}
+      {remainingChildren}
     </Box>
   );
 };
