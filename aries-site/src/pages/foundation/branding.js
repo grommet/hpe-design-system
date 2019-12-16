@@ -10,6 +10,18 @@ import {
 } from '../../layouts';
 import { MainHeading } from '../../components';
 
+const HpeElementExample = () => {
+  return (
+    <Box direction="row" align="center" gap="medium">
+      <Hpe color="brand" size="xlarge" />
+      <Box direction="row" gap="xsmall">
+        <Text weight="bold">HPE</Text>
+        <Text>Service Name</Text>
+      </Box>
+    </Box>
+  );
+};
+
 const title = 'Branding';
 
 const Branding = () => (
@@ -24,26 +36,14 @@ const Branding = () => (
           themeMode="light"
           pad={{ horizontal: 'large', vertical: 'small' }}
         >
-          <Box direction="row" align="center" gap="medium">
-            <Hpe color="brand" size="xlarge" />
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>Service Name</Text>
-            </Box>
-          </Box>
+          <HpeElementExample />
         </UsageExample>
         <UsageExample
           label="hpe-element-invert"
           themeMode="dark"
           pad={{ horizontal: 'large', vertical: 'small' }}
         >
-          <Box direction="row" align="center" gap="medium">
-            <Hpe color="brand" size="xlarge" />
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>Service Name</Text>
-            </Box>
-          </Box>
+          <HpeElementExample />
         </UsageExample>
       </Subsection>
     </ContentSection>
