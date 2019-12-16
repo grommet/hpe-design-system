@@ -11,7 +11,7 @@ export const Layout = ({ children, title, isLanding }) => {
     <Grommet theme={aries} full>
       <Head title={title} />
       <Header showLinks={!isLanding} />
-      {!isLanding ? <NavLayout mainContentChilds={children} /> : children}
+      {!isLanding ? <NavLayout mainContentChildren={children} /> : children}
     </Grommet>
   );
 };
