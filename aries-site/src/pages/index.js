@@ -3,6 +3,7 @@ import { initialize, pageview } from 'react-ga';
 import { Config } from '../../config';
 
 import About from './start/about';
+// import Landing from './landing/landing';
 
 const Index = () => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const Index = () => {
     }
   }, []);
 
+  // return <Landing />;
   return <About />;
 };
 
