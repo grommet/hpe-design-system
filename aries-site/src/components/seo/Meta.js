@@ -66,9 +66,9 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
       {twitterHandle && (
         <meta key="twitter:site" name="twitter:site" content={twitterHandle} />
       )}
-      {/* Tempted to combine these conditionals? Be careful or they won't be
-       * correctly picked up by clientside rendering. See comment above about
-       * max levels of <React.Fragment /> in <Head />
+      {/* Tempted to combine these conditionals? Be careful. If nested, they
+       * won't be correctly picked up by clientside rendering. See comment above
+       * about max levels of <React.Fragment /> in <Head />
        */}
       {twitterHandle && (
         <meta
