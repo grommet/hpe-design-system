@@ -26,6 +26,8 @@ import {
 const title = 'Color';
 
 const TextExample = ({ color, hex }) => {
+  const textSize = 'small';
+
   return (
     <Box align="center" margin={{ horizontal: 'small' }}>
       <Box direction="row" align="center">
@@ -36,10 +38,12 @@ const TextExample = ({ color, hex }) => {
           a
         </Text>
       </Box>
-      <Text color={color} weight={600}>
+      <Text color={color} weight={600} size={textSize}>
         {color}
       </Text>
-      <Text color={color}>{hex}</Text>
+      <Text color={color} size={textSize}>
+        {hex}
+      </Text>
     </Box>
   );
 };
