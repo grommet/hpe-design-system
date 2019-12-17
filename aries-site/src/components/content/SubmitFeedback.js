@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Text } from 'grommet';
+import { Anchor } from 'aries-core';
 import { ContentSection, Subsection } from '../../layouts/content';
 import { SubsectionText } from '.';
 
@@ -14,11 +14,7 @@ export const SubmitFeedback = () => {
         <Anchor
           href="https://github.com/hpe-design/aries/issues"
           target="_blank"
-          label={
-            <Text weight={400} size="large">
-              Open page in Github
-            </Text>
-          }
+          label="Open page in Github"
         />
       </Subsection>
     </ContentSection>
