@@ -131,7 +131,6 @@ export const aries = deepMerge(hpe, {
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format('woff');
           font-weight: 100;
         }`,
-      weight: 100,
     },
     active: {
       background: 'active-background',
