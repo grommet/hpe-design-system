@@ -1,75 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
-import { AnchorGroup, Nav } from 'aries-core';
+import { Grommet } from 'grommet';
 
 import { aries } from '../../themes/aries';
-import { SideBar, SideBarItemList } from '../navigation';
+import { Header, Head, SidebarLayout } from '..';
 
-const filterChildren = (children, type) => {
-  const filteredChildren = React.Children.map(children, child => {
-    return child.props[type] ? child : null;
-  });
-
-  if (filteredChildren.length > 1) {
-    console.warn(
-      `Expected a single ${type}, received ${filteredChildren.length}.`,
-      `Only first ${type} element will be rendered.`,
-    );
-  }
-
-  return filteredChildren;
-};
-
-export const Layout = ({ children }) => {
-  // Only expect a single child of the following types
-  const mainContent = filterChildren(children, 'MainContent');
-
-  // TODO selectedNav should be retrived from aries-core
-  // as the selected element of the NavBar
-  const selectedNav = 'start';
-
+export const Layout = ({ children, title, isLanding }) => {
   return (
     <Grommet theme={aries} full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <>
-            <Nav title="Aries" background="background-subtle">
-              <AnchorGroup
-                items={[
-                  { label: 'Start', href: '/start/about' },
-                  { label: 'Foundation', href: '/foundation/primer' },
-                  { label: 'Design', href: '/design/primer' },
-                  { label: 'Develop', href: '/develop/code' },
-                  { label: 'Resources', href: '/resources/examples' },
-                ]}
-              />
-            </Nav>
-            <Box
-              direction="row"
-              // pad uses Nav pad from aries-core
-              pad={{
-                horizontal: size !== 'small' ? 'xlarge' : 'large',
-                vertical: 'large',
-              }}
-            >
-              {size !== 'small' && (
-                <Box fill="vertical">
-                  <SideBar
-                    items={SideBarItemList[selectedNav]}
-                    prefix={selectedNav}
-                  />
-                </Box>
-              )}
-              <Main flex>{mainContent[0]}</Main>
-            </Box>
-          </>
-        )}
-      </ResponsiveContext.Consumer>
+      <Head title={title} />
+      <Header showLinks={!isLanding} />
+      {!isLanding ? <SidebarLayout mainContentChildren={children} /> : children}
     </Grommet>
   );
 };
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  isLanding: PropTypes.bool,
+  title: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  title: undefined,
+  isLanding: false,
 };
