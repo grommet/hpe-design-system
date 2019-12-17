@@ -7,7 +7,7 @@ export const SubmitFeedback = () => {
   return (
     <ContentSection lastSection>
       <Subsection name="Still have questions?" level={2}>
-        <SubsectionText size="large">
+        <SubsectionText>
           Something missing or looking for more information? Edit or open an
           issue on Github to help us make HPE Aries better.
         </SubsectionText>

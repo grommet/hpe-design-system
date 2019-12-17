@@ -31,6 +31,6 @@ Anchor.propTypes = {
 
 Anchor.defaultProps = {
   label: undefined,
-  size: 'large',
+  size: 'medium',
   weight: 400,
 };
