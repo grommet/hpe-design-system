@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { css } from 'styled-components';
 
 const baseSpacing = 24;
 
@@ -156,6 +157,9 @@ export const aries = deepMerge(hpe, {
     border: {
       radius: '6px',
     },
+    extend: css`
+      ${props => !props.plain && 'font-weight: bold;'}
+    `,
   },
   heading: {
     level: {
