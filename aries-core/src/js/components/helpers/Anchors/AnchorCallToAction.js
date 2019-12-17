@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Anchor } from 'grommet';
 import { FormNext } from 'grommet-icons';
 
-export const AnchorCallToAction = ({ color, ...rest }) => (
-  <Anchor color={color} icon={<FormNext />} reverse {...rest} />
+export const AnchorCallToAction = ({ color, size, ...rest }) => (
+  <Anchor color={color} icon={<FormNext />} reverse size={size} {...rest} />
 );
 
 AnchorCallToAction.defaultProps = {
   color: 'brand',
+  size: 'medium',
 };
 
 AnchorCallToAction.propTypes = {
@@ -19,4 +20,5 @@ AnchorCallToAction.propTypes = {
       light: PropTypes.string,
     }),
   ]),
+  size: PropTypes.string,
 };

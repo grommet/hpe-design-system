@@ -6,7 +6,9 @@ export const NavLink = ({ active, children, label, size, ...rest }) => {
   const textColor = 'text-strong';
   const activeFontWeight = 700;
   const defaultFontWeight = 400;
-  const [fontWeight, setFontWeight] = useState(active ? activeFontWeight : defaultFontWeight);
+  const [fontWeight, setFontWeight] = useState(
+    active ? activeFontWeight : defaultFontWeight,
+  );
 
   return (
     <Anchor
