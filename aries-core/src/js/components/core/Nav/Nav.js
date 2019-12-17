@@ -8,6 +8,7 @@ const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 export const Nav = ({ href, title, children, background, pad }) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
+  const textSize = 'small';
 
   return (
     <Box background={background}>
@@ -24,10 +25,12 @@ export const Nav = ({ href, title, children, background, pad }) => {
       >
         <Button href={href}>
           <Box direction="row" align="center" gap="medium">
-            <Hpe color="#01a982" size="large" />
+            <Hpe color="brand" size="large" />
             <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>{title}</Text>
+              <Text weight="bold" size={textSize}>
+                HPE
+              </Text>
+              <Text size={textSize}>{title}</Text>
             </Box>
           </Box>
         </Button>
