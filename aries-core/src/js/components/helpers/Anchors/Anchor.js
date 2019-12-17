@@ -4,6 +4,9 @@ import { Anchor as GrommetAnchor, Box, Text } from 'grommet';
 
 export const Anchor = ({ label, size, weight, ...rest }) => {
   return (
+    // Bottom border allows for anchor underline without having
+    // the underline intercept with descenders (portion of text
+    // that extends below baseline)
     <Box border={{ color: 'text', side: 'bottom' }} alignSelf="start">
       <GrommetAnchor
         label={
