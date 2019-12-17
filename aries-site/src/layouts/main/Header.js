@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { AnchorGroup, Nav } from 'aries-core';
 
 export const Header = ({ showLinks }) => (
-  <Nav title="Aries">
+  <Nav title="Design System">
     {showLinks && (
       <AnchorGroup
         items={[
