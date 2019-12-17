@@ -43,6 +43,7 @@ export const Subsection = ({ children, level, name }) => {
       as="section"
       id={id}
       margin={{ bottom: 'small' }}
+      fill="horizontal"
       gap="small"
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
