@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SubmitFeedback } from '../../components/content';
 
 export const MainContent = ({ children }) => {
   return (
     <>
-      {children &&
-        (children.length > 1
-          ? React.Children.map(children, (child, index) => {
-              return React.cloneElement(child, {
-                lastSection: index === children.length - 1,
-              });
-            })
-          : React.cloneElement(children, {
-              lastSection: true,
-            }))}
+      {children}
+      <SubmitFeedback />
     </>
   );
 };
