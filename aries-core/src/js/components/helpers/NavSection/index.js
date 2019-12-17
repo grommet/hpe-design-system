@@ -13,9 +13,11 @@ export const NavSection = ({ children, lastSection }) => {
           : undefined
       }
       pad={
-        size !== 'small' && {
-          right: !lastSection && 'medium',
-        }
+        size !== 'small'
+          ? {
+              right: !lastSection ? 'medium' : undefined,
+            }
+          : undefined
       }
       direction={size !== 'small' ? 'row' : 'column'}
       gap="xsmall"
