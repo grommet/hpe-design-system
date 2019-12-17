@@ -128,53 +128,52 @@ const Color = () => (
           a consistent reading experience throughout HPE.
         </Text>
         <AnchorCallToAction label="Typography Elements" href="#" />
-        <Subsection name="Text Color Palette">
-          <Text>
-            Text colors have two states when working on different background
-            contexts; depending on background the text can invert to accomodate
-            a dark mode. To ensure text maintains readability, we avoid color
-            use with the exception of call to actions such as hyperlinks and
-            anchors.
-          </Text>
-          <UsageExample
-            themeMode="light"
-            label="Light Background"
-            align="center"
-            height="small"
-            justify="between"
-            pad={{ horizontal: 'large', bottom: 'medium' }}
-          >
-            {textColors &&
-              textColors.map(color => {
-                return (
-                  <TextExample
-                    key={color.name}
-                    color={color.name}
-                    hex={color.hex.light}
-                  />
-                );
-              })}
-          </UsageExample>
-          <UsageExample
-            themeMode="dark"
-            label="Dark Background"
-            align="center"
-            height="small"
-            justify="between"
-            pad={{ horizontal: 'large', bottom: 'medium' }}
-          >
-            {textColors &&
-              textColors.map(color => {
-                return (
-                  <TextExample
-                    key={color.name}
-                    color={color.name}
-                    hex={color.hex.dark}
-                  />
-                );
-              })}
-          </UsageExample>
-        </Subsection>
+      </Subsection>
+      <Subsection name="Text Color Palette" level={3}>
+        <Text>
+          Text colors have two states when working on different background
+          contexts; depending on background the text can invert to accomodate a
+          dark mode. To ensure text maintains readability, we avoid color use
+          with the exception of call to actions such as hyperlinks and anchors.
+        </Text>
+        <UsageExample
+          themeMode="light"
+          label="Light Background"
+          align="center"
+          height="small"
+          justify="between"
+          pad={{ horizontal: 'large', bottom: 'medium' }}
+        >
+          {textColors &&
+            textColors.map(color => {
+              return (
+                <TextExample
+                  key={color.name}
+                  color={color.name}
+                  hex={color.hex.light}
+                />
+              );
+            })}
+        </UsageExample>
+        <UsageExample
+          themeMode="dark"
+          label="Dark Background"
+          align="center"
+          height="small"
+          justify="between"
+          pad={{ horizontal: 'large', bottom: 'medium' }}
+        >
+          {textColors &&
+            textColors.map(color => {
+              return (
+                <TextExample
+                  key={color.name}
+                  color={color.name}
+                  hex={color.hex.dark}
+                />
+              );
+            })}
+        </UsageExample>
       </Subsection>
     </ContentSection>
   </PageLayout>

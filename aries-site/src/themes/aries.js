@@ -167,7 +167,7 @@ export const aries = deepMerge(hpe, {
         medium: fontSizing(3),
       },
       3: {
-        medium: fontSizing(0),
+        medium: fontSizing(1),
       },
     },
     weight: 700,
