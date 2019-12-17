@@ -178,6 +178,12 @@ export const aries = deepMerge(hpe, {
     large: fontSizing(1),
     xlarge: fontSizing(2),
   },
+  paragraph: {
+    small: fontSizing(-0.3),
+    medium: fontSizing(0),
+    large: fontSizing(1),
+    xlarge: fontSizing(2),
+  },
 });
 
 export const { colors } = aries.global;

@@ -10,7 +10,12 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { MainDescription, LastUpdated, MainHeading } from '../../components';
+import {
+  MainDescription,
+  LastUpdated,
+  MainHeading,
+  SubsectionText,
+} from '../../components';
 import {
   greyscaleColors,
   primaryColors,
@@ -60,14 +65,23 @@ const Color = () => (
       </Box>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Primary" headingSize="small">
-        <Text>
+      <Subsection name="Color Palettes">
+        <SubsectionText>
+          Color is a key way we express our brand. Using color on interface
+          elements, how typography is presented, displaying data visualizations,
+          and adjusting context of the experience to light and dark are just
+          some of the ways we illustrate our brand.
+        </SubsectionText>
+        <AnchorCallToAction label="Color Principles" />
+      </Subsection>
+      <Subsection name="Brand Color" level={3}>
+        <SubsectionText>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
           and should be evident in every communication wherever possible. Always
           use the custom color specifications seen here to maintain consistency
           across channels and media.
-        </Text>
+        </SubsectionText>
         {primaryColors && (
           <Box margin={{ top: 'medium' }}>
             {primaryColors.map(color => {
@@ -76,12 +90,15 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-      <Subsection name="Supporting" headingSize="small">
-        <Text>
-          Our supporting color palette enhances data visualization and
-          storytelling by amplifying vibrant colors for a more elegant look and
-          feel and creates contrast to our our core color.
-        </Text>
+      <Subsection name="Core Palette" level={3}>
+        <SubsectionText>
+          HPE Core colors provide a set of swatches that compliment HPE Green
+          and help establish the vibrant experience HPE embraces. We use
+          "emphasis" as a way to show the importance and use the most vibrant
+          hue on light or dark contexts. To maintain accessibility requirements,
+          it's important to be mindful of how the aspects of the color library
+          are used in conjunction with the Core colors.
+        </SubsectionText>
         {supportingColors && (
           <Box margin={{ top: 'medium' }}>
             {supportingColors.map(color => {
@@ -90,12 +107,12 @@ const Color = () => (
           </Box>
         )}
       </Subsection>
-      <Subsection name="Greyscale" headingSize="small">
-        <Text>
+      <Subsection name="Greyscale" level={3}>
+        <SubsectionText>
           The greyscale palette offers a set of steps that can be using in
           tertiary elements to to create more subtle separation to ensure
           content has a balanced composition.
-        </Text>
+        </SubsectionText>
         {greyscaleColors && (
           <Box margin={{ top: 'medium' }}>
             {greyscaleColors.map(color => {
