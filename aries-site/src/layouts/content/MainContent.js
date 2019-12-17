@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SubmitFeedback } from '../../components/content';
 
 export const MainContent = ({ children }) => {
-  return (
-    <>
-      {children}
-      <SubmitFeedback />
-    </>
-  );
+  return <>{children}</>;
 };
 
 MainContent.defaultProps = {
