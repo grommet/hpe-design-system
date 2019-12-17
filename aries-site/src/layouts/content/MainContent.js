@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SubmitFeedback } from '../../components/content/SubmitFeedback';
+import { SubmitFeedback } from '../../components/content';
 
 export const MainContent = ({ children }) => {
   return (
