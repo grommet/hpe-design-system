@@ -12,9 +12,4 @@ export const PageLayout = ({ children, ...rest }) => (
 
 PageLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  title: PropTypes.string,
-};
-
-PageLayout.defaultProps = {
-  title: undefined,
 };
