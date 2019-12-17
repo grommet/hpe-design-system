@@ -4,6 +4,7 @@ import { Box, Text } from 'grommet';
 
 export const ColorRow = ({ colorSpec }) => {
   const { value, name, hex } = colorSpec;
+  const textSize = 'small';
 
   return (
     <Box
@@ -12,8 +13,10 @@ export const ColorRow = ({ colorSpec }) => {
       pad={{ horizontal: 'medium', vertical: 'small' }}
       justify="between"
     >
-      <Text weight={500}>{name}</Text>
-      <Text>{hex}</Text>
+      <Text size={textSize} weight={500}>
+        {name}
+      </Text>
+      <Text size={textSize}>{hex}</Text>
     </Box>
   );
 };
