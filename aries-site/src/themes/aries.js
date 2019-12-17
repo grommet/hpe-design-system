@@ -167,7 +167,7 @@ export const aries = deepMerge(hpe, {
         medium: fontSizing(3),
       },
       3: {
-        medium: fontSizing(0),
+        medium: fontSizing(1),
       },
     },
     weight: 700,
@@ -185,3 +185,5 @@ export const aries = deepMerge(hpe, {
     xlarge: fontSizing(2),
   },
 });
+
+export const { colors } = aries.global;
