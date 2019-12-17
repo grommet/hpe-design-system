@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
-import { Subheading } from '../../components';
+import { Subheading, SubsectionText } from '../../components';
 
 // Depending on the level of the heading, we need to adjust the amount of gap
 // between the heading and the first child in the subsection.
 const GAP_SIZE = {
-  1: 'medium',
+  1: 'large',
   2: 'small',
   3: undefined,
 };
 
-export const Subsection = ({ children, level, name }) => {
+export const Subsection = ({ children, level, name, topic }) => {
   const [over, setOver] = useState(false);
 
   const id = name
@@ -44,7 +44,7 @@ export const Subsection = ({ children, level, name }) => {
       id={id}
       margin={{ bottom: 'small' }}
       fill="horizontal"
-      gap="small"
+      gap={level !== 1 ? 'small' : 'medium'}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
@@ -57,7 +57,10 @@ export const Subsection = ({ children, level, name }) => {
        */}
       <Box gap={GAP_SIZE[level]}>
         <Header>
-          <Subheading level={level}>{name}</Subheading>
+          <Box>
+            {level === 1 && topic && <SubsectionText>{topic}</SubsectionText>}
+            <Subheading level={level}>{name}</Subheading>
+          </Box>
           {level > 1 && (
             <Anchor
               a11yTitle={`Jump to section titled ${name}`}
@@ -81,8 +84,10 @@ Subsection.propTypes = {
     .isRequired,
   level: PropTypes.number,
   name: PropTypes.string.isRequired,
+  topic: PropTypes.string,
 };
 
 Subsection.defaultProps = {
   level: 2,
+  topic: undefined,
 };
