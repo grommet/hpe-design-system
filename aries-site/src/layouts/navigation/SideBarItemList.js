@@ -8,6 +8,7 @@ export const SideBarItemList = {
     'Layout',
     'Iconography',
   ],
+  components: [],
   design: [
     'Primer',
     'Navigation',
