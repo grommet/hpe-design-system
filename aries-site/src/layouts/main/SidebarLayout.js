@@ -27,7 +27,7 @@ export const SidebarLayout = ({ mainContentChildren }) => {
 
   // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
-  const selectedNav = 'start';
+  const selectedNav = 'guidelines';
   return (
     <ResponsiveContext.Consumer>
       {size => (
