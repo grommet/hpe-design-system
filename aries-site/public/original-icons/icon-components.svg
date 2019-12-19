@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="42" height="48" x="12" y="36" stroke="#000" stroke-width="4" rx="4" transform="matrix(1 0 0 -1 0 120)"/>
+    <rect width="18" height="48" x="66" y="36" stroke="#000" stroke-width="4" rx="4" transform="matrix(1 0 0 -1 0 120)"/>
+    <rect width="12" height="12" x="12" y="12" stroke="#000" stroke-width="4" rx="4" transform="matrix(1 0 0 -1 0 36)"/>
+    <rect width="48" height="12" x="36" y="12" stroke="#000" stroke-width="4" rx="4" transform="matrix(1 0 0 -1 0 36)"/>
+  </g>
+</svg>
