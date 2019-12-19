@@ -37,5 +37,5 @@ SideBarItem.propTypes = {
 
 SideBarItem.defaultProps = {
   item: '',
-  prefix: 'start',
+  prefix: 'guidelines',
 };

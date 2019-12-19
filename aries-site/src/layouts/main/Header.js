@@ -8,7 +8,7 @@ export const Header = ({ showLinks }) => (
     {showLinks && (
       <AnchorGroup
         items={[
-          { label: 'Start', href: '/start/about' },
+          { label: 'Guidelines', href: '/guidelines/about' },
           { label: 'Foundation', href: '/foundation/primer' },
           { label: 'Design', href: '/design/primer' },
           { label: 'Develop', href: '/develop/code' },
