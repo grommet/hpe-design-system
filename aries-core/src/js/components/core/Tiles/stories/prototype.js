@@ -42,7 +42,6 @@ export const Prototype = () => (
         {[1, 2, 3, 4, 5, 6, 7, 8].map(value => (
           <Tile
             background="white"
-            elevation=""
             key={`Tile ${value}`}
             pad={{ horizontal: 'small', top: 'small' }}
             onClick={() => {}}

@@ -10,7 +10,7 @@ export const Tile = ({ children, heading, pad, ...rest }) => {
     pad === true ? { horizontal: 'small', top: 'small', bottom: 'small' } : pad;
 
   return (
-    <Box elevation="medium" round="small" overflow="hidden" {...rest}>
+    <Box round="small" overflow="hidden" {...rest}>
       {heading && (
         <Header pad={tilePad}>
           <Heading level={2} size="xsmall" margin="none">

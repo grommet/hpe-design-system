@@ -18,7 +18,7 @@ import { hpeFont } from './prototype';
 export const TileHeader = () => (
   <Grommet theme={hpeFont} full>
     <Tiles margin="large">
-      <Tile height="medium" width="medium">
+      <Tile height="medium" width="medium" elevation="medium">
         <Header pad="small">
           <Heading level={4} size="xsmall">
             Custom Header
@@ -33,10 +33,7 @@ export const TileHeader = () => (
           </Paragraph>
         </Box>
         <Box flex />
-        <Footer
-          pad="medium"
-          background="light-4"
-        >
+        <Footer pad="medium" background="light-4">
           Hi! I'm a Footer
         </Footer>
       </Tile>
