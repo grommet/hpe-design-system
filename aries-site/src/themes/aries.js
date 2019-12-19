@@ -21,9 +21,10 @@ const fontSizing = factor => {
 
 export const aries = deepMerge(hpe, {
   spacing: baseSpacing,
-  defaultMode: 'dark',
+  // defaultMode: 'light',
   global: {
     colors: {
+      icon: 'text',
       brand: 'green!',
       background: {
         dark: '#1A1F2B',
