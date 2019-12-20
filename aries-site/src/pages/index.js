@@ -32,7 +32,7 @@ const Index = () => {
       <Box gap="large">
         <HomeTiles>
           <Tile background="white">
-            <Image src="/image-hands.png" />
+            <Image src="/image-hands.png" fit="cover" />
           </Tile>
           <IntroTile background="white" />
         </HomeTiles>
