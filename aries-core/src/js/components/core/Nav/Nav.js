@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
@@ -5,7 +6,15 @@ import { Close, Hpe, Menu } from 'grommet-icons';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
-export const Nav = ({ href, title, children, background, pad }) => {
+export const Nav = ({
+  href,
+  title,
+  children,
+  background,
+  brandOnly,
+  noCollapse,
+  pad,
+}) => {
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
   const textSize = 'small';
@@ -23,40 +32,45 @@ export const Nav = ({ href, title, children, background, pad }) => {
           }
         }
       >
-        <Button href={href}>
+        <Button
+          href={href}
+          margin={{ right: brandOnly ? 'medium' : undefined }}
+        >
           <Box direction="row" align="center" gap="medium">
             <Hpe color="brand" size="large" />
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold" size={textSize}>
-                HPE
-              </Text>
-              <Text size={textSize}>{title}</Text>
-            </Box>
+            {!brandOnly && (
+              <Box direction="row" gap="xsmall">
+                <Text weight="bold" size={textSize}>
+                  HPE
+                </Text>
+                <Text size={textSize}>{title}</Text>
+              </Box>
+            )}
           </Box>
         </Button>
         <Box direction="row" gap="medium" align="center">
-          {children &&
-            // eslint-disable-next-line no-nested-ternary
-            (size !== 'small' ? (
-              children.length > 1 ? (
-                children.map((child, index) => {
-                  return React.cloneElement(child, {
-                    lastSection: index === children.length - 1,
-                    key: index,
-                  });
-                })
-              ) : (
-                React.cloneElement(children, {
-                  lastSection: true,
-                })
-              )
+          {children && noCollapse ? (
+            children
+          ) : size !== 'small' ? (
+            children.length > 1 ? (
+              children.map((child, index) => {
+                return React.cloneElement(child, {
+                  lastSection: index === children.length - 1,
+                  key: index,
+                });
+              })
             ) : (
-              <Button
-                icon={!open ? <Menu /> : <Close />}
-                onClick={() => setOpen(!open)}
-                plain
-              />
-            ))}
+              React.cloneElement(children, {
+                lastSection: true,
+              })
+            )
+          ) : (
+            <Button
+              icon={!open ? <Menu /> : <Close />}
+              onClick={() => setOpen(!open)}
+              plain
+            />
+          )}
         </Box>
       </Box>
       {size === 'small' && (
