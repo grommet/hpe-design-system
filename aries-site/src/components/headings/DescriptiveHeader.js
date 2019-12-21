@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Heading, Paragraph, Box } from 'grommet';
+import { Heading, Paragraph, Box, ResponsiveContext } from 'grommet';
 
 export const DescriptiveHeader = ({ subText, icon, title, ...rest }) => {
+  const size = useContext(ResponsiveContext);
   return (
-    <Box fill direction="row" gap="large" pad={{ vertical: 'large' }} {...rest}>
-      {icon('xxlarge')}
+    <Box
+      fill
+      gap="large"
+      pad={{ vertical: 'large' }}
+      direction={size !== 'small' ? 'row' : 'column'}
+      {...rest}
+    >
+      {icon(size !== 'small' ? 'xxlarge' : 'xlarge')}
       <Box>
         <Heading level={1} margin={{ vertical: 'none' }}>
           {title}

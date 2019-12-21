@@ -10,7 +10,9 @@ const calcPad = size => {
   return val;
 };
 
-export const Layout = ({ children, title, isLanding }) => {
+export const Layout = ({ children, descriptiveHeader, title, isLanding }) => {
+  // If a DescriptiveHeader is provided, then it should be a NavPage
+  const isNavPage = descriptiveHeader;
   return (
     <Grommet theme={aries} full>
       <ResponsiveContext.Consumer>
@@ -21,12 +23,39 @@ export const Layout = ({ children, title, isLanding }) => {
             margin="auto"
           >
             <Head title={title} />
-            <Header showLinks={!isLanding} />
-            {!isLanding ? (
+            <Header
+              showLinks={!isLanding && !isNavPage}
+              background={
+                descriptiveHeader && descriptiveHeader.props.background
+              }
+            />
+            {!isLanding && !isNavPage ? (
               <SidebarLayout mainContentChildren={children} />
             ) : (
-              // aligns with responsive padding for aries-core Nav
-              <Main pad={{horizontal: calcPad(size), bottom: calcPad(size), top: "medium"}}>{children}</Main>
+              <Main>
+                {/* Allows DescriptiveHeader background color not to be confined
+                 * by formatting restrictions of page content
+                 */}
+                {descriptiveHeader &&
+                  React.cloneElement(descriptiveHeader, {
+                    pad: {
+                      horizontal: calcPad(size),
+                      bottom: calcPad(size),
+                      top: 'xlarge',
+                    },
+                    round: { corner: 'bottom', size: 'medium' },
+                  })}
+                {/* aligns with responsive padding for aries-core Nav */}
+                <Box
+                  pad={{
+                    horizontal: calcPad(size),
+                    bottom: calcPad(size),
+                    top: 'medium',
+                  }}
+                >
+                  {children}
+                </Box>
+              </Main>
             )}
           </Box>
         )}
@@ -37,11 +66,13 @@ export const Layout = ({ children, title, isLanding }) => {
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,
   title: PropTypes.string,
 };
 
 Layout.defaultProps = {
+  descriptiveHeader: undefined,
   title: undefined,
   isLanding: false,
 };
