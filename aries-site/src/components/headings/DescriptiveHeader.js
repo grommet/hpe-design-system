@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Heading, Paragraph, Box } from 'grommet';
 
 export const DescriptiveHeader = ({ subText, icon, title, ...rest }) => {
+const size = useContext(ResponsiveContext);
   return (
     <Box fill direction="row" gap="large" pad={{ vertical: 'large' }} {...rest}>
       {icon('xxlarge')}
