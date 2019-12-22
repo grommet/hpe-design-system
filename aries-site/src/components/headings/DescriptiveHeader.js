@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Heading, Paragraph, Box } from 'grommet';
+import { Heading, Paragraph, Box, ResponsiveContext } from 'grommet';
 
 export const DescriptiveHeader = ({ subText, icon, title, ...rest }) => {
 const size = useContext(ResponsiveContext);
