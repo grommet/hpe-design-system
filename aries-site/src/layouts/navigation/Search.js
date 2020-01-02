@@ -85,11 +85,10 @@ export const Search = ({ focused, setFocused }) => {
       onFocus={() => setFocused(true)}
       pad={{ right: 'small' }}
       round="small"
-      tabIndex={focused ? -1 : 0}
       width={size !== 'small' || focused ? 'medium' : undefined}
     >
       {size !== 'small' || focused ? (
-        <Keyboard onEnter={onEnter}>
+        <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
           <TextInput
             ref={inputRef}
             dropTarget={boxRef.current}
