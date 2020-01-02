@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, Paragraph } from 'grommet';
+import { Box, Text, Paragraph, ResponsiveContext } from 'grommet';
 import { iconsMap } from '../../components/icons/iconsMap';
 
 import { navItemsData } from './navItemsData';
 
 const NavItem = ({ item, prefix }) => {
+  const size = useContext(ResponsiveContext);
   const itemLowerCase = item.toLowerCase();
   return (
     <Box
@@ -13,11 +14,11 @@ const NavItem = ({ item, prefix }) => {
       direction="row"
       margin={{ vertical: 'large' }}
       onClick={() => (window.location.href = `/${prefix}/${itemLowerCase}`)}
-      gap="large"
+      gap={size !== 'small' ? 'large' : 'medium'}
     >
       {iconsMap[itemLowerCase]('xlarge')}
       <Box>
-        <Text weight="bold" size="large">
+        <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
           {item}
         </Text>
         <Paragraph size="small">
