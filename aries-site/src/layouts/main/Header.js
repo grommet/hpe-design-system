@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { AnchorGroup, Nav } from 'aries-core';
 
-export const Header = ({ background, showLinks }) => (
-  <Nav title="Design System" background={background}>
+export const Header = ({ showLinks, ...rest }) => (
+  <Nav title="Design System" {...rest}>
     {showLinks && (
       <AnchorGroup
         items={[
@@ -20,11 +20,9 @@ export const Header = ({ background, showLinks }) => (
 );
 
 Header.propTypes = {
-  background: PropTypes.string,
   showLinks: PropTypes.bool,
 };
 
 Header.defaultProps = {
-  background: undefined,
   showLinks: true,
 };
