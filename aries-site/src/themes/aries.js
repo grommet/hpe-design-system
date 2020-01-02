@@ -199,6 +199,11 @@ export const aries = deepMerge(hpe, {
     },
     weight: 700,
   },
+  icon: {
+    size: {
+      xxlarge: '166px',
+    },
+  },
   text: {
     small: fontSizing(0),
     medium: fontSizing(1),
