@@ -12,7 +12,7 @@ export const Nav = ({
   children,
   background,
   brandOnly,
-  noCollapse,
+  collapse,
   pad,
 }) => {
   const size = useContext(ResponsiveContext);
@@ -49,7 +49,7 @@ export const Nav = ({
           </Box>
         </Button>
         <Box direction="row" gap="medium" align="center">
-          {children && noCollapse ? (
+          {children && !collapse ? (
             children
           ) : size !== 'small' ? (
             children.length > 1 ? (
@@ -93,11 +93,13 @@ export const Nav = ({
 };
 
 Nav.propTypes = {
+  brandOnly: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.array,
     PropTypes.node,
   ]),
+  collapse: PropTypes.bool,
   href: PropTypes.string,
   title: PropTypes.string,
   background: PropTypes.oneOfType([
@@ -134,7 +136,9 @@ Nav.propTypes = {
 };
 
 Nav.defaultProps = {
+  brandOnly: false,
   children: undefined,
+  collapse: true,
   href: '/',
   title: undefined,
   background: undefined,

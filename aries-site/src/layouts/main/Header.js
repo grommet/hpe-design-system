@@ -1,40 +1,21 @@
-import React from 'react';
-<<<<<<< Updated upstream
-import PropTypes from 'prop-types';
-
-import { AnchorGroup, Nav } from 'aries-core';
-
-export const Header = ({ showLinks }) => (
-  <Nav title="Design System">
-    {showLinks && (
-      <AnchorGroup
-        items={[
-          { label: 'Guidelines', href: '/guidelines/about' },
-          { label: 'Foundation', href: '/foundation/primer' },
-          { label: 'Design', href: '/design/primer' },
-          { label: 'Develop', href: '/develop/code' },
-          { label: 'Resources', href: '/resources/examples' },
-        ]}
-      />
-    )}
-  </Nav>
-);
-
-Header.propTypes = {
-  showLinks: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  showLinks: true,
-=======
+import React, { useContext, useState } from 'react';
 import { Nav } from 'aries-core';
+import { ResponsiveContext } from 'grommet';
 import { Search } from '../navigation';
 
 export const Header = () => {
+  const [searchFocused, setSearchFocused] = useState(false);
+  const size = useContext(ResponsiveContext);
   return (
-    <Nav title="Design System" noCollapse>
-      <Search />
+    <Nav
+      title="Design System"
+      collapse={false}
+      brandOnly={size === 'small' && searchFocused}
+    >
+      <Search
+        focused={searchFocused}
+        setFocused={value => setSearchFocused(value)}
+      />
     </Nav>
   );
->>>>>>> Stashed changes
 };
