@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from 'react';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { structure, nameToPath } from '../../data';
@@ -15,18 +16,14 @@ const allSuggestions = structure.sections
   .reduce((acc, val) => acc.concat(val), [])
   .sort();
 
-export const Search = () => {
+export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
   const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(allSuggestions);
-  const [focused, setFocused] = useState(false);
 
   const boxRef = useRef();
   const inputRef = useRef();
-
-  const applyFocusedStyle = size !== 'small' || focused;
-
   // Needed so that boxRef.current is not undefined. Allows suggestions drop
   // to match width of containing box as opposed to just width of text input
   const [, updateState] = useState();
@@ -39,7 +36,7 @@ export const Search = () => {
     if (focused && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [focused]);
+  }, [focused, setFocused]);
 
   const onChange = event => {
     const {
@@ -60,7 +57,6 @@ export const Search = () => {
   };
 
   const onEnter = () => {
-    console.log('enter');
     if (value) {
       if (suggestions.length === 1) {
         router.push(nameToPath(suggestions[0]));
@@ -83,15 +79,16 @@ export const Search = () => {
     <Box
       ref={boxRef}
       align="center"
-      background={applyFocusedStyle ? 'background-front' : undefined}
+      background={size !== 'small' || focused ? 'background-front' : undefined}
       direction="row"
       onClick={() => setFocused(true)}
       onFocus={() => setFocused(true)}
       pad={{ right: 'small' }}
       round="small"
-      width={applyFocusedStyle ? 'medium' : undefined}
+      tabIndex={focused ? -1 : 0}
+      width={size !== 'small' || focused ? 'medium' : undefined}
     >
-      {applyFocusedStyle && (
+      {size !== 'small' || focused ? (
         <Keyboard onEnter={onEnter}>
           <TextInput
             ref={inputRef}
@@ -105,14 +102,14 @@ export const Search = () => {
             dropHeight="small"
             onChange={onChange}
             onSelect={onSelect}
-            // onSuggestionsOpen={() => setFocused(true)}
-            // onSuggestionsClose={() => setFocused(false)}
             placeholder="Search HPE Design System"
             plain
             suggestions={suggestions}
             value={value}
           />
         </Keyboard>
+      ) : (
+        undefined
       )}
       <Box
         pad={
@@ -125,4 +122,9 @@ export const Search = () => {
       </Box>
     </Box>
   );
+};
+
+Search.propTypes = {
+  focused: PropTypes.bool.isRequired,
+  setFocused: PropTypes.func.isRequired,
 };
