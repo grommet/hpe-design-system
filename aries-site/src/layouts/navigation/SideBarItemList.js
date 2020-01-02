@@ -1,12 +1,12 @@
 export const SideBarItemList = {
   guidelines: ['About', 'Principles', 'Usability', 'Inclusiveness', 'Open'],
   foundation: [
-    'Primer',
     'Branding',
     'Color',
     'Typography',
     'Layout',
     'Iconography',
+    'Tokens',
   ],
   components: [],
   design: [
