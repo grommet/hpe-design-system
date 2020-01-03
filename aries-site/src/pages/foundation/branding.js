@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Image, Text } from 'grommet';
 import { Aruba, Hpe } from 'grommet-icons';
 import { Button } from 'aries-core';
@@ -11,14 +10,6 @@ import {
   UsageExample,
 } from '../../layouts';
 import { SubsectionText } from '../../components';
-
-const ArubaLogoExample = () => {
-  return (
-    <Box direction="column" align="start">
-      <Image src="/static/images/aruba-logo.svg" />
-    </Box>
-  );
-};
 
 const ArubaIconExample = () => {
   const textSize = 'small';
@@ -48,16 +39,6 @@ const HpeElementExample = () => {
         </Text>
         <Text size={textSize}>Service Name</Text>
       </Box>
-    </Box>
-  );
-};
-
-const HpeLogoExample = ({ label }) => {
-  const src = `/static/images/${label}.svg`;
-
-  return (
-    <Box direction="column" align="start">
-      <Image src={src} />
     </Box>
   );
 };
@@ -116,10 +97,10 @@ const Branding = () => (
           depending on the layout; neither placement is necessarily preferred.
         </SubsectionText>
         <UsageExample label="hpe-logo" themeMode="light">
-          <HpeLogoExample label="hpe-logo" />
+          <Image src="/static/images/hpe-logo.svg" />
         </UsageExample>
         <UsageExample label="hpe-logo-invert" themeMode="dark">
-          <HpeLogoExample label="hpe-logo-invert" />
+          <Image src="/static/images/hpe-logo-invert.svg" />
         </UsageExample>
       </Subsection>
       <Subsection name="HPE Element" level={3}>
@@ -161,10 +142,10 @@ const Branding = () => (
           depending on the layout; neither placement is necessarily preferred.
         </SubsectionText>
         <UsageExample label="aruba-logo" themeMode="light">
-          <ArubaLogoExample />
+          <Image src="/static/images/aruba-logo.svg" />
         </UsageExample>
         <UsageExample label="aruba-logo-invert" themeMode="dark">
-          <ArubaLogoExample />
+          <Image src="/static/images/aruba-logo.svg" />
         </UsageExample>
       </Subsection>
       <Subsection name="Aruba Icon" level={3}>
@@ -184,9 +165,5 @@ const Branding = () => (
     </ContentSection>
   </PageLayout>
 );
-
-HpeLogoExample.propTypes = {
-  label: PropTypes.string,
-};
 
 export default Branding;
