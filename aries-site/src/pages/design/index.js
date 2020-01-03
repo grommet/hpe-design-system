@@ -20,7 +20,6 @@ const Design = () => {
 
   return (
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      {/* Swap this out with NavPage once we have the icons available */}
       <NavPage items={SideBarItemList[prefix]} prefix={prefix} />
     </PageLayout>
   );
