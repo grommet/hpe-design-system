@@ -20,7 +20,7 @@ const Philosophy = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Ethos">
+      <Subsection name="Relational">
         <SubsectionText>
           The HPE Design System’s ethos is rooted and thrives in an environment
           of generosity and community. It seeks to share and invite
@@ -30,7 +30,7 @@ const Philosophy = () => (
           the HPE Design System will advance the way people live and work.
         </SubsectionText>
       </Subsection>
-      <Subsection name="Generosity">
+      <Subsection name="Generous">
         <SubsectionText>
           Living generously requires understanding the needs of others. The HPE
           Design System is crafted upon user research and listening to customers
@@ -40,7 +40,7 @@ const Philosophy = () => (
           pursue excellence in its craft for the sake of others.
         </SubsectionText>
       </Subsection>
-      <Subsection name="Integrated but Composable">
+      <Subsection name="Community">
         <SubsectionText>
           Partnering in community allows the HPE Design System to be built upon
           the energy and empowerment of collaboration. The community provides
