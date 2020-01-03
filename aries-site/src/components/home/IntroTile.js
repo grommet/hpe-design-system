@@ -11,7 +11,7 @@ export const IntroTile = () => (
           <Heading level={size === 'medium' ? '2' : '1'} margin="none">
             Building experiences for the people that keep your customers happy
           </Heading>
-          <Paragraph size={size !== 'large' && 'small'} fill>
+          <Paragraph size={size !== 'large' ? 'small' : undefined} fill>
             The HPE Design System is the way Hewlett Packard Enterprise's brand,
             technology, and it's partners share a single language for
             application, web, and digital experiences to answer your customers
