@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import { AnchorGroup, Nav } from 'aries-core';
 
-export const Header = ({ showLinks }) => (
-  <Nav title="Design System">
+export const Header = ({ showLinks, ...rest }) => (
+  <Nav title="Design System" {...rest}>
     {showLinks && (
       <AnchorGroup
         items={[
-          { label: 'Start', href: '/start/about' },
+          { label: 'Guidelines', href: '/guidelines/about' },
           { label: 'Foundation', href: '/foundation/primer' },
           { label: 'Design', href: '/design/primer' },
           { label: 'Develop', href: '/develop/code' },
