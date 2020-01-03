@@ -21,7 +21,7 @@ const Foundation = () => {
   );
 
   return (
-    <PageLayout descriptiveHeader={descriptiveHeader} title={title}>
+    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <NavPage items={SideBarItemList[prefix]} prefix={prefix} />
     </PageLayout>
   );
