@@ -10,9 +10,13 @@ const calcPad = size => {
   return val;
 };
 
-export const Layout = ({ children, descriptiveHeader, title, isLanding }) => {
-  // If a DescriptiveHeader is provided, then it should be a NavPage
-  const isNavPage = descriptiveHeader;
+export const Layout = ({
+  children,
+  descriptiveHeader,
+  title,
+  isLanding,
+  isNavPage,
+}) => {
   return (
     <Grommet theme={aries} full>
       <ResponsiveContext.Consumer>
@@ -68,6 +72,7 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,
+  isNavPage: PropTypes.bool,
   title: PropTypes.string,
 };
 
@@ -75,4 +80,5 @@ Layout.defaultProps = {
   descriptiveHeader: undefined,
   title: undefined,
   isLanding: false,
+  isNavPage: false,
 };
