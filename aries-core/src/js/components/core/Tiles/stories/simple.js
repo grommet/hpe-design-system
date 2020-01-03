@@ -16,7 +16,7 @@ const content = [
 
 const TileCollection = () =>
   content.map((item, index) => (
-    <Tile key={item} pad heading={`Tile ${index + 1}`}>
+    <Tile key={item} pad heading={`Tile ${index + 1}`} elevation="medium">
       {item}
       {index === 0 && (
         <Anchor

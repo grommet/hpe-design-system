@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 
 import { SideBar, SideBarItemList } from '../navigation';
+import { SubmitFeedback } from '../../components/content';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
@@ -26,7 +27,8 @@ export const SidebarLayout = ({ mainContentChildren }) => {
 
   // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
-  const selectedNav = 'start';
+  const selectedNav = 'foundation';
+
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -39,6 +41,10 @@ export const SidebarLayout = ({ mainContentChildren }) => {
               vertical: 'large',
             }}
           >
+            <Main flex>
+              {mainContent[0]}
+              <SubmitFeedback />
+            </Main>
             {size !== 'small' && (
               <Box fill="vertical">
                 <SideBar
@@ -47,7 +53,6 @@ export const SidebarLayout = ({ mainContentChildren }) => {
                 />
               </Box>
             )}
-            <Main flex>{mainContent[0]}</Main>
           </Box>
         </>
       )}

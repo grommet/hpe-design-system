@@ -16,7 +16,7 @@ const About = () => (
     <Meta
       title={title}
       description={description}
-      canonicalUrl="https://aries.hpe.design/start/about"
+      canonicalUrl="https://aries.hpe.design/guidelines/about"
     />
     <ContentSection>
       <MainHeading>{title}</MainHeading>
@@ -32,7 +32,10 @@ const About = () => (
         of learning and building experiences that reach a broader audience.
       </Text>
       <Box direction="row" gap="medium">
-        <AnchorCallToAction label="Our Principles" href="/start/principles" />
+        <AnchorCallToAction
+          label="Our Principles"
+          href="/guidelines/principles"
+        />
         <AnchorCallToAction label="Our Community" href="" />
       </Box>
     </ContentSection>

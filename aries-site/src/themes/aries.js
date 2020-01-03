@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { css } from 'styled-components';
 
 const baseSpacing = 24;
 
@@ -20,9 +21,10 @@ const fontSizing = factor => {
 
 export const aries = deepMerge(hpe, {
   spacing: baseSpacing,
-  defaultMode: 'dark',
+  // defaultMode: 'light',
   global: {
     colors: {
+      icon: 'text',
       brand: 'green!',
       background: {
         dark: '#1A1F2B',
@@ -130,7 +132,6 @@ export const aries = deepMerge(hpe, {
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format('woff');
           font-weight: 100;
         }`,
-      weight: 100,
     },
     active: {
       background: 'active-background',
@@ -156,6 +157,9 @@ export const aries = deepMerge(hpe, {
     border: {
       radius: '6px',
     },
+    extend: css`
+      ${props => !props.plain && 'font-weight: bold;'}
+    `,
   },
   heading: {
     level: {
@@ -171,6 +175,11 @@ export const aries = deepMerge(hpe, {
       },
     },
     weight: 700,
+  },
+  icon: {
+    size: {
+      xxlarge: '166px',
+    },
   },
   text: {
     small: fontSizing(0),

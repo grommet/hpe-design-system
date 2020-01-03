@@ -1,13 +1,14 @@
 export const SideBarItemList = {
-  start: ['About', 'Principles', 'Usability', 'Inclusiveness', 'Open'],
+  guidelines: ['About', 'Principles', 'Usability', 'Inclusiveness', 'Open'],
   foundation: [
-    'Primer',
     'Branding',
     'Color',
     'Typography',
     'Layout',
     'Iconography',
+    'Tokens',
   ],
+  components: [],
   design: [
     'Primer',
     'Navigation',

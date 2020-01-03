@@ -4,24 +4,26 @@ import { Box } from 'grommet';
 import { NavLink } from 'aries-core';
 
 const SideBarItem = ({ item, prefix }) => (
-  <Box pad={{ vertical: 'small' }}>
-    <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
-  </Box>
+  <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
 );
 
-export const SideBar = ({ children, items, prefix }) => {
+export const SideBar = ({ items, prefix }) => {
   return (
-    <Box width="small" margin={{ right: 'medium' }}>
+    <Box
+      border={{ side: 'left' }}
+      gap="medium"
+      margin={{ left: 'xlarge' }}
+      pad={{ left: 'medium' }}
+      width="small"
+    >
       {items.map(item => (
         <SideBarItem item={item} key={item} prefix={prefix} />
       ))}
-      {children}
     </Box>
   );
 };
 
 SideBar.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   items: PropTypes.array,
   prefix: PropTypes.string,
 };
@@ -37,5 +39,5 @@ SideBarItem.propTypes = {
 
 SideBarItem.defaultProps = {
   item: '',
-  prefix: 'start',
+  prefix: 'guidelines',
 };

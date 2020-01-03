@@ -79,7 +79,11 @@ export const Nav = ({ href, title, children, background, pad }) => {
 };
 
 Nav.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+    PropTypes.node,
+  ]),
   href: PropTypes.string,
   title: PropTypes.string,
   background: PropTypes.oneOfType([
