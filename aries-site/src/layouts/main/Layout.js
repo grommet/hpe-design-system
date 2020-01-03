@@ -26,7 +26,15 @@ export const Layout = ({ children, title, isLanding }) => {
               <SidebarLayout mainContentChildren={children} />
             ) : (
               // aligns with responsive padding for aries-core Nav
-              <Main pad={{horizontal: calcPad(size), bottom: calcPad(size), top: "medium"}}>{children}</Main>
+              <Main
+                pad={{
+                  horizontal: calcPad(size),
+                  bottom: calcPad(size),
+                  top: 'medium',
+                }}
+              >
+                {children}
+              </Main>
             )}
           </Box>
         )}
