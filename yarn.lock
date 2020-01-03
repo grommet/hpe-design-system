@@ -6097,8 +6097,8 @@ grommet-theme-hpe@^0.4.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.9.0"
-  uid dd2b38ac7605a29087d414239adf552fb2180973
-  resolved "https://github.com/grommet/grommet/tarball/stable#dd2b38ac7605a29087d414239adf552fb2180973"
+  uid "22c8658007ee9d419fb2a2ea62bc3362bc7f823f"
+  resolved "https://github.com/grommet/grommet/tarball/stable#22c8658007ee9d419fb2a2ea62bc3362bc7f823f"
   dependencies:
     "@testing-library/dom" "^6.1.0"
     "@testing-library/jest-dom" "^4.2.4"
@@ -11517,9 +11517,9 @@ terser@4.4.2:
     source-map-support "~0.5.12"
 
 terser@^4.1.2, terser@^4.3.9:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.5.0.tgz#c93504b3235bd3409dade19c97ed2c185a96ac76"
-  integrity sha512-UEocwHeNeGFbZ2wHJSidpYu4pkEoRI/tyrjWjGYBL8P3MwKsAtprK5ZbHX1MopkHkTSDm6g6vscLxITFMyE3bw==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.5.1.tgz#63b52d6b6ce344aa6fedcd0ee06a695799eb50bd"
+  integrity sha512-lH9zLIbX8PRBEFCTvfHGCy0s9HEKnNso1Dx9swSopF3VUnFLB8DpQ61tHxoofovNC/sG0spajJM3EIIRSTByiQ==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
