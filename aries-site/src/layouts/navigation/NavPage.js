@@ -8,12 +8,17 @@ import { navItemsData } from './navItemsData';
 const NavItem = ({ item, prefix }) => {
   const size = useContext(ResponsiveContext);
   const itemLowerCase = item.toLowerCase();
+  const formattedItem = item
+    .split(' ')
+    .join('-')
+    .toLowerCase();
+
   return (
     <Box
       fill
       direction="row"
       margin={{ vertical: 'large' }}
-      onClick={() => (window.location.href = `/${prefix}/${itemLowerCase}`)}
+      onClick={() => (window.location.href = `/${prefix}/${formattedItem}`)}
       gap={size !== 'small' ? 'large' : 'medium'}
     >
       {/* Adds placeholder icon for the meantime while we wait to get all the icons */}

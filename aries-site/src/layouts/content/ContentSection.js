@@ -8,6 +8,7 @@ export const ContentSection = ({ children, lastSection }) => {
   return (
     <Box
       as="section"
+      align="start"
       border={!lastSection ? { side: 'bottom' } : undefined}
       gap="medium"
       margin={
