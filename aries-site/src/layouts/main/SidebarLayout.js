@@ -27,7 +27,8 @@ export const SidebarLayout = ({ mainContentChildren }) => {
 
   // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
-  const selectedNav = 'guidelines';
+  const selectedNav = 'foundation';
+
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -40,6 +41,10 @@ export const SidebarLayout = ({ mainContentChildren }) => {
               vertical: 'large',
             }}
           >
+            <Main flex>
+              {mainContent[0]}
+              <SubmitFeedback />
+            </Main>
             {size !== 'small' && (
               <Box fill="vertical">
                 <SideBar
@@ -48,10 +53,6 @@ export const SidebarLayout = ({ mainContentChildren }) => {
                 />
               </Box>
             )}
-            <Main flex>
-              {mainContent[0]}
-              <SubmitFeedback />
-            </Main>
           </Box>
         </>
       )}
