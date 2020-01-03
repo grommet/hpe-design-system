@@ -2,7 +2,7 @@ import React from 'react';
 import { PageLayout, SideBar, SideBarItemList } from '../../layouts';
 import { MainHeading } from '../../components';
 
-const title = 'Start';
+const title = 'Guidelines';
 const prefix = title.toLowerCase();
 
 const Guidelines = () => {
