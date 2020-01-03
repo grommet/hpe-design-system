@@ -1,15 +1,29 @@
 import React from 'react';
-import { PageLayout, SideBar, SideBarItemList } from '../../layouts';
-import { MainHeading } from '../../components';
+
+import { PageLayout, NavPage, SideBarItemList } from '../../layouts';
+import { DescriptiveHeader } from '../../components/headings';
+
+import { data } from '../../components/home';
 
 const title = 'Design';
 const prefix = title.toLowerCase();
 
 const Design = () => {
+  const titleObject = data[title];
+
+  const descriptiveHeader = (
+    <DescriptiveHeader
+      background={titleObject.color}
+      subText={titleObject.subTitle}
+      icon={titleObject.icon}
+      title={title}
+    />
+  );
+
   return (
-    <PageLayout title={title} isLanding>
-      <MainHeading>{title}</MainHeading>
-      <SideBar items={SideBarItemList[prefix]} prefix={prefix} />
+    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      {/* Swap this out with NavPage once we have the icons available */}
+      <NavPage items={SideBarItemList[prefix]} prefix={prefix} />
     </PageLayout>
   );
 };

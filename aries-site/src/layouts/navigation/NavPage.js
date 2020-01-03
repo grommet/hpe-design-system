@@ -16,7 +16,10 @@ const NavItem = ({ item, prefix }) => {
       onClick={() => (window.location.href = `/${prefix}/${itemLowerCase}`)}
       gap={size !== 'small' ? 'large' : 'medium'}
     >
-      {iconsMap[itemLowerCase]('xlarge')}
+      {/* Adds placeholder icon for the meantime while we wait to get all the icons */}
+      {iconsMap[itemLowerCase]
+        ? iconsMap[itemLowerCase]('xlarge')
+        : iconsMap.branding('xlarge')}
       <Box>
         <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
           {item}
