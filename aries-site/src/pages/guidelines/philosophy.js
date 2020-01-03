@@ -2,12 +2,13 @@ import React from 'react';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import { SubsectionText } from '../../components';
 
+const topic = 'Guidelines';
 const title = 'Philosophy';
 
 const Philosophy = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <Subsection level={1} name={title} topic="Guidelines">
+      <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
           The HPE Design System is an ethos of generosity and community. It
           enables experiences to be crafted with uncompromising integrity.
