@@ -13,6 +13,8 @@ export const navItemsData = {
     about: 'TBD.',
     inclusiveness: 'TBD. hehe',
     open: 'TBD. hellooo',
+    philosophy:
+      'TBD. Art party austin distillery craft beer meh swag, kombucha tumeric yuuccie',
     principles:
       'TBD. Art party austin distillery craft beer meh swag, kombucha tumeric yuuccie',
     usability: 'TBD',
