@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { PageLayout, NavPage, SideBarItemList } from '../../layouts';
 import { DescriptiveHeader } from '../../components/headings';
-
 import { data } from '../../components/home';
 
 const title = 'Guidelines';

@@ -1,8 +1,6 @@
 import React from 'react';
-
-import { PageLayout, NavPage, SideBar, SideBarItemList } from '../../layouts';
+import { PageLayout, NavPage, SideBarItemList } from '../../layouts';
 import { DescriptiveHeader } from '../../components/headings';
-
 import { data } from '../../components/home';
 
 const title = 'Components';
@@ -22,8 +20,7 @@ const Components = () => {
 
   return (
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      {/* Swap this out with NavPage once we have the icons available */}
-      <SideBar items={SideBarItemList[prefix]} prefix={prefix} />
+      <NavPage items={SideBarItemList[prefix]} prefix={prefix} />
     </PageLayout>
   );
 };
