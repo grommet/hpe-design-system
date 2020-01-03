@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 
 import { aries } from '../../themes/aries';
-import { Header, Head, SidebarLayout } from '..';
+import { Header, Head, Footer, SidebarLayout } from '..';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -61,6 +61,7 @@ export const Layout = ({
                 </Box>
               </Main>
             )}
+            <Footer />
           </Box>
         )}
       </ResponsiveContext.Consumer>
