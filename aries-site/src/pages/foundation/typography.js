@@ -2,8 +2,8 @@ import React from 'react';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-const title = 'Typography';
 const topic = 'Guidelines';
+const title = 'Typography';
 
 const Typography = () => (
   <PageLayout title={title}>

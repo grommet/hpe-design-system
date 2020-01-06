@@ -5,12 +5,13 @@ import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
 import { BulletedList, SubsectionText } from '../../components';
 
+const topic = 'Guidelines';
 const title = 'Principles';
 
 const Principles = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <Subsection name={title} level={1}>
+      <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
           Our principles provide clear criteria for the conception,
           craftsmanship and creativity our brand demands and our clients

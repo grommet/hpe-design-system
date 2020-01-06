@@ -3,8 +3,8 @@ import { Button } from 'grommet';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import { SubsectionText } from '../../components';
 
-const title = 'Human Centered';
 const topic = 'Guidelines';
+const title = 'Human Centered';
 
 const HumanCentered = () => (
   <PageLayout title={title}>
