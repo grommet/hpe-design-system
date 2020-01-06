@@ -8,17 +8,18 @@ export const ContentSection = ({ children, lastSection }) => {
   return (
     <Box
       as="section"
+      align="start"
       border={!lastSection ? { side: 'bottom' } : undefined}
+      gap="medium"
       margin={
         !lastSection
           ? { bottom: size !== 'small' ? 'large' : 'xlarge' }
           : undefined
       }
       pad={{ bottom: size !== 'small' ? 'large' : 'xlarge' }}
+      width="large"
     >
-      <Box gap="medium" width="large" align="start">
-        {children}
-      </Box>
+      {children}
     </Box>
   );
 };
