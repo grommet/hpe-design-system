@@ -6,7 +6,7 @@ import { Tile, Tiles } from 'aries-core';
 
 import { Config } from '../../config';
 import { PageLayout } from '../layouts';
-import { data, TileContent, IntroTile } from '../components/home';
+import { data as homeData, TileContent, IntroTile } from '../components/home';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -29,6 +29,8 @@ const Index = () => {
     }
   }, []);
 
+  const data = Object.values(homeData);
+
   return (
     <PageLayout title="Home" isLanding>
       {/* <Grid columns={['flex', 'xxlarge', 'flex']}> */}
@@ -36,7 +38,7 @@ const Index = () => {
       <Box gap="large">
         <HomeTiles>
           <Tile background="white">
-            <Image src="/image-hands.png" fit="cover" />
+            <Image src="/image-hands.png" alt="HPE Hands Image" fit="cover" />
           </Tile>
           <IntroTile background="white" />
         </HomeTiles>
@@ -54,7 +56,7 @@ const Index = () => {
                 key={item.title}
                 title={item.title}
                 subTitle={item.subTitle}
-                icon={item.icon}
+                icon={item.icon('xlarge')}
               />
             </Tile>
           ))}
