@@ -3,6 +3,7 @@ export const SideBarItemList = {
     'About',
     'Principles',
     'Philosophy',
+    'Human Centered',
     'Usability',
     'Inclusiveness',
     'Open',
