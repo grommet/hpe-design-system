@@ -2,8 +2,8 @@ import React from 'react';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-const title = 'Tokens';
 const topic = 'Guidelines';
+const title = 'Tokens';
 
 const Tokens = () => (
   <PageLayout title={title}>

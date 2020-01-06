@@ -5,6 +5,7 @@ import { AnchorCallToAction } from 'aries-core';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 
+const topic = 'Guidelines';
 const title = 'About';
 const description =
   'HPE Aries is an open-source library and the official ' +
@@ -19,7 +20,7 @@ const About = () => (
       canonicalUrl="https://aries.hpe.design/guidelines/about"
     />
     <ContentSection>
-      <Subsection name={title} level={1}>
+      <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
           HPE Aries is an open-source library and the official design system of
           HPE for all digital products and experiences. Aries consists of
