@@ -10,12 +10,7 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import {
-  MainDescription,
-  LastUpdated,
-  MainHeading,
-  SubsectionText,
-} from '../../components';
+import { LastUpdated, SubsectionText } from '../../components';
 import {
   greyscaleColors,
   primaryColors,
@@ -23,6 +18,7 @@ import {
   textColors,
 } from '../../data';
 
+const topic = 'Foundation';
 const title = 'Color';
 
 const TextExample = ({ color, hex }) => {
@@ -51,22 +47,23 @@ const TextExample = ({ color, hex }) => {
 const Color = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
-      <MainDescription>
-        Our color palette brings out the depth and dimension of our identity.
-        From sophisticated, neutral hues reflective of technology to vibrant,
-        saturated colors that evoke energy and inspiration.
-      </MainDescription>
-      <Box gap="medium" pad={{ vertical: 'medium' }}>
-        <Button
-          label="Download Color Swatches Pack"
-          primary
-          onClick={() => {
-            // Download color swatch pack (once content is available)
-          }}
-        />
-        <LastUpdated date={new Date('2019-07-17T03:24:00')} />
-      </Box>
+      <Subsection name={title} level={1} topic={topic}>
+        <SubsectionText>
+          Our color palette brings out the depth and dimension of our identity.
+          From sophisticated, neutral hues reflective of technology to vibrant,
+          saturated colors that evoke energy and inspiration.
+        </SubsectionText>
+        <Box align="start" gap="medium" pad={{ vertical: 'medium' }}>
+          <Button
+            label="Download Color Swatches Pack"
+            primary
+            onClick={() => {
+              // Download color swatch pack (once content is available)
+            }}
+          />
+          <LastUpdated date={new Date('2019-07-17T03:24:00')} />
+        </Box>
+      </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Color Palettes">
