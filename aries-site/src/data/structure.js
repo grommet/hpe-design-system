@@ -1,5 +1,5 @@
 export const structure = {
-  sections: [
+  topics: [
     {
       name: 'Guidelines',
       pages: ['Principles', 'Human Centered', 'Philosophy'],
@@ -41,29 +41,29 @@ export const formatName = name => {
     .toLowerCase();
 };
 
-const getSectionName = itemName => {
-  let section;
+const gettopicName = itemName => {
+  let topic;
   let item;
-  structure.sections.forEach(s => {
+  structure.topics.forEach(s => {
     const { pages } = s;
     [item] = pages.filter(p => p === itemName);
     if (item) {
-      section = s.name;
+      topic = s.name;
     }
   });
-  return section;
+  return topic;
 };
 
 export const nameToPath = name => {
-  const section = structure.sections.filter(s => s.name === name)[0];
-  if (section) {
-    return `/${formatName(section.name)}`;
+  const topic = structure.topics.filter(s => s.name === name)[0];
+  if (topic) {
+    return `/${formatName(topic.name)}`;
   }
-  // Item clicked is a sub-topic of a main section, so we need to find
-  // what section it falls under
-  const sectionName = getSectionName(name);
-  if (sectionName) {
-    return `/${formatName(sectionName)}/${formatName(name)}`;
+  // Item clicked is a sub-topic of a main topic, so we need to find
+  // what topic it falls under
+  const topicName = gettopicName(name);
+  if (topicName) {
+    return `/${formatName(topicName)}/${formatName(name)}`;
   }
   return undefined;
 };

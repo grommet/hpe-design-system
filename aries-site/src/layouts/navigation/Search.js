@@ -11,8 +11,8 @@ import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { structure, nameToPath } from '../../data';
 
-const allSuggestions = structure.sections
-  .map(section => (section.pages || []).concat(section.name))
+const allSuggestions = structure.topics
+  .map(topic => (topic.pages || []).concat(topic.name))
   .reduce((acc, val) => acc.concat(val), [])
   .sort();
 
@@ -79,8 +79,11 @@ export const Search = ({ focused, setFocused }) => {
     <Box
       ref={boxRef}
       align="center"
-      background={size !== 'small' || focused ? 'background-front' : undefined}
+      background={
+        size !== 'small' || focused ? 'background-contrast' : undefined
+      }
       direction="row"
+      justify="between"
       onClick={() => setFocused(true)}
       onFocus={() => setFocused(true)}
       pad={{ right: 'small' }}
