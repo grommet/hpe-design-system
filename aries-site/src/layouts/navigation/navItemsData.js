@@ -11,6 +11,8 @@ export const navItemsData = {
   },
   guidelines: {
     about: 'TBD.',
+    'human centered':
+      'TBD. Art party austin distillery craft beer meh swag, kombucha tumeric yuuccie',
     inclusiveness: 'TBD. hehe',
     open: 'TBD. hellooo',
     philosophy:
