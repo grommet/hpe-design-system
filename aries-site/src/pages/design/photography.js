@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
+import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-import { MainHeading } from '../../components';
+const title = 'Photography';
 
 const Photography = () => (
-  <PageLayout title="Photography">
+  <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>Photography</MainHeading>
+      <Subsection name={title} level={1} />
     </ContentSection>
   </PageLayout>
 );

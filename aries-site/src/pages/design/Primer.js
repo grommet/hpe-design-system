@@ -1,20 +1,13 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
-import { MainDescription, MainHeading } from '../../components';
+import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
 const title = 'Primer';
 
 const Primer = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
-      <MainDescription>
-        Each element is tailored for the web and has resources for both the
-        designer, developer, and casual users of Aries. The elements alone
-        provide a base set of guidelines that will help you succeed when
-        desiging experiences for HPE.
-      </MainDescription>
+      <Subsection name={title} level={1} />
     </ContentSection>
   </PageLayout>
 );

@@ -3,7 +3,7 @@ import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { MainDescription, MainHeading, Meta } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 
 const title = 'About';
 const description =
@@ -19,18 +19,20 @@ const About = () => (
       canonicalUrl="https://aries.hpe.design/guidelines/about"
     />
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
-      <MainDescription>
-        HPE Aries is an open-source library and the official design system of
-        HPE for all digital products and experiences. Aries consists of working
-        code, best practices, design resources, human interface guidelines, and
-        a vibrant community of contributors.
-      </MainDescription>
-      <Text>
-        HPE's Aries connects the ideas, technology, and creativity from Hewlett
-        Packard Enterprise and exposes it to the larger community with the hope
-        of learning and building experiences that reach a broader audience.
-      </Text>
+      <Subsection name={title} level={1}>
+        <SubsectionText>
+          HPE Aries is an open-source library and the official design system of
+          HPE for all digital products and experiences. Aries consists of
+          working code, best practices, design resources, human interface
+          guidelines, and a vibrant community of contributors.
+        </SubsectionText>
+        <SubsectionText size="medium">
+          HPE's Aries connects the ideas, technology, and creativity from
+          Hewlett Packard Enterprise and exposes it to the larger community with
+          the hope of learning and building experiences that reach a broader
+          audience.
+        </SubsectionText>
+      </Subsection>
       <Box direction="row" gap="medium">
         <AnchorCallToAction
           label="Our Principles"

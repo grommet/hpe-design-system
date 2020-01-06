@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
-import { MainHeading } from '../../components';
+import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
 const title = 'Typography';
+const topic = 'Guidelines';
 
-const Index = () => (
+const Typography = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
+      <Subsection name={title} level={1} topic={topic} />
     </ContentSection>
   </PageLayout>
 );
 
-export default Index;
+export default Typography;
