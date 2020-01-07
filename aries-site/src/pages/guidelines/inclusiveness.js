@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
-import { MainHeading } from '../../components';
+import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
+const topic = 'Guidelines';
 const title = 'Inclusiveness';
 
 const Inclusiveness = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
+      <Subsection name={title} level={1} topic={topic} />
     </ContentSection>
   </PageLayout>
 );
