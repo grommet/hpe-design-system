@@ -19,6 +19,7 @@ export const ContentSection = ({ children, lastSection }) => {
       pad={{
         bottom: size !== 'small' ? 'large' : 'xlarge',
         horizontal: 'xxsmall',
+        top: 'xxsmall',
       }}
       width="large"
     >
