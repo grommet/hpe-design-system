@@ -10,7 +10,7 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import { colorExamples } from '../../data';
 
 const {
@@ -68,9 +68,18 @@ const TextExample = ({ color, hex }) => {
 
 const topic = 'Foundation';
 const title = 'Color';
+const description =
+  'HPE Design System color palette brings out the depth and dimension ' +
+  'of our identity. From sophisticated, neutral hues reflective of ' +
+  'technology to vibrant, saturated colors that evoke energy and inspiration.';
 
 const Color = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/foundation/color"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>

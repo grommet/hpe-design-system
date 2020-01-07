@@ -1,13 +1,21 @@
 import React from 'react';
 import { Button } from 'grommet';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 
 const topic = 'Guidelines';
 const title = 'Human Centered';
+const description =
+  'Unlocking human potential through human centered design. ' +
+  'HPE Design System is inclusive, attentive, adaptable, and conversational.';
 
 const HumanCentered = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/guidelines/human-centered"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
