@@ -7,7 +7,8 @@ import { aries as theme } from '../themes/aries';
 
 const { colors } = theme.global;
 
-export const primaryColors = [
+/* Color Palette */
+const primaryColors = [
   {
     name: 'green',
     value: 'green!',
@@ -15,7 +16,12 @@ export const primaryColors = [
   },
 ];
 
-export const supportingColors = [
+const coreColors = [
+  {
+    name: 'purple',
+    value: 'purple!',
+    hex: colors['purple!'],
+  },
   {
     name: 'teal',
     value: 'teal!',
@@ -25,11 +31,6 @@ export const supportingColors = [
     name: 'blue',
     value: 'blue!',
     hex: colors['blue!'],
-  },
-  {
-    name: 'purple',
-    value: 'purple!',
-    hex: colors['purple!'],
   },
   {
     name: 'red',
@@ -48,40 +49,137 @@ export const supportingColors = [
   },
 ];
 
-export const greyscaleColors = [
+const lightColors = [
   {
-    name: 'grey-1',
-    value: '#F2F2F2',
-    hex: '#F2F2F2',
+    name: 'green-light',
+    value: colors.green.light,
+    hex: colors.green.light,
   },
   {
-    name: 'grey-2',
-    value: '#EDEDED',
-    hex: '#EDEDED',
+    name: 'purple-light',
+    value: colors.purple.light,
+    hex: colors.purple.light,
   },
   {
-    name: 'grey-3',
-    value: '#CCCCCC',
-    hex: '#CCCCCC',
+    name: 'teal-light',
+    value: colors.teal.light,
+    hex: colors.teal.light,
   },
   {
-    name: 'grey-4',
-    value: '#999999',
-    hex: '#999999',
+    name: 'blue-light',
+    value: colors.blue.light,
+    hex: colors.blue.light,
   },
   {
-    name: 'grey-5',
-    value: '#555555',
-    hex: '#555555',
+    name: 'red-light',
+    value: colors.red.light,
+    hex: colors.red.light,
   },
   {
-    name: 'grey-6',
-    value: '#333333',
-    hex: '#333333',
+    name: 'orange-light',
+    value: colors.orange.light,
+    hex: colors.orange.light,
+  },
+  {
+    name: 'yellow-light',
+    value: colors.yellow.light,
+    hex: colors.yellow.light,
   },
 ];
 
-export const textColors = [
+const darkColors = [
+  {
+    name: 'green-dark',
+    value: colors.green.dark,
+    hex: colors.green.dark,
+  },
+  {
+    name: 'purple-dark',
+    value: colors.purple.dark,
+    hex: colors.purple.dark,
+  },
+  {
+    name: 'teal-dark',
+    value: colors.teal.dark,
+    hex: colors.teal.dark,
+  },
+  {
+    name: 'blue-dark',
+    value: colors.blue.dark,
+    hex: colors.blue.dark,
+  },
+  {
+    name: 'red-dark',
+    value: colors.red.dark,
+    hex: colors.red.dark,
+  },
+  {
+    name: 'orange-dark',
+    value: colors.orange.dark,
+    hex: colors.orange.dark,
+  },
+  {
+    name: 'yellow-dark',
+    value: colors.yellow.dark,
+    hex: colors.yellow.dark,
+  },
+];
+
+/* Backgrounds */
+const lightBackgrounds = [
+  {
+    name: 'background-light',
+    value: 'background',
+    hex: colors.background.light,
+  },
+  {
+    name: 'background-back-light',
+    value: 'background-back',
+    hex: colors['background-back'].light,
+  },
+  {
+    name: 'background-front-light',
+    value: 'background-front',
+    hex: colors['background-front'].light,
+  },
+];
+
+const darkBackgrounds = [
+  {
+    name: 'background-dark',
+    value: 'background',
+    hex: colors.background.dark,
+  },
+  {
+    name: 'background-back-dark',
+    value: 'background-back',
+    hex: colors['background-back'].dark,
+  },
+  {
+    name: 'background-front-dark',
+    value: 'background-front',
+    hex: colors['background-front'].dark,
+  },
+];
+
+const contrastLight = [
+  {
+    name: 'background-contrast-light',
+    value: 'background-contrast',
+    hex: colors['background-contrast'].light,
+  },
+];
+
+const contrastDark = [
+  {
+    name: 'background-contrast-dark',
+    value: 'background-contrast',
+    hex: colors['background-contrast'].dark,
+  },
+];
+
+/* Text Colors */
+const textColors = [
   {
     name: 'text',
     value: 'text',
@@ -98,3 +196,35 @@ export const textColors = [
     hex: colors['text-weak'],
   },
 ];
+
+const ctaColors = [
+  {
+    name: 'text-action-light',
+    value: colors['background-back'].light,
+    hex: colors['green!'],
+  },
+  {
+    name: 'text-action-dark',
+    value: colors['background-back'].dark,
+    hex: colors['green!'],
+  },
+];
+
+export const colorExamples = {
+  palettes: {
+    primaryColors,
+    coreColors,
+    lightColors,
+    darkColors,
+  },
+  backgrounds: {
+    lightBackgrounds,
+    darkBackgrounds,
+    contrastLight,
+    contrastDark,
+  },
+  text: {
+    textColors,
+    ctaColors,
+  },
+};
