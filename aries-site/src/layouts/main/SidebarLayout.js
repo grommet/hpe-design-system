@@ -5,6 +5,7 @@ import { Box, Main, ResponsiveContext } from 'grommet';
 
 import { SideBar, SideBarItemList } from '../navigation';
 import { SubmitFeedback } from '../../components/content';
+import { structure } from '../../data';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
@@ -27,8 +28,8 @@ export const SidebarLayout = ({ mainContentChildren }) => {
 
   // TODO selectedNav should be retrived from aries-core
   // as the selected element of the NavBar
-  const selectedNav = 'foundation';
-
+  const topic = 'Foundation';
+  const items = structure.filter(page => page.name === topic)[0].pages;
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -47,10 +48,7 @@ export const SidebarLayout = ({ mainContentChildren }) => {
             </Main>
             {size !== 'small' && (
               <Box fill="vertical">
-                <SideBar
-                  items={SideBarItemList[selectedNav]}
-                  prefix={selectedNav}
-                />
+                <SideBar items={items} topic={topic} />
               </Box>
             )}
           </Box>

@@ -6,7 +6,8 @@ import { Tile, Tiles } from 'aries-core';
 
 import { Config } from '../../config';
 import { PageLayout } from '../layouts';
-import { data as homeData, TileContent, IntroTile } from '../components/home';
+import { TileContent, IntroTile } from '../components/home';
+import { structure } from '../data';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -29,7 +30,7 @@ const Index = () => {
     }
   }, []);
 
-  const data = Object.values(homeData);
+  const data = structure.filter(page => page.pages);
 
   return (
     <PageLayout title="Home" isLanding>
@@ -49,13 +50,13 @@ const Index = () => {
               background={item.color}
               key={item.color}
               onClick={() =>
-                (window.location.href = `/${item.title.toLowerCase()}`)
+                (window.location.href = `/${item.name.toLowerCase()}`)
               }
             >
               <TileContent
-                key={item.title}
-                title={item.title}
-                subTitle={item.subTitle}
+                key={item.name}
+                title={item.name}
+                subTitle={item.description}
                 icon={item.icon('xlarge')}
               />
             </Tile>

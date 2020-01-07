@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { NavLink } from 'aries-core';
 
-const SideBarItem = ({ item, prefix }) => (
-  <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
+const SideBarItem = ({ item, topic }) => (
+  <NavLink href={`/${topic}/${item.toLowerCase()}`}>{item}</NavLink>
 );
 
-export const SideBar = ({ items, prefix }) => {
+export const SideBar = ({ items, topic }) => {
   return (
     <Box
       border={{ side: 'left' }}
@@ -17,7 +17,7 @@ export const SideBar = ({ items, prefix }) => {
       width="small"
     >
       {items.map(item => (
-        <SideBarItem item={item} key={item} prefix={prefix} />
+        <SideBarItem item={item} key={item} topic={topic} />
       ))}
     </Box>
   );
@@ -25,7 +25,7 @@ export const SideBar = ({ items, prefix }) => {
 
 SideBar.propTypes = {
   items: PropTypes.array,
-  prefix: PropTypes.string,
+  topic: PropTypes.string,
 };
 
 SideBar.defaultProps = {
@@ -34,10 +34,10 @@ SideBar.defaultProps = {
 
 SideBarItem.propTypes = {
   item: PropTypes.string,
-  prefix: PropTypes.string,
+  topic: PropTypes.string,
 };
 
 SideBarItem.defaultProps = {
   item: '',
-  prefix: 'guidelines',
+  topic: 'guidelines',
 };

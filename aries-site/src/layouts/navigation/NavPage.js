@@ -2,13 +2,12 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text, Paragraph, ResponsiveContext } from 'grommet';
 import { iconsMap } from '../../components/icons/iconsMap';
+import { structure } from '../../data';
 
-import { navItemsData } from './navItemsData';
-
-const NavItem = ({ item, prefix }) => {
+const NavItem = ({ item, topic }) => {
   const size = useContext(ResponsiveContext);
-  const itemLowerCase = item.toLowerCase();
-  const formattedItem = item
+  const [itemData] = structure.filter(page => page.name === item);
+  const formattedItem = itemData.name
     .split(' ')
     .join('-')
     .toLowerCase();
@@ -18,31 +17,28 @@ const NavItem = ({ item, prefix }) => {
       fill
       direction="row"
       margin={{ vertical: 'large' }}
-      onClick={() => (window.location.href = `/${prefix}/${formattedItem}`)}
+      onClick={() => (window.location.href = `/${topic}/${formattedItem}`)}
       gap={size !== 'small' ? 'large' : 'medium'}
     >
-      {/* Adds placeholder icon for the meantime while we wait to get all the icons */}
-      {iconsMap[itemLowerCase]
-        ? iconsMap[itemLowerCase]('xlarge')
-        : iconsMap.branding('xlarge')}
+      {/* Adds placeholder icon for the meantime
+       * while we wait to get all the icons */}
+      {itemData.icon ? itemData.icon('xlarge') : iconsMap.branding('xlarge')}
       <Box>
         <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
-          {item}
+          {itemData.name}
         </Text>
-        <Paragraph size="small">
-          {navItemsData[prefix][itemLowerCase]}
-        </Paragraph>
+        <Paragraph size="small">{itemData.description}</Paragraph>
       </Box>
     </Box>
   );
 };
 
-export const NavPage = ({ items, prefix, ...rest }) => {
+export const NavPage = ({ items, topic, ...rest }) => {
   return (
     <Box {...rest}>
       {items.map(item => (
         <span key={item}>
-          <NavItem item={item} prefix={prefix} />
+          <NavItem item={item} topic={topic} />
           <Box border="bottom" />
         </span>
       ))}
@@ -52,7 +48,7 @@ export const NavPage = ({ items, prefix, ...rest }) => {
 
 NavPage.propTypes = {
   items: PropTypes.array,
-  prefix: PropTypes.string,
+  topic: PropTypes.string,
 };
 
 NavPage.defaultProps = {
@@ -61,10 +57,10 @@ NavPage.defaultProps = {
 
 NavItem.propTypes = {
   item: PropTypes.string,
-  prefix: PropTypes.string,
+  topic: PropTypes.string,
 };
 
 NavItem.defaultProps = {
   item: '',
-  prefix: 'guidelines',
+  topic: 'guidelines',
 };
