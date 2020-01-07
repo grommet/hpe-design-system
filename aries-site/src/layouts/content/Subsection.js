@@ -80,14 +80,14 @@ export const Subsection = ({ children, level, name, topic }) => {
 };
 
 Subsection.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
-    .isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   level: PropTypes.number,
   name: PropTypes.string.isRequired,
   topic: PropTypes.string,
 };
 
 Subsection.defaultProps = {
+  children: undefined,
   level: 2,
   topic: undefined,
 };
