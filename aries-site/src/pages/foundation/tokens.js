@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-const topic = 'Resources';
-const title = 'Designer';
+const topic = 'Guidelines';
+const title = 'Tokens';
 
-const Designer = () => (
+const Tokens = () => (
   <PageLayout title={title}>
     <ContentSection>
       <Subsection name={title} level={1} topic={topic} />
@@ -13,4 +13,4 @@ const Designer = () => (
   </PageLayout>
 );
 
-export default Designer;
+export default Tokens;
