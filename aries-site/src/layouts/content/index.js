@@ -3,4 +3,5 @@ export * from './ContentSection';
 export * from './Head';
 export * from './MainContent';
 export * from './Subsection';
+export * from './TypographyRow';
 export * from './UsageExample';
