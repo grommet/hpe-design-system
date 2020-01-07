@@ -1,12 +1,21 @@
 import React from 'react';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 
 const topic = 'Guidelines';
 const title = 'Philosophy';
+const description =
+  'Learn about the underlying philosophy guiding the HPE Design System ' +
+  'and how generosity and community enable HPE to craft experiences ' +
+  'which advance the way people live and work';
 
 const Philosophy = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/guidelines/philosophy"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
