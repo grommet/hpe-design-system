@@ -3,20 +3,22 @@ import { Text } from 'grommet';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-import { BulletedList, MainDescription, MainHeading } from '../../components';
+import { BulletedList, SubsectionText } from '../../components';
 
+const topic = 'Guidelines';
 const title = 'Principles';
 
 const Principles = () => (
   <PageLayout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
-      <MainDescription>
-        Our principles provide clear criteria for the conception, craftsmanship
-        and creativity our brand demands and our clients deserve. They are for
-        designers and non-designers alike, anyone authoring or authorizing any
-        form of design on behalf of HPE.
-      </MainDescription>
+      <Subsection name={title} level={1} topic={topic}>
+        <SubsectionText>
+          Our principles provide clear criteria for the conception,
+          craftsmanship and creativity our brand demands and our clients
+          deserve. They are for designers and non-designers alike, anyone
+          authoring or authorizing any form of design on behalf of HPE.
+        </SubsectionText>
+      </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Innovative and Adventurous">
