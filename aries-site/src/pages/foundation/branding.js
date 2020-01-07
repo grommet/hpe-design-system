@@ -79,7 +79,7 @@ const Branding = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small">
+      <Box background="background-front" height="small" fill="horizontal">
         Placeholder Image
       </Box>
       <Subsection name="Hewlett Packard Enterprise">
@@ -113,14 +113,22 @@ const Branding = () => (
         <UsageExample
           label="hpe-element"
           themeMode="light"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
+          pad={{
+            horizontal: 'large',
+            vertical: 'medium',
+            small: { horizontal: 'xlarge', vertical: 'large' },
+          }}
         >
           <HpeElementExample />
         </UsageExample>
         <UsageExample
           label="hpe-element-invert"
           themeMode="dark"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
+          pad={{
+            horizontal: 'large',
+            vertical: 'medium',
+            small: { horizontal: 'xlarge', vertical: 'large' },
+          }}
         >
           <HpeElementExample />
         </UsageExample>
