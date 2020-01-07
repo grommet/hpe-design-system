@@ -1,26 +1,24 @@
 import React from 'react';
-import { PageLayout, NavPage, SideBarItemList } from '../../layouts';
+import { PageLayout, NavPage } from '../../layouts';
 import { DescriptiveHeader } from '../../components/headings';
-import { data } from '../../components/home';
+import { structure } from '../../data';
 
 const title = 'Resources';
-const prefix = title.toLowerCase();
+const [topic] = structure.filter(page => page.name === title);
 
 const Resources = () => {
-  const titleObject = data[title];
-
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={titleObject.color}
-      subText={titleObject.subTitle}
-      icon={titleObject.icon}
+      background={topic.color}
+      subText={topic.description}
+      icon={topic.icon}
       title={title}
     />
   );
 
   return (
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      <NavPage items={SideBarItemList[prefix]} prefix={prefix} />
+      <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
     </PageLayout>
   );
 };
