@@ -46,7 +46,11 @@ export const SidebarLayout = ({ mainContentChildren }) => {
               <SubmitFeedback />
             </Main>
             {size !== 'small' && (
-              <Box fill="vertical">
+              <Box
+                fill="vertical"
+                margin={{ top: 'xlarge' }}
+                pad={{ top: 'large' }}
+              >
                 <SideBar
                   items={SideBarItemList[selectedNav]}
                   prefix={selectedNav}
