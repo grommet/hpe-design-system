@@ -18,5 +18,6 @@ export const ButtonRow = ({ children, ...rest }) => {
 };
 
 ButtonRow.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
 };
