@@ -3,13 +3,21 @@ import { Text } from 'grommet';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-import { BulletedList, SubsectionText } from '../../components';
+import { BulletedList, Meta, SubsectionText } from '../../components';
 
 const topic = 'Guidelines';
 const title = 'Principles';
+const description =
+  'HPE Design System principles provide clear criteria for creating ' +
+  'experiences our clients and partners deserve.';
 
 const Principles = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/guidelines/principles"
+    />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>

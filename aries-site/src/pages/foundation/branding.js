@@ -9,7 +9,7 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 
 const ArubaIconExample = () => {
   const textSize = 'small';
@@ -45,9 +45,18 @@ const HpeElementExample = () => {
 
 const topic = 'Foundation';
 const title = 'Branding';
+const description =
+  'Logos are a powerful expression of our brand and who we are. Learn how to ' +
+  'access and apply HPE and Aruba Networks logos in the experiences you ' +
+  'create.';
 
 const Branding = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/foundation/branding"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>

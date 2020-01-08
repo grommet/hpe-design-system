@@ -44,7 +44,11 @@ export const SidebarLayout = ({ mainContentChildren, topic }) => {
               <SubmitFeedback />
             </Main>
             {size !== 'small' && (
-              <Box fill="vertical">
+              <Box
+                fill="vertical"
+                margin={{ top: 'xlarge' }}
+                pad={{ top: 'large' }}
+              >
                 <SideBar items={topicPages} topic={topic} />
               </Box>
             )}
