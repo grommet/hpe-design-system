@@ -25,7 +25,7 @@ const filterChildren = (children, type) => {
 export const SidebarLayout = ({ mainContentChildren, topic }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(mainContentChildren, 'MainContent');
-  const topicPages = structure.filter(page => page.name === topic)[0].pages;
+  const topicPages = structure.find(page => page.name === topic).pages;
 
   return (
     <ResponsiveContext.Consumer>

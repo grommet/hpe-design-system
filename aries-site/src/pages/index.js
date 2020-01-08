@@ -23,7 +23,11 @@ const HomeTiles = ({ ...rest }) => {
 };
 
 const title = 'Home';
-const topicList = structure.filter(page => page.parent === title);
+
+// Get details for each child page of the home page
+const topicList = structure
+  .find(page => page.name === title)
+  .pages.map(topic => structure.find(page => page.name === topic));
 
 const Index = () => {
   useEffect(() => {
