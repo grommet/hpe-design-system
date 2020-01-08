@@ -16,6 +16,17 @@ import {
 
 export const structure = [
   {
+    name: 'Home',
+    pages: [
+      'Guidelines',
+      'Foundation',
+      'Components',
+      'Develop',
+      'Design',
+      'Resources',
+    ],
+  },
+  {
     name: 'Guidelines',
     color: 'green',
     description:
