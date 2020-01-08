@@ -4,6 +4,7 @@ import { Aruba, Hpe } from 'grommet-icons';
 import { Button } from 'aries-core';
 
 import {
+  ButtonRow,
   ContentSection,
   PageLayout,
   Subsection,
@@ -73,18 +74,10 @@ const Branding = () => (
           our partners address the fundamental changes in today's business
           environment.
         </SubsectionText>
-        <Box
-          direction="row-responsive"
-          gap="medium"
-          margin={{ bottom: 'medium', top: 'small' }}
-        >
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button href="#" label="Use the Logos" primary />
-          </Box>
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button href="#" label="Download Logos" primary />
-          </Box>
-        </Box>
+        <ButtonRow>
+          <Button href="#" label="Use the Logos" primary />
+          <Button href="#" label="Download Logos" primary />
+        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
