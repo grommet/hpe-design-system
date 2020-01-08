@@ -33,7 +33,6 @@ export const structure = [
       'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
     icon: size => <IconGuidelines size={size} />,
     pages: ['Principles', 'Human Centered', 'Philosophy'],
-    parent: 'Home',
   },
   {
     name: 'Foundation',
@@ -49,7 +48,6 @@ export const structure = [
       'Iconography',
       'Tokens',
     ],
-    parent: 'Home',
   },
   {
     name: 'Components',
@@ -58,7 +56,6 @@ export const structure = [
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: size => <IconComponents size={size} />,
     pages: [],
-    parent: 'Home',
   },
   {
     name: 'Develop',
@@ -67,7 +64,6 @@ export const structure = [
       'Coding best practices, concepts, and requirements when using the brand for digital experiences.',
     icon: size => <IconDevelop size={size} />,
     pages: ['Code'],
-    parent: 'Home',
   },
   {
     name: 'Design',
@@ -76,7 +72,6 @@ export const structure = [
       'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
     icon: size => <IconDesign size={size} />,
     pages: [],
-    parent: 'Home',
   },
   {
     name: 'Resources',
@@ -85,61 +80,51 @@ export const structure = [
       'Tutorials, case studies, videos, how-to&aposs, articles, upcoming events and more about HPE Design and the Design System from the team.',
     icon: size => <IconResources size={size} />,
     pages: ['Examples', 'Videos', 'Designer', 'Themer', 'Grommet'],
-    parent: 'Home',
   },
   {
     name: 'Principles',
     description: 'Something',
     icon: '',
-    parent: 'Guidelines',
   },
   {
     name: 'Human Centered',
     description: 'Something',
     icon: '',
-    parent: 'Guidelines',
   },
   {
     name: 'Philosophy',
     description: 'Something',
     icon: '',
-    parent: 'Guidelines',
   },
   {
     name: 'Branding',
     description: 'CHanged',
     icon: size => <IconBrand size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Color',
     description: 'Something',
     icon: size => <IconColor size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Typography',
     description: 'Something',
     icon: size => <IconType size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Iconography',
     description: 'Something',
     icon: size => <IconIcons size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Layout',
     description: 'Something',
     icon: size => <IconLayout size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Tokens',
     description: 'Something',
     icon: size => <IconToken size={size} />,
-    parent: 'Foundation',
   },
   {
     name: 'Code',
