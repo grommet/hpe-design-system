@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 
-import { SideBar, SideBarItemList } from '../navigation';
+import { SideBar } from '../navigation';
 import { SubmitFeedback } from '../../components/content';
 import { structure } from '../../data';
 
@@ -22,14 +22,11 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const SidebarLayout = ({ mainContentChildren }) => {
+export const SidebarLayout = ({ mainContentChildren, topic }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(mainContentChildren, 'MainContent');
+  const topicPages = structure.find(page => page.name === topic).pages;
 
-  // TODO selectedNav should be retrived from aries-core
-  // as the selected element of the NavBar
-  const topic = 'Foundation';
-  const items = structure.filter(page => page.name === topic)[0].pages;
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -48,7 +45,7 @@ export const SidebarLayout = ({ mainContentChildren }) => {
             </Main>
             {size !== 'small' && (
               <Box fill="vertical">
-                <SideBar items={items} topic={topic} />
+                <SideBar items={topicPages} topic={topic} />
               </Box>
             )}
           </Box>
@@ -63,4 +60,9 @@ SidebarLayout.propTypes = {
     PropTypes.element,
     PropTypes.array,
   ]),
+  topic: PropTypes.string,
+};
+
+SidebarLayout.defaultProps = {
+  topic: 'Foundation',
 };

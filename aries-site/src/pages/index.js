@@ -22,6 +22,13 @@ const HomeTiles = ({ ...rest }) => {
   );
 };
 
+const title = 'Home';
+
+// Get details for each child page of the home page
+const topicList = structure
+  .find(page => page.name === title)
+  .pages.map(topic => structure.find(page => page.name === topic));
+
 const Index = () => {
   useEffect(() => {
     if (Config.gaId) {
@@ -30,12 +37,8 @@ const Index = () => {
     }
   }, []);
 
-  const data = structure.filter(page => page.pages);
-
   return (
-    <PageLayout title="Home" isLanding>
-      {/* <Grid columns={['flex', 'xxlarge', 'flex']}> */}
-      {/* <Box /> */}
+    <PageLayout title={title} isLanding>
       <Box gap="large">
         <HomeTiles>
           <Tile background="white">
@@ -44,27 +47,25 @@ const Index = () => {
           <IntroTile background="white" />
         </HomeTiles>
         <HomeTiles>
-          {data.map(item => (
+          {topicList.map(topic => (
             <Tile
               pad="medium"
-              background={item.color}
-              key={item.color}
+              background={topic.color}
+              key={topic.color}
               onClick={() =>
-                (window.location.href = `/${item.name.toLowerCase()}`)
+                (window.location.href = `/${topic.name.toLowerCase()}`)
               }
             >
               <TileContent
-                key={item.name}
-                title={item.name}
-                subTitle={item.description}
-                icon={item.icon('xlarge')}
+                key={topic.name}
+                title={topic.name}
+                subTitle={topic.description}
+                icon={topic.icon('xlarge')}
               />
             </Tile>
           ))}
         </HomeTiles>
       </Box>
-      {/* <Box /> */}
-      {/* </Grid> */}
     </PageLayout>
   );
 };
