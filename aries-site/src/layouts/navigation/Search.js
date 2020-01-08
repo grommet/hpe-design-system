@@ -9,12 +9,10 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
-import { structure, nameToPath } from '../../data';
+import { structure } from '../../data';
+import { nameToPath } from '../../utils';
 
-const allSuggestions = structure.topics
-  .map(topic => (topic.pages || []).concat(topic.name))
-  .reduce((acc, val) => acc.concat(val), [])
-  .sort();
+const allSuggestions = structure.map(p => p.name).sort();
 
 export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
