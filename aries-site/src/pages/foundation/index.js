@@ -4,7 +4,7 @@ import { DescriptiveHeader } from '../../components/headings';
 import { structure } from '../../data';
 
 const title = 'Foundation';
-const [topic] = structure.filter(page => page.name === title);
+const topic = structure.find(page => page.name === title);
 
 const Foundation = () => {
   const descriptiveHeader = (
