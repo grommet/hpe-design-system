@@ -40,8 +40,8 @@ export const Layout = ({
                 <SidebarLayout mainContentChildren={children} />
               ) : (
                 <Main>
-                  {/* Allows DescriptiveHeader background color not to be confined
-                   * by formatting restrictions of page content
+                  {/* Allows DescriptiveHeader background color not to be
+                   * confined by formatting restrictions of page content
                    */}
                   {descriptiveHeader &&
                     React.cloneElement(descriptiveHeader, {
