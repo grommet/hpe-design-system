@@ -4,6 +4,7 @@ import { Box, Text, ResponsiveContext } from 'grommet';
 import { Button, AnchorCallToAction } from 'aries-core';
 
 import {
+  ButtonRow,
   ColorRow,
   ContentSection,
   PageLayout,
@@ -93,24 +94,16 @@ const Color = () => (
           readability, and usability with guidance on how to apply them to your
           experience.
         </SubsectionText>
-        <Box
-          direction="row-responsive"
-          gap="medium"
-          pad={{ vertical: 'medium' }}
-        >
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button href="#" label="Use the Colors" primary />
-          </Box>
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button
-              label="Download Swatches"
-              primary
-              onClick={() => {
-                // Download color swatch pack (once content is available)
-              }}
-            />
-          </Box>
-        </Box>
+        <ButtonRow>
+          <Button href="#" label="Use the Colors" primary />
+          <Button
+            label="Download Swatches"
+            primary
+            onClick={() => {
+              // Download color swatch pack (once content is available)
+            }}
+          />
+        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
