@@ -15,7 +15,7 @@ export const SubmitFeedback = () => {
           href="https://github.com/hpe-design/aries/issues"
           target="_blank"
           label="Open page in Github"
-          rel="noopener noreferrer"
+          rel="noreferrer noopener"
         />
       </Subsection>
     </ContentSection>
