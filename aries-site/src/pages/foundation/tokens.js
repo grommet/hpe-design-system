@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-const topic = 'Guidelines';
+const topic = 'Foundation';
 const title = 'Tokens';
 
 const Tokens = () => (
