@@ -9,7 +9,7 @@ export const formatName = name => {
 
 export const getParentPage = currentPage =>
   structure.find(page =>
-    page.pages ? page.pages.includes(currentPage) : false,
+    page.pages ? page.pages.includes(currentPage) : null,
   );
 
 export const getNextContent = current => {
