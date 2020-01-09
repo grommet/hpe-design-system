@@ -23,48 +23,44 @@ export const Layout = ({
         {size => (
           <Box
             // pad={{ horizontal: calcPad(size) }}
-            height={{ min: '100vh' }}
-            justify="between"
             margin="auto"
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
-            <Box>
-              <Header
-                showLinks={!isLanding && !isNavPage}
-                background={
-                  descriptiveHeader && descriptiveHeader.props.background
-                }
-              />
-              {!isLanding && !isNavPage ? (
-                <SidebarLayout mainContentChildren={children} />
-              ) : (
-                <Main>
-                  {/* Allows DescriptiveHeader background color not to be
-                   * confined by formatting restrictions of page content
-                   */}
-                  {descriptiveHeader &&
-                    React.cloneElement(descriptiveHeader, {
-                      pad: {
-                        horizontal: calcPad(size),
-                        bottom: calcPad(size),
-                        top: 'xlarge',
-                      },
-                      round: { corner: 'bottom', size: 'medium' },
-                    })}
-                  {/* aligns with responsive padding for aries-core Nav */}
-                  <Box
-                    pad={{
+            <Header
+              showLinks={!isLanding && !isNavPage}
+              background={
+                descriptiveHeader && descriptiveHeader.props.background
+              }
+            />
+            {!isLanding && !isNavPage ? (
+              <SidebarLayout mainContentChildren={children} />
+            ) : (
+              <Main>
+                {/* Allows DescriptiveHeader background color not to be
+                 * confined by formatting restrictions of page content
+                 */}
+                {descriptiveHeader &&
+                  React.cloneElement(descriptiveHeader, {
+                    pad: {
                       horizontal: calcPad(size),
                       bottom: calcPad(size),
-                      top: 'medium',
-                    }}
-                  >
-                    {children}
-                  </Box>
-                </Main>
-              )}
-            </Box>
+                      top: 'xlarge',
+                    },
+                    round: { corner: 'bottom', size: 'medium' },
+                  })}
+                {/* aligns with responsive padding for aries-core Nav */}
+                <Box
+                  pad={{
+                    horizontal: calcPad(size),
+                    bottom: calcPad(size),
+                    top: 'medium',
+                  }}
+                >
+                  {children}
+                </Box>
+              </Main>
+            )}
             <Footer />
           </Box>
         )}
