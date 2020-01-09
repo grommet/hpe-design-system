@@ -111,7 +111,7 @@ export const aries = deepMerge(hpe, {
       'graph-1': 'blue',
       'graph-2': 'purple',
       focus: 'green',
-      placeholder: 'background-contrast',
+      placeholder: 'text-weak',
     },
     font: {
       family: 'Metric',

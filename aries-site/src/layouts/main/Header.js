@@ -23,5 +23,9 @@ export const Header = ({ background }) => {
 };
 
 Header.propTypes = {
-  background: PropTypes.string.isRequired,
+  background: PropTypes.string,
+};
+
+Header.defaultProp = {
+  background: undefined,
 };
