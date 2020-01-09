@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
-// import useDarkMode from 'use-dark-mode';
 import { aries } from '../../themes/aries';
 import { useDarkMode } from '../../utils';
 
