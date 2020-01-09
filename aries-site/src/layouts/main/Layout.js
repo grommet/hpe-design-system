@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
-
-import { aries } from '../../themes/aries';
+import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, Footer, SidebarLayout } from '..';
+import { ThemeMode } from '../../components';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -18,7 +17,7 @@ export const Layout = ({
   isNavPage,
 }) => {
   return (
-    <Grommet theme={aries} full>
+    <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Box
@@ -65,7 +64,7 @@ export const Layout = ({
           </Box>
         )}
       </ResponsiveContext.Consumer>
-    </Grommet>
+    </ThemeMode>
   );
 };
 
