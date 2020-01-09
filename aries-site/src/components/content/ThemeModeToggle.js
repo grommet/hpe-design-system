@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
 import { FormClose, Next } from 'grommet-icons';
-import useDarkMode from 'use-dark-mode';
+import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = () => {
   const darkMode = useDarkMode();

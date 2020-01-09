@@ -22,8 +22,10 @@ export const Footer = () => {
         direction="row-responsive"
         align={size !== 'small' ? 'center' : undefined}
       >
-        <Hpe size="large" color="brand" />
-        <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
+        <Box align="center" gap="medium" direction="row-responsive">
+          <Hpe size="large" color="brand" />
+          <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
+        </Box>
         <Box direction="row" gap="medium">
           <FooterLink label="Terms" href="#" />
           <FooterLink label="Privacy" href="#" />
