@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 
-import { SideBar } from '../navigation';
+import { NextContent, SideBar } from '../navigation';
 import { SubmitFeedback } from '../../components/content';
-import { structure } from '../../data';
+import { getNextContent, getParentPage } from '../../utils';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
@@ -22,10 +22,15 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const SidebarLayout = ({ mainContentChildren, topic }) => {
+export const SidebarLayout = ({ mainContentChildren, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(mainContentChildren, 'MainContent');
-  const topicPages = structure.find(page => page.name === topic).pages;
+
+  // Get parent topic details
+  const parentTopic = getParentPage(title);
+  const { name, color, pages } =
+    typeof parentTopic !== 'undefined' ? parentTopic : {};
+  const nextContent = getNextContent(title);
 
   return (
     <ResponsiveContext.Consumer>
@@ -49,10 +54,11 @@ export const SidebarLayout = ({ mainContentChildren, topic }) => {
                 margin={{ top: 'xlarge' }}
                 pad={{ top: 'large' }}
               >
-                <SideBar items={topicPages} topic={topic} />
+                <SideBar items={pages} topic={name} />
               </Box>
             )}
           </Box>
+          <NextContent color={color} nextContent={nextContent} />
         </>
       )}
     </ResponsiveContext.Consumer>
@@ -64,9 +70,5 @@ SidebarLayout.propTypes = {
     PropTypes.element,
     PropTypes.array,
   ]),
-  topic: PropTypes.string,
-};
-
-SidebarLayout.defaultProps = {
-  topic: 'Foundation',
+  title: PropTypes.string,
 };
