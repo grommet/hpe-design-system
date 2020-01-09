@@ -28,7 +28,8 @@ export const SidebarLayout = ({ mainContentChildren, title }) => {
 
   // Get parent topic details
   const parentTopic = getParentPage(title);
-  const { name, color, pages } = parentTopic;
+  const { name, color, pages } =
+    typeof parentTopic !== 'undefined' ? parentTopic : {};
   const nextContent = getNextContent(title);
 
   return (
