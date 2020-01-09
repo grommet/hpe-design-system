@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
-import { FormClose, Next } from 'grommet-icons';
+import { IconMoon, IconSun } from '../icons';
 import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = () => {
   const darkMode = useDarkMode();
   const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
-  const icon = darkMode.value ? <FormClose /> : <Next />;
+  const icon = darkMode.value ? <IconSun /> : <IconMoon />;
   return (
     <Box align="start">
       <Button onClick={() => darkMode.toggle()}>

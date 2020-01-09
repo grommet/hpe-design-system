@@ -5,7 +5,6 @@ import { aries } from '../../themes/aries';
 import { useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children }) => {
-  console.log(aries.defaultMode);
   const { value } = useDarkMode(aries.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
