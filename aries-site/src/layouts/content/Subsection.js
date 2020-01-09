@@ -60,7 +60,7 @@ export const Subsection = ({ children, level, name, topic }) => {
         <Header>
           <Box>
             {level === 1 && topic && (
-              <NavLink href={`/${topic}`} label={topic} />
+              <NavLink href={`/${topic.toLowerCase()}`} label={topic} />
             )}
             <Subheading level={level}>{name}</Subheading>
           </Box>
