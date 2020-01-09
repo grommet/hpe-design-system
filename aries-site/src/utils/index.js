@@ -1,1 +1,1 @@
-export * from './routingHelpers';
+export * from './search';
