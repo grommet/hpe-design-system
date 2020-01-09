@@ -23,8 +23,6 @@ export const Layout = ({
         {size => (
           <Box
             // pad={{ horizontal: calcPad(size) }}
-            height={{ min: '100vh' }}
-            justify="between"
             margin="auto"
             width={{ max: 'xxlarge' }}
           >
@@ -39,8 +37,8 @@ export const Layout = ({
               <SidebarLayout mainContentChildren={children} title={title} />
             ) : (
               <Main>
-                {/* Allows DescriptiveHeader background color not to be confined
-                 * by formatting restrictions of page content
+                {/* Allows DescriptiveHeader background color not to be
+                 * confined by formatting restrictions of page content
                  */}
                 {descriptiveHeader &&
                   React.cloneElement(descriptiveHeader, {
