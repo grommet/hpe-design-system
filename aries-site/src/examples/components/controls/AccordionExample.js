@@ -4,7 +4,10 @@ import { Accordion, AccordionPanel } from 'aries-core';
 
 export const AccordionExample = () => {
   return (
-    <Box width={{ max: 'medium' }}>
+    <Box
+      pad={{ horizontal: 'large', bottom: 'large', top: 'medium' }}
+      background="background-front"
+    >
       <Accordion>
         <AccordionPanel label="Our Company">
           <Box pad={{ vertical: 'medium' }}>We are HPE.</Box>
