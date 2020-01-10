@@ -137,6 +137,11 @@ export const aries = deepMerge(hpe, {
       background: 'active-background',
       color: 'active-text',
     },
+    drop: {
+      border: {
+        radius: '8px',
+      },
+    },
     hover: {
       background: 'active-background',
       color: 'active-text',
@@ -144,6 +149,14 @@ export const aries = deepMerge(hpe, {
     selected: {
       background: 'selected-background',
       color: 'selected-text',
+    },
+  },
+  accordion: {
+    border: {
+      color: 'text',
+    },
+    icons: {
+      color: 'text',
     },
   },
   anchor: {
@@ -179,6 +192,18 @@ export const aries = deepMerge(hpe, {
   icon: {
     size: {
       xxlarge: '166px',
+    },
+  },
+  tab: {
+    border: {
+      color: 'text-xweak',
+    },
+    color: 'text-xweak',
+    margin: {
+      horizontal: 'none',
+    },
+    pad: {
+      horizontal: 'small',
     },
   },
   text: {
