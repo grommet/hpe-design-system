@@ -3,8 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 
-import { SideBar, SideBarItemList } from '../navigation';
+import { NextContent, SideBar } from '../navigation';
 import { SubmitFeedback } from '../../components/content';
+import { getNextContent, getParentPage } from '../../utils';
 
 const filterChildren = (children, type) => {
   const filteredChildren = React.Children.map(children, child => {
@@ -21,13 +22,15 @@ const filterChildren = (children, type) => {
   return filteredChildren;
 };
 
-export const SidebarLayout = ({ mainContentChildren }) => {
+export const SidebarLayout = ({ mainContentChildren, title }) => {
   // Only expect a single child of the following types
   const mainContent = filterChildren(mainContentChildren, 'MainContent');
 
-  // TODO selectedNav should be retrived from aries-core
-  // as the selected element of the NavBar
-  const selectedNav = 'foundation';
+  // Get parent topic details
+  const parentTopic = getParentPage(title);
+  const { name, color, pages } =
+    typeof parentTopic !== 'undefined' ? parentTopic : {};
+  const nextContent = getNextContent(title);
 
   return (
     <ResponsiveContext.Consumer>
@@ -46,14 +49,16 @@ export const SidebarLayout = ({ mainContentChildren }) => {
               <SubmitFeedback />
             </Main>
             {size !== 'small' && (
-              <Box fill="vertical">
-                <SideBar
-                  items={SideBarItemList[selectedNav]}
-                  prefix={selectedNav}
-                />
+              <Box
+                fill="vertical"
+                margin={{ top: 'xlarge' }}
+                pad={{ top: 'large' }}
+              >
+                <SideBar items={pages} topic={name} />
               </Box>
             )}
           </Box>
+          <NextContent color={color} nextContent={nextContent} />
         </>
       )}
     </ResponsiveContext.Consumer>
@@ -65,4 +70,5 @@ SidebarLayout.propTypes = {
     PropTypes.element,
     PropTypes.array,
   ]),
+  title: PropTypes.string,
 };

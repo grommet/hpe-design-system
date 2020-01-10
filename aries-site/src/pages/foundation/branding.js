@@ -4,12 +4,13 @@ import { Aruba, Hpe } from 'grommet-icons';
 import { Button } from 'aries-core';
 
 import {
+  ButtonRow,
   ContentSection,
   PageLayout,
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 
 const ArubaIconExample = () => {
   const textSize = 'small';
@@ -45,9 +46,18 @@ const HpeElementExample = () => {
 
 const topic = 'Foundation';
 const title = 'Branding';
+const description =
+  'Logos are a powerful expression of our brand and who we are. Learn how to ' +
+  'access and apply HPE and Aruba Networks logos in the experiences you ' +
+  'create.';
 
 const Branding = () => (
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={description}
+      canonicalUrl="https://aries.hpe.design/foundation/branding"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
@@ -64,22 +74,14 @@ const Branding = () => (
           our partners address the fundamental changes in today's business
           environment.
         </SubsectionText>
-        <Box
-          direction="row-responsive"
-          gap="medium"
-          margin={{ bottom: 'medium', top: 'small' }}
-        >
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button href="#" label="Use the Logos" primary />
-          </Box>
-          <Box align="start" margin={{ top: 'medium' }}>
-            <Button href="#" label="Download Logos" primary />
-          </Box>
-        </Box>
+        <ButtonRow>
+          <Button href="#" label="Use the Logos" primary />
+          <Button href="#" label="Download Logos" primary />
+        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small">
+      <Box background="background-front" height="small" fill="horizontal">
         Placeholder Image
       </Box>
       <Subsection name="Hewlett Packard Enterprise">
@@ -113,14 +115,22 @@ const Branding = () => (
         <UsageExample
           label="hpe-element"
           themeMode="light"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
+          pad={{
+            horizontal: 'large',
+            vertical: 'medium',
+            small: { horizontal: 'xlarge', vertical: 'large' },
+          }}
         >
           <HpeElementExample />
         </UsageExample>
         <UsageExample
           label="hpe-element-invert"
           themeMode="dark"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
+          pad={{
+            horizontal: 'large',
+            vertical: 'medium',
+            small: { horizontal: 'xlarge', vertical: 'large' },
+          }}
         >
           <HpeElementExample />
         </UsageExample>
