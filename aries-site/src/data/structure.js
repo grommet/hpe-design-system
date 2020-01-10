@@ -1,18 +1,21 @@
 /* eslint-disable max-len */
 import {
+  IconBrand,
+  IconColor,
   IconComponents,
   IconDesign,
   IconDevelop,
   IconFoundation,
   IconGuidelines,
-  IconResources,
-  IconBrand,
-  IconColor,
+  IconHumanCentered,
   IconIcons,
   IconLayout,
-  IconType,
+  IconPhilosophy,
+  IconPrinciples,
+  IconResources,
   IconToken,
-} from '../components/icons';
+  IconType,
+} from '../components';
 
 export const structure = [
   {
@@ -30,9 +33,9 @@ export const structure = [
     name: 'Guidelines',
     color: 'green',
     description:
-      'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
+      'This is the heartbeat and mindset of the HPE Design System. It is the ideology and set of standards which hold us accountable to every design decision.',
     icon: size => <IconGuidelines size={size} />,
-    pages: ['Principles', 'Human Centered', 'Philosophy'],
+    pages: ['Philosophy', 'Human Centered', 'Principles'],
   },
   {
     name: 'Foundation',
@@ -83,18 +86,21 @@ export const structure = [
   },
   {
     name: 'Principles',
-    description: 'Something',
-    icon: '',
+    description:
+      'A clear criteria of creativity, innovation, and craftsmanship which accelerate the way people live and work.',
+    icon: size => <IconPrinciples size={size} />,
   },
   {
     name: 'Human Centered',
-    description: 'Something',
-    icon: '',
+    description:
+      'The starting point of the design system is human centered, generating experiences which are inclusive and vibrant.',
+    icon: size => <IconHumanCentered size={size} />,
   },
   {
     name: 'Philosophy',
-    description: 'Something',
-    icon: '',
+    description:
+      'The HPE Design System is focused on key values which engender and support human engagement and community.',
+    icon: size => <IconPhilosophy size={size} />,
   },
   {
     name: 'Branding',
