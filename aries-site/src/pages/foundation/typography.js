@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Heading, Text } from 'grommet';
 import { AnchorCallToAction, Button } from 'aries-core';
 import {
+  ButtonRow,
   ContentSection,
   PageLayout,
   Subsection,
@@ -10,14 +11,16 @@ import {
 import { SubsectionText } from '../../components';
 import { fontWeights, fontStyles } from '../../data';
 
-const topic = 'Foundation';
-const title = 'Typography';
-
 const PresentationExample = () => {
   const textSize = 'small';
 
   return (
-    <Box background="background-front" gap="medium" pad="large">
+    <Box
+      background="background-front"
+      gap="medium"
+      pad="large"
+      margin={{ top: 'medium' }}
+    >
       <Box>
         <Text size={textSize}>display-heading-x-large</Text>
         <Heading size="xlarge" margin="none">
@@ -54,7 +57,12 @@ const DisplayExample = () => {
   const textSize = 'small';
 
   return (
-    <Box background="background-front" gap="medium" pad="large">
+    <Box
+      background="background-front"
+      gap="medium"
+      margin={{ top: 'medium' }}
+      pad="large"
+    >
       <Box>
         <Text size={textSize}>display-heading-x-large</Text>
         <Heading size="large" margin="none">
@@ -93,7 +101,12 @@ const HandExample = () => {
   const textSize = 'small';
 
   return (
-    <Box background="background-front" gap="medium" pad="large">
+    <Box
+      background="background-front"
+      gap="medium"
+      margin={{ top: 'medium' }}
+      pad="large"
+    >
       <Box>
         <Text size={textSize}>display-heading-x-large</Text>
         <Heading margin="none">Heading XL</Heading>
@@ -128,6 +141,9 @@ const HandExample = () => {
   );
 };
 
+const topic = 'Foundation';
+const title = 'Typography';
+
 const Typography = () => (
   <PageLayout title={title}>
     <ContentSection>
@@ -145,10 +161,10 @@ const Typography = () => (
           it has been revised to provide wieghts and ligatures that can be used
           for reading and display in digital contexts.
         </SubsectionText>
-        <Box direction="row" gap="medium">
-          <Button label="Use the Typography" primary />
-          <Button label="Download the Styles" primary />
-        </Box>
+        <ButtonRow>
+          <Button label="Use the Typography" href="#" primary />
+          <Button label="Download the Styles" href="#" primary />
+        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -159,6 +175,12 @@ const Typography = () => (
           styles and sizes to accomodate a specific experience. We have three
           scales to keep the number of typographic styles minimized and easy to
           use.
+        </SubsectionText>
+        <SubsectionText>
+          Defining of typographic scales, line height, font weight, and general
+          spacing around elements is all embeded to the individual styles by
+          using base sizes and then programmatically scaling the text elements
+          using a modular scale model. Content is core to the
         </SubsectionText>
       </Subsection>
       <Subsection name="Presentation scale" level={3}>
@@ -228,13 +250,25 @@ const Typography = () => (
           CSS conventions. The fonts tyles we support are displayed below.
         </SubsectionText>
         <Box margin={{ top: 'medium' }}>
-          {fontStyles.map(item => {
-            return <TypographyRow typographySpec={item} key={item.name} />;
+          {fontStyles.map((item, index) => {
+            return (
+              <TypographyRow
+                index={index}
+                key={item.name}
+                typographySpec={item}
+              />
+            );
           })}
         </Box>
       </Subsection>
       <Subsection name="Line height" level={3}>
         <Box height="small" background="background-contrast" />
+      </Subsection>
+      <Subsection name="Font stacks" level={3}>
+        <SubsectionText>
+          In cases where using MetricHPE is not possible refer to the HPE font
+          stack we use with fallbacks to system fonts to stay compliant.
+        </SubsectionText>
       </Subsection>
     </ContentSection>
   </PageLayout>
