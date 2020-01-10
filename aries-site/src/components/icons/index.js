@@ -5,3 +5,4 @@ export * from './IconFoundation';
 export * from './IconGuidelines';
 export * from './IconResources';
 export * from './foundation';
+export * from './guidelines';
