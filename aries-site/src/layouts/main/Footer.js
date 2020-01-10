@@ -31,6 +31,7 @@ export const Footer = () => {
           label="Feedback"
           href="https://github.com/hpe-design/aries/issues"
           target="_blank"
+          rel="noreferrer noopener"
         />
       </Box>
     </GrommetFooter>

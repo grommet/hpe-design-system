@@ -19,7 +19,7 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
         <Box
           direction="row"
           background={colors['background-front']}
-          pad={size === 'small' ? 'xlarge' : pad}
+          pad={size === 'small' ? pad.small : pad}
           {...rest}
         >
           {children}
@@ -48,5 +48,9 @@ UsageExample.propTypes = {
 };
 
 UsageExample.defaultProps = {
-  pad: { horizontal: 'large', vertical: 'large' },
+  pad: {
+    horizontal: 'large',
+    vertical: 'large',
+    small: { horizontal: 'xlarge', vertical: 'xlarge' },
+  },
 };

@@ -23,8 +23,8 @@ export const Layout = ({
         {size => (
           <Box
             // pad={{ horizontal: calcPad(size) }}
-            width={{ max: 'xxlarge' }}
             margin="auto"
+            width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
             <Header
@@ -34,11 +34,11 @@ export const Layout = ({
               }
             />
             {!isLanding && !isNavPage ? (
-              <SidebarLayout mainContentChildren={children} />
+              <SidebarLayout mainContentChildren={children} title={title} />
             ) : (
               <Main>
-                {/* Allows DescriptiveHeader background color not to be confined
-                 * by formatting restrictions of page content
+                {/* Allows DescriptiveHeader background color not to be
+                 * confined by formatting restrictions of page content
                  */}
                 {descriptiveHeader &&
                   React.cloneElement(descriptiveHeader, {
