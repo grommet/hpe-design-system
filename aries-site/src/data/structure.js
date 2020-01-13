@@ -66,7 +66,7 @@ export const structure = [
     icon: size => <IconComponents size={size} />,
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: [],
+    pages: ['Controls'],
   },
   {
     name: 'Develop',
@@ -190,6 +190,12 @@ export const structure = [
   {
     name: 'Grommet',
     description: 'Something',
+    icon: '',
+  },
+  {
+    name: 'Controls',
+    description:
+      'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
     icon: '',
   },
 ];
