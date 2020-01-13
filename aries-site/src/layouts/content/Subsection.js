@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'aries-core';
 import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
-import { Subheading, SubsectionText } from '../../components';
+import { Subheading } from '../../components';
 
 // Depending on the level of the heading, we need to adjust the amount of gap
 // between the heading and the first child in the subsection.
@@ -45,7 +45,7 @@ export const Subsection = ({ children, showHeading, level, name, topic }) => {
       id={id}
       margin={{ bottom: 'small' }}
       fill="horizontal"
-      gap={level !== 1 ? 'small' : 'medium'}
+      gap="medium"
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
