@@ -62,7 +62,7 @@ export const Layout = ({
                 </Box>
               </Main>
             )}
-            <Footer />
+            {isLanding && <Footer />}
           </Box>
         )}
       </ResponsiveContext.Consumer>
