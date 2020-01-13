@@ -1,6 +1,7 @@
 import React from 'react';
-import { PageLayout, NavPage } from '../../layouts';
-import { DescriptiveHeader, Meta } from '../../components';
+
+import { PageLayout } from '../../layouts';
+import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Resources';
@@ -23,7 +24,7 @@ const Resources = () => {
         description={topic.seoDescription}
         canonicalUrl="https://aries.hpe.design/resources"
       />
-      <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
+      <ComingSoon />
     </PageLayout>
   );
 };
