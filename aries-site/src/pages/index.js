@@ -24,14 +24,14 @@ const HomeTiles = ({ ...rest }) => {
 };
 
 // Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
-const TopicTile = forwardRef(({ onClick, topic }, ref) => {
+const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
   return (
     <Tile
       pad="medium"
       background={topic.color}
       key={topic.color}
-      onClick={onClick}
       ref={ref}
+      {...rest}
     >
       <TileContent
         key={topic.name}
@@ -69,7 +69,11 @@ const Index = () => {
         </HomeTiles>
         <HomeTiles>
           {topicList.map(topic => (
-            <Link key={topic.name} href={`/${topic.name.toLowerCase()}`}>
+            <Link
+              key={topic.name}
+              href={`/${topic.name.toLowerCase()}`}
+              passHref
+            >
               <TopicTile topic={topic} />
             </Link>
           ))}
