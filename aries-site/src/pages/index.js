@@ -26,9 +26,15 @@ const HomeTiles = ({ ...rest }) => {
 // Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
 const TopicTile = forwardRef(({ onClick, topic }, ref) => {
   return (
-    <Tile pad="medium" background={topic.color} onClick={onClick} ref={ref}>
+    <Tile
+      pad="medium"
+      background={topic.color}
+      key={topic.color}
+      onClick={onClick}
+      ref={ref}
+    >
       <TileContent
-        // key={topic.name}
+        key={topic.name}
         title={topic.name}
         subTitle={topic.description}
         icon={topic.icon('xlarge')}
