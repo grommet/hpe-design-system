@@ -145,12 +145,6 @@ export const aries = deepMerge(hpe, {
         radius: '8px',
       },
       shadowSize: 'medium',
-      extend: `
-          border-bottom-left-radius: 12px;
-          border-bottom-right-radius: 12px;
-  
-          overflow: hidden;
-        `,
     },
     elevation: {
       dark: {
