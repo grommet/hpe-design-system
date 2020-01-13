@@ -85,7 +85,7 @@ export const structure = [
       'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
     icon: size => <IconDesign size={size} />,
     seoDescription:
-      'View patterns, interactions, and other best practices for how to succedd using resources included with the HPE Design System.',
+      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
     pages: [],
   },
   {
