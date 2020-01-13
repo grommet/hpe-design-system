@@ -124,36 +124,42 @@ export const structure = [
   },
   {
     name: 'Branding',
-    description: 'CHanged',
+    description:
+      'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     icon: size => <IconBrand size={size} />,
     seoDescription:
       'Logos are a powerful expression of our brand and who we are. Learn how to access and apply HPE and Aruba Networks logos in the experiences you create.',
   },
   {
     name: 'Color',
-    description: 'Something',
+    description:
+      'Bringing out the depth and dimension of our identity, the HPE Design System use of color evokes energy and inspiration.',
     icon: size => <IconColor size={size} />,
     seoDescription:
       'HPE Design System color palette brings out the depth and dimension of our identity. From sophisticated, neutral hues reflective of technology to vibrant, saturated colors that evoke energy and inspiration.',
   },
   {
     name: 'Typography',
-    description: 'Something',
+    description:
+      'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
     icon: size => <IconType size={size} />,
   },
   {
     name: 'Iconography',
-    description: 'Something',
+    description:
+      'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: size => <IconIcons size={size} />,
   },
   {
     name: 'Layout',
-    description: 'Something',
+    description:
+      'The HPE Design System provides the framework to build a composition that brings clarity and simplicity to navigate the digital landscape.',
     icon: size => <IconLayout size={size} />,
   },
   {
     name: 'Tokens',
-    description: 'Something',
+    description:
+      'Authentication and security to build confidence and safety for your users in the midst of their digital experience.',
     icon: size => <IconToken size={size} />,
   },
   {

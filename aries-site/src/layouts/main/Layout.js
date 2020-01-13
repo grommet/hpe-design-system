@@ -23,6 +23,7 @@ export const Layout = ({
         {size => (
           <Box
             // pad={{ horizontal: calcPad(size) }}
+            height={{ min: '100vh' }}
             margin="auto"
             width={{ max: 'xxlarge' }}
           >
