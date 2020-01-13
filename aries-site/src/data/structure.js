@@ -75,7 +75,7 @@ export const structure = [
       'Coding best practices, concepts, and requirements when using the brand for digital experiences.',
     icon: size => <IconDevelop size={size} />,
     seoDescription:
-      'HPE Design Systme coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
+      'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
     pages: ['Code'],
   },
   {
