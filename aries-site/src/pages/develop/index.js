@@ -1,7 +1,26 @@
 import React from 'react';
+import { PageLayout } from '../../layouts';
+import { ComingSoon, DescriptiveHeader } from '../../components';
+import { structure } from '../../data';
 
-import Code from './code';
+const title = 'Develop';
+const topic = structure.find(page => page.name === title);
 
-const Index = () => <Code />;
+const Develop = () => {
+  const descriptiveHeader = (
+    <DescriptiveHeader
+      background={topic.color}
+      subText={topic.description}
+      icon={topic.icon}
+      title={title}
+    />
+  );
 
-export default Index;
+  return (
+    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      <ComingSoon />
+    </PageLayout>
+  );
+};
+
+export default Develop;

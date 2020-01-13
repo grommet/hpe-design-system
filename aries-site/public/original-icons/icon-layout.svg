@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <g fill="none" fill-rule="evenodd">
+    <path stroke="#000" stroke-width="4" d="M28.5714286,12 L28.5714286,84 L28.5714286,12 Z"/>
+    <path stroke="#000" stroke-width="4" d="M56.5714286,8 L56.5714286,47 L56.5714286,8 Z" transform="rotate(90 56.5 27.5)"/>
+    <path stroke="#000" stroke-width="4" d="M56.5714286,21 L56.5714286,60 L56.5714286,21 Z" transform="rotate(90 56.5 40.5)"/>
+    <path stroke="#000" stroke-width="4" d="M56.5714286,35 L56.5714286,74 L56.5714286,35 Z" transform="rotate(90 56.5 54.5)"/>
+    <path stroke="#000" stroke-width="4" d="M56.5714286,49 L56.5714286,88 L56.5714286,49 Z" transform="rotate(90 56.5 68.5)"/>
+    <path stroke="#000" stroke-width="4" d="M12,76.0023206 C12,80.4193169 15.5827987,84 19.9976794,84 L76.0023206,84 C80.4193169,84 84,80.4172013 84,76.0023206 L84,19.9976794 C84,15.5806831 80.4172013,12 76.0023206,12 L19.9976794,12 C15.5806831,12 12,15.5827987 12,19.9976794 L12,76.0023206 Z"/>
+  </g>
+</svg>

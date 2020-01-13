@@ -3,20 +3,25 @@ import PropTypes from 'prop-types';
 import { Anchor, Text } from 'grommet';
 
 export const NavLink = ({ active, children, label, size, ...rest }) => {
-  const activeTextColor = active ? 'text' : null;
-  const defaultTextColor = 'text-xweak';
-  const fontWeight = 400;
-  const [textColor, setTextColor] = useState(defaultTextColor);
+  const textColor = 'text-strong';
+  const activeFontWeight = 700;
+  const defaultFontWeight = 400;
+  const [fontWeight, setFontWeight] = useState(
+    active ? activeFontWeight : defaultFontWeight,
+  );
 
   return (
     <Anchor
-      color={activeTextColor || textColor}
-      label={<Text weight={fontWeight}>{label || children}</Text>}
-      onBlur={() => setTextColor(defaultTextColor)}
-      onFocus={() => setTextColor(activeTextColor)}
-      onMouseOut={() => setTextColor(defaultTextColor)}
-      onMouseOver={() => setTextColor(activeTextColor)}
-      size={size}
+      color={textColor}
+      label={
+        <Text size={size} weight={fontWeight}>
+          {label || children}
+        </Text>
+      }
+      onBlur={() => setFontWeight(defaultFontWeight)}
+      onFocus={() => setFontWeight(activeFontWeight)}
+      onMouseOut={() => setFontWeight(defaultFontWeight)}
+      onMouseOver={() => setFontWeight(activeFontWeight)}
       {...rest}
     />
   );

@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { css } from 'styled-components';
 
 const baseSpacing = 24;
 
@@ -19,35 +20,30 @@ const fontSizing = factor => {
 };
 
 export const aries = deepMerge(hpe, {
-  name: 'HPE 2',
-  rounding: 6,
   spacing: baseSpacing,
-  defaultMode: 'dark',
+  // defaultMode: 'light',
   global: {
     colors: {
-      brand: 'green',
+      icon: 'text',
+      brand: 'green!',
       background: {
         dark: '#1A1F2B',
         light: '#FFFFFF',
       },
-      'background-strong': {
-        dark: '#000000',
+      'background-back': {
+        dark: '#1A1F2B',
+        light: '#EFEFEF',
+      },
+      'background-front': {
+        dark: '#222938',
         light: '#FFFFFF',
       },
-      'background-weak': {
-        dark: '#44444480',
-        light: '#E8E8E880',
-      },
-      'background-xweak': {
-        dark: '#66666699',
-        light: '#CCCCCC90',
-      },
-      'background-subtle': {
-        dark: '#1F253280',
-        light: '#E8E8E880',
+      'background-contrast': {
+        dark: '#FFFFFF08',
+        light: '#11111108',
       },
       text: {
-        dark: '#FFFFFF',
+        dark: '#EEEEEE',
         light: '#333333',
       },
       'text-strong': {
@@ -62,53 +58,117 @@ export const aries = deepMerge(hpe, {
         dark: '#999999',
         light: '#666666',
       },
-      border: 'background-xweak',
+      border: {
+        light: '#CCCCCC',
+        dark: '#444444',
+      },
       control: 'brand',
-      'active-background': 'background-weak',
+      'active-background': 'background-contrast',
       'active-text': 'text-strong',
       'selected-background': 'brand',
-      // 'selected-text': undefined,
+      'selected-text': 'text-strong',
       'status-critical': '#FF4040',
       'status-warning': '#FFAA15',
       'status-ok': '#00C781',
       'status-unknown': '#CCCCCC',
       'status-disabled': '#CCCCCC',
-      red: '#ff0000d0',
-      'red-dark': '#4B1916',
-      'red-light': '#FF4F4F',
-      teal: '#00E8CF',
-      'teal-dark': '#007366',
-      'teal-light': '#82FFF2',
-      blue: '#00739D',
-      'blue-dark': '#1F2532',
-      'blue-light': '#00C8FF',
-      purple: '#7630EA',
-      'purple-dark': '#371177',
-      'purple-light': '#F740FF',
-      orange: '#FF8300',
-      'orange-dark': '#CC4B00',
-      'orange-light': '#FFB024',
-      yellow: '#FEC901',
-      'yellow-dark': '#D78F00',
-      'yellow-light': '#FFEB59',
-      green: '#00C781',
-      'green-dark': '#007A5E',
-      'green-light': '#6FFFB0',
+      blue: {
+        dark: '#0E5265',
+        light: '#00C8FF',
+      },
+      'blue!': '#00739D',
+      green: {
+        dark: '#007A5E',
+        light: '#6FFFB0',
+      },
+      'green!': '#00C781',
+      teal: {
+        dark: '#007366',
+        light: '#82FFF2',
+      },
+      'teal!': '#00E8CF',
+      purple: {
+        dark: '#371177',
+        light: '#F740FF',
+      },
+      'purple!': '#7630EA',
+      red: {
+        dark: '#4B1916',
+        light: '#FF4F4F',
+      },
+      'red!': '#FF0000',
+      orange: {
+        dark: '#CC4B00',
+        light: '#FFB024',
+      },
+      'orange!': '#FF8300',
+      yellow: {
+        dark: '#D78F00',
+        light: '#FFEB59',
+      },
+      'yellow!': '#FEC901',
+      'graph-0': 'orange',
+      'graph-1': 'blue',
+      'graph-2': 'purple',
+      focus: 'green',
+      placeholder: 'text-weak',
     },
     font: {
-      weight: 100,
+      family: 'Metric',
+      face: `@font-face {
+          font-family: "Metric";
+          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
+        }
+        @font-face {
+          font-family: "Metric";
+          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff") format('woff');
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Metric"; 
+          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff") format('woff');
+          font-weight: 600;
+        }
+        @font-face {
+          font-family: "Metric";
+          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format('woff');
+          font-weight: 100;
+        }`,
     },
     active: {
       background: 'active-background',
       color: 'active-text',
     },
+    drop: {
+      background: 'background-front',
+      border: {
+        radius: '8px',
+      },
+      shadowSize: 'medium',
+    },
+    elevation: {
+      dark: {
+        medium: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+      },
+    },
     hover: {
       background: 'active-background',
       color: 'active-text',
     },
+    input: {
+      weight: 500,
+    },
     selected: {
       background: 'selected-background',
       color: 'selected-text',
+    },
+  },
+  accordion: {
+    border: {
+      color: 'text',
+    },
+    icons: {
+      color: 'text',
     },
   },
   anchor: {
@@ -122,6 +182,9 @@ export const aries = deepMerge(hpe, {
     border: {
       radius: '6px',
     },
+    extend: css`
+      ${props => !props.plain && 'font-weight: bold;'}
+    `,
   },
   heading: {
     level: {
@@ -133,15 +196,38 @@ export const aries = deepMerge(hpe, {
         medium: fontSizing(3),
       },
       3: {
-        medium: fontSizing(0),
+        medium: fontSizing(1),
       },
     },
     weight: 700,
   },
+  icon: {
+    size: {
+      xxlarge: '166px',
+    },
+  },
+  tab: {
+    border: {
+      color: 'text-xweak',
+    },
+    color: 'text-xweak',
+    margin: {
+      horizontal: 'none',
+    },
+    pad: {
+      horizontal: 'small',
+    },
+  },
   text: {
-    small: fontSizing(-0.3),
-    medium: fontSizing(0),
-    large: fontSizing(1),
-    xlarge: fontSizing(2),
+    small: fontSizing(0),
+    medium: fontSizing(1),
+    large: fontSizing(3),
+  },
+  paragraph: {
+    small: fontSizing(0),
+    medium: fontSizing(1),
+    large: fontSizing(3),
   },
 });
+
+export const { colors } = aries.global;

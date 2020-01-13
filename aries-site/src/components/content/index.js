@@ -1,3 +1,5 @@
 export * from './BulletedList';
-export * from './LastUpdated';
-export * from './MainDescription';
+export * from './ExternalCTA';
+export * from './ComingSoon';
+export * from './SubsectionText';
+export * from './SubmitFeedback';
