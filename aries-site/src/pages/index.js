@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import { initialize, pageview } from 'react-ga';
-
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { Box, Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
@@ -21,6 +22,20 @@ const HomeTiles = ({ ...rest }) => {
     />
   );
 };
+
+// Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
+const TopicTile = forwardRef(({ onClick, topic }, ref) => {
+  return (
+    <Tile pad="medium" background={topic.color} onClick={onClick} ref={ref}>
+      <TileContent
+        // key={topic.name}
+        title={topic.name}
+        subTitle={topic.description}
+        icon={topic.icon('xlarge')}
+      />
+    </Tile>
+  );
+});
 
 const title = 'Home';
 
@@ -48,21 +63,9 @@ const Index = () => {
         </HomeTiles>
         <HomeTiles>
           {topicList.map(topic => (
-            <Tile
-              pad="medium"
-              background={topic.color}
-              key={topic.color}
-              onClick={() =>
-                (window.location.href = `/${topic.name.toLowerCase()}`)
-              }
-            >
-              <TileContent
-                key={topic.name}
-                title={topic.name}
-                subTitle={topic.description}
-                icon={topic.icon('xlarge')}
-              />
-            </Tile>
+            <Link key={topic.name} href={`/${topic.name.toLowerCase()}`}>
+              <TopicTile topic={topic} />
+            </Link>
           ))}
         </HomeTiles>
       </Box>
@@ -71,3 +74,17 @@ const Index = () => {
 };
 
 export default Index;
+
+TopicTile.propTypes = {
+  onClick: PropTypes.func,
+  topic: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.func.isRequired,
+  }),
+};
+
+TopicTile.defaultProps = {
+  onClick: undefined,
+};

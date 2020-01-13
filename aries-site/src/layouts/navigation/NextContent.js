@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
@@ -23,7 +24,9 @@ export const NextContent = ({ color, nextContent }) => {
       ) : (
         <Text>
           Next, learn about{' '}
-          <AnchorCallToAction label={nextContent} href={path} color="text" />
+          <Link href={path}>
+            <AnchorCallToAction label={nextContent} color="text" />
+          </Link>
         </Text>
       )}
     </Box>
