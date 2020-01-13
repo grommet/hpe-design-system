@@ -42,7 +42,7 @@ const Controls = () => (
           accordion is a good alternative.
         </SubsectionText>
         <ButtonRow>
-          <ExternalCTA href="#" type="storybook" />
+          <ExternalCTA href="#" label="See in Storybook" />
           <ExternalCTA href="#" type="figma" />
         </ButtonRow>
       </Subsection>
