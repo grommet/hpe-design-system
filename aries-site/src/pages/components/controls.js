@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'grommet';
 import { Button } from 'aries-core';
-import { StorybookAnchor, SubsectionText, FigmaAnchor } from '../../components';
+import { ExternalCTA, SubsectionText } from '../../components';
 import {
   ButtonRow,
   ContentSection,
@@ -28,10 +28,7 @@ const Controls = () => (
           the user’s needs, appropriately responding to a user’s purpose and
           intent.
         </SubsectionText>
-        <StorybookAnchor
-          href="https://storybook.hpe.design/?path=/story/*"
-          label="Storybook"
-        />
+        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -45,8 +42,8 @@ const Controls = () => (
           accordion is a good alternative.
         </SubsectionText>
         <ButtonRow>
-          <StorybookAnchor href="#" />
-          <FigmaAnchor href="#" />
+          <ExternalCTA href="#" type="storybook" />
+          <ExternalCTA href="#" type="figma" />
         </ButtonRow>
       </Subsection>
     </ContentSection>
@@ -55,7 +52,7 @@ const Controls = () => (
         <SubsectionText>
           The anchor component provides a text link.
         </SubsectionText>
-        <StorybookAnchor href="#" />
+        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -67,7 +64,7 @@ const Controls = () => (
         <Box align="start">
           <Button label="Hello Button" primary />
         </Box>
-        <StorybookAnchor href="#" />
+        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -80,7 +77,7 @@ const Controls = () => (
         <Box align="start">
           <MenuExample />
         </Box>
-        <StorybookAnchor href="#" />
+        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -91,7 +88,7 @@ const Controls = () => (
           expose the contents of the container.
         </SubsectionText>
         <TabsExample />
-        <StorybookAnchor href="#" />
+        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
   </PageLayout>
