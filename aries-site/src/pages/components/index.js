@@ -1,10 +1,10 @@
 import React from 'react';
 import { PageLayout, NavPage } from '../../layouts';
-import { DescriptiveHeader } from '../../components/headings';
-import { structure } from '../../data';
+import { DescriptiveHeader, Meta } from '../../components';
+import { getPageDetails } from '../../utils';
 
 const title = 'Components';
-const topic = structure.find(page => page.name === title);
+const topic = getPageDetails(title);
 
 const Components = () => {
   const descriptiveHeader = (
@@ -18,6 +18,11 @@ const Components = () => {
 
   return (
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      <Meta
+        title={title}
+        description={topic.seoDescription}
+        canonicalUrl="https://aries.hpe.design/components"
+      />
       <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
     </PageLayout>
   );

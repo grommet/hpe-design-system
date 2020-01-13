@@ -6,8 +6,9 @@ import { Tile, Tiles } from 'aries-core';
 
 import { Config } from '../../config';
 import { PageLayout } from '../layouts';
+import { Meta } from '../components';
 import { TileContent, IntroTile } from '../components/home';
-import { structure } from '../data';
+import { getPageDetails } from '../utils';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -23,11 +24,8 @@ const HomeTiles = ({ ...rest }) => {
 };
 
 const title = 'Home';
-
-// Get details for each child page of the home page
-const topicList = structure
-  .find(page => page.name === title)
-  .pages.map(topic => structure.find(page => page.name === topic));
+const pageDetails = getPageDetails(title);
+const topicList = pageDetails.pages.map(topic => getPageDetails(topic));
 
 const Index = () => {
   useEffect(() => {
@@ -39,6 +37,7 @@ const Index = () => {
 
   return (
     <PageLayout title={title} isLanding>
+      <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <HomeTiles>
           <Tile background="white">
