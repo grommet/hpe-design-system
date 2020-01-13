@@ -85,12 +85,12 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Tabs">
-        <TabsExample />
         <SubsectionText>
           Tabs allow a user to access content while maintaining the existing
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
         </SubsectionText>
+        <TabsExample />
         <StorybookAnchor href="#" />
       </Subsection>
     </ContentSection>
