@@ -9,7 +9,8 @@ import { nameToPath } from '../../utils';
 const SideBarItem = ({ item }) => {
   const path = nameToPath(item);
   return (
-    <Link href={path}>
+    // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+    <Link href={path} passHref>
       <NavLink>{item}</NavLink>
     </Link>
   );

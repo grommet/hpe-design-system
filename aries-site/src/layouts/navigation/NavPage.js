@@ -14,7 +14,8 @@ const NavItem = ({ item, topic }) => {
     .toLowerCase();
 
   return (
-    <Link href={`/${topic}/${formattedItem}`}>
+    // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+    <Link href={`/${topic}/${formattedItem}`} passHref>
       <Box
         fill
         direction="row"
