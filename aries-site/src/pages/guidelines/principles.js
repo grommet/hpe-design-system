@@ -3,11 +3,7 @@ import { Text } from 'grommet';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 
-<<<<<<< HEAD:aries-site/src/pages/start/principles.js
-import { BulletedList, MainDescription, MainHeading } from '../../components';
-=======
 import { BulletedList, Meta, SubsectionText } from '../../components';
->>>>>>> master:aries-site/src/pages/guidelines/principles.js
 
 const topic = 'Guidelines';
 const title = 'Principles';

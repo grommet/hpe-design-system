@@ -3,11 +3,7 @@ import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
 
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-<<<<<<< HEAD:aries-site/src/pages/start/about.js
-import { MainDescription, MainHeading } from '../../components';
-=======
 import { Meta, SubsectionText } from '../../components';
->>>>>>> master:aries-site/src/pages/guidelines/about.js
 
 const topic = 'Guidelines';
 const title = 'About';
