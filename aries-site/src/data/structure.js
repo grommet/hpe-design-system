@@ -58,7 +58,7 @@ export const structure = [
     description:
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: size => <IconComponents size={size} />,
-    pages: [],
+    pages: ['Controls'],
   },
   {
     name: 'Develop',
@@ -104,32 +104,38 @@ export const structure = [
   },
   {
     name: 'Branding',
-    description: 'CHanged',
+    description:
+      'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     icon: size => <IconBrand size={size} />,
   },
   {
     name: 'Color',
-    description: 'Something',
+    description:
+      'Bringing out the depth and dimension of our identity, the HPE Design System use of color evokes energy and inspiration.',
     icon: size => <IconColor size={size} />,
   },
   {
     name: 'Typography',
-    description: 'Something',
+    description:
+      'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
     icon: size => <IconType size={size} />,
   },
   {
     name: 'Iconography',
-    description: 'Something',
+    description:
+      'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: size => <IconIcons size={size} />,
   },
   {
     name: 'Layout',
-    description: 'Something',
+    description:
+      'The HPE Design System provides the framework to build a composition that brings clarity and simplicity to navigate the digital landscape.',
     icon: size => <IconLayout size={size} />,
   },
   {
     name: 'Tokens',
-    description: 'Something',
+    description:
+      'Authentication and security to build confidence and safety for your users in the midst of their digital experience.',
     icon: size => <IconToken size={size} />,
   },
   {
@@ -160,6 +166,12 @@ export const structure = [
   {
     name: 'Grommet',
     description: 'Something',
+    icon: '',
+  },
+  {
+    name: 'Controls',
+    description:
+      'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
     icon: '',
   },
 ];
