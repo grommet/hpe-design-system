@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, AnchorCallToAction } from 'aries-core';
+import { Box } from 'grommet';
+import { AnchorCallToAction } from 'aries-core';
 
 const labels = {
   storybook: 'Storybook',
