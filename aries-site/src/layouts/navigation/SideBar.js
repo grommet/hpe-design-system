@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { NavLink } from 'aries-core';
@@ -7,7 +8,11 @@ import { nameToPath } from '../../utils';
 
 const SideBarItem = ({ item }) => {
   const path = nameToPath(item);
-  return <NavLink href={path}>{item}</NavLink>;
+  return (
+    <Link href={path}>
+      <NavLink>{item}</NavLink>
+    </Link>
+  );
 };
 
 export const SideBar = ({ items }) => {
