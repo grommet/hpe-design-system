@@ -5,14 +5,14 @@ import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Design';
-const topic = getPageDetails(title);
+const page = getPageDetails(title);
 
 const Design = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={topic.color}
-      subText={topic.description}
-      icon={topic.icon}
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
       title={title}
     />
   );
@@ -21,7 +21,7 @@ const Design = () => {
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
-        description={topic.seoDescription}
+        description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/design"
       />
       <ComingSoon />
