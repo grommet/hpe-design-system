@@ -1,23 +1,29 @@
 import React from 'react';
+
 import { PageLayout } from '../../layouts';
-import { ComingSoon, DescriptiveHeader } from '../../components';
-import { structure } from '../../data';
+import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
+import { getPageDetails } from '../../utils';
 
 const title = 'Develop';
-const topic = structure.find(page => page.name === title);
+const page = getPageDetails(title);
 
 const Develop = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={topic.color}
-      subText={topic.description}
-      icon={topic.icon}
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
       title={title}
     />
   );
 
   return (
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      <Meta
+        title={title}
+        description={page.seoDescription}
+        canonicalUrl="https://aries.hpe.design/develop"
+      />
       <ComingSoon />
     </PageLayout>
   );

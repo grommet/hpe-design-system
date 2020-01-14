@@ -1,19 +1,17 @@
 import React from 'react';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { getPageDetails, getParentPage } from '../../utils';
 
-const topic = 'Guidelines';
 const title = 'Philosophy';
-const description =
-  'Learn about the underlying philosophy guiding the HPE Design System ' +
-  'and how generosity and community enable HPE to craft experiences ' +
-  'which advance the way people live and work';
+const page = getPageDetails(title);
+const topic = getParentPage(page);
 
 const Philosophy = () => (
   <PageLayout title={title}>
     <Meta
       title={title}
-      description={description}
+      description={page.seoDescription}
       canonicalUrl="https://aries.hpe.design/guidelines/philosophy"
     />
     <ContentSection>
