@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
@@ -23,7 +24,10 @@ export const NextContent = ({ color, nextContent }) => {
       ) : (
         <Text>
           Next, learn about{' '}
-          <AnchorCallToAction label={nextContent} href={path} color="text" />
+          {/* Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
+          <Link href={path} passHref>
+            <AnchorCallToAction label={nextContent} color="text" />
+          </Link>
         </Text>
       )}
     </Box>
