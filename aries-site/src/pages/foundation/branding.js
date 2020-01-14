@@ -11,7 +11,7 @@ import {
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
-import { getPageDetails } from '../../utils';
+import { getPageDetails, getParentPage } from '../../utils';
 
 const ArubaIconExample = () => {
   const textSize = 'small';
@@ -45,9 +45,9 @@ const HpeElementExample = () => {
   );
 };
 
-const topic = 'Foundation';
 const title = 'Branding';
 const page = getPageDetails(title);
+const topic = getParentPage(page);
 
 const Branding = () => (
   <PageLayout title={title}>

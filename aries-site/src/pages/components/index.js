@@ -4,14 +4,14 @@ import { DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Components';
-const topic = getPageDetails(title);
+const page = getPageDetails(title);
 
 const Components = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={topic.color}
-      subText={topic.description}
-      icon={topic.icon}
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
       title={title}
     />
   );
@@ -20,10 +20,10 @@ const Components = () => {
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
-        description={topic.seoDescription}
+        description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/components"
       />
-      <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
+      <NavPage items={page.pages} topic={page.name.toLowerCase()} />
     </PageLayout>
   );
 };
