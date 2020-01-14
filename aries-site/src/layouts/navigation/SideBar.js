@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { NavLink } from 'aries-core';
@@ -7,7 +8,12 @@ import { nameToPath } from '../../utils';
 
 const SideBarItem = ({ item }) => {
   const path = nameToPath(item);
-  return <NavLink href={path}>{item}</NavLink>;
+  return (
+    // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+    <Link href={path} passHref>
+      <NavLink>{item}</NavLink>
+    </Link>
+  );
 };
 
 export const SideBar = ({ items }) => {
