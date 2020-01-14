@@ -69,6 +69,7 @@ const Index = () => {
         </HomeTiles>
         <HomeTiles>
           {topicList.map(topic => (
+            // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
             <Link
               key={topic.name}
               href={`/${topic.name.toLowerCase()}`}
