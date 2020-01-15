@@ -7,6 +7,9 @@ export const formatName = name => {
     .toLowerCase();
 };
 
+export const getPageDetails = pageName =>
+  structure.find(page => page.name === pageName);
+
 export const getParentPage = currentPage =>
   structure.find(page =>
     page.pages ? page.pages.includes(currentPage) : null,
