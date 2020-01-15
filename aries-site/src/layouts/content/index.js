@@ -1,6 +1,7 @@
 export * from './ButtonRow';
 export * from './ColorRow';
 export * from './ContentSection';
+export * from './FormRow';
 export * from './Head';
 export * from './MainContent';
 export * from './Subsection';
