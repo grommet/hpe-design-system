@@ -58,7 +58,7 @@ export const structure = [
     description:
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: size => <IconComponents size={size} />,
-    pages: ['Controls'],
+    pages: ['Controls', 'Input'],
   },
   {
     name: 'Develop',
@@ -173,5 +173,12 @@ export const structure = [
     description:
       'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
     icon: '',
+  },
+  {
+    name: 'Input',
+    description:
+      'Thoughtful and intentional use of input components can bring about engaging experiences.',
+    icon: '',
+    seoDescription: '',
   },
 ];

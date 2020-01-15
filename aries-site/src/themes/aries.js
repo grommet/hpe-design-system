@@ -186,6 +186,13 @@ export const aries = deepMerge(hpe, {
       ${props => !props.plain && 'font-weight: bold;'}
     `,
   },
+  formField: {
+    content: {
+      pad: {
+        horizontal: 'large',
+      },
+    },
+  },
   heading: {
     level: {
       1: {
