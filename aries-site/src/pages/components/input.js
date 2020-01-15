@@ -17,9 +17,7 @@ import {
 
 const title = 'Input';
 const page = getPageDetails(title);
-console.log(page);
 const topic = getParentPage(page);
-console.log(topic);
 
 const Input = () => (
   <PageLayout title={title}>
