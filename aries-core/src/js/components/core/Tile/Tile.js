@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, Header, Heading } from 'grommet';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
-export const Tile = ({ children, heading, pad, ...rest }) => {
+export const Tile = forwardRef(({ children, heading, pad, ...rest }, ref) => {
   const tilePad =
     pad === true ? { horizontal: 'small', top: 'small', bottom: 'small' } : pad;
 
   return (
-    <Box round="small" overflow="hidden" {...rest}>
+    <Box round="small" overflow="hidden" ref={ref} {...rest}>
       {heading && (
         <Header pad={tilePad}>
           <Heading level={2} size="xsmall" margin="none">
@@ -23,7 +23,7 @@ export const Tile = ({ children, heading, pad, ...rest }) => {
       </Box>
     </Box>
   );
-};
+});
 
 Tile.propTypes = {
   children: PropTypes.node,

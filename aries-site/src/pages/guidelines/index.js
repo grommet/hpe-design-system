@@ -10,20 +10,17 @@ import {
   Subsection,
 } from '../../layouts';
 import { DescriptiveHeader, Meta, SubsectionText } from '../../components';
-import { structure } from '../../data';
+import { getPageDetails } from '../../utils';
 
 const title = 'Guidelines';
-const topic = structure.find(page => page.name === title);
-const description =
-  'The heartbeat and mindset of the HPE Design System describing the ' +
-  'ideology and standards informing every design decision.';
+const page = getPageDetails(title);
 
 const Guidelines = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={topic.color}
-      subText={topic.description}
-      icon={topic.icon}
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
       title={title}
     />
   );
@@ -32,7 +29,7 @@ const Guidelines = () => {
     <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
-        description={description}
+        description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/guidelines"
       />
       <Box border={{ side: 'bottom' }} pad={{ top: 'large' }}>
@@ -52,7 +49,7 @@ const Guidelines = () => {
           </Subsection>
         </ContentSection>
       </Box>
-      <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
+      <NavPage items={page.pages} topic={page.name.toLowerCase()} />
     </PageLayout>
   );
 };
