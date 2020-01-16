@@ -32,8 +32,8 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
 UsageExample.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
     .isRequired,
-  label: PropTypes.string.isRequired,
-  themeMode: PropTypes.oneOf(['dark', 'light']).isRequired,
+  label: PropTypes.string,
+  themeMode: PropTypes.oneOf(['dark', 'light']),
   pad: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -53,4 +53,6 @@ UsageExample.defaultProps = {
     vertical: 'large',
     small: { horizontal: 'xlarge', vertical: 'xlarge' },
   },
+  label: undefined,
+  themeMode: undefined,
 };
