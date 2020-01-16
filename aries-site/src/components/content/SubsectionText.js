@@ -17,7 +17,7 @@ export const SubsectionText = ({ level, size, ...rest }) => {
 };
 
 SubsectionText.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   level: PropTypes.number,
   size: PropTypes.string,
 };
