@@ -4,7 +4,7 @@ import { AnchorCallToAction, Button } from 'aries-core';
 import {
   ButtonRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   TypographyRow,
 } from '../../layouts';
@@ -145,7 +145,7 @@ const topic = 'Foundation';
 const title = 'Typography';
 
 const Typography = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
@@ -271,7 +271,7 @@ const Typography = () => (
         </SubsectionText>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Typography;
