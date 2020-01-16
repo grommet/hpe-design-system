@@ -7,12 +7,13 @@ import {
   ButtonRow,
   ColorRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 import { colorExamples } from '../../data';
+import { getPageDetails, getParentPage } from '../../utils';
 
 const {
   coreColors,
@@ -67,18 +68,15 @@ const TextExample = ({ color, hex }) => {
   );
 };
 
-const topic = 'Foundation';
 const title = 'Color';
-const description =
-  'HPE Design System color palette brings out the depth and dimension ' +
-  'of our identity. From sophisticated, neutral hues reflective of ' +
-  'technology to vibrant, saturated colors that evoke energy and inspiration.';
+const page = getPageDetails(title);
+const topic = getParentPage(page);
 
 const Color = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
+      description={page.seoDescription}
       canonicalUrl="https://aries.hpe.design/foundation/color"
     />
     <ContentSection>
@@ -300,7 +298,7 @@ const Color = () => (
         <AnchorCallToAction label="Use the Controls" href="#" />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 TextExample.propTypes = {

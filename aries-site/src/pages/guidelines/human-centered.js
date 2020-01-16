@@ -1,19 +1,18 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { getPageDetails, getParentPage } from '../../utils';
 
-const topic = 'Guidelines';
 const title = 'Human Centered';
-const description =
-  'Unlocking human potential through human centered design. ' +
-  'HPE Design System is inclusive, attentive, adaptable, and conversational.';
+const page = getPageDetails(title);
+const topic = getParentPage(page);
 
 const HumanCentered = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
+      description={page.seoDescription}
       canonicalUrl="https://aries.hpe.design/guidelines/human-centered"
     />
     <ContentSection>
@@ -68,7 +67,7 @@ const HumanCentered = () => (
       </Subsection>
       <Button label="Join the Conversation" primary href="#" />
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default HumanCentered;

@@ -22,6 +22,7 @@ export const Layout = ({
         {size => (
           <Box
             // pad={{ horizontal: calcPad(size) }}
+            height={{ min: '100vh' }}
             margin="auto"
             width={{ max: 'xxlarge' }}
           >
@@ -33,7 +34,7 @@ export const Layout = ({
               }
             />
             {!isLanding && !isNavPage ? (
-              <SidebarLayout mainContentChildren={children} title={title} />
+              <SidebarLayout title={title}> {children} </SidebarLayout>
             ) : (
               <Main>
                 {/* Allows DescriptiveHeader background color not to be
@@ -60,7 +61,7 @@ export const Layout = ({
                 </Box>
               </Main>
             )}
-            <Footer />
+            {isLanding && <Footer />}
           </Box>
         )}
       </ResponsiveContext.Consumer>

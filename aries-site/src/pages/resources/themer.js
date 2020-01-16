@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 
 const topic = 'Resources';
 const title = 'Themer';
 
 const Themer = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <ContentSection>
       <Subsection name={title} level={1} topic={topic} />
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Themer;

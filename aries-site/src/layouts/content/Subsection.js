@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'aries-core';
 import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
-import { Subheading, SubsectionText } from '../../components';
+import { Subheading } from '../../components';
 
 // Depending on the level of the heading, we need to adjust the amount of gap
 // between the heading and the first child in the subsection.
@@ -13,7 +13,7 @@ const GAP_SIZE = {
   3: undefined,
 };
 
-export const Subsection = ({ children, level, name, topic }) => {
+export const Subsection = ({ children, showHeading, level, name, topic }) => {
   const [over, setOver] = useState(false);
 
   const id = name
@@ -45,7 +45,7 @@ export const Subsection = ({ children, level, name, topic }) => {
       id={id}
       margin={{ bottom: 'small' }}
       fill="horizontal"
-      gap={level !== 1 ? 'small' : 'medium'}
+      gap="medium"
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
@@ -57,24 +57,27 @@ export const Subsection = ({ children, level, name, topic }) => {
        * removes that extra space.
        */}
       <Box gap={GAP_SIZE[level]}>
-        <Header>
-          <Box>
-            {level === 1 && topic && (
-              <NavLink href={`/${topic.toLowerCase()}`} label={topic} />
+        {showHeading && (
+          <Header>
+            <Box>
+              {level === 1 && topic && (
+                <NavLink href={`/${topic.toLowerCase()}`} label={topic} />
+              )}
+              <Subheading level={level}>{name}</Subheading>
+            </Box>
+            {level > 1 && (
+              <Anchor
+                a11yTitle={`Jump to section titled ${name}`}
+                href={`#${id}`}
+                icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
+              />
             )}
-            <Subheading level={level}>{name}</Subheading>
-          </Box>
-          {level > 1 && (
-            <Anchor
-              a11yTitle={`Jump to section titled ${name}`}
-              href={`#${id}`}
-              icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-            />
-          )}
-        </Header>
-        {/* Isolates the first child to ensure the gap between heading and
+          </Header>
+        )
+        /* Isolates the first child to ensure the gap between heading and
          * first child is correct size. See comment on line 33 for reasoning.
-         */}
+         */
+        }
         {firstChild}
       </Box>
       {remainingChildren}
@@ -86,11 +89,13 @@ Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   level: PropTypes.number,
   name: PropTypes.string.isRequired,
+  showHeading: PropTypes.bool,
   topic: PropTypes.string,
 };
 
 Subsection.defaultProps = {
   children: undefined,
   level: 2,
+  showHeading: true,
   topic: undefined,
 };

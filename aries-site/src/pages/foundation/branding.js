@@ -6,11 +6,12 @@ import { Button } from 'aries-core';
 import {
   ButtonRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { getPageDetails, getParentPage } from '../../utils';
 
 const ArubaIconExample = () => {
   const textSize = 'small';
@@ -44,18 +45,15 @@ const HpeElementExample = () => {
   );
 };
 
-const topic = 'Foundation';
 const title = 'Branding';
-const description =
-  'Logos are a powerful expression of our brand and who we are. Learn how to ' +
-  'access and apply HPE and Aruba Networks logos in the experiences you ' +
-  'create.';
+const page = getPageDetails(title);
+const topic = getParentPage(page);
 
 const Branding = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
+      description={page.seoDescription}
       canonicalUrl="https://aries.hpe.design/foundation/branding"
     />
     <ContentSection>
@@ -173,7 +171,7 @@ const Branding = () => (
         </UsageExample>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Branding;
