@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, Footer, SidebarLayout } from '..';
-import { ThemeMode } from '../../components';
+import { ThemeMode, ThemeModeToggle } from '../../components';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -27,6 +27,14 @@ export const Layout = ({
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
+            {/* Temporary placement of theme toggle from Chris.
+             * Will likely be updated in future, but wanted visible
+             * placement for demo. */}
+            <Box
+              style={{ position: 'absolute', bottom: '48px', right: '48px' }}
+            >
+              <ThemeModeToggle />
+            </Box>
             <Header
               showLinks={!isLanding && !isNavPage}
               background={
