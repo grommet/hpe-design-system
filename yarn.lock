@@ -6188,8 +6188,8 @@ grommet-theme-hpe@^0.4.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.9.0"
-  uid "31b48b09975bed66416c358f02a7463bd21e7d23"
-  resolved "https://github.com/grommet/grommet/tarball/stable#31b48b09975bed66416c358f02a7463bd21e7d23"
+  uid "4092303842c8a6744431b70ef7d8f016e3060eca"
+  resolved "https://github.com/grommet/grommet/tarball/stable#4092303842c8a6744431b70ef7d8f016e3060eca"
   dependencies:
     "@testing-library/dom" "^6.1.0"
     "@testing-library/jest-dom" "^4.2.4"
