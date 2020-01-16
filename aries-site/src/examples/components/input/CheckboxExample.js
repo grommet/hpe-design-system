@@ -18,7 +18,13 @@ export const CheckboxExample = () => {
   };
 
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box gap="medium">
         {items &&
           items.map(item => (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField } from 'grommet';
+import { FormField } from 'grommet';
 import { MaskedInput } from 'aries-core';
 
 const today = new Date();

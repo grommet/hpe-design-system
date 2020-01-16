@@ -17,7 +17,13 @@ export const RadioButtonGroupExample = () => {
   );
 
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box gap="xsmall">
         <Text size="large">Power Management</Text>
         <Text>Power Regulation</Text>

@@ -25,7 +25,13 @@ export const SelectExample = () => {
   };
 
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box width="medium">
         <Select
           placeholder={placeholder}

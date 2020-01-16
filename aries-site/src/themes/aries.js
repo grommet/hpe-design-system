@@ -206,6 +206,12 @@ export const aries = deepMerge(hpe, {
       xxlarge: '166px',
     },
   },
+  radioButton: {
+    check: {
+      color: 'text',
+    },
+    gap: 'medium',
+  },
   tab: {
     border: {
       color: 'text-xweak',

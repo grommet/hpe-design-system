@@ -8,7 +8,13 @@ export const RangeSelectorExample = () => {
   const [values, setValues] = useState([50, 80]);
 
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box gap="medium">
         <Box direction="row" gap="medium">
           <Text>Threshold</Text>
@@ -16,7 +22,13 @@ export const RangeSelectorExample = () => {
             {values[0]}% - {values[1]}%
           </Text>
         </Box>
-        <Box direction="row" gap="medium" width="large" justify="between">
+        <Box
+          direction="row"
+          gap="medium"
+          width="large"
+          justify="between"
+          align="center"
+        >
           <Text weight={600}>0</Text>
           <RangeSelector
             max={100}
