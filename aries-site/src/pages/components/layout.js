@@ -95,8 +95,10 @@ const Layout = () => (
         <SubsectionText>
           The Main component is where you define the location and layout of the
           primary context of your content. Check out the{' '}
-          <Anchor href="#grid">Grid</Anchor> component description to see “Main”
-          in use.
+          <Anchor color="green!" href="#grid">
+            Grid
+          </Anchor>{' '}
+          component description to see “Main” in use.
         </SubsectionText>
       </Subsection>
     </ContentSection>
