@@ -14,10 +14,8 @@ const LoginExample = () => {
         <FormField label="Email" htmlFor="username">
           <TextInput id="username" placeholder="Email address" type="email" />
         </FormField>
-        <FormField>
-          <Checkbox label="Keep me signed in" />
-        </FormField>
-        <Button label="Next" primary />
+        <Checkbox label="Keep me signed in" />
+        <Button type="submit" label="Next" primary />
         <Anchor label="Forgot your password?" />
       </Box>
     </Form>
@@ -49,7 +47,7 @@ const ProductConfigExample = () => {
         </FormRow>
         <FormRow>
           <Box align="end">
-            <Button label="Create" onClick={() => {}} primary />
+            <Button type="submit" label="Create" primary />
           </Box>
         </FormRow>
       </Box>
