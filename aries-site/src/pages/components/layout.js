@@ -2,6 +2,7 @@ import React from 'react';
 import { Anchor } from 'grommet';
 import { ExternalCTA, SubsectionText } from '../../components';
 import {
+  ButtonRow,
   ContentSection,
   Layout as PageLayout,
   Subsection,
@@ -70,6 +71,13 @@ const Layout = () => (
           Header is a Box with a set of preset properties for introductory
           content. Box properties allow you to customize the header.
         </SubsectionText>
+        <ButtonRow>
+          <ExternalCTA href="#" type="storybook" />
+          <ExternalCTA
+            href="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
+            type="figma"
+          />
+        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
