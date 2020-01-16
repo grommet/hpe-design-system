@@ -31,7 +31,11 @@ export const Layout = ({
              * Will likely be updated in future, but wanted visible
              * placement for demo. */}
             <Box
-              style={{ position: 'absolute', bottom: '48px', right: '48px' }}
+              style={{
+                position: 'absolute',
+                bottom: size !== 'small' ? '48px' : '24px',
+                right: '24px',
+              }}
             >
               <ThemeModeToggle />
             </Box>
