@@ -7,25 +7,7 @@ import { NextContent, SideBar } from '../navigation';
 import { SubmitFeedback } from '../../components/content';
 import { getNextContent, getParentPage } from '../../utils';
 
-const filterChildren = (children, type) => {
-  const filteredChildren = React.Children.map(children, child => {
-    return child.props[type] ? child : null;
-  });
-
-  if (filteredChildren.length > 1) {
-    console.warn(
-      `Expected a single ${type}, received ${filteredChildren.length}.`,
-      `Only first ${type} element will be rendered.`,
-    );
-  }
-
-  return filteredChildren;
-};
-
-export const SidebarLayout = ({ mainContentChildren, title }) => {
-  // Only expect a single child of the following types
-  const mainContent = filterChildren(mainContentChildren, 'MainContent');
-
+export const SidebarLayout = ({ title, children }) => {
   // Get parent topic details
   const parentTopic = getParentPage(title);
   const { name, color, pages } =
@@ -45,7 +27,7 @@ export const SidebarLayout = ({ mainContentChildren, title }) => {
             }}
           >
             <Main flex>
-              {mainContent[0]}
+              {children}
               <SubmitFeedback />
             </Main>
             {size !== 'small' && (
@@ -66,9 +48,6 @@ export const SidebarLayout = ({ mainContentChildren, title }) => {
 };
 
 SidebarLayout.propTypes = {
-  mainContentChildren: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.array,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   title: PropTypes.string,
 };

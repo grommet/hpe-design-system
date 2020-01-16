@@ -7,7 +7,7 @@ import {
   ButtonRow,
   ColorRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
@@ -73,7 +73,7 @@ const page = getPageDetails(title);
 const topic = getParentPage(page);
 
 const Color = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -298,7 +298,7 @@ const Color = () => (
         <AnchorCallToAction label="Use the Controls" href="#" />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 TextExample.propTypes = {
