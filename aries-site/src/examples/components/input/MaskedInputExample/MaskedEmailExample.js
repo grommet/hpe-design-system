@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormField, Box } from 'grommet';
+import { FormField } from 'grommet';
 import { MaskedInput } from 'aries-core';
 
 const maskEmail = [

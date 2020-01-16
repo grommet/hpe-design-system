@@ -8,7 +8,13 @@ export const RangeInputExample = () => {
   const [value, setValue] = useState(80);
 
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box gap="medium">
         <Box direction="row" gap="medium">
           <Text>Threshold</Text>

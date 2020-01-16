@@ -11,7 +11,13 @@ import {
 
 export const MaskedInputExample = () => {
   return (
-    <UsageExample>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
       <Box gap="medium">
         <Box direction="row-responsive" gap="large">
           <MaskedEmailExample />
