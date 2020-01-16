@@ -5,7 +5,7 @@ import { ContentSection, Layout, Subsection } from '../../layouts';
 const topic = 'Foundation';
 const title = 'Layout';
 
-const Layout = () => (
+const Index = () => (
   <Layout title={title}>
     <ContentSection>
       <Subsection name={title} level={1} topic={topic} />
@@ -13,4 +13,4 @@ const Layout = () => (
   </Layout>
 );
 
-export default Layout;
+export default Index;
