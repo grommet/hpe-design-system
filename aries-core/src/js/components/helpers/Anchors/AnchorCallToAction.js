@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor } from 'grommet';
 import { FormNext } from 'grommet-icons';
 
-export const AnchorCallToAction = ({ color, size, ...rest }) => (
-  <Anchor color={color} icon={<FormNext />} reverse size={size} {...rest} />
+export const AnchorCallToAction = forwardRef(
+  ({ color, size, ...rest }, ref) => (
+    <Anchor
+      color={color}
+      icon={<FormNext />}
+      ref={ref}
+      reverse
+      size={size}
+      {...rest}
+    />
+  ),
 );
 
 AnchorCallToAction.defaultProps = {

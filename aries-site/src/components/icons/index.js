@@ -7,3 +7,4 @@ export * from './IconMoon';
 export * from './IconResources';
 export * from './IconSun';
 export * from './foundation';
+export * from './guidelines';
