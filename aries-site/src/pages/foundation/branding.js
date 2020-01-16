@@ -6,7 +6,7 @@ import { Button } from 'aries-core';
 import {
   ButtonRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
@@ -50,7 +50,7 @@ const page = getPageDetails(title);
 const topic = getParentPage(page);
 
 const Branding = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -171,7 +171,7 @@ const Branding = () => (
         </UsageExample>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Branding;
