@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
 import { Close } from 'grommet-icons';
+import { UsageExample } from '../../../layouts';
 
 export const LayerExample = () => {
   const [open, setOpen] = useState(false);
@@ -8,10 +9,10 @@ export const LayerExample = () => {
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   return (
-    <>
+    <UsageExample>
       <Box align="start">
         <Button
-          color="blue"
+          // color="blue"
           label="Show me the Layer"
           onClick={onOpen}
           primary
@@ -37,7 +38,7 @@ export const LayerExample = () => {
               </Heading>
               <Button icon={<Close />} onClick={onClose} />
             </Box>
-            <Box flex="grow" overflow="auto" pad={{ vertical: 'medium' }}>
+            <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
                 This layer is set to appear on the right and fill the screen
                 vertically. You can add content in here such as a Form or a
@@ -50,6 +51,6 @@ export const LayerExample = () => {
           </Box>
         </Layer>
       )}
-    </>
+    </UsageExample>
   );
 };
