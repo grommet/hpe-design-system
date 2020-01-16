@@ -2,19 +2,14 @@ import React from 'react';
 import { Box } from 'grommet';
 import { Button } from 'aries-core';
 import { ExternalCTA, SubsectionText } from '../../components';
-import {
-  ButtonRow,
-  ContentSection,
-  PageLayout,
-  Subsection,
-} from '../../layouts';
+import { ButtonRow, ContentSection, Layout, Subsection } from '../../layouts';
 import { AccordionExample, MenuExample, TabsExample } from '../../examples';
 
 const topic = 'Components';
 const title = 'Controls';
 
 const Controls = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
@@ -91,7 +86,7 @@ const Controls = () => (
         <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Controls;

@@ -35,7 +35,7 @@ export const Layout = ({
               }
             />
             {!isLanding && !isNavPage ? (
-              <SidebarLayout mainContentChildren={children} title={title} />
+              <SidebarLayout title={title}> {children} </SidebarLayout>
             ) : (
               <Main>
                 {/* Allows DescriptiveHeader background color not to be
