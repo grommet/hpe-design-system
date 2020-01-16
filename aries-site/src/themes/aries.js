@@ -186,6 +186,9 @@ export const aries = deepMerge(hpe, {
       ${props => !props.plain && 'font-weight: bold;'}
     `,
   },
+  checkBox: {
+    gap: 'medium',
+  },
   heading: {
     level: {
       1: {
@@ -211,6 +214,24 @@ export const aries = deepMerge(hpe, {
       color: 'text',
     },
     gap: 'medium',
+  },
+  rangeInput: {
+    track: {
+      color: 'background-contrast',
+    },
+    thumb: {
+      color: 'text',
+    },
+  },
+  select: {
+    icons: {
+      color: 'text',
+    },
+    options: {
+      text: {
+        size: 'small',
+      },
+    },
   },
   tab: {
     border: {

@@ -16,9 +16,47 @@ const LoginExample = () => {
         </FormField>
         <Checkbox label="Keep me signed in" />
         <Button type="submit" label="Next" primary />
-        <Anchor label="Forgot your password?" />
+        <Anchor label="Forgot your password?" size="small" />
       </Box>
     </Form>
+  );
+};
+
+const ProductConfigExample = () => {
+  const labelKeys = {
+    name: 'server-name',
+    profile: 'server-profile-template',
+    description: 'server-description',
+    hardware: 'server-hardware',
+  };
+
+  return (
+    <Box fill>
+      <Form>
+        <Box gap="medium">
+          <Text size="large" weight="bold">
+            Create Server Profile
+          </Text>
+          <FormField label="Name" htmlFor={labelKeys.name}>
+            <TextInput id={labelKeys.name} />
+          </FormField>
+          <FormField
+            label="Server Profile Template"
+            htmlFor={labelKeys.profile}
+          >
+            <TextInput id={labelKeys.profile} />
+          </FormField>
+          <FormField label="Description" htmlFor={labelKeys.description}>
+            <TextInput id={labelKeys.description} />
+          </FormField>
+          <FormField label="Server Hardware" htmlFor={labelKeys.hardware}>
+            <TextInput id={labelKeys.hardware} />
+          </FormField>
+          <Checkbox label="Show empty bays" />
+          <Button type="submit" label="Create" primary alignSelf="end" />
+        </Box>
+      </Form>
+    </Box>
   );
 };
 
@@ -26,6 +64,7 @@ export const FormExample = () => {
   return (
     <Box gap="medium">
       <UsageExample
+        label="Login or Account Information"
         pad={{
           horizontal: 'large',
           top: 'medium',
@@ -34,6 +73,16 @@ export const FormExample = () => {
         }}
       >
         <LoginExample />
+      </UsageExample>
+      <UsageExample
+        label="In Product Configuration"
+        pad={{
+          horizontal: 'large',
+          vertical: 'large',
+          small: { horizontal: 'large', vertical: 'xlarge' },
+        }}
+      >
+        <ProductConfigExample />
       </UsageExample>
     </Box>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box } from 'grommet';
+import { Search } from 'grommet-icons';
 import { Select } from 'aries-core';
 
 import { UsageExample } from '../../../layouts';
