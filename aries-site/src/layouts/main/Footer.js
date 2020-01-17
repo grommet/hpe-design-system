@@ -20,9 +20,24 @@ export const Footer = () => {
         <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
       </Box>
       <Box direction="row" gap="medium">
-        <FooterLink label="Terms" href="#" />
-        <FooterLink label="Privacy" href="#" />
-        <FooterLink label="Security" href="#" />
+        <FooterLink
+          label="Terms"
+          href="https://www.hpe.com/us/en/about/legal/terms-of-use.html"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <FooterLink
+          label="Privacy"
+          href="https://www.hpe.com/us/en/legal/privacy.html"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <FooterLink
+          label="Security"
+          href="https://www.hpe.com/us/en/legal/privacy.html#datacollection"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
         <FooterLink
           label="Feedback"
           href="https://github.com/hpe-design/aries/issues"
