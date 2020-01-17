@@ -252,10 +252,7 @@ const SearchRC = () => (
     align="center"
     pad={{ horizontal: 'small', vertical: 'xsmall' }}
     round="small"
-    background={{
-      color: { light: 'light-2', dark: 'dark-2' },
-      opacity: 'medium',
-    }}
+    background="background-contrast"
   >
     <Search color="brand" />
     <TextInput
@@ -290,15 +287,17 @@ const Menus = () => (
   </Box>
 );
 
+const darkBackground = customTheme.global.colors.background.dark;
+
 export const Simple = () => (
   <Grommet theme={customTheme} full>
     <Box background="light-4" pad="large" gap="large" fill>
-      <Header background="dark-1" pad="medium">
+      <Header background={darkBackground} pad="medium">
         <Brand />
         <SearchRC />
         <Menus />
       </Header>
-      <Header background="white" pad="medium">
+      <Header background="background" pad="medium">
         <Brand />
         <SearchRC />
         <Menus />
