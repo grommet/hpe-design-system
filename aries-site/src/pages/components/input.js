@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ExternalCTA, Meta, SubsectionText } from '../../components';
 import { ContentSection, PageLayout, Subsection } from '../../layouts';
-import { getPageDetails, getParentPage } from '../../utils';
 import {
   CheckboxExample,
   FormExample,
@@ -16,8 +15,7 @@ import {
 } from '../../examples';
 
 const title = 'Input';
-const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Components';
 
 const Input = () => (
   <PageLayout title={title}>

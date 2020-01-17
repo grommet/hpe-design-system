@@ -3,7 +3,6 @@ import { Box, Stack, Text } from 'grommet';
 import { RangeSelector } from 'aries-core';
 
 import { UsageExample } from '../../../layouts';
-import { getParentPage } from '../../../utils';
 
 export const RangeSelectorExample = () => {
   const [values, setValues] = useState([50, 80]);
