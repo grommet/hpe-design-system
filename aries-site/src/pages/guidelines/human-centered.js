@@ -2,11 +2,11 @@ import React from 'react';
 import { Button } from 'grommet';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const title = 'Human Centered';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Guidelines';
 
 const HumanCentered = () => (
   <Layout title={title}>
