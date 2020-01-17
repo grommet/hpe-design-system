@@ -136,6 +136,8 @@ export const structure = [
     description:
       'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
     icon: size => <IconType size={size} />,
+    seoDescription:
+      'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
   },
   {
     name: 'Iconography',
@@ -148,6 +150,8 @@ export const structure = [
     description:
       'Grid, box, header and footer. All the core components to build the foundation for your content.',
     icon: size => <IconLayout size={size} />,
+    seoDescription:
+      "Get started with HPE Design System's foundational layout components Header, Main, Footer, and more.",
   },
   {
     name: 'Tokens',
@@ -190,5 +194,7 @@ export const structure = [
     description:
       'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
     icon: '',
+    seoDescription:
+      'HPE Design System styled interactive components for your applications.',
   },
 ];
