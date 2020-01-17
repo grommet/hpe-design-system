@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from 'react';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
@@ -13,6 +14,13 @@ import { structure } from '../../data';
 import { nameToPath } from '../../utils';
 
 const allSuggestions = structure.map(p => p.name).sort();
+
+// Using Search icon as the arialabelledby for the text input. Documentation
+// on why this is a valid replacement for using label here:
+// https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'searchbutton',
+}))``;
 
 export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
@@ -90,7 +98,7 @@ export const Search = ({ focused, setFocused }) => {
     >
       {size !== 'small' || focused ? (
         <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
-          <TextInput
+          <StyledTextInput
             ref={inputRef}
             dropTarget={boxRef.current}
             dropProps={{
@@ -118,7 +126,7 @@ export const Search = ({ focused, setFocused }) => {
             : undefined
         }
       >
-        <SearchIcon color="text" />
+        <SearchIcon id="searchbutton" color="text" />
       </Box>
     </Box>
   );
