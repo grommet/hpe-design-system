@@ -13,7 +13,7 @@ import {
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 import { colorExamples } from '../../data';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const {
   coreColors,
@@ -70,7 +70,7 @@ const TextExample = ({ color, hex }) => {
 
 const title = 'Color';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Foundation';
 
 const Color = () => (
   <Layout title={title}>

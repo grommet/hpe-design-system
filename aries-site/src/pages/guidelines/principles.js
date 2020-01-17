@@ -3,11 +3,11 @@ import { Text } from 'grommet';
 
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { BulletedList, Meta, SubsectionText } from '../../components';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const title = 'Principles';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Guidelines';
 
 const Principles = () => (
   <Layout title={title}>
