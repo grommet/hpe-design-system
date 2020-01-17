@@ -80,7 +80,10 @@ const Layout = () => (
           content. Box properties allow you to customize the header.
         </SubsectionText>
         <ButtonRow>
-          <ExternalCTA href="#" type="storybook" />
+          <ExternalCTA
+            href="https://storybook.hpe.design/?path=/story/header--simple"
+            type="storybook"
+          />
           <ExternalCTA
             href="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
             type="figma"
