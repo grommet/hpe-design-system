@@ -49,14 +49,7 @@ export const structure = [
     icon: size => <IconFoundation size={size} />,
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
-    pages: [
-      'Branding',
-      'Color',
-      'Typography',
-      'Layout',
-      'Iconography',
-      'Tokens',
-    ],
+    pages: ['Branding', 'Color', 'Typography', 'Iconography', 'Tokens'],
   },
   {
     name: 'Components',
@@ -66,7 +59,7 @@ export const structure = [
     icon: size => <IconComponents size={size} />,
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: ['Controls'],
+    pages: ['Layout', 'Controls'],
   },
   {
     name: 'Develop',
@@ -153,7 +146,7 @@ export const structure = [
   {
     name: 'Layout',
     description:
-      'The HPE Design System provides the framework to build a composition that brings clarity and simplicity to navigate the digital landscape.',
+      'Grid, box, header and footer. All the core components to build the foundation for your content.',
     icon: size => <IconLayout size={size} />,
   },
   {
