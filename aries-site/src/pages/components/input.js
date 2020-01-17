@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ExternalCTA, Meta, SubsectionText } from '../../components';
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import {
   CheckboxExample,
   FormExample,
@@ -18,7 +18,7 @@ const title = 'Input';
 const topic = 'Components';
 
 const Input = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta title={title} description="" />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
@@ -133,7 +133,7 @@ const Input = () => (
         <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Input;
