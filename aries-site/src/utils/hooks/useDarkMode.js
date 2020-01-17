@@ -2,7 +2,7 @@ import { useEffect, useCallback, useMemo } from 'react';
 import { initialize, useEventListener } from '..';
 
 export const useDarkMode = (
-  initialValue = false,
+  initialValue = true,
   {
     element,
     classNameDark,
