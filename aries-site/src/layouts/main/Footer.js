@@ -5,6 +5,7 @@ import { Hpe } from 'grommet-icons';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
+  const year = new Date().getFullYear();
   return (
     <GrommetFooter
       direction="row-responsive"
@@ -17,7 +18,7 @@ export const Footer = () => {
     >
       <Box align="center" gap="medium" direction="row-responsive">
         <Hpe size="large" color="brand" />
-        <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
+        <Text size="small">&copy; {year} Hewlett Packard Enterprise</Text>
       </Box>
       <Box direction="row" gap="medium">
         <FooterLink
