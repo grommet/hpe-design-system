@@ -20,7 +20,7 @@ const allSuggestions = structure.map(p => p.name).sort();
 // https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
 const StyledTextInput = styled(TextInput).attrs(() => ({
-  'aria-labelledby': 'searchbutton',
+  'aria-labelledby': 'search-icon',
 }))``;
 
 export const Search = ({ focused, setFocused }) => {
@@ -127,7 +127,7 @@ export const Search = ({ focused, setFocused }) => {
             : undefined
         }
       >
-        <SearchIcon id="searchbutton" color="text" />
+        <SearchIcon id="search-icon" color="text" />
       </Box>
     </Box>
   );
