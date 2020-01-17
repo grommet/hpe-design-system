@@ -7,19 +7,15 @@ export const Footer = () => {
   const size = useContext(ResponsiveContext);
   return (
     <GrommetFooter
-      direction={size !== 'small' ? 'row' : 'column'}
+      direction="row-responsive"
+      align={size !== 'small' ? 'center' : undefined}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
         // Match horizontal padding of aries-core Nav
         horizontal: size !== 'small' ? 'xlarge' : 'large',
       }}
-      align={size !== 'small' ? 'center' : undefined}
     >
-      <Box
-        direction={size !== 'small' ? 'row' : 'column'}
-        align={size !== 'small' ? 'center' : undefined}
-        gap={size !== 'small' ? 'medium' : undefined}
-      >
+      <Box align="center" gap="medium" direction="row-responsive">
         <Hpe size="large" color="brand" />
         <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
       </Box>
