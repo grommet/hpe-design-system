@@ -1,8 +1,15 @@
 import React from 'react';
 import { Box } from 'grommet';
 import { Button } from 'aries-core';
+
 import { ExternalCTA, SubsectionText } from '../../components';
-import { ButtonRow, ContentSection, Layout, Subsection } from '../../layouts';
+import {
+  ButtonRow,
+  ContentSection,
+  Layout,
+  Subsection,
+  UsageExample,
+} from '../../layouts';
 import { AccordionExample, MenuExample, TabsExample } from '../../examples';
 
 const topic = 'Components';
@@ -52,37 +59,37 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
+        <UsageExample>
+          <Box align="start">
+            <Button label="Hello Button" primary />
+          </Box>
+        </UsageExample>
         <SubsectionText>
           Buttons are used to indicate actions that can be perfomed. Ideally,
           buttons are not used as navigational elements.
         </SubsectionText>
-        <Box align="start">
-          <Button label="Hello Button" primary />
-        </Box>
         <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Menu">
+        <MenuExample />
         <SubsectionText>
           Menu is used to filter or sort content on a page. It is similar to the
           select component. However, use the select component when the user must
           specify from a list of options and submit. See the Select Component.
         </SubsectionText>
-        <Box align="start">
-          <MenuExample />
-        </Box>
         <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Tabs">
+        <TabsExample />
         <SubsectionText>
           Tabs allow a user to access content while maintaining the existing
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
         </SubsectionText>
-        <TabsExample />
         <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
