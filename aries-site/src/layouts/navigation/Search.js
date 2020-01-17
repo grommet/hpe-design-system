@@ -18,6 +18,7 @@ const allSuggestions = structure.map(p => p.name).sort();
 // Using Search icon as the arialabelledby for the text input. Documentation
 // on why this is a valid replacement for using label here:
 // https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby
+// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'searchbutton',
 }))``;
