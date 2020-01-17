@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from 'grommet';
 import { Button } from 'aries-core';
 
-import { ExternalCTA, SubsectionText } from '../../components';
+import { ExternalCTA, Meta, SubsectionText } from '../../components';
 import {
   ButtonRow,
   ContentSection,
@@ -11,12 +11,19 @@ import {
   UsageExample,
 } from '../../layouts';
 import { AccordionExample, MenuExample, TabsExample } from '../../examples';
+import { getPageDetails } from '../../utils';
 
-const topic = 'Components';
 const title = 'Controls';
+const page = getPageDetails(title);
+const topic = 'Components';
 
 const Controls = () => (
   <Layout title={title}>
+    <Meta
+      title={title}
+      description={page.seoDescription}
+      canonicalUrl="https://aries.hpe.design/components/controls"
+    />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
