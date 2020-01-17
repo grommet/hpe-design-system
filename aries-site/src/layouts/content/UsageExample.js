@@ -53,4 +53,6 @@ UsageExample.defaultProps = {
     vertical: 'large',
     small: { horizontal: 'xlarge', vertical: 'xlarge' },
   },
+  label: undefined,
+  themeMode: undefined,
 };

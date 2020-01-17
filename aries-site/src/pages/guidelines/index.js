@@ -5,7 +5,7 @@ import { Button } from 'aries-core';
 import {
   ButtonRow,
   NavPage,
-  PageLayout,
+  Layout,
   ContentSection,
   Subsection,
 } from '../../layouts';
@@ -26,7 +26,7 @@ const Guidelines = () => {
   );
 
   return (
-    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
         description={page.seoDescription}
@@ -50,7 +50,7 @@ const Guidelines = () => {
         </ContentSection>
       </Box>
       <NavPage items={page.pages} topic={page.name.toLowerCase()} />
-    </PageLayout>
+    </Layout>
   );
 };
 
