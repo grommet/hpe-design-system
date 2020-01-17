@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tile } from 'aries-core';
-import { Box, Button, Heading, Paragraph, ResponsiveContext } from 'grommet';
+import { Box, Heading, Paragraph, ResponsiveContext } from 'grommet';
 
 export const IntroTile = () => (
   <Tile>
@@ -17,7 +17,7 @@ export const IntroTile = () => (
             application, web, and digital experiences to answer your customers
             needs-Look behind the element!
           </Paragraph>
-          <Button primary label="Get Started" />
+          {/* <Button primary label="Get Started" /> */}
         </Box>
       )}
     </ResponsiveContext.Consumer>

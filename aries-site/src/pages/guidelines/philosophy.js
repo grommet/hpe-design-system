@@ -1,11 +1,11 @@
 import React from 'react';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const title = 'Philosophy';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Guidelines';
 
 const Philosophy = () => (
   <Layout title={title}>
