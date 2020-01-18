@@ -52,18 +52,17 @@ export const Nav = ({
           {children && !collapse ? (
             children
           ) : size !== 'small' ? (
-            children.length > 1 ? (
-              children.map((child, index) => {
-                return React.cloneElement(child, {
-                  lastSection: index === children.length - 1,
-                  key: index,
-                });
-              })
-            ) : (
-              React.cloneElement(children, {
-                lastSection: true,
-              })
-            )
+            children &&
+            (children.length > 1
+              ? children.map((child, index) => {
+                  return React.cloneElement(child, {
+                    lastSection: index === children.length - 1,
+                    key: index,
+                  });
+                })
+              : React.cloneElement(children, {
+                  lastSection: true,
+                }))
           ) : (
             <Button
               icon={!open ? <Menu /> : <Close />}

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Text } from 'grommet';
 
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { BulletedList, Meta, SubsectionText } from '../../components';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const title = 'Principles';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Guidelines';
 
 const Principles = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -89,7 +89,7 @@ const Principles = () => (
         />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Principles;
