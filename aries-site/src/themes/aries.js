@@ -28,7 +28,7 @@ export const aries = deepMerge(hpe, {
       brand: 'green!',
       background: {
         dark: '#1A1F2B',
-        light: '#EFEFEF',
+        light: '#FFFFFF',
       },
       'background-back': {
         dark: '#1A1F2B',
