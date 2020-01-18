@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PageLayout, NavPage } from '../../layouts';
+import { Layout, NavPage } from '../../layouts';
 import { DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
@@ -18,14 +18,14 @@ const Foundation = () => {
   );
 
   return (
-    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
         description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/guidelines"
       />
       <NavPage items={page.pages} topic={page.name.toLowerCase()} />
-    </PageLayout>
+    </Layout>
   );
 };
 

@@ -6,7 +6,7 @@ import { Box, Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
 import { Config } from '../../config';
-import { PageLayout } from '../layouts';
+import { Layout } from '../layouts';
 import { Meta } from '../components';
 import { TileContent, IntroTile } from '../components/home';
 import { getPageDetails } from '../utils';
@@ -57,7 +57,7 @@ const Index = () => {
   }, []);
 
   return (
-    <PageLayout title={title} isLanding>
+    <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <HomeTiles>
@@ -79,7 +79,7 @@ const Index = () => {
           ))}
         </HomeTiles>
       </Box>
-    </PageLayout>
+    </Layout>
   );
 };
 

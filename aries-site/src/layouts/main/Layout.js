@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
-
-import { aries } from '../../themes/aries';
+import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, Footer, SidebarLayout } from '..';
+import { ThemeMode, ThemeModeToggle } from '../../components';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -18,7 +17,7 @@ export const Layout = ({
   isNavPage,
 }) => {
   return (
-    <Grommet theme={aries} full>
+    <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Box
@@ -28,6 +27,18 @@ export const Layout = ({
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
+            {/* Temporary placement of theme toggle from Chris.
+             * Will likely be updated in future, but wanted visible
+             * placement for demo. */}
+            <Box
+              style={{
+                position: 'absolute',
+                bottom: size !== 'small' ? '48px' : '24px',
+                right: '24px',
+              }}
+            >
+              <ThemeModeToggle />
+            </Box>
             <Header
               showLinks={!isLanding && !isNavPage}
               background={
@@ -35,7 +46,7 @@ export const Layout = ({
               }
             />
             {!isLanding && !isNavPage ? (
-              <SidebarLayout mainContentChildren={children} title={title} />
+              <SidebarLayout title={title}> {children} </SidebarLayout>
             ) : (
               <Main>
                 {/* Allows DescriptiveHeader background color not to be
@@ -66,7 +77,7 @@ export const Layout = ({
           </Box>
         )}
       </ResponsiveContext.Consumer>
-    </Grommet>
+    </ThemeMode>
   );
 };
 

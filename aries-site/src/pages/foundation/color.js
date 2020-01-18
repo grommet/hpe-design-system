@@ -7,13 +7,13 @@ import {
   ButtonRow,
   ColorRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 import { colorExamples } from '../../data';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const {
   coreColors,
@@ -70,10 +70,10 @@ const TextExample = ({ color, hex }) => {
 
 const title = 'Color';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Foundation';
 
 const Color = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -298,7 +298,7 @@ const Color = () => (
         <AnchorCallToAction label="Use the Controls" href="#" />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 TextExample.propTypes = {

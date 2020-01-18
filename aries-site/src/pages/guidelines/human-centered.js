@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
-import { getPageDetails, getParentPage } from '../../utils';
+import { getPageDetails } from '../../utils';
 
 const title = 'Human Centered';
 const page = getPageDetails(title);
-const topic = getParentPage(page);
+const topic = 'Guidelines';
 
 const HumanCentered = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -67,7 +67,7 @@ const HumanCentered = () => (
       </Subsection>
       <Button label="Join the Conversation" primary href="#" />
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default HumanCentered;
