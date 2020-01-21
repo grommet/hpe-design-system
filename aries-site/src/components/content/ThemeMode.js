@@ -15,7 +15,7 @@ export const ThemeMode = ({ children }) => {
 
   const body = (
     <Grommet theme={aries} themeMode={themeMode} full>
-      <Box background="background-back">{children}</Box>
+      {children}
     </Grommet>
   );
 
