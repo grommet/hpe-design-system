@@ -1,11 +1,9 @@
-import React, { forwardRef, useEffect } from 'react';
-import { initialize, pageview } from 'react-ga';
+import React, { forwardRef } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
-import { Config } from '../../config';
 import { Layout } from '../layouts';
 import { Meta } from '../components';
 import { TileContent, IntroTile } from '../components/home';
@@ -49,13 +47,6 @@ const pageDetails = getPageDetails(title);
 const topicList = pageDetails.pages.map(topic => getPageDetails(topic));
 
 const Index = () => {
-  useEffect(() => {
-    if (Config.gaId) {
-      initialize(Config.gaId);
-      pageview(document.location.pathname);
-    }
-  }, []);
-
   return (
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />

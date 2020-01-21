@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { initialize, pageview } from 'react-ga';
 import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 
 import { aries } from '../../themes/aries';
 import { Header, Head, Footer, SidebarLayout } from '..';
+import { Config } from '../../../config';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -17,6 +19,13 @@ export const Layout = ({
   isLanding,
   isNavPage,
 }) => {
+  useEffect(() => {
+    if (Config.gaId) {
+      initialize(Config.gaId);
+      pageview(document.location.pathname);
+    }
+  }, []);
+
   return (
     <Grommet theme={aries} full>
       <ResponsiveContext.Consumer>
