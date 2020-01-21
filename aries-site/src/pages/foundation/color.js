@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, ResponsiveContext } from 'grommet';
+import { Box, Text } from 'grommet';
 import { Button, AnchorCallToAction } from 'aries-core';
 
 import {
@@ -12,6 +12,7 @@ import {
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { TextExample } from '../../examples';
 import { colorExamples } from '../../data';
 import { getPageDetails } from '../../utils';
 
@@ -39,31 +40,6 @@ const generateColorExamples = (colors, textColor) => {
           <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
         );
       })}
-    </Box>
-  );
-};
-
-const TextExample = ({ color, hex }) => {
-  const size = React.useContext(ResponsiveContext);
-  const textSize = 'small';
-  const exampleTextSize = size === 'small' ? '60px' : '84px';
-
-  return (
-    <Box align="center" margin={{ horizontal: 'small' }}>
-      <Box direction="row" align="center">
-        <Text color={color} weight={700} size={exampleTextSize}>
-          A
-        </Text>
-        <Text color={color} weight={400} size={exampleTextSize}>
-          a
-        </Text>
-      </Box>
-      <Text color={color} weight={600} size={textSize}>
-        {color}
-      </Text>
-      <Text color={color} size={textSize}>
-        {hex}
-      </Text>
     </Box>
   );
 };
@@ -104,9 +80,6 @@ const Color = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small" fill="horizontal">
-        Placeholder Image
-      </Box>
       <Subsection name="Color Palettes">
         <SubsectionText>
           Color is a key way we express our brand. Using color on interface
@@ -124,7 +97,11 @@ const Color = () => (
           use the custom color specifications seen here to maintain consistency
           across channels and media.
         </SubsectionText>
-        {primaryColors && generateColorExamples(primaryColors)}
+        {primaryColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(primaryColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Core Palette" level={3}>
         <SubsectionText>
@@ -135,7 +112,11 @@ const Color = () => (
           it's important to be mindful of how the aspects of the color library
           are used in conjunction with the Core colors.
         </SubsectionText>
-        {coreColors && generateColorExamples(coreColors)}
+        {coreColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(coreColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Light Palette" level={3}>
         <SubsectionText>
@@ -144,7 +125,11 @@ const Color = () => (
           color accessibility in your experience. Use these colors only when
           implementing a light theme.
         </SubsectionText>
-        {lightColors && generateColorExamples(lightColors)}
+        {lightColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(lightColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Dark Palette" level={3}>
         <SubsectionText>
@@ -153,7 +138,11 @@ const Color = () => (
           accessibility in your experience. Use these colors only when
           implementing a dark theme.
         </SubsectionText>
-        {darkColors && generateColorExamples(darkColors)}
+        {darkColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(darkColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Background Colors">
         <SubsectionText>
@@ -262,7 +251,8 @@ const Color = () => (
         </SubsectionText>
         {ctaColors && generateColorExamples(ctaColors, 'brand')}
       </Subsection>
-      <Subsection name="Status Colors">
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Status Colors">
         <SubsectionText>
           Text needs to be readable in all contexts. Ensuring high contrast is
           met for accessibility and readability is important to providing users
@@ -278,8 +268,9 @@ const Color = () => (
           with the exception of call to actions such as hyperlinks and anchors.
         </SubsectionText>
         <AnchorCallToAction label="See Status Colors" href="#" />
-      </Subsection>
-      <Subsection name="Control Colors">
+      </Subsection> */}
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Control Colors">
         <SubsectionText>
           Text needs to be readable in all contexts. Ensuring high contrast is
           met for accessibility and readability is important to providing users
@@ -295,7 +286,7 @@ const Color = () => (
           with the exception of call to actions such as hyperlinks and anchors.
         </SubsectionText>
         <AnchorCallToAction label="Use the Controls" href="#" />
-      </Subsection>
+      </Subsection> */}
     </ContentSection>
   </Layout>
 );
