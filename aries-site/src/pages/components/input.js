@@ -78,15 +78,6 @@ const Input = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="RangeSelector">
-        <RangeSelectorExample />
-        <SubsectionText>
-          To specify a range of values, use the RangeSelector.
-        </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
-      </Subsection>
-    </ContentSection>
-    <ContentSection>
       <Subsection name="Select">
         <SelectExample />
         <SubsectionText>

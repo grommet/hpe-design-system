@@ -188,6 +188,7 @@ export const aries = deepMerge(hpe, {
   },
   checkBox: {
     gap: 'medium',
+    color: 'text-strong',
   },
   heading: {
     level: {
@@ -210,8 +211,9 @@ export const aries = deepMerge(hpe, {
     },
   },
   radioButton: {
+    color: 'text-strong',
     check: {
-      color: 'text',
+      color: 'text-strong',
     },
     gap: 'medium',
   },
