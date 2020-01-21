@@ -93,13 +93,12 @@ const Color = () => (
           experience.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Colors" primary />
           <Button
-            label="Download Swatches"
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            label="Use Colors with Figma"
             primary
-            onClick={() => {
-              // Download color swatch pack (once content is available)
-            }}
+            target="_blank"
+            rel="noreferrer noopener"
           />
         </ButtonRow>
       </Subsection>

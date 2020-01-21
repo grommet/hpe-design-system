@@ -33,7 +33,6 @@ const Input = () => (
           interactions that are sensitive to human needs and tasks within an
           experience.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -43,7 +42,6 @@ const Input = () => (
           When the user needs to select one or more options, use a checkbox. The
           click target should include the checkbox label.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -52,7 +50,6 @@ const Input = () => (
         <SubsectionText>
           MaskedInput allows you to specify formailzed text within a form field.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -62,7 +59,6 @@ const Input = () => (
           When one option of a set of options can be specified, use the
           RadioButtonGroup component.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -74,7 +70,6 @@ const Input = () => (
           slider provides a value displayed to communicate with the user. This
           help ensure conficence in the use of the control.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -84,7 +79,6 @@ const Input = () => (
           The Select component is flexible to provide multiple select, search,
           and create options.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -96,7 +90,6 @@ const Input = () => (
           the user with ques to the type of data that is expected in the text
           field.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -108,7 +101,6 @@ const Input = () => (
           component. Style can be variable, based upon the use case and customer
           need that will elicit user confidence in success.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -121,7 +113,6 @@ const Input = () => (
           it’s fields should be relational and sensitive to sensemaking for the
           user.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
   </Layout>
