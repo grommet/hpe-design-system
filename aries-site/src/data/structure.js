@@ -69,7 +69,7 @@ export const structure = [
     icon: size => <IconDevelop size={size} />,
     seoDescription:
       'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
-    pages: ['Code'],
+    pages: [],
   },
   {
     name: 'Design',
@@ -89,7 +89,7 @@ export const structure = [
     icon: size => <IconResources size={size} />,
     seoDescription:
       'View tutorials, case studies, videos, how-tos, articles, and other helpful resources to succeed with the HPE Design System.',
-    pages: ['Examples', 'Videos', 'Designer', 'Themer', 'Grommet'],
+    pages: [],
   },
   {
     name: 'Principles',
