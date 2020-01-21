@@ -46,7 +46,7 @@ const Typography = () => (
         </SubsectionText>
         <ButtonRow>
           <Button
-            label="Use Styles with Figma"
+            label="See in Figma"
             href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
             primary
             target="_blank"

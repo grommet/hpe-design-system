@@ -43,7 +43,7 @@ const Branding = () => (
         <ButtonRow>
           <Button
             href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=1%3A458"
-            label="Use Logos with Figma"
+            label="See in Figma"
             primary
             target="_blank"
             rel="noreferrer noopener"
