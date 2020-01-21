@@ -108,7 +108,7 @@ const Typography = () => (
         <SubsectionText>
           Based on the humanist typeface Metric from the renouned Kilm Type
           Foundry, HPE uses the typeface as it's primary form of communication.
-          It has been revised to provide wieghts and ligatures that can be used
+          It has been revised to provide weights and ligatures that can be used
           for reading and display in digital contexts.
         </SubsectionText>
       </Subsection>
