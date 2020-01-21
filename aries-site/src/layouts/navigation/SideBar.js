@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
@@ -8,10 +9,11 @@ import { nameToPath } from '../../utils';
 
 const SideBarItem = ({ item }) => {
   const path = nameToPath(item);
+  const router = useRouter();
   return (
     // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
     <Link href={path} passHref>
-      <NavLink>{item}</NavLink>
+      <NavLink active={router.pathname === path}>{item}</NavLink>
     </Link>
   );
 };
