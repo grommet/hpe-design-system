@@ -19,10 +19,10 @@ export const NavLink = forwardRef(
             {label || children}
           </Text>
         }
-        onBlur={() => setFontWeight(defaultFontWeight)}
-        onFocus={() => setFontWeight(activeFontWeight)}
-        onMouseOut={() => setFontWeight(defaultFontWeight)}
-        onMouseOver={() => setFontWeight(activeFontWeight)}
+        onBlur={() => !active && setFontWeight(defaultFontWeight)}
+        onFocus={() => !active && setFontWeight(activeFontWeight)}
+        onMouseOut={() => !active && setFontWeight(defaultFontWeight)}
+        onMouseOver={() => !active && setFontWeight(activeFontWeight)}
         ref={ref}
         {...rest}
       />
