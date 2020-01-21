@@ -59,7 +59,7 @@ export const structure = [
     icon: size => <IconComponents size={size} />,
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: ['Layout', 'Controls'],
+    pages: ['Layout', 'Controls', 'Input'],
   },
   {
     name: 'Develop',
@@ -196,5 +196,12 @@ export const structure = [
     icon: '',
     seoDescription:
       'HPE Design System styled interactive components for your applications.',
+  },
+  {
+    name: 'Input',
+    description:
+      'Thoughtful and intentional use of input components can bring about engaging experiences.',
+    icon: '',
+    seoDescription: '',
   },
 ];
