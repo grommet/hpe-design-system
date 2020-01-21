@@ -148,9 +148,10 @@ const Typography = () => (
           })}
         </Box>
       </Subsection>
-      <Subsection name="Line height" level={3}>
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Line height" level={3}>
         <Box height="small" background="background-contrast" />
-      </Subsection>
+      </Subsection> */}
       <Subsection name="Font stacks" level={3}>
         <SubsectionText>
           In cases where using MetricHPE is not possible refer to the HPE font
