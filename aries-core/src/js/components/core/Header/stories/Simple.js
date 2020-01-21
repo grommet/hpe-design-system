@@ -1,7 +1,11 @@
-import { hpe } from 'grommet-theme-hpe';
-import { deepMerge } from 'grommet/utils';
+import React from 'react';
+import { Grommet, Box, Header, Menu, Text, TextInput } from 'grommet';
+import { Hpe, Search } from 'grommet-icons';
 import { css } from 'styled-components';
 
+export default {
+  title: 'Header',
+};
 const baseSpacing = 24;
 
 const fontSizing = factor => {
@@ -19,9 +23,9 @@ const fontSizing = factor => {
   };
 };
 
-export const aries = deepMerge(hpe, {
+const customTheme = {
   spacing: baseSpacing,
-  defaultMode: 'dark',
+  // defaultMode: 'light',
   global: {
     colors: {
       icon: 'text',
@@ -116,24 +120,24 @@ export const aries = deepMerge(hpe, {
     font: {
       family: 'Metric',
       face: `@font-face {
-          font-family: "Metric";
-          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff") format('woff');
-          font-weight: 700;
-        }
-        @font-face {
-          font-family: "Metric"; 
-          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff") format('woff');
-          font-weight: 600;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format('woff');
-          font-weight: 100;
-        }`,
+            font-family: "Metric";
+            src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff") format('woff');
+            font-weight: 700;
+          }
+          @font-face {
+            font-family: "Metric"; 
+            src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff") format('woff');
+            font-weight: 600;
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format('woff');
+            font-weight: 100;
+          }`,
     },
     active: {
       background: 'active-background',
@@ -228,6 +232,76 @@ export const aries = deepMerge(hpe, {
     medium: fontSizing(1),
     large: fontSizing(3),
   },
-});
+};
 
-export const { colors } = aries.global;
+const Brand = () => (
+  <Box direction="row" align="center" gap="medium">
+    <Hpe color="brand" size="large" />
+    <Box direction="row" gap="xsmall">
+      <Text weight="bold" size="medium">
+        HPE
+      </Text>
+      <Text size="medium">Application Name</Text>
+    </Box>
+  </Box>
+);
+const SearchRC = () => (
+  <Box
+    width="medium"
+    direction="row"
+    align="center"
+    pad={{ horizontal: 'small', vertical: 'xsmall' }}
+    round="small"
+    background="background-contrast"
+  >
+    <Search color="brand" />
+    <TextInput
+      type="search"
+      plain
+      placeholder={<Text color="dark-3">Search Application...</Text>}
+    />
+  </Box>
+);
+
+const Menus = () => (
+  <Box direction="row" gap="medium">
+    <Menu
+      dropAlign={{ top: 'bottom' }}
+      label="Account Name"
+      items={[
+        { label: 'Shimi Shimi' },
+        { label: 'Tay Tay' },
+        { label: 'GlissMann' },
+      ]}
+    />
+    <Box pad="small" border="left" />
+    <Menu
+      dropAlign={{ top: 'bottom' }}
+      label="Location"
+      items={[
+        { label: 'Fort Collins' },
+        { label: 'Boulder' },
+        { label: 'Denver' },
+      ]}
+    />
+  </Box>
+);
+
+const darkBackground = customTheme.global.colors.background.dark;
+
+export const Simple = () => (
+  <Grommet theme={customTheme} full>
+    <Box background="light-4" pad="large" gap="large" fill>
+      <Header background={darkBackground} pad="medium">
+        <Brand />
+        <SearchRC />
+        <Menus />
+      </Header>
+      <Header background="background" pad="medium">
+        <Brand />
+        <SearchRC />
+        <Menus />
+      </Header>
+    </Box>
+  </Grommet>
+);

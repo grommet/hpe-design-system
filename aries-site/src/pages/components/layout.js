@@ -1,6 +1,7 @@
 import React from 'react';
 import { Anchor } from 'grommet';
-import { ExternalCTA, SubsectionText } from '../../components';
+
+import { ExternalCTA, Meta, SubsectionText } from '../../components';
 import {
   ButtonRow,
   ContentSection,
@@ -15,13 +16,20 @@ import {
   LayerExample,
   StackExample,
 } from '../../examples';
+import { getPageDetails } from '../../utils';
 
-const topic = 'Components';
 const title = 'Layout';
+const page = getPageDetails(title);
+const topic = 'Components';
 
 const Layout = () => (
   // Needs to use alias of PageLayout since the export is called "Layout"
   <PageLayout title={title}>
+    <Meta
+      title={title}
+      description={page.seoDescription}
+      canonicalUrl="https://aries.hpe.design/components/layout"
+    />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
@@ -72,7 +80,10 @@ const Layout = () => (
           content. Box properties allow you to customize the header.
         </SubsectionText>
         <ButtonRow>
-          <ExternalCTA href="#" type="storybook" />
+          <ExternalCTA
+            href="https://storybook.hpe.design/?path=/story/header--simple"
+            type="storybook"
+          />
           <ExternalCTA
             href="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
             type="figma"

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { initialize, pageview } from 'react-ga';
-import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 
-import { aries } from '../../themes/aries';
+import { initialize, pageview } from 'react-ga';
+import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, Footer, SidebarLayout } from '..';
+import { ThemeMode, ThemeModeToggle } from '../../components';
 import { Config } from '../../../config';
 
 const calcPad = size => {
@@ -27,7 +27,7 @@ export const Layout = ({
   }, []);
 
   return (
-    <Grommet theme={aries} full>
+    <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Box
@@ -37,6 +37,18 @@ export const Layout = ({
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
+            {/* Temporary placement of theme toggle from Chris.
+             * Will likely be updated in future, but wanted visible
+             * placement for demo. */}
+            <Box
+              style={{
+                position: 'absolute',
+                bottom: size !== 'small' ? '48px' : '24px',
+                right: '24px',
+              }}
+            >
+              <ThemeModeToggle />
+            </Box>
             <Header
               showLinks={!isLanding && !isNavPage}
               background={
@@ -75,7 +87,7 @@ export const Layout = ({
           </Box>
         )}
       </ResponsiveContext.Consumer>
-    </Grommet>
+    </ThemeMode>
   );
 };
 

@@ -2,13 +2,19 @@ import React from 'react';
 import { Box } from 'grommet';
 import { Accordion, AccordionPanel } from 'aries-core';
 
+import { UsageExample } from '../../../layouts';
+
 export const AccordionExample = () => {
   const pad = { vertical: 'medium' };
 
   return (
-    <Box
-      pad={{ horizontal: 'large', bottom: 'large', top: 'medium' }}
-      background="background-front"
+    <UsageExample
+      pad={{
+        top: 'medium',
+        bottom: 'large',
+        horizontal: 'large',
+        small: { horizontal: 'large', top: 'medium', bottom: 'xlarge' },
+      }}
     >
       <Accordion>
         <AccordionPanel label="Our Company">
@@ -30,6 +36,6 @@ export const AccordionExample = () => {
           <Box pad={pad}>We make Bold Moves.</Box>
         </AccordionPanel>
       </Accordion>
-    </Box>
+    </UsageExample>
   );
 };
