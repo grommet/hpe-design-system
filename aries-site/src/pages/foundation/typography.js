@@ -45,8 +45,13 @@ const Typography = () => (
           for reading and display in digital contexts.
         </SubsectionText>
         <ButtonRow>
-          <Button label="Use the Typography" href="#" primary />
-          <Button label="Download the Styles" href="#" primary />
+          <Button
+            label="See in Figma"
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
+          />
         </ButtonRow>
       </Subsection>
     </ContentSection>
@@ -103,10 +108,9 @@ const Typography = () => (
         <SubsectionText>
           Based on the humanist typeface Metric from the renouned Kilm Type
           Foundry, HPE uses the typeface as it's primary form of communication.
-          it has been revised to provide wieghts and ligatures that can be used
+          It has been revised to provide weights and ligatures that can be used
           for reading and display in digital contexts.
         </SubsectionText>
-        <AnchorCallToAction label="Typographic Principles" />
       </Subsection>
       <Subsection name="Font weights" level={3}>
         <SubsectionText>
@@ -144,9 +148,10 @@ const Typography = () => (
           })}
         </Box>
       </Subsection>
-      <Subsection name="Line height" level={3}>
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Line height" level={3}>
         <Box height="small" background="background-contrast" />
-      </Subsection>
+      </Subsection> */}
       <Subsection name="Font stacks" level={3}>
         <SubsectionText>
           In cases where using MetricHPE is not possible refer to the HPE font
