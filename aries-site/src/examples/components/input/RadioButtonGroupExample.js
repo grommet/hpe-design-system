@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Text } from 'grommet';
-import { RadioButtonGroup } from 'aries-core';
+import { Box, Text, RadioButtonGroup } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 

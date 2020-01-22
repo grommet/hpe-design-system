@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FormField } from 'grommet';
-import { MaskedInput } from 'aries-core';
+import { FormField, MaskedInput } from 'grommet';
 
 const today = new Date();
 const daysInMonth = month => new Date(today.getFullYear(), month, 0).getDate();

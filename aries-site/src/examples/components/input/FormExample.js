@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, FormField, Text } from 'grommet';
+import { Box, Button, CheckBox, FormField, Text, TextInput } from 'grommet';
 import { Hpe } from 'grommet-icons';
-import { Anchor, Button, Checkbox, Form, TextInput } from 'aries-core';
+import { Anchor, Form } from 'aries-core';
 
 import { UsageExample } from '../../../layouts';
 
@@ -14,7 +14,7 @@ const LoginExample = () => {
         <FormField label="Email" htmlFor="username">
           <TextInput id="username" placeholder="Email address" type="email" />
         </FormField>
-        <Checkbox label="Keep me signed in" />
+        <CheckBox label="Keep me signed in" />
         <Button type="submit" label="Next" primary />
         <Anchor label="Forgot your password?" size="small" />
       </Box>

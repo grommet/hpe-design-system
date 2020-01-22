@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Image } from 'grommet';
-import { Button } from 'aries-core';
+import { Button, Image } from 'grommet';
 
 import {
   ButtonRow,
