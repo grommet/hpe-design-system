@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
-import { Button, AnchorCallToAction } from 'aries-core';
+import { Box, Button, Text } from 'grommet';
 
 import {
   ButtonRow,
