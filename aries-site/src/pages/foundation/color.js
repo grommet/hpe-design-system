@@ -69,13 +69,19 @@ const Color = () => (
           experience.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Colors" primary />
           <Button
-            label="Download Swatches"
+            href="https://theme-designer.grommet.io/Dashboard?id=HPE2a-eric-soderberg-hpe-com"
+            label="Use the Colors"
             primary
-            onClick={() => {
-              // Download color swatch pack (once content is available)
-            }}
+            target="_blank"
+            rel="noreferrer noopener"
+          />
+          <Button
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            label="See in Figma"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
           />
         </ButtonRow>
       </Subsection>
@@ -88,7 +94,6 @@ const Color = () => (
           and adjusting context of the experience to light and dark are just
           some of the ways we illustrate our brand.
         </SubsectionText>
-        <AnchorCallToAction label="Color Principles" href="#" />
       </Subsection>
       <Subsection name="Brand Color" level={3}>
         <SubsectionText>
@@ -151,7 +156,6 @@ const Color = () => (
           Accommodating both light and dark modes of a user experience with the
           appropriate color palette creates a successful customer experience.
         </SubsectionText>
-        <AnchorCallToAction label="Color Principles" href="#" />
       </Subsection>
       <Subsection name="Background Palette" level={3}>
         <SubsectionText>
@@ -189,7 +193,6 @@ const Color = () => (
           met for accessibility and readability is important to delivering users
           a consistent reading experience throughout HPE.
         </Text>
-        <AnchorCallToAction label="Typography Elements" href="#" />
       </Subsection>
       <Subsection name="Text Color Palette" level={3}>
         <Text>
