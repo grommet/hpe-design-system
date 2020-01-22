@@ -17,7 +17,7 @@ export const NextContent = ({ color, nextContent }) => {
       pad={{ horizontal: 'xlarge', top: 'large' }}
       round={{ corner: 'top', size: 'small' }}
     >
-      {nextContent === 'Home' ? (
+      {nextContent === 'Home' || typeof path === 'undefined' ? (
         <Text>
           Back to <AnchorCallToAction label="Start" href="/" color="text" />
         </Text>
