@@ -69,7 +69,7 @@ export const structure = [
     icon: size => <IconDevelop size={size} />,
     seoDescription:
       'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
-    pages: ['Code'],
+    pages: [],
   },
   {
     name: 'Design',
