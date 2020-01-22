@@ -21,7 +21,7 @@ const Philosophy = () => (
           enables experiences to be crafted with uncompromising integrity.
         </SubsectionText>
         <SubsectionText size="medium">
-          The HPE Design System contians an open-source library of elements
+          The HPE Design System contains an open-source library of elements
           consisting of working code, best practices, design resources,
           human-centered guidelines, and a vibrant community of contributors.
         </SubsectionText>
