@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavPage, Layout } from '../../layouts';
-import { DescriptiveHeader, Meta } from '../../components';
+import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Guidelines';
@@ -24,7 +24,11 @@ const Guidelines = () => {
         description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/guidelines"
       />
-      <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      {page.pages.length ? (
+        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      ) : (
+        <ComingSoon />
+      )}
     </Layout>
   );
 };
