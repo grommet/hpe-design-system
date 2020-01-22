@@ -41,8 +41,13 @@ const Branding = () => (
           environment.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Logos" primary />
-          <Button href="#" label="Download Logos" primary />
+          <Button
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=1%3A458"
+            label="See in Figma"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
+          />
         </ButtonRow>
       </Subsection>
     </ContentSection>
