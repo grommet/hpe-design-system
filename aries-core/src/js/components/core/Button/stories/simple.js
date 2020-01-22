@@ -1,23 +1,31 @@
 import React from 'react';
-import { Grommet, Box } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
-
-import { Button } from 'aries-core';
+import { Grommet, Box, Button } from 'grommet';
+import { aries } from '../../../../../../../aries-site/src/themes/aries';
 
 export default {
   title: 'Button',
 };
 
 export const Simple = () => (
-  <Grommet theme={hpe} full>
-    <Box direction="row" gap="medium" pad="large">
-      <Box gap="medium" align="center" background="black" pad="large">
+  <Grommet theme={aries} full>
+    <Box direction="row" gap="medium" justify="center" pad="large">
+      <Box
+        gap="medium"
+        align="center"
+        background={aries.global.colors['background-front'].dark}
+        pad="large"
+      >
         <Button label="Default" />
         <Button label="Anchor" href="#" />
         <Button label="Primary" primary />
         <Button label="Disabled" disabled />
       </Box>
-      <Box gap="medium" align="center" background="white" pad="large">
+      <Box
+        gap="medium"
+        align="center"
+        background={aries.global.colors.background.light}
+        pad="large"
+      >
         <Button label="Default" />
         <Button label="Anchor" href="#" />
         <Button label="Primary" primary />
