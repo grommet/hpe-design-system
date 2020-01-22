@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, NavPage } from '../../layouts';
-import { DescriptiveHeader, Meta } from '../../components';
+import { DescriptiveHeader, Meta, ComingSoon } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Components';
@@ -23,7 +23,11 @@ const Components = () => {
         description={page.seoDescription}
         canonicalUrl="https://aries.hpe.design/components"
       />
-      <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      {page.pages.length ? (
+        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      ) : (
+        <ComingSoon />
+      )}
     </Layout>
   );
 };
