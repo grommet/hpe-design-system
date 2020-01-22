@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@hpe/project-scripts": "^1.0.6",
-    "jest": "^24.9.0"
+    "jest": "^25.1.0"
   },
   "workspaces": [
     "aries-core",
