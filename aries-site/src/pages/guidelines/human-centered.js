@@ -65,7 +65,6 @@ const HumanCentered = () => (
           next.
         </SubsectionText>
       </Subsection>
-      <Button label="Join the Conversation" primary href="#" />
     </ContentSection>
   </Layout>
 );
