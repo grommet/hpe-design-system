@@ -89,7 +89,7 @@ export const structure = [
     icon: size => <IconResources size={size} />,
     seoDescription:
       'View tutorials, case studies, videos, how-tos, articles, and other helpful resources to succeed with the HPE Design System.',
-    pages: ['Examples', 'Videos', 'Designer', 'Themer', 'Grommet'],
+    pages: [],
   },
   {
     name: 'Principles',
