@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import {
   CheckboxExample,
@@ -8,7 +8,6 @@ import {
   MaskedInputExample,
   RadioButtonGroupExample,
   RangeInputExample,
-  RangeSelectorExample,
   SelectExample,
   TextAreaExample,
   TextInputExample,
@@ -36,7 +35,7 @@ const Input = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Checkbox">
+      <Subsection name="CheckBox">
         <CheckboxExample />
         <SubsectionText>
           When the user needs to select one or more options, use a checkbox. The

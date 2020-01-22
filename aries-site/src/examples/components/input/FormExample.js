@@ -52,7 +52,7 @@ const ProductConfigExample = () => {
           <FormField label="Server Hardware" htmlFor={labelKeys.hardware}>
             <TextInput id={labelKeys.hardware} />
           </FormField>
-          <Checkbox label="Show empty bays" />
+          <CheckBox label="Show empty bays" />
           <Button type="submit" label="Create" primary alignSelf="end" />
         </Box>
       </Form>

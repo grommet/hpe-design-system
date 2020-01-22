@@ -3,7 +3,7 @@ import { CheckBox, Box, Grommet } from 'grommet';
 import { aries } from '../../../../../../../aries-site/src/themes/aries';
 
 export default {
-  title: 'Checkbox',
+  title: 'CheckBox',
 };
 
 export const Simple = () => {
