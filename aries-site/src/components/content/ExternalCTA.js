@@ -5,7 +5,7 @@ import { AnchorCallToAction } from 'aries-core';
 
 const labels = {
   storybook: 'Storybook',
-  figma: 'Use with Figma',
+  figma: 'See in Figma',
 };
 
 export const ExternalCTA = ({ label, type, ...rest }) => {

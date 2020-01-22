@@ -37,7 +37,6 @@ const Controls = () => (
           the user’s needs, appropriately responding to a user’s purpose and
           intent.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -50,10 +49,6 @@ const Controls = () => (
           seeking to provide maximum content in limited, vertical space, an
           accordion is a good alternative.
         </SubsectionText>
-        <ButtonRow>
-          <ExternalCTA href="#" label="See in Storybook" />
-          <ExternalCTA href="#" type="figma" />
-        </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -61,7 +56,6 @@ const Controls = () => (
         <SubsectionText>
           The anchor component provides a text link.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -75,7 +69,6 @@ const Controls = () => (
           Buttons are used to indicate actions that can be perfomed. Ideally,
           buttons are not used as navigational elements.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -86,7 +79,6 @@ const Controls = () => (
           select component. However, use the select component when the user must
           specify from a list of options and submit. See the Select Component.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -97,7 +89,6 @@ const Controls = () => (
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
   </Layout>
