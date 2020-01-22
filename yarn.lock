@@ -2156,9 +2156,9 @@
   integrity sha512-FA/BWv8t8ZWJ+gEOnLLd8ygxH/2UFbAvgEonyfN6yWGLKc7zVjbpl2Y4CTjid9h2RfgPP6SEt6uHwEOply00yw==
 
 "@types/yargs@^13.0.0":
-  version "13.0.5"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-13.0.5.tgz#18121bfd39dc12f280cee58f92c5b21d32041908"
-  integrity sha512-CF/+sxTO7FOwbIRL4wMv0ZYLCRfMid2HQpzDRyViH7kSpfoAFiMdGqKIxb1PxWfjtQXQhnQuD33lvRHNwr809Q==
+  version "13.0.6"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-13.0.6.tgz#6aed913a92c262c13b94d4bca8043237de202124"
+  integrity sha512-IkltIncDQWv6fcAvnHtJ6KtkmY/vtR3bViOaCzpj/A3yNhlfZAgxNe6AEQD1cQrkYD+YsKVo08DSxvNKEsD7BA==
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -6198,8 +6198,8 @@ grommet-theme-hpe@^0.4.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.10.0"
-  uid f80d1df5fe4a0b797f5a037de71e40753b688f11
-  resolved "https://github.com/grommet/grommet/tarball/stable#f80d1df5fe4a0b797f5a037de71e40753b688f11"
+  uid "63e4501d0de5167d7f8a9f24a9ea77e7e88de30b"
+  resolved "https://github.com/grommet/grommet/tarball/stable#63e4501d0de5167d7f8a9f24a9ea77e7e88de30b"
   dependencies:
     "@testing-library/dom" "^6.1.0"
     "@testing-library/jest-dom" "^4.2.4"
