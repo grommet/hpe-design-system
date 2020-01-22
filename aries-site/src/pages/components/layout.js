@@ -42,7 +42,6 @@ const Layout = () => (
           for your design. They are the building blocks of the experience that
           give context to content.
         </SubsectionText>
-        <ExternalCTA href="#" type="storybook" />
       </Subsection>
     </ContentSection>
     <ContentSection>
