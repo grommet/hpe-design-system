@@ -50,7 +50,6 @@ export const Layout = ({
               <ThemeModeToggle />
             </Box>
             <Header
-              showLinks={!isLanding && !isNavPage}
               background={
                 descriptiveHeader && descriptiveHeader.props.background
               }
