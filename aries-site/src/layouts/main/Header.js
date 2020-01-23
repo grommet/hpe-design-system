@@ -1,31 +1,37 @@
 import React, { useContext, useState } from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Nav } from 'aries-core';
+import { AppIdentity, Header } from 'aries-core';
 import { ResponsiveContext } from 'grommet';
 import { Search } from '../navigation';
 
-export const Header = ({ background }) => {
+const StyledHeader = ({ background, ...rest }) => {
   const [searchFocused, setSearchFocused] = useState(false);
   const size = useContext(ResponsiveContext);
+
   return (
-    <Nav
-      background={background}
-      title="Design System"
-      collapse={false}
-      brandOnly={size === 'small' && searchFocused}
-    >
+    <Header background={background} {...rest}>
+      <Link href="/" passHref>
+        <AppIdentity
+          brand="hpe"
+          brandOnly={size === 'small' && searchFocused}
+          title="Design System"
+        />
+      </Link>
       <Search
         focused={searchFocused}
         setFocused={value => setSearchFocused(value)}
       />
-    </Nav>
+    </Header>
   );
 };
 
-Header.propTypes = {
+export { StyledHeader as Header };
+
+StyledHeader.propTypes = {
   background: PropTypes.string,
 };
 
-Header.defaultProp = {
+StyledHeader.defaultProp = {
   background: undefined,
 };
