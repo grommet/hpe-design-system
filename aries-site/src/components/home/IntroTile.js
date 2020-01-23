@@ -9,13 +9,12 @@ export const IntroTile = () => (
       {size => (
         <Box align="start">
           <Heading level={size === 'medium' ? '2' : '1'} margin="none">
-            Building experiences for the people that keep your customers happy
+            Building experiences that advance the way people live and work.
           </Heading>
           <Paragraph size={size !== 'large' ? 'small' : undefined} fill>
-            The HPE Design System is the way Hewlett Packard Enterprise's brand,
-            technology, and it's partners share a single language for
-            application, web, and digital experiences to answer your customers
-            needs-Look behind the element!
+            With deep roots in human-centered design, this is the way we share a
+            single language for generating experiences that are inclusive and
+            vibrant.
           </Paragraph>
           {/* <Button primary label="Get Started" /> */}
         </Box>
