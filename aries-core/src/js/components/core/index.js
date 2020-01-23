@@ -2,6 +2,7 @@ export * from './Accordion';
 export * from './Button';
 export * from './Checkbox';
 export * from './Form';
+export * from './Header';
 export * from './MaskedInput';
 export * from './Menu';
 export * from './Nav';
