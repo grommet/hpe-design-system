@@ -24,6 +24,7 @@ export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   global: {
     colors: {
+      icon: 'text',
       brand: 'green!',
       background: {
         dark: '#1A1F2B',
@@ -109,6 +110,8 @@ export const aries = deepMerge(hpe, {
       'graph-0': 'orange',
       'graph-1': 'blue',
       'graph-2': 'purple',
+      focus: 'green',
+      placeholder: 'text-weak',
     },
     font: {
       family: 'Metric',
@@ -136,13 +139,36 @@ export const aries = deepMerge(hpe, {
       background: 'active-background',
       color: 'active-text',
     },
+    drop: {
+      background: 'background-front',
+      border: {
+        radius: '8px',
+      },
+      shadowSize: 'medium',
+    },
+    elevation: {
+      dark: {
+        medium: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+      },
+    },
     hover: {
       background: 'active-background',
       color: 'active-text',
     },
+    input: {
+      weight: 500,
+    },
     selected: {
       background: 'selected-background',
       color: 'selected-text',
+    },
+  },
+  accordion: {
+    border: {
+      color: 'text',
+    },
+    icons: {
+      color: 'text',
     },
   },
   anchor: {
@@ -160,6 +186,10 @@ export const aries = deepMerge(hpe, {
       ${props => !props.plain && 'font-weight: bold;'}
     `,
   },
+  checkBox: {
+    gap: 'medium',
+    color: 'text-strong',
+  },
   heading: {
     level: {
       1: {
@@ -174,6 +204,48 @@ export const aries = deepMerge(hpe, {
       },
     },
     weight: 700,
+  },
+  icon: {
+    size: {
+      xxlarge: '166px',
+    },
+  },
+  radioButton: {
+    color: 'text-strong',
+    check: {
+      color: 'text-strong',
+    },
+    gap: 'medium',
+  },
+  rangeInput: {
+    track: {
+      color: 'background-contrast',
+    },
+    thumb: {
+      color: 'text',
+    },
+  },
+  select: {
+    icons: {
+      color: 'text',
+    },
+    options: {
+      text: {
+        size: 'small',
+      },
+    },
+  },
+  tab: {
+    border: {
+      color: 'text-xweak',
+    },
+    color: 'text-xweak',
+    margin: {
+      horizontal: 'none',
+    },
+    pad: {
+      horizontal: 'small',
+    },
   },
   text: {
     small: fontSizing(0),

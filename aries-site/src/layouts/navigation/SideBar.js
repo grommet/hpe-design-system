@@ -1,29 +1,42 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { NavLink } from 'aries-core';
+import { nameToPath } from '../../utils';
 
-const SideBarItem = ({ item, prefix }) => (
-  <Box pad={{ vertical: 'small' }}>
-    <NavLink href={`/${prefix}/${item.toLowerCase()}`}>{item}</NavLink>
-  </Box>
-);
+const SideBarItem = ({ item }) => {
+  const { pathname } = useRouter();
+  const path = nameToPath(item);
+  const active = pathname === path;
 
-export const SideBar = ({ children, items, prefix }) => {
   return (
-    <Box width="small" margin={{ right: 'medium' }}>
+    // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+    <Link href={path} passHref>
+      <NavLink active={active}>{item}</NavLink>
+    </Link>
+  );
+};
+
+export const SideBar = ({ items }) => {
+  return (
+    <Box
+      border={{ side: 'left' }}
+      gap="medium"
+      margin={{ left: 'xlarge' }}
+      pad={{ left: 'medium' }}
+      width="small"
+    >
       {items.map(item => (
-        <SideBarItem item={item} key={item} prefix={prefix} />
+        <SideBarItem item={item} key={item} />
       ))}
-      {children}
     </Box>
   );
 };
 
 SideBar.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   items: PropTypes.array,
-  prefix: PropTypes.string,
 };
 
 SideBar.defaultProps = {
@@ -32,10 +45,8 @@ SideBar.defaultProps = {
 
 SideBarItem.propTypes = {
   item: PropTypes.string,
-  prefix: PropTypes.string,
 };
 
 SideBarItem.defaultProps = {
   item: '',
-  prefix: 'start',
 };

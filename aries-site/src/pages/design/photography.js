@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 
-import { MainHeading } from '../../components';
+const topic = 'Design';
+const title = 'Photography';
 
 const Photography = () => (
-  <PageLayout title="Photography">
+  <Layout title={title}>
     <ContentSection>
-      <MainHeading>Photography</MainHeading>
+      <Subsection name={title} level={1} topic={topic} />
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Photography;

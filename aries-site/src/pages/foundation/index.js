@@ -1,16 +1,35 @@
 import React from 'react';
-import { PageLayout, SideBar, SideBarItemList } from '../../layouts';
-import { MainHeading } from '../../components';
+
+import { Layout, NavPage } from '../../layouts';
+import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
+import { getPageDetails } from '../../utils';
 
 const title = 'Foundation';
-const prefix = title.toLowerCase();
+const page = getPageDetails(title);
 
 const Foundation = () => {
+  const descriptiveHeader = (
+    <DescriptiveHeader
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
+      title={title}
+    />
+  );
+
   return (
-    <PageLayout title={title} isLanding>
-      <MainHeading>{title}</MainHeading>
-      <SideBar items={SideBarItemList[prefix]} prefix={prefix} />
-    </PageLayout>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      <Meta
+        title={title}
+        description={page.seoDescription}
+        canonicalUrl="https://aries.hpe.design/guidelines"
+      />
+      {page.pages.length ? (
+        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      ) : (
+        <ComingSoon />
+      )}
+    </Layout>
   );
 };
 

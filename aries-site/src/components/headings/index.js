@@ -1,2 +1,2 @@
-export * from './MainHeading';
+export * from './DescriptiveHeader';
 export * from './Subheading';

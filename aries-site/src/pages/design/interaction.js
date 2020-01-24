@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ContentSection, PageLayout } from '../../layouts';
-import { MainHeading } from '../../components';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 
+const topic = 'Design';
 const title = 'Interaction';
 
 const Interaction = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <ContentSection>
-      <MainHeading>{title}</MainHeading>
+      <Subsection name={title} level={1} topic={topic} />
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Interaction;
