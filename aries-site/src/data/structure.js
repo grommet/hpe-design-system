@@ -35,7 +35,7 @@ export const structure = [
     name: 'Guidelines',
     color: 'green',
     description:
-      'This is the heartbeat and mindset of the HPE Design System. It is the ideology and set of standards which hold us accountable to every design decision.',
+      'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
     icon: size => <IconGuidelines size={size} />,
     seoDescription:
       'The heartbeat and mindset of the HPE Design System describing the ideology and standards informing every design decision.',
@@ -69,7 +69,7 @@ export const structure = [
     icon: size => <IconDevelop size={size} />,
     seoDescription:
       'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
-    pages: ['Code'],
+    pages: [],
   },
   {
     name: 'Design',
@@ -89,7 +89,7 @@ export const structure = [
     icon: size => <IconResources size={size} />,
     seoDescription:
       'View tutorials, case studies, videos, how-tos, articles, and other helpful resources to succeed with the HPE Design System.',
-    pages: ['Examples', 'Videos', 'Designer', 'Themer', 'Grommet'],
+    pages: [],
   },
   {
     name: 'Principles',

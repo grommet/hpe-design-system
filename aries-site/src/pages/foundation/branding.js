@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Image, Text } from 'grommet';
-import { Aruba, Hpe } from 'grommet-icons';
+import { Box, Image } from 'grommet';
 import { Button } from 'aries-core';
 
 import {
@@ -11,39 +10,8 @@ import {
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { ArubaIconExample, HpeElementExample } from '../../examples';
 import { getPageDetails } from '../../utils';
-
-const ArubaIconExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box direction="row" align="center" gap="medium">
-      <Aruba color="orange!" size="30px" />
-      <Box direction="row" gap="xsmall">
-        <Text size={textSize} weight="bold">
-          Aruba
-        </Text>
-        <Text size={textSize}>Service Name</Text>
-      </Box>
-    </Box>
-  );
-};
-
-const HpeElementExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box direction="row" align="center" gap="medium">
-      <Hpe color="brand" size="66px" />
-      <Box direction="row" gap="xsmall">
-        <Text size={textSize} weight="bold">
-          HPE
-        </Text>
-        <Text size={textSize}>Service Name</Text>
-      </Box>
-    </Box>
-  );
-};
 
 const title = 'Branding';
 const page = getPageDetails(title);
@@ -73,15 +41,17 @@ const Branding = () => (
           environment.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Logos" primary />
-          <Button href="#" label="Download Logos" primary />
+          <Button
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=1%3A458"
+            label="See in Figma"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
+          />
         </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small" fill="horizontal">
-        Placeholder Image
-      </Box>
       <Subsection name="Hewlett Packard Enterprise">
         <SubsectionText>
           Hewlett Packard Enterprise, also known as HPE has a couple logo
