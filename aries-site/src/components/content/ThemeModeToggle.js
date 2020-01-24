@@ -13,11 +13,13 @@ export const ThemeModeToggle = () => {
         <Box
           background="blue!"
           direction="row"
-          gap="small"
-          round="xlarge"
+          gap="xsmall"
+          justify="center"
           overflow="hidden"
           pad={{ vertical: 'small', horizontal: 'medium' }}
           responsive={false}
+          round="xlarge"
+          width="small"
         >
           {icon}
           {label}
