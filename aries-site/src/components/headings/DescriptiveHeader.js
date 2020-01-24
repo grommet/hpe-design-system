@@ -7,7 +7,6 @@ export const DescriptiveHeader = ({ subText, icon, title, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      fill
       gap="large"
       pad={{ vertical: 'large' }}
       direction={size !== 'small' ? 'row' : 'column'}

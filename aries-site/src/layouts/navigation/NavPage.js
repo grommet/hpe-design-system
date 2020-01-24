@@ -17,7 +17,6 @@ const NavItem = ({ item, topic }) => {
     // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
     <Link href={`/${topic}/${formattedItem}`} passHref>
       <Box
-        fill
         direction="row"
         margin={{ vertical: 'large' }}
         gap={size !== 'small' ? 'large' : 'medium'}
