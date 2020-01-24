@@ -58,7 +58,7 @@ export const Layout = ({
             {!isLanding && !isNavPage ? (
               <SidebarLayout title={title}> {children} </SidebarLayout>
             ) : (
-              <Main>
+              <Main overflow="visible">
                 {/* Allows DescriptiveHeader background color not to be
                  * confined by formatting restrictions of page content
                  */}
