@@ -6419,8 +6419,24 @@ grommet-theme-hpe@^0.4.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.10.0"
-  uid d8a4a8a306624bff8eeb702f431eae09371ce269
-  resolved "https://github.com/grommet/grommet/tarball/stable#d8a4a8a306624bff8eeb702f431eae09371ce269"
+  resolved "https://github.com/grommet/grommet/tarball/stable#49c1681227ad5e61dc4b0047bfcc8e02bd4db21a"
+  dependencies:
+    "@testing-library/dom" "^6.1.0"
+    "@testing-library/jest-dom" "^4.2.4"
+    "@testing-library/react" "^9.1.3"
+    css "^2.2.3"
+    grommet-icons "^4.2.0"
+    hoist-non-react-statics "^3.2.0"
+    markdown-to-jsx "^6.9.1"
+    polished "^3.4.1"
+    prop-types "^15.7.2"
+    react-desc "^4.1.2"
+    recompose "^0.30.0"
+
+grommet@~2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.9.0.tgz#a40095bb678a111872ba050607c16ddf6454382e"
+  integrity sha512-v+AWKeVK9YTWdjb5nXnIUg3uMVUQPKA+Py6GkRBfORjwlQVxaNRUSfEHXajIWnEE0XB1eKr70DX62/5ZryCByA==
   dependencies:
     "@testing-library/dom" "^6.1.0"
     "@testing-library/jest-dom" "^4.2.4"
