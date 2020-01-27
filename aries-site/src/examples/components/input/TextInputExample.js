@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField } from 'grommet';
-import { TextInput } from 'aries-core';
+import { Box, FormField, TextInput } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 
