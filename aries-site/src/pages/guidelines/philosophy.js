@@ -12,7 +12,7 @@ const Philosophy = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/guidelines/philosophy"
+      canonicalUrl="https://design-system.hpe.design/guidelines/philosophy"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>

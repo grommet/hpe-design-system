@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'grommet';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 import { getPageDetails } from '../../utils';
@@ -13,7 +12,7 @@ const HumanCentered = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/guidelines/human-centered"
+      canonicalUrl="https://design-system.hpe.design/guidelines/human-centered"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
