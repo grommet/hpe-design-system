@@ -1,7 +1,15 @@
 import React from 'react';
-import { Box, Button, CheckBox, FormField, Text, TextInput } from 'grommet';
+import {
+  Box,
+  Button,
+  CheckBox,
+  Form,
+  FormField,
+  Text,
+  TextInput,
+} from 'grommet';
 import { Hpe } from 'grommet-icons';
-import { Anchor, Form } from 'aries-core';
+import { Anchor } from 'aries-core';
 
 import { UsageExample } from '../../../layouts';
 
