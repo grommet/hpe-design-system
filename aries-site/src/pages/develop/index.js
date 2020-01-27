@@ -22,7 +22,7 @@ const Develop = () => {
       <Meta
         title={title}
         description={page.seoDescription}
-        canonicalUrl="https://aries.hpe.design/develop"
+        canonicalUrl="https://design-system.hpe.design/develop"
       />
       {page.pages.length ? (
         <NavPage items={page.pages} topic={page.name.toLowerCase()} />
