@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { RangeSelector } from 'grommet';
 
 const StyledRangeSelector = ({ color, ...rest }) => (
-  <RangeSelector color={color} size="full" {...rest} />
+  <RangeSelector color={color} opacity="strong" size="xxsmall" {...rest} />
 );
 
 StyledRangeSelector.propTypes = {
