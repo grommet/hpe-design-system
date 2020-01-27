@@ -6,7 +6,7 @@ import path from 'path';
 
 dotenv.config();
 
-const repoURL = `https://${process.env.GH_TOKEN}@github.com/hpe-design/aries.git`;
+const repoURL = `https://${process.env.GH_TOKEN}@github.com/hpe-design/design-system.git`;
 
 const localFolder = path.resolve('.tmp/aries-core');
 const localDist = path.resolve('dist');

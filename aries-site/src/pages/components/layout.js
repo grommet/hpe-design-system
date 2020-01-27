@@ -28,7 +28,7 @@ const Layout = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/components/layout"
+      canonicalUrl="https://design-system.hpe.design/components/layout"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
