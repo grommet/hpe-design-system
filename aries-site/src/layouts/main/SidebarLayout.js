@@ -25,6 +25,7 @@ export const SidebarLayout = ({ title, children }) => {
               horizontal: size !== 'small' ? 'xlarge' : 'large',
               vertical: 'large',
             }}
+            flex
           >
             <Main flex>
               {children}

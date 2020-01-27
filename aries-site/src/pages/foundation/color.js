@@ -52,7 +52,7 @@ const Color = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/foundation/color"
+      canonicalUrl="https://design-system.hpe.design/foundation/color"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>

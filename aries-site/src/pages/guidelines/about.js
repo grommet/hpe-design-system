@@ -17,7 +17,7 @@ const About = () => (
     <Meta
       title={title}
       description={description}
-      canonicalUrl="https://aries.hpe.design/guidelines/about"
+      canonicalUrl="https://design-system.hpe.design/guidelines/about"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
