@@ -14,7 +14,7 @@ const Principles = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/guidelines/principles"
+      canonicalUrl="https://design-system.hpe.design/guidelines/principles"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>

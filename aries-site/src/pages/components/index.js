@@ -21,7 +21,7 @@ const Components = () => {
       <Meta
         title={title}
         description={page.seoDescription}
-        canonicalUrl="https://aries.hpe.design/components"
+        canonicalUrl="https://design-system.hpe.design/components"
       />
       {page.pages.length ? (
         <NavPage items={page.pages} topic={page.name.toLowerCase()} />
