@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RangeSelector } from 'aries-core';
 import { Box, Grommet, Stack, Text } from 'grommet';
-import { aries } from '../../../../../../aries-site/src/themes/aries';
+import { aries } from '../../../../../../../aries-site/src/themes/aries';
 
 export default {
   title: 'RangeSelector',
