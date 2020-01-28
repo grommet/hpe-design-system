@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { Accordion, AccordionPanel } from 'aries-core';
+import { Accordion, AccordionPanel, Box } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 

@@ -1,6 +1,14 @@
 import React from 'react';
-import { Tab, Tabs } from 'aries-core';
-import { Box, Table, TableBody, TableRow, TableCell, Text } from 'grommet';
+import {
+  Box,
+  Tab,
+  Tabs,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+  Text,
+} from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from 'grommet';
-import { Checkbox } from 'aries-core';
+import { Box, CheckBox } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 
@@ -28,7 +27,7 @@ export const CheckboxExample = () => {
       <Box gap="medium">
         {items &&
           items.map(item => (
-            <Checkbox
+            <CheckBox
               key={item}
               label={item}
               checked={checked.includes(item)}
