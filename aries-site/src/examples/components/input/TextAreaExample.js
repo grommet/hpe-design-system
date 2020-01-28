@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, FormField } from 'grommet';
-import { TextArea } from 'aries-core';
+import { Box, FormField, TextArea } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 
