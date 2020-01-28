@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { Button } from 'aries-core';
+import { Box, Button } from 'grommet';
 
 import { ExternalCTA, Meta, SubsectionText } from '../../components';
 import {
