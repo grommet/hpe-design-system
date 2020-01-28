@@ -12,7 +12,7 @@ export const Simple = () => (
       <Box
         gap="medium"
         align="center"
-        background={aries.global.colors['background-front'].dark}
+        background="background-front"
         pad="large"
       >
         <Button label="Default" />
@@ -20,12 +20,7 @@ export const Simple = () => (
         <Button label="Primary" primary />
         <Button label="Disabled" disabled />
       </Box>
-      <Box
-        gap="medium"
-        align="center"
-        background={aries.global.colors.background.light}
-        pad="large"
-      >
+      <Box gap="medium" align="center" background="light-1" pad="large">
         <Button label="Default" />
         <Button label="Anchor" href="#" />
         <Button label="Primary" primary />
