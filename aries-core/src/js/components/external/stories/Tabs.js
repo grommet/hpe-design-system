@@ -16,6 +16,36 @@ export default {
   title: 'Tabs',
 };
 
+const TableContent = () => (
+  <>
+    <Text size="xxlarge">User Information</Text>
+    <Table alignSelf="start">
+      <TableBody>
+        <TableRow>
+          <TableCell scope="row">Name</TableCell>
+          <TableCell>Ahab</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell scope="row">Email</TableCell>
+          <TableCell>whitewhale@theessex.com</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell scope="row">Phone</TableCell>
+          <TableCell>none</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell scope="row">Location</TableCell>
+          <TableCell>Cape of South Africa</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </>
+);
+
+const TabContent = ({ ...props }) => (
+  <Box margin="small" gap="small" {...props} />
+);
+
 export const Simple = () => {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
@@ -25,44 +55,24 @@ export const Simple = () => {
       <Box align="center" pad="large">
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="General">
-            <Box margin="small" gap="small">
-              <Text size="xxlarge">User Information</Text>
-              <Table alignSelf="start">
-                <TableBody>
-                  <TableRow>
-                    <TableCell scope="row">Name</TableCell>
-                    <TableCell>Ahab</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell scope="row">Email</TableCell>
-                    <TableCell>whitewhale@theessex.com</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell scope="row">Phone</TableCell>
-                    <TableCell>none</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell scope="row">Location</TableCell>
-                    <TableCell>Cape of South Africa</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Box>
+            <TabContent>
+              <TableContent />
+            </TabContent>
           </Tab>
           <Tab title="Account">
-            <Box margin="small">Account Information</Box>
+            <TabContent>Account Information</TabContent>
           </Tab>
           <Tab title="Billing">
-            <Box margin="small">Billing Information</Box>
+            <TabContent>Billing Information</TabContent>
           </Tab>
           <Tab title="Notifications">
-            <Box margin="small">Notifications will show here.</Box>
+            <TabContent>Notifications will show here.</TabContent>
           </Tab>
           <Tab title="Security">
-            <Box margin="small">Security Information</Box>
+            <TabContent>Security Information</TabContent>
           </Tab>
           <Tab title="Integrations">
-            <Box margin="small">Integrations Information</Box>
+            <TabContent>Integrations Information</TabContent>
           </Tab>
         </Tabs>
       </Box>
