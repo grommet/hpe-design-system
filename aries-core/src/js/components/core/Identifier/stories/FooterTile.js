@@ -85,7 +85,8 @@ export const FooterTiles = () => (
             <Box flex />
             <Footer
               pad="small"
-              background={{ color: `${value.color}!`, opacity: 'weak' }}
+              //   background={{ color: `${value.color}!`, opacity: 'weak' }}
+              background="background-contrast"
             >
               <Text size="xsmall">{value.message}</Text>
               {value.message === 'Connected' && (
