@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
 import { Aruba, Hpe } from 'grommet-icons';
 
-const brandNames = {
-  hpe: 'HPE',
-  aruba: 'Aruba',
+const brands = {
+  hpe: { name: 'HPE', logo: <Hpe color="brand" size="large" /> },
+  aruba: { name: 'Aruba', logo: <Aruba color="orange!" /> },
 };
 
 export const AppIdentity = forwardRef(
@@ -15,20 +15,11 @@ export const AppIdentity = forwardRef(
     return (
       <Button href={href} ref={ref} {...rest}>
         <Box direction="row" align="center" gap="medium">
-          {brand === brandNames.hpe.toLowerCase() ? (
-            <Hpe color="brand" size="large" />
-          ) : (
-            undefined
-          )}
-          {brand === brandNames.aruba.toLowerCase() ? (
-            <Aruba color="orange!" />
-          ) : (
-            undefined
-          )}
+          {brand && brands[brand].logo}
           {!brandOnly && (
             <Box direction="row" gap="xsmall">
               <Text weight="bold" size={textSize}>
-                {brandNames[brand]}
+                {brands[brand].name}
               </Text>
               <Text size={textSize}>{title}</Text>
             </Box>
