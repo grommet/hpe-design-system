@@ -12,7 +12,7 @@ export const Simple = () => {
 
   return (
     <Grommet theme={aries} full>
-      <Box align="center" justify="start" pad="large" fill>
+      <Box align="center" justify="start" pad="large">
         <Select
           id="select"
           name="select"
