@@ -21,7 +21,7 @@ export const Simple = () => {
   return (
     <Grommet theme={aries} full>
       <Box align="center" pad="large">
-        <Form>
+        <Form onSubmit={({ value }) => console.log('Submit', value)}>
           <Box
             align="start"
             gap="medium"
@@ -30,10 +30,11 @@ export const Simple = () => {
           >
             <Hpe color="brand" size="large" />
             <Text size="large">Sign in to HPE</Text>
-            <FormField label="Email" htmlFor="username">
+            <FormField label="Email" htmlFor="username" name="username">
               <TextInput
                 id="username"
                 placeholder="Email address"
+                name="username"
                 type="email"
               />
             </FormField>
