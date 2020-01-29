@@ -3,13 +3,16 @@ import {
   IconBrand,
   IconColor,
   IconComponents,
+  IconControls,
   IconDesign,
   IconDevelop,
   IconFoundation,
   IconGuidelines,
   IconHumanCentered,
   IconIcons,
+  IconInput,
   IconLayout,
+  IconLayoutComponents,
   IconPhilosophy,
   IconPrinciples,
   IconResources,
@@ -149,7 +152,7 @@ export const structure = [
     name: 'Layout',
     description:
       'Grid, box, header and footer. All the core components to build the foundation for your content.',
-    icon: size => <IconLayout size={size} />,
+    icon: size => <IconLayoutComponents size={size} />,
     seoDescription:
       "Get started with HPE Design System's foundational layout components Header, Main, Footer, and more.",
   },
@@ -193,7 +196,7 @@ export const structure = [
     name: 'Controls',
     description:
       'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
-    icon: '',
+    icon: size => <IconControls size={size} />,
     seoDescription:
       'HPE Design System styled interactive components for your applications.',
   },
@@ -201,7 +204,7 @@ export const structure = [
     name: 'Input',
     description:
       'Thoughtful and intentional use of input components can bring about engaging experiences.',
-    icon: '',
+    icon: size => <IconInput size={size} />,
     seoDescription: '',
   },
 ];
