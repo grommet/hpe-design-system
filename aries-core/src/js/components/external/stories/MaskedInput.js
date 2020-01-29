@@ -10,29 +10,27 @@ export const Email = () => {
   const [value, setValue] = React.useState('');
   return (
     <Grommet theme={aries} full>
-      <Box fill align="center" justify="start" pad="large">
-        <Box width="medium">
-          <MaskedInput
-            mask={[
-              {
-                regexp: /^[\w\-_.]+$/,
-                placeholder: 'example',
-              },
-              { fixed: '@' },
-              {
-                regexp: /^[\w]+$/,
-                placeholder: 'my',
-              },
-              { fixed: '.' },
-              {
-                regexp: /^[\w]+$/,
-                placeholder: 'com',
-              },
-            ]}
-            value={value}
-            onChange={event => setValue(event.target.value)}
-          />
-        </Box>
+      <Box pad="large" width="medium" margin="auto">
+        <MaskedInput
+          mask={[
+            {
+              regexp: /^[\w\-_.]+$/,
+              placeholder: 'example',
+            },
+            { fixed: '@' },
+            {
+              regexp: /^[\w]+$/,
+              placeholder: 'my',
+            },
+            { fixed: '.' },
+            {
+              regexp: /^[\w]+$/,
+              placeholder: 'com',
+            },
+          ]}
+          value={value}
+          onChange={event => setValue(event.target.value)}
+        />
       </Box>
     </Grommet>
   );
