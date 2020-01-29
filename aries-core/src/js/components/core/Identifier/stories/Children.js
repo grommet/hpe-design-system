@@ -31,6 +31,7 @@ const BasicTile = ({ title, subTitle, ...rest }) => (
       size="small"
       gap="medium"
       pad="small"
+      direction="row"
       {...rest}
     />
   </Tile>

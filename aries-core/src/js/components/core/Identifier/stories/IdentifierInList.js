@@ -47,6 +47,7 @@ export const IdentifierInList = () => (
               gap="medium"
               size="small"
               key={index}
+              direction="row"
             >
               <Box alignSelf="center">{datum.icon}</Box>
             </Identifier>

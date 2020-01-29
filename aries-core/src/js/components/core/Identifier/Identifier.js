@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
 export const Identifier = ({ children, title, subTitle, size, ...rest }) => (
-  <Box direction="row" align="center" {...rest}>
+  <Box align="center" {...rest}>
     {children}
     <Box>
       <Text size={size} weight="bold">
