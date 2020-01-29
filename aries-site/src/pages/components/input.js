@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import {
   CheckboxExample,
@@ -13,13 +13,19 @@ import {
   TextAreaExample,
   TextInputExample,
 } from '../../examples';
+import { getPageDetails } from '../../utils';
 
 const title = 'Input';
+const page = getPageDetails(title);
 const topic = 'Components';
 
 const Input = () => (
   <Layout title={title}>
-    <Meta title={title} description="" />
+    <Meta
+      title={title}
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/components/input"
+    />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>

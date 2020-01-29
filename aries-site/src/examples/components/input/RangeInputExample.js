@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Text } from 'grommet';
-import { RangeInput } from 'aries-core';
+import { Box, RangeInput, Text } from 'grommet';
 
 import { UsageExample } from '../../../layouts';
 

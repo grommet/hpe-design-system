@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { Menu } from 'aries-core';
+import { Box, Menu } from 'grommet';
 import { aries } from '../../../themes/aries';
 
 import { UsageExample } from '../../../layouts';
