@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { Button } from 'aries-core';
+import { Box, Button } from 'grommet';
 
 import { ExternalCTA, Meta, SubsectionText } from '../../components';
 import {
@@ -22,7 +21,7 @@ const Controls = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/components/controls"
+      canonicalUrl="https://design-system.hpe.design/components/controls"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>

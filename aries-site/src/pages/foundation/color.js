@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
-import { Button, AnchorCallToAction } from 'aries-core';
+import { Box, Button, Text } from 'grommet';
 
 import {
   ButtonRow,
@@ -53,7 +52,7 @@ const Color = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/foundation/color"
+      canonicalUrl="https://design-system.hpe.design/foundation/color"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>

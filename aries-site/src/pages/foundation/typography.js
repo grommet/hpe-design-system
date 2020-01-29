@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { AnchorCallToAction, Button } from 'aries-core';
+import { Box, Button } from 'grommet';
 
 import {
   ButtonRow,
@@ -27,7 +26,7 @@ const Typography = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://aries.hpe.design/foundation/typography"
+      canonicalUrl="https://design-system.hpe.design/foundation/typography"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>

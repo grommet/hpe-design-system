@@ -3,10 +3,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hpe-design/aries.git"
+    "url": "git+https://github.com/hpe-design/design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/hpe-design/aries/issues"
+    "url": "https://github.com/hpe-design/design-system/issues"
   },
   "devDependencies": {
     "@hpe/project-scripts": "^1.0.6",
