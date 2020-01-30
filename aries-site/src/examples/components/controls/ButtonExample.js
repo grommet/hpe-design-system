@@ -15,8 +15,9 @@ export const ButtonExample = () => {
       direction="column"
       align="start"
       gap="large"
+      docs="https://v2.grommet.io/button?theme=hpe"
       code="https://github.com/hpe-design/design-system/blob/master/aries-site/src/examples/components/controls/MenuExample.js"
-      figma="https://github.com/hpe-design/design-system/blob/master/aries-site/src/examples/components/controls/MenuExample.js"
+      figma="https://www.figma.com/file/HZq1i3avh8VLK4kWXs38sW/grommet-hpe-form?node-id=0%3A1"
     >
       <Button
         label="Check it out!"
