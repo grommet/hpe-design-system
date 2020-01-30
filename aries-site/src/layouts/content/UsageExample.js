@@ -1,13 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, ResponsiveContext, Text } from 'grommet';
-import { Code, Workshop } from 'grommet-icons';
+import { Box, Button, Drop, ResponsiveContext, Text } from 'grommet';
+import { Code, Document, Template } from 'grommet-icons';
 
 import { colors } from '../../themes/aries';
+
+const IconButton = ({ title, ...rest }) => {
+  const ref = React.useRef();
+  const [hover, setHover] = React.useState();
+
+  React.useEffect(() => {
+    if (!hover) return undefined;
+    const timer = setTimeout(() => setHover(false), 2000);
+    return () => clearTimeout(timer);
+  }, [hover]);
+
+  return (
+    <>
+      <Button
+        ref={ref}
+        hoverIndicator
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        title={hover ? undefined : title}
+        {...rest}
+      />
+      {hover && (
+        <Drop
+          target={ref.current}
+          align={{ bottom: 'top' }}
+          plain
+          stretch={false}
+        >
+          <Box
+            background={colors['background-front']}
+            border
+            round="xsmall"
+            pad="small"
+            margin={{ bottom: 'xsmall' }}
+          >
+            <Text truncate>{title}</Text>
+          </Box>
+        </Drop>
+      )}
+    </>
+  );
+};
+
+IconButton.propTypes = {
+  title: PropTypes.string,
+};
 
 export const UsageExample = ({
   children,
   code,
+  docs,
   figma,
   label,
   themeMode,
@@ -34,17 +81,30 @@ export const UsageExample = ({
           {children}
         </Box>
       </Box>
-      {(code || figma) && (
+      {(code || docs || figma) && (
         <Box direction="row" justify="end" gap="xsmall">
-          {code && (
-            <Button title="Code" icon={<Code />} hoverIndicator href={code} />
-          )}
           {figma && (
-            <Button
-              title="Figma"
-              icon={<Workshop />}
+            <IconButton
+              title="Figma Templates"
+              icon={<Template />}
               hoverIndicator
               href={figma}
+            />
+          )}
+          {docs && (
+            <IconButton
+              title="React Documentation"
+              icon={<Document />}
+              hoverIndicator
+              href={docs}
+            />
+          )}
+          {code && (
+            <IconButton
+              title="React Code"
+              icon={<Code />}
+              hoverIndicator
+              href={code}
             />
           )}
         </Box>
@@ -57,6 +117,7 @@ UsageExample.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
     .isRequired,
   code: PropTypes.string,
+  docs: PropTypes.string,
   figma: PropTypes.string,
   label: PropTypes.string,
   themeMode: PropTypes.oneOf(['dark', 'light']),
