@@ -4,12 +4,11 @@ import { Header, ResponsiveContext } from 'grommet';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
-const StyledHeader = ({ background, pad, ...rest }) => {
+const StyledHeader = ({ pad, ...rest }) => {
   const size = useContext(ResponsiveContext);
 
   return (
     <Header
-      background={background}
       pad={
         pad || {
           vertical: 'medium',
