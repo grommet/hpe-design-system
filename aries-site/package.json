@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "aries-core": "*",
-    "grommet": "~2.9.0",
+    "grommet": "^2.10.0",
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "^0.4.2",
     "next": "^9.1.2",
