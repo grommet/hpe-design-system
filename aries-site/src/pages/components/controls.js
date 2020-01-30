@@ -9,7 +9,12 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { AccordionExample, MenuExample, TabsExample } from '../../examples';
+import {
+  AccordionExample,
+  ButtonExample,
+  MenuExample,
+  TabsExample,
+} from '../../examples';
 import { getPageDetails } from '../../utils';
 
 const title = 'Controls';
@@ -59,11 +64,7 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
-        <UsageExample>
-          <Box align="start">
-            <Button label="Hello Button" primary />
-          </Box>
-        </UsageExample>
+        <ButtonExample />
         <SubsectionText>
           Buttons are used to indicate actions that can be perfomed. Ideally,
           buttons are not used as navigational elements.

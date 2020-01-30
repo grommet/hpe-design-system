@@ -1,10 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, ResponsiveContext, Text } from 'grommet';
+import { Code, Workshop } from 'grommet-icons';
 
 import { colors } from '../../themes/aries';
 
-export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
+export const UsageExample = ({
+  children,
+  code,
+  figma,
+  label,
+  themeMode,
+  pad,
+  ...rest
+}) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -25,6 +34,21 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
           {children}
         </Box>
       </Box>
+      {(code || figma) && (
+        <Box direction="row" justify="end" gap="xsmall">
+          {code && (
+            <Button title="Code" icon={<Code />} hoverIndicator href={code} />
+          )}
+          {figma && (
+            <Button
+              title="Figma"
+              icon={<Workshop />}
+              hoverIndicator
+              href={figma}
+            />
+          )}
+        </Box>
+      )}
     </Box>
   );
 };
@@ -32,6 +56,8 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
 UsageExample.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
     .isRequired,
+  code: PropTypes.string,
+  figma: PropTypes.string,
   label: PropTypes.string,
   themeMode: PropTypes.oneOf(['dark', 'light']),
   pad: PropTypes.oneOfType([
