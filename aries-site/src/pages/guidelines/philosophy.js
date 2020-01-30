@@ -1,20 +1,18 @@
 import React from 'react';
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { getPageDetails } from '../../utils';
 
-const topic = 'Guidelines';
 const title = 'Philosophy';
-const description =
-  'Learn about the underlying philosophy guiding the HPE Design System ' +
-  'and how generosity and community enable HPE to craft experiences ' +
-  'which advance the way people live and work';
+const page = getPageDetails(title);
+const topic = 'Guidelines';
 
 const Philosophy = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
-      canonicalUrl="https://aries.hpe.design/guidelines/philosophy"
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/guidelines/philosophy"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
@@ -23,7 +21,7 @@ const Philosophy = () => (
           enables experiences to be crafted with uncompromising integrity.
         </SubsectionText>
         <SubsectionText size="medium">
-          The HPE Design System contians an open-source library of elements
+          The HPE Design System contains an open-source library of elements
           consisting of working code, best practices, design resources,
           human-centered guidelines, and a vibrant community of contributors.
         </SubsectionText>
@@ -61,7 +59,7 @@ const Philosophy = () => (
         </SubsectionText>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Philosophy;

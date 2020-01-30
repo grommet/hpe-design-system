@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "aries-core": "*",
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
+    "grommet": "~2.9.0",
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "^0.4.2",
     "next": "^9.1.2",
@@ -15,7 +15,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.0.0"
   },
   "scripts": {
     "build": "next build",

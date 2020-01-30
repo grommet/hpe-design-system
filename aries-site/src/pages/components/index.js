@@ -1,25 +1,34 @@
 import React from 'react';
-import { PageLayout, NavPage } from '../../layouts';
-import { DescriptiveHeader } from '../../components/headings';
-import { structure } from '../../data';
+import { Layout, NavPage } from '../../layouts';
+import { DescriptiveHeader, Meta, ComingSoon } from '../../components';
+import { getPageDetails } from '../../utils';
 
 const title = 'Components';
-const topic = structure.find(page => page.name === title);
+const page = getPageDetails(title);
 
 const Components = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={topic.color}
-      subText={topic.description}
-      icon={topic.icon}
+      background={page.color}
+      subText={page.description}
+      icon={page.icon}
       title={title}
     />
   );
 
   return (
-    <PageLayout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      <NavPage items={topic.pages} topic={topic.name.toLowerCase()} />
-    </PageLayout>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+      <Meta
+        title={title}
+        description={page.seoDescription}
+        canonicalUrl="https://design-system.hpe.design/components"
+      />
+      {page.pages.length ? (
+        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      ) : (
+        <ComingSoon />
+      )}
+    </Layout>
   );
 };
 

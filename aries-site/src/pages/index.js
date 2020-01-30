@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { initialize, pageview } from 'react-ga';
-
+import React, { forwardRef } from 'react';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { Box, Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
-import { Config } from '../../config';
-import { PageLayout } from '../layouts';
+import { Layout } from '../layouts';
+import { Meta } from '../components';
 import { TileContent, IntroTile } from '../components/home';
-import { structure } from '../data';
+import { getPageDetails } from '../utils';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -22,23 +22,34 @@ const HomeTiles = ({ ...rest }) => {
   );
 };
 
-const title = 'Home';
+// Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
+const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
+  return (
+    <Tile
+      pad="medium"
+      background={topic.color}
+      key={topic.color}
+      ref={ref}
+      {...rest}
+    >
+      <TileContent
+        key={topic.name}
+        title={topic.name}
+        subTitle={topic.description}
+        icon={topic.icon('xlarge')}
+      />
+    </Tile>
+  );
+});
 
-// Get details for each child page of the home page
-const topicList = structure
-  .find(page => page.name === title)
-  .pages.map(topic => structure.find(page => page.name === topic));
+const title = 'Home';
+const pageDetails = getPageDetails(title);
+const topicList = pageDetails.pages.map(topic => getPageDetails(topic));
 
 const Index = () => {
-  useEffect(() => {
-    if (Config.gaId) {
-      initialize(Config.gaId);
-      pageview(document.location.pathname);
-    }
-  }, []);
-
   return (
-    <PageLayout title={title} isLanding>
+    <Layout title={title} isLanding>
+      <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <HomeTiles>
           <Tile background="white">
@@ -48,26 +59,33 @@ const Index = () => {
         </HomeTiles>
         <HomeTiles>
           {topicList.map(topic => (
-            <Tile
-              pad="medium"
-              background={topic.color}
-              key={topic.color}
-              onClick={() =>
-                (window.location.href = `/${topic.name.toLowerCase()}`)
-              }
+            // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+            <Link
+              key={topic.name}
+              href={`/${topic.name.toLowerCase()}`}
+              passHref
             >
-              <TileContent
-                key={topic.name}
-                title={topic.name}
-                subTitle={topic.description}
-                icon={topic.icon('xlarge')}
-              />
-            </Tile>
+              <TopicTile topic={topic} />
+            </Link>
           ))}
         </HomeTiles>
       </Box>
-    </PageLayout>
+    </Layout>
   );
 };
 
 export default Index;
+
+TopicTile.propTypes = {
+  onClick: PropTypes.func,
+  topic: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.func.isRequired,
+  }),
+};
+
+TopicTile.defaultProps = {
+  onClick: undefined,
+};

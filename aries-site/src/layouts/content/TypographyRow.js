@@ -33,7 +33,7 @@ TypographyRow.propTypes = {
     name: PropTypes.string.isRequired,
     primary: PropTypes.bool,
     weight: PropTypes.number,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
   }).isRequired,
 };
 

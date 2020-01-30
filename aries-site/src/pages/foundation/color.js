@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, ResponsiveContext } from 'grommet';
-import { Button, AnchorCallToAction } from 'aries-core';
+import { Box, Button, Text } from 'grommet';
 
 import {
   ButtonRow,
   ColorRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { TextExample } from '../../examples';
 import { colorExamples } from '../../data';
+import { getPageDetails } from '../../utils';
 
 const {
   coreColors,
@@ -42,44 +43,16 @@ const generateColorExamples = (colors, textColor) => {
   );
 };
 
-const TextExample = ({ color, hex }) => {
-  const size = React.useContext(ResponsiveContext);
-  const textSize = 'small';
-  const exampleTextSize = size === 'small' ? '60px' : '84px';
-
-  return (
-    <Box align="center" margin={{ horizontal: 'small' }}>
-      <Box direction="row" align="center">
-        <Text color={color} weight={700} size={exampleTextSize}>
-          A
-        </Text>
-        <Text color={color} weight={400} size={exampleTextSize}>
-          a
-        </Text>
-      </Box>
-      <Text color={color} weight={600} size={textSize}>
-        {color}
-      </Text>
-      <Text color={color} size={textSize}>
-        {hex}
-      </Text>
-    </Box>
-  );
-};
-
-const topic = 'Foundation';
 const title = 'Color';
-const description =
-  'HPE Design System color palette brings out the depth and dimension ' +
-  'of our identity. From sophisticated, neutral hues reflective of ' +
-  'technology to vibrant, saturated colors that evoke energy and inspiration.';
+const page = getPageDetails(title);
+const topic = 'Foundation';
 
 const Color = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
-      canonicalUrl="https://aries.hpe.design/foundation/color"
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/foundation/color"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
@@ -95,21 +68,24 @@ const Color = () => (
           experience.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Colors" primary />
           <Button
-            label="Download Swatches"
+            href="https://theme-designer.grommet.io/Dashboard?id=HPE2a-eric-soderberg-hpe-com"
+            label="Use the Colors"
             primary
-            onClick={() => {
-              // Download color swatch pack (once content is available)
-            }}
+            target="_blank"
+            rel="noreferrer noopener"
+          />
+          <Button
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            label="See in Figma"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
           />
         </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small" fill="horizontal">
-        Placeholder Image
-      </Box>
       <Subsection name="Color Palettes">
         <SubsectionText>
           Color is a key way we express our brand. Using color on interface
@@ -117,7 +93,6 @@ const Color = () => (
           and adjusting context of the experience to light and dark are just
           some of the ways we illustrate our brand.
         </SubsectionText>
-        <AnchorCallToAction label="Color Principles" href="#" />
       </Subsection>
       <Subsection name="Brand Color" level={3}>
         <SubsectionText>
@@ -127,7 +102,11 @@ const Color = () => (
           use the custom color specifications seen here to maintain consistency
           across channels and media.
         </SubsectionText>
-        {primaryColors && generateColorExamples(primaryColors)}
+        {primaryColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(primaryColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Core Palette" level={3}>
         <SubsectionText>
@@ -138,7 +117,11 @@ const Color = () => (
           it's important to be mindful of how the aspects of the color library
           are used in conjunction with the Core colors.
         </SubsectionText>
-        {coreColors && generateColorExamples(coreColors)}
+        {coreColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(coreColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Light Palette" level={3}>
         <SubsectionText>
@@ -147,7 +130,11 @@ const Color = () => (
           color accessibility in your experience. Use these colors only when
           implementing a light theme.
         </SubsectionText>
-        {lightColors && generateColorExamples(lightColors)}
+        {lightColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(lightColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Dark Palette" level={3}>
         <SubsectionText>
@@ -156,7 +143,11 @@ const Color = () => (
           accessibility in your experience. Use these colors only when
           implementing a dark theme.
         </SubsectionText>
-        {darkColors && generateColorExamples(darkColors)}
+        {darkColors && (
+          <UsageExample pad="none">
+            {generateColorExamples(darkColors)}
+          </UsageExample>
+        )}
       </Subsection>
       <Subsection name="Background Colors">
         <SubsectionText>
@@ -164,7 +155,6 @@ const Color = () => (
           Accommodating both light and dark modes of a user experience with the
           appropriate color palette creates a successful customer experience.
         </SubsectionText>
-        <AnchorCallToAction label="Color Principles" href="#" />
       </Subsection>
       <Subsection name="Background Palette" level={3}>
         <SubsectionText>
@@ -202,7 +192,6 @@ const Color = () => (
           met for accessibility and readability is important to delivering users
           a consistent reading experience throughout HPE.
         </Text>
-        <AnchorCallToAction label="Typography Elements" href="#" />
       </Subsection>
       <Subsection name="Text Color Palette" level={3}>
         <Text>
@@ -265,7 +254,8 @@ const Color = () => (
         </SubsectionText>
         {ctaColors && generateColorExamples(ctaColors, 'brand')}
       </Subsection>
-      <Subsection name="Status Colors">
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Status Colors">
         <SubsectionText>
           Text needs to be readable in all contexts. Ensuring high contrast is
           met for accessibility and readability is important to providing users
@@ -281,8 +271,9 @@ const Color = () => (
           with the exception of call to actions such as hyperlinks and anchors.
         </SubsectionText>
         <AnchorCallToAction label="See Status Colors" href="#" />
-      </Subsection>
-      <Subsection name="Control Colors">
+      </Subsection> */}
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Control Colors">
         <SubsectionText>
           Text needs to be readable in all contexts. Ensuring high contrast is
           met for accessibility and readability is important to providing users
@@ -298,9 +289,9 @@ const Color = () => (
           with the exception of call to actions such as hyperlinks and anchors.
         </SubsectionText>
         <AnchorCallToAction label="Use the Controls" href="#" />
-      </Subsection>
+      </Subsection> */}
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 TextExample.propTypes = {

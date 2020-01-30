@@ -1,151 +1,33 @@
 import React from 'react';
-import { Box, Heading, Text } from 'grommet';
-import { AnchorCallToAction, Button } from 'aries-core';
+import { Box, Button } from 'grommet';
+
 import {
   ButtonRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   TypographyRow,
 } from '../../layouts';
-import { SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import { fontWeights, fontStyles } from '../../data';
+import {
+  DisplayExample,
+  HandExample,
+  PresentationExample,
+} from '../../examples';
+import { getPageDetails } from '../../utils';
 
-const PresentationExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box
-      background="background-front"
-      gap="medium"
-      pad="large"
-      margin={{ top: 'medium' }}
-    >
-      <Box>
-        <Text size={textSize}>display-heading-x-large</Text>
-        <Heading size="xlarge" margin="none">
-          Heading XL
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>prez-heading-large</Text>
-        <Heading size="large" margin="none">
-          Heading L
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>prez-heading</Text>
-        <Heading margin="none">Heading</Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>prez-subheading</Text>
-        <Text size="xxlarge">Subheading</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>prez-body</Text>
-        <Text>Body</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>prez-caption</Text>
-        <Text size="small">Caption</Text>
-      </Box>
-    </Box>
-  );
-};
-
-const DisplayExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box
-      background="background-front"
-      gap="medium"
-      margin={{ top: 'medium' }}
-      pad="large"
-    >
-      <Box>
-        <Text size={textSize}>display-heading-x-large</Text>
-        <Heading size="large" margin="none">
-          Heading XL
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-heading-large</Text>
-        <Heading margin="none">Heading L</Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-heading</Text>
-        <Heading size="small" margin="none">
-          Heading
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-subheading</Text>
-        <Text>Subheading</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-body</Text>
-        <Text size="small">Body</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-caption</Text>
-        <Text size="xsmall" margin="none">
-          Caption
-        </Text>
-      </Box>
-    </Box>
-  );
-};
-
-const HandExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box
-      background="background-front"
-      gap="medium"
-      margin={{ top: 'medium' }}
-      pad="large"
-    >
-      <Box>
-        <Text size={textSize}>display-heading-x-large</Text>
-        <Heading margin="none">Heading XL</Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-heading-large</Text>
-        <Heading size="small" margin="none">
-          Heading L
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-heading</Text>
-        <Heading size="xsmall" margin="none">
-          Heading
-        </Heading>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-subheading</Text>
-        <Text>Subheading</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-body</Text>
-        <Text size="small">Body</Text>
-      </Box>
-      <Box>
-        <Text size={textSize}>display-caption</Text>
-        <Text size="xsmall" margin="none">
-          Caption
-        </Text>
-      </Box>
-    </Box>
-  );
-};
-
-const topic = 'Foundation';
 const title = 'Typography';
+const page = getPageDetails(title);
+const topic = 'Foundation';
 
 const Typography = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
+    <Meta
+      title={title}
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/foundation/typography"
+    />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
@@ -162,8 +44,13 @@ const Typography = () => (
           for reading and display in digital contexts.
         </SubsectionText>
         <ButtonRow>
-          <Button label="Use the Typography" href="#" primary />
-          <Button label="Download the Styles" href="#" primary />
+          <Button
+            label="See in Figma"
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
+          />
         </ButtonRow>
       </Subsection>
     </ContentSection>
@@ -220,10 +107,9 @@ const Typography = () => (
         <SubsectionText>
           Based on the humanist typeface Metric from the renouned Kilm Type
           Foundry, HPE uses the typeface as it's primary form of communication.
-          it has been revised to provide wieghts and ligatures that can be used
+          It has been revised to provide weights and ligatures that can be used
           for reading and display in digital contexts.
         </SubsectionText>
-        <AnchorCallToAction label="Typographic Principles" />
       </Subsection>
       <Subsection name="Font weights" level={3}>
         <SubsectionText>
@@ -261,9 +147,10 @@ const Typography = () => (
           })}
         </Box>
       </Subsection>
-      <Subsection name="Line height" level={3}>
+      {/* CONTENT MISSING: Disabling following section for MVP launch */}
+      {/* <Subsection name="Line height" level={3}>
         <Box height="small" background="background-contrast" />
-      </Subsection>
+      </Subsection> */}
       <Subsection name="Font stacks" level={3}>
         <SubsectionText>
           In cases where using MetricHPE is not possible refer to the HPE font
@@ -271,7 +158,7 @@ const Typography = () => (
         </SubsectionText>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Typography;

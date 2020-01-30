@@ -7,6 +7,9 @@ export const formatName = name => {
     .toLowerCase();
 };
 
+export const getPageDetails = pageName =>
+  structure.find(page => page.name === pageName);
+
 export const getParentPage = currentPage =>
   structure.find(page =>
     page.pages ? page.pages.includes(currentPage) : null,
@@ -41,7 +44,13 @@ export const nameToPath = name => {
 
   // Item clicked is a sub-topic of a main topic, so we need to find
   // what topic it falls under
-  const topicName = getParentPage(name).name;
+  const parent = getParentPage(name);
+
+  if (typeof parent === 'undefined') {
+    return undefined;
+  }
+
+  const topicName = parent.name;
 
   if (topicName) {
     return `/${formatName(topicName)}/${formatName(name)}`;

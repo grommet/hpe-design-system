@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grommet, Main, ResponsiveContext } from 'grommet';
 
-import { aries } from '../../themes/aries';
+import { initialize, pageview } from 'react-ga';
+import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, Footer, SidebarLayout } from '..';
+import { ThemeMode, ThemeModeToggle } from '../../components';
+import { Config } from '../../../config';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -17,8 +19,15 @@ export const Layout = ({
   isLanding,
   isNavPage,
 }) => {
+  useEffect(() => {
+    if (Config.gaId) {
+      initialize(Config.gaId);
+      pageview(document.location.pathname);
+    }
+  }, []);
+
   return (
-    <Grommet theme={aries} full>
+    <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Box
@@ -28,16 +37,27 @@ export const Layout = ({
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
+            {/* Temporary placement of theme toggle from Chris.
+             * Will likely be updated in future, but wanted visible
+             * placement for demo. */}
+            <Box
+              style={{
+                position: 'absolute',
+                bottom: size !== 'small' ? '48px' : '24px',
+                right: '24px',
+              }}
+            >
+              <ThemeModeToggle />
+            </Box>
             <Header
-              showLinks={!isLanding && !isNavPage}
               background={
                 descriptiveHeader && descriptiveHeader.props.background
               }
             />
             {!isLanding && !isNavPage ? (
-              <SidebarLayout mainContentChildren={children} title={title} />
+              <SidebarLayout title={title}> {children} </SidebarLayout>
             ) : (
-              <Main>
+              <Main overflow="visible">
                 {/* Allows DescriptiveHeader background color not to be
                  * confined by formatting restrictions of page content
                  */}
@@ -66,7 +86,7 @@ export const Layout = ({
           </Box>
         )}
       </ResponsiveContext.Consumer>
-    </Grommet>
+    </ThemeMode>
   );
 };
 

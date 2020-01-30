@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text } from 'grommet';
 import { AnchorCallToAction } from 'aries-core';
 
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
 
 const topic = 'Guidelines';
@@ -13,11 +13,11 @@ const description =
   'consists of working code, best practices, design resources, and more.';
 
 const About = () => (
-  <PageLayout>
+  <Layout>
     <Meta
       title={title}
       description={description}
-      canonicalUrl="https://aries.hpe.design/guidelines/about"
+      canonicalUrl="https://design-system.hpe.design/guidelines/about"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
@@ -69,7 +69,7 @@ const About = () => (
         </Text>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default About;

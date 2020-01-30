@@ -21,7 +21,7 @@ const fontSizing = factor => {
 
 export const aries = deepMerge(hpe, {
   spacing: baseSpacing,
-  // defaultMode: 'light',
+  defaultMode: 'dark',
   global: {
     colors: {
       icon: 'text',
@@ -186,6 +186,10 @@ export const aries = deepMerge(hpe, {
       ${props => !props.plain && 'font-weight: bold;'}
     `,
   },
+  checkBox: {
+    gap: 'medium',
+    color: 'text-strong',
+  },
   heading: {
     level: {
       1: {
@@ -204,6 +208,31 @@ export const aries = deepMerge(hpe, {
   icon: {
     size: {
       xxlarge: '166px',
+    },
+  },
+  radioButton: {
+    color: 'text-strong',
+    check: {
+      color: 'text-strong',
+    },
+    gap: 'medium',
+  },
+  rangeInput: {
+    track: {
+      color: 'background-contrast',
+    },
+    thumb: {
+      color: 'text',
+    },
+  },
+  select: {
+    icons: {
+      color: 'text',
+    },
+    options: {
+      text: {
+        size: 'small',
+      },
     },
   },
   tab: {

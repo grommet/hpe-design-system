@@ -10,6 +10,6 @@ export default create({
   barSelectedColor: HpeBrand,
   colorSecondary: HpeBrand,
 
-  brandUrl: 'https://aries.hpe.design/',
+  brandUrl: 'https://design-system.hpe.design/',
   brandImage: logo,
 });

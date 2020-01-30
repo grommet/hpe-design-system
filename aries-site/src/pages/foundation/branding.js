@@ -1,62 +1,27 @@
 import React from 'react';
-import { Box, Image, Text } from 'grommet';
-import { Aruba, Hpe } from 'grommet-icons';
-import { Button } from 'aries-core';
+import { Button, Image } from 'grommet';
 
 import {
   ButtonRow,
   ContentSection,
-  PageLayout,
+  Layout,
   Subsection,
   UsageExample,
 } from '../../layouts';
 import { Meta, SubsectionText } from '../../components';
+import { ArubaIconExample, HpeElementExample } from '../../examples';
+import { getPageDetails } from '../../utils';
 
-const ArubaIconExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box direction="row" align="center" gap="medium">
-      <Aruba color="orange!" size="30px" />
-      <Box direction="row" gap="xsmall">
-        <Text size={textSize} weight="bold">
-          Aruba
-        </Text>
-        <Text size={textSize}>Service Name</Text>
-      </Box>
-    </Box>
-  );
-};
-
-const HpeElementExample = () => {
-  const textSize = 'small';
-
-  return (
-    <Box direction="row" align="center" gap="medium">
-      <Hpe color="brand" size="66px" />
-      <Box direction="row" gap="xsmall">
-        <Text size={textSize} weight="bold">
-          HPE
-        </Text>
-        <Text size={textSize}>Service Name</Text>
-      </Box>
-    </Box>
-  );
-};
-
-const topic = 'Foundation';
 const title = 'Branding';
-const description =
-  'Logos are a powerful expression of our brand and who we are. Learn how to ' +
-  'access and apply HPE and Aruba Networks logos in the experiences you ' +
-  'create.';
+const page = getPageDetails(title);
+const topic = 'Foundation';
 
 const Branding = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
-      canonicalUrl="https://aries.hpe.design/foundation/branding"
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/foundation/branding"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
@@ -75,15 +40,17 @@ const Branding = () => (
           environment.
         </SubsectionText>
         <ButtonRow>
-          <Button href="#" label="Use the Logos" primary />
-          <Button href="#" label="Download Logos" primary />
+          <Button
+            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=1%3A458"
+            label="See in Figma"
+            primary
+            target="_blank"
+            rel="noreferrer noopener"
+          />
         </ButtonRow>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Box background="background-front" height="small" fill="horizontal">
-        Placeholder Image
-      </Box>
       <Subsection name="Hewlett Packard Enterprise">
         <SubsectionText>
           Hewlett Packard Enterprise, also known as HPE has a couple logo
@@ -173,7 +140,7 @@ const Branding = () => (
         </UsageExample>
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Branding;

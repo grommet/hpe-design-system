@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Text, Paragraph, ResponsiveContext } from 'grommet';
 import { iconsMap } from '../../components/icons/iconsMap';
@@ -13,23 +14,24 @@ const NavItem = ({ item, topic }) => {
     .toLowerCase();
 
   return (
-    <Box
-      fill
-      direction="row"
-      margin={{ vertical: 'large' }}
-      onClick={() => (window.location.href = `/${topic}/${formattedItem}`)}
-      gap={size !== 'small' ? 'large' : 'medium'}
-    >
-      {/* Adds placeholder icon for the meantime
-       * while we wait to get all the icons */}
-      {itemData.icon ? itemData.icon('xlarge') : iconsMap.branding('xlarge')}
-      <Box>
-        <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
-          {itemData.name}
-        </Text>
-        <Paragraph size="small">{itemData.description}</Paragraph>
+    // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+    <Link href={`/${topic}/${formattedItem}`} passHref>
+      <Box
+        direction="row"
+        margin={{ vertical: 'large' }}
+        gap={size !== 'small' ? 'large' : 'medium'}
+      >
+        {/* Adds placeholder icon for the meantime
+         * while we wait to get all the icons */}
+        {itemData.icon ? itemData.icon('xlarge') : iconsMap.branding('xlarge')}
+        <Box>
+          <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
+            {itemData.name}
+          </Text>
+          <Paragraph size="small">{itemData.description}</Paragraph>
+        </Box>
       </Box>
-    </Box>
+    </Link>
   );
 };
 

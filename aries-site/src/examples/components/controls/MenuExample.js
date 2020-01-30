@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box } from 'grommet';
-import { Menu } from 'aries-core';
+import { Box, Menu } from 'grommet';
 import { aries } from '../../../themes/aries';
+
+import { UsageExample } from '../../../layouts';
 
 export const MenuExample = () => {
   const items = [
@@ -17,9 +18,18 @@ export const MenuExample = () => {
   // the menu button blends in completely with the site background making it
   // difficult to distinguish as an interactive component.
   const background = aries.global.colors.background.light;
+
   return (
-    <Box background={background} round="xsmall">
-      <Menu label="Choose a timeframe" items={items} width="medium" />
-    </Box>
+    <UsageExample
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'large', vertical: 'xlarge' },
+      }}
+    >
+      <Box background={background} round="xsmall">
+        <Menu label="Choose a timeframe" items={items} width="medium" />
+      </Box>
+    </UsageExample>
   );
 };

@@ -1,22 +1,20 @@
 import React from 'react';
 import { Text } from 'grommet';
 
-import { ContentSection, PageLayout, Subsection } from '../../layouts';
-
+import { ContentSection, Layout, Subsection } from '../../layouts';
 import { BulletedList, Meta, SubsectionText } from '../../components';
+import { getPageDetails } from '../../utils';
 
-const topic = 'Guidelines';
 const title = 'Principles';
-const description =
-  'HPE Design System principles provide clear criteria for creating ' +
-  'experiences our clients and partners deserve.';
+const page = getPageDetails(title);
+const topic = 'Guidelines';
 
 const Principles = () => (
-  <PageLayout title={title}>
+  <Layout title={title}>
     <Meta
       title={title}
-      description={description}
-      canonicalUrl="https://aries.hpe.design/guidelines/principles"
+      description={page.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/guidelines/principles"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
@@ -91,7 +89,7 @@ const Principles = () => (
         />
       </Subsection>
     </ContentSection>
-  </PageLayout>
+  </Layout>
 );
 
 export default Principles;

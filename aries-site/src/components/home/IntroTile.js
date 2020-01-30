@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tile } from 'aries-core';
-import { Box, Button, Heading, Paragraph, ResponsiveContext } from 'grommet';
+import { Box, Heading, Paragraph, ResponsiveContext } from 'grommet';
 
 export const IntroTile = () => (
   <Tile>
@@ -9,15 +9,13 @@ export const IntroTile = () => (
       {size => (
         <Box align="start">
           <Heading level={size === 'medium' ? '2' : '1'} margin="none">
-            Building experiences for the people that keep your customers happy
+            Building experiences that advance the way people live and work.
           </Heading>
           <Paragraph size={size !== 'large' ? 'small' : undefined} fill>
-            The HPE Design System is the way Hewlett Packard Enterprise's brand,
-            technology, and it's partners share a single language for
-            application, web, and digital experiences to answer your customers
-            needs-Look behind the element!
+            With deep roots in human-centered design, the HPE Design System is our language for generating experiences that are inclusive and
+            vibrant.
           </Paragraph>
-          <Button primary label="Get Started" />
+          {/* <Button primary label="Get Started" /> */}
         </Box>
       )}
     </ResponsiveContext.Consumer>
