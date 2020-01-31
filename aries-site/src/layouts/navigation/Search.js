@@ -10,10 +10,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
-import { structure } from '../../data';
-import { nameToPath } from '../../utils';
+import { getSearchSuggestions, nameToPath } from '../../utils';
 
-const allSuggestions = structure.map(p => p.name).sort();
+const allSuggestions = getSearchSuggestions;
 
 // Using Search icon as the arialabelledby for the text input. Documentation
 // on why this is a valid replacement for using label here:
@@ -35,6 +34,7 @@ export const Search = ({ focused, setFocused }) => {
   // to match width of containing box as opposed to just width of text input
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
+
   useEffect(() => {
     forceUpdate();
   }, [forceUpdate]);
