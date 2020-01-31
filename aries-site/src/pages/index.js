@@ -25,11 +25,15 @@ const HomeTiles = ({ ...rest }) => {
 // Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
 const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
   return (
+    // Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
     <Tile
+      as="a"
       pad="medium"
       background={topic.color}
       key={topic.color}
       ref={ref}
+      fill
+      style={{ textDecoration: 'none' }}
       {...rest}
     >
       <TileContent
