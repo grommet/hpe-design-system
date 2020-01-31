@@ -42,7 +42,7 @@ export const Layout = ({
              * placement for demo. */}
             <Box
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 bottom: size !== 'small' ? '48px' : '24px',
                 right: '24px',
               }}
@@ -50,7 +50,6 @@ export const Layout = ({
               <ThemeModeToggle />
             </Box>
             <Header
-              showLinks={!isLanding && !isNavPage}
               background={
                 descriptiveHeader && descriptiveHeader.props.background
               }

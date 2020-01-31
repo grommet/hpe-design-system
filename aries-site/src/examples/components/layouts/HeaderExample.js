@@ -12,7 +12,7 @@ export const HeaderExample = () => {
       title="Design System"
       collapse={false}
       background="background-front"
-      brandOnly={size === 'small' && focused}
+      logoOnly={size === 'small' && focused}
       pad={{ horizontal: 'small', vertical: 'small' }}
     >
       <Box

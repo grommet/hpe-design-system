@@ -1,5 +1,13 @@
 import { structure } from '../data';
 
+const allPages = structure.map(p => p.name);
+const allPageSections = structure
+  .map(p => p.sections)
+  .filter(Boolean)
+  .reduce((acc, val) => acc.concat(val), []);
+
+export const getSearchSuggestions = allPages.concat(allPageSections).sort();
+
 export const formatName = name => {
   return name
     .split(' ')
@@ -13,6 +21,11 @@ export const getPageDetails = pageName =>
 export const getParentPage = currentPage =>
   structure.find(page =>
     page.pages ? page.pages.includes(currentPage) : null,
+  );
+
+export const getSectionParent = section =>
+  structure.find(page =>
+    page.sections ? page.sections.includes(section) : null,
   );
 
 export const getNextContent = current => {
@@ -32,28 +45,28 @@ export const getNextContent = current => {
 };
 
 export const nameToPath = name => {
+  // Item selected is a main topic
   const [page] = structure.filter(p => p.name === name);
-
-  if (typeof page === 'undefined') {
-    return undefined;
-  }
-
-  if (page.pages) {
+  if (typeof page !== 'undefined' && page.pages) {
+    if (page.name === 'Home') {
+      return '/';
+    }
     return `/${formatName(page.name)}`;
   }
 
-  // Item clicked is a sub-topic of a main topic, so we need to find
+  // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
   const parent = getParentPage(name);
-
-  if (typeof parent === 'undefined') {
-    return undefined;
+  if (typeof parent !== 'undefined') {
+    return `/${formatName(parent.name)}/${formatName(name)}`;
   }
 
-  const topicName = parent.name;
-
-  if (topicName) {
-    return `/${formatName(topicName)}/${formatName(name)}`;
+  // Item selected is a deeplink section, so need to get parent page
+  // and parent page's path
+  const sectionParent = getSectionParent(name);
+  if (typeof sectionParent !== 'undefined') {
+    return `${nameToPath(sectionParent.name)}#${formatName(name)}`;
   }
+
   return undefined;
 };
