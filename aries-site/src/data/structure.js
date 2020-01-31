@@ -101,6 +101,11 @@ export const structure = [
     icon: size => <IconPrinciples size={size} />,
     seoDescription:
       'HPE Design System principles provide clear criteria for creating experiences our clients and partners deserve.',
+    sections: [
+      'Innovative and Adventurous',
+      'Purposeful and Useful',
+      'Integrated but Composable',
+    ],
   },
   {
     name: 'Human Centered',
@@ -109,6 +114,7 @@ export const structure = [
     icon: size => <IconHumanCentered size={size} />,
     seoDescription:
       'Unlocking human potential through human centered design. HPE Design System is inclusive, attentive, adaptable, and conversational.',
+    sections: ['Inclusive', 'Attentive', 'Conversational'],
   },
   {
     name: 'Philosophy',
@@ -117,6 +123,7 @@ export const structure = [
     icon: size => <IconPhilosophy size={size} />,
     seoDescription:
       'Learn about the underlying philosophy guiding the HPE Design System and how generosity and community enable HPE to craft experiences which advance the way people live and work',
+    sections: ['Relational', 'Generous', 'Community'],
   },
   {
     name: 'Branding',
@@ -125,6 +132,7 @@ export const structure = [
     icon: size => <IconBrand size={size} />,
     seoDescription:
       'Logos are a powerful expression of our brand and who we are. Learn how to access and apply HPE and Aruba Networks logos in the experiences you create.',
+    sections: ['HPE Logo', 'HPE Element', 'Aruba Logo', 'Aruba Icon'],
   },
   {
     name: 'Color',
@@ -133,6 +141,19 @@ export const structure = [
     icon: size => <IconColor size={size} />,
     seoDescription:
       'HPE Design System color palette brings out the depth and dimension of our identity. From sophisticated, neutral hues reflective of technology to vibrant, saturated colors that evoke energy and inspiration.',
+    sections: [
+      'Color Palettes',
+      'Brand Color',
+      'Core Palette',
+      'Light Palette',
+      'Dark Palette',
+      'Background Colors',
+      'Background Palette',
+      'Contrast',
+      'Text Colors',
+      'Text Color Palette',
+      'Call to Action Text',
+    ],
   },
   {
     name: 'Typography',
@@ -141,6 +162,16 @@ export const structure = [
     icon: size => <IconType size={size} />,
     seoDescription:
       'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
+    sections: [
+      'Typographic scales',
+      'Presentation scale',
+      'Display scale',
+      'Hand scale',
+      'Typeface',
+      'Font weights',
+      'Font styles',
+      'Font stacks',
+    ],
   },
   {
     name: 'Iconography',
@@ -155,6 +186,7 @@ export const structure = [
     icon: size => <IconLayoutComponents size={size} />,
     seoDescription:
       "Get started with HPE Design System's foundational layout components Header, Main, Footer, and more.",
+    sections: ['Box', 'Footer', 'Grid', 'Header', 'Layer', 'Main', 'Stack'],
   },
   {
     name: 'Tokens',
@@ -199,6 +231,7 @@ export const structure = [
     icon: size => <IconControls size={size} />,
     seoDescription:
       'HPE Design System styled interactive components for your applications.',
+    sections: ['Accordion', 'Anchor', 'Button', 'Menu', 'Tabs'],
   },
   {
     name: 'Input',
@@ -206,5 +239,15 @@ export const structure = [
       'Thoughtful and intentional use of input components can bring about engaging experiences.',
     icon: size => <IconInput size={size} />,
     seoDescription: '',
+    sections: [
+      'Checkbox',
+      'MaskedInput',
+      'RadioButtonGroup',
+      'RangeInput',
+      'Select',
+      'TextArea',
+      'TextInput',
+      'Form',
+    ],
   },
 ];
