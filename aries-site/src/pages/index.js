@@ -27,6 +27,7 @@ const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
   return (
     <Tile
       pad="medium"
+      data-cy="tile"
       background={topic.color}
       key={topic.color}
       ref={ref}
