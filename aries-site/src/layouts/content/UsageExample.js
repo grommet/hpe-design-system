@@ -72,8 +72,9 @@ export const UsageExample = ({
       setCodeText('loading');
       fetch(code)
         .then(response => response.text())
-        .then(text => setCodeText(text))
-        .then(() => Prism.highlightElement(codeRef.current));
+        .then(text => setCodeText(text));
+    } else if (showCode && codeText) {
+      Prism.highlightElement(codeRef.current);
     }
   }, [code, codeText, showCode]);
 
@@ -126,7 +127,7 @@ export const UsageExample = ({
       {showCode && (
         <Box border background="background-contrast" pad="medium">
           <Text size="xsmall" color="text">
-            <pre>
+            <pre style={{ background: 'none' }}>
               <code ref={codeRef} className="language-jsx">
                 {showCode && codeText}
               </code>
