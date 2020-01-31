@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Drop, ResponsiveContext, Text } from 'grommet';
 import { Code, Document, Template } from 'grommet-icons';
+import Prism from 'prismjs';
 
 import { colors } from '../../themes/aries';
 
@@ -33,8 +34,8 @@ const IconButton = ({ title, ...rest }) => {
           stretch={false}
         >
           <Box
-            background={colors['background-front']}
-            border
+            background={colors['background-back']}
+            border="bottom"
             round="xsmall"
             pad="small"
             margin={{ bottom: 'xsmall' }}
@@ -62,6 +63,19 @@ export const UsageExample = ({
   ...rest
 }) => {
   const size = React.useContext(ResponsiveContext);
+  const [showCode, setShowCode] = React.useState();
+  const [codeText, setCodeText] = React.useState();
+  const codeRef = React.useRef();
+
+  React.useEffect(() => {
+    if (showCode && !codeText) {
+      setCodeText('loading');
+      fetch(code)
+        .then(response => response.text())
+        .then(text => setCodeText(text))
+        .then(() => Prism.highlightElement(codeRef.current));
+    }
+  }, [code, codeText, showCode]);
 
   return (
     <Box gap="xsmall" margin={{ vertical: 'xsmall' }}>
@@ -104,9 +118,20 @@ export const UsageExample = ({
               title="React Code"
               icon={<Code />}
               hoverIndicator
-              href={code}
+              onClick={() => setShowCode(!showCode)}
             />
           )}
+        </Box>
+      )}
+      {showCode && (
+        <Box border background="background-contrast" pad="medium">
+          <Text size="xsmall" color="text">
+            <pre>
+              <code ref={codeRef} className="language-jsx">
+                {showCode && codeText}
+              </code>
+            </pre>
+          </Text>
         </Box>
       )}
     </Box>
