@@ -48,6 +48,9 @@ export const nameToPath = name => {
   // Item selected is a main topic
   const [page] = structure.filter(p => p.name === name);
   if (typeof page !== 'undefined' && page.pages) {
+    if (page.name === 'Home') {
+      return '/';
+    }
     return `/${formatName(page.name)}`;
   }
 
