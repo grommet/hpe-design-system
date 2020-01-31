@@ -58,3 +58,39 @@ Running in production mode:
 ```
 yarn build
 ```
+
+## Sprint Schedule 
+
+**1. January 13 - 17**  
+- Server app component breakdown
+- Finalize Component pages (Design System site) 
+- Review site
+- Establish research plan
+
+**2. January 20 - 24**  
+- Incorperate Design System site feedback 
+- HPE XS showcase
+- Core component discovery
+
+**3. January 27 - 31**   
+- Finalize Design System site
+- Reprioritize roadmap 
+- Identify simple patterns 
+- Remove referances to Aries
+
+**4. February 3 - 7**   
+- Publish HPE theme
+- Incorperate site testing (discuss approach) 
+- Optimize Netlify build process
+- Finalize pattern vis approach (inline vs storybook) 
+- Designs for: Button, Type, Anchor, Color
+- Research kick off email 
+
+**5. February 10 - 14**   
+- Dev: Button, Type, Anchor, Color 
+- Design: Layout, Navigation, List, Form/input 
+- Schedule stakeholder interviews and gather probing questions. (what info is vauluable for us moving forward?) 
+
+**6. February 17 - 21**  
+- Dev: Layout, Navigation, List, Form
+- Design: Modal/drop, Card 
