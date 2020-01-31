@@ -108,7 +108,7 @@ export const UsageExample = ({
           )}
           {docs && (
             <IconButton
-              title="Developer Documentation"
+              title="Component Properties"
               icon={<Document />}
               hoverIndicator
               href={docs}
