@@ -22,18 +22,19 @@ const HomeTiles = ({ ...rest }) => {
   );
 };
 
+// Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
+const AnchorTile = forwardRef(({ ...rest }, ref) => (
+  <Tile as="a" fill ref={ref} style={{ textDecoration: 'none' }} {...rest} />
+));
+
 // Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
 const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
   return (
-    // Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
-    <Tile
-      as="a"
+    <AnchorTile
       pad="medium"
       background={topic.color}
       key={topic.color}
       ref={ref}
-      fill
-      style={{ textDecoration: 'none' }}
       {...rest}
     >
       <TileContent
@@ -42,7 +43,7 @@ const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
         subTitle={topic.description}
         icon={topic.icon('xlarge')}
       />
-    </Tile>
+    </AnchorTile>
   );
 });
 
