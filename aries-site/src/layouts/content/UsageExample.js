@@ -99,7 +99,7 @@ export const UsageExample = ({
         <Box direction="row" justify="end" gap="xsmall">
           {figma && (
             <IconButton
-              title="Figma Templates"
+              title="Design Templates"
               icon={<Template />}
               hoverIndicator
               href={figma}
@@ -107,7 +107,7 @@ export const UsageExample = ({
           )}
           {docs && (
             <IconButton
-              title="React Documentation"
+              title="Developer Documentation"
               icon={<Document />}
               hoverIndicator
               href={docs}
@@ -115,7 +115,7 @@ export const UsageExample = ({
           )}
           {code && (
             <IconButton
-              title="React Code"
+              title="Code"
               icon={<Code />}
               hoverIndicator
               onClick={() => setShowCode(!showCode)}
