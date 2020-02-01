@@ -1,10 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Drop, Text } from 'grommet';
+import styled from 'styled-components';
+import { Box, Button, Drop, Text, ThemeContext } from 'grommet';
 import { Code, Document, Template } from 'grommet-icons';
 import Prism from 'prismjs';
 
 import { colors } from '../../themes/aries';
+
+const syntax = {
+  dark: styled.pre`
+    background: transparent;
+    .string { color: #6c9; }
+    .keyword { color: #c9c; }
+    .function { color: #f93; }
+    .operator { color: #6cc; }
+    .tag { color: #f66; }
+    .script { color: #ccc; }
+    .punctuation { color: #ccc; }
+    .attr-name { color: #6c9; }
+    .attr-value { color: #c9c; }
+  `,
+  light: styled.pre`
+    background: transparent;
+    .string { color: #690; }
+    .keyword { color: #069; }
+    .function { color: #c66; }
+    .operator { color: #963; }
+    .tag { color: #906; }
+    .script { color: #333; }
+    .punctuation { color: #999; }
+    .attr-name { color: #690; }
+    .attr-value { color: #069; }
+  `,
+};
 
 const IconButton = ({ title, ...rest }) => {
   const ref = React.useRef();
@@ -51,14 +79,11 @@ IconButton.propTypes = {
   title: PropTypes.string,
 };
 
-export const Example = ({
-  code,
-  docs,
-  figma,
-  ...rest
-}) => {
+export const Example = ({ code, docs, figma, ...rest }) => {
+  const theme = React.useContext(ThemeContext);
   const [showCode, setShowCode] = React.useState();
   const [codeText, setCodeText] = React.useState();
+  const [Syntax, setSyntax] = React.useState(syntax.dark);
   const codeRef = React.useRef();
 
   React.useEffect(() => {
@@ -70,7 +95,14 @@ export const Example = ({
     } else if (showCode && codeText) {
       Prism.highlightElement(codeRef.current);
     }
-  }, [code, codeText, showCode]);
+  }, [code, codeText, showCode, Syntax]);
+
+  // Set the Syntax component after highlightElement. This will cause
+  // highlightElement to be re-run when Sytanx changes. This is needed
+  // so the styling change is rendered.
+  React.useEffect(() => setSyntax(syntax[theme.dark ? 'dark' : 'light']), [
+    theme.dark,
+  ]);
 
   return (
     <Box margin={{ vertical: 'small' }}>
@@ -113,11 +145,11 @@ export const Example = ({
       {showCode && (
         <Box border background="background-contrast" pad="medium">
           <Text size="xsmall" color="text">
-            <pre style={{ background: 'transparent' }}>
+            <Syntax>
               <code ref={codeRef} className="language-jsx">
                 {showCode && codeText}
               </code>
-            </pre>
+            </Syntax>
           </Text>
         </Box>
       )}
