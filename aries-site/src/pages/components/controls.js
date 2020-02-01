@@ -1,13 +1,11 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import {
-  ButtonRow,
   ContentSection,
   Layout,
   Subsection,
-  UsageExample,
+  Example,
 } from '../../layouts';
 import {
   AccordionExample,
@@ -64,7 +62,13 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
-        <ButtonExample />
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js"
+          figma="https://www.figma.com/file/HZq1i3avh8VLK4kWXs38sW/grommet-hpe-form?node-id=0%3A1"
+        >
+          <ButtonExample />
+        </Example>
         <SubsectionText>
           Buttons are used to indicate actions that can be perfomed. Ideally,
           buttons are not used as navigational elements.
