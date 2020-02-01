@@ -5,7 +5,7 @@
         ["prismjs", {
             "languages": ["javascript", "css", "html", "jsx"],
             "plugins": ["line-numbers"],
-            "theme": "tomorrow",
+            // "theme": ["tomorrow"],
             "css": false
         }]
     ]
