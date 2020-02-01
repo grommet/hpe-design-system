@@ -4,8 +4,6 @@
         ["styled-components", { "ssr": true }],
         ["prismjs", {
             "languages": ["javascript", "css", "html", "jsx"],
-            "plugins": ["line-numbers"],
-            // "theme": ["tomorrow"],
             "css": false
         }]
     ]
