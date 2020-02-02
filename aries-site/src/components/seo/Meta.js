@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
-  const siteName = 'HPE Aries Design System';
+  const siteName = 'HPE Design System';
   const defaultImage = '/static/images/aries-introduction.jp2';
   const previewImage = socialImageUrl || defaultImage;
   const twitterHandle = null;
@@ -26,7 +26,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
 
   return (
     <Head>
-      <title>{title ? `${title} — Aries` : 'Aries | HPE Design System'}</title>
+      <title>{title ? `${title} — HPE Design System` : 'Aries | HPE Design System'}</title>
       <meta
         key="viewport"
         name="viewport"
