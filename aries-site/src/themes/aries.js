@@ -19,7 +19,8 @@ const fontSizing = factor => {
   };
 };
 
-export const aries = deepMerge(hpe, {
+// export const aries = deepMerge(hpe, {
+export const aries = {
   spacing: baseSpacing,
   defaultMode: 'dark',
   global: {
@@ -248,15 +249,15 @@ export const aries = deepMerge(hpe, {
     },
   },
   text: {
-    small: fontSizing(0),
-    medium: fontSizing(1),
-    large: fontSizing(3),
+    small: fontSizing(0), // 18
+    medium: fontSizing(1), // 24
+    large: fontSizing(3), // 36
   },
   paragraph: {
     small: fontSizing(0),
     medium: fontSizing(1),
     large: fontSizing(3),
   },
-});
+};
 
 export const { colors } = aries.global;
