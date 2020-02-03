@@ -26,7 +26,9 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
 
   return (
     <Head>
-      <title>{title ? `${title} — Aries` : 'Aries | HPE Design System'}</title>
+      <title>
+        {title ? `${title} — HPE Design System` : 'HPE Design System'}
+      </title>
       <meta
         key="viewport"
         name="viewport"
