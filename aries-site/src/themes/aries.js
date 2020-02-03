@@ -115,7 +115,7 @@ export const aries = {
       placeholder: 'text-weak',
     },
     font: {
-      family: 'Metric',
+      family: "'Metric', Arial, sans-serif",
       face: `@font-face {
           font-family: "Metric";
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
