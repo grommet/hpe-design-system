@@ -192,6 +192,11 @@ export const aries = {
     gap: 'medium',
     color: 'text-strong',
   },
+  formField: {
+    border: {
+      side: 'all',
+    },
+  },
   heading: {
     level: {
       1: {
