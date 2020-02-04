@@ -1,5 +1,5 @@
-import { hpe } from 'grommet-theme-hpe';
-import { deepMerge } from 'grommet/utils';
+// import { hpe } from 'grommet-theme-hpe';
+// import { deepMerge } from 'grommet/utils';
 import { css } from 'styled-components';
 
 const baseSpacing = 24;
@@ -19,7 +19,8 @@ const fontSizing = factor => {
   };
 };
 
-export const aries = deepMerge(hpe, {
+// export const aries = deepMerge(hpe, {
+export const aries = {
   spacing: baseSpacing,
   defaultMode: 'dark',
   global: {
@@ -114,7 +115,7 @@ export const aries = deepMerge(hpe, {
       placeholder: 'text-weak',
     },
     font: {
-      family: 'Metric',
+      family: "'Metric', Arial, sans-serif",
       face: `@font-face {
           font-family: "Metric";
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
@@ -172,6 +173,7 @@ export const aries = deepMerge(hpe, {
     },
   },
   anchor: {
+    color: 'text',
     fontWeight: 700,
     textDecoration: 'none',
     hover: {
@@ -248,15 +250,15 @@ export const aries = deepMerge(hpe, {
     },
   },
   text: {
-    small: fontSizing(0),
-    medium: fontSizing(1),
-    large: fontSizing(3),
+    small: fontSizing(0), // 18
+    medium: fontSizing(1), // 24
+    large: fontSizing(3), // 36
   },
   paragraph: {
     small: fontSizing(0),
     medium: fontSizing(1),
     large: fontSizing(3),
   },
-});
+};
 
 export const { colors } = aries.global;
