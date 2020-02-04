@@ -22,7 +22,7 @@
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
     "start": "next",
-    "test": "jest",
+    "test": "testcafe all src/tests/",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
@@ -31,6 +31,7 @@
     "test"
   ],
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6"
+    "babel-plugin-styled-components": "^1.10.6",
+    "testcafe": "^1.8.1"
   }
 }
