@@ -85,6 +85,7 @@ export const Search = ({ focused, setFocused }) => {
   return (
     <Box
       ref={boxRef}
+      data-test-id="search"
       align="center"
       background={
         size !== 'small' || focused ? 'background-contrast' : undefined
