@@ -173,6 +173,7 @@ export const aries = {
     },
   },
   anchor: {
+    color: 'text',
     fontWeight: 700,
     textDecoration: 'none',
     hover: {
