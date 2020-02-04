@@ -20,6 +20,7 @@
   "scripts": {
     "build": "next build",
     "export": "yarn build && next export",
+    "postexport": "node next.postexport.js",
     "start": "next",
     "test": "jest",
     "lint": "eslint src",
