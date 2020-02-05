@@ -1,10 +1,8 @@
 /* eslint-disable no-undef */
-import { ClientFunction, Selector } from 'testcafe';
+import { Selector } from 'testcafe';
+import { baseUrl, getLocation, formatForTyping } from './functions';
 
-const baseUrl = 'http://localhost:3000';
-const getLocation = ClientFunction(() => document.location.href);
-
-fixture('Search Component').page(baseUrl);
+fixture('Search').page(baseUrl);
 
 test('type then click on search suggestion', async t => {
   const page = 'Develop';
@@ -19,22 +17,41 @@ test('type then click on search suggestion', async t => {
     .eql(expectedPath);
 });
 
-test('type then hit enter for direct match', async t => {
+test('type direct match then press enter to navigate', async t => {
   const page = 'Foundation';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
+
   await t
     .typeText('[data-test-id="search"]', 'color')
     .pressKey('backspace backspace backspace backspace backspace')
-    .typeText('[data-test-id="search"]', page)
+    .pressKey(await formatForTyping(page))
     .pressKey('enter')
     .expect(getLocation())
     .eql(expectedPath);
 });
 
-test('clicking on subsection links to correct hash', async t => {
+test('click on subsection links to correct hash', async t => {
   const expectedPath = '/foundation/color#background-colors';
+  const page = 'Background Colors';
+  const suggestion = Selector('[data-test-id="suggestions"] button').withText(
+    page,
+  );
+
   await t
     .typeText('[data-test-id="search"]', 'Col')
+    .click(suggestion)
+    .expect(getLocation())
+    .eql(baseUrl + expectedPath);
+});
+
+test('navigate with keyboard only', async t => {
+  const expectedPath = '/foundation/color#background-colors';
+
+  await t
+    .pressKey('tab') // theme toggle
+    .pressKey('tab') // hpe button
+    .pressKey('tab') // search
+    .pressKey(await formatForTyping('col')) // type part of search term
     .pressKey('down')
     .pressKey('enter')
     .expect(getLocation())
