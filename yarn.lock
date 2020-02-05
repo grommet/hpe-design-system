@@ -7241,8 +7241,8 @@ grommet-theme-hpe@^0.4.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.10.0"
-  uid "111c9b25bee38c4aa3a350d35a047a6e8b977b34"
-  resolved "https://github.com/grommet/grommet/tarball/stable#111c9b25bee38c4aa3a350d35a047a6e8b977b34"
+  uid d63b7754947769b37fba94b21efac56660d97df2
+  resolved "https://github.com/grommet/grommet/tarball/stable#d63b7754947769b37fba94b21efac56660d97df2"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"

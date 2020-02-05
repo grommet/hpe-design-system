@@ -188,6 +188,7 @@ export const aries = {
     border: {
       side: 'all',
     },
+    round: '4px',
   },
   heading: {
     level: {
@@ -428,7 +429,7 @@ export const aries = {
     },
   },
   // Theme-Designer only parameters
-  name: 'HPE 2',
+  name: 'HPE 1',
   rounding: 4,
   spacing: 24,
 };
