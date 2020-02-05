@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { ClientFunction, Selector } from 'testcafe';
 
 const baseUrl = 'http://localhost:3000';
