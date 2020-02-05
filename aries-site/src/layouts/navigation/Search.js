@@ -85,6 +85,7 @@ export const Search = ({ focused, setFocused }) => {
   return (
     <Box
       ref={boxRef}
+      data-test-id="search"
       align="center"
       background={
         size !== 'small' || focused ? 'background-contrast' : undefined
@@ -107,6 +108,7 @@ export const Search = ({ focused, setFocused }) => {
                 // push drop just below focus indicator of text input
                 top: '3px',
               },
+              'data-test-id': 'suggestions',
             }}
             dropHeight="small"
             onChange={onChange}
