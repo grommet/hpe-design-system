@@ -108,6 +108,7 @@ export const Search = ({ focused, setFocused }) => {
                 // push drop just below focus indicator of text input
                 top: '3px',
               },
+              'data-test-id': 'suggestions',
             }}
             dropHeight="small"
             onChange={onChange}
