@@ -324,6 +324,7 @@ export const aries = {
         },
       },
     },
+    weight: 700,
   },
   icon: {
     size: {
