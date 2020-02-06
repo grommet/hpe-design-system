@@ -26,7 +26,7 @@ export const NextContent = ({ color, nextContent }) => {
           Next, learn about{' '}
           {/* Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
           <Link href={path} passHref>
-            <AnchorCallToAction label={nextContent} color="text" />
+            <AnchorCallToAction data-test-id="next-content" label={nextContent} color="text" />
           </Link>
         </Text>
       )}

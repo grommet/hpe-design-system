@@ -42,9 +42,9 @@ const NavItem = ({ item, topic }) => {
 
 export const NavPage = ({ items, topic, ...rest }) => {
   return (
-    <Box {...rest}>
+    <Box  {...rest}>
       {items.map(item => (
-        <span key={item}>
+        <span data-test-id="nav-tile" key={item}>
           <NavItem item={item} topic={topic} />
           <Box border="bottom" />
         </span>
