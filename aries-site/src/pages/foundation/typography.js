@@ -83,7 +83,7 @@ const Typography = () => (
         <SubsectionText>
           Display scale is designed for experiences on computer screens that are
           used to view websites, run applications, and engage in general desktop
-          computing expercises.
+          computing experiences.
         </SubsectionText>
         <DisplayExample />
       </Subsection>
