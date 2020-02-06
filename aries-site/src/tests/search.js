@@ -1,6 +1,11 @@
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
-import { baseUrl, getLocation, formatForTyping } from './functions';
+import {
+  baseUrl,
+  getLocation,
+  formatForTyping,
+  repeatKeyPress,
+} from './functions';
 
 fixture('Search').page(baseUrl);
 
@@ -23,7 +28,7 @@ test('type direct match then press enter to navigate', async t => {
 
   await t
     .typeText('[data-test-id="search"]', 'color')
-    .pressKey('backspace backspace backspace backspace backspace')
+    .pressKey(await repeatKeyPress('backspace', 5))
     .pressKey(await formatForTyping(page))
     .pressKey('enter')
     .expect(getLocation())
@@ -44,13 +49,13 @@ test('click on subsection links to correct hash', async t => {
     .eql(baseUrl + expectedPath);
 });
 
+// To be improved so that value is less hard coded
 test('navigate with keyboard only', async t => {
   const expectedPath = '/foundation/color#background-colors';
 
   await t
-    .pressKey('tab') // theme toggle
-    .pressKey('tab') // hpe button
-    .pressKey('tab') // search
+    // theme toggle --> hpe button --> search
+    .pressKey(await repeatKeyPress('tab', 3))
     .pressKey(await formatForTyping('col')) // type part of search term
     .pressKey('down')
     .pressKey('enter')
