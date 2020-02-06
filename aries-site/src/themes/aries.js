@@ -170,7 +170,7 @@ export const aries = {
   },
   calendar: {
     small: {
-      fontSize: '11.6px',
+      fontSize: '13.6px',
       lineHeight: 1.375,
       daySize: '27.43px',
     },
@@ -178,6 +178,11 @@ export const aries = {
       fontSize: '18px',
       lineHeight: 1.45,
       daySize: '54.86px',
+    },
+    large: {
+      fontSize: '31.2px',
+      lineHeight: 1.11,
+      daySize: '109.71px',
     },
   },
   checkBox: {
