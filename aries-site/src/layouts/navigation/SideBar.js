@@ -14,7 +14,7 @@ const SideBarItem = ({ item }) => {
   return (
     // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
     <Link href={path} passHref>
-      <NavLink active={active}>{item}</NavLink>
+      <NavLink data-test-id="side-bar" active={active}>{item}</NavLink>
     </Link>
   );
 };
