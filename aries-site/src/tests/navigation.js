@@ -6,7 +6,7 @@ import {
   repeatKeyPress,
 } from './functions';
 
-fixture('Navagation home tiles').page(baseUrl);
+fixture('Navigation home tiles').page(baseUrl);
 
 test('home tile with mouse click', async t => {
     const page = 'Components';
@@ -29,7 +29,7 @@ test('home tile with mouse click', async t => {
       .contains(expectedPath);
   });
 
-  fixture('Navagation tiles').page('http://localhost:3000/guidelines');
+  fixture('Navigation tiles').page('http://localhost:3000/guidelines');
 
   test('Nav Tiles with mouse click', async t => {
     const expectedPath = '/guidelines/philosophy';
