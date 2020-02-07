@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import {
-  ButtonRow,
   ContentSection,
   Layout,
   Subsection,
