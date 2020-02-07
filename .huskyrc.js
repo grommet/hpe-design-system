@@ -15,8 +15,10 @@ module.exports = {
       `echo '....Linting checks for aries-core' && npm run lint-fix`,
       // `echo '....Running test suite for aries-core' && npm run test`,  // Enables this once tests are added
       `cd ${rootDir}`,
-      `echo '..Checking for latest version of Grommet' && yarn cache clean grommet && yarn upgrade grommet`,
       `echo 'Pre-commit checks completed.'`,
+    ]),
+    'pre-push': tasks([
+      `echo '..Checking for latest version of Grommet' && yarn cache clean grommet && yarn upgrade grommet && git add yarn.lock && git commit -m 'updating to latest grommet'`,
     ]),
   },
 };
