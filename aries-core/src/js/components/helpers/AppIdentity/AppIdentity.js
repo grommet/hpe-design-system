@@ -16,7 +16,7 @@ const brands = {
 
 export const AppIdentity = forwardRef(
   ({ brand, logoOnly, href, title, ...rest }, ref) => {
-    const textSize = 'small';
+    const textSize = 'medium';
 
     return (
       <Button href={href} ref={ref} {...rest}>
