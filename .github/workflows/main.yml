@@ -9,7 +9,7 @@ jobs:
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:
-          site_name: 'keen-mayer-a86c8b.netlify.com'
+          site_name: 'keen-mayer-a86c8b'
           max_timeout: 320
       - name: Lighthouse audit Netlify deploy preview
         uses: jakejarvis/lighthouse-action@master
