@@ -2852,7 +2852,7 @@ async@0.2.6:
   resolved "https://registry.yarnpkg.com/async/-/async-0.2.6.tgz#ad3f373d9249ae324881565582bc90e152abbd68"
   integrity sha1-rT83PZJJrjJIgVZVgryQ4VKrvWg=
 
-async@^2.1.4, async@^2.6.2:
+async@^2.6.2:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
   integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
@@ -7315,10 +7315,9 @@ grommet-styles@^0.2.0:
   resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-grommet-theme-hpe@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-0.4.2.tgz#f2c4d02341056a34d32f1fbc4f843b523912dce5"
-  integrity sha512-3GlnYNBM2DM90hgzrSedm40BsxIJaN6eDr5Ezeyqpp4SvwQnXpaEzlWkXiokTsgDlMhtNI/WoxWG9l/l9+y9oQ==
+"grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
+  version "0.0.0"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#5bd35faa5eee6aa753209194baa3101a12e2f597"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.10.0"
@@ -11687,16 +11686,16 @@ react-dev-utils@^9.0.0:
     text-table "0.2.0"
 
 react-docgen@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-docgen/-/react-docgen-5.1.0.tgz#8e69f1d2e9153c535c20162ea1b85878b059b474"
-  integrity sha512-buAVMVqDEtvC7+VRDRlA9udS9cO9jFfb7yxRvKNYR9MXS0MJwaIe7OjSEydNzH9oH7LND3whDE+koFDUBtF3zA==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-docgen/-/react-docgen-5.2.0.tgz#ec6f6a46cb9c66a32c703321946d3ba796689b34"
+  integrity sha512-QzloLDy4JftSRoP0EPtTceYHEzKjDk+88bc2tvjTrIjmxznd5SS9V+vs8tUnfukPymmD8+a/aBZPfi+y+1a+Bg==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/runtime" "^7.7.6"
     ast-types "^0.13.2"
-    async "^2.1.4"
     commander "^2.19.0"
     doctrine "^3.0.0"
+    neo-async "^2.6.1"
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
@@ -13399,9 +13398,9 @@ supports-color@^7.0.0, supports-color@^7.1.0:
     has-flag "^4.0.0"
 
 supports-hyperlinks@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/supports-hyperlinks/-/supports-hyperlinks-2.0.0.tgz#b1b94a159e9df00b0a554b2d5f0e0a89690334b0"
-  integrity sha512-bFhn0MQ8qefLyJ3K7PpHiPUTuTVPWw6RXfaMeV6xgJLXtBbszyboz1bvGTVv4R0YpQm2DqlXXn0fFHhxUHVE5w==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/supports-hyperlinks/-/supports-hyperlinks-2.1.0.tgz#f663df252af5f37c5d49bbd7eeefa9e0b9e59e47"
+  integrity sha512-zoE5/e+dnEijk6ASB6/qrK+oYdm2do1hjoLWrqUC/8WEIW1gbxFcKuBof7sW8ArN6e+AYvsE8HBGiVRWL/F5CA==
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
