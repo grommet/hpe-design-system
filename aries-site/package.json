@@ -9,7 +9,7 @@
     "aries-core": "*",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "^4.4.0",
-    "grommet-theme-hpe": "^0.4.2",
+    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
     "next": "^9.1.2",
     "next-transpile-modules": "^2.3.1",
     "react": "^16.12.0",
@@ -21,10 +21,10 @@
     "build": "next build",
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
-    "run-tests": "testcafe all src/tests/",
     "start": "next",
     "start-server": "yarn build && yarn next start",
-    "test": "start-server-and-test start-server 3000 run-tests",
+    "test": "yarn build && node src/scripts/start-tests.js",
+    "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
@@ -34,7 +34,9 @@
   ],
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6",
+    "browserstack": "^1.5.3",
     "start-server-and-test": "^1.10.8",
-    "testcafe": "^1.8.1"
+    "testcafe": "^1.8.1",
+    "testcafe-browser-provider-browserstack": "^1.11.0"
   }
 }
