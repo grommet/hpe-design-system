@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Box, Button, Text, Paragraph, ResponsiveContext } from 'grommet';
+import { Box, Button, Paragraph, ResponsiveContext, Heading } from 'grommet';
 import { iconsMap } from '../../components/icons/iconsMap';
 import { structure } from '../../data';
 
@@ -29,10 +29,10 @@ const NavItem = ({ item, topic }) => {
             ? itemData.icon('xlarge')
             : iconsMap.branding('xlarge')}
           <Box>
-            <Text weight="bold" size={size !== 'small' ? 'large' : 'medium'}>
+            <Heading level="2" weight="bold" margin="none">
               {itemData.name}
-            </Text>
-            <Paragraph size="small">{itemData.description}</Paragraph>
+            </Heading>
+            <Paragraph>{itemData.description}</Paragraph>
           </Box>
         </Box>
       </Button>
