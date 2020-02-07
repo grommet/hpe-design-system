@@ -2,26 +2,8 @@
 // import { deepMerge } from 'grommet/utils';
 import { css } from 'styled-components';
 
-const baseSpacing = 24;
-
-const fontSizing = factor => {
-  const scale = baseSpacing * 0.25;
-  const baseFontSize = baseSpacing - scale;
-
-  const size = Math.round(baseFontSize + factor * scale);
-  const height = Math.round(baseSpacing + factor * scale);
-  const maxWidth = baseSpacing * size;
-
-  return {
-    size: `${size}px`,
-    height: `${height}px`,
-    maxWidth: `${maxWidth}px`,
-  };
-};
-
 // export const aries = deepMerge(hpe, {
 export const aries = {
-  spacing: baseSpacing,
   defaultMode: 'dark',
   global: {
     colors: {
@@ -82,7 +64,7 @@ export const aries = {
         dark: '#007A5E',
         light: '#6FFFB0',
       },
-      'green!': '#00C781',
+      'green!': '#01A982',
       teal: {
         dark: '#007366',
         light: '#82FFF2',
@@ -116,7 +98,8 @@ export const aries = {
     },
     font: {
       family: "'Metric', Arial, sans-serif",
-      face: `@font-face {
+      face: `
+        @font-face {
           font-family: "Metric";
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format('woff');
         }
@@ -126,7 +109,7 @@ export const aries = {
           font-weight: 700;
         }
         @font-face {
-          font-family: "Metric"; 
+          font-family: "Metric";
           src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff") format('woff');
           font-weight: 600;
         }
@@ -155,9 +138,6 @@ export const aries = {
     hover: {
       background: 'active-background',
       color: 'active-text',
-    },
-    input: {
-      weight: 500,
     },
     selected: {
       background: 'selected-background',
@@ -188,21 +168,166 @@ export const aries = {
       ${props => !props.plain && 'font-weight: bold;'}
     `,
   },
+  calendar: {
+    small: {
+      fontSize: '13.6px',
+      lineHeight: 1.375,
+      daySize: '27.43px',
+    },
+    medium: {
+      fontSize: '18px',
+      lineHeight: 1.45,
+      daySize: '54.86px',
+    },
+    large: {
+      fontSize: '31.2px',
+      lineHeight: 1.11,
+      daySize: '109.71px',
+    },
+  },
   checkBox: {
     gap: 'medium',
     color: 'text-strong',
   },
+  formField: {
+    border: {
+      side: 'all',
+    },
+    round: '4px',
+  },
   heading: {
     level: {
-      1: {
-        medium: fontSizing(5),
+      '1': {
+        small: {
+          size: '36px',
+          height: '42px',
+          maxWidth: '854px',
+        },
+        medium: {
+          size: '53px',
+          height: '59px',
+          maxWidth: '1277px',
+        },
+        large: {
+          size: '88px',
+          height: '94px',
+          maxWidth: '2122px',
+        },
+        xlarge: {
+          size: '124px',
+          height: '130px',
+          maxWidth: '2966px',
+        },
       },
-      2: {
-        small: fontSizing(1),
-        medium: fontSizing(3),
+      '2': {
+        small: {
+          size: '31px',
+          height: '37px',
+          maxWidth: '749px',
+        },
+        medium: {
+          size: '44px',
+          height: '50px',
+          maxWidth: '1066px',
+        },
+        large: {
+          size: '58px',
+          height: '64px',
+          maxWidth: '1382px',
+        },
+        xlarge: {
+          size: '71px',
+          height: '77px',
+          maxWidth: '1699px',
+        },
       },
-      3: {
-        medium: fontSizing(1),
+      '3': {
+        small: {
+          size: '27px',
+          height: '33px',
+          maxWidth: '643px',
+        },
+        medium: {
+          size: '36px',
+          height: '42px',
+          maxWidth: '854px',
+        },
+        large: {
+          size: '44px',
+          height: '50px',
+          maxWidth: '1066px',
+        },
+        xlarge: {
+          size: '53px',
+          height: '59px',
+          maxWidth: '1277px',
+        },
+      },
+      '4': {
+        small: {
+          size: '22px',
+          height: '28px',
+          maxWidth: '538px',
+        },
+        medium: {
+          size: '27px',
+          height: '33px',
+          maxWidth: '643px',
+        },
+        large: {
+          size: '31px',
+          height: '37px',
+          maxWidth: '749px',
+        },
+        xlarge: {
+          size: '36px',
+          height: '42px',
+          maxWidth: '854px',
+        },
+      },
+      '5': {
+        small: {
+          size: '16px',
+          height: '22px',
+          maxWidth: '379px',
+        },
+        medium: {
+          size: '16px',
+          height: '22px',
+          maxWidth: '379px',
+        },
+        large: {
+          size: '16px',
+          height: '22px',
+          maxWidth: '379px',
+        },
+        xlarge: {
+          size: '16px',
+          height: '22px',
+          maxWidth: '379px',
+        },
+      },
+      '6': {
+        small: {
+          size: '14px',
+          height: '20px',
+          maxWidth: '326px',
+        },
+        medium: {
+          size: '14px',
+          height: '20px',
+          maxWidth: '326px',
+        },
+        large: {
+          size: '14px',
+          height: '20px',
+          maxWidth: '326px',
+        },
+        xlarge: {
+          size: '14px',
+          height: '20px',
+          maxWidth: '326px',
+        },
       },
     },
     weight: 700,
@@ -210,6 +335,33 @@ export const aries = {
   icon: {
     size: {
       xxlarge: '166px',
+    },
+  },
+  paragraph: {
+    small: {
+      size: '16px',
+      height: '22px',
+      maxWidth: '379px',
+    },
+    medium: {
+      size: '18px',
+      height: '24px',
+      maxWidth: '432px',
+    },
+    large: {
+      size: '22px',
+      height: '28px',
+      maxWidth: '538px',
+    },
+    xlarge: {
+      size: '27px',
+      height: '33px',
+      maxWidth: '643px',
+    },
+    xxlarge: {
+      size: '36px',
+      height: '42px',
+      maxWidth: '854px',
     },
   },
   radioButton: {
@@ -250,15 +402,42 @@ export const aries = {
     },
   },
   text: {
-    small: fontSizing(0), // 18
-    medium: fontSizing(1), // 24
-    large: fontSizing(3), // 36
+    xsmall: {
+      size: '14px',
+      height: '20px',
+      maxWidth: '326px',
+    },
+    small: {
+      size: '16px',
+      height: '22px',
+      maxWidth: '379px',
+    },
+    medium: {
+      size: '18px',
+      height: '24px',
+      maxWidth: '432px',
+    },
+    large: {
+      size: '22px',
+      height: '28px',
+      maxWidth: '538px',
+    },
+    xlarge: {
+      size: '27px',
+      height: '33px',
+      maxWidth: '643px',
+    },
+    xxlarge: {
+      size: '36px',
+      height: '42px',
+      maxWidth: '854px',
+    },
   },
-  paragraph: {
-    small: fontSizing(0),
-    medium: fontSizing(1),
-    large: fontSizing(3),
-  },
+  // Theme-Designer only parameters
+  name: 'HPE 1',
+  rounding: 4,
+  scale: 1.1,
+  spacing: 24,
 };
 
 export const { colors } = aries.global;
