@@ -31,6 +31,7 @@ const AnchorTile = forwardRef(({ ...rest }, ref) => (
 const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
   return (
     <AnchorTile
+      data-test-id="anchor-tile"
       pad="medium"
       background={topic.color}
       key={topic.color}
