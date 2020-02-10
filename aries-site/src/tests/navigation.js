@@ -84,7 +84,7 @@ test('Next Content with mouse click', async t => {
   const element = Selector('[data-test-id="next-content"]').withText(page);
   const expectedPath = await element.getAttribute('href');
 
-  // Need to maximize window so that link isn't hidden behind theme toggle
+  // Need to maximize window so that link isn't hidden behind theme toggle otherwise test will fail
   await t
     .maximizeWindow()
     .click(element)
