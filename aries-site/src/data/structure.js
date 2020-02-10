@@ -195,36 +195,6 @@ export const structure = [
     icon: size => <IconToken size={size} />,
   },
   {
-    name: 'Code',
-    description: 'Something',
-    icon: '',
-  },
-  {
-    name: 'Examples',
-    description: 'Something',
-    icon: '',
-  },
-  {
-    name: 'Videos',
-    description: 'Something',
-    icon: '',
-  },
-  {
-    name: 'Designer',
-    description: 'Something',
-    icon: '',
-  },
-  {
-    name: 'Themer',
-    description: 'Something',
-    icon: '',
-  },
-  {
-    name: 'Grommet',
-    description: 'Something',
-    icon: '',
-  },
-  {
     name: 'Controls',
     description:
       'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
