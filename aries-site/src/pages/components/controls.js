@@ -64,8 +64,8 @@ const Controls = () => (
       <Subsection name="Button">
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js"
-          figma="https://www.figma.com/file/HZq1i3avh8VLK4kWXs38sW/grommet-hpe-form?node-id=0%3A1"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
+          figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
         >
           <ButtonExample />
         </Example>
