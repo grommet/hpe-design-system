@@ -33,6 +33,8 @@
     "test"
   ],
   "devDependencies": {
+    "axe-core": "^3.4.2",
+    "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
     "start-server-and-test": "^1.10.8",
