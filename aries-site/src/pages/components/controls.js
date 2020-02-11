@@ -65,7 +65,7 @@ const Controls = () => (
           </Box>
         </UsageExample>
         <SubsectionText>
-          Buttons are used to indicate actions that can be perfomed. Ideally,
+          Buttons are used to indicate actions that can be performed. Ideally,
           buttons are not used as navigational elements.
         </SubsectionText>
       </Subsection>
