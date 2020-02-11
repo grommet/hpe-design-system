@@ -62,7 +62,7 @@ const IconButton = ({ title, ...rest }) => {
           stretch={false}
         >
           <Box
-            background={colors['background-contrast']}
+            background="background-contrast"
             border="bottom"
             round="xsmall"
             pad="small"
