@@ -4,7 +4,13 @@ import { Box, ResponsiveContext, Text } from 'grommet';
 
 import { colors } from '../../themes/aries';
 
-export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
+export const UsageExample = ({
+  children,
+  label,
+  themeMode,
+  pad,
+  ...rest
+}) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
