@@ -45,6 +45,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "preinstall": "cd .. && node grommet-sync.js",
     "release-stable": "babel-node ./tools/release-stable"
   },
   "keywords": [
