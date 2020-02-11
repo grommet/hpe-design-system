@@ -5,8 +5,6 @@ import { Box, Button, Drop, Text, ThemeContext } from 'grommet';
 import { Code, Document, Template } from 'grommet-icons';
 import Prism from 'prismjs';
 
-import { colors } from '../../themes/aries';
-
 const syntax = {
   dark: styled.pre`
     background: transparent;
@@ -62,7 +60,7 @@ const IconButton = ({ title, ...rest }) => {
           stretch={false}
         >
           <Box
-            background={colors['background-contrast']}
+            background="background-contrast"
             border="bottom"
             round="xsmall"
             pad="small"
@@ -108,7 +106,7 @@ export const Example = ({ code, docs, figma, ...rest }) => {
     <Box margin={{ vertical: 'small' }}>
       <Box
         direction="row"
-        background={colors['background-front']}
+        background="background-front"
         pad="large"
         {...rest}
       />
