@@ -11,6 +11,7 @@ export const NextContent = ({ color, nextContent }) => {
 
   return (
     <Box
+      as="footer"
       background={color}
       align="end"
       height="small"
