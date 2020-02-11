@@ -1,15 +1,18 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import {
-  ButtonRow,
   ContentSection,
   Layout,
   Subsection,
-  UsageExample,
+  Example,
 } from '../../layouts';
-import { AccordionExample, MenuExample, TabsExample } from '../../examples';
+import {
+  AccordionExample,
+  ButtonExample,
+  MenuExample,
+  TabsExample,
+} from '../../examples';
 import { getPageDetails } from '../../utils';
 
 const title = 'Controls';
@@ -59,11 +62,13 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
-        <UsageExample>
-          <Box align="start">
-            <Button label="Hello Button" primary />
-          </Box>
-        </UsageExample>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
+          figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
+        >
+          <ButtonExample />
+        </Example>
         <SubsectionText>
           Buttons are used to indicate actions that can be performed. Ideally,
           buttons are not used as navigational elements.
