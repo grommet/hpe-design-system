@@ -19,6 +19,7 @@
   "scripts": {
     "build": "next build",
     "export": "yarn build && next export",
+    "preinstall": "cd ../ node grommet-sync.js",
     "postexport": "node next.postexport.js",
     "start": "next",
     "start-server": "yarn build && yarn next start",
