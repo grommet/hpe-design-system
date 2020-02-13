@@ -3169,6 +3169,18 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
 
+axe-core@^3.4.2:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.1.tgz#d8d5aaef73f003e8b766ea28bb078343f3622201"
+  integrity sha512-mwpDgPwWB+5kMHyLjlxh4w25ClJfqSxi+c6LQ4ix349TdCUctMwJNPTkhPD1qP9SYIjFgjeVpVZWCvK9oBGwCg==
+
+axe-testcafe@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/axe-testcafe/-/axe-testcafe-3.0.0.tgz#6bd0c6db10c45437fc29d1aba2e0fa64410b2dac"
+  integrity sha512-zcDXA5oDYQSWRJHD/WTy9P79RkrO2m/N81x3eL158/GFzLbqUW/aRE538MwoSknmglh73SXs/ChRUwxDx6AgkA==
+  dependencies:
+    chalk "^2.4.1"
+
 axios@0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
@@ -7656,8 +7668,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.10.0"
-  uid "62350a60547d84c3b98912603a8961d8b2f74f4e"
-  resolved "https://github.com/grommet/grommet/tarball/stable#62350a60547d84c3b98912603a8961d8b2f74f4e"
+  uid "4168238a61b90377e12f750fe27f1614d3326274"
+  resolved "https://github.com/grommet/grommet/tarball/stable#4168238a61b90377e12f750fe27f1614d3326274"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
@@ -14097,6 +14109,11 @@ testcafe-legacy-api@3.1.11:
     pify "^2.3.0"
     pinkie "^2.0.1"
     strip-bom "^2.0.0"
+
+testcafe-react-selectors@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/testcafe-react-selectors/-/testcafe-react-selectors-4.0.0.tgz#75cb0396ced6121c4562f7fbe809a289664d62d7"
+  integrity sha512-di03HvtEqLzCaCkWd4PumWgfhgmz7K8XVduYUY0aCQ1p4zFtO2S1suAte6IvakvG8yAKr1oH5OL0yTdXgcPf6Q==
 
 testcafe-reporter-json@^2.1.0:
   version "2.2.0"
