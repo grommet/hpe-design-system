@@ -8,27 +8,63 @@ import Prism from 'prismjs';
 const syntax = {
   dark: styled.pre`
     background: transparent;
-    .string { color: #6c9; }
-    .keyword { color: #c9c; }
-    .function { color: #f93; }
-    .operator { color: #6cc; }
-    .tag { color: #f66; }
-    .script { color: #ccc; }
-    .punctuation { color: #ccc; }
-    .attr-name { color: #6c9; }
-    .attr-value { color: #c9c; }
+    .string {
+      color: #6c9;
+    }
+    .keyword {
+      color: #c9c;
+    }
+    .function {
+      color: #f93;
+    }
+    .operator {
+      color: #6cc;
+    }
+    .tag {
+      color: #f66;
+    }
+    .script {
+      color: #ccc;
+    }
+    .punctuation {
+      color: #ccc;
+    }
+    .attr-name {
+      color: #6c9;
+    }
+    .attr-value {
+      color: #c9c;
+    }
   `,
   light: styled.pre`
     background: transparent;
-    .string { color: #690; }
-    .keyword { color: #069; }
-    .function { color: #c66; }
-    .operator { color: #963; }
-    .tag { color: #906; }
-    .script { color: #333; }
-    .punctuation { color: #999; }
-    .attr-name { color: #690; }
-    .attr-value { color: #069; }
+    .string {
+      color: #690;
+    }
+    .keyword {
+      color: #069;
+    }
+    .function {
+      color: #c66;
+    }
+    .operator {
+      color: #963;
+    }
+    .tag {
+      color: #906;
+    }
+    .script {
+      color: #333;
+    }
+    .punctuation {
+      color: #999;
+    }
+    .attr-name {
+      color: #690;
+    }
+    .attr-value {
+      color: #069;
+    }
   `,
 };
 
@@ -141,7 +177,7 @@ export const Example = ({ code, docs, figma, ...rest }) => {
         </Box>
       )}
       {showCode && (
-        <Box border background="background-contrast" pad="medium">
+        <Box border background="background-front" pad="medium">
           <Text size="xsmall" color="text">
             <Syntax>
               <code ref={codeRef} className="language-jsx">

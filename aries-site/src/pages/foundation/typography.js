@@ -1,20 +1,19 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
+import { Anchor, Button } from 'grommet';
 
+import { Meta, SubsectionText } from '../../components';
+import {
+  HeadingExample,
+  ParagraphExample,
+  TextSizeExample,
+} from '../../examples';
 import {
   ButtonRow,
   ContentSection,
+  Example,
   Layout,
   Subsection,
-  TypographyRow,
 } from '../../layouts';
-import { Meta, SubsectionText } from '../../components';
-import { fontWeights, fontStyles } from '../../data';
-import {
-  DisplayExample,
-  HandExample,
-  PresentationExample,
-} from '../../examples';
 import { getPageDetails } from '../../utils';
 
 const title = 'Typography';
@@ -31,22 +30,24 @@ const Typography = () => (
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
-          Text is one of the main forms of communication we employ to reach our
-          customers. To do that, HPE uses the font MetricHPE for all web based
-          experiences, which is specifically tailored to our brand. MetricHPE is
-          a humanist typeface that embodies the approachability and people first
-          mentality we embrace.
+          Our typography is about more than words. It’s an integral part of our
+          personality and design. When we’re making a statement, we want our
+          visual language to be clear, recognized and understood.
         </SubsectionText>
         <SubsectionText size="medium">
-          Based on the humanist typeface Metric from the renouned Kilm Type
-          Foundry, HPE uses the typeface as it's primary form of communication.
-          it has been revised to provide wieghts and ligatures that can be used
-          for reading and display in digital contexts.
+          Based on the Metric font from the renouned{' '}
+          <Anchor
+            label="Kilm Type Foundry"
+            href="https://klim.co.nz/"
+            target="_blank"
+            rel="noreferrer noopener"
+          />
+          , MetricHPE speaks to our courageous, open and inspired personality.
         </SubsectionText>
         <ButtonRow>
           <Button
             label="See in Figma"
-            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            href="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=19%3A4"
             primary
             target="_blank"
             rel="noreferrer noopener"
@@ -55,107 +56,44 @@ const Typography = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Typographic scales">
+      <Subsection name="MetricHPE Styles">
         <SubsectionText>
-          We have three type scales defined for use in different experiences:
-          Presentation, Display, and Hand. Each of these provides a set of text
-          styles and sizes to accomodate a specific experience. We have three
-          scales to keep the number of typographic styles minimized and easy to
-          use.
-        </SubsectionText>
-        <SubsectionText>
-          Defining of typographic scales, line height, font weight, and general
-          spacing around elements is all embeded to the individual styles by
-          using base sizes and then programmatically scaling the text elements
-          using a modular scale model. Content is core to the
+          The weights and styles shown are part of the HPE Design System theme.
+          MetricHPE comes in a varity of weights. For digital experiences we use
+          Light, Regular, Medium, and Bold weights at a variety of scales to
+          compliment the content in a given design.
         </SubsectionText>
       </Subsection>
-      <Subsection name="Presentation scale" level={3}>
-        <SubsectionText>
-          Presentation scale is designed for experiences that require a large
-          type and high legibility from distances further away. As the name
-          suggets, presentation is good for slides, simpler designs, and
-          projection.
-        </SubsectionText>
-        <PresentationExample />
+      <Subsection name="Heading">
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/HeadingExample.js"
+          docs="https://v2.grommet.io/heading?theme=hpe#props"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A65"
+        >
+          <HeadingExample />
+        </Example>
       </Subsection>
-      <Subsection name="Display scale" level={3}>
-        <SubsectionText>
-          Display scale is designed for experiences on computer screens that are
-          used to view websites, run applications, and engage in general desktop
-          computing expercises.
-        </SubsectionText>
-        <DisplayExample />
+    </ContentSection>
+    <ContentSection>
+      <Subsection name="Paragraph">
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/ParagraphExample.js"
+          docs="https://v2.grommet.io/paragraph?theme=hpe#props"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A66"
+        >
+          <ParagraphExample />
+        </Example>
       </Subsection>
-      <Subsection name="Hand scale" level={3}>
-        <SubsectionText>
-          Hand scale is designed for experiences on mobile, tablet, and IOT
-          devices. Experiences range from quick interactions with limited
-          real-estate to notifications and brief synopsis of complex
-          interactions.
-        </SubsectionText>
-        <HandExample />
-      </Subsection>
-      <Subsection name="Typeface">
-        <SubsectionText>
-          MetricHPE comes in a variety of weights. For digital experiences we
-          use Light, Regular, Medium, and Bold weights at a variety of scales to
-          compliment the content in a given design. In some cases, we use some
-          text styling to accentuate importance and forward movement, like
-          UPPERCASE and italic transformation.
-        </SubsectionText>
-        <SubsectionText>
-          Based on the humanist typeface Metric from the renouned Kilm Type
-          Foundry, HPE uses the typeface as it's primary form of communication.
-          It has been revised to provide weights and ligatures that can be used
-          for reading and display in digital contexts.
-        </SubsectionText>
-      </Subsection>
-      <Subsection name="Font weights" level={3}>
-        <SubsectionText>
-          MetricHPE weights align with CSS conventions. MetricHPE has seven font
-          weights with complimenting italic variations. These weights can be
-          used independently or as an override to heading and paragraph
-          treatments. We primarily use Light, Regular, Medium, and Bold weight
-          but other thicknesses are available to the designer and developer if
-          needed.
-        </SubsectionText>
-        <Box margin={{ top: 'medium' }}>
-          {fontWeights.map(item => {
-            return <TypographyRow typographySpec={item} key={item.name} />;
-          })}
-        </Box>
-        <SubsectionText>
-          * available but not used in the primary heading styles
-        </SubsectionText>
-      </Subsection>
-      <Subsection name="Font styles" level={3}>
-        <SubsectionText>
-          In some cases you might want to emphasize the style of the individual
-          words or headings in your design. Similar to weights, styles follow
-          CSS conventions. The fonts tyles we support are displayed below.
-        </SubsectionText>
-        <Box margin={{ top: 'medium' }}>
-          {fontStyles.map((item, index) => {
-            return (
-              <TypographyRow
-                index={index}
-                key={item.name}
-                typographySpec={item}
-              />
-            );
-          })}
-        </Box>
-      </Subsection>
-      {/* CONTENT MISSING: Disabling following section for MVP launch */}
-      {/* <Subsection name="Line height" level={3}>
-        <Box height="small" background="background-contrast" />
-      </Subsection> */}
-      <Subsection name="Font stacks" level={3}>
-        <SubsectionText>
-          In cases where using MetricHPE is not possible refer to the HPE font
-          stack we use with fallbacks to system fonts to stay compliant.
-        </SubsectionText>
+    </ContentSection>
+    <ContentSection>
+      <Subsection name="Text">
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/TextExample.js"
+          docs="https://v2.grommet.io/text?theme=hpe#props"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A67"
+        >
+          <TextSizeExample />
+        </Example>
       </Subsection>
     </ContentSection>
   </Layout>

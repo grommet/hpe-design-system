@@ -1,3 +1,3 @@
-export * from './DisplayExample';
-export * from './HandExample';
-export * from './PresentationExample';
+export * from './HeadingExample';
+export * from './ParagraphExample';
+export * from './TextSizeExample';
