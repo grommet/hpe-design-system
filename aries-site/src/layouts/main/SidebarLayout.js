@@ -33,6 +33,8 @@ export const SidebarLayout = ({ title, children }) => {
             </Main>
             {size !== 'small' && (
               <Box
+                role="navigation"
+                aria-label="Sidebar"
                 fill="vertical"
                 margin={{ top: 'xlarge' }}
                 pad={{ top: 'large' }}

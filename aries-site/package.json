@@ -34,11 +34,14 @@
     "test"
   ],
   "devDependencies": {
+    "axe-core": "^3.4.2",
+    "axe-testcafe": "^3.0.0",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
     "start-server-and-test": "^1.10.8",
     "testcafe": "^1.8.1",
-    "testcafe-browser-provider-browserstack": "^1.11.0"
+    "testcafe-browser-provider-browserstack": "^1.11.0",
+    "testcafe-react-selectors": "^4.0.0"
   }
 }
