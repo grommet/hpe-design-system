@@ -15,5 +15,8 @@
   "workspaces": [
     "aries-core",
     "aries-site"
-  ]
+  ],
+  "dependencies": {
+    "husky": "^4.2.3"
+  }
 }

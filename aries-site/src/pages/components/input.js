@@ -8,7 +8,6 @@ import {
   MaskedInputExample,
   RadioButtonGroupExample,
   RangeInputExample,
-  RangeSelectorExample,
   SelectExample,
   TextAreaExample,
   TextInputExample,
