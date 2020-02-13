@@ -162,7 +162,13 @@ export const structure = [
     icon: size => <IconType size={size} />,
     seoDescription:
       'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
-    sections: ['MetricHPE Styles', 'Heading', 'Paragraph', 'Text'],
+    sections: [
+      'MetricHPE Styles',
+      'Heading',
+      'Heading Sizes',
+      'Paragraph',
+      'Text',
+    ],
   },
   {
     name: 'Iconography',

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Anchor, Button } from 'grommet';
+import { Anchor, Button, Heading } from 'grommet';
 
 import { Meta, SubsectionText } from '../../components';
 import {
   HeadingExample,
+  HeadingSizingExample,
   ParagraphExample,
   TextSizeExample,
 } from '../../examples';
@@ -64,6 +65,8 @@ const Typography = () => (
           compliment the content in a given design.
         </SubsectionText>
       </Subsection>
+    </ContentSection>
+    <ContentSection>
       <Subsection name="Heading">
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/HeadingExample.js"
@@ -71,6 +74,22 @@ const Typography = () => (
           figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A65"
         >
           <HeadingExample />
+        </Example>
+        <SubsectionText>
+          For accessibility reasons, always ensure semantically correct heading
+          levels are applied. Begin with the correct heading level, then apply
+          size adjustments to fit your styling needs. This allows for
+          flexibility in design while maintaining well structured HTML documents
+          needed by assistive technologies.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="Heading Sizes" level={3}>
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/HeadingSizingExample.js"
+          docs="https://v2.grommet.io/heading?theme=hpe#level"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A112"
+        >
+          <HeadingSizingExample />
         </Example>
       </Subsection>
     </ContentSection>
