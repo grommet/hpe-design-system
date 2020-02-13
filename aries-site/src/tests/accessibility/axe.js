@@ -3,9 +3,9 @@
 import { Selector } from 'testcafe';
 import { axeCheck, createReport } from 'axe-testcafe';
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
-import { baseUrl } from './functions';
+import { baseUrl } from '../utils';
 
-fixture('TestCafe tests with Axe')
+fixture('Axe accessibility tests')
   .page(baseUrl)
   // start tests in light mode
   .beforeEach(async t => {
@@ -18,7 +18,7 @@ fixture('TestCafe tests with Axe')
     }
   });
 
-test('Landing Page', async t => {
+test('should check Home page', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
@@ -44,7 +44,7 @@ test('Landing Page', async t => {
 
 test.before(async t => {
   await t.navigateTo('/guidelines');
-})('Guidelines Page (NavPage)', async t => {
+})('should check Guidelines (NavPage)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const { violations } = await axeCheck(t);
@@ -54,7 +54,7 @@ test.before(async t => {
 
 test.before(async t => {
   await t.navigateTo('/foundation/branding');
-})('Branding Page (SidebarLayout Page)', async t => {
+})('should check Branding Page (SidebarLayout)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
@@ -78,7 +78,7 @@ test.before(async t => {
 
 test.before(async t => {
   await t.navigateTo('/design');
-})('Design Page (Empty Page)', async t => {
+})('should check Design Page (Empty Page)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
-import { baseUrl, getLocation, repeatKeyPress, getTabCount } from './functions';
+import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
 fixture('Navigation home tiles').page(baseUrl);
 
