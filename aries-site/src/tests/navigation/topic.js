@@ -2,7 +2,8 @@
 import { Selector } from 'testcafe';
 import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
-// This test is referring to the topic displayed on the subsection pages to go back to the navpage
+// This is testing the topic link that appears above the h1 of content pages.
+// This link routes back to NavPages.
 
 fixture('Topic').page(`${baseUrl}/guidelines/human-centered`);
 
