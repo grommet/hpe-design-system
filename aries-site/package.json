@@ -25,7 +25,7 @@
     "start": "next",
     "start-server": "yarn build && yarn next start",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/search.js'",
+    "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
