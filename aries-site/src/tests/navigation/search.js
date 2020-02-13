@@ -1,63 +1,76 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
-import { Selector } from 'testcafe';
-import {
-  baseUrl,
-  getLocation,
-  formatForTyping,
-  repeatKeyPress,
-} from '../utils';
+import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
+import { baseUrl, getLocation, repeatKeyPress } from '../utils';
 
-fixture('Search').page(baseUrl);
+// Selector name found using Chrome React dev tools on prod mode of website
+const Search = 'D Box';
 
-test('type then click on search suggestion', async t => {
+const getSuggestion = page => {
+  return ReactSelector(`${Search} StyledDrop Button`).withText(page);
+};
+
+fixture('Search')
+  .page(baseUrl)
+  .beforeEach(async () => {
+    await waitForReact();
+  });
+
+test('should navigate to correct page after user types and clicks suggestion with mouse', async t => {
   const page = 'Develop';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
-  const suggestion = Selector('[data-test-id="suggestions"] button').withText(
-    page,
-  );
+  const suggestion = getSuggestion(page);
   await t
-    .typeText('[data-test-id="search"]', 'dev')
+    .typeText(ReactSelector(Search), 'dev')
     .click(suggestion)
     .expect(getLocation())
     .eql(expectedPath);
 });
 
-test('type direct match then press enter to navigate', async t => {
+test('should navigate to correct page after user types page name and hits enter', async t => {
   const page = 'Foundation';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
   await t
-    .typeText('[data-test-id="search"]', 'color')
-    .pressKey(await repeatKeyPress('backspace', 5))
-    .pressKey(await formatForTyping(page))
+    .typeText(ReactSelector(Search), page)
     .pressKey('enter')
     .expect(getLocation())
     .eql(expectedPath);
 });
 
-test('click on subsection links to correct hash', async t => {
+test('should navigate to correct hash after user clicks a suggestion that leads to a page subsection', async t => {
   const expectedPath = '/foundation/color#background-colors';
   const page = 'Background Colors';
-  const suggestion = Selector('[data-test-id="suggestions"] button').withText(
-    page,
-  );
+  const suggestion = getSuggestion(page);
 
   await t
-    .typeText('[data-test-id="search"]', 'Col')
+    .typeText(ReactSelector(Search), 'col')
     .click(suggestion)
     .expect(getLocation())
     .eql(baseUrl + expectedPath);
 });
 
-// To be improved so that value is less hard coded
-test('navigate with keyboard only', async t => {
-  const expectedPath = '/foundation/color#background-colors';
+test('should navigate to correct page when user is only using keyboard ', async t => {
+  const page = 'Aruba Logo';
+  const expectedPath = '/foundation/branding#aruba-logo';
+  const search = ReactSelector(`${Search} Search__StyledTextInput`);
 
   await t
     // theme toggle --> hpe button --> search
     .pressKey(await repeatKeyPress('tab', 3))
-    .pressKey(await formatForTyping('col')) // type part of search term
-    .pressKey('down')
+    // start typing for something
+    .pressKey('a');
+
+  // find how many times to press down arrow key to get to suggestion
+  const suggestions = await search.getReact(({ props }) => props.suggestions);
+  let count;
+  suggestions.forEach((suggestion, index) =>
+    // add one since array index starts at 0
+    suggestion === page ? (count = index + 1) : undefined,
+  );
+
+  await t
+    .pressKey(await repeatKeyPress('down', count))
     .pressKey('enter')
     .expect(getLocation())
     .eql(baseUrl + expectedPath);
