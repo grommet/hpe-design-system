@@ -5,7 +5,7 @@ import {
   getLocation,
   formatForTyping,
   repeatKeyPress,
-} from './functions';
+} from '../utils';
 
 fixture('Search').page(baseUrl);
 
