@@ -66,6 +66,7 @@ const Controls = () => (
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
           figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
+          designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
         >
           <ButtonExample />
         </Example>

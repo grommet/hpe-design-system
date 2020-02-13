@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box, Button, Drop, Text, ThemeContext } from 'grommet';
-import { Code, Document, Template } from 'grommet-icons';
+import { Briefcase, Code, Document, Template } from 'grommet-icons';
 import Prism from 'prismjs';
 
 const syntax = {
@@ -77,7 +77,7 @@ IconButton.propTypes = {
   title: PropTypes.string,
 };
 
-export const Example = ({ code, docs, figma, ...rest }) => {
+export const Example = ({ code, designer, docs, figma, ...rest }) => {
   const theme = React.useContext(ThemeContext);
   const [showCode, setShowCode] = React.useState();
   const [codeText, setCodeText] = React.useState();
@@ -110,7 +110,7 @@ export const Example = ({ code, docs, figma, ...rest }) => {
         pad="large"
         {...rest}
       />
-      {(code || docs || figma) && (
+      {(code || designer || docs || figma) && (
         <Box direction="row" justify="end" gap="xsmall">
           {figma && (
             <IconButton
@@ -118,6 +118,15 @@ export const Example = ({ code, docs, figma, ...rest }) => {
               icon={<Template />}
               hoverIndicator
               href={figma}
+              target="_blank"
+            />
+          )}
+          {figma && (
+            <IconButton
+              title="Designer"
+              icon={<Briefcase />}
+              hoverIndicator
+              href={designer}
               target="_blank"
             />
           )}
