@@ -1,10 +1,12 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
-// This is testing the next content at the footer of the subsection pages
+// This is testing the link at the footer of content pages that says
+// "Next, learn about ____ >"
 
-fixture('Learn about next content').page(`${baseUrl}/foundation/branding`);
+fixture('NextContent Link').page(`${baseUrl}/foundation/branding`);
 
 test('should navigate to correct path when the next-content is clicked on', async t => {
   const page = 'Color';

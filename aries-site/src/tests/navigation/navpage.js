@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
-// This is the page in which contain a main header followed by a list of sub-topics
+// A NavPage is a page that contains a main header followed by a list of sub-topics
 
 fixture('NavPage sub-topics').page(`${baseUrl}/guidelines`);
 
