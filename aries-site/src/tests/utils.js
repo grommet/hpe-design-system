@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
 
-export const baseUrl = 'http://localhost:3000';
+export const baseUrl = 'http://localhost:3030';
 
 export const getLocation = ClientFunction(() => document.location.href);
 
