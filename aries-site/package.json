@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "aries-core": "*",
+    "fs": "0.0.1-security",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
@@ -21,7 +22,7 @@
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
     "start": "next",
-    "start-server": "yarn build && yarn next start",
+    "start-server": "yarn build && node src/scripts/createStructureFile.js && yarn next start",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/'",
     "lint": "eslint src",
