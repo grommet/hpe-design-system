@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Button, Heading } from 'grommet';
+import { Anchor, Button } from 'grommet';
 
 import { Meta, SubsectionText } from '../../components';
 import {
@@ -76,11 +76,18 @@ const Typography = () => (
           <HeadingExample />
         </Example>
         <SubsectionText>
-          For accessibility reasons, always ensure semantically correct heading
-          levels are applied. Begin with the correct heading level, then apply
-          size adjustments to fit your styling needs. This allows for
-          flexibility in design while maintaining well structured HTML documents
-          needed by assistive technologies.
+          For accessibility reasons, always ensure{' '}
+          <Anchor
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            semantically correct heading levels
+          </Anchor>{' '}
+          are applied. Begin with the correct heading level, then apply size
+          adjustments to fit your styling needs. This allows for flexibility in
+          design while maintaining well structured HTML documents needed by
+          assistive technologies.
         </SubsectionText>
       </Subsection>
       <Subsection name="Heading Sizes" level={3}>
