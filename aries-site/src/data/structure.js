@@ -11,7 +11,6 @@ import {
   IconHumanCentered,
   IconIcons,
   IconInput,
-  IconLayout,
   IconLayoutComponents,
   IconPhilosophy,
   IconPrinciples,
