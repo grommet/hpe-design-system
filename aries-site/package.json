@@ -21,16 +21,12 @@
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
     "start": "next",
-    "start-server": "yarn build && yarn next start",
+    "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe chrome,firefox src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
-  "pre-commit": [
-    "lint-fix",
-    "test"
-  ],
   "devDependencies": {
     "axe-core": "^3.4.2",
     "axe-testcafe": "^3.0.0",

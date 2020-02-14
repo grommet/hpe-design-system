@@ -47,10 +47,6 @@
     "build-storybook": "build-storybook",
     "release-stable": "babel-node ./tools/release-stable"
   },
-  "pre-commit": [
-    "lint-fix",
-    "test"
-  ],
   "keywords": [
     "aries",
     "aries-core",
