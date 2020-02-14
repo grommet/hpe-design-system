@@ -1,7 +1,7 @@
 {
   "name": "aries-site",
   "version": "1.0.0",
-  "description": "A website for aries",
+  "description": "Website documentation for HPE Design System",
   "license": "Apache-2.0",
   "main": "src/pages/index.js",
   "private": true,
@@ -10,8 +10,6 @@
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "^4.4.0",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
-    "next": "^9.1.2",
-    "next-transpile-modules": "^2.3.1",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -23,22 +21,23 @@
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
     "start": "next",
-    "start-server": "yarn build && yarn next start",
+    "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3000 'testcafe all src/tests/'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe chrome,firefox src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
-  "pre-commit": [
-    "lint-fix",
-    "test"
-  ],
   "devDependencies": {
+    "axe-core": "^3.4.2",
+    "axe-testcafe": "^3.0.0",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
+    "next": "^9.1.2",
+    "next-transpile-modules": "^2.3.1",
     "start-server-and-test": "^1.10.8",
     "testcafe": "^1.8.1",
-    "testcafe-browser-provider-browserstack": "^1.11.0"
+    "testcafe-browser-provider-browserstack": "^1.11.0",
+    "testcafe-react-selectors": "^4.0.0"
   }
 }
