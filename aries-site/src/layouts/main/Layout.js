@@ -41,6 +41,7 @@ export const Layout = ({
              * Will likely be updated in future, but wanted visible
              * placement for demo. */}
             <Box
+              role="complementary"
               style={{
                 position: 'fixed',
                 bottom: size !== 'small' ? '48px' : '24px',
