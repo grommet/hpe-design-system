@@ -15,6 +15,7 @@ test('should navigate to correct path when a tile is clicked on', async t => {
     .contains(expectedPath);
 });
 
+// eslint-disable-next-line max-len
 test('should navigate to correct path when a tile is choosen via keyboard', async t => {
   const page = 'Components';
   const element = Selector('a').withText(page);

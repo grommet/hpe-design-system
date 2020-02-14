@@ -18,6 +18,7 @@ test('should navigate to correct path when a topic is clicked on', async t => {
     .contains(expectedPath);
 });
 
+// eslint-disable-next-line max-len
 test('should navigate to correct path when a topic is choosen via keyboard', async t => {
   const page = 'Guidelines';
   const element = Selector('a').withText(page);

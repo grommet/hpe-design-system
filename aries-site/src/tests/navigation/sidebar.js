@@ -7,6 +7,7 @@ import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
 fixture('Sidebar NavLinks').page(`${baseUrl}/guidelines/principles`);
 
+// eslint-disable-next-line max-len
 test('should navigate to correct path when a side-bar option is clicked on', async t => {
   const page = 'Philosophy';
   const element = Selector('a').withText(page);
@@ -18,6 +19,7 @@ test('should navigate to correct path when a side-bar option is clicked on', asy
     .contains(expectedPath);
 });
 
+// eslint-disable-next-line max-len
 test('should navigate to correct path when a side-bar option is choosen via keyboard', async t => {
   const page = 'Philosophy';
   const element = Selector('a').withText(page);
