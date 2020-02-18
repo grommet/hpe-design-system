@@ -75,19 +75,3 @@ test('should navigate to correct page when user is only using keyboard ', async 
     .expect(getLocation())
     .eql(baseUrl + expectedPath);
 });
-
-/*This test will fail until issue #320 is fixed. The page scroll is at the incorrect section of the 
-page therefore it is failing. Going to leave commented out for now. 
-*/
-
-// test('should navigate to correct hash after user clicks a suggestion that leads to a page subsection', async t => {
-//   const page = 'Background Colors';
-//   const backgroundColors = Selector('#background-colors')
-//   const suggestion = getSuggestion(page);
-
-//   await t
-//     .typeText(ReactSelector(Search), 'col')
-//     .click(suggestion)
-//     .expect(backgroundColors.getBoundingClientRectProperty("top"))
-//     .within(-150, 150);
-// });
