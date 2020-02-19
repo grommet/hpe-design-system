@@ -7,7 +7,7 @@ export const FooterExample = () => {
   return (
     <Footer 
       background="background-front"
-      direction={size !== 'small' ? 'row' : 'column'}
+      direction={size !== 'small' ? 'row-reverse' : 'column'}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
         // Match horizontal padding of aries-core Nav
@@ -15,18 +15,18 @@ export const FooterExample = () => {
       }}
       align={size !== 'small' ? 'center' : undefined}
     >
+      <Box alignSelf="center" direction="row" gap="medium">
+        <FooterLink label="Terms" />
+        <FooterLink label="Privacy" />
+        <FooterLink label="Security" />
+        <FooterLink label="Feedback" />
+      </Box>
       <Box
         direction={size !== 'small' ? 'row' : 'column'}
         align={size !== 'small' ? 'center' : undefined}
         gap={size !== 'small' ? 'xlarge' : undefined}
       >
         <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
-      </Box>
-      <Box alignSelf="center" direction="row" gap="medium">
-        <FooterLink label="Terms" />
-        <FooterLink label="Privacy" />
-        <FooterLink label="Security" />
-        <FooterLink label="Feedback" />
       </Box>
     </Footer>
   );
