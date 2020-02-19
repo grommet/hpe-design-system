@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { FooterLink } from 'aries-core';
 import { Box, Footer, ResponsiveContext, Text } from 'grommet';
-import { Hpe } from 'grommet-icons';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Footer
+    <Footer 
       background="background-front"
       direction={size !== 'small' ? 'row' : 'column'}
       pad={{
@@ -19,12 +18,11 @@ export const FooterExample = () => {
       <Box
         direction={size !== 'small' ? 'row' : 'column'}
         align={size !== 'small' ? 'center' : undefined}
-        gap={size !== 'small' ? 'medium' : undefined}
+        gap={size !== 'small' ? 'xlarge' : undefined}
       >
-        <Hpe size="large" color="brand" />
         <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
       </Box>
-      <Box direction="row" gap="medium">
+      <Box alignSelf="center" direction="row" gap="medium">
         <FooterLink label="Terms" />
         <FooterLink label="Privacy" />
         <FooterLink label="Security" />
