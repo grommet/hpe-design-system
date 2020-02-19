@@ -1,10 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
-import { baseUrl, getLocation, repeatKeyPress } from '../utils';
-
-// Selector name found using Chrome React dev tools on prod mode of website
-const Search = 'D Box';
+import { baseUrl, getLocation, repeatKeyPress, Search } from '../utils';
 
 const getSuggestion = page => {
   return ReactSelector(`${Search} StyledDrop Button`).withText(page);

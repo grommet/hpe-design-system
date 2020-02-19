@@ -2,6 +2,9 @@ import { ClientFunction } from 'testcafe';
 
 export const baseUrl = 'http://localhost:3000';
 
+// Selector name found using Chrome React dev tools on prod mode of website
+export const Search = 'D Box';
+
 export const getLocation = ClientFunction(() => document.location.href);
 
 export const formatForTyping = ClientFunction(text => text.split('').join(' '));

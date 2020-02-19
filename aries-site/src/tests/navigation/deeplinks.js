@@ -2,18 +2,15 @@
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
 import { Selector } from 'testcafe';
-import { baseUrl } from '../utils';
+import { baseUrl, Search } from '../utils';
 
 // A Deeplink is a subsection of the sections. This is testing if the page is taken to the right section of page to match the hash
-
-// Selector name found using Chrome React dev tools on prod mode of website
-const Search = 'D Box';
 
 const getSuggestion = page => {
   return ReactSelector(`${Search} StyledDrop Button`).withText(page);
 };
 
-fixture('Search')
+fixture('Deep Linking')
   .page(baseUrl)
   .beforeEach(async () => {
     await waitForReact();
@@ -39,8 +36,6 @@ page therefore it is failing. Going to leave commented out for now.
 /*Added range to this test since now there is some issues with different browsers as to where
 the page actually lands when routed to a deep link
 */
-
-fixture('Deep linking').page(baseUrl);
 
 test('should navigate to correct hash of page when a deep link is directly routed to', async t => {
   const url = `${baseUrl}/foundation/color#background-colors`
