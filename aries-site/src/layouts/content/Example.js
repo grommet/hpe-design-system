@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, Button, Stack, Text, ThemeContext } from 'grommet';
+import { Anchor, Box, Button, Stack, Text, ThemeContext } from 'grommet';
 import { FormDown, FormUp } from 'grommet-icons';
 import Prism from 'prismjs';
 
@@ -68,27 +68,6 @@ const syntax = {
   `,
 };
 
-const ToolButton = ({ icon, label, ...rest }) => (
-  <Button hoverIndicator {...rest}>
-    <Box
-      direction="row"
-      align="baseline"
-      pad={{ vertical: 'xsmall', horizontal: 'small' }}
-    >
-      {icon}
-      <Text color="control" size="large" weight="bold">
-        {label[0].toUpperCase()}
-      </Text>
-      <Text color="control">{label.slice(1)}</Text>
-    </Box>
-  </Button>
-);
-
-ToolButton.propTypes = {
-  icon: PropTypes.node,
-  label: PropTypes.string,
-};
-
 export const Example = ({ code, designer, docs, figma, ...rest }) => {
   const theme = React.useContext(ThemeContext);
   const [open, setOpen] = React.useState();
@@ -125,7 +104,7 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
       {(code || designer || docs || figma) && (
         <Stack guidingChild="first" anchor="top-right">
           {open && (
-            <Box>
+            <Box animation="fadeIn">
               <Box
                 border="top"
                 background="background-contrast"
@@ -144,21 +123,22 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
               <Box
                 direction="row"
                 justify="end"
-                align="center"
                 border="between"
+                gap="medium"
+                pad={{ horizontal: 'medium', vertical: 'small' }}
               >
                 {figma && (
-                  <ToolButton label="figma" href={figma} target="_blank" />
+                  <Anchor label="figma" href={figma} target="_blank" />
                 )}
                 {designer && (
-                  <ToolButton
+                  <Anchor
                     label="designer"
                     href={designer}
                     target="_blank"
                   />
                 )}
                 {docs && (
-                  <ToolButton label="properties" href={docs} target="_blank" />
+                  <Anchor label="properties" href={docs} target="_blank" />
                 )}
               </Box>
             </Box>
