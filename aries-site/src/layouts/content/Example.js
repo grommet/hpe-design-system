@@ -127,15 +127,9 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
                 gap="medium"
                 pad={{ horizontal: 'medium', vertical: 'small' }}
               >
-                {figma && (
-                  <Anchor label="figma" href={figma} target="_blank" />
-                )}
+                {figma && <Anchor label="figma" href={figma} target="_blank" />}
                 {designer && (
-                  <Anchor
-                    label="designer"
-                    href={designer}
-                    target="_blank"
-                  />
+                  <Anchor label="designer" href={designer} target="_blank" />
                 )}
                 {docs && (
                   <Anchor label="properties" href={docs} target="_blank" />

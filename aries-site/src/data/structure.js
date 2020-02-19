@@ -162,14 +162,11 @@ export const structure = [
     seoDescription:
       'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
     sections: [
-      'Typographic scales',
-      'Presentation scale',
-      'Display scale',
-      'Hand scale',
-      'Typeface',
-      'Font weights',
-      'Font styles',
-      'Font stacks',
+      'MetricHPE Styles',
+      'Heading',
+      'Heading Sizes',
+      'Paragraph',
+      'Text',
     ],
   },
   {
