@@ -1,4 +1,5 @@
 import { ClientFunction } from 'testcafe';
+import { ReactSelector } from 'testcafe-react-selectors';
 
 export const baseUrl = 'http://localhost:3000';
 
@@ -8,6 +9,10 @@ export const Search = 'D Box';
 export const getLocation = ClientFunction(() => document.location.href);
 
 export const formatForTyping = ClientFunction(text => text.split('').join(' '));
+
+export const getSuggestion = page => {
+  return ReactSelector(`${Search} StyledDrop Button`).withText(page);
+};
 
 export const repeatKeyPress = ClientFunction((key, number) => {
   // Array.join puts the argument between the array elements,

@@ -1,11 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
-import { baseUrl, getLocation, repeatKeyPress, Search } from '../utils';
-
-const getSuggestion = page => {
-  return ReactSelector(`${Search} StyledDrop Button`).withText(page);
-};
+import { baseUrl, getLocation, repeatKeyPress, Search, getSuggestion } from '../utils';
 
 fixture('Search')
   .page(baseUrl)
