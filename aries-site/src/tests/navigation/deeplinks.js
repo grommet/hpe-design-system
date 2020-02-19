@@ -2,13 +2,9 @@
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
 import { Selector } from 'testcafe';
-import { baseUrl, Search } from '../utils';
+import { baseUrl, Search, getSuggestion } from '../utils';
 
 // A deeplink is a subsection of a page. These tests check if the website is taken to the right scroll position of the page to match the hash of the intended subsection.
-
-const getSuggestion = page => {
-  return ReactSelector(`${Search} StyledDrop Button`).withText(page);
-};
 
 fixture('Deep Linking')
   .page(baseUrl)
