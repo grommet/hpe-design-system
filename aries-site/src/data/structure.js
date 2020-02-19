@@ -15,6 +15,7 @@ import {
   IconPhilosophy,
   IconPrinciples,
   IconResources,
+  IconTemplates,
   IconToken,
   IconType,
 } from '../components';
@@ -27,6 +28,7 @@ export const structure = [
     pages: [
       'Guidelines',
       'Foundation',
+      'Templates',
       'Components',
       'Develop',
       'Design',
@@ -52,6 +54,16 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: ['Branding', 'Color', 'Typography', 'Iconography', 'Tokens'],
+  },
+  {
+    name: 'Templates',
+    color: 'purple',
+    description:
+      'These templates help jumpstart the design and development of applications by demonstrating how components combine at the screen layout level.',
+    icon: size => <IconTemplates size={size} />,
+    seoDescription:
+      'Starter templates to jumpstart the design and development of application screens.',
+    pages: ['Dashboard', 'Login Screen', 'Service List Screen'],
   },
   {
     name: 'Components',
@@ -218,5 +230,30 @@ export const structure = [
       'TextInput',
       'Form',
     ],
+  },
+  {
+    name: 'Login Screen',
+    description: 'A template for a login/sign-in screen.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription:
+      'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
+    sections: [],
+  },
+  {
+    name: 'Dashboard',
+    description:
+      'A template for a dashboard screen that features content within tiles.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription:
+      'A template for a dashboard screen that features content within tiles.',
+    sections: [],
+  },
+  {
+    name: 'Service List Screen',
+    description: 'A template for a service list screen.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription:
+      'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
+    sections: [],
   },
 ];
