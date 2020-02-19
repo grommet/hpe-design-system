@@ -66,10 +66,13 @@ const Branding = () => (
           depending on the layout; neither placement is necessarily preferred.
         </SubsectionText>
         <UsageExample label="hpe-logo" themeMode="light">
-          <Image src="/static/images/hpe-logo.svg" />
+          <Image src="/static/images/hpe-logo.svg" alt="HPE Logo" />
         </UsageExample>
         <UsageExample label="hpe-logo-invert" themeMode="dark">
-          <Image src="/static/images/hpe-logo-invert.svg" />
+          <Image
+            src="/static/images/hpe-logo-invert.svg"
+            alt="HPE Logo Invert"
+          />
         </UsageExample>
       </Subsection>
       <Subsection name="HPE Element" level={3}>
@@ -119,10 +122,10 @@ const Branding = () => (
           depending on the layout; neither placement is necessarily preferred.
         </SubsectionText>
         <UsageExample label="aruba-logo" themeMode="light">
-          <Image src="/static/images/aruba-logo.svg" />
+          <Image src="/static/images/aruba-logo.svg" alt="Aruba Logo" />
         </UsageExample>
         <UsageExample label="aruba-logo-invert" themeMode="dark">
-          <Image src="/static/images/aruba-logo.svg" />
+          <Image src="/static/images/aruba-logo.svg" alt="Aruba Logo" />
         </UsageExample>
       </Subsection>
       <Subsection name="Aruba Icon" level={3}>
