@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button } from 'grommet';
+import { Box, Button, ResponsiveContext } from 'grommet';
 import {
   Apps,
   Chat,
@@ -11,27 +11,35 @@ import {
   StatusUnknown,
 } from 'grommet-icons';
 
-export const SidebarExample = ({ direction, mobile, ...rest }) => {
-  // placeholder for responsive context
-  const size = mobile && 'small';
+export const SidebarExample = ({ direction, ...rest }) => {
+  const size = useContext(ResponsiveContext);
   return (
     <Box
       direction={direction}
       background="blue"
       align="center"
-      pad={{ horizontal: 'small', vertical: 'medium' }}
+      pad={{
+        horizontal: size !== 'small' ? 'small' : 'medium',
+        vertical: size !== 'small' ? 'medium' : 'small',
+      }}
       {...rest}
     >
-      <Box
-        height="xxsmall"
-        width="xxsmall"
-        round="full"
-        margin={size === 'small' ? { right: 'small' } : { bottom: 'medium' }}
-        // eslint-disable-next-line max-len
-        background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
-      />
+      {size !== 'small' && (
+        <Box
+          height="xxsmall"
+          width="xxsmall"
+          round="full"
+          margin={{ bottom: 'medium' }}
+          // eslint-disable-next-line max-len
+          background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
+        />
+      )}
 
-      <Box flex="grow" direction={direction}>
+      <Box
+        flex="grow"
+        direction={direction}
+        justify={size === 'small' ? 'between' : undefined}
+      >
         <Button icon={<Clock color="text-xweak" />} />
         <Button icon={<Apps color="text-xweak" />} />
         <Button icon={<Terminal color="text-xweak" />} />
@@ -39,10 +47,12 @@ export const SidebarExample = ({ direction, mobile, ...rest }) => {
         <Button icon={<Configure color="text-xweak" />} />
       </Box>
 
-      <Box direction={direction}>
-        <Button icon={<Chat color="text-xweak" />} />
-        <Button icon={<StatusUnknown color="text-xweak" />} />
-      </Box>
+      {size !== 'small' && (
+        <Box direction={direction}>
+          <Button icon={<Chat color="text-xweak" />} />
+          <Button icon={<StatusUnknown color="text-xweak" />} />
+        </Box>
+      )}
     </Box>
   );
 };
