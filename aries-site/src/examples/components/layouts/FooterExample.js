@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { FooterLink } from 'aries-core';
 import { Box, Footer, ResponsiveContext, Text } from 'grommet';
-import { Hpe } from 'grommet-icons';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Footer
+    <Footer 
       background="background-front"
-      direction={size !== 'small' ? 'row' : 'column'}
+      direction={size !== 'small' ? 'row' : 'column-reverse'}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
         // Match horizontal padding of aries-core Nav
@@ -21,10 +20,11 @@ export const FooterExample = () => {
         align={size !== 'small' ? 'center' : undefined}
         gap={size !== 'small' ? 'medium' : undefined}
       >
-        <Hpe size="large" color="brand" />
-        <Text size="small">&copy; 2020 Hewlett Packard Enterprise</Text>
+        <Text size="small">
+          &copy; 2020 Hewlett Packard Enterprise Development LP
+        </Text>
       </Box>
-      <Box direction="row" gap="medium">
+      <Box alignSelf="center" direction="row" gap="medium">
         <FooterLink label="Terms" />
         <FooterLink label="Privacy" />
         <FooterLink label="Security" />
