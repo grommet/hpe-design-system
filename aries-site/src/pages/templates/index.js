@@ -5,14 +5,21 @@ import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
 import { getPageDetails } from '../../utils';
 
 const title = 'Templates';
-const page = getPageDetails(title);
+const {
+  color,
+  description,
+  icon,
+  pages,
+  name,
+  seoDescription,
+} = getPageDetails(title);
 
 const Templates = () => {
   const descriptiveHeader = (
     <DescriptiveHeader
-      background={page.color}
-      subText={page.description}
-      icon={page.icon}
+      background={color}
+      subText={description}
+      icon={icon}
       title={title}
     />
   );
@@ -21,11 +28,11 @@ const Templates = () => {
     <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
-        description={page.seoDescription}
+        description={seoDescription}
         canonicalUrl="https://design-system.hpe.design/templates"
       />
-      {page.pages.length ? (
-        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
+      {pages.length ? (
+        <NavPage items={pages} topic={name.toLowerCase()} />
       ) : (
         <ComingSoon />
       )}

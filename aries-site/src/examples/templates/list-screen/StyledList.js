@@ -13,8 +13,8 @@ const data = [
   },
   { user: 'Admin', ip: '10.45.229.1', icon: <System /> },
   { user: 'taylor.seamans@hpe.com', ip: '10.45.229.1', icon: <Monitor /> },
-  { user: 'taylor.seamans@hpe.com', ip: '10.45.229.1', icon: <Monitor /> },
-  { user: 'taylor.seamans@hpe.com', ip: '10.45.229.1', icon: <Monitor /> },
+  { user: 'shimrit.yacobi@hpe.com', ip: '10.45.229.1', icon: <Monitor /> },
+  { user: 'matthew.glissmann@hpe.com', ip: '10.45.229.1', icon: <Monitor /> },
 ];
 
 export const StyledList = () => (

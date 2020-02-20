@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
-import { ServiceListScreenExample } from '../../examples';
+import { ListScreenExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, nameToPath } from '../../utils';
 
@@ -41,7 +41,7 @@ const ListScreen = () => (
           figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
           designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
         >
-          <ServiceListScreenExample />
+          <ListScreenExample />
         </Example>
         <SubsectionText>
           Kickstarter austin heirloom whatever meggings artisan, hoodie vinyl
@@ -57,7 +57,7 @@ const ListScreen = () => (
           figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
           designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
         >
-          <ServiceListScreenExample mobile />
+          <ListScreenExample mobile />
         </Example>
         <SubsectionText>
           Kickstarter austin heirloom whatever meggings artisan, hoodie vinyl
