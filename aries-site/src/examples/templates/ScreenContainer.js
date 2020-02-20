@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { generate } from 'grommet/themes';
-// import { deepMerge } from 'grommet/utils';
 import { Box, ResponsiveContext } from 'grommet';
-// import { hpe } from 'grommet-theme-hpe';
 import { SidebarExample } from '.';
-
-// const baseSpacing = 12;
-// const scaledDownTheme = deepMerge(generate(baseSpacing), hpe);
 
 export const ScreenContainer = ({ mobile, ...rest }) => (
   <ResponsiveContext.Provider value={mobile && 'small'}>
