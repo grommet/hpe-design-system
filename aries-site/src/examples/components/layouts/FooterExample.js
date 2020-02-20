@@ -18,7 +18,7 @@ export const FooterExample = () => {
       <Box
         direction={size !== 'small' ? 'row' : 'column'}
         align={size !== 'small' ? 'center' : undefined}
-        gap={size !== 'small' ? 'xlarge' : undefined}
+        gap={size !== 'small' ? 'medium' : undefined}
       >
         <Text size="small">
           &copy; 2020 Hewlett Packard Enterprise Development LP
