@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
@@ -8,12 +7,14 @@ import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
 fixture('NextContent Link').page(`${baseUrl}/foundation/branding`);
 
-test('should navigate to correct path when the next-content is clicked on', async t => {
+test('should navigate to correct path when the'
++ 'next-content is clicked on', async t => {
   const page = 'Color';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
 
-  // Need to maximize window so that link isn't hidden behind theme toggle otherwise test will fail
+  // Need to maximize window so that link isn't hidden behind theme
+  // toggle otherwise test will fail
   await t
     .maximizeWindow()
     .click(element)
@@ -21,7 +22,8 @@ test('should navigate to correct path when the next-content is clicked on', asyn
     .contains(expectedPath);
 });
 
-test('should navigate to correct path when a next-content is choosen via keyboard', async t => {
+test('should navigate to correct path when a next-content'
++ 'is choosen via keyboard', async t => {
   const page = 'Color';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
