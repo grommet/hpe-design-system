@@ -1,8 +1,8 @@
-
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
-import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
+import {  waitForReact } from 'testcafe-react-selectors';
 import { Selector } from 'testcafe';
-import { baseUrl, Search, getSuggestion } from '../utils';
+import { baseUrl } from '../utils';
 
 // A deeplink is a subsection of a page. These tests check if the website is taken to the right scroll position of the page to match the hash of the intended subsection.
 
