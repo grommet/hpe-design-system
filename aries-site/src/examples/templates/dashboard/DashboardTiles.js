@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { Identifier, Tiles, Tile } from 'aries-core';
-import { Box, Footer, Text } from 'grommet';
+import { Box, Footer, ResponsiveContext, Text } from 'grommet';
 import {
   Wifi,
   System,
@@ -56,16 +55,14 @@ const data = [
   },
 ];
 
-export const DashboardTiles = ({ mobile }) => {
-  // placeholder to be swapped with responsive context
-  const size = mobile && 'small';
+export const DashboardTiles = () => {
+  const size = useContext(ResponsiveContext);
   return (
     <Tiles
       gap="medium"
-      rows="medium"
+      rows="small"
       columns={size !== 'small' ? { count: 3, size: 'auto' } : 'auto'}
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
-      pad={size === 'small' ? { bottom: 'large' } : undefined}
     >
       {data.map(value => (
         <Tile
@@ -96,8 +93,4 @@ export const DashboardTiles = ({ mobile }) => {
       ))}
     </Tiles>
   );
-};
-
-DashboardTiles.propTypes = {
-  mobile: PropTypes.bool,
 };
