@@ -68,7 +68,7 @@ yarn build
 - Establish research plan
 
 **2. January 20 - 24**  
-- Incorperate Design System site feedback 
+- Incorporate Design System site feedback 
 - HPE XS showcase
 - Core component discovery
 
@@ -76,7 +76,7 @@ yarn build
 - Finalize Design System site
 - Reprioritize roadmap 
 - Identify simple patterns 
-- Remove referances to Aries
+- Remove references to Aries
 
 **4. February 3 - 7**   
 - Publish HPE theme
@@ -85,7 +85,7 @@ yarn build
 - Finalize pattern vis approach (inline vs storybook) 
 - Designs for: Button, Type, Anchor, Color
 - Research kick off email 
-- Schedule stakeholder interviews and gather probing questions. (what info is vauluable for us moving forward?) 
+- Schedule stakeholder interviews and gather probing questions. (what info is valuable for us moving forward?) 
 
 **5. February 10 - 14**   
 - Dev: Button, Type, Anchor, Color 

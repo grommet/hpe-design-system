@@ -9,7 +9,7 @@ export const SubmitFeedback = () => {
       <Subsection name="Still have questions?" level={2}>
         <SubsectionText>
           Something missing or looking for more information? Edit or open an
-          issue on Github to help us make HPE Aries better.
+          issue on Github to help us make the HPE Design-System better.
         </SubsectionText>
         <Anchor
           href="https://github.com/hpe-design/aries/issues"

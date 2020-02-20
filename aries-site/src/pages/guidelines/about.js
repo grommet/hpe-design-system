@@ -8,9 +8,10 @@ import { Meta, SubsectionText } from '../../components';
 const topic = 'Guidelines';
 const title = 'About';
 const description =
-  'HPE Aries is an open-source library and the official ' +
-  'design system of HPE for all digital products and experiences. Aries ' +
-  'consists of working code, best practices, design resources, and more.';
+  'HPE Design-System is an open-source library and the official ' +
+  'design system of HPE for all digital products and experiences.' +
+  'The Design-System consists of working code, best practices, design' +
+  'resources, and more.';
 
 const About = () => (
   <Layout>
@@ -22,13 +23,13 @@ const About = () => (
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
-          HPE Aries is an open-source library and the official design system of
-          HPE for all digital products and experiences. Aries consists of
+          HPE Design-System is an open-source library and the official design system of
+          HPE for all digital products and experiences. The Design-System consists of
           working code, best practices, design resources, human interface
           guidelines, and a vibrant community of contributors.
         </SubsectionText>
         <SubsectionText size="medium">
-          HPE's Aries connects the ideas, technology, and creativity from
+          HPE's Design-System connects the ideas, technology, and creativity from
           Hewlett Packard Enterprise and exposes it to the larger community with
           the hope of learning and building experiences that reach a broader
           audience.
