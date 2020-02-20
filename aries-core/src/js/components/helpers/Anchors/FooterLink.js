@@ -9,7 +9,7 @@ export const FooterLink = ({ children, label, size, ...rest }) => {
     <Anchor
       color={textColor}
       label={
-        <Text size={size} weight="bold">
+        <Text size={size} weight="normal">
           {label || children}
         </Text>
       }
