@@ -68,7 +68,14 @@ const syntax = {
   `,
 };
 
-export const Example = ({ code, designer, docs, figma, ...rest }) => {
+export const Example = ({
+  code,
+  components,
+  designer,
+  docs,
+  figma,
+  ...rest
+}) => {
   const theme = React.useContext(ThemeContext);
   const [open, setOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
@@ -99,6 +106,7 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
         direction="row"
         background="background-front"
         pad="large"
+        // style={{ transform: 'scale(0.7)' }}
         {...rest}
       />
       {(code || designer || docs || figma) && (
@@ -127,20 +135,34 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
                 gap="medium"
                 pad={{ horizontal: 'medium', vertical: 'small' }}
               >
-                {figma && (
-                  <Anchor label="figma" href={figma} target="_blank" />
-                )}
+                {figma && <Anchor label="figma" href={figma} target="_blank" />}
                 {designer && (
-                  <Anchor
-                    label="designer"
-                    href={designer}
-                    target="_blank"
-                  />
+                  <Anchor label="designer" href={designer} target="_blank" />
                 )}
                 {docs && (
                   <Anchor label="properties" href={docs} target="_blank" />
                 )}
               </Box>
+              {components && (
+                <Box gap="small">
+                  <Text>What components are being used?</Text>
+                  <Box
+                    direction="row-responsive"
+                    gap="small"
+                    align="center"
+                    wrap
+                  >
+                    {components.map(component => (
+                      <Button
+                        label={component.name}
+                        href={component.href}
+                        margin={{ bottom: 'small' }}
+                        target={component.type === 'external' && '_blank'}
+                      />
+                    ))}
+                  </Box>
+                </Box>
+              )}
             </Box>
           )}
           <Box direction="row" justify="end">
@@ -168,6 +190,12 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
 
 Example.propTypes = {
   code: PropTypes.string,
+  components: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      href: PropTypes.string,
+    }),
+  ),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,

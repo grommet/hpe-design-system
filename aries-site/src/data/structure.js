@@ -63,7 +63,7 @@ export const structure = [
     icon: size => <IconTemplates size={size} />,
     seoDescription:
       'Starter templates to jumpstart the design and development of application screens.',
-    pages: ['Dashboard', 'Login Screen', 'Service List Screen'],
+    pages: ['Dashboard', 'List Screen'],
   },
   {
     name: 'Components',
@@ -249,7 +249,7 @@ export const structure = [
     sections: [],
   },
   {
-    name: 'Service List Screen',
+    name: 'List Screen',
     description: 'A template for a service list screen.',
     icon: size => <IconBrand size={size} />,
     seoDescription:

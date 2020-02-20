@@ -1,41 +1,20 @@
 import React from 'react';
+import { Box, Button } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
-import { DashboardExample } from '../../examples';
+import { ServiceListScreenExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, nameToPath } from '../../utils';
 
-const title = 'Dashboard';
+const title = 'List Screen';
 const topic = 'Templates';
 const page = getPageDetails(title);
 
-const components = [
-  {
-    name: 'Box',
-    href: nameToPath('Box'),
-  },
-  {
-    name: 'Button',
-    href: nameToPath('Button'),
-  },
-  {
-    name: 'Header',
-    href: nameToPath('Header'),
-  },
-  {
-    name: 'Heading',
-    href: nameToPath('Heading'),
-  },
-  {
-    name: 'Tiles',
-  },
-];
-
-const Dashboard = () => (
+const ListScreen = () => (
   <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/templates/dashboard"
+      canonicalUrl="https://design-system.hpe.design/templates/service-list-screen"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
@@ -61,9 +40,8 @@ const Dashboard = () => (
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
           figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
           designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
-          components={components}
         >
-          <DashboardExample />
+          <ServiceListScreenExample />
         </Example>
         <SubsectionText>
           Kickstarter austin heirloom whatever meggings artisan, hoodie vinyl
@@ -78,20 +56,35 @@ const Dashboard = () => (
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
           figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
           designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
-          components={components}
         >
-          <DashboardExample mobile />
+          <ServiceListScreenExample mobile />
         </Example>
         <SubsectionText>
-          Aesthetic taxidermy lyft, YOLO glossier enamel pin fam 3 wolf moon.
-          Chartreuse subway tile craft beer swag brooklyn PBR&B 8-bit live-edge
-          edison bulb artisan. Kickstarter austin heirloom whatever meggings
-          artisan, hoodie vinyl listicle. Drinking vinegar lumbersexual hell of
-          umami palo santo YOLO. Meh neutra deep v edison bulb portland
-          jianbing.
+          Kickstarter austin heirloom whatever meggings artisan, hoodie vinyl
+          listicle. Drinking vinegar lumbersexual hell of umami palo santo YOLO.
+          Meh neutra deep v edison bulb portland jianbing. Aesthetic taxidermy
+          lyft, YOLO glossier enamel pin fam 3 wolf moon. Chartreuse subway tile
+          craft beer swag brooklyn PBR&B 8-bit live-edge edison bulb artisan.
         </SubsectionText>
+      </Subsection>
+      <Subsection name="What components make this screen?" level={3}>
+        <SubsectionText>
+          To find more details about the usage of each of these components,
+          check out their documentation.
+        </SubsectionText>
+        <Box direction="row-responsive" gap="medium">
+          <Button label="Header" href={nameToPath('Header')} />
+          <Button
+            label="List"
+            href="https://v2.grommet.io/list"
+            target="_blank"
+          />
+          <Button label="Box" href={nameToPath('Box')} />
+          <Button label="Button" href={nameToPath('Button')} />
+        </Box>
       </Subsection>
     </ContentSection>
   </Layout>
 );
-export default Dashboard;
+
+export default ListScreen;
