@@ -13,7 +13,7 @@ fixture('Deep Linking')
   });
 
 
-/*This test will fail until issue #320 is fixed. The page scroll is at the incorrect section of the 
+/* This test will fail until issue #320 is fixed. The page scroll is at the incorrect section of the 
 page therefore it is failing. Going to leave commented out for now. 
 */
 
@@ -29,15 +29,15 @@ page therefore it is failing. Going to leave commented out for now.
 //     .within(-150, 150);
 // });
 
-/*Added range to this test since now there is some issues with different browsers as to where
+/* Added range to this test since now there is some issues with different browsers as to where
 the page actually lands when routed to a deep link
 */
 
 test('should navigate to correct hash of page when a deep link is directly routed to', async t => {
-  const url = `${baseUrl}/foundation/color#background-colors`
+  const url = `${baseUrl}/foundation/color#background-colors`;
   const pageSection = Selector('#background-colors');
   await t
     .navigateTo(url)
-    .expect(pageSection.getBoundingClientRectProperty("top"))
+    .expect(pageSection.getBoundingClientRectProperty('top'))
     .within(-150, 150);
 });
