@@ -57,13 +57,15 @@ const data = [
 ];
 
 export const DashboardTiles = ({ mobile }) => {
+  // placeholder to be swapped with responsive context
+  const size = mobile && 'small';
   return (
     <Tiles
       gap="medium"
       rows="medium"
-      columns={!mobile ? { count: 3, size: 'auto' } : 'auto'}
-      margin={mobile && { bottom: 'xlarge' }}
-      pad={mobile && { bottom: 'large' }}
+      columns={size !== 'small' ? { count: 3, size: 'auto' } : 'auto'}
+      margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
+      pad={size === 'small' ? { bottom: 'large' } : undefined}
     >
       {data.map(value => (
         <Tile
