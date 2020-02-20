@@ -68,7 +68,7 @@ export const DashboardTiles = ({ mobile }) => {
       {data.map(value => (
         <Tile
           background={value.color}
-          key={`Tile ${value}`}
+          key={`Tile ${value.title}`}
           alignContent="center"
           onClick={() => {}}
         >
@@ -79,7 +79,7 @@ export const DashboardTiles = ({ mobile }) => {
             size="small"
             gap="medium"
             direction="column"
-            align="left"
+            align="start"
           >
             {value.icon}
           </Identifier>

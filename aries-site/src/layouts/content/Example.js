@@ -106,7 +106,6 @@ export const Example = ({
         direction="row"
         background="background-front"
         pad="large"
-        // style={{ transform: 'scale(0.7)' }}
         {...rest}
       />
       {(code || designer || docs || figma) && (
