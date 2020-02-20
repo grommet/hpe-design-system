@@ -26,7 +26,7 @@ export const SidebarExample = ({ direction, mobile, ...rest }) => {
         height="xxsmall"
         width="xxsmall"
         round="full"
-        margin={size !== 'small' ? { right: 'small' } : { bottom: 'medium' }}
+        margin={size === 'small' ? { right: 'small' } : { bottom: 'medium' }}
         // eslint-disable-next-line max-len
         background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
       />
