@@ -1,7 +1,12 @@
-/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
-import { baseUrl, getLocation, repeatKeyPress, Search, getSuggestion } from '../utils';
+import { 
+  baseUrl,
+  getLocation,
+  repeatKeyPress,
+  Search,
+  getSuggestion, 
+} from '../utils';
 
 fixture('Search')
   .page(baseUrl)
@@ -9,7 +14,8 @@ fixture('Search')
     await waitForReact();
   });
 
-test('should navigate to correct page after user types and clicks suggestion with mouse', async t => {
+test('should navigate to correct page after user types'
++ 'and clicks suggestion with mouse', async t => {
   const page = 'Develop';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
   const suggestion = getSuggestion(page);
@@ -20,7 +26,8 @@ test('should navigate to correct page after user types and clicks suggestion wit
     .eql(expectedPath);
 });
 
-test('should navigate to correct page after user types page name and hits enter', async t => {
+test('should navigate to correct page after user'
++ 'types page name and hits enter', async t => {
   const page = 'Foundation';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
@@ -31,7 +38,8 @@ test('should navigate to correct page after user types page name and hits enter'
     .eql(expectedPath);
 });
 
-test('should navigate to correct hash after user clicks a suggestion that leads to a page subsection', async t => {
+test('should navigate to correct hash after user clicks a'
++ 'suggestion that leads to a page subsection', async t => {
   const expectedPath = '/foundation/color#background-colors';
   const page = 'Background Colors';
   const suggestion = getSuggestion(page);
@@ -43,7 +51,8 @@ test('should navigate to correct hash after user clicks a suggestion that leads 
     .eql(baseUrl + expectedPath);
 });
 
-test('should navigate to correct page when user is only using keyboard ', async t => {
+test('should navigate to correct page'
++ 'when user is only using keyboard ', async t => {
   const page = 'Aruba Logo';
   const expectedPath = '/foundation/branding#aruba-logo';
   const search = ReactSelector(`${Search} Search__StyledTextInput`);
