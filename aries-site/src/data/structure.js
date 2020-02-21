@@ -59,11 +59,11 @@ export const structure = [
     name: 'Templates',
     color: 'purple',
     description:
-      'These templates help jumpstart the design and development of applications by demonstrating how components combine at the screen layout level.',
+      'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
     icon: size => <IconTemplates size={size} />,
     seoDescription:
-      'Starter templates to jumpstart the design and development of application screens.',
-    pages: ['Dashboard', 'List Screen'],
+      'HPE Design System starter templates for jumpstarting application screen design and development.',
+    pages: ['Dashboards', 'List View'],
   },
   {
     name: 'Components',
@@ -240,20 +240,21 @@ export const structure = [
     sections: [],
   },
   {
-    name: 'Dashboard',
+    name: 'Dashboards',
     description:
-      'A template for a dashboard screen that features content within tiles.',
+      'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
     icon: size => <IconBrand size={size} />,
     seoDescription:
-      'A template for a dashboard screen that features content within tiles.',
+      'HPE Design System dashboard template for screens featuring content within tiles.',
     sections: [],
   },
   {
-    name: 'List Screen',
-    description: 'A template for a service list screen.',
+    name: 'List View',
+    description:
+      'Go-to pattern for displaying many services, devices, users, and more.',
     icon: size => <IconBrand size={size} />,
     seoDescription:
-      'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
+      'HPE Design System template for providing a list of information.',
     sections: [],
   },
 ];
