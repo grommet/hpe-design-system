@@ -4,7 +4,7 @@ import { ListScreenExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, nameToPath } from '../../utils';
 
-const title = 'List Screen';
+const title = 'List View';
 const topic = 'Templates';
 const page = getPageDetails(title);
 
@@ -36,7 +36,7 @@ const ListScreen = () => {
       <Meta
         title={title}
         description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates/service-list-screen"
+        canonicalUrl="https://design-system.hpe.design/templates/list-view"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
