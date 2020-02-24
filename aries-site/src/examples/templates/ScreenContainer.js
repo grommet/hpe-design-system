@@ -10,12 +10,13 @@ export const ScreenContainer = ({ mobile, ...rest }) => (
         <Box
           background="background-back"
           width={size === 'small' ? { max: 'large' } : '100%'}
-          height={size === 'small' ? { max: 'large' } : { max: 'large' }}
+          height={{ max: 'large' }}
           style={{ position: 'relative' }}
         >
-          <Box direction="row" overflow="auto" fill>
+          <Box direction="row" fill>
             {size !== 'small' && <SidebarExample />}
             <Box
+              overflow="auto"
               pad={{ horizontal: 'medium', bottom: 'medium' }}
               flex
               {...rest}
