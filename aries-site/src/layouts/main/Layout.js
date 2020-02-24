@@ -46,6 +46,7 @@ export const Layout = ({
                 position: 'fixed',
                 bottom: size !== 'small' ? '48px' : '24px',
                 right: '24px',
+                zIndex: 10,
               }}
             >
               <ThemeModeToggle />
