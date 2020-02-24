@@ -15,10 +15,8 @@ export const SidebarExample = ({ direction, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      align="start"
       background="blue"
       direction={direction}
-      fill="vertical"
       pad={{
         horizontal: size !== 'small' ? 'small' : 'medium',
         vertical: size !== 'small' ? 'medium' : 'small',
