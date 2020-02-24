@@ -25,7 +25,7 @@ const Dashboards = () => {
             Template dashboard patterns for presenting operational and
             analytical dashboards. Dashboards provide users peace-of-mind
             knowing critical measures, applications, and services are healthy
-            &mdash; and easy access to areas needing attention for the moments
+            &mdash; plus, easy access to areas needing attention for the moments
             when they are not.
           </SubsectionText>
           <SubsectionText size="medium">
