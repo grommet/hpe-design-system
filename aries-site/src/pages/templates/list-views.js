@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Box, Button, CheckBox } from 'grommet';
+import { CheckBox } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
 import { ListScreenExample } from '../../examples';
-import { ContentSection, Example, Layout, Subsection } from '../../layouts';
+import {
+  ContentSection,
+  Example,
+  ExampleComponents,
+  Layout,
+  Subsection,
+} from '../../layouts';
 import { getPageDetails, nameToPath } from '../../utils';
 
 const title = 'List Views';
@@ -44,36 +50,27 @@ const ListScreen = () => {
             <ListScreenExample mobile={checked} />
           </Example>
         </Subsection>
-        <Subsection name="What components make this screen?" level={3}>
-          <SubsectionText>
-            To find more details about the usage of each of these components,
-            check out their documentation.
-          </SubsectionText>
-          <Box direction="row-responsive" gap="medium" wrap>
-            <Button
-              label="Box"
-              href={nameToPath('Box')}
-              margin={{ bottom: 'small' }}
-            />
-            <Button
-              label="Button"
-              href={nameToPath('Button')}
-              margin={{ bottom: 'small' }}
-            />
-            <Button
-              label="Header"
-              href={nameToPath('Header')}
-              margin={{ bottom: 'small' }}
-            />
-            <Button
-              label="List"
-              href="https://v2.grommet.io/list?theme=hpe#props"
-              target="_blank"
-              rel="noopener noreferrer"
-              margin={{ bottom: 'small' }}
-            />
-          </Box>
-        </Subsection>
+        <ExampleComponents
+          components={[
+            {
+              name: 'Box',
+              href: nameToPath('Box'),
+            },
+            {
+              name: 'Button',
+              href: nameToPath('Button'),
+            },
+            {
+              name: 'Header',
+              href: nameToPath('Header'),
+            },
+            {
+              name: 'List',
+              href: 'https://v2.grommet.io/list?theme=hpe#props',
+              target: '_blank',
+            },
+          ]}
+        />
       </ContentSection>
     </Layout>
   );
