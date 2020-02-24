@@ -58,7 +58,7 @@ const Layout = () => (
         <FooterExample />
         <SubsectionText>
           Footer is a Box with a set of preset properties. Box properties allow
-          you to custmize the footer.
+          you to cusotmize the footer.
         </SubsectionText>
       </Subsection>
     </ContentSection>
