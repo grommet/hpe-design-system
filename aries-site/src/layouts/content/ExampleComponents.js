@@ -13,6 +13,7 @@ export const ExampleComponents = ({ components }) => (
     <Box direction="row-responsive" gap="medium" wrap>
       {components.map(component => (
         <Button
+          key={component.name}
           label={component.name}
           href={component.href}
           target={component.target}
@@ -24,11 +25,11 @@ export const ExampleComponents = ({ components }) => (
 );
 
 ExampleComponents.propTypes = {
-  components: PropTypes.arrayOf([
+  components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       href: PropTypes.string,
       target: PropTypes.string,
     }),
-  ]),
+  ),
 };
