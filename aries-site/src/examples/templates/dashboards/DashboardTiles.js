@@ -60,8 +60,7 @@ export const DashboardTiles = () => {
   return (
     <Tiles
       gap="medium"
-      rows="small"
-      columns={size !== 'small' ? { count: 3, size: 'auto' } : 'auto'}
+      columns={size !== 'small' ? 'small' : 'auto'}
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
     >
       {data.map(value => (
