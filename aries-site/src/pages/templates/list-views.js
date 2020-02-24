@@ -42,10 +42,13 @@ const ListScreen = () => {
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>
             HPE Design System list view templates are go-to patterns for
-            displaying many homogeneous data such as services, devices, users,
-            and more. List views are optimized for scanability and reading
-            comprehension. Each list item provides users focussed information
-            and identity labels to aid selection, decision making, and action.
+            displaying homogeneous data such as services, devices, users, and
+            more.
+          </SubsectionText>
+          <SubsectionText size="medium">
+            List views are optimized for scanability and reading comprehension.
+            Each list item provides users focussed information and identity
+            labels to aid selection, decision making, and action.
           </SubsectionText>
         </Subsection>
       </ContentSection>
