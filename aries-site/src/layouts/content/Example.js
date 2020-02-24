@@ -68,14 +68,7 @@ const syntax = {
   `,
 };
 
-export const Example = ({
-  code,
-  components,
-  designer,
-  docs,
-  figma,
-  ...rest
-}) => {
+export const Example = ({ code, designer, docs, figma, ...rest }) => {
   const theme = React.useContext(ThemeContext);
   const [open, setOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
@@ -142,26 +135,6 @@ export const Example = ({
                   <Anchor label="properties" href={docs} target="_blank" />
                 )}
               </Box>
-              {components && (
-                <Box gap="small">
-                  <Text>What components are being used?</Text>
-                  <Box
-                    direction="row-responsive"
-                    gap="small"
-                    align="center"
-                    wrap
-                  >
-                    {components.map(component => (
-                      <Button
-                        label={component.name}
-                        href={component.href}
-                        margin={{ bottom: 'small' }}
-                        target={component.type === 'external' && '_blank'}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              )}
             </Box>
           )}
           <Box direction="row" justify="end">

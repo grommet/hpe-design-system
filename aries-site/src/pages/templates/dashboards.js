@@ -50,11 +50,7 @@ const Dashboards = () => {
             value={checked}
             toggle
           />
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
-            figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
-            designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
-          >
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
             <DashboardExample mobile={checked} />
           </Example>
         </Subsection>
@@ -64,10 +60,10 @@ const Dashboards = () => {
             check out their documentation.
           </SubsectionText>
           <Box direction="row-responsive" gap="medium">
-            <Button label="Header" href={nameToPath('Header')} />
-            <Button label="Tiles" />
             <Button label="Box" href={nameToPath('Box')} />
             <Button label="Button" href={nameToPath('Button')} />
+            <Button label="Header" href={nameToPath('Header')} />
+            <Button label="Tiles" />
           </Box>
         </Subsection>
       </ContentSection>

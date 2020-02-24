@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box, Layer, ResponsiveContext } from 'grommet';
 import { SidebarExample } from '.';
 
 export const ScreenContainer = ({ mobile, ...rest }) => (
@@ -9,13 +9,11 @@ export const ScreenContainer = ({ mobile, ...rest }) => (
       {size => (
         <Box
           background="background-back"
-          style={{ position: 'relative' }}
-          width={size === 'small' ? { max: 'large' } : undefined}
-          height={size === 'small' ? { max: 'large' } : undefined}
-          fill={size !== 'small'}
+          width={size === 'small' ? { max: 'large' } : '100%'}
+          height={size === 'small' ? { max: 'large' } : { max: 'large' }}
         >
-          <Box direction="row" overflow="auto">
-            {size !== 'small' && <SidebarExample mobile={mobile} />}
+          <Box direction="row" overflow="auto" fill>
+            {size !== 'small' && <SidebarExample />}
             <Box
               pad={{ horizontal: 'medium', bottom: 'medium' }}
               flex
@@ -23,12 +21,18 @@ export const ScreenContainer = ({ mobile, ...rest }) => (
             />
           </Box>
           {size === 'small' && (
-            <SidebarExample
-              direction="row"
+            <Layer
+              animate={false}
               fill="horizontal"
-              mobile={mobile}
-              style={{ position: 'absolute', bottom: 0, left: 0 }}
-            />
+              modal={false}
+              position="bottom"
+            >
+              <SidebarExample
+                direction="row"
+                fill="horizontal"
+                mobile={mobile}
+              />
+            </Layer>
           )}
         </Box>
       )}
