@@ -59,11 +59,23 @@ const Dashboards = () => {
             To find more details about the usage of each of these components,
             check out their documentation.
           </SubsectionText>
-          <Box direction="row-responsive" gap="medium">
-            <Button label="Box" href={nameToPath('Box')} />
-            <Button label="Button" href={nameToPath('Button')} />
-            <Button label="Header" href={nameToPath('Header')} />
-            <Button label="Tiles" />
+          <Box direction="row-responsive" gap="medium" wrap>
+            <Button
+              label="Box"
+              href={nameToPath('Box')}
+              margin={{ bottom: 'small' }}
+            />
+            <Button
+              label="Button"
+              href={nameToPath('Button')}
+              margin={{ bottom: 'small' }}
+            />
+            <Button
+              label="Header"
+              href={nameToPath('Header')}
+              margin={{ bottom: 'small' }}
+            />
+            <Button label="Tiles" margin={{ bottom: 'small' }} />
           </Box>
         </Subsection>
       </ContentSection>
