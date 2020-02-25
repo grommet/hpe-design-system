@@ -34,7 +34,7 @@ const HumanCentered = () => (
           and adhering to readability guidelines are just the beginning of
           understanding what it means to be inclusive. Community discussions
           that allow the Design System to thrive invites new ideas, innovation,
-          and ongoing learning. THe Design System seeks to embrace an ethic that
+          and ongoing learning. The Design System seeks to embrace an ethic that
           honors human engagement in the digital experience, keeping in mind
           emotional and social implications of the experience.
         </SubsectionText>

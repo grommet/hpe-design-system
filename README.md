@@ -88,9 +88,52 @@ yarn build
 - Schedule stakeholder interviews and gather probing questions. (what info is valuable for us moving forward?) 
 
 **5. February 10 - 14**   
-- Dev: Button, Type, Anchor, Color 
-- Design: Layout, Navigation, List, Form/input 
+- Dev: 
+  - Button Pattern
+  - Type patterns
+- Design: 
+  - Anchor pattern  
+  - Grid Layout template 
+- Research: 
+  - Usability testing the website 
 
 **6. February 17 - 21**  
-- Dev: Layout, Navigation, List, Form
-- Design: Modal/drop, Card 
+- Dev: 
+  - List template
+  - Dashboard template
+- Research:
+  - Moterated stakeholder interviews
+- Update website to accomidate templates 
+- Form Discovery 
+
+**7. February 24 - 28**  
+- Development:
+  - Refine Dashboard and List template implementation
+- Design: 
+  - Form and Dashboard template variations
+  - Finalize stickersheet 
+  - Finalize Sidebar navigation template 
+- Research  
+  - User testing and moderated interview shareout 
+  
+**8. March 2 - 6**
+- Design:
+  - List template variation 
+- Development: 
+  - Anchor pattern
+  - Form and Dashboard Q/A
+  - Website refinments 
+  
+**9. March 9 - 13**  
+- Development:
+  - Form template variations
+  - List template variations 
+- Design:
+  - Navigation variation 
+  
+**10. March 16 - 20**
+- Development: 
+  - Navigation template Q/A
+- Design: 
+  - Modal/drop 
+  - Card 
