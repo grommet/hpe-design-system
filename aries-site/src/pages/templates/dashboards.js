@@ -75,7 +75,9 @@ const Dashboards = () => {
               href: nameToPath('Header'),
             },
             {
-              name: 'Tiles',
+              name: 'Grid',
+              href: 'https://v2.grommet.io/grid?theme=hpe#props',
+              target: '_blank',
             },
           ]}
         />
