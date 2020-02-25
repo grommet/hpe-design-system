@@ -81,12 +81,16 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Menu">
-        <MenuExample />
-        <SubsectionText>
+      <SubsectionText>
           Menu is used to filter or sort content on a page. It is similar to the
           select component. However, use the select component when the user must
           specify from a list of options and submit. See the Select Component.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/menu#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js">
+          <MenuExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>

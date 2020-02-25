@@ -2,8 +2,6 @@ import React from 'react';
 import { Box, Menu } from 'grommet';
 import { aries } from '../../../themes/aries';
 
-import { UsageExample } from '../../../layouts';
-
 export const MenuExample = () => {
   const items = [
     { label: 'Past 12 months' },
@@ -20,16 +18,8 @@ export const MenuExample = () => {
   const background = aries.global.colors.background.light;
 
   return (
-    <UsageExample
-      pad={{
-        horizontal: 'large',
-        vertical: 'large',
-        small: { horizontal: 'large', vertical: 'xlarge' },
-      }}
-    >
       <Box background={background} round="xsmall">
         <Menu label="Choose a timeframe" items={items} width="medium" />
       </Box>
-    </UsageExample>
   );
 };
