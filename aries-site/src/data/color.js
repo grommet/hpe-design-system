@@ -10,7 +10,7 @@ const { colors } = theme.global;
 /* Color Palette */
 const primaryColors = [
   {
-    name: 'Green',
+    name: 'green',
     value: 'green!',
     hex: colors['green!'],
   },
@@ -18,32 +18,32 @@ const primaryColors = [
 
 const coreColors = [
   {
-    name: 'Purple',
+    name: 'purple',
     value: 'purple!',
     hex: colors['purple!'],
   },
   {
-    name: 'Teal',
+    name: 'peal',
     value: 'teal!',
     hex: colors['teal!'],
   },
   {
-    name: 'Blue',
+    name: 'blue',
     value: 'blue!',
     hex: colors['blue!'],
   },
   {
-    name: 'Red',
+    name: 'red',
     value: 'red!',
     hex: colors['red!'],
   },
   {
-    name: 'Orange',
+    name: 'orange',
     value: 'orange!',
     hex: colors['orange!'],
   },
   {
-    name: 'Yellow',
+    name: 'yellow',
     value: 'yellow!',
     hex: colors['yellow!'],
   },
@@ -212,27 +212,27 @@ const ctaColors = [
 
 const statusColors = [
   {
-    name: 'Critical',
+    name: 'critical',
     value: colors['status-critical'],
     hex: colors['status-critical'],
   },
   {
-    name: 'Warning',
+    name: 'warning',
     value: colors['status-warning'],
     hex: colors['status-warning'],
   },
   {
-    name: 'Ok',
+    name: 'ok',
     value: colors['status-ok'],
     hex: colors['status-ok'],
   },
   {
-    name: 'Unknown',
+    name: 'unknown',
     value: colors['status-unknown'],
     hex: colors['status-unknown'],
   },
   {
-    name: 'Disabled',
+    name: 'disabled',
     value: colors['status-disabled'],
     hex: colors['status-disabled'],
   },
