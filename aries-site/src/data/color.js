@@ -10,7 +10,7 @@ const { colors } = theme.global;
 /* Color Palette */
 const primaryColors = [
   {
-    name: 'green',
+    name: 'Green',
     value: 'green!',
     hex: colors['green!'],
   },
@@ -18,32 +18,32 @@ const primaryColors = [
 
 const coreColors = [
   {
-    name: 'purple',
+    name: 'Purple',
     value: 'purple!',
     hex: colors['purple!'],
   },
   {
-    name: 'teal',
+    name: 'Teal',
     value: 'teal!',
     hex: colors['teal!'],
   },
   {
-    name: 'blue',
+    name: 'Blue',
     value: 'blue!',
     hex: colors['blue!'],
   },
   {
-    name: 'red',
+    name: 'Red',
     value: 'red!',
     hex: colors['red!'],
   },
   {
-    name: 'orange',
+    name: 'Orange',
     value: 'orange!',
     hex: colors['orange!'],
   },
   {
-    name: 'yellow',
+    name: 'Yellow',
     value: 'yellow!',
     hex: colors['yellow!'],
   },
@@ -210,6 +210,33 @@ const ctaColors = [
   },
 ];
 
+const statusColors = [
+  {
+    name: 'Critical',
+    value: colors['status-critical'],
+    hex: colors['status-critical'],
+  },
+  {
+    name: 'Warning',
+    value: colors['status-warning'],
+    hex: colors['status-warning'],
+  },
+  {
+    name: 'Ok',
+    value: colors['status-ok'],
+    hex: colors['status-ok'],
+  },
+  {
+    name: 'Unknown',
+    value: colors['status-unknown'],
+    hex: colors['status-unknown'],
+  },
+  {
+    name: 'Disabled',
+    value: colors['status-disabled'],
+    hex: colors['status-disabled'],
+  },
+];
 export const colorExamples = {
   palettes: {
     primaryColors,
@@ -226,5 +253,6 @@ export const colorExamples = {
   text: {
     textColors,
     ctaColors,
+    statusColors,
   },
 };
