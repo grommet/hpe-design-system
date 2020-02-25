@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
-import { FooterLink } from 'aries-core';
+import { NavLink } from 'aries-core';
 import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
-import { Hpe } from 'grommet-icons';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
   const year = new Date().getFullYear();
   return (
     <GrommetFooter
-      direction="row-responsive"
+      direction={size !== 'small' ? 'row' : 'column-reverse'}
       align={size !== 'small' ? 'center' : undefined}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
@@ -17,29 +16,30 @@ export const Footer = () => {
       }}
     >
       <Box align="center" gap="medium" direction="row-responsive">
-        <Hpe size="large" color="brand" />
-        <Text size="small">&copy; {year} Hewlett Packard Enterprise</Text>
+        <Text size="small">
+          &copy; {year} Hewlett Packard Enterprise Development LP
+        </Text>
       </Box>
-      <Box direction="row" gap="medium">
-        <FooterLink
+      <Box alignSelf="center" direction="row" gap="medium">
+        <NavLink
           label="Terms"
           href="https://www.hpe.com/us/en/about/legal/terms-of-use.html"
           target="_blank"
           rel="noreferrer noopener"
         />
-        <FooterLink
+        <NavLink
           label="Privacy"
           href="https://www.hpe.com/us/en/legal/privacy.html"
           target="_blank"
           rel="noreferrer noopener"
         />
-        <FooterLink
+        <NavLink
           label="Security"
           href="https://www.hpe.com/us/en/legal/privacy.html#datacollection"
           target="_blank"
           rel="noreferrer noopener"
         />
-        <FooterLink
+        <NavLink
           label="Feedback"
           href="https://github.com/hpe-design/aries/issues"
           target="_blank"
