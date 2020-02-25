@@ -43,7 +43,6 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Accordion">
-        <AccordionExample />
         <SubsectionText>
           The accordian affords content to be delivered progressively. The
           chevron is used to identify the expand or collapse action while the
@@ -51,6 +50,11 @@ const Controls = () => (
           seeking to provide maximum content in limited, vertical space, an
           accordion is a good alternative.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/accordion#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AccordionExample.js">
+          <AccordionExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
