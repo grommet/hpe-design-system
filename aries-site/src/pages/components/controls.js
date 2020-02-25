@@ -62,6 +62,9 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
+      <SubsectionText>
+          Buttons are used to indicate actions that can be performed.
+        </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
@@ -70,9 +73,6 @@ const Controls = () => (
         >
           <ButtonExample />
         </Example>
-        <SubsectionText>
-          Buttons are used to indicate actions that can be performed.
-        </SubsectionText>
       </Subsection>
     </ContentSection>
     <ContentSection>
