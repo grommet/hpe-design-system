@@ -52,7 +52,8 @@ const Controls = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/accordion#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AccordionExample.js">
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AccordionExample.js"
+        >
           <AccordionExample />
         </Example>
       </Subsection>
@@ -88,19 +89,25 @@ const Controls = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/menu#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js">
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js"
+        >
           <MenuExample />
         </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Tabs">
-        <TabsExample />
-        <SubsectionText>
+      <SubsectionText>
           Tabs allow a user to access content while maintaining the existing
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/tabs#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/TabsExample.js"
+        >
+          <TabsExample />
+        </Example>
       </Subsection>
     </ContentSection>
   </Layout>
