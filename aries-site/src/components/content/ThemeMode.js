@@ -3,7 +3,7 @@ import { Box, Grommet } from 'grommet';
 import { aries } from '../../themes/aries';
 import { useDarkMode } from '../../utils';
 
-export const ThemeMode = ({ children }) => {
+export const ThemeMode = ({ children, ...rest }) => {
   const { value } = useDarkMode(aries.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
@@ -20,6 +20,7 @@ export const ThemeMode = ({ children }) => {
       themeMode={themeMode}
       full
       style={{ height: 'auto' }}
+      {...rest}
     >
       {children}
     </Grommet>

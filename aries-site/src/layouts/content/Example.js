@@ -162,6 +162,12 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
 
 Example.propTypes = {
   code: PropTypes.string,
+  components: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      href: PropTypes.string,
+    }),
+  ),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
