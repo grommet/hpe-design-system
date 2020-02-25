@@ -94,7 +94,7 @@ const Color = () => (
           some of the ways we illustrate our brand.
         </SubsectionText>
       </Subsection>
-      <Subsection name="HPE Brand - Primary" level={3}>
+      <Subsection name="Brand Color" level={3}>
         <SubsectionText>
           HPE green symbolizes growth and vitality, commands attention and
           inspires action. Our green is an essential part of our brand identity
@@ -108,7 +108,7 @@ const Color = () => (
           </UsageExample>
         )}
       </Subsection>
-      <Subsection name="HPE Design System - Core" level={3}>
+      <Subsection name="Core Palette" level={3}>
         <SubsectionText>
           HPE Core colors provide a set of swatches that compliment HPE Green
           and help establish the vibrant experience HPE embraces. We use
@@ -123,7 +123,7 @@ const Color = () => (
           </UsageExample>
         )}
       </Subsection>
-      <Subsection name="HPE Design System - Light" level={3}>
+      <Subsection name="Light Palette" level={3}>
         <SubsectionText>
           The light color palette provides a set of swatches which compliment
           HPE Core colors for use in combination with dark text to maintain
@@ -136,7 +136,7 @@ const Color = () => (
           </UsageExample>
         )}
       </Subsection>
-      <Subsection name="HPE Design System - Dark" level={3}>
+      <Subsection name="Dark Palette" level={3}>
         <SubsectionText>
           The dark color palette provides a set of swatches which compliment HPE
           Core colors for use in combination with light text to maintain color
