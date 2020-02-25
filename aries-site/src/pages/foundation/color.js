@@ -76,7 +76,7 @@ const Color = () => (
             rel="noreferrer noopener"
           />
           <Button
-            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
             label="See in Figma"
             primary
             target="_blank"
