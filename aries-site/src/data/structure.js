@@ -15,6 +15,7 @@ import {
   IconPhilosophy,
   IconPrinciples,
   IconResources,
+  IconTemplates,
   IconToken,
   IconType,
 } from '../components';
@@ -27,6 +28,7 @@ export const structure = [
     pages: [
       'Guidelines',
       'Foundation',
+      'Templates',
       'Components',
       'Develop',
       'Design',
@@ -52,6 +54,16 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: ['Branding', 'Color', 'Typography', 'Iconography', 'Tokens'],
+  },
+  {
+    name: 'Templates',
+    color: 'purple',
+    description:
+      'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
+    icon: size => <IconTemplates size={size} />,
+    seoDescription:
+      'HPE Design System starter templates for jumpstarting application screen design and development.',
+    pages: ['Dashboards', 'List Views'],
   },
   {
     name: 'Components',
@@ -215,5 +227,23 @@ export const structure = [
       'TextInput',
       'Form',
     ],
+  },
+  {
+    name: 'Dashboards',
+    description:
+      'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription:
+      'HPE Design System dashboard template for screens featuring content within tiles.',
+    sections: [],
+  },
+  {
+    name: 'List Views',
+    description:
+      'Go-to patterns for displaying many services, devices, users, and more.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription:
+      'HPE Design System template for providing a list of information.',
+    sections: [],
   },
 ];
