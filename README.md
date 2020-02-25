@@ -108,7 +108,6 @@ yarn build
 
 **7. February 24 - 28**  
 - Development:
-  - Anchor pattern
   - Refine Dashboard and List template implementation
 - Design: 
   - Form and Dashboard template variations
@@ -121,6 +120,7 @@ yarn build
 - Design:
   - List template variation 
 - Development: 
+  - Anchor pattern
   - Form and Dashboard Q/A
   - Website refinments 
   
