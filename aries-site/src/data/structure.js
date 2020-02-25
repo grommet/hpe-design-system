@@ -232,14 +232,6 @@ export const structure = [
     ],
   },
   {
-    name: 'Login Screen',
-    description: 'A template for a login/sign-in screen.',
-    icon: size => <IconBrand size={size} />,
-    seoDescription:
-      'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
-    sections: [],
-  },
-  {
     name: 'Dashboards',
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
