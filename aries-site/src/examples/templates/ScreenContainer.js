@@ -24,9 +24,6 @@ export const ScreenContainer = ({ mobile, ...rest }) => (
           </Box>
           {size === 'small' && (
             <SidebarExample
-              direction="row"
-              fill="horizontal"
-              mobile={mobile}
               style={{ position: 'absolute', bottom: 0, left: 0 }}
             />
           )}
