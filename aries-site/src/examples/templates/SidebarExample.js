@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
 import {
   Apps,
@@ -11,16 +10,17 @@ import {
   StatusUnknown,
 } from 'grommet-icons';
 
-export const SidebarExample = ({ direction, ...rest }) => {
+export const SidebarExample = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
       background="blue"
-      direction={direction}
+      direction={size !== 'small' ? 'column' : 'row'}
       pad={{
         horizontal: size !== 'small' ? 'small' : 'medium',
         vertical: size !== 'small' ? 'medium' : 'small',
       }}
+      fill={size !== 'small' ? 'vertical' : 'horizontal'}
       {...rest}
     >
       {size !== 'small' && (
@@ -35,7 +35,7 @@ export const SidebarExample = ({ direction, ...rest }) => {
       )}
       <Box
         flex="grow"
-        direction={direction}
+        direction={size !== 'small' ? 'column' : 'row'}
         justify={size === 'small' ? 'between' : undefined}
       >
         <Button icon={<Clock color="text-xweak" />} />
@@ -46,16 +46,11 @@ export const SidebarExample = ({ direction, ...rest }) => {
       </Box>
 
       {size !== 'small' && (
-        <Box direction={direction}>
+        <Box direction={size !== 'small' ? 'column' : 'row'}>
           <Button icon={<Chat color="text-xweak" />} />
           <Button icon={<StatusUnknown color="text-xweak" />} />
         </Box>
       )}
     </Box>
   );
-};
-
-SidebarExample.propTypes = {
-  direction: PropTypes.string,
-  mobile: PropTypes.bool,
 };
