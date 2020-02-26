@@ -4,7 +4,7 @@ import { ReactSelector } from 'testcafe-react-selectors';
 export const baseUrl = 'http://localhost:3030';
 
 // Selector name found using Chrome React dev tools on prod mode of website
-export const Search = 'D Box';
+export const Search = 'Search__StyledTextInput';
 
 export const getLocation = ClientFunction(() => document.location.href);
 
