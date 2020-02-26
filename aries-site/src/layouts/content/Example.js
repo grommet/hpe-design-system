@@ -264,6 +264,7 @@ export const Example = ({
                   icon={<Contract />}
                   onClick={() => {
                     setShowLayer(false);
+                    setMobile(false);
                   }}
                   hoverIndicator
                 />
