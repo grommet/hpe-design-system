@@ -114,40 +114,37 @@ export const Example = ({
     theme.dark,
   ]);
 
-  const DeviceToggle = () => (
-    <RadioButtonGroup
-      name="radio"
-      direction="row"
-      gap="none"
-      options={['Desktop', 'Mobile']}
-      value={mobile ? 'Mobile' : 'Desktop'}
-      onChange={event => setMobile(event.target.value === 'Mobile')}
-    >
-      {(option, { checked, hover }) => {
-        const Icon = option === 'Desktop' ? Desktop : IconMobile;
-        let background;
-        if (checked) background = 'brand';
-        else if (hover) background = 'active-background';
-        else background = undefined;
-        return (
-          <Box
-            background={background}
-            direction="row"
-            pad="small"
-            align="center"
-            gap="small"
-          >
-            <Icon />
-            <Text>{option}</Text>
-          </Box>
-        );
-      }}
-    </RadioButtonGroup>
-  );
   return (
     <Box margin={{ vertical: 'small' }}>
       <Box background="background-contrast" direction="row" justify="start">
-        <DeviceToggle />
+        <RadioButtonGroup
+          name="radio"
+          direction="row"
+          gap="none"
+          options={['Desktop', 'Mobile']}
+          value={mobile ? 'Mobile' : 'Desktop'}
+          onChange={event => setMobile(event.target.value === 'Mobile')}
+        >
+          {(option, { checked, hover }) => {
+            const Icon = option === 'Desktop' ? Desktop : IconMobile;
+            let background;
+            if (checked) background = 'brand';
+            else if (hover) background = 'active-background';
+            else background = undefined;
+            return (
+              <Box
+                background={background}
+                direction="row"
+                pad="small"
+                align="center"
+                gap="small"
+              >
+                <Icon />
+                <Text>{option}</Text>
+              </Box>
+            );
+          }}
+        </RadioButtonGroup>
         <Button
           icon={<Expand />}
           onClick={() => {
@@ -235,7 +232,34 @@ export const Example = ({
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
               <Box direction="row" justify="start">
-                <DeviceToggle />
+                <RadioButtonGroup
+                  name="radio"
+                  direction="row"
+                  gap="none"
+                  options={['Desktop', 'Mobile']}
+                  value={mobile ? 'Mobile' : 'Desktop'}
+                  onChange={event => setMobile(event.target.value === 'Mobile')}
+                >
+                  {(option, { checked, hover }) => {
+                    const Icon = option === 'Desktop' ? Desktop : IconMobile;
+                    let background;
+                    if (checked) background = 'brand';
+                    else if (hover) background = 'active-background';
+                    else background = undefined;
+                    return (
+                      <Box
+                        background={background}
+                        direction="row"
+                        pad="small"
+                        align="center"
+                        gap="small"
+                      >
+                        <Icon />
+                        <Text>{option}</Text>
+                      </Box>
+                    );
+                  }}
+                </RadioButtonGroup>
                 <Button
                   icon={<Contract />}
                   onClick={() => {
