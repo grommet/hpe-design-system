@@ -1,14 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import {
-  Apps,
-  Chat,
-  Clock,
-  Configure,
-  Terminal,
-  ShieldSecurity,
-  StatusUnknown,
-} from 'grommet-icons';
+import { Apps, Chat, Clock, Terminal, StatusUnknown } from 'grommet-icons';
 
 export const SidebarExample = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
@@ -41,8 +33,6 @@ export const SidebarExample = ({ ...rest }) => {
         <Button icon={<Clock color="text-xweak" />} />
         <Button icon={<Apps color="text-xweak" />} />
         <Button icon={<Terminal color="text-xweak" />} />
-        <Button icon={<ShieldSecurity color="text-xweak" />} />
-        <Button icon={<Configure color="text-xweak" />} />
       </Box>
 
       {size !== 'small' && (
