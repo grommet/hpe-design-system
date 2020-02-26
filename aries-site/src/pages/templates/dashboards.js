@@ -1,5 +1,4 @@
 import React from 'react';
-import { CheckBox } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
 import { DashboardExample } from '../../examples';
 import {
@@ -16,8 +15,6 @@ const topic = 'Templates';
 const page = getPageDetails(title);
 
 const Dashboards = () => {
-  const [checked, setChecked] = React.useState(false);
-
   return (
     <Layout title={title}>
       <Meta
@@ -50,14 +47,11 @@ const Dashboards = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Operational Dashboard">
-          <CheckBox
-            label="View mobile layout"
-            onChange={() => setChecked(!checked)}
-            value={checked}
-            toggle
-          />
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-            <DashboardExample mobile={checked} />
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
+            template
+          >
+            <DashboardExample />
           </Example>
         </Subsection>
         <ExampleComponents

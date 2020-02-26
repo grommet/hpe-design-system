@@ -1,9 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Anchor, Box, Button, Stack, Text, ThemeContext } from 'grommet';
-import { FormDown, FormUp } from 'grommet-icons';
+import {
+  Anchor,
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  RadioButtonGroup,
+  Stack,
+  Text,
+  ThemeContext,
+} from 'grommet';
+import { Contract, Desktop, Expand, FormDown, FormUp } from 'grommet-icons';
 import Prism from 'prismjs';
+import { IconMobile } from '../../components';
 
 const syntax = {
   dark: styled.pre`
@@ -68,11 +79,21 @@ const syntax = {
   `,
 };
 
-export const Example = ({ code, designer, docs, figma, ...rest }) => {
+export const Example = ({
+  children,
+  code,
+  designer,
+  docs,
+  figma,
+  template,
+  ...rest
+}) => {
   const theme = React.useContext(ThemeContext);
   const [open, setOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
+  const [mobile, setMobile] = React.useState(false);
+  const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
 
   React.useEffect(() => {
@@ -99,10 +120,18 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
         direction="row"
         background="background-front"
         pad="large"
+        // Height for template screen needs to be between medium and large
+        // to maintain aspect ratio, so this is small + medium
+        height={template ? '576px' : undefined}
         {...rest}
-      />
+      >
+        {children &&
+          React.cloneElement(children, {
+            mobile,
+          })}
+      </Box>
       {(code || designer || docs || figma) && (
-        <Stack guidingChild="first" anchor="top-right">
+        <Stack guidingChild="first" anchor="top-right" fill>
           {open && (
             <Box animation="fadeIn">
               <Box
@@ -138,6 +167,14 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
             </Box>
           )}
           <Box direction="row" justify="end">
+            {template && (
+              <Button
+                title="View full screen"
+                hoverIndicator
+                icon={<Expand />}
+                onClick={() => setShowLayer(true)}
+              />
+            )}
             <Button
               title="More details"
               plain
@@ -156,11 +193,67 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
           </Box>
         </Stack>
       )}
+      {showLayer && (
+        <Keyboard
+          onEsc={() => {
+            setShowLayer(false);
+            setMobile(false);
+          }}
+        >
+          <Layer full animation="fadeIn">
+            <Box
+              fill
+              background="background-contrast"
+              gap="medium"
+              pad="medium"
+            >
+              <Box direction="row" justify="center" fill {...rest}>
+                {children &&
+                  React.cloneElement(children, {
+                    mobile,
+                  })}
+              </Box>
+              <Box direction="row" justify="end" gap="small">
+                <RadioButtonGroup
+                  name="radio"
+                  direction="row"
+                  gap="xsmall"
+                  options={['desktop', 'mobile']}
+                  value={mobile ? 'mobile' : 'desktop'}
+                  onChange={event => setMobile(event.target.value === 'mobile')}
+                >
+                  {(option, { checked, hover }) => {
+                    const Icon = option === 'desktop' ? Desktop : IconMobile;
+                    let background;
+                    if (checked) background = 'brand';
+                    else if (hover) background = 'active';
+                    else background = 'background-contrast';
+                    return (
+                      <Box background={background} pad="xsmall">
+                        <Icon />
+                      </Box>
+                    );
+                  }}
+                </RadioButtonGroup>
+                <Button
+                  icon={<Contract />}
+                  onClick={() => {
+                    setShowLayer(false);
+                    setMobile(false);
+                  }}
+                  hoverIndicator
+                />
+              </Box>
+            </Box>
+          </Layer>
+        </Keyboard>
+      )}
     </Box>
   );
 };
 
 Example.propTypes = {
+  children: PropTypes.element,
   code: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
@@ -171,4 +264,5 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  template: PropTypes.bool,
 };
