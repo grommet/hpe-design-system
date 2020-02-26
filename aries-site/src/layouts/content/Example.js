@@ -201,19 +201,14 @@ export const Example = ({
           }}
         >
           <Layer full animation="fadeIn">
-            <Box
-              fill
-              background="background-contrast"
-              gap="medium"
-              pad="medium"
-            >
+            <Box fill background="background-front">
               <Box direction="row" justify="center" fill {...rest}>
                 {children &&
                   React.cloneElement(children, {
                     mobile,
                   })}
               </Box>
-              <Box direction="row" justify="end" gap="small">
+              <Box direction="row" justify="end" gap="small" pad="small">
                 <RadioButtonGroup
                   name="radio"
                   direction="row"
