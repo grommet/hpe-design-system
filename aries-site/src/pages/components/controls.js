@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from 'grommet';
 
 import { Meta, SubsectionText } from '../../components';
 import {
@@ -67,7 +68,7 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
-      <SubsectionText>
+        <SubsectionText>
           Buttons are used to indicate actions that can be performed.
         </SubsectionText>
         <Example
@@ -82,10 +83,14 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Menu">
-      <SubsectionText>
-          Menu is used to filter or sort content on a page. It is similar to the
-          select component. However, use the select component when the user must
-          specify from a list of options and submit. See the Select Component.
+        <SubsectionText>
+          Menu is used to filter or sort content on a page. It is
+          similar to the{' '}
+          <Anchor color="green!" href="input#select">
+            Select component
+          </Anchor>{' '}
+          However, use the select component when the user must specify from a
+          list of options and submit.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/menu#props"
@@ -97,7 +102,7 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Tabs">
-      <SubsectionText>
+        <SubsectionText>
           Tabs allow a user to access content while maintaining the existing
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
