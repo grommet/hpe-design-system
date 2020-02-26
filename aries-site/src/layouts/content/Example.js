@@ -131,7 +131,7 @@ export const Example = ({
           })}
       </Box>
       {(code || designer || docs || figma) && (
-        <Stack guidingChild="first" anchor="top-right" fill>
+        <Stack guidingChild="first" anchor="top-right">
           {open && (
             <Box animation="fadeIn">
               <Box
