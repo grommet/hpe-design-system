@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Meta, SubsectionText } from '../../components';
-import { ContentSection, Layout, Subsection } from '../../layouts';
+import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   CheckboxExample,
   FormExample,
@@ -46,7 +46,12 @@ const Input = () => (
           When the user needs to select one or more options, use a checkbox. The
           click target should include the checkbox label.
         </SubsectionText>
-        <CheckboxExample />
+        <Example
+          docs="https://v2.grommet.io/checkbox#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/CheckboxExample.js"
+        >
+          <CheckboxExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
