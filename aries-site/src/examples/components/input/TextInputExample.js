@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Box, FormField, TextInput } from 'grommet';
 
-import { UsageExample } from '../../../layouts';
-
 const usernamePlaceholder = 'Email address';
 const passwordPlaceholder = 'Password';
 
@@ -37,16 +35,8 @@ const LabelVerticalExample = () => {
 
 export const TextInputExample = () => {
   return (
-    <UsageExample
-      pad={{
-        horizontal: 'large',
-        vertical: 'large',
-        small: { horizontal: 'large', vertical: 'xlarge' },
-      }}
-    >
       <Box direction="row-responsive" gap="large" align="end">
         <LabelVerticalExample />
       </Box>
-    </UsageExample>
   );
 };
