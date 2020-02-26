@@ -73,7 +73,11 @@ const Input = () => (
           When one option of a set of options can be specified, use the
           RadioButtonGroup component.
         </SubsectionText>
-        <RadioButtonGroupExample />
+        <Example
+          docs="https://v2.grommet.io/radiobuttongroup#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/RadioButtonGroupExample.js">
+          <RadioButtonGroupExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -84,7 +88,11 @@ const Input = () => (
           slider provides a value displayed to communicate with the user. This
           help ensure conficence in the use of the control.
         </SubsectionText>
-        <RangeInputExample />
+        <Example
+          docs="https://v2.grommet.io/rangeinput#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/RangeInputExample.js">
+          <RangeInputExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -93,7 +101,11 @@ const Input = () => (
           The Select component is flexible to provide multiple select, search,
           and create options.
         </SubsectionText>
-        <SelectExample />
+        <Example
+          docs="https://v2.grommet.io/select#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/SelectExample.js">
+          <SelectExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -104,7 +116,12 @@ const Input = () => (
           the user with ques to the type of data that is expected in the text
           field.
         </SubsectionText>
-        <TextAreaExample />
+        <Example
+          docs="https://v2.grommet.io/textarea#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/TextAreaExample.js"
+        >
+          <TextAreaExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -115,7 +132,11 @@ const Input = () => (
           component. Style can be variable, based upon the use case and customer
           need that will elicit user confidence in success.
         </SubsectionText>
-        <TextInputExample />
+        <Example
+          docs="https://v2.grommet.io/textinput#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/TextInputExample.js">
+          <TextInputExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
