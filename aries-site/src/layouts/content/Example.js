@@ -128,7 +128,7 @@ export const Example = ({
           {(option, { checked, hover }) => {
             const Icon = option === 'Desktop' ? Desktop : IconMobile;
             let background;
-            if (checked) background = 'brand';
+            if (checked) background = 'background-contrast';
             else if (hover) background = 'active-background';
             else background = undefined;
             return (
@@ -243,7 +243,7 @@ export const Example = ({
                   {(option, { checked, hover }) => {
                     const Icon = option === 'Desktop' ? Desktop : IconMobile;
                     let background;
-                    if (checked) background = 'brand';
+                    if (checked) background = 'background-contrast';
                     else if (hover) background = 'active-background';
                     else background = undefined;
                     return (
