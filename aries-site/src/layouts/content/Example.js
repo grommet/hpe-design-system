@@ -114,8 +114,48 @@ export const Example = ({
     theme.dark,
   ]);
 
+  const DeviceToggle = () => (
+    <RadioButtonGroup
+      name="radio"
+      direction="row"
+      gap="none"
+      options={['Desktop', 'Mobile']}
+      value={mobile ? 'Mobile' : 'Desktop'}
+      onChange={event => setMobile(event.target.value === 'Mobile')}
+    >
+      {(option, { checked, hover }) => {
+        const Icon = option === 'Desktop' ? Desktop : IconMobile;
+        let background;
+        if (checked) background = 'brand';
+        else if (hover) background = 'active-background';
+        else background = undefined;
+        return (
+          <Box
+            background={background}
+            direction="row"
+            pad="small"
+            align="center"
+            gap="small"
+          >
+            <Icon />
+            <Text>{option}</Text>
+          </Box>
+        );
+      }}
+    </RadioButtonGroup>
+  );
   return (
     <Box margin={{ vertical: 'small' }}>
+      <Box background="background-contrast" direction="row" justify="start">
+        <DeviceToggle />
+        <Button
+          icon={<Expand />}
+          onClick={() => {
+            setShowLayer(true);
+          }}
+          hoverIndicator
+        />
+      </Box>
       <Box
         direction="row"
         background="background-front"
@@ -167,14 +207,6 @@ export const Example = ({
             </Box>
           )}
           <Box direction="row" justify="end">
-            {template && (
-              <Button
-                title="View full screen"
-                hoverIndicator
-                icon={<Expand />}
-                onClick={() => setShowLayer(true)}
-              />
-            )}
             <Button
               title="More details"
               plain
@@ -202,42 +234,21 @@ export const Example = ({
         >
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
+              <Box direction="row" justify="start">
+                <DeviceToggle />
+                <Button
+                  icon={<Contract />}
+                  onClick={() => {
+                    setShowLayer(false);
+                  }}
+                  hoverIndicator
+                />
+              </Box>
               <Box direction="row" justify="center" fill {...rest}>
                 {children &&
                   React.cloneElement(children, {
                     mobile,
                   })}
-              </Box>
-              <Box direction="row" justify="end" gap="small" pad="small">
-                <RadioButtonGroup
-                  name="radio"
-                  direction="row"
-                  gap="xsmall"
-                  options={['desktop', 'mobile']}
-                  value={mobile ? 'mobile' : 'desktop'}
-                  onChange={event => setMobile(event.target.value === 'mobile')}
-                >
-                  {(option, { checked, hover }) => {
-                    const Icon = option === 'desktop' ? Desktop : IconMobile;
-                    let background;
-                    if (checked) background = 'brand';
-                    else if (hover) background = 'active';
-                    else background = 'background-contrast';
-                    return (
-                      <Box background={background} pad="xsmall">
-                        <Icon />
-                      </Box>
-                    );
-                  }}
-                </RadioButtonGroup>
-                <Button
-                  icon={<Contract />}
-                  onClick={() => {
-                    setShowLayer(false);
-                    setMobile(false);
-                  }}
-                  hoverIndicator
-                />
               </Box>
             </Box>
           </Layer>
