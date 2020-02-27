@@ -60,7 +60,7 @@ const Input = () => (
           MaskedInput allows you to specify formailzed text within a form field.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/maskedinput#props"
+          docs="https://v2.grommet.io/maskedinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/MaskedInputExample/MaskedInputExample.js"
         >
           <MaskedInputExample />
