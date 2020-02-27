@@ -117,7 +117,7 @@ const Input = () => (
           field.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/textarea#props"
+          docs="https://v2.grommet.io/textarea?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/TextAreaExample.js"
         >
           <TextAreaExample />
