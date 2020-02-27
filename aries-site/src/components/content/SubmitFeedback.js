@@ -1,21 +1,11 @@
-import React from 'react';
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  Grid,
-  Layer,
-  MaskedInput,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
+import React, { useContext, useState } from 'react';
+import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
 import { ChatOption, MailOption, Close, Github } from 'grommet-icons';
 import { ContentSection, Subsection } from '../../layouts/content';
 import { SubsectionText } from '.';
 
-export const Subscribe = () => (
-  <Box gap="medium">
+const Subscribe = () => (
+  <Box gap="small">
     <MailOption size="large" />
     <Text weight="bold" size="large">
       Stay up-to-date
@@ -24,30 +14,20 @@ export const Subscribe = () => (
       Get the latest feature enhancements and announcements directly to your
       inbox.
     </SubsectionText>
-    <Form>
-      <Box gap="small">
-        <FormField margin="none">
-          <MaskedInput
-            name="email"
-            mask={[
-              { regexp: /^[\w\-_.]+$/, placeholder: 'jdoe' },
-              { fixed: '@' },
-              { regexp: /^[\w]+$/, placeholder: 'hpe' },
-              { fixed: '.' },
-              { regexp: /^[\w]+$/, placeholder: 'com' },
-            ]}
-          />
-        </FormField>
-        <Box align="start">
-          <Button type="submit" label="Subscribe" primary />
-        </Box>
-      </Box>
-    </Form>
+    <Box align="start">
+      <Button
+        type="submit"
+        label="Subscribe"
+        // eslint-disable-next-line max-len
+        href="mailto:mike.walrath@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
+        primary
+      />
+    </Box>
   </Box>
 );
 
-export const JoinConversation = () => (
-  <Box gap="medium">
+const JoinConversation = () => (
+  <Box gap="small">
     <ChatOption size="large" />
     <Text weight="bold" size="large">
       Join the conversation
@@ -68,8 +48,8 @@ export const JoinConversation = () => (
   </Box>
 );
 
-export const Contribute = () => (
-  <Box gap="medium">
+const Contribute = () => (
+  <Box gap="small">
     <Github size="large" />
     <Text weight="bold" size="large">
       Contribute
@@ -90,9 +70,24 @@ export const Contribute = () => (
   </Box>
 );
 
+export const FeedbackOptions = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box flex={false} width="xlarge">
+      <Grid
+        columns={size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'}
+        gap="large"
+      >
+        <Subscribe />
+        <JoinConversation />
+        <Contribute />
+      </Grid>
+    </Box>
+  );
+};
+
 export const SubmitFeedback = () => {
-  const size = React.useContext(ResponsiveContext);
-  const [open, setOpen] = React.useState();
+  const [open, setOpen] = useState();
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
 
@@ -110,7 +105,7 @@ export const SubmitFeedback = () => {
         </Subsection>
       </ContentSection>
       {open && (
-        <Layer position="center" modal onClickOutside={onClose} onEsc={onClose}>
+        <Layer modal onClickOutside={onClose} onEsc={onClose} margin="medium">
           <Box flex>
             <Box
               flex={false}
@@ -126,19 +121,7 @@ export const SubmitFeedback = () => {
               pad={{ horizontal: 'large', bottom: 'large' }}
               overflow="auto"
             >
-              <Box flex={false}>
-                <Grid
-                  fill="horizontal"
-                  columns={
-                    size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'
-                  }
-                  gap="large"
-                >
-                  <Subscribe />
-                  <JoinConversation />
-                  <Contribute />
-                </Grid>
-              </Box>
+              <FeedbackOptions />
             </Box>
           </Box>
         </Layer>
