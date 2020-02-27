@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'aries-core';
 import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
+import { nameToPath } from '../../utils';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
@@ -39,12 +40,7 @@ export const Footer = () => {
           target="_blank"
           rel="noreferrer noopener"
         />
-        <NavLink
-          label="Feedback"
-          href="https://github.com/hpe-design/aries/issues"
-          target="_blank"
-          rel="noreferrer noopener"
-        />
+        <NavLink label="Feedback" href={nameToPath('Feedback')} />
       </Box>
     </GrommetFooter>
   );
