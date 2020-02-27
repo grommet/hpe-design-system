@@ -47,7 +47,7 @@ const Input = () => (
           click target should include the checkbox label.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/checkbox#props"
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/CheckboxExample.js"
         >
           <CheckboxExample />
