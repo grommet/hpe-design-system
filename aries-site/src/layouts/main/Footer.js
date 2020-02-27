@@ -1,6 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'aries-core';
-import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
+import {
+  Box,
+  Footer as GrommetFooter,
+  ResponsiveContext,
+  Text,
+  Grid,
+} from 'grommet';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
@@ -33,22 +39,24 @@ export const Footer = () => {
           &copy; {year} Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
-      <Box
-        alignSelf="center"
-        direction="row"
-        gap="medium"
-        margin={{ horizontal: size !== 'small' ? 'small' : undefined }}
-      >
-        {footerLinks.map((link, index) => (
-          <Box width="xxsmall" key={index}>
+      <Box width="medium">
+        <Grid
+          columns={{
+            count: 4,
+            size: 'auto',
+          }}
+          gap="xxsmall"
+        >
+          {footerLinks.map((link, index) => (
             <NavLink
+              key={index}
               label={link.label}
               href={link.href}
               target="_blank"
               rel="noreferrer noopener"
             />
-          </Box>
-        ))}
+          ))}
+        </Grid>
       </Box>
     </GrommetFooter>
   );
