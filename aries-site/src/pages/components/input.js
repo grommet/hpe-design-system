@@ -89,7 +89,7 @@ const Input = () => (
           help ensure conficence in the use of the control.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/rangeinput#props"
+          docs="https://v2.grommet.io/rangeinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/RangeInputExample.js">
           <RangeInputExample />
         </Example>
