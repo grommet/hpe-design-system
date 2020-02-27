@@ -16,7 +16,6 @@ const Subscribe = () => (
     </SubsectionText>
     <Box align="start">
       <Button
-        type="submit"
         label="Subscribe"
         // eslint-disable-next-line max-len
         href="mailto:mike.walrath@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
@@ -114,7 +113,11 @@ export const SubmitFeedback = () => {
               justify="end"
               pad={{ top: 'medium', horizontal: 'medium' }}
             >
-              <Button icon={<Close />} onClick={onClose} />
+              <Button
+                a11yTitle="Close Feedback Options"
+                icon={<Close />}
+                onClick={onClose}
+              />
             </Box>
             <Box
               flex
