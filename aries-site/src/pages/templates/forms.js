@@ -1,7 +1,12 @@
 import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import {
+  ChangePasswordExample,
+  CustomizeExample,
   FilterExample,
+  PayExample,
+  SettingsExample,
+  ShippingExample,
   SignInExample,
   SignUpExample,
   SortExample,
@@ -60,28 +65,35 @@ const Forms = () => {
       <ContentSection>
         <Subsection name="Change Password">
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-            fdsasdf
+            <ChangePasswordExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Settings">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+            <SettingsExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Customize">
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-            fdsasdf
+            <CustomizeExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Shipping">
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-            fdsasdf
+            <ShippingExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Pay">
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-            fdsasdf
+            <PayExample />
           </Example>
         </Subsection>
       </ContentSection>

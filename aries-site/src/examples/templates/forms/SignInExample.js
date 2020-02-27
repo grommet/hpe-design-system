@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -17,6 +18,45 @@ import { Close, Next } from 'grommet-icons';
 
 import { FormContainer } from '.';
 
+const ResetPassword = ({ closeLayer, email, updateForm }) => {
+  return (
+    <>
+      <Box
+        direction="row"
+        justify="end"
+        pad={{ horizontal: 'small', top: 'small' }}
+      >
+        <Button icon={<Close />} onClick={closeLayer} />
+      </Box>
+      <Box
+        gap="medium"
+        margin={{ horizontal: 'xlarge', bottom: 'xlarge', top: 'large' }}
+        width="medium"
+      >
+        <Heading level={2} margin="none">
+          Reset Password
+        </Heading>
+        {email ? (
+          <Text>A password reset email will be sent to {email}</Text>
+        ) : (
+          <Form>
+            <Text>A password reset email will be sent to </Text>
+            <FormField
+              label="Email"
+              name="resetEmail"
+              component={TextInput}
+              type="email"
+              onChange={updateForm}
+              placeholder="your.email@company.com"
+            />
+          </Form>
+        )}
+        <Button label="Send Password Reset" primary onClick={() => {}} />
+      </Box>
+    </>
+  );
+};
+
 export const SignInExample = () => {
   const [formValues, setFormValues] = React.useState({});
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
@@ -29,10 +69,9 @@ export const SignInExample = () => {
     setShowForgotPassword(true);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
-    console.log(touched);
-    console.log(value);
   };
 
   return (
@@ -92,38 +131,11 @@ export const SignInExample = () => {
             />
             {showForgotPassword && (
               <Layer modal onClickOutside={onClose} onEsc={onClose}>
-                <Box direction="row" justify="end" pad="small">
-                  <Button icon={<Close />} onClick={onClose} />
-                </Box>
-                <Box gap="medium" pad="large" width="medium">
-                  <Heading level={2} margin="none">
-                    Reset Password
-                  </Heading>
-                  {formValues.email ? (
-                    <Text>
-                      A password reset email will be sent to {formValues.email}
-                    </Text>
-                  ) : (
-                    <Form>
-                      <Text>A password reset email will be sent to </Text>
-                      <FormField
-                        label="Email"
-                        name="resetEmail"
-                        component={TextInput}
-                        type="email"
-                        onChange={() => {
-                          setFormValues();
-                        }}
-                        placeholder="your.email@company.com"
-                      />
-                    </Form>
-                  )}
-                  <Button
-                    label="Send Password Reset"
-                    primary
-                    onClick={() => {}}
-                  />
-                </Box>
+                <ResetPassword
+                  closeLayer={onClose}
+                  email={formValues.email}
+                  updateForm={setFormValues}
+                />
               </Layer>
             )}
           </Box>
@@ -131,4 +143,10 @@ export const SignInExample = () => {
       </Box>
     </FormContainer>
   );
+};
+
+ResetPassword.propTypes = {
+  closeLayer: PropTypes.func,
+  email: PropTypes.string,
+  updateForm: PropTypes.func,
 };
