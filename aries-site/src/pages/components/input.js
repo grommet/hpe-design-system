@@ -74,7 +74,7 @@ const Input = () => (
           RadioButtonGroup component.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/radiobuttongroup#props"
+          docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/RadioButtonGroupExample.js">
           <RadioButtonGroupExample />
         </Example>
