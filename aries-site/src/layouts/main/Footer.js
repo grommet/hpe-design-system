@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import { NavLink } from 'aries-core';
 import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
 import { nameToPath } from '../../utils';
@@ -40,7 +41,11 @@ export const Footer = () => {
           target="_blank"
           rel="noreferrer noopener"
         />
-        <NavLink label="Feedback" href={nameToPath('Feedback')} />
+        {/* Need to pass href because of:
+        https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
+        <Link href={nameToPath('Feedback')} passHref>
+          <NavLink label="Feedback" />
+        </Link>
       </Box>
     </GrommetFooter>
   );
