@@ -102,7 +102,7 @@ const Input = () => (
           and create options.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/select#props"
+          docs="https://v2.grommet.io/select?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/SelectExample.js">
           <SelectExample />
         </Example>
