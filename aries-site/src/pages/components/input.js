@@ -133,7 +133,7 @@ const Input = () => (
           need that will elicit user confidence in success.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/textinput#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/TextInputExample.js">
           <TextInputExample />
         </Example>
