@@ -26,7 +26,11 @@ const ResetPassword = ({ closeLayer, email, updateForm }) => {
         justify="end"
         pad={{ horizontal: 'small', top: 'small' }}
       >
-        <Button icon={<Close />} onClick={closeLayer} />
+        <Button
+          a11yTitle="Close reset password form"
+          icon={<Close />}
+          onClick={closeLayer}
+        />
       </Box>
       <Box
         gap="medium"

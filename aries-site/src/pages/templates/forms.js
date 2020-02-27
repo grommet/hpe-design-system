@@ -29,8 +29,9 @@ const Forms = () => {
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>
-            afas dfhlahjsdf adslhjdfsal adfs hadsfladf dsaljhadf ladsfljhdafs
-            adsljh adfs adfljh
+            Template patterns for common form use cases, from application
+            configurations to payment acceptance for the latest as-a-service
+            product offerings.
           </SubsectionText>
         </Subsection>
       </ContentSection>

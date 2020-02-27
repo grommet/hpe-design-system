@@ -248,7 +248,8 @@ export const structure = [
   },
   {
     name: 'Forms',
-    description: 'afjad adfljlads; adfsja;dsljkadf ads;kjads adsfl;kjfda ad',
+    description:
+      'Common form use cases from application configuration to payment acceptance.',
     icon: size => <IconBrand size={size} />,
     seoDescription: '',
     sections: [],
