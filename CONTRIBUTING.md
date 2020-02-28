@@ -6,9 +6,6 @@ The HPE Design System is a monorepo built from two modules.
 See the [README](https://github.com/hpe-design/design-system#welcome-to-hpe-design-system)
 for a break down of the Design System structure.
 
-## How to Contribute 
-Code, Code, Code...
-
 ## Submitting Pull Requests 
 To make a pull request you will need a GitHub account. For help, see
 GitHub’s documentation on [forking] and [pull requests].
