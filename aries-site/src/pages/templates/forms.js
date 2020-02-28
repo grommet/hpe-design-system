@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, SubsectionText } from '../../components';
-import { SignUpExample } from '../../examples';
+import { SignInExample, SignUpExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
@@ -32,6 +32,16 @@ const Forms = () => {
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
           >
             <SignUpExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Sign Up">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/SignInExampe.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
+          >
+            <SignInExample />
           </Example>
         </Subsection>
       </ContentSection>
