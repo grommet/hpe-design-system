@@ -55,16 +55,20 @@ const ResetPassword = ({ closeLayer, email }) => {
           onChange={setFormValues}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
-          <Text>A password reset email will be sent to </Text>
-          <FormField
-            label="Email"
-            name="resetEmail"
-            component={TextInput}
-            type="email"
-            placeholder="your.email@company.com"
-            validate={emailValidation}
-          />
-          <Button label="Send Password Reset" primary type="submit" />
+          <Box gap="medium">
+            <Text>
+              An email to reset your password will be sent to the following
+              address:
+            </Text>
+            <FormField
+              name="resetEmail"
+              component={TextInput}
+              type="email"
+              placeholder="your.email@company.com"
+              validate={emailValidation}
+            />
+            <Button label="Send Password Reset" primary type="submit" />
+          </Box>
         </Form>
       </Box>
     </>
