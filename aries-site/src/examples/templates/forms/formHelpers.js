@@ -17,6 +17,16 @@ export const emailMask = [
 
 export const emailValidation = [
   {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
+    message: 'Missing an @?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: 'Missing an .?',
+    status: 'info',
+  },
+  {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
     message: "Email address doesn't look quite right",
     status: 'error',

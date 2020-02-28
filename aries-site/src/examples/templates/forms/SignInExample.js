@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Anchor,
   Box,
   Button,
   CheckBox,
@@ -17,8 +16,18 @@ import {
 import { Close, Next } from 'grommet-icons';
 
 import { FormContainer } from '.';
+import { emailValidation } from './formHelpers';
 
-const ResetPassword = ({ closeLayer, email, updateForm }) => {
+const ResetPassword = ({ closeLayer, email }) => {
+  const [formValues, setFormValues] = React.useState({ resetEmail: email });
+
+  // eslint-disable-next-line no-unused-vars
+  const onSubmit = ({ value, touched }) => {
+    // Your password reset logic here
+    // Display success status
+    closeLayer();
+  };
+
   return (
     <>
       <Box
@@ -40,22 +49,23 @@ const ResetPassword = ({ closeLayer, email, updateForm }) => {
         <Heading level={2} margin="none">
           Reset Password
         </Heading>
-        {email ? (
-          <Text>A password reset email will be sent to {email}</Text>
-        ) : (
-          <Form>
-            <Text>A password reset email will be sent to </Text>
-            <FormField
-              label="Email"
-              name="resetEmail"
-              component={TextInput}
-              type="email"
-              onChange={updateForm}
-              placeholder="your.email@company.com"
-            />
-          </Form>
-        )}
-        <Button label="Send Password Reset" primary onClick={() => {}} />
+        <Form
+          validate="blur"
+          value={formValues}
+          onChange={setFormValues}
+          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+        >
+          <Text>A password reset email will be sent to </Text>
+          <FormField
+            label="Email"
+            name="resetEmail"
+            component={TextInput}
+            type="email"
+            placeholder="your.email@company.com"
+            validate={emailValidation}
+          />
+          <Button label="Send Password Reset" primary type="submit" />
+        </Form>
       </Box>
     </>
   );
@@ -108,6 +118,7 @@ export const SignInExample = () => {
               component={TextInput}
               placeholder="james@hpe.com"
               type="email"
+              validate={emailValidation}
             />
             <FormField
               name="password"
@@ -128,10 +139,15 @@ export const SignInExample = () => {
             </Box>
           </Form>
           <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-            <Anchor
-              label="Forgot Password?"
-              href="#"
+            <Button
+              label={
+                <Text weight={600} style={{ textDecoration: 'underline' }}>
+                  Forgot Password?
+                </Text>
+              }
               onClick={onForgotPassword}
+              color="brand"
+              plain
             />
             {showForgotPassword && (
               <Layer modal onClickOutside={onClose} onEsc={onClose}>
@@ -152,5 +168,4 @@ export const SignInExample = () => {
 ResetPassword.propTypes = {
   closeLayer: PropTypes.func,
   email: PropTypes.string,
-  updateForm: PropTypes.func,
 };
