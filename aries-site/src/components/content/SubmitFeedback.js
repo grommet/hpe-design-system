@@ -32,8 +32,8 @@ const JoinConversation = () => (
       Join the conversation
     </Text>
     <SubsectionText>
-      Specific questions? Want feedback or advice? Generally curious? Join Slack
-      with and HPE email address to be automatically added to #general-hpe.
+      Specific questions? Want feedback or advice? Generally curious? Join the
+      #general-hpe channel on Grommet Slack by signing up with an HPE email.
     </SubsectionText>
     <Box align="start">
       <Button
