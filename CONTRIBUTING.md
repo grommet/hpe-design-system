@@ -24,7 +24,7 @@ Linting and end-to-end tests are run using husky.
 fixes. It will then run the test suites that we have in place for Aries-Site.
 - [TestCafe](https://devexpress.github.io/testcafe/documentation/getting-started/) is used as our end-to-end testing. While running the tests, your local browsers will open with TestCafe. During this time DO NOT CLOSE OR MINIMIZE YOUR BROWSER WINDOWS. The browser will need to stay in focus in order
 to run and complete all of the test suites.
-- The [tests will pause](https://github.com/DevExpress/testcafe/issues/1198) if they are not in focus which will lead to pre-commits taking much longer then needed.
+- The [tests will pause](https://github.com/DevExpress/testcafe/issues/1198) if they are not in focus which will lead to pre-commits taking much longer than needed. If your pre-commit checks are taking longer than 2.5 minutes, it is likely that your browser is not in focus. Put your browser in focus to allow the checks to continue.
 After the pre-commit checks are finished on aries-site, they will be run on aries-core.
 
 #### aries-core
