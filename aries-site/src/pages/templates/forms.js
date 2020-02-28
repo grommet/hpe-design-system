@@ -37,63 +37,66 @@ const Forms = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Sign Up">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/SignUpExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
+          >
             <SignUpExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Sign In">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <SignInExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Filter">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <FilterExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Sort">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <SortExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Change Password">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <ChangePasswordExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Settings">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <SettingsExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Customize">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <CustomizeExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Shipping">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <ShippingExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Pay">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/DashboardExample.js">
             <PayExample />
           </Example>
         </Subsection>

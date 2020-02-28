@@ -53,7 +53,7 @@ export const PayExample = () => {
                 color="text-weak"
                 icon={<Apple />}
                 gap="xxsmall"
-                size="xlarge"
+                size="large"
               />
             </Box>
             <Text color="text-xweak">or</Text>

@@ -9,11 +9,13 @@ import {
   Header,
   Heading,
   Main,
+  MaskedInput,
   Text,
   TextInput,
 } from 'grommet';
 
 import { FormContainer } from '.';
+import { emailMask, emailValidation, passwordValidation } from './formHelpers';
 
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -52,8 +54,10 @@ export const SignUpExample = () => {
             <FormField
               name="email"
               label="Email"
-              component={TextInput}
+              component={MaskedInput}
               type="email"
+              mask={emailMask}
+              validate={emailValidation}
             />
             <FormField
               name="fullName"
@@ -67,6 +71,7 @@ export const SignUpExample = () => {
               component={TextInput}
               type="password"
               placeholder="•••••••••••••••"
+              validate={passwordValidation}
             />
             <CheckBox
               name="termsAndPrivacy"
@@ -78,6 +83,7 @@ export const SignUpExample = () => {
                     href="#"
                     target="_blank"
                     rel="noreferrer noopener"
+                    color="blue!"
                   />{' '}
                   and{' '}
                   <Anchor
@@ -85,6 +91,7 @@ export const SignUpExample = () => {
                     href="#"
                     target="_blank"
                     rel="noreferrer noopener"
+                    color="blue!"
                   />
                 </Text>
               }
