@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Box, CheckBox } from 'grommet';
 
-import { UsageExample } from '../../../layouts';
-
 const items = ['C++', 'JavaScript', 'Python'];
 
 export const CheckboxExample = () => {
@@ -17,13 +15,6 @@ export const CheckboxExample = () => {
   };
 
   return (
-    <UsageExample
-      pad={{
-        horizontal: 'large',
-        vertical: 'large',
-        small: { horizontal: 'large', vertical: 'xlarge' },
-      }}
-    >
       <Box gap="medium">
         {items &&
           items.map(item => (
@@ -35,6 +26,5 @@ export const CheckboxExample = () => {
             />
           ))}
       </Box>
-    </UsageExample>
   );
 };

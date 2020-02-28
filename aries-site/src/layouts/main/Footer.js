@@ -1,12 +1,8 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import { NavLink } from 'aries-core';
-import {
-  Box,
-  Footer as GrommetFooter,
-  ResponsiveContext,
-  Text,
-  Grid,
-} from 'grommet';
+import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
+import { nameToPath } from '../../utils';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
@@ -39,24 +35,30 @@ export const Footer = () => {
           &copy; {year} Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
-      <Box width="medium">
-        <Grid
-          columns={{
-            count: 4,
-            size: 'auto',
-          }}
-          gap="xxsmall"
-        >
-          {footerLinks.map((link, index) => (
-            <NavLink
-              key={index}
-              label={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer noopener"
-            />
-          ))}
-        </Grid>
+      <Box alignSelf="center" direction="row" gap="medium">
+        <NavLink
+          label="Terms"
+          href="https://www.hpe.com/us/en/about/legal/terms-of-use.html"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavLink
+          label="Privacy"
+          href="https://www.hpe.com/us/en/legal/privacy.html"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavLink
+          label="Security"
+          href="https://www.hpe.com/us/en/legal/privacy.html#datacollection"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        {/* Need to pass href because of:
+        https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
+        <Link href={nameToPath('Feedback')} passHref>
+          <NavLink label="Feedback" />
+        </Link>
       </Box>
     </GrommetFooter>
   );

@@ -36,6 +36,12 @@ export const structure = [
     ],
   },
   {
+    name: 'Feedback',
+    seoDescription:
+      'Something missing or looking for more information? Get in touch to help make the HPE Design System better.',
+    pages: [],
+  },
+  {
     name: 'Guidelines',
     color: 'green',
     description:
