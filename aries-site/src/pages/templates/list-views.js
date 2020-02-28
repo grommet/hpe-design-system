@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { CheckBox } from 'grommet';
+import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import { ListScreenExample } from '../../examples';
 import {
@@ -16,7 +15,6 @@ const topic = 'Templates';
 const page = getPageDetails(title);
 
 const ListScreen = () => {
-  const [checked, setChecked] = useState(false);
   return (
     <Layout title={title}>
       <Meta
@@ -40,14 +38,11 @@ const ListScreen = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Manage Users Screen">
-          <CheckBox
-            label="View mobile layout"
-            onChange={() => setChecked(!checked)}
-            value={checked}
-            toggle
-          />
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListScreenExample.js">
-            <ListScreenExample mobile={checked} />
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListScreenExample.js"
+            template
+          >
+            <ListScreenExample />
           </Example>
         </Subsection>
         <ExampleComponents
