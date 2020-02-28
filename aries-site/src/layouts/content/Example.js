@@ -7,7 +7,6 @@ import {
   Button,
   Keyboard,
   Layer,
-  RadioButtonGroup,
   Text,
   ThemeContext,
 } from 'grommet';
@@ -137,36 +136,34 @@ export const Example = ({
               direction="row"
               justify="between"
             >
-              <RadioButtonGroup
-                name="radio"
-                direction="row"
-                gap="none"
-                options={['Desktop', 'Mobile']}
-                value={mobile ? 'Mobile' : 'Desktop'}
-                onChange={event => setMobile(event.target.value === 'Mobile')}
-              >
-                {(option, { checked, hover }) => {
-                  const Icon = option === 'Desktop' ? Desktop : IconMobile;
-                  let background;
-                  if (checked) background = 'background-front';
-                  else if (hover) background = 'active-background';
-                  else background = undefined;
-                  const color = !checked ? 'text-xweak' : 'text';
-                  return (
-                    <Box
-                      title={`${option} layout`}
-                      background={background}
-                      direction="row"
-                      pad="small"
-                      align="center"
-                      gap="small"
-                    >
-                      <Icon color={color} />
-                      <Text color={color}>{option}</Text>
-                    </Box>
-                  );
-                }}
-              </RadioButtonGroup>
+              <Box direction="row">
+                <Button onClick={() => setMobile(false)} hoverIndicator>
+                  <Box
+                    title="Desktop layout"
+                    background={!mobile ? 'background-front' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                  >
+                    <Desktop />
+                    <Text>Desktop</Text>
+                  </Box>
+                </Button>
+                <Button hoverIndicator onClick={() => setMobile(true)}>
+                  <Box
+                    title="Mobile layout"
+                    background={mobile ? 'background-front' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                  >
+                    <IconMobile />
+                    <Text>Mobile</Text>
+                  </Box>
+                </Button>
+              </Box>
               <Box direction="row">
                 <Button
                   title="Expand full screen"
@@ -243,36 +240,38 @@ export const Example = ({
         >
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
-              <Box direction="row" justify="between" background="#111">
-                <RadioButtonGroup
-                  name="radio"
-                  direction="row"
-                  gap="none"
-                  options={['Desktop', 'Mobile']}
-                  value={mobile ? 'Mobile' : 'Desktop'}
-                  onChange={event => setMobile(event.target.value === 'Mobile')}
-                >
-                  {(option, { checked, hover }) => {
-                    const Icon = option === 'Desktop' ? Desktop : IconMobile;
-                    let background;
-                    if (checked) background = 'background-contrast';
-                    else if (hover) background = 'background-contrast';
-                    else background = undefined;
-                    return (
-                      <Box
-                        title={`${option} layout`}
-                        background={background}
-                        direction="row"
-                        pad="small"
-                        align="center"
-                        gap="small"
-                      >
-                        <Icon />
-                        <Text>{option}</Text>
-                      </Box>
-                    );
-                  }}
-                </RadioButtonGroup>
+              <Box
+                direction="row"
+                justify="between"
+                pad="xxsmall"
+                background="#111"
+              >
+                <Box direction="row">
+                  <Box
+                    title="Desktop layout"
+                    background={!mobile ? 'background-contrast' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                    onClick={() => setMobile(false)}
+                  >
+                    <Desktop />
+                    <Text>Desktop</Text>
+                  </Box>
+                  <Box
+                    title="Mobile layout"
+                    background={mobile ? 'background-contrast' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                    onClick={() => setMobile(true)}
+                  >
+                    <IconMobile />
+                    <Text>Mobile</Text>
+                  </Box>
+                </Box>
                 <Button
                   title="Leave full screen"
                   icon={<Contract />}
