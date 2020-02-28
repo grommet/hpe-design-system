@@ -8,7 +8,6 @@ import {
   Keyboard,
   Layer,
   RadioButtonGroup,
-  Stack,
   Text,
   ThemeContext,
 } from 'grommet';
@@ -115,113 +114,124 @@ export const Example = ({
   ]);
 
   return (
-    <Box margin={{ vertical: 'small' }}>
-      <Box background="background-contrast" direction="row" justify="start">
-        <RadioButtonGroup
-          name="radio"
+    <>
+      <Box margin={{ vertical: 'small' }}>
+        <Box
           direction="row"
-          gap="none"
-          options={['Desktop', 'Mobile']}
-          value={mobile ? 'Mobile' : 'Desktop'}
-          onChange={event => setMobile(event.target.value === 'Mobile')}
+          background="background-front"
+          pad="large"
+          // Height for template screen needs to be between medium and large
+          // to maintain aspect ratio, so this is small + medium
+          height={template ? '576px' : undefined}
+          {...rest}
         >
-          {(option, { checked, hover }) => {
-            const Icon = option === 'Desktop' ? Desktop : IconMobile;
-            let background;
-            if (checked) background = 'background-contrast';
-            else if (hover) background = 'active-background';
-            else background = undefined;
-            return (
-              <Box
-                background={background}
+          {children &&
+            React.cloneElement(children, {
+              mobile,
+            })}
+        </Box>
+        {(code || designer || docs || figma) && (
+          <>
+            <Box
+              background="background-contrast"
+              direction="row"
+              justify="between"
+            >
+              <RadioButtonGroup
+                name="radio"
                 direction="row"
-                pad="small"
-                align="center"
-                gap="small"
+                gap="none"
+                options={['Desktop', 'Mobile']}
+                value={mobile ? 'Mobile' : 'Desktop'}
+                onChange={event => setMobile(event.target.value === 'Mobile')}
               >
-                <Icon />
-                <Text>{option}</Text>
-              </Box>
-            );
-          }}
-        </RadioButtonGroup>
-        <Button
-          icon={<Expand />}
-          onClick={() => {
-            setShowLayer(true);
-          }}
-          hoverIndicator
-        />
-      </Box>
-      <Box
-        direction="row"
-        background="background-front"
-        pad="large"
-        // Height for template screen needs to be between medium and large
-        // to maintain aspect ratio, so this is small + medium
-        height={template ? '576px' : undefined}
-        {...rest}
-      >
-        {children &&
-          React.cloneElement(children, {
-            mobile,
-          })}
-      </Box>
-      {(code || designer || docs || figma) && (
-        <Stack guidingChild="first" anchor="top-right">
-          {open && (
-            <Box animation="fadeIn">
-              <Box
-                border="top"
-                background="background-contrast"
-                pad="medium"
-                height={{ max: 'medium' }}
-                overflow="auto"
-              >
-                <Text size="xsmall" color="text">
-                  <Syntax>
-                    <code ref={codeRef} className="language-jsx">
-                      {codeText}
-                    </code>
-                  </Syntax>
-                </Text>
-              </Box>
-              <Box
-                direction="row"
-                justify="end"
-                border="between"
-                gap="medium"
-                pad={{ horizontal: 'medium', vertical: 'small' }}
-              >
-                {figma && <Anchor label="figma" href={figma} target="_blank" />}
-                {designer && (
-                  <Anchor label="designer" href={designer} target="_blank" />
-                )}
-                {docs && (
-                  <Anchor label="properties" href={docs} target="_blank" />
-                )}
+                {(option, { checked, hover }) => {
+                  const Icon = option === 'Desktop' ? Desktop : IconMobile;
+                  let background;
+                  if (checked) background = 'background-front';
+                  else if (hover) background = 'active-background';
+                  else background = undefined;
+                  const color = !checked ? 'text-xweak' : 'text';
+                  return (
+                    <Box
+                      title={`${option} layout`}
+                      background={background}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                    >
+                      <Icon color={color} />
+                      <Text color={color}>{option}</Text>
+                    </Box>
+                  );
+                }}
+              </RadioButtonGroup>
+              <Box direction="row">
+                <Button
+                  title="Expand full screen"
+                  icon={<Expand />}
+                  onClick={() => {
+                    setShowLayer(true);
+                  }}
+                  hoverIndicator
+                />
+                <Button
+                  title="More details"
+                  plain
+                  hoverIndicator
+                  onClick={() => setOpen(!open)}
+                >
+                  <Box
+                    pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                    direction="row"
+                    gap="xsmall"
+                  >
+                    <Text>{open ? 'less' : 'more'}</Text>
+                    {open ? <FormUp /> : <FormDown />}
+                  </Box>
+                </Button>
               </Box>
             </Box>
-          )}
-          <Box direction="row" justify="end">
-            <Button
-              title="More details"
-              plain
-              hoverIndicator
-              onClick={() => setOpen(!open)}
-            >
-              <Box
-                pad={{ vertical: 'xsmall', horizontal: 'small' }}
-                direction="row"
-                gap="xsmall"
-              >
-                <Text>{open ? 'less' : 'more'}</Text>
-                {open ? <FormUp /> : <FormDown />}
+            {open && (
+              <Box animation="fadeIn">
+                <Box
+                  border="top"
+                  background="background-contrast"
+                  pad="medium"
+                  height={{ max: 'medium' }}
+                  overflow="auto"
+                >
+                  <Text size="xsmall" color="text">
+                    <Syntax>
+                      <code ref={codeRef} className="language-jsx">
+                        {codeText}
+                      </code>
+                    </Syntax>
+                  </Text>
+                </Box>
+                <Box
+                  direction="row"
+                  justify="end"
+                  border="between"
+                  gap="medium"
+                  pad={{ horizontal: 'medium', vertical: 'small' }}
+                >
+                  {figma && (
+                    <Anchor label="figma" href={figma} target="_blank" />
+                  )}
+                  {designer && (
+                    <Anchor label="designer" href={designer} target="_blank" />
+                  )}
+                  {docs && (
+                    <Anchor label="properties" href={docs} target="_blank" />
+                  )}
+                </Box>
               </Box>
-            </Button>
-          </Box>
-        </Stack>
-      )}
+            )}
+          </>
+        )}
+      </Box>
       {showLayer && (
         <Keyboard
           onEsc={() => {
@@ -231,7 +241,7 @@ export const Example = ({
         >
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
-              <Box direction="row" justify="start">
+              <Box direction="row" justify="between" background="black">
                 <RadioButtonGroup
                   name="radio"
                   direction="row"
@@ -243,11 +253,12 @@ export const Example = ({
                   {(option, { checked, hover }) => {
                     const Icon = option === 'Desktop' ? Desktop : IconMobile;
                     let background;
-                    if (checked) background = 'background-contrast';
+                    if (checked) background = 'white';
                     else if (hover) background = 'active-background';
                     else background = undefined;
                     return (
                       <Box
+                        title={`${option} layout`}
                         background={background}
                         direction="row"
                         pad="small"
@@ -255,12 +266,13 @@ export const Example = ({
                         gap="small"
                       >
                         <Icon />
-                        <Text>{option}</Text>
+                        <Text color="text-weak">{option}</Text>
                       </Box>
                     );
                   }}
                 </RadioButtonGroup>
                 <Button
+                  title="Leave full screen"
                   icon={<Contract />}
                   onClick={() => {
                     setShowLayer(false);
@@ -279,7 +291,7 @@ export const Example = ({
           </Layer>
         </Keyboard>
       )}
-    </Box>
+    </>
   );
 };
 
