@@ -36,10 +36,10 @@ const Forms = () => {
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Sign Up">
+        <Subsection name="Sign In">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/SignInExampe.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=242%3A28"
           >
             <SignInExample />
           </Example>
