@@ -27,7 +27,7 @@ to run and complete all of the test suites.
 - The [tests will pause](https://github.com/DevExpress/testcafe/issues/1198) if they are not in focus which will lead to pre-commits taking much longer then needed.
 After the pre-commit checks are finished on aries-site, they will be run on aries-core.
 
-### aries-core
+#### aries-core
 - The pre-commit checks will run linting checks for aries-core.
 
 ### Completed Pre-Commits
