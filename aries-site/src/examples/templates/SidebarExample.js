@@ -30,15 +30,18 @@ export const SidebarExample = ({ ...rest }) => {
         direction={size !== 'small' ? 'column' : 'row'}
         justify={size === 'small' ? 'between' : undefined}
       >
-        <Button icon={<Clock color="text-xweak" />} />
-        <Button icon={<Apps color="text-xweak" />} />
-        <Button icon={<Terminal color="text-xweak" />} />
+        <Button a11yTitle="Clock" icon={<Clock color="text-xweak" />} />
+        <Button a11yTitle="Apps" icon={<Apps color="text-xweak" />} />
+        <Button a11yTitle="Terminal" icon={<Terminal color="text-xweak" />} />
       </Box>
 
       {size !== 'small' && (
         <Box direction={size !== 'small' ? 'column' : 'row'}>
-          <Button icon={<Chat color="text-xweak" />} />
-          <Button icon={<StatusUnknown color="text-xweak" />} />
+          <Button a11yTitle="Chat" icon={<Chat color="text-xweak" />} />
+          <Button
+            a11yTitle="Help"
+            icon={<StatusUnknown color="text-xweak" />}
+          />
         </Box>
       )}
     </Box>
