@@ -186,6 +186,8 @@ export const Example = ({
                     pad={{ vertical: 'xsmall', horizontal: 'small' }}
                     direction="row"
                     gap="xsmall"
+                    width="xsmall"
+                    justify="end"
                   >
                     <Text>{open ? 'less' : 'more'}</Text>
                     {open ? <FormUp /> : <FormDown />}
@@ -253,8 +255,8 @@ export const Example = ({
                   {(option, { checked, hover }) => {
                     const Icon = option === 'Desktop' ? Desktop : IconMobile;
                     let background;
-                    if (checked) background = 'white';
-                    else if (hover) background = 'active-background';
+                    if (checked) background = 'text-xweak';
+                    else if (hover) background = 'text-xweak';
                     else background = undefined;
                     return (
                       <Box
@@ -266,7 +268,7 @@ export const Example = ({
                         gap="small"
                       >
                         <Icon />
-                        <Text color="text-weak">{option}</Text>
+                        <Text>{option}</Text>
                       </Box>
                     );
                   }}
@@ -281,7 +283,7 @@ export const Example = ({
                   hoverIndicator
                 />
               </Box>
-              <Box direction="row" justify="center" fill {...rest}>
+              <Box direction="row" justify="center" flex {...rest}>
                 {children &&
                   React.cloneElement(children, {
                     mobile,
