@@ -6,9 +6,6 @@ The HPE Design System is a monorepo built from two modules.
 See the [README](https://github.com/hpe-design/design-system#welcome-to-hpe-design-system)
 for a break down of the Design System structure.
 
-## How to Contribute 
-Code, Code, Code...
-
 ## Submitting Pull Requests 
 To make a pull request you will need a GitHub account. For help, see
 GitHub’s documentation on [forking] and [pull requests].
@@ -25,6 +22,7 @@ fixes. It will then run the test suites that we have in place for Aries-Site.
 - [TestCafe](https://devexpress.github.io/testcafe/documentation/getting-started/) is used as our end-to-end testing. While running the tests, your local browsers will open with TestCafe. During this time DO NOT CLOSE OR MINIMIZE YOUR BROWSER WINDOWS. The browser will need to stay in focus in order
 to run and complete all of the test suites.
 - The [tests will pause](https://github.com/DevExpress/testcafe/issues/1198) if they are not in focus which will lead to pre-commits taking much longer then needed.
+- If your test suits are taking longer then 2.5 minutes check the focus make sure the broswers are all up and running.
 After the pre-commit checks are finished on aries-site, they will be run on aries-core.
 
 ### aries-core
