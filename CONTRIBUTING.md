@@ -19,7 +19,7 @@ GitHub’s documentation on [forking] and [pull requests].
 ### Pre Commits
 Linting and end-to-end tests are run using husky.
 
-### aries-site
+#### aries-site
 - There are pre-commit hooks in place that will run linting checks and
 fixes. It will then run the test suites that we have in place for Aries-Site.
 - [TestCafe](https://devexpress.github.io/testcafe/documentation/getting-started/) is used as our end-to-end testing. While running the tests, your local browsers will open with TestCafe. During this time DO NOT CLOSE OR MINIMIZE YOUR BROWSER WINDOWS. The browser will need to stay in focus in order
