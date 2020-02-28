@@ -22,7 +22,25 @@ git clone https://github.com/hpe-design/design-system.git
 yarn install
 ```
 
-### Pre Commits
+4. Implement your changes
+
+### Committing your changes
+To commit your changes: `git commit`
+
+Upon running this command, pre-commit checks will run:
+
+- Ensuring consistent code formatting, best practices, and enforce code style guidelines (Prettier & ESLint)
+- Executing testing suites:
+  - Unit tests (future)
+  - End-to-end tests ([TestCafe](https://devexpress.github.io/testcafe/documentation/getting-started/))
+
+#### About TestCafe
+TestCafe is tool which assists end-to-end testing (i.e. test behavior and interactions for applications / Websites) across browsers and operating systems. TestCafe executes these tests in live browser instances (as opposed to simulated or headless environments).
+
+NOTE: Things to be aware of while the TestCafe test suites are running.
+- TestCafe will launch a browser instance for any browsers you have on your local machine
+- Browser windows must be in focus in order for the tests to run. If the browser window is minimized or hidden by other windows, the test will pause and will not complete until the browser is in focus.
+
 Linting and end-to-end tests are run using husky.
 
 #### aries-site
