@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { Box, RangeInput, Text } from 'grommet';
 
-import { UsageExample } from '../../../layouts';
-
 export const RangeInputExample = () => {
   const [value, setValue] = useState(80);
 
   return (
-    <UsageExample
-      pad={{
-        horizontal: 'large',
-        vertical: 'large',
-        small: { horizontal: 'large', vertical: 'xlarge' },
-      }}
-    >
       <Box gap="medium">
         <Box direction="row" gap="medium">
           <Text>Threshold</Text>
@@ -30,6 +21,5 @@ export const RangeInputExample = () => {
           <Text weight={600}>100</Text>
         </Box>
       </Box>
-    </UsageExample>
   );
 };
