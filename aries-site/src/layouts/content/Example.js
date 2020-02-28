@@ -243,7 +243,7 @@ export const Example = ({
         >
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
-              <Box direction="row" justify="between" background="black">
+              <Box direction="row" justify="between" background="#111">
                 <RadioButtonGroup
                   name="radio"
                   direction="row"
@@ -255,8 +255,8 @@ export const Example = ({
                   {(option, { checked, hover }) => {
                     const Icon = option === 'Desktop' ? Desktop : IconMobile;
                     let background;
-                    if (checked) background = 'text-xweak';
-                    else if (hover) background = 'text-xweak';
+                    if (checked) background = 'background-contrast';
+                    else if (hover) background = 'background-contrast';
                     else background = undefined;
                     return (
                       <Box
