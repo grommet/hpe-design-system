@@ -10,7 +10,7 @@ for a break down of the Design System structure.
 To make a pull request you will need a GitHub account. For help, see
 GitHub’s documentation on [forking] and [pull requests].
 1. Fork the design-system repository
-1. Clone the repository
+2. Clone the repository
 ```
 git clone https://github.com/hpe-design/design-system.git
 ```
