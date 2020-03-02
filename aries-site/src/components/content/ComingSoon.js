@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Anchor } from 'aries-core';
 import { Box, Text } from 'grommet';
-import { ButtonRow, ContentSection } from '../../layouts';
+import { ContentSection } from '../../layouts';
+import { SubmitFeedback } from '.';
 
 export const ComingSoon = () => {
   const textSize = 'xxlarge';
@@ -14,7 +15,9 @@ export const ComingSoon = () => {
             &#x1F937;
           </span>
         </Text>
-        <Text>This page appears to be empty.</Text>
+        <Text>
+          This page appears to be empty, but content will be coming soon!
+        </Text>
       </ContentSection>
       <ContentSection lastSection>
         <Box direction="row" gap="small">
@@ -30,22 +33,18 @@ export const ComingSoon = () => {
           behind the element!
         </Text>
         <Text>
-          Something missing or looking for more information? Edit or open an
-          issue on Github to help us make the HPE Design System better.
+          Something missing or looking for more information? Get in touch to
+          help make the HPE Design System better.
         </Text>
-        <ButtonRow gap="large">
-          <Anchor
-            href="https://github.com/hpe-design/aries/issues"
-            target="_blank"
-            label="Open page in Github"
-            rel="noreferrer noopener"
-          />
-          {/* Need to pass href because of:
-           * https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
-          <Link href="/" passHref>
-            <Anchor label="Take me back to the Homepage" />
-          </Link>
-        </ButtonRow>
+        <Box direction="row-responsive" gap="medium" align="center">
+          <SubmitFeedback />
+          <Text>or</Text>
+          <Box>
+            <Link href="/" passHref>
+              <Anchor label="Take me back to the Homepage" />
+            </Link>
+          </Box>
+        </Box>
       </ContentSection>
     </>
   );
