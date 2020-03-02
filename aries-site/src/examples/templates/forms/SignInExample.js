@@ -61,12 +61,17 @@ const ResetPassword = ({ closeLayer, email }) => {
               address:
             </Text>
             <FormField
-              name="resetEmail"
-              component={TextInput}
-              type="email"
-              placeholder="your.email@company.com"
+              label="Email"
+              htmlFor="resetEmail"
               validate={emailValidation}
-            />
+            >
+              <TextInput
+                id="resetEmail"
+                name="resetEmail"
+                type="email"
+                placeholder="your.email@company.com"
+              />
+            </FormField>
             <Button label="Send Password Reset" primary type="submit" />
           </Box>
         </Form>
@@ -117,20 +122,30 @@ export const SignInExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <FormField
-              name="email"
               label="Email"
-              component={TextInput}
-              placeholder="james@hpe.com"
-              type="email"
+              name="email"
+              htmlFor="email-sign-in"
               validate={emailValidation}
-            />
+            >
+              <TextInput
+                id="email-sign-in"
+                name="email"
+                placeholder="james@hpe.com"
+                type="email"
+              />
+            </FormField>
             <FormField
-              name="password"
               label="Password"
-              component={TextInput}
-              placeholder="•••••••••••••••"
-              type="password"
-            />
+              htmlFor="password-sign-in"
+              name="password"
+            >
+              <TextInput
+                id="password-sign-in"
+                name="password"
+                placeholder="•••••••••••••••"
+                type="password"
+              />
+            </FormField>
             <CheckBox name="termsAndPrivacy" label="Remember me" />
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
