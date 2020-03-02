@@ -23,7 +23,7 @@ const coreColors = [
     hex: colors['purple!'],
   },
   {
-    name: 'peal',
+    name: 'teal',
     value: 'teal!',
     hex: colors['teal!'],
   },
