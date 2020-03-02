@@ -29,7 +29,7 @@ const Forms = () => {
       <ContentSection>
         <Subsection name="Sign Up">
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/SignUpExample.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
           >
             <SignUpExample />
@@ -39,7 +39,7 @@ const Forms = () => {
       <ContentSection>
         <Subsection name="Sign In">
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/templates/forms/SignInExampe.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExampe.js"
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=242%3A28"
           >
             <SignInExample />
