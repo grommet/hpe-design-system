@@ -4,8 +4,8 @@ import { Anchor, Text } from 'grommet';
 
 export const FooterLink = forwardRef(
   ({ active, children, label, size, ...rest }, ref) => {
-    const activeTextColor = 'text-xweak';
-    const defaultTextColor = 'text';
+    const activeTextColor = 'text';
+    const defaultTextColor = 'text-xweak';
     const [textColor, setTextColor] = useState(
       active ? activeTextColor : defaultTextColor,
     );
