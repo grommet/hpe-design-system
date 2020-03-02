@@ -129,7 +129,7 @@ export const Example = ({
               mobile,
             })}
         </Box>
-        {(template || code || designer || docs || figma) && (
+        {(code || designer || docs || figma || template) && (
           <>
             <Box
               background="background-contrast"
