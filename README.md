@@ -114,26 +114,32 @@ yarn build
   - Finalize stickersheet 
   - Finalize Sidebar navigation template 
 - Research  
-  - User testing and moderated interview shareout 
+  - User testing shareout 
   
 **8. March 2 - 6**
 - Design:
-  - List template variation 
+  - Navigation variations 
+  - Dashboard variation 
 - Development: 
   - Anchor pattern
-  - Form and Dashboard Q/A
+  - Form dev/design sync
   - Website refinments 
+- Research
+  - Moderated interview shareout 
   
 **9. March 9 - 13**  
+- Design:
+  - List variation 
 - Development:
   - Form template variations
-  - List template variations 
-- Design:
-  - Navigation variation 
+  - Navigation dev/design sync
+
   
 **10. March 16 - 20**
-- Development: 
-  - Navigation template Q/A
 - Design: 
   - Modal/drop 
   - Card 
+- Development: 
+  - Navigation variations 
+  - List template dev/design sync
+

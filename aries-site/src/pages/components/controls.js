@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from 'grommet';
 
 import { Meta, SubsectionText } from '../../components';
 import {
@@ -43,7 +44,6 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Accordion">
-        <AccordionExample />
         <SubsectionText>
           The accordian affords content to be delivered progressively. The
           chevron is used to identify the expand or collapse action while the
@@ -51,6 +51,12 @@ const Controls = () => (
           seeking to provide maximum content in limited, vertical space, an
           accordion is a good alternative.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/accordion#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AccordionExample.js"
+        >
+          <AccordionExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -62,6 +68,9 @@ const Controls = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Button">
+        <SubsectionText>
+          Buttons are used to indicate actions that can be performed.
+        </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
@@ -70,29 +79,40 @@ const Controls = () => (
         >
           <ButtonExample />
         </Example>
-        <SubsectionText>
-          Buttons are used to indicate actions that can be performed.
-        </SubsectionText>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Menu">
-        <MenuExample />
         <SubsectionText>
-          Menu is used to filter or sort content on a page. It is similar to the
-          select component. However, use the select component when the user must
-          specify from a list of options and submit. See the Select Component.
+          Menu is used to filter or sort content on a page. It is
+          similar to the{' '}
+          <Anchor color="green!" href="input#select">
+            Select component
+          </Anchor>{' '}
+          However, use the select component when the user must specify from a
+          list of options and submit.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/menu#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/MenuExample.js"
+        >
+          <MenuExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Tabs">
-        <TabsExample />
         <SubsectionText>
           Tabs allow a user to access content while maintaining the existing
           context. It consists of a container, or box, with tab controls to
           expose the contents of the container.
         </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/tabs#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/TabsExample.js"
+        >
+          <TabsExample />
+        </Example>
       </Subsection>
     </ContentSection>
   </Layout>

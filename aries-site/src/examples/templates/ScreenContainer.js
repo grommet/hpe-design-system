@@ -9,8 +9,8 @@ export const ScreenContainer = ({ mobile, ...rest }) => (
       {size => (
         <Box
           background="background-back"
-          width={size === 'small' ? { max: 'large' } : '100%'}
-          height={{ max: 'large' }}
+          width={size === 'small' ? 'medium' : '100%'}
+          height={size === 'small' ? { max: 'large' } : undefined}
           style={{ position: 'relative' }}
         >
           <Box direction="row" fill>

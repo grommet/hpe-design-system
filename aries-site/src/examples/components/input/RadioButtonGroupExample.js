@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Box, RadioButtonGroup, Text } from 'grommet';
 
-import { UsageExample } from '../../../layouts';
-
 const powerRegulationOptions = [
   'Dynamic power savings mode',
   'Static low power mode',
@@ -16,13 +14,6 @@ export const RadioButtonGroupExample = () => {
   );
 
   return (
-    <UsageExample
-      pad={{
-        horizontal: 'large',
-        vertical: 'large',
-        small: { horizontal: 'large', vertical: 'xlarge' },
-      }}
-    >
       <Box gap="xsmall">
         <Text size="large">Power Management</Text>
         <Text>Power Regulation</Text>
@@ -36,6 +27,5 @@ export const RadioButtonGroupExample = () => {
           pad={{ vertical: 'medium' }}
         />
       </Box>
-    </UsageExample>
   );
 };

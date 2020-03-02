@@ -7,7 +7,7 @@
   "dependencies": {
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "^4.4.0",
-    "grommet-theme-hpe": "^1.0.0"
+    "grommet-theme-hpe": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^16.12.0",

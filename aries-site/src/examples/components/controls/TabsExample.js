@@ -10,21 +10,11 @@ import {
   Text,
 } from 'grommet';
 
-import { UsageExample } from '../../../layouts';
-
 export const TabsExample = () => {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
 
   return (
-    <UsageExample
-      height="medium"
-      pad={{
-        horizontal: 'large',
-        top: 'large',
-        small: { horizontal: 'medium', top: 'large' },
-      }}
-    >
       <Box>
         <Tabs activeIndex={index} onActive={onActive} justify="start">
           <Tab title="General">
@@ -69,6 +59,5 @@ export const TabsExample = () => {
           </Tab>
         </Tabs>
       </Box>
-    </UsageExample>
   );
 };

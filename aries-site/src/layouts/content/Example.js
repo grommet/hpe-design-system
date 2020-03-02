@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Anchor, Box, Button, Stack, Text, ThemeContext } from 'grommet';
-import { FormDown, FormUp } from 'grommet-icons';
+import {
+  Anchor,
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  Text,
+  ThemeContext,
+} from 'grommet';
+import { Contract, Desktop, Expand, FormDown, FormUp } from 'grommet-icons';
 import Prism from 'prismjs';
+import { IconMobile } from '../../components';
 
 const syntax = {
   dark: styled.pre`
@@ -68,11 +77,21 @@ const syntax = {
   `,
 };
 
-export const Example = ({ code, designer, docs, figma, ...rest }) => {
+export const Example = ({
+  children,
+  code,
+  designer,
+  docs,
+  figma,
+  template,
+  ...rest
+}) => {
   const theme = React.useContext(ThemeContext);
   const [open, setOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
+  const [mobile, setMobile] = React.useState(false);
+  const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
 
   React.useEffect(() => {
@@ -94,73 +113,191 @@ export const Example = ({ code, designer, docs, figma, ...rest }) => {
   ]);
 
   return (
-    <Box margin={{ vertical: 'small' }}>
-      <Box
-        direction="row"
-        background="background-front"
-        pad="large"
-        {...rest}
-      />
-      {(code || designer || docs || figma) && (
-        <Stack guidingChild="first" anchor="top-right">
-          {open && (
-            <Box animation="fadeIn">
-              <Box
-                border="top"
-                background="background-contrast"
-                pad="medium"
-                height={{ max: 'medium' }}
-                overflow="auto"
-              >
-                <Text size="xsmall" color="text">
-                  <Syntax>
-                    <code ref={codeRef} className="language-jsx">
-                      {codeText}
-                    </code>
-                  </Syntax>
-                </Text>
+    <>
+      <Box margin={{ vertical: 'small' }}>
+        <Box
+          direction="row"
+          background="background-front"
+          pad="large"
+          // Height for template screen needs to be between medium and large
+          // to maintain aspect ratio, so this is small + medium
+          height={template ? '576px' : undefined}
+          {...rest}
+        >
+          {children &&
+            React.cloneElement(children, {
+              mobile,
+            })}
+        </Box>
+        {(code || designer || docs || figma) && (
+          <>
+            <Box
+              background="background-contrast"
+              direction="row"
+              justify="between"
+            >
+              <Box direction="row">
+                <Button onClick={() => setMobile(false)} hoverIndicator>
+                  <Box
+                    title="Desktop layout"
+                    background={!mobile ? 'background-front' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                  >
+                    <Desktop />
+                    <Text>Desktop</Text>
+                  </Box>
+                </Button>
+                <Button hoverIndicator onClick={() => setMobile(true)}>
+                  <Box
+                    title="Mobile layout"
+                    background={mobile ? 'background-front' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                  >
+                    <IconMobile />
+                    <Text>Mobile</Text>
+                  </Box>
+                </Button>
               </Box>
-              <Box
-                direction="row"
-                justify="end"
-                border="between"
-                gap="medium"
-                pad={{ horizontal: 'medium', vertical: 'small' }}
-              >
-                {figma && <Anchor label="figma" href={figma} target="_blank" />}
-                {designer && (
-                  <Anchor label="designer" href={designer} target="_blank" />
-                )}
-                {docs && (
-                  <Anchor label="properties" href={docs} target="_blank" />
-                )}
+              <Box direction="row">
+                <Button
+                  title="Expand full screen"
+                  icon={<Expand />}
+                  onClick={() => {
+                    setShowLayer(true);
+                  }}
+                  hoverIndicator
+                />
+                <Button
+                  title="More details"
+                  plain
+                  hoverIndicator
+                  onClick={() => setOpen(!open)}
+                >
+                  <Box
+                    pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                    direction="row"
+                    gap="xsmall"
+                    width="xsmall"
+                    justify="end"
+                  >
+                    <Text>{open ? 'less' : 'more'}</Text>
+                    {open ? <FormUp /> : <FormDown />}
+                  </Box>
+                </Button>
               </Box>
             </Box>
-          )}
-          <Box direction="row" justify="end">
-            <Button
-              title="More details"
-              plain
-              hoverIndicator
-              onClick={() => setOpen(!open)}
-            >
-              <Box
-                pad={{ vertical: 'xsmall', horizontal: 'small' }}
-                direction="row"
-                gap="xsmall"
-              >
-                <Text>{open ? 'less' : 'more'}</Text>
-                {open ? <FormUp /> : <FormDown />}
+            {open && (
+              <Box animation="fadeIn">
+                <Box
+                  border="top"
+                  background="background-contrast"
+                  pad="medium"
+                  height={{ max: 'medium' }}
+                  overflow="auto"
+                >
+                  <Text size="xsmall" color="text">
+                    <Syntax>
+                      <code ref={codeRef} className="language-jsx">
+                        {codeText}
+                      </code>
+                    </Syntax>
+                  </Text>
+                </Box>
+                <Box
+                  direction="row"
+                  justify="end"
+                  border="between"
+                  gap="medium"
+                  pad={{ horizontal: 'medium', vertical: 'small' }}
+                >
+                  {figma && (
+                    <Anchor label="figma" href={figma} target="_blank" />
+                  )}
+                  {designer && (
+                    <Anchor label="designer" href={designer} target="_blank" />
+                  )}
+                  {docs && (
+                    <Anchor label="properties" href={docs} target="_blank" />
+                  )}
+                </Box>
               </Box>
-            </Button>
-          </Box>
-        </Stack>
+            )}
+          </>
+        )}
+      </Box>
+      {showLayer && (
+        <Keyboard
+          onEsc={() => {
+            setShowLayer(false);
+            setMobile(false);
+          }}
+        >
+          <Layer full animation="fadeIn">
+            <Box fill background="background-front">
+              <Box
+                direction="row"
+                justify="between"
+                pad="xxsmall"
+                background="#111"
+              >
+                <Box direction="row">
+                  <Box
+                    title="Desktop layout"
+                    background={!mobile ? 'background-contrast' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                    onClick={() => setMobile(false)}
+                  >
+                    <Desktop />
+                    <Text>Desktop</Text>
+                  </Box>
+                  <Box
+                    title="Mobile layout"
+                    background={mobile ? 'background-contrast' : undefined}
+                    direction="row"
+                    pad="small"
+                    align="center"
+                    gap="small"
+                    onClick={() => setMobile(true)}
+                  >
+                    <IconMobile />
+                    <Text>Mobile</Text>
+                  </Box>
+                </Box>
+                <Button
+                  title="Leave full screen"
+                  icon={<Contract />}
+                  onClick={() => {
+                    setShowLayer(false);
+                    setMobile(false);
+                  }}
+                  hoverIndicator
+                />
+              </Box>
+              <Box direction="row" justify="center" flex {...rest}>
+                {children &&
+                  React.cloneElement(children, {
+                    mobile,
+                  })}
+              </Box>
+            </Box>
+          </Layer>
+        </Keyboard>
       )}
-    </Box>
+    </>
   );
 };
 
 Example.propTypes = {
+  children: PropTypes.element,
   code: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
@@ -171,4 +308,5 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  template: PropTypes.bool,
 };
