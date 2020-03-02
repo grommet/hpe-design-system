@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'aries-core';
+import { FooterLink } from 'aries-core';
 import { Box, Footer, ResponsiveContext, Text } from 'grommet';
 
 export const FooterExample = () => {
@@ -31,16 +31,9 @@ export const FooterExample = () => {
           &copy; 2020 Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
-      <Box
-        alignSelf="center"
-        direction="row"
-        gap="medium"
-        margin={{ horizontal: size !== 'small' ? 'small' : undefined }}
-      >
+      <Box alignSelf="center" direction="row" gap="medium">
         {footerLinks.map((link, index) => (
-          <Box width="xxsmall" key={index}>
-            <NavLink label={link.label} />
-          </Box>
+          <FooterLink key={index} label={link.label} />
         ))}
       </Box>
     </Footer>
