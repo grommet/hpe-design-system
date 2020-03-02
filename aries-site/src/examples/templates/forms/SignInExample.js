@@ -63,6 +63,7 @@ const ResetPassword = ({ closeLayer, email }) => {
             <FormField
               label="Email"
               htmlFor="resetEmail"
+              name="resetEmail"
               validate={emailValidation}
             >
               <TextInput
