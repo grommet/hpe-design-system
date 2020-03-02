@@ -52,27 +52,48 @@ export const SignUpExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <FormField
-              name="email"
               label="Email"
-              component={MaskedInput}
-              type="email"
-              mask={emailMask}
+              htmlFor="email-sign-up"
+              name="email"
               validate={emailValidation}
-            />
+            >
+              <MaskedInput
+                id="email-sign-up"
+                name="email"
+                mask={emailMask}
+                type="email"
+              />
+            </FormField>
             <FormField
-              name="fullName"
               label="Full Name"
-              component={TextInput}
-              placeholder="Jane Smith"
-            />
+              htmlFor="fullName-sign-up"
+              name="fullName"
+            >
+              <TextInput
+                id="fullName-sign-up"
+                name="fullName"
+                placeholder="Jane Smith"
+              />
+            </FormField>
             <FormField
-              name="password"
               label="Password"
-              component={TextInput}
-              type="password"
-              placeholder="•••••••••••••••"
+              htmlFor="password-sign-up"
+              name="password"
+              help={
+                <Text size="xsmall">
+                  Include at least 8 characters, a lowercase letter, an
+                  uppercase letter, a number, and a special character
+                </Text>
+              }
               validate={passwordValidation}
-            />
+            >
+              <TextInput
+                id="password-sign-up"
+                name="password"
+                placeholder="•••••••••••••••"
+                type="password"
+              />
+            </FormField>
             <CheckBox
               name="termsAndPrivacy"
               label={
