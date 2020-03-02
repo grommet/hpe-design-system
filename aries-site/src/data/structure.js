@@ -170,6 +170,7 @@ export const structure = [
       'Text Colors',
       'Text Color Palette',
       'Call to Action Text',
+      'Status Colors',
     ],
   },
   {
