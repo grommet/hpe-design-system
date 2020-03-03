@@ -8,7 +8,7 @@ export const LayerExample = () => {
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   return (
-    <Box>
+    <>
       <Box align="start">
         <Button label="Show me the Layer" onClick={onOpen} primary />
       </Box>
@@ -45,6 +45,6 @@ export const LayerExample = () => {
           </Box>
         </Layer>
       )}
-    </Box>
+    </>
   );
 };
