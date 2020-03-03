@@ -3,6 +3,7 @@ export * from './ColorRow';
 export * from './ContentSection';
 export * from './Example';
 export * from './ExampleComponents';
+export * from './FeedbackSection';
 export * from './Head';
 export * from './Subsection';
 export * from './UsageExample';

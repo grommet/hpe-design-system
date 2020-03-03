@@ -29,7 +29,7 @@ const {
   lightBackgrounds,
 } = colorExamples.backgrounds;
 
-const { ctaColors, textColors } = colorExamples.text;
+const { ctaColors, statusColors, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor) => {
   return (
@@ -57,15 +57,16 @@ const Color = () => (
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
         <SubsectionText>
-          Our color palette brings out the depth and dimension of our identity.
-          From sophisticated, neutral hues reflective of technology to vibrant,
-          saturated colors that evoke energy and inspiration.
+          You will notice that the HPE Design System Color guidance
+          is different from Brand Central. Prioritize this HPE Design
+          System color palette over Brand Central when identifying 
+          colors for your digital experience.
         </SubsectionText>
         <SubsectionText size="medium">
-          The library of colors is approved for use by both HPE and Aruba
-          products and services. All colors have been tested for accessibility,
-          readability, and usability with guidance on how to apply them to your
-          experience.
+          The HPE Design System team is working with HPE Brand to ensure
+          that the Brand Central color palettes (like 'secondary colors')
+          are updated to meet ADA complicance levels in a large variety 
+          of user contexts.
         </SubsectionText>
         <ButtonRow>
           <Button
@@ -76,7 +77,7 @@ const Color = () => (
             rel="noreferrer noopener"
           />
           <Button
-            href="https://www.figma.com/file/TJUX0lFOOL2eFuVpfMmixx/hpe-design-sytem-library-styles?node-id=0%3A1"
+            href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
             label="See in Figma"
             primary
             target="_blank"
@@ -253,6 +254,9 @@ const Color = () => (
           trigger a response interaction.
         </SubsectionText>
         {ctaColors && generateColorExamples(ctaColors, 'brand')}
+      </Subsection>
+      <Subsection name="Status Colors" level={3}>
+        {statusColors && generateColorExamples(statusColors)}
       </Subsection>
       {/* CONTENT MISSING: Disabling following section for MVP launch */}
       {/* <Subsection name="Status Colors">
