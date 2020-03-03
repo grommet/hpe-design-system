@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
 import { ChatOption, MailOption, Close, Github } from 'grommet-icons';
-import { ContentSection, Subsection } from '../../layouts/content';
 import { SubsectionText } from '.';
 
 const Subscribe = () => (
@@ -92,17 +91,9 @@ export const SubmitFeedback = () => {
 
   return (
     <>
-      <ContentSection lastSection>
-        <Subsection name="Still have questions?" level={2}>
-          <SubsectionText>
-            Something missing or looking for more information? Get in touch to
-            help make the HPE Design System better.
-          </SubsectionText>
-          <Box align="start">
-            <Button label="Leave feedback" onClick={onOpen} primary />
-          </Box>
-        </Subsection>
-      </ContentSection>
+      <Box align="start">
+        <Button label="Leave feedback" onClick={onOpen} primary />
+      </Box>
       {open && (
         <Layer modal onClickOutside={onClose} onEsc={onClose} margin="medium">
           <Box flex>
