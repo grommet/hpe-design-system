@@ -15,7 +15,7 @@ import {
 } from 'grommet';
 
 import { FormContainer } from '.';
-import { emailMask, emailValidation, passwordValidation } from './formHelpers';
+import { emailMask, emailValidation, passwordRulesStrong } from './formHelpers';
 
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -85,7 +85,7 @@ export const SignUpExample = () => {
                   uppercase letter, a number, and a special character
                 </Text>
               }
-              validate={passwordValidation}
+              validate={passwordRulesStrong}
             >
               <TextInput
                 id="password-sign-up"
