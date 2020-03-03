@@ -60,3 +60,25 @@ export const passwordValidation = [
     status: 'error',
   },
 ];
+
+export const phoneMask = [
+  { fixed: '(' },
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: 'XXX',
+  },
+  { fixed: ')' },
+  { fixed: ' ' },
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: 'XXX',
+  },
+  { fixed: '-' },
+  {
+    length: 4,
+    regexp: /^[0-9]{1,4}$/,
+    placeholder: 'XXXX',
+  },
+];

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Meta, SubsectionText } from '../../components';
-import { SignInExample, SignUpExample } from '../../examples';
+import { ShippingExample, SignInExample, SignUpExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
@@ -39,10 +39,20 @@ const Forms = () => {
       <ContentSection>
         <Subsection name="Sign In">
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExampe.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=242%3A28"
           >
             <SignInExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Shipping">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
+          >
+            <ShippingExample />
           </Example>
         </Subsection>
       </ContentSection>
