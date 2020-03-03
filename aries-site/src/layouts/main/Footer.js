@@ -8,7 +8,7 @@ export const Footer = () => {
   const size = useContext(ResponsiveContext);
   const year = new Date().getFullYear();
 
-  const footerLinks = [
+  const externalFooterLinks = [
     {
       label: 'Terms',
       href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
@@ -35,7 +35,7 @@ export const Footer = () => {
         </Text>
       </Box>
       <Box alignSelf="center" direction="row" gap="medium">
-        {footerLinks.map((link, index) => (
+        {externalFooterLinks.map((link, index) => (
           <FooterLink
             key={index}
             href={link.href}
