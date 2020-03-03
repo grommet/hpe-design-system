@@ -131,8 +131,13 @@ const Layout = () => (
       <SubsectionText>
           A Stack component is a container that stacks content on top of each
           other.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/stack?theme=hpe#props'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/StackExample.js'
+      >
         <StackExample />
+      </Example>
       </Subsection>
     </ContentSection>
   </PageLayout>
