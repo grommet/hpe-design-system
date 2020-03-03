@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'aries-core';
+import { FooterLink } from 'aries-core';
 import { Box, Footer, ResponsiveContext, Text } from 'grommet';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
+
+  const footerLinks = [
+    { label: 'Terms' },
+    { label: 'Privacy' },
+    { label: 'Security' },
+    { label: 'Feedback' },
+  ];
   return (
-    <Footer 
+    <Footer
       background="background-front"
       direction={size !== 'small' ? 'row' : 'column-reverse'}
       pad={{
@@ -25,10 +32,9 @@ export const FooterExample = () => {
         </Text>
       </Box>
       <Box alignSelf="center" direction="row" gap="medium">
-        <NavLink label="Terms" />
-        <NavLink label="Privacy" />
-        <NavLink label="Security" />
-        <NavLink label="Feedback" />
+        {footerLinks.map((link, index) => (
+          <FooterLink key={index} label={link.label} />
+        ))}
       </Box>
     </Footer>
   );
