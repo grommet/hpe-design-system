@@ -7,6 +7,7 @@ import {
   ContentSection,
   Layout as PageLayout,
   Subsection,
+  Example,
 } from '../../layouts';
 import {
   BoxExample,
@@ -50,7 +51,12 @@ const Layout = () => (
           Box is where it all starts. Flexible props allow the behavior of
           content to be defined to optimize the user experience.
         </SubsectionText>
-        <BoxExample />
+        <Example
+          docs='https://v2.grommet.io/box?theme=hpe#props'
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/BoxExample.js"
+          >
+          <BoxExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
