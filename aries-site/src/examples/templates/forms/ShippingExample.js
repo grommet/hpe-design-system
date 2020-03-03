@@ -1,0 +1,127 @@
+import React from 'react';
+import {
+  Box,
+  Button,
+  CheckBox,
+  Form,
+  FormField,
+  Header,
+  Heading,
+  Main,
+  MaskedInput,
+  Select,
+  Text,
+  TextInput,
+} from 'grommet';
+
+import { FormContainer } from '.';
+import { emailMask, emailValidation, phoneMask } from './formHelpers';
+
+const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO'];
+
+export const ShippingExample = () => {
+  const [formValues, setFormValues] = React.useState({});
+
+  // eslint-disable-next-line no-unused-vars
+  const onSubmit = ({ value, touched }) => {
+    // Your submission logic here
+  };
+
+  return (
+    <FormContainer width="medium">
+      <Box gap="medium">
+        <Header
+          direction="column"
+          align="start"
+          gap="xxsmall"
+          pad={{ horizontal: 'xxsmall' }}
+        >
+          <Heading level={3} margin="none">
+            Shipping
+          </Heading>
+          <Text>for your HPE products</Text>
+        </Header>
+        <Main
+          // Padding used to prevent focus from being cutoff
+          pad={{ horizontal: 'xxsmall' }}
+        >
+          <Form
+            validate="blur"
+            value={formValues}
+            onChange={setFormValues}
+            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          >
+            <Box>
+              <Heading level={4} margin={{ bottom: 'small' }}>
+                Shipping Information
+              </Heading>
+              <Text>Shipping Address</Text>
+              <FormField htmlFor="firstName" name="firstName">
+                <TextInput
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                />
+              </FormField>
+              <FormField htmlFor="lastName" name="lastName">
+                <TextInput
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                />
+              </FormField>
+              <FormField htmlFor="address1" name="address1">
+                <TextInput
+                  id="address1"
+                  name="address1"
+                  placeholder="Street Address"
+                />
+              </FormField>
+              <FormField htmlFor="address2" name="address2">
+                <TextInput
+                  id="address2"
+                  name="address2"
+                  placeholder="Apt., Suite, Building (Optional)"
+                />
+              </FormField>
+              <FormField htmlFor="city" name="city">
+                <TextInput id="city" name="city" placeholder="City" />
+              </FormField>
+              <FormField htmlFor="state" name="state">
+                <Select
+                  id="state"
+                  name="state"
+                  placeholder="Select State"
+                  options={states}
+                />
+              </FormField>
+              <FormField htmlFor="zipcode" name="zipcode">
+                <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
+              </FormField>
+              <CheckBox name="isBusiness" label="This is a business" />
+            </Box>
+            <Box>
+              <Heading level={4} margin={{ bottom: 'small' }}>
+                Contact Information
+              </Heading>
+              <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
+                <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
+              </FormField>
+              <FormField
+                htmlFor="email-ship"
+                name="email"
+                label="Email Address"
+                validate={emailValidation}
+              >
+                <MaskedInput id="email-ship" name="email" mask={emailMask} />
+              </FormField>
+            </Box>
+            <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
+              <Button label="Continue" primary type="submit" />
+            </Box>
+          </Form>
+        </Main>
+      </Box>
+    </FormContainer>
+  );
+};
