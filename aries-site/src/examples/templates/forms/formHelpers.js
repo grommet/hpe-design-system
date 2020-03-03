@@ -33,7 +33,7 @@ export const emailValidation = [
   },
 ];
 
-export const passwordValidation = [
+export const passwordRulesStrong = [
   {
     regexp: new RegExp('(?=.*?[A-Z])'),
     message: 'At least one uppercase English letter',
@@ -57,6 +57,19 @@ export const passwordValidation = [
   {
     regexp: new RegExp('.{8,}'),
     message: 'At least eight characters',
+    status: 'error',
+  },
+];
+
+export const passwordRulesWeak = [
+  {
+    regexp: new RegExp('.{4,}'),
+    message: 'At least four characters',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
+    message: 'At least one special character or space',
     status: 'error',
   },
 ];
