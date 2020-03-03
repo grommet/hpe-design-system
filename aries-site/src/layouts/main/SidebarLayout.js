@@ -3,8 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Main, ResponsiveContext } from 'grommet';
 
-import { NextContent, SideBar } from '../navigation';
-import { SubmitFeedback } from '../../components/content';
+import { FeedbackSection, NextContent, SideBar } from '..';
 import { getNextContent, getParentPage } from '../../utils';
 
 export const SidebarLayout = ({ title, children }) => {
@@ -29,7 +28,7 @@ export const SidebarLayout = ({ title, children }) => {
           >
             <Main flex>
               {children}
-              <SubmitFeedback />
+              <FeedbackSection />
             </Main>
             {size !== 'small' && (
               <Box
