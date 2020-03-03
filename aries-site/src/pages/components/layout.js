@@ -1,9 +1,8 @@
 import React from 'react';
 import { Anchor } from 'grommet';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import {
-  ButtonRow,
   ContentSection,
   Layout as PageLayout,
   Subsection,
@@ -87,21 +86,17 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Header">
-        <HeaderExample />
         <SubsectionText>
           Header is a Box with a set of preset properties for introductory
           content. Box properties allow you to customize the header.
         </SubsectionText>
-        <ButtonRow>
-          <ExternalCTA
-            href="https://storybook.hpe.design/?path=/story/header--simple"
-            type="storybook"
-          />
-          <ExternalCTA
-            href="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
-            type="figma"
-          />
-        </ButtonRow>
+        <Example
+          docs='https://v2.grommet.io/header?theme=hpe'
+          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/HeaderExample.js'
+          figma='https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1'
+        >
+          <HeaderExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
