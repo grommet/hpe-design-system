@@ -105,8 +105,13 @@ const Layout = () => (
           The Layer component is flexible and can be used in multiple use cases.
           Modal dialogs, notifications and help text are just a few
           possibilities.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/layer?theme=hpe#props'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js'
+      >
         <LayerExample />
+      </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
