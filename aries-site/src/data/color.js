@@ -210,6 +210,33 @@ const ctaColors = [
   },
 ];
 
+const statusColors = [
+  {
+    name: 'critical',
+    value: colors['status-critical'],
+    hex: colors['status-critical'],
+  },
+  {
+    name: 'warning',
+    value: colors['status-warning'],
+    hex: colors['status-warning'],
+  },
+  {
+    name: 'ok',
+    value: colors['status-ok'],
+    hex: colors['status-ok'],
+  },
+  {
+    name: 'unknown',
+    value: colors['status-unknown'],
+    hex: colors['status-unknown'],
+  },
+  {
+    name: 'disabled',
+    value: colors['status-disabled'],
+    hex: colors['status-disabled'],
+  },
+];
 export const colorExamples = {
   palettes: {
     primaryColors,
@@ -226,5 +253,6 @@ export const colorExamples = {
   text: {
     textColors,
     ctaColors,
+    statusColors,
   },
 };
