@@ -64,8 +64,12 @@ const Layout = () => (
       <SubsectionText>
           Footer is a Box with a set of preset properties. Box properties allow
           you to cusotmize the footer.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/footer?theme=hpe'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/FooterExample.js'>
         <FooterExample />
+      </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
