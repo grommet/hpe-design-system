@@ -46,29 +46,29 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Box">
-        <BoxExample />
-        <SubsectionText>
+      <SubsectionText>
           Box is where it all starts. Flexible props allow the behavior of
           content to be defined to optimize the user experience.
         </SubsectionText>
+        <BoxExample />
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Footer">
-        <FooterExample />
-        <SubsectionText>
+      <SubsectionText>
           Footer is a Box with a set of preset properties. Box properties allow
           you to cusotmize the footer.
         </SubsectionText>
+        <FooterExample />
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Grid">
-        <GridExample />
-        <SubsectionText>
+      <SubsectionText>
           The Grid component is used to layout content. Responsive grid is
           important to consider in every use case.
         </SubsectionText>
+        <GridExample />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -92,12 +92,12 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Layer">
-        <LayerExample />
-        <SubsectionText>
+      <SubsectionText>
           The Layer component is flexible and can be used in multiple use cases.
           Modal dialogs, notifications and help text are just a few
           possibilities.
         </SubsectionText>
+        <LayerExample />
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -114,11 +114,11 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Stack">
-        <StackExample />
-        <SubsectionText>
+      <SubsectionText>
           A Stack component is a container that stacks content on top of each
           other.
         </SubsectionText>
+        <StackExample />
       </Subsection>
     </ContentSection>
   </PageLayout>
