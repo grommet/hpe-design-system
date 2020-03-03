@@ -78,7 +78,11 @@ const Layout = () => (
           The Grid component is used to layout content. Responsive grid is
           important to consider in every use case.
         </SubsectionText>
-        <GridExample />
+        <Example
+          docs='https://v2.grommet.io/grid?theme=hpe#props'
+          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/GridExample.js'>
+          <GridExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
