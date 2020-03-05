@@ -3,15 +3,15 @@ import { AppIdentity, Header } from 'aries-core';
 import { Box, ResponsiveContext, TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
-export const HeaderExample = ({ background, ...rest }) => {
+export const HeaderExample = () => {
   const size = useContext(ResponsiveContext);
   const [focused, setFocused] = useState(false);
 
   return (
-      <Header pad="none" background={background} {...rest}>
+      <Header pad="none" background='background-front'>
         <AppIdentity
           brand="hpe"
-          logoOnly={size === 'small' && searchFocused}
+          logoOnly={size === 'small'}
           title="Design System"
         />
         <Box
