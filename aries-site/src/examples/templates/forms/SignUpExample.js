@@ -8,7 +8,6 @@ import {
   FormField,
   Header,
   Heading,
-  Main,
   MaskedInput,
   Text,
   TextInput,
@@ -41,7 +40,7 @@ export const SignUpExample = () => {
           </Heading>
           <Text>for a Hewlett Packard Enterprise account</Text>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -121,7 +120,7 @@ export const SignUpExample = () => {
               <Button label="Sign up" primary type="submit" />
             </Box>
           </Form>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
