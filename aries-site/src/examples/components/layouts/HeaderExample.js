@@ -8,7 +8,7 @@ export const HeaderExample = () => {
   const [focused, setFocused] = useState(false);
 
   return (
-      <Header pad="none" background='background-front'>
+      <Header fill="horizontal" pad="none" background='background-front'>
         <AppIdentity
           brand="hpe"
           logoOnly={size === 'small'}
