@@ -7,8 +7,6 @@ import {
   FormField,
   Header,
   Heading,
-  Main,
-  MaskedInput,
   RangeInput,
   Text,
   TextInput,
@@ -42,7 +40,7 @@ export const SettingsExample = () => {
           </Heading>
           <Text>for HPE Service</Text>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -98,7 +96,7 @@ export const SettingsExample = () => {
               <Button label="Apply Settings" primary type="submit" />
             </Box>
           </Form>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
