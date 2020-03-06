@@ -9,7 +9,6 @@ import {
   Header,
   Heading,
   Layer,
-  Main,
   Text,
   TextInput,
 } from 'grommet';
@@ -112,7 +111,7 @@ export const SignInExample = () => {
           </Heading>
           <Text>to Hewlett Packard Enterprise</Text>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -179,7 +178,7 @@ export const SignInExample = () => {
               </Layer>
             )}
           </Box>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
