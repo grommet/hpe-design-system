@@ -7,7 +7,6 @@ import {
   FormField,
   Header,
   Heading,
-  Main,
   MaskedInput,
   Select,
   Text,
@@ -39,7 +38,7 @@ export const ShippingExample = () => {
           </Heading>
           <Text>for your HPE products</Text>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -50,10 +49,12 @@ export const ShippingExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box>
-              <Heading level={4} margin={{ bottom: 'small' }}>
+              <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
                 Shipping Information
               </Heading>
-              <Text>Shipping Address</Text>
+              <Text margin={{ horizontal: 'small', vertical: 'xsmall' }}>
+                Shipping Address
+              </Text>
               <FormField htmlFor="firstName" name="firstName">
                 <TextInput
                   id="firstName"
@@ -119,7 +120,7 @@ export const ShippingExample = () => {
               <Button label="Continue" primary type="submit" />
             </Box>
           </Form>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
