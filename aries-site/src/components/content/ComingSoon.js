@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Anchor } from 'aries-core';
-import { Box, Text } from 'grommet';
+import { Box, Text, Anchor } from 'grommet';
 import { ContentSection } from '../../layouts';
 import { SubmitFeedback } from '.';
 
@@ -41,7 +40,7 @@ export const ComingSoon = () => {
           <Text>or</Text>
           <Box>
             <Link href="/" passHref>
-              <Anchor label="Take me back to the Homepage" />
+              <Anchor color="text" label="Take me back to the Homepage" />
             </Link>
           </Box>
         </Box>
