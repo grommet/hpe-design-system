@@ -9,7 +9,7 @@ export const AnchorExample = () => {
         <Anchor color="brand" href="#" label="Anchor " />
       </Box>
       <Box direction="row" gap="small">
-        <Text>Color Anchor: </Text>
+        <Text>Color anchor: </Text>
         <Anchor color="text" href="#" label="Color Anchor" />
       </Box>
     </Box>
