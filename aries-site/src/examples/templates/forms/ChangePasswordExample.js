@@ -6,7 +6,6 @@ import {
   FormField,
   Header,
   Heading,
-  Main,
   Text,
   TextInput,
 } from 'grommet';
@@ -44,7 +43,7 @@ export const ChangePasswordExample = () => {
             Change Password
           </Heading>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -108,7 +107,7 @@ export const ChangePasswordExample = () => {
               />
             </Box>
           </Form>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
