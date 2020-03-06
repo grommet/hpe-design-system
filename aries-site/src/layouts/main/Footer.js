@@ -21,7 +21,7 @@ export const Footer = () => {
   ];
   return (
     <GrommetFooter
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      direction="row-responsive"
       align={size !== 'small' ? 'center' : undefined}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
@@ -34,9 +34,10 @@ export const Footer = () => {
           &copy; {year} Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
-      <Box alignSelf="center" direction="row" gap="medium">
+      <Box direction="row" gap="medium">
         {externalFooterLinks.map((link, index) => (
           <FooterLink
+            size="small"
             key={index}
             href={link.href}
             label={link.label}
@@ -47,7 +48,7 @@ export const Footer = () => {
         {/* Need to pass href because of:
         https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
         <Link href={nameToPath('Feedback')} passHref>
-          <FooterLink label="Feedback" />
+          <FooterLink size="small" label="Feedback" />
         </Link>
       </Box>
     </GrommetFooter>
