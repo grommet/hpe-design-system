@@ -15,9 +15,7 @@ import {
 } from 'grommet';
 
 import { FormContainer } from '.';
-import { emailMask, emailValidation, phoneMask } from './formHelpers';
-
-const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO'];
+import { emailMask, emailValidation, phoneMask, states } from './formHelpers';
 
 export const ShippingExample = () => {
   const [formValues, setFormValues] = React.useState({});
@@ -91,8 +89,9 @@ export const ShippingExample = () => {
                 <Select
                   id="state"
                   name="state"
-                  placeholder="Select State"
+                  dropHeight="small"
                   options={states}
+                  placeholder="Select State"
                 />
               </FormField>
               <FormField htmlFor="zipcode" name="zipcode">

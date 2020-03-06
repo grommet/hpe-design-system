@@ -63,22 +63,22 @@ const Forms = () => {
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Shipping">
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
-          >
-            <ShippingExample />
-          </Example>
-        </Subsection>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Settings">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=267%3A77"
           >
             <SettingsExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Shipping">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
+          >
+            <ShippingExample />
           </Example>
         </Subsection>
       </ContentSection>
