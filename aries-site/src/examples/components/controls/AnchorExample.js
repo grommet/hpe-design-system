@@ -10,7 +10,7 @@ export const AnchorExample = () => {
       </Box>
       <Box direction="row" gap="small">
         <Text>Color anchor: </Text>
-        <Anchor color="text" href="#" label="Color Anchor" />
+        <Anchor color="text" href="#" label="Anchor" />
       </Box>
     </Box>
   );
