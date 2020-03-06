@@ -20,7 +20,7 @@ export const Nav = ({
   const textSize = 'small';
 
   return (
-    <Box fill background={background}>
+    <Box background={background}>
       <Box
         role="navigation"
         direction="row"
