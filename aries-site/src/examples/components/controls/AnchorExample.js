@@ -6,7 +6,7 @@ export const AnchorExample = () => {
     <Box direction="column" align="start" gap="medium">
       <Box direction="row" gap="small">
         <Text>Default anchor:</Text>
-        <Anchor color="brand" href="#" label="Anchor " />
+        <Anchor href="#" label="Anchor " />
       </Box>
       <Box direction="row" gap="small">
         <Text>Color anchor: </Text>
