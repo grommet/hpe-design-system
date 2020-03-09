@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Nav } from 'aries-core';
+import { AppIdentity, Header } from 'aries-core';
 import { Box, ResponsiveContext, TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
@@ -8,41 +8,40 @@ export const HeaderExample = () => {
   const [focused, setFocused] = useState(false);
 
   return (
-    <Nav
-      title="Design System"
-      collapse={false}
-      background="background-front"
-      logoOnly={size === 'small' && focused}
-      pad={{ horizontal: 'small', vertical: 'small' }}
-    >
-      <Box
-        align="center"
-        background={
-          size !== 'small' || focused ? 'background-contrast' : undefined
-        }
-        direction="row"
-        justify="between"
-        onClick={() => setFocused(true)}
-        onFocus={() => setFocused(true)}
-        pad={{ right: 'small' }}
-        round="small"
-        width={size !== 'small' || focused ? 'medium' : undefined}
-      >
-        {size !== 'small' || focused ? (
-          <TextInput placeholder="Search HPE Design System" plain />
-        ) : (
-          undefined
-        )}
+      <Header fill="horizontal" pad="none" background='background-front'>
+        <AppIdentity
+          brand="hpe"
+          logoOnly={size === 'small'}
+          title="Design System"
+        />
         <Box
-          pad={
-            size === 'small' && !focused
-              ? { vertical: 'medium', left: 'medium' }
-              : undefined
+          align="center"
+          background={
+            size !== 'small' || focused ? 'background-contrast' : undefined
           }
+          direction="row"
+          justify="between"
+          onClick={() => setFocused(true)}
+          onFocus={() => setFocused(true)}
+          pad={{ right: 'small' }}
+          round="small"
+          width={size !== 'small' || focused ? 'medium' : undefined}
         >
-          <SearchIcon color="text" />
+          {size !== 'small' || focused ? (
+            <TextInput placeholder="Search HPE Design System" plain />
+          ) : (
+            undefined
+          )}
+          <Box
+            pad={
+              size === 'small' && !focused
+                ? { vertical: 'medium', left: 'medium' }
+                : undefined
+            }
+          >
+            <SearchIcon color="text" />
+          </Box>
         </Box>
-      </Box>
-    </Nav>
+      </Header>
   );
 };

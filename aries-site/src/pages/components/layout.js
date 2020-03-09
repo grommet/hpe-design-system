@@ -1,12 +1,12 @@
 import React from 'react';
 import { Anchor } from 'grommet';
 
-import { ExternalCTA, Meta, SubsectionText } from '../../components';
+import { Meta, SubsectionText } from '../../components';
 import {
-  ButtonRow,
   ContentSection,
   Layout as PageLayout,
   Subsection,
+  Example,
 } from '../../layouts';
 import {
   BoxExample,
@@ -46,58 +46,73 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Box">
-        <BoxExample />
-        <SubsectionText>
+      <SubsectionText>
           Box is where it all starts. Flexible props allow the behavior of
           content to be defined to optimize the user experience.
         </SubsectionText>
+        <Example
+          docs='https://v2.grommet.io/box?theme=hpe#props'
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/BoxExample.js"
+          >
+          <BoxExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Footer">
-        <FooterExample />
-        <SubsectionText>
+      <SubsectionText>
           Footer is a Box with a set of preset properties. Box properties allow
           you to cusotmize the footer.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/footer?theme=hpe'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/FooterExample.js'>
+        <FooterExample />
+      </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Grid">
-        <GridExample />
-        <SubsectionText>
+      <SubsectionText>
           The Grid component is used to layout content. Responsive grid is
           important to consider in every use case.
         </SubsectionText>
+        <Example
+          docs='https://v2.grommet.io/grid?theme=hpe#props'
+          figma='https://www.figma.com/file/OvLyDPjqHbwoDI97r2nD8j/hpe-design-system-library-grid?node-id=0%3A1'
+          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/GridExample.js'>
+          <GridExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Header">
-        <HeaderExample />
         <SubsectionText>
           Header is a Box with a set of preset properties for introductory
           content. Box properties allow you to customize the header.
         </SubsectionText>
-        <ButtonRow>
-          <ExternalCTA
-            href="https://storybook.hpe.design/?path=/story/header--simple"
-            type="storybook"
-          />
-          <ExternalCTA
-            href="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
-            type="figma"
-          />
-        </ButtonRow>
+        <Example
+          docs='https://v2.grommet.io/header?theme=hpe'
+          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/HeaderExample.js'
+          figma='https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1'
+        >
+          <HeaderExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
       <Subsection name="Layer">
-        <LayerExample />
-        <SubsectionText>
+      <SubsectionText>
           The Layer component is flexible and can be used in multiple use cases.
           Modal dialogs, notifications and help text are just a few
           possibilities.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/layer?theme=hpe#props'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js'
+      >
+        <LayerExample />
+      </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>
@@ -114,11 +129,16 @@ const Layout = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Stack">
-        <StackExample />
-        <SubsectionText>
+      <SubsectionText>
           A Stack component is a container that stacks content on top of each
           other.
-        </SubsectionText>
+      </SubsectionText>
+      <Example
+        docs='https://v2.grommet.io/stack?theme=hpe#props'
+        code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/StackExample.js'
+      >
+        <StackExample />
+      </Example>
       </Subsection>
     </ContentSection>
   </PageLayout>

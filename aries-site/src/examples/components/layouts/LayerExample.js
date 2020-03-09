@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
 import { Close } from 'grommet-icons';
-import { UsageExample } from '../../../layouts';
 
 export const LayerExample = () => {
   const [open, setOpen] = useState(false);
@@ -9,7 +8,7 @@ export const LayerExample = () => {
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   return (
-    <UsageExample>
+    <>
       <Box align="start">
         <Button label="Show me the Layer" onClick={onOpen} primary />
       </Box>
@@ -46,6 +45,6 @@ export const LayerExample = () => {
           </Box>
         </Layer>
       )}
-    </UsageExample>
+    </>
   );
 };

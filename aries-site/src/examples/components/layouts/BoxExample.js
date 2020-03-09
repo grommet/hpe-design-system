@@ -2,13 +2,11 @@ import React, { useContext } from 'react';
 import { Tile } from 'aries-core';
 import { Box, Heading, ResponsiveContext, Text } from 'grommet';
 import { IconGuidelines } from '../../../components';
-import { UsageExample } from '../../../layouts';
 
 export const BoxExample = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <UsageExample>
       <Tile pad="medium" background="green" width="medium">
         <Box
           pad="small"
@@ -24,6 +22,5 @@ export const BoxExample = () => {
           </Text>
         </Box>
       </Tile>
-    </UsageExample>
   );
 };

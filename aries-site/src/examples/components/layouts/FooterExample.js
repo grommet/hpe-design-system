@@ -15,11 +15,6 @@ export const FooterExample = () => {
     <Footer
       background="background-front"
       direction={size !== 'small' ? 'row' : 'column-reverse'}
-      pad={{
-        vertical: size !== 'small' ? 'small' : 'large',
-        // Match horizontal padding of aries-core Nav
-        horizontal: size !== 'small' ? 'medium' : 'large',
-      }}
       align={size !== 'small' ? 'center' : undefined}
     >
       <Box
