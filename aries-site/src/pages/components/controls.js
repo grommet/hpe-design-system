@@ -10,6 +10,7 @@ import {
 } from '../../layouts';
 import {
   AccordionExample,
+  AnchorExample,
   ButtonExample,
   MenuExample,
   TabsExample,
@@ -62,8 +63,20 @@ const Controls = () => (
     <ContentSection>
       <Subsection name="Anchor">
         <SubsectionText>
-          The anchor component provides a text link.
+        Anchors are used with text based navigation, such as inline text,
+        header navigation, and footer navigation. The default anchor
+        color is brand, however, it is possible to use HPE Design
+        System font colors for anchor in some use cases
+        (i.e. header and footer). When using an inline
+        text anchor, the color should remain default:
         </SubsectionText>
+        <Example
+          docs='https://v2.grommet.io/anchor?theme=hpe#props'
+          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AnchorExample.js'
+          figma='https://www.figma.com/file/I7PsiUmvr7OEJ6311rBUfg/hpe-design-system-library-anchor?node-id=0%3A1'
+        >
+          <AnchorExample />
+        </Example>
       </Subsection>
     </ContentSection>
     <ContentSection>

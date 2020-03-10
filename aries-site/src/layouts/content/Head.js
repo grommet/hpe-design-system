@@ -5,7 +5,9 @@ import HeadNext from 'next/head';
 export const Head = ({ title }) => (
   <HeadNext>
     <title>
-      {title ? `${title} — HPE Design System` : 'HPE Design System'}
+      {title && title !== 'Home'
+        ? `${title} — HPE Design System`
+        : 'HPE Design System'}
     </title>
     <link rel="icon" href="/static/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
