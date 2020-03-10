@@ -77,8 +77,8 @@ test.before(async t => {
 });
 
 test.before(async t => {
-  await t.navigateTo('/design');
-})('should check Design Page (Empty Page)', async t => {
+  await t.navigateTo('/resources');
+})('should check Resources Page (Empty Page)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {

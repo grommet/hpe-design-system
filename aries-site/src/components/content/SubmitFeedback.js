@@ -7,17 +7,17 @@ const Subscribe = () => (
   <Box gap="small">
     <MailOption size="large" />
     <Text weight="bold" size="large">
-      Stay up-to-date
+      Here to help
     </Text>
     <SubsectionText>
-      Get the latest feature enhancements and announcements directly to your
-      inbox.
+      Your comments are important to us. Reach out, and we can discuss your
+      needs.
     </SubsectionText>
     <Box align="start">
       <Button
-        label="Subscribe"
+        label="Contact us"
         // eslint-disable-next-line max-len
-        href="mailto:mike.walrath@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
+        href="mailto:hpedesignsystem@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
         primary
       />
     </Box>
@@ -32,7 +32,8 @@ const JoinConversation = () => (
     </Text>
     <SubsectionText>
       Specific questions? Want feedback or advice? Generally curious? Join the
-      #general-hpe channel on Grommet Slack by signing up with an HPE email.
+      #hpe-design-system channel on Grommet Slack by signing up with an HPE
+      email.
     </SubsectionText>
     <Box align="start">
       <Button
@@ -76,9 +77,9 @@ export const FeedbackOptions = () => {
         columns={size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'}
         gap="large"
       >
-        <Subscribe />
         <JoinConversation />
         <Contribute />
+        <Subscribe />
       </Grid>
     </Box>
   );
