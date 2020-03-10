@@ -6,7 +6,6 @@ import {
   FormField,
   Header,
   Heading,
-  Main,
   Select,
   Text,
   TextInput,
