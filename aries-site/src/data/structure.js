@@ -100,6 +100,11 @@ export const structure = [
     seoDescription:
       'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
     pages: [],
+    sections: [
+      'Preferred environment',
+      'Getting started',
+      'HPE Design System Sticker Sheet',
+    ],
   },
   {
     name: 'Resources',
