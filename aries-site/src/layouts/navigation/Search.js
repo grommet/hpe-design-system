@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -28,14 +22,6 @@ export const Search = ({ focused, setFocused }) => {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(allSuggestions);
   const inputRef = useRef();
-  // Needed so that boxRef.current is not undefined. Allows suggestions drop
-  // to match width of containing box as opposed to just width of text input
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
-
-  useEffect(() => {
-    forceUpdate();
-  }, [forceUpdate]);
 
   useEffect(() => {
     if (focused && inputRef.current) {
