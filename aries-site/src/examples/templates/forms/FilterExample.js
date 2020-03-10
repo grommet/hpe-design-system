@@ -64,7 +64,7 @@ export const FilterExample = () => {
             Filter
           </Heading>
         </Header>
-        <Main
+        <Box
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
@@ -113,7 +113,7 @@ export const FilterExample = () => {
               </Box>
             )}
           </Form>
-        </Main>
+        </Box>
       </Box>
     </FormContainer>
   );
