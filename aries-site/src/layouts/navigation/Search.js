@@ -1,14 +1,8 @@
-import React, {
-  useContext,
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Keyboard, TextInput, ResponsiveContext } from 'grommet';
+import { Box, Button, TextInput, ResponsiveContext, Keyboard } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 
@@ -27,17 +21,7 @@ export const Search = ({ focused, setFocused }) => {
   const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(allSuggestions);
-
-  const boxRef = useRef();
   const inputRef = useRef();
-  // Needed so that boxRef.current is not undefined. Allows suggestions drop
-  // to match width of containing box as opposed to just width of text input
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
-
-  useEffect(() => {
-    forceUpdate();
-  }, [forceUpdate]);
 
   useEffect(() => {
     if (focused && inputRef.current) {
@@ -83,53 +67,33 @@ export const Search = ({ focused, setFocused }) => {
   };
 
   return (
-    <Box
-      ref={boxRef}
-      align="center"
-      background={
-        size !== 'small' || focused ? 'background-contrast' : undefined
-      }
-      direction="row"
-      justify="between"
-      onClick={() => setFocused(true)}
-      onFocus={() => setFocused(true)}
-      pad={{ right: 'small' }}
-      round="small"
-      width={size !== 'small' || focused ? 'medium' : undefined}
-    >
-      {size !== 'small' || focused ? (
-        <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
-          <StyledTextInput
-            ref={inputRef}
-            dropTarget={boxRef.current}
-            dropProps={{
-              margin: {
-                // push drop just below focus indicator of text input
-                top: '3px',
-              },
-            }}
-            dropHeight="small"
-            onChange={onChange}
-            onSelect={onSelect}
-            placeholder="Search HPE Design System"
-            plain
-            suggestions={suggestions}
-            value={value}
-          />
-        </Keyboard>
-      ) : (
-        undefined
+    <>
+      {!focused && size === 'small' && (
+        <Button
+          icon={<SearchIcon />}
+          hoverIndicator
+          onClick={() => setFocused(true)}
+        />
       )}
-      <Box
-        pad={
-          size === 'small' && !focused
-            ? { vertical: 'medium', left: 'medium' }
-            : undefined
-        }
-      >
-        <SearchIcon id="search-icon" color="text" />
-      </Box>
-    </Box>
+      {(focused || size !== 'small') && (
+        <Box background="background-contrast" round="small" width="medium">
+          <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
+            <StyledTextInput
+              ref={inputRef}
+              icon={<SearchIcon id="search-icon" />}
+              dropHeight="small"
+              placeholder="Search HPE Design System"
+              onChange={onChange}
+              onSelect={onSelect}
+              suggestions={suggestions}
+              value={value}
+              plain
+              reverse
+            />
+          </Keyboard>
+        </Box>
+      )}
+    </>
   );
 };
 
