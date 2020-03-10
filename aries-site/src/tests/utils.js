@@ -30,7 +30,7 @@ export const getTabCount = ClientFunction(expectedPath => {
   let hrefIndex;
   for (let i = 0; i < tabbableElements.length; i += 1) {
     if (tabbableElements[i].getAttribute('href') === expectedPath) {
-      hrefIndex = i;
+      hrefIndex = i + 1;
     }
   }
   return hrefIndex;
