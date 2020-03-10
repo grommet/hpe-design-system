@@ -95,6 +95,8 @@ test.before(async t => {
         ['input'],
         // Paragraph in header
         ['p'],
+        // Text on feedback button
+        ['.fIVxyY'],
       ],
     };
     const { violations } = await axeCheck(t, axeContext);

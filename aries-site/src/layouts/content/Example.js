@@ -129,50 +129,54 @@ export const Example = ({
               mobile,
             })}
         </Box>
-        {(code || designer || docs || figma) && (
+        {(code || designer || docs || figma || template) && (
           <>
             <Box
               background="background-contrast"
               direction="row"
-              justify="between"
+              justify={template ? 'between' : 'end'}
             >
+              {template && (
+                <Box direction="row">
+                  <Button onClick={() => setMobile(false)} hoverIndicator>
+                    <Box
+                      title="Desktop layout"
+                      background={!mobile ? 'background-front' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                    >
+                      <Desktop />
+                      <Text>Desktop</Text>
+                    </Box>
+                  </Button>
+                  <Button hoverIndicator onClick={() => setMobile(true)}>
+                    <Box
+                      title="Mobile layout"
+                      background={mobile ? 'background-front' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                    >
+                      <IconMobile />
+                      <Text>Mobile</Text>
+                    </Box>
+                  </Button>
+                </Box>
+              )}
               <Box direction="row">
-                <Button onClick={() => setMobile(false)} hoverIndicator>
-                  <Box
-                    title="Desktop layout"
-                    background={!mobile ? 'background-front' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                  >
-                    <Desktop />
-                    <Text>Desktop</Text>
-                  </Box>
-                </Button>
-                <Button hoverIndicator onClick={() => setMobile(true)}>
-                  <Box
-                    title="Mobile layout"
-                    background={mobile ? 'background-front' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                  >
-                    <IconMobile />
-                    <Text>Mobile</Text>
-                  </Box>
-                </Button>
-              </Box>
-              <Box direction="row">
-                <Button
-                  title="Expand full screen"
-                  icon={<Expand />}
-                  onClick={() => {
-                    setShowLayer(true);
-                  }}
-                  hoverIndicator
-                />
+                {template && (
+                  <Button
+                    title="Expand full screen"
+                    icon={<Expand />}
+                    onClick={() => {
+                      setShowLayer(true);
+                    }}
+                    hoverIndicator
+                  />
+                )}
                 <Button
                   title="More details"
                   plain
@@ -180,7 +184,7 @@ export const Example = ({
                   onClick={() => setOpen(!open)}
                 >
                   <Box
-                    pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                    pad="small"
                     direction="row"
                     gap="xsmall"
                     width="xsmall"

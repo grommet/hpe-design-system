@@ -1,15 +1,27 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import { NavLink } from 'aries-core';
+import { FooterLink } from 'aries-core';
 import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
 import { nameToPath } from '../../utils';
 
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
   const year = new Date().getFullYear();
+
+  const externalFooterLinks = [
+    {
+      label: 'Terms',
+      href: 'https://www.hpe.com/us/en/about/legal/terms-of-use.html',
+    },
+    { label: 'Privacy', href: 'https://www.hpe.com/us/en/legal/privacy.html' },
+    {
+      label: 'Security',
+      href: 'https://www.hpe.com/us/en/legal/privacy.html#datacollection',
+    },
+  ];
   return (
     <GrommetFooter
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      direction="row-responsive"
       align={size !== 'small' ? 'center' : undefined}
       pad={{
         vertical: size !== 'small' ? 'small' : 'large',
@@ -22,29 +34,21 @@ export const Footer = () => {
           &copy; {year} Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
-      <Box alignSelf="center" direction="row" gap="medium">
-        <NavLink
-          label="Terms"
-          href="https://www.hpe.com/us/en/about/legal/terms-of-use.html"
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-        <NavLink
-          label="Privacy"
-          href="https://www.hpe.com/us/en/legal/privacy.html"
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-        <NavLink
-          label="Security"
-          href="https://www.hpe.com/us/en/legal/privacy.html#datacollection"
-          target="_blank"
-          rel="noreferrer noopener"
-        />
+      <Box direction="row" gap="medium">
+        {externalFooterLinks.map((link, index) => (
+          <FooterLink
+            size="small"
+            key={index}
+            href={link.href}
+            label={link.label}
+            target="_blank"
+            rel="noreferrer noopener"
+          />
+        ))}
         {/* Need to pass href because of:
         https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
         <Link href={nameToPath('Feedback')} passHref>
-          <NavLink label="Feedback" />
+          <FooterLink size="small" label="Feedback" />
         </Link>
       </Box>
     </GrommetFooter>

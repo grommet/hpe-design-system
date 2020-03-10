@@ -27,7 +27,9 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
   return (
     <Head>
       <title>
-        {title ? `${title} — HPE Design System` : 'HPE Design System'}
+        {title && title !== 'Home'
+          ? `${title} — HPE Design System`
+          : 'HPE Design System'}
       </title>
       <meta
         key="viewport"

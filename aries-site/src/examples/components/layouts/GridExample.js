@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Grid, Text } from 'grommet';
-import { UsageExample } from '../../../layouts';
 
 export const GridExample = () => {
   return (
-    <UsageExample>
       <Grid
         rows={['xxsmall', 'small', 'xxsmall']}
         columns={['1/4', '3/4']}
@@ -32,6 +30,5 @@ export const GridExample = () => {
           <Text weight="bold">Footer</Text>
         </Box>
       </Grid>
-    </UsageExample>
   );
 };
