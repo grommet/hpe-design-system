@@ -39,30 +39,30 @@ export const cvvMask = [
   },
 ];
 
-const creditCard =  /^[0-9]{1,4}$/;
+const creditCardRegExp =  /^[0-9]{1,4}$/;
 
 export const creditCardMask = [
   {
     length: 4,
-    regexp: creditCard,
+    regexp: creditCardRegExp,
     placeholder: '0000',
   },
   { fixed: ' ' },
   {
     length: 4,
-    regexp: creditCard,
+    regexp: creditCardRegExp,
     placeholder: '0000',
   },
   { fixed: ' ' },
   {
     length: 4,
-    regexp: creditCard,
+    regexp: creditCardRegExp,
     placeholder: '0000',
   },
   { fixed: ' ' },
   {
     length: 4,
-    regexp: creditCard,
+    regexp: creditCardRegExp,
     placeholder: '0000',
   },
 ];
