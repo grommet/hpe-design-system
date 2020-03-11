@@ -87,7 +87,7 @@ export const PayExample = () => {
                 </FormField>
               </Box>
               <Box fill>
-                <FormField name="cvv" label="CVV">
+                <FormField htmlFor="cvv" name="cvv" label="CVV">
                   <MaskedInput
                     mask={cvvValidation}
                     id="cvv"
