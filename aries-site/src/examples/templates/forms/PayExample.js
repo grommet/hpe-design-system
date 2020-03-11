@@ -73,7 +73,7 @@ export const PayExample = () => {
                 name="cardNumber"
                 reverse
                 mask={creditCardMask}
-                icon={<CreditCard color="status-disabled" />}
+                icon={<CreditCard color="placeholder" />}
               />
             </FormField>
             <Box direction="row" gap="medium">
