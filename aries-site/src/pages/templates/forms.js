@@ -3,6 +3,7 @@ import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import {
   ChangePasswordExample,
+  FilterExample,
   SettingsExample,
   ShippingExample,
   SignInExample,
@@ -49,6 +50,16 @@ const Forms = () => {
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=242%3A28"
           >
             <SignInExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Filter">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A437"
+          >
+            <FilterExample />
           </Example>
         </Subsection>
       </ContentSection>

@@ -14,7 +14,14 @@ const GAP_SIZE = {
   3: undefined,
 };
 
-export const Subsection = ({ children, showHeading, level, name, topic }) => {
+export const Subsection = ({
+  children,
+  showHeading,
+  level,
+  name,
+  topic,
+  ...rest
+}) => {
   const [over, setOver] = useState(false);
 
   const id = name
@@ -51,6 +58,7 @@ export const Subsection = ({ children, showHeading, level, name, topic }) => {
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
       onBlur={() => setOver(false)}
+      {...rest}
     >
       {/* This condition for gap is needed because the link icon has padding
        * to maintain a big enough touch area for accessibility. This creates
