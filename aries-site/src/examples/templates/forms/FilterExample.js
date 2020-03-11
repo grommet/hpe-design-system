@@ -77,7 +77,7 @@ export const FilterExample = () => {
               />
             </FormField>
             <FormField
-              htmlFor="locationType"
+              htmlFor="locationType__input"
               name="locationType"
               label="Location Type"
             >
