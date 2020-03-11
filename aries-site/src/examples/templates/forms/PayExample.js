@@ -4,13 +4,15 @@ import {
   Button,
   Form,
   FormField,
+  MaskedInput,
   Header,
   Heading,
   Text,
   TextInput,
 } from 'grommet';
-import { Apple } from 'grommet-icons';
+import { Apple, CreditCard } from 'grommet-icons';
 import { FormContainer } from '.';
+import { creditCardMask, cvvValidation, dateMask } from './formHelpers';
 
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});
@@ -56,37 +58,42 @@ export const PayExample = () => {
               <Text color="text-xweak">or</Text>
             </Box>
             <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
-                Credit Card Information
-              </Heading>
+              Credit Card Information
+            </Heading>
             <FormField name="cardName" htmlFor="cardName" label="Name on Card">
               <TextInput
                 id="cardName"
                 name="cardName"
                 placeholder="Jane Smith"
-               />
+              />
             </FormField>
-              <FormField name="cardNumber" label="Credit Card Number">
-                <TextInput
-                  id="cardNumber"
-                  name="cardNumber"
-                  reverse
-                  placeholder="0000 0000 0000 0000"
-                  icon={<Apple color='status-disabled'/>}
-                 />
-              </FormField>
+            <FormField name="cardNumber" label="Credit Card Number">
+              <MaskedInput
+                id="cardNumber"
+                name="cardNumber"
+                reverse
+                mask={creditCardMask}
+                icon={<CreditCard color="status-disabled" />}
+              />
+            </FormField>
             <Box direction="row" gap="medium">
               <Box flex={false}>
                 <FormField name="expiration" label="Expires on">
-                  <TextInput
+                  <MaskedInput
                     id="expiration"
                     name="expiration"
-                    placeholder="MM/YY"
-                   />
+                    mask={dateMask}
+                  />
                 </FormField>
               </Box>
               <Box fill>
                 <FormField name="cvv" label="CVV">
-                  <TextInput id="cvv" name="cvv" placeholder="123" />
+                  <MaskedInput
+                    mask={cvvValidation}
+                    id="cvv"
+                    name="cvv"
+                    placeholder="123"
+                  />
                 </FormField>
               </Box>
             </Box>

@@ -15,6 +15,58 @@ export const emailMask = [
   },
 ];
 
+export const dateMask = [
+  {
+    length: [1, 2],
+    options: Array.from({ length: 12 }, (v, k) => k + 1),
+    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+    placeholder: 'MM',
+  },
+  { fixed: '/' },
+  {
+    length:  2,
+    options: Array.from({ length: 6 }, (v, k) => 20 + k),
+    regexp: /^2[0,1-5]$|^2?$/,
+    placeholder: 'YY',
+  },
+];
+
+export const cvvValidation = [
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: '123',
+  },
+];
+
+const creditCard =  /^[0-9]{1,4}$/;
+
+export const creditCardMask = [
+  {
+    length: 4,
+    regexp: creditCard,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCard,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCard,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCard,
+    placeholder: '0000',
+  },
+];
+
 export const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
