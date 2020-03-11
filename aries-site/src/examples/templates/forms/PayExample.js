@@ -78,7 +78,7 @@ export const PayExample = () => {
             </FormField>
             <Box direction="row" gap="medium">
               <Box flex={false}>
-                <FormField name="expiration" label="Expires on">
+                <FormField htmlFor="expiration" name="expiration" label="Expires on">
                   <MaskedInput
                     id="expiration"
                     name="expiration"
