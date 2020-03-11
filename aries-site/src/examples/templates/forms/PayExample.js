@@ -67,7 +67,7 @@ export const PayExample = () => {
                 placeholder="Jane Smith"
               />
             </FormField>
-            <FormField name="cardNumber" label="Credit Card Number">
+            <FormField htmlFor="cardNumber" name="cardNumber" label="Credit Card Number">
               <MaskedInput
                 id="cardNumber"
                 name="cardNumber"
