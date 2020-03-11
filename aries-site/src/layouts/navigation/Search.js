@@ -86,6 +86,7 @@ export const Search = ({ focused, setFocused }) => {
               onChange={onChange}
               onSelect={onSelect}
               suggestions={suggestions}
+              onSuggestionsClose={() => setFocused(false)}
               value={value}
               plain
               reverse
