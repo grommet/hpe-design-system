@@ -12,7 +12,7 @@ import {
 } from 'grommet';
 import { Apple, CreditCard } from 'grommet-icons';
 import { FormContainer } from '.';
-import { creditCardMask, cvvValidation, dateMask } from './formHelpers';
+import { creditCardMask, cvvMask, dateMask } from './formHelpers';
 
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});
@@ -67,7 +67,11 @@ export const PayExample = () => {
                 placeholder="Jane Smith"
               />
             </FormField>
-            <FormField htmlFor="cardNumber" name="cardNumber" label="Credit Card Number">
+            <FormField
+              htmlFor="cardNumber"
+              name="cardNumber"
+              label="Credit Card Number"
+            >
               <MaskedInput
                 id="cardNumber"
                 name="cardNumber"
@@ -78,7 +82,11 @@ export const PayExample = () => {
             </FormField>
             <Box direction="row" gap="medium">
               <Box flex={false}>
-                <FormField htmlFor="expiration" name="expiration" label="Expires on">
+                <FormField
+                  htmlFor="expiration"
+                  name="expiration"
+                  label="Expires on"
+                >
                   <MaskedInput
                     id="expiration"
                     name="expiration"
@@ -89,7 +97,7 @@ export const PayExample = () => {
               <Box fill>
                 <FormField htmlFor="cvv" name="cvv" label="CVV">
                   <MaskedInput
-                    mask={cvvValidation}
+                    mask={cvvMask}
                     id="cvv"
                     name="cvv"
                     placeholder="123"
