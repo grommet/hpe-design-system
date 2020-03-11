@@ -31,7 +31,7 @@ export const dateMask = [
   },
 ];
 
-export const cvvValidation = [
+export const cvvMask = [
   {
     length: 3,
     regexp: /^[0-9]{1,3}$/,
