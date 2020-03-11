@@ -90,6 +90,12 @@ export const structure = [
     seoDescription:
       'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
     pages: [],
+    sections: [
+      'Preferred environment',
+      'Getting started',
+      'Applying the HPE theme',
+      "What is our team doesn't use ReactJS?",
+    ],
   },
   {
     name: 'Design',
@@ -100,6 +106,11 @@ export const structure = [
     seoDescription:
       'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
     pages: [],
+    sections: [
+      'Preferred environment',
+      'Getting started',
+      'HPE Design System Sticker Sheet',
+    ],
   },
   {
     name: 'Resources',
