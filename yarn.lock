@@ -7644,8 +7644,8 @@ grommet-theme-hpe@^1.0.2:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.11.1"
-  uid "6f6cf3c5e3fb8c01b2ff240aa7d7c0e9a4208815"
-  resolved "https://github.com/grommet/grommet/tarball/stable#6f6cf3c5e3fb8c01b2ff240aa7d7c0e9a4208815"
+  uid "987415534fc973f11aad289ba63ff7e4e8197f49"
+  resolved "https://github.com/grommet/grommet/tarball/stable#987415534fc973f11aad289ba63ff7e4e8197f49"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
@@ -10021,9 +10021,9 @@ minimist@0.0.8:
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
 minimist@^1.1.0, minimist@^1.1.1, minimist@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.3.tgz#3db5c0765545ab8637be71f333a104a965a9ca3f"
+  integrity sha512-+bMdgqjMN/Z77a6NlY/I3U5LlRDbnmaAk6lDveAPKwSpcPM4tKAuYsvYF8xjhOPXhOYGe/73vVLVez5PW+jqhw==
 
 minipass-collect@^1.0.2:
   version "1.0.2"
