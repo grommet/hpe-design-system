@@ -95,14 +95,6 @@ export const aries = deepMerge(hpe, {
       textDecoration: 'underline',
     },
   },
-  textInput: {
-    fontWeight: 500,
-    placeholder: {
-      extend: () => `
-          font-weight: 500;
-      `,
-    },
-  },
 });
 
 export const { colors } = aries.global;
