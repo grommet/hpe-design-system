@@ -50,7 +50,9 @@ export const SettingsExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box margin={{ bottom: 'small' }}>
-              <Text margin={{ left: 'small' }}>Key feature</Text>
+              <Text color="text-weak" size="xsmall">
+                Key feature
+              </Text>
               <FormField
                 name="notifications"
                 label="Notifications"
@@ -75,7 +77,9 @@ export const SettingsExample = () => {
               </FormField>
             </Box>
             <Box margin={{ bottom: 'small' }}>
-              <Text margin={{ left: 'small' }}>Key feature</Text>
+              <Text color="text-weak" size="xsmall">
+                Key feature
+              </Text>
               <FormField
                 name="doNotDisturb"
                 label="Do Not Disturb"
