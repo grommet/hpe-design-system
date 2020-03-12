@@ -70,7 +70,7 @@ export const CustomizeExample = () => {
                   let border;
                   if (checked) border = { color: 'brand', side: 'all' };
                   else if (hover) border = { color: 'active', side: 'all' };
-                  else border = 'text-weak';
+                  else border = { color: border, side: 'all' };
                   return (
                     <Box
                       border={border}
@@ -110,7 +110,7 @@ export const CustomizeExample = () => {
                   let border;
                   if (checked) border = { color: 'brand', side: 'all' };
                   else if (hover) border = { color: 'active', side: 'all' };
-                  else border = 'text-weak';
+                  else border = { color: border, side: 'all' };
                   return (
                     <Box
                       border={border}
