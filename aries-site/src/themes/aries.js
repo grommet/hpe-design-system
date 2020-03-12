@@ -3,6 +3,11 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
+  global: {
+    colors: {
+      focus: 'teal!',
+    },
+  },
   layer: {
     background: 'background',
   },
