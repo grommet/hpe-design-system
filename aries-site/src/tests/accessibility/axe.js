@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { axeCheck, createReport } from 'axe-testcafe';

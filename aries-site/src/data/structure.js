@@ -69,7 +69,7 @@ export const structure = [
     icon: size => <IconTemplates size={size} />,
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
-    pages: ['Dashboards', 'Forms', 'List Views'],
+    pages: ['Dashboards', 'Navigation', 'Forms', 'List Views'],
   },
   {
     name: 'Components',
@@ -271,5 +271,12 @@ export const structure = [
     icon: size => <IconBrand size={size} />,
     seoDescription: 'HPE Design System form examples and templates.',
     sections: ['Sign In', 'Sign Up', 'Change Password', 'Settings'],
+  },
+  {
+    name: 'Navigation',
+    description: 'At-a-glance preview for navigation patterns.',
+    icon: size => <IconBrand size={size} />,
+    seoDescription: 'HPE Design System navigation templates and examples.',
+    sections: [],
   },
 ];
