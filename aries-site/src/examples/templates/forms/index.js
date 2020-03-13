@@ -1,4 +1,5 @@
 export * from './ChangePasswordExample';
+export * from './CustomizeExample';
 export * from './FilterExample';
 export * from './FormContainer';
 export * from './formHelpers';
