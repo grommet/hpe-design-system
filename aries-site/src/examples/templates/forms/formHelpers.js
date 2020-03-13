@@ -15,6 +15,20 @@ export const emailMask = [
   },
 ];
 
+const currentDate = new Date();
+export const dateValidation = [
+  date => {
+    const expireDate = date.split('/').reverse();
+    expireDate.splice(0, 0, '20');
+    const newYear = expireDate[0] + expireDate[1];
+    expireDate.splice(0, 2, newYear);
+    const expires = new Date(expireDate);
+    if (expires <= currentDate)
+      return { message: 'invalid date', status: 'error' };
+    return undefined;
+  },
+];
+
 export const dateMask = [
   {
     length: [1, 2],
@@ -24,7 +38,7 @@ export const dateMask = [
   },
   { fixed: '/' },
   {
-    length:  2,
+    length: 2,
     options: Array.from({ length: 6 }, (v, k) => 20 + k),
     regexp: /^2[0,1-5]$|^2?$/,
     placeholder: 'YY',
@@ -39,7 +53,7 @@ export const cvvMask = [
   },
 ];
 
-const creditCardRegExp =  /^[0-9]{1,4}$/;
+const creditCardRegExp = /^[0-9]{1,4}$/;
 
 export const creditCardMask = [
   {
