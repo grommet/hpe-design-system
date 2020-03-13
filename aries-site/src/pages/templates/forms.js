@@ -7,6 +7,7 @@ import {
   FilterExample,
   PayExample,
   SettingsExample,
+  ShippingExample,
   SignInExample,
   SignUpExample,
 } from '../../examples';
@@ -91,6 +92,16 @@ const Forms = () => {
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=0%3A1"
           >
             <PayExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Shipping">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
+          >
+            <ShippingExample />
           </Example>
         </Subsection>
       </ContentSection>
