@@ -3,9 +3,9 @@ import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import {
   ChangePasswordExample,
-  PayExample,
   CustomizeExample,
   FilterExample,
+  PayExample,
   SettingsExample,
   SignInExample,
   SignUpExample,
