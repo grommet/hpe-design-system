@@ -112,7 +112,7 @@ export const PayExample = () => {
               </Box>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Check out" primary type="submit" />
+              <Button label="Checkout" primary type="submit" />
             </Box>
           </Form>
         </Box>
