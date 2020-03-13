@@ -270,6 +270,12 @@ export const structure = [
       'Common form use cases from application configuration to payment acceptance.',
     icon: size => <IconBrand size={size} />,
     seoDescription: 'HPE Design System form examples and templates.',
-    sections: ['Sign In', 'Sign Up', 'Change Password', 'Settings'],
+    sections: [
+      'Sign In',
+      'Sign Up',
+      'Change Password',
+      'Settings',
+      'Customize',
+    ],
   },
 ];
