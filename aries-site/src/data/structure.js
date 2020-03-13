@@ -276,6 +276,7 @@ export const structure = [
       'Change Password',
       'Pay',
       'Settings',
+      'Shipping',
       'Customize',
     ],
   },
