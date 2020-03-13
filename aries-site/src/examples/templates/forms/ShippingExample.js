@@ -4,6 +4,7 @@ import {
   Button,
   CheckBox,
   Form,
+  FormField,
   Header,
   Heading,
   MaskedInput,
@@ -11,7 +12,6 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormField } from 'aries-core';
 
 import { FormContainer } from '.';
 import { emailMask, emailValidation, phoneMask, states } from './formHelpers';
@@ -55,63 +55,38 @@ export const ShippingExample = () => {
               <Text margin={{ horizontal: 'small', vertical: 'xsmall' }}>
                 Shipping Address
               </Text>
-              <FormField
-                htmlFor="firstName"
-                name="firstName"
-                label="First Name"
-                visuallyHidden
-              >
+              <FormField htmlFor="firstName" name="firstName">
                 <TextInput
                   id="firstName"
                   name="firstName"
                   placeholder="First Name"
                 />
               </FormField>
-              <FormField
-                htmlFor="lastName"
-                name="lastName"
-                label="Last Name"
-                visuallyHidden
-              >
+              <FormField htmlFor="lastName" name="lastName">
                 <TextInput
                   id="lastName"
                   name="lastName"
                   placeholder="Last Name"
                 />
               </FormField>
-              <FormField
-                htmlFor="address1"
-                name="address1"
-                label="Street Address"
-                visuallyHidden
-              >
+              <FormField htmlFor="address1" name="address1">
                 <TextInput
                   id="address1"
                   name="address1"
                   placeholder="Street Address"
                 />
               </FormField>
-              <FormField
-                htmlFor="address2"
-                name="address2"
-                label="Apartment, Suite, etc., (Optional)"
-                visuallyHidden
-              >
+              <FormField htmlFor="address2" name="address2">
                 <TextInput
                   id="address2"
                   name="address2"
                   placeholder="Apt., Suite, Building (Optional)"
                 />
               </FormField>
-              <FormField htmlFor="city" name="city" label="City" visuallyHidden>
+              <FormField htmlFor="city" name="city">
                 <TextInput id="city" name="city" placeholder="City" />
               </FormField>
-              <FormField
-                htmlFor="state__input"
-                name="state"
-                label="State"
-                visuallyHidden
-              >
+              <FormField htmlFor="state" name="state">
                 <Select
                   id="state"
                   name="state"
@@ -120,12 +95,7 @@ export const ShippingExample = () => {
                   placeholder="Select State"
                 />
               </FormField>
-              <FormField
-                htmlFor="zipcode"
-                name="zipcode"
-                label="Zipcode"
-                visuallyHidden
-              >
+              <FormField htmlFor="zipcode" name="zipcode">
                 <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
               </FormField>
               <CheckBox name="isBusiness" label="This is a business" />
