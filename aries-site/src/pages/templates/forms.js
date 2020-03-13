@@ -65,10 +65,7 @@ const Forms = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Sort">
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
-            figma=""
-          >
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js">
             <SortExample />
           </Example>
         </Subsection>
