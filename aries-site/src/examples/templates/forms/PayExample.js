@@ -12,7 +12,12 @@ import {
 } from 'grommet';
 import { Apple, CreditCard } from 'grommet-icons';
 import { FormContainer } from '.';
-import { creditCardMask, cvvMask, dateMask } from './formHelpers';
+import {
+  creditCardMask,
+  cvvMask,
+  dateMask,
+  dateValidation,
+} from './formHelpers';
 
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});
@@ -86,6 +91,7 @@ export const PayExample = () => {
                   htmlFor="expiration"
                   name="expiration"
                   label="Expires on"
+                  validate={dateValidation}
                 >
                   <MaskedInput
                     id="expiration"
