@@ -15,6 +15,15 @@ export const emailMask = [
   },
 ];
 
+// Add validation for the date
+/* Check the date in which is passed in the form 
+  since the date is not a full date we need to add
+  the beginning of 20 to make it in format YYYY
+  dates in starting in 2000 need the full formate YYYY
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+  
+*/
+
 const currentDate = new Date();
 export const dateValidation = [
   date => {
@@ -23,7 +32,10 @@ export const dateValidation = [
     const newYear = expireDate[0] + expireDate[1];
     expireDate.splice(0, 2, newYear);
     const expires = new Date(expireDate);
-    if (expires <= currentDate)
+    if (
+      expires.getMonth() < currentDate.getMonth() &&
+      expires.getFullYear() <= currentDate.getFullYear()
+    )
       return { message: 'invalid date', status: 'error' };
     return undefined;
   },
