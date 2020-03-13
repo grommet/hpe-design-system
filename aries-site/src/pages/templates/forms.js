@@ -3,9 +3,10 @@ import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import {
   ChangePasswordExample,
-  PayExample,
+  CustomizeExample,
   FilterExample,
   SettingsExample,
+  ShippingExample,
   SignInExample,
   SignUpExample,
 } from '../../examples';
@@ -84,12 +85,22 @@ const Forms = () => {
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Pay">
+        <Subsection name="Shipping">
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=0%3A1"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
           >
-            <PayExample />
+            <ShippingExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Customize">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A87"
+          >
+            <CustomizeExample />
           </Example>
         </Subsection>
       </ContentSection>
