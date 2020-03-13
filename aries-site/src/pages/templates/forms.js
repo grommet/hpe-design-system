@@ -7,6 +7,7 @@ import {
   SettingsExample,
   SignInExample,
   SignUpExample,
+  SortExample,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
@@ -59,6 +60,16 @@ const Forms = () => {
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A437"
           >
             <FilterExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Sort">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
+            figma=""
+          >
+            <SortExample />
           </Example>
         </Subsection>
       </ContentSection>
