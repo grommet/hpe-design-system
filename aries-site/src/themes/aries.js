@@ -5,7 +5,10 @@ export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   global: {
     colors: {
-      focus: 'teal!',
+      focus: 'teal!'
+    },
+    input: {
+      weight: 500,
     },
   },
   layer: {
@@ -27,6 +30,37 @@ export const aries = deepMerge(hpe, {
           border: 2px solid ${theme.global.colors.text.light};
           top: 0px;
         `,
+      },
+    },
+  },
+  formField: {
+    label: {
+      size: 'xsmall',
+      color: 'text-weak',
+      margin: {
+        horizontal: 'none',
+      },
+    },
+    error: {
+      size: 'xsmall',
+      color: 'text-xweak',
+      margin: {
+        start: 'none',
+      },
+    },
+    help: {
+      size: 'xsmall',
+      color: 'text-xweak',
+      margin: {
+        start: 'none',
+        bottom: 'xsmall',
+      },
+    },
+    info: {
+      size: 'xsmall',
+      color: 'text-xweak',
+      margin: {
+        start: 'none',
       },
     },
   },

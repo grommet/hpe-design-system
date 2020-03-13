@@ -277,6 +277,8 @@ export const structure = [
       'Settings',
       'Filter',
       'Sort',
+      'Shipping',
+      'Customize',
     ],
   },
 ];
