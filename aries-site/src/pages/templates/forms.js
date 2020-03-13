@@ -4,6 +4,7 @@ import { Meta, SubsectionText } from '../../components';
 import {
   ChangePasswordExample,
   PayExample,
+  CustomizeExample,
   FilterExample,
   SettingsExample,
   SignInExample,
@@ -90,6 +91,16 @@ const Forms = () => {
             figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=0%3A1"
           >
             <PayExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Customize">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
+            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A87"
+          >
+            <CustomizeExample />
           </Example>
         </Subsection>
       </ContentSection>
