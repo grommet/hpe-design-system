@@ -6,7 +6,6 @@ import {
   FormField,
   Header,
   Heading,
-  Text,
   TextInput,
 } from 'grommet';
 
@@ -69,13 +68,9 @@ export const ChangePasswordExample = () => {
               htmlFor="newPassword"
               name="newPassword"
               label="New Password"
-              help={
-                <Text size="xsmall">
-                  {`Include ${passwordRulesWeak.map(rule => {
-                    return ` ${rule.message.toLowerCase()}`;
-                  })}`}
-                </Text>
-              }
+              help={`Include ${passwordRulesWeak.map(rule => {
+                return ` ${rule.message.toLowerCase()}`;
+              })}`}
               validate={passwordRulesWeak}
             >
               <TextInput
