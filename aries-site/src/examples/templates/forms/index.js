@@ -8,3 +8,4 @@ export * from './SettingsExample';
 export * from './ShippingExample';
 export * from './SignInExample';
 export * from './SignUpExample';
+export * from './SortExample';
