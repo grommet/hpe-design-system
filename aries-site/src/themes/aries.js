@@ -6,10 +6,15 @@ export const aries = deepMerge(hpe, {
   global: {
     colors: {
       focus: 'teal!',
+      placeholder: 'text-xweak',
     },
     input: {
       weight: 500,
     },
+  },
+  button: {
+    color: props =>
+      props.primary ? '#FFFFFF' : normalizeColor('text', props.theme),
   },
   layer: {
     background: 'background',
