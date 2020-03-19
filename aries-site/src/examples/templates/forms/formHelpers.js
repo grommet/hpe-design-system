@@ -15,6 +15,32 @@ export const emailMask = [
   },
 ];
 
+// Add validation for the date
+/* Check the date in which is passed in the form 
+  since the date is not a full date we need to add
+  the beginning of 20 to make it in format YYYY
+  dates in starting in 2000 need the full formate YYYY
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+  
+*/
+
+const currentDate = new Date();
+export const dateValidation = [
+  date => {
+    const expireDate = date.split('/').reverse();
+    expireDate.splice(0, 0, '20');
+    const newYear = expireDate[0] + expireDate[1];
+    expireDate.splice(0, 2, newYear);
+    const expires = new Date(expireDate);
+    if (
+      expires.getMonth() < currentDate.getMonth() &&
+      expires.getFullYear() <= currentDate.getFullYear()
+    )
+      return { message: 'invalid date', status: 'error' };
+    return undefined;
+  },
+];
+
 export const dateMask = [
   {
     length: [1, 2],
@@ -24,7 +50,7 @@ export const dateMask = [
   },
   { fixed: '/' },
   {
-    length:  2,
+    length: 2,
     options: Array.from({ length: 6 }, (v, k) => 20 + k),
     regexp: /^2[0,1-5]$|^2?$/,
     placeholder: 'YY',
@@ -39,7 +65,7 @@ export const cvvMask = [
   },
 ];
 
-const creditCardRegExp =  /^[0-9]{1,4}$/;
+const creditCardRegExp = /^[0-9]{1,4}$/;
 
 export const creditCardMask = [
   {
