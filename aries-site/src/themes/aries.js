@@ -15,10 +15,18 @@ export const aries = deepMerge(hpe, {
     background: 'background',
   },
   checkBox: {
+    color: 'selected-text',
+    gap: 'small',
     toggle: {
       color: {
         dark: hpe.global.colors['text-strong'].dark,
         light: hpe.global.colors['text-strong'].dark,
+      },
+      check: {
+        extend: () => 'border-radius: 2px',
+      },
+      border: {
+        width: '1px',
       },
       background: 'background-back',
       extend: ({ checked, theme }) => `
