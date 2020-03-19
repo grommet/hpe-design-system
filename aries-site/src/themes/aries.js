@@ -6,15 +6,10 @@ export const aries = deepMerge(hpe, {
   global: {
     colors: {
       focus: 'teal!',
-      placeholder: 'text-xweak',
     },
     input: {
       weight: 500,
     },
-  },
-  button: {
-    color: props =>
-      props.primary ? '#FFFFFF' : normalizeColor('text', props.theme),
   },
   layer: {
     background: 'background',
@@ -22,28 +17,28 @@ export const aries = deepMerge(hpe, {
   checkBox: {
     color: 'selected-text',
     gap: 'small',
-    toggle: {
-      color: {
-        dark: hpe.global.colors['text-strong'].dark,
-        light: hpe.global.colors['text-strong'].dark,
-      },
-    },
     check: {
       extend: () => 'border-radius: 2px',
     },
     border: {
       width: '1px',
     },
-    background: 'background-back',
-    extend: ({ checked, theme }) => `
+    toggle: {
+      color: {
+        dark: hpe.global.colors['text-strong'].dark,
+        light: hpe.global.colors['text-strong'].dark,
+      },
+      background: 'background-back',
+      extend: ({ checked, theme }) => `
           border: none;
           ${checked && `background-color: ${normalizeColor('brand', theme)};`}
       `,
-    knob: {
-      extend: ({ theme }) => `
+      knob: {
+        extend: ({ theme }) => `
           border: 2px solid ${theme.global.colors.text.light};
           top: 0px;
         `,
+      },
     },
   },
   formField: {
