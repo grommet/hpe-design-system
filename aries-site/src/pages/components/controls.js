@@ -91,7 +91,8 @@ const Controls = () => (
     <ContentSection>
       <Subsection name="Menu">
         <SubsectionText>
-          Menu is used to filter or sort content on a page. It is similar to the
+          Menu is used to filter or sort content on a page. It is, in some ways,
+          similar to the{' '}
           <Anchor color="green!" href="input#select">
             Select component
           </Anchor>
