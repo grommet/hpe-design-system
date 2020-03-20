@@ -3,29 +3,8 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  global: {
-    colors: {
-      focus: 'teal!',
-      placeholder: 'text-xweak',
-    },
-    input: {
-      weight: 500,
-    },
-  },
-  button: {
-    color: props =>
-      props.primary ? '#FFFFFF' : normalizeColor('text', props.theme),
-  },
-  layer: {
-    background: 'background',
-  },
   checkBox: {
     toggle: {
-      color: {
-        dark: hpe.global.colors['text-strong'].dark,
-        light: hpe.global.colors['text-strong'].dark,
-      },
-      background: 'background-back',
       extend: ({ checked, theme }) => `
           border: none;
           ${checked && `background-color: ${normalizeColor('brand', theme)};`}
@@ -35,37 +14,6 @@ export const aries = deepMerge(hpe, {
           border: 2px solid ${theme.global.colors.text.light};
           top: 0px;
         `,
-      },
-    },
-  },
-  formField: {
-    label: {
-      size: 'xsmall',
-      color: 'text-weak',
-      margin: {
-        horizontal: 'none',
-      },
-    },
-    error: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
-      },
-    },
-    help: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
-        bottom: 'xsmall',
-      },
-    },
-    info: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
       },
     },
   },
@@ -93,14 +41,6 @@ export const aries = deepMerge(hpe, {
           ${upperTrack}
         );`;
       },
-    },
-  },
-  anchor: {
-    color: 'brand',
-    textDecoration: 'none',
-    fontWeight: 500,
-    hover: {
-      textDecoration: 'underline',
     },
   },
 });
