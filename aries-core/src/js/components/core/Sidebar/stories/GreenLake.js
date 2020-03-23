@@ -36,7 +36,7 @@ const SidebarHeader = () => (
 );
 
 const Navigation = () => (
-  <Box align="center" fill justify="between">
+  <>
     <Nav gap="small">
       <Button normalized icon={<StatusInfoSmall />} />
       <Button normalized icon={<Clock />} />
@@ -49,7 +49,7 @@ const Navigation = () => (
       <Button icon={<Chat />} />
       <Button icon={<Help />} />
     </Nav>
-  </Box>
+  </>
 );
 
 export const GreenLake = () => (

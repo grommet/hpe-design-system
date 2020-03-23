@@ -39,7 +39,7 @@ const SidebarHeader = () => (
 );
 
 const Navigation = () => (
-  <Box align="center" fill justify="between">
+  <>
     <Nav gap="small">
       <Anchor icon={<StatusInfoSmall color="green!" />} />
       <Anchor icon={<Clock />} />
@@ -52,7 +52,7 @@ const Navigation = () => (
       <Anchor icon={<Chat />} />
       <Anchor icon={<Help />} />
     </Nav>
-  </Box>
+  </>
 );
 
 export const Server = () => (

@@ -33,7 +33,7 @@ const SidebarHeader = () => (
 );
 
 const Navigation = () => (
-  <Box align="center" fill="vertical" justify="between">
+  <>
     <Nav gap="small">
       <Button icon={<StatusInfoSmall />} />
       <Button icon={<Projects />} />
@@ -51,7 +51,7 @@ const Navigation = () => (
       <Button icon={<Chat />} />
       <Button icon={<Help />} />
     </Nav>
-  </Box>
+  </>
 );
 
 export const Green = () => (

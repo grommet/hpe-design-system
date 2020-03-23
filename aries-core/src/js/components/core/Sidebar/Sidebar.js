@@ -5,9 +5,9 @@ import { Box } from 'grommet';
 
 export const Sidebar = ({ children, header, ...rest }) => {
   return (
-    <Box pad="medium" gap="large" fill="vertical" width="auto" {...rest}>
+    <Box pad="medium" gap="large" width="auto" {...rest}>
       {header}
-      {children}
+      <Box justify="between">{children}</Box>
     </Box>
   );
 };
