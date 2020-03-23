@@ -55,6 +55,14 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  anchor: {
+    color: 'text',
+    textDecoration: 'underline',
+    fontWeight: 500,
+    hover: {
+      textDecoration: 'underline',
+    },
+  },
 });
 
 export const { colors } = aries.global;
