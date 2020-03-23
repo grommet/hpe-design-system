@@ -5,14 +5,7 @@ import { Box } from 'grommet';
 
 export const Sidebar = ({ children, header, ...rest }) => {
   return (
-    <Box
-      pad="medium"
-      gap="large"
-      fill="vertical"
-      width="auto"
-      height="100%"
-      {...rest}
-    >
+    <Box pad="medium" gap="large" fill="vertical" width="auto" {...rest}>
       {header}
       {children}
     </Box>
