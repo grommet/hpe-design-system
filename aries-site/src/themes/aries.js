@@ -3,75 +3,40 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  global: {
-    colors: {
-      focus: 'teal!',
-    },
-    input: {
-      weight: 500,
-    },
-  },
-  layer: {
-    background: 'background',
-  },
   checkBox: {
+    color: 'selected-text',
+    gap: 'small',
+    check: {
+      radius: '2px',
+    },
+    border: {
+      width: '1px',
+    },
     toggle: {
-      color: {
-        dark: hpe.global.colors['text-strong'].dark,
-        light: hpe.global.colors['text-strong'].dark,
-      },
-      background: 'background-back',
       extend: ({ checked, theme }) => `
           border: none;
           ${checked && `background-color: ${normalizeColor('brand', theme)};`}
       `,
       knob: {
         extend: ({ theme }) => `
-          border: 2px solid ${theme.global.colors.text.light};
+          border: 2px solid ${
+            theme.global.colors.text[theme.dark ? 'dark' : 'light']
+          };
           top: 0px;
         `,
-      },
-    },
-  },
-  formField: {
-    label: {
-      size: 'xsmall',
-      color: 'text-weak',
-      margin: {
-        horizontal: 'none',
-      },
-    },
-    error: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
-      },
-    },
-    help: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
-        bottom: 'xsmall',
-      },
-    },
-    info: {
-      size: 'xsmall',
-      color: 'text-xweak',
-      margin: {
-        start: 'none',
       },
     },
   },
   rangeInput: {
     thumb: {
       color: {
-        dark: 'text-strong',
-        light: hpe.global.colors['text-strong'].dark,
+        dark: 'background-front',
+        light: 'background',
       },
       extend: ({ theme }) => `
-        border: 2px solid ${theme.global.colors.text.light};
+        border: 2px solid ${
+          theme.global.colors.text[theme.dark ? 'dark' : 'light']
+        };
       `,
     },
     track: {
