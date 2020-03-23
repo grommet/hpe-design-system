@@ -17,15 +17,17 @@ export const FooterExample = () => {
       align={size !== 'small' ? 'center' : undefined}
     >
       <Box align={size !== 'small' ? 'center' : undefined}>
-        <Text>&copy; 2020 Hewlett Packard Enterprise Development LP</Text>
+        <Text size="small">
+          &copy; 2020 Hewlett Packard Enterprise Development LP
+        </Text>
       </Box>
       <Box direction="row" gap="medium">
         {footerLinks.map((link, index) => (
-          <Button key={index}>
-            <Box>
-              <Text weight="bold">{link.label}</Text>
-            </Box>
-          </Button>
+          <Button
+            key={index}
+            label={<Text size="small">{link.label}</Text>}
+            plain
+          />
         ))}
       </Box>
     </Footer>

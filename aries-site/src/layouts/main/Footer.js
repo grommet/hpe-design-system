@@ -35,29 +35,25 @@ export const Footer = () => {
       }}
     >
       <Box align="center" gap="medium" direction="row-responsive">
-        <Text>&copy; {year} Hewlett Packard Enterprise Development LP</Text>
+        <Text size="small">
+          &copy; {year} Hewlett Packard Enterprise Development LP
+        </Text>
       </Box>
       <Box direction="row" gap="medium">
         {externalFooterLinks.map((link, index) => (
           <Button
             key={index}
             href={link.href}
+            label={<Text size="small">{link.label}</Text>}
             target="_blank"
             rel="noreferrer noopener"
-          >
-            <Box>
-              <Text weight="bold">{link.label}</Text>
-            </Box>
-          </Button>
+            plain
+          />
         ))}
         {/* Need to pass href because of:
         https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
         <Link href={nameToPath('Feedback')} passHref>
-          <Button>
-            <Box>
-              <Text weight="bold">Feedback</Text>
-            </Box>
-          </Button>
+          <Button label={<Text size="small">Feedback</Text>} plain />
         </Link>
       </Box>
     </GrommetFooter>
