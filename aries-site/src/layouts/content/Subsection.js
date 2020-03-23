@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { NavLink } from 'aries-core';
 import { Anchor, Box, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
@@ -71,7 +70,7 @@ export const Subsection = ({
             <Box>
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <NavLink label={topic} />
+                  <Anchor label={topic} />
                 </Link>
               )}
               <Subheading level={level}>{name}</Subheading>

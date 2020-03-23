@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { FooterLink } from 'aries-core';
-import { Box, Footer, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
@@ -14,21 +13,19 @@ export const FooterExample = () => {
   return (
     <Footer
       background="background-front"
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      direction="row-responsive"
       align={size !== 'small' ? 'center' : undefined}
     >
-      <Box
-        direction={size !== 'small' ? 'row' : 'column'}
-        align={size !== 'small' ? 'center' : undefined}
-        gap={size !== 'small' ? 'medium' : undefined}
-      >
-        <Text size="small">
-          &copy; 2020 Hewlett Packard Enterprise Development LP
-        </Text>
+      <Box align={size !== 'small' ? 'center' : undefined}>
+        <Text>&copy; 2020 Hewlett Packard Enterprise Development LP</Text>
       </Box>
-      <Box alignSelf="center" direction="row" gap="medium">
+      <Box direction="row" gap="medium">
         {footerLinks.map((link, index) => (
-          <FooterLink key={index} label={link.label} />
+          <Button key={index}>
+            <Box>
+              <Text weight="bold">{link.label}</Text>
+            </Box>
+          </Button>
         ))}
       </Box>
     </Footer>
