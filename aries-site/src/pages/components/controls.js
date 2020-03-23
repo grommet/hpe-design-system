@@ -2,12 +2,7 @@ import React from 'react';
 import { Anchor } from 'grommet';
 
 import { Meta, SubsectionText } from '../../components';
-import {
-  ContentSection,
-  Layout,
-  Subsection,
-  Example,
-} from '../../layouts';
+import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   AccordionExample,
   AnchorExample,
@@ -63,17 +58,16 @@ const Controls = () => (
     <ContentSection>
       <Subsection name="Anchor">
         <SubsectionText>
-        Anchors are used with text based navigation, such as inline text,
-        header navigation, and footer navigation. The default anchor
-        color is brand, however, it is possible to use HPE Design
-        System font colors for anchor in some use cases
-        (i.e. header and footer). When using an inline
-        text anchor, the color should remain default:
+          Anchors are used with text based navigation, such as inline text,
+          header navigation, and footer navigation. The default anchor color is
+          brand, however, it is possible to use HPE Design System font colors
+          for anchor in some use cases (i.e. header and footer). When using an
+          inline text anchor, the color should remain default:
         </SubsectionText>
         <Example
-          docs='https://v2.grommet.io/anchor?theme=hpe#props'
-          code='https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AnchorExample.js'
-          figma='https://www.figma.com/file/I7PsiUmvr7OEJ6311rBUfg/hpe-design-system-library-anchor?node-id=0%3A1'
+          docs="https://v2.grommet.io/anchor?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AnchorExample.js"
+          figma="https://www.figma.com/file/I7PsiUmvr7OEJ6311rBUfg/hpe-design-system-library-anchor?node-id=0%3A1"
         >
           <AnchorExample />
         </Example>
@@ -87,7 +81,7 @@ const Controls = () => (
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
-          figma="https://www.figma.com/file/Y0MvUtkdobqCk0X56fZB6j/hpe-design-system-library-button"
+          figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/hpe-design-system-library-button?node-id=0%3A1"
           designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
         >
           <ButtonExample />
@@ -97,12 +91,12 @@ const Controls = () => (
     <ContentSection>
       <Subsection name="Menu">
         <SubsectionText>
-          Menu is used to filter or sort content on a page. It is
+          Menu is used to filter or sort content on a page. It is, in some ways,
           similar to the{' '}
           <Anchor color="green!" href="input#select">
             Select component
-          </Anchor>{' '}
-          However, use the select component when the user must specify from a
+          </Anchor>
+          . However, use the select component when the user must specify from a
           list of options and submit.
         </SubsectionText>
         <Example
