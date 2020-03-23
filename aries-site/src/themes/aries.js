@@ -4,6 +4,14 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   checkBox: {
+    color: 'selected-text',
+    gap: 'small',
+    check: {
+      radius: '2px',
+    },
+    border: {
+      width: '1px',
+    },
     toggle: {
       extend: ({ checked, theme }) => `
           border: none;
