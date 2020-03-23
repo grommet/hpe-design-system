@@ -11,7 +11,9 @@ export const aries = deepMerge(hpe, {
       `,
       knob: {
         extend: ({ theme }) => `
-          border: 2px solid ${theme.global.colors.text.light};
+          border: 2px solid ${
+            theme.global.colors.text[theme.dark ? 'dark' : 'light']
+          };
           top: 0px;
         `,
       },
@@ -20,11 +22,13 @@ export const aries = deepMerge(hpe, {
   rangeInput: {
     thumb: {
       color: {
-        dark: 'text-strong',
-        light: hpe.global.colors['text-strong'].dark,
+        dark: 'background-front',
+        light: 'background',
       },
       extend: ({ theme }) => `
-        border: 2px solid ${theme.global.colors.text.light};
+        border: 2px solid ${
+          theme.global.colors.text[theme.dark ? 'dark' : 'light']
+        };
       `,
     },
     track: {
