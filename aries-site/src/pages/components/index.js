@@ -17,7 +17,7 @@ const Components = () => {
   );
 
   return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title}>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
         description={page.seoDescription}
