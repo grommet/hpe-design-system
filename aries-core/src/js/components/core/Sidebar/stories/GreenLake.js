@@ -54,7 +54,7 @@ const Navigation = () => (
 
 export const GreenLake = () => (
   <Grommet theme={aries} full>
-    <Box direction="row" fill="vertical">
+    <Box direction="row" height={{ min: '100%' }}>
       <Sidebar background="blue" header={<SidebarHeader />}>
         <Navigation />
       </Sidebar>

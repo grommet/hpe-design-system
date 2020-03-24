@@ -25,6 +25,7 @@ const SidebarHeader = () => (
     width="xxsmall"
     justify="center"
     background="blue!"
+    responsive={false}
   >
     <Text alignSelf="center" size="xlarge">
       SY
@@ -53,7 +54,7 @@ const Navigation = () => (
 
 export const Green = () => (
   <Grommet theme={aries} full>
-    <Box direction="row" fill="vertical">
+    <Box direction="row" height={{ min: '100%' }}>
       <Sidebar background="blue" header={<SidebarHeader />}>
         <Navigation />
       </Sidebar>
