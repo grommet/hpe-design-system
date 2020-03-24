@@ -38,10 +38,7 @@ const Navigation = () => (
       <Button icon={<StatusInfoSmall />} />
       <Button icon={<Projects />} />
       <Button icon={<Clock />} />
-      <Box
-        pad={{ horizontal: 'large', vertical: 'small' }}
-        border={{ color: 'white', side: 'bottom' }}
-      />
+      <Box pad="small" border={{ color: 'white', side: 'bottom' }} />
       <Box gap="small" pad={{ vertical: 'medium' }}>
         <Button icon={<Analytics />} />
         <Button icon={<Configure />} />
