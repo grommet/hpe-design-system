@@ -18,7 +18,7 @@ const Foundation = () => {
   );
 
   return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+    <Layout descriptiveHeader={descriptiveHeader} title={title}>
       <Meta
         title={title}
         description={page.seoDescription}
