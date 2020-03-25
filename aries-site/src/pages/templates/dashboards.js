@@ -25,23 +25,8 @@ const Dashboards = () => {
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>
-            Template dashboard patterns for presenting operational and
-            analytical dashboards. Dashboards provide users peace-of-mind
-            knowing critical measures, applications, and services are healthy
-            &mdash; plus, easy access to areas needing attention for the moments
-            when they are not.
-          </SubsectionText>
-          <SubsectionText size="medium">
-            Well designed dashboards begin by defining the specific purpose and
-            user needs it is serving. Operational dashboards focus on delivering
-            information such as data deviations, current resources, and resource
-            statuses so that users can proactively execute time-sensitive tasks.
-            Analytical dashboards present comparison, relationship, and
-            distribution data supporting analysis and decision making.
-          </SubsectionText>
-          <SubsectionText size="medium">
-            Regardless of need, each of these templates deliver at-a-glance
-            critical information and quick navigation to underlying detail.
+            At-a-glance preview for operation critical information with easy
+            access to areas requiring attention.
           </SubsectionText>
         </Subsection>
       </ContentSection>
@@ -50,6 +35,22 @@ const Dashboards = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
             template
+            details={[
+              `Template dashboard patterns for presenting operational and
+            analytical dashboards. Dashboards provide users peace-of-mind
+            knowing critical measures, applications, and services are healthy; 
+            plus, easy access to areas needing attention for the moments
+            when they are not.`,
+              `Well designed dashboards begin by defining the specific purpose 
+            and user needs it is serving. Operational dashboards focus on 
+            delivering information such as data deviations, current 
+            resources, and resource statuses so that users can proactively 
+            execute time-sensitive tasks. Analytical dashboards present 
+            comparison, relationship, and distribution data supporting 
+            analysis and decision making.`,
+              `Regardless of need, each of these templates deliver at-a-glance
+            critical information and quick navigation to underlying detail.`,
+            ]}
           >
             <DashboardExample />
           </Example>
