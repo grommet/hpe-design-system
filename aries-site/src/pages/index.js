@@ -1,13 +1,12 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { Box, Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
+import { CardGrid, ContentCard, IntroTile, Meta } from '../components';
+import { structure } from '../data';
 import { Layout } from '../layouts';
-import { Meta } from '../components';
-import { TileContent, IntroTile } from '../components/home';
-import { getPageDetails } from '../utils';
+import { getPageDetails, getParentPage, nameToPath } from '../utils';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -22,34 +21,18 @@ const HomeTiles = ({ ...rest }) => {
   );
 };
 
-// Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
-const AnchorTile = forwardRef(({ ...rest }, ref) => (
-  <Tile as="a" fill ref={ref} style={{ textDecoration: 'none' }} {...rest} />
-));
-
-// Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
-const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
-  return (
-    <AnchorTile
-      pad="medium"
-      background={topic.color}
-      key={topic.color}
-      ref={ref}
-      {...rest}
-    >
-      <TileContent
-        key={topic.name}
-        title={topic.name}
-        subTitle={topic.description}
-        icon={topic.icon('xlarge')}
-      />
-    </AnchorTile>
-  );
-});
-
 const title = 'Home';
 const pageDetails = getPageDetails(title);
-const topicList = pageDetails.pages.map(topic => getPageDetails(topic));
+
+const cards = structure
+  .map(obj => {
+    const page = obj;
+    const parent = getParentPage(page.name);
+    page.parent = parent;
+    return page;
+  })
+  .filter(page => page.parent !== undefined)
+  .filter(page => page.parent.name !== 'Home');
 
 const Index = () => {
   return (
@@ -62,35 +45,21 @@ const Index = () => {
           </Tile>
           <IntroTile background="white" />
         </HomeTiles>
-        <HomeTiles>
-          {topicList.map(topic => (
+        <CardGrid>
+          {cards.map(topic => (
             // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
-            <Link
-              key={topic.name}
-              href={`/${topic.name.toLowerCase()}`}
-              passHref
-            >
-              <TopicTile topic={topic} />
+            <Link key={topic.name} href={nameToPath(topic.name)} passHref>
+              <ContentCard
+                as="a"
+                style={{ textDecoration: 'none' }}
+                topic={topic}
+              />
             </Link>
           ))}
-        </HomeTiles>
+        </CardGrid>
       </Box>
     </Layout>
   );
 };
 
 export default Index;
-
-TopicTile.propTypes = {
-  onClick: PropTypes.func,
-  topic: PropTypes.shape({
-    color: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    icon: PropTypes.func.isRequired,
-  }),
-};
-
-TopicTile.defaultProps = {
-  onClick: undefined,
-};
