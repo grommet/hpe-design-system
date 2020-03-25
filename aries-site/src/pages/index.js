@@ -9,19 +9,22 @@ import { Meta } from '../components';
 import { TileContent, IntroTile } from '../components/home';
 import { getPageDetails } from '../utils';
 
-const HomeTiles = ({ ...rest }) => {
+const HomeTiles = ({ intro, ...rest }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
     <Tiles
       gap={size !== 'small' ? 'large' : 'medium'}
       columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows="medium"
+      rows={intro ? [['xsmall', 'medium']] : 'medium'}
       {...rest}
     />
   );
 };
 
+HomeTiles.propTypes = {
+  intro: PropTypes.bool,
+};
 // Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
 const AnchorTile = forwardRef(({ ...rest }, ref) => (
   <Tile as="a" fill ref={ref} style={{ textDecoration: 'none' }} {...rest} />
@@ -56,7 +59,7 @@ const Index = () => {
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
-        <HomeTiles>
+        <HomeTiles intro>
           <Tile>
             <Image src="/carte-cards.svg" alt="HPE Hands Image" fit="cover" />
           </Tile>
