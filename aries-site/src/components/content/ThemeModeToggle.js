@@ -9,7 +9,6 @@ export const ThemeModeToggle = () => {
   const icon = darkMode.value ? <IconSun /> : <IconMoon />;
   return (
     <Box
-      role="complementary"
       align="start"
       background={{ dark: 'blue!', light: 'white' }}
       direction="row"

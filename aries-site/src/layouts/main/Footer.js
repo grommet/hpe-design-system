@@ -30,14 +30,12 @@ export const Footer = () => {
         horizontal: size !== 'small' ? 'xlarge' : 'large',
       }}
     >
-      <Box role="complementary" direction="row-responsive">
+      <Box direction="row-responsive">
         <ThemeModeToggle />
       </Box>
       <Box direction="row-responsive" gap="medium" align="center">
         <Box>
-          <Text size="xsmall">
-            &copy; {year} Hewlett Packard Enterprise
-          </Text>
+          <Text size="small">&copy; {year} Hewlett Packard Enterprise</Text>
         </Box>
         {externalFooterLinks.map((link, index) => (
           <FooterLink
