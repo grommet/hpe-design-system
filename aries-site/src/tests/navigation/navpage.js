@@ -5,7 +5,7 @@ import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 
 // A NavPage is a page that contains a main header followed by a list of sub-topics
 
-fixture('NavPage sub-topics').page(`${baseUrl}/guidelines`);
+fixture('NavPage sub-topics').page(`${baseUrl}/foundation`);
 
 test('should navigate to correct path when a sub-topic is clicked on', async t => {
   const page = 'Philosophy';
