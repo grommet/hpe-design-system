@@ -57,10 +57,10 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <HomeTiles>
-          <Tile background="white">
-            <Image src="/image-hands.png" alt="HPE Hands Image" fit="cover" />
+          <Tile>
+            <Image src="/carte-cards.svg" alt="HPE Hands Image" fit="cover" />
           </Tile>
-          <IntroTile background="white" />
+          <IntroTile />
         </HomeTiles>
         <HomeTiles>
           {topicList.map(topic => (

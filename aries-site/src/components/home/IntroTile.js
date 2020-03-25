@@ -7,11 +7,13 @@ export const IntroTile = () => (
   <Tile>
     <Box align="start">
       <Heading margin="none">
-        Building experiences that advance the way people live and work.
+        Mix, match, and stack cards to change the game
       </Heading>
       <Paragraph fill>
-        With deep roots in human-centered design, the HPE Design System is our
-        language for generating experiences that are inclusive and vibrant.
+        The Carte Design System was created to empower designers, developer, and
+        others to contribute in making great experiences for the customer. Carte
+        means “card game” in Italian. Pick your cards and see what games you can
+        play.
       </Paragraph>
     </Box>
   </Tile>
