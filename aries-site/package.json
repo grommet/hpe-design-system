@@ -8,7 +8,7 @@
   "dependencies": {
     "aries-core": "*",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
-    "grommet-icons": "^4.4.0",
+    "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",

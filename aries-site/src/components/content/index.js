@@ -1,4 +1,5 @@
 export * from './BulletedList';
+export * from './CollapsibleSection';
 export * from './ExternalCTA';
 export * from './CardGrid';
 export * from './ComingSoon';

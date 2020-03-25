@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  Anchor,
-  Box,
-  Button,
-  Keyboard,
-  Layer,
-  Text,
-  ThemeContext,
-} from 'grommet';
-import { Contract, Desktop, Expand, FormDown, FormUp } from 'grommet-icons';
+import { Box, Button, Keyboard, Layer, Text, ThemeContext } from 'grommet';
+import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';
-import { IconMobile } from '../../components';
+import {
+  CollapsibleSection,
+  IconMobile,
+  SubsectionText,
+} from '../../components';
+import { ExampleControls } from '.';
 
 const syntax = {
   dark: styled.pre`
@@ -81,13 +78,14 @@ export const Example = ({
   children,
   code,
   designer,
+  details,
   docs,
   figma,
   template,
   ...rest
 }) => {
   const theme = React.useContext(ThemeContext);
-  const [open, setOpen] = React.useState();
+  const [codeOpen, setCodeOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
   const [mobile, setMobile] = React.useState(false);
@@ -95,15 +93,15 @@ export const Example = ({
   const codeRef = React.useRef();
 
   React.useEffect(() => {
-    if (open && !codeText) {
+    if (codeOpen && !codeText) {
       setCodeText('loading');
       fetch(code)
         .then(response => response.text())
         .then(text => setCodeText(text));
-    } else if (open && codeText) {
+    } else if (codeOpen && codeText) {
       Prism.highlightElement(codeRef.current);
     }
-  }, [code, codeText, open, Syntax]);
+  }, [code, codeText, codeOpen, Syntax]);
 
   // Set the Syntax component after highlightElement. This will cause
   // highlightElement to be re-run when Sytanx changes. This is needed
@@ -114,126 +112,62 @@ export const Example = ({
 
   return (
     <>
-      <Box margin={{ vertical: 'small' }}>
-        <Box
-          direction="row"
-          background="background-front"
-          pad="large"
-          // Height for template screen needs to be between medium and large
-          // to maintain aspect ratio, so this is small + medium
-          height={template ? '576px' : undefined}
-          {...rest}
-        >
-          {children &&
-            React.cloneElement(children, {
-              mobile,
-            })}
+      <Box margin={{ vertical: 'small' }} gap="large">
+        <Box>
+          <Box
+            direction="row"
+            background="background-front"
+            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
+            // Height for template screen needs to be between medium and large
+            // to maintain aspect ratio, so this is small + medium
+            height={template ? '576px' : undefined}
+            round={
+              designer || figma || template
+                ? { corner: 'top', size: 'small' }
+                : 'small'
+            }
+            {...rest}
+          >
+            {children &&
+              React.cloneElement(children, {
+                mobile,
+              })}
+          </Box>
+          {(designer || docs, figma || template) && (
+            <ExampleControls
+              designer={designer}
+              docs={docs}
+              figma={figma}
+              template={template}
+              setShowLayer={value => setShowLayer(value)}
+            />
+          )}
         </Box>
-        {(code || designer || docs || figma || template) && (
-          <>
-            <Box
-              background="background-contrast"
-              direction="row"
-              justify={template ? 'between' : 'end'}
+        <Box gap="medium">
+          {details && (
+            <CollapsibleSection label="Show Details">
+              {details.map((item, index) => (
+                <SubsectionText key={index} level={1}>
+                  {item}
+                </SubsectionText>
+              ))}
+            </CollapsibleSection>
+          )}
+          {code && (
+            <CollapsibleSection
+              label="Show Code"
+              onClick={() => setCodeOpen(true)}
             >
-              {template && (
-                <Box direction="row">
-                  <Button onClick={() => setMobile(false)} hoverIndicator>
-                    <Box
-                      title="Desktop layout"
-                      background={!mobile ? 'background-front' : undefined}
-                      direction="row"
-                      pad="small"
-                      align="center"
-                      gap="small"
-                    >
-                      <Desktop />
-                      <Text>Desktop</Text>
-                    </Box>
-                  </Button>
-                  <Button hoverIndicator onClick={() => setMobile(true)}>
-                    <Box
-                      title="Mobile layout"
-                      background={mobile ? 'background-front' : undefined}
-                      direction="row"
-                      pad="small"
-                      align="center"
-                      gap="small"
-                    >
-                      <IconMobile />
-                      <Text>Mobile</Text>
-                    </Box>
-                  </Button>
-                </Box>
-              )}
-              <Box direction="row">
-                {template && (
-                  <Button
-                    title="Expand full screen"
-                    icon={<Expand />}
-                    onClick={() => {
-                      setShowLayer(true);
-                    }}
-                    hoverIndicator
-                  />
-                )}
-                <Button
-                  title="More details"
-                  plain
-                  hoverIndicator
-                  onClick={() => setOpen(!open)}
-                >
-                  <Box
-                    pad="small"
-                    direction="row"
-                    gap="xsmall"
-                    width="xsmall"
-                    justify="end"
-                  >
-                    <Text>{open ? 'less' : 'more'}</Text>
-                    {open ? <FormUp /> : <FormDown />}
-                  </Box>
-                </Button>
-              </Box>
-            </Box>
-            {open && (
-              <Box animation="fadeIn">
-                <Box
-                  border="top"
-                  background="background-contrast"
-                  pad="medium"
-                  height={{ max: 'medium' }}
-                  overflow="auto"
-                >
-                  <Text size="xsmall" color="text">
-                    <Syntax>
-                      <code ref={codeRef} className="language-jsx">
-                        {codeText}
-                      </code>
-                    </Syntax>
-                  </Text>
-                </Box>
-                <Box
-                  direction="row"
-                  justify="end"
-                  border="between"
-                  gap="medium"
-                  pad={{ horizontal: 'medium', vertical: 'small' }}
-                >
-                  {figma && (
-                    <Anchor label="figma" href={figma} target="_blank" />
-                  )}
-                  {designer && (
-                    <Anchor label="designer" href={designer} target="_blank" />
-                  )}
-                  {docs && (
-                    <Anchor label="properties" href={docs} target="_blank" />
-                  )}
-                </Box>
-              </Box>
-            )}
-          </>
-        )}
+              <Text size="xsmall" color="text">
+                <Syntax>
+                  <code ref={codeRef} className="language-jsx">
+                    {codeText}
+                  </code>
+                </Syntax>
+              </Text>
+            </CollapsibleSection>
+          )}
+        </Box>
       </Box>
       {showLayer && (
         <Keyboard
@@ -309,6 +243,7 @@ Example.propTypes = {
       href: PropTypes.string,
     }),
   ),
+  details: PropTypes.arrayOf(PropTypes.string),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
