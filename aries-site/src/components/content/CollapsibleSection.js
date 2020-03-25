@@ -15,7 +15,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
           setOpen(!open);
           if (onClick) onClick();
         }}
-        margin={{ bottom: 'xxsmall' }}
+        border={!open ? null : { side: 'bottom', color: 'border' }}
         pad="medium"
         round={!open ? 'small' : { corner: 'top', size: 'small' }}
       >
@@ -25,7 +25,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
       <Collapsible open={open}>
         <Box
           background="background-contrast"
-          height={{ max: 'medium' }}
+          height={{ max: 'large' }}
           gap="medium"
           overflow="auto"
           pad="medium"
