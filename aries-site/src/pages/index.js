@@ -15,7 +15,7 @@ const HomeTiles = ({ ...rest }) => {
     <Tiles
       gap={size !== 'small' ? 'large' : 'medium'}
       columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows="medium"
+      rows={[['xsmall', 'medium']]}
       {...rest}
     />
   );
@@ -39,11 +39,11 @@ const Index = () => {
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
-        <HomeTiles>
-          <Tile background="white">
-            <Image src="/image-hands.png" alt="HPE Hands Image" fit="cover" />
+        <HomeTiles intro>
+          <Tile>
+            <Image src="/carte-cards.svg" alt="HPE Hands Image" fit="cover" />
           </Tile>
-          <IntroTile background="white" />
+          <IntroTile />
         </HomeTiles>
         <CardGrid>
           {cards.map(topic => (
