@@ -133,9 +133,10 @@ export const Example = ({
                 mobile,
               })}
           </Box>
-          {(designer || figma || template) && (
+          {(designer || docs, figma || template) && (
             <ExampleControls
               designer={designer}
+              docs={docs}
               figma={figma}
               template={template}
               setShowLayer={value => setShowLayer(value)}
