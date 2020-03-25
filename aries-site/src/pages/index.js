@@ -6,7 +6,12 @@ import { Tile, Tiles } from 'aries-core';
 import { CardGrid, ContentCard, IntroTile, Meta } from '../components';
 import { structure } from '../data';
 import { Layout } from '../layouts';
-import { getPageDetails, getParentPage, nameToPath } from '../utils';
+import {
+  getPageDetails,
+  getParentPage,
+  nameToPath,
+  useDarkMode,
+} from '../utils';
 
 const HomeTiles = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -35,13 +40,18 @@ const cards = structure
   .filter(page => page.parent.name !== 'Home');
 
 const Index = () => {
+  const darkMode = useDarkMode();
+  const cardImage = darkMode.value
+    ? '/carte-cards-dark.svg'
+    : '/carte-cards.svg';
+
   return (
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <HomeTiles intro>
           <Tile>
-            <Image src="/carte-cards.svg" alt="HPE Hands Image" fit="cover" />
+            <Image src={cardImage} alt="HPE Hands Image" fit="cover" />
           </Tile>
           <IntroTile />
         </HomeTiles>
