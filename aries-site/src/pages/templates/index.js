@@ -25,7 +25,7 @@ const Templates = () => {
   );
 
   return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title}>
+    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
       <Meta
         title={title}
         description={seoDescription}
