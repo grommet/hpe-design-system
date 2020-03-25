@@ -5,7 +5,7 @@ import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 // This is testing the navigation links that appear in the sidebar of the
 // content pages
 
-fixture('Sidebar NavLinks').page(`${baseUrl}/guidelines/principles`);
+fixture('Sidebar NavLinks').page(`${baseUrl}/foundation/principles`);
 
 // eslint-disable-next-line max-len
 test('should navigate to correct path when a side-bar option is clicked on', async t => {
