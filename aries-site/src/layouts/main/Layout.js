@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext } from 'grommet';
-import { Header, Head, Footer, SidebarLayout } from '..';
+import { Header, Head, FeedbackSection, Footer, NextContent } from '..';
 import { ThemeMode, ThemeModeToggle } from '../../components';
 import { Config } from '../../../config';
+import { getParentPage, getNextContent } from '../../utils';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -26,12 +27,16 @@ export const Layout = ({
     }
   }, []);
 
+  // For NextContent
+  const parentTopic = getParentPage(title);
+  const { color } = typeof parentTopic !== 'undefined' ? parentTopic : {};
+  const nextContent = getNextContent(title);
+
   return (
     <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Box
-            // pad={{ horizontal: calcPad(size) }}
             height={{ min: '100vh' }}
             margin="auto"
             width={{ max: 'xxlarge' }}
@@ -56,34 +61,36 @@ export const Layout = ({
                 descriptiveHeader && descriptiveHeader.props.background
               }
             />
-            {!isLanding && !isNavPage ? (
-              <SidebarLayout title={title}> {children} </SidebarLayout>
-            ) : (
-              <Main overflow="visible">
-                {/* Allows DescriptiveHeader background color not to be
-                 * confined by formatting restrictions of page content
-                 */}
-                {descriptiveHeader &&
-                  React.cloneElement(descriptiveHeader, {
-                    pad: {
-                      horizontal: calcPad(size),
-                      bottom: calcPad(size),
-                      top: 'xlarge',
-                    },
-                    round: { corner: 'bottom', size: 'medium' },
-                  })}
-                {/* aligns with responsive padding for aries-core Nav */}
-                <Box
-                  pad={{
+            <Main overflow="visible">
+              {/* Allows DescriptiveHeader background color not to be
+               * confined by formatting restrictions of page content
+               */}
+              {descriptiveHeader &&
+                React.cloneElement(descriptiveHeader, {
+                  pad: {
                     horizontal: calcPad(size),
                     bottom: calcPad(size),
-                    top: 'medium',
-                  }}
-                >
-                  {children}
-                </Box>
-              </Main>
-            )}
+                    top: 'xlarge',
+                  },
+                  round: { corner: 'bottom', size: 'medium' },
+                })}
+              {/* aligns with responsive padding for aries-core Nav */}
+              <Box
+                pad={{
+                  horizontal: calcPad(size),
+                  bottom: (isLanding || isNavPage) && calcPad(size),
+                  top: 'medium',
+                }}
+              >
+                {children}
+                {!isLanding && !isNavPage && (
+                  <>
+                    <FeedbackSection />
+                    <NextContent color={color} nextContent={nextContent} />
+                  </>
+                )}
+              </Box>
+            </Main>
             {isLanding && <Footer />}
           </Box>
         )}
