@@ -36,11 +36,9 @@ const Dashboards = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
             template
             details={[
-              `Template dashboard patterns for presenting operational and
-            analytical dashboards. Dashboards provide users peace-of-mind
-            knowing critical measures, applications, and services are healthy; 
-            plus, easy access to areas needing attention for the moments
-            when they are not.`,
+              `Dashboards provide users peace-of-mind knowing critical 
+            measures, applications, and services are healthy; plus, easy access 
+            to areas needing attention for the moments when they are not.`,
               `Well designed dashboards begin by defining the specific purpose 
             and user needs it is serving. Operational dashboards focus on 
             delivering information such as data deviations, current 
