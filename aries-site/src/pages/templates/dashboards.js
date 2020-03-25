@@ -28,10 +28,6 @@ const Dashboards = () => {
             At-a-glance preview for operation critical information with easy
             access to areas requiring attention.
           </SubsectionText>
-        </Subsection>
-      </ContentSection>
-      <ContentSection>
-        <Subsection name="Operational Dashboard">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
             template
