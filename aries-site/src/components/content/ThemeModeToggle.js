@@ -17,7 +17,7 @@ export const ThemeModeToggle = () => {
       overflow="hidden"
       pad={{ vertical: 'small' }}
       responsive={false}
-      round="small"
+      round="4px"
       margin={{ right: 'medium' }}
       width="small"
       onClick={() => darkMode.toggle()}
