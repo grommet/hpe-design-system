@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
-import { Expand, Grommet, Figma } from 'grommet-icons';
+import { Document, Expand, Grommet, Figma } from 'grommet-icons';
 
 const ControlButton = ({ children, ...rest }) => (
   <Button plain {...rest}>
@@ -26,6 +26,7 @@ ControlButton.propTypes = {
 
 export const ExampleControls = ({
   designer,
+  docs,
   figma,
   setShowLayer,
   template,
@@ -55,6 +56,12 @@ export const ExampleControls = ({
           <Text weight="bold">Open in Figma</Text>
         </ControlButton>
       )}
+      {docs && (
+        <ControlButton href={docs} target="_blank">
+          <Document color="plain" />
+          <Text weight="bold">Open docs</Text>
+        </ControlButton>
+      )}
     </Box>
     {template && (
       <ControlButton onClick={() => setShowLayer(true)}>
@@ -67,6 +74,7 @@ export const ExampleControls = ({
 
 ExampleControls.propTypes = {
   designer: PropTypes.string,
+  docs: PropTypes.string,
   figma: PropTypes.string,
   template: PropTypes.bool,
   setShowLayer: PropTypes.func,
