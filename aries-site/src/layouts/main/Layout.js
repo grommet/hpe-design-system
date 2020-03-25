@@ -78,7 +78,7 @@ export const Layout = ({
               <Box
                 pad={{
                   horizontal: calcPad(size),
-                  bottom: (isLanding || isNavPage) && calcPad(size),
+                  bottom: isLanding || isNavPage ? calcPad(size) : undefined,
                   top: 'medium',
                 }}
               >
