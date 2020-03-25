@@ -1,34 +1,59 @@
 import React from 'react';
+import Link from 'next/link';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { Layout, NavPage } from '../../layouts';
-import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
-import { getPageDetails } from '../../utils';
+import { CardGrid, ContentCard, Meta } from '../../components';
+import { structure } from '../../data';
+import { Layout, PageIntro } from '../../layouts';
+import { getPageDetails, getParentPage, nameToPath } from '../../utils';
 
 const title = 'Foundation';
-const page = getPageDetails(title);
+const pageDetails = getPageDetails(title);
+
+const cards = structure
+  .map(obj => {
+    const page = obj;
+    const parent = getParentPage(page.name);
+    page.parent = parent;
+    return page;
+  })
+  .filter(page => page.parent !== undefined)
+  .filter(page => page.parent.name === title);
 
 const Foundation = () => {
-  const descriptiveHeader = (
-    <DescriptiveHeader
-      background={page.color}
-      subText={page.description}
-      icon={page.icon}
-      title={title}
-    />
-  );
-
   return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
+    <Layout title={title} isLanding>
       <Meta
         title={title}
-        description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation"
+        description={pageDetails.seoDescription}
+        canonicalUrl="https://design-system.hpe.design/templates"
       />
-      {page.pages.length ? (
-        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
-      ) : (
-        <ComingSoon />
-      )}
+      <Box gap="large">
+        <PageIntro
+          image={{
+            src: '/card-foundation.png',
+            alt: 'Card deck of HPE Design System component cards',
+            fit: 'cover',
+          }}
+        >
+          <Box justify="center" fill>
+            <Heading margin="none">{title}</Heading>
+            <Paragraph fill>{pageDetails.description}</Paragraph>
+          </Box>
+        </PageIntro>
+        <CardGrid>
+          {cards.map(topic => (
+            // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
+            <Link key={topic.name} href={nameToPath(topic.name)} passHref>
+              <ContentCard
+                as="a"
+                style={{ textDecoration: 'none' }}
+                topic={topic}
+              />
+            </Link>
+          ))}
+        </CardGrid>
+      </Box>
     </Layout>
   );
 };

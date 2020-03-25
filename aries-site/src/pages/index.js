@@ -1,25 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { Box, Image, ResponsiveContext } from 'grommet';
-import { Tile, Tiles } from 'aries-core';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { CardGrid, ContentCard, IntroTile, Meta } from '../components';
+import { CardGrid, ContentCard, Meta } from '../components';
 import { structure } from '../data';
-import { Layout } from '../layouts';
+import { Layout, PageIntro } from '../layouts';
 import { getPageDetails, getParentPage, nameToPath } from '../utils';
-
-const HomeTiles = ({ ...rest }) => {
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Tiles
-      gap={size !== 'small' ? 'large' : 'medium'}
-      columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows={[['xsmall', 'medium']]}
-      {...rest}
-    />
-  );
-};
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
@@ -39,12 +25,25 @@ const Index = () => {
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
-        <HomeTiles intro>
-          <Tile>
-            <Image src="/carte-cards.svg" alt="HPE Hands Image" fit="cover" />
-          </Tile>
-          <IntroTile />
-        </HomeTiles>
+        <PageIntro
+          image={{
+            src: '/carte-cards.svg',
+            alt: 'Card deck of HPE Design System cards',
+            fit: 'cover',
+          }}
+        >
+          <Box justify="center" fill>
+            <Heading margin="none">
+              Mix, match, and stack cards to change the game
+            </Heading>
+            <Paragraph fill>
+              The Carte Design System was created to empower designers,
+              developer, and others to contribute in making great experiences
+              for the customer. Carte means “card game” in Italian. Pick your
+              cards and see what games you can play.
+            </Paragraph>
+          </Box>
+        </PageIntro>
         <CardGrid>
           {cards.map(topic => (
             // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
