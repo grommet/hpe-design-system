@@ -1,7 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, Text } from 'grommet';
+import { Box, Image, Text, defaultProps } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
+
+const { size } = defaultProps.theme.global;
+const maxCardWidth = `${parseInt(size.medium, 10) +
+  parseInt(size.small, 10)}px`;
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   const { description, name, parent, previewImage } = topic;
@@ -12,12 +16,14 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       align="start"
       background="background-front"
       elevation={isFocused ? 'medium' : 'none'}
+      fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}
       onMouseOver={() => setIsFocused(true)}
       pad="medium"
       ref={ref}
+      width={{ max: maxCardWidth }}
       {...rest}
     >
       <Box gap="large">

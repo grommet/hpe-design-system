@@ -4,7 +4,7 @@ import { Grid } from 'grommet';
 
 export const CardGrid = ({ children, ...rest }) => {
   return (
-    <Grid columns="medium" gap="medium" {...rest}>
+    <Grid columns="medium" gap="medium" justify="center" fill {...rest}>
       {children}
     </Grid>
   );
