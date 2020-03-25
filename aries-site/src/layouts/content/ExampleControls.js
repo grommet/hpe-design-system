@@ -58,7 +58,7 @@ export const ExampleControls = ({
       )}
       {docs && (
         <ControlButton href={docs} target="_blank">
-          <Document color="plain" />
+          <Document />
           <Text weight="bold">Open docs</Text>
         </ControlButton>
       )}
