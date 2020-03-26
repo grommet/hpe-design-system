@@ -4,7 +4,6 @@ import { Image, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
 export const PageIntro = ({ children, image, ...rest }) => {
-  const { src, alt, fit } = image;
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -15,7 +14,7 @@ export const PageIntro = ({ children, image, ...rest }) => {
       {...rest}
     >
       <Tile>
-        <Image src={src} alt={alt} fit={fit} />
+        <Image {...image} />
       </Tile>
       <Tile>{children}</Tile>
     </Tiles>

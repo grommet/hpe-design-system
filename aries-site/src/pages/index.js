@@ -5,7 +5,12 @@ import { Box, Heading, Paragraph } from 'grommet';
 import { CardGrid, ContentCard, Meta } from '../components';
 import { structure } from '../data';
 import { Layout, PageIntro } from '../layouts';
-import { getPageDetails, getParentPage, nameToPath } from '../utils';
+import {
+  getPageDetails,
+  getParentPage,
+  nameToPath,
+  useDarkMode,
+} from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
@@ -21,13 +26,18 @@ const cards = structure
   .filter(page => page.parent.name !== 'Home');
 
 const Index = () => {
+  const darkMode = useDarkMode();
+  const cardImage = darkMode.value
+    ? '/carte-cards-dark.svg'
+    : '/carte-cards.svg';
+
   return (
     <Layout title={title} isLanding>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box gap="large">
         <PageIntro
           image={{
-            src: '/carte-cards.svg',
+            src: cardImage,
             alt: 'Card deck of HPE Design System cards',
             fit: 'cover',
           }}
