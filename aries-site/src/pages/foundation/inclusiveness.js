@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ContentSection, Layout, Subsection } from '../../layouts';
 
-const topic = 'Guidelines';
-const title = 'Usability';
+const topic = 'Foundation';
+const title = 'Inclusiveness';
 
-const Usability = () => (
+const Inclusiveness = () => (
   <Layout title={title}>
     <ContentSection>
       <Subsection name={title} level={1} topic={topic} />
@@ -13,4 +13,4 @@ const Usability = () => (
   </Layout>
 );
 
-export default Usability;
+export default Inclusiveness;

@@ -5,7 +5,7 @@ import { getPageDetails } from '../../utils';
 
 const title = 'Human Centered';
 const page = getPageDetails(title);
-const topic = 'Guidelines';
+const topic = 'Foundation';
 
 const HumanCentered = () => (
   <Layout title={title}>
