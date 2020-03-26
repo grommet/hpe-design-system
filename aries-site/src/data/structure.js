@@ -25,15 +25,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: [
-      'Guidelines',
-      'Foundation',
-      'Templates',
-      'Components',
-      'Develop',
-      'Design',
-      'Resources',
-    ],
+    pages: ['Foundation', 'Components', 'Templates'],
   },
   {
     name: 'Feedback',
