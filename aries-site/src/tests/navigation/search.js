@@ -1,12 +1,16 @@
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
+import { Selector } from 'testcafe';
 import {
   baseUrl,
   getLocation,
   repeatKeyPress,
   Search,
   getSuggestion,
+  tabToSearch,
 } from '../utils';
+
+const searchButton = Selector('#search-button');
 
 fixture('Search')
   .page(baseUrl)
@@ -22,6 +26,7 @@ test(
     const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
     const suggestion = getSuggestion(page);
     await t
+      .click(searchButton)
       .typeText(ReactSelector(Search), 'dev')
       .click(suggestion)
       .expect(getLocation())
@@ -37,6 +42,7 @@ test(
     const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
     await t
+      .click(searchButton)
       .typeText(ReactSelector(Search), page)
       .pressKey('enter')
       .expect(getLocation())
@@ -53,6 +59,7 @@ test(
     const suggestion = getSuggestion(page);
 
     await t
+      .click(searchButton)
       .typeText(ReactSelector(Search), 'col')
       .click(suggestion)
       .expect(getLocation())
@@ -67,8 +74,8 @@ test(
     const expectedPath = '/foundation/branding#aruba-logo';
 
     await t
-      // theme toggle --> hpe button --> search
-      .pressKey(await repeatKeyPress('tab', 3))
+      .pressKey(await repeatKeyPress('tab', await tabToSearch()))
+      .pressKey('enter')
       // start typing for something
       .pressKey('a');
 
