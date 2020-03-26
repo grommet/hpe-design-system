@@ -26,7 +26,7 @@ const Components = () => {
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates"
+        canonicalUrl="https://design-system.hpe.design/components"
       />
       <Box gap="large">
         <PageIntro
