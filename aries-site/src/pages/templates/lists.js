@@ -10,17 +10,17 @@ import {
 } from '../../layouts';
 import { getPageDetails, nameToPath } from '../../utils';
 
-const title = 'List Views';
+const title = 'Lists';
 const topic = 'Templates';
 const page = getPageDetails(title);
 
-const ListScreen = () => {
+const Lists = () => {
   return (
     <Layout title={title}>
       <Meta
         title={title}
         description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates/list-views"
+        canonicalUrl="https://design-system.hpe.design/templates/lists"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
@@ -71,4 +71,4 @@ const ListScreen = () => {
   );
 };
 
-export default ListScreen;
+export default Lists;

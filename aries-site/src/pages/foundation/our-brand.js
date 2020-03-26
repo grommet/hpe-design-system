@@ -12,16 +12,16 @@ import { Meta, SubsectionText } from '../../components';
 import { ArubaIconExample, HpeElementExample } from '../../examples';
 import { getPageDetails } from '../../utils';
 
-const title = 'Branding';
+const title = 'Our Brand';
 const page = getPageDetails(title);
 const topic = 'Foundation';
 
-const Branding = () => (
+const OurBrand = () => (
   <Layout title={title}>
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/foundation/branding"
+      canonicalUrl="https://design-system.hpe.design/foundation/our-brand"
     />
     <ContentSection>
       <Subsection level={1} name={title} topic={topic}>
@@ -146,4 +146,4 @@ const Branding = () => (
   </Layout>
 );
 
-export default Branding;
+export default OurBrand;

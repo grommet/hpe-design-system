@@ -22,12 +22,12 @@ test(
   'should navigate to correct page after user types ' +
     'and clicks suggestion with mouse',
   async t => {
-    const page = 'Develop';
+    const page = 'Templates';
     const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
     const suggestion = getSuggestion(page);
     await t
       .click(searchButton)
-      .typeText(ReactSelector(Search), 'dev')
+      .typeText(ReactSelector(Search), 'temp')
       .click(suggestion)
       .expect(getLocation())
       .eql(expectedPath);
@@ -71,7 +71,7 @@ test(
   'should navigate to correct page ' + 'when user is only using keyboard ',
   async t => {
     const page = 'Aruba Logo';
-    const expectedPath = '/foundation/branding#aruba-logo';
+    const expectedPath = '/foundation/our-brand#aruba-logo';
 
     await t
       .pressKey(await repeatKeyPress('tab', await tabToSearch()))
