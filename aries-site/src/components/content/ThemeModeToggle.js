@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
 import { IconMoon, IconSun } from '../icons';
 import { useDarkMode } from '../../utils';
 
@@ -8,22 +8,14 @@ export const ThemeModeToggle = () => {
   const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
   const icon = darkMode.value ? <IconSun /> : <IconMoon />;
   return (
-    <Box
-      align="start"
-      background={{ dark: 'blue!', light: 'white' }}
-      direction="row"
-      gap="xsmall"
-      justify="center"
-      overflow="hidden"
-      pad={{ vertical: 'small' }}
-      responsive={false}
-      round="4px"
-      margin={{ right: 'medium' }}
-      width="small"
-      onClick={() => darkMode.toggle()}
-    >
-      {icon}
-      {label}
+    <Box width={{ max: 'small' }}>
+      <Button
+        color={{ dark: 'blue!', light: 'white' }}
+        label={label}
+        icon={icon}
+        primary
+        onClick={() => darkMode.toggle()}
+      />
     </Box>
   );
 };

@@ -7870,12 +7870,12 @@ grommet-theme-hpe@^1.0.2:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#f6e84eaad2ba7e0e762c9790c65b1ce055169b67"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#a440c015689d14fac9373fb3278ec3aa932302f1"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.11.2"
-  uid "2ca9136e9688ddad024ca1f7df5d1edca1f3dcfc"
-  resolved "https://github.com/grommet/grommet/tarball/stable#2ca9136e9688ddad024ca1f7df5d1edca1f3dcfc"
+  uid "77673f29b2fe50e56611876a17a82c3891cd1a25"
+  resolved "https://github.com/grommet/grommet/tarball/stable#77673f29b2fe50e56611876a17a82c3891cd1a25"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
