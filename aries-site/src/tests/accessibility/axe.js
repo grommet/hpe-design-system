@@ -40,22 +40,8 @@ test.before(async t => {
 });
 
 test.before(async t => {
-  await t.navigateTo('/foundation/branding');
+  await t.navigateTo('/foundation/our-brand');
 })('should check Branding Page (SidebarLayout)', async t => {
-  // Only need to run in one browser
-  if (t.browser.name === 'Chrome') {
-    const axeContext = {
-      exclude: [],
-    };
-    const axeOptions = { rules: { 'color-contrast': { enabled: false } } };
-    const { violations } = await axeCheck(t, axeContext, axeOptions);
-    await t.expect(violations.length === 0).ok(createReport(violations));
-  }
-});
-
-test.before(async t => {
-  await t.navigateTo('/resources');
-})('should check Resources Page (Empty Page)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
