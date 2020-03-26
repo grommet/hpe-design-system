@@ -59,21 +59,12 @@ export const Subsection = ({
             <Box align="start" gap="small">
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <Button plain {...rest}>
-                    {({ hover }) => (
-                      <Box
-                        direction="row"
-                        align="center"
-                        gap="small"
-                        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-                        round="small"
-                        background={hover ? 'active-background' : undefined}
-                      >
-                        {parent.icon('small', parent.color)}
-                        {parent.name}
-                      </Box>
-                    )}
-                  </Button>
+                  <Button
+                    label={parent.name}
+                    icon={parent.icon('small', parent.color)}
+                    {...rest}
+                    plain
+                  />
                 </Link>
               )}
               <Subheading level={level}>{name}</Subheading>
