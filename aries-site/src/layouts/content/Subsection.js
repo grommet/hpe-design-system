@@ -53,6 +53,11 @@ export const Subsection = ({
       onBlur={() => setOver(false)}
       {...rest}
     >
+      {/* This condition for gap is needed because the link icon has padding
+       * to maintain a big enough touch area for accessibility. This creates
+       * a larger than desired gap between h3's and its first child. This
+       * removes that extra space.
+       */}
       <Box gap={level !== 3 ? 'small' : undefined}>
         {showHeading && (
           <Header>
