@@ -21,7 +21,7 @@ const NavButton = ({ active, item, ...rest }) => {
       >
         <Box
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
-          round="small"
+          round="xxsmall"
           background={active || hover ? 'active-background' : undefined}
         >
           <Text weight="bold" margin="none">
@@ -53,7 +53,7 @@ const StyledHeader = ({ background, ...rest }) => {
         <AppIdentity
           brand="hpe"
           logoOnly={size === 'small' && searchFocused}
-          title="Design System"
+          title="Carte Design System"
         />
       </Link>
       {!searchFocused ? (
@@ -70,6 +70,7 @@ const StyledHeader = ({ background, ...rest }) => {
             id="search-button"
             icon={<SearchIcon />}
             onClick={() => setSearchFocused(true)}
+            hoverIndicator
           />
         </Box>
       ) : (
