@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ContentSection, Layout, Subsection } from '../../layouts';
 
-const topic = 'Guidelines';
+const topic = 'Foundation';
 const title = 'Open';
 
 const Open = () => (

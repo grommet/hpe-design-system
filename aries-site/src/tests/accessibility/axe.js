@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { axeCheck, createReport } from 'axe-testcafe';
@@ -31,8 +30,8 @@ test('should check Home page', async t => {
 });
 
 test.before(async t => {
-  await t.navigateTo('/guidelines');
-})('should check Guidelines (NavPage)', async t => {
+  await t.navigateTo('/templates');
+})('should check Templates (NavPage)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const { violations } = await axeCheck(t);
