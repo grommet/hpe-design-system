@@ -26,7 +26,7 @@ const Foundation = () => {
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates"
+        canonicalUrl="https://design-system.hpe.design/foundation"
       />
       <Box gap="large">
         <PageIntro
