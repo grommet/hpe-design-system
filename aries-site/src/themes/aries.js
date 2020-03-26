@@ -3,12 +3,6 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  button: {
-    color: props =>
-      props.primary
-        ? '#FFFFFF'
-        : props.theme.global.colors.text[props.theme.dark ? 'dark' : 'light'],
-  },
   checkBox: {
     color: 'selected-text',
     gap: 'small',

@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { NavLink } from 'aries-core';
-import { Anchor, Box, Header } from 'grommet';
+import { Anchor, Box, Button, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
-
-// Depending on the level of the heading, we need to adjust the amount of gap
-// between the heading and the first child in the subsection.
-const GAP_SIZE = {
-  1: 'large',
-  2: 'small',
-  3: undefined,
-};
+import { getPageDetails } from '../../utils';
 
 export const Subsection = ({
   children,
@@ -23,6 +15,7 @@ export const Subsection = ({
   ...rest
 }) => {
   const [over, setOver] = useState(false);
+  const parent = getPageDetails(topic);
 
   const id = name
     .split(' ')
@@ -65,13 +58,18 @@ export const Subsection = ({
        * a larger than desired gap between h3's and its first child. This
        * removes that extra space.
        */}
-      <Box gap={GAP_SIZE[level]}>
+      <Box gap={level !== 3 ? 'small' : undefined}>
         {showHeading && (
           <Header>
-            <Box>
+            <Box align="start" gap="small">
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <NavLink label={topic} />
+                  <Button
+                    label={parent.name}
+                    icon={parent.icon('small', parent.color)}
+                    {...rest}
+                    plain
+                  />
                 </Link>
               )}
               <Subheading level={level}>{name}</Subheading>
