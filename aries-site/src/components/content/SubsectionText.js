@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Paragraph } from 'grommet';
+import { Box, Paragraph } from 'grommet';
 
 // Text size should be based on if its parent heading is an
 // h2, h3, etc.
@@ -12,7 +12,9 @@ const TEXT_SIZE = {
 
 export const SubsectionText = ({ level, size, ...rest }) => {
   return (
-    <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest} />
+    <Box width="large">
+      <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest} />
+    </Box>
   );
 };
 

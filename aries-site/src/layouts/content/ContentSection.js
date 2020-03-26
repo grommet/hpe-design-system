@@ -21,7 +21,6 @@ export const ContentSection = ({ children, lastSection }) => {
         horizontal: 'xxsmall',
         top: 'xxsmall',
       }}
-      width="large"
     >
       {children}
     </Box>
