@@ -3,27 +3,12 @@ import Link from 'next/link';
 import { Box, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, ContentCard, Meta } from '../components';
-import { structure } from '../data';
 import { Layout, PageIntro } from '../layouts';
-import {
-  getPageDetails,
-  getParentPage,
-  nameToPath,
-  useDarkMode,
-} from '../utils';
+import { getCards, getPageDetails, nameToPath, useDarkMode } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
-
-const cards = structure
-  .map(obj => {
-    const page = obj;
-    const parent = getParentPage(page.name);
-    page.parent = parent;
-    return page;
-  })
-  .filter(page => page.parent !== undefined)
-  .filter(page => page.parent.name !== 'Home');
+const cards = getCards();
 
 const Index = () => {
   const darkMode = useDarkMode();
@@ -58,6 +43,7 @@ const Index = () => {
           {cards.map(topic => (
             // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
             <Link key={topic.name} href={nameToPath(topic.name)} passHref>
+              {/* Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en */}
               <ContentCard
                 as="a"
                 style={{ textDecoration: 'none' }}

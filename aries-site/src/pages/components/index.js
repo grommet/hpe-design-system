@@ -3,24 +3,19 @@ import Link from 'next/link';
 import { Box, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, ContentCard, Meta } from '../../components';
-import { structure } from '../../data';
 import { Layout, PageIntro } from '../../layouts';
-import { getPageDetails, getParentPage, nameToPath } from '../../utils';
+import { getCards, getPageDetails, nameToPath, useDarkMode } from '../../utils';
 
 const title = 'Components';
 const pageDetails = getPageDetails(title);
-
-const cards = structure
-  .map(obj => {
-    const page = obj;
-    const parent = getParentPage(page.name);
-    page.parent = parent;
-    return page;
-  })
-  .filter(page => page.parent !== undefined)
-  .filter(page => page.parent.name === title);
+const cards = getCards(title);
 
 const Components = () => {
+  const darkMode = useDarkMode();
+  const cardImage = darkMode.value
+    ? '/carte-components-dark.svg'
+    : '/carte-components-light.svg';
+
   return (
     <Layout title={title} isLanding>
       <Meta
@@ -31,7 +26,7 @@ const Components = () => {
       <Box gap="large">
         <PageIntro
           image={{
-            src: '/card-components.png',
+            src: cardImage,
             alt: 'Card deck of HPE Design System component cards',
             fit: 'cover',
           }}
