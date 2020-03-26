@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext } from 'grommet';
 import { Header, Head, FeedbackSection, Footer, NextContent } from '..';
-import { ThemeMode, ThemeModeToggle } from '../../components';
+import { ThemeMode } from '../../components';
 import { Config } from '../../../config';
 import { getParentPage, getNextContent } from '../../utils';
 
@@ -42,20 +42,6 @@ export const Layout = ({
             width={{ max: 'xxlarge' }}
           >
             <Head title={title} />
-            {/* Temporary placement of theme toggle from Chris.
-             * Will likely be updated in future, but wanted visible
-             * placement for demo. */}
-            <Box
-              role="complementary"
-              style={{
-                position: 'fixed',
-                bottom: size !== 'small' ? '48px' : '24px',
-                right: '24px',
-                zIndex: 10,
-              }}
-            >
-              <ThemeModeToggle />
-            </Box>
             <Header
               background={
                 descriptiveHeader && descriptiveHeader.props.background

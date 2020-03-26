@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { FooterLink } from 'aries-core';
 import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
+import { ThemeModeToggle } from '../../components';
 import { nameToPath } from '../../utils';
 
 export const Footer = () => {
@@ -29,12 +30,13 @@ export const Footer = () => {
         horizontal: size !== 'small' ? 'xlarge' : 'large',
       }}
     >
-      <Box align="center" gap="medium" direction="row-responsive">
-        <Text size="small">
-          &copy; {year} Hewlett Packard Enterprise Development LP
-        </Text>
+      <Box direction="row-responsive">
+        <ThemeModeToggle />
       </Box>
-      <Box direction="row" gap="medium">
+      <Box direction="row-responsive" gap="medium" align="center">
+        <Box>
+          <Text size="small">&copy; {year} Hewlett Packard Enterprise</Text>
+        </Box>
         {externalFooterLinks.map((link, index) => (
           <FooterLink
             size="small"
