@@ -122,7 +122,7 @@ export const Example = ({
             // to maintain aspect ratio, so this is small + medium
             height={template ? '576px' : undefined}
             round={
-              designer || figma || template
+              designer || docs || figma || template
                 ? { corner: 'top', size: 'small' }
                 : 'small'
             }
@@ -133,7 +133,7 @@ export const Example = ({
                 mobile,
               })}
           </Box>
-          {(designer || docs, figma || template) && (
+          {(designer || docs || figma || template) && (
             <ExampleControls
               designer={designer}
               docs={docs}
