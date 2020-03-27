@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, Button, Keyboard, Layer, Text, ThemeContext } from 'grommet';
+import {
+  Box,
+  Button,
+  defaultProps,
+  Keyboard,
+  Layer,
+  Text,
+  ThemeContext,
+} from 'grommet';
 import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';
 import {
@@ -91,6 +99,9 @@ export const Example = ({
   const [mobile, setMobile] = React.useState(false);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
+  const { size } = defaultProps.theme.global;
+  const aspectHeight = `${parseInt(size.medium, 10) +
+    parseInt(size.small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -115,12 +126,14 @@ export const Example = ({
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
           <Box
-            direction="row"
+            align={!template ? 'center' : undefined}
             background="background-front"
-            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
+            direction="row"
             // Height for template screen needs to be between medium and large
             // to maintain aspect ratio, so this is small + medium
-            height={template ? '576px' : undefined}
+            height={template ? aspectHeight : { min: aspectHeight }}
+            justify="center"
+            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
               designer || docs || figma || template
                 ? { corner: 'top', size: 'small' }
@@ -180,36 +193,38 @@ export const Example = ({
             <Box fill background="background-front">
               <Box
                 direction="row"
-                justify="between"
+                justify={template ? 'between' : 'end'}
                 pad="xxsmall"
                 background="#111"
               >
-                <Box direction="row">
-                  <Box
-                    title="Desktop layout"
-                    background={!mobile ? 'background-contrast' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                    onClick={() => setMobile(false)}
-                  >
-                    <Desktop />
-                    <Text>Desktop</Text>
+                {template && (
+                  <Box direction="row">
+                    <Box
+                      title="Desktop layout"
+                      background={!mobile ? 'background-contrast' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                      onClick={() => setMobile(false)}
+                    >
+                      <Desktop />
+                      <Text>Desktop</Text>
+                    </Box>
+                    <Box
+                      title="Mobile layout"
+                      background={mobile ? 'background-contrast' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                      onClick={() => setMobile(true)}
+                    >
+                      <IconMobile />
+                      <Text>Mobile</Text>
+                    </Box>
                   </Box>
-                  <Box
-                    title="Mobile layout"
-                    background={mobile ? 'background-contrast' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                    onClick={() => setMobile(true)}
-                  >
-                    <IconMobile />
-                    <Text>Mobile</Text>
-                  </Box>
-                </Box>
+                )}
                 <Button
                   title="Leave full screen"
                   icon={<Contract />}
@@ -220,7 +235,13 @@ export const Example = ({
                   hoverIndicator
                 />
               </Box>
-              <Box direction="row" justify="center" flex {...rest}>
+              <Box
+                direction="row"
+                justify="center"
+                align={!template ? 'center' : undefined}
+                flex
+                {...rest}
+              >
                 {children &&
                   React.cloneElement(children, {
                     mobile,
