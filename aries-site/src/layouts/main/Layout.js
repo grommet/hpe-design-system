@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext } from 'grommet';
-import { Header, Head, FeedbackSection, Footer, NextContent } from '..';
+import { Header, Head, FeedbackSection, Footer } from '..';
 import { ThemeMode } from '../../components';
 import { Config } from '../../../config';
-import { getParentPage, getNextContent } from '../../utils';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -26,11 +25,6 @@ export const Layout = ({
       pageview(document.location.pathname);
     }
   }, []);
-
-  // For NextContent
-  const parentTopic = getParentPage(title);
-  const { color } = typeof parentTopic !== 'undefined' ? parentTopic : {};
-  const nextContent = getNextContent(title);
 
   return (
     <ThemeMode>
@@ -69,15 +63,10 @@ export const Layout = ({
                 }}
               >
                 {children}
-                {!isLanding && !isNavPage && (
-                  <>
-                    <FeedbackSection />
-                    <NextContent color={color} nextContent={nextContent} />
-                  </>
-                )}
+                {!isLanding && !isNavPage && <FeedbackSection />}
               </Box>
             </Main>
-            {isLanding && <Footer />}
+            <Footer />
           </Box>
         )}
       </ResponsiveContext.Consumer>
