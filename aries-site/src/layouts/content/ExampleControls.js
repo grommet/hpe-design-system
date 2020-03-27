@@ -24,13 +24,7 @@ ControlButton.propTypes = {
     .isRequired,
 };
 
-export const ExampleControls = ({
-  designer,
-  docs,
-  figma,
-  setShowLayer,
-  template,
-}) => (
+export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
   <Box
     background="background-front"
     border={{
@@ -63,12 +57,10 @@ export const ExampleControls = ({
         </ControlButton>
       )}
     </Box>
-    {template && (
-      <ControlButton onClick={() => setShowLayer(true)}>
-        <Expand />
-        <Text weight="bold">See Fullscreen</Text>
-      </ControlButton>
-    )}
+    <ControlButton onClick={() => setShowLayer(true)}>
+      <Expand />
+      <Text weight="bold">See Fullscreen</Text>
+    </ControlButton>
   </Box>
 );
 
@@ -76,6 +68,5 @@ ExampleControls.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
-  template: PropTypes.bool,
   setShowLayer: PropTypes.func,
 };
