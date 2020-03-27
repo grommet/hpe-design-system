@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from 'grommet';
+import { Grid, ResponsiveContext } from 'grommet';
 
 export const CardGrid = ({ children, ...rest }) => {
+  const size = useContext(ResponsiveContext);
   return (
-    <Grid columns="medium" gap="medium" justify="center" fill {...rest}>
+    <Grid
+      columns={size !== 'small' ? 'medium' : '100%'}
+      gap="medium"
+      justify="center"
+      fill
+      {...rest}
+    >
       {children}
     </Grid>
   );
