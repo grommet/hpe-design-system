@@ -1,5 +1,12 @@
 /* eslint-disable max-len */
 import {
+  CardsPreview,
+  ColorPreview,
+  DashboardsPreview,
+  FormsPreview,
+  ListsPreview,
+  OurBrandPreview,
+  TypographyPreview,
   IconBrand,
   IconCircle,
   IconColor,
@@ -108,6 +115,9 @@ export const structure = [
     description:
       'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <OurBrandPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'Logos are a powerful expression of our brand and who we are. Learn how to access and apply HPE and Aruba Networks logos in the experiences you create.',
     sections: ['HPE Logo', 'HPE Element', 'Aruba Logo', 'Aruba Icon'],
@@ -117,6 +127,9 @@ export const structure = [
     description:
       'Bringing out the depth and dimension of our identity, the HPE Design System use of color evokes energy and inspiration.',
     icon: (size, color) => <IconColor size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <ColorPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'HPE Design System color palette brings out the depth and dimension of our identity. From sophisticated, neutral hues reflective of technology to vibrant, saturated colors that evoke energy and inspiration.',
     sections: [
@@ -139,6 +152,9 @@ export const structure = [
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <DashboardsPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'HPE Design System dashboard template for screens featuring content within tiles.',
     sections: [],
@@ -148,6 +164,9 @@ export const structure = [
     description:
       'Common form use cases from application configuration to payment acceptance.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <FormsPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
       'Sign In',
@@ -181,6 +200,9 @@ export const structure = [
     description:
       'Go-to patterns for displaying many services, devices, users, and more.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <ListsPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
@@ -212,6 +234,9 @@ export const structure = [
     description:
       'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
     icon: (size, color) => <IconType size={size} color={color} />,
+    preview: (theme, themeMode) => (
+      <TypographyPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
     sections: [
@@ -430,6 +455,9 @@ export const structure = [
     name: 'Cards',
     description:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    preview: (theme, themeMode) => (
+      <CardsPreview theme={theme} themeMode={themeMode} />
+    ),
     seoDescription:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
