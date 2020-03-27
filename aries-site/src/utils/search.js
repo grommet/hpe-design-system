@@ -28,22 +28,6 @@ export const getSectionParent = section =>
     page.sections ? page.sections.includes(section) : null,
   );
 
-export const getNextContent = current => {
-  // Returns next sibling, parent's next sibling, or self if page has no parent
-  const parent = getParentPage(current);
-
-  if (typeof parent === 'undefined') {
-    return current;
-  }
-
-  const { pages } = parent;
-  const currentIndex = pages.indexOf(current);
-
-  return currentIndex + 1 < pages.length
-    ? pages[currentIndex + 1]
-    : getNextContent(parent.name);
-};
-
 export const nameToPath = name => {
   // Item selected is a main topic
   const [page] = structure.filter(p => p.name === name);
