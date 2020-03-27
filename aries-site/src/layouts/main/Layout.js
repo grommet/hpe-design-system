@@ -12,13 +12,7 @@ const calcPad = size => {
   return val;
 };
 
-export const Layout = ({
-  children,
-  descriptiveHeader,
-  title,
-  isLanding,
-  isNavPage,
-}) => {
+export const Layout = ({ children, descriptiveHeader, title, isLanding }) => {
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -58,12 +52,12 @@ export const Layout = ({
               <Box
                 pad={{
                   horizontal: calcPad(size),
-                  bottom: isLanding || isNavPage ? calcPad(size) : undefined,
+                  bottom: calcPad(size),
                   top: 'medium',
                 }}
               >
                 {children}
-                {!isLanding && !isNavPage && <FeedbackSection />}
+                {!isLanding && <FeedbackSection />}
               </Box>
             </Main>
             <Footer />
@@ -78,7 +72,6 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,
-  isNavPage: PropTypes.bool,
   title: PropTypes.string,
 };
 
@@ -86,5 +79,4 @@ Layout.defaultProps = {
   descriptiveHeader: undefined,
   title: undefined,
   isLanding: false,
-  isNavPage: false,
 };
