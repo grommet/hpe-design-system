@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Collapsible, Text } from 'grommet';
 import { FormUp, FormDown } from 'grommet-icons';
 
 export const CollapsibleSection = ({ label, onClick, ...rest }) => {
   const [open, setOpen] = useState(false);
+  const [labelText, setLabelText] = useState();
+
+  useEffect(() => {
+    setLabelText(open ? label.open || label : label.closed || label);
+  }, [label, open, setLabelText]);
+
   return (
     <>
       <Box
@@ -20,7 +26,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
         round={!open ? 'small' : { corner: 'top', size: 'small' }}
       >
         {!open ? <FormDown /> : <FormUp />}
-        <Text weight="bold">{label}</Text>
+        <Text weight="bold">{labelText}</Text>
       </Box>
       <Collapsible open={open}>
         <Box
@@ -38,6 +44,12 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
 };
 
 CollapsibleSection.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      closed: PropTypes.string,
+      open: PropTypes.string,
+    }),
+  ]),
   onClick: PropTypes.func,
 };
