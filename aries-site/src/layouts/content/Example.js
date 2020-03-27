@@ -115,12 +115,14 @@ export const Example = ({
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
           <Box
-            direction="row"
+            align={!template ? 'center' : undefined}
             background="background-front"
-            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
+            direction="row"
             // Height for template screen needs to be between medium and large
             // to maintain aspect ratio, so this is small + medium
-            height={template ? '576px' : undefined}
+            height={template ? '576px' : { min: '576px' }}
+            justify="center"
+            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
               designer || docs || figma || template
                 ? { corner: 'top', size: 'small' }
