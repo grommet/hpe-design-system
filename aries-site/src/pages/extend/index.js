@@ -27,7 +27,7 @@ const Extend = () => {
         <PageIntro
           image={{
             src: cardImage,
-            alt: 'Card deck of HPE Design System component cards',
+            alt: 'Card deck of HPE Design System extend cards',
             fit: 'cover',
           }}
         >
