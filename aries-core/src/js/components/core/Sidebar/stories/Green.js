@@ -26,6 +26,7 @@ const SidebarHeader = () => (
     justify="center"
     background="blue!"
     responsive={false}
+    flex={false}
   >
     <Text alignSelf="center" size="xlarge">
       SY
