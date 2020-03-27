@@ -182,36 +182,38 @@ export const Example = ({
             <Box fill background="background-front">
               <Box
                 direction="row"
-                justify="between"
+                justify={template ? 'between' : 'end'}
                 pad="xxsmall"
                 background="#111"
               >
-                <Box direction="row">
-                  <Box
-                    title="Desktop layout"
-                    background={!mobile ? 'background-contrast' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                    onClick={() => setMobile(false)}
-                  >
-                    <Desktop />
-                    <Text>Desktop</Text>
+                {template && (
+                  <Box direction="row">
+                    <Box
+                      title="Desktop layout"
+                      background={!mobile ? 'background-contrast' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                      onClick={() => setMobile(false)}
+                    >
+                      <Desktop />
+                      <Text>Desktop</Text>
+                    </Box>
+                    <Box
+                      title="Mobile layout"
+                      background={mobile ? 'background-contrast' : undefined}
+                      direction="row"
+                      pad="small"
+                      align="center"
+                      gap="small"
+                      onClick={() => setMobile(true)}
+                    >
+                      <IconMobile />
+                      <Text>Mobile</Text>
+                    </Box>
                   </Box>
-                  <Box
-                    title="Mobile layout"
-                    background={mobile ? 'background-contrast' : undefined}
-                    direction="row"
-                    pad="small"
-                    align="center"
-                    gap="small"
-                    onClick={() => setMobile(true)}
-                  >
-                    <IconMobile />
-                    <Text>Mobile</Text>
-                  </Box>
-                </Box>
+                )}
                 <Button
                   title="Leave full screen"
                   icon={<Contract />}
@@ -222,7 +224,13 @@ export const Example = ({
                   hoverIndicator
                 />
               </Box>
-              <Box direction="row" justify="center" flex {...rest}>
+              <Box
+                direction="row"
+                justify="center"
+                align={!template ? 'center' : undefined}
+                flex
+                {...rest}
+              >
                 {children &&
                   React.cloneElement(children, {
                     mobile,
