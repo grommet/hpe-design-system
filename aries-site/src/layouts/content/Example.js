@@ -245,7 +245,9 @@ Example.propTypes = {
       href: PropTypes.string,
     }),
   ),
-  details: PropTypes.arrayOf(PropTypes.string),
+  details: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  ),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,

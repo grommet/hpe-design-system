@@ -19,7 +19,11 @@ export const SubsectionText = ({ level, size, ...rest }) => {
 };
 
 SubsectionText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.element,
+  ]),
   level: PropTypes.number,
   size: PropTypes.string,
 };
