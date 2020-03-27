@@ -6,5 +6,6 @@ export * from './ExampleControls';
 export * from './ExampleComponents';
 export * from './FeedbackSection';
 export * from './Head';
+export * from './PageIntro';
 export * from './Subsection';
 export * from './UsageExample';
