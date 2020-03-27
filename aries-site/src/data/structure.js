@@ -1,5 +1,9 @@
 /* eslint-disable max-len */
 import {
+  CardsPreview,
+  DashboardsPreview,
+  FormsPreview,
+  ListsPreview,
   IconBrand,
   IconCircle,
   IconColor,
@@ -139,6 +143,7 @@ export const structure = [
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: theme => <DashboardsPreview theme={theme} />,
     seoDescription:
       'HPE Design System dashboard template for screens featuring content within tiles.',
     sections: [],
@@ -148,6 +153,7 @@ export const structure = [
     description:
       'Common form use cases from application configuration to payment acceptance.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: theme => <FormsPreview theme={theme} />,
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
       'Sign In',
@@ -181,6 +187,7 @@ export const structure = [
     description:
       'Go-to patterns for displaying many services, devices, users, and more.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
+    preview: theme => <ListsPreview theme={theme} />,
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
@@ -430,6 +437,7 @@ export const structure = [
     name: 'Cards',
     description:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    preview: theme => <CardsPreview theme={theme} />,
     seoDescription:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
