@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, Button, Keyboard, Layer, Text, ThemeContext } from 'grommet';
+import {
+  Box,
+  Button,
+  defaultProps,
+  Keyboard,
+  Layer,
+  Text,
+  ThemeContext,
+} from 'grommet';
 import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';
 import {
@@ -91,6 +99,9 @@ export const Example = ({
   const [mobile, setMobile] = React.useState(false);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
+  const { size } = defaultProps.theme.global;
+  const aspectHeight = `${parseInt(size.medium, 10) +
+    parseInt(size.small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -120,7 +131,7 @@ export const Example = ({
             direction="row"
             // Height for template screen needs to be between medium and large
             // to maintain aspect ratio, so this is small + medium
-            height={template ? '576px' : { min: '576px' }}
+            height={template ? aspectHeight : { min: aspectHeight }}
             justify="center"
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
