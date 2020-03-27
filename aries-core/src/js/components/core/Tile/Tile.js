@@ -18,7 +18,7 @@ export const Tile = forwardRef(({ children, heading, pad, ...rest }, ref) => {
           </Heading>
         </Header>
       )}
-      <Box flex pad={tilePad}>
+      <Box flex pad={tilePad} fill>
         {children}
       </Box>
     </Box>
