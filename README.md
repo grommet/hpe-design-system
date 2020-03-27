@@ -159,16 +159,16 @@ yarn build
   
 **12. March 30 - April 3**  
 - Design:
-  - Stack
   - TextArea
-  - Select   
+  - Radio Button Group 
 - Development:
   - Website design updates 
   
 **13. April 6 - 10**  
 - Design:
+  - Select  
+  - Menu
   - Layer
-  - Radio Button Group 
  - Development:
   - Website design
   - Theme updates 
@@ -176,13 +176,15 @@ yarn build
 **14. April 13 - 17** 
 - Design: 
   - Accordian
-  - Masked Input 
-  - Range Input
+  - Tabs 
+  - MaskedInput 
 - Development:
   - Theme updates 
   
 **15. April 20 - 24** 
+- Research:
+  - Usability testing 
 - Design:
-  - Menu
-  - Tabs 
+  - RangeInput
+  - Stack
 - Development: 
