@@ -158,7 +158,9 @@ export const Example = ({
         </Box>
         <Box gap="medium">
           {details && (
-            <CollapsibleSection label="Show Details">
+            <CollapsibleSection
+              label={{ closed: 'Show Details', open: 'Hide Details' }}
+            >
               {details.map((item, index) => (
                 <SubsectionText key={index} level={1}>
                   {item}
@@ -168,8 +170,8 @@ export const Example = ({
           )}
           {code && (
             <CollapsibleSection
-              label="Show Code"
-              onClick={() => setCodeOpen(true)}
+              label={{ closed: 'Show Code', open: 'Hide Code' }}
+              onClick={() => setCodeOpen(!codeOpen)}
             >
               <Text size="xsmall" color="text">
                 <Syntax>
@@ -264,7 +266,9 @@ Example.propTypes = {
       href: PropTypes.string,
     }),
   ),
-  details: PropTypes.arrayOf(PropTypes.string),
+  details: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  ),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
