@@ -3,34 +3,22 @@ import PropTypes from 'prop-types';
 
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext } from 'grommet';
-import { Header, Head, FeedbackSection, Footer, NextContent } from '..';
+import { Header, Head, FeedbackSection, Footer } from '..';
 import { ThemeMode } from '../../components';
 import { Config } from '../../../config';
-import { getParentPage, getNextContent } from '../../utils';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
   return val;
 };
 
-export const Layout = ({
-  children,
-  descriptiveHeader,
-  title,
-  isLanding,
-  isNavPage,
-}) => {
+export const Layout = ({ children, descriptiveHeader, title, isLanding }) => {
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
       pageview(document.location.pathname);
     }
   }, []);
-
-  // For NextContent
-  const parentTopic = getParentPage(title);
-  const { color } = typeof parentTopic !== 'undefined' ? parentTopic : {};
-  const nextContent = getNextContent(title);
 
   return (
     <ThemeMode>
@@ -64,20 +52,15 @@ export const Layout = ({
               <Box
                 pad={{
                   horizontal: calcPad(size),
-                  bottom: isLanding || isNavPage ? calcPad(size) : undefined,
+                  bottom: calcPad(size),
                   top: 'medium',
                 }}
               >
                 {children}
-                {!isLanding && !isNavPage && (
-                  <>
-                    <FeedbackSection />
-                    <NextContent color={color} nextContent={nextContent} />
-                  </>
-                )}
+                {!isLanding && <FeedbackSection />}
               </Box>
             </Main>
-            {isLanding && <Footer />}
+            <Footer />
           </Box>
         )}
       </ResponsiveContext.Consumer>
@@ -89,7 +72,6 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,
-  isNavPage: PropTypes.bool,
   title: PropTypes.string,
 };
 
@@ -97,5 +79,4 @@ Layout.defaultProps = {
   descriptiveHeader: undefined,
   title: undefined,
   isLanding: false,
-  isNavPage: false,
 };
