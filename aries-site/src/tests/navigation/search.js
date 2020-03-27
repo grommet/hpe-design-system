@@ -67,8 +67,8 @@ test(
     const expectedPath = '/foundation/branding#aruba-logo';
 
     await t
-      // theme toggle --> hpe button --> search
-      .pressKey(await repeatKeyPress('tab', 3))
+      // hpe button --> search
+      .pressKey(await repeatKeyPress('tab', 2))
       // start typing for something
       .pressKey('a');
 
