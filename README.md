@@ -137,9 +137,52 @@ yarn build
   
 **10. March 16 - 20**
 - Design: 
-  - Modal/drop 
-  - Card 
+  - On-boarding Vicky and Maggie
+  - Anchor
+  - Button
 - Development: 
-  - Navigation variations 
-  - List template dev/design sync
-
+  - Sidebar Navigation 
+  - Theme Updates 
+  
+**11. March 23 - 27**  
+- HPE XS Showcase
+  - Update/Community
+  - Usability/moderated interview shareout
+  - Testing suite
+  - Design tools and feeback 
+- Design:
+  - Search
+  - CheckBox
+  - TextInput
+- Development:
+  - Website design updates 
+  
+**12. March 30 - April 3**  
+- Design:
+  - Stack
+  - TextArea
+  - Select   
+- Development:
+  - Website design updates 
+  
+**13. April 6 - 10**  
+- Design:
+  - Layer
+  - Radio Button Group 
+ - Development:
+  - Website design
+  - Theme updates 
+  
+**14. April 13 - 17** 
+- Design: 
+  - Accordian
+  - Masked Input 
+  - Range Input
+- Development:
+  - Theme updates 
+  
+**15. April 20 - 24** 
+- Design:
+  - Menu
+  - Tabs 
+- Development: 
