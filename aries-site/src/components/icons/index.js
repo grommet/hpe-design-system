@@ -3,6 +3,7 @@ export * from './IconComponents';
 export * from './IconDesign';
 export * from './IconDiamond';
 export * from './IconDevelop';
+export * from './IconExtend';
 export * from './IconFoundation';
 export * from './IconGuidelines';
 export * from './IconMobile';

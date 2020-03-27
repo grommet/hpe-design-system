@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'grommet';
 
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { BulletedList, Meta, SubsectionText } from '../../components';
@@ -28,13 +27,13 @@ const Principles = () => (
     </ContentSection>
     <ContentSection>
       <Subsection name="Innovative and Adventurous">
-        <Text>
+        <SubsectionText>
           We are a company reborn, a new culture, and in a new space. We live in
           markets that ravenous and cutthroat when we are respectful and humane.
           We need more than technology to drive us. We need to embrace the
           discomfort and push to look at all avenues to stoke the fire for the
           next generation of tools—We must explore!
-        </Text>
+        </SubsectionText>
         <BulletedList
           items={[
             'Just start.',
@@ -46,14 +45,14 @@ const Principles = () => (
         />
       </Subsection>
       <Subsection name="Purposeful and Useful">
-        <Text>
+        <SubsectionText>
           Presenting a long list of features or giving the user too much choice
           is not the business we’re in. Usefulness should be born out of a
           diverse library of solutions, each honed from relentless pursuit of
           solving the users needs—No, “One tool to rule them all!” mentality.
           Every interaction should ask if this is something essential? In the
           end, the purpose will be ascertained by the metrics.
-        </Text>
+        </SubsectionText>
         <BulletedList
           items={[
             'Task-based experiences prioritized of data rich sifting.',
@@ -68,13 +67,13 @@ const Principles = () => (
         />
       </Subsection>
       <Subsection name="Integrated but Composable">
-        <Text>
+        <SubsectionText>
           To ensure every experience we define is part of a cohesive direction,
           it is important to ask where this product lives in the ecosystem of
           HPE. Not all products have to look exact to garner the confidence of
           customers. It is important to check how it integrates and is consumed
           in conjunction with other services we provide.
-        </Text>
+        </SubsectionText>
         <BulletedList
           items={[
             `Every experience talks to different set of users, but should 

@@ -3,20 +3,13 @@ import {
   IconBrand,
   IconCircle,
   IconColor,
-  IconControls,
-  IconDesign,
-  IconDevelop,
   IconDiamond,
-  IconGuidelines,
+  IconExtend,
   IconHumanCentered,
   IconIcons,
-  IconInput,
-  IconLayoutComponents,
   IconPhilosophy,
   IconPrinciples,
-  IconResources,
   IconSquare,
-  IconToken,
   IconType,
 } from '../components';
 
@@ -25,7 +18,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates'],
+    pages: ['Foundation', 'Components', 'Templates', 'Extend'],
   },
   {
     name: 'Feedback',
@@ -42,13 +35,13 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
-      'Branding',
+      'Content',
       'Color',
       'Human Centered',
-      'Iconography',
+      'Icons',
+      'Our Brand',
       'Philosophy',
       'Principles',
-      'Tokens',
       'Typography',
     ],
   },
@@ -60,7 +53,7 @@ export const structure = [
     icon: (size, color) => <IconDiamond size={size} color={color} />,
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
-    pages: ['Dashboards', 'Forms', 'List Views'],
+    pages: ['Cards', 'Dashboards', 'Forms', 'Lists'],
   },
   {
     name: 'Components',
@@ -70,10 +63,48 @@ export const structure = [
     icon: (size, color) => <IconSquare size={size} color={color} />,
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: ['Layout', 'Controls', 'Input'],
+    pages: [
+      'Accordion',
+      'Anchor',
+      'Box',
+      'Button',
+      'CheckBox',
+      'Footer',
+      'Grid',
+      'Header',
+      'Layer',
+      'Main',
+      'MaskedInput',
+      'Menu',
+      'RadioButtonGroup',
+      'RangeInput',
+      'Select',
+      'Stack',
+      'Tabs',
+      'TextArea',
+      'TextInput',
+    ],
   },
   {
-    name: 'Branding',
+    name: 'Extend',
+    color: 'black',
+    description:
+      'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
+    icon: (size, color) => <IconExtend size={size} color={color} />,
+    seoDescription:
+      'All the aesthetics, best practices, and information about the platform and how to wield it.',
+    pages: [
+      'Global Sidebar',
+      'Designer',
+      'API Chomp',
+      'Table Topper',
+      'HPE Docs',
+      'HPE Audience',
+      'HPE Images',
+    ],
+  },
+  {
+    name: 'Our Brand',
     description:
       'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
@@ -104,15 +135,6 @@ export const structure = [
     ],
   },
   {
-    name: 'Controls',
-    description:
-      'Bringing your project to life and creating meaningful experiences that make sense for your customers.',
-    icon: (size, color) => <IconControls size={size} color={color} />,
-    seoDescription:
-      'HPE Design System styled interactive components for your applications.',
-    sections: ['Accordion', 'Anchor', 'Button', 'Menu', 'Tabs'],
-  },
-  {
     name: 'Dashboards',
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
@@ -120,37 +142,6 @@ export const structure = [
     seoDescription:
       'HPE Design System dashboard template for screens featuring content within tiles.',
     sections: [],
-  },
-  {
-    name: 'Design',
-    color: 'purple',
-    description:
-      'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
-    icon: (size, color) => <IconDesign size={size} color={color} />,
-    seoDescription:
-      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
-    pages: [],
-    sections: [
-      'Preferred environment',
-      'Getting started',
-      'HPE Design System Sticker Sheet',
-    ],
-  },
-  {
-    name: 'Develop',
-    color: 'orange',
-    description:
-      'Coding best practices, concepts, and requirements when using the brand for digital experiences.',
-    icon: (size, color) => <IconDevelop size={size} color={color} />,
-    seoDescription:
-      'HPE Design System coding best practices, concepts, and requirements when implementing user interfaces for digital experiences.',
-    pages: [],
-    sections: [
-      'Preferred environment',
-      'Getting started',
-      'Applying the HPE theme',
-      "What is our team doesn't use ReactJS?",
-    ],
   },
   {
     name: 'Forms',
@@ -171,16 +162,6 @@ export const structure = [
     ],
   },
   {
-    name: 'Guidelines',
-    color: 'green',
-    description:
-      'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
-    icon: (size, color) => <IconGuidelines size={size} color={color} />,
-    seoDescription:
-      'The heartbeat and mindset of the HPE Design System describing the ideology and standards informing every design decision.',
-    pages: ['Philosophy', 'Human Centered', 'Principles'],
-  },
-  {
     name: 'Human Centered',
     description:
       'The starting point of the design system is human centered, generating experiences which are inclusive and vibrant.',
@@ -190,39 +171,13 @@ export const structure = [
     sections: ['Inclusive', 'Attentive', 'Conversational'],
   },
   {
-    name: 'Iconography',
+    name: 'Icons',
     description:
       'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: (size, color) => <IconIcons size={size} color={color} />,
   },
   {
-    name: 'Input',
-    description:
-      'Thoughtful and intentional use of input components can bring about engaging experiences.',
-    icon: (size, color) => <IconInput size={size} color={color} />,
-    seoDescription: '',
-    sections: [
-      'Checkbox',
-      'MaskedInput',
-      'RadioButtonGroup',
-      'RangeInput',
-      'Select',
-      'TextArea',
-      'TextInput',
-      'Form',
-    ],
-  },
-  {
-    name: 'Layout',
-    description:
-      'Grid, box, header and footer. All the core components to build the foundation for your content.',
-    icon: (size, color) => <IconLayoutComponents size={size} color={color} />,
-    seoDescription:
-      "Get started with HPE Design System's foundational layout components Header, Main, Footer, and more.",
-    sections: ['Box', 'Footer', 'Grid', 'Header', 'Layer', 'Main', 'Stack'],
-  },
-  {
-    name: 'List Views',
+    name: 'Lists',
     description:
       'Go-to patterns for displaying many services, devices, users, and more.',
     icon: (size, color) => <IconBrand size={size} color={color} />,
@@ -253,22 +208,6 @@ export const structure = [
     ],
   },
   {
-    name: 'Resources',
-    color: 'yellow',
-    description:
-      'Tutorials, case studies, videos, how-tos, articles, upcoming events and more about HPE Design and the Design System from the team.',
-    icon: (size, color) => <IconResources size={size} color={color} />,
-    seoDescription:
-      'View tutorials, case studies, videos, how-tos, articles, and other helpful resources to succeed with the HPE Design System.',
-    pages: [],
-  },
-  {
-    name: 'Tokens',
-    description:
-      'Authentication and security to build confidence and safety for your users in the midst of their digital experience.',
-    icon: (size, color) => <IconToken size={size} color={color} />,
-  },
-  {
     name: 'Typography',
     description:
       'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
@@ -282,5 +221,225 @@ export const structure = [
       'Paragraph',
       'Text',
     ],
+  },
+  {
+    name: 'Designer',
+    description:
+      'Build HPE compliant designs in code that are ready to be consumed on the web.',
+    seoDescription:
+      'Build HPE compliant designs in code that are ready to be consumed on the web.',
+    sections: [],
+  },
+  {
+    name: 'API Chomp',
+    description:
+      'Got API, but need to easily pull data out of it for use in your app or designs. Chomp! Chomp!',
+    seoDescription:
+      'Got API, but need to easily pull data out of it for use in your app or designs. Chomp! Chomp!',
+    sections: [],
+  },
+  {
+    name: 'Table Topper',
+    description:
+      'Build tables for you app quickly with all the filtering, sorting, and controls you could need!',
+    seoDescription:
+      'Build tables for you app quickly with all the filtering, sorting, and controls you could need!',
+    sections: [],
+  },
+  {
+    name: 'HPE Docs',
+    description:
+      'The only CMS you will ever need! Publish content quickly and easily.',
+    seoDescription:
+      'The only CMS you will ever need! Publish content quickly and easily.',
+    sections: [],
+  },
+  {
+    name: 'HPE Audience',
+    description:
+      'Keep it simple! Present and share slides with this lightweight service.',
+    seoDescription:
+      'Keep it simple! Present and share slides with this lightweight service.',
+    sections: [],
+  },
+  {
+    name: 'HPE Images',
+    description:
+      'Need a place to host images in the cloud for use by your HPE services and apps?',
+    seoDescription:
+      'Need a place to host images in the cloud for use by your HPE services and apps?',
+    sections: [],
+  },
+  {
+    name: 'Global Sidebar',
+    description:
+      'For use when building applications and services that live in the HPE eccosystem.',
+    seoDescription:
+      'For use when building applications and services that live in the HPE eccosystem.',
+    sections: [],
+  },
+  {
+    name: 'Accordion',
+    description: 'Buttons are used to indicate actions that can be performed.',
+    seoDescription:
+      'Buttons are used to indicate actions that can be performed.',
+    sections: [],
+  },
+  {
+    name: 'Anchor',
+    description:
+      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
+    seoDescription:
+      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
+    sections: [],
+  },
+  {
+    name: 'Box',
+    description:
+      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    seoDescription:
+      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    sections: [],
+  },
+  {
+    name: 'Button',
+    description: 'Buttons are used to indicate actions that can be performed.',
+    seoDescription:
+      'Buttons are used to indicate actions that can be performed.',
+    sections: [],
+  },
+  {
+    name: 'CheckBox',
+    description:
+      'When the user needs to select one or more options, use a checkbox.',
+    seoDescription:
+      'When the user needs to select one or more options, use a checkbox.',
+    sections: [],
+  },
+  {
+    name: 'Footer',
+    description:
+      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
+    seoDescription:
+      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
+    sections: [],
+  },
+  {
+    name: 'Grid',
+    description:
+      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    seoDescription:
+      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    sections: [],
+  },
+  {
+    name: 'Header',
+    description:
+      'Header is a Box with a set of preset properties for introductory content.',
+    seoDescription:
+      'Header is a Box with a set of preset properties for introductory content.',
+    sections: [],
+  },
+  {
+    name: 'Layer',
+    description:
+      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    seoDescription:
+      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    sections: [],
+  },
+  {
+    name: 'Main',
+    description:
+      'The Main component is where you define the location and layout of the primary context of your content.',
+    seoDescription:
+      'The Main component is where you define the location and layout of the primary context of your content.',
+    sections: [],
+  },
+  {
+    name: 'MaskedInput',
+    description:
+      'MaskedInput allows you to specify formailzed text within a form field.',
+    seoDescription:
+      'MaskedInput allows you to specify formailzed text within a form field.',
+    sections: [],
+  },
+  {
+    name: 'Menu',
+    description: 'Menu is used to filter or sort content on a page.',
+    seoDescription: 'Menu is used to filter or sort content on a page.',
+    sections: [],
+  },
+  {
+    name: 'RadioButtonGroup',
+    description:
+      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+    seoDescription:
+      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+    sections: [],
+  },
+  {
+    name: 'RangeInput',
+    description:
+      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
+    seoDescription:
+      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
+    sections: [],
+  },
+  {
+    name: 'Select',
+    description:
+      'The Select component is flexible to provide multiple select, search, and create options.',
+    seoDescription:
+      'The Select component is flexible to provide multiple select, search, and create options.',
+    sections: [],
+  },
+  {
+    name: 'Stack',
+    description:
+      'A Stack component is a container that stacks content on top of each other.',
+    seoDescription:
+      'A Stack component is a container that stacks content on top of each other.',
+    sections: [],
+  },
+  {
+    name: 'Tabs',
+    description:
+      'Tabs allow a user to access content while maintaining the existing context.',
+    seoDescription:
+      'Tabs allow a user to access content while maintaining the existing context.',
+    sections: [],
+  },
+  {
+    name: 'TextArea',
+    description:
+      'When you need to allow the user to provide longer forms of content, use a TextArea component.',
+    seoDescription:
+      'When you need to allow the user to provide longer forms of content, use a TextArea component.',
+    sections: [],
+  },
+  {
+    name: 'TextInput',
+    description:
+      'The TextInput component allows the user to input shorter forms of data and content.',
+    seoDescription:
+      'The TextInput component allows the user to input shorter forms of data and content.',
+    sections: [],
+  },
+  {
+    name: 'Cards',
+    description:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    seoDescription:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    sections: [],
+  },
+  {
+    name: 'Content',
+    description:
+      'What and how we layout content is crucial to clear communication and ease-of-use.',
+    seoDescription:
+      'What and how we layout content is crucial to clear communication and ease-of-use.',
+    sections: [],
   },
 ];
