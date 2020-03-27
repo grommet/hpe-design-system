@@ -12,6 +12,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       align="start"
       background="background-front"
       elevation={isFocused ? 'medium' : 'none'}
+      fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}

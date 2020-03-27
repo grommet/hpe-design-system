@@ -70,3 +70,19 @@ export const nameToPath = name => {
 
   return undefined;
 };
+
+export const getCards = cardCategory => {
+  return structure
+    .map(obj => {
+      const page = obj;
+      const parent = getParentPage(page.name);
+      page.parent = parent;
+      return page;
+    })
+    .filter(page => page.parent !== undefined)
+    .filter(page =>
+      cardCategory === undefined
+        ? page.parent.name !== 'Home'
+        : page.parent.name === cardCategory,
+    );
+};
