@@ -169,7 +169,7 @@ yarn build
   - Select  
   - Menu
   - Layer
- - Development:
+- Development:
   - Website design
   - Theme updates 
   
