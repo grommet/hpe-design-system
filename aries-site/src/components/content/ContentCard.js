@@ -1,14 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
-import { aries } from '../../themes/aries';
-import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
-  const { description, name, parent, preview } = topic;
+  const { description, name, parent, previewImage } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
   return (
     <Tile
       align="start"
@@ -31,7 +28,13 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
           overflow="hidden"
           style={{ position: 'relative' }}
         >
-          {preview && preview(aries, themeMode)}
+          {previewImage && (
+            <Image
+              src={previewImage.src}
+              alt={previewImage.alt}
+              fit={previewImage.fit || 'cover'}
+            />
+          )}
         </Box>
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
