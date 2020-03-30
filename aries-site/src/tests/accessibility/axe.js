@@ -23,7 +23,12 @@ test('should check Home page', async t => {
     const axeContext = {
       exclude: [],
     };
-    const axeOptions = { rules: { 'color-contrast': { enabled: false } } };
+    const axeOptions = {
+      rules: {
+        'color-contrast': { enabled: false },
+        region: { enabled: false },
+      },
+    };
     const { violations } = await axeCheck(t, axeContext, axeOptions);
     await t.expect(violations.length === 0).ok(createReport(violations));
   }
@@ -34,20 +39,34 @@ test.before(async t => {
 })('should check Templates (NavPage)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
-    const { violations } = await axeCheck(t);
+    const axeContext = {
+      exclude: [],
+    };
+    const axeOptions = {
+      rules: {
+        'color-contrast': { enabled: false },
+        region: { enabled: false },
+      },
+    };
+    const { violations } = await axeCheck(t, axeContext, axeOptions);
     await t.expect(violations.length === 0).ok(createReport(violations));
   }
 });
 
 test.before(async t => {
   await t.navigateTo('/foundation/our-brand');
-})('should check Branding Page (SidebarLayout)', async t => {
+})('should check Branding Page (Details Page)', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
       exclude: [],
     };
-    const axeOptions = { rules: { 'color-contrast': { enabled: false } } };
+    const axeOptions = {
+      rules: {
+        'color-contrast': { enabled: false },
+        region: { enabled: false },
+      },
+    };
     const { violations } = await axeCheck(t, axeContext, axeOptions);
     await t.expect(violations.length === 0).ok(createReport(violations));
   }
