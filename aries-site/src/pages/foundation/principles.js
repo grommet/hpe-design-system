@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { ContentSection, Layout, Subsection } from '../../layouts';
-import { BulletedList, Meta, SubsectionText } from '../../components';
-import { getPageDetails } from '../../utils';
+import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import { getPageDetails, getRelatedContent } from '../../utils';
 
 const title = 'Principles';
-const page = getPageDetails(title);
 const topic = 'Foundation';
+const page = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
 
 const Principles = () => (
   <Layout title={title}>
@@ -87,6 +88,12 @@ const Principles = () => (
           ]}
         />
       </Subsection>
+      {relatedContent.length > 0 ? (
+        <Subsection name="Related">
+          <SubsectionText>Content related to {title}.</SubsectionText>
+          <CardGrid cards={relatedContent} />
+        </Subsection>
+      ) : null}
     </ContentSection>
   </Layout>
 );
