@@ -13,7 +13,6 @@ export const ThemeModeToggle = () => {
         color='background-back'
         label={label}
         icon={icon}
-        plain
         primary
         onClick={() => darkMode.toggle()}
       />

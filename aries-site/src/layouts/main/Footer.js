@@ -36,9 +36,9 @@ export const Footer = () => {
         horizontal: size !== 'small' ? 'xlarge' : 'large',
       }}
     >
-      <Box direction="row-responsive" gap="medium" align="center">
+      <Box direction="row-responsive" gap="xsmall" align="center">
         <Box>
-          <Text size="medium">&copy; {year} Hewlett Packard Enterprise</Text>
+          <Text>&copy; {year} Hewlett Packard Enterprise</Text>
         </Box>
         {externalFooterLinks.map(item => (
           <Link
@@ -50,7 +50,6 @@ export const Footer = () => {
               item={item.name}
               active={router.pathname === (item.href)}
               target="_blank"
-              href={item.href}
               rel="noreferrer noopener"
             />
           </Link>
