@@ -4,6 +4,9 @@ import { axeCheck, createReport } from 'axe-testcafe';
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
 import { baseUrl } from '../utils';
 
+// Note: Color contrast checks has been disabled temporarily, but should be
+// enabled once all colors have been approved
+
 fixture('Axe accessibility tests')
   .page(baseUrl)
   // start tests in light mode

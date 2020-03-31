@@ -29,6 +29,9 @@ export const Layout = ({
     <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
+          // When a backgroundImage is present, the main page content becomes
+          // the `last` child. We want this content to drive the layout.
+          // For details on this prop, see here: https://v2.grommet.io/stack#guidingChild
           <Stack fill guidingChild={backgroundImage && 'last'}>
             {backgroundImage && (
               <PageBackground backgroundImage={backgroundImage} />
