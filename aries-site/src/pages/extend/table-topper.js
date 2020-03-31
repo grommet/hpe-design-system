@@ -4,17 +4,17 @@ import { ComingSoon, Meta } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
-const title = 'Icons';
-const topic = 'Foundation';
+const title = 'Table Topper';
+const topic = 'Extend';
 const pageDetails = getPageDetails(title);
 
-const Icons = () => {
+const TableTopper = () => {
   return (
     <Layout title={title}>
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation/icons"
+        canonicalUrl="https://design-system.hpe.design/extend/table-topper"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />
@@ -24,4 +24,4 @@ const Icons = () => {
   );
 };
 
-export default Icons;
+export default TableTopper;
