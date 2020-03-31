@@ -146,6 +146,7 @@ export const structure = [
     seoDescription:
       'HPE Design System dashboard template for screens featuring content within tiles.',
     sections: [],
+    relatedContent: ['Cards', 'Lists', 'Grid'],
   },
   {
     name: 'Forms',
@@ -336,6 +337,7 @@ export const structure = [
     description: 'Buttons are used to indicate actions that can be performed.',
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
+    relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [],
   },
   {

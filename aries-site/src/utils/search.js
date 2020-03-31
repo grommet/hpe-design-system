@@ -55,6 +55,10 @@ export const nameToPath = name => {
   return undefined;
 };
 
+/*
+ * Returns an array of page objects which are decendents of the
+ * provided cardCategory. Where cardCategory is a string.
+ */
 export const getCards = cardCategory => {
   return structure
     .map(obj => {
@@ -69,4 +73,15 @@ export const getCards = cardCategory => {
         ? page.parent.name !== 'Home'
         : page.parent.name === cardCategory,
     );
+};
+
+/*
+ * Returns an array of page objects which are members of the
+ * provided pageName object's relatedContent property. Where
+ * pageName is a string.
+ */
+export const getRelatedContent = pageName => {
+  let { relatedContent } = structure.find(page => page.name === pageName);
+  relatedContent = typeof relatedContent !== 'undefined' ? relatedContent : [];
+  return relatedContent.map(page => structure.find(obj => obj.name === page));
 };
