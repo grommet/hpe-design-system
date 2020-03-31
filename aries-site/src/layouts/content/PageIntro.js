@@ -1,28 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ResponsiveContext } from 'grommet';
-import { Tile, Tiles } from 'aries-core';
+import { Box, ResponsiveContext } from 'grommet';
 
-export const PageIntro = ({ children, ...rest }) => {
+export const PageIntro = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
-  const marginPadStyle = { top: size === 'small' ? 'xlarge' : undefined };
   return (
-    <Tiles
-      gap={size !== 'small' ? 'large' : 'medium'}
-      columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows={size !== 'small' ? 'medium' : 'flex'}
-      margin={marginPadStyle}
-      pad={marginPadStyle}
-      {...rest}
+    <Box
+      direction="row"
+      justify="end"
+      pad={size === 'small' ? { top: 'xlarge' } : undefined}
     >
-      {size !== 'small' && <Tile />}
-      <Tile pad={marginPadStyle} margin={marginPadStyle}>
-        {children}
-      </Tile>
-    </Tiles>
+      <Box
+        width={size !== 'small' ? '50%' : '100%'}
+        height={size !== 'small' ? { min: 'medium' } : undefined}
+        pad={size !== 'small' ? 'large' : { top: 'xlarge' }}
+        margin={size !== 'small' ? undefined : { top: 'xlarge' }}
+        {...rest}
+      />
+    </Box>
   );
-};
-
-PageIntro.propTypes = {
-  children: PropTypes.node.isRequired,
 };
