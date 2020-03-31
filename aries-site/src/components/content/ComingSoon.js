@@ -23,7 +23,7 @@ export const ComingSoon = () => {
           <Text size={textSize} weight="bold">
             HPE
           </Text>
-          <Text size={textSize}>Design System</Text>
+          <Text size={textSize}>Carte Design System</Text>
         </Box>
         <SubsectionText>
           The HPE Design System is the way Hewlett Packard Enterprise’s brand,
