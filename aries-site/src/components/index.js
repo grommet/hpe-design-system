@@ -1,3 +1,4 @@
+export * from './button';
 export * from './content';
 export * from './headings';
 export * from './icons';
