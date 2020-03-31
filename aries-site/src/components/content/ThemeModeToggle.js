@@ -10,9 +10,10 @@ export const ThemeModeToggle = () => {
   return (
     <Box width={{ max: 'small' }}>
       <Button
-        color={{ dark: 'blue!', light: 'white' }}
+        color='background-back'
         label={label}
         icon={icon}
+        plain
         primary
         onClick={() => darkMode.toggle()}
       />
