@@ -12,7 +12,16 @@ const cards = getCards();
 
 const Index = () => (
   <Layout
-    backgroundImage={{ preview: pageDetails.preview }}
+    backgroundImage={{
+      src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
+      alt: 'HPE Carte Design System',
+      margin: { left: '-150px' },
+      pad: { vertical: 'xlarge' },
+      small: {
+        margin: 'none',
+      },
+      fill: true,
+    }}
     title={title}
     isLanding
   >
