@@ -20,7 +20,7 @@ export const PageBackground = ({ backgroundImage }) => {
           : backgroundImage.pad
       }
       responsive={false}
-      width={size !== 'small' ? '65%' : 'fill'}
+      width={size !== 'small' ? '65%' : '100%'}
     >
       <Image
         src={backgroundImage.src[themeMode]}
