@@ -1,19 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'grommet';
+import { List, Text } from 'grommet';
 
-export const BulletedList = ({ items }) => {
+import { TEXT_SIZE } from '../../layouts';
+
+export const BulletedList = ({ items, level, size }) => {
   return (
-    <>
-      {items.map(item => (
-        <Text margin={{ bottom: 'xsmall' }} key={item}>
+    <List
+      data={items}
+      border={{ style: 'hidden' }}
+      pad={{ vertical: 'xxsmall' }}
+    >
+      {item => (
+        <Text key={item} size={size || TEXT_SIZE[level]}>
           — {item}
         </Text>
-      ))}
-    </>
+      )}
+    </List>
   );
 };
 
 BulletedList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string),
+  level: PropTypes.number,
+  size: PropTypes.string,
+};
+
+BulletedList.defaultProps = {
+  level: 2,
+  size: undefined,
 };
