@@ -26,7 +26,7 @@ export const ComingSoon = () => {
           <Text size={textSize}>Carte Design System</Text>
         </Box>
         <SubsectionText>
-          The HPE Design System is the way Hewlett Packard Enterprise’s brand,
+          The HPE Carte Design System is the way Hewlett Packard Enterprise’s brand,
           technology, and its partners share a single language for application,
           web, and digitial experiences to answer your customers needs—Look
           behind the element!
