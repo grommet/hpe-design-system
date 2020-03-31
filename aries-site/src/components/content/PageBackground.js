@@ -6,7 +6,7 @@ import { useDarkMode } from '../../utils';
 export const PageBackground = ({ backgroundImage }) => {
   const size = useContext(ResponsiveContext);
   const themeMode = useDarkMode().value ? 'dark' : 'light';
-
+  const { src, alt, fit, fill } = backgroundImage;
   return (
     <Box
       margin={
@@ -22,12 +22,7 @@ export const PageBackground = ({ backgroundImage }) => {
       responsive={false}
       width={size !== 'small' ? '65%' : '100%'}
     >
-      <Image
-        src={backgroundImage.src[themeMode]}
-        alt={backgroundImage.alt}
-        fit={backgroundImage.fit}
-        fill={backgroundImage.fill}
-      />
+      <Image src={src[themeMode]} alt={alt} fit={fit} fill={fill} />
     </Box>
   );
 };
