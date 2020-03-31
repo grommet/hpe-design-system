@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, SubsectionText } from '../../components';
+import { CardGrid, Meta, SubsectionText } from '../../components';
 import { DashboardExample } from '../../examples';
 import {
   ContentSection,
@@ -8,11 +8,12 @@ import {
   Layout,
   Subsection,
 } from '../../layouts';
-import { getPageDetails, nameToPath } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'Dashboards';
 const topic = 'Templates';
 const page = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
 
 const Dashboards = () => {
   return (
@@ -70,6 +71,12 @@ const Dashboards = () => {
             },
           ]}
         />
+        {relatedContent.length > 0 ? (
+          <Subsection name="Related">
+            <SubsectionText>Content related to {title}.</SubsectionText>
+            <CardGrid cards={relatedContent} />
+          </Subsection>
+        ) : null}
       </ContentSection>
     </Layout>
   );
