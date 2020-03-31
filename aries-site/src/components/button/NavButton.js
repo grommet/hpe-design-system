@@ -28,6 +28,6 @@ export const NavButton = forwardRef(({ active, item, ...rest }, ref) => {
 
 NavButton.propTypes = {
   active: PropTypes.bool,
-  item: PropTypes.string
+  item: PropTypes.string,
 };
 
