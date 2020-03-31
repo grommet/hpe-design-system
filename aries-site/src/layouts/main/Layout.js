@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext, Stack } from 'grommet';
 import { Header, Head, FeedbackSection, Footer } from '..';
-import { ThemeMode } from '../../components';
+import { PageBackground, ThemeMode } from '../../components';
 import { Config } from '../../../config';
-import { aries } from '../../themes/aries';
-import { useDarkMode } from '../../utils';
 
 const calcPad = size => {
   const val = size !== 'small' ? 'xlarge' : 'large';
@@ -28,20 +25,13 @@ export const Layout = ({
     }
   }, []);
 
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
   return (
     <ThemeMode>
       <ResponsiveContext.Consumer>
         {size => (
           <Stack fill guidingChild={backgroundImage && 'last'}>
             {backgroundImage && (
-              <Box
-                style={{ position: 'relative' }}
-                responsive={false}
-                {...backgroundImage}
-              >
-                {backgroundImage.preview(aries, themeMode, size)}
-              </Box>
+              <PageBackground backgroundImage={backgroundImage} />
             )}
             <Box
               height={{ min: '100vh' }}
@@ -91,9 +81,7 @@ export const Layout = ({
 };
 
 Layout.propTypes = {
-  backgroundImage: PropTypes.shape({
-    preview: PropTypes.func.isRequired,
-  }),
+  backgroundImage: PropTypes.shape({}),
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,

@@ -11,9 +11,6 @@ import {
 export const structure = [
   {
     name: 'Home',
-    preview: (theme, themeMode, size) => (
-      <LandingPagePreview theme={theme} themeMode={themeMode} size={size} />
-    ),
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
     pages: ['Foundation', 'Components', 'Templates', 'Extend'],
@@ -30,9 +27,6 @@ export const structure = [
     description:
       'These are the core elements of HPE that encompass the voice, language, and visuals that personify our brand and help establish and identify it from the rest of the community.',
     icon: (size, color) => <IconCircle size={size} color={color} />,
-    preview: (theme, themeMode, size) => (
-      <FoundationPreview theme={theme} themeMode={themeMode} size={size} />
-    ),
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
@@ -52,9 +46,6 @@ export const structure = [
     description:
       'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
     icon: (size, color) => <IconDiamond size={size} color={color} />,
-    preview: (theme, themeMode, size) => (
-      <TemplatesPreview theme={theme} themeMode={themeMode} size={size} />
-    ),
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: ['Cards', 'Dashboards', 'Forms', 'Lists'],
@@ -65,9 +56,6 @@ export const structure = [
     description:
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
-    preview: (theme, themeMode, size) => (
-      <ComponentsPreview theme={theme} themeMode={themeMode} size={size} />
-    ),
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
     pages: [
@@ -98,9 +86,6 @@ export const structure = [
     description:
       'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
     icon: (size, color) => <IconExtend size={size} color={color} />,
-    preview: (theme, themeMode, size) => (
-      <ExtendPreview theme={theme} themeMode={themeMode} size={size} />
-    ),
     seoDescription:
       'All the aesthetics, best practices, and information about the platform and how to wield it.',
     pages: [

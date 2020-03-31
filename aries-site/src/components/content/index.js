@@ -4,6 +4,7 @@ export * from './ExternalCTA';
 export * from './CardGrid';
 export * from './ComingSoon';
 export * from './ContentCard';
+export * from './PageBackground';
 export * from './SubsectionText';
 export * from './SubmitFeedback';
 export * from './ThemeMode';

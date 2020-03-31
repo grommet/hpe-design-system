@@ -12,7 +12,17 @@ const cards = getCards(title);
 
 const Extend = () => (
   <Layout
-    backgroundImage={{ preview: pageDetails.preview }}
+    backgroundImage={{
+      src: {
+        dark: '/carte-extend-dark.svg',
+        light: '/carte-extend-light.svg',
+      },
+      alt: 'HPE Carte Design System Extend',
+      margin: { left: '-125px', top: '-75px' },
+      small: {
+        margin: { left: '-25px', top: '-150px' },
+      },
+    }}
     title={title}
     isLanding
   >
@@ -43,5 +53,4 @@ const Extend = () => (
     </Box>
   </Layout>
 );
-
 export default Extend;

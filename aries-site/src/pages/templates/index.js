@@ -12,7 +12,17 @@ const cards = getCards(title);
 
 const Templates = () => (
   <Layout
-    backgroundImage={{ preview: pageDetails.preview }}
+    backgroundImage={{
+      src: {
+        dark: '/carte-templates-dark.svg',
+        light: '/carte-templates-light.svg',
+      },
+      alt: 'HPE Carte Design System Templates',
+      margin: { left: '-100px', top: '-125px' },
+      small: {
+        margin: { left: '-25px', top: '-200px' },
+      },
+    }}
     title={title}
     isLanding
   >
