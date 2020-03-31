@@ -1,10 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
 import { Box, Heading, Paragraph } from 'grommet';
 
-import { CardGrid, ContentCard, Meta } from '../../components';
+import { CardGrid, Meta } from '../../components';
 import { Layout, PageIntro } from '../../layouts';
-import { getCards, getPageDetails, nameToPath } from '../../utils';
+import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Components';
 const pageDetails = getPageDetails(title);
@@ -39,18 +38,7 @@ const Components = () => (
           <Paragraph fill>{pageDetails.description}</Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid>
-        {cards.map(topic => (
-          // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
-          <Link key={topic.name} href={nameToPath(topic.name)} passHref>
-            <ContentCard
-              as="a"
-              style={{ textDecoration: 'none' }}
-              topic={topic}
-            />
-          </Link>
-        ))}
-      </CardGrid>
+      <CardGrid cards={cards} />
     </Box>
   </Layout>
 );

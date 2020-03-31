@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { Meta, SubsectionText } from '../../components';
-import { ContentSection, Layout, Subsection, Example } from '../../layouts';
+import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ButtonExample } from '../../examples';
-import { getPageDetails } from '../../utils';
+import { ContentSection, Layout, Subsection, Example } from '../../layouts';
+import { getPageDetails, getRelatedContent } from '../../utils';
 
 const title = 'Button';
-const page = getPageDetails(title);
 const topic = 'Components';
+const page = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
 
 const Button = () => (
   <Layout title={title}>
@@ -30,6 +31,14 @@ const Button = () => (
           <ButtonExample />
         </Example>
       </Subsection>
+      {relatedContent.length > 0 ? (
+        <Subsection name="Related">
+          <SubsectionText>
+            Related content you may find useful when using {title}.
+          </SubsectionText>
+          <CardGrid cards={relatedContent} />
+        </Subsection>
+      ) : null}
     </ContentSection>
   </Layout>
 );
