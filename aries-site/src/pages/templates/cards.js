@@ -4,17 +4,17 @@ import { ComingSoon, Meta } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
-const title = 'Icons';
-const topic = 'Foundation';
+const title = 'Cards';
+const topic = 'Templates';
 const pageDetails = getPageDetails(title);
 
-const Icons = () => {
+const Cards = () => {
   return (
     <Layout title={title}>
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation/icons"
+        canonicalUrl="https://design-system.hpe.design/foundation/cards"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />
@@ -24,4 +24,4 @@ const Icons = () => {
   );
 };
 
-export default Icons;
+export default Cards;
