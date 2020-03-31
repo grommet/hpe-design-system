@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Grid, ResponsiveContext } from 'grommet';
 
-import { LinkedCard } from '.';
+import { ContentCard } from '.';
+import { nameToPath } from '../../utils';
 
 export const CardGrid = ({ cards, ...rest }) => {
   const size = useContext(ResponsiveContext);
@@ -15,7 +17,15 @@ export const CardGrid = ({ cards, ...rest }) => {
       {...rest}
     >
       {cards &&
-        cards.map(topic => <LinkedCard key={topic.name} topic={topic} />)}
+        cards.map(topic => (
+          <Link key={topic.name} href={nameToPath(topic.name)} passHref>
+            <ContentCard
+              as="a"
+              style={{ textDecoration: 'none' }}
+              topic={topic}
+            />
+          </Link>
+        ))}
     </Grid>
   );
 };
