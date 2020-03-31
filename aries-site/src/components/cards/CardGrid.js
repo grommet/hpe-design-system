@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, ResponsiveContext } from 'grommet';
 
-export const CardGrid = ({ children, ...rest }) => {
+import { LinkedCard } from '.';
+
+export const CardGrid = ({ cards, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
@@ -12,11 +14,16 @@ export const CardGrid = ({ children, ...rest }) => {
       fill
       {...rest}
     >
-      {children}
+      {cards &&
+        cards.map(topic => <LinkedCard key={topic.name} topic={topic} />)}
     </Grid>
   );
 };
 
 CardGrid.propTypes = {
-  children: PropTypes.node.isRequired,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  ),
 };
