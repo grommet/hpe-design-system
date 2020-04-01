@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext } from 'grommet';
-import { Header, Head, FeedbackSection, Footer } from '..';
-import { ThemeMode } from '../../components';
+import { Header, Head, FeedbackSection, Footer, ThemeMode } from '..';
 import { Config } from '../../../config';
 
 const calcPad = size => {
