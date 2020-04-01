@@ -13,7 +13,7 @@ export const BulletedList = ({ items, level, size }) => {
     >
       {item => (
         <Text key={item} size={size || TEXT_SIZE[level]}>
-          — {item}
+          - {item}
         </Text>
       )}
     </List>
