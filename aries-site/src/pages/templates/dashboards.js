@@ -1,14 +1,8 @@
 import React from 'react';
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { DashboardExample } from '../../examples';
-import {
-  ContentSection,
-  Example,
-  ExampleComponents,
-  Layout,
-  Subsection,
-} from '../../layouts';
-import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
+import { ContentSection, Example, Layout, Subsection } from '../../layouts';
+import { getPageDetails, getRelatedContent } from '../../utils';
 
 const title = 'Dashboards';
 const topic = 'Templates';
@@ -50,27 +44,6 @@ const Dashboards = () => {
             <DashboardExample />
           </Example>
         </Subsection>
-        <ExampleComponents
-          components={[
-            {
-              name: 'Box',
-              href: nameToPath('Box'),
-            },
-            {
-              name: 'Button',
-              href: nameToPath('Button'),
-            },
-            {
-              name: 'Header',
-              href: nameToPath('Header'),
-            },
-            {
-              name: 'Grid',
-              href: 'https://v2.grommet.io/grid?theme=hpe#props',
-              target: '_blank',
-            },
-          ]}
-        />
         {relatedContent.length > 0 ? (
           <Subsection name="Related">
             <SubsectionText>Content related to {title}.</SubsectionText>
