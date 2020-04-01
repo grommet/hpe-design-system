@@ -94,16 +94,15 @@ export const Example = ({
   ...rest
 }) => {
   const theme = React.useContext(ThemeContext);
-  const viewport = React.useContext(ResponsiveContext);
+  const size = React.useContext(ResponsiveContext);
   const [codeOpen, setCodeOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
   const [mobile, setMobile] = React.useState(false);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
-  const { size } = defaultProps.theme.global;
-  const aspectHeight = `${parseInt(size.medium, 10) +
-    parseInt(size.small, 10)}px`;
+  const { small, medium } = defaultProps.theme.global.size;
+  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -136,7 +135,7 @@ export const Example = ({
             height={
               template
                 ? aspectHeight
-                : { min: viewport !== 'small' ? 'medium' : 'small' }
+                : { min: size !== 'small' ? 'medium' : 'small' }
             }
             justify="center"
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
