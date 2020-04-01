@@ -15,6 +15,13 @@ export const formatName = name => {
     .toLowerCase();
 };
 
+export const titleCase = str =>
+  str
+    .toLowerCase()
+    .split(' ')
+    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+
 export const getPageDetails = pageName =>
   structure.find(page => page.name === pageName);
 

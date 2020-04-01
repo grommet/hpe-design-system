@@ -11,7 +11,7 @@ import { Search } from '../navigation';
 const NavButton = ({ active, item, ...rest }) => {
   const [hover, setHover] = useState(false);
   return (
-    <Link href={nameToPath(item.name)} passHref>
+    <Link href="/[topic]" as={nameToPath(item.name)} passHref>
       <Button
         onMouseOver={() => setHover(true)}
         onFocus={() => setHover(true)}
