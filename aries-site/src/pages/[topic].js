@@ -45,7 +45,8 @@ const NavPage = ({ topic: topicProp }) => {
 // This function gets called at build time
 export async function getStaticPaths() {
   const { pages } = getPageDetails('Home');
-  // Get the paths we want to pre-render based on posts
+  // Get the paths we want to pre-render based on topics
+  // in structure for Home
   const paths = pages.map(page => `/${page.toLowerCase()}`);
 
   // We'll pre-render only these paths at build time.
@@ -54,6 +55,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  // From the static paths, it pulls the topic out
+  // since we've defined the param structure of /[topic]
   const { topic } = params;
   return { props: { topic } };
 }

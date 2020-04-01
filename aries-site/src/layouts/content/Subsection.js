@@ -63,7 +63,7 @@ export const Subsection = ({
           <Header>
             <Box align="start" gap="small">
               {level === 1 && topic && (
-                <Link href={`/${topic.toLowerCase()}`} passHref>
+                <Link href="/[topic]" as={`/${topic.toLowerCase()}`} passHref>
                   <Button
                     label={parent.name}
                     icon={parent.icon('small', parent.color)}
