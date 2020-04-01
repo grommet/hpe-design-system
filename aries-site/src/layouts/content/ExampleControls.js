@@ -8,6 +8,7 @@ const ControlButton = ({ children, ...rest }) => (
     {({ hover }) => (
       <Box
         direction="row"
+        align="center"
         gap="small"
         pad={{ vertical: 'xsmall', horizontal: 'small' }}
         round="small"
