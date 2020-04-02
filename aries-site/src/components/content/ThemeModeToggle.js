@@ -17,6 +17,7 @@ export const ThemeModeToggle = ({ active }) => {
         onMouseOut={() => setHover(false)}
         onBlur={() => setHover(false)}
         color="background-back"
+        alignSelf='start'
         primary
         onClick={() => darkMode.toggle()}
       >
