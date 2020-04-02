@@ -1,7 +1,13 @@
 import React from 'react';
+import { Anchor } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
-import { ButtonExample } from '../../examples';
+import {
+  ButtonExample,
+  ColorButtonExample,
+  PrimaryButtonExample,
+  SimpleButtonExample,
+} from '../../examples';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
 
@@ -31,6 +37,8 @@ const Button = () => (
           <ButtonExample />
         </Example>
       </Subsection>
+    </ContentSection>
+    <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>The when, how, and why to use buttons.</SubsectionText>
       </Subsection>
@@ -92,6 +100,58 @@ const Button = () => (
           for the job.
         </SubsectionText>
       </Subsection>
+    </ContentSection>
+    <ContentSection>
+      <Subsection name="Variants">
+        <SubsectionText>
+          There are a couple "flavors" of button depending on use case.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="Primary Button" level={3}>
+        <SubsectionText>
+          Used for key actions on the page. Primary Buttons can also be referred
+          to as “Brand” or “CTA (Call to Action)” and should only be used once
+          per page. All other supporting actions should use{' '}
+          <Anchor href="#">Default Button</Anchor>.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
+        >
+          <PrimaryButtonExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Color Button" level={3}>
+        <SubsectionText>
+          When looking to accent an interaction or for special use cases that
+          require more importance than a{' '}
+          <Anchor href="#">Default Button</Anchor>, the Color Button can be used
+          to support an HPE sub-brand when appropriate or a serious action (ie.
+          using red for a destructive task).
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ColorButtonExample.js"
+        >
+          <ColorButtonExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Simple Button" level={3}>
+        <SubsectionText>
+          Simple button is used when you want the action to blend into the
+          content. All the states, styles, and behaviors are persisted in the
+          Simple Button, but without the chrome for time when the content-first
+          approach is required.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/SimpleButtonExample.js"
+        >
+          <SimpleButtonExample />
+        </Example>
+      </Subsection>
+    </ContentSection>
+    <ContentSection>
       {relatedContent.length > 0 ? (
         <Subsection name="Related">
           <SubsectionText>
