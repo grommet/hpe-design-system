@@ -11,6 +11,7 @@ export const NavButton = forwardRef(({ active, item, ...rest }, ref) => {
         onMouseOut={() => setHover(false)}
         onBlur={() => setHover(false)}
         ref={ref}
+        alignSelf='start'
         {...rest}
       >
         <Box
