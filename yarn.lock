@@ -7705,19 +7705,6 @@ grommet@2.12.0:
     react-desc "^4.1.2"
     recompose "^0.30.0"
 
-"grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.12.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#785d4d6666977bdf72203e8a2ddc50d986be43ff"
-  dependencies:
-    css "^2.2.3"
-    grommet-icons "^4.2.0"
-    hoist-non-react-statics "^3.2.0"
-    markdown-to-jsx "^6.9.1"
-    polished "^3.4.1"
-    prop-types "^15.7.2"
-    react-desc "^4.1.2"
-    recompose "^0.30.0"
-
 growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
