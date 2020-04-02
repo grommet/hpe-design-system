@@ -6,9 +6,24 @@ import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 import { getPageDetails } from '../../utils';
 
+// Text size should be based on if its parent heading is an
+// h2, h3, etc.
+export const TEXT_SIZE = {
+  1: 'large', // heading is h1, parapgraph text should be large
+  2: 'medium', // default font size
+  3: 'small', // heading is h3, paragraph text should be small
+};
+
+// Specific Heading size modifications for Subsection
+export const HEADING_SIZE = {
+  3: 'small', // heading is h3, but should render as the small variant
+};
+
 export const Subsection = ({
   children,
   showHeading,
+  gap,
+  headingSize,
   level,
   name,
   topic,
@@ -46,7 +61,7 @@ export const Subsection = ({
       id={id}
       margin={{ bottom: 'small' }}
       fill="horizontal"
-      gap="medium"
+      gap={gap}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
@@ -72,7 +87,12 @@ export const Subsection = ({
                   />
                 </Link>
               )}
-              <Subheading level={level}>{name}</Subheading>
+              <Subheading
+                level={level}
+                headingSize={headingSize || HEADING_SIZE[level]}
+              >
+                {name}
+              </Subheading>
             </Box>
             {level > 1 && (
               <Anchor
@@ -97,6 +117,8 @@ export const Subsection = ({
 Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   level: PropTypes.number,
+  gap: PropTypes.string,
+  headingSize: PropTypes.string,
   name: PropTypes.string.isRequired,
   showHeading: PropTypes.bool,
   topic: PropTypes.string,
@@ -105,6 +127,8 @@ Subsection.propTypes = {
 Subsection.defaultProps = {
   children: undefined,
   level: 2,
+  gap: 'medium',
+  headingSize: undefined,
   showHeading: true,
   topic: undefined,
 };
