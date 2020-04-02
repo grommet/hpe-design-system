@@ -7689,12 +7689,12 @@ grommet-theme-hpe@^1.0.2:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#7b2a905a9e0805d043122e5c3f6a0320a4196a26"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#961b8ad1b8ba2044612cbd063c254bd8178fea6a"
 
-grommet@2.11.3:
-  version "2.11.3"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.11.3.tgz#7c685b4e01d53839d92243b2c870d44c62852013"
-  integrity sha512-3DCq9KXbJFaORFcAUOxU5HNhC79p8+k8ngNyrGk8F0dvkecLQJJajxU9KyJBbjO15xal+qF3WTg4UgKXM+b9Mw==
+grommet@2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.12.0.tgz#36513251d628f79d7991b639e4b3a2e5ec6756c1"
+  integrity sha512-/RExZBlDXY75Jg9VOhvDbZuYBXHZ+cQi5H2sWKTHbaLkYc7bixjOu1qi2BHdfRLMvJJJFuklZTVBSn1TlbM3bw==
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
@@ -7707,7 +7707,7 @@ grommet@2.11.3:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.12.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#5139b491e90726c4e64211dd4bb6db584aed6c49"
+  resolved "https://github.com/grommet/grommet/tarball/stable#785d4d6666977bdf72203e8a2ddc50d986be43ff"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
