@@ -17,9 +17,9 @@ const Extend = () => (
         light: '/carte-extend-light.svg',
       },
       alt: 'HPE Carte Design System Extend',
-      margin: { left: '-125px', top: '-75px' },
+      margin: { left: '-225px', top: '-85px' },
       small: {
-        margin: { left: '-25px', top: '-150px' },
+        margin: { left: '-25px', top: '-100px' },
       },
     }}
     title={title}

@@ -18,9 +18,9 @@ const Components = () => (
       },
       alt: 'HPE Carte Design System',
       fit: 'contain',
-      margin: { top: '-200px', left: '-50px' },
+      margin: { top: '-200px', left: '-75px' },
       small: {
-        margin: { top: '-250px', left: '0' },
+        margin: { top: '-250px' },
       },
     }}
     title={title}

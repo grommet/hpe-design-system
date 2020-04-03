@@ -17,7 +17,7 @@ const Foundation = () => (
         light: '/carte-foundation-light.svg',
       },
       alt: 'HPE Carte Design System Foundation',
-      margin: { left: '-150px', top: '-150px' },
+      margin: { left: '-200px', top: '-175px' },
       small: {
         margin: { left: '0', top: '-300px' },
       },

@@ -17,9 +17,9 @@ const Templates = () => (
         light: '/carte-templates-light.svg',
       },
       alt: 'HPE Carte Design System Templates',
-      margin: { left: '-100px', top: '-125px' },
+      margin: { left: '-200px', top: '-125px' },
       small: {
-        margin: { left: '-25px', top: '-200px' },
+        margin: { left: '-25px', top: '-175px' },
       },
     }}
     title={title}
