@@ -10,12 +10,20 @@ export const ButtonIconExample = () => {
       direction={size !== 'small' ? 'column' : 'row'}
       gap={size !== 'small' ? 'small' : 'medium'}
     >
-      <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
+      <Box
+        direction={size !== 'small' ? 'row' : 'column'}
+        gap="medium"
+        align="center"
+      >
         <Button label="Button" icon={<FormPrevious />} onClick={() => {}} />
         <Button label="Button" icon={<FormNext />} reverse onClick={() => {}} />
         <Button icon={<FormNext />} onClick={() => {}} />
       </Box>
-      <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
+      <Box
+        direction={size !== 'small' ? 'row' : 'column'}
+        gap="medium"
+        align="center"
+      >
         <Button
           label="Button"
           icon={<FormPrevious />}
