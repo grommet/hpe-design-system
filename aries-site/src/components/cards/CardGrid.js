@@ -11,6 +11,7 @@ export const CardGrid = ({ cards, ...rest }) => {
   return (
     <Grid
       columns={size !== 'small' ? 'medium' : '100%'}
+      rows={[['auto', 'full']]}
       gap="medium"
       justify="center"
       fill
