@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
+import { Box, Button, ResponsiveContext } from 'grommet';
 
 export const ButtonSizingExample = () => {
+  const size = React.useContext(ResponsiveContext);
+
   return (
-    <Box direction="row" align="center" pad="large" gap="medium">
+    <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
       <Button label="Default" />
       <Button size="small" label="Small" />
       <Button size="medium" label="Medium" />

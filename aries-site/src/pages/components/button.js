@@ -165,23 +165,27 @@ const Button = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonIconExample.js"
           height={{ min: 'small' }}
         >
           <ButtonIconExample />
         </Example>
       </Subsection>
       <Subsection name="Button States" level={3}>
-        <SubsectionText>fdsfsaf</SubsectionText>
+        <SubsectionText>
+          A button's visual state may be specified as appropriate in the
+          application's context. For example, using "active" for the current
+          item or "disabled" until a set of criteria are met.
+        </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonStatesExample.js"
           height={{ min: 'small' }}
         >
           <ButtonStatesExample />
         </Example>
       </Subsection>
-      <Subsection name="Button Sizing" level={3}>
+      <Subsection name="Button Sizes" level={3}>
         <SubsectionText>
           Button label text size may be specified. Padding and rounding scale
           proportionately to the label size.
