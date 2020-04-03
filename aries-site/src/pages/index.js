@@ -14,13 +14,12 @@ const Index = () => (
     backgroundImage={{
       src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
       alt: 'HPE Carte Design System',
-      margin: { top: '125px', left: '-150px' },
-      style: { transform: 'scale(1.25)' },
-      width: '65%',
+      margin: { top: '50px', left: '-150px' },
+      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
       small: {
-        margin: '15px',
-        width: '100%',
+        margin: { left: '-75px', top: '-75px' },
       },
+      useTiles: true,
     }}
     title={title}
     isLanding
