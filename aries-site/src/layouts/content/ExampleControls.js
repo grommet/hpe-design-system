@@ -34,6 +34,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
       size: 'xsmall',
     }}
     direction="row"
+    align="start"
     justify="between"
     pad={{ horizontal: 'medium', vertical: 'small' }}
     round={{ corner: 'bottom', size: 'small' }}
