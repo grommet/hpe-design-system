@@ -40,6 +40,7 @@ export const Footer = () => {
         <Box>
           <Text>&copy; {year} Hewlett Packard Enterprise</Text>
         </Box>
+        <Box direction='row'>
         {externalFooterLinks.map(item => (
           <Link
             key={item.name}
@@ -61,6 +62,7 @@ export const Footer = () => {
             item="Feedback"
           />
         </Link>
+        </Box>
       </Box>
       <Box direction="row-responsive">
         <ThemeModeToggle />
