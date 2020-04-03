@@ -1,31 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, ResponsiveContext } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 import { Tile, Tiles } from 'aries-core';
 
-export const PageIntro = ({ children, image, ...rest }) => {
+export const PageIntro = ({ children, ...rest }) => {
   const size = React.useContext(ResponsiveContext);
-
   return (
-    <Tiles
-      gap={size !== 'small' ? 'large' : 'medium'}
-      columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows={[['xsmall', 'medium']]}
-      {...rest}
-    >
-      <Tile>
-        <Image {...image} />
-      </Tile>
-      <Tile>{children}</Tile>
-    </Tiles>
+    <Box height={{ min: 'medium' }} justify="center">
+      <Tiles
+        gap={size !== 'small' ? 'large' : 'medium'}
+        columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
+        {...rest}
+      >
+        {/* Empty tile allows vertical space for background image to 
+        show on mobile */}
+        <Tile height="small" />
+        <Tile>{children}</Tile>
+      </Tiles>
+    </Box>
   );
 };
 
 PageIntro.propTypes = {
   children: PropTypes.node.isRequired,
-  image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    fit: PropTypes.string,
-  }).isRequired,
 };
