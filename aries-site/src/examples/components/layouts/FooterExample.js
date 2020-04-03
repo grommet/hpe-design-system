@@ -14,7 +14,7 @@ export const FooterExample = () => {
   return (
     <Footer
       background="background-front"
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      direction={size !== 'small' ? 'row' : 'column'}
       align={size !== 'small' ? 'center' : undefined}
     >
       <Box
@@ -27,7 +27,7 @@ export const FooterExample = () => {
         </Text>
       </Box>
       <Box
-        direction={size !== 'small' ? 'row' : 'column'}
+        direction='row'
         align={size !== 'small' ? 'center' : undefined}
         gap='xsmall'
       >
