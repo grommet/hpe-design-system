@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { NavLink } from 'aries-core';
-import { Anchor, Box, Header } from 'grommet';
+import { Anchor, Box, Button, Header } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
+import { getPageDetails } from '../../utils';
 
-// Depending on the level of the heading, we need to adjust the amount of gap
-// between the heading and the first child in the subsection.
-const GAP_SIZE = {
-  1: 'large',
-  2: 'small',
-  3: undefined,
+// Text size should be based on if its parent heading is an
+// h2, h3, etc.
+export const TEXT_SIZE = {
+  1: 'large', // heading is h1, parapgraph text should be large
+  2: 'medium', // default font size
+  3: 'small', // heading is h3, paragraph text should be small
+};
+
+// Specific Heading size modifications for Subsection
+export const HEADING_SIZE = {
+  3: 'small', // heading is h3, but should render as the small variant
 };
 
 export const Subsection = ({
   children,
   showHeading,
+  gap,
+  headingSize,
   level,
   name,
   topic,
   ...rest
 }) => {
   const [over, setOver] = useState(false);
+  const parent = getPageDetails(topic);
 
   const id = name
     .split(' ')
@@ -53,7 +61,7 @@ export const Subsection = ({
       id={id}
       margin={{ bottom: 'small' }}
       fill="horizontal"
-      gap="medium"
+      gap={gap}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
@@ -65,16 +73,26 @@ export const Subsection = ({
        * a larger than desired gap between h3's and its first child. This
        * removes that extra space.
        */}
-      <Box gap={GAP_SIZE[level]}>
+      <Box gap={level !== 3 ? 'small' : undefined}>
         {showHeading && (
           <Header>
-            <Box>
+            <Box align="start" gap="small">
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <NavLink label={topic} />
+                  <Button
+                    label={parent.name}
+                    icon={parent.icon('small', parent.color)}
+                    {...rest}
+                    plain
+                  />
                 </Link>
               )}
-              <Subheading level={level}>{name}</Subheading>
+              <Subheading
+                level={level}
+                headingSize={headingSize || HEADING_SIZE[level]}
+              >
+                {name}
+              </Subheading>
             </Box>
             {level > 1 && (
               <Anchor
@@ -99,6 +117,8 @@ export const Subsection = ({
 Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   level: PropTypes.number,
+  gap: PropTypes.string,
+  headingSize: PropTypes.string,
   name: PropTypes.string.isRequired,
   showHeading: PropTypes.bool,
   topic: PropTypes.string,
@@ -107,6 +127,8 @@ Subsection.propTypes = {
 Subsection.defaultProps = {
   children: undefined,
   level: 2,
+  gap: 'medium',
+  headingSize: undefined,
   showHeading: true,
   topic: undefined,
 };

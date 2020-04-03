@@ -1,43 +1,45 @@
 import React from 'react';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { Layout, NavPage } from '../../layouts';
-import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
-import { getPageDetails } from '../../utils';
+import { CardGrid, Meta } from '../../components';
+import { Layout, PageIntro } from '../../layouts';
+import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Templates';
-const {
-  color,
-  description,
-  icon,
-  pages,
-  name,
-  seoDescription,
-} = getPageDetails(title);
+const pageDetails = getPageDetails(title);
+const cards = getCards(title);
 
-const Templates = () => {
-  const descriptiveHeader = (
-    <DescriptiveHeader
-      background={color}
-      subText={description}
-      icon={icon}
+const Templates = () => (
+  <Layout
+    backgroundImage={{
+      src: {
+        dark: '/carte-templates-dark.svg',
+        light: '/carte-templates-light.svg',
+      },
+      alt: 'HPE Carte Design System Templates',
+      margin: { left: '-200px', top: '-125px' },
+      small: {
+        margin: { left: '-25px', top: '-175px' },
+      },
+    }}
+    title={title}
+    isLanding
+  >
+    <Meta
       title={title}
+      description={pageDetails.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/templates"
     />
-  );
-
-  return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      <Meta
-        title={title}
-        description={seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates"
-      />
-      {pages.length ? (
-        <NavPage items={pages} topic={name.toLowerCase()} />
-      ) : (
-        <ComingSoon />
-      )}
-    </Layout>
-  );
-};
+    <Box gap="large">
+      <PageIntro>
+        <Box justify="center" fill>
+          <Heading margin="none">{title}</Heading>
+          <Paragraph fill>{pageDetails.description}</Paragraph>
+        </Box>
+      </PageIntro>
+      <CardGrid cards={cards} />
+    </Box>
+  </Layout>
+);
 
 export default Templates;

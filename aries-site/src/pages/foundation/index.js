@@ -1,36 +1,45 @@
 import React from 'react';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { Layout, NavPage } from '../../layouts';
-import { ComingSoon, DescriptiveHeader, Meta } from '../../components';
-import { getPageDetails } from '../../utils';
+import { CardGrid, Meta } from '../../components';
+import { Layout, PageIntro } from '../../layouts';
+import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Foundation';
-const page = getPageDetails(title);
+const pageDetails = getPageDetails(title);
+const cards = getCards(title);
 
-const Foundation = () => {
-  const descriptiveHeader = (
-    <DescriptiveHeader
-      background={page.color}
-      subText={page.description}
-      icon={page.icon}
+const Foundation = () => (
+  <Layout
+    backgroundImage={{
+      src: {
+        dark: '/carte-foundation-dark.svg',
+        light: '/carte-foundation-light.svg',
+      },
+      alt: 'HPE Carte Design System Foundation',
+      margin: { left: '-200px', top: '-175px' },
+      small: {
+        margin: { left: '0', top: '-300px' },
+      },
+    }}
+    title={title}
+    isLanding
+  >
+    <Meta
       title={title}
+      description={pageDetails.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/foundation"
     />
-  );
-
-  return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      <Meta
-        title={title}
-        description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation"
-      />
-      {page.pages.length ? (
-        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
-      ) : (
-        <ComingSoon />
-      )}
-    </Layout>
-  );
-};
+    <Box gap="large">
+      <PageIntro>
+        <Box justify="center" fill>
+          <Heading margin="none">{title}</Heading>
+          <Paragraph fill>{pageDetails.description}</Paragraph>
+        </Box>
+      </PageIntro>
+      <CardGrid cards={cards} />
+    </Box>
+  </Layout>
+);
 
 export default Foundation;

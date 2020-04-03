@@ -1,35 +1,46 @@
 import React from 'react';
-import { Layout, NavPage } from '../../layouts';
-import { DescriptiveHeader, Meta, ComingSoon } from '../../components';
-import { getPageDetails } from '../../utils';
+import { Box, Heading, Paragraph } from 'grommet';
+
+import { CardGrid, Meta } from '../../components';
+import { Layout, PageIntro } from '../../layouts';
+import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Components';
-const page = getPageDetails(title);
+const pageDetails = getPageDetails(title);
+const cards = getCards(title);
 
-const Components = () => {
-  const descriptiveHeader = (
-    <DescriptiveHeader
-      background={page.color}
-      subText={page.description}
-      icon={page.icon}
+const Components = () => (
+  <Layout
+    backgroundImage={{
+      src: {
+        dark: '/carte-components-dark.svg',
+        light: '/carte-components-light.svg',
+      },
+      alt: 'HPE Carte Design System',
+      fit: 'contain',
+      margin: { top: '-200px', left: '-75px' },
+      small: {
+        margin: { top: '-250px' },
+      },
+    }}
+    title={title}
+    isLanding
+  >
+    <Meta
       title={title}
+      description={pageDetails.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/components"
     />
-  );
-
-  return (
-    <Layout descriptiveHeader={descriptiveHeader} title={title} isNavPage>
-      <Meta
-        title={title}
-        description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/components"
-      />
-      {page.pages.length ? (
-        <NavPage items={page.pages} topic={page.name.toLowerCase()} />
-      ) : (
-        <ComingSoon />
-      )}
-    </Layout>
-  );
-};
+    <Box gap="large">
+      <PageIntro>
+        <Box justify="center" fill>
+          <Heading margin="none">{title}</Heading>
+          <Paragraph fill>{pageDetails.description}</Paragraph>
+        </Box>
+      </PageIntro>
+      <CardGrid cards={cards} />
+    </Box>
+  </Layout>
+);
 
 export default Components;
