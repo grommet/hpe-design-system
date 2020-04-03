@@ -18,7 +18,7 @@ export const SimpleButtonExample = ({ active }) => {
         background={active || hover ? 'active-background' : undefined}
       >
         <Text weight="bold" margin="none">
-          Button
+          Simple Button
         </Text>
       </Box>
     </Button>

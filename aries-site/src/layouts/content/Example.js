@@ -100,9 +100,8 @@ export const Example = ({
   const [mobile, setMobile] = React.useState(false);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
-  const { size } = defaultProps.theme.global;
-  const aspectHeight = `${parseInt(size.medium, 10) +
-    parseInt(size.small, 10)}px`;
+  const { small, medium } = defaultProps.theme.global.size;
+  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {

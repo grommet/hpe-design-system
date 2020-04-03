@@ -67,6 +67,7 @@ export const SignUpExample = () => {
               label="Full Name"
               htmlFor="fullName-sign-up"
               name="fullName"
+              required
             >
               <TextInput
                 id="fullName-sign-up"
