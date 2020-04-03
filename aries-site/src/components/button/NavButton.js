@@ -1,43 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
-import { IconMoon, IconSun } from '../icons';
-import { useDarkMode } from '../../utils';
 
-export const ThemeModeToggle = ({ active }) => {
+export const NavButton = forwardRef(({ active, item, ...rest }, ref) => {
   const [hover, setHover] = useState(false);
-  const darkMode = useDarkMode();
-  const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
-  const icon = darkMode.value ? <IconSun /> : <IconMoon />;
   return (
-    <Box width={{ max: 'small' }}>
       <Button
         onMouseOver={() => setHover(true)}
         onFocus={() => setHover(true)}
         onMouseOut={() => setHover(false)}
         onBlur={() => setHover(false)}
-        color="background-back"
+        ref={ref}
         alignSelf='start'
-        primary
-        onClick={() => darkMode.toggle()}
+        {...rest}
       >
         <Box
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
           round="xxsmall"
           background={active || hover ? 'active-background' : undefined}
-          direction="row"
-          gap="xsmall"
         >
-          {icon}
           <Text weight="bold" margin="none">
-            {label}
+            {item}
           </Text>
         </Box>
       </Button>
-    </Box>
   );
+});
+
+NavButton.propTypes = {
+  active: PropTypes.bool,
+  item: PropTypes.string,
 };
 
-ThemeModeToggle.propTypes = {
-  active: PropTypes.bool,
-};
