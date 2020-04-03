@@ -20,16 +20,17 @@ export const FooterExample = () => {
       <Box
         direction={size !== 'small' ? 'row' : 'column'}
         align={size !== 'small' ? 'center' : undefined}
-        gap='xsmall'
+        gap="xsmall"
       >
         <Text size="small">
           &copy; 2020 Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
       <Box
-        direction='row'
+        direction="row"
         align={size !== 'small' ? 'center' : undefined}
-        gap='xsmall'
+        gap="xsmall"
+        wrap
       >
         {footerLinks.map(link => (
           <NavButton key={link.label} item={link.label} />
