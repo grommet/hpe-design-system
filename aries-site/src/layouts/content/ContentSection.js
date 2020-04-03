@@ -1,38 +1,16 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
+import React from 'react';
+import { Box } from 'grommet';
 
-export const ContentSection = ({ children, lastSection }) => {
-  const size = useContext(ResponsiveContext);
-
-  return (
-    <Box
-      as="section"
-      align="start"
-      border={!lastSection ? { side: 'bottom' } : undefined}
-      gap="medium"
-      margin={
-        !lastSection
-          ? { bottom: size !== 'small' ? 'large' : 'xlarge' }
-          : undefined
-      }
-      pad={{
-        bottom: size !== 'small' ? 'large' : 'xlarge',
-        horizontal: 'xxsmall',
-        top: 'xxsmall',
-      }}
-      width="large"
-    >
-      {children}
-    </Box>
-  );
-};
-
-ContentSection.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  lastSection: PropTypes.bool,
-};
-
-ContentSection.defaultProps = {
-  lastSection: false,
-};
+export const ContentSection = ({ ...rest }) => (
+  <Box
+    as="section"
+    align="start"
+    gap="medium"
+    pad={{
+      bottom: 'medium',
+      horizontal: 'xxsmall',
+      top: 'large',
+    }}
+    {...rest}
+  />
+);

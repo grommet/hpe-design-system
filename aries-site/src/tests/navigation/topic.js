@@ -5,10 +5,10 @@ import { baseUrl, getLocation, repeatKeyPress, getTabCount } from '../utils';
 // This is testing the topic link that appears above the h1 of content pages.
 // This link routes back to NavPages.
 
-fixture('Topic').page(`${baseUrl}/guidelines/human-centered`);
+fixture('Topic').page(`${baseUrl}/foundation/human-centered`);
 
 test('should navigate to correct path when a topic is clicked on', async t => {
-  const page = 'Guidelines';
+  const page = 'Foundation';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
 
@@ -20,7 +20,7 @@ test('should navigate to correct path when a topic is clicked on', async t => {
 
 // eslint-disable-next-line max-len
 test('should navigate to correct path when a topic is choosen via keyboard', async t => {
-  const page = 'Guidelines';
+  const page = 'Foundation';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
 
