@@ -32,7 +32,7 @@ export const FooterExample = () => {
         gap='xsmall'
       >
         {footerLinks.map(link => (
-          <NavButton item={link.label} />
+          <NavButton key={link.label} item={link.label} />
         ))}
       </Box>
     </Footer>
