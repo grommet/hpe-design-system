@@ -4,6 +4,9 @@ import { Anchor } from 'grommet';
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
   ButtonExample,
+  ButtonIconExample,
+  ButtonSizingExample,
+  ButtonStatesExample,
   ColorButtonExample,
   PrimaryButtonExample,
   SimpleButtonExample,
@@ -117,6 +120,7 @@ const Button = () => (
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
+          height={{ min: 'small' }}
         >
           <PrimaryButtonExample />
         </Example>
@@ -132,6 +136,7 @@ const Button = () => (
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ColorButtonExample.js"
+          height={{ min: 'small' }}
         >
           <ColorButtonExample />
         </Example>
@@ -146,8 +151,51 @@ const Button = () => (
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/SimpleButtonExample.js"
+          height={{ min: 'small' }}
         >
           <SimpleButtonExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Button with Icon" level={3}>
+        <SubsectionText>
+          Icons may be incorporated into buttons, either inline with text or as
+          an icon only. When using icon only buttons, the dimension of the
+          clickable area should be kept in mind for its use on mobile devices.
+          Areas too small lead to errant clicks, and as result, poor experience.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonIconExample.js"
+          height={{ min: 'small' }}
+        >
+          <ButtonIconExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Button States" level={3}>
+        <SubsectionText>
+          A button's visual state may be specified as appropriate in the
+          application's context. For example, using "active" for the current
+          item or "disabled" until a set of criteria are met.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonStatesExample.js"
+          height={{ min: 'small' }}
+        >
+          <ButtonStatesExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Button Sizes" level={3}>
+        <SubsectionText>
+          Button label text size may be specified. Padding and rounding scale
+          proportionately to the label size.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
+          height={{ min: 'small' }}
+        >
+          <ButtonSizingExample />
         </Example>
       </Subsection>
     </ContentSection>

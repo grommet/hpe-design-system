@@ -7,7 +7,6 @@ import {
   defaultProps,
   Keyboard,
   Layer,
-  ResponsiveContext,
   Text,
   ThemeContext,
 } from 'grommet';
@@ -90,11 +89,11 @@ export const Example = ({
   details,
   docs,
   figma,
+  height,
   template,
   ...rest
 }) => {
   const theme = React.useContext(ThemeContext);
-  const size = React.useContext(ResponsiveContext);
   const [codeOpen, setCodeOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
@@ -132,11 +131,7 @@ export const Example = ({
             direction="row"
             // Height for template screen needs to be between medium and large
             // to maintain aspect ratio, so this is small + medium
-            height={
-              template
-                ? aspectHeight
-                : { min: size !== 'small' ? 'medium' : 'small' }
-            }
+            height={template ? aspectHeight : height}
             justify="center"
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
@@ -277,5 +272,10 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   template: PropTypes.bool,
+};
+
+Example.defaultProps = {
+  height: { min: 'medium' },
 };
