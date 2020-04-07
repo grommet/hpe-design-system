@@ -7,6 +7,23 @@ import {
   IconIcons,
   IconSquare,
 } from '../components';
+import {
+  AnchorPreview,
+  BoxPreview,
+  ButtonPreview,
+  CheckBoxPreview,
+  FooterPreview,
+  GridPreview,
+  HeaderPreview,
+  MaskedInputPreview,
+  MenuPreview,
+  RadioButtonGroupPreview,
+  RangeInputPreview,
+  SelectPreview,
+  TabsPreview,
+  TextAreaPreview,
+  TextInputPreview,
+} from '../examples/cardPreviews';
 
 export const structure = [
   {
@@ -323,6 +340,11 @@ export const structure = [
     seoDescription:
       'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
     sections: [],
+    previewComponent: {
+      component() {
+        return <AnchorPreview />;
+      },
+    },
   },
   {
     name: 'Box',
@@ -331,6 +353,10 @@ export const structure = [
     seoDescription:
       'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
+    previewComponent: {
+      component: () => <BoxPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'Button',
@@ -339,6 +365,10 @@ export const structure = [
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [],
+    previewComponent: {
+      component: () => <ButtonPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'CheckBox',
@@ -347,6 +377,10 @@ export const structure = [
     seoDescription:
       'When the user needs to select one or more options, use a checkbox.',
     sections: [],
+    previewComponent: {
+      component: () => <CheckBoxPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'Footer',
@@ -355,14 +389,18 @@ export const structure = [
     seoDescription:
       'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
     sections: [],
+    previewComponent: {
+      component: () => <FooterPreview />,
+      justify: 'end',
+    },
   },
   {
     name: 'Grid',
     description:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
-    previewImage: {
-      src: '/grid-light.svg',
-      alt: 'HPE Grid Preview',
+    previewComponent: {
+      component: () => <GridPreview />,
+      cardColor: 'background-front',
     },
     seoDescription:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
@@ -375,6 +413,10 @@ export const structure = [
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
     sections: [],
+    previewComponent: {
+      component: () => <HeaderPreview />,
+      justify: 'start',
+    },
   },
   {
     name: 'Layer',
@@ -399,12 +441,19 @@ export const structure = [
     seoDescription:
       'MaskedInput allows you to specify formailzed text within a form field.',
     sections: [],
+    previewComponent:{
+      component: () => <MaskedInputPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'Menu',
     description: 'Menu is used to filter or sort content on a page.',
     seoDescription: 'Menu is used to filter or sort content on a page.',
     sections: [],
+    previewComponent: {
+      component: () => <MenuPreview />,
+    }, 
   },
   {
     name: 'RadioButtonGroup',
@@ -413,6 +462,9 @@ export const structure = [
     seoDescription:
       'When one option of a set of options can be specified, use the RadioButtonGroup component.',
     sections: [],
+    previewComponent: {
+      component: () => <RadioButtonGroupPreview />,
+    }, 
   },
   {
     name: 'RangeInput',
@@ -421,6 +473,10 @@ export const structure = [
     seoDescription:
       'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
     sections: [],
+    previewComponent: {
+      component: () => <RangeInputPreview />,
+      cardColor: 'background-front',
+    }, 
   },
   {
     name: 'Select',
@@ -429,6 +485,9 @@ export const structure = [
     seoDescription:
       'The Select component is flexible to provide multiple select, search, and create options.',
     sections: [],
+    previewComponent: {
+      component: () => <SelectPreview />,
+    }, 
   },
   {
     name: 'Stack',
@@ -445,6 +504,10 @@ export const structure = [
     seoDescription:
       'Tabs allow a user to access content while maintaining the existing context.',
     sections: [],
+    previewComponent: {
+      component: () => <TabsPreview />,
+      cardColor: 'background-front',
+    }, 
   },
   {
     name: 'TextArea',
@@ -453,6 +516,10 @@ export const structure = [
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
     sections: [],
+    previewComponent: {
+      component: () => <TextAreaPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'TextInput',
@@ -461,6 +528,10 @@ export const structure = [
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
     sections: [],
+    previewComponent: {
+      component: () => <TextInputPreview />,
+      cardColor: 'background-front',
+    },
   },
   {
     name: 'Cards',
