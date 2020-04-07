@@ -2,10 +2,12 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
+import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   const { description, name, parent, previewImage } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
+  const darkMode = useDarkMode();
   return (
     <Tile
       align="start"
@@ -30,7 +32,11 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
         >
           {previewImage && (
             <Image
-              src={previewImage.src}
+              src={
+                darkMode.value
+                  ? previewImage.src.dark || previewImage.src
+                  : previewImage.src.light || previewImage.src
+              }
               alt={previewImage.alt}
               fit={previewImage.fit || 'cover'}
             />
