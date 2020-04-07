@@ -24,7 +24,23 @@ test('should check Home page', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      exclude: [
+        [
+         '.StyledMaskedInput-sc-99vkfa-0',
+        ],
+        [
+          '.StyledRangeInput-sc-15st9ck-0',
+        ],
+        [
+          '.fQVcfU',
+        ],
+        [
+          'textarea',
+        ],
+        [
+          '.bmyNbr',
+        ],
+      ],
     };
     const axeOptions = {
       rules: {
