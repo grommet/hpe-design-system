@@ -1,12 +1,16 @@
 /* eslint-disable no-undef */
 import { ReactSelector, waitForReact } from 'testcafe-react-selectors';
+import { Selector } from 'testcafe';
 import {
   baseUrl,
   getLocation,
   repeatKeyPress,
   Search,
   getSuggestion,
+  tabToSearch,
 } from '../utils';
+
+const searchButton = Selector('#search-button');
 
 fixture('Search')
   .page(baseUrl)
@@ -18,11 +22,12 @@ test(
   'should navigate to correct page after user types ' +
     'and clicks suggestion with mouse',
   async t => {
-    const page = 'Develop';
+    const page = 'Templates';
     const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
     const suggestion = getSuggestion(page);
     await t
-      .typeText(ReactSelector(Search), 'dev')
+      .click(searchButton)
+      .typeText(ReactSelector(Search), 'temp')
       .click(suggestion)
       .expect(getLocation())
       .eql(expectedPath);
@@ -37,6 +42,7 @@ test(
     const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
     await t
+      .click(searchButton)
       .typeText(ReactSelector(Search), page)
       .pressKey('enter')
       .expect(getLocation())
@@ -53,6 +59,7 @@ test(
     const suggestion = getSuggestion(page);
 
     await t
+      .click(searchButton)
       .typeText(ReactSelector(Search), 'col')
       .click(suggestion)
       .expect(getLocation())
@@ -64,11 +71,11 @@ test(
   'should navigate to correct page ' + 'when user is only using keyboard ',
   async t => {
     const page = 'Aruba Logo';
-    const expectedPath = '/foundation/branding#aruba-logo';
+    const expectedPath = '/foundation/our-brand#aruba-logo';
 
     await t
-      // hpe button --> search
-      .pressKey(await repeatKeyPress('tab', 2))
+      .pressKey(await repeatKeyPress('tab', await tabToSearch()))
+      .pressKey('enter')
       // start typing for something
       .pressKey('a');
 

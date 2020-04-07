@@ -1,96 +1,47 @@
-import React, { forwardRef } from 'react';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import { Box, Image, ResponsiveContext } from 'grommet';
-import { Tile, Tiles } from 'aries-core';
+import React from 'react';
+import { Box, Heading, Paragraph } from 'grommet';
 
-import { Layout } from '../layouts';
-import { Meta } from '../components';
-import { TileContent, IntroTile } from '../components/home';
-import { getPageDetails } from '../utils';
-
-const HomeTiles = ({ ...rest }) => {
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Tiles
-      gap={size !== 'small' ? 'large' : 'medium'}
-      columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
-      rows="medium"
-      {...rest}
-    />
-  );
-};
-
-// Needs to be <a> in DOM for web crawling: https://support.google.com/webmasters/answer/9112205?hl=en
-const AnchorTile = forwardRef(({ ...rest }, ref) => (
-  <Tile as="a" fill ref={ref} style={{ textDecoration: 'none' }} {...rest} />
-));
-
-// Reasoning for using forwardRef: https://nextjs.org/docs/api-reference/next/link#example-with-reactforwardref
-const TopicTile = forwardRef(({ topic, ...rest }, ref) => {
-  return (
-    <AnchorTile
-      pad="medium"
-      background={topic.color}
-      key={topic.color}
-      ref={ref}
-      {...rest}
-    >
-      <TileContent
-        key={topic.name}
-        title={topic.name}
-        subTitle={topic.description}
-        icon={topic.icon('xlarge')}
-      />
-    </AnchorTile>
-  );
-});
+import { CardGrid, Meta } from '../components';
+import { Layout, PageIntro } from '../layouts';
+import { getCards, getPageDetails } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
-const topicList = pageDetails.pages.map(topic => getPageDetails(topic));
+const cards = getCards();
 
-const Index = () => {
-  return (
-    <Layout title={title} isLanding>
-      <Meta title={title} description={pageDetails.seoDescription} />
-      <Box gap="large">
-        <HomeTiles>
-          <Tile background="white">
-            <Image src="/image-hands.png" alt="HPE Hands Image" fit="cover" />
-          </Tile>
-          <IntroTile background="white" />
-        </HomeTiles>
-        <HomeTiles>
-          {topicList.map(topic => (
-            // Need to pass href because of: https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child
-            <Link
-              key={topic.name}
-              href={`/${topic.name.toLowerCase()}`}
-              passHref
-            >
-              <TopicTile topic={topic} />
-            </Link>
-          ))}
-        </HomeTiles>
-      </Box>
-    </Layout>
-  );
-};
+const Index = () => (
+  <Layout
+    backgroundImage={{
+      src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
+      alt: 'HPE Carte Design System',
+      margin: { top: '50px', left: '-150px' },
+      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
+      small: {
+        margin: { left: '-75px', top: '-75px' },
+      },
+      useTiles: true,
+    }}
+    title={title}
+    isLanding
+  >
+    <Meta title={title} description={pageDetails.seoDescription} />
+    <Box gap="large">
+      <PageIntro>
+        <Box justify="center" fill>
+          <Heading margin="none">
+            Mix, match, and stack cards to change the game
+          </Heading>
+          <Paragraph fill>
+            The Carte Design System was created to empower designers, developer,
+            and others to contribute in making great experiences for the
+            customer. Carte means “card game” in Italian. Pick your cards and
+            see what games you can play.
+          </Paragraph>
+        </Box>
+      </PageIntro>
+      <CardGrid cards={cards} />
+    </Box>
+  </Layout>
+);
 
 export default Index;
-
-TopicTile.propTypes = {
-  onClick: PropTypes.func,
-  topic: PropTypes.shape({
-    color: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    icon: PropTypes.func.isRequired,
-  }),
-};
-
-TopicTile.defaultProps = {
-  onClick: undefined,
-};
