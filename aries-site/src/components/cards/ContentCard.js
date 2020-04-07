@@ -4,7 +4,7 @@ import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
-  const { description, name, parent, previewImage } = topic;
+  const { description, name, parent, previewImage, previewComponent } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   return (
     <Tile
@@ -21,8 +21,29 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       {...rest}
     >
       <Box gap="large">
+        {previewComponent && (
+          <Box
+            background={previewComponent.cardColor || 'background-back'}
+            height="small"
+            round="xsmall"
+            overflow="hidden"
+            style={{ position: 'relative' }}
+          >
+            {previewComponent && (
+              <Box
+                style={{ pointerEvents: 'none' }}
+                flex
+                align="center"
+                justify={previewComponent.justify || 'center'}
+              >
+                {previewComponent.component()}
+              </Box>
+            )}
+          </Box>
+        )}
+        {!previewComponent && (
         <Box
-          background="background-back"
+          background='background-back'
           height="small"
           round="xsmall"
           overflow="hidden"
@@ -36,6 +57,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
             />
           )}
         </Box>
+        )}
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
             {parent && parent.icon && (
@@ -60,6 +82,11 @@ ContentCard.propTypes = {
       color: PropTypes.string.isRequired,
       icon: PropTypes.func.isRequired,
       name: PropTypes.string.isRequired,
+    }),
+    previewComponent: PropTypes.shape({
+      component: PropTypes.func,
+      cardColor: PropTypes.string,
+      justify: PropTypes.string,
     }),
     previewImage: PropTypes.shape({
       alt: PropTypes.string,
