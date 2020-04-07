@@ -103,7 +103,7 @@ export const structure = [
     description:
       'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     previewImage: {
-      src: '/our-brand-light.svg',
+      src: '/foundation-preview-brand.svg',
       alt: 'HPE Our Brand Preview',
     },
     seoDescription:
@@ -115,7 +115,10 @@ export const structure = [
     description:
       'Bringing out the depth and dimension of our identity, the HPE Design System use of color evokes energy and inspiration.',
     previewImage: {
-      src: '/color-light.svg',
+      src: {
+        light: '/foundation-preview-colors.svg',
+        dark:  '/foundation-preview-colors-invert.svg',
+      },
       alt: 'HPE Color Preview',
     },
     seoDescription:
@@ -140,7 +143,10 @@ export const structure = [
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
     previewImage: {
-      src: '/dashboards-light.svg',
+      src: {
+        light: '/template-preview-dashboard.svg',
+        dark: '/template-preview-dashboard-invert.svg',
+      },
       alt: 'HPE Dashboards Preview',
     },
     seoDescription:
@@ -153,9 +159,11 @@ export const structure = [
     description:
       'Common form use cases from application configuration to payment acceptance.',
     previewImage: {
-      src: '/forms-light.svg',
+      src: {
+        light: '/template-preview-form.svg',
+        dark: '/template-preview-form-invert.svg',
+      },
       alt: 'HPE Forms Preview',
-      fit: 'contain',
     },
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
@@ -178,21 +186,37 @@ export const structure = [
     seoDescription:
       'Unlocking human potential through human centered design. HPE Design System is inclusive, attentive, adaptable, and conversational.',
     sections: ['Inclusive', 'Attentive', 'Conversational'],
+    previewImage: {
+      src: {
+        light: '/foundation-preview-human.svg',
+        dark:  '/foundation-preview-human-invert.svg',
+      },
+      alt: 'HPE Human Centered',
+    },
   },
   {
     name: 'Icons',
     description:
       'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: (size, color) => <IconIcons size={size} color={color} />,
+    previewImage: {
+      src: {
+        light: '/foundation-preview-icons.svg',
+        dark: '/foundation-preview-icons-invert.svg',
+      },
+      alt: 'HPE Icons Preview',
+    },
   },
   {
     name: 'Lists',
     description:
       'Go-to patterns for displaying many services, devices, users, and more.',
     previewImage: {
-      src: '/lists-light.svg',
+      src: {
+        light: '/template-preview-list.svg',
+        dark: '/template-preview-list-invert.svg',
+      },
       alt: 'HPE Lists Preview',
-      fit: 'contain',
     },
     seoDescription:
       'HPE Design System template for providing a list of information.',
@@ -203,7 +227,10 @@ export const structure = [
     description:
       'The HPE Design System is focused on key values which engender and support human engagement and community.',
     previewImage: {
-      src: '/philosophy-light.svg',
+      src: {
+        light: '/foundation-preview-philosophy.svg',
+        dark: '/foundation-preview-philosophy-invert.svg', 
+      },
       alt: 'HPE Philosophy Preview',
     },
     seoDescription:
@@ -215,7 +242,10 @@ export const structure = [
     description:
       'A clear criteria of creativity, innovation, and craftsmanship which accelerate the way people live and work.',
     previewImage: {
-      src: '/principles-light.svg',
+      src: {
+        light: '/foundation-preview-principles.svg', 
+        dark: '/foundation-preview-principles-invert.svg',
+      },
       alt: 'HPE Principles Preview',
     },
     seoDescription:
@@ -231,7 +261,10 @@ export const structure = [
     description:
       'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
     previewImage: {
-      src: '/typography-light.svg',
+      src: {
+        light: '/foundation-preview-type.svg', 
+        dark: '/foundation-preview-type-invert.svg',
+      },
       alt: 'HPE Typography Preview',
     },
     seoDescription:
@@ -251,6 +284,10 @@ export const structure = [
     seoDescription:
       'Build HPE compliant designs in code that are ready to be consumed on the web.',
     sections: [],
+    previewImage: {
+      src: '/extend-preview-designer.svg',
+      alt: 'HPE Designer',
+    },
   },
   {
     name: 'API Chomp',
@@ -259,6 +296,10 @@ export const structure = [
     seoDescription:
       'Got API, but need to easily pull data out of it for use in your app or designs. Chomp! Chomp!',
     sections: [],
+    previewImage: {
+      src: '/extend-preview-chomp.svg',
+      alt: 'HPE API Chomp',
+    },
   },
   {
     name: 'Table Topper',
@@ -267,6 +308,13 @@ export const structure = [
     seoDescription:
       'Build tables for you app quickly with all the filtering, sorting, and controls you could need!',
     sections: [],
+    previewImage: {
+      src: { 
+        light: '/extend-preview-table.svg',
+        dark: '/extend-preview-table-invert.svg',
+      },
+      alt: 'HPE Docs',
+    },
   },
   {
     name: 'HPE Docs',
@@ -275,6 +323,13 @@ export const structure = [
     seoDescription:
       'The only CMS you will ever need! Publish content quickly and easily.',
     sections: [],
+    previewImage: {
+      src: { 
+        light: '/extend-preview-hpe-docs.svg',
+        dark: '/extend-preview-hpe-docs-invert.svg',
+      },
+      alt: 'HPE Docs',
+    },
   },
   {
     name: 'HPE Audience',
@@ -283,6 +338,13 @@ export const structure = [
     seoDescription:
       'Keep it simple! Present and share slides with this lightweight service.',
     sections: [],
+    previewImage: {
+      src: { 
+        light: '/extend-preview-slides-audience.svg',
+        dark: '/extend-preview-slides-audience-invert.svg',
+      },
+      alt: 'HPE Docs',
+    },
   },
   {
     name: 'HPE Images',
@@ -291,13 +353,20 @@ export const structure = [
     seoDescription:
       'Need a place to host images in the cloud for use by your HPE services and apps?',
     sections: [],
+    previewImage:{
+      src: '/extend-preview-hpe-images.svg',
+      alt: 'HPE Images',
+    },
   },
   {
     name: 'Global Sidebar',
     description:
       'For use when building applications and services that live in the HPE eccosystem.',
     previewImage: {
-      src: '/global-sidebar-light.svg',
+      src: {
+        light: '/extend-preview-sidebar.svg',
+        dark: './extend-preview-sidebar-invert.svg',
+      },
       alt: 'HPE Global Sidebar Preview',
     },
     seoDescription:
@@ -360,10 +429,6 @@ export const structure = [
     name: 'Grid',
     description:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
-    previewImage: {
-      src: '/grid-light.svg',
-      alt: 'HPE Grid Preview',
-    },
     seoDescription:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
     sections: [],
@@ -466,10 +531,17 @@ export const structure = [
     name: 'Cards',
     description:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    previewImage: { src: '/cards-light.svg', alt: 'HPE Cards Preview' },
     seoDescription:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
+    previewImage: {
+      src: {
+        light: '/template-preview-cards.svg',
+        dark: '/template-preview-cards-invert.svg',
+      },
+      alt: 'HPE Cards Preview',
+    },
+
   },
   {
     name: 'Content',
@@ -478,5 +550,13 @@ export const structure = [
     seoDescription:
       'What and how we layout content is crucial to clear communication and ease-of-use.',
     sections: [],
+    previewImage: {
+      src: {
+        light: '/foundation-preview-content.svg',
+        dark: '/foundation-preview-content-invert.svg',
+      },
+      alt: 'HPE Content Preview',
+    },
+
   },
 ];
