@@ -23,7 +23,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       <Box gap="large">
         {previewComponent && (
           <Box
-            background={previewComponent.cardColor || 'background-back'}
+            background={previewComponent.cardColor || 'background-contrast'}
             height="small"
             round="xsmall"
             overflow="hidden"
@@ -43,7 +43,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
         )}
         {!previewComponent && (
         <Box
-          background='background-back'
+          background='background-contrast'
           height="small"
           round="xsmall"
           overflow="hidden"
