@@ -1,12 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import {
-  Box,
-  Footer as GrommetFooter,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
+import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
 import { ThemeModeToggle, NavButton } from '../../components';
 import { nameToPath } from '../../utils';
 
@@ -40,28 +35,26 @@ export const Footer = () => {
         <Box>
           <Text>&copy; {year} Hewlett Packard Enterprise</Text>
         </Box>
-        <Box direction='row'>
-        {externalFooterLinks.map(item => (
-          <Link
-            key={item.name}
-            href={item.href}
-            passHref
-          >
-            <NavButton
-              item={item.name}
-              active={router.pathname === (item.href)}
-              target="_blank"
-              rel="noreferrer noopener"
-            />
-          </Link>
-        ))}
-        {/* Need to pass href because of:
+        <Box direction="row" gap="xsmall">
+          {externalFooterLinks.map(item => (
+            <Box align="start">
+              <Link key={item.name} href={item.href} passHref>
+                <NavButton
+                  item={item.name}
+                  active={router.pathname === item.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                />
+              </Link>
+            </Box>
+          ))}
+          {/* Need to pass href because of:
         https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
-        <Link prefetch={false} href={nameToPath('Feedback')} passHref>
-          <NavButton
-            item="Feedback"
-          />
-        </Link>
+          <Box align="start">
+            <Link prefetch={false} href={nameToPath('Feedback')} passHref>
+              <NavButton item="Feedback" />
+            </Link>
+          </Box>
         </Box>
       </Box>
       <Box direction="row-responsive">
