@@ -341,9 +341,7 @@ export const structure = [
       'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
     sections: [],
     previewComponent: {
-      component() {
-        return <AnchorPreview />;
-      },
+      component: () =>  <AnchorPreview />,
     },
   },
   {
