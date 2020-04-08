@@ -67,6 +67,7 @@ export const SignUpExample = () => {
               label="Full Name"
               htmlFor="fullName-sign-up"
               name="fullName"
+              required
             >
               <TextInput
                 id="fullName-sign-up"
@@ -78,12 +79,8 @@ export const SignUpExample = () => {
               label="Password"
               htmlFor="password-sign-up"
               name="password"
-              help={
-                <Text size="xsmall">
-                  Include at least 8 characters, a lowercase letter, an
-                  uppercase letter, a number, and a special character
-                </Text>
-              }
+              help="Include at least 8 characters, a lowercase letter, an
+              uppercase letter, a number, and a special character"
               validate={passwordRulesStrong}
             >
               <TextInput

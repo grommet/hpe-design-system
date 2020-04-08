@@ -1,30 +1,43 @@
-import React from 'react';
-import { Box, Button } from 'grommet';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Button, Text } from 'grommet';
 import { IconMoon, IconSun } from '../icons';
 import { useDarkMode } from '../../utils';
 
-export const ThemeModeToggle = () => {
+export const ThemeModeToggle = ({ active }) => {
+  const [hover, setHover] = useState(false);
   const darkMode = useDarkMode();
   const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
   const icon = darkMode.value ? <IconSun /> : <IconMoon />;
   return (
-    <Box align="start">
-      <Button onClick={() => darkMode.toggle()}>
+    <Box width={{ max: 'small' }}>
+      <Button
+        onMouseOver={() => setHover(true)}
+        onFocus={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+        onBlur={() => setHover(false)}
+        color="background-back"
+        alignSelf='start'
+        primary
+        onClick={() => darkMode.toggle()}
+      >
         <Box
-          background="blue!"
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          round="xxsmall"
+          background={active || hover ? 'active-background' : undefined}
           direction="row"
           gap="xsmall"
-          justify="center"
-          overflow="hidden"
-          pad={{ vertical: 'small', horizontal: 'medium' }}
-          responsive={false}
-          round="xlarge"
-          width="small"
         >
           {icon}
-          {label}
+          <Text weight="bold" margin="none">
+            {label}
+          </Text>
         </Box>
       </Button>
     </Box>
   );
+};
+
+ThemeModeToggle.propTypes = {
+  active: PropTypes.bool,
 };

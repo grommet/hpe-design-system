@@ -89,7 +89,9 @@ export const FilterExample = () => {
             </FormField>
             {serverTypes && (
               <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text margin={{ left: 'small' }}>HPE Server Types</Text>
+                <Text color="text-weak" size="xsmall">
+                  HPE Server Types
+                </Text>
                 <Box border gap="small" pad="xsmall" round="xsmall">
                   {serverTypes.map(server => {
                     return (
@@ -101,7 +103,9 @@ export const FilterExample = () => {
             )}
             {sellers && (
               <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text margin={{ left: 'small' }}>Seller</Text>
+                <Text color="text-weak" size="xsmall">
+                  Seller
+                </Text>
                 <Box border gap="small" pad="xsmall" round="xsmall">
                   {sellers.map(seller => {
                     return (

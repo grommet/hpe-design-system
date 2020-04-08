@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Button, ResponsiveContext } from 'grommet';
+import { Avatar, Box, Button, ResponsiveContext } from 'grommet';
 import { Apps, Chat, Clock, Terminal, StatusUnknown } from 'grommet-icons';
 
 export const SidebarExample = ({ ...rest }) => {
@@ -16,13 +16,9 @@ export const SidebarExample = ({ ...rest }) => {
       {...rest}
     >
       {size !== 'small' && (
-        <Box
-          height="xxsmall"
-          width="xxsmall"
-          round="full"
+        <Avatar
           margin={{ bottom: 'medium' }}
-          // eslint-disable-next-line max-len
-          background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
+          src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80"
         />
       )}
       <Box

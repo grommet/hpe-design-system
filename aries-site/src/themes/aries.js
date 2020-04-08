@@ -3,28 +3,37 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  global: {
-    colors: {
-      focus: 'teal!',
+  formField: {
+    border: {
+      error: {
+        color: 'text-weak',
+      },
+    },
+    error: {
+      background: {
+        color: { light: '#FF40404D', dark: '#FF404066' },
+      },
     },
   },
-  layer: {
-    background: 'background',
-  },
   checkBox: {
+    color: 'selected-text',
+    gap: 'small',
+    check: {
+      radius: '2px',
+    },
+    border: {
+      width: '1px',
+    },
     toggle: {
-      color: {
-        dark: hpe.global.colors['text-strong'].dark,
-        light: hpe.global.colors['text-strong'].dark,
-      },
-      background: 'background-back',
       extend: ({ checked, theme }) => `
           border: none;
           ${checked && `background-color: ${normalizeColor('brand', theme)};`}
       `,
       knob: {
         extend: ({ theme }) => `
-          border: 2px solid ${theme.global.colors.text.light};
+          border: 2px solid ${
+            theme.global.colors.text[theme.dark ? 'dark' : 'light']
+          };
           top: 0px;
         `,
       },
@@ -33,11 +42,13 @@ export const aries = deepMerge(hpe, {
   rangeInput: {
     thumb: {
       color: {
-        dark: 'text-strong',
-        light: hpe.global.colors['text-strong'].dark,
+        dark: 'background-front',
+        light: 'background',
       },
       extend: ({ theme }) => `
-        border: 2px solid ${theme.global.colors.text.light};
+        border: 2px solid ${
+          theme.global.colors.text[theme.dark ? 'dark' : 'light']
+        };
       `,
     },
     track: {
@@ -57,8 +68,8 @@ export const aries = deepMerge(hpe, {
     },
   },
   anchor: {
-    color: 'brand',
-    textDecoration: 'none',
+    color: 'text',
+    textDecoration: 'underline',
     fontWeight: 500,
     hover: {
       textDecoration: 'underline',
