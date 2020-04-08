@@ -72,13 +72,12 @@ ContentCard.propTypes = {
     preview: PropTypes.shape({
       background: PropTypes.string,
       justify: PropTypes.string,
-      component: PropTypes.object,
+      component: PropTypes.func,
       image: PropTypes.shape({
         alt: PropTypes.string,
         fit: PropTypes.string,
         src: PropTypes.string,
       }),
-      preview: PropTypes.func,
     }),
   }),
 };
