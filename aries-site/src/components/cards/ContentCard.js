@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
+import { PreviewImageCard } from './PreviewCard';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   const { description, name, parent, preview } = topic;
@@ -22,13 +23,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
     >
       <Box gap="large">
         {preview && (
-          <Box
-            background={preview.background}
-            height="small"
-            round="xsmall"
-            overflow="hidden"
-            style={{ position: 'relative' }}
-          >
+          <PreviewImageCard background={preview.background}>
             {preview &&
               (preview.image ? (
                 <Image
@@ -46,17 +41,9 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
                   {preview.component()}
                 </Box>
               ))}
-          </Box>
+          </PreviewImageCard>
         )}
-        {!preview && (
-          <Box
-            background="background-contrast"
-            height="small"
-            round="xsmall"
-            overflow="hidden"
-            style={{ position: 'relative' }}
-          />
-        )}
+        {!preview && <PreviewImageCard />}
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
             {parent && parent.icon && (
@@ -73,14 +60,6 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   );
 });
 
-ContentCard.defaultProps = {
-  topic: {
-    preview: {
-      justify: 'center',
-      background: 'background-contrast',
-    },
-  },
-};
 ContentCard.propTypes = {
   topic: PropTypes.shape({
     description: PropTypes.string.isRequired,
