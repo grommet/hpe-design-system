@@ -15,6 +15,7 @@ import {
   FooterPreview,
   GridPreview,
   HeaderPreview,
+  LayerPreview,
   MaskedInputPreview,
   MenuPreview,
   RadioButtonGroupPreview,
@@ -341,7 +342,7 @@ export const structure = [
       'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
     sections: [],
     previewComponent: {
-      component: () =>  <AnchorPreview />,
+      component: () => <AnchorPreview />,
     },
   },
   {
@@ -420,6 +421,9 @@ export const structure = [
     name: 'Layer',
     description:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    previewComponent: {
+      component: () => <LayerPreview />,
+    },
     seoDescription:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
     sections: [],
@@ -439,7 +443,7 @@ export const structure = [
     seoDescription:
       'MaskedInput allows you to specify formailzed text within a form field.',
     sections: [],
-    previewComponent:{
+    previewComponent: {
       component: () => <MaskedInputPreview />,
       background: 'background-front',
     },
@@ -451,7 +455,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <MenuPreview />,
-    }, 
+    },
   },
   {
     name: 'RadioButtonGroup',
@@ -462,7 +466,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <RadioButtonGroupPreview />,
-    }, 
+    },
   },
   {
     name: 'RangeInput',
@@ -474,7 +478,7 @@ export const structure = [
     previewComponent: {
       component: () => <RangeInputPreview />,
       background: 'background-front',
-    }, 
+    },
   },
   {
     name: 'Select',
@@ -485,7 +489,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <SelectPreview />,
-    }, 
+    },
   },
   {
     name: 'Stack',
@@ -505,7 +509,7 @@ export const structure = [
     previewComponent: {
       component: () => <TabsPreview />,
       background: 'background-front',
-    }, 
+    },
   },
   {
     name: 'TextArea',
