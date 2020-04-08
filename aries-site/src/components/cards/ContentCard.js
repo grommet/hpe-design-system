@@ -70,7 +70,10 @@ ContentCard.propTypes = {
     previewImage: PropTypes.shape({
       alt: PropTypes.string,
       fit: PropTypes.string,
-      src: PropTypes.string,
+      src: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string
+      ])
     }),
     preview: PropTypes.func,
   }),
