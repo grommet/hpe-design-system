@@ -4,7 +4,7 @@ import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
-  const { description, name, parent, previewImage, previewComponent } = topic;
+  const { description, name, parent, preview } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   return (
     <Tile
@@ -21,42 +21,41 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       {...rest}
     >
       <Box gap="large">
-        {previewComponent && (
+        {preview && (
           <Box
-            background={previewComponent.background || 'background-contrast'}
+            background={preview.background}
             height="small"
             round="xsmall"
             overflow="hidden"
             style={{ position: 'relative' }}
           >
-            {previewComponent && (
-              <Box
-                style={{ pointerEvents: 'none' }}
-                flex
-                align="center"
-                justify={previewComponent.justify || 'center'}
-              >
-                {previewComponent.component()}
-              </Box>
-            )}
+            {preview &&
+              (preview.image ? (
+                <Image
+                  src={preview.image.src}
+                  alt={preview.image.alt}
+                  fit={preview.image.fit || 'cover'}
+                />
+              ) : (
+                <Box
+                  style={{ pointerEvents: 'none' }}
+                  flex
+                  justify={preview.justify || 'center'}
+                  align="center"
+                >
+                  {preview.component()}
+                </Box>
+              ))}
           </Box>
         )}
-        {!previewComponent && (
+        {!preview && (
           <Box
             background="background-contrast"
             height="small"
             round="xsmall"
             overflow="hidden"
             style={{ position: 'relative' }}
-          >
-            {previewImage && (
-              <Image
-                src={previewImage.src}
-                alt={previewImage.alt}
-                fit={previewImage.fit || 'cover'}
-              />
-            )}
-          </Box>
+          />
         )}
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
@@ -74,6 +73,14 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   );
 });
 
+ContentCard.defaultProps = {
+  topic: {
+    preview: {
+      justify: 'center',
+      background: 'background-contrast',
+    },
+  },
+};
 ContentCard.propTypes = {
   topic: PropTypes.shape({
     description: PropTypes.string.isRequired,
@@ -83,16 +90,16 @@ ContentCard.propTypes = {
       icon: PropTypes.func.isRequired,
       name: PropTypes.string.isRequired,
     }),
-    previewComponent: PropTypes.shape({
-      component: PropTypes.func,
+    preview: PropTypes.shape({
       background: PropTypes.string,
       justify: PropTypes.string,
+      component: PropTypes.object,
+      image: PropTypes.shape({
+        alt: PropTypes.string,
+        fit: PropTypes.string,
+        src: PropTypes.string,
+      }),
+      preview: PropTypes.func,
     }),
-    previewImage: PropTypes.shape({
-      alt: PropTypes.string,
-      fit: PropTypes.string,
-      src: PropTypes.string,
-    }),
-    preview: PropTypes.func,
   }),
 };
