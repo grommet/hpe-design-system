@@ -10,20 +10,7 @@ const pageDetails = getPageDetails(title);
 const cards = getCards();
 
 const Index = () => (
-  <Layout
-    backgroundImage={{
-      src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
-      alt: 'HPE Carte Design System',
-      margin: { top: '50px', left: '-150px' },
-      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
-      small: {
-        margin: { left: '-75px', top: '-75px' },
-      },
-      useTiles: true,
-    }}
-    title={title}
-    isLanding
-  >
+  <Layout backgroundImage={pageDetails.backgroundImage} title={title} isLanding>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box gap="large">
       <PageIntro>

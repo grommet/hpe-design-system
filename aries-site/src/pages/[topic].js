@@ -4,33 +4,26 @@ import { Box, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../components';
 import { Layout, PageIntro } from '../layouts';
-import { getCards, getPageDetails, titleCase, useDarkMode } from '../utils';
+import { getCards, getPageDetails, titleCase } from '../utils';
 
 const NavPage = ({ topic: topicProp }) => {
   const topic = titleCase(topicProp);
   const pageDetails = getPageDetails(topic);
   const cards = getCards(topic);
-
-  const darkMode = useDarkMode();
-  const cardImage = darkMode.value
-    ? `/carte-${topicProp}-dark.svg`
-    : `/carte-${topicProp}-light.svg`;
-
+  React.useEffect(() => console.log(pageDetails), [pageDetails]);
   return (
-    <Layout title={topic} isLanding>
+    <Layout
+      title={topic}
+      isLanding
+      backgroundImage={pageDetails.backgroundImage}
+    >
       <Meta
         title={topic}
         description={pageDetails.seoDescription}
         canonicalUrl={`https://design-system.hpe.design/${topicProp}`}
       />
       <Box gap="large">
-        <PageIntro
-          image={{
-            src: cardImage,
-            alt: 'Card deck of HPE Design System template cards',
-            fit: 'cover',
-          }}
-        >
+        <PageIntro>
           <Box justify="center" fill>
             <Heading margin="none">{topic}</Heading>
             <Paragraph fill>{pageDetails.description}</Paragraph>

@@ -13,6 +13,16 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
+    backgroundImage: {
+      src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
+      alt: 'HPE Carte Design System',
+      margin: { top: '50px', left: '-150px' },
+      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
+      small: {
+        margin: { left: '-75px', top: '-75px' },
+      },
+      useTiles: true,
+    },
     pages: ['Foundation', 'Components', 'Templates', 'Extend'],
   },
   {
@@ -29,6 +39,17 @@ export const structure = [
     icon: (size, color) => <IconCircle size={size} color={color} />,
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
+    backgroundImage: {
+      src: {
+        dark: '/carte-foundation-dark.svg',
+        light: '/carte-foundation-light.svg',
+      },
+      alt: 'HPE Carte Design System Foundation',
+      margin: { left: '-200px', top: '-175px' },
+      small: {
+        margin: { left: '0', top: '-300px' },
+      },
+    },
     pages: [
       'Content',
       'Color',
@@ -48,6 +69,17 @@ export const structure = [
     icon: (size, color) => <IconDiamond size={size} color={color} />,
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
+    backgroundImage: {
+      src: {
+        dark: '/carte-templates-dark.svg',
+        light: '/carte-templates-light.svg',
+      },
+      alt: 'HPE Carte Design System Templates',
+      margin: { left: '-200px', top: '-125px' },
+      small: {
+        margin: { left: '-25px', top: '-175px' },
+      },
+    },
     pages: ['Cards', 'Dashboards', 'Forms', 'Lists'],
   },
   {
@@ -58,6 +90,18 @@ export const structure = [
     icon: (size, color) => <IconSquare size={size} color={color} />,
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
+    backgroundImage: {
+      src: {
+        dark: '/carte-components-dark.svg',
+        light: '/carte-components-light.svg',
+      },
+      alt: 'HPE Carte Design System',
+      fit: 'contain',
+      margin: { top: '-200px', left: '-75px' },
+      small: {
+        margin: { top: '-250px' },
+      },
+    },
     pages: [
       'Accordion',
       'Anchor',
@@ -88,6 +132,17 @@ export const structure = [
     icon: (size, color) => <IconExtend size={size} color={color} />,
     seoDescription:
       'All the aesthetics, best practices, and information about the platform and how to wield it.',
+    backgroundImage: {
+      src: {
+        dark: '/carte-extend-dark.svg',
+        light: '/carte-extend-light.svg',
+      },
+      alt: 'HPE Carte Design System Extend',
+      margin: { left: '-225px', top: '-85px' },
+      small: {
+        margin: { left: '-25px', top: '-100px' },
+      },
+    },
     pages: [
       'Global Sidebar',
       'Designer',

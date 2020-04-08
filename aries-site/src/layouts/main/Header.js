@@ -29,7 +29,12 @@ const StyledHeader = ({ background, ...rest }) => {
         <Box direction="row" align="center" gap="xsmall">
           {size !== 'small' &&
             navItems.map(item => (
-              <Link key={item.name} href={nameToPath(item.name)} passHref>
+              <Link
+                key={item.name}
+                href="/[topic]"
+                as={nameToPath(item.name)}
+                passHref
+              >
                 <NavButton
                   key={item.name}
                   item={item.name}
