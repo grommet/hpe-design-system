@@ -4,10 +4,14 @@ import { Hpe, Menu } from 'grommet-icons';
 
 export const HeaderPreview = () => {
   return (
-    <Header background="background-front" fill="horizontal">
+    <Header
+      border={{ side: 'bottom' }}
+      background="background-front"
+      fill="horizontal"
+    >
       <Box direction="row">
         <Button icon={<Hpe color="brand" />} />
-        <Box gap='xsmall' direction="row">
+        <Box gap="xsmall" direction="row">
           <Text weight="bold" alignSelf="center">
             {' '}
             HPE{' '}
