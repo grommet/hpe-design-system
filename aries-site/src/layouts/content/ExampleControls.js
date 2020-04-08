@@ -8,6 +8,7 @@ const ControlButton = ({ children, ...rest }) => (
     {({ hover }) => (
       <Box
         direction="row"
+        align="center"
         gap="small"
         pad={{ vertical: 'xsmall', horizontal: 'small' }}
         round="small"
@@ -33,6 +34,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
       size: 'xsmall',
     }}
     direction="row"
+    align="start"
     justify="between"
     pad={{ horizontal: 'medium', vertical: 'small' }}
     round={{ corner: 'bottom', size: 'small' }}

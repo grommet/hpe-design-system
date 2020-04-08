@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, Stack } from 'grommet';
+import { Avatar, Grommet, Box, Stack } from 'grommet';
 import { Aruba, BusinessService, Hpe } from 'grommet-icons';
 
 import { Identifier, Tile, Tiles } from 'aries-core';
@@ -12,16 +12,7 @@ export default {
   title: 'Identifier',
 };
 
-const Avatar = ({ round, ...rest }) => (
-  <Box
-    height="xxsmall"
-    width="xxsmall"
-    round={round || 'full'}
-    // eslint-disable-next-line max-len
-    background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
-    {...rest}
-  />
-);
+const src = '//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80';
 
 const BasicTile = ({ title, subTitle, ...rest }) => (
   <Tile background="background-front" pad="small" alignSelf="center">
@@ -49,11 +40,11 @@ export const Children = () => (
           <BusinessService size="large" />
         </BasicTile>
         <BasicTile title="Avatar" subTitle="Component Child" size="small">
-          <Avatar />
+          <Avatar src={src} />
         </BasicTile>
         <BasicTile title="Notified Avatar" subTitle="Component Child">
           <Stack anchor="top-right">
-            <Avatar round="small" margin="xxsmall" />
+            <Avatar src={src} round="small" margin="xxsmall" />
             <Box pad="xsmall" round background="yellow!" />
           </Stack>
         </BasicTile>

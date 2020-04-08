@@ -89,6 +89,7 @@ export const Example = ({
   details,
   docs,
   figma,
+  height,
   template,
   ...rest
 }) => {
@@ -99,9 +100,8 @@ export const Example = ({
   const [mobile, setMobile] = React.useState(false);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
-  const { size } = defaultProps.theme.global;
-  const aspectHeight = `${parseInt(size.medium, 10) +
-    parseInt(size.small, 10)}px`;
+  const { small, medium } = defaultProps.theme.global.size;
+  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -131,7 +131,7 @@ export const Example = ({
             direction="row"
             // Height for template screen needs to be between medium and large
             // to maintain aspect ratio, so this is small + medium
-            height={template ? aspectHeight : { min: aspectHeight }}
+            height={template ? aspectHeight : height}
             justify="center"
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
@@ -272,5 +272,10 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   template: PropTypes.bool,
+};
+
+Example.defaultProps = {
+  height: { min: 'medium' },
 };

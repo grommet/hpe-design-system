@@ -3,42 +3,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { AppIdentity, Header } from 'aries-core';
-import { Box, Button, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
+import { NavButton } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
-
-const NavButton = ({ active, item, ...rest }) => {
-  const [hover, setHover] = useState(false);
-  return (
-    <Link href="/[topic]" as={nameToPath(item.name)} passHref>
-      <Button
-        onMouseOver={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        {...rest}
-      >
-        <Box
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-          round="xxsmall"
-          background={active || hover ? 'active-background' : undefined}
-        >
-          <Text weight="bold" margin="none">
-            {item.name}
-          </Text>
-        </Box>
-      </Button>
-    </Link>
-  );
-};
-
-NavButton.propTypes = {
-  active: PropTypes.bool.isRequired,
-  item: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }),
-};
 
 const StyledHeader = ({ background, ...rest }) => {
   const pageDetails = getPageDetails('Home');
@@ -60,11 +29,13 @@ const StyledHeader = ({ background, ...rest }) => {
         <Box direction="row" align="center" gap="xsmall">
           {size !== 'small' &&
             navItems.map(item => (
-              <NavButton
-                key={item.name}
-                item={item}
-                active={router.pathname === nameToPath(item.name)}
-              />
+              <Link key={item.name} href={nameToPath(item.name)} passHref>
+                <NavButton
+                  key={item.name}
+                  item={item.name}
+                  active={router.pathname === nameToPath(item.name)}
+                />
+              </Link>
             ))}
           <Button
             id="search-button"

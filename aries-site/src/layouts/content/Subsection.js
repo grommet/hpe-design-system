@@ -14,6 +14,11 @@ export const TEXT_SIZE = {
   3: 'small', // heading is h3, paragraph text should be small
 };
 
+// Specific Heading size modifications for Subsection
+export const HEADING_SIZE = {
+  3: 'small', // heading is h3, but should render as the small variant
+};
+
 export const Subsection = ({
   children,
   showHeading,
@@ -82,7 +87,10 @@ export const Subsection = ({
                   />
                 </Link>
               )}
-              <Subheading level={level} headingSize={headingSize}>
+              <Subheading
+                level={level}
+                headingSize={headingSize || HEADING_SIZE[level]}
+              >
                 {name}
               </Subheading>
             </Box>
