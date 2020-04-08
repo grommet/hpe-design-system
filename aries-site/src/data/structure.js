@@ -15,7 +15,6 @@ import {
   FooterPreview,
   GridPreview,
   HeaderPreview,
-  LayerPreview,
   MaskedInputPreview,
   MenuPreview,
   RadioButtonGroupPreview,
@@ -25,7 +24,6 @@ import {
   TextAreaPreview,
   TextInputPreview,
 } from '../examples/cardPreviews';
-import { StackExample } from '../examples';
 
 export const structure = [
   {
@@ -425,9 +423,6 @@ export const structure = [
     seoDescription:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
     sections: [],
-    previewComponent: {
-      component: () => <LayerPreview />,
-    },
   },
   {
     name: 'Main',
@@ -499,9 +494,6 @@ export const structure = [
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
-    previewComponent: {
-      component: () => <StackExample />,
-    }, 
   },
   {
     name: 'Tabs',
