@@ -42,21 +42,21 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
           </Box>
         )}
         {!previewComponent && (
-        <Box
-          background='background-contrast'
-          height="small"
-          round="xsmall"
-          overflow="hidden"
-          style={{ position: 'relative' }}
-        >
-          {previewImage && (
-            <Image
-              src={previewImage.src}
-              alt={previewImage.alt}
-              fit={previewImage.fit || 'cover'}
-            />
-          )}
-        </Box>
+          <Box
+            background="background-contrast"
+            height="small"
+            round="xsmall"
+            overflow="hidden"
+            style={{ position: 'relative' }}
+          >
+            {previewImage && (
+              <Image
+                src={previewImage.src}
+                alt={previewImage.alt}
+                fit={previewImage.fit || 'cover'}
+              />
+            )}
+          </Box>
         )}
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
