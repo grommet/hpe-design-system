@@ -5,6 +5,7 @@ export * from './checkbox';
 export * from './footer';
 export * from './grid';
 export * from './header';
+export * from './layer';
 export * from './maskedinput';
 export * from './menu';
 export * from './radiobuttonGroup';

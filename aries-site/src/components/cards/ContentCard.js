@@ -23,7 +23,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       <Box gap="large">
         {previewComponent && (
           <Box
-            background={previewComponent.cardColor || 'background-contrast'}
+            background={previewComponent.background || 'background-contrast'}
             height="small"
             round="xsmall"
             overflow="hidden"
@@ -85,7 +85,7 @@ ContentCard.propTypes = {
     }),
     previewComponent: PropTypes.shape({
       component: PropTypes.func,
-      cardColor: PropTypes.string,
+      background: PropTypes.string,
       justify: PropTypes.string,
     }),
     previewImage: PropTypes.shape({

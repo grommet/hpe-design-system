@@ -15,6 +15,7 @@ import {
   FooterPreview,
   GridPreview,
   HeaderPreview,
+  LayerPreview,
   MaskedInputPreview,
   MenuPreview,
   RadioButtonGroupPreview,
@@ -24,6 +25,7 @@ import {
   TextAreaPreview,
   TextInputPreview,
 } from '../examples/cardPreviews';
+import { StackExample } from '../examples';
 
 export const structure = [
   {
@@ -353,7 +355,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <BoxPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
@@ -365,7 +367,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <ButtonPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
@@ -377,7 +379,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <CheckBoxPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
@@ -398,7 +400,7 @@ export const structure = [
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
     previewComponent: {
       component: () => <GridPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
     seoDescription:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
@@ -423,6 +425,9 @@ export const structure = [
     seoDescription:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
     sections: [],
+    previewComponent: {
+      component: () => <LayerPreview />,
+    },
   },
   {
     name: 'Main',
@@ -441,7 +446,7 @@ export const structure = [
     sections: [],
     previewComponent:{
       component: () => <MaskedInputPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
@@ -473,7 +478,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <RangeInputPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     }, 
   },
   {
@@ -494,6 +499,9 @@ export const structure = [
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
+    previewComponent: {
+      component: () => <StackExample />,
+    }, 
   },
   {
     name: 'Tabs',
@@ -504,7 +512,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <TabsPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     }, 
   },
   {
@@ -516,7 +524,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <TextAreaPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
@@ -528,7 +536,7 @@ export const structure = [
     sections: [],
     previewComponent: {
       component: () => <TextInputPreview />,
-      cardColor: 'background-front',
+      background: 'background-front',
     },
   },
   {
