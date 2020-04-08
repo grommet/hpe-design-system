@@ -33,10 +33,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
           {previewImage && (
             <Image
               src={
-                darkMode.value
-                  ? previewImage.src.dark || previewImage.src
-                  : previewImage.src.light || previewImage.src
-              }
+                darkMode.value ? previewImage.src.dark : previewImage.src.light}
               alt={previewImage.alt}
               fit={previewImage.fit || 'cover'}
             />
@@ -70,10 +67,7 @@ ContentCard.propTypes = {
     previewImage: PropTypes.shape({
       alt: PropTypes.string,
       fit: PropTypes.string,
-      src: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string
-      ])
+      src: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     }),
     preview: PropTypes.func,
   }),
