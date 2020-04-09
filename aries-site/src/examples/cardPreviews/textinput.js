@@ -6,7 +6,7 @@ export const TextInputPreview = () => {
     <FormField
       style={{ borderRadius: '4px' }}
       fill="horizontal"
-      border={{ color: 'focus' }}
+      border={{ color: 'focus', size: 'small' }}
     >
       <TextInput focusIndicator placeholder="Placeholder text" />
     </FormField>
