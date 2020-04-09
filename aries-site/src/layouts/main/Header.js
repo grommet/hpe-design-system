@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import { AppIdentity, Header } from 'aries-core';
 import { Box, Button, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
@@ -9,7 +8,7 @@ import { NavButton } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-const StyledHeader = ({ background, ...rest }) => {
+const StyledHeader = ({ ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
   const [searchFocused, setSearchFocused] = useState(false);
@@ -17,7 +16,7 @@ const StyledHeader = ({ background, ...rest }) => {
   const router = useRouter();
 
   return (
-    <Header background={background} {...rest}>
+    <Header {...rest}>
       <Link href="/" passHref>
         <AppIdentity
           brand="hpe"
@@ -30,11 +29,11 @@ const StyledHeader = ({ background, ...rest }) => {
           {size !== 'small' &&
             navItems.map(item => (
               <Link key={item.name} href={nameToPath(item.name)} passHref>
-              <NavButton
-                key={item.name}
-                item={item.name}
-                active={router.pathname === nameToPath(item.name)}
-              />
+                <NavButton
+                  key={item.name}
+                  item={item.name}
+                  active={router.pathname === nameToPath(item.name)}
+                />
               </Link>
             ))}
           <Button
@@ -55,11 +54,3 @@ const StyledHeader = ({ background, ...rest }) => {
 };
 
 export { StyledHeader as Header };
-
-StyledHeader.propTypes = {
-  background: PropTypes.string,
-};
-
-StyledHeader.defaultProp = {
-  background: undefined,
-};
