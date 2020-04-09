@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext, Stack } from 'grommet';
-import { Header, Head, FeedbackSection, Footer } from '..';
-import { PageBackground, ThemeMode } from '../../components';
+import { Header, Head, FeedbackSection, Footer, ThemeMode } from '..';
+import { PageBackground } from '../../components';
 import { Config } from '../../../config';
 
 const calcPad = size => {
@@ -11,13 +11,7 @@ const calcPad = size => {
   return val;
 };
 
-export const Layout = ({
-  backgroundImage,
-  children,
-  descriptiveHeader,
-  title,
-  isLanding,
-}) => {
+export const Layout = ({ backgroundImage, children, title, isLanding }) => {
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -43,24 +37,8 @@ export const Layout = ({
             >
               <Head title={title} />
               <>
-                <Header
-                  background={
-                    descriptiveHeader && descriptiveHeader.props.background
-                  }
-                />
+                <Header />
                 <Main overflow="visible">
-                  {/* Allows DescriptiveHeader background color not to be
-                   * confined by formatting restrictions of page content
-                   */}
-                  {descriptiveHeader &&
-                    React.cloneElement(descriptiveHeader, {
-                      pad: {
-                        horizontal: calcPad(size),
-                        bottom: calcPad(size),
-                        top: 'xlarge',
-                      },
-                      round: { corner: 'bottom', size: 'medium' },
-                    })}
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
                     pad={{
@@ -86,13 +64,11 @@ export const Layout = ({
 Layout.propTypes = {
   backgroundImage: PropTypes.shape({}),
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  descriptiveHeader: PropTypes.element,
   isLanding: PropTypes.bool,
   title: PropTypes.string,
 };
 
 Layout.defaultProps = {
-  descriptiveHeader: undefined,
   title: undefined,
   isLanding: false,
 };

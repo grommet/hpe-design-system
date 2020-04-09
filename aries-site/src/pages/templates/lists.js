@@ -1,14 +1,8 @@
 import React from 'react';
 import { Meta, SubsectionText } from '../../components';
 import { ListScreenExample } from '../../examples';
-import {
-  ContentSection,
-  Example,
-  ExampleComponents,
-  Layout,
-  Subsection,
-} from '../../layouts';
-import { getPageDetails, nameToPath } from '../../utils';
+import { ContentSection, Example, Layout, Subsection } from '../../layouts';
+import { getPageDetails } from '../../utils';
 
 const title = 'Lists';
 const topic = 'Templates';
@@ -45,27 +39,6 @@ const Lists = () => {
             <ListScreenExample />
           </Example>
         </Subsection>
-        <ExampleComponents
-          components={[
-            {
-              name: 'Box',
-              href: nameToPath('Box'),
-            },
-            {
-              name: 'Button',
-              href: nameToPath('Button'),
-            },
-            {
-              name: 'Header',
-              href: nameToPath('Header'),
-            },
-            {
-              name: 'List',
-              href: 'https://v2.grommet.io/list?theme=hpe#props',
-              target: '_blank',
-            },
-          ]}
-        />
       </ContentSection>
     </Layout>
   );
