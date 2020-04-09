@@ -25,21 +25,13 @@ test('should check Home page', async t => {
   if (t.browser.name === 'Chrome') {
     const axeContext = {
       exclude: [
-        [
-         '.StyledMaskedInput-sc-99vkfa-0',
-        ],
-        [
-          '.StyledRangeInput-sc-15st9ck-0',
-        ],
-        [
-          '.fQVcfU',
-        ],
-        [
-          'textarea',
-        ],
-        [
-          '.bmyNbr',
-        ],
+        ['.StyledMaskedInput-sc-99vkfa-0'],
+        ['.StyledRangeInput-sc-15st9ck-0'],
+        ['.fQVcfU'],
+        ['textarea'],
+        ['.bmyNbr'],
+        ['.hKvVjT'],
+        ['.gcXxRQ'],
       ],
     };
     const axeOptions = {
