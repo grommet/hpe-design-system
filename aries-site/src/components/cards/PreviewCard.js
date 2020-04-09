@@ -17,7 +17,7 @@ export const PreviewImageCard = ({ children, ...rest }) => {
 };
 
 PreviewImageCard.defaultProps = {
-  background: 'background-contrast',
+  background: 'background-back',
 };
 
 PreviewImageCard.propTypes = {
