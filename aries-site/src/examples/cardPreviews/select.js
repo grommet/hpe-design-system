@@ -3,6 +3,6 @@ import { Select } from 'grommet';
 
 export const SelectPreview = () => {
   return (
-      <Select options={['First']} placeholder="Choices" />
+    <Select aria-label="preview" options={['First']} placeholder="Choices" />
   );
 };

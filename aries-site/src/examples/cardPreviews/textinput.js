@@ -8,7 +8,11 @@ export const TextInputPreview = () => {
       fill="horizontal"
       border={{ color: 'focus', size: 'small' }}
     >
-      <TextInput focusIndicator placeholder="Placeholder text" />
+      <TextInput
+        aria-label="preview"
+        focusIndicator
+        placeholder="Placeholder text"
+      />
     </FormField>
   );
 };
