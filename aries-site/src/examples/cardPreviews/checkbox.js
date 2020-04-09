@@ -4,7 +4,7 @@ import { CheckBox, FormField } from 'grommet';
 export const CheckBoxPreview = () => {
   return (
     <FormField fill='horizontal'>
-      <CheckBox checked label="Value" />
+      <CheckBox  aria-label="preview" checked label="Value" />
     </FormField>
   );
 };
