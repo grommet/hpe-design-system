@@ -37,8 +37,8 @@ export const Footer = () => {
         </Box>
         <Box direction="row" gap="xsmall">
           {externalFooterLinks.map(item => (
-            <Box align="start">
-              <Link key={item.name} href={item.href} passHref>
+            <Box key={item.name} align="start">
+              <Link href={item.href} passHref>
                 <NavButton
                   item={item.name}
                   active={router.pathname === item.href}
