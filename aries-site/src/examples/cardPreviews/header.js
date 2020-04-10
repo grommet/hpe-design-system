@@ -5,7 +5,7 @@ import { Hpe, Menu } from 'grommet-icons';
 export const HeaderPreview = () => {
   return (
     <Header
-      border={{ side: 'bottom' }}
+      border={{ color: 'background-contrast', side: 'bottom' }}
       background="background-front"
       fill="horizontal"
     >
