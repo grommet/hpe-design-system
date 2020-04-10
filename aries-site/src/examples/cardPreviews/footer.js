@@ -3,7 +3,7 @@ import { Box, Footer, Text } from 'grommet';
 
 export const FooterPreview = () => {
   return (
-    <Footer background="background-front" fill="horizontal">
+    <Footer background="background-front" border={{ color: 'background-contrast', side: 'top' }} fill="horizontal">
       <Box direction="row" gap="xsmall">
         <Text size="small">&copy; 2020 HPE</Text>
       </Box>
