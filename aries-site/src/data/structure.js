@@ -516,6 +516,7 @@ export const structure = [
     sections: [],
     preview: {
       component: () => <SelectPreview />,
+      background: 'background-front',
     },
   },
   {
