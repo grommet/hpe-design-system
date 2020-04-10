@@ -492,6 +492,7 @@ export const structure = [
     sections: [],
     preview: {
       component: () => <RadioButtonGroupPreview />,
+      background: 'background-front',
     },
   },
   {
