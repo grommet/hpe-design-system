@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
-import { DashboardExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
 
