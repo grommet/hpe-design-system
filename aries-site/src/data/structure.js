@@ -364,6 +364,7 @@ export const structure = [
     sections: [],
     preview: {
       component: () => <AnchorPreview />,
+      background: 'background-front',
     },
   },
   {
