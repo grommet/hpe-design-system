@@ -480,6 +480,7 @@ export const structure = [
     sections: [],
     preview: {
       component: () => <MenuPreview />,
+      background: 'background-front',
     },
   },
   {
