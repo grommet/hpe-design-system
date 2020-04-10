@@ -10,7 +10,6 @@ const NavPage = ({ topic: topicProp }) => {
   const topic = titleCase(topicProp);
   const pageDetails = getPageDetails(topic);
   const cards = getCards(topic);
-  React.useEffect(() => console.log(pageDetails), [pageDetails]);
   return (
     <Layout
       title={topic}
@@ -35,6 +34,7 @@ const NavPage = ({ topic: topicProp }) => {
   );
 };
 
+// https://nextjs.org/docs/basic-features/pages#scenario-2-your-page-paths-depend-on-external-data
 // This function gets called at build time
 export async function getStaticPaths() {
   const { pages } = getPageDetails('Home');
