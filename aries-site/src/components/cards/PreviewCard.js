@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
-export const PreviewImageCard = ({ children, ...rest }) => {
+export const PreviewImageCard = ({ background, children, ...rest }) => {
   return (
     <Box
+      background={background}
       height="small"
       round="xsmall"
       overflow="hidden"
