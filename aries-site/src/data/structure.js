@@ -524,6 +524,7 @@ export const structure = [
       'A Stack component is a container that stacks content on top of each other.',
       preview: {
         component: () => <StackExample />,
+        background: 'background-front',
       },
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
