@@ -48,7 +48,16 @@ export const structure = [
     icon: (size, color) => <IconDiamond size={size} color={color} />,
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
-    pages: ['Cards', 'Dashboards', 'Forms', 'Lists', 'Navigation'],
+    pages: [
+      'Cards',
+      'Dashboards',
+      'Forms',
+      'Global Navigation',
+      'Hub and Spoke Navigation',
+      'Lists',
+      'Navigation',
+      'Persistent Navigation',
+    ],
   },
   {
     name: 'Components',
@@ -483,6 +492,44 @@ export const structure = [
     name: 'Navigation',
     description: 'At-a-glance preview for navigation patterns.',
     seoDescription: 'HPE Design System navigation templates and examples.',
+    sections: [],
+  },
+  {
+    name: 'Hub and Spoke Navigation',
+    description: `A navigation pattern promoting focussed execution through a central "hub" from which all
+    activities begin and "spokes" on which more focused tasks are accomplished.`,
+    seoDescription:
+      'Hub and spoke navigation pattern. What, why, and when to use the Hub & Spoke pattern for navigation.',
+    relatedContent: [
+      'Navigation',
+      'Persistent Navigation',
+      'Global Navigation',
+    ],
+    sections: [],
+  },
+  {
+    name: 'Persistent Navigation',
+    description: `Navigation choices persist throughout the application
+    structure, presenting consistent, easy to click-through choices.`,
+    seoDescription:
+      'Persistent navigation pattern. What, why, and when to use persistent navigation.',
+    relatedContent: [
+      'Navigation',
+      'Hub and Spoke Navigation',
+      'Global Navigation',
+    ],
+    sections: [],
+  },
+  {
+    name: 'Global Navigation',
+    description:
+      'The organizational outline for an application or Web site, allowing for easy maneuverability from one section to another.',
+    seoDescription: '',
+    relatedContent: [
+      'Navigation',
+      'Hub and Spoke Navigation',
+      'Persistent Navigation',
+    ],
     sections: [],
   },
 ];
