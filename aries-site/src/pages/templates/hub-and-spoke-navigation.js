@@ -16,7 +16,7 @@ const HubSpokeNavigation = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/templates/navigation"
+      canonicalUrl="https://design-system.hpe.design/templates/hub-and-spoke-navigation"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>

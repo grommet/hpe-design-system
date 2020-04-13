@@ -14,7 +14,7 @@ const Navigation = () => (
     <Meta
       title={title}
       description={page.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/templates/navigation"
+      canonicalUrl="https://design-system.hpe.design/templates/persistent-navigation"
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
@@ -49,12 +49,6 @@ const Navigation = () => (
             application to another with minimal clicks.`,
             `Elements such as branding or search require a ubiquitous 
             presence.`,
-            `Kitsch waistcoat organic, kogi shabby chic coloring book 
-            farm-to-table seitan enamel pin bitters banjo distillery put a 
-            bird on it.`,
-            `Quinoa venmo PBR&B beard paleo before they sold out +1 heirloom 
-            ethical aesthetic brooklyn pinterest migas pour-over coloring 
-            book.`,
           ]}
         />
       </Subsection>
@@ -84,7 +78,9 @@ const Navigation = () => (
       </Subsection>
       <Subsection name="Minimal Sidebar" level={3}>
         <SubsectionText>
-          Dreamcatcher skateboard artisan letterpress chillwave master cleanse.
+          Sidebar may contain up to a handful of navigation choices which are
+          often mixed with elements such as session. Sidebars transform to a
+          horizontal orientation on mobile devices.
         </SubsectionText>
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"

@@ -52,7 +52,7 @@ export const structure = [
       'Cards',
       'Dashboards',
       'Forms',
-      'Global Navigation',
+      'HPE Global Navigation',
       'Hub and Spoke Navigation',
       'Lists',
       'Navigation',
@@ -105,6 +105,7 @@ export const structure = [
       'HPE Docs',
       'HPE Audience',
       'HPE Images',
+      'React Router',
     ],
   },
   {
@@ -490,9 +491,17 @@ export const structure = [
   },
   {
     name: 'Navigation',
-    description: 'At-a-glance preview for navigation patterns.',
-    seoDescription: 'HPE Design System navigation templates and examples.',
+    description: 'The entry point for the expansive topic of Navigation.',
+    seoDescription:
+      'Navigation pattern guidance and recommendations for a variety of UI use cases.',
     sections: [],
+    relatedContent: [
+      'Header',
+      'Global Sidebar',
+      'Hub and Spoke Navigation',
+      'Persistent Navigation',
+      'React Router',
+    ],
   },
   {
     name: 'Hub and Spoke Navigation',
@@ -500,11 +509,7 @@ export const structure = [
     activities begin and "spokes" on which more focused tasks are accomplished.`,
     seoDescription:
       'Hub and spoke navigation pattern. What, why, and when to use the Hub & Spoke pattern for navigation.',
-    relatedContent: [
-      'Navigation',
-      'Persistent Navigation',
-      'Global Navigation',
-    ],
+    relatedContent: ['Navigation', 'Persistent Navigation', 'Global Sidebar'],
     sections: [],
   },
   {
@@ -516,20 +521,16 @@ export const structure = [
     relatedContent: [
       'Navigation',
       'Hub and Spoke Navigation',
-      'Global Navigation',
+      'Global Sidebar',
     ],
     sections: [],
   },
   {
-    name: 'Global Navigation',
+    name: 'React Router',
     description:
-      'The organizational outline for an application or Web site, allowing for easy maneuverability from one section to another.',
-    seoDescription: '',
-    relatedContent: [
-      'Navigation',
-      'Hub and Spoke Navigation',
-      'Persistent Navigation',
-    ],
+      'A collection of navigational components that compose declaratively with your application.',
+    seoDescription:
+      'A collection of navigational components that compose declaratively with your application.',
     sections: [],
   },
 ];

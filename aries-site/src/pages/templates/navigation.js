@@ -1,13 +1,19 @@
 import React from 'react';
-import { Text } from 'grommet';
-import { Meta, SubsectionText } from '../../components';
-import { DashboardExample } from '../../examples';
-import { ContentSection, Example, Layout, Subsection } from '../../layouts';
-import { getPageDetails } from '../../utils';
+import { Anchor } from 'grommet';
+
+import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import { ContentSection, Layout, Subsection } from '../../layouts';
+import { getPageDetails, getRelatedContent } from '../../utils';
 
 const title = 'Navigation';
 const topic = 'Templates';
 const page = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
+
+const navPatterns = ['Hub and Spoke Navigation', 'Persistent Navigation'];
+const navCards = navPatterns.map(pattern => getPageDetails(pattern));
+const globalSidebar = getPageDetails('Global Sidebar');
+const routerExample = getPageDetails('React Router');
 
 const Navigation = () => (
   <Layout title={title}>
@@ -18,72 +24,73 @@ const Navigation = () => (
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
+        <SubsectionText>{page.description}</SubsectionText>
         <SubsectionText>
-          Template navigation patterns for presenting variety of navigation
-          examples.
-        </SubsectionText>
-        <SubsectionText>
-          Navigation patterns scheme includes several navigational pieces such
-          as global, local, supplemental, and contextual navigation; all of
-          these are vital aspects of the broad topic of web navigation.
-        </SubsectionText>
-        <SubsectionText>
-          Hierarchical navigation systems are vital since it is the primary
-          navigation system. It allows for the user to navigate within the site
-          using levels alone, which is often seen as restricting and requires
-          additional navigation systems to better structure the website.
-        </SubsectionText>
-        <SubsectionText>
-          The global navigation of a website, as another segment of web
-          navigation, serves as the outline and template in order to achieve an
-          easy maneuver for the users accessing the site, while local navigation
-          is often used to help the users within a specific section of the site.
-        </SubsectionText>
-        <SubsectionText>
-          All these navigational pieces fall under the categories of various
-          types of web navigation, allowing for further development and for more
-          efficient experiences upon visiting a webpage.
+          View navigation patterns and templates for HPE applications, learn how
+          to incorporate Global Sidebar into applications living in the HPE
+          as-a-service ecosystem, and see how to implement leading React routing
+          packages with navigation templates.
         </SubsectionText>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Hub & Spoke Navigation">
-        <Text>
-          The examples would demonstrate tiles and list navigation examples
-          (WIP)
-        </Text>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          template
-        >
-          <DashboardExample />
-        </Example>
+      <Subsection name="Patterns">
+        <SubsectionText>
+          Recommended patterns, templates, and examples for use within the
+          context of a single application, website, or subsection within an
+          application. Plus, demonstration on how local navigation patterns may
+          be combined with the{' '}
+          <Anchor href="#hpe-global-navigation">Global Sidebar</Anchor> for easy
+          maneuverability across applications within the HPE ecosystem.
+        </SubsectionText>
       </Subsection>
+      {navCards.length > 0 ? (
+        <Subsection name="Navigation Within an Application" level={3}>
+          <SubsectionText>
+            Flexible in nature, the following patterns can be applied to present
+            contextual, supplemental, and hierachical needs within an
+            application or subsection of a larger application.
+          </SubsectionText>
+          <BulletedList
+            items={[
+              `Hub & Spoke patterns lend themselves well to applications 
+              primarily concerned with task execution.`,
+              `Reach for Persistent Navigation patterns when a user needs 
+              orientation or easy access to appication sections.`,
+            ]}
+          />
+          <CardGrid cards={navCards} />
+        </Subsection>
+      ) : null}
+      {globalSidebar ? (
+        <Subsection name="HPE Global Navigation" level={3}>
+          <SubsectionText>
+            In the context of HPE's expanding as-a-service portfolio, HPE global
+            navigation demonstrates how local app navigation patterns may be
+            combined with the HPE Global Sidebar.
+          </SubsectionText>
+          <CardGrid cards={[globalSidebar]} />
+        </Subsection>
+      ) : null}
     </ContentSection>
-    <ContentSection>
-      <Subsection name="Navbar Navigation">
-        <Text>The example would demonstrate a navbar navigation (WIP)</Text>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          template
-        >
-          <DashboardExample />
-        </Example>
+    {routerExample ? (
+      <Subsection name="Routing">
+        <SubsectionText>
+          How to use leading React routing packages alongside HPE Carte Design
+          System navigation templates.
+        </SubsectionText>
+        <CardGrid cards={[routerExample]} />
       </Subsection>
-    </ContentSection>
+    ) : null}
     <ContentSection>
-      <Subsection name="Navigation Cocktail">
-        <Text>
-          The example would demonstrate a combination of multiple navigation
-          patterns (WIP)
-        </Text>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          template
-        >
-          <DashboardExample />
-        </Example>
-      </Subsection>
+      {relatedContent.length > 0 ? (
+        <Subsection name="Related">
+          <SubsectionText>
+            Related content you may find useful when using {title}.
+          </SubsectionText>
+          <CardGrid cards={relatedContent} />
+        </Subsection>
+      ) : null}
     </ContentSection>
   </Layout>
 );
