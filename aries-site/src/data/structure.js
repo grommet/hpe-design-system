@@ -7,6 +7,25 @@ import {
   IconIcons,
   IconSquare,
 } from '../components';
+import {
+  AnchorPreview,
+  BoxPreview,
+  ButtonPreview,
+  CheckBoxPreview,
+  FooterPreview,
+  GridPreview,
+  HeaderPreview,
+  LayerPreview,
+  MaskedInputPreview,
+  MenuPreview,
+  RadioButtonGroupPreview,
+  RangeInputPreview,
+  SelectPreview,
+  TabsPreview,
+  TextAreaPreview,
+  TextInputPreview,
+} from '../examples/cardPreviews';
+import { StackExample } from '../examples/components/layouts';
 
 export const structure = [
   {
@@ -102,9 +121,11 @@ export const structure = [
     name: 'Our Brand',
     description:
       'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
-    previewImage: {
-      src: '/our-brand-light.svg',
-      alt: 'HPE Our Brand Preview',
+    preview: {
+      image: {
+        src: '/our-brand-light.svg',
+        alt: 'HPE Our Brand Preview',
+      },
     },
     seoDescription:
       'Logos are a powerful expression of our brand and who we are. Learn how to access and apply HPE and Aruba Networks logos in the experiences you create.',
@@ -114,9 +135,11 @@ export const structure = [
     name: 'Color',
     description:
       'Bringing out the depth and dimension of our identity, the HPE Design System use of color evokes energy and inspiration.',
-    previewImage: {
-      src: '/color-light.svg',
-      alt: 'HPE Color Preview',
+    preview: {
+      image: {
+        src: '/color-light.svg',
+        alt: 'HPE Color Preview',
+      },
     },
     seoDescription:
       'HPE Design System color palette brings out the depth and dimension of our identity. From sophisticated, neutral hues reflective of technology to vibrant, saturated colors that evoke energy and inspiration.',
@@ -139,9 +162,11 @@ export const structure = [
     name: 'Dashboards',
     description:
       'At-a-glance preview for operation critical information with easy access to areas requiring attention.',
-    previewImage: {
-      src: '/dashboards-light.svg',
-      alt: 'HPE Dashboards Preview',
+    preview: {
+      image: {
+        src: '/dashboards-light.svg',
+        alt: 'HPE Dashboards Preview',
+      },
     },
     seoDescription:
       'HPE Design System dashboard template for screens featuring content within tiles.',
@@ -152,10 +177,12 @@ export const structure = [
     name: 'Forms',
     description:
       'Common form use cases from application configuration to payment acceptance.',
-    previewImage: {
-      src: '/forms-light.svg',
-      alt: 'HPE Forms Preview',
-      fit: 'contain',
+    preview: {
+      image: {
+        src: '/forms-light.svg',
+        alt: 'HPE Forms Preview',
+        fit: 'contain',
+      },
     },
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
@@ -189,10 +216,12 @@ export const structure = [
     name: 'Lists',
     description:
       'Go-to patterns for displaying many services, devices, users, and more.',
-    previewImage: {
-      src: '/lists-light.svg',
-      alt: 'HPE Lists Preview',
-      fit: 'contain',
+    preview: {
+      image: {
+        src: '/lists-light.svg',
+        alt: 'HPE Lists Preview',
+        fit: 'contain',
+      },
     },
     seoDescription:
       'HPE Design System template for providing a list of information.',
@@ -202,9 +231,11 @@ export const structure = [
     name: 'Philosophy',
     description:
       'The HPE Design System is focused on key values which engender and support human engagement and community.',
-    previewImage: {
-      src: '/philosophy-light.svg',
-      alt: 'HPE Philosophy Preview',
+    preview: {
+      image: {
+        src: '/philosophy-light.svg',
+        alt: 'HPE Philosophy Preview',
+      },
     },
     seoDescription:
       'Learn about the underlying philosophy guiding the HPE Design System and how generosity and community enable HPE to craft experiences which advance the way people live and work',
@@ -214,9 +245,11 @@ export const structure = [
     name: 'Principles',
     description:
       'A clear criteria of creativity, innovation, and craftsmanship which accelerate the way people live and work.',
-    previewImage: {
-      src: '/principles-light.svg',
-      alt: 'HPE Principles Preview',
+    preview: {
+      image: {
+        src: '/principles-light.svg',
+        alt: 'HPE Principles Preview',
+      },
     },
     seoDescription:
       'HPE Design System principles provide clear criteria for creating experiences our clients and partners deserve.',
@@ -230,9 +263,11 @@ export const structure = [
     name: 'Typography',
     description:
       'The MetricHPE font is an integral part of our personality and design. When we’re making a statement, our visual language is clear, recognized and understood.',
-    previewImage: {
-      src: '/typography-light.svg',
-      alt: 'HPE Typography Preview',
+    preview: {
+      image: {
+        src: '/typography-light.svg',
+        alt: 'HPE Typography Preview',
+      },
     },
     seoDescription:
       'HPE Design System guidance for applying typefaces, font weights, styles, sizing, and more.',
@@ -296,9 +331,11 @@ export const structure = [
     name: 'Global Sidebar',
     description:
       'For use when building applications and services that live in the HPE eccosystem.',
-    previewImage: {
-      src: '/global-sidebar-light.svg',
-      alt: 'HPE Global Sidebar Preview',
+    preview: {
+      image: {
+        src: '/global-sidebar-light.svg',
+        alt: 'HPE Global Sidebar Preview',
+      },
     },
     seoDescription:
       'For use when building applications and services that live in the HPE eccosystem.',
@@ -307,10 +344,12 @@ export const structure = [
   {
     name: 'Accordion',
     description: 'Buttons are used to indicate actions that can be performed.',
-    previewImage: {
-      src: '/accordion-light.svg',
-      alt: 'HPE Accordion Preview',
-      fit: 'contain',
+    preview: {
+      image: {
+        src: '/accordion-light.svg',
+        alt: 'HPE Accordion Preview',
+        fit: 'contain',
+      },
     },
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
@@ -323,6 +362,10 @@ export const structure = [
     seoDescription:
       'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
     sections: [],
+    preview: {
+      component: () => <AnchorPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Box',
@@ -331,6 +374,10 @@ export const structure = [
     seoDescription:
       'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
+    preview: {
+      component: () => <BoxPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Button',
@@ -339,6 +386,10 @@ export const structure = [
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [],
+    preview: {
+      component: () => <ButtonPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'CheckBox',
@@ -347,6 +398,10 @@ export const structure = [
     seoDescription:
       'When the user needs to select one or more options, use a checkbox.',
     sections: [],
+    preview: {
+      component: () => <CheckBoxPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Footer',
@@ -355,14 +410,18 @@ export const structure = [
     seoDescription:
       'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
     sections: [],
+    preview: {
+      component: () => <FooterPreview />,
+      justify: 'end',
+    },
   },
   {
     name: 'Grid',
     description:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
-    previewImage: {
-      src: '/grid-light.svg',
-      alt: 'HPE Grid Preview',
+    preview: {
+      component: () => <GridPreview />,
+      background: 'background-front',
     },
     seoDescription:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
@@ -375,14 +434,24 @@ export const structure = [
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
     sections: [],
+    preview: {
+      component: () => <HeaderPreview />,
+      justify: 'start',
+    },
   },
   {
     name: 'Layer',
     description:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    previewComponent: {
+      component: () => <LayerPreview />,
+    },
     seoDescription:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
     sections: [],
+    preview: {
+      component: () => <LayerPreview />,
+    },
   },
   {
     name: 'Main',
@@ -399,12 +468,20 @@ export const structure = [
     seoDescription:
       'MaskedInput allows you to specify formailzed text within a form field.',
     sections: [],
+    preview: {
+      component: () => <MaskedInputPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Menu',
     description: 'Menu is used to filter or sort content on a page.',
     seoDescription: 'Menu is used to filter or sort content on a page.',
     sections: [],
+    preview: {
+      component: () => <MenuPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'RadioButtonGroup',
@@ -413,6 +490,10 @@ export const structure = [
     seoDescription:
       'When one option of a set of options can be specified, use the RadioButtonGroup component.',
     sections: [],
+    preview: {
+      component: () => <RadioButtonGroupPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'RangeInput',
@@ -421,6 +502,10 @@ export const structure = [
     seoDescription:
       'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
     sections: [],
+    preview: {
+      component: () => <RangeInputPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Select',
@@ -429,11 +514,19 @@ export const structure = [
     seoDescription:
       'The Select component is flexible to provide multiple select, search, and create options.',
     sections: [],
+    preview: {
+      component: () => <SelectPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Stack',
     description:
       'A Stack component is a container that stacks content on top of each other.',
+      preview: {
+        component: () => <StackExample />,
+        background: 'background-front',
+      },
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
@@ -445,6 +538,10 @@ export const structure = [
     seoDescription:
       'Tabs allow a user to access content while maintaining the existing context.',
     sections: [],
+    preview: {
+      component: () => <TabsPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'TextArea',
@@ -453,6 +550,10 @@ export const structure = [
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
     sections: [],
+    preview: {
+      component: () => <TextAreaPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'TextInput',
@@ -461,12 +562,21 @@ export const structure = [
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
     sections: [],
+    preview: {
+      component: () => <TextInputPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'Cards',
     description:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    previewImage: { src: '/cards-light.svg', alt: 'HPE Cards Preview' },
+    preview: {
+      image: {
+        src: '/cards-light.svg',
+        alt: 'HPE Cards Preview',
+      },
+    },
     seoDescription:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
     sections: [],
