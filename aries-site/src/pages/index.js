@@ -31,7 +31,7 @@ const Index = () => (
           <Heading margin="none">
             Mix, match, and stack cards to change the game
           </Heading>
-          <Paragraph fill>
+          <Paragraph size="large" fill>
             The Carte Design System was created to empower designers, developer,
             and others to contribute in making great experiences for the
             customer. Carte means “card game” in Italian. Pick your cards and
