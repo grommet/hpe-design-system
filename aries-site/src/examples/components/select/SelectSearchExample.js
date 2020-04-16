@@ -23,12 +23,14 @@ export const SelectSearchExample = () => {
   return (
     <Box width="medium">
       <FormField
-        htmlFor="select-with-search"
+        htmlFor="select-with-search__input"
         name="select-with-search"
         label="Location"
-        help="Hint: Type to narrow down the options"
+        help="Type to filter the location options"
       >
         <Select
+          id="select-with-search"
+          name="select-with-search"
           placeholder="Select location"
           searchPlaceholder="Search locations"
           options={options}

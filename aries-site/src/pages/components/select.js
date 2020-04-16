@@ -3,10 +3,11 @@ import { Anchor, Text, Box } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
+  SelectDisabledExample,
   SelectExample,
-  SelectFormFieldExample,
   SelectMultipleExample,
   SelectSearchExample,
+  SelectValidationExample,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -106,6 +107,15 @@ const Select = () => {
             />
           </Box>
         </Subsection>
+        <Subsection name="Accessibility" level={3}>
+          <SubsectionText>
+            Using Select as a form field is preferred for user experience. When
+            Select is used in conjunction with FormField, users receive clear
+            indication for the contents and purpose of the input. Additionally,
+            this use promotes best practices in accessibility by ensuring user
+            inputs are accompanied by labels used by assistive technologies.
+          </SubsectionText>
+        </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Variants">
@@ -114,26 +124,13 @@ const Select = () => {
             multi-select, search, and create options.
           </SubsectionText>
         </Subsection>
-        <Subsection name="As a Form Field" level={3}>
-          <SubsectionText>
-            Using Select as a form field is preferred for user experience. When
-            Select is used in conjunction with FormField, users receive clear
-            indication for the contents and purpose of the input. Additionally,
-            this use promotes best practices in accessibility by ensuring user
-            inputs are accompanied by labels which are used by assistive
-            technologies.
-          </SubsectionText>
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectFormFieldExample.js"
-            docs="https://v2.grommet.io/select?theme=hpe#props"
-            height={{ min: 'small' }}
-          >
-            <SelectFormFieldExample />
-          </Example>
-        </Subsection>
         <Subsection name="Multi-Select" level={3}>
           <SubsectionText>
             Allow multiple options to be selected.
+          </SubsectionText>
+          <SubsectionText>
+            <Anchor href="">CheckBoxGroup</Anchor> is also great alternative to
+            consider when multiple selections are desired.
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectMultipleExample.js"
@@ -146,9 +143,16 @@ const Select = () => {
         <Subsection name="Select with Search" level={3}>
           <SubsectionText>
             Allow users to quickly find their desired option by incorporating
-            Search within the Select component. Select with search is especially
-            useful when presenting lengthy options lists such as when selecting
-            from countries or regions.
+            Search within the Select component.
+          </SubsectionText>
+          <SubsectionText>
+            Select with search is especially useful when presenting lengthy
+            options lists such as when selecting from countries or regions.{' '}
+            <Anchor href="/components/textinput#textinput-with-suggestions">
+              TextInput with suggestions
+            </Anchor>{' '}
+            is also worth considering in circumstances where values are well
+            known.
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectSearchExample.js"
@@ -156,6 +160,34 @@ const Select = () => {
             height={{ min: 'small' }}
           >
             <SelectSearchExample />
+          </Example>
+        </Subsection>
+        <Subsection name="Validation" level={3}>
+          <SubsectionText>
+            Validation styling calls visual attention to the Select input with
+            an error and should be accompanied by text instructing the user how
+            to resolve. A "required" input error is the most common with Select
+            since the available options are typically pre-defined.
+          </SubsectionText>
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectValidationExample.js"
+            docs="https://v2.grommet.io/select?theme=hpe#props"
+            height={{ min: 'small' }}
+          >
+            <SelectValidationExample />
+          </Example>
+        </Subsection>
+        <Subsection name="Disabled" level={3}>
+          <SubsectionText>
+            Indicates that the Select is exists but cannot yet be interacted
+            until a precondition is met.
+          </SubsectionText>
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectDisabledExample.js"
+            docs="https://v2.grommet.io/select?theme=hpe#props"
+            height={{ min: 'small' }}
+          >
+            <SelectDisabledExample />
           </Example>
         </Subsection>
       </ContentSection>
