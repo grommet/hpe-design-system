@@ -17,7 +17,7 @@ export const TextInputValidationExample = () => (
             placeholder="Placeholder text"
           />
         </FormField>
-        <Button label="Submit" type="submit" />
+        <Button label="Validate" type="submit" />
       </Form>
     </Box>
   </Box>
