@@ -5,10 +5,15 @@ export const TextInputValidationExample = () => (
   <Box>
     <Box width="small">
       <Form>
-        <FormField name="username" label="Label" htmlFor="username" required>
+        <FormField
+          name="required-field"
+          label="Label"
+          htmlFor="required-field"
+          required
+        >
           <TextInput
-            name="username"
-            id="username"
+            name="required-field"
+            id="required-field"
             placeholder="Placeholder text"
           />
         </FormField>
