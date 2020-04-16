@@ -6,4 +6,3 @@ export * from './RangeInputExample';
 export * from './RangeSelectorExample';
 export * from './SelectExample';
 export * from './TextAreaExample';
-export * from './TextInputExample';
