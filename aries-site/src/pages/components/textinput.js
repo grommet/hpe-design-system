@@ -1,9 +1,13 @@
 import React from 'react';
+import { Anchor } from 'grommet';
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import {
   TextInputExample,
   TextInputDisabledExample,
+  TextInputLabeledByExample,
+  TextInputPasswordExample,
+  TextInputSuggestionsExample,
   TextInputValidationExample,
 } from '../../examples';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -22,15 +26,12 @@ const TextInput = () => (
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
-        <SubsectionText>
-          The TextInput component allows the user to input shorter forms of data
-          and content. Passwords and tags can also be used with the TextInput
-          component. Style can be variable, based upon the use case and customer
-          need that will elicit user confidence in success.
-        </SubsectionText>
+        <SubsectionText>{page.description}</SubsectionText>
         <Example
+          designer="https://designer.grommet.io/textinput?id=HPE-design-system-taylor-seamans-hpe-com&mode=edit"
           docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/TextInputExample.js"
+          figma="https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component"
         >
           <TextInputExample />
         </Example>
@@ -39,35 +40,92 @@ const TextInput = () => (
     <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>
-          The when, how, and why to use TextInput.
+          The TextInput component allows the user to input shorter forms of data
+          and content. Passwords and tags can also be used with the TextInput
+          component. Style can be variable, based upon the use case and customer
+          need that will elicit user confidence in success.
         </SubsectionText>
       </Subsection>
       <Subsection name="About TextInput" level={3} gap="small">
         <SubsectionText>
-          Text input fields perform text validation. Text input fields with
-          labels need to describe the purpose of the form control.
+          Text input fields perform text validation. Some use cases for
+          TextInput include username fields, password fields, and search fields.
         </SubsectionText>
         <SubsectionText>
-          A text field without a label can also display the following states:
-          enabled, focus, focus/value, has value, validation, description,
-          disabled and validation/focus.
+          A TextInput display the following states: enabled, focused, focused
+          with value, validation, and disabled.
         </SubsectionText>
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <SubsectionText>
-          TextInput should always be used inside of a FormField. This ensures
-          that accessibility requirements for labels is met. This behavior is
-          important to screen reader users who need to know what context the
-          TextInput is referring to.
+          In every case possible, TextInput should be used inside of a FormField
+          to ensure that a label is appropriately paired with the input. This
+          behavior is important to screen reader users who need to know what
+          context the TextInput is referring to.
+        </SubsectionText>
+        <SubsectionText>
+          If you need to use TextInput outside of the context of a FormField, it
+          is important to make sure the TextInput is labeled in an alternate way
+          to meet accessibility requirements. One approach is to use another
+          visual indicator, such as the TextInput's icon, to serve as the label.
+          See how this is done in the{' '}
+          <Anchor href="#labeled-by-icon">Labeled by icon</Anchor> example.
+        </SubsectionText>
+        <SubsectionText>
+          Placeholder text does not serve as a sufficient means of meeting
+          accessibility requirements for labels. To meet accessbility
+          requirements, placeholder text should be used in conjunction with a
+          label or aria-labelledby attribute.
         </SubsectionText>
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="TextInput States">
+      <Subsection name="Variants">
         <SubsectionText>
           A TextInput's visual state informs the user of its ability to be
           interacted with or if any validation errors have occured.
         </SubsectionText>
+      </Subsection>
+      <Subsection name="Password" level={3}>
+        <SubsectionText>
+          Used to maintain the privacy of the password a user has entered. This
+          is achieved by applying type="password" to the TextInput.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputPasswordExample.js"
+          height={{ min: 'small' }}
+        >
+          <TextInputPasswordExample />
+        </Example>
+      </Subsection>
+      <Subsection name="With suggestions" level={3}>
+        <SubsectionText>
+          Used to provide the user with available options or suggestions. These
+          suggestions can persist regardless of what the user has entered or can
+          filter based on what the user has typed.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputSuggestionsExample.js"
+          height={{ min: 'small' }}
+        >
+          <TextInputSuggestionsExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Labeled by icon" level={3}>
+        <SubsectionText>
+          There may be some cases where you need to use a TextInput without a
+          visual label. To meet accessibility requirements, the TextInput can be
+          labeled by another visual context such as an icon with an id.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputLabeledByExample.js"
+          height={{ min: 'small' }}
+        >
+          <TextInputLabeledByExample />
+        </Example>
       </Subsection>
       <Subsection name="Validation" level={3}>
         <SubsectionText>
