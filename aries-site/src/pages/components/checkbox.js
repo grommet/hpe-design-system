@@ -33,7 +33,9 @@ const CheckBox = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/CheckboxExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckboxSimpleExample.js"
+          figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1744%3A1"
+          designer="https://designer.grommet.io/home?id=HPE-design-system-taylor-seamans-hpe-com"
         >
           <CheckBoxSimpleExample />
         </Example>
@@ -100,7 +102,11 @@ const CheckBox = () => (
           You can add a description that provides your user additional
           information about the items provided by the checkboxes.
         </SubsectionText>
-        <Example docs="" code="" height={{ min: 'small' }}>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxDescription.js"
+          height={{ min: 'small' }}
+        >
           <CheckBoxDescriptionExample />
         </Example>
       </Subsection>
@@ -109,7 +115,11 @@ const CheckBox = () => (
           Toggle is a great choice to use when the user is given a single option
           that they can turn on or off.
         </SubsectionText>
-        <Example docs="" code="" height={{ min: 'small' }}>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxToggleExample.js"
+          height={{ min: 'small' }}
+        >
           <CheckBoxToggleExample />
         </Example>
       </Subsection>
@@ -119,7 +129,11 @@ const CheckBox = () => (
           validation requirements of its bounding FormField. Click the validate
           button to see the validation state.
         </SubsectionText>
-        <Example docs="" code="" height={{ min: 'small' }}>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxValidationExample.js"
+          height={{ min: 'small' }}
+        >
           <CheckBoxValidationExample />
         </Example>
       </Subsection>
@@ -127,7 +141,11 @@ const CheckBox = () => (
         <SubsectionText>
           Used to indicate that CheckBox cannot be interacted with.
         </SubsectionText>
-        <Example docs="" code="" height={{ min: 'small' }}>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxDisabledExample.js"
+          height={{ min: 'small' }}
+        >
           <CheckBoxDisabledExample />
         </Example>
       </Subsection>
@@ -137,7 +155,11 @@ const CheckBox = () => (
           still recomment using some text to have the label referring to the
           checkbox list.
         </SubsectionText>
-        <Example docs="" code="" height={{ min: 'small' }}>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxMultExample.js"
+          height={{ min: 'small' }}
+        >
           <CheckBoxMultExample />
         </Example>
       </Subsection>
