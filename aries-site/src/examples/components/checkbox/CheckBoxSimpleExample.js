@@ -7,6 +7,7 @@ export const CheckBoxSimpleExample = () => {
     <Box align="center" pad="large">
       <FormField htmlFor="checkbox" label="Label">
         <CheckBox
+        id="checkbox"
           label="Choice"
           checked={checked}
           onChange={event => setChecked(event.target.checked)}
