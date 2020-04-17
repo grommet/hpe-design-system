@@ -63,7 +63,7 @@ const CheckBox = () => (
       </Subsection>
       <Subsection name="About CheckBox" level={3} gap="small">
         <SubsectionText>
-          There are three different states that the checkbox provides.
+          There are three different states that CheckBox provides.
           <BulletedList
             level={3}
             items={['Unchecked', 'Checked', 'Indertminate']}
