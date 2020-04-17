@@ -4,5 +4,4 @@ export * from './MaskedInputExample';
 export * from './RadioButtonGroupExample';
 export * from './RangeInputExample';
 export * from './RangeSelectorExample';
-export * from './TextAreaExample';
 export * from './TextInputExample';
