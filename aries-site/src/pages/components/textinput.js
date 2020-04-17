@@ -10,7 +10,7 @@ import {
   TextInputSuggestionsExample,
   TextInputValidationExample,
 } from '../../examples';
-import { getPageDetails, getRelatedContent } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'TextInput';
 const page = getPageDetails(title);
@@ -50,6 +50,14 @@ const TextInput = () => (
         <SubsectionText>
           Text input fields perform text validation. Some use cases for
           TextInput include username fields, password fields, and search fields.
+          In some cases, it may be beneficial to use an icon to reinforce the
+          context. One example when an icon would be useful would be a search
+          input.
+        </SubsectionText>
+        <SubsectionText>
+          When you want to place syntax restrictions on the input, such as an
+          email address or phone number, consider using{' '}
+          <Anchor href={nameToPath('MaskedInput')}>MaskedInput</Anchor>.
         </SubsectionText>
         <SubsectionText>
           A TextInput display the following states: enabled, focused, focused
@@ -103,7 +111,8 @@ const TextInput = () => (
         <SubsectionText>
           Used to prompt users with available options or suggestions.
           Suggestions may persist regardless of what the user has entered or may
-          be filtered based on what the user has typed.
+          be filtered based on what the user has typed. One common use case for
+          suggestions would be to display prior values for the same field.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/textinput?theme=hpe#props"
