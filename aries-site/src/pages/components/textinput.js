@@ -147,7 +147,7 @@ const TextInput = () => (
           Used to indicate that a TextInput cannot be interacted with.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputDisabledExample.js"
           height={{ min: 'small' }}
         >
