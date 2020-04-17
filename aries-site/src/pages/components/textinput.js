@@ -115,9 +115,10 @@ const TextInput = () => (
       </Subsection>
       <Subsection name="Labeled by icon" level={3}>
         <SubsectionText>
-          There may be some cases where you need to use a TextInput without a
-          visual label. To meet accessibility requirements, the TextInput can be
-          labeled by another visual context such as an icon with an id.
+          Some situations may need TextInput without a visual label, 
+          such as when implementing a search field. To meet 
+          accessibility requirements, the TextInput may be labeled by 
+          another visual context such as an icon with an id.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
