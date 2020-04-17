@@ -9,14 +9,6 @@ export const aries = deepMerge(hpe, {
         color: undefined,
       },
     },
-    extend: ({ disabledStyle, theme }) => {
-      return `
-        ${disabledStyle &&
-          `div { border-color: ${
-            theme.global.colors['disabled-text'][theme.dark ? 'dark' : 'light']
-          }; }`}
-      `;
-    },
   },
   checkBox: {
     color: 'selected-text',
