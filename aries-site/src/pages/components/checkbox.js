@@ -49,7 +49,7 @@ const CheckBox = () => (
           multiple options.
         </SubsectionText>
         <SubsectionText>
-          CheckBox can be used in a form of toggle. A single option which can
+          CheckBox can be used in the form of a toggle, a single option which can
           indicate something such as on or off. Toggle is prefered to quickly
           switch between two possible states. Toggles usually provide immediate
           results in which gives users the ability to control their preference.
