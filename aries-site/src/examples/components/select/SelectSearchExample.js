@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Select } from 'grommet';
+import { Box, FormField, Select } from 'grommet';
 
 const defaultOptions = ['EMEA', 'Asia/Pacific', 'Americas', 'Polar Regions'];
-const placeholder = 'Location';
 
 // Escaping regular expression special characters: [ \ ^ $ . | ? * + ( )
 const getEscapedText = text => text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -12,7 +11,7 @@ const formatSearchExpression = text => {
   return new RegExp(getEscapedText(text), 'i');
 };
 
-export const SelectExample = () => {
+export const SelectSearchExample = () => {
   const [options, setOptions] = useState(defaultOptions);
   const [selected, setSelected] = useState('');
 
@@ -22,15 +21,24 @@ export const SelectExample = () => {
   };
 
   return (
-      <Box width="medium">
+    <Box width="medium">
+      <FormField
+        htmlFor="select-with-search__input"
+        name="select-with-search"
+        label="Location"
+        help="Type to filter the location options"
+      >
         <Select
-          placeholder={placeholder}
+          id="select-with-search"
+          name="select-with-search"
+          placeholder="Select location"
           searchPlaceholder="Search locations"
           options={options}
           value={selected}
           onChange={({ option }) => setSelected(option)}
           onSearch={text => onSearch(text)}
         />
-      </Box>
+      </FormField>
+    </Box>
   );
 };
