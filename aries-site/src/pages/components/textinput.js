@@ -60,8 +60,8 @@ const TextInput = () => (
         <SubsectionText>
           In every case possible, TextInput should be used inside of a FormField
           to ensure that a label is appropriately paired with the input. This
-          behavior is important to screen reader users who need to know what
-          context the TextInput is referring to.
+          behavior is important to screen reader users who need to know to
+          which context the TextInput is referring.
         </SubsectionText>
         <SubsectionText>
           If you need to use TextInput outside of the context of a FormField, it
