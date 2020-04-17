@@ -55,8 +55,10 @@ const TextInput = () => (
           input.
         </SubsectionText>
         <SubsectionText>
-          When you want to place syntax restrictions on the input, such as an
-          email address or phone number, consider using{' '}
+          There are many ways to give the user hints about how to properly fill
+          out a text input. In addition to the label, placeholder text can help
+          guide the user. When you want to place syntax restrictions on the
+          input, such as an email address or phone number, consider using{' '}
           <Anchor href={nameToPath('MaskedInput')}>MaskedInput</Anchor>.
         </SubsectionText>
         <SubsectionText>
