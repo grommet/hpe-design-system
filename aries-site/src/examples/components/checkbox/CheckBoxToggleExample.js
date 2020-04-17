@@ -5,7 +5,7 @@ export const CheckBoxToggleExample = () => {
   const [checked, setChecked] = useState(false);
   return (
     <Box align="center" pad="large">
-      <FormField label="label" htmlFor="checkbox-label" >
+      <FormField label="Label" htmlFor="checkbox-label" >
         <CheckBox
           label="Choice"
           checked={checked}
