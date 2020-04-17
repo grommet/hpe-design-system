@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Form, FormField, Select } from 'grommet';
+import { Box, Form, FormField, Select } from 'grommet';
 
 const options = [
   'Item One',
@@ -12,15 +12,18 @@ const options = [
 
 export const SelectValidationExample = () => {
   const [selected, setSelected] = useState('');
+  const [message, setMessage] = useState(
+    'Select a value from the list to resolve this error.',
+  );
 
   return (
     <Box width="medium">
-      <Form messages={{ required: 'Required.' }}>
+      <Form>
         <FormField
           htmlFor="validation-example__input"
           name="validation-example"
-          label="Label for Required Select"
-          required
+          label="Label"
+          error={message}
         >
           <Select
             id="validation-example"
@@ -28,10 +31,14 @@ export const SelectValidationExample = () => {
             placeholder="Select item"
             options={options}
             value={selected}
-            onChange={({ option }) => setSelected(option)}
+            onChange={({ option }) => {
+              setSelected(option);
+              if (option) {
+                setMessage();
+              }
+            }}
           />
         </FormField>
-        <Button label="Validate" type="submit" />
       </Form>
     </Box>
   );
