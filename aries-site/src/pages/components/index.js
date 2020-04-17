@@ -35,7 +35,9 @@ const Components = () => (
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>
-          <Paragraph fill>{pageDetails.description}</Paragraph>
+          <Paragraph size="large" fill>
+            {pageDetails.description}
+          </Paragraph>
         </Box>
       </PageIntro>
       <CardGrid cards={cards} />
