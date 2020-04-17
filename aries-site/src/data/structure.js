@@ -398,6 +398,7 @@ export const structure = [
     seoDescription:
       'When the user needs to select one or more options, use a checkbox.',
     sections: [],
+    relatedContent: ['RadioButtonGroup'],
     preview: {
       component: () => <CheckBoxPreview />,
       background: 'background-front',
