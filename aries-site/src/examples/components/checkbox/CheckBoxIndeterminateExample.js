@@ -47,13 +47,3 @@ export const CheckBoxIndeterminateExample = () => {
     </Box>
   );
 };
-
-{/* <Subsection name="Indeterminate" level={3}>
-<SubsectionText>
-  CheckBox Used to be able to check which every options apply to your
-  user.
-</SubsectionText>
-<Example docs="" code="" height={{ min: 'small' }}>
-  <CheckBoxIndeterminateExample />
-</Example>
-</Subsection> */}

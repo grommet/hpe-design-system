@@ -23,7 +23,7 @@ export const CheckBoxDescriptionExample = () => {
       >
         {items &&
           items.map(item => (
-            <Box gap="small" pad="xsmall">
+            <Box  key={item} gap="small" pad="xsmall">
               <CheckBox
                 key={item}
                 label={item}

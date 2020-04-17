@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, CheckBox, FormField } from 'grommet';
 
 export const CheckBoxSimpleExample = () => {
+  const [checked, setChecked] = useState(false);
   return (
     <Box align="center" pad="large">
-      <FormField htmlFor="checkbox"  label="label">
-        <CheckBox label="Choice" checked />
+      <FormField htmlFor="checkbox" label="label">
+        <CheckBox
+          label="Choice"
+          checked={checked}
+          onChange={event => setChecked(event.target.checked)}
+        />
       </FormField>
     </Box>
   );
