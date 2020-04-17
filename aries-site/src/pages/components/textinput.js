@@ -131,7 +131,7 @@ const TextInput = () => (
       <Subsection name="Validation" level={3}>
         <SubsectionText>
           Used to indicate that a TextInput does not meet the validation
-          requirements of its bounding FormField. Click the Submit button while
+          requirements of its bounding FormField. Click the Validate button while
           the TextInput is empty to see the validation state.
         </SubsectionText>
         <Example
