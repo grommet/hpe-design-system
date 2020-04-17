@@ -523,10 +523,10 @@ export const structure = [
     name: 'Stack',
     description:
       'A Stack component is a container that stacks content on top of each other.',
-      preview: {
-        component: () => <StackExample />,
-        background: 'background-front',
-      },
+    preview: {
+      component: () => <StackExample />,
+      background: 'background-front',
+    },
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
@@ -554,6 +554,7 @@ export const structure = [
       component: () => <TextAreaPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
   },
   {
     name: 'TextInput',
