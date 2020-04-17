@@ -92,7 +92,7 @@ const TextInput = () => (
           is achieved by applying type="password" to the TextInput.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputPasswordExample.js"
           height={{ min: 'small' }}
         >
