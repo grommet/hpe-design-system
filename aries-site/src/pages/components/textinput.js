@@ -135,7 +135,7 @@ const TextInput = () => (
           the TextInput is empty to see the validation state.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputValidationExample.js"
           height={{ min: 'small' }}
         >
