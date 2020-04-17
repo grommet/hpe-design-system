@@ -106,7 +106,7 @@ const TextInput = () => (
           be filtered based on what the user has typed.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputSuggestionsExample.js"
           height={{ min: 'small' }}
         >
