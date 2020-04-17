@@ -49,8 +49,9 @@ const Select = () => {
             alternatives like{' '}
             <Anchor href="/components/radiobuttongroup">
               RadioButtonGroup
-            </Anchor>{' '}
-            or a{' '}
+            </Anchor>
+            , <Anchor href="/components/maskedinput">MaskedInput</Anchor>,
+            or&nbsp;
             <Anchor href="/components/textinput#textinput-with-suggestions">
               TextInput with suggestions
             </Anchor>{' '}
@@ -71,7 +72,7 @@ const Select = () => {
               appropriate.`,
                 `Ensuring collection of standardized values? Select may 
               be appropriate.`,
-                <Text size="small">
+                <Text>
                   Are there less than five options? Consider a CheckBoxGroup or
                   &nbsp;
                   <Anchor href="/components/radiobuttongroup">
@@ -81,7 +82,7 @@ const Select = () => {
                   information and requires extra clicks/taps for users to access
                   that information.
                 </Text>,
-                <Text size="small">
+                <Text>
                   Are there a large number of options? Lengthy scrolling can be
                   problematic for users. Consider{' '}
                   <Anchor href="#select-with-search">Select with Search</Anchor>
@@ -95,12 +96,13 @@ const Select = () => {
                 collecting an address? Consider only asking for ZIP/Postal 
                 Code and automatically determining City, State, Country, 
                 etc. without user input.`,
-                <Text size="small">
+                <Text>
                   Are the values in list well known and understood, such as
                   Year? Consider {/* eslint-disable-next-line max-len */}
                   <Anchor href="/components/textinput#textinput-with-suggestions">
                     TextInput with suggestions
-                  </Anchor>
+                  </Anchor>{' '}
+                  or <Anchor href="/components/maskedinput">MaskedInput</Anchor>
                   .
                 </Text>,
               ]}
@@ -151,8 +153,8 @@ const Select = () => {
             <Anchor href="/components/textinput#textinput-with-suggestions">
               TextInput with suggestions
             </Anchor>{' '}
-            is also worth considering in circumstances where values are well
-            known.
+            and <Anchor href="/components/maskedinput">MaskedInput</Anchor> are
+            also worth considering in circumstances where values are well known.
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectSearchExample.js"

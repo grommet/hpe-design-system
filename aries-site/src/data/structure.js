@@ -520,10 +520,11 @@ export const structure = [
     },
     relatedContent: [
       'Forms',
-      'RadioButtonGroup',
-      'TextInput',
       'Menu',
+      'RadioButtonGroup',
       'CheckBox',
+      'TextInput',
+      'MaskedInput',
     ],
   },
   {
