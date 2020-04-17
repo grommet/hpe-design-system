@@ -562,6 +562,7 @@ export const structure = [
       component: () => <TextAreaPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
   },
   {
     name: 'TextInput',
