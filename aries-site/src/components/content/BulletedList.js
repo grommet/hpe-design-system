@@ -21,7 +21,9 @@ export const BulletedList = ({ items, level, size }) => {
 };
 
 BulletedList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.string),
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  ),
   level: PropTypes.number,
   size: PropTypes.string,
 };

@@ -4,14 +4,9 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   formField: {
-    border: {
-      error: {
-        color: 'text-weak',
-      },
-    },
-    error: {
+    disabled: {
       background: {
-        color: { light: '#FF40404D', dark: '#FF404066' },
+        color: undefined,
       },
     },
   },
