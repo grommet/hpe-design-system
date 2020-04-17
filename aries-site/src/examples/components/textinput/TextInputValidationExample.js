@@ -1,24 +1,35 @@
-import React from 'react';
-import { Box, Button, Form, FormField, TextInput } from 'grommet';
+import React, { useState } from 'react';
+import { Box, Form, FormField, TextInput } from 'grommet';
 
-export const TextInputValidationExample = () => (
-  <Box>
+export const TextInputValidationExample = () => {
+  const [value, setValue] = useState('');
+  const defaultErrorMessage = 'Type something to resolve this error.';
+  const [message, setMessage] = useState(defaultErrorMessage);
+  return (
     <Box width="small">
       <Form>
         <FormField
           name="required-field"
           label="Label"
           htmlFor="required-field"
-          required
+          error={message}
         >
           <TextInput
             name="required-field"
             id="required-field"
             placeholder="Placeholder text"
+            onChange={event => {
+              if (event.target.value.length > 0) {
+                setMessage('');
+              } else {
+                setMessage(defaultErrorMessage);
+              }
+              setValue(event.target.value);
+            }}
+            value={value}
           />
         </FormField>
-        <Button label="Validate" type="submit" />
       </Form>
     </Box>
-  </Box>
-);
+  );
+};
