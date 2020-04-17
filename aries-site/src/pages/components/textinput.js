@@ -121,7 +121,7 @@ const TextInput = () => (
           another visual context such as an icon with an id.
         </SubsectionText>
         <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
+          docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputLabeledByExample.js"
           height={{ min: 'small' }}
         >
