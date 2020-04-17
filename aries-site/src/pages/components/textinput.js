@@ -101,9 +101,9 @@ const TextInput = () => (
       </Subsection>
       <Subsection name="With suggestions" level={3}>
         <SubsectionText>
-          Used to provide the user with available options or suggestions. These
-          suggestions can persist regardless of what the user has entered or can
-          filter based on what the user has typed.
+          Used to prompt users with available options or suggestions.
+          Suggestions may persist regardless of what the user has entered or may
+          be filtered based on what the user has typed.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
