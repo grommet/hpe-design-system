@@ -60,8 +60,8 @@ const TextInput = () => (
         <SubsectionText>
           In every case possible, TextInput should be used inside of a FormField
           to ensure that a label is appropriately paired with the input. This
-          behavior is important to screen reader users who need to know to
-          which context the TextInput is referring.
+          behavior is important to screen reader users who need to know to which
+          context the TextInput is referring.
         </SubsectionText>
         <SubsectionText>
           If you need to use TextInput outside of the context of a FormField, it
@@ -115,10 +115,10 @@ const TextInput = () => (
       </Subsection>
       <Subsection name="Labeled by icon" level={3}>
         <SubsectionText>
-          Some situations may need TextInput without a visual label, 
-          such as when implementing a search field. To meet 
-          accessibility requirements, the TextInput may be labeled by 
-          another visual context such as an icon with an id.
+          Some situations may need TextInput without a visual label, such as
+          when implementing a search field. To meet accessibility requirements,
+          the TextInput may be labeled by another visual context such as an icon
+          with an id.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/textinput?theme=hpe#props"
@@ -131,8 +131,8 @@ const TextInput = () => (
       <Subsection name="Validation" level={3}>
         <SubsectionText>
           Used to indicate that a TextInput does not meet the validation
-          requirements of its bounding FormField. Click the Validate button while
-          the TextInput is empty to see the validation state.
+          requirements of its bounding FormField. Click the Validate button
+          while the TextInput is empty to see the validation state.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/textinput?theme=hpe#props"

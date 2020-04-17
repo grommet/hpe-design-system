@@ -24,7 +24,12 @@ export const TextInputSuggestionsExample = () => {
   return (
     <Box direction="row-responsive" gap="large" align="end">
       <Box width="small">
-        <FormField label="Static suggestions" htmlFor="text-input-static">
+        <FormField
+          label="Static suggestions"
+          help={`Type something to see suggestions persist 
+          regardless of input value.`}
+          htmlFor="text-input-static"
+        >
           <TextInput
             id="text-input-static"
             placeholder="Placeholder text"
@@ -33,7 +38,12 @@ export const TextInputSuggestionsExample = () => {
         </FormField>
       </Box>
       <Box width="small">
-        <FormField label="Filtered suggestions" htmlFor="text-input-filtered">
+        <FormField
+          label="Filtered suggestions"
+          help={`Type something to see suggestions filter 
+          based on the input value.`}
+          htmlFor="text-input-filtered"
+        >
           <TextInput
             id="text-input-filtered"
             placeholder="Placeholder text"
