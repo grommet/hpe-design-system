@@ -24,7 +24,7 @@ export const CheckBoxIndeterminateExample = () => {
 
   return (
     <Box align="center" gap="medium">
-      <FormField label="label">
+      <FormField label="Label">
         <Box pad="xsmall">
           <CheckBox
             checked={checked.length === 3}
