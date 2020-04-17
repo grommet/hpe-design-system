@@ -66,7 +66,7 @@ const CheckBox = () => (
           There are three different states that CheckBox provides.
           <BulletedList
             level={3}
-            items={['Unchecked', 'Checked', 'Indertminate']}
+            items={['Unchecked', 'Checked', 'Indeterminate']}
           />
           Checked and Unchecked are controlled by the user either clicking on
           the box or label. Indertminate can be used when a checkbox has a group
