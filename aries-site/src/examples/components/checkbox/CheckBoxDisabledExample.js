@@ -13,7 +13,7 @@ export const CheckBoxDisabledExample = () => {
       </FormField>
       <FormField label="Label" htmlFor="disabled-checkbox" disabled>
         <CheckBox
-          label="disabled"
+          label="Disabled"
           checked
           disabled
           toggle
