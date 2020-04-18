@@ -10,7 +10,6 @@ export * from './maskedinput';
 export * from './menu';
 export * from './radiobuttonGroup';
 export * from './rangeinput';
-export * from './select';
 export * from './tabs';
 export * from './textarea';
 export * from './textinput';
