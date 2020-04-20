@@ -20,11 +20,11 @@ import {
   MenuPreview,
   RadioButtonGroupPreview,
   RangeInputPreview,
-  SelectPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
 } from '../examples/cardPreviews';
+import { SelectPreview } from '../examples/components/select';
 import { StackExample } from '../examples/components/layouts';
 
 export const structure = [
@@ -511,23 +511,31 @@ export const structure = [
   {
     name: 'Select',
     description:
-      'The Select component is flexible to provide multiple select, search, and create options.',
+      'Flexible input allowing users to choose from a list of options.',
     seoDescription:
-      'The Select component is flexible to provide multiple select, search, and create options.',
+      'Select input component allows users to choose from a list of options.',
     sections: [],
     preview: {
       component: () => <SelectPreview />,
       background: 'background-front',
     },
+    relatedContent: [
+      'Forms',
+      'Menu',
+      'RadioButtonGroup',
+      'CheckBox',
+      'TextInput',
+      'MaskedInput',
+    ],
   },
   {
     name: 'Stack',
     description:
       'A Stack component is a container that stacks content on top of each other.',
-      preview: {
-        component: () => <StackExample />,
-        background: 'background-front',
-      },
+    preview: {
+      component: () => <StackExample />,
+      background: 'background-front',
+    },
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
@@ -555,6 +563,7 @@ export const structure = [
       component: () => <TextAreaPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
   },
   {
     name: 'TextInput',

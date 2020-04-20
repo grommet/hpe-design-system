@@ -31,14 +31,16 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
                 fit={preview.image.fit || 'cover'}
               />
             ) : (
-              <Box
-                style={{ pointerEvents: 'none' }}
-                flex
-                justify={preview.justify || 'center'}
-                align="center"
-              >
-                {preview.component()}
-              </Box>
+              preview.component && (
+                <Box
+                  style={{ pointerEvents: 'none' }}
+                  flex
+                  justify={preview.justify || 'center'}
+                  align="center"
+                >
+                  {preview.component()}
+                </Box>
+              )
             ))}
         </PreviewImageCard>
         <Box gap="small">
