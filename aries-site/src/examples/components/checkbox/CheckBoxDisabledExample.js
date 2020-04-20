@@ -7,13 +7,15 @@ export const CheckBoxDisabledExample = () => {
       <FormField label="Label" htmlFor="disabled-checkbox" disabled>
         <CheckBox
           label="disabled"
+          id="disabled-checkbox"
           checked
           disabled
         />
       </FormField>
-      <FormField label="Label" htmlFor="disabled-checkbox" disabled>
+      <FormField label="Label" htmlFor="disabled-toggle" disabled>
         <CheckBox
           label="disabled"
+          id="disabled-toggle"
           checked
           disabled
           toggle
