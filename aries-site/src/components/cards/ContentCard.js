@@ -3,21 +3,12 @@ import PropTypes from 'prop-types';
 import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
+import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   const { description, name, parent, preview } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
-  // const darkMode = useDarkMode();
-  // let src;
-  // if (typeof preview.image !== 'undefined') {
-  //   if (typeof preview.image.src === 'object') {
-  //     src = darkMode.value ? preview.image.src.dark
-  //     : preview.image.src.light;
-  //   } else {
-  //     src = preview.image.src;
-  //   }
-  // }
-  // const testpicture = 'image-hands.png';
+  const darkMode = useDarkMode();
 
   return (
     <Tile
@@ -38,9 +29,11 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
           {preview &&
             (preview.image ? (
               <Image
-                // src={require(`../../../public/${testpicture}`)}
-                // src='/image-hands.png'
-                src={preview.image.src}
+              src={
+                darkMode.value
+                  ? preview.image.src.dark || preview.image.src
+                  : preview.image.src.light || preview.image.src
+              }
                 alt={preview.image.alt}
                 fit={preview.image.fit || 'cover'}
               />
