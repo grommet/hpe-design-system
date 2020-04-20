@@ -17,13 +17,13 @@ export const CheckBoxDescriptionExample = () => {
   return (
     <Box gap="medium">
       <FormField
-        htmlFor="checkbox-list" 
+        htmlFor="checkbox-list"
         label="Contact Info"
         help="Select all options that are relevant to you"
       >
         {items &&
           items.map(item => (
-            <Box  key={item} gap="small" pad="xsmall">
+            <Box key={item} gap="small" pad="xsmall">
               <CheckBox
                 key={item}
                 label={item}
