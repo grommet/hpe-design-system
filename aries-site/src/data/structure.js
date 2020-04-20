@@ -575,6 +575,7 @@ export const structure = [
       component: () => <TextInputPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
   },
   {
     name: 'Cards',
