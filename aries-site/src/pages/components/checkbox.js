@@ -6,6 +6,7 @@ import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   CheckBoxDisabledExample,
   CheckBoxDescriptionExample,
+  CheckBoxIndeterminateExample,
   CheckBoxMultExample,
   CheckBoxSimpleExample,
   CheckBoxToggleExample,
@@ -44,9 +45,9 @@ const CheckBox = () => (
     <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>
-          CheckBox can be used for a list of different options that are being
-          provided to a user to select a option as well as being able to select
-          multiple options.
+          CheckBox can be used to present an individual option or group of
+          options to the user. When presented in a group, the user can select
+          one or multiple options.
         </SubsectionText>
         <SubsectionText>
           CheckBox can be used in a form of toggle. A single option which can
@@ -55,9 +56,9 @@ const CheckBox = () => (
           results in which gives users the ability to control their preference.
         </SubsectionText>
         <SubsectionText>
-          CheckBox should not be used if a user can only choose one option from
-          a list of options. In the case that a user should only be able to
-          select one option refer to{' '}
+          CheckBox should not be used if a user should only be allowed to select
+          one option from a list of options. In the case that a user should only
+          be able to select one option, refer to{' '}
           <Anchor href="/components/radiobutton">RadioButton</Anchor>
         </SubsectionText>
       </Subsection>
@@ -68,23 +69,23 @@ const CheckBox = () => (
             level={3}
             items={['Unchecked', 'Checked', 'Indertminate']}
           />
-          Checked and Unchecked are controlled by the user either clicking on
-          the box or label. Indertminate can be used when a checkbox has a group
-          of selections in which some/ or all can be selected.
+          Checked and unchecked states refer to when an individual CheckBox is
+          checked or when all options from a group are checked. Indeterminate
+          can be used to indicate that a partial set of the available options
+          have been checked.
         </SubsectionText>
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <SubsectionText>
-          CheckBox used be used inside of a FormField to ensure that a label is
-          used as the overall wrapping of the different options being provided
-          by checkboxs. These labels describe the purpose in which the checkbox
-          are serving.
+          CheckBox should be used inside of a FormField to ensure that a label
+          is properly associated with the input. The labels on individual
+          checkboxes should clearly describe the purpose of the checkbox.
         </SubsectionText>
         <SubsectionText>
-          If CheckBox is used outside of Formfield is it still very important to
-          providethe label for each checkbox. These labels should be clear and
-          to the point for the checkbox. These labels should appear to the right
-          of the checkboxes this makes it easier for users to read.
+          If a CheckBox is used outside of the context of a FormField, it is
+          important to meet accessibility requirements in an alternate way.
+          There should always be clear visual indication, either by text or
+          icon, that describes the purpose of the checkbox.
         </SubsectionText>
       </Subsection>
     </ContentSection>
@@ -99,8 +100,8 @@ const CheckBox = () => (
       </Subsection>
       <Subsection name="CheckBox list with hints" level={3}>
         <SubsectionText>
-          You can add a description that provides your user additional
-          information about the items provided by the checkboxes.
+          Adding a description provides the user with additional information
+          about the context or purpose of the checkboxes.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -135,6 +136,20 @@ const CheckBox = () => (
           height={{ min: 'small' }}
         >
           <CheckBoxValidationExample />
+        </Example>
+      </Subsection>
+      <Subsection name="CheckBox with Indeterminate" level={3}>
+        <SubsectionText>
+          Checkbox can be used in the state of Indertminate when there is a
+          sublist of different selections in which some can be selected and some
+          unselected.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxIndeterminateExample.js"
+          height={{ min: 'small' }}
+        >
+          <CheckBoxIndeterminateExample />
         </Example>
       </Subsection>
       <Subsection name="Disabled" level={3}>

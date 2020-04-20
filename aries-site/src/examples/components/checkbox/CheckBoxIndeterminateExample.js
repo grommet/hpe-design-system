@@ -24,9 +24,10 @@ export const CheckBoxIndeterminateExample = () => {
 
   return (
     <Box align="center" gap="medium">
-      <FormField label="label">
+      <FormField htmlFor="Indeterminate-checkbox" label="label">
         <Box pad="xsmall">
           <CheckBox
+            id="Indeterminate-checkbox"
             checked={checked.length === 3}
             indeterminate={checked.length > 0 && checked.length < 3}
             label="All"
@@ -34,8 +35,9 @@ export const CheckBoxIndeterminateExample = () => {
           />
         </Box>
         {checkboxes.map(item => (
-          <Box gap="small" pad="xsmall">
+          <Box key={item} gap="small" pad="xsmall">
             <CheckBox
+              id="Indeterminate-checkbox"
               key={item}
               checked={checked.includes(item)}
               label={item}
