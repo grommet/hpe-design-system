@@ -50,10 +50,11 @@ const CheckBox = () => (
           one or multiple options.
         </SubsectionText>
         <SubsectionText>
-          CheckBox can be used in a form of toggle. A single option which can
-          indicate something such as on or off. Toggle is prefered to quickly
-          switch between two possible states. Toggles usually provide immediate
-          results in which gives users the ability to control their preference.
+          CheckBox can be used in the form of a toggle, a single option which
+          can indicate something such as on or off. Toggle is prefered to
+          quickly switch between two possible states. Toggles usually provide
+          immediate results in which gives users the ability to control their
+          preference.
         </SubsectionText>
         <SubsectionText>
           CheckBox should not be used if a user should only be allowed to select
@@ -64,10 +65,10 @@ const CheckBox = () => (
       </Subsection>
       <Subsection name="About CheckBox" level={3} gap="small">
         <SubsectionText>
-          There are three different states that the checkbox provides.
+          There are three different states that CheckBox provides.
           <BulletedList
             level={3}
-            items={['Unchecked', 'Checked', 'Indertminate']}
+            items={['Unchecked', 'Checked', 'Indeterminate']}
           />
           Checked and unchecked states refer to when an individual CheckBox is
           checked or when all options from a group are checked. Indeterminate

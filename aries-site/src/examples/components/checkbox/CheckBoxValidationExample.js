@@ -32,6 +32,7 @@ export const CheckBoxValidationExample = () => {
             required
           >
             <CheckBox
+            id="required-field"
               label="Validation-toggle"
               checked={checked}
               onChange={event => setChecked(event.target.checked)}

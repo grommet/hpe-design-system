@@ -24,7 +24,7 @@ export const CheckBoxIndeterminateExample = () => {
 
   return (
     <Box align="center" gap="medium">
-      <FormField htmlFor="Indeterminate-checkbox" label="label">
+      <FormField htmlFor="Indeterminate-checkbox" label="Label">
         <Box pad="xsmall">
           <CheckBox
             id="Indeterminate-checkbox"
