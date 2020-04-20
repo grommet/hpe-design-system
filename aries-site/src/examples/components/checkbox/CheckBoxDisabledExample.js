@@ -6,16 +6,16 @@ export const CheckBoxDisabledExample = () => {
     <Box>
       <FormField label="Label" htmlFor="disabled-checkbox" disabled>
         <CheckBox
-          label="disabled"
           id="disabled-checkbox"
+          label="Disabled"
           checked
           disabled
         />
       </FormField>
       <FormField label="Label" htmlFor="disabled-toggle" disabled>
         <CheckBox
-          label="disabled"
           id="disabled-toggle"
+          label="Disabled"
           checked
           disabled
           toggle
