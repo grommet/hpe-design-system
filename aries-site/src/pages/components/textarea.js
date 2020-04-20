@@ -60,11 +60,11 @@ const TextArea = () => (
           In every case possible, TextArea should be used inside of a FormField
           to ensure that a label is appropriately paired with the input. This
           behavior is important to screen reader users who need to know what
-          context the TextInput is referring to.
+          context the TextArea is referring to.
         </SubsectionText>
         <SubsectionText>
           If you need to use TextArea outside of the context of a FormField, it
-          is important to make sure the TextInput is labeled in an alternate way
+          is important to make sure the TextArea is labeled in an alternate way
           to meet accessibility requirements.
         </SubsectionText>
         <SubsectionText>
