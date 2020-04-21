@@ -550,6 +550,7 @@ export const structure = [
       component: () => <TabsPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Button', 'Menu', 'Global Sidebar'],
   },
   {
     name: 'TextArea',
