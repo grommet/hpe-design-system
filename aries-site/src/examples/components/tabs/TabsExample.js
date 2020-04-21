@@ -17,7 +17,7 @@ export const TabsExample = () => {
   return (
     <Box>
       <Tabs activeIndex={index} onActive={onActive} justify="start">
-        <Tab title="General" a11yTitle="Hi there">
+        <Tab title="General">
           <Box margin="small" gap="small">
             <Text size="xxlarge">User Information</Text>
             <Table alignSelf="start">
