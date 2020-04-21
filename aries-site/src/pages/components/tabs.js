@@ -69,7 +69,7 @@ const Tabs = () => (
           <Text weight="bold">
             If using Tabs as a navigation structure, be sure to connect them to
             the browser location.
-          </Text>
+          </Text>{' '}
           This will allow proper active styling and routing to function.
         </SubsectionText>
         <SubsectionText>
