@@ -37,9 +37,9 @@ const Tabs = () => (
     <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>
-          Tabs allow a user to access content while maintaining the existing
-          context. The Tabs component serves as the outer wrapper and contains
-          individual Tab components as children.
+          Tabs can be used to rapidly navigate between different content while
+          maintaining the existing context. The Tabs component serves as the
+          outer wrapper and contains individual Tab components as children.
         </SubsectionText>
       </Subsection>
       <Subsection name="Usage" level={3} gap="small">
