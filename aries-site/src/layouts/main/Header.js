@@ -16,7 +16,7 @@ const StyledHeader = ({ ...rest }) => {
   const router = useRouter();
 
   return (
-    <Header {...rest}>
+    <Header height={{ min: 'xsmall' }} {...rest}>
       <Link href="/" passHref>
         <AppIdentity
           brand="hpe"
