@@ -4,7 +4,7 @@ import { Box, CheckBox, FormField } from 'grommet';
 
 export const CheckBoxIndeterminateExample = () => {
   const [checked, setChecked] = useState([]);
-  const checkboxes = ['morning', 'afternoon', 'evenging'];
+  const checkboxes = ['morning', 'afternoon', 'evening'];
 
   const onCheckAll = event => {
     if (event.target.checked) {
@@ -23,28 +23,26 @@ export const CheckBoxIndeterminateExample = () => {
   };
 
   return (
-    <Box align="center" gap="medium">
-      <FormField htmlFor="Indeterminate-checkbox" label="Label">
-        <Box pad="xsmall">
+    <Box align="center" pad="large">
+      <FormField htmlFor="indetminate-checkbox" label="Label">
+        <Box pad="medium" gap="medium">
           <CheckBox
-            id="Indeterminate-checkbox"
+            id="indetminate-checkbox"
             checked={checked.length === 3}
             indeterminate={checked.length > 0 && checked.length < 3}
             label="All"
             onChange={onCheckAll}
           />
-        </Box>
-        {checkboxes.map(item => (
-          <Box key={item} gap="small" pad="xsmall">
+          {checkboxes.map(item => (
             <CheckBox
-              id="Indeterminate-checkbox"
+              id="checkbox-list"
               key={item}
               checked={checked.includes(item)}
               label={item}
               onChange={e => onCheck(e, item)}
             />
-          </Box>
-        ))}
+          ))}
+        </Box>
       </FormField>
     </Box>
   );
