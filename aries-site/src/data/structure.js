@@ -403,7 +403,7 @@ export const structure = [
       'Need a place to host images in the cloud for use by your HPE services and apps?',
     preview: {
       image: {
-        src: './extendImages/extend-preview-hpe-images.svg',
+        src: './extendImages/extend-preview-hpe-images.png',
         alt: 'HPE Images Preview',
       },
     },

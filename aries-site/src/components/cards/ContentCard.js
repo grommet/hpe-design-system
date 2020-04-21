@@ -26,7 +26,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       <Box gap="large">
         <PreviewImageCard background={preview && preview.background}>
           {preview &&
-            (preview.image ? (
+            (preview.image && preview.image.src ? (
               <Image
                 src={
                   darkMode.value
@@ -37,6 +37,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
                 fit={preview.image.fit || 'cover'}
               />
             ) : (
+              preview &&
               preview.component && (
                 <Box
                   style={{ pointerEvents: 'none' }}
