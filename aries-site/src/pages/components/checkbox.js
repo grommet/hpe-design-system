@@ -179,16 +179,16 @@ const CheckBox = () => (
           <CheckBoxMultExample />
         </Example>
       </Subsection>
-      <ContentSection>
-        {relatedContent.length > 0 ? (
-          <Subsection name="Related">
-            <SubsectionText>
-              Related content you may find useful when using {title}.
-            </SubsectionText>
-            <CardGrid cards={relatedContent} />
-          </Subsection>
-        ) : null}
-      </ContentSection>
+    </ContentSection>
+    <ContentSection>
+      {relatedContent.length > 0 ? (
+        <Subsection name="Related">
+          <SubsectionText>
+            Related content you may find useful when using {title}.
+          </SubsectionText>
+          <CardGrid cards={relatedContent} />
+        </Subsection>
+      ) : null}
     </ContentSection>
   </Layout>
 );
