@@ -37,7 +37,6 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
                 fit={preview.image.fit || 'cover'}
               />
             ) : (
-              preview &&
               preview.component && (
                 <Box
                   style={{ pointerEvents: 'none' }}
