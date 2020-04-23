@@ -45,7 +45,7 @@ const CheckBox = () => (
         <SubsectionText>
           CheckBox can be used to present an individual option or group of
           options to the user. When presented in a group, the user can select
-          one or multiple options. Refer to checkbox group for examples.
+          a single or multiple options. Refer to CheckBoxGroup for examples.
         </SubsectionText>
         <SubsectionText>
           CheckBox can be used in the form of a toggle, a single option which
