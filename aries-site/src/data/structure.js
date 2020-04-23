@@ -123,7 +123,7 @@ export const structure = [
       'The Element is about focus. It creates momentum and energy. It is a building block. It can move, change, expand, and constrain. It works across many touch points.',
     preview: {
       image: {
-        src: './foundationImages/foundation-preview-brand.svg',
+        src: '/foundationImages/foundation-preview-brand.svg',
         alt: 'HPE Our Brand Preview',
       },
     },
@@ -138,8 +138,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-colors.svg',
-          dark: './foundationImages/foundation-preview-colors-invert.svg',
+          light: '/foundationImages/foundation-preview-colors.svg',
+          dark: '/foundationImages/foundation-preview-colors-invert.svg',
         },
         alt: 'HPE Color Preview',
       },
@@ -168,8 +168,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './templateImages/template-preview-dashboard.svg',
-          dark: './templateImages/template-preview-dashboard-invert.svg',
+          light: '/templateImages/template-preview-dashboard.svg',
+          dark: '/templateImages/template-preview-dashboard-invert.svg',
         },
         alt: 'HPE Dashboards Preview',
       },
@@ -186,8 +186,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './templateImages/template-preview-form.svg',
-          dark: './templateImages/template-preview-form-invert.svg',
+          light: '/templateImages/template-preview-form.svg',
+          dark: '/templateImages/template-preview-form-invert.svg',
         },
         alt: 'HPE Forms Preview',
         fit: 'contain',
@@ -214,8 +214,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-human.svg',
-          dark: './foundationImages/foundation-preview-human-invert.svg',
+          light: '/foundationImages/foundation-preview-human.svg',
+          dark: '/foundationImages/foundation-preview-human-invert.svg',
         },
         alt: 'HPE Human Centered',
       },
@@ -232,8 +232,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-icons.svg',
-          dark: './foundationImages/foundation-preview-icons-invert.svg',
+          light: '/foundationImages/foundation-preview-icons.svg',
+          dark: '/foundationImages/foundation-preview-icons-invert.svg',
         },
         alt: 'Hpe Icon Preview',
       },
@@ -246,8 +246,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './templateImages/template-preview-list.svg',
-          dark: './templateImages/template-preview-list-invert.svg',
+          light: '/templateImages/template-preview-list.svg',
+          dark: '/templateImages/template-preview-list-invert.svg',
         },
         alt: 'HPE Lists Preview',
         fit: 'contain',
@@ -264,8 +264,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-philosophy.svg',
-          dark: './foundationImages/foundation-preview-philosophy-invert.svg',
+          light: '/foundationImages/foundation-preview-philosophy.svg',
+          dark: '/foundationImages/foundation-preview-philosophy-invert.svg',
         },
         alt: 'HPE Philosophy Preview',
       },
@@ -281,8 +281,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-principles.svg',
-          dark: './foundationImages/foundation-preview-principles-invert.svg',
+          light: '/foundationImages/foundation-preview-principles.svg',
+          dark: '/foundationImages/foundation-preview-principles-invert.svg',
         },
         alt: 'HPE Principles Preview',
       },
@@ -302,8 +302,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-type.svg',
-          dark: './foundationImages/foundation-preview-type-invert.svg',
+          light: '/foundationImages/foundation-preview-type.svg',
+          dark: '/foundationImages/foundation-preview-type-invert.svg',
         },
         alt: 'HPE Typography Preview',
       },
@@ -324,7 +324,7 @@ export const structure = [
       'Build HPE compliant designs in code that are ready to be consumed on the web.',
     preview: {
       image: {
-        src: './extendImages/extend-preview-designer.svg',
+        src: '/extendImages/extend-preview-designer.svg',
         alt: 'HPE Designer Preview',
       },
     },
@@ -338,7 +338,7 @@ export const structure = [
       'Got API, but need to easily pull data out of it for use in your app or designs. Chomp! Chomp!',
     preview: {
       image: {
-        src: './extendImages/extend-preview-chomp.svg',
+        src: '/extendImages/extend-preview-chomp.svg',
         alt: 'HPE API Chomp Preview',
       },
     },
@@ -353,8 +353,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './extendImages/extend-preview-table.svg',
-          dark: './extendImages/extend-preview-table-invert.svg',
+          light: '/extendImages/extend-preview-table.svg',
+          dark: '/extendImages/extend-preview-table-invert.svg',
         },
         alt: 'HPE Table Topper Preview',
       },
@@ -370,8 +370,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './extendImages/extend-preview-hpe-docs.svg',
-          dark: './extendImages/extend-preview-hpe-docs-invert.svg',
+          light: '/extendImages/extend-preview-hpe-docs.svg',
+          dark: '/extendImages/extend-preview-hpe-docs-invert.svg',
         },
         alt: 'HPE docs Preview',
       },
@@ -387,8 +387,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './extendImages/extend-preview-slides-audience.svg',
-          dark: './extendImages/extend-preview-slides-audience-invert.svg',
+          light: '/extendImages/extend-preview-slides-audience.svg',
+          dark: '/extendImages/extend-preview-slides-audience-invert.svg',
         },
         alt: 'HPE Audience Preview',
       },
@@ -403,7 +403,7 @@ export const structure = [
       'Need a place to host images in the cloud for use by your HPE services and apps?',
     preview: {
       image: {
-        src: './extendImages/extend-preview-hpe-images.png',
+        src: '/extendImages/extend-preview-hpe-images.png',
         alt: 'HPE Images Preview',
       },
     },
@@ -418,8 +418,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './extendImages/extend-preview-sidebar.svg',
-          dark: './extendImages/extend-preview-sidebar-invert.svg',
+          light: '/extendImages/extend-preview-sidebar.svg',
+          dark: '/extendImages/extend-preview-sidebar-invert.svg',
         },
         alt: 'HPE Global Sidebar Preview',
       },
@@ -434,13 +434,14 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './component-preview-accordion.svg',
-          dark: './component-preview-accordion-invert.svg',
+          light: '/component-preview-accordion.svg',
+          dark: '/component-preview-accordion-invert.svg',
         },
         alt: 'HPE Accordion Preview',
         fit: 'contain',
       },
     },
+    relatedContent: ['Tabs'],
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
     sections: [],
@@ -675,8 +676,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './templateImages/template-preview-cards.svg',
-          dark: './templateImages/template-preview-cards-invert.svg',
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
         },
         alt: 'HPE Cards Preview',
       },
@@ -692,8 +693,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: './foundationImages/foundation-preview-content.svg',
-          dark: './foundationImages/foundation-preview-content-invert.svg',
+          light: '/foundationImages/foundation-preview-content.svg',
+          dark: '/foundationImages/foundation-preview-content-invert.svg',
         },
         alt: 'HPE Content Preview',
       },
