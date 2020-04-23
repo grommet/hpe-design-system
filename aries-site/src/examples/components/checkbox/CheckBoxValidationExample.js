@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxValidationExample = () => {
-  const defaultErrorMessage = 'Check a value to resolve this error.';
+  const defaultErrorMessage = 'Check a checkbox/toggle to resolve this error.';
   const [message, setMessage] = useState(defaultErrorMessage);
 
   return (
