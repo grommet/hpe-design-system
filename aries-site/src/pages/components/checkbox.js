@@ -6,8 +6,6 @@ import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   CheckBoxDisabledExample,
   CheckBoxDescriptionExample,
-  CheckBoxIndeterminateExample,
-  CheckBoxMultExample,
   CheckBoxSimpleExample,
   CheckBoxToggleExample,
   CheckBoxValidationExample,
@@ -47,12 +45,12 @@ const CheckBox = () => (
         <SubsectionText>
           CheckBox can be used to present an individual option or group of
           options to the user. When presented in a group, the user can select
-          one or multiple options.
+          one or multiple options. Refer to checkbox group for examples.
         </SubsectionText>
         <SubsectionText>
           CheckBox can be used in the form of a toggle, a single option which
           can indicate something such as on or off. Toggle is prefered to
-          quickly switch between two possible states. Toggles usually provide
+          quickly switch between two possible states. Toggles usually provides
           immediate results in which gives users the ability to control their
           preference.
         </SubsectionText>
@@ -73,7 +71,7 @@ const CheckBox = () => (
           Checked and unchecked states refer to when an individual CheckBox is
           checked or when all options from a group are checked. Indeterminate
           can be used to indicate that a partial set of the available options
-          have been checked.
+          have been checked, this can be viewed in a form of a checkbox group.
         </SubsectionText>
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
@@ -93,16 +91,16 @@ const CheckBox = () => (
     <ContentSection>
       <Subsection name="Variants">
         <SubsectionText>
-          CheckBox can be used individually, within a group of checkboxes, or as
-          a toggle. A standalone or toggle checkbox indicates that a user is
-          opting-in to the context of the checkbox. Within a group, one or
-          multiple checkboxes can be selected.
+          CheckBox can be used individually, within a group, or as a toggle. A
+          standalone or toggle checkbox indicates that a user is opting-in to
+          the context of the checkbox. Within a group, one or multiple
+          checkboxes can be selected.
         </SubsectionText>
       </Subsection>
-      <Subsection name="CheckBox list with hints" level={3}>
+      <Subsection name="CheckBox with descriptions" level={3}>
         <SubsectionText>
-          Adding a description provides the user with additional information
-          about the context or purpose of the checkboxes.
+          Adding a description provides the user additional information about
+          the context or purpose of the checkboxes.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -128,8 +126,7 @@ const CheckBox = () => (
       <Subsection name="Validation" level={3}>
         <SubsectionText>
           Validation is used to show that the checkbox does not meet the
-          validation requirements of its bounding FormField. Click the validate
-          button to see the validation state.
+          validation requirements of its bounding FormField.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -137,20 +134,6 @@ const CheckBox = () => (
           height={{ min: 'small' }}
         >
           <CheckBoxValidationExample />
-        </Example>
-      </Subsection>
-      <Subsection name="CheckBox with Indeterminate" level={3}>
-        <SubsectionText>
-          Checkbox can be used in the state of Indertminate when there is a
-          sublist of different selections in which some can be selected and some
-          unselected.
-        </SubsectionText>
-        <Example
-          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxIndeterminateExample.js"
-          height={{ min: 'small' }}
-        >
-          <CheckBoxIndeterminateExample />
         </Example>
       </Subsection>
       <Subsection name="Disabled" level={3}>
@@ -163,20 +146,6 @@ const CheckBox = () => (
           height={{ min: 'small' }}
         >
           <CheckBoxDisabledExample />
-        </Example>
-      </Subsection>
-      <Subsection name="CheckBox without FormField" level={3}>
-        <SubsectionText>
-          CheckBox can be used without being wrapped in a FormField we would
-          still recomment using some text to have the label referring to the
-          checkbox list.
-        </SubsectionText>
-        <Example
-          docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxMultExample.js"
-          height={{ min: 'small' }}
-        >
-          <CheckBoxMultExample />
         </Example>
       </Subsection>
     </ContentSection>
