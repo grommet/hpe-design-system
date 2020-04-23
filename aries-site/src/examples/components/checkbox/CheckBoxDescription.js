@@ -5,7 +5,7 @@ export const CheckBoxDescriptionExample = () => {
   const [checked, setChecked] = useState();
 
   return (
-    <Box>
+     <Box width="medium" align="center">
       <FormField
         htmlFor="checkbox-desc"
         label="Checkbox Heading"
