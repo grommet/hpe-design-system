@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Button, CheckBox, Form, FormField } from 'grommet';
+import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxValidationExample = () => {
-  const [checked, setChecked] = useState(false);
-  
+  const defaultErrorMessage = 'Check a value to resolve this error.';
+  const [message, setMessage] = useState(defaultErrorMessage);
+
   return (
     <Box gap="large" direction="row">
       <Box gap="medium">
@@ -13,14 +14,19 @@ export const CheckBoxValidationExample = () => {
             label="Label"
             htmlFor="required-field"
             required
+            error={message}
           >
             <CheckBox
-              checked={checked}
-              onChange={event => setChecked(event.target.checked)}
+              onChange={event => {
+                if (event.target.checked) {
+                  setMessage('');
+                } else {
+                  setMessage(defaultErrorMessage);
+                }
+              }}
               label="Validation"
             />
           </FormField>
-          <Button label="Validate" type="submit" />
         </Form>
       </Box>
       <Box gap="medium">
@@ -30,16 +36,21 @@ export const CheckBoxValidationExample = () => {
             label="Label"
             htmlFor="required-field"
             required
+            error={message}
           >
             <CheckBox
-            id="required-field"
+              id="required-field"
               label="Validation-toggle"
-              checked={checked}
-              onChange={event => setChecked(event.target.checked)}
+              onChange={event => {
+                if (event.target.checked) {
+                  setMessage('');
+                } else {
+                  setMessage(defaultErrorMessage);
+                }
+              }}
               toggle
             />
           </FormField>
-          <Button label="Validate" type="submit" />
         </Form>
       </Box>
     </Box>
