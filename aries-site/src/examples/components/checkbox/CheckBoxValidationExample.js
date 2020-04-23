@@ -40,7 +40,7 @@ export const CheckBoxValidationExample = () => {
             error={message}
           >
             <CheckBox
-              id="required-field"
+              id="validation-example-2"
               label="Validation-toggle"
               onChange={event => {
                 if (event.target.checked) {
