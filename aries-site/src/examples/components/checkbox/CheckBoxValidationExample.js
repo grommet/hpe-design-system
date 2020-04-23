@@ -2,27 +2,27 @@ import React, { useState } from 'react';
 import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxValidationExample = () => {
-  const defaultErrorMessage = 'Check a checkbox/toggle to resolve this error.';
-  const [message, setMessage] = useState(defaultErrorMessage);
+  const [togglemessage, setToggleMessage] = useState("Check toggle to resolve error");
+  const [message, setMessage] = useState("Check checkbox to resolve error");
 
   return (
     <Box gap="large" direction="row">
-      <Box gap="medium">
+      <Box width="medium" gap="medium">
         <Form>
           <FormField
             name="required-field"
             label="Label"
             htmlFor="required-field"
-            required
             error={message}
           >
             <CheckBox
+              name="checkbox"
               id="required-field"
               onChange={event => {
-                if (event.target.checked) {
+                if (event.target.value) {
                   setMessage('');
                 } else {
-                  setMessage(defaultErrorMessage);
+                  setMessage("Check checkbox to resolve error");
                 }
               }}
               label="Validation"
@@ -30,23 +30,23 @@ export const CheckBoxValidationExample = () => {
           </FormField>
         </Form>
       </Box>
-      <Box gap="medium">
+      <Box width="medium" gap="medium">
         <Form>
           <FormField
             name="required-field"
             label="Label"
             htmlFor="validation-example-2"
-            required
-            error={message}
+            error={togglemessage}
           >
             <CheckBox
+              name="required-field"
               id="validation-example-2"
               label="Validation-toggle"
               onChange={event => {
-                if (event.target.checked) {
-                  setMessage('');
+                if (event.target.value) {
+                  setToggleMessage('');
                 } else {
-                  setMessage(defaultErrorMessage);
+                  setToggleMessage("Check toggle to resolve error");
                 }
               }}
               toggle
