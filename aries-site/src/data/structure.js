@@ -475,13 +475,16 @@ export const structure = [
   },
   {
     name: 'Menu',
-    description: 'Menu is used to filter or sort content on a page.',
-    seoDescription: 'Menu is used to filter or sort content on a page.',
+    description:
+      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
+    seoDescription:
+      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
     sections: [],
     preview: {
       component: () => <MenuPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Header', 'Dashboards', 'Select'],
   },
   {
     name: 'RadioButtonGroup',
