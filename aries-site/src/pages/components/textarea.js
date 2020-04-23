@@ -25,7 +25,7 @@ const TextArea = () => (
         <SubsectionText>{page.description}</SubsectionText>
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textarea/TextAreaExample.js"
-          designer="https://designer.grommet.io/textarea?id=HPE-design-system-taylor-seamans-hpe-com&mode=edit"
+          designer="https://designer.grommet.io/textarea?id=HPE-design-system-hpedesignsystem-hpe-com"
           docs="https://v2.grommet.io/textarea?theme=hpe#props"
           figma="https://www.figma.com/file/evH1LQewFPc8Y2fteywMxM/HPE-Text-Area-Component"
         >
@@ -60,11 +60,11 @@ const TextArea = () => (
           In every case possible, TextArea should be used inside of a FormField
           to ensure that a label is appropriately paired with the input. This
           behavior is important to screen reader users who need to know what
-          context the TextInput is referring to.
+          context the TextArea is referring to.
         </SubsectionText>
         <SubsectionText>
           If you need to use TextArea outside of the context of a FormField, it
-          is important to make sure the TextInput is labeled in an alternate way
+          is important to make sure the TextArea is labeled in an alternate way
           to meet accessibility requirements.
         </SubsectionText>
         <SubsectionText>
