@@ -17,6 +17,7 @@ export const CheckBoxValidationExample = () => {
             error={message}
           >
             <CheckBox
+              id="required-field"
               onChange={event => {
                 if (event.target.checked) {
                   setMessage('');
