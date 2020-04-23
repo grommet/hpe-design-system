@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxValidationExample = () => {
-  const [togglemessage, setToggleMessage] = useState("Check toggle to resolve error");
-  const [message, setMessage] = useState("Check checkbox to resolve error");
+  const [togglemessage, setToggleMessage] = useState(
+    'Check toggle to resolve error',
+  );
+  const [message, setMessage] = useState('Check checkbox to resolve error');
 
   return (
     <Box gap="large" direction="row">
@@ -22,7 +24,7 @@ export const CheckBoxValidationExample = () => {
                 if (event.target.value) {
                   setMessage('');
                 } else {
-                  setMessage("Check checkbox to resolve error");
+                  setMessage('Check checkbox to resolve error');
                 }
               }}
               label="Validation"
@@ -46,7 +48,7 @@ export const CheckBoxValidationExample = () => {
                 if (event.target.value) {
                   setToggleMessage('');
                 } else {
-                  setToggleMessage("Check toggle to resolve error");
+                  setToggleMessage('Check toggle to resolve error');
                 }
               }}
               toggle

@@ -44,15 +44,15 @@ const CheckBox = () => (
       <Subsection name="Guidance">
         <SubsectionText>
           CheckBox can be used to present an individual option or group of
-          options to the user. When presented in a group, the user can select
-          a single or multiple options. Refer to CheckBoxGroup for examples.
+          options to the user. When presented in a group, the user can select a
+          single or multiple options. Refer to CheckBoxGroup for examples.
         </SubsectionText>
         <SubsectionText>
-          CheckBox can be used in the form of a <Anchor href="#toggle">toggle</Anchor>, a single option which
-          can indicate something such as on or off. Toggle is prefered to
-          quickly switch between two possible states. Toggles usually provides
-          immediate results in which gives users the ability to control their
-          preference.
+          CheckBox can be used in the form of a{' '}
+          <Anchor href="#toggle">toggle</Anchor>, a single option which can
+          indicate something such as on or off. Toggle is prefered to quickly
+          switch between two possible states. Toggles usually provides immediate
+          results in which gives users the ability to control their preference.
         </SubsectionText>
         <SubsectionText>
           CheckBox should not be used if a user should only be allowed to select
@@ -68,8 +68,13 @@ const CheckBox = () => (
             level={3}
             items={[
               'Unchecked - Value has not been selected.',
-              'Checked - Value has been selected. Also, the checked state may be used in situations where the CheckBox is a parent to a list of child options, and all of those options have been selected.',
-              'Indeterminate - Used in situations where the CheckBox is a parent to a list of child options. Use the indeterminate state to indicate that only a subset of the child options have been checked.'
+              `Checked - Value has been selected. Also, the checked state may
+               be used in situations where the CheckBox is a parent to a list
+               of child options, and all of those options have been selected.`,
+              `Indeterminate - Used in situations where the CheckBox is a parent
+               to a list of child options. Use the indeterminate state to
+              indicate that only a subset of the child options have been
+              checked.`,
             ]}
           />
           Checked and unchecked states refer to when an individual CheckBox is
