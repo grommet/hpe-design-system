@@ -33,7 +33,7 @@ const CheckBox = () => (
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckboxSimpleExample.js"
-          figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1744%3A1"
+          figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1745%3A43"
           designer="https://designer.grommet.io/home?id=HPE-design-system-taylor-seamans-hpe-com"
         >
           <CheckBoxSimpleExample />
