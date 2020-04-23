@@ -7,11 +7,13 @@ export const CheckBoxDescriptionExample = () => {
   return (
      <Box width="medium" align="center">
       <FormField
+        name="checkbox-with-desc"
         htmlFor="checkbox-desc"
         label="Checkbox Heading"
         help="Checkbox Description"
       >
         <CheckBox
+          name="checkbox-with-desc"
           id="checkbox-desc"
           label="Checkbox Label"
           checked={checked}
