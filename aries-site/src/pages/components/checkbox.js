@@ -10,7 +10,7 @@ import {
   CheckBoxToggleExample,
   CheckBoxValidationExample,
 } from '../../examples/components/checkbox';
-import { getPageDetails, getRelatedContent } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'CheckBox';
 const topic = 'Components';
