@@ -102,7 +102,7 @@ const CheckBox = () => (
       <Subsection name="CheckBox with Description" level={3}>
         <SubsectionText>
           Adding a description provides the user additional information about
-          the context or purpose of the checkboxes.
+          the context or purpose of the checkbox.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
