@@ -99,7 +99,7 @@ const CheckBox = () => (
           checkboxes can be selected.
         </SubsectionText>
       </Subsection>
-      <Subsection name="CheckBox with descriptions" level={3}>
+      <Subsection name="CheckBox with Description" level={3}>
         <SubsectionText>
           Adding a description provides the user additional information about
           the context or purpose of the checkboxes.
