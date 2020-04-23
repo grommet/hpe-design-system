@@ -66,12 +66,14 @@ const CheckBox = () => (
           There are three states which CheckBox provides:
           <BulletedList
             level={3}
-            items={['Unchecked', 'Checked', 'Indeterminate']}
+            items={[
+              'Unchecked - Value has not been selected.',
+              'Checked - Value has been selected. Also, the checked state may be used in situations where the CheckBox is a parent to a list of child options, and all of those options have been selected.',
+              'Indeterminate - Used in situations where the CheckBox is a parent to a list of child options. Use the indeterminate state to indicate that only a subset of the child options have been checked.'
+            ]}
           />
           Checked and unchecked states refer to when an individual CheckBox is
-          checked or when all options from a group are checked. Indeterminate
-          can be used to indicate that a partial set of the available options
-          have been checked, this can be viewed in a form of a checkbox group.
+          checked or when all options from a group are checked.
         </SubsectionText>
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
