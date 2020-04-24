@@ -53,8 +53,8 @@ const Menu = () => {
         </Subsection>
         <Subsection name="Usage" level={3} gap="small">
           <SubsectionText>
-           To create a predictable experience for users, the following
-            are guidelines for using Menu.
+            To create a predictable experience for users, the following are
+            guidelines for using Menu.
           </SubsectionText>
           <SubsectionText>
             <Text weight="bold">
