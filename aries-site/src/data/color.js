@@ -213,8 +213,8 @@ const ctaColors = [
 const statusColors = [
   {
     name: 'critical',
-    value: colors['status-critical'],
-    hex: colors['status-critical'],
+    value: colors['status-critical'].light,
+    hex: colors['status-critical'].light,
   },
   {
     name: 'warning',
@@ -228,8 +228,8 @@ const statusColors = [
   },
   {
     name: 'unknown',
-    value: colors['status-unknown'],
-    hex: colors['status-unknown'],
+    value: colors['status-unknown'].light,
+    hex: colors['status-unknown'].light,
   },
   {
     name: 'disabled',
