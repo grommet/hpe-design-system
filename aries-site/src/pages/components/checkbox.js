@@ -59,7 +59,7 @@ const CheckBox = () => (
           CheckBox should not be used if a user should only be allowed to select
           one option from a list of options. In the case that a user should only
           be able to select one option, refer to{' '}
-          <Anchor href={nameToPath('RadioButton')}>RadioButton</Anchor>.
+          <Anchor href={nameToPath('RadioButtonGroup')}>RadioButtonGroup</Anchor>.
         </SubsectionText>
         <SubsectionText>
           There are three states which CheckBox provides:
