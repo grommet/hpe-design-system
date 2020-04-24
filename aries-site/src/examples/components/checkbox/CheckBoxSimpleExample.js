@@ -6,9 +6,14 @@ export const CheckBoxSimpleExample = () => {
   return (
     <Box width="medium" align="center">
       <Form>
-        <FormField name="checkbox" fill htmlFor="simple-checkbox" label="Label">
+        <FormField
+          name="checkbox-simple"
+          fill
+          htmlFor="simple-checkbox"
+          label="Label"
+        >
           <CheckBox
-            name="checkbox"
+            name="checkbox-simple"
             label="Choice"
             id="simple-checkbox"
             checked={checked}
