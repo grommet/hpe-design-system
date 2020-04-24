@@ -31,7 +31,7 @@ const Menu = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/menu/MenuExample.js"
             designer="https://designer.grommet.io/menu?id=HPE-design-system-hpedesignsystem-hpe-com"
             docs="https://v2.grommet.io/menu?theme=hpe#props"
-            figma="https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component"
+            figma="https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component?node-id=38%3A40"
           >
             <MenuExample />
           </Example>
