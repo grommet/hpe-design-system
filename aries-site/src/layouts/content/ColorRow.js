@@ -33,5 +33,5 @@ ColorRow.propTypes = {
 };
 
 ColorRow.defaultProps = {
-  textColor: undefined,
+  textColor: 'text-strong',
 };
