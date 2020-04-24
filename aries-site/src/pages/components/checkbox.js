@@ -27,8 +27,7 @@ const CheckBox = () => (
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>
-          When the user needs to select one or more options, use a checkbox. The
-          click target should include the checkbox label.
+          {page.description}
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
