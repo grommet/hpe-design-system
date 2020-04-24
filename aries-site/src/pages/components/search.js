@@ -4,6 +4,7 @@ import { Anchor, Box, Text } from 'grommet';
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
   SearchExample,
+  SearchIconPositionExample,
   SearchSimpleExample,
   SearchSuggestionsExample,
 } from '../../examples';
@@ -29,7 +30,7 @@ const Search = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchExample.js"
             designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com"
-            docs="https://v2.grommet.io/search?theme=hpe#props"
+            docs="https://v2.grommet.io/textinput?theme=hpe#props"
             figma="https://www.figma.com/file/KKHWJN4GAI0Mq5yh0snDT6/HPE-Search-Component?node-id=265%3A112"
           >
             <SearchExample />
@@ -123,7 +124,7 @@ const Search = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSuggestionsExample.js"
-            docs="https://v2.grommet.io/search?theme=hpe#props"
+            docs="https://v2.grommet.io/textinput?theme=hpe#props"
             height={{ min: 'small' }}
           >
             <SearchSuggestionsExample />
@@ -137,10 +138,30 @@ const Search = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSimpleExample.js"
-            docs="https://v2.grommet.io/search?theme=hpe#props"
+            docs="https://v2.grommet.io/textinput?theme=hpe#props"
             height={{ min: 'small' }}
           >
             <SearchSimpleExample />
+          </Example>
+        </Subsection>
+        <Subsection name="Icon Position" level={3}>
+          <SubsectionText>
+            The search icon may be placed either to the right or left of the
+            input field. Icon position is controlled via the{' '}
+            <Anchor
+              href="https://v2.grommet.io/textinput?theme=hpe#reverse"
+              target="_blank"
+            >
+              reverse
+            </Anchor>{' '}
+            property.
+          </SubsectionText>
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchIconPositionExample.js"
+            docs="https://v2.grommet.io/textinput?theme=hpe#props"
+            height={{ min: 'small' }}
+          >
+            <SearchIconPositionExample />
           </Example>
         </Subsection>
       </ContentSection>
