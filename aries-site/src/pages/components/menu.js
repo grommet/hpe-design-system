@@ -53,11 +53,8 @@ const Menu = () => {
         </Subsection>
         <Subsection name="Usage" level={3} gap="small">
           <SubsectionText>
-            A Menu consists of a main button and a set of menu items. These
-            items are displayed when the menu button is clicked. The menu closes
-            when an item in the menu is selected or anywhere else on the page is
-            clicked. To create a predictable experience for users, the following
-            are some guidelines to follow when using Menu.
+           To create a predictable experience for users, the following
+            are guidelines for using Menu.
           </SubsectionText>
           <SubsectionText>
             <Text weight="bold">
