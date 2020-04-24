@@ -33,7 +33,7 @@ const Accordion = () => (
       <Subsection name="Guidance">
         <SubsectionText>
           When seeking to provide maximum content in limited, vertical space, an
-          accordion is a good alternative.
+          accordion is a good choice.
         </SubsectionText>
         <SubsectionText>
           An accordion is a group of vertically stacked collapsible buttons with
