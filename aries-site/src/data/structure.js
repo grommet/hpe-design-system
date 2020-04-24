@@ -441,7 +441,7 @@ export const structure = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Tabs'],
+    relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
     sections: [],
