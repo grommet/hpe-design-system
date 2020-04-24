@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import { Box, CheckBox, FormField } from 'grommet';
+import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxDescriptionExample = () => {
   const [checked, setChecked] = useState();
 
   return (
-     <Box width="medium" align="center">
-      <FormField
-        name="checkbox-with-desc"
-        htmlFor="checkbox-desc"
-        label="Checkbox Heading"
-        help="Checkbox Description"
-      >
-        <CheckBox
+    <Box width="medium" align="center">
+      <Form>
+        <FormField
           name="checkbox-with-desc"
-          id="checkbox-desc"
-          label="Checkbox Label"
-          checked={checked}
-          onChange={event => setChecked(event.target.checked)}
-        />
-      </FormField>
+          htmlFor="checkbox-desc"
+          label="Checkbox Heading"
+          help="Checkbox Description"
+        >
+          <CheckBox
+            name="checkbox-with-desc"
+            id="checkbox-desc"
+            label="Checkbox Label"
+            checked={checked}
+            onChange={event => setChecked(event.target.checked)}
+          />
+        </FormField>
+      </Form>
     </Box>
   );
 };

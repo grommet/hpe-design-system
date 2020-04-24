@@ -21,9 +21,10 @@ export const CheckBoxValidationExample = () => {
               name="checkbox"
               id="required-field"
               onChange={event => {
-                if (event.target.value) {
+                if (event.target.checked) {
                   setMessage('');
-                } else {
+                }
+                if (!event.target.checked) {
                   setMessage('Check checkbox to resolve error');
                 }
               }}
@@ -45,9 +46,10 @@ export const CheckBoxValidationExample = () => {
               id="validation-example-2"
               label="Validation-toggle"
               onChange={event => {
-                if (event.target.value) {
+                if (event.target.checked) {
                   setToggleMessage('');
-                } else {
+                }
+                if (!event.target.checked) {
                   setToggleMessage('Check toggle to resolve error');
                 }
               }}
