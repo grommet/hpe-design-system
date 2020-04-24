@@ -10,7 +10,7 @@ export const MenuExample = () => {
 
   return (
     <Box round="xsmall">
-      <Menu label="Account Information" items={items} width="medium" />
+      <Menu label="Manage Account" items={items} width="medium" />
     </Box>
   );
 };
