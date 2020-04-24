@@ -44,11 +44,11 @@ const Menu = () => {
             on a page or to navigate to other pages. When a menu item is
             clicked, the action will be executed.
           </SubsectionText>
-          <SubsectionText> 
+          <SubsectionText>
             Menu should not be confused with{' '}
-            <Anchor href={nameToPath('Select')}>Select</Anchor>. Though
-            visually similar, Select is often used in the context of a Form and 
-            used to choose from a set of values rather than actions.
+            <Anchor href={nameToPath('Select')}>Select</Anchor>. Though visually
+            similar, Select is often used in the context of a Form and used to
+            choose from a set of values rather than actions.
           </SubsectionText>
         </Subsection>
         <Subsection name="Usage" level={3} gap="small">
@@ -95,7 +95,21 @@ const Menu = () => {
             Accessibility features such as screen reader messages are
             automatically built into Menu. By default, these messages are "Open
             Menu" and "Close Menu". However, if a more specific message is
-            necessary, a custom <Anchor href="https://v2.grommet.io/menu?theme=hpe#a11yTitle" target="__blank" >a11yTitle</Anchor> or <Anchor href="https://v2.grommet.io/menu?theme=hpe#messages" target="__blank" >messages</Anchor> may be applied.
+            necessary, a custom{' '}
+            <Anchor
+              href="https://v2.grommet.io/menu?theme=hpe#a11yTitle"
+              target="__blank"
+            >
+              a11yTitle
+            </Anchor>{' '}
+            or{' '}
+            <Anchor
+              href="https://v2.grommet.io/menu?theme=hpe#messages"
+              target="__blank"
+            >
+              messages
+            </Anchor>{' '}
+            may be applied.
           </SubsectionText>
           <SubsectionText>
             An icon can be used on a menu item to provide additional context
