@@ -26,14 +26,12 @@ const CheckBox = () => (
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
-        <SubsectionText>
-          {page.description}
-        </SubsectionText>
+        <SubsectionText>{page.description}</SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckboxSimpleExample.js"
           figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1745%3A43"
-          designer="https://designer.grommet.io/home?id=HPE-design-system-taylor-seamans-hpe-com"
+          designer="https://designer.grommet.io/checkbox?id=HPE-design-system-hpedesignsystem-hpe-com"
         >
           <CheckBoxSimpleExample />
         </Example>
@@ -59,7 +57,9 @@ const CheckBox = () => (
           CheckBox should not be used if a user should only be allowed to select
           one option from a list of options. In the case that a user should only
           be able to select one option, refer to{' '}
-          <Anchor href={nameToPath('RadioButtonGroup')}>RadioButtonGroup</Anchor>.
+          <Anchor href={nameToPath('RadioButtonGroup')}>
+            RadioButtonGroup
+          </Anchor>
         </SubsectionText>
         <SubsectionText>
           There are three states which CheckBox provides:
@@ -67,9 +67,7 @@ const CheckBox = () => (
             level={3}
             items={[
               'Unchecked - Value has not been selected.',
-              `Checked - Value has been selected. Also, the checked state may
-               be used in situations where the CheckBox is a parent to a list
-               of child options, and all of those options have been selected.`,
+              'Checked - Value has been selected.',
               `Indeterminate - Used in situations where the CheckBox is a parent
                to a list of child options. Use the indeterminate state to
               indicate that only a subset of the child options have been
