@@ -601,7 +601,7 @@ export const structure = [
   },
   {
     name: 'Search',
-    description: 'Used to find content corresponding to keywords.',
+    description: 'Find content corresponding to keyword queries.',
     seoDescription: 'HPE Design System Search input design and code examples.',
     sections: [],
     preview: {

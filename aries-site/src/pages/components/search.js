@@ -1,7 +1,7 @@
 import React from 'react';
+import { Anchor, Box, Text } from 'grommet';
 
-import { Anchor } from 'grommet';
-import { CardGrid, Meta, SubsectionText } from '../../components';
+import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
   SearchExample,
   SearchSimpleExample,
@@ -29,7 +29,7 @@ const Search = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchExample.js"
             designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com"
-            docs="https://v2.grommet.io/textinput?theme=hpe#props"
+            docs="https://v2.grommet.io/search?theme=hpe#props"
             figma="https://www.figma.com/file/KKHWJN4GAI0Mq5yh0snDT6/HPE-Search-Component?node-id=265%3A112"
           >
             <SearchExample />
@@ -39,37 +39,95 @@ const Search = () => {
       <ContentSection>
         <Subsection name="Guidance">
           <SubsectionText>
-            Roof party sartorial lumbersexual etsy synth church-key, echo park
-            typewriter fashion axe whatever everyday carry tattooed ugh
-            intelligentsia. Microdosing letterpress ugh cold-pressed jianbing
-            mustache viral direct trade master cleanse dreamcatcher church-key
-            fixie.
+            Search inputs provide a powerful means for users to access content
+            quickly and efficiently.
           </SubsectionText>
         </Subsection>
-        <Subsection name="When to use Search" level={3} gap="small">
+        <Subsection name="Best Practices" level={3} gap="small">
           <SubsectionText>
-            Bicycle rights iPhone roof party tousled beard sustainable bushwick
-            crucifix keytar before they sold out flexitarian. Yuccie banh mi
-            chambray brunch live-edge man bun deep v godard unicorn williamsburg
-            swag.
+            Many search best practices extend "behind the scenes" and apply to
+            how query strings are matched to related, relevant content, and the
+            efficiency in which that information is retrieved.
           </SubsectionText>
+          <Box width={{ max: 'large' }}>
+            <BulletedList
+              level={3}
+              items={[
+                `Sort results by highest relevance. Relevance can be 
+                determined by keyword matching, however, to really elevate user 
+                experience, consider implementing probability based 
+                approaches.`,
+                <Text>
+                  Use effective{' '}
+                  <Anchor href="#search-with-auto-suggestions">
+                    auto-suggestions
+                  </Anchor>
+                  . Auto suggestions accelerate search and allow users to focus
+                  on task completion.
+                </Text>,
+                `Persist users' original query. This eliminates the need to 
+                re-type and assists query reformation if needed.`,
+                `Persist users' recently used search queries. Remembering the 
+                user's previous efforts respects their time and serves as 
+                "short cuts" for returning to previously visited content.`,
+              ]}
+            />
+          </Box>
         </Subsection>
         <Subsection name="Accessibility" level={3}>
           <SubsectionText>
-            Fingerstache cardigan crucifix tofu unicorn pour-over. Chicharrones
-            snackwave sustainable flannel neutra. Shaman marfa taiyaki bicycle
-            rights occupy activated charcoal cornhole mlkshk kale chips bitters
-            lyft tofu poke blog tumblr.
+            Search inputs should be accessible. Ensure users have the ability to
+            return results using their keyboard as well as clicking a button.
+          </SubsectionText>
+          <SubsectionText>
+            Inputs should always be accompanied by labels for accessibility. An
+            icon may serve as a label if: 1) the icon meaning is well
+            understood, and 2) has an 'aria-labelledby' attribute. For
+            additional detail, see{' '}
+            <Anchor
+              href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ARIA form hints
+            </Anchor>{' '}
+            and{' '}
+            <Anchor
+              href="https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              'aria-labelledby'
+            </Anchor>
+            .
           </SubsectionText>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Variants">
           <SubsectionText>
-            Polaroid church-key cronut sriracha, locavore ugh umami blue bottle.
-            Mumblecore bicycle rights yr tote bag, keffiyeh direct trade tumeric
-            you probably haven't heard of them wayfarers narwhal intelligentsia.
+            Visual and functional extensions for Search.
           </SubsectionText>
+        </Subsection>
+        <Subsection name="Search with Auto Suggestions" level={3}>
+          <SubsectionText>
+            Suggestions provide users instantaneous feedback as they type, and
+            aid by prompting with common search intents most closely matching
+            the query in progress. Helpful matching functions include root word
+            recognition and predictive text.
+          </SubsectionText>
+          <SubsectionText>
+            Suggested queries should be sorted from highest probability match to
+            lowest. Limit the number of suggested queries displayed to five or
+            less.
+          </SubsectionText>
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSuggestionsExample.js"
+            docs="https://v2.grommet.io/search?theme=hpe#props"
+            height={{ min: 'small' }}
+          >
+            <SearchSuggestionsExample />
+          </Example>
         </Subsection>
         <Subsection name="Simple Search" level={3}>
           <SubsectionText>
@@ -79,24 +137,10 @@ const Search = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSimpleExample.js"
-            docs="https://v2.grommet.io/textinput?theme=hpe#props"
+            docs="https://v2.grommet.io/search?theme=hpe#props"
             height={{ min: 'small' }}
           >
             <SearchSimpleExample />
-          </Example>
-        </Subsection>
-        <Subsection name="Search with Suggested Queries" level={3}>
-          <SubsectionText>
-            Suggestions aid users in forming their search queries by prompting
-            with common search intents most closely matching the query in
-            progress. Keep the number of suggested queries at five or less.
-          </SubsectionText>
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSuggestionsExample.js"
-            docs="https://v2.grommet.io/textinput?theme=hpe#props"
-            height={{ min: 'small' }}
-          >
-            <SearchSuggestionsExample />
           </Example>
         </Subsection>
       </ContentSection>
