@@ -135,7 +135,7 @@ const Menu = () => {
             Adding an icon prop changes the icon that appears on the menu. In
             some contexts, it may be appropriate to use a more specific or
             alternate icon. Here is an example Menu being used in a{' '}
-            <Anchor href={nameToPath('List')}>List</Anchor> to indicate actions
+            <Anchor href={nameToPath('Lists')}>List</Anchor> to indicate actions
             that can be performed on list items.
           </SubsectionText>
           <Example
