@@ -47,6 +47,8 @@ const CheckBox = () => (
           options to the user. When presented in a group, the user can select a
           single or multiple options. Refer to CheckBoxGroup for examples.
         </SubsectionText>
+      </Subsection>
+      <Subsection name="Usage" level={3} gap="small">
         <SubsectionText>
           CheckBox can be used in the form of a{' '}
           <Anchor href="#toggle">toggle</Anchor>, a single option which can
@@ -60,8 +62,6 @@ const CheckBox = () => (
           be able to select one option, refer to{' '}
           <Anchor href={nameToPath('RadioButton')}>RadioButton</Anchor>.
         </SubsectionText>
-      </Subsection>
-      <Subsection name="About CheckBox" level={3} gap="small">
         <SubsectionText>
           There are three states which CheckBox provides:
           <BulletedList
