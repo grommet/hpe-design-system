@@ -52,7 +52,7 @@ const CheckBox = () => (
           CheckBox can be used in the form of a{' '}
           <Anchor href="#toggle">toggle</Anchor>, a single option which can
           indicate something such as on or off. Toggle is prefered to quickly
-          switch between two possible states. Toggles usually provides immediate
+          switch between two possible states. Toggles usually provide immediate
           results in which gives users the ability to control their preference.
         </SubsectionText>
         <SubsectionText>
