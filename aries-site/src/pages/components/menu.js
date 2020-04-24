@@ -42,10 +42,13 @@ const Menu = () => {
           <SubsectionText>
             A Menu is a set of actions that may be used to engage with content
             on a page or to navigate to other pages. When a menu item is
-            clicked, the action will be executed. Menu is distinct from{' '}
-            <Anchor href={nameToPath('Select')}>Select</Anchor>, which is often
-            used in the context of a Form to choose from a list of values but
-            does not perform actions.
+            clicked, the action will be executed.
+          </SubsectionText>
+          <SubsectionText> 
+            Menu should not be confused with{' '}
+            <Anchor href={nameToPath('Select')}>Select</Anchor>. Though
+            visually similar, Select is often used in the context of a Form and 
+            used to choose from a set of values rather than actions.
           </SubsectionText>
         </Subsection>
         <Subsection name="Usage" level={3} gap="small">
