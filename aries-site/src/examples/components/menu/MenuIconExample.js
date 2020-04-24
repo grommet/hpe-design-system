@@ -6,7 +6,7 @@ export const MenuIconExample = () => {
   const data = ['User 1', 'User 2', 'User 3'];
 
   return (
-    <Box fill>
+    <Box width={{ max: 'large' }} fill>
       <List
         data={data}
         pad="small"
