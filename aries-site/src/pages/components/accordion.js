@@ -33,7 +33,7 @@ const Accordion = () => (
       <Subsection name="Guidance">
         <SubsectionText>
           When seeking to provide maximum content in limited, vertical space, an
-          accordion is a good alternative.
+          accordion is a good choice.
         </SubsectionText>
         <SubsectionText>
           An accordion is a group of vertically stacked collapsible buttons with
@@ -51,7 +51,7 @@ const Accordion = () => (
         <SubsectionText>
           Accordion has two states:
           <BulletedList level={3} items={['Collapsed', 'Expanded']} />
-          The chevron is used to identify the expand or collapse action while
+          The chevron icon is used to identify the expand or collapse action while
           the entire header can be clicked to expand or collapse content. The
           default behavior is for all of the panels to be closed, with the user
           only having visual to the heading.
