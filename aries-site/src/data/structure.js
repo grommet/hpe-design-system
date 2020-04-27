@@ -736,7 +736,7 @@ export const structure = [
       'Preferred environment',
       'ReactJS and Grommet starter resources',
       'Applying the HPE theme',
-      "What is our team doesn't use ReactJS?",
+      "What if our team doesn't use ReactJS?",
     ],
     relatedContent: ['Components', 'Templates', 'Designer'],
   },
