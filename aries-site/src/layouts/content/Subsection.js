@@ -10,8 +10,8 @@ import { getPageDetails } from '../../utils';
 // h2, h3, etc.
 export const TEXT_SIZE = {
   1: 'large', // heading is h1, parapgraph text should be large
-  2: 'medium', // default font size
-  3: 'small', // heading is h3, paragraph text should be small
+  2: 'large', // heading is h2, paragraph text should be large
+  3: 'medium', // heading is h3, paragraph text should be medium (default size)
 };
 
 // Specific Heading size modifications for Subsection

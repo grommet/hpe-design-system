@@ -33,9 +33,9 @@ const Button = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/ButtonExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonExample.js"
           figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/hpe-design-system-library-button?node-id=0%3A1"
-          designer="https://designer.grommet.io/button?id=HPE-design-system-eric-soderberg-hpe-com"
+          designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com"
         >
           <ButtonExample />
         </Example>

@@ -6,11 +6,11 @@ import { Aruba, Hpe } from 'grommet-icons';
 const brands = {
   hpe: {
     name: 'HPE',
-    logo: <Hpe color="brand" size="large" />,
+    logo: <Hpe color="brand" />,
   },
   aruba: {
     name: 'Aruba',
-    logo: <Aruba color="brand" />,
+    logo: <Aruba color="plain" />,
   },
 };
 
@@ -20,7 +20,15 @@ export const AppIdentity = forwardRef(
 
     return (
       <Button href={href} ref={ref} {...rest}>
-        <Box direction="row" align="center" gap="medium">
+        <Box
+          direction="row"
+          align="center"
+          gap="medium"
+          // pad maintains accessible hit target
+          // non-responsive maintains same dimensions for mobile
+          pad={{ vertical: 'small' }}
+          responsive={false}
+        >
           {brand && brands[brand].logo}
           {!logoOnly && (
             <Box direction="row" gap="xsmall">
