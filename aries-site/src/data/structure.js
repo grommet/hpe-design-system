@@ -65,6 +65,15 @@ export const structure = [
     description:
       'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
     icon: (size, color) => <IconDiamond size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/carte-templates-light.svg',
+          dark: '/carte-templates-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: ['Cards', 'Dashboards', 'Forms', 'Lists'],
@@ -75,6 +84,15 @@ export const structure = [
     description:
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/carte-components-light.svg',
+          dark: '/carte-components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
     pages: [
