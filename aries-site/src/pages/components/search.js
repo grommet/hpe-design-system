@@ -43,29 +43,41 @@ const Search = () => {
             Search inputs provide a powerful means for users to access content
             quickly and efficiently.
           </SubsectionText>
-        </Subsection>
-        <Subsection name="Best Practices" level={3} gap="small">
           <SubsectionText>
-            Many search best practices extend "behind the scenes" and apply to
-            how query strings are matched to related, relevant content, and the
-            efficiency in which that information is retrieved.
+            Many search best practices extend "behind the scenes," such as how
+            query strings are matched to relevant content and to the efficiency
+            in which that information is retrieved.
           </SubsectionText>
+        </Subsection>
+        <Subsection name="Auto-suggestions" level={3} gap="small">
           <Box width={{ max: 'large' }}>
             <BulletedList
               level={3}
               items={[
+                <Text>
+                  Provide effective{' '}
+                  <Anchor href="#search-with-auto-suggestions">
+                    auto-suggestions
+                  </Anchor>{' '}
+                  whenever possible.
+                </Text>,
+                `Auto suggestions accelerate search and allow users to focus
+                on task completion.`,
+              ]}
+            />
+          </Box>
+        </Subsection>
+        <Subsection name="Returning search results" level={3} gap="small">
+          <Box width={{ max: 'large' }}>
+            <BulletedList
+              level={3}
+              items={[
+                `Use "live filtering." When results are visibile and quick to 
+                filter, results should be filtered as the user types.`,
                 `Sort results by highest relevance. Relevance can be 
                 determined by keyword matching, however, to really elevate user 
                 experience, consider implementing probability based 
                 approaches.`,
-                <Text>
-                  Use effective{' '}
-                  <Anchor href="#search-with-auto-suggestions">
-                    auto-suggestions
-                  </Anchor>
-                  . Auto suggestions accelerate search and allow users to focus
-                  on task completion.
-                </Text>,
                 `Persist users' original query. This eliminates the need to 
                 re-type and assists query reformation if needed.`,
                 `Persist users' recently used search queries. Remembering the 
@@ -75,7 +87,7 @@ const Search = () => {
             />
           </Box>
         </Subsection>
-        <Subsection name="Accessibility" level={3}>
+        <Subsection name="Accessibility" level={3} gap="small">
           <SubsectionText>
             Search inputs should be accessible. Ensure users have the ability to
             return results using their keyboard as well as clicking a button.
@@ -110,7 +122,7 @@ const Search = () => {
             Visual and functional extensions for Search.
           </SubsectionText>
         </Subsection>
-        <Subsection name="Search with Auto Suggestions" level={3}>
+        <Subsection name="Search with Auto Suggestions" level={3} gap="small">
           <SubsectionText>
             Suggestions provide users instantaneous feedback as they type, and
             aid by prompting with common search intents most closely matching
