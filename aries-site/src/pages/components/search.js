@@ -72,7 +72,7 @@ const Search = () => {
             <BulletedList
               level={3}
               items={[
-                `Use "live filtering." When results are visibile and quick to 
+                `Use "live filtering." When results are visible and quick to 
                 filter, results should be filtered as the user types.`,
                 `Sort results by highest relevance. Relevance can be 
                 determined by keyword matching, however, to really elevate user 
