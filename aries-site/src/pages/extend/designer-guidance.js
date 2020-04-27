@@ -112,8 +112,8 @@ const DesignerGuidance = () => {
             <Anchor
               label="join the HPE Design System Figma team"
               href="#joining-the-hpe-design-system-figma-team"
-            />
-            .
+            />{' '}
+            first.
           </SubsectionText>
           <SubsectionText>
             Each component has its own library file that demonstrates the
