@@ -86,7 +86,7 @@ const DeveloperGuidance = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <code>grommet-theme-hpe</code>
+              grommet-theme-hpe
             </Anchor>{' '}
             theme via <code>npm</code> or <code>yarn</code>. This will help
             ensure that your application is aligned with the HPE Design System
