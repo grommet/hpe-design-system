@@ -37,13 +37,11 @@ const Accordion = () => (
         </SubsectionText>
         <SubsectionText>
           An accordion is a group of vertically stacked collapsible buttons with
-          title headers. This gives the user a high level idea of what content
-          will be disclosed before collapsing a section.
+          title headers. The titles give the user a high-level idea of what
+          content will be disclosed when an accordion panel opens.
         </SubsectionText>
         <SubsectionText>
-          Accordions make it easy for the user to process and find the
-          information they need in a more effective manner. Accordions can be
-          used to organize information, which helps the user consume the
+          Accordions help organize information, which helps the user consume the
           information they need at a faster pace.
         </SubsectionText>
       </Subsection>
@@ -71,7 +69,8 @@ const Accordion = () => (
           heading for the state to change to expanded.
         </SubsectionText>
         <SubsectionText>
-          Only one panel can be opened at a time to help with readability.
+          To help with readability, accordions should only have one panel open
+          at a time.
         </SubsectionText>
       </Subsection>
     </ContentSection>

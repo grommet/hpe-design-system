@@ -449,7 +449,7 @@ export const structure = [
   },
   {
     name: 'Accordion',
-    description: 'Buttons are used to indicate actions that can be performed.',
+    description: 'The accordion affords content to be delivered progressively.',
     preview: {
       image: {
         src: {
