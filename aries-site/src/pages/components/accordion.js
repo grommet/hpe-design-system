@@ -51,10 +51,10 @@ const Accordion = () => (
         <SubsectionText>
           Accordion has two states:
           <BulletedList level={3} items={['Collapsed', 'Expanded']} />
-          The chevron icon is used to identify the expand or collapse action while
-          the entire header can be clicked to expand or collapse content. The
-          default behavior is for all of the panels to be closed, with the user
-          only having visual to the heading.
+          The chevron icon is used to identify the expand or collapse action
+          while the entire header can be clicked to expand or collapse content.
+          The default behavior is for all of the panels to be closed, with the
+          user only having visual to the heading.
         </SubsectionText>
         <SubsectionText>
           The accordion labels should be kept short and to the point of the
