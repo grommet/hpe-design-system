@@ -132,6 +132,7 @@ export const structure = [
       'API Chomp',
       'Table Topper',
       'HPE Docs',
+      'Developer Guidance',
       'HPE Audience',
       'HPE Images',
     ],
@@ -736,6 +737,21 @@ export const structure = [
       'Setting up your Figma account',
       'Joining the HPE Design System Figma team',
       'HPE Design System Library',
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
+  },
+  {
+    name: 'Developer Guidance',
+    description:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    seoDescription:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    sections: [
+      'Getting started',
+      'Preferred environment',
+      'ReactJS and Grommet starter resources',
+      'Applying the HPE theme',
+      "What if our team doesn't use ReactJS?",
     ],
     relatedContent: ['Components', 'Templates', 'Designer'],
   },
