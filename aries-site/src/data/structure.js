@@ -108,6 +108,7 @@ export const structure = [
     seoDescription:
       'All the aesthetics, best practices, and information about the platform and how to wield it.',
     pages: [
+      'Designer Guidance',
       'Global Sidebar',
       'Designer',
       'API Chomp',
@@ -705,5 +706,19 @@ export const structure = [
     seoDescription:
       'What and how we layout content is crucial to clear communication and ease-of-use.',
     sections: [],
+  },
+  {
+    name: 'Designer Guidance',
+    description:
+      'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
+    seoDescription:
+      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
+    sections: [
+      'Getting started',
+      'Setting up your Figma account',
+      'Joining the HPE Design System Figma team',
+      'HPE Design System Library',
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
   },
 ];
