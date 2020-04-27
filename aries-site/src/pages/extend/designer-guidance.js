@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor } from 'grommet';
+import { Anchor, List } from 'grommet';
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -8,6 +8,7 @@ const title = 'Designer Guidance';
 const topic = 'Extend';
 const pageDetails = getPageDetails(title);
 const relatedContent = getRelatedContent(title);
+
 const DesignerGuidance = () => {
   return (
     <Layout title={title}>
@@ -65,19 +66,27 @@ const DesignerGuidance = () => {
         <Subsection name="Joining the HPE Design System Figma team" level={3}>
           <SubsectionText>
             Once you have made a Figma account with your HPE email, you can
-            request to join the HPE Design System team.
+            request to join the HPE Design System team. You can do so by
+            following these steps:
           </SubsectionText>
-          <SubsectionText>
-            1) Log into Figma and look for an HPE icon in your left control bar.
-            Navigate to this section, you will see all the HPE Figma teams. Look
-            for "HPE Design System" and click "Request to join".
-          </SubsectionText>
-          <SubsectionText>
-            2) Click on HPE. Here, you will see all HPE Figma teams.
-          </SubsectionText>
-          <SubsectionText>
-            3) Look for "HPE Design System" and click "Request to join".
-          </SubsectionText>
+          <List
+            as="ol"
+            data={[
+              `Log into Figma and look for an HPE icon in your left control bar.
+              Navigate to this section, you will see all the HPE Figma teams. 
+              Look for "HPE Design System" and click "Request to join".`,
+              'Click on HPE. Here, you will see all HPE Figma teams.',
+              'Look for "HPE Design System" and click "Request to join".',
+            ]}
+            border={{ style: 'hidden' }}
+            pad={{ vertical: 'xsmall' }}
+          >
+            {(item, index) => (
+              <SubsectionText key={item} size="medium">
+                {index + 1}) {item}
+              </SubsectionText>
+            )}
+          </List>
           <SubsectionText>
             Once you have been added to this team, you will have access to all
             of the HPE Design System files.
