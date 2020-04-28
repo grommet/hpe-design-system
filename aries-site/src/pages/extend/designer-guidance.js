@@ -78,9 +78,8 @@ const DesignerGuidance = () => {
           <List
             as="ol"
             data={[
-              `Log into Figma and look for an HPE icon in your left control bar.
-              Navigate to this section, you will see all the HPE Figma teams. 
-              Look for "HPE Design System" and click "Request to join".`,
+              `Log into Figma and look for an HPE icon in your left control 
+              bar.`,
               'Click on HPE. Here, you will see all HPE Figma teams.',
               'Look for "HPE Design System" and click "Request to join".',
             ]}
