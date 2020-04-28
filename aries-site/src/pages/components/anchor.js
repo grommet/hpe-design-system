@@ -46,7 +46,7 @@ const Anchor = () => (
       <Subsection name="Usage of Anchor vs Button" level={3} gap="small">
         <SubsectionText>
           When deciding whether to use Anchor or Button, consider the visual
-          appearance of the element. If the element will look like a tradition
+          appearance of the element. If the element will look like a traditional
           browser link, use Anchor. If there will be background or border
           styling, use{' '}
           <GrommetAnchor label="Button" href={nameToPath('Button')} />.
