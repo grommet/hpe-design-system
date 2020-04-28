@@ -3,22 +3,6 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  checkBox: {
-    toggle: {
-      extend: ({ checked, theme }) => `
-          border: none;
-          ${checked && `background-color: ${normalizeColor('brand', theme)};`}
-      `,
-      knob: {
-        extend: ({ theme }) => `
-          border: 2px solid ${
-            theme.global.colors.text[theme.dark ? 'dark' : 'light']
-          };
-          top: 0px;
-        `,
-      },
-    },
-  },
   rangeInput: {
     thumb: {
       color: {
