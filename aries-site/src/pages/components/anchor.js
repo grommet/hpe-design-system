@@ -109,7 +109,7 @@ const Anchor = () => (
           - Read more <GrommetAnchor label="here" />
         </SubsectionText>
         <SubsectionText>
-          A screen reader user may not know the context of "here".
+          The word "here" is vague. A screen reader user may not know the context of "here".
         </SubsectionText>
         <Text weight="bold">Helpful Anchor label:</Text>
         <SubsectionText>
