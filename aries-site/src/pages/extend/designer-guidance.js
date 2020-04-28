@@ -48,8 +48,14 @@ const DesignerGuidance = () => {
             page is a good place to start.
           </SubsectionText>
           <SubsectionText>
-            Create your account with your HPE email to be able to have access to
-            all of the HPE Design System files.
+            <Anchor
+              label="Create a Figma account"
+              href="https://help.figma.com/hc/en-us/articles/360039811114-Create-a-Figma-account"
+              target="_blank"
+              rel="noopener noreferrer"
+            />{' '}
+            with your HPE email address. Using your HPE email provides immediate 
+            access to all HPE Design System files.
           </SubsectionText>
           <SubsectionText>
             If you would prefer to access the HPE Design System library in a
