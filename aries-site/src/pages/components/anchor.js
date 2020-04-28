@@ -82,7 +82,7 @@ const Anchor = () => (
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <Text weight="bold">
-          Use target and rel props when linking externally:
+          Use 'target' and 'rel' props when linking externally:
         </Text>
         <SubsectionText>
           If clicking an Anchor leads to an external URL, apply the these props
