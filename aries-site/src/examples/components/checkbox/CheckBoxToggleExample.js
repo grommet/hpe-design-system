@@ -4,7 +4,6 @@ import { Box, CheckBox, Form, FormField } from 'grommet';
 export const CheckBoxToggleExample = () => {
   const [checked, setChecked] = useState(false);
   return (
-    <Box width="medium" align="center">
       <Form>
         <FormField
           name="checkbox-toggle"
@@ -21,6 +20,5 @@ export const CheckBoxToggleExample = () => {
           />
         </FormField>
       </Form>
-    </Box>
   );
 };
