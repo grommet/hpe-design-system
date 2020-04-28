@@ -1,3 +1,4 @@
+export * from './anchor';
 export * from './button';
 export * from './controls';
 export * from './input';
