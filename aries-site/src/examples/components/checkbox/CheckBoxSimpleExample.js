@@ -4,7 +4,6 @@ import { Box, CheckBox, Form, FormField } from 'grommet';
 export const CheckBoxSimpleExample = () => {
   const [checked, setChecked] = useState(true);
   return (
-    <Box width="medium" align="center">
       <Form>
         <FormField
           name="checkbox-simple"
@@ -21,6 +20,5 @@ export const CheckBoxSimpleExample = () => {
           />
         </FormField>
       </Form>
-    </Box>
   );
 };
