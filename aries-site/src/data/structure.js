@@ -20,6 +20,7 @@ import {
   MenuPreview,
   RadioButtonGroupPreview,
   RangeInputPreview,
+  SearchPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
@@ -110,6 +111,7 @@ export const structure = [
       'Menu',
       'RadioButtonGroup',
       'RangeInput',
+      'Search',
       'Select',
       'Stack',
       'Tabs',
@@ -619,6 +621,17 @@ export const structure = [
       component: () => <RangeInputPreview />,
       background: 'background-front',
     },
+  },
+  {
+    name: 'Search',
+    description: 'Find content corresponding to keyword queries.',
+    seoDescription: 'HPE Design System Search input design and code examples.',
+    sections: [],
+    preview: {
+      component: () => <SearchPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['TextInput', 'Header'],
   },
   {
     name: 'Select',
