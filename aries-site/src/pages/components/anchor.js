@@ -72,7 +72,8 @@ const Anchor = () => (
           border, of hover style, implement this using{' '}
           <GrommetAnchor label="Button" href={nameToPath('Button')} />. Use
           buttons when you are performing an action, such as: "submit," "merge,"
-          "create new," "upload," etc.
+          "create new," "upload," or if you are using a combination of icon and
+          label.
         </SubsectionText>
       </Subsection>
       <Subsection name="Anchor Labeling" level={3} gap="small">
