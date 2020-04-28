@@ -474,7 +474,7 @@ export const structure = [
       component: () => <AnchorPreview />,
       background: 'background-front',
     },
-    relatedContent: ['Button', 'Typography', 'Color'],
+    relatedContent: ['Button', 'Typography', 'Forms'],
   },
   {
     name: 'Box',
