@@ -111,7 +111,7 @@ const Anchor = () => (
         <SubsectionText>
           A screen reader user may not know the context of "here".
         </SubsectionText>
-        <Text weight="bold">Helpful Anchor :</Text>
+        <Text weight="bold">Helpful Anchor label:</Text>
         <SubsectionText>
           - Read more <GrommetAnchor label="Anchor documentation" /> here
         </SubsectionText>
