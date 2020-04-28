@@ -467,15 +467,14 @@ export const structure = [
   },
   {
     name: 'Anchor',
-    description:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
-    seoDescription:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
+    description: 'Used with text based navigation, such as inline text.',
+    seoDescription: 'Used with text based navigation, such as inline text.',
     sections: [],
     preview: {
       component: () => <AnchorPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Button', 'Typography', 'Color'],
   },
   {
     name: 'Box',
