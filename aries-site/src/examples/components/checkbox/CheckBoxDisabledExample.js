@@ -3,7 +3,7 @@ import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxDisabledExample = () => {
   return (
-    <Box gap="large" direction="row">
+    <Box gap="large" direction="row-responsive">
       <Box width="medium">
         <Form>
           <FormField
