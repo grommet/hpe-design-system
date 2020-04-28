@@ -116,7 +116,7 @@ const Anchor = () => (
           - Read more <GrommetAnchor label="Anchor documentation" /> here
         </SubsectionText>
         <SubsectionText>
-          This makes it very clear what kind of content the Anchor relates to.
+          This clearly states the type of content to which the Anchor relates.
         </SubsectionText>
       </Subsection>
     </ContentSection>
