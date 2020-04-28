@@ -58,7 +58,7 @@ const Anchor = () => (
           deciding whether to use Anchor or Button.
         </SubsectionText>
         <SubsectionText>
-          Here are some contexts that Anchor should be used:
+          Here are some contexts in which Anchor should be used:
         </SubsectionText>
         <BulletedList
           items={[
