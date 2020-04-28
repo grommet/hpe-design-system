@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Box, Text } from 'grommet';
+import { Anchor, Box, List, Text } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
@@ -94,9 +94,26 @@ const Search = () => {
           </SubsectionText>
           <SubsectionText>
             Inputs should always be accompanied by labels for accessibility. An
-            icon may serve as a label if: 1) the icon meaning is well
-            understood, and 2) has an 'aria-labelledby' attribute. For
-            additional detail, see{' '}
+            icon may serve as a label if:
+          </SubsectionText>
+          <List
+            as="ol"
+            data={[
+              `The icon meaning is well
+              understood.`,
+              "Has an 'aria-labelledby' attribute.",
+            ]}
+            border={{ style: 'hidden' }}
+            pad={{ vertical: 'xsmall' }}
+          >
+            {(item, index) => (
+              <SubsectionText key={item} size="medium">
+                {index + 1}) {item}
+              </SubsectionText>
+            )}
+          </List>
+          <SubsectionText>
+            For additional detail, see{' '}
             <Anchor
               href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints"
               target="_blank"
