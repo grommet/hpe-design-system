@@ -104,7 +104,7 @@ const Anchor = () => (
           It is important to make sure the label of the anchor will allow screen
           reader users to know where the anchor will lead.
         </SubsectionText>
-        <Text weight="bold">Bad Anchor :</Text>
+        <Text weight="bold">Unhelpful Anchor label:</Text>
         <SubsectionText>
           - Read more <GrommetAnchor label="here" />
         </SubsectionText>
