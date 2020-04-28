@@ -5,7 +5,6 @@ export const CheckBoxDescriptionExample = () => {
   const [checked, setChecked] = useState();
 
   return (
-    <Box width="medium" align="center">
       <Form>
         <FormField
           name="checkbox-with-desc"
@@ -22,6 +21,5 @@ export const CheckBoxDescriptionExample = () => {
           />
         </FormField>
       </Form>
-    </Box>
   );
 };
