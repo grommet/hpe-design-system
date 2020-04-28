@@ -141,7 +141,7 @@ const Anchor = () => (
       </Subsection>
       <Subsection name="Anchor to external location" level={3}>
         <SubsectionText>
-          Using the target and rel props allow you to create smooth user
+          Using the 'target' and 'rel' props allow you to create smooth user
           experiences while maintaining security of your application.
         </SubsectionText>
         <Example
