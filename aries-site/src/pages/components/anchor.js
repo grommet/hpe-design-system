@@ -70,7 +70,9 @@ const Anchor = () => (
         <SubsectionText>
           If a clickable element is intended to appear with a background color,
           border, of hover style, implement this using{' '}
-          <GrommetAnchor label="Button" href={nameToPath('Button')} />.
+          <GrommetAnchor label="Button" href={nameToPath('Button')} />. Use
+          buttons when you are performing an action, such as: "submit," "merge,"
+          "create new," "upload," etc.
         </SubsectionText>
       </Subsection>
       <Subsection name="Anchor Labeling" level={3} gap="small">
@@ -142,7 +144,7 @@ const Anchor = () => (
           <AnchorInlineExample />
         </Example>
       </Subsection>
-      <Subsection name="Anchor to external location" level={3}>
+      <Subsection name="Anchor to external site" level={3}>
         <SubsectionText>
           Using the 'target' and 'rel' props allow you to create smooth user
           experiences while maintaining security of your application.
