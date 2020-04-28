@@ -8,7 +8,7 @@ export const CheckBoxValidationExample = () => {
   const [message, setMessage] = useState('Check checkbox to resolve error');
 
   return (
-    <Box gap="large" direction="row">
+    <Box gap="large" direction="row-responsive">
       <Box width="medium" gap="medium">
         <Form>
           <FormField
