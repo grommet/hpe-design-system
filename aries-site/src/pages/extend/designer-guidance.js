@@ -54,7 +54,7 @@ const DesignerGuidance = () => {
               target="_blank"
               rel="noopener noreferrer"
             />{' '}
-            with your HPE email address. Using your HPE email provides immediate 
+            with your HPE email address. Using your HPE email provides immediate
             access to all HPE Design System files.
           </SubsectionText>
           <SubsectionText>
