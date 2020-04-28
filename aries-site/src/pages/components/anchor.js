@@ -88,7 +88,7 @@ const Anchor = () => (
           If clicking an Anchor leads to an external URL, apply the these props
           to the anchor:
         </SubsectionText>
-        <BulletedList items={['target="_blank"', 'rel="noopener']} />
+        <BulletedList items={['target="_blank"', 'rel="noopener"']} />
         <SubsectionText>
           The distinction is important to screen reader users to know what's
           going to happen next. Will I navigate somewhere or will something
