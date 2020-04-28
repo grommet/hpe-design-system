@@ -4,6 +4,7 @@ export * from './controls';
 export * from './input';
 export * from './layouts';
 export * from './menu';
+export * from './search';
 export * from './select';
 export * from './tabs';
 export * from './textarea';

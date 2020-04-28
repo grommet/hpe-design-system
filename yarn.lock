@@ -7685,7 +7685,6 @@ graphlib@^2.1.5:
 
 grommet-icons@^4.2.0, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.4.0"
-  uid "028b6a47d88edbf5f844df56f8333b588ca84f56"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#028b6a47d88edbf5f844df56f8333b588ca84f56"
   dependencies:
     grommet-styles "^0.2.0"
