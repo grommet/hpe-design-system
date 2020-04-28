@@ -7,6 +7,7 @@ import {
   AnchorDisabledExample,
   AnchorExternalExample,
   AnchorInlineExample,
+  SignUpExample,
 } from '../../examples';
 import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
@@ -95,9 +96,10 @@ const Anchor = () => (
           happen on the page?
         </SubsectionText>
         <SubsectionText>
-          Adding the "noopener" property prevents the newly opened page from
-          gaining access to the original page which helps maintain the security
-          of your application.
+          The "_blank" target causes the link to open in a new tab, so the user
+          doesn't lose their place on the application. Adding the "noopener"
+          property prevents the newly opened page from gaining access to the
+          original page which helps maintain the security of your application.
         </SubsectionText>
         <Text weight="bold">Use clear Anchor labels:</Text>
         <SubsectionText>
@@ -109,11 +111,12 @@ const Anchor = () => (
           - Read more <GrommetAnchor label="here" />
         </SubsectionText>
         <SubsectionText>
-          The word "here" is vague. A screen reader user may not know the context of "here".
+          The word "here" is vague. A screen reader user may not know the
+          context of "here".
         </SubsectionText>
         <Text weight="bold">Helpful Anchor label:</Text>
         <SubsectionText>
-          - Read more <GrommetAnchor label="Anchor documentation" /> here
+          - Read more <GrommetAnchor label="Anchor documentation" />
         </SubsectionText>
         <SubsectionText>
           This clearly states the type of content to which the Anchor relates.
@@ -149,6 +152,19 @@ const Anchor = () => (
           docs="https://v2.grommet.io/anchor?theme=hpe#props"
         >
           <AnchorExternalExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Anchor in a form" level={3}>
+        <SubsectionText>
+          Using an Anchor within a{' '}
+          <GrommetAnchor label="Form" href={nameToPath('Forms')} /> can link
+          users to additional information that may be secondary to form content.
+        </SubsectionText>
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
+          docs="https://v2.grommet.io/anchor?theme=hpe#props"
+        >
+          <SignUpExample />
         </Example>
       </Subsection>
       <Subsection name="Disabled Anchor" level={3}>
