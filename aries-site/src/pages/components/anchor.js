@@ -74,8 +74,8 @@ const Anchor = () => (
       </Subsection>
       <Subsection name="Anchor Labeling" level={3} gap="small">
         <SubsectionText>
-          It is important that your anchor clearly states what content the
-          anchor leads to. For example, labels such as "Account Information" or
+          It is important that your anchor clearly states to what content the
+          anchor leads. For example, labels such as "Account Information" or
           "How to change account credentials" are both effective labels that
           allow the user to have confidence in where the anchor will lead them.
         </SubsectionText>
