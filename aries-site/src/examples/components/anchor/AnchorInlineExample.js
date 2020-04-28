@@ -11,8 +11,8 @@ export const AnchorInlineExample = () => {
         <Anchor
           label="Our Philosophy"
           href="https://design-system.hpe.design/foundation/philosophy"
-        />{' '}
-        here.
+        />
+        .
       </Paragraph>
     </Box>
   );
