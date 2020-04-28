@@ -43,7 +43,7 @@ const Anchor = () => (
           underline.
         </SubsectionText>
       </Subsection>
-      <Subsection name="Usage of Anchor vs Button" level={3} gap="small">
+      <Subsection name="Usage of Anchor vs. Button" level={3} gap="small">
         <SubsectionText>
           When deciding whether to use Anchor or Button, consider the visual
           appearance of the element. If the element will look like a traditional
