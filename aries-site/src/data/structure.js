@@ -50,6 +50,7 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
+      'Accessibility',
       'Content',
       'Color',
       'Human Centered',
@@ -736,6 +737,14 @@ export const structure = [
     },
     seoDescription:
       'What and how we layout content is crucial to clear communication and ease-of-use.',
+    sections: [],
+  },
+  {
+    name: 'Accessibility',
+    description:
+      'Accessibility will be an important part of guidence in using our components.',
+    seoDescription:
+      'Accessibility will be an important part of guidence in using our components.',
     sections: [],
   },
   {
