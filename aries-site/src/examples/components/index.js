@@ -1,6 +1,7 @@
 export * from './anchor';
 export * from './button';
 export * from './controls';
+export * from './header';
 export * from './input';
 export * from './layouts';
 export * from './menu';
