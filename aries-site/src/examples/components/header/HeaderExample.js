@@ -1,17 +1,30 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 import {
   Box,
   Button,
   Header,
+  Keyboard,
   ResponsiveContext,
   Text,
   TextInput,
 } from 'grommet';
 import { Search as SearchIcon, Hpe } from 'grommet-icons';
 
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-icon-example',
+}))``;
+
 export const HeaderExample = () => {
   const size = useContext(ResponsiveContext);
   const [focused, setFocused] = useState(false);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (focused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [focused, setFocused]);
 
   return (
     <Header fill="horizontal" pad="none" background="background-front">
@@ -26,35 +39,30 @@ export const HeaderExample = () => {
           )}
         </Box>
       </Button>
-      <Box
-        align="center"
-        background={
-          size !== 'small' || focused ? 'background-contrast' : undefined
-        }
-        direction="row"
-        justify="between"
-        onClick={() => setFocused(true)}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        pad={{ right: 'small' }}
-        round="small"
-        width={size !== 'small' || focused ? 'medium' : undefined}
-      >
-        {size !== 'small' || focused ? (
-          <TextInput placeholder="Search HPE Design System" plain />
-        ) : (
-          undefined
+      <>
+        {!focused && size === 'small' && (
+          <Button
+            icon={<SearchIcon />}
+            hoverIndicator
+            onClick={() => setFocused(true)}
+          />
         )}
-        <Box
-          pad={
-            size === 'small' && !focused
-              ? { vertical: 'medium', left: 'medium' }
-              : undefined
-          }
-        >
-          <SearchIcon color="text" />
-        </Box>
-      </Box>
+        {(focused || size !== 'small') && (
+          <Box background="background-contrast" round="xsmall" width="medium">
+            <Keyboard onEsc={() => setFocused(false)}>
+              <StyledTextInput
+                ref={inputRef}
+                icon={<SearchIcon id="search-icon-example" />}
+                dropHeight="small"
+                placeholder="Search HPE Design System"
+                onBlur={() => setFocused(false)}
+                plain
+                reverse
+              />
+            </Keyboard>
+          </Box>
+        )}
+      </>
     </Header>
   );
 };
