@@ -550,6 +550,7 @@ export const structure = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
+    relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards'],
   },
   {
     name: 'Layer',
