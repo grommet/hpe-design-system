@@ -20,6 +20,7 @@ import {
   MenuPreview,
   RadioButtonGroupPreview,
   RangeInputPreview,
+  SearchPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
@@ -65,6 +66,15 @@ export const structure = [
     description:
       'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
     icon: (size, color) => <IconDiamond size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/carte-templates-light.svg',
+          dark: '/carte-templates-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: [
@@ -84,6 +94,15 @@ export const structure = [
     description:
       'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/carte-components-light.svg',
+          dark: '/carte-components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
     pages: [
@@ -101,6 +120,7 @@ export const structure = [
       'Menu',
       'RadioButtonGroup',
       'RangeInput',
+      'Search',
       'Select',
       'Stack',
       'Tabs',
@@ -117,11 +137,13 @@ export const structure = [
     seoDescription:
       'All the aesthetics, best practices, and information about the platform and how to wield it.',
     pages: [
+      'Designer Guidance',
       'Global Sidebar',
       'Designer',
       'API Chomp',
       'Table Topper',
       'HPE Docs',
+      'Developer Guidance',
       'HPE Audience',
       'HPE Images',
       'React Router',
@@ -458,15 +480,14 @@ export const structure = [
   },
   {
     name: 'Anchor',
-    description:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
-    seoDescription:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
+    description: 'Used with text based navigation, such as inline text.',
+    seoDescription: 'Used with text based navigation, such as inline text.',
     sections: [],
     preview: {
       component: () => <AnchorPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Button', 'Typography', 'Forms'],
   },
   {
     name: 'Box',
@@ -610,6 +631,17 @@ export const structure = [
       component: () => <RangeInputPreview />,
       background: 'background-front',
     },
+  },
+  {
+    name: 'Search',
+    description: 'Find content corresponding to keyword queries.',
+    seoDescription: 'HPE Design System Search input design and code examples.',
+    sections: [],
+    preview: {
+      component: () => <SearchPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['TextInput', 'Header'],
   },
   {
     name: 'Select',
@@ -759,5 +791,34 @@ export const structure = [
     seoDescription:
       'A collection of navigational components that compose declaratively with your application.',
     sections: [],
+  },
+  {
+    name: 'Designer Guidance',
+    description:
+      'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
+    seoDescription:
+      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
+    sections: [
+      'Getting started',
+      'Setting up your Figma account',
+      'Joining the HPE Design System Figma team',
+      'HPE Design System Library',
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
+  },
+  {
+    name: 'Developer Guidance',
+    description:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    seoDescription:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    sections: [
+      'Getting started',
+      'Preferred environment',
+      'ReactJS and Grommet starter resources',
+      'Applying the HPE theme',
+      "What if our team doesn't use ReactJS?",
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
   },
 ];
