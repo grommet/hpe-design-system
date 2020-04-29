@@ -12,7 +12,7 @@
 # Welcome to HPE Design System
 Aries is a monorepo built from two modules.
 
-1. aries-core
+1. aries-core 
 2. aries-site
 
 The Monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
