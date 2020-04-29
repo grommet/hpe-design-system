@@ -83,7 +83,7 @@ export const MinimalSidebarExample = ({ mobile }) => {
               header={size !== 'small' && <SidebarHeader />}
               footer={size !== 'small' && <SidebarFooter />}
               background="blue!"
-              gap="small"
+              gap="xsmall"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
                 bottom: 'medium',
