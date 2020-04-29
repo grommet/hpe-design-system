@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import { MinimalSidebarExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
 
@@ -20,8 +21,8 @@ const Navigation = () => (
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          // template
+        // code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
+        // template
         >
           {}
         </Example>
@@ -79,14 +80,18 @@ const Navigation = () => (
       <Subsection name="Minimal Sidebar" level={3}>
         <SubsectionText>
           Sidebar may contain up to a handful of navigation choices which are
-          often mixed with elements such as session. Sidebars transform to a
-          horizontal orientation on mobile devices.
+          often mixed with elements such as session.
+        </SubsectionText>
+        <SubsectionText>
+          Sidebars transform to a horizontal orientation on mobile devices. Be
+          sure to use the "See Fullscreen" in the example below to explore the
+          minimal sidebar's behavior on mobile-sized screens.
         </SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/MinimalSidebarExample.js"
+          template
         >
-          {}
+          <MinimalSidebarExample />
         </Example>
       </Subsection>
       <Subsection name="Extended Sidebar" level={3}>
