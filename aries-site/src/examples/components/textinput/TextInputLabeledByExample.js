@@ -9,14 +9,12 @@ export const TextInputLabeledByExample = () => {
   }))``;
 
   return (
-    <Box direction="row-responsive" gap="large" align="end">
-      <Box width="medium">
-        <StyledTextInput
-          placeholder="Search..."
-          icon={<Search id="search-icon" />}
-          reverse
-        />
-      </Box>
+    <Box width="medium">
+      <StyledTextInput
+        placeholder="Search..."
+        icon={<Search id="search-icon" />}
+        reverse
+      />
     </Box>
   );
 };

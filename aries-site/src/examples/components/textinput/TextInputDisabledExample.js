@@ -1,9 +1,7 @@
 import React from 'react';
-import { Box, FormField, TextInput } from 'grommet';
+import { FormField, TextInput } from 'grommet';
 
 export const TextInputDisabledExample = () => (
-  <Box>
-    <Box width="small">
       <FormField label="Label" htmlFor="disabled-input" disabled>
         <TextInput
           id="disabled-input"
@@ -11,6 +9,4 @@ export const TextInputDisabledExample = () => (
           disabled
         />
       </FormField>
-    </Box>
-  </Box>
 );

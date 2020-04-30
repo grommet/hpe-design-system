@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Menu } from 'grommet';
+import { Menu } from 'grommet';
 
 export const MenuExample = () => {
   const items = [
@@ -9,8 +9,6 @@ export const MenuExample = () => {
   ];
 
   return (
-    <Box round="xsmall">
       <Menu label="Manage Account" items={items} width="medium" />
-    </Box>
   );
 };
