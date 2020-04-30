@@ -41,11 +41,43 @@ const Header = () => (
       <Subsection name="Guidance">
         <SubsectionText>
           Header is used to set the context for an application or a specific
-          page within an application. It should contain a brand button with
-          application name on the left and actions on the right.
+          page within an application. It is a flexible element that can be
+          composed of a variety of components to aid the user experience in an
+          application.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="About Header" level={3} gap="small">
+        <SubsectionText>
+          Header is extremely versatile and can be built by mixing and matching
+          a variety of components to provide users with relevant interactive
+          elements to navigate through or engage with an application.
+        </SubsectionText>
+        <Text weight="bold">Common use cases include:</Text>
+        <BulletedList
+          items={[
+            'Creating a navigation structure for an application',
+            `Providing a search field for an application or single page within
+             an application`,
+            `Displaying an action button that affects the applicaiton or 
+            current page content`,
+          ]}
+        />
+        <Text weight="bold">Components used within a Header:</Text>
+        <SubsectionText>
+          Some of the most common components that can be used in Header are{' '}
+          <Anchor label="Button" href={nameToPath('Button')} />
+          , <Anchor label="Avatar" href={nameToPath('Avatar')} />,{' '}
+          <Anchor label="Search" href={nameToPath('Search')} />
+          , and <Anchor label="Menu" href={nameToPath('Menu')} />.
         </SubsectionText>
       </Subsection>
       <Subsection name="Usage" level={3} gap="small">
+        <SubsectionText>
+          While Header is flexible in its composition, there are some important
+          guidelines and use cases to consider. Following these examples and
+          guidance will help ensure your Header is compliant with the HPE Design
+          System standards.
+        </SubsectionText>
         <Text weight="bold">
           Keep Header contents to a limited set of elements in order to:
         </Text>
@@ -54,6 +86,16 @@ const Header = () => (
             `Provide the user with relevant, helpful actions regarding the 
             application or page`,
             'Layout smoothly and responsively across all browser widths',
+          ]}
+        />
+        <Text weight="bold">
+          Include an App Identity at the start of your header:
+        </Text>
+        <BulletedList
+          items={[
+            'Contains brand logo and application/service name',
+            `Links to the landing page of your 
+            application`,
           ]}
         />
       </Subsection>
@@ -73,16 +115,6 @@ const Header = () => (
             'Search field that searches entirety of the application',
           ]}
         />
-        <Text weight="bold">
-          These elements are not appropriate for an App Header:
-        </Text>
-        <BulletedList
-          items={[
-            `Actions or buttons that pertain specifically to the context of a 
-            single page`,
-            'Search field that only searches within the current page',
-          ]}
-        />
         <SubsectionText>
           If you have actions that pertain specifically to a single page,
           consider adding a Page Header to your layout in addition to your App
@@ -95,24 +127,22 @@ const Header = () => (
           application. It may contain the main heading of the page as well as
           some actions pertaining to the specific page content.
         </SubsectionText>
+        <Text weight="bold">A page-level Header should:</Text>
+        <BulletedList
+          items={[
+            'always be used in addition to the App Header',
+            'be placed below the App Header in the layout',
+            'contain actions relevant to a single page of an app',
+          ]}
+        />
         <SubsectionText>
-          A Page Header should never replace the App Header. It should be used
-          in addition to the App Header and placed below the App Header in the
-          layout. For more guidance, check out an example of{' '}
+          For more guidance, check out an example of{' '}
           <Anchor
             label="how to use a page-level header"
             href="#header-for-a-single-page"
           />
           .
         </SubsectionText>
-        <Text weight="bold">Page Header actions may include:</Text>
-        <BulletedList
-          items={[
-            `Actions or buttons that pertain specifically to the context of the 
-            current page`,
-            'Search field that only searches within the current page',
-          ]}
-        />
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <SubsectionText>
