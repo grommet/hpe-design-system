@@ -97,7 +97,7 @@ const Icons = () => {
       <ContentSection>
         <Subsection name="Icon Color" level={3}>
           <SubsectionText>
-            The icon default color is 'strong text' for the corresponding
+            The default icon color is 'text-strong' for the corresponding
             light/dark mode For icons like Hpe logo the brand color will need to
             be assigned to the icon.
           </SubsectionText>
