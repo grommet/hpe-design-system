@@ -35,6 +35,7 @@ const Lists = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListScreenExample.js"
             template
+            width="100%"
           >
             <ListScreenExample />
           </Example>
