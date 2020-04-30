@@ -144,7 +144,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const maxItems = size !== 'small' ? undefined : 5;
 
   return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} justify="center">
+    <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
         pages
           .slice(0, maxItems)
