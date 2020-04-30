@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Form, FormField, TextArea } from 'grommet';
+import { Form, FormField, TextArea } from 'grommet';
 
 export const TextAreaValidationExample = () => {
   const [value, setValue] = useState('');
@@ -7,8 +7,6 @@ export const TextAreaValidationExample = () => {
   const [message, setMessage] = useState(defaultErrorMessage);
 
   return (
-    <Box>
-      <Box width="small">
         <Form>
           <FormField
             name="required-field"
@@ -32,7 +30,5 @@ export const TextAreaValidationExample = () => {
             />
           </FormField>
         </Form>
-      </Box>
-    </Box>
   );
 };
