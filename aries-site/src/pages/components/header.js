@@ -32,6 +32,7 @@ const Header = () => (
           docs="https://v2.grommet.io/header?theme=hpe"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
           figma="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
+          width="100%"
         >
           <HeaderExample />
         </Example>
@@ -176,6 +177,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/menu?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderNavigationExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderNavigationExample />
@@ -189,6 +191,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderActionExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderActionExample />
@@ -203,6 +206,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderExample />
@@ -218,6 +222,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderAvatarExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderAvatarExample />
@@ -234,6 +239,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderSearchActionsExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderSearchActionsExample />
@@ -249,6 +255,7 @@ const Header = () => (
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderPageExample.js"
+          width="100%"
           height={{ min: 'small' }}
         >
           <HeaderPageExample />
