@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Text } from 'grommet';
+import { Anchor, Box, List, Text } from 'grommet';
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
@@ -14,6 +14,28 @@ const page = getPageDetails(title);
 const topic = 'Components';
 const relatedContent = getRelatedContent(title);
 
+const data = [
+  {
+    title: 'Copyright information',
+    description: `It is vital to make it clear that the content within the 
+    website and applications is protected and copyrighted.`,
+  },
+  {
+    title: 'Terms of use',
+    description: `These guidelines will help ensure partners and customers the 
+    terms of doing business with us.`,
+  },
+  {
+    title: 'Privacy',
+    description: `As a large corporation, it is essential to display a link to 
+    our privacy policy page to let users know that we follow GDPR laws.`,
+  },
+  {
+    title: 'Security',
+    description: `It is important for users to get an overview that explains 
+    our security processes and tools that are used to protect data and users.`,
+  },
+];
 const Footer = () => (
   <Layout title={title}>
     <Meta
@@ -48,7 +70,8 @@ const Footer = () => (
       <Subsection name="Usage" level={3} gap="small">
         <SubsectionText>
           A footer is a consistent element to be used at the bottom of all of
-          your applications or webpages.
+          your applications or webpages. Unlike Header, Footer is not as
+          flexible and contains certain required elements.
         </SubsectionText>
         <SubsectionText>
           The most common footer is an{' '}
@@ -71,16 +94,23 @@ const Footer = () => (
           its contents are universal to the entire application.
         </SubsectionText>
         <Text weight="bold">
-          Always provide these essential elements in your app footer:
+          Always provide these essential links in your footer:
         </Text>
-        <BulletedList
-          items={[
-            'Copyright information',
-            'Terms of Use',
-            'Privacy',
-            'Security',
-          ]}
-        />
+        <List
+          as="ol"
+          data={data}
+          border={{ style: 'hidden' }}
+          pad={{ vertical: 'small' }}
+        >
+          {(datum, index) => (
+            <Box key={index} gap="xsmall">
+              <Text weight="bold">
+                {index + 1}) {datum.title}
+              </Text>
+              <SubsectionText size="small">{datum.description}</SubsectionText>
+            </Box>
+          )}
+        </List>
         <SubsectionText>
           Check out this <Anchor href="#" label="simple Footer example" /> to
           see how these essential elements are included within a Footer.
@@ -88,10 +118,10 @@ const Footer = () => (
       </Subsection>
       <Subsection name="Page Footer" level={3}>
         <SubsectionText>
-          A page-level Header provides additional resources or functions for a
+          A page-level Footer provides additional resources or functions for a
           single page within an application.
         </SubsectionText>
-        <Text weight="bold">A page-level Header should:</Text>
+        <Text weight="bold">A page-level Footer should:</Text>
         <BulletedList
           items={[
             'always be used in addition to the App Footer',
@@ -110,11 +140,10 @@ const Footer = () => (
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <SubsectionText>
-          It is wrap buttons or other elements at the bottom of a page in a
-          Footer to inform screen readers that the contained content is part of
-          a page footer. This meets accessibility requirements to contain all
-          page content in relevant landmarks. For more information, you can read
-          more on{' '}
+          Wrap buttons at the bottom of a page in a Footer to inform screen
+          readers that the contained content is part of a page footer. This
+          meets accessibility requirements to contain all page content in
+          relevant landmarks. For more information, you can read more on{' '}
           <Anchor
             label="using landmarks to identify page regions"
             href="https://www.w3.org/TR/WCAG20-TECHS/ARIA11.html"
