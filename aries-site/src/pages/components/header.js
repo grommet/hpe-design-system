@@ -233,7 +233,7 @@ const Header = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/header?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonIconExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderSearchActionsExample.js"
           height={{ min: 'small' }}
         >
           <HeaderSearchActionsExample />
