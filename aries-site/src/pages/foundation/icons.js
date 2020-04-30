@@ -35,7 +35,7 @@ const Icons = () => {
           <SubsectionText size="medium">
             Icons can be used to represent information to users. These can
             include different actions a user can perform. Icons can represent
-            different types of functionality.
+            different types of functionality. It is important that the context of an icon is clear. In some cases, it may be beneficial to pair icons with text to ensure the purpose of the icon is clear.
           </SubsectionText>
         </Subsection>
         <ButtonRow>
