@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Tab,
-  Tabs,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell,
-  Text,
-} from 'grommet';
+import { Box, Tab, Tabs } from 'grommet';
 
 export const TabsExample = () => {
   const [index, setIndex] = React.useState();
@@ -19,27 +10,7 @@ export const TabsExample = () => {
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="General">
           <Box margin="small" gap="small">
-            <Text size="xxlarge">User Information</Text>
-            <Table alignSelf="start">
-              <TableBody>
-                <TableRow>
-                  <TableCell scope="row">Name</TableCell>
-                  <TableCell>Ahab</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">Email</TableCell>
-                  <TableCell>whitewhale@theessex.com</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">Phone</TableCell>
-                  <TableCell>none</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell scope="row">Location</TableCell>
-                  <TableCell>Cape of South Africa</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+            User Information
           </Box>
         </Tab>
         <Tab title="Account">
