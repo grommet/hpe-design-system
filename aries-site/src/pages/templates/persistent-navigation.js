@@ -31,8 +31,9 @@ const Navigation = () => (
     <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>
-          Persistent navigation aids the user in orientation and provides
-          comfort in its presence, especially in information rich applications.
+          Persistent navigation aids users by maintaining context of where they
+          are within an application. This presence eases the user experience, 
+          especially in information rich applications.
           This pattern can be applied in both local and global contexts.
         </SubsectionText>
       </Subsection>
@@ -48,8 +49,8 @@ const Navigation = () => (
           items={[
             `A user needs to easy access to move from one area of an 
             application to another with minimal clicks.`,
-            `Elements such as branding or search require a ubiquitous 
-            presence.`,
+            `Elements such as branding or search are present 
+            since they require a ubiquitous presence.`,
           ]}
         />
       </Subsection>
