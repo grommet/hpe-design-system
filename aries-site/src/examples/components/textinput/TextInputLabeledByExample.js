@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, TextInput } from 'grommet';
+import { TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 
 export const TextInputLabeledByExample = () => {
@@ -9,12 +9,10 @@ export const TextInputLabeledByExample = () => {
   }))``;
 
   return (
-    <Box width="medium">
       <StyledTextInput
         placeholder="Search..."
         icon={<Search id="search-icon" />}
         reverse
       />
-    </Box>
   );
 };

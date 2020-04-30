@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box, FormField, TextArea } from 'grommet';
+import { Form, FormField, TextArea } from 'grommet';
 
 export const TextAreaExample = () => {
   return (
-    <Box width="medium">
       <Form>
         <FormField
           name="textArea-example"
@@ -18,6 +17,5 @@ export const TextAreaExample = () => {
           />
         </FormField>
       </Form>
-    </Box>
   );
 };
