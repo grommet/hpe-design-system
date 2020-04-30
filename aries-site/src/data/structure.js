@@ -551,6 +551,14 @@ export const structure = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
+    relatedContent: [
+      'Button',
+      'Menu',
+      'TextInput',
+      'Dashboards',
+      'Global Sidebar',
+      'Search',
+    ],
   },
   {
     name: 'Layer',
