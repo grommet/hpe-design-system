@@ -282,5 +282,4 @@ Example.propTypes = {
 
 Example.defaultProps = {
   height: { min: 'medium' },
-  width: '100%',
 };

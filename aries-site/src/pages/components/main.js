@@ -22,7 +22,7 @@ const Main = () => (
           primary context of your content. See it here in the context of an app
           layout.
         </SubsectionText>
-        <Example>
+        <Example width="100%">
           <GridExample />
         </Example>
       </Subsection>
