@@ -128,7 +128,7 @@ const Footer = () => (
     <ContentSection>
       <Subsection name="Variants">
         <SubsectionText>
-          There are various action elements that may live in a Header, depending
+          There are various action elements that may live in a Footer, depending
           on the application or page context.
         </SubsectionText>
       </Subsection>
