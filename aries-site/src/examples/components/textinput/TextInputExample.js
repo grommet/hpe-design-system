@@ -1,8 +1,15 @@
 import React from 'react';
-import { FormField, TextInput } from 'grommet';
+import { Form, FormField, TextInput } from 'grommet';
 
 export const TextInputExample = () => (
-  <FormField label="Label" htmlFor="username">
-    <TextInput id="username" placeholder="Placeholder text" type="email" />
-  </FormField>
+  <Form>
+    <FormField name="textInput-example" label="Label" htmlFor="username">
+      <TextInput
+        name="textInput-example"
+        id="username"
+        placeholder="Placeholder text"
+        type="email"
+      />
+    </FormField>
+  </Form>
 );

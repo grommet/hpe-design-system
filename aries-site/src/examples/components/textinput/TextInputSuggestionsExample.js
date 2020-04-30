@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, TextInput } from 'grommet';
+import { Box, Form, FormField, TextInput } from 'grommet';
 
 export const TextInputSuggestionsExample = () => {
   const allSuggestions = ['Apples', 'Oranges', 'Bananas'];
@@ -24,35 +24,43 @@ export const TextInputSuggestionsExample = () => {
   return (
     <Box direction="row-responsive" gap="large" align="end">
       <Box width="small">
-        <FormField
-          label="Static suggestions"
-          help={`Type something to see suggestions persist 
+        <Form>
+          <FormField
+            label="Static suggestions"
+            name="static-suggestions-example"
+            help={`Type something to see suggestions persist 
           regardless of input value.`}
-          htmlFor="text-input-static"
-        >
-          <TextInput
-            id="text-input-static"
-            placeholder="Placeholder text"
-            suggestions={['Apples', 'Oranges', 'Bananas']}
-          />
-        </FormField>
+            htmlFor="text-input-static"
+          >
+            <TextInput
+              name="static-suggestions-example"
+              id="text-input-static"
+              placeholder="Placeholder text"
+              suggestions={['Apples', 'Oranges', 'Bananas']}
+            />
+          </FormField>
+        </Form>
       </Box>
       <Box width="small">
-        <FormField
-          label="Filtered suggestions"
-          help={`Type something to see suggestions filter 
+        <Form>
+          <FormField
+            name="filtered-example"
+            label="Filtered suggestions"
+            help={`Type something to see suggestions filter 
           based on the input value.`}
-          htmlFor="text-input-filtered"
-        >
-          <TextInput
-            id="text-input-filtered"
-            placeholder="Placeholder text"
-            onChange={onChange}
-            onSelect={event => setValue(event.suggestion)}
-            suggestions={suggestions}
-            value={value}
-          />
-        </FormField>
+            htmlFor="text-input-filtered"
+          >
+            <TextInput
+              name="filtered-example"
+              id="text-input-filtered"
+              placeholder="Placeholder text"
+              onChange={onChange}
+              onSelect={event => setValue(event.suggestion)}
+              suggestions={suggestions}
+              value={value}
+            />
+          </FormField>
+        </Form>
       </Box>
     </Box>
   );
