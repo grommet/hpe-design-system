@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Form, FormField, Select } from 'grommet';
+import { Form, FormField, Select } from 'grommet';
 
 const defaultOptions = ['EMEA', 'Asia/Pacific', 'Americas', 'Polar Regions'];
 
@@ -21,7 +21,6 @@ export const SelectSearchExample = () => {
   };
 
   return (
-    <Box width="medium">
       <Form>
         <FormField
           htmlFor="select-with-search__input"
@@ -41,6 +40,5 @@ export const SelectSearchExample = () => {
           />
         </FormField>
       </Form>
-    </Box>
   );
 };
