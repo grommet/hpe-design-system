@@ -261,6 +261,7 @@ export const structure = [
         alt: 'Hpe Icon Preview',
       },
     },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
   },
   {
     name: 'Lists',

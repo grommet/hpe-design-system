@@ -1,3 +1,4 @@
-export * from './IconSimpleExample';
+export * from './IconComponentExample';
 export * from './IconSizeExample';
-export * from './IconColorExample';
+export * from './IconPlainExample';
+export * from './IconTextExample';

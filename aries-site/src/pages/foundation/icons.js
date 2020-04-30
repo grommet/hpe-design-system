@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from 'grommet';
+import { Anchor as GrommetAnchor, Button } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
 import {
   ButtonRow,
@@ -9,12 +9,13 @@ import {
   ContentSection,
   Example,
 } from '../../layouts';
-import { getPageDetails } from '../../utils';
+import { getPageDetails, nameToPath } from '../../utils';
 
 import {
-  IconSimpleExample,
-  IconColorExample,
+  IconComponentExample,
+  IconPlainExample,
   IconSizeExample,
+  IconTextExample,
 } from '../../examples';
 
 const title = 'Icons';
@@ -35,7 +36,9 @@ const Icons = () => {
           <SubsectionText size="medium">
             Icons can be used to represent information to users. These can
             include different actions a user can perform. Icons can represent
-            different types of functionality. It is important that the context of an icon is clear. In some cases, it may be beneficial to pair icons with text to ensure the purpose of the icon is clear.
+            different types of functionality. It is important that the context
+            of an icon is clear. In some cases, it may be beneficial to pair
+            icons with text to ensure the purpose of the icon is clear.
           </SubsectionText>
         </Subsection>
         <ButtonRow>
@@ -58,7 +61,6 @@ const Icons = () => {
         <Button
           label="HPE Theme Grommet Icons"
           href="https://icons.grommet.io/?theme=hpe"
-          primary
           target="_blank"
           rel="noreferrer noopener"
         />
@@ -67,27 +69,33 @@ const Icons = () => {
         <Subsection name="Accessibility" level={3}>
           <SubsectionText>
             For screen reader accessibility there is an aria-label provided for
-            each icon.
+            each icon. The color of the icons should also pass any color
+            contrast ratio.
           </SubsectionText>
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Default Icon" level={3}>
+        <Subsection name="Icon within components" level={3}>
+          <SubsectionText>
+            Icons can be used in a variety of different ways. They are used
+            within other components such as{' '}
+            <GrommetAnchor label="Search" href={nameToPath('Search')} /> and{' '}
+            <GrommetAnchor label="Menu" href={nameToPath('Menu')} /> They can
+          </SubsectionText>
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSimpleExample.js"
             figma="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons?node-id=261%3A0"
           >
-            <IconSimpleExample />
+            <IconComponentExample />
           </Example>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Icon Sizes" level={3}>
           <SubsectionText>
-            The icon should be centered aligned with any text that is being used
-            next to it. The correct size icon should be paired with similar size
-            text.
+            The icon default size is medium. This should be adjusted depending
+            on where in your application the icon is being used.
           </SubsectionText>
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
             <IconSizeExample />
@@ -95,14 +103,29 @@ const Icons = () => {
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Icon Color" level={3}>
+        <Subsection name="Button Icons" level={3}>
+          <SubsectionText>
+            The icon should be centered aligned with any text that is being used
+            next to it. The correct size icon should be paired with similar size
+            text. When using the Icon as a button both the label and icon will
+            be wrapped within that Button.
+          </SubsectionText>
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
+            <IconTextExample />
+          </Example>
+        </Subsection>
+      </ContentSection>
+      <ContentSection>
+        <Subsection name="Icon Plain Color" level={3}>
           <SubsectionText>
             The default icon color is 'text-strong' for the corresponding
-            light/dark mode For icons like Hpe logo the brand color will need to
-            be assigned to the icon.
+            light/dark mode. For some icons there are spcific colors in how they
+            are represented, such as Aruba, Amazon, HPE that need to respect the
+            built in colors for those SVGs so the color prop can be given
+            'plain'
           </SubsectionText>
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconColorExample.js">
-            <IconColorExample />
+            <IconPlainExample />
           </Example>
         </Subsection>
       </ContentSection>
