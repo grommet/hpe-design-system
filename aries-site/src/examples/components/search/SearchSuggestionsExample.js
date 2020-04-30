@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, TextInput } from 'grommet';
+import { TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
 // Inputs should always be accompanied by labels for accessibility. An icon
@@ -87,7 +87,6 @@ export const SearchSuggestionsExample = () => {
   };
 
   return (
-    <Box width="medium">
       <StyledTextInput
         icon={<SearchIcon id="search-icon" />}
         placeholder="Search placeholder"
@@ -96,6 +95,5 @@ export const SearchSuggestionsExample = () => {
         value={value}
         onChange={onChange}
       />
-    </Box>
   );
 };

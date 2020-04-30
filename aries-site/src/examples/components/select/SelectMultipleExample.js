@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, Select } from 'grommet';
+import { Form, FormField, Select } from 'grommet';
 
 const options = ['Item One', 'Item Two', 'Item Three', 'Item Four'];
 
@@ -7,7 +7,7 @@ export const SelectMultipleExample = () => {
   const [selected, setSelected] = useState('');
 
   return (
-    <Box width="medium">
+    <Form>
       <FormField
         htmlFor="multi-select-example__input"
         name="multi-select-example"
@@ -23,6 +23,6 @@ export const SelectMultipleExample = () => {
           multiple
         />
       </FormField>
-    </Box>
+    </Form>
   );
 };
