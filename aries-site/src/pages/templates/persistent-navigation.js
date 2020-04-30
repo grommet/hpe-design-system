@@ -92,6 +92,7 @@ const Navigation = () => (
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/MinimalSidebarExample.js"
           template
+          width="100%"
         >
           <MinimalSidebarExample />
         </Example>
