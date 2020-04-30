@@ -34,7 +34,7 @@ const Icons = () => {
           <SubsectionText>{pageDetails.description}</SubsectionText>
           <SubsectionText size="medium">
             Icons can be used to represent information to users. These can
-            include different action items from the user, an icon can represent
+            include different actions a user can perform. Icons can represent
             different types of functionality.
           </SubsectionText>
         </Subsection>
