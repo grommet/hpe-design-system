@@ -83,7 +83,7 @@ export const MinimalSidebarExample = ({ mobile }) => {
               header={size !== 'small' && <SidebarHeader />}
               footer={size !== 'small' && <SidebarFooter />}
               background="blue!"
-              gap="xsmall"
+              // gap="xsmall"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
                 bottom: 'medium',
@@ -144,7 +144,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const maxItems = size !== 'small' ? undefined : 5;
 
   return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} justify="center">
+    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
       {pages &&
         pages
           .slice(0, maxItems)
@@ -253,7 +253,7 @@ const SidebarFooter = () => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'}>
+    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
       <NavButton a11yTitle="Chat" hoverIndicator icon={<Chat />} name="Chat" />
       <NavButton
         a11yTitle="Support"

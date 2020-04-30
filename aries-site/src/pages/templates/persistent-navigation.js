@@ -32,9 +32,9 @@ const Navigation = () => (
       <Subsection name="Guidance">
         <SubsectionText>
           Persistent navigation aids users by maintaining context of where they
-          are within an application. This presence eases the user experience, 
-          especially in information rich applications.
-          This pattern can be applied in both local and global contexts.
+          are within an application. This presence eases the user experience,
+          especially in information rich applications. This pattern can be
+          applied in both local and global contexts.
         </SubsectionText>
       </Subsection>
       <Subsection
@@ -80,8 +80,9 @@ const Navigation = () => (
       </Subsection>
       <Subsection name="Minimal Sidebar" level={3}>
         <SubsectionText>
-          Sidebar may contain up to a handful of navigation choices which are
-          often mixed with elements such as session.
+          It is recommended that Sidebar limits the number of navigation choices
+          to 5-7, as navigation choices are often mixed with elements such as
+          user or session.
         </SubsectionText>
         <SubsectionText>
           Sidebars transform to a horizontal orientation on mobile devices. Be
