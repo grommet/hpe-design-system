@@ -527,6 +527,7 @@ export const structure = [
       component: () => <FooterPreview />,
       justify: 'end',
     },
+    relatedContent: ['Header', 'Button', 'Dashboards'],
   },
   {
     name: 'Grid',
