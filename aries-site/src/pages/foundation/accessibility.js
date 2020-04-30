@@ -14,7 +14,7 @@ const Accessibility = () => {
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation/content"
+        canonicalUrl="https://design-system.hpe.design/foundation/accessibility"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />
