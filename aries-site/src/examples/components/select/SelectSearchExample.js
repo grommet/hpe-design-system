@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, Select } from 'grommet';
+import { Form, FormField, Select } from 'grommet';
 
 const defaultOptions = ['EMEA', 'Asia/Pacific', 'Americas', 'Polar Regions'];
 
@@ -21,24 +21,24 @@ export const SelectSearchExample = () => {
   };
 
   return (
-    <Box width="medium">
-      <FormField
-        htmlFor="select-with-search__input"
-        name="select-with-search"
-        label="Location"
-        help="Type to filter the location options"
-      >
-        <Select
-          id="select-with-search"
+      <Form>
+        <FormField
+          htmlFor="select-with-search__input"
           name="select-with-search"
-          placeholder="Select location"
-          searchPlaceholder="Search locations"
-          options={options}
-          value={selected}
-          onChange={({ option }) => setSelected(option)}
-          onSearch={text => onSearch(text)}
-        />
-      </FormField>
-    </Box>
+          label="Location"
+          help="Type to filter the location options"
+        >
+          <Select
+            id="select-with-search"
+            name="select-with-search"
+            placeholder="Select location"
+            searchPlaceholder="Search locations"
+            options={options}
+            value={selected}
+            onChange={({ option }) => setSelected(option)}
+            onSearch={text => onSearch(text)}
+          />
+        </FormField>
+      </Form>
   );
 };

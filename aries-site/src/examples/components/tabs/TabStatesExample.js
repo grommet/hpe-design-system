@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Tab, Tabs, Text } from 'grommet';
+import { Box, Tab, Tabs } from 'grommet';
 
 export const TabStatesExample = () => {
   const [index, setIndex] = React.useState(0);
@@ -9,9 +9,7 @@ export const TabStatesExample = () => {
     <Box>
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title={index === 0 ? 'Active' : 'Enabled'}>
-          <Box margin="small">
-            <Text>The first tab is active.</Text>
-          </Box>
+          <Box margin="small">The first tab is active.</Box>
         </Tab>
         <Tab title={index === 1 ? 'Active' : 'Enabled'}>
           <Box margin="small">The second tab is active.</Box>
