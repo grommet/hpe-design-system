@@ -742,9 +742,9 @@ export const structure = [
   {
     name: 'Accessibility',
     description:
-      'Accessibility will be an important part of guidence in using our components.',
+      'Accessibility will be an important part of guidance in using our components.',
     seoDescription:
-      'Accessibility will be an important part of guidence in using our components.',
+      'Accessibility will be an important part of guidance in using our components.',
     sections: [],
   },
   {
