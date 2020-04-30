@@ -4,6 +4,7 @@ import { TextInput, FormField } from 'grommet';
 export const TextInputPreview = () => {
   return (
     <FormField
+      htmlFor="focus-id"
       style={{
         boxShadow: '0 0 2px 2px #00E8CF',
         borderRadius: '4px',
