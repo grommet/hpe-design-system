@@ -52,7 +52,7 @@ const Icons = () => {
         <Subsection name="Developing with Grommet Icons" level={3}>
           <SubsectionText>
             For instructions on how to install and use grommet icons within your
-            application checkout the Grommet Icons site.
+            application, check out the Grommet Icons site.
           </SubsectionText>
         </Subsection>
         <Button
