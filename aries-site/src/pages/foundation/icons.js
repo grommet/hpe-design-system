@@ -66,7 +66,7 @@ const Icons = () => {
       <ContentSection>
         <Subsection name="Accessibility" level={3}>
           <SubsectionText>
-            For screen reader accessibility there is a aria-label provided for
+            For screen reader accessibility there is an aria-label provided for
             each icon.
           </SubsectionText>
         </Subsection>
