@@ -50,6 +50,7 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
+      'Accessibility',
       'Content',
       'Color',
       'Human Centered',
@@ -560,6 +561,14 @@ export const structure = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
+    relatedContent: [
+      'Button',
+      'Menu',
+      'TextInput',
+      'Dashboards',
+      'Global Sidebar',
+      'Search',
+    ],
   },
   {
     name: 'Layer',
@@ -793,6 +802,13 @@ export const structure = [
       'A collection of navigational components that compose declaratively with your application.',
     seoDescription:
       'A collection of navigational components that compose declaratively with your application.',
+  },
+  {
+    name: 'Accessibility',
+    description:
+      'Accessibility will be an important part of guidance in using our components.',
+    seoDescription:
+      'Accessibility will be an important part of guidance in using our components.',
     sections: [],
   },
   {
