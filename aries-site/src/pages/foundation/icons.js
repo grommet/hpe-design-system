@@ -79,8 +79,9 @@ const Icons = () => {
           <SubsectionText>
             Icons can be used in a variety of different ways. They are used
             within other components such as{' '}
-            <GrommetAnchor label="Search" href={nameToPath('Search')} /> and{' '}
-            <GrommetAnchor label="Menu" href={nameToPath('Menu')} /> They can
+            <GrommetAnchor label="Search" href={nameToPath('Search')} />
+            and <GrommetAnchor label="Menu" href={nameToPath('Menu')} />
+            They can
           </SubsectionText>
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
