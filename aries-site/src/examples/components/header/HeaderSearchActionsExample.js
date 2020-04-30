@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 import {
   Box,
   Button,
   Header,
+  Keyboard,
   ResponsiveContext,
   Text,
   TextInput,
@@ -15,38 +17,40 @@ import {
   User,
 } from 'grommet-icons';
 
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-complex-example',
+}))``;
+
 const Search = () => {
+  const inputRef = useRef();
   const size = useContext(ResponsiveContext);
   const [focused, setFocused] = useState(false);
-  return (
-    <Box
-      align="center"
-      background={
-        size !== 'small' || focused ? 'background-contrast' : undefined
-      }
-      direction="row"
-      justify="between"
+
+  useEffect(() => {
+    if (focused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [focused, setFocused]);
+
+  return !focused && size === 'small' ? (
+    <Button
+      icon={<SearchIcon />}
+      hoverIndicator
       onClick={() => setFocused(true)}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
-      pad={{ right: 'small' }}
-      round="small"
-      width={size !== 'small' || focused ? 'medium' : undefined}
-    >
-      {size !== 'small' || focused ? (
-        <TextInput placeholder="Search App Name" plain />
-      ) : (
-        undefined
-      )}
-      <Box
-        pad={
-          size === 'small' && !focused
-            ? { vertical: 'medium', left: 'medium' }
-            : undefined
-        }
-      >
-        <SearchIcon color="text" />
-      </Box>
+    />
+  ) : (
+    <Box background="background-contrast" round="xsmall" width="medium">
+      <Keyboard onEsc={() => setFocused(false)}>
+        <StyledTextInput
+          ref={inputRef}
+          icon={<SearchIcon id="search-complex-example" />}
+          dropHeight="small"
+          placeholder="Search App Name"
+          onBlur={() => setFocused(false)}
+          plain
+          reverse
+        />
+      </Keyboard>
     </Box>
   );
 };
