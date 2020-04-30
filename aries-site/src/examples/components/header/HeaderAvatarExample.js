@@ -14,7 +14,9 @@ export const HeaderAvatarExample = () => {
           </Box>
         </Box>
       </Button>
-      <Avatar background="background-contrast">ES</Avatar>
+      <Button>
+        <Avatar background="background-contrast">ES</Avatar>
+      </Button>
     </Header>
   );
 };
