@@ -32,6 +32,7 @@ const Search = () => {
             designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com"
             docs="https://v2.grommet.io/textinput?theme=hpe#props"
             figma="https://www.figma.com/file/KKHWJN4GAI0Mq5yh0snDT6/HPE-Search-Component?node-id=265%3A112"
+            width="medium"
           >
             <SearchExample />
           </Example>
@@ -155,6 +156,7 @@ const Search = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSuggestionsExample.js"
             docs="https://v2.grommet.io/textinput?theme=hpe#props"
             height={{ min: 'small' }}
+            width="medium"
           >
             <SearchSuggestionsExample />
           </Example>
@@ -169,6 +171,7 @@ const Search = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchSimpleExample.js"
             docs="https://v2.grommet.io/textinput?theme=hpe#props"
             height={{ min: 'small' }}
+            width="medium"
           >
             <SearchSimpleExample />
           </Example>
@@ -189,6 +192,7 @@ const Search = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchIconPositionExample.js"
             docs="https://v2.grommet.io/textinput?theme=hpe#props"
             height={{ min: 'small' }}
+            width="medium"
           >
             <SearchIconPositionExample />
           </Example>
