@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import { MinimalSidebarExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
 
@@ -20,8 +21,8 @@ const Navigation = () => (
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          // template
+        // code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
+        // template
         >
           {}
         </Example>
@@ -30,9 +31,10 @@ const Navigation = () => (
     <ContentSection>
       <Subsection name="Guidance">
         <SubsectionText>
-          Persistent navigation aids the user in orientation and provides
-          comfort in its presence, especially in information rich applications.
-          This pattern can be applied in both local and global contexts.
+          Persistent navigation aids users by maintaining context of where they
+          are within an application. This presence eases the user experience,
+          especially in information rich applications. This pattern can be
+          applied in both local and global contexts.
         </SubsectionText>
       </Subsection>
       <Subsection
@@ -47,8 +49,8 @@ const Navigation = () => (
           items={[
             `A user needs to easy access to move from one area of an 
             application to another with minimal clicks.`,
-            `Elements such as branding or search require a ubiquitous 
-            presence.`,
+            `Elements such as branding or search are present 
+            since they require a ubiquitous presence.`,
           ]}
         />
       </Subsection>
@@ -78,15 +80,20 @@ const Navigation = () => (
       </Subsection>
       <Subsection name="Minimal Sidebar" level={3}>
         <SubsectionText>
-          Sidebar may contain up to a handful of navigation choices which are
-          often mixed with elements such as session. Sidebars transform to a
-          horizontal orientation on mobile devices.
+          It is recommended that Sidebar limits the number of navigation choices
+          to 5-7, as navigation choices are often mixed with elements such as
+          user or session.
+        </SubsectionText>
+        <SubsectionText>
+          Sidebars transform to a horizontal orientation on mobile devices. Be
+          sure to use the "See Fullscreen" in the example below to explore the
+          minimal sidebar's behavior on mobile-sized screens.
         </SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/MinimalSidebarExample.js"
+          template
         >
-          {}
+          <MinimalSidebarExample />
         </Example>
       </Subsection>
       <Subsection name="Extended Sidebar" level={3}>

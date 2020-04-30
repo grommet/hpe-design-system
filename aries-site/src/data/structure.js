@@ -773,7 +773,7 @@ export const structure = [
   },
   {
     name: 'Persistent Navigation',
-    description: `Navigation choices persist throughout the application
+    description: `Navigation choices which persist throughout the application
     structure, presenting consistent, easy to click-through choices.`,
     seoDescription:
       'Persistent navigation pattern. What, why, and when to use persistent navigation.',
@@ -781,6 +781,9 @@ export const structure = [
       'Navigation',
       'Hub and Spoke Navigation',
       'Global Sidebar',
+      'Grid',
+      'Header',
+      'Lists',
     ],
     sections: [],
   },

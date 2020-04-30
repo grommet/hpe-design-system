@@ -40,7 +40,7 @@ const HubSpokeNavigation = () => (
         </SubsectionText>
         <SubsectionText>
           A hub should consist of no more than five to seven spokes &mdash; if
-          more paths are neededm subsequent hubs are always an option. Each step
+          more paths are needed, subsequent hubs are always an option. Each step
           down provides navigational context back up the information hierarchy.
           Each page has a primary focus with minimal contextual navigation
           chrome.
