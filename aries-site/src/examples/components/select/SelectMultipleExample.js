@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, Select } from 'grommet';
+import { Box, Form, FormField, Select } from 'grommet';
 
 const options = ['Item One', 'Item Two', 'Item Three', 'Item Four'];
 
@@ -8,21 +8,23 @@ export const SelectMultipleExample = () => {
 
   return (
     <Box width="medium">
-      <FormField
-        htmlFor="multi-select-example__input"
-        name="multi-select-example"
-        label="Label for Multi-Select"
-      >
-        <Select
-          id="multi-select-example"
+      <Form>
+        <FormField
+          htmlFor="multi-select-example__input"
           name="multi-select-example"
-          placeholder="Select multiple items"
-          options={options}
-          value={selected}
-          onChange={({ value: nextValue }) => setSelected(nextValue)}
-          multiple
-        />
-      </FormField>
+          label="Label for Multi-Select"
+        >
+          <Select
+            id="multi-select-example"
+            name="multi-select-example"
+            placeholder="Select multiple items"
+            options={options}
+            value={selected}
+            onChange={({ value: nextValue }) => setSelected(nextValue)}
+            multiple
+          />
+        </FormField>
+      </Form>
     </Box>
   );
 };
