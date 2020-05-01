@@ -50,8 +50,6 @@ const Icons = () => {
             rel="noreferrer noopener"
           />
         </ButtonRow>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Developing with Grommet Icons" level={3}>
           <SubsectionText>
             For instructions on how to install and use grommet icons within your
@@ -64,8 +62,6 @@ const Icons = () => {
           target="_blank"
           rel="noreferrer noopener"
         />
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Accessibility" level={3}>
           <SubsectionText>
             For screen reader accessibility there is an aria-label provided for
@@ -73,8 +69,6 @@ const Icons = () => {
             contrast ratio.
           </SubsectionText>
         </Subsection>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Icon within components" level={3}>
           <SubsectionText>
             Icons can be used in a variety of different ways. They are used
@@ -91,8 +85,6 @@ const Icons = () => {
             <IconComponentExample />
           </Example>
         </Subsection>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Icon Sizes" level={3}>
           <SubsectionText>
             The icon default size is medium. This should be adjusted depending
@@ -102,8 +94,6 @@ const Icons = () => {
             <IconSizeExample />
           </Example>
         </Subsection>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Button Icons" level={3}>
           <SubsectionText>
             The icon should be centered aligned with any text that is being used
@@ -115,8 +105,6 @@ const Icons = () => {
             <IconTextExample />
           </Example>
         </Subsection>
-      </ContentSection>
-      <ContentSection>
         <Subsection name="Icon Plain Color" level={3}>
           <SubsectionText>
             The default icon color is 'text-strong' for the corresponding
