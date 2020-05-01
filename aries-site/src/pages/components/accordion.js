@@ -22,6 +22,7 @@ const Accordion = () => (
         <SubsectionText>{page.description}</SubsectionText>
         <Example
           docs="https://v2.grommet.io/accordion#props"
+          designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/controls/AccordionExample.js"
           figma="https://www.figma.com/file/UvTBUQdhk07wV79nijsrtr/HPE-Accordion-Component?node-id=71%3A25"
         >
