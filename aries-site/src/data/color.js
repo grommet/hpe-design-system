@@ -290,22 +290,22 @@ const textColors = [
 
 const statusColorsLight = [
   {
-    name: 'critical',
-    value: colors['status-critical'].light,
-    hex: colors['status-critical'].light,
+    name: 'status-critical',
+    value: colors.red.light,
+    hex: colors.red.light,
   },
   {
-    name: 'warning',
-    value: colors['status-warning'],
-    hex: colors['status-warning'],
+    name: 'status-warning',
+    value: colors.orange.light,
+    hex: colors.orange.light,
   },
   {
-    name: 'ok',
-    value: colors['status-ok'],
-    hex: colors['status-ok'],
+    name: 'status-ok',
+    value: colors.green.light,
+    hex: colors.green.light,
   },
   {
-    name: 'unknown',
+    name: 'status-unknown',
     value: colors['status-unknown'].light,
     hex: colors['status-unknown'].light,
   },
@@ -313,22 +313,22 @@ const statusColorsLight = [
 
 const statusColorsDark = [
   {
-    name: 'critical',
-    value: colors['status-critical'].dark,
-    hex: colors['status-critical'].dark,
+    name: 'status-critical',
+    value: colors['red!'],
+    hex: colors['red!'],
   },
   {
-    name: 'warning',
-    value: colors['status-warning'],
-    hex: colors['status-warning'],
+    name: 'status-warning',
+    value: colors.orange.dark,
+    hex: colors.orange.dark,
   },
   {
-    name: 'ok',
-    value: colors['status-ok'],
-    hex: colors['status-ok'],
+    name: 'status-ok',
+    value: colors.green.dark,
+    hex: colors.green.dark,
   },
   {
-    name: 'unknown',
+    name: 'status-unknown',
     value: colors['status-unknown'].dark,
     hex: colors['status-unknown'].dark,
   },
@@ -337,8 +337,8 @@ const statusColorsDark = [
 const focusColor = [
   {
     name: 'focus',
-    value: 'focus',
-    hex: colors.focus,
+    value: colors['teal!'],
+    hex: colors['teal!'],
   },
 ];
 
