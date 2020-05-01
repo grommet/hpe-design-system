@@ -5,7 +5,7 @@ import { aries as theme } from '../themes/aries';
  * is in place.
  */
 
-const { colors } = theme.global;
+const { colors, elevation } = theme.global;
 const { formField } = theme;
 
 /* Color Palette */
@@ -19,32 +19,32 @@ const primaryColors = [
 
 const coreColors = [
   {
-    name: 'purple',
+    name: 'purple!',
     value: 'purple!',
     hex: colors['purple!'],
   },
   {
-    name: 'teal',
+    name: 'teal!',
     value: 'teal!',
     hex: colors['teal!'],
   },
   {
-    name: 'blue',
+    name: 'blue!',
     value: 'blue!',
     hex: colors['blue!'],
   },
   {
-    name: 'red',
+    name: 'red!',
     value: 'red!',
     hex: colors['red!'],
   },
   {
-    name: 'orange',
+    name: 'orange!',
     value: 'orange!',
     hex: colors['orange!'],
   },
   {
-    name: 'yellow',
+    name: 'yellow!',
     value: 'yellow!',
     hex: colors['yellow!'],
   },
@@ -52,37 +52,37 @@ const coreColors = [
 
 const lightColors = [
   {
-    name: 'green-light',
+    name: 'green',
     value: colors.green.light,
     hex: colors.green.light,
   },
   {
-    name: 'purple-light',
+    name: 'purple',
     value: colors.purple.light,
     hex: colors.purple.light,
   },
   {
-    name: 'teal-light',
+    name: 'teal',
     value: colors.teal.light,
     hex: colors.teal.light,
   },
   {
-    name: 'blue-light',
+    name: 'blue',
     value: colors.blue.light,
     hex: colors.blue.light,
   },
   {
-    name: 'red-light',
+    name: 'red',
     value: colors.red.light,
     hex: colors.red.light,
   },
   {
-    name: 'orange-light',
+    name: 'orange',
     value: colors.orange.light,
     hex: colors.orange.light,
   },
   {
-    name: 'yellow-light',
+    name: 'yellow',
     value: colors.yellow.light,
     hex: colors.yellow.light,
   },
@@ -90,37 +90,37 @@ const lightColors = [
 
 const darkColors = [
   {
-    name: 'green-dark',
+    name: 'green',
     value: colors.green.dark,
     hex: colors.green.dark,
   },
   {
-    name: 'purple-dark',
+    name: 'purple',
     value: colors.purple.dark,
     hex: colors.purple.dark,
   },
   {
-    name: 'teal-dark',
+    name: 'teal',
     value: colors.teal.dark,
     hex: colors.teal.dark,
   },
   {
-    name: 'blue-dark',
+    name: 'blue',
     value: colors.blue.dark,
     hex: colors.blue.dark,
   },
   {
-    name: 'red-dark',
+    name: 'red',
     value: colors.red.dark,
     hex: colors.red.dark,
   },
   {
-    name: 'orange-dark',
+    name: 'orange',
     value: colors.orange.dark,
     hex: colors.orange.dark,
   },
   {
-    name: 'yellow-dark',
+    name: 'yellow',
     value: colors.yellow.dark,
     hex: colors.yellow.dark,
   },
@@ -129,17 +129,17 @@ const darkColors = [
 /* Backgrounds */
 const lightBackgrounds = [
   {
-    name: 'background-light',
+    name: 'background',
     value: 'background',
     hex: colors.background.light,
   },
   {
-    name: 'background-back-light',
+    name: 'background-back',
     value: 'background-back',
     hex: colors['background-back'].light,
   },
   {
-    name: 'background-front-light',
+    name: 'background-front',
     value: 'background-front',
     hex: colors['background-front'].light,
   },
@@ -147,17 +147,17 @@ const lightBackgrounds = [
 
 const darkBackgrounds = [
   {
-    name: 'background-dark',
+    name: 'background',
     value: 'background',
     hex: colors.background.dark,
   },
   {
-    name: 'background-back-dark',
+    name: 'background-back',
     value: 'background-back',
     hex: colors['background-back'].dark,
   },
   {
-    name: 'background-front-dark',
+    name: 'background-front',
     value: 'background-front',
     hex: colors['background-front'].dark,
   },
@@ -165,7 +165,7 @@ const darkBackgrounds = [
 
 const contrastLight = [
   {
-    name: 'background-contrast-light',
+    name: 'background-contrast',
     value: 'background-contrast',
     hex: colors['background-contrast'].light,
   },
@@ -173,7 +173,7 @@ const contrastLight = [
 
 const contrastDark = [
   {
-    name: 'background-contrast-dark',
+    name: 'background-contrast',
     value: 'background-contrast',
     hex: colors['background-contrast'].dark,
   },
@@ -183,36 +183,36 @@ const contrastDark = [
 
 const borderLight = [
   {
-    name: 'border-light',
-    value: 'border',
+    name: 'border',
+    value: colors.border.light,
     hex: colors.border.light,
   },
   {
-    name: 'border-strong-light',
-    value: 'border-strong',
+    name: 'border-strong',
+    value: colors['border-strong'].light,
     hex: colors['border-strong'].light,
   },
   {
-    name: 'border-weak-light',
-    value: 'border-weak',
+    name: 'border-weak',
+    value: colors['border-weak'].light,
     hex: colors['border-weak'].light,
   },
 ];
 
 const borderDark = [
   {
-    name: 'border-dark',
-    value: 'border',
+    name: 'border',
+    value: colors.border.dark,
     hex: colors.border.dark,
   },
   {
-    name: 'border-strong-dark',
-    value: 'border-strong',
+    name: 'border-strong',
+    value: colors['border-strong'].dark,
     hex: colors['border-strong'].dark,
   },
   {
-    name: 'border-weak-dark',
-    value: 'border-weak',
+    name: 'border-weak',
+    value: colors['border-weak'].dark,
     hex: colors['border-weak'].dark,
   },
 ];
@@ -221,47 +221,51 @@ const borderDark = [
 
 const inputLight = [
   {
-    name: 'enabled-light',
-    value: 'border',
+    name: 'enabled-border',
+    value: colors.border.light,
     hex: colors.border.light,
+    type: 'border',
   },
   {
-    name: 'value-light',
-    value: 'border-strong',
+    name: 'value-border',
+    value: colors['border-strong'].light,
     hex: colors['border-strong'].light,
+    type: 'border',
   },
   {
-    name: 'validation-error-light',
-    value: formField.error.background.color,
+    name: 'validation-error',
+    value: formField.error.background.color.light,
     hex: formField.error.background.color.light,
   },
   {
-    name: 'disabled-light',
-    value: 'disabled-text',
-    hex: colors['disabled-text'].light,
+    name: 'disabled',
+    value: colors['text-weak'].light,
+    hex: colors['text-weak'].light,
   },
 ];
 
 const inputDark = [
   {
-    name: 'enabled-light',
-    value: 'border',
+    name: 'enabled-border',
+    value: colors.border.dark,
     hex: colors.border.dark,
+    type: 'border',
   },
   {
-    name: 'value-dark',
-    value: 'border-strong',
+    name: 'value-border',
+    value: colors['border-strong'].dark,
     hex: colors['border-strong'].dark,
+    type: 'border',
   },
   {
-    name: 'validation-error-dark',
-    value: formField.error.background.color,
+    name: 'validation-error',
+    value: formField.error.background.color.dark,
     hex: formField.error.background.color.dark,
   },
   {
-    name: 'disabled-dark',
-    value: 'disabled-text',
-    hex: colors['disabled-text'].dark,
+    name: 'disabled',
+    value: colors['text-weak'].dark,
+    hex: colors['text-weak'].dark,
   },
 ];
 
@@ -325,8 +329,51 @@ const statusColorsDark = [
   },
   {
     name: 'unknown',
-    value: colors['status-unknown'].light,
-    hex: colors['status-unknown'].light,
+    value: colors['status-unknown'].dark,
+    hex: colors['status-unknown'].dark,
+  },
+];
+
+const focusColor = [
+  {
+    name: 'focus',
+    value: 'focus',
+    hex: colors.focus,
+  },
+];
+
+const elevationColorsDark = [
+  {
+    name: 'elevation',
+    value: 'elevation',
+    hex: elevation.dark.medium,
+  },
+  {
+    name: 'elevation-strong',
+    value: 'elevation-strong',
+    hex: elevation.dark.large,
+  },
+  {
+    name: 'elevation-weak',
+    value: 'elevation-weak',
+    hex: elevation.dark.small,
+  },
+];
+const elevationColorsLight = [
+  {
+    name: 'elevation',
+    value: 'elevation',
+    hex: elevation.light.medium,
+  },
+  {
+    name: 'elevation-strong',
+    value: 'elevation-strong',
+    hex: elevation.light.large,
+  },
+  {
+    name: 'elevation-weak',
+    value: 'elevation-weak',
+    hex: elevation.light.small,
   },
 ];
 
@@ -355,5 +402,10 @@ export const colorExamples = {
     textColors,
     statusColorsLight,
     statusColorsDark,
+  },
+  focusColor,
+  elevation: {
+    elevationColorsDark,
+    elevationColorsLight,
   },
 };
