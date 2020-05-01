@@ -9,6 +9,7 @@ import {
   SettingsExample,
   ShippingExample,
   SignInExample,
+  SimpleSignUpExample,
   SignUpExample,
   SortExample,
 } from '../../examples';
@@ -32,11 +33,11 @@ const Forms = () => {
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>{page.description}</SubsectionText>
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
             docs="https://v2.grommet.io/form?theme=hpe"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1%3A2"
           >
-            <SignUpExample />
+            <SimpleSignUpExample />
           </Example>
         </Subsection>
       </ContentSection>
