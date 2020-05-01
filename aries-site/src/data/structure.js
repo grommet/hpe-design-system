@@ -349,6 +349,35 @@ export const structure = [
     ],
   },
   {
+    name: 'Designer Guidance',
+    description:
+      'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
+    seoDescription:
+      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
+    sections: [
+      'Getting started',
+      'Setting up your Figma account',
+      'Joining the HPE Design System Figma team',
+      'HPE Design System Library',
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
+  },
+  {
+    name: 'Developer Guidance',
+    description:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    seoDescription:
+      'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    sections: [
+      'Getting started',
+      'Preferred environment',
+      'ReactJS and Grommet starter resources',
+      'Applying the HPE theme',
+      "What if our team doesn't use ReactJS?",
+    ],
+    relatedContent: ['Components', 'Templates', 'Designer'],
+  },
+  {
     name: 'Designer',
     description:
       'Build HPE compliant designs in code that are ready to be consumed on the web.',
@@ -459,24 +488,6 @@ export const structure = [
     sections: [],
   },
   {
-    name: 'Accordion',
-    description: 'Buttons are used to indicate actions that can be performed.',
-    preview: {
-      image: {
-        src: {
-          light: '/component-preview-accordion.svg',
-          dark: '/component-preview-accordion-invert.svg',
-        },
-        alt: 'HPE Accordion Preview',
-        fit: 'contain',
-      },
-    },
-    relatedContent: ['Tabs'],
-    seoDescription:
-      'Buttons are used to indicate actions that can be performed.',
-    sections: [],
-  },
-  {
     name: 'Anchor',
     description: 'Used with text based navigation, such as inline text.',
     seoDescription: 'Used with text based navigation, such as inline text.',
@@ -486,18 +497,6 @@ export const structure = [
       background: 'background-front',
     },
     relatedContent: ['Button', 'Typography', 'Forms'],
-  },
-  {
-    name: 'Box',
-    description:
-      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    seoDescription:
-      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    sections: [],
-    preview: {
-      component: () => <BoxPreview />,
-      background: 'background-front',
-    },
   },
   {
     name: 'Button',
@@ -510,178 +509,6 @@ export const structure = [
       component: () => <ButtonPreview />,
       background: 'background-front',
     },
-  },
-  {
-    name: 'CheckBox',
-    description:
-      'When the user needs to select one or more options, use a checkbox.',
-    seoDescription:
-      'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
-    sections: [],
-    relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
-    preview: {
-      component: () => <CheckBoxPreview />,
-      background: 'background-front',
-    },
-  },
-  {
-    name: 'Footer',
-    description:
-      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
-    seoDescription:
-      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
-    sections: [],
-    preview: {
-      component: () => <FooterPreview />,
-      justify: 'end',
-    },
-    relatedContent: ['Header', 'Button', 'Dashboards'],
-  },
-  {
-    name: 'Grid',
-    description:
-      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
-    preview: {
-      component: () => <GridPreview />,
-      background: 'background-front',
-    },
-    seoDescription:
-      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
-    sections: [],
-  },
-  {
-    name: 'Header',
-    description:
-      'Header is a Box with a set of preset properties for introductory content.',
-    seoDescription:
-      'Header is a Box with a set of preset properties for introductory content.',
-    sections: [],
-    preview: {
-      component: () => <HeaderPreview />,
-      justify: 'start',
-    },
-    relatedContent: [
-      'Button',
-      'Menu',
-      'TextInput',
-      'Dashboards',
-      'Global Sidebar',
-      'Search',
-    ],
-  },
-  {
-    name: 'Layer',
-    description:
-      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
-    previewComponent: {
-      component: () => <LayerPreview />,
-    },
-    seoDescription:
-      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
-    sections: [],
-    preview: {
-      component: () => <LayerPreview />,
-    },
-  },
-  {
-    name: 'Main',
-    description:
-      'The Main component is where you define the location and layout of the primary context of your content.',
-    seoDescription:
-      'The Main component is where you define the location and layout of the primary context of your content.',
-    sections: [],
-  },
-  {
-    name: 'MaskedInput',
-    description:
-      'MaskedInput allows you to specify formailzed text within a form field.',
-    seoDescription:
-      'MaskedInput allows you to specify formailzed text within a form field.',
-    sections: [],
-    preview: {
-      component: () => <MaskedInputPreview />,
-      background: 'background-front',
-    },
-  },
-  {
-    name: 'Menu',
-    description:
-      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
-    seoDescription:
-      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
-    sections: [],
-    preview: {
-      component: () => <MenuPreview />,
-      background: 'background-front',
-    },
-    relatedContent: ['Header', 'Dashboards', 'Select'],
-  },
-  {
-    name: 'RadioButtonGroup',
-    description:
-      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
-    seoDescription:
-      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
-    sections: [],
-    preview: {
-      component: () => <RadioButtonGroupPreview />,
-      background: 'background-front',
-    },
-  },
-  {
-    name: 'RangeInput',
-    description:
-      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
-    seoDescription:
-      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
-    sections: [],
-    preview: {
-      component: () => <RangeInputPreview />,
-      background: 'background-front',
-    },
-  },
-  {
-    name: 'Search',
-    description: 'Find content corresponding to keyword queries.',
-    seoDescription: 'HPE Design System Search input design and code examples.',
-    sections: [],
-    preview: {
-      component: () => <SearchPreview />,
-      background: 'background-front',
-    },
-    relatedContent: ['TextInput', 'Header'],
-  },
-  {
-    name: 'Select',
-    description:
-      'Flexible input allowing users to choose from a list of options.',
-    seoDescription:
-      'Select input component allows users to choose from a list of options.',
-    sections: [],
-    preview: {
-      component: () => <SelectPreview />,
-      background: 'background-front',
-    },
-    relatedContent: [
-      'Forms',
-      'Menu',
-      'RadioButtonGroup',
-      'CheckBox',
-      'TextInput',
-      'MaskedInput',
-    ],
-  },
-  {
-    name: 'Stack',
-    description:
-      'A Stack component is a container that stacks content on top of each other.',
-    preview: {
-      component: () => <StackExample />,
-      background: 'background-front',
-    },
-    seoDescription:
-      'A Stack component is a container that stacks content on top of each other.',
-    sections: [],
   },
   {
     name: 'Tabs',
@@ -723,6 +550,211 @@ export const structure = [
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
   },
   {
+    name: 'Search',
+    description: 'Find content corresponding to keyword queries.',
+    seoDescription: 'HPE Design System Search input design and code examples.',
+    sections: [],
+    preview: {
+      component: () => <SearchPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['TextInput', 'Header'],
+  },
+  {
+    name: 'Select',
+    description:
+      'Flexible input allowing users to choose from a list of options.',
+    seoDescription:
+      'Select input component allows users to choose from a list of options.',
+    sections: [],
+    preview: {
+      component: () => <SelectPreview />,
+      background: 'background-front',
+    },
+    relatedContent: [
+      'Forms',
+      'Menu',
+      'RadioButtonGroup',
+      'CheckBox',
+      'TextInput',
+      'MaskedInput',
+    ],
+  },
+
+  {
+    name: 'CheckBox',
+    description:
+      'When the user needs to select one or more options, use a checkbox.',
+    seoDescription:
+      'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
+    sections: [],
+    relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
+    preview: {
+      component: () => <CheckBoxPreview />,
+      background: 'background-front',
+    },
+  },
+  {
+    name: 'Accordion',
+    description: 'Buttons are used to indicate actions that can be performed.',
+    preview: {
+      image: {
+        src: {
+          light: '/component-preview-accordion.svg',
+          dark: '/component-preview-accordion-invert.svg',
+        },
+        alt: 'HPE Accordion Preview',
+        fit: 'contain',
+      },
+    },
+    relatedContent: ['Tabs'],
+    seoDescription:
+      'Buttons are used to indicate actions that can be performed.',
+    sections: [],
+  },
+  {
+    name: 'Header',
+    description:
+      'Header is a Box with a set of preset properties for introductory content.',
+    seoDescription:
+      'Header is a Box with a set of preset properties for introductory content.',
+    sections: [],
+    preview: {
+      component: () => <HeaderPreview />,
+      justify: 'start',
+    },
+    relatedContent: [
+      'Button',
+      'Menu',
+      'TextInput',
+      'Dashboards',
+      'Global Sidebar',
+      'Search',
+    ],
+  },
+  {
+    name: 'Footer',
+    description:
+      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
+    seoDescription:
+      'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
+    sections: [],
+    preview: {
+      component: () => <FooterPreview />,
+      justify: 'end',
+    },
+    relatedContent: ['Header', 'Button', 'Dashboards'],
+  },
+  {
+    name: 'Menu',
+    description:
+      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
+    seoDescription:
+      'Menu contains a list of actions. When a menu item is clicked, the menu closes and the action is executed.',
+    sections: [],
+    preview: {
+      component: () => <MenuPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['Header', 'Dashboards', 'Select'],
+  },
+  {
+    name: 'Box',
+    description:
+      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    seoDescription:
+      'Box is where it all starts. Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    sections: [],
+    preview: {
+      component: () => <BoxPreview />,
+      background: 'background-front',
+    },
+  },
+  {
+    name: 'Grid',
+    description:
+      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    preview: {
+      component: () => <GridPreview />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    sections: [],
+  },
+  {
+    name: 'Layer',
+    description:
+      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    previewComponent: {
+      component: () => <LayerPreview />,
+    },
+    seoDescription:
+      'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
+    sections: [],
+    preview: {
+      component: () => <LayerPreview />,
+    },
+  },
+  {
+    name: 'Main',
+    description:
+      'The Main component is where you define the location and layout of the primary context of your content.',
+    seoDescription:
+      'The Main component is where you define the location and layout of the primary context of your content.',
+    sections: [],
+  },
+  {
+    name: 'MaskedInput',
+    description:
+      'MaskedInput allows you to specify formailzed text within a form field.',
+    seoDescription:
+      'MaskedInput allows you to specify formailzed text within a form field.',
+    sections: [],
+    preview: {
+      component: () => <MaskedInputPreview />,
+      background: 'background-front',
+    },
+  },
+
+  {
+    name: 'RadioButtonGroup',
+    description:
+      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+    seoDescription:
+      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+    sections: [],
+    preview: {
+      component: () => <RadioButtonGroupPreview />,
+      background: 'background-front',
+    },
+  },
+  {
+    name: 'RangeInput',
+    description:
+      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
+    seoDescription:
+      'The RangeInput component is a slider control that provides a handle the user can move to make changes to values.',
+    sections: [],
+    preview: {
+      component: () => <RangeInputPreview />,
+      background: 'background-front',
+    },
+  },
+  {
+    name: 'Stack',
+    description:
+      'A Stack component is a container that stacks content on top of each other.',
+    preview: {
+      component: () => <StackExample />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'A Stack component is a container that stacks content on top of each other.',
+    sections: [],
+  },
+
+  {
     name: 'Cards',
     description:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
@@ -763,34 +795,5 @@ export const structure = [
     seoDescription:
       'Accessibility will be an important part of guidance in using our components.',
     sections: [],
-  },
-  {
-    name: 'Designer Guidance',
-    description:
-      'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
-    seoDescription:
-      'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
-    sections: [
-      'Getting started',
-      'Setting up your Figma account',
-      'Joining the HPE Design System Figma team',
-      'HPE Design System Library',
-    ],
-    relatedContent: ['Components', 'Templates', 'Designer'],
-  },
-  {
-    name: 'Developer Guidance',
-    description:
-      'Resources for setting up your application with the HPE Design System library and HPE theme.',
-    seoDescription:
-      'Resources for setting up your application with the HPE Design System library and HPE theme.',
-    sections: [
-      'Getting started',
-      'Preferred environment',
-      'ReactJS and Grommet starter resources',
-      'Applying the HPE theme',
-      "What if our team doesn't use ReactJS?",
-    ],
-    relatedContent: ['Components', 'Templates', 'Designer'],
   },
 ];
