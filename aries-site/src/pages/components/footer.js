@@ -26,6 +26,7 @@ const Footer = () => (
           docs="https://v2.grommet.io/footer?theme=hpe"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/FooterExample.js"
           figma="https://www.figma.com/file/9aoCaf5lqzdQv1q4NFi0GN/hpe-design-system-library-footer"
+          width="100%"
         >
           <FooterExample />
         </Example>

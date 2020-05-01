@@ -91,6 +91,7 @@ export const Example = ({
   figma,
   height,
   template,
+  width,
   ...rest
 }) => {
   const theme = React.useContext(ThemeContext);
@@ -141,10 +142,12 @@ export const Example = ({
             }
             {...rest}
           >
-            {children &&
-              React.cloneElement(children, {
-                mobile,
-              })}
+            <Box width={width}>
+              {children &&
+                React.cloneElement(children, {
+                  mobile,
+                })}
+            </Box>
           </Box>
           {(designer || docs || figma || template) && (
             <ExampleControls
@@ -274,6 +277,7 @@ Example.propTypes = {
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   template: PropTypes.bool,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 Example.defaultProps = {

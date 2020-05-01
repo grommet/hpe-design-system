@@ -186,6 +186,7 @@ const NavButton = ({ active, icon, name, ...rest }) => {
           pad={{ horizontal: 'small', vertical: 'small' }}
           round="xxsmall"
           background={active || hover ? 'active-background' : undefined}
+          align="center"
         >
           {icon}
         </Box>

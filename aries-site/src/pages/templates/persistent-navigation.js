@@ -80,8 +80,9 @@ const Navigation = () => {
             variants and versatility Header enables.
           </SubsectionText>
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/HeaderNavExample.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
             template
+            width="100%"
           >
             <HeaderNavExample />
           </Example>
@@ -100,6 +101,7 @@ const Navigation = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/MinimalSidebarExample.js"
             template
+            width="100%"
           >
             <MinimalSidebarExample />
           </Example>
