@@ -9,7 +9,12 @@ export const ColorRow = ({ colorSpec, textColor }) => {
   return (
     <Box
       direction="row"
-      background={value}
+      border={
+        colorSpec.type === 'border'
+          ? { color: value, size: 'medium' }
+          : undefined
+      }
+      background={colorSpec.type === 'border' ? 'background-back' : value}
       pad={{ horizontal: 'medium', vertical: 'small' }}
       justify="between"
     >
@@ -28,6 +33,7 @@ ColorRow.propTypes = {
     value: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     hex: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['background', 'border']),
   }).isRequired,
   textColor: PropTypes.string,
 };

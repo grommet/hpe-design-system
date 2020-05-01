@@ -4,17 +4,17 @@ import { ComingSoon, Meta } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
-const title = 'Content';
+const title = 'Accessibility';
 const topic = 'Foundation';
 const pageDetails = getPageDetails(title);
 
-const Content = () => {
+const Accessibility = () => {
   return (
     <Layout title={title}>
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation/content"
+        canonicalUrl="https://design-system.hpe.design/foundation/accessibility"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />
@@ -24,4 +24,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Accessibility;
