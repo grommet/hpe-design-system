@@ -29,7 +29,7 @@ const CheckBox = () => (
         <SubsectionText>{page.description}</SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckboxSimpleExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxSimpleExample.js"
           figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1745%3A43"
           designer="https://designer.grommet.io/checkbox?id=HPE-design-system-hpedesignsystem-hpe-com"
         >
@@ -108,7 +108,7 @@ const CheckBox = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxDescription.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxDescriptionExample.js"
           height={{ min: 'small' }}
         >
           <CheckBoxDescriptionExample />
