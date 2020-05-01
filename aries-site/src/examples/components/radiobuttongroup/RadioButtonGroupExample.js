@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, RadioButtonGroup, Text } from 'grommet';
+import { Form, FormField, RadioButtonGroup } from 'grommet';
 
 const powerRegulationOptions = [
   'Dynamic power savings mode',
@@ -10,22 +10,20 @@ const powerRegulationOptions = [
 
 export const RadioButtonGroupExample = () => {
   const [powerRegulation, setPowerRegulation] = useState(
-    'Dynamic power savings mode',
+    'Static high performance mode',
   );
 
   return (
-      <Box gap="xsmall">
-        <Text size="large">Power Management</Text>
-        <Text>Power Regulation</Text>
+    <Form>
+      <FormField htmlFor="power-stzw" name="power-regulation" label="Label">
         <RadioButtonGroup
+          id="power-stzw"
           name="power-regulation"
           options={powerRegulationOptions}
           value={powerRegulation}
           onChange={event => setPowerRegulation(event.target.value)}
-          gap="medium"
-          border={{ side: 'top', color: 'border' }}
-          pad={{ vertical: 'medium' }}
         />
-      </Box>
+      </FormField>
+    </Form>
   );
 };

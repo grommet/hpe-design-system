@@ -1,8 +1,51 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge, normalizeColor } from 'grommet/utils';
+import { Blank } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
+  radioButton: {
+    border: {
+      color: 'border',
+      width: '1px',
+    },
+    check: {
+      radius: '100%',
+      color: 'selected-background',
+      // extend: undefined,
+    },
+    color: 'text-strong', // I don't think this exists in base.js
+    extend: ({ theme }) => `
+      :not(div):hover {
+        background-color: ${
+          theme.global.colors['background-contrast'][
+            theme.dark ? 'dark' : 'light'
+          ]
+        };
+      }
+      :not(div) {
+        width: 100%;
+      }
+      padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
+    `,
+    hover: {
+      border: {
+        color: undefined,
+      },
+    },
+    icon: {
+      size: '22px',
+      // extend: undefined,
+    },
+    icons: {
+      circle: () => (
+        <Blank color={aries.radioButton.check.color}>
+          <circle cx="12" cy="12" r="8" />
+        </Blank>
+      ),
+    },
+    gap: 'xsmall',
+  },
   checkBox: {
     toggle: {
       extend: ({ checked, theme }) => `
