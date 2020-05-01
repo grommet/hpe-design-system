@@ -256,7 +256,7 @@ export const structure = [
   {
     name: 'Icons',
     description:
-      'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
+      'Icons are an integral part of our visual storytelling style to represent objects, actions, programs and other communicative symbols. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: (size, color) => <IconIcons size={size} color={color} />,
     preview: {
       image: {
@@ -267,6 +267,7 @@ export const structure = [
         alt: 'Hpe Icon Preview',
       },
     },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
   },
   {
     name: 'Lists',
@@ -515,8 +516,9 @@ export const structure = [
     description:
       'When the user needs to select one or more options, use a checkbox.',
     seoDescription:
-      'When the user needs to select one or more options, use a checkbox.',
+      'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [],
+    relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
       background: 'background-front',
@@ -533,6 +535,7 @@ export const structure = [
       component: () => <FooterPreview />,
       justify: 'end',
     },
+    relatedContent: ['Header', 'Button', 'Dashboards'],
   },
   {
     name: 'Grid',
