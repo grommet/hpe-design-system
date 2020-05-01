@@ -1,7 +1,17 @@
 import React from 'react';
-import { Menu } from 'grommet';
-import { Add } from 'grommet-icons';
+import { Box, Button, Menu } from 'grommet';
+import { Add, FormNext } from 'grommet-icons';
 
 export const IconComponentExample = () => {
-  return <Menu icon={<Add />} label="Add User" />;
+  return (
+    <Box gap="medium" direction="row-responsive">
+      <Menu icon={<Add />} label="Add User" />
+      <Button
+        label="Button"
+        icon={<FormNext />}
+        reverse
+        onClick={() => {}}
+      />
+    </Box>
+  );
 };
