@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Box,
   Form,
@@ -9,9 +10,18 @@ import {
   Select,
 } from 'grommet';
 
-import { FormContainer } from '.';
-
 const sortFeatures = ['Featured', 'Price', 'Users'];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const SortExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -55,11 +65,13 @@ export const SortExample = () => {
               />
             </FormField>
             <FormField htmlFor="sortOrder" name="sortOrder" label="Sort order">
-              <RadioButtonGroup
-                id="sortOrder"
-                name="sortOrder"
-                options={['Ascending', 'Descending']}
-              />
+              <Box pad="small">
+                <RadioButtonGroup
+                  id="sortOrder"
+                  name="sortOrder"
+                  options={['Ascending', 'Descending']}
+                />
+              </Box>
             </FormField>
           </Form>
         </Box>

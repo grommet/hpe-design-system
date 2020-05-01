@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Box,
   Button,
@@ -13,8 +14,126 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
-import { emailMask, emailValidation, phoneMask, states } from './formHelpers';
+const emailMask = [
+  {
+    regexp: /^[\w\-_.]+$/,
+    placeholder: 'jane.smith',
+  },
+  { fixed: '@' },
+  {
+    regexp: /^[\w]+$/,
+    placeholder: 'hpe',
+  },
+  { fixed: '.' },
+  {
+    regexp: /^[\w]+$/,
+    placeholder: 'com',
+  },
+];
+
+const states = [
+  'AK',
+  'AL',
+  'AR',
+  'AZ',
+  'CA',
+  'CO',
+  'CT',
+  'DC',
+  'DE',
+  'FL',
+  'GA',
+  'HI',
+  'IA',
+  'ID',
+  'IL',
+  'IN',
+  'KS',
+  'KY',
+  'LA',
+  'MA',
+  'ME',
+  'MD',
+  'MN',
+  'MO',
+  'MS',
+  'MT',
+  'NC',
+  'ND',
+  'NE',
+  'NH',
+  'NJ',
+  'NM',
+  'NY',
+  'NV',
+  'OH',
+  'OK',
+  'OR',
+  'PA',
+  'RI',
+  'SC',
+  'SD',
+  'TN',
+  'TX',
+  'UT',
+  'VA',
+  'VT',
+  'WA',
+  'WI',
+  'WV',
+  'WY',
+];
+
+const phoneMask = [
+  { fixed: '(' },
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: 'XXX',
+  },
+  { fixed: ')' },
+  { fixed: ' ' },
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: 'XXX',
+  },
+  { fixed: '-' },
+  {
+    length: 4,
+    regexp: /^[0-9]{1,4}$/,
+    placeholder: 'XXXX',
+  },
+];
+
+const emailValidation = [
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
+    message: 'Missing an @?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: 'Missing an .?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: "Email address doesn't look quite right",
+    status: 'error',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const ShippingExample = () => {
   const [formValues, setFormValues] = React.useState({});

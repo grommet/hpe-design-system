@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Box,
   Button,
@@ -12,7 +13,16 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const SettingsExample = () => {
   const [formValues, setFormValues] = React.useState({

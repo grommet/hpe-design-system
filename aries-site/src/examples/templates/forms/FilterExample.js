@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Box,
   CheckBox,
@@ -10,8 +11,6 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-
-import { FormContainer } from '.';
 
 const locationTypes = [
   'All Locations',
@@ -31,6 +30,17 @@ const serverTypes = [
   'Hyper Converged Systems',
   'Blade Infrastructure',
 ];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({

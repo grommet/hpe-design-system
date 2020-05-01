@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Anchor,
   Box,
@@ -10,7 +11,17 @@ import {
   RadioButtonGroup,
   Text,
 } from 'grommet';
-import { FormContainer } from '.';
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const CustomizeExample = () => {
   const [formValues, setFormValues] = React.useState({});
