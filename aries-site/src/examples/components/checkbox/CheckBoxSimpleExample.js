@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, CheckBox, Form, FormField } from 'grommet';
+import { CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxSimpleExample = () => {
   const [checked, setChecked] = useState(true);

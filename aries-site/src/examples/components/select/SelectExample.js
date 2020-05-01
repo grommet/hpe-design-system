@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, Select } from 'grommet';
+import { Form, FormField, Select } from 'grommet';
 
 const options = [
   'Item One',
@@ -14,7 +14,7 @@ export const SelectExample = () => {
   const [selected, setSelected] = useState('');
 
   return (
-    <Box width="medium">
+    <Form>
       <FormField
         htmlFor="select-example__input"
         name="select-example"
@@ -29,6 +29,6 @@ export const SelectExample = () => {
           onChange={({ option }) => setSelected(option)}
         />
       </FormField>
-    </Box>
+    </Form>
   );
 };
