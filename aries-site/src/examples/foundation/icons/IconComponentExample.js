@@ -5,13 +5,12 @@ import { Add, FormNext } from 'grommet-icons';
 export const IconComponentExample = () => {
   return (
     <Box gap="medium" direction="row-responsive">
-      <Menu icon={<Add />} label="Add User" />
-      <Button
-        label="Button"
-        icon={<FormNext />}
-        reverse
-        onClick={() => {}}
+      <Menu
+        items={[{ label: 'Home' }, { label: 'Logout' }]}
+        icon={<Add />}
+        label="Menu with Icon"
       />
+      <Button label="Button" icon={<FormNext />} reverse onClick={() => {}} />
     </Box>
   );
 };
