@@ -619,6 +619,7 @@ export const structure = [
       component: () => <RadioButtonGroupPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Forms', 'Select', 'CheckBox'],
   },
   {
     name: 'RangeInput',
