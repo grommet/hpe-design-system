@@ -250,7 +250,7 @@ export const structure = [
   {
     name: 'Icons',
     description:
-      'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
+      'Icons are an integral part of our visual storytelling style to represent objects, actions, programs and other communicative symbols. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: (size, color) => <IconIcons size={size} color={color} />,
     preview: {
       image: {
@@ -261,6 +261,7 @@ export const structure = [
         alt: 'Hpe Icon Preview',
       },
     },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
   },
   {
     name: 'Lists',
