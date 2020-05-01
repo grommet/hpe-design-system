@@ -71,7 +71,7 @@ const Accordion = () => (
           Buttons are used for the accordion panels which makes them
           accessible by screen readers and keyboard. Having a very descriptive
           heading label helps so the user gets to the content section they are
-          intrested faster. Users are able to click anywhere within the panel
+          interested in faster. Users are able to click anywhere within the panel
           heading for the state to change to expanded.
         </SubsectionText>
         <SubsectionText>
