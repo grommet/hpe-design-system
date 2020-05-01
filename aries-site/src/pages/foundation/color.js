@@ -29,7 +29,10 @@ const {
   lightBackgrounds,
 } = colorExamples.backgrounds;
 
-const { ctaColors, statusColors, textColors } = colorExamples.text;
+const { borderDark, borderLight } = colorExamples.borders;
+const { inputDark, inputLight } = colorExamples.input;
+
+const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor) => {
   return (
@@ -186,6 +189,47 @@ const Color = () => (
           {contrastDark && generateColorExamples(contrastDark)}
         </UsageExample>
       </Subsection>
+      <Subsection name="Border Colors">
+        <SubsectionText>
+          Using border colors properly ensures that the user is able to identify
+          the state of various components. Borders help differentiate elements
+          and input fields from surrounding content.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="Border Palette" level={3}>
+        <SubsectionText>
+          In light and dark modes, border is key in making separating input
+          fields or layout elements from surrounding content. Depending on the
+          context, a varying amount of strength is needed for the border to be
+          effective, and in many cases there may be no border necessary.
+        </SubsectionText>
+        <UsageExample themeMode="light" label="Light Border" pad="none">
+          {borderLight && generateColorExamples(borderLight)}
+        </UsageExample>
+        <UsageExample themeMode="dark" label="Dark Border" pad="none">
+          {borderDark && generateColorExamples(borderDark)}
+        </UsageExample>
+      </Subsection>
+      <Subsection name="Input Colors">
+        <SubsectionText>
+          Inputs that exist within FormFields have varying colors to suggest
+          their state: enabled vs disabled, required, etc. The proper use of
+          these colors ensures that the user can easily understand the state of
+          the input.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="Input Palette" level={3}>
+        <SubsectionText>
+          In light and dark modes, input colors are key in providing the user
+          with guidance on how they can interact with an input.
+        </SubsectionText>
+        <UsageExample themeMode="light" label="Light Input" pad="none">
+          {inputLight && generateColorExamples(inputLight)}
+        </UsageExample>
+        <UsageExample themeMode="dark" label="Dark Input" pad="none">
+          {inputDark && generateColorExamples(inputDark)}
+        </UsageExample>
+      </Subsection>
       <Subsection name="Text Colors">
         <Text>
           Text needs to be legible in all contexts. Ensuring high contrast is
@@ -245,17 +289,13 @@ const Color = () => (
             })}
         </UsageExample>
       </Subsection>
-      <Subsection name="Call to Action Text" level={3}>
-        <SubsectionText>
-          The only exception to text having a color is when it is used as an
-          interactive element. Based on the Brand Color, the call to action
-          (CTA) should stand out from the rest of the text on the page and
-          trigger a response interaction.
-        </SubsectionText>
-        {ctaColors && generateColorExamples(ctaColors, 'brand')}
-      </Subsection>
       <Subsection name="Status Colors" level={3}>
-        {statusColors && generateColorExamples(statusColors)}
+        <UsageExample themeMode="light" label="Light Background" pad="none">
+          {statusColorsLight && generateColorExamples(statusColorsLight)}
+        </UsageExample>
+        <UsageExample themeMode="dark" label="Dark Background" pad="none">
+          {statusColorsDark && generateColorExamples(statusColorsDark)}
+        </UsageExample>
       </Subsection>
       {/* CONTENT MISSING: Disabling following section for MVP launch */}
       {/* <Subsection name="Status Colors">

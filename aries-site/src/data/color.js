@@ -6,6 +6,7 @@ import { aries as theme } from '../themes/aries';
  */
 
 const { colors } = theme.global;
+const { formField } = theme;
 
 /* Color Palette */
 const primaryColors = [
@@ -178,6 +179,92 @@ const contrastDark = [
   },
 ];
 
+/* Border Colors */
+
+const borderLight = [
+  {
+    name: 'border-light',
+    value: 'border',
+    hex: colors.border.light,
+  },
+  {
+    name: 'border-strong-light',
+    value: 'border-strong',
+    hex: colors['border-strong'].light,
+  },
+  {
+    name: 'border-weak-light',
+    value: 'border-weak',
+    hex: colors['border-weak'].light,
+  },
+];
+
+const borderDark = [
+  {
+    name: 'border-dark',
+    value: 'border',
+    hex: colors.border.dark,
+  },
+  {
+    name: 'border-strong-dark',
+    value: 'border-strong',
+    hex: colors['border-strong'].dark,
+  },
+  {
+    name: 'border-weak-dark',
+    value: 'border-weak',
+    hex: colors['border-weak'].dark,
+  },
+];
+
+/* Input Colors */
+
+const inputLight = [
+  {
+    name: 'enabled-light',
+    value: 'border',
+    hex: colors.border.light,
+  },
+  {
+    name: 'value-light',
+    value: 'border-strong',
+    hex: colors['border-strong'].light,
+  },
+  {
+    name: 'validation-error-light',
+    value: formField.error.background.color,
+    hex: formField.error.background.color.light,
+  },
+  {
+    name: 'disabled-light',
+    value: 'disabled-text',
+    hex: colors['disabled-text'].light,
+  },
+];
+
+const inputDark = [
+  {
+    name: 'enabled-light',
+    value: 'border',
+    hex: colors.border.dark,
+  },
+  {
+    name: 'value-dark',
+    value: 'border-strong',
+    hex: colors['border-strong'].dark,
+  },
+  {
+    name: 'validation-error-dark',
+    value: formField.error.background.color,
+    hex: formField.error.background.color.dark,
+  },
+  {
+    name: 'disabled-dark',
+    value: 'disabled-text',
+    hex: colors['disabled-text'].dark,
+  },
+];
+
 /* Text Colors */
 const textColors = [
   {
@@ -197,20 +284,7 @@ const textColors = [
   },
 ];
 
-const ctaColors = [
-  {
-    name: 'text-action-light',
-    value: colors['background-back'].light,
-    hex: colors['green!'],
-  },
-  {
-    name: 'text-action-dark',
-    value: colors['background-back'].dark,
-    hex: colors['green!'],
-  },
-];
-
-const statusColors = [
+const statusColorsLight = [
   {
     name: 'critical',
     value: colors['status-critical'].light,
@@ -231,12 +305,31 @@ const statusColors = [
     value: colors['status-unknown'].light,
     hex: colors['status-unknown'].light,
   },
+];
+
+const statusColorsDark = [
   {
-    name: 'disabled',
-    value: colors['status-disabled'],
-    hex: colors['status-disabled'],
+    name: 'critical',
+    value: colors['status-critical'].dark,
+    hex: colors['status-critical'].dark,
+  },
+  {
+    name: 'warning',
+    value: colors['status-warning'],
+    hex: colors['status-warning'],
+  },
+  {
+    name: 'ok',
+    value: colors['status-ok'],
+    hex: colors['status-ok'],
+  },
+  {
+    name: 'unknown',
+    value: colors['status-unknown'].light,
+    hex: colors['status-unknown'].light,
   },
 ];
+
 export const colorExamples = {
   palettes: {
     primaryColors,
@@ -250,9 +343,17 @@ export const colorExamples = {
     contrastLight,
     contrastDark,
   },
+  borders: {
+    borderDark,
+    borderLight,
+  },
+  input: {
+    inputDark,
+    inputLight,
+  },
   text: {
     textColors,
-    ctaColors,
-    statusColors,
+    statusColorsLight,
+    statusColorsDark,
   },
 };
