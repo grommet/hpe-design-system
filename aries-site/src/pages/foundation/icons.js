@@ -87,7 +87,7 @@ const Icons = () => {
         </Subsection>
         <Subsection name="Icon Sizes" level={3}>
           <SubsectionText>
-            The icon default size is medium. This should be adjusted depending
+            The default icon size is medium. This should be adjusted depending
             on where in your application the icon is being used.
           </SubsectionText>
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
