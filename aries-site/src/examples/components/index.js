@@ -5,6 +5,7 @@ export * from './header';
 export * from './footer';
 export * from './input';
 export * from './layouts';
+export * from './maskedinput';
 export * from './menu';
 export * from './search';
 export * from './select';
