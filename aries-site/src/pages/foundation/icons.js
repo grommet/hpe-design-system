@@ -123,7 +123,7 @@ const Icons = () => {
             light/dark mode. For some icons there are spcific colors in how they
             are represented, such as Aruba, Amazon, HPE that need to respect the
             built in colors for those SVGs so the color prop can be given
-            'plain'
+            'plain'.
           </SubsectionText>
           <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconColorExample.js">
             <IconPlainExample />
