@@ -32,7 +32,12 @@ const Icons = () => {
       />
       <ContentSection>
         <Subsection level={1} name={title} topic={topic}>
-          <SubsectionText>{pageDetails.description}</SubsectionText>
+          <SubsectionText>
+            Icons are an integral part of our visual storytelling style to
+            represent objects, actions, programs and other communicative
+            symbols. This clean, dynamic style remains flexible while retaining
+            the voice of our brand.
+          </SubsectionText>
           <SubsectionText size="medium">
             Icons can be used to represent information to users. such as actions
             a user can perform and represent different types of functionality.
