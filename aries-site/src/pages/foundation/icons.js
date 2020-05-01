@@ -34,11 +34,11 @@ const Icons = () => {
         <Subsection level={1} name={title} topic={topic}>
           <SubsectionText>{pageDetails.description}</SubsectionText>
           <SubsectionText size="medium">
-            Icons can be used to represent information to users. These can
-            include different actions a user can perform. Icons can represent
-            different types of functionality. It is important that the context
-            of an icon is clear. In some cases, it may be beneficial to pair
-            icons with text to ensure the purpose of the icon is clear.
+            Icons can be used to represent information to users. such as actions
+            a user can perform and represent different types of functionality.
+            It is important that the use of an icon is clear. In some cases, it
+            may be beneficial to pair icons with text to ensure the use of the
+            icon is properly understood.
           </SubsectionText>
         </Subsection>
         <ButtonRow>
@@ -52,7 +52,7 @@ const Icons = () => {
         </ButtonRow>
         <Subsection name="Developing with Grommet Icons" level={3}>
           <SubsectionText>
-            For instructions on how to install and use grommet icons within your
+            For instructions on how to install and use Grommet icons within your
             application, check out the Grommet Icons site.
           </SubsectionText>
         </Subsection>
