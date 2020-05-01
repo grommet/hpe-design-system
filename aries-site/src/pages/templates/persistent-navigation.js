@@ -75,7 +75,7 @@ const Navigation = () => {
             elements.
           </SubsectionText>
           <SubsectionText>
-            Be sure to checkout{' '}
+            Be sure to check out{' '}
             <Anchor href={nameToPath('Header')}>Header</Anchor> to see the many
             variants and versatility Header enables.
           </SubsectionText>
