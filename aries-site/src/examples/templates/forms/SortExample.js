@@ -54,7 +54,12 @@ export const SortExample = () => {
                 placeholder="-- Select --"
               />
             </FormField>
-            <FormField htmlFor="sortOrder" name="sortOrder" label="Sort order">
+            <FormField
+              htmlFor="sortOrder"
+              name="sortOrder"
+              label="Sort order"
+              help="Select how results are ordered"
+            >
               <RadioButtonGroup
                 id="sortOrder"
                 name="sortOrder"
