@@ -75,7 +75,7 @@ const Icons = () => {
             within other components such as{' '}
             <Anchor label="Search," href={nameToPath('Search')} />{' '}
             <Anchor label="Menu" href={nameToPath('Menu')} /> and{' '}
-            <Anchor label="Button" href={nameToPath('Button')} />
+            <Anchor label="Button" href={nameToPath('Button')} />.
           </SubsectionText>
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
