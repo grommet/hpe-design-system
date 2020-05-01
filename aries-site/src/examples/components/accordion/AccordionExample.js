@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, AccordionPanel, Box, } from 'grommet';
+import { Accordion, AccordionPanel, Box } from 'grommet';
 
 export const AccordionExample = () => {
   const pad = 'small';
