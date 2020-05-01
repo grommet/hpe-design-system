@@ -714,6 +714,7 @@ export const structure = [
       component: () => <MaskedInputPreview />,
       background: 'background-front',
     },
+    relatedContent: ['TextInput', 'Forms', 'Select'],
   },
 
   {
