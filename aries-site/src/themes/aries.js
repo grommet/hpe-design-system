@@ -3,6 +3,12 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
+  // To be removed after NEXT layer overlay PR is accepted on NEXT branch
+  layer: {
+    overlay: {
+      background: '#00000080',
+    },
+  },
   checkBox: {
     toggle: {
       extend: ({ checked, theme }) => `

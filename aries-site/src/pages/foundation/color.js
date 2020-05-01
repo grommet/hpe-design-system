@@ -32,7 +32,7 @@ const {
 const { borderDark, borderLight } = colorExamples.borders;
 const { inputDark, inputLight } = colorExamples.input;
 const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
-const { focusColor } = colorExamples;
+const { focusColor, layerColor } = colorExamples;
 
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
@@ -392,6 +392,16 @@ const Color = () => (
                     );
                   })}
               </UsageExample>
+            </Subsection>
+            <Subsection name="Overlay Color">
+              <SubsectionText>
+                When a <Anchor label="Layer" href={nameToPath('Layer')} /> is
+                open, this overlay extends over the rest of the application
+                content. It creates a visual distinction between the active
+                foreground Layer and the inactive background content. This is
+                controlled by `layer.overlay.background` in the theme.
+              </SubsectionText>
+              {layerColor && generateColorExamples(layerColor)}
             </Subsection>
           </ContentSection>
         </>
