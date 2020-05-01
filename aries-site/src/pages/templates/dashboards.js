@@ -40,6 +40,7 @@ const Dashboards = () => {
               `Regardless of need, each of these templates deliver at-a-glance
             critical information and quick navigation to underlying detail.`,
             ]}
+            width="100%"
           >
             <DashboardExample />
           </Example>

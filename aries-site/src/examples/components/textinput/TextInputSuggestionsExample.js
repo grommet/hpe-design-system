@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormField, TextInput } from 'grommet';
+import { Box, Form, FormField, TextInput } from 'grommet';
 
 export const TextInputSuggestionsExample = () => {
   const allSuggestions = ['Apples', 'Oranges', 'Bananas'];
@@ -23,28 +23,32 @@ export const TextInputSuggestionsExample = () => {
 
   return (
     <Box direction="row-responsive" gap="large" align="end">
-      <Box width="small">
+      <Form>
         <FormField
           label="Static suggestions"
+          name="static-suggestions-example"
           help={`Type something to see suggestions persist 
           regardless of input value.`}
           htmlFor="text-input-static"
         >
           <TextInput
+            name="static-suggestions-example"
             id="text-input-static"
             placeholder="Placeholder text"
             suggestions={['Apples', 'Oranges', 'Bananas']}
           />
         </FormField>
-      </Box>
-      <Box width="small">
+      </Form>
+      <Form>
         <FormField
+          name="filtered-example"
           label="Filtered suggestions"
           help={`Type something to see suggestions filter 
           based on the input value.`}
           htmlFor="text-input-filtered"
         >
           <TextInput
+            name="filtered-example"
             id="text-input-filtered"
             placeholder="Placeholder text"
             onChange={onChange}
@@ -53,7 +57,7 @@ export const TextInputSuggestionsExample = () => {
             value={value}
           />
         </FormField>
-      </Box>
+      </Form>
     </Box>
   );
 };

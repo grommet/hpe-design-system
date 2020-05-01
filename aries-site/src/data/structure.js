@@ -20,6 +20,7 @@ import {
   MenuPreview,
   RadioButtonGroupPreview,
   RangeInputPreview,
+  SearchPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
@@ -49,6 +50,7 @@ export const structure = [
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
+      'Accessibility',
       'Content',
       'Color',
       'Human Centered',
@@ -110,6 +112,7 @@ export const structure = [
       'Menu',
       'RadioButtonGroup',
       'RangeInput',
+      'Search',
       'Select',
       'Stack',
       'Tabs',
@@ -247,7 +250,7 @@ export const structure = [
   {
     name: 'Icons',
     description:
-      'Icons are the integral part of our visual storytelling style. This clean, dynamic style remains flexible while retaining the voice of our brand.',
+      'Icons are an integral part of our visual storytelling style to represent objects, actions, programs and other communicative symbols. This clean, dynamic style remains flexible while retaining the voice of our brand.',
     icon: (size, color) => <IconIcons size={size} color={color} />,
     preview: {
       image: {
@@ -258,6 +261,7 @@ export const structure = [
         alt: 'Hpe Icon Preview',
       },
     },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
   },
   {
     name: 'Lists',
@@ -468,15 +472,14 @@ export const structure = [
   },
   {
     name: 'Anchor',
-    description:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
-    seoDescription:
-      'Used with text based navigation, such as inline text, header navigation, and footer navigation.',
+    description: 'Used with text based navigation, such as inline text.',
+    seoDescription: 'Used with text based navigation, such as inline text.',
     sections: [],
     preview: {
       component: () => <AnchorPreview />,
       background: 'background-front',
     },
+    relatedContent: ['Button', 'Typography', 'Forms'],
   },
   {
     name: 'Box',
@@ -526,6 +529,7 @@ export const structure = [
       component: () => <FooterPreview />,
       justify: 'end',
     },
+    relatedContent: ['Header', 'Button', 'Dashboards'],
   },
   {
     name: 'Grid',
@@ -550,6 +554,14 @@ export const structure = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
+    relatedContent: [
+      'Button',
+      'Menu',
+      'TextInput',
+      'Dashboards',
+      'Global Sidebar',
+      'Search',
+    ],
   },
   {
     name: 'Layer',
@@ -621,6 +633,17 @@ export const structure = [
       component: () => <RangeInputPreview />,
       background: 'background-front',
     },
+  },
+  {
+    name: 'Search',
+    description: 'Find content corresponding to keyword queries.',
+    seoDescription: 'HPE Design System Search input design and code examples.',
+    sections: [],
+    preview: {
+      component: () => <SearchPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['TextInput', 'Header'],
   },
   {
     name: 'Select',
@@ -725,6 +748,14 @@ export const structure = [
     },
     seoDescription:
       'What and how we layout content is crucial to clear communication and ease-of-use.',
+    sections: [],
+  },
+  {
+    name: 'Accessibility',
+    description:
+      'Accessibility will be an important part of guidance in using our components.',
+    seoDescription:
+      'Accessibility will be an important part of guidance in using our components.',
     sections: [],
   },
   {
