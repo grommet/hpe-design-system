@@ -51,7 +51,6 @@ export const structure = [
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: [
       'Accessibility',
-      'Content',
       'Color',
       'Human Centered',
       'Icons',
@@ -769,23 +768,6 @@ export const structure = [
     },
     seoDescription:
       'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    sections: [],
-  },
-  {
-    name: 'Content',
-    description:
-      'What and how we layout content is crucial to clear communication and ease-of-use.',
-    preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-content.svg',
-          dark: '/foundationImages/foundation-preview-content-invert.svg',
-        },
-        alt: 'HPE Content Preview',
-      },
-    },
-    seoDescription:
-      'What and how we layout content is crucial to clear communication and ease-of-use.',
     sections: [],
   },
   {
