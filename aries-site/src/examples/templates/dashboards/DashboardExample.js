@@ -72,7 +72,7 @@ const data = [
   },
 ];
 
-export const DashboardTiles = () => {
+const DashboardTiles = () => {
   const size = useContext(ResponsiveContext);
   return (
     <Tiles
