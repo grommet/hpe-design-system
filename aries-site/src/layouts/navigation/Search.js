@@ -76,7 +76,7 @@ export const Search = ({ focused, setFocused }) => {
         />
       )}
       {(focused || size !== 'small') && (
-        <Box background="background-contrast" round="small" width="medium">
+        <Box background="background-contrast" round="xsmall" width="medium">
           <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
             <StyledTextInput
               ref={inputRef}
