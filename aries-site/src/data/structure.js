@@ -510,8 +510,9 @@ export const structure = [
     description:
       'When the user needs to select one or more options, use a checkbox.',
     seoDescription:
-      'When the user needs to select one or more options, use a checkbox.',
+      'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [],
+    relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
       background: 'background-front',
