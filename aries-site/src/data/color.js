@@ -6,7 +6,7 @@ import { aries as theme } from '../themes/aries';
  */
 
 const { colors, elevation } = theme.global;
-const { formField } = theme;
+const { formField, layer } = theme;
 
 /* Color Palette */
 const primaryColors = [
@@ -359,6 +359,7 @@ const elevationColorsDark = [
     hex: elevation.dark.small,
   },
 ];
+
 const elevationColorsLight = [
   {
     name: 'elevation',
@@ -374,6 +375,14 @@ const elevationColorsLight = [
     name: 'elevation-weak',
     value: 'elevation-weak',
     hex: elevation.light.small,
+  },
+];
+
+const layerColor = [
+  {
+    name: 'layer-overlay',
+    value: layer.overlay.background,
+    hex: layer.overlay.background,
   },
 ];
 
@@ -404,6 +413,7 @@ export const colorExamples = {
     statusColorsDark,
   },
   focusColor,
+  layerColor,
   elevation: {
     elevationColorsDark,
     elevationColorsLight,
