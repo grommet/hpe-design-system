@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Anchor as GrommetAnchor, Button } from 'grommet';
+import { Anchor, Button } from 'grommet';
 import { Meta, SubsectionText } from '../../components';
 import {
   ButtonRow,
@@ -73,9 +73,9 @@ const Icons = () => {
           <SubsectionText>
             Icons can be used in a variety of different ways. They are used
             within other components such as{' '}
-            <GrommetAnchor label="Search" href={nameToPath('Search')} />
-            and <GrommetAnchor label="Menu" href={nameToPath('Menu')} />
-            They can
+            <Anchor label="Search," href={nameToPath('Search')} />{' '}
+            <Anchor label="Menu" href={nameToPath('Menu')} /> and{' '}
+            <Anchor label="Button" href={nameToPath('Button')} />
           </SubsectionText>
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
