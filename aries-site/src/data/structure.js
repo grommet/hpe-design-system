@@ -462,7 +462,7 @@ export const structure = [
     },
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
-      'Buttons are used to indicate actions that can be performed.',
+      'The accordion affords content to be delivered progressively.',
     sections: [],
   },
   {
