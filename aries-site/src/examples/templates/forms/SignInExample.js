@@ -13,9 +13,36 @@ import {
   TextInput,
 } from 'grommet';
 import { Close, Next } from 'grommet-icons';
+import { Tile } from 'aries-core';
 
-import { FormContainer } from '.';
-import { emailValidation } from './formHelpers';
+const emailValidation = [
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
+    message: 'Missing an @?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: 'Missing an .?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: "Email address doesn't look quite right",
+    status: 'error',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });

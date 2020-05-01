@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tile } from 'aries-core';
 import {
   Box,
   Button,
@@ -9,8 +10,29 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
-import { passwordRulesWeak } from './formHelpers';
+const passwordRulesWeak = [
+  {
+    regexp: new RegExp('.{4,}'),
+    message: 'At least four characters',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
+    message: 'At least one special character or space',
+    status: 'error',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Tile
+      background="background-front"
+      border
+      pad={{ horizontal: 'medium', vertical: 'medium' }}
+      {...rest}
+    />
+  );
+};
 
 export const ChangePasswordExample = () => {
   const [formValues, setFormValues] = React.useState({});
