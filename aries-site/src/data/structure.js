@@ -186,6 +186,8 @@ export const structure = [
       'Input Palette',
       'Call to Action Text',
       'Status Colors',
+      'Focus Color',
+      'Elevation',
     ],
   },
   {
