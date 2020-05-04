@@ -183,7 +183,6 @@ const AppHeaderExample = () => (
 );
 
 const ScreenContainer = ({ mobile, ...rest }) => (
-  <ResponsiveContext.Provider value={mobile && 'small'}>
     <ResponsiveContext.Consumer>
       {size => (
         <Box
@@ -209,7 +208,6 @@ const ScreenContainer = ({ mobile, ...rest }) => (
         </Box>
       )}
     </ResponsiveContext.Consumer>
-  </ResponsiveContext.Provider>
 );
 
 export const ListScreenExample = ({ ...rest }) => {

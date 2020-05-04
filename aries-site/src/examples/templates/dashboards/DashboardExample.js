@@ -154,7 +154,6 @@ const SidebarExample = ({ ...rest }) => {
 };
 
 const ScreenContainer = ({ mobile, ...rest }) => (
-  <ResponsiveContext.Provider value={mobile && 'small'}>
     <ResponsiveContext.Consumer>
       {size => (
         <Box
@@ -180,7 +179,6 @@ const ScreenContainer = ({ mobile, ...rest }) => (
         </Box>
       )}
     </ResponsiveContext.Consumer>
-  </ResponsiveContext.Provider>
 );
 
 const AppHeaderExample = () => (
