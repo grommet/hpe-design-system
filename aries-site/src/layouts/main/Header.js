@@ -21,7 +21,7 @@ const StyledHeader = ({ ...rest }) => {
         <AppIdentity
           brand="hpe"
           logoOnly={size === 'small' && searchFocused}
-          title="Carte Design System"
+          title="Design System"
         />
       </Link>
       {!searchFocused ? (
