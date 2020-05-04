@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FormField, MaskedInput } from 'grommet';
+import React from 'react';
+import { Form, FormField, MaskedInput } from 'grommet';
 
 const maskPhone = [
   { fixed: '(' },
@@ -23,17 +23,10 @@ const maskPhone = [
   },
 ];
 
-export const MaskedPhoneExample = () => {
-  const [phone, setPhone] = useState('');
-
-  return (
-    <FormField label="Phone" htmlFor="masked-phone">
-      <MaskedInput
-        id="masked-phone"
-        mask={maskPhone}
-        value={phone}
-        onChange={event => setPhone(event.target.value)}
-      />
+export const MaskedPhoneExample = () => (
+  <Form>
+    <FormField label="Phone" htmlFor="masked-phone" name="maskedPhone">
+      <MaskedInput name="maskedPhone" id="masked-phone" mask={maskPhone} />
     </FormField>
-  );
-};
+  </Form>
+);

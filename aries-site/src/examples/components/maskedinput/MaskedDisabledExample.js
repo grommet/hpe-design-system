@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormField, MaskedInput } from 'grommet';
+import { FormField, Form, MaskedInput } from 'grommet';
 
 const today = new Date();
 const daysInMonth = month => new Date(today.getFullYear(), month, 0).getDate();
@@ -39,14 +39,22 @@ export const MaskedDisabledExample = () => {
   ];
 
   return (
-    <FormField label="Date" htmlFor="masked-date" disabled>
-      <MaskedInput
-        id="masked-date"
-        mask={maskDate}
-        value={date}
-        onChange={event => setDate(event.target.value)}
+    <Form>
+      <FormField
+        label="Date"
+        htmlFor="masked-disabled"
+        name="maskedDisabled"
         disabled
-      />
-    </FormField>
+      >
+        <MaskedInput
+          name="maskedDisabled"
+          id="masked-disabled"
+          mask={maskDate}
+          value={date}
+          onChange={event => setDate(event.target.value)}
+          disabled
+        />
+      </FormField>
+    </Form>
   );
 };

@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { FormField, MaskedInput } from 'grommet';
+import React from 'react';
+import { Form, FormField, MaskedInput } from 'grommet';
 
 const IPv4ElementExp = /^[0-1][0-9][0-9]$|^2[0-4][0-9]$|^25[0-5]$|^[0-9][0-9]$|^[0-9]$/;
 
-export const MaskedIPAddressExample = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <FormField label="IP Address" htmlFor="masked-ip-address">
+export const MaskedIPAddressExample = () => (
+  <Form>
+    <FormField
+      label="IP Address"
+      htmlFor="masked-ip-address"
+      name="maskedIpAddress"
+    >
       <MaskedInput
+        name="maskedIpAddress"
         id="masked-ip-address"
         mask={[
           {
@@ -35,9 +38,7 @@ export const MaskedIPAddressExample = () => {
             placeholder: 'xxx',
           },
         ]}
-        value={value}
-        onChange={event => setValue(event.target.value)}
       />
     </FormField>
-  );
-};
+  </Form>
+);

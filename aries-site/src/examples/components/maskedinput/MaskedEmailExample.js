@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FormField, MaskedInput } from 'grommet';
+import React from 'react';
+import { Form, FormField, MaskedInput } from 'grommet';
 
 const maskEmail = [
   {
@@ -18,17 +18,10 @@ const maskEmail = [
   },
 ];
 
-export const MaskedEmailExample = () => {
-  const [email, setEmail] = useState('');
-
-  return (
-    <FormField label="Email" htmlFor="masked-email">
-      <MaskedInput
-        id="masked-email"
-        mask={maskEmail}
-        value={email}
-        onChange={event => setEmail(event.target.value)}
-      />
+export const MaskedEmailExample = () => (
+  <Form>
+    <FormField label="Email" htmlFor="masked-email" name="maskedEmail">
+      <MaskedInput name="maskedEmail" id="masked-email" mask={maskEmail} />
     </FormField>
-  );
-};
+  </Form>
+);

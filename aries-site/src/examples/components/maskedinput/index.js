@@ -6,3 +6,4 @@ export * from './MaskedIPRangeExample';
 export * from './MaskedSizeUnitsExample';
 export * from './MaskedTimeExample';
 export * from './MaskedPhoneExample';
+export * from './MaskedValidationExample';
