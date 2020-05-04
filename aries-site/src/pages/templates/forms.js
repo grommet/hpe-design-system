@@ -62,7 +62,7 @@ const Forms = () => {
           <BulletedList
             items={[
               'Use as few fields as possible',
-              'Wrap all input elements in a FormField',
+              'Wrap all input elements within a FormField',
               'Fill in default values for as many fields as possible',
               'Reveal fields progressively so the user is not overwhelmed',
               'Use clear, concise labels for each field',
