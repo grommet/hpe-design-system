@@ -13,10 +13,10 @@ const Foundation = () => (
   <Layout
     backgroundImage={{
       src: {
-        dark: '/carte-foundation-dark.svg',
-        light: '/carte-foundation-light.svg',
+        dark: '/foundation-dark.svg',
+        light: '/foundation-light.svg',
       },
-      alt: 'HPE Carte Design System Foundation',
+      alt: 'HPE Design System Foundation',
       margin: { left: '-200px', top: '-175px' },
       small: {
         margin: { left: '0', top: '-300px' },

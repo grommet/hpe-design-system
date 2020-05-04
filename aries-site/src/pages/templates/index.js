@@ -13,10 +13,10 @@ const Templates = () => (
   <Layout
     backgroundImage={{
       src: {
-        dark: '/carte-templates-dark.svg',
-        light: '/carte-templates-light.svg',
+        dark: '/templates-dark.svg',
+        light: '/templates-light.svg',
       },
-      alt: 'HPE Carte Design System Templates',
+      alt: 'HPE Design System Templates',
       margin: { left: '-200px', top: '-125px' },
       small: {
         margin: { left: '-25px', top: '-175px' },
