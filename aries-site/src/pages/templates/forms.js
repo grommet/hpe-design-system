@@ -107,7 +107,7 @@ const Forms = () => {
             have a button with label "Update Password".
           </SubsectionText>
           <SubsectionText>
-            Specifity in button labels gives the user confidence in the action
+            Button label specificity provides users confidence in the action
             they are performing.
           </SubsectionText>
         </Subsection>
