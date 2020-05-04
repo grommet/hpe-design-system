@@ -32,11 +32,8 @@ const Index = () => (
             Mix, match, and stack cards to change the game
           </Heading>
           <Paragraph size="large" fill>
-            The Design System was created to empower designers,
-            developer, and others to contribute in making
-            great experiences for the customer.{' '}
-            {/* Carte means “card game” in Italian. Pick your cards and 
-            see what games you can play. */}
+            The Design System was created to empower designers, developer, and
+            others to contribute in making great experiences for the customer.
           </Paragraph>
         </Box>
       </PageIntro>
