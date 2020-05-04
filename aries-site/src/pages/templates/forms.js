@@ -119,8 +119,10 @@ const Forms = () => {
           <Text weight="bold">On submission, your Form should:</Text>
           <BulletedList
             items={[
-              `Display any relevant errors (if applicable) with text that 
-              explains the necessary criteria to fix errors`,
+              `In the case of an error, focus should be placed 
+              on the input element where the error occurred.`, 
+              `Display all relevant errors accompanied by text 
+               explaining actions needed to resolve.`,
               `Provide user with indication that form was submitted 
               successfully (e.g. notification, success page, etc.)`,
               `Allow user to continue navigating through the application 
