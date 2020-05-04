@@ -33,6 +33,7 @@ const MaskedInput = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/MaskedInputExample/MaskedInputExample.js"
             docs="https://v2.grommet.io/maskedinput?theme=hpe#props"
+            figma="https://www.figma.com/file/fO285pXUqN9pVZ0xpRoKjL/HPE-Masked-Input-Component?node-id=1%3A89"
           >
             <MaskedPhoneExample />
           </Example>
