@@ -65,6 +65,8 @@ export const aries = deepMerge(hpe, {
           top: 0px;
         `,
       },
+    },
+  },
   // To be removed after NEXT layer overlay PR is accepted on NEXT branch
   // https://github.com/grommet/grommet-theme-hpe/pull/62
   layer: {
