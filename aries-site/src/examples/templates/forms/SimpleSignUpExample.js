@@ -16,7 +16,7 @@ import {
 import { FormContainer } from '.';
 import { emailMask, emailValidation, passwordRulesStrong } from './formHelpers';
 
-export const SignUpExample = () => {
+export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
@@ -52,12 +52,12 @@ export const SignUpExample = () => {
           >
             <FormField
               label="Email"
-              htmlFor="email-sign-up"
+              htmlFor="email-sign-up-simple"
               name="email"
               validate={emailValidation}
             >
               <MaskedInput
-                id="email-sign-up"
+                id="email-sign-up-simple"
                 name="email"
                 mask={emailMask}
                 type="email"
@@ -65,34 +65,32 @@ export const SignUpExample = () => {
             </FormField>
             <FormField
               label="Full Name"
-              htmlFor="fullName-sign-up"
+              htmlFor="fullName-sign-up-simple"
               name="fullName"
               required
             >
               <TextInput
-                id="fullName-sign-up"
+                id="fullName-sign-up-simple"
                 name="fullName"
                 placeholder="Jane Smith"
               />
             </FormField>
             <FormField
               label="Password"
-              htmlFor="password-sign-up"
+              htmlFor="password-sign-up-simple"
               name="password"
-              help="Include at least 8 characters, a lowercase letter, an
-              uppercase letter, a number, and a special character"
               validate={passwordRulesStrong}
             >
               <TextInput
-                id="password-sign-up"
+                id="password-sign-up-simple"
                 name="password"
                 placeholder="•••••••••••••••"
                 type="password"
               />
             </FormField>
-            <FormField htmlFor="terms-and-privacy">
+            <FormField htmlFor="terms-and-privacy-simple">
               <CheckBox
-                id="terms-and-privacy"
+                id="terms-and-privacy-simple"
                 name="termsAndPrivacy"
                 label={
                   <Text>

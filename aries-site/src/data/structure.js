@@ -233,6 +233,13 @@ export const structure = [
       'Shipping',
       'Customize',
     ],
+    relatedContent: [
+      'TextInput',
+      'Button',
+      'MaskedInput',
+      'CheckBox',
+      'RadioButtonGroup',
+    ],
   },
   {
     name: 'Human Centered',
