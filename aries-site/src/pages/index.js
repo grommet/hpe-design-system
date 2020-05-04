@@ -12,8 +12,8 @@ const cards = getCards();
 const Index = () => (
   <Layout
     backgroundImage={{
-      src: { dark: '/carte-cards-dark.svg', light: '/carte-cards.svg' },
-      alt: 'HPE Carte Design System',
+      src: { dark: '/cards-dark.svg', light: '/cards.svg' },
+      alt: 'HPE Design System',
       margin: { top: '50px', left: '-150px' },
       style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
       small: {
@@ -32,10 +32,10 @@ const Index = () => (
             Mix, match, and stack cards to change the game
           </Heading>
           <Paragraph size="large" fill>
-            The Carte Design System was created to empower designers, developer,
-            and others to contribute in making great experiences for the
-            customer. Carte means “card game” in Italian. Pick your cards and
-            see what games you can play.
+            The Design System was created to empower designers, developer, and
+            others to contribute in making great experiences for the customer. Pick 
+            your cards, then mix, match, and stack to see what experiences you 
+            can create.
           </Paragraph>
         </Box>
       </PageIntro>

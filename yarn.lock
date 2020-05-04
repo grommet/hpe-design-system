@@ -7700,8 +7700,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.13.0"
-  uid d8fb2dce6c78d580d914f1b28bf2424e6e65f73b
-  resolved "https://github.com/grommet/grommet/tarball/stable#d8fb2dce6c78d580d914f1b28bf2424e6e65f73b"
+  uid a0cd337ddd15d3f733e65021cef66720fd4394f2
+  resolved "https://github.com/grommet/grommet/tarball/stable#a0cd337ddd15d3f733e65021cef66720fd4394f2"
   dependencies:
     css "^2.2.3"
     grommet-icons "^4.2.0"
@@ -12045,9 +12045,9 @@ react-error-overlay@^6.0.3:
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
 react-fast-compare@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.0.1.tgz#884d339ce1341aad22392e7a88664c71da48600e"
-  integrity sha512-C5vP0J644ofZGd54P8++O7AvrqMEbrGf8Ue0eAUJLJyw168dAX2aiYyX/zcY/eSNwO0IDjsKUaLE6n83D+TnEg==
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.0.2.tgz#8b0bfa93a049ec1eef9d54ab5e5c6036c317144d"
+  integrity sha512-1fBw8Efm6fb1blbRorZcO3OqzWgxYWxXzlaNeqEVXcrDdyFzeqygrPVU6qrPuqnqYMpUJVkQBdDgDJQTmCXp+Q==
 
 react-focus-lock@^2.1.0:
   version "2.3.1"
