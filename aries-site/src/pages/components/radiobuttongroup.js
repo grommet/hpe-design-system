@@ -1,8 +1,14 @@
 import React from 'react';
-import { CardGrid, Meta, SubsectionText } from '../../components';
-import { RadioButtonGroupExample } from '../../examples';
+import { Anchor, Box, Text } from 'grommet';
+
+import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import {
+  RadioButtonGroupDisabledExample,
+  RadioButtonGroupExample,
+  RadioButtonGroupValidationExample,
+} from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
-import { getPageDetails, getRelatedContent } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'RadioButtonGroup';
 const topic = 'Components';
@@ -32,20 +38,54 @@ const RadioButtonGroup = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Guidance">
+          <SubsectionText>Keep labels concise and simple.</SubsectionText>
+        </Subsection>
+        <Subsection name="Best Practices" level={3} gap="small">
+          <Box width={{ max: 'large' }}>
+            <BulletedList
+              level={3}
+              items={[
+                'Avoid long text descriptions as labels.',
+                <Text>
+                  If there are more than five options, or if the default value
+                  is expected most of the time, consider using{' '}
+                  <Anchor href={nameToPath('select')}>Select</Anchor> instead to
+                  avoid cluttering the experience.
+                </Text>,
+                'Use when the user needs to see all related options.',
+                `Radio buttons should always be listed vertically with one 
+                choice per line.`,
+                'Never add sub-categories to a Radio Button Group.',
+              ]}
+            />
+          </Box>
+        </Subsection>
+        <Subsection name="When to use RadioButtonGroup" level={3} gap="small">
           <SubsectionText>
-            fadhads dfhjdasd dafsadhlhdfa dafhlkhdaf
+            RadioButtonGroup is used to lay out a discreet list of mutually
+            related options that are easily visible. RadioButtonGroup requires
+            an input choice, so it is important to be clear with what is being
+            asked of the user on the label.
+          </SubsectionText>
+          <SubsectionText>
+            When users should be able to select more than one option, use
+            CheckboxGroup instead.
           </SubsectionText>
         </Subsection>
       </ContentSection>
       <ContentSection>
         <Subsection name="Variants">
           <SubsectionText>
-            fadhads dfhjdasd dafsadhlhdfa dafhlkhdaf
+            RadioButtonGroup is primarily used to select a single item from a
+            list of two or more options.
           </SubsectionText>
         </Subsection>
         <Subsection name="Validation" level={3} gap="small">
           <SubsectionText>
-            fddsdfdasdfas fasfdsdadf afdsfda afasf afadsf adf
+            Validation styling indicates that a selection was not made. In many
+            cases, a clear label for the group and an error message of
+            'required' may be sufficient. Bonus points go to messages explaining
+            why a required selection is beneficial to the user.
           </SubsectionText>
           <Example
             code=""
@@ -53,12 +93,12 @@ const RadioButtonGroup = () => {
             height={{ min: 'small' }}
             width="medium"
           >
-            <RadioButtonGroupExample />
+            <RadioButtonGroupValidationExample />
           </Example>
         </Subsection>
         <Subsection name="Disabled" level={3} gap="small">
           <SubsectionText>
-            fasdfa adfadsfa adfsaddf afasdfd adfdsafd{' '}
+            Indicates that the RadioButtonGroup cannot be interacted with.
           </SubsectionText>
           <Example
             code=""
@@ -66,7 +106,7 @@ const RadioButtonGroup = () => {
             height={{ min: 'small' }}
             width="medium"
           >
-            <RadioButtonGroupExample />
+            <RadioButtonGroupDisabledExample />
           </Example>
         </Subsection>
       </ContentSection>
