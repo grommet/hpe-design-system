@@ -66,6 +66,8 @@ const Forms = () => {
               'Fill in default values for as many fields as possible',
               'Reveal fields progressively so the user is not overwhelmed',
               'Use clear, concise labels for each field',
+              `Use placeholder text as an added visual indication of expected
+              input value format`,
             ]}
           />
         </Subsection>
@@ -143,6 +145,8 @@ const Forms = () => {
             items={[
               `A "for" property that matches the id of its child input. If 
               using Grommet, this is applied with the htmlFor prop.`,
+              `A "name" property applied on both the FormField and its child 
+              input element`,
               'A clear, concise label',
             ]}
           />
