@@ -122,7 +122,7 @@ const Forms = () => {
               `Display any relevant errors (if applicable) with text that 
               explains the necessary criteria to fix errors`,
               `Provide user with indication that form was submitted 
-              successfully (notification, success page, etc.)`,
+              successfully (e.g. notification, success page, etc.)`,
               `Allow user to continue navigating through the application 
               immediately`,
             ]}
