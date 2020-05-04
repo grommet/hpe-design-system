@@ -26,6 +26,7 @@ const Layer = () => (
         <Example
           docs="https://v2.grommet.io/layer?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js"
+          figma="https://www.figma.com/file/Ts53TAipMolmsv9DxWG3p0/HPE-Layer-Component?node-id=2%3A22"
         >
           <LayerExample />
         </Example>
