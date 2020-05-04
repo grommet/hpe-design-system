@@ -69,8 +69,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: '/carte-templates-light.svg',
-          dark: '/carte-templates-dark.svg',
+          light: '/templates-light.svg',
+          dark: '/templates-dark.svg',
         },
         alt: 'HPE Cards Preview',
       },
@@ -88,8 +88,8 @@ export const structure = [
     preview: {
       image: {
         src: {
-          light: '/carte-components-light.svg',
-          dark: '/carte-components-dark.svg',
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
         },
         alt: 'HPE Cards Preview',
       },
