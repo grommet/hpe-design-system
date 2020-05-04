@@ -595,7 +595,7 @@ export const structure = [
   },
   {
     name: 'Accordion',
-    description: 'Buttons are used to indicate actions that can be performed.',
+    description: 'The accordion affords content to be delivered progressively.',
     preview: {
       image: {
         src: {
@@ -606,9 +606,9 @@ export const structure = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Tabs'],
+    relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
-      'Buttons are used to indicate actions that can be performed.',
+      'The accordion affords content to be delivered progressively.',
     sections: [],
   },
   {
