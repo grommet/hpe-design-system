@@ -611,9 +611,9 @@ export const structure = [
   {
     name: 'RadioButtonGroup',
     description:
-      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+      'A Radio Button Group is a set of related options within an element that allows only one entry selected at a time.',
     seoDescription:
-      'When one option of a set of options can be specified, use the RadioButtonGroup component.',
+      'A Radio Button Group is a set of related options within an element that allows only one entry selected at a time.',
     sections: [],
     preview: {
       component: () => <RadioButtonGroupPreview />,

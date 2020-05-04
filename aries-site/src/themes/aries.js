@@ -13,8 +13,12 @@ export const aries = deepMerge(hpe, {
       radius: '100%',
       color: 'selected-background',
       // extend: undefined,
+      extend: ({ checked }) => {
+        return checked && 'border-color: blue;';
+      },
     },
-    color: 'text-strong', // I don't think this exists in base.js
+    // color: 'text-strong', // I don't think radioButton.color
+    // exists in base.js and should be removed from hpe theme.
     extend: ({ theme }) => `
       :not(div):hover {
         background-color: ${
@@ -28,6 +32,7 @@ export const aries = deepMerge(hpe, {
       }
       padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
     `,
+    gap: 'xsmall',
     hover: {
       border: {
         color: undefined,
@@ -44,7 +49,7 @@ export const aries = deepMerge(hpe, {
         </Blank>
       ),
     },
-    gap: 'xsmall',
+    // size: undefined,
   },
   checkBox: {
     toggle: {
