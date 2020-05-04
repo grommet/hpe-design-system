@@ -120,11 +120,11 @@ const Forms = () => {
           <BulletedList
             items={[
               `In the case of an error, focus should be placed 
-              on the input element where the error occurred.`, 
-              `Display all relevant errors accompanied by text 
-               explaining actions needed to resolve.`,
+              on the input element where the error occurred.`,
               `Provide user with indication that form was submitted 
               successfully (e.g. notification, success page, etc.)`,
+              `Display all relevant errors accompanied by text 
+               explaining actions needed to resolve.`,
               `Allow user to continue navigating through the application 
               immediately`,
             ]}
@@ -141,7 +141,8 @@ const Forms = () => {
           <Text weight="bold">FormFields need to have:</Text>
           <BulletedList
             items={[
-              'An htmlFor property that matches the id of its child input',
+              `A "for" property that matches the id of its child input. If 
+              using Grommet, this is applied with the htmlFor prop.`,
               'A clear, concise label',
             ]}
           />
