@@ -83,7 +83,6 @@ export const MinimalSidebarExample = ({ mobile }) => {
               header={size !== 'small' && <SidebarHeader />}
               footer={size !== 'small' && <SidebarFooter />}
               background="blue!"
-              // gap="xsmall"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
                 bottom: 'medium',
@@ -191,7 +190,9 @@ const NavButton = ({ active, icon, name, ...rest }) => {
           {icon}
         </Box>
       </Button>
-      {ref.current && hover && (
+      {/* Show tooltip on hover and focus states as a supplemental
+      reminder to icon's meaning */
+      ref.current && hover && (
         <Drop align={{ left: 'right' }} target={ref.current} plain>
           <Box
             animation={{ type: ['fadeIn', 'slideRight'] }}

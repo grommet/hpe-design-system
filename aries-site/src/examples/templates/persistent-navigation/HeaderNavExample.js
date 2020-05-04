@@ -14,40 +14,27 @@ import {
   Stack,
   Text,
 } from 'grommet';
-import {
-  Clock,
-  Location,
-  Hpe,
-  Menu as MenuIcon,
-  Projects,
-  Splits,
-  StatusInfoSmall,
-} from 'grommet-icons';
+import { Hpe, Menu as MenuIcon } from 'grommet-icons';
 
 const pages = [
   {
     name: 'Focus',
-    icon: <StatusInfoSmall />,
     content: 'panes',
   },
   {
     name: 'Services',
-    icon: <Projects />,
     content: 'cards',
   },
   {
     name: 'Glances',
-    icon: <Clock />,
     content: 'cards',
   },
   {
     name: 'Flows',
-    icon: <Splits />,
     content: 'list',
   },
   {
     name: 'Locations',
-    icon: <Location />,
     content: 'list',
   },
 ];
@@ -151,7 +138,7 @@ const NavItems = ({ activeItem, setActiveItem }) => {
   );
 };
 
-export const SimpleButton = ({ active, name, ...rest }) => {
+const SimpleButton = ({ active, name, ...rest }) => {
   const [hover, setHover] = React.useState();
 
   return (
