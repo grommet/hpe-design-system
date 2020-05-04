@@ -46,7 +46,7 @@ const Forms = () => {
           <SubsectionText>
             Forms provide a way to collect important data from a user. However,
             this data is only collected effectively when Forms are built in a
-            way that users are inclined to fill out in full.
+            way in which users are inclined to fill out in full.
           </SubsectionText>
         </Subsection>
         <Subsection name="Usage" level={3} gap="small">
