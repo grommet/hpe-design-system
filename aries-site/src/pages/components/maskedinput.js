@@ -10,6 +10,7 @@ import {
   MaskedPhoneExample,
   MaskedSizeUnitsExample,
   MaskedTimeExample,
+  MaskedValidationExample,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, nameToPath, getRelatedContent } from '../../utils';
@@ -165,6 +166,21 @@ const MaskedInput = () => {
             width="medium"
           >
             <MaskedDateExample />
+          </Example>
+        </Subsection>
+        <Subsection name="Validation" level={3}>
+          <SubsectionText>
+            Used to confirm that an input has been completed properly and to its
+            entirety, even when syntax restrictions are in place. See the
+            difference upon submission when inputting "123.123.123.123" vs.
+            "43.21".
+          </SubsectionText>
+          <Example
+            docs="https://v2.grommet.io/maskedinput?theme=hpe#props"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/maskedinput/MaskedRequiredExample.js"
+            height={{ min: 'small' }}
+          >
+            <MaskedValidationExample />
           </Example>
         </Subsection>
         <Subsection name="Disabled" level={3}>
