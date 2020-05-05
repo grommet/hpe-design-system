@@ -90,7 +90,7 @@ const DashboardTiles = () => {
           alignContent="center"
           onClick={() => {}}
         >
-          <Box>
+          <Box flex fill>
             <Box
               pad={{ horizontal: 'medium', vertical: 'small' }}
               gap="medium"
