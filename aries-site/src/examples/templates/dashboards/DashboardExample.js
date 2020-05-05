@@ -84,39 +84,38 @@ const DashboardTiles = () => {
       {data.map(value => (
         <Box
           round="small"
-          overflow="hidden"
+          flex
+          fill
           background={value.color}
           key={`Tile ${value.title}`}
           alignContent="center"
           onClick={() => {}}
         >
-          <Box flex fill>
-            <Box
-              pad={{ horizontal: 'medium', vertical: 'small' }}
-              gap="medium"
-              justify="between"
-              size="small"
-              direction="column"
-              align="start"
-            >
-              {value.icon}
-              <Box gap="medium">
-                <Box>
-                  <Text size="medium" weight="bold">
-                    {value.title}
-                  </Text>
-                  <Text size="medium">{value.subTitle}</Text>
-                </Box>
+          <Box
+            pad={{ horizontal: 'medium', vertical: 'small' }}
+            gap="medium"
+            justify="between"
+            size="small"
+            direction="column"
+            align="start"
+          >
+            {value.icon}
+            <Box gap="medium">
+              <Box>
+                <Text size="medium" weight="bold">
+                  {value.title}
+                </Text>
+                <Text size="medium">{value.subTitle}</Text>
               </Box>
             </Box>
-            <Box flex />
-            <Footer pad="small" background="background-contrast">
-              <Text size="xsmall">{value.message}</Text>
-              {value.message === 'Connected' && (
-                <Box round pad="xsmall" background="green" />
-              )}
-            </Footer>
           </Box>
+          <Box flex />
+          <Footer pad="small" background="background-contrast">
+            <Text size="xsmall">{value.message}</Text>
+            {value.message === 'Connected' && (
+              <Box round pad="xsmall" background="green" />
+            )}
+          </Footer>
         </Box>
       ))}
     </Grid>
