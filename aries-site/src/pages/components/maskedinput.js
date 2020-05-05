@@ -63,7 +63,7 @@ const MaskedInput = () => {
               'Provide suggestions whenever possible',
               'Restrict syntax as much as possible',
               `Ensure any syntax separators are automatically inserted if 
-              needed but user is also able to type theme`,
+              needed, but also allow users to type them`,
             ]}
           />
         </Subsection>
