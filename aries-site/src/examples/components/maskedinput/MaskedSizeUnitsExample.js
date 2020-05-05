@@ -7,7 +7,7 @@ export const MaskedSizeUnitsExample = () => {
   return (
     <Form>
       <FormField
-        label="Size"
+        label="Storage Size"
         htmlFor="masked-size-units"
         name="maskedSizeUnits"
       >
@@ -19,14 +19,14 @@ export const MaskedSizeUnitsExample = () => {
               length: [1, 4],
               options: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
               regexp: /^\d{1,4}$/,
-              placeholder: 'nnn',
+              placeholder: '128',
             },
             { fixed: ' ' },
             {
               length: 2,
               options: ['MB', 'GB', 'TB'],
               regexp: /^[mgt]b$|^[MGT]B$|^[mMgGtT]$/,
-              placeholder: 'gb',
+              placeholder: 'GB',
             },
           ]}
           value={value}
