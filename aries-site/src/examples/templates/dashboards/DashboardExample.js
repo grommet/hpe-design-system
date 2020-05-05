@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { AppIdentity, Identifier, Tiles, Tile } from 'aries-core';
 import {
   Avatar,
   Header,
   Heading,
   Button,
   Box,
+  Grid,
   Menu,
   ResponsiveContext,
   Footer,
@@ -17,6 +17,7 @@ import {
   Apps,
   Chat,
   Clock,
+  Hpe,
   Terminal,
   StatusUnknown,
   Wifi,
@@ -75,39 +76,50 @@ const data = [
 const DashboardTiles = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Tiles
+    <Grid
       gap="medium"
       columns={size !== 'small' ? 'small' : 'auto'}
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
     >
       {data.map(value => (
-        <Tile
+        <Box
+          round="small"
+          overflow="hidden"
           background={value.color}
           key={`Tile ${value.title}`}
           alignContent="center"
           onClick={() => {}}
         >
-          <Identifier
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            title={value.title}
-            subTitle={value.subTitle}
-            size="small"
-            gap="medium"
-            direction="column"
-            align="start"
-          >
-            {value.icon}
-          </Identifier>
-          <Box flex />
-          <Footer pad="small" background="background-contrast">
-            <Text size="xsmall">{value.message}</Text>
-            {value.message === 'Connected' && (
-              <Box round pad="xsmall" background="green" />
-            )}
-          </Footer>
-        </Tile>
+          <Box>
+            <Box
+              pad={{ horizontal: 'medium', vertical: 'small' }}
+              gap="medium"
+              justify="between"
+              size="small"
+              direction="column"
+              align="start"
+            >
+              {value.icon}
+              <Box gap="medium">
+                <Box>
+                  <Text size="medium" weight="bold">
+                    {value.title}
+                  </Text>
+                  <Text size="medium">{value.subTitle}</Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box flex />
+            <Footer pad="small" background="background-contrast">
+              <Text size="xsmall">{value.message}</Text>
+              {value.message === 'Connected' && (
+                <Box round pad="xsmall" background="green" />
+              )}
+            </Footer>
+          </Box>
+        </Box>
       ))}
-    </Tiles>
+    </Grid>
   );
 };
 
@@ -154,36 +166,52 @@ const SidebarExample = ({ ...rest }) => {
 };
 
 const ScreenContainer = ({ mobile, ...rest }) => (
-    <ResponsiveContext.Consumer>
-      {size => (
-        <Box
-          background="background-back"
-          width={size === 'small' ? 'medium' : '100%'}
-          height={size === 'small' ? { max: 'large' } : undefined}
-          style={{ position: 'relative' }}
-        >
-          <Box direction="row" fill>
-            {size !== 'small' && <SidebarExample />}
-            <Box
-              overflow="auto"
-              pad={{ horizontal: 'medium', bottom: 'medium' }}
-              flex
-              {...rest}
-            />
-          </Box>
-          {size === 'small' && (
-            <SidebarExample
-              style={{ position: 'absolute', bottom: 0, left: 0 }}
-            />
-          )}
+  <ResponsiveContext.Consumer>
+    {size => (
+      <Box
+        background="background-back"
+        width={size === 'small' ? 'medium' : '100%'}
+        height={size === 'small' ? { max: 'large' } : undefined}
+        style={{ position: 'relative' }}
+      >
+        <Box direction="row" fill>
+          {size !== 'small' && <SidebarExample />}
+          <Box
+            overflow="auto"
+            pad={{ horizontal: 'medium', bottom: 'medium' }}
+            flex
+            {...rest}
+          />
         </Box>
-      )}
-    </ResponsiveContext.Consumer>
+        {size === 'small' && (
+          <SidebarExample
+            style={{ position: 'absolute', bottom: 0, left: 0 }}
+          />
+        )}
+      </Box>
+    )}
+  </ResponsiveContext.Consumer>
 );
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
-    <AppIdentity title="Server" brand="hpe" />
+    <Button>
+      <Box
+        direction="row"
+        align="center"
+        gap="medium"
+        pad={{ vertical: 'small' }}
+        responsive={false}
+      >
+        <Hpe color="plain" />
+        <Box direction="row" gap="xsmall">
+          <Text weight="bold" size="medium">
+            HPE
+          </Text>
+          <Text size="medium">Server</Text>
+        </Box>
+      </Box>
+    </Button>
     <Box direction="row" gap="small">
       <Menu
         label="Master Control"
