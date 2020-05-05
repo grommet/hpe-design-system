@@ -9,7 +9,7 @@ import {
   Layer,
   Text,
   ThemeContext,
-  ResponsiveContext
+  ResponsiveContext,
 } from 'grommet';
 import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';

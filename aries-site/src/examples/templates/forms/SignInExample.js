@@ -13,7 +13,6 @@ import {
   TextInput,
 } from 'grommet';
 import { Close, Next } from 'grommet-icons';
-import { Tile } from 'aries-core';
 
 const emailValidation = [
   {
@@ -35,12 +34,13 @@ const emailValidation = [
 
 const FormContainer = ({ ...rest }) => {
   return (
-    <Tile
-      background="background-front"
-      border
-      pad={{ horizontal: 'medium', vertical: 'medium' }}
-      {...rest}
-    />
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+      ></Box>
+    </Box>
   );
 };
 
