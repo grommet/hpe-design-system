@@ -32,7 +32,7 @@ const MaskedInput = () => {
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>{page.description}</SubsectionText>
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/MaskedInputExample/MaskedInputExample.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/maskedinput/MaskedPhoneExample.js"
             docs="https://v2.grommet.io/maskedinput?theme=hpe#props"
             figma="https://www.figma.com/file/fO285pXUqN9pVZ0xpRoKjL/HPE-Masked-Input-Component?node-id=1%3A89"
           >
@@ -43,10 +43,10 @@ const MaskedInput = () => {
       <ContentSection>
         <Subsection name="Guidance">
           <SubsectionText>
-            MaskedInput places syntax restrictions text
-            entered in an input field. It is similar to{' '}
-            <Anchor label="TextInput" href={nameToPath('TextInput')} />, in that
-            it allows the user to input shorter forms of data and content.
+            MaskedInput places syntax restrictions text entered in an input
+            field which allows for efficient, error-free entries. It is similar
+            to <Anchor label="TextInput" href={nameToPath('TextInput')} />, in
+            that it allows the user to input shorter forms of data and content.
             However, it is used to provide extra guidance and enforcement of
             input formats.
           </SubsectionText>
@@ -60,12 +60,25 @@ const MaskedInput = () => {
           <Text weight="bold">When using MaskedInput, you should:</Text>
           <BulletedList
             items={[
-              'Provide suggestions whenever possible',
-              'Restrict syntax as much as possible',
+              `Provide suggestions whenever possible to provide hints of 
+              possible values`,
+              `Use the input mask to restrict input syntax to the desired 
+              format`,
               `Ensure any syntax separators are automatically inserted if 
               needed, but also allow users to type them`,
             ]}
           />
+          <SubsectionText>
+            MaskedInput reduces the number of input fields needed by allowing
+            multiple criteria to be consolidated into a single input. For
+            example, you can{' '}
+            <Anchor
+              label={`use MaskedInput to collect storage size amounts and units
+               in one input`}
+              href="#size-with-units"
+            />
+            .
+          </SubsectionText>
         </Subsection>
         <Subsection name="Accessibility" level={3} gap="small">
           <SubsectionText>
