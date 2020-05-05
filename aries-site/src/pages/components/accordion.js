@@ -68,11 +68,11 @@ const Accordion = () => (
       </Subsection>
       <Subsection name="Accessibility" level={3} gap="small">
         <SubsectionText>
-          Buttons are used for the accordion panels which makes them
-          accessible by screen readers and keyboard. Having a very descriptive
-          heading label helps so the user gets to the content section they are
-          interested in faster. Users are able to click anywhere within the panel
-          heading for the state to change to expanded.
+          Buttons are used for the accordion panels which makes them accessible
+          by screen readers and keyboard. Having a very descriptive heading
+          label helps so the user gets to the content section they are
+          interested in faster. Users are able to click anywhere within the
+          panel heading for the state to change to expanded.
         </SubsectionText>
         <SubsectionText>
           To help with readability, accordions should only have one panel open
