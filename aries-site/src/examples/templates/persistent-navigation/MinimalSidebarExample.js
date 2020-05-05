@@ -132,6 +132,7 @@ const AppContainer = ({ ...rest }) => {
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
+      overflow="auto"
     >
       <Grid columns={columns} rows={rows} areas={areas} fill {...rest} />
     </Box>
@@ -224,7 +225,7 @@ const PageContent = ({ activeItem }) => {
 
   return (
     pages && (
-      <Box fill overflow="auto">
+      <Box overflow="auto">
         <Header
           fill="horizontal"
           height="xsmall"
