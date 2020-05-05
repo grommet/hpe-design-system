@@ -130,7 +130,7 @@ const FormContainer = ({ ...rest }) => {
         flex
         pad={{ horizontal: 'medium', vertical: 'medium' }}
         {...rest}
-      ></Box>
+       />
     </Box>
   );
 };
