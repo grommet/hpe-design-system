@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tile } from 'aries-core';
 import {
   Box,
   Form,
@@ -14,12 +13,13 @@ const sortFeatures = ['Featured', 'Price', 'Users'];
 
 const FormContainer = ({ ...rest }) => {
   return (
-    <Tile
-      background="background-front"
-      border
-      pad={{ horizontal: 'medium', vertical: 'medium' }}
-      {...rest}
-    />
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+      ></Box>
+    </Box>
   );
 };
 
