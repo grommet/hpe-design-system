@@ -43,7 +43,7 @@ const MaskedInput = () => {
       <ContentSection>
         <Subsection name="Guidance">
           <SubsectionText>
-            MaskedInput place syntax restrictions on the text that can be
+            MaskedInput places syntax restrictions text
             entered in an input field. It is similar to{' '}
             <Anchor label="TextInput" href={nameToPath('TextInput')} />, in that
             it allows the user to input shorter forms of data and content.
