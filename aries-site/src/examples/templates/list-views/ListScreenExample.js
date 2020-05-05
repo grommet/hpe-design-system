@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { AppIdentity, Identifier } from 'aries-core';
 import {
   Avatar,
   Box,
@@ -22,6 +21,7 @@ import {
   User,
   StatusUnknown,
   System,
+  Hpe,
 } from 'grommet-icons';
 
 const data = [
@@ -96,19 +96,18 @@ const StyledList = () => {
       )}
     >
       {(datum, index) => (
-        <Box direction="row" align="center" justify="between">
-          <Identifier
-            title={datum.user}
-            subTitle={datum.ip}
-            gap="medium"
-            size="small"
-            key={index}
-            direction="row"
-          >
-            <Box alignSelf="center">
-              {datum.icon(!datum.active && 'text-xweak')}
+        <Box gap="medium" direction="row" align="center" justify="between">
+          <Box alignSelf="center">
+            {datum.icon(!datum.active && 'text-xweak')}
+          </Box>
+          <Box align="center" gap="medium" key={index}>
+            <Box>
+              <Text size="medium" weight="bold">
+                {datum.user}
+              </Text>
+              <Text size="medium">{datum.ip}</Text>
             </Box>
-          </Identifier>
+          </Box>
         </Box>
       )}
     </List>
@@ -168,7 +167,23 @@ const PageHeaderExample = ({ title }) => (
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
-    <AppIdentity title="Server" brand="hpe" />
+    <Button>
+      <Box
+        direction="row"
+        align="center"
+        gap="medium"
+        pad={{ vertical: 'small' }}
+        responsive={false}
+      >
+        <Hpe color="plain" />
+        <Box direction="row" gap="xsmall">
+          <Text weight="bold" size="medium">
+            HPE
+          </Text>
+          <Text size="medium">Server</Text>
+        </Box>
+      </Box>
+    </Button>
     <Box direction="row" gap="small">
       <Menu
         label="Master Control"
