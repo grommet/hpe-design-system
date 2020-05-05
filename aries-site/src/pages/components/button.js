@@ -60,9 +60,10 @@ const Button = () => (
       </Subsection>
       <Subsection name="Button Labeling" level={3} gap="small">
         <SubsectionText>
-          Using the Carte Button Component will ensure you’re button looks like
-          a button. Applying the appropriate label is also important in making
-          sure the user has a clear understanding of what the action will do.
+          Using the design system Button Component will ensure you’re button
+          looks like a button. Applying the appropriate label is also important
+          in making sure the user has a clear understanding of what the action
+          will do.
         </SubsectionText>
         <BulletedList
           items={[

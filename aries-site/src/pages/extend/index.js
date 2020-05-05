@@ -13,10 +13,10 @@ const Extend = () => (
   <Layout
     backgroundImage={{
       src: {
-        dark: '/carte-extend-dark.svg',
-        light: '/carte-extend-light.svg',
+        dark: '/extend-dark.svg',
+        light: '/extend-light.svg',
       },
-      alt: 'HPE Carte Design System Extend',
+      alt: 'HPE Design System Extend',
       margin: { left: '-225px', top: '-85px' },
       small: {
         margin: { left: '-25px', top: '-100px' },

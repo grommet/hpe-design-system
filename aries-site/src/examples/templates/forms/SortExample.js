@@ -64,14 +64,17 @@ export const SortExample = () => {
                 placeholder="-- Select --"
               />
             </FormField>
-            <FormField htmlFor="sortOrder" name="sortOrder" label="Sort order">
-              <Box pad="small">
-                <RadioButtonGroup
-                  id="sortOrder"
-                  name="sortOrder"
-                  options={['Ascending', 'Descending']}
-                />
-              </Box>
+            <FormField
+              htmlFor="sortOrder"
+              name="sortOrder"
+              label="Sort order"
+              help="Select how results are ordered"
+            >
+              <RadioButtonGroup
+                id="sortOrder"
+                name="sortOrder"
+                options={['Ascending', 'Descending']}
+              />
             </FormField>
           </Form>
         </Box>
