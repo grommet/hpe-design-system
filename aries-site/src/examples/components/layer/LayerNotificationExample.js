@@ -5,7 +5,7 @@ import { StatusGood, FormClose } from 'grommet-icons';
 export const LayerNotificationExample = () => {
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
+  const onClose = () => setOpen(false);
   return (
     <>
       <Box align="start">
@@ -16,7 +16,6 @@ export const LayerNotificationExample = () => {
           position="top"
           modal={false}
           margin={{ vertical: 'medium', horizontal: 'small' }}
-          onEsc={onClose}
           responsive={false}
           plain
         >

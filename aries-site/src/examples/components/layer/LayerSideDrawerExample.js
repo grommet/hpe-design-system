@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Anchor,
   Button,
   Box,
   CheckBox,
@@ -10,75 +9,13 @@ import {
   Header,
   Heading,
   Layer,
-  MaskedInput,
   ResponsiveContext,
+  Select,
+  TextArea,
   TextInput,
   Text,
 } from 'grommet';
 import { Close } from 'grommet-icons';
-
-const emailMask = [
-  {
-    regexp: /^[\w\-_.]+$/,
-    placeholder: 'jane.smith',
-  },
-  { fixed: '@' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'hpe',
-  },
-  { fixed: '.' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'com',
-  },
-];
-
-const emailValidation = [
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
-    status: 'error',
-  },
-];
-
-const passwordRulesStrong = [
-  {
-    regexp: new RegExp('(?=.*?[A-Z])'),
-    message: 'At least one uppercase English letter',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[a-z])'),
-    message: 'At least one lowercase English letter',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[0-9])'),
-    message: 'At least one number',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
-    message: 'At least one special character or space',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('.{8,}'),
-    message: 'At least eight characters',
-    status: 'error',
-  },
-];
 
 const LayerForm = ({ setOpen }) => {
   // eslint-disable-next-line no-unused-vars
@@ -90,19 +27,14 @@ const LayerForm = ({ setOpen }) => {
   return (
     <Box gap="medium">
       <Box>
-        <Header justify="end">
+        <Header align="start" pad={{ horizontal: 'xxsmall' }}>
+          <Box gap="xxsmall">
+            <Heading level={3} margin="none">
+              Form Header
+            </Heading>
+            <Text>a subtitle if needed</Text>
+          </Box>
           <Button icon={<Close />} onClick={() => setOpen(false)} />
-        </Header>
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Heading level={3} margin="none">
-            Sign Up
-          </Heading>
-          <Text>for a Hewlett Packard Enterprise account</Text>
         </Header>
       </Box>
       <Form
@@ -110,73 +42,62 @@ const LayerForm = ({ setOpen }) => {
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
       >
         <FormField
-          label="Email"
-          htmlFor="email-sign-up"
-          name="email"
-          validate={emailValidation}
+          label="Text Area"
+          htmlFor="text-area-input"
+          name="textAreaInput"
         >
-          <MaskedInput
-            id="email-sign-up"
-            name="email"
-            mask={emailMask}
-            type="email"
+          <TextArea
+            id="text-area-input"
+            name="textAreaInput"
+            resize="vertical"
           />
         </FormField>
         <FormField
-          label="Full Name"
-          htmlFor="fullName-sign-up"
-          name="fullName"
-          required
+          label="Select Component"
+          htmlFor="select-one"
+          name="selectOne"
         >
-          <TextInput
-            id="fullName-sign-up"
-            name="fullName"
-            placeholder="Jane Smith"
+          <Select
+            id="select-one"
+            name="selectOne"
+            options={['Item 1', 'Item 2', 'Item 3']}
+            placeholder="Select item"
           />
         </FormField>
         <FormField
-          label="Password"
-          htmlFor="password-sign-up"
-          name="password"
-          help="Include at least 8 characters, a lowercase letter, an
-    uppercase letter, a number, and a special character"
-          validate={passwordRulesStrong}
+          label="Select Component"
+          htmlFor="select-two"
+          name="selectTwo"
         >
-          <TextInput
-            id="password-sign-up"
-            name="password"
-            placeholder="•••••••••••••••"
-            type="password"
+          <Select
+            id="select-two"
+            name="selectTwo"
+            options={['Item 1', 'Item 2', 'Item 3']}
+            placeholder="Select item"
           />
         </FormField>
-        <FormField htmlFor="terms-and-privacy" name="termsAndPrivacy">
+        <FormField label="Text Input" htmlFor="text-input" name="textInput">
+          <TextInput
+            id="text-input"
+            name="textInput"
+            placeholder="Placeholder text"
+          />
+        </FormField>
+        <FormField
+          label="Checkbox Toggle"
+          htmlFor="checkbox-toggle"
+          name="checkboxToggle"
+          help="Description of how to use this field"
+        >
           <CheckBox
-            id="terms-and-privacy"
-            name="termsAndPrivacy"
-            label={
-              <Box>
-                <Text>
-                  I accept the HPE{' '}
-                  <Anchor
-                    label="Terms of Use"
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  />{' '}
-                  and
-                </Text>
-                <Anchor
-                  label="Privacy Policy"
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                />
-              </Box>
-            }
+            id="checkbox-toggle"
+            name="checkboxToggle"
+            label="Toggle me"
+            toggle
           />
         </FormField>
         <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-          <Button label="Sign up" primary type="submit" />
+          <Button label="Close the layer" primary type="submit" />
         </Box>
       </Form>
     </Box>
