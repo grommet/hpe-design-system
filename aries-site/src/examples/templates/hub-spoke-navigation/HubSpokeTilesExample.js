@@ -158,7 +158,7 @@ export const HubSpokeTilesExample = ({ mobile }) => {
     <ResponsiveContext.Provider value={mobile && 'small'}>
       <ResponsiveContext.Consumer>
         {size => (
-          <AppContainer size={size}>
+          <AppContainer>
             <AppHeader
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
@@ -193,50 +193,53 @@ HubSpokeTilesExample.propTypes = {
   mobile: PropTypes.bool,
 };
 
-const AppContainer = ({ size, ...rest }) => (
-  <Box
-    background="background-back"
-    fill="vertical"
-    height={size === 'small' ? { max: 'large' } : undefined}
-    width={size === 'small' ? 'medium' : '100%'}
-    overflow="auto"
-    {...rest}
-  />
-);
+const AppContainer = ({ ...rest }) => {
+  const size = React.useContext(ResponsiveContext);
 
-AppContainer.propTypes = {
-  size: PropTypes.string,
+  return (
+    <Box
+      background="background-back"
+      fill="vertical"
+      height={size === 'small' ? { max: 'large' } : undefined}
+      width={size === 'small' ? 'medium' : '100%'}
+      overflow="auto"
+      {...rest}
+    />
+  );
 };
 
-const AppHeader = ({ currentPage, setCurrentPage, size }) => (
-  <Header
-    fill="horizontal"
-    height="xsmall"
-    pad={{ horizontal: size !== 'small' ? 'large' : 'medium' }}
-  >
-    <AppIdentity
-      name={`Service ${
-        typeof currentPage.parent !== 'undefined'
-          ? `| ${currentPage.parent}`
-          : ''
-      }`}
-      onClick={() =>
-        setCurrentPage(
-          getPageDetails(
-            typeof currentPage.parent !== 'undefined'
-              ? currentPage.parent
-              : 'Home',
-          ),
-        )
-      }
-    />
-  </Header>
-);
+const AppHeader = ({ currentPage, setCurrentPage }) => {
+  const size = React.useContext(ResponsiveContext);
+
+  return (
+    <Header
+      fill="horizontal"
+      height="xsmall"
+      pad={{ horizontal: size !== 'small' ? 'large' : 'medium' }}
+    >
+      <AppIdentity
+        name={`Service ${
+          typeof currentPage.parent !== 'undefined'
+            ? `| ${currentPage.parent}`
+            : ''
+        }`}
+        onClick={() =>
+          setCurrentPage(
+            getPageDetails(
+              typeof currentPage.parent !== 'undefined'
+                ? currentPage.parent
+                : 'Home',
+            ),
+          )
+        }
+      />
+    </Header>
+  );
+};
 
 AppHeader.propTypes = {
   currentPage: PropTypes.object,
   setCurrentPage: PropTypes.func,
-  size: PropTypes.string,
 };
 
 const AppIdentity = ({ name, ...rest }) => (
