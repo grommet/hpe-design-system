@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Anchor } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import { HubSpokeTilesExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
@@ -79,10 +80,11 @@ const HubSpokeNavigation = () => (
           pabst copper mug minim iceland gluten-free DIY.
         </SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/hub-spoke-navigation/HubSpokeTilesExample.js"
+          template
+          width="100%"
         >
-          {}
+          <HubSpokeTilesExample />
         </Example>
       </Subsection>
       <Subsection name="Hub &amp; Spoke as List" level={3}>
