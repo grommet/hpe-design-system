@@ -702,6 +702,7 @@ export const structure = [
     preview: {
       component: () => <LayerPreview />,
     },
+    relatedContent: ['Forms', 'Button', 'Icons'],
   },
   {
     name: 'Main',
