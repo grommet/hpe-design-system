@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Anchor } from 'grommet';
 
-import { BulletedList, Meta, SubsectionText } from '../../components';
+import { BulletedList, Meta, Status, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import { LayerExample } from '../../examples';
 import { getPageDetails, nameToPath } from '../../utils';
@@ -25,6 +25,7 @@ const Layer = () => (
           Modal dialogs, notifications, and help text are just a few
           possibilities.
         </SubsectionText>
+        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/layer?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js"
