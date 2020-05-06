@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, Text } from 'grommet';
-
+import { List } from 'grommet';
+import { SubsectionText } from '..';
 import { TEXT_SIZE } from '../../layouts';
 
 export const BulletedList = ({ items, level, size }) => {
@@ -12,9 +12,9 @@ export const BulletedList = ({ items, level, size }) => {
       pad={{ vertical: 'xxsmall' }}
     >
       {item => (
-        <Text key={item} size={size || TEXT_SIZE[level]}>
+        <SubsectionText key={item} size={size || TEXT_SIZE[level]}>
           - {item}
-        </Text>
+        </SubsectionText>
       )}
     </List>
   );
