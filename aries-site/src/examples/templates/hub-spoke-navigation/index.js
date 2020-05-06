@@ -1,1 +1,1 @@
-export * from './HubSpokeTilesExample';
+export * from './HubSpokeCardsExample';

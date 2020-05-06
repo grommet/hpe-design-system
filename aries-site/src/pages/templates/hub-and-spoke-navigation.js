@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Anchor } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
-import { HubSpokeTilesExample } from '../../examples';
+import { HubSpokeCardsExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
@@ -63,28 +63,28 @@ const HubSpokeNavigation = () => (
       <Subsection name="Variants">
         <SubsectionText>
           Depending on use-case, the Hub &amp; Spoke pattern can be executed as
-          Tiles,{' '}
+          &nbsp;
           <Link href={nameToPath('Cards')} passHref>
             <Anchor label="Cards" />
-          </Link>
-          , or as a{' '}
+          </Link>{' '}
+          or as a{' '}
           <Link href={nameToPath('Lists')} passHref>
             <Anchor label="List" />
           </Link>
           .
         </SubsectionText>
       </Subsection>
-      <Subsection name="Hub &amp; Spoke as Tiles" level={3}>
+      <Subsection name="Hub &amp; Spoke as Cards" level={3}>
         <SubsectionText>
           Poke etsy venmo exercitation kogi typewriter pitchfork, mixtape vice
           pabst copper mug minim iceland gluten-free DIY.
         </SubsectionText>
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/hub-spoke-navigation/HubSpokeTilesExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/hub-spoke-navigation/HubSpokeCardsExample.js"
           template
           width="100%"
         >
-          <HubSpokeTilesExample />
+          <HubSpokeCardsExample />
         </Example>
       </Subsection>
       <Subsection name="Hub &amp; Spoke as List" level={3}>

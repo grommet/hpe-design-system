@@ -29,20 +29,20 @@ import {
 const pages = [
   {
     name: 'Home',
-    layout: 'tiles',
+    layout: 'cards',
     children: ['Devices', 'Performance', 'Users', 'Remote Access', 'Security'],
   },
   {
     name: 'Performance',
     icon: <Optimize />,
-    layout: 'tiles',
+    layout: 'cards',
     parent: 'Home',
     children: ['Sessions', 'Logs', 'Diagnostics'],
   },
   {
     name: 'Devices',
     icon: <Servers />,
-    layout: 'tiles',
+    layout: 'cards',
     parent: 'Home',
     children: ['Server Cluster', 'Beacon Cluster'],
   },
@@ -82,20 +82,20 @@ const pages = [
   {
     name: 'Diagnostics',
     icon: <Overview />,
-    layout: 'tiles',
+    layout: 'panes',
     parent: 'Performance',
   },
   {
     name: 'Server Cluster',
     icon: <Cluster />,
-    layout: 'tiles',
+    layout: 'cards',
     parent: 'Devices',
     children: ['Server A', 'Server B'],
   },
   {
     name: 'Beacon Cluster',
     icon: <Cluster />,
-    layout: 'tiles',
+    layout: 'cards',
     parent: 'Devices',
     children: ['Beacon A', 'Beacon B', 'Beacon C', 'Beacon D'],
   },
@@ -139,7 +139,7 @@ const pages = [
 
 const getPageDetails = pageName => pages.find(page => page.name === pageName);
 
-export const HubSpokeTilesExample = ({ mobile }) => {
+export const HubSpokeCardsExample = ({ mobile }) => {
   const [currentPage, setCurrentPage] = React.useState(getPageDetails('Home'));
   const [subPages, setSubPages] = React.useState();
 
@@ -152,44 +152,34 @@ export const HubSpokeTilesExample = ({ mobile }) => {
     setSubPages(pageDetails);
   }, [currentPage]);
 
-  const { children, layout, name } = currentPage;
+  const { children, layout, name, parent } = currentPage;
 
   return (
     <ResponsiveContext.Provider value={mobile && 'small'}>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <AppContainer>
-            <AppHeader
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              size={size}
-            />
-            <Box
-              pad={{
-                horizontal: size !== 'small' ? 'large' : 'medium',
-                vertical: 'small',
-              }}
-            >
-              <Heading level={2} margin={{ top: 'none', bottom: 'medium' }}>
-                {name}
-              </Heading>
-              {layout === 'tiles' && (
-                <GridLayout
-                  items={subPages}
-                  onClick={page => setCurrentPage(getPageDetails(page))}
-                />
-              )}
-              {layout === 'list' && <ListLayout items={children} />}
-              {layout === 'panes' && <PanesLayout items={children} />}
-            </Box>
-          </AppContainer>
+      <AppContainer>
+        <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        {typeof parent !== 'undefined' && (
+          <SimpleButton onClick={() => setCurrentPage(getPageDetails(parent))}>
+            {parent}
+          </SimpleButton>
         )}
-      </ResponsiveContext.Consumer>
+        <Heading level={2} margin={{ top: 'none', bottom: 'medium' }}>
+          {name}
+        </Heading>
+        {layout === 'cards' && (
+          <GridLayout
+            items={subPages}
+            onClick={page => setCurrentPage(getPageDetails(page))}
+          />
+        )}
+        {layout === 'list' && <ListLayout items={children} />}
+        {layout === 'panes' && <PanesLayout items={children} />}
+      </AppContainer>
     </ResponsiveContext.Provider>
   );
 };
 
-HubSpokeTilesExample.propTypes = {
+HubSpokeCardsExample.propTypes = {
   mobile: PropTypes.bool,
 };
 
@@ -199,46 +189,29 @@ const AppContainer = ({ ...rest }) => {
   return (
     <Box
       background="background-back"
-      fill="vertical"
+      fill
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
       overflow="auto"
+      pad={{
+        horizontal: size !== 'small' ? 'large' : 'medium',
+        bottom: 'large',
+      }}
       {...rest}
     />
   );
 };
 
-const AppHeader = ({ currentPage, setCurrentPage }) => {
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Header
-      fill="horizontal"
-      height="xsmall"
-      pad={{ horizontal: size !== 'small' ? 'large' : 'medium' }}
-    >
-      <AppIdentity
-        name={`Service ${
-          typeof currentPage.parent !== 'undefined'
-            ? `| ${currentPage.parent}`
-            : ''
-        }`}
-        onClick={() =>
-          setCurrentPage(
-            getPageDetails(
-              typeof currentPage.parent !== 'undefined'
-                ? currentPage.parent
-                : 'Home',
-            ),
-          )
-        }
-      />
-    </Header>
-  );
-};
+const AppHeader = ({ setCurrentPage }) => (
+  <Header fill="horizontal" height="xsmall">
+    <AppIdentity
+      name="Service"
+      onClick={() => setCurrentPage(getPageDetails('Home'))}
+    />
+  </Header>
+);
 
 AppHeader.propTypes = {
-  currentPage: PropTypes.object,
   setCurrentPage: PropTypes.func,
 };
 
@@ -318,4 +291,32 @@ const PanesLayout = ({ items }) => {
 
 PanesLayout.propTypes = {
   items: PropTypes.array,
+};
+
+const SimpleButton = ({ children, ...rest }) => {
+  const [hover, setHover] = React.useState();
+
+  return (
+    <Button
+      onMouseOver={() => setHover(true)}
+      onFocus={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+      onBlur={() => setHover(false)}
+      {...rest}
+    >
+      <Box
+        pad={{ horizontal: 'xxsmall', vertical: 'xsmall' }}
+        round="xxsmall"
+        background={hover ? 'active-background' : undefined}
+      >
+        <Text weight="bold" margin="none">
+          {children}
+        </Text>
+      </Box>
+    </Button>
+  );
+};
+
+SimpleButton.propTypes = {
+  children: PropTypes.node,
 };
