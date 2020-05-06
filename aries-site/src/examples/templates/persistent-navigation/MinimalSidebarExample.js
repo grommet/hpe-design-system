@@ -81,7 +81,8 @@ export const MinimalSidebarExample = ({ mobile }) => {
               /* Only display most critical navigation items in mobile 
               contexts */
               header={size !== 'small' && <SidebarHeader />}
-              footer={size !== 'small' && <SidebarFooter />}
+              /* Min height is not needed in mobile contexts */
+              height={size !== 'small' ? { min: '100%' } : undefined}
               background="blue!"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
