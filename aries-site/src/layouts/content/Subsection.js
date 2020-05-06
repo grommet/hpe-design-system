@@ -46,14 +46,21 @@ export const Subsection = ({
     return undefined;
   });
 
-  const remainingChildren = React.Children.map(children, (child, index) => {
-    if (index === 0) {
-      return undefined;
-    }
-    return React.cloneElement(child, {
-      level,
-    });
-  });
+  // need to filter out children equal to null that occurs if a page
+  // doesn't have any status
+  const filteredChildren = React.Children.toArray(children).filter(o => o);
+
+  const remainingChildren = React.Children.map(
+    filteredChildren,
+    (child, index) => {
+      if (index === 0) {
+        return undefined;
+      }
+      return React.cloneElement(child, {
+        level,
+      });
+    },
+  );
 
   return (
     <Box

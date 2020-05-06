@@ -12,6 +12,7 @@ export * from './IconResources';
 export * from './IconSun';
 export * from './IconSquare';
 export * from './IconTemplates';
+export * from './IconTriangle';
 export * from './components';
 export * from './foundation';
 export * from './guidelines';
