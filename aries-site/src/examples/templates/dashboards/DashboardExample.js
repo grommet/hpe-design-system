@@ -8,6 +8,7 @@ import {
   Grid,
   Menu,
   ResponsiveContext,
+  Sidebar,
   Footer,
   Text,
 } from 'grommet';
@@ -81,38 +82,38 @@ const DashboardTiles = () => {
       columns={size !== 'small' ? 'small' : 'auto'}
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
     >
-      {data.map(value => (
+      {data.map(dashboardItem => (
         <Box
           round="small"
           flex
           fill
-          background={value.color}
-          key={`Tile ${value.title}`}
+          background={dashboardItem.color}
+          key={`Tile ${dashboardItem.title}`}
           alignContent="center"
           onClick={() => {}}
         >
           <Box
             pad={{ horizontal: 'medium', vertical: 'small' }}
             gap="medium"
+            fill
             justify="between"
             size="small"
             direction="column"
             align="start"
           >
-            {value.icon}
+            {dashboardItem.icon}
             <Box gap="medium">
               <Box>
                 <Text size="medium" weight="bold">
-                  {value.title}
+                  {dashboardItem.title}
                 </Text>
-                <Text size="medium">{value.subTitle}</Text>
+                <Text size="medium">{dashboardItem.subTitle}</Text>
               </Box>
             </Box>
           </Box>
-          <Box flex />
           <Footer pad="small" background="background-contrast">
-            <Text size="xsmall">{value.message}</Text>
-            {value.message === 'Connected' && (
+            <Text size="xsmall">{dashboardItem.message}</Text>
+            {dashboardItem.message === 'Connected' && (
               <Box round pad="xsmall" background="green" />
             )}
           </Footer>
@@ -125,8 +126,9 @@ const DashboardTiles = () => {
 const SidebarExample = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box
+    <Sidebar
       background="blue"
+      height={{min: size!== 'small' ? '100%' : 'auto'}}
       direction={size !== 'small' ? 'column' : 'row'}
       pad={{
         horizontal: size !== 'small' ? 'small' : 'medium',
@@ -141,30 +143,31 @@ const SidebarExample = ({ ...rest }) => {
           src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80"
         />
       )}
-      <Box
-        flex="grow"
+      <Header
         direction={size !== 'small' ? 'column' : 'row'}
+        flex={size !== 'small' ? true : false}
+        gap="none"
         justify={size === 'small' ? 'between' : undefined}
       >
         <Button a11yTitle="Clock" icon={<Clock color="text-xweak" />} />
         <Button a11yTitle="Apps" icon={<Apps color="text-xweak" />} />
         <Button a11yTitle="Terminal" icon={<Terminal color="text-xweak" />} />
-      </Box>
+      </Header>
 
       {size !== 'small' && (
-        <Box direction={size !== 'small' ? 'column' : 'row'}>
+        <Footer direction={size !== 'small' ? 'column' : 'row'}>
           <Button a11yTitle="Chat" icon={<Chat color="text-xweak" />} />
           <Button
             a11yTitle="Help"
             icon={<StatusUnknown color="text-xweak" />}
           />
-        </Box>
+        </Footer>
       )}
-    </Box>
+    </Sidebar>
   );
 };
 
-const ScreenContainer = ({ mobile, ...rest }) => (
+const ScreenContainer = ({ ...rest }) => (
   <ResponsiveContext.Consumer>
     {size => (
       <Box
@@ -233,9 +236,9 @@ const PageHeaderExample = ({ title }) => (
   </Header>
 );
 
-export const DashboardExample = ({ ...rest }) => {
+export const DashboardExample = () => {
   return (
-    <ScreenContainer {...rest}>
+    <ScreenContainer>
       <AppHeaderExample />
       <PageHeaderExample title="Controls" />
       <DashboardTiles />
