@@ -15,7 +15,6 @@ import {
   Text,
 } from 'grommet';
 import {
-  Chat,
   Cli,
   Clock,
   Configure,
@@ -24,7 +23,6 @@ import {
   Projects,
   Splits,
   StatusInfoSmall,
-  StatusUnknown,
 } from 'grommet-icons';
 
 const pages = [
@@ -252,22 +250,6 @@ PageContent.propTypes = {
 };
 
 const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
-
-const SidebarFooter = () => {
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
-      <NavButton a11yTitle="Chat" hoverIndicator icon={<Chat />} name="Chat" />
-      <NavButton
-        a11yTitle="Support"
-        hoverIndicator
-        icon={<StatusUnknown />}
-        name="Support"
-      />
-    </Nav>
-  );
-};
 
 const AppIdentity = ({ name }) => (
   <Button>
