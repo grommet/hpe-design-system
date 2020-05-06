@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormField, MaskedInput } from 'grommet';
+import { Form, FormField, MaskedInput } from 'grommet';
 
 const maskTime = [
   {
@@ -28,13 +28,16 @@ export const MaskedTimeExample = () => {
   const [time, setTime] = useState('');
 
   return (
-    <FormField label="Time" htmlFor="masked-time">
-      <MaskedInput
-        id="masked-time"
-        mask={maskTime}
-        value={time}
-        onChange={event => setTime(event.target.value)}
-      />
-    </FormField>
+    <Form>
+      <FormField label="Time" htmlFor="masked-time" name="maskedTime">
+        <MaskedInput
+          name="maskedTime"
+          id="masked-time"
+          mask={maskTime}
+          value={time}
+          onChange={event => setTime(event.target.value)}
+        />
+      </FormField>
+    </Form>
   );
 };
