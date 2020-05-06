@@ -144,10 +144,9 @@ export const Example = ({
             {...rest}
           >
             <Box width={width}>
-              {children &&
-                React.cloneElement(children, {
-                  mobile,
-                })}
+            <ResponsiveContext.Provider value={mobile && 'small'}>
+                  {children}
+            </ResponsiveContext.Provider>
             </Box>
           </Box>
           {(designer || docs || figma || template) && (
