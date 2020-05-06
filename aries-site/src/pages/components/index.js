@@ -13,10 +13,10 @@ const Components = () => (
   <Layout
     backgroundImage={{
       src: {
-        dark: '/carte-components-dark.svg',
-        light: '/carte-components-light.svg',
+        dark: '/components-dark.svg',
+        light: '/components-light.svg',
       },
-      alt: 'HPE Carte Design System',
+      alt: 'HPE Design System',
       fit: 'contain',
       margin: { top: '-200px', left: '-75px' },
       small: {

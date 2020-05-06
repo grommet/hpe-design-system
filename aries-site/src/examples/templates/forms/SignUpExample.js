@@ -90,29 +90,30 @@ export const SignUpExample = () => {
                 type="password"
               />
             </FormField>
-            <CheckBox
-              name="termsAndPrivacy"
-              label={
-                <Text>
-                  I accept the HPE{' '}
-                  <Anchor
-                    label="Terms of Use"
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    color="blue!"
-                  />{' '}
-                  and{' '}
-                  <Anchor
-                    label="Privacy Policy"
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    color="blue!"
-                  />
-                </Text>
-              }
-            />
+            <FormField htmlFor="terms-and-privacy">
+              <CheckBox
+                id="terms-and-privacy"
+                name="termsAndPrivacy"
+                label={
+                  <Text>
+                    I accept the HPE{' '}
+                    <Anchor
+                      label="Terms of Use"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    />{' '}
+                    and{' '}
+                    <Anchor
+                      label="Privacy Policy"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    />
+                  </Text>
+                }
+              />
+            </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Sign up" primary type="submit" />
             </Box>

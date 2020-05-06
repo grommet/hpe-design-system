@@ -2,7 +2,7 @@ import React from 'react';
 import { Anchor, List } from 'grommet';
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
-import { getPageDetails, getRelatedContent } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'Designer Guidance';
 const topic = 'Extend';
@@ -97,7 +97,32 @@ const DesignerGuidance = () => {
             of the HPE Design System files.
           </SubsectionText>
         </Subsection>
-        <Subsection name="HPE Design System Library" level={3}>
+        <Subsection name="Before you start designing" level={3}>
+          <SubsectionText>
+            Familiarize yourself with the concepts and components the HPE Design
+            System offers. The{' '}
+            <Anchor
+              label="HPE Design System sticker sheet"
+              href="https://www.figma.com/file/ItdN5pNBubFpV8GP5RowY3/HPE-Component-Sticker-Sheet?node-id=58%3A40"
+              target="_blank"
+              rel="noopener noreferrer"
+            />{' '}
+            is a great place to get an overview of what the design system
+            offers.
+          </SubsectionText>
+          <SubsectionText>
+            Understanding use cases and guidelines for individual components
+            will ensure your designs align with the HPE Design System.
+          </SubsectionText>
+          <SubsectionText>
+            Need somewhere to start? Check out the guidelines for{' '}
+            <Anchor label="Color" href={nameToPath('Color')} />
+            , <Anchor label="Typography" href={nameToPath('Typography')} />
+            , <Anchor label="Components" href={nameToPath('Components')} />
+            , or <Anchor label="Templates" href={nameToPath('Templates')} />.
+          </SubsectionText>
+        </Subsection>
+        <Subsection name="HPE Design System Figma Library" level={3}>
           <SubsectionText>
             The{' '}
             <Anchor
