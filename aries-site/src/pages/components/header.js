@@ -59,7 +59,7 @@ const Header = () => (
             'Creating a navigation structure for an application',
             `Providing a search field for an application or single page within
              an application`,
-            `Displaying an action button that affects the applicaiton or 
+            `Displaying an action button that affects the application or 
             current page content`,
           ]}
         />
