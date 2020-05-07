@@ -66,7 +66,7 @@ const LayerForm = ({ setOpen }) => {
         </FormField>
         <FormField
           label="Select Component"
-          htmlFor="select-two"
+          htmlFor="select-two__input"
           name="selectTwo"
         >
           <Select
