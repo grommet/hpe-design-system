@@ -158,7 +158,10 @@ export const HubSpokeCardsExample = ({ mobile }) => {
     <ResponsiveContext.Provider value={mobile && 'small'}>
       <AppContainer>
         <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        {typeof parent !== 'undefined' && (
+        {/* Display parent as 'back button' for depth levels 2+ of hub & spoke 
+        hierarchy. AppIdentity in Header serves as 'back button' at root and 
+        1st level depth. */}
+        {typeof parent !== 'undefined' && parent !== 'Home' && (
           <SimpleButton
             alignSelf="start"
             onClick={() => setCurrentPage(getPageDetails(parent))}
