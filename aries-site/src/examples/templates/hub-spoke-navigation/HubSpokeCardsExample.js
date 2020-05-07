@@ -159,7 +159,10 @@ export const HubSpokeCardsExample = ({ mobile }) => {
       <AppContainer>
         <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
         {typeof parent !== 'undefined' && (
-          <SimpleButton onClick={() => setCurrentPage(getPageDetails(parent))}>
+          <SimpleButton
+            alignSelf="start"
+            onClick={() => setCurrentPage(getPageDetails(parent))}
+          >
             {parent}
           </SimpleButton>
         )}
@@ -189,7 +192,7 @@ const AppContainer = ({ ...rest }) => {
   return (
     <Box
       background="background-back"
-      height={size === 'small' ? { max: 'large' } : undefined}
+      height={size === 'small' ? { max: 'large' } : '100%'}
       width={size === 'small' ? 'medium' : '100%'}
       overflow="auto"
       pad={{
@@ -296,23 +299,25 @@ const SimpleButton = ({ children, ...rest }) => {
   const [hover, setHover] = React.useState();
 
   return (
-    <Button
-      onMouseOver={() => setHover(true)}
-      onFocus={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-      onBlur={() => setHover(false)}
-      {...rest}
-    >
-      <Box
-        pad={{ horizontal: 'xxsmall', vertical: 'xsmall' }}
-        round="xxsmall"
-        background={hover ? 'active-background' : undefined}
+    <Box flex="grow" height={{ max: 'xxsmall' }} justify="center">
+      <Button
+        onMouseOver={() => setHover(true)}
+        onFocus={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+        onBlur={() => setHover(false)}
+        {...rest}
       >
-        <Text weight="bold" margin="none">
-          {children}
-        </Text>
-      </Box>
-    </Button>
+        <Box
+          pad={{ horizontal: 'xxsmall', vertical: 'xsmall' }}
+          round="xxsmall"
+          background={hover ? 'active-background' : undefined}
+        >
+          <Text weight="bold" margin="none">
+            {children}
+          </Text>
+        </Box>
+      </Button>
+    </Box>
   );
 };
 
