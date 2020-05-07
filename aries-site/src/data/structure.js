@@ -727,6 +727,7 @@ export const structure = [
     preview: {
       component: () => <LayerPreview />,
     },
+    relatedContent: ['Forms', 'Button', 'Icons'],
     status: {
       figma: statuses.inProgress,
       grommet: statuses.complete,
