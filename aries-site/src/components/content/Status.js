@@ -63,7 +63,7 @@ StatusBadge.propTypes = {
 
 export const Status = ({ status }) => {
   return (
-    <Box direction="row" gap="medium">
+    <Box direction="row-responsive" gap="medium">
       {status.figma && <StatusBadge type="figma" status={status} />}
       {status.grommet && <StatusBadge type="grommet" status={status} />}
     </Box>
