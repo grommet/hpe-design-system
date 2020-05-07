@@ -7,7 +7,6 @@ import {
   Header,
   Heading,
   Select,
-  Text,
   TextInput,
 } from 'grommet';
 
@@ -88,32 +87,26 @@ export const FilterExample = () => {
               />
             </FormField>
             {serverTypes && (
-              <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text color="text-weak" size="xsmall">
-                  HPE Server Types
-                </Text>
-                <Box border gap="small" pad="xsmall" round="xsmall">
+              <FormField label="HPE Server Types">
+                <Box gap="small" pad="xsmall" round="xsmall">
                   {serverTypes.map(server => {
                     return (
                       <CheckBox key={server} name={server} label={server} />
                     );
                   })}
                 </Box>
-              </Box>
+              </FormField>
             )}
             {sellers && (
-              <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text color="text-weak" size="xsmall">
-                  Seller
-                </Text>
-                <Box border gap="small" pad="xsmall" round="xsmall">
+              <FormField label="Seller">
+                <Box gap="small" pad="xsmall" round="xsmall">
                   {sellers.map(seller => {
                     return (
                       <CheckBox key={seller} name={seller} label={seller} />
                     );
                   })}
                 </Box>
-              </Box>
+              </FormField>
             )}
           </Form>
         </Box>

@@ -53,7 +53,7 @@ export const PayExample = () => {
                 label="Pay"
                 type="button"
                 primary
-                color="text-weak"
+                color="border"
                 icon={<Apple />}
                 gap="xxsmall"
                 size="large"
