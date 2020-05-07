@@ -2,15 +2,26 @@ import React from 'react';
 
 import { Anchor } from 'grommet';
 
-import { BulletedList, Meta, Status, SubsectionText } from '../../components';
+import {
+  BulletedList,
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+} from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
-import { LayerExample } from '../../examples';
-import { getPageDetails, nameToPath } from '../../utils';
+import {
+  LayerExample,
+  LayerCenterExample,
+  LayerNotificationExample,
+  LayerSideDrawerExample,
+} from '../../examples';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'Layer';
 const page = getPageDetails(title);
 const topic = 'Components';
-
+const relatedContent = getRelatedContent(title);
 const Layer = () => (
   <Layout title={title}>
     <Meta
@@ -28,7 +39,7 @@ const Layer = () => (
         {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/layer?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layer/LayerExample.js"
           figma="https://www.figma.com/file/Ts53TAipMolmsv9DxWG3p0/HPE-Layer-Component?node-id=2%3A22"
         >
           <LayerExample />
@@ -80,6 +91,71 @@ const Layer = () => (
           readers.
         </SubsectionText>
       </Subsection>
+    </ContentSection>
+    <ContentSection>
+      <Subsection name="Variants">
+        <SubsectionText>
+          Depending on the use case of a Layer, the placement and layout of
+          content may differ. Here are some common use cases and guidelines for
+          various types of Layers.
+        </SubsectionText>
+      </Subsection>
+      <Subsection name="Side Drawer Modal" level={3}>
+        <SubsectionText>
+          A Side Drawer layer is anchored to one side of the screen and acts as
+          a modal. This means that while the layer is open, the rest of the page
+          cannot be interacted with. When a layer contains a{' '}
+          <Anchor href={nameToPath('Forms')} label="Form" />, it should be
+          anchored to the right side of the screen.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/layer?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layer/LayerSideDrawerExample.js"
+          height={{ min: 'small' }}
+        >
+          <LayerSideDrawerExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Center Modal" level={3}>
+        <SubsectionText>
+          A center modal is anchored at the center of the window and acts as a
+          modal. This means that while the layer is open, the rest of the page
+          cannot be interacted with. Center modals may be used to display
+          information without leaving the current context.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/layer?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layer/LayerCenterExample.js"
+          height={{ min: 'small' }}
+        >
+          <LayerCenterExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Notifications" level={3}>
+        <SubsectionText>
+          A notification should always be posititioned at either the top or
+          bottom of the window. Assign the modal prop to false to allow the user
+          to continue to interact with the UI even when the notification is
+          open.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/layer?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layer/LayerNotificationExample.js"
+          height={{ min: 'small' }}
+        >
+          <LayerNotificationExample />
+        </Example>
+      </Subsection>
+    </ContentSection>
+    <ContentSection>
+      {relatedContent.length > 0 ? (
+        <Subsection name="Related">
+          <SubsectionText>
+            Related content you may find useful when using {title}.
+          </SubsectionText>
+          <CardGrid cards={relatedContent} />
+        </Subsection>
+      ) : null}
     </ContentSection>
   </Layout>
 );
