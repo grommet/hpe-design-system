@@ -2,7 +2,13 @@ import React from 'react';
 
 import { Text } from 'grommet';
 
-import { CardGrid, Meta, SubsectionText, BulletedList } from '../../components';
+import {
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+  BulletedList,
+} from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import { AccordionExample } from '../../examples';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -22,6 +28,7 @@ const Accordion = () => (
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
+        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/accordion#props"
           designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com"
