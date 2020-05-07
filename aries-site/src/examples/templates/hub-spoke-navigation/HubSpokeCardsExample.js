@@ -189,7 +189,6 @@ const AppContainer = ({ ...rest }) => {
   return (
     <Box
       background="background-back"
-      fill
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
       overflow="auto"
