@@ -2,7 +2,13 @@ import React from 'react';
 
 import { Anchor } from 'grommet';
 
-import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import {
+  BulletedList,
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+} from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   LayerExample,
@@ -25,7 +31,12 @@ const Layer = () => (
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
-        <SubsectionText>{page.description}</SubsectionText>
+        <SubsectionText>
+          The Layer component is flexible and can be used in multiple use cases.
+          Modal dialogs, notifications, and help text are just a few
+          possibilities.
+        </SubsectionText>
+        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/layer?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/LayerExample.js"

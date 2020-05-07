@@ -28,6 +28,11 @@ import {
 import { SelectPreview } from '../examples/components/select';
 import { StackExample } from '../examples/components/layouts';
 
+const statuses = {
+  complete: 'Complete',
+  inProgress: 'In Progress',
+};
+
 export const structure = [
   {
     name: 'Home',
@@ -274,6 +279,10 @@ export const structure = [
       },
     },
     relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Lists',
@@ -512,6 +521,10 @@ export const structure = [
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [],
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
     preview: {
       component: () => <ButtonPreview />,
       background: 'background-front',
@@ -600,6 +613,10 @@ export const structure = [
       component: () => <CheckBoxPreview />,
       background: 'background-front',
     },
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Accordion',
@@ -618,6 +635,10 @@ export const structure = [
     seoDescription:
       'The accordion affords content to be delivered progressively.',
     sections: [],
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Header',
@@ -664,6 +685,10 @@ export const structure = [
       background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Box',
@@ -703,6 +728,10 @@ export const structure = [
       component: () => <LayerPreview />,
     },
     relatedContent: ['Forms', 'Button', 'Icons'],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.complete,
+    },
   },
   {
     name: 'Main',
@@ -724,6 +753,10 @@ export const structure = [
       background: 'background-front',
     },
     relatedContent: ['TextInput', 'Forms', 'Select'],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.complete,
+    },
   },
 
   {
@@ -737,6 +770,10 @@ export const structure = [
       component: () => <RadioButtonGroupPreview />,
       background: 'background-front',
     },
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'RangeInput',
@@ -748,6 +785,10 @@ export const structure = [
     preview: {
       component: () => <RangeInputPreview />,
       background: 'background-front',
+    },
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
     },
   },
   {
