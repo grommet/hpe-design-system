@@ -371,6 +371,12 @@ const SimpleButton = ({ children, ...rest }) => {
   const [hover, setHover] = React.useState();
 
   return (
+    /* Wrapping Button in Box with 'flex' prop, otherwise Button 
+    gets a height of 0 in Safari. 'height' prop restricts how
+    much growth -- needed for Chrome and Firefox.
+    This execution should be replaced once this PR is merged into
+    Grommet: https://github.com/grommet/grommet/pull/4050
+    */
     <Box flex="grow" height={{ max: 'xxsmall' }} justify="center">
       <Button
         onMouseOver={() => setHover(true)}
