@@ -10,8 +10,6 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
-
 const locationTypes = [
   'All Locations',
   'EU-East',
@@ -30,6 +28,18 @@ const serverTypes = [
   'Hyper Converged Systems',
   'Blade Infrastructure',
 ];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
