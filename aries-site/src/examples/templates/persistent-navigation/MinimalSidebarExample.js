@@ -112,29 +112,15 @@ MinimalSidebarExample.propTypes = {
 const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
 
-  const areas =
-    size !== 'small'
-      ? [
-          { name: 'sidebar', start: [0, 0], end: [0, 0] },
-          { name: 'pageContent', start: [1, 0], end: [1, 0] },
-        ]
-      : [
-          { name: 'sidebar', start: [0, 1], end: [0, 1] },
-          { name: 'pageContent', start: [0, 0], end: [0, 0] },
-        ];
-
-  const columns = size !== 'small' ? ['auto', 'flex'] : ['auto'];
-  const rows = size !== 'small' ? ['auto'] : ['flex', 'auto'];
-
   return (
     <Box
+      direction={size === 'small' ? 'column-reverse' : 'row'}
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
       overflow="auto"
-    >
-      <Grid columns={columns} rows={rows} areas={areas} fill {...rest} />
-    </Box>
+      {...rest}
+    />
   );
 };
 
@@ -224,7 +210,7 @@ const PageContent = ({ activeItem }) => {
 
   return (
     pages && (
-      <Box overflow="auto">
+      <Box overflow="auto" flex>
         <Header
           fill="horizontal"
           height="xsmall"
