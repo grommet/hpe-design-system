@@ -128,7 +128,7 @@ const SidebarExample = ({ ...rest }) => {
   return (
     <Sidebar
       background="blue"
-      height={{min: size!== 'small' ? '100%' : 'auto'}}
+      height={{ min: size !== 'small' ? '100%' : 'auto' }}
       direction={size !== 'small' ? 'column' : 'row'}
       pad={{
         horizontal: size !== 'small' ? 'small' : 'medium',
@@ -167,33 +167,30 @@ const SidebarExample = ({ ...rest }) => {
   );
 };
 
-const ScreenContainer = ({ ...rest }) => (
-  <ResponsiveContext.Consumer>
-    {size => (
-      <Box
-        background="background-back"
-        width={size === 'small' ? 'medium' : '100%'}
-        height={size === 'small' ? { max: 'large' } : undefined}
-        style={{ position: 'relative' }}
-      >
-        <Box direction="row" fill>
-          {size !== 'small' && <SidebarExample />}
-          <Box
-            overflow="auto"
-            pad={{ horizontal: 'medium', bottom: 'medium' }}
-            flex
-            {...rest}
-          />
-        </Box>
-        {size === 'small' && (
-          <SidebarExample
-            style={{ position: 'absolute', bottom: 0, left: 0 }}
-          />
-        )}
+const ScreenContainer = ({ ...rest }) => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box
+      background="background-back"
+      width={size === 'small' ? 'medium' : '100%'}
+      height={size === 'small' ? { max: 'large' } : undefined}
+      style={{ position: 'relative' }}
+    >
+      <Box direction="row" fill>
+        {size !== 'small' && <SidebarExample />}
+        <Box
+          overflow="auto"
+          pad={{ horizontal: 'medium', bottom: 'medium' }}
+          flex
+          {...rest}
+        />
       </Box>
-    )}
-  </ResponsiveContext.Consumer>
-);
+      {size === 'small' && (
+        <SidebarExample style={{ position: 'absolute', bottom: 0, left: 0 }} />
+      )}
+    </Box>
+  );
+};
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
