@@ -10,7 +10,7 @@ export const LayerCenterExample = () => {
   return (
     <>
       <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
+        <Button label="Show me the modal" onClick={onOpen} primary />
       </Box>
       {open && (
         <Layer position="center" modal onClickOutside={onClose} onEsc={onClose}>
@@ -21,27 +21,32 @@ export const LayerCenterExample = () => {
           >
             <Box
               flex="grow"
-              align="center"
               direction="row"
               gap="medium"
               pad="medium"
+              height="small"
             >
-              <MailOption />
-              <Box>
+              <Box pad={{ top: 'xsmall' }}>
+                <MailOption />
+              </Box>
+              <Box gap="medium">
                 <Heading margin="none" size="small">
-                  You've got mail
+                  Modal Dialog
                 </Heading>
-                <Text>How exciting!</Text>
+                <Text>
+                  For modal dialogs, the use case will determine the design and
+                  size of the box for your content
+                </Text>
               </Box>
             </Box>
             <Box
               direction="row"
-              gap="medium"
+              gap="small"
               pad="medium"
               background="background-contrast"
             >
               <Alert color="status-critical" />
-              <Text weight="bold">Take a lookie loo</Text>
+              <Text weight="bold">Footer if you need it</Text>
             </Box>
           </Box>
         </Layer>
