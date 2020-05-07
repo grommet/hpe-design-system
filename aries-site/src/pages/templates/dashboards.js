@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardGrid, Meta, SubsectionText } from '../../components';
+import { CardGrid, Meta, Status, SubsectionText } from '../../components';
 import { DashboardExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -23,6 +23,7 @@ const Dashboards = () => {
             At-a-glance preview for operation critical information with easy
             access to areas requiring attention.
           </SubsectionText>
+          {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
             template
