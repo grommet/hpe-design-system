@@ -44,7 +44,7 @@ const pages = [
     icon: <Servers />,
     layout: 'cards',
     parent: 'Home',
-    children: ['Server Cluster', 'Beacon Cluster'],
+    children: ['Server Cluster', 'Beacon Cluster', 'Server XYZ'],
   },
   {
     name: 'Users',
@@ -65,7 +65,9 @@ const pages = [
     icon: <UnorderedList />,
     layout: 'list',
     parent: 'Performance',
-    children: new Array(17).fill(''),
+    children: ['Beacon D', 'Server B', 'Server XYZ', 'Server A'].concat(
+      new Array(12).fill(''),
+    ),
   },
   {
     name: 'Remote Access',
@@ -93,6 +95,13 @@ const pages = [
     children: ['Server A', 'Server B'],
   },
   {
+    name: 'Server XYZ',
+    icon: <Server />,
+    layout: 'panes',
+    status: 'critical',
+    parent: 'Devices',
+  },
+  {
     name: 'Beacon Cluster',
     icon: <Cluster />,
     layout: 'cards',
@@ -104,12 +113,14 @@ const pages = [
     icon: <Server />,
     layout: 'panes',
     parent: 'Server Cluster',
+    status: 'ok',
   },
   {
     name: 'Server B',
     icon: <Server />,
     layout: 'panes',
     parent: 'Server Cluster',
+    status: 'ok',
   },
   {
     name: 'Beacon A',
@@ -134,6 +145,7 @@ const pages = [
     icon: <LocationPin />,
     layout: 'panes',
     parent: 'Beacon Cluster',
+    status: 'warning',
   },
 ];
 
@@ -178,8 +190,16 @@ export const HubSpokeCardsExample = ({ mobile }) => {
             onClick={page => setCurrentPage(getPageDetails(page))}
           />
         )}
-        {layout === 'list' && <ListLayout items={children} />}
-        {layout === 'panes' && <PanesLayout items={children} />}
+        {layout === 'list' && (
+          <ListLayout items={children} setCurrentPage={setCurrentPage} />
+        )}
+        {layout === 'panes' && (
+          <PanesLayout
+            content={currentPage}
+            items={children}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </AppContainer>
     </ResponsiveContext.Provider>
   );
@@ -264,38 +284,87 @@ GridLayout.propTypes = {
   onClick: PropTypes.func,
 };
 
-const ListLayout = ({ items }) => (
+const ListLayout = ({ items, setCurrentPage }) => (
   <List data={items} border={{ size: '0' }} pad={{ vertical: 'xsmall' }}>
-    {(datum, index) => (
-      <Box
-        key={index}
-        background="background-front"
-        height="xxsmall"
-        round="xsmall"
-      />
-    )}
+    {(datum, index) => {
+      const page = getPageDetails(datum) || '';
+      const { name, icon, status } = page;
+
+      return (
+        <Button key={index} onClick={() => (page ? setCurrentPage(page) : {})}>
+          <Box
+            direction="row"
+            align="center"
+            background="background-front"
+            flex={false}
+            gap="medium"
+            height="xxsmall"
+            justify="between"
+            pad="small"
+            round="xsmall"
+          >
+            {page && (
+              <>
+                <Box direction="row" align="center" gap="xsmall">
+                  {icon}
+                  <Text weight="bold">{name}</Text>
+                </Box>
+                {status && (
+                  <Box direction="row" align="center" gap="xsmall">
+                    <Text>{status}</Text>
+                    <Box
+                      background={`status-${status}`}
+                      round="100%"
+                      height="12px"
+                      width="12px"
+                    />
+                  </Box>
+                )}
+              </>
+            )}
+          </Box>
+        </Button>
+      );
+    }}
   </List>
 );
 
 ListLayout.propTypes = {
   items: PropTypes.array,
+  setCurrentPage: PropTypes.func,
 };
 
-const PanesLayout = ({ items }) => {
+const PanesLayout = ({ content, items, setCurrentPage }) => {
   const sections = items || [''];
-  return sections.map((section, index) => (
-    <Box
-      key={index}
-      background="background-front"
-      height="medium"
-      margin={{ vertical: 'small' }}
-      round="xsmall"
-    />
-  ));
+
+  return (
+    <>
+      {sections.map((section, index) => (
+        <Box
+          key={index}
+          background="background-front"
+          height="medium"
+          margin={{ vertical: 'small' }}
+          round="xsmall"
+        >
+          {content.status && (
+            <Button
+              alignSelf="end"
+              label="View Logs"
+              margin="medium"
+              onClick={() => setCurrentPage(getPageDetails('Logs'))}
+            />
+          )}
+        </Box>
+      ))}
+    </>
+  );
 };
 
 PanesLayout.propTypes = {
+  content: PropTypes.object,
   items: PropTypes.array,
+  setCurrentPage: PropTypes.func,
 };
 
 const SimpleButton = ({ children, ...rest }) => {
