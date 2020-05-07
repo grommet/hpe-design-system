@@ -9,8 +9,30 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
-import { passwordRulesWeak } from './formHelpers';
+const passwordRulesWeak = [
+  {
+    regexp: new RegExp('.{4,}'),
+    message: 'At least four characters',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
+    message: 'At least one special character or space',
+    status: 'error',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const ChangePasswordExample = () => {
   const [formValues, setFormValues] = React.useState({});

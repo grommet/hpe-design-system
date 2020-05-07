@@ -9,6 +9,7 @@ import {
   Layer,
   Text,
   ThemeContext,
+  ResponsiveContext,
 } from 'grommet';
 import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';
@@ -143,10 +144,9 @@ export const Example = ({
             {...rest}
           >
             <Box width={width}>
-              {children &&
-                React.cloneElement(children, {
-                  mobile,
-                })}
+            <ResponsiveContext.Provider value={mobile && 'small'}>
+                  {children}
+            </ResponsiveContext.Provider>
             </Box>
           </Box>
           {(designer || docs || figma || template) && (
@@ -247,10 +247,9 @@ export const Example = ({
                 flex
                 {...rest}
               >
-                {children &&
-                  React.cloneElement(children, {
-                    mobile,
-                  })}
+                <ResponsiveContext.Provider value={mobile && 'small'}>
+                  {children}
+                </ResponsiveContext.Provider>
               </Box>
             </Box>
           </Layer>

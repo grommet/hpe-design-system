@@ -11,13 +11,87 @@ import {
   TextInput,
 } from 'grommet';
 import { Apple, CreditCard } from 'grommet-icons';
-import { FormContainer } from '.';
-import {
-  creditCardMask,
-  cvvMask,
-  dateMask,
-  dateValidation,
-} from './formHelpers';
+
+const currentDate = new Date();
+const dateValidation = [
+  date => {
+    const expireDate = date.split('/').reverse();
+    expireDate.splice(0, 0, '20');
+    const newYear = expireDate[0] + expireDate[1];
+    expireDate.splice(0, 2, newYear);
+    const expires = new Date(expireDate);
+    if (
+      expires.getMonth() < currentDate.getMonth() &&
+      expires.getFullYear() <= currentDate.getFullYear()
+    )
+      return { message: 'invalid date', status: 'error' };
+    return undefined;
+  },
+];
+
+const dateMask = [
+  {
+    length: [1, 2],
+    options: Array.from({ length: 12 }, (v, k) => k + 1),
+    regexp: /^1[0,1-2]$|^0?[1-9]$|^0$/,
+    placeholder: 'MM',
+  },
+  { fixed: '/' },
+  {
+    length: 2,
+    options: Array.from({ length: 6 }, (v, k) => 20 + k),
+    regexp: /^2[0,1-5]$|^2?$/,
+    placeholder: 'YY',
+  },
+];
+
+const cvvMask = [
+  {
+    length: 3,
+    regexp: /^[0-9]{1,3}$/,
+    placeholder: '123',
+  },
+];
+
+const creditCardRegExp = /^[0-9]{1,4}$/;
+
+const creditCardMask = [
+  {
+    length: 4,
+    regexp: creditCardRegExp,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCardRegExp,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCardRegExp,
+    placeholder: '0000',
+  },
+  { fixed: ' ' },
+  {
+    length: 4,
+    regexp: creditCardRegExp,
+    placeholder: '0000',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});

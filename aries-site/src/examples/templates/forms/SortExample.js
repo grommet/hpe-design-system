@@ -9,9 +9,19 @@ import {
   Select,
 } from 'grommet';
 
-import { FormContainer } from '.';
-
 const sortFeatures = ['Featured', 'Price', 'Users'];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const SortExample = () => {
   const [formValues, setFormValues] = React.useState({
