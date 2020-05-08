@@ -19,7 +19,7 @@ export const ThemeMode = ({ children, ...rest }) => {
       theme={aries}
       themeMode={themeMode}
       full
-      style={{ height: 'auto' }}
+      style={{ height: 'auto', width: '100%' }}
       {...rest}
     >
       {children}
