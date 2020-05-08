@@ -127,48 +127,15 @@ const NavItems = ({ activeItem, setActiveItem }) => {
   return (
     pages &&
     pages.map((item, index) => (
-      <SimpleButton
+      <Button
         key={item.name}
-        name={item.name}
+        label={item.name}
         active={index === activeItem}
         onClick={() => setActiveItem(index)}
         round="xsmall"
       />
     ))
   );
-};
-
-const SimpleButton = ({ active, name, ...rest }) => {
-  const [hover, setHover] = React.useState();
-
-  return (
-    <Button
-      onMouseOver={() => setHover(true)}
-      onFocus={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-      onBlur={() => setHover(false)}
-      {...rest}
-    >
-      <Box
-        pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        round="xxsmall"
-        background={active || hover ? 'active-background' : undefined}
-      >
-        <Text weight="bold" margin="none">
-          {name}
-        </Text>
-      </Box>
-    </Button>
-  );
-};
-
-SimpleButton.propTypes = {
-  active: PropTypes.bool,
-  name: PropTypes.string,
-};
-
-SimpleButton.defaultProps = {
-  active: false,
 };
 
 const PageContent = ({ activeItem }) => {
