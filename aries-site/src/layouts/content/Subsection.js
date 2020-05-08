@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Button, Header } from 'grommet';
+import { Anchor, Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 import { getPageDetails } from '../../utils';
@@ -87,10 +87,10 @@ export const Subsection = ({
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
                   <Button
-                    label={parent.name}
+                    label={<Text color="text">{parent.name}</Text>}
                     icon={parent.icon('small', parent.color)}
-                    {...rest}
                     plain
+                    {...rest}
                   />
                 </Link>
               )}

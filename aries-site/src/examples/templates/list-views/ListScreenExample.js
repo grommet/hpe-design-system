@@ -167,7 +167,7 @@ const PageHeaderExample = ({ title }) => (
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
-    <Button>
+    <Button plain>
       <Box
         direction="row"
         align="center"
@@ -177,10 +177,12 @@ const AppHeaderExample = () => (
       >
         <Hpe color="plain" />
         <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium">
+          <Text weight="bold" size="medium" color="text">
             HPE
           </Text>
-          <Text size="medium">Server</Text>
+          <Text size="medium" color="text">
+            Server
+          </Text>
         </Box>
       </Box>
     </Button>
