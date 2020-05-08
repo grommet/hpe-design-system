@@ -145,7 +145,7 @@ const SidebarExample = ({ ...rest }) => {
       )}
       <Header
         direction={size !== 'small' ? 'column' : 'row'}
-        flex={size !== 'small' ? true : false}
+        flex={size !== 'small'}
         gap="none"
         justify={size === 'small' ? 'between' : undefined}
       >

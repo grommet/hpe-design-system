@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { AppIdentity, Header } from 'aries-core';
 import { Box, Button, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
-import { NavButton } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
@@ -29,9 +28,9 @@ const StyledHeader = ({ ...rest }) => {
           {size !== 'small' &&
             navItems.map(item => (
               <Link key={item.name} href={nameToPath(item.name)} passHref>
-                <NavButton
+                <Button
                   key={item.name}
-                  item={item.name}
+                  label={item.name}
                   active={router.pathname === nameToPath(item.name)}
                 />
               </Link>
@@ -40,7 +39,6 @@ const StyledHeader = ({ ...rest }) => {
             id="search-button"
             icon={<SearchIcon />}
             onClick={() => setSearchFocused(true)}
-            hoverIndicator
           />
         </Box>
       ) : (
