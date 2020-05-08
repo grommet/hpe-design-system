@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box, Text, Grid, ResponsiveContext } from 'grommet';
 import { Figma, Grommet } from 'grommet-icons';
 import { IconCircle, IconTriangle } from '../icons';
 
 const types = {
   figma: {
     name: 'Figma',
-    icon: <Figma color="plain" />,
+    icon: <Figma color="plain" size="small" />,
   },
   grommet: {
     name: 'Grommet',
-    icon: <Grommet color="plain" />,
+    icon: <Grommet color="plain" size="small" />,
   },
 };
 
@@ -24,31 +24,54 @@ const statuses = {
   },
 };
 
+const Badge = ({ label, icon, side, ...rest }) => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <Box
+      direction="row"
+      align="center"
+      gap="xsmall"
+      pad={{
+        vertical: size !== 'small' ? 'xxsmall' : 'small',
+        horizontal: size !== 'small' ? 'small' : 'medium',
+      }}
+      round={{ corner: side, size: 'xsmall' }}
+      {...rest}
+    >
+      {icon}
+      {size !== 'small' && (
+        <Text size="small" weight={600}>
+          {label}
+        </Text>
+      )}
+    </Box>
+  );
+};
+
+Badge.propTypes = {
+  label: PropTypes.string,
+  icon: PropTypes.element,
+  side: PropTypes.string,
+};
+
 const StatusBadge = ({ status, type }) => {
   return (
-    <Box direction="row">
-      <Box
+    <Box direction="row" round="xsmall">
+      <Badge
         background="background-front"
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        round={{ corner: 'left', size: 'xsmall' }}
-        direction="row"
-      >
-        <Box direction="row" gap="xsmall" align="center">
-          {types[type].icon}
-          <Text weight="bold">{type && types[type].name}</Text>
-        </Box>
-      </Box>
-      <Box
+        icon={types[type].icon}
+        justify="end"
+        label={type && types[type].name}
+        side="left"
+      />
+      <Badge
         background="background-contrast"
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        round={{ corner: 'right', size: 'xsmall' }}
-        direction="row"
-        align="center"
-        gap="small"
-      >
-        {statuses[status[type]].icon}
-        <Text weight="bold">{status[type]}</Text>
-      </Box>
+        flex
+        icon={statuses[status[type]].icon}
+        label={status[type]}
+        side="right"
+      />
     </Box>
   );
 };
@@ -62,11 +85,17 @@ StatusBadge.propTypes = {
 };
 
 export const Status = ({ status }) => {
+  const size = useContext(ResponsiveContext);
+
   return (
-    <Box direction="row-responsive" gap="medium">
+    <Grid
+      columns={{ count: size !== 'small' ? 2 : 1, size: 'auto' }}
+      gap={size !== 'small' ? 'small' : 'xsmall'}
+      justify="end"
+    >
       {status.figma && <StatusBadge type="figma" status={status} />}
       {status.grommet && <StatusBadge type="grommet" status={status} />}
-    </Box>
+    </Grid>
   );
 };
 

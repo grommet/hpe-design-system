@@ -1,13 +1,7 @@
 import React from 'react';
 import { Anchor } from 'grommet';
 
-import {
-  BulletedList,
-  CardGrid,
-  Meta,
-  Status,
-  SubsectionText,
-} from '../../components';
+import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import {
   ButtonExample,
   ButtonIconExample,
@@ -33,9 +27,13 @@ const Button = () => (
       canonicalUrl="https://design-system.hpe.design/components/button"
     />
     <ContentSection>
-      <Subsection name={title} level={1} topic={topic}>
+      <Subsection
+        name={title}
+        level={1}
+        topic={topic}
+        componentStatus={page.status}
+      >
         <SubsectionText>{page.description}</SubsectionText>
-        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonExample.js"

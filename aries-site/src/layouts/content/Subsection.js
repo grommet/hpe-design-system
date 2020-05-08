@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Button, Header } from 'grommet';
+import { Anchor, Box, Button, Header, Stack } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
-import { Subheading } from '../../components';
+import { Status, Subheading } from '../../components';
 import { getPageDetails } from '../../utils';
 
 // Text size should be based on if its parent heading is an
@@ -27,6 +27,7 @@ export const Subsection = ({
   level,
   name,
   topic,
+  componentStatus,
   ...rest
 }) => {
   const [over, setOver] = useState(false);
@@ -82,33 +83,38 @@ export const Subsection = ({
        */}
       <Box gap={level !== 3 ? 'small' : undefined}>
         {showHeading && (
-          <Header>
-            <Box align="start" gap="small">
-              {level === 1 && topic && (
-                <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <Button
-                    label={parent.name}
-                    icon={parent.icon('small', parent.color)}
-                    {...rest}
-                    plain
-                  />
-                </Link>
+          <Stack anchor="right">
+            <Header>
+              <Box align="start" gap="small">
+                {level === 1 && topic && (
+                  <Link href={`/${topic.toLowerCase()}`} passHref>
+                    <Button
+                      label={parent.name}
+                      icon={parent.icon('small', parent.color)}
+                      {...rest}
+                      plain
+                    />
+                  </Link>
+                )}
+                <Subheading
+                  level={level}
+                  headingSize={headingSize || HEADING_SIZE[level]}
+                >
+                  {name}
+                </Subheading>
+              </Box>
+              {level > 1 && (
+                <Anchor
+                  a11yTitle={`Jump to section titled ${name}`}
+                  href={`#${id}`}
+                  icon={
+                    <LinkIcon color={over ? 'text-xweak' : 'transparent'} />
+                  }
+                />
               )}
-              <Subheading
-                level={level}
-                headingSize={headingSize || HEADING_SIZE[level]}
-              >
-                {name}
-              </Subheading>
-            </Box>
-            {level > 1 && (
-              <Anchor
-                a11yTitle={`Jump to section titled ${name}`}
-                href={`#${id}`}
-                icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-              />
-            )}
-          </Header>
+            </Header>
+            {componentStatus && <Status status={componentStatus} />}
+          </Stack>
         )
         /* Isolates the first child to ensure the gap between heading and
          * first child is correct size. See comment on line 33 for reasoning.
@@ -129,6 +135,10 @@ Subsection.propTypes = {
   name: PropTypes.string.isRequired,
   showHeading: PropTypes.bool,
   topic: PropTypes.string,
+  componentStatus: PropTypes.shape({
+    figma: PropTypes.string,
+    grommet: PropTypes.string,
+  }),
 };
 
 Subsection.defaultProps = {
