@@ -15,7 +15,6 @@ import {
   Text,
 } from 'grommet';
 import {
-  Chat,
   Cli,
   Clock,
   Configure,
@@ -24,7 +23,6 @@ import {
   Projects,
   Splits,
   StatusInfoSmall,
-  StatusUnknown,
 } from 'grommet-icons';
 
 const pages = [
@@ -81,9 +79,10 @@ export const MinimalSidebarExample = ({ mobile }) => {
               /* Only display most critical navigation items in mobile 
               contexts */
               header={size !== 'small' && <SidebarHeader />}
-              footer={size !== 'small' && <SidebarFooter />}
+              /* Min height is not needed in mobile contexts */
+              height={size !== 'small' ? { min: '100%' } : undefined}
+              align="center"
               background="blue!"
-              // gap="xsmall"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
                 bottom: 'medium',
@@ -114,28 +113,14 @@ MinimalSidebarExample.propTypes = {
 const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
 
-  const areas =
-    size !== 'small'
-      ? [
-          { name: 'sidebar', start: [0, 0], end: [0, 0] },
-          { name: 'pageContent', start: [1, 0], end: [1, 0] },
-        ]
-      : [
-          { name: 'sidebar', start: [0, 1], end: [0, 1] },
-          { name: 'pageContent', start: [0, 0], end: [0, 0] },
-        ];
-
-  const columns = size !== 'small' ? ['auto', 'flex'] : ['auto'];
-  const rows = size !== 'small' ? ['auto'] : ['flex', 'auto'];
-
   return (
     <Box
+      direction={size === 'small' ? 'column-reverse' : 'row'}
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
-    >
-      <Grid columns={columns} rows={rows} areas={areas} fill {...rest} />
-    </Box>
+      {...rest}
+    />
   );
 };
 
@@ -144,7 +129,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const maxItems = size !== 'small' ? undefined : 5;
 
   return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
+    <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
         pages
           .slice(0, maxItems)
@@ -171,28 +156,28 @@ MainNavigation.propTypes = {
 const NavButton = ({ active, icon, name, ...rest }) => {
   const [hover, setHover] = React.useState();
   const ref = React.useRef();
+  const size = React.useContext(ResponsiveContext);
 
   return (
     <Box fill="horizontal">
       <Button
         ref={ref}
+        color="text-strong"
+        icon={icon}
         onMouseOver={() => setHover(true)}
         onFocus={() => setHover(true)}
         onMouseOut={() => setHover(false)}
         onBlur={() => setHover(false)}
         {...rest}
-      >
-        <Box
-          pad={{ horizontal: 'small', vertical: 'small' }}
-          round="xxsmall"
-          background={active || hover ? 'active-background' : undefined}
-          align="center"
+      />
+      {/* Show tooltip on hover and focus states as a supplemental
+      reminder to icon's meaning */
+      ref.current && hover && (
+        <Drop
+          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
+          target={ref.current}
+          plain
         >
-          {icon}
-        </Box>
-      </Button>
-      {ref.current && hover && (
-        <Drop align={{ left: 'right' }} target={ref.current} plain>
           <Box
             animation={{ type: ['fadeIn', 'slideRight'] }}
             elevation="small"
@@ -223,7 +208,7 @@ const PageContent = ({ activeItem }) => {
 
   return (
     pages && (
-      <Box fill overflow="auto">
+      <Box flex overflow="auto">
         <Header
           fill="horizontal"
           height="xsmall"
@@ -249,22 +234,6 @@ PageContent.propTypes = {
 };
 
 const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
-
-const SidebarFooter = () => {
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
-      <NavButton a11yTitle="Chat" hoverIndicator icon={<Chat />} name="Chat" />
-      <NavButton
-        a11yTitle="Support"
-        hoverIndicator
-        icon={<StatusUnknown />}
-        name="Support"
-      />
-    </Nav>
-  );
-};
 
 const AppIdentity = ({ name }) => (
   <Button>
