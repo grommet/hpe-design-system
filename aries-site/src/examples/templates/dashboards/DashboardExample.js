@@ -204,10 +204,12 @@ const AppHeaderExample = () => (
       >
         <Hpe color="plain" />
         <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium">
+          <Text weight="bold" size="medium" color="text">
             HPE
           </Text>
-          <Text size="medium">Server</Text>
+          <Text size="medium" color="text">
+            Server
+          </Text>
         </Box>
       </Box>
     </Button>
