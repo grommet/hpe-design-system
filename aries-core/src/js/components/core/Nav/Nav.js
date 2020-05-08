@@ -67,7 +67,6 @@ export const Nav = ({
             <Button
               icon={!open ? <Menu /> : <Close />}
               onClick={() => setOpen(!open)}
-              plain
             />
           )}
         </Box>
