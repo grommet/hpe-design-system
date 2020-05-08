@@ -81,6 +81,7 @@ export const MinimalSidebarExample = ({ mobile }) => {
               header={size !== 'small' && <SidebarHeader />}
               /* Min height is not needed in mobile contexts */
               height={size !== 'small' ? { min: '100%' } : undefined}
+              align="center"
               background="blue!"
               pad={{
                 top: size !== 'small' ? 'medium' : 'small',
@@ -118,7 +119,6 @@ const AppContainer = ({ ...rest }) => {
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
-      overflow="auto"
       {...rest}
     />
   );
@@ -129,7 +129,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const maxItems = size !== 'small' ? undefined : 5;
 
   return (
-    <Nav direction={size !== 'small' ? 'column' : 'row'} gap="xsmall">
+    <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
         pages
           .slice(0, maxItems)
@@ -156,30 +156,28 @@ MainNavigation.propTypes = {
 const NavButton = ({ active, icon, name, ...rest }) => {
   const [hover, setHover] = React.useState();
   const ref = React.useRef();
+  const size = React.useContext(ResponsiveContext);
 
   return (
     <Box fill="horizontal">
       <Button
         ref={ref}
+        color="text-strong"
+        icon={icon}
         onMouseOver={() => setHover(true)}
         onFocus={() => setHover(true)}
         onMouseOut={() => setHover(false)}
         onBlur={() => setHover(false)}
         {...rest}
-      >
-        <Box
-          pad={{ horizontal: 'small', vertical: 'small' }}
-          round="xxsmall"
-          background={active || hover ? 'active-background' : undefined}
-          align="center"
-        >
-          {icon}
-        </Box>
-      </Button>
+      />
       {/* Show tooltip on hover and focus states as a supplemental
       reminder to icon's meaning */
       ref.current && hover && (
-        <Drop align={{ left: 'right' }} target={ref.current} plain>
+        <Drop
+          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
+          target={ref.current}
+          plain
+        >
           <Box
             animation={{ type: ['fadeIn', 'slideRight'] }}
             elevation="small"
@@ -210,7 +208,7 @@ const PageContent = ({ activeItem }) => {
 
   return (
     pages && (
-      <Box overflow="auto" flex>
+      <Box flex overflow="auto">
         <Header
           fill="horizontal"
           height="xsmall"
