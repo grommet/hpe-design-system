@@ -145,7 +145,7 @@ const SidebarExample = ({ ...rest }) => {
       )}
       <Header
         direction={size !== 'small' ? 'column' : 'row'}
-        flex={size !== 'small' ? true : false}
+        flex={size !== 'small'}
         gap="none"
         justify={size === 'small' ? 'between' : undefined}
       >
@@ -194,7 +194,7 @@ const ScreenContainer = ({ ...rest }) => {
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
-    <Button>
+    <Button plain>
       <Box
         direction="row"
         align="center"
@@ -204,10 +204,12 @@ const AppHeaderExample = () => (
       >
         <Hpe color="plain" />
         <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium">
+          <Text weight="bold" size="medium" color="text">
             HPE
           </Text>
-          <Text size="medium">Server</Text>
+          <Text size="medium" color="text">
+            Server
+          </Text>
         </Box>
       </Box>
     </Button>
