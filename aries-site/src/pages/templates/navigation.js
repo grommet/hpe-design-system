@@ -1,9 +1,10 @@
 import React from 'react';
-import { Anchor } from 'grommet';
+import Link from 'next/link';
+import { Anchor, Text } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
-import { getPageDetails, getRelatedContent } from '../../utils';
+import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
 
 const title = 'Navigation';
 const topic = 'Templates';
@@ -38,8 +39,16 @@ const Navigation = () => (
         <SubsectionText>
           Recommended patterns, templates, and examples for use within the
           context of a single application, website, or subsection within an
-          application. Plus, demonstration on how local navigation patterns may
-          be combined with the{' '}
+          application. Plus, demonstration for how local navigation patterns,
+          such as{' '}
+          <Link href={nameToPath('Hub and Spoke Navigation')} passHref>
+            <Anchor>Hub &amp; Spoke</Anchor>
+          </Link>{' '}
+          and{' '}
+          <Link href={nameToPath('Persistent Navigation')} passHref>
+            <Anchor>Persistent Navigation</Anchor>
+          </Link>
+          , may be combined with the{' '}
           <Anchor href="#hpe-global-navigation">Global Sidebar</Anchor> for easy
           maneuverability across applications within the HPE ecosystem.
         </SubsectionText>
@@ -53,10 +62,21 @@ const Navigation = () => (
           </SubsectionText>
           <BulletedList
             items={[
-              `Hub & Spoke patterns lend themselves well to applications 
-              primarily concerned with task execution.`,
-              `Reach for Persistent Navigation patterns when a user needs 
-              orientation or easy access to appication sections.`,
+              <Text>
+                <Link href={nameToPath('Hub and Spoke Navigation')} passHref>
+                  <Anchor>Hub & Spoke patterns</Anchor>
+                </Link>{' '}
+                lend themselves well to applications primarily concerned with
+                task execution.
+              </Text>,
+              <Text>
+                Reach for{' '}
+                <Link href={nameToPath('Persistent Navigation')} passHref>
+                  <Anchor>Persistent Navigation patterns</Anchor>
+                </Link>{' '}
+                when a user needs orientation or easy access to appication
+                sections.
+              </Text>,
             ]}
           />
           <CardGrid cards={navCards} />

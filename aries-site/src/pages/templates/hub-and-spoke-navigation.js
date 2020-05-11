@@ -1,11 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
-import { Anchor } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
 import { HubSpokeCardsExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
-import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
+import { getPageDetails, getRelatedContent } from '../../utils';
 
 const title = 'Hub and Spoke Navigation';
 const topic = 'Templates';
@@ -22,8 +20,12 @@ const HubSpokeNavigation = () => (
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
-        <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js">
-          {}
+        <Example
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/hub-spoke-navigation/HubSpokeCardsExample.js"
+          template
+          width="100%"
+        >
+          <HubSpokeCardsExample />
         </Example>
       </Subsection>
     </ContentSection>
@@ -60,86 +62,11 @@ const HubSpokeNavigation = () => (
       </Subsection>
     </ContentSection>
     <ContentSection>
-      <Subsection name="Variants">
-        <SubsectionText>
-          Depending on use-case, the Hub &amp; Spoke pattern can be executed as
-          &nbsp;
-          <Link href={nameToPath('Cards')} passHref>
-            <Anchor label="Cards" />
-          </Link>{' '}
-          or as a{' '}
-          <Link href={nameToPath('Lists')} passHref>
-            <Anchor label="List" />
-          </Link>
-          .
-        </SubsectionText>
-      </Subsection>
-      <Subsection name="Hub &amp; Spoke as Cards" level={3}>
-        <SubsectionText>
-          Poke etsy venmo exercitation kogi typewriter pitchfork, mixtape vice
-          pabst copper mug minim iceland gluten-free DIY.
-        </SubsectionText>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/hub-spoke-navigation/HubSpokeCardsExample.js"
-          template
-          width="100%"
-        >
-          <HubSpokeCardsExample />
-        </Example>
-      </Subsection>
-      <Subsection name="Hub &amp; Spoke as List" level={3}>
-        <SubsectionText>
-          Retro try-hard heirloom locavore unicorn, forage man braid raw denim
-          viral letterpress man bun pour-over lumbersexual vaporware.
-        </SubsectionText>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
-        >
-          {}
-        </Example>
-      </Subsection>
-      <Subsection name="Application Focus" level={3}>
-        <SubsectionText>
-          Dreamcatcher skateboard artisan letterpress chillwave master cleanse.
-        </SubsectionText>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
-        >
-          {}
-        </Example>
-      </Subsection>
-      <Subsection name="Overview of Options" level={3}>
-        <SubsectionText>
-          Sushi restaurant's menu. Appetizers, Rolls, Sushi &amp; Sashimi,
-          Entrees, Drinks.
-        </SubsectionText>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
-        >
-          {}
-        </Example>
-      </Subsection>
-      <Subsection name="Limited Real Estate" level={3}>
-        <SubsectionText>
-          Meh bicycle rights tousled live-edge polaroid lo-fi bespoke DIY
-          literally succulents post-ironic.
-        </SubsectionText>
-        <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          height={{ min: 'small' }}
-        >
-          {}
-        </Example>
-      </Subsection>
-    </ContentSection>
-    <ContentSection>
       {relatedContent.length > 0 ? (
         <Subsection name="Related">
           <SubsectionText>
-            Related content you may find useful when using {title}.
+            Explore more navigation patterns and the components used to compose
+            the {title} demonstrations.
           </SubsectionText>
           <CardGrid cards={relatedContent} />
         </Subsection>

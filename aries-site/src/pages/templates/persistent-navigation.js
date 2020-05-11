@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Anchor } from 'grommet';
 
 import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
@@ -23,10 +24,11 @@ const Navigation = () => {
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>{page.description}</SubsectionText>
           <Example
-          // code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-          // template
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/MinimalSidebarExample.js"
+            template
+            width="100%"
           >
-            {}
+            <MinimalSidebarExample />
           </Example>
         </Subsection>
       </ContentSection>
@@ -76,11 +78,13 @@ const Navigation = () => {
           </SubsectionText>
           <SubsectionText>
             Be sure to check out{' '}
-            <Anchor href={nameToPath('Header')}>Header</Anchor> to see the many
-            variants and versatility Header enables.
+            <Link href={nameToPath('Header')} passHref>
+              <Anchor>Header</Anchor>
+            </Link>{' '}
+            to see the many variants and versatility Header enables.
           </SubsectionText>
           <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/persistent-navigation/HeaderNavExample.js"
             template
             width="100%"
           >
@@ -106,25 +110,13 @@ const Navigation = () => {
             <MinimalSidebarExample />
           </Example>
         </Subsection>
-        <Subsection name="Extended Sidebar" level={3}>
-          <SubsectionText>
-            Typically used for reference documentation, an extended sidebar is a
-            good choice when your navigational needs serve as an outline or
-            table of contents.
-          </SubsectionText>
-          <Example
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js"
-            height={{ min: 'small' }}
-          >
-            {}
-          </Example>
-        </Subsection>
       </ContentSection>
       <ContentSection>
         {relatedContent.length > 0 ? (
           <Subsection name="Related">
             <SubsectionText>
-              Related content you may find useful when using {title}.
+              Explore more navigation patterns and the components used to
+              compose the {title} demonstrations.
             </SubsectionText>
             <CardGrid cards={relatedContent} />
           </Subsection>

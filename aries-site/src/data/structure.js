@@ -851,7 +851,13 @@ export const structure = [
     activities begin and "spokes" on which more focused tasks are accomplished.`,
     seoDescription:
       'Hub and spoke navigation pattern. What, why, and when to use the Hub & Spoke pattern for navigation.',
-    relatedContent: ['Navigation', 'Persistent Navigation', 'Global Sidebar'],
+    relatedContent: [
+      'Navigation',
+      'Persistent Navigation',
+      'Header',
+      'Grid',
+      'Lists',
+    ],
     sections: [],
   },
   {
@@ -863,10 +869,8 @@ export const structure = [
     relatedContent: [
       'Navigation',
       'Hub and Spoke Navigation',
-      'Global Sidebar',
-      'Grid',
       'Header',
-      'Lists',
+      'Global Sidebar',
     ],
     sections: [],
   },
