@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Footer, ResponsiveContext, Text } from 'grommet';
-
-// https://github.com/hpe-design/design-system/blob/master/aries-site/src/components/button/NavButton.js
-import { NavButton } from '../../../components';
+import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
@@ -35,7 +32,7 @@ export const FooterExample = () => {
         wrap
       >
         {footerLinks.map(link => (
-          <NavButton key={link.label} item={link.label} />
+          <Button key={link.label} label={link.label} />
         ))}
       </Box>
     </Footer>

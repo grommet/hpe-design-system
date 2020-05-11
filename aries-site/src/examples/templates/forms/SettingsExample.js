@@ -12,7 +12,17 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const SettingsExample = () => {
   const [formValues, setFormValues] = React.useState({

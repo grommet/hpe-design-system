@@ -1,7 +1,13 @@
 import React from 'react';
 
 import { Anchor } from 'grommet';
-import { CardGrid, Meta, SubsectionText, BulletedList } from '../../components';
+import {
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+  BulletedList,
+} from '../../components';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   CheckBoxDisabledExample,
@@ -27,6 +33,7 @@ const CheckBox = () => (
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
+        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/checkbox?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkbox/CheckBoxSimpleExample.js"
