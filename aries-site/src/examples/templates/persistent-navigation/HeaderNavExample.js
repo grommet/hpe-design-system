@@ -39,49 +39,40 @@ const pages = [
   },
 ];
 
-export const HeaderNavExample = ({ mobile }) => {
+export const HeaderNavExample = () => {
   const [activeItem, setActiveItem] = React.useState(1);
+  const size = React.useContext(ResponsiveContext);
 
   return (
-    <ResponsiveContext.Provider value={mobile && 'small'}>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <AppContainer activeItem={activeItem}>
-            <Header fill="horizontal" pad="medium">
-              <AppIdentity name={pages[activeItem].name} />
-              <Box direction="row" gap="medium">
-                <MainNavigation
-                  activeItem={activeItem}
-                  setActiveItem={setActiveItem}
-                />
-                {size !== 'small' && (
-                  <Stack anchor="bottom-right">
-                    <Avatar background="blue!">DS</Avatar>
-                    <Box
-                      background="status-ok"
-                      pad={{ horizontal: 'xsmall' }}
-                      height="12px"
-                      width="12px"
-                      round
-                    />
-                  </Stack>
-                )}
-              </Box>
-            </Header>
-            <PageContent
-              gridArea="pageContent"
-              activeItem={activeItem}
-              setActiveItem={setActiveItem}
-            />
-          </AppContainer>
-        )}
-      </ResponsiveContext.Consumer>
-    </ResponsiveContext.Provider>
+    <AppContainer activeItem={activeItem}>
+      <Header fill="horizontal" pad="medium">
+        <AppIdentity name={pages[activeItem].name} />
+        <Box direction="row" gap="medium">
+          <MainNavigation
+            activeItem={activeItem}
+            setActiveItem={setActiveItem}
+          />
+          {size !== 'small' && (
+            <Stack anchor="bottom-right">
+              <Avatar background="blue!">DS</Avatar>
+              <Box
+                background="status-ok"
+                pad={{ horizontal: 'xsmall' }}
+                height="12px"
+                width="12px"
+                round
+              />
+            </Stack>
+          )}
+        </Box>
+      </Header>
+      <PageContent
+        gridArea="pageContent"
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
+      />
+    </AppContainer>
   );
-};
-
-HeaderNavExample.propTypes = {
-  mobile: PropTypes.bool,
 };
 
 const AppContainer = ({ ...rest }) => {
@@ -161,12 +152,14 @@ PageContent.propTypes = {
 };
 
 const AppIdentity = ({ name }) => (
-  <Button>
+  <Button plain>
     <Box direction="row" align="center" gap="small">
       <Hpe color="brand" />
       <Box direction="row" gap="xsmall">
-        <Text weight="bold">HPE</Text>
-        <Text>{name}</Text>
+        <Text color="text" weight="bold">
+          HPE
+        </Text>
+        <Text color="text">{name}</Text>
       </Box>
     </Box>
   </Button>

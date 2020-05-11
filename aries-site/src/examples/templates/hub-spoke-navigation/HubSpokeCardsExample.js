@@ -151,7 +151,7 @@ const pages = [
 
 const getPageDetails = pageName => pages.find(page => page.name === pageName);
 
-export const HubSpokeCardsExample = ({ mobile }) => {
+export const HubSpokeCardsExample = () => {
   const [currentPage, setCurrentPage] = React.useState(getPageDetails('Home'));
   const [subPages, setSubPages] = React.useState();
 
@@ -167,46 +167,40 @@ export const HubSpokeCardsExample = ({ mobile }) => {
   const { children, layout, name, parent } = currentPage;
 
   return (
-    <ResponsiveContext.Provider value={mobile && 'small'}>
-      <AppContainer>
-        <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        {/* Display parent as 'back button' for depth levels 2+ of hub & spoke 
+    <AppContainer>
+      <AppHeader currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {/* Display parent as 'back button' for depth levels 2+ of hub & spoke 
         hierarchy. AppIdentity in Header serves as 'back button' at root and 
         1st level depth. */}
-        {typeof parent !== 'undefined' && parent !== 'Home' && (
-          <SimpleButton
-            alignSelf="start"
-            onClick={() => setCurrentPage(getPageDetails(parent))}
-          >
-            {parent}
-          </SimpleButton>
-        )}
-        <Heading level={2} margin={{ top: 'none', bottom: 'medium' }}>
-          {name}
-        </Heading>
-        {layout === 'cards' && (
-          <GridLayout
-            items={subPages}
-            onClick={page => setCurrentPage(getPageDetails(page))}
-          />
-        )}
-        {layout === 'list' && (
-          <ListLayout items={children} setCurrentPage={setCurrentPage} />
-        )}
-        {layout === 'panes' && (
-          <PanesLayout
-            content={currentPage}
-            items={children}
-            setCurrentPage={setCurrentPage}
-          />
-        )}
-      </AppContainer>
-    </ResponsiveContext.Provider>
+      {typeof parent !== 'undefined' && parent !== 'Home' && (
+        <SimpleButton
+          alignSelf="start"
+          onClick={() => setCurrentPage(getPageDetails(parent))}
+        >
+          {parent}
+        </SimpleButton>
+      )}
+      <Heading level={2} margin={{ top: 'none', bottom: 'medium' }}>
+        {name}
+      </Heading>
+      {layout === 'cards' && (
+        <GridLayout
+          items={subPages}
+          onClick={page => setCurrentPage(getPageDetails(page))}
+        />
+      )}
+      {layout === 'list' && (
+        <ListLayout items={children} setCurrentPage={setCurrentPage} />
+      )}
+      {layout === 'panes' && (
+        <PanesLayout
+          content={currentPage}
+          items={children}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
+    </AppContainer>
   );
-};
-
-HubSpokeCardsExample.propTypes = {
-  mobile: PropTypes.bool,
 };
 
 const AppContainer = ({ ...rest }) => {
@@ -241,12 +235,14 @@ AppHeader.propTypes = {
 };
 
 const AppIdentity = ({ name, ...rest }) => (
-  <Button {...rest}>
+  <Button plain {...rest}>
     <Box direction="row" align="center" gap="small">
       <Hpe color="brand" />
       <Box direction="row" gap="xsmall">
-        <Text weight="bold">HPE</Text>
-        <Text>{name}</Text>
+        <Text color="text" weight="bold">
+          HPE
+        </Text>
+        <Text color="text">{name}</Text>
       </Box>
     </Box>
   </Button>
