@@ -63,51 +63,39 @@ const pages = [
   },
 ];
 
-export const MinimalSidebarExample = ({ mobile }) => {
+export const MinimalSidebarExample = () => {
   const [activeItem, setActiveItem] = React.useState(1);
+  const size = React.useContext(ResponsiveContext);
 
   return (
-    <ResponsiveContext.Provider value={mobile && 'small'}>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <AppContainer activeItem={activeItem}>
-            <Sidebar
-              gridArea="sidebar"
-              /* Sidebar should switch from column to row orientation 
+    <AppContainer activeItem={activeItem}>
+      <Sidebar
+        gridArea="sidebar"
+        /* Sidebar should switch from column to row orientation 
               when on smaller screens */
-              direction={size !== 'small' ? 'column' : 'row'}
-              /* Only display most critical navigation items in mobile 
+        direction={size !== 'small' ? 'column' : 'row'}
+        /* Only display most critical navigation items in mobile 
               contexts */
-              header={size !== 'small' && <SidebarHeader />}
-              /* Min height is not needed in mobile contexts */
-              height={size !== 'small' ? { min: '100%' } : undefined}
-              align="center"
-              background="blue!"
-              pad={{
-                top: size !== 'small' ? 'medium' : 'small',
-                bottom: 'medium',
-                horizontal: size !== 'small' ? 'medium' : 'small',
-              }}
-            >
-              <MainNavigation
-                activeItem={activeItem}
-                setActiveItem={setActiveItem}
-              />
-            </Sidebar>
-            <PageContent
-              gridArea="pageContent"
-              activeItem={activeItem}
-              setActiveItem={setActiveItem}
-            />
-          </AppContainer>
-        )}
-      </ResponsiveContext.Consumer>
-    </ResponsiveContext.Provider>
+        header={size !== 'small' && <SidebarHeader />}
+        /* Min height is not needed in mobile contexts */
+        height={size !== 'small' ? { min: '100%' } : undefined}
+        align="center"
+        background="blue!"
+        pad={{
+          top: size !== 'small' ? 'medium' : 'small',
+          bottom: 'medium',
+          horizontal: size !== 'small' ? 'medium' : 'small',
+        }}
+      >
+        <MainNavigation activeItem={activeItem} setActiveItem={setActiveItem} />
+      </Sidebar>
+      <PageContent
+        gridArea="pageContent"
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
+      />
+    </AppContainer>
   );
-};
-
-MinimalSidebarExample.propTypes = {
-  mobile: PropTypes.bool,
 };
 
 const AppContainer = ({ ...rest }) => {
@@ -236,12 +224,14 @@ PageContent.propTypes = {
 const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
 
 const AppIdentity = ({ name }) => (
-  <Button>
+  <Button plain>
     <Box direction="row" align="center" gap="small">
       <Hpe color="brand" />
       <Box direction="row" gap="xsmall">
-        <Text weight="bold">HPE</Text>
-        <Text>{name}</Text>
+        <Text color="text" weight="bold">
+          HPE
+        </Text>
+        <Text color="text">{name}</Text>
       </Box>
     </Box>
   </Button>
