@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 export const ContentSection = ({ ...rest }) => (
   <Box
     as="section"
-    align="start"
+    // align="start"
     gap="medium"
     pad={{
       bottom: 'medium',

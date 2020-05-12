@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Box, Layer, Text } from 'grommet';
 import { StatusGood, FormClose } from 'grommet-icons';
 
-export const LayerNotificationExample = () => {
+const LayerNotificationExample = () => {
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(false);
@@ -40,3 +40,5 @@ export const LayerNotificationExample = () => {
     </>
   );
 };
+
+export default LayerNotificationExample;

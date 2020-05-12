@@ -4,7 +4,6 @@ export * from './accordion';
 export * from './header';
 export * from './footer';
 export * from './input';
-export * from './layer';
 export * from './layouts';
 export * from './maskedinput';
 export * from './menu';

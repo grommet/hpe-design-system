@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
 import { Close } from 'grommet-icons';
 
-export const LayerExample = () => {
+const LayerExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
@@ -48,3 +48,5 @@ export const LayerExample = () => {
     </>
   );
 };
+
+export default LayerExample;

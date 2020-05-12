@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'grommet';
 
-export const ButtonExample = () => {
+export default function ButtonExample() {
   return <Button label="Button" onClick={() => {}} />;
-};
+}

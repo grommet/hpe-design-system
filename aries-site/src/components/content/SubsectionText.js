@@ -7,7 +7,12 @@ import { TEXT_SIZE } from '../../layouts';
 export const SubsectionText = ({ level, size, ...rest }) => {
   return (
     <Box width="large">
-      <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest} />
+      <Paragraph
+        size={size || TEXT_SIZE[level]}
+        fill
+        margin={{ bottom: 'medium', top: 'none' }}
+        {...rest}
+      />
     </Box>
   );
 };

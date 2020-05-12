@@ -108,7 +108,7 @@ LayerForm.propTypes = {
   setOpen: PropTypes.func.isRequired,
 };
 
-export const LayerSideDrawerExample = () => {
+const LayerSideDrawerExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
@@ -139,3 +139,5 @@ export const LayerSideDrawerExample = () => {
     </>
   );
 };
+
+export default LayerSideDrawerExample;

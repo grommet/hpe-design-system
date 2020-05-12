@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, ResponsiveContext } from 'grommet';
 import { FormPrevious, FormNext } from 'grommet-icons';
 
-export const ButtonIconExample = () => {
+const ButtonIconExample = () => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -42,3 +42,5 @@ export const ButtonIconExample = () => {
     </Box>
   );
 };
+
+export default ButtonIconExample;
