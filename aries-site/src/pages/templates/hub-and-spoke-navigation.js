@@ -38,7 +38,7 @@ const HubSpokeNavigation = () => (
         </SubsectionText>
         <SubsectionText>
           The "hub" cleanly presents multiple discreet application sections or
-          "spokes." Each "spoke" keeps the user focussed on the task at hand and
+          "spokes." Each "spoke" keeps the user focused on the task at hand and
           used independently from other spokes.
         </SubsectionText>
         <SubsectionText>

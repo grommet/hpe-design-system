@@ -847,7 +847,7 @@ export const structure = [
   },
   {
     name: 'Hub and Spoke Navigation',
-    description: `A navigation pattern promoting focussed execution through a central "hub" from which all
+    description: `A navigation pattern promoting focused execution through a central "hub" from which all
     activities begin and "spokes" on which more focused tasks are accomplished.`,
     seoDescription:
       'Hub and spoke navigation pattern. What, why, and when to use the Hub & Spoke pattern for navigation.',
