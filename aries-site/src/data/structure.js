@@ -520,7 +520,7 @@ export const structure = [
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
-    sections: ['Variants'],
+    sections: [],
     status: {
       figma: statuses.complete,
       grommet: statuses.inProgress,
