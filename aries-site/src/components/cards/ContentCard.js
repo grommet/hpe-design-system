@@ -1,19 +1,28 @@
 import React, { forwardRef } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Image, Text } from 'grommet';
 import { Identifier, Tile } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
+const StyledTile = styled(Tile)`
+  transition: all 0.3s ease-in-out;
+  :focus,
+  :hover {
+    transform: scale(1.01, 1.01);
+  }
+`;
+
 export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
   const { description, name, parent, preview } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
-    <Tile
+    <StyledTile
       align="start"
       background="background-front"
-      elevation={isFocused ? 'medium' : 'none'}
+      elevation={isFocused ? 'medium' : 'small'}
       fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
@@ -61,7 +70,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
           <Text size="small">{description}</Text>
         </Box>
       </Box>
-    </Tile>
+    </StyledTile>
   );
 });
 
