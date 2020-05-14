@@ -22,7 +22,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
     <StyledTile
       align="start"
       background="background-front"
-      elevation={isFocused ? 'medium' : 'xsmall'}
+      elevation={isFocused ? 'medium' : 'small'}
       fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
