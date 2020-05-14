@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Figma } from 'grommet-icons';
 import { Anchor, Box, Button, ResponsiveContext } from 'grommet';
 
 import {
@@ -78,18 +79,10 @@ const Color = () => (
               </SubsectionText>
               <ButtonRow>
                 <Button
-                  href="https://theme-designer.grommet.io/Dashboard?id=HPE2a-eric-soderberg-hpe-com"
-                  label="Use the Colors"
-                  primary
+                  href='https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color'
+                  icon={<Figma color="plain" />}
+                  label="Open in Figma"
                   target="_blank"
-                  rel="noreferrer noopener"
-                />
-                <Button
-                  href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
-                  label="See in Figma"
-                  primary
-                  target="_blank"
-                  rel="noreferrer noopener"
                 />
               </ButtonRow>
             </Subsection>
