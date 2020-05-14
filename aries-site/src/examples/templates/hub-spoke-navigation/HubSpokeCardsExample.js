@@ -12,6 +12,7 @@ import {
 } from 'grommet';
 import {
   Cluster,
+  FormPrevious,
   Group,
   Hpe,
   List as ListIcon,
@@ -173,12 +174,13 @@ export const HubSpokeCardsExample = () => {
         hierarchy. AppIdentity in Header serves as 'back button' at root and 
         1st level depth. */}
       {typeof parent !== 'undefined' && parent !== 'Home' && (
-        <SimpleButton
+        <Button
           alignSelf="start"
+          icon={<FormPrevious />}
+          gap="xxsmall"
+          label={parent}
           onClick={() => setCurrentPage(getPageDetails(parent))}
-        >
-          {parent}
-        </SimpleButton>
+        />
       )}
       <Heading level={2} margin={{ top: 'none', bottom: 'medium' }}>
         {name}
@@ -361,40 +363,4 @@ PanesLayout.propTypes = {
   content: PropTypes.object,
   items: PropTypes.array,
   setCurrentPage: PropTypes.func,
-};
-
-const SimpleButton = ({ children, ...rest }) => {
-  const [hover, setHover] = React.useState();
-
-  return (
-    /* Wrapping Button in Box with 'flex' prop, otherwise Button 
-    gets a height of 0 in Safari. 'height' prop restricts how
-    much growth -- needed for Chrome and Firefox.
-    This execution should be replaced once this PR is merged into
-    Grommet: https://github.com/grommet/grommet/pull/4050
-    */
-    <Box flex="grow" height={{ max: 'xxsmall' }} justify="center">
-      <Button
-        onMouseOver={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        {...rest}
-      >
-        <Box
-          pad={{ horizontal: 'xxsmall', vertical: 'xsmall' }}
-          round="xxsmall"
-          background={hover ? 'active-background' : undefined}
-        >
-          <Text weight="bold" margin="none">
-            {children}
-          </Text>
-        </Box>
-      </Button>
-    </Box>
-  );
-};
-
-SimpleButton.propTypes = {
-  children: PropTypes.node,
 };

@@ -9,7 +9,7 @@
     "url": "https://github.com/hpe-design/design-system/issues"
   },
   "devDependencies": {
-    "@hpe/project-scripts": "^1.0.6",
+    "@hpe/project-scripts": "^1.0.8",
     "jest": "^25.1.0"
   },
   "workspaces": [
