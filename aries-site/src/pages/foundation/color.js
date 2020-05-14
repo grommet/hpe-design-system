@@ -83,7 +83,7 @@ const Color = () => (
                   icon={<Figma color="plain" />}
                   label="Open in Figma"
                   target="_blank"
-                  primary
+                  secondary
                 />
               </ButtonRow>
             </Subsection>
