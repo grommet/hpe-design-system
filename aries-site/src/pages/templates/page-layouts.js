@@ -4,17 +4,17 @@ import { ComingSoon, Meta } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
 
-const title = 'Cards';
+const title = 'Page Layouts';
 const topic = 'Templates';
 const pageDetails = getPageDetails(title);
 
-const Cards = () => {
+const PageLayouts = () => {
   return (
     <Layout title={title}>
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/templates/cards"
+        canonicalUrl="https://design-system.hpe.design/templates/page-layouts"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />
@@ -24,4 +24,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default PageLayouts;
