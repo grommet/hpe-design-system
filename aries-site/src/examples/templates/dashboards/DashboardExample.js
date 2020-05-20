@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import {
   Avatar,
   Header,
@@ -7,13 +8,12 @@ import {
   Box,
   Grid,
   Menu,
+  Nav,
   ResponsiveContext,
   Sidebar,
   Footer,
   Text,
 } from 'grommet';
-import PropTypes from 'prop-types';
-
 import {
   Apps,
   Chat,
@@ -29,7 +29,7 @@ import {
   ShieldSecurity,
 } from 'grommet-icons';
 
-const data = [
+const dashboardItems = [
   {
     color: 'blue',
     icon: <Wifi />,
@@ -74,145 +74,172 @@ const data = [
   },
 ];
 
+export const DashboardExample = () => {
+  return (
+    <AppContainer>
+      <AppSidebar>
+        <NavItems />
+      </AppSidebar>
+      <Page>
+        <AppHeader />
+        <Dashboard />
+      </Page>
+    </AppContainer>
+  );
+};
+
+const Dashboard = () => (
+  <>
+    <Header>
+      <Heading level={2} margin={{ vertical: 'small' }}>
+        Controls
+      </Heading>
+      <Button label="Manage" primary />
+    </Header>
+    <DashboardTiles />
+  </>
+);
+
 const DashboardTiles = () => {
   const size = useContext(ResponsiveContext);
+
   return (
     <Grid
       gap="medium"
       columns={size !== 'small' ? 'small' : 'auto'}
+      rows="small"
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
     >
-      {data.map(dashboardItem => (
-        <Box
-          round="small"
-          flex
-          fill
-          background={dashboardItem.color}
-          key={`Tile ${dashboardItem.title}`}
-          alignContent="center"
-          onClick={() => {}}
-        >
-          <Box
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            gap="medium"
-            fill
-            justify="between"
-            size="small"
-            direction="column"
-            align="start"
-          >
-            {dashboardItem.icon}
-            <Box gap="medium">
-              <Box>
-                <Text size="medium" weight="bold">
-                  {dashboardItem.title}
-                </Text>
-                <Text size="medium">{dashboardItem.subTitle}</Text>
-              </Box>
-            </Box>
-          </Box>
-          <Footer pad="small" background="background-contrast">
-            <Text size="xsmall">{dashboardItem.message}</Text>
-            {dashboardItem.message === 'Connected' && (
-              <Box round pad="xsmall" background="green" />
-            )}
-          </Footer>
-        </Box>
+      {dashboardItems.map(item => (
+        <Tile content={item} />
       ))}
     </Grid>
   );
 };
 
-const SidebarExample = ({ ...rest }) => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Sidebar
-      background="blue"
-      height={{ min: size !== 'small' ? '100%' : 'auto' }}
-      direction={size !== 'small' ? 'column' : 'row'}
-      pad={{
-        horizontal: size !== 'small' ? 'small' : 'medium',
-        vertical: size !== 'small' ? 'medium' : 'small',
-      }}
-      fill={size !== 'small' ? 'vertical' : 'horizontal'}
-      {...rest}
-    >
-      {size !== 'small' && (
-        <Avatar
-          margin={{ bottom: 'medium' }}
-          src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80"
-        />
-      )}
-      <Header
-        direction={size !== 'small' ? 'column' : 'row'}
-        flex={size !== 'small'}
-        gap="none"
-        justify={size === 'small' ? 'between' : undefined}
-      >
-        <Button a11yTitle="Clock" icon={<Clock color="text-xweak" />} />
-        <Button a11yTitle="Apps" icon={<Apps color="text-xweak" />} />
-        <Button a11yTitle="Terminal" icon={<Terminal color="text-xweak" />} />
-      </Header>
+const Tile = ({ content }) => {
+  const cornerSize = 'small';
 
-      {size !== 'small' && (
-        <Footer direction={size !== 'small' ? 'column' : 'row'}>
-          <Button a11yTitle="Chat" icon={<Chat color="text-xweak" />} />
-          <Button
-            a11yTitle="Help"
-            icon={<StatusUnknown color="text-xweak" />}
-          />
-        </Footer>
-      )}
-    </Sidebar>
-  );
-};
-
-const ScreenContainer = ({ ...rest }) => {
-  const size = useContext(ResponsiveContext);
   return (
     <Box
-      background="background-back"
-      width={size === 'small' ? 'medium' : '100%'}
-      height={size === 'small' ? { max: 'large' } : undefined}
-      style={{ position: 'relative' }}
+      round={cornerSize}
+      background={content.color}
+      key={`Tile ${content.title}`}
+      alignContent="center"
+      onClick={() => {}}
     >
-      <Box direction="row" fill>
-        {size !== 'small' && <SidebarExample />}
-        <Box
-          overflow="auto"
-          pad={{ horizontal: 'medium', bottom: 'medium' }}
-          flex
-          {...rest}
-        />
+      <Box
+        pad={{ horizontal: 'medium', vertical: 'small' }}
+        gap="medium"
+        flex
+        size="small"
+        direction="column"
+        align="start"
+      >
+        {content.icon}
+        <Box>
+          <Text size="medium" weight="bold">
+            {content.title}
+          </Text>
+          <Text size="medium">{content.subTitle}</Text>
+        </Box>
       </Box>
-      {size === 'small' && (
-        <SidebarExample style={{ position: 'absolute', bottom: 0, left: 0 }} />
-      )}
+      <Footer
+        pad="small"
+        background="background-contrast"
+        round={{ corner: 'bottom', size: cornerSize }}
+      >
+        <Text size="xsmall">{content.message}</Text>
+        {content.message === 'Connected' && (
+          <Box round pad="xsmall" background="green" />
+        )}
+      </Footer>
     </Box>
   );
 };
 
-const AppHeaderExample = () => (
-  <Header pad={{ vertical: 'small' }}>
-    <Button plain>
-      <Box
-        direction="row"
-        align="center"
-        gap="medium"
-        pad={{ vertical: 'small' }}
-        responsive={false}
-      >
-        <Hpe color="plain" />
-        <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium" color="text">
-            HPE
-          </Text>
-          <Text size="medium" color="text">
-            Server
-          </Text>
-        </Box>
+const Page = ({ children }) => {
+  return (
+    <Box flex overflow="auto">
+      <Box pad={{ horizontal: 'medium', bottom: 'large' }} flex="grow">
+        {children}
       </Box>
-    </Button>
+    </Box>
+  );
+};
+
+const AppSidebar = ({ ...rest }) => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <Sidebar
+      /* Sidebar should switch from column to row orientation 
+      when on smaller screens */
+      direction={size !== 'small' ? 'column' : 'row'}
+      /* Only display most critical navigation items in mobile 
+      contexts */
+      header={
+        size !== 'small' && (
+          <Avatar
+            margin={{ bottom: 'medium' }}
+            src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80"
+          />
+        )
+      }
+      footer={
+        size !== 'small' && (
+          <Box gap="medium">
+            <Button a11yTitle="Chat" icon={<Chat color="text-xweak" />} />
+            <Button
+              a11yTitle="Help"
+              icon={<StatusUnknown color="text-xweak" />}
+            />
+          </Box>
+        )
+      }
+      /* Min height is not needed in mobile contexts */
+      height={size !== 'small' ? { min: '100%' } : undefined}
+      align="center"
+      background="blue!"
+      pad={{
+        top: size !== 'small' ? 'medium' : 'small',
+        bottom: 'medium',
+        horizontal: size !== 'small' ? 'medium' : 'small',
+      }}
+      {...rest}
+    />
+  );
+};
+
+const NavItems = () => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <Nav direction={size !== 'small' ? 'column' : 'row'} justify="evenly">
+      <Button a11yTitle="Clock" icon={<Clock color="text-xweak" />} />
+      <Button a11yTitle="Apps" icon={<Apps color="text-xweak" />} active />
+      <Button a11yTitle="Terminal" icon={<Terminal color="text-xweak" />} />
+    </Nav>
+  );
+};
+
+const AppContainer = ({ ...rest }) => {
+  const size = React.useContext(ResponsiveContext);
+
+  return (
+    <Box
+      direction={size === 'small' ? 'column-reverse' : 'row'}
+      background="background-back"
+      height={size === 'small' ? { max: 'large' } : undefined}
+      width={size === 'small' ? 'medium' : '100%'}
+      {...rest}
+    />
+  );
+};
+
+const AppHeader = () => (
+  <Header fill="horizontal" height="xsmall">
+    <AppIdentity name="Server" />
     <Box direction="row" gap="small">
       <Menu
         label="Master Control"
@@ -226,28 +253,34 @@ const AppHeaderExample = () => (
   </Header>
 );
 
-const PageHeaderExample = ({ title }) => (
-  <Header>
-    <Heading margin={{ vertical: 'medium' }} size="small">
-      {title}
-    </Heading>
-    <Button label="Manage" primary />
-  </Header>
+const AppIdentity = ({ name }) => (
+  <Button plain>
+    <Box direction="row" align="center" gap="small">
+      <Hpe color="brand" />
+      <Box direction="row" gap="xsmall">
+        <Text color="text" weight="bold">
+          HPE
+        </Text>
+        <Text color="text">{name}</Text>
+      </Box>
+    </Box>
+  </Button>
 );
 
-export const DashboardExample = () => {
-  return (
-    <ScreenContainer>
-      <AppHeaderExample />
-      <PageHeaderExample title="Controls" />
-      <DashboardTiles />
-    </ScreenContainer>
-  );
+AppIdentity.propTypes = {
+  name: PropTypes.string,
 };
 
-ScreenContainer.propTypes = {
-  mobile: PropTypes.bool,
+Page.propTypes = {
+  children: PropTypes.element,
 };
-PageHeaderExample.propTypes = {
-  title: PropTypes.string,
+
+Tile.propTypes = {
+  content: PropTypes.shape({
+    color: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    icon: PropTypes.element,
+    message: PropTypes.string,
+    subTitle: PropTypes.string,
+    title: PropTypes.string,
+  }),
 };
