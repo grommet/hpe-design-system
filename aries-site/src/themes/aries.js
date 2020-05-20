@@ -3,13 +3,6 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  // To be removed after NEXT layer overlay PR is accepted on NEXT branch
-  // https://github.com/grommet/grommet-theme-hpe/pull/62
-  layer: {
-    overlay: {
-      background: '#00000080',
-    },
-  },
   rangeInput: {
     thumb: {
       color: {
