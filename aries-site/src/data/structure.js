@@ -90,6 +90,7 @@ export const structure = [
       'Hub and Spoke Navigation',
       'Lists',
       'Navigation',
+      'Page Layouts',
       'Persistent Navigation',
     ],
   },
@@ -813,24 +814,6 @@ export const structure = [
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
   },
-
-  {
-    name: 'Cards',
-    description:
-      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-cards.svg',
-          dark: '/templateImages/template-preview-cards-invert.svg',
-        },
-        alt: 'HPE Cards Preview',
-      },
-    },
-    seoDescription:
-      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    sections: [],
-  },
   {
     name: 'Navigation',
     description: 'The entry point for the expansive topic of Navigation.',
@@ -872,6 +855,31 @@ export const structure = [
       'Header',
       'Global Sidebar',
     ],
+    sections: [],
+  },
+  {
+    name: 'Page Layouts',
+    description: `Page layout options, anatomies, and behaviors serving a wide variety of enterprise application, 
+      workflow, and marketing contexts.`,
+    seoDescription:
+      'HPE Design System page layout options, anatomies, and behaviors.',
+    sections: [],
+  },
+  {
+    name: 'Cards',
+    description:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    seoDescription:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     sections: [],
   },
   {
