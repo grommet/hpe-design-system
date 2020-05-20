@@ -859,8 +859,10 @@ export const structure = [
   },
   {
     name: 'Page Layouts',
-    description: '',
-    seoDescription: '',
+    description: `Page layout options, anatomies, and behaviors serving a wide variety of enterprise application, 
+      workflow, and marketing contexts.`,
+    seoDescription:
+      'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [],
   },
   {
