@@ -2,6 +2,7 @@ export * from './anchor';
 export * from './box';
 export * from './button';
 export * from './checkbox';
+export * from './checkboxgroup';
 export * from './footer';
 export * from './grid';
 export * from './header';
