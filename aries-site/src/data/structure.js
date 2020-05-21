@@ -12,6 +12,7 @@ import {
   BoxPreview,
   ButtonPreview,
   CheckBoxPreview,
+  CheckBoxGroupPreview,
   FooterPreview,
   GridPreview,
   HeaderPreview,
@@ -117,6 +118,7 @@ export const structure = [
       'Box',
       'Button',
       'CheckBox',
+      'CheckBoxGroup',
       'Footer',
       'Grid',
       'Header',
@@ -254,6 +256,7 @@ export const structure = [
       'Button',
       'MaskedInput',
       'CheckBox',
+      'CheckBoxGroup',
       'RadioButtonGroup',
     ],
   },
@@ -611,7 +614,6 @@ export const structure = [
       'MaskedInput',
     ],
   },
-
   {
     name: 'CheckBox',
     description:
@@ -622,6 +624,23 @@ export const structure = [
     relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
+      background: 'background-front',
+    },
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
+  },
+  {
+    name: 'CheckBoxGroup',
+    description:
+      'When the user needs to select one or more options from a set of options, use a CheckBoxGroup.',
+    seoDescription:
+      'CheckBoxGroup component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
+    sections: [],
+    relatedContent: ['Forms', 'RadioButtonGroup', 'CheckBox', 'Select'],
+    preview: {
+      component: () => <CheckBoxGroupPreview />,
       background: 'background-front',
     },
     status: {
