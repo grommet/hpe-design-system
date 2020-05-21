@@ -36,8 +36,8 @@ const CheckBoxGroup = () => (
         <Example
           //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupSimpleExample.js"
-          figma="https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1745%3A43"
-          designer="https://designer.grommet.io/checkbox?id=HPE-design-system-hpedesignsystem-hpe-com"
+          figma="https://www.figma.com/file/zkQOQRUt8frxiSo67kTkfE/HPE-Checkbox-Group-Component?node-id=174%3A23"
+          designer="https://designer.grommet.io/checkboxgroup?id=HPE-design-system-hpedesignsystem-hpe-com"
         >
           <CheckBoxGroupSimpleExample />
         </Example>

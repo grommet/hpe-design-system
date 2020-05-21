@@ -11,6 +11,7 @@ export const CheckBoxGroupPreview = () => {
     >
       <CheckBoxGroup
         options={['Option 1', 'Option 2', 'Option 3']}
+        value={['Option 2']}
         name="checkboxgroup-preview"
         id="simple-checkboxgroup"
       />
