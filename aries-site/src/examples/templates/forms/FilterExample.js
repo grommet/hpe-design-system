@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Box,
-  CheckBox,
+  CheckBoxGroup,
   Form,
   FormField,
   Header,
@@ -32,11 +32,7 @@ const serverTypes = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -97,25 +93,13 @@ export const FilterExample = () => {
               />
             </FormField>
             {serverTypes && (
-              <FormField label="HPE Server Types">
-                <Box gap="small" pad="xsmall" round="xsmall">
-                  {serverTypes.map(server => {
-                    return (
-                      <CheckBox key={server} name={server} label={server} />
-                    );
-                  })}
-                </Box>
+              <FormField label="HPE Server Types" htmlFor="server-types">
+                <CheckBoxGroup options={serverTypes} id="server-types" />
               </FormField>
             )}
             {sellers && (
-              <FormField label="Seller">
-                <Box gap="small" pad="xsmall" round="xsmall">
-                  {sellers.map(seller => {
-                    return (
-                      <CheckBox key={seller} name={seller} label={seller} />
-                    );
-                  })}
-                </Box>
+              <FormField label="Seller" htmlFor="sellers">
+                <CheckBoxGroup options={sellers} id="sellers" />
               </FormField>
             )}
           </Form>
