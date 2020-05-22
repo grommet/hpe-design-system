@@ -69,21 +69,21 @@ const CheckBoxGroup = () => (
         <BulletedList
           level={3}
           items={[
-            `Always label CheckBoxGroups with short and concise labels.`,
+            'Always label CheckBoxGroups with short and concise labels.',
             `Give every CheckBox in the group a short, but descriptive 
               value.`,
             `Clearly separate Checkbox Groups from other groups on the same
               page.`,
             `Organize Checkboxes in a logical order by grouping related
               options.`,
-            `Consider placing most common options first in the group.`,
+            'Consider placing most common options first in the group.',
           ]}
         />
         <Text weight="bold">The don'ts for CheckBoxGroup:</Text>
         <BulletedList
           level={3}
           items={[
-            `Don’t align checkboxes horizontally in a group.`,
+            'Don’t align checkboxes horizontally in a group.',
             `Refrain from using CheckboxGroup when only one item can be 
               selected from a list.`,
           ]}
