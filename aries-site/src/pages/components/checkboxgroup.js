@@ -12,6 +12,7 @@ import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import {
   CheckBoxGroupDisabledExample,
   CheckBoxGroupDescriptionExample,
+  CheckBoxGroupObjectExample,
   CheckBoxGroupSimpleExample,
   CheckBoxGroupValidationExample,
 } from '../../examples/components/checkboxgroup';
@@ -105,7 +106,7 @@ const CheckBoxGroup = () => (
           be selected.
         </SubsectionText>
       </Subsection>
-      <Subsection name="CheckBox with Description" level={3}>
+      <Subsection name="With description" level={3}>
         <SubsectionText>
           Adding a description provides the user additional information about
           the context or purpose of the CheckBoxGroup.
@@ -129,6 +130,19 @@ const CheckBoxGroup = () => (
           height={{ min: 'small' }}
         >
           <CheckBoxGroupValidationExample />
+        </Example>
+      </Subsection>
+      <Subsection name="With options as array of objects" level={3}>
+        <SubsectionText>
+          CheckBoxGroup options are typically an array of strings, but they can
+          also be an array of objects.
+        </SubsectionText>
+        <Example
+          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupObjectExample.js"
+          height={{ min: 'small' }}
+        >
+          <CheckBoxGroupObjectExample />
         </Example>
       </Subsection>
       <Subsection name="Disabled" level={3}>
