@@ -86,8 +86,6 @@ const CheckBoxGroup = () => (
             `Don’t align checkboxes horizontally in a group.`,
             `Refrain from using CheckboxGroup when only one item can be 
               selected from a list.`,
-            `Organize checkboxes in a logical order by grouping related 
-              options.`,
           ]}
         />
       </Subsection>
@@ -102,10 +100,9 @@ const CheckBoxGroup = () => (
     <ContentSection>
       <Subsection name="Variants">
         <SubsectionText>
-          CheckBox can be used individually, within a group, or as a toggle. A
-          standalone or toggle checkbox indicates that a user is opting-in to
-          the context of the checkbox. Within a group, one or multiple
-          checkboxes can be selected.
+          CheckBoxGroup contains multiple checkboxes and has various states.
+          When enabled, CheckBoxGroup should always allow one or more options to
+          be selected.
         </SubsectionText>
       </Subsection>
       <Subsection name="CheckBox with Description" level={3}>
