@@ -22,6 +22,7 @@ export const CheckBoxGroupObjectExample = () => {
           options={objectOptions}
           name="checkboxgroup-objectoptions"
           id="objectoptions-checkboxgroup"
+          valueKey="val"
         />
       </FormField>
     </Form>
