@@ -13,7 +13,7 @@ const extend = Structure.from(extendArr);
 const foundation = Structure.from(foundationArr);
 const templates = Structure.from(templatesArr);
 
-export const structure = [
+const build = [
   {
     name: 'Home',
     seoDescription:
@@ -98,3 +98,5 @@ export const structure = [
   templates,
   extend,
 ].flat();
+
+export const structure = build;
