@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
-import { Layout, PageIntro } from '../../layouts';
+import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Components';
@@ -40,7 +40,19 @@ const Components = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cards} />
+      <ContentSection>
+        <Subsection name="Layouts">
+          <CardGrid cards={cards.filter(card => card.category === 'Layouts')} />
+        </Subsection>
+        <Subsection name="Controls">
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Controls')}
+          />
+        </Subsection>
+        <Subsection name="Inputs">
+          <CardGrid cards={cards.filter(card => card.category === 'Inputs')} />
+        </Subsection>
+      </ContentSection>
     </Box>
   </Layout>
 );
