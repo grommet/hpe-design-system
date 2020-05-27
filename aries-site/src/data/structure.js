@@ -138,7 +138,7 @@ export const structure = [
   },
   {
     name: 'Extend',
-    color: 'black',
+    color: 'text',
     description:
       'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
     icon: (size, color) => <IconExtend size={size} color={color} />,
