@@ -143,6 +143,7 @@ export const templates = [
       'Button',
       'MaskedInput',
       'CheckBox',
+      'CheckBoxGroup',
       'RadioButtonGroup',
     ],
   },
