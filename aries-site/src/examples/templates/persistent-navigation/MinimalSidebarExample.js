@@ -70,12 +70,11 @@ export const MinimalSidebarExample = () => {
   return (
     <AppContainer activeItem={activeItem}>
       <Sidebar
-        gridArea="sidebar"
         /* Sidebar should switch from column to row orientation 
-              when on smaller screens */
+        when on smaller screens */
         direction={size !== 'small' ? 'column' : 'row'}
         /* Only display most critical navigation items in mobile 
-              contexts */
+        contexts */
         header={size !== 'small' && <SidebarHeader />}
         /* Min height is not needed in mobile contexts */
         height={size !== 'small' ? { min: '100%' } : undefined}
@@ -89,11 +88,7 @@ export const MinimalSidebarExample = () => {
       >
         <MainNavigation activeItem={activeItem} setActiveItem={setActiveItem} />
       </Sidebar>
-      <PageContent
-        gridArea="pageContent"
-        activeItem={activeItem}
-        setActiveItem={setActiveItem}
-      />
+      <PageContent activeItem={activeItem} setActiveItem={setActiveItem} />
     </AppContainer>
   );
 };
@@ -158,28 +153,30 @@ const NavButton = ({ active, icon, name, ...rest }) => {
         onBlur={() => setHover(false)}
         {...rest}
       />
-      {/* Show tooltip on hover and focus states as a supplemental
+      {
+        /* Show tooltip on hover and focus states as a supplemental
       reminder to icon's meaning */
-      ref.current && hover && (
-        <Drop
-          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-          target={ref.current}
-          plain
-        >
-          <Box
-            animation={{ type: ['fadeIn', 'slideRight'] }}
-            elevation="small"
-            margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-            pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-            background="blue"
-            round="xsmall"
+        ref.current && hover && (
+          <Drop
+            align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
+            target={ref.current}
+            plain
           >
-            <Text size="small" color="text-strong">
-              {name}
-            </Text>
-          </Box>
-        </Drop>
-      )}
+            <Box
+              animation={{ type: ['fadeIn', 'slideRight'] }}
+              elevation="small"
+              margin={{ left: 'xsmall', vertical: 'xxsmall' }}
+              pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
+              background="blue"
+              round="xsmall"
+            >
+              <Text size="small" color="text-strong">
+                {name}
+              </Text>
+            </Box>
+          </Drop>
+        )
+      }
     </Box>
   );
 };

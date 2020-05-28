@@ -12,6 +12,7 @@ import {
   BoxPreview,
   ButtonPreview,
   CheckBoxPreview,
+  CheckBoxGroupPreview,
   FooterPreview,
   GridPreview,
   HeaderPreview,
@@ -90,6 +91,7 @@ export const structure = [
       'Hub and Spoke Navigation',
       'Lists',
       'Navigation',
+      'Page Layouts',
       'Persistent Navigation',
     ],
   },
@@ -116,6 +118,7 @@ export const structure = [
       'Box',
       'Button',
       'CheckBox',
+      'CheckBoxGroup',
       'Footer',
       'Grid',
       'Header',
@@ -135,7 +138,7 @@ export const structure = [
   },
   {
     name: 'Extend',
-    color: 'black',
+    color: 'text-strong',
     description:
       'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
     icon: (size, color) => <IconExtend size={size} color={color} />,
@@ -253,6 +256,7 @@ export const structure = [
       'Button',
       'MaskedInput',
       'CheckBox',
+      'CheckBoxGroup',
       'RadioButtonGroup',
     ],
   },
@@ -610,7 +614,6 @@ export const structure = [
       'MaskedInput',
     ],
   },
-
   {
     name: 'CheckBox',
     description:
@@ -621,6 +624,23 @@ export const structure = [
     relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
+      background: 'background-front',
+    },
+    status: {
+      figma: statuses.complete,
+      grommet: statuses.inProgress,
+    },
+  },
+  {
+    name: 'CheckBoxGroup',
+    description:
+      'When the user needs to select one or more options from a set of options, use a CheckBoxGroup.',
+    seoDescription:
+      'CheckBoxGroup component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
+    sections: [],
+    relatedContent: ['Forms', 'RadioButtonGroup', 'CheckBox', 'Select'],
+    preview: {
+      component: () => <CheckBoxGroupPreview />,
       background: 'background-front',
     },
     status: {
@@ -813,24 +833,6 @@ export const structure = [
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
   },
-
-  {
-    name: 'Cards',
-    description:
-      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-cards.svg',
-          dark: '/templateImages/template-preview-cards-invert.svg',
-        },
-        alt: 'HPE Cards Preview',
-      },
-    },
-    seoDescription:
-      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
-    sections: [],
-  },
   {
     name: 'Navigation',
     description: 'The entry point for the expansive topic of Navigation.',
@@ -872,6 +874,31 @@ export const structure = [
       'Header',
       'Global Sidebar',
     ],
+    sections: [],
+  },
+  {
+    name: 'Page Layouts',
+    description: `Page layout options, anatomies, and behaviors serving a wide variety of enterprise application, 
+      workflow, and marketing contexts.`,
+    seoDescription:
+      'HPE Design System page layout options, anatomies, and behaviors.',
+    sections: [],
+  },
+  {
+    name: 'Cards',
+    description:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    seoDescription:
+      'Flexible props allow the behavior of content to be defined to optimize the user experience.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
     sections: [],
   },
   {
