@@ -9,10 +9,7 @@ const allPageSections = structure
 export const getSearchSuggestions = allPages.concat(allPageSections).sort();
 
 export const formatName = name => {
-  return name
-    .split(' ')
-    .join('-')
-    .toLowerCase();
+  return name.split(' ').join('-').toLowerCase();
 };
 
 export const getPageDetails = pageName =>
