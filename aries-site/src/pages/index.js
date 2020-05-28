@@ -58,7 +58,7 @@ const Index = () => (
             Mix, match, and stack cards to change the game
           </Heading>
           <Paragraph size="large" fill>
-            The Design System was created to empower designers, developer, and
+            The Design System was created to empower designers, developers, and
             others to contribute in making great experiences for the customer.
             Pick your cards, then mix, match, and stack to see what experiences
             you can create.
