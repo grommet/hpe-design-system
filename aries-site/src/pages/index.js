@@ -8,6 +8,32 @@ import { getCards, getPageDetails } from '../utils';
 const title = 'Home';
 const pageDetails = getPageDetails(title);
 const cards = getCards();
+const featured = [
+  'Designer Guidance',
+  'Forms',
+  'Header',
+  'Human Centered',
+  'Developer Guidance',
+  'Button',
+  'Navigation',
+  'Icons',
+  'Search',
+  'Typography',
+];
+
+const featuredCards = [];
+const cardOrder = [];
+
+cards.forEach(card => {
+  if (featured.includes(card.name)) featuredCards.push(card);
+  else cardOrder.push(card);
+});
+
+featuredCards.sort(
+  (a, b) => featured.indexOf(a.name) - featured.indexOf(b.name),
+);
+
+cardOrder.splice(0, 0, ...featuredCards);
 
 const Index = () => (
   <Layout
@@ -39,7 +65,7 @@ const Index = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cards} />
+      <CardGrid cards={cardOrder} />
     </Box>
   </Layout>
 );
