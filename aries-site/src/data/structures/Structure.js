@@ -1,4 +1,4 @@
-/* Utility functions to support page manipulations */
+/* Functions to support page array manipulations */
 
 export class Structure extends Array {
   sortByAvailability() {
