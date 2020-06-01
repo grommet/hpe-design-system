@@ -18,7 +18,7 @@ export const foundation = [
           light: '/foundationImages/foundation-preview-accessibility.svg',
           dark: '/foundationImages/foundation-preview-accessibility-invert.svg',
         },
-        alt: 'HPE Color Preview',
+        alt: 'HPE Accessibility Preview',
       },
     },
     seoDescription: `Accessibility will be an important part of guidance 
