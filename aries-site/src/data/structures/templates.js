@@ -22,6 +22,16 @@ export const templates = [
     name: 'Navigation',
     available: true,
     description: 'The entry point for the expansive topic of Navigation.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-navigation.svg',
+          dark: '/templateImages/template-preview-navigation-invert.svg',
+        },
+        alt: 'HPE Lists Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: [],
