@@ -144,10 +144,6 @@ export const components = [
       component: () => <CheckBoxPreview />,
       background: 'background-front',
     },
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'CheckBoxGroup',
@@ -161,10 +157,6 @@ export const components = [
     preview: {
       component: () => <CheckBoxGroupPreview />,
       background: 'background-front',
-    },
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
     },
   },
   {
