@@ -12,6 +12,15 @@ export const foundation = [
     cardOrder: 2,
     description: `Accessibility will be an important part of guidance 
     in using our components.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-accessibility.svg',
+          dark: '/foundationImages/foundation-preview-accessibility-invert.svg',
+        },
+        alt: 'HPE Accessibility Preview',
+      },
+    },
     seoDescription: `Accessibility will be an important part of guidance 
     in using our components.`,
     sections: [],

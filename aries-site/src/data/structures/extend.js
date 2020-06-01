@@ -35,6 +35,15 @@ export const extend = [
     available: true,
     description:
       'Starter files, patterns, interactions, and workflows on how to succeed using the design resources from HPE Design System and the HPE Brand.',
+    preview: {
+      image: {
+        src: {
+          dark: '/extendImages/extend-preview-designer-guidance-invert.svg',
+          light: '/extendImages/extend-preview-designer-guidance.svg',
+        },
+        alt: 'HPE Designer Guidance Preview',
+      },
+    },
     seoDescription:
       'View patterns, interactions, and other best practices for how to succeed using resources included with the HPE Design System.',
     sections: [
@@ -51,6 +60,12 @@ export const extend = [
     available: true,
     description:
       'Resources for setting up your application with the HPE Design System library and HPE theme.',
+    preview: {
+      image: {
+        src: '/extendImages/extend-preview-developer-guidance.svg',
+        alt: 'HPE Developer Guidance Preview',
+      },
+    },
     seoDescription:
       'Resources for setting up your application with the HPE Design System library and HPE theme.',
     sections: [
