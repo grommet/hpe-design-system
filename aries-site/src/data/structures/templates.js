@@ -157,4 +157,12 @@ export const templates = [
       'RadioButtonGroup',
     ],
   },
+  {
+    name: 'Tables',
+    available: false,
+    description: 'Common table use cases.',
+    seoDescription: 'HPE Design System table examples and templates.',
+    sections: [],
+    relatedContent: [],
+  },
 ];
