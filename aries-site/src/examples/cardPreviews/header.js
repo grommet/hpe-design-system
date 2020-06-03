@@ -10,7 +10,7 @@ export const HeaderPreview = () => {
       fill="horizontal"
     >
       <Box direction="row">
-        <Button icon={<Hpe color="brand" />} />
+        <Button icon={<Hpe color="brand" />} tabIndex={-1} />
         <Box gap="xsmall" direction="row">
           <Text weight="bold" alignSelf="center">
             {' '}
@@ -19,7 +19,7 @@ export const HeaderPreview = () => {
           <Text alignSelf="center"> Text</Text>
         </Box>
       </Box>
-      <Button icon={<Menu />} />
+      <Button icon={<Menu />} tabIndex={-1} />
     </Header>
   );
 };

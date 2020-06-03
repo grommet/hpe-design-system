@@ -4,7 +4,7 @@ import { Box, Menu } from 'grommet';
 export const MenuPreview = () => {
   return (
     <Box round="xsmall">
-      <Menu label="Menu" width="medium" />
+      <Menu label="Menu" width="medium" tabIndex={-1} />
     </Box>
   );
 };

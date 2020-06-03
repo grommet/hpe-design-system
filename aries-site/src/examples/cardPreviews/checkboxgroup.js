@@ -9,9 +9,14 @@ export const CheckBoxGroupPreview = () => {
         fill="horizontal"
         htmlFor="preview-checkboxgroup"
         label="Label"
+        tabIndex={-1}
       >
         <CheckBoxGroup
-          options={['Option 1', 'Option 2', 'Option 3']}
+          options={[
+            { label: 'Option 1', tabIndex: -1 },
+            { label: 'Option 2', tabIndex: -1 },
+            { label: 'Option 3', tabIndex: -1 },
+          ]}
           value={['Option 2']}
           name="checkboxgroup-preview"
           id="simple-checkboxgroup"
