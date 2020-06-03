@@ -165,4 +165,13 @@ export const templates = [
     sections: [],
     relatedContent: [],
   },
+  {
+    name: 'Notifications',
+    available: false,
+    description: `Notifications are a helpful way to notify a user of changes 
+    to application state or to prompt action from a user.`,
+    seoDescription: 'HPE Design System notification examples and templates.',
+    sections: [],
+    relatedContent: [],
+  },
 ];
