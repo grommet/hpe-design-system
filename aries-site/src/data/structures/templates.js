@@ -49,6 +49,15 @@ export const templates = [
     description: `A navigation pattern promoting focused execution through 
     a central "hub" from which all activities begin and "spokes" on which 
     more focused tasks are accomplished.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-hubnspoke.svg',
+          dark: '/templateImages/template-preview-hubnspoke-invert.svg',
+        },
+        alt: 'HPE Peristent Navigation Preview',
+      },
+    },
     seoDescription: `Hub and spoke navigation pattern. What, why, and when 
     to use the Hub & Spoke pattern for navigation.`,
     relatedContent: [
@@ -65,6 +74,15 @@ export const templates = [
     available: true,
     description: `Navigation choices which persist throughout the application
     structure, presenting consistent, easy to click-through choices.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Peristent Navigation Preview',
+      },
+    },
     seoDescription: `Persistent navigation pattern. What, why, and when to use 
     persistent navigation.`,
     relatedContent: [
