@@ -18,6 +18,7 @@ export const MaskedInputPreview = () => {
           placeholder: 'ap',
         },
       ]}
+      tabIndex={-1}
     />
   );
 };
