@@ -55,7 +55,7 @@ export const templates = [
           light: '/templateImages/template-preview-hubnspoke.svg',
           dark: '/templateImages/template-preview-hubnspoke-invert.svg',
         },
-        alt: 'HPE Peristent Navigation Preview',
+        alt: 'HPE Hub and Spoke Navigation Preview',
       },
     },
     seoDescription: `Hub and spoke navigation pattern. What, why, and when 
