@@ -86,7 +86,7 @@ export const templates = [
           light: '/templateImages/template-preview-pagelayout.svg',
           dark: '/templateImages/template-preview-pagelayout-invert.svg',
         },
-        alt: 'HPE Navigation Preview',
+        alt: 'HPE Page Layouts Preview',
         fit: 'contain',
       },
     },

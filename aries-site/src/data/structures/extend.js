@@ -157,7 +157,7 @@ export const extend = [
           dark: '/extendImages/extend-preview-router-invert.svg',
           light: '/extendImages/extend-preview-router.svg',
         },
-        alt: 'HPE Images Preview',
+        alt: 'HPE React Router Preview',
       },
     },
     seoDescription:
