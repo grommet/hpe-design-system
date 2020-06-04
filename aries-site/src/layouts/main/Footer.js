@@ -1,8 +1,14 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Box, Footer as GrommetFooter, ResponsiveContext, Text } from 'grommet';
-import { ThemeModeToggle, NavButton } from '../../components';
+import {
+  Box,
+  Button,
+  Footer as GrommetFooter,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
+import { ThemeModeToggle } from '../../components';
 import { nameToPath } from '../../utils';
 
 export const Footer = () => {
@@ -39,8 +45,8 @@ export const Footer = () => {
           {externalFooterLinks.map(item => (
             <Box key={item.name} align="start">
               <Link href={item.href} passHref>
-                <NavButton
-                  item={item.name}
+                <Button
+                  label={item.name}
                   active={router.pathname === item.href}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -52,7 +58,7 @@ export const Footer = () => {
         https://github.com/zeit/next.js/#forcing-the-link-to-expose-href-to-its-child */}
           <Box align="start">
             <Link prefetch={false} href={nameToPath('Feedback')} passHref>
-              <NavButton item="Feedback" />
+              <Button label="Feedback" />
             </Link>
           </Box>
         </Box>

@@ -69,11 +69,7 @@ export const Search = ({ focused, setFocused }) => {
   return (
     <>
       {!focused && size === 'small' && (
-        <Button
-          icon={<SearchIcon />}
-          hoverIndicator
-          onClick={() => setFocused(true)}
-        />
+        <Button icon={<SearchIcon />} onClick={() => setFocused(true)} />
       )}
       {(focused || size !== 'small') && (
         <Box background="background-contrast" round="xsmall" width="medium">

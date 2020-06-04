@@ -17,6 +17,7 @@ export const TextInputPreview = () => {
           id="focus-id"
           name="focus"
           placeholder="Enter a username"
+          tabIndex={-1}
         />
       </FormField>
     </Form>

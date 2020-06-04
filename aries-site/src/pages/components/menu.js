@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor, Text } from 'grommet';
 
-import { CardGrid, Meta, SubsectionText } from '../../components';
+import { CardGrid, Meta, Status, SubsectionText } from '../../components';
 import {
   MenuExample,
   MenuDisabledExample,
@@ -27,6 +27,7 @@ const Menu = () => {
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>{page.description}</SubsectionText>
+          {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/menu/MenuExample.js"
             designer="https://designer.grommet.io/menu?id=HPE-design-system-hpedesignsystem-hpe-com"

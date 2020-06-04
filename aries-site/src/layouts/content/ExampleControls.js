@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button } from 'grommet';
 import { Document, Expand, Grommet, Figma } from 'grommet-icons';
 
 const ControlButton = ({ children, ...rest }) => (
@@ -41,28 +41,35 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
   >
     <Box direction="row-responsive" gap="small">
       {designer && (
-        <ControlButton href={designer} target="_blank">
-          <Grommet color="plain" />
-          <Text weight="bold">Open in Grommet</Text>
-        </ControlButton>
+        <Button
+          href={designer}
+          icon={<Grommet color="plain" />}
+          label="Open in Grommet"
+          target="_blank"
+        />
       )}
       {figma && (
-        <ControlButton href={figma} target="_blank">
-          <Figma color="plain" />
-          <Text weight="bold">Open in Figma</Text>
-        </ControlButton>
+        <Button
+          href={figma}
+          icon={<Figma color="plain" />}
+          label="Open in Figma"
+          target="_blank"
+        />
       )}
       {docs && (
-        <ControlButton href={docs} target="_blank">
-          <Document />
-          <Text weight="bold">Open docs</Text>
-        </ControlButton>
+        <Button
+          href={figma}
+          icon={<Document />}
+          label="Open docs"
+          target="_blank"
+        />
       )}
     </Box>
-    <ControlButton onClick={() => setShowLayer(true)}>
-      <Expand />
-      <Text weight="bold">See Fullscreen</Text>
-    </ControlButton>
+    <Button
+      icon={<Expand />}
+      label="See Fullscreen"
+      onClick={() => setShowLayer(true)}
+    />
   </Box>
 );
 

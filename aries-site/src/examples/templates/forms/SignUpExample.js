@@ -13,8 +13,80 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
-import { emailMask, emailValidation, passwordRulesStrong } from './formHelpers';
+const emailValidation = [
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
+    message: 'Missing an @?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: 'Missing an .?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: "Email address doesn't look quite right",
+    status: 'error',
+  },
+];
+
+const passwordRulesStrong = [
+  {
+    regexp: new RegExp('(?=.*?[A-Z])'),
+    message: 'At least one uppercase English letter',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[a-z])'),
+    message: 'At least one lowercase English letter',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[0-9])'),
+    message: 'At least one number',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
+    message: 'At least one special character or space',
+    status: 'error',
+  },
+  {
+    regexp: new RegExp('.{8,}'),
+    message: 'At least eight characters',
+    status: 'error',
+  },
+];
+
+const emailMask = [
+  {
+    regexp: /^[\w\-_.]+$/,
+    placeholder: 'jane.smith',
+  },
+  { fixed: '@' },
+  {
+    regexp: /^[\w]+$/,
+    placeholder: 'hpe',
+  },
+  { fixed: '.' },
+  {
+    regexp: /^[\w]+$/,
+    placeholder: 'com',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -90,29 +162,30 @@ export const SignUpExample = () => {
                 type="password"
               />
             </FormField>
-            <CheckBox
-              name="termsAndPrivacy"
-              label={
-                <Text>
-                  I accept the HPE{' '}
-                  <Anchor
-                    label="Terms of Use"
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    color="blue!"
-                  />{' '}
-                  and{' '}
-                  <Anchor
-                    label="Privacy Policy"
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    color="blue!"
-                  />
-                </Text>
-              }
-            />
+            <FormField htmlFor="terms-and-privacy">
+              <CheckBox
+                id="terms-and-privacy"
+                name="termsAndPrivacy"
+                label={
+                  <Text>
+                    I accept the HPE{' '}
+                    <Anchor
+                      label="Terms of Use"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    />{' '}
+                    and{' '}
+                    <Anchor
+                      label="Privacy Policy"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    />
+                  </Text>
+                }
+              />
+            </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Sign up" primary type="submit" />
             </Box>

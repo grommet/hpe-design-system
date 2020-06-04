@@ -1,17 +1,14 @@
 import React from 'react';
 import {
   Box,
-  CheckBox,
+  CheckBoxGroup,
   Form,
   FormField,
   Header,
   Heading,
   Select,
-  Text,
   TextInput,
 } from 'grommet';
-
-import { FormContainer } from '.';
 
 const locationTypes = [
   'All Locations',
@@ -31,6 +28,14 @@ const serverTypes = [
   'Hyper Converged Systems',
   'Blade Infrastructure',
 ];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
+    </Box>
+  );
+};
 
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -88,32 +93,14 @@ export const FilterExample = () => {
               />
             </FormField>
             {serverTypes && (
-              <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text color="text-weak" size="xsmall">
-                  HPE Server Types
-                </Text>
-                <Box border gap="small" pad="xsmall" round="xsmall">
-                  {serverTypes.map(server => {
-                    return (
-                      <CheckBox key={server} name={server} label={server} />
-                    );
-                  })}
-                </Box>
-              </Box>
+              <FormField label="HPE Server Types" htmlFor="server-types">
+                <CheckBoxGroup options={serverTypes} id="server-types" />
+              </FormField>
             )}
             {sellers && (
-              <Box gap="xsmall" margin={{ top: 'medium' }}>
-                <Text color="text-weak" size="xsmall">
-                  Seller
-                </Text>
-                <Box border gap="small" pad="xsmall" round="xsmall">
-                  {sellers.map(seller => {
-                    return (
-                      <CheckBox key={seller} name={seller} label={seller} />
-                    );
-                  })}
-                </Box>
-              </Box>
+              <FormField label="Seller" htmlFor="sellers">
+                <CheckBoxGroup options={sellers} id="sellers" />
+              </FormField>
             )}
           </Form>
         </Box>

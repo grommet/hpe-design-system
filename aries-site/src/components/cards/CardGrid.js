@@ -21,7 +21,11 @@ export const CardGrid = ({ cards, ...rest }) => {
         cards.map(topic => (
           <Link key={topic.name} href={nameToPath(topic.name)} passHref>
             <ContentCard
-              as="a"
+              /* forwardedAs maintains styling provided by Higher Order 
+              Components. Styled-Components 4.3.0 docs: https://styled-components.com/docs/api#forwardedas-prop
+              https://github.com/styled-components/styled-components/issues/1981#issuecomment-548860710
+              */
+              forwardedAs="a"
               style={{ textDecoration: 'none' }}
               topic={topic}
             />

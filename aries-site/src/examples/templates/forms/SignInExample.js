@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Anchor,
   Box,
   Button,
   CheckBox,
@@ -12,10 +13,37 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, Next } from 'grommet-icons';
+import { Close, FormNext } from 'grommet-icons';
 
-import { FormContainer } from '.';
-import { emailValidation } from './formHelpers';
+const emailValidation = [
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
+    message: 'Missing an @?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: 'Missing an .?',
+    status: 'info',
+  },
+  {
+    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
+    message: "Email address doesn't look quite right",
+    status: 'error',
+  },
+];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
@@ -146,11 +174,17 @@ export const SignInExample = () => {
                 type="password"
               />
             </FormField>
-            <CheckBox name="termsAndPrivacy" label="Remember me" />
+            <FormField htmlFor="remember-me">
+              <CheckBox
+                id="remember-me"
+                name="rememberMe"
+                label="Remember me"
+              />
+            </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
                 label="Sign in"
-                icon={<Next />}
+                icon={<FormNext />}
                 reverse
                 primary
                 type="submit"
@@ -158,16 +192,7 @@ export const SignInExample = () => {
             </Box>
           </Form>
           <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-            <Button
-              label={
-                <Text weight={600} style={{ textDecoration: 'underline' }}>
-                  Forgot Password?
-                </Text>
-              }
-              onClick={onForgotPassword}
-              color="brand"
-              plain
-            />
+            <Anchor label="Forgot password?" onClick={onForgotPassword} />
             {showForgotPassword && (
               <Layer modal onClickOutside={onClose} onEsc={onClose}>
                 <ResetPassword

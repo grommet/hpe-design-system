@@ -22,8 +22,12 @@ export const repeatKeyPress = ClientFunction((key, number) => {
 
 // find how many tabs it takes to reach desired element
 export const getTabCount = ClientFunction(expectedPath => {
-  const tabbableElements = document.querySelectorAll(`button, body [href], 
-  input, select, textarea, [tabindex]:not([tabindex="-1"])`);
+  const tabbableElements = document.querySelectorAll(`
+    button[tabindex]:not([tabindex="-1"]), button[id="search-button"], 
+    input[tabindex]:not([tabindex="-1"]), body [href], 
+    input[tabindex]:not([tabindex="-1"]), 
+    select[tabindex]:not([tabindex="-1"]), 
+    textarea[tabindex]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])`);
 
   let hrefIndex;
   for (let i = 0; i < tabbableElements.length; i += 1) {
@@ -38,8 +42,12 @@ export const getTabCount = ClientFunction(expectedPath => {
 });
 
 export const tabToSearch = ClientFunction(() => {
-  const tabbableElements = document.querySelectorAll(`button, body [href], 
-  input, select, textarea, [tabindex]:not([tabindex="-1"])`);
+  const tabbableElements = document.querySelectorAll(`
+  button[tabindex]:not([tabindex="-1"]), button[id="search-button"], 
+    input[tabindex]:not([tabindex="-1"]), body [href], 
+    input[tabindex]:not([tabindex="-1"]), 
+    select[tabindex]:not([tabindex="-1"]), 
+    textarea[tabindex]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])`);
 
   let tabCount;
   for (let i = 0; i < tabbableElements.length; i += 1) {

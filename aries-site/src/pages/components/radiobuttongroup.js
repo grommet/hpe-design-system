@@ -1,7 +1,13 @@
 import React from 'react';
 import { Anchor, Box, Text } from 'grommet';
 
-import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import {
+  BulletedList,
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+} from '../../components';
 import {
   RadioButtonGroupDisabledExample,
   RadioButtonGroupExample,
@@ -26,6 +32,7 @@ const RadioButtonGroup = () => {
       <ContentSection>
         <Subsection name={title} level={1} topic={topic}>
           <SubsectionText>{page.description}</SubsectionText>
+          {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
             docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"

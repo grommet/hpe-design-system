@@ -12,7 +12,17 @@ import {
   TextInput,
 } from 'grommet';
 
-import { FormContainer } from '.';
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const SettingsExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -50,17 +60,18 @@ export const SettingsExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box margin={{ bottom: 'small' }}>
-              <Text color="text-weak" size="xsmall">
-                Key feature
-              </Text>
               <FormField
                 name="notifications"
-                label="Notifications"
-                component={CheckBox}
-                reverse
+                label="Key feature"
                 help="Description of feature"
-                toggle
-              />
+              >
+                <CheckBox
+                  name="notifications"
+                  label="Notifications"
+                  toggle
+                  reverse
+                />
+              </FormField>
               <FormField
                 htmlFor="notificationsVolume"
                 name="notificationsVolume"
@@ -77,17 +88,18 @@ export const SettingsExample = () => {
               </FormField>
             </Box>
             <Box margin={{ bottom: 'small' }}>
-              <Text color="text-weak" size="xsmall">
-                Key feature
-              </Text>
               <FormField
                 name="doNotDisturb"
-                label="Do Not Disturb"
-                component={CheckBox}
+                label="Key Feature"
                 help="Description of feature"
-                reverse
-                toggle
-              />
+              >
+                <CheckBox
+                  name="doNotDisturb"
+                  label="Do Not Disturb"
+                  reverse
+                  toggle
+                />
+              </FormField>
               <FormField htmlFor="doNotDisturbHours" name="doNotDisturbHours">
                 <TextInput
                   id="doNotDisturbHours"

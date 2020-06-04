@@ -51,29 +51,6 @@ export const aries = deepMerge(hpe, {
     },
     // size: undefined,
   },
-  checkBox: {
-    toggle: {
-      extend: ({ checked, theme }) => `
-          border: none;
-          ${checked && `background-color: ${normalizeColor('brand', theme)};`}
-      `,
-      knob: {
-        extend: ({ theme }) => `
-          border: 2px solid ${
-            theme.global.colors.text[theme.dark ? 'dark' : 'light']
-          };
-          top: 0px;
-        `,
-      },
-    },
-  },
-  // To be removed after NEXT layer overlay PR is accepted on NEXT branch
-  // https://github.com/grommet/grommet-theme-hpe/pull/62
-  layer: {
-    overlay: {
-      background: '#00000080',
-    },
-  },
   rangeInput: {
     thumb: {
       color: {
