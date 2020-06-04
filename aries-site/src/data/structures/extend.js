@@ -151,6 +151,15 @@ export const extend = [
     available: false,
     description:
       'A collection of navigational components that compose declaratively with your application.',
+    preview: {
+      image: {
+        src: {
+          dark: '/extendImages/extend-preview-router-invert.svg',
+          light: '/extendImages/extend-preview-router.svg',
+        },
+        alt: 'HPE React Router Preview',
+      },
+    },
     seoDescription:
       'A collection of navigational components that compose declaratively with your application.',
   },

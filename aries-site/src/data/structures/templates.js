@@ -98,6 +98,16 @@ export const templates = [
     available: false,
     description: `Page layout options, anatomies, and behaviors serving a wide 
     variety of enterprise application, workflow, and marketing contexts.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-pagelayout.svg',
+          dark: '/templateImages/template-preview-pagelayout-invert.svg',
+        },
+        alt: 'HPE Page Layouts Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [],
