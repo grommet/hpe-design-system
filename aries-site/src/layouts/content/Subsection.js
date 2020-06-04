@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Button, Header } from 'grommet';
+import { Anchor, Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 import { getPageDetails } from '../../utils';
@@ -46,14 +46,21 @@ export const Subsection = ({
     return undefined;
   });
 
-  const remainingChildren = React.Children.map(children, (child, index) => {
-    if (index === 0) {
-      return undefined;
-    }
-    return React.cloneElement(child, {
-      level,
-    });
-  });
+  // need to filter out children equal to null that occurs if a page
+  // doesn't have any status
+  const filteredChildren = React.Children.toArray(children).filter(o => o);
+
+  const remainingChildren = React.Children.map(
+    filteredChildren,
+    (child, index) => {
+      if (index === 0) {
+        return undefined;
+      }
+      return React.cloneElement(child, {
+        level,
+      });
+    },
+  );
 
   return (
     <Box
@@ -80,10 +87,10 @@ export const Subsection = ({
               {level === 1 && topic && (
                 <Link href={`/${topic.toLowerCase()}`} passHref>
                   <Button
-                    label={parent.name}
+                    label={<Text color="text">{parent.name}</Text>}
                     icon={parent.icon('small', parent.color)}
-                    {...rest}
                     plain
+                    {...rest}
                   />
                 </Link>
               )}

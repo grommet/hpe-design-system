@@ -19,7 +19,7 @@ export const AppIdentity = forwardRef(
     const textSize = 'medium';
 
     return (
-      <Button href={href} ref={ref} {...rest}>
+      <Button href={href} ref={ref} {...rest} plain>
         <Box
           direction="row"
           align="center"
@@ -32,10 +32,12 @@ export const AppIdentity = forwardRef(
           {brand && brands[brand].logo}
           {!logoOnly && (
             <Box direction="row" gap="xsmall">
-              <Text weight="bold" size={textSize}>
+              <Text weight="bold" size={textSize} color="text">
                 {brands[brand].name}
               </Text>
-              <Text size={textSize}>{title}</Text>
+              <Text size={textSize} color="text">
+                {title}
+              </Text>
             </Box>
           )}
         </Box>

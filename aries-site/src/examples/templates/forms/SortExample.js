@@ -9,9 +9,19 @@ import {
   Select,
 } from 'grommet';
 
-import { FormContainer } from '.';
-
 const sortFeatures = ['Featured', 'Price', 'Users'];
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const SortExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -54,7 +64,12 @@ export const SortExample = () => {
                 placeholder="-- Select --"
               />
             </FormField>
-            <FormField htmlFor="sortOrder" name="sortOrder" label="Sort order">
+            <FormField
+              htmlFor="sortOrder"
+              name="sortOrder"
+              label="Sort order"
+              help="Select how results are ordered"
+            >
               <RadioButtonGroup
                 id="sortOrder"
                 name="sortOrder"

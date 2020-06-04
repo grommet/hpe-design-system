@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import { Box, Main, ResponsiveContext, Stack } from 'grommet';
-import { Header, Head, FeedbackSection, Footer, ThemeMode } from '..';
+import { Header, Head, FeedbackSection, Footer } from '..';
 import { PageBackground } from '../../components';
 import { Config } from '../../../config';
 
@@ -20,44 +20,42 @@ export const Layout = ({ backgroundImage, children, title, isLanding }) => {
   }, []);
 
   return (
-    <ThemeMode>
-      <ResponsiveContext.Consumer>
-        {size => (
-          // When a backgroundImage is present, the main page content becomes
-          // the `last` child. We want this content to drive the layout.
-          // For details on this prop, see here: https://v2.grommet.io/stack#guidingChild
-          <Stack fill guidingChild={backgroundImage && 'last'}>
-            {backgroundImage && (
-              <PageBackground backgroundImage={backgroundImage} />
-            )}
-            <Box
-              height={{ min: '100vh' }}
-              margin="auto"
-              width={{ max: 'xxlarge' }}
-            >
-              <Head title={title} />
-              <>
-                <Header />
-                <Main overflow="visible">
-                  {/* aligns with responsive padding for aries-core Nav */}
-                  <Box
-                    pad={{
-                      horizontal: calcPad(size),
-                      bottom: calcPad(size),
-                      top: 'medium',
-                    }}
-                  >
-                    {children}
-                    {!isLanding && <FeedbackSection />}
-                  </Box>
-                </Main>
-                <Footer />
-              </>
-            </Box>
-          </Stack>
-        )}
-      </ResponsiveContext.Consumer>
-    </ThemeMode>
+    <ResponsiveContext.Consumer>
+      {size => (
+        // When a backgroundImage is present, the main page content becomes
+        // the `last` child. We want this content to drive the layout.
+        // For details on this prop, see here: https://v2.grommet.io/stack#guidingChild
+        <Stack fill guidingChild={backgroundImage && 'last'}>
+          {backgroundImage && (
+            <PageBackground backgroundImage={backgroundImage} />
+          )}
+          <Box
+            height={{ min: '100vh' }}
+            margin="auto"
+            width={{ max: 'xxlarge' }}
+          >
+            <Head title={title} />
+            <>
+              <Header />
+              <Main overflow="visible">
+                {/* aligns with responsive padding for aries-core Nav */}
+                <Box
+                  pad={{
+                    horizontal: calcPad(size),
+                    bottom: calcPad(size),
+                    top: 'medium',
+                  }}
+                >
+                  {children}
+                  {!isLanding && <FeedbackSection />}
+                </Box>
+              </Main>
+              <Footer />
+            </>
+          </Box>
+        </Stack>
+      )}
+    </ResponsiveContext.Consumer>
   );
 };
 

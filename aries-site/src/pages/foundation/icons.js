@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Anchor, Button } from 'grommet';
-import { Meta, SubsectionText } from '../../components';
+import { Meta, Status, SubsectionText } from '../../components';
 import {
   ButtonRow,
   Layout,
@@ -45,6 +45,7 @@ const Icons = () => {
             may be beneficial to pair icons with text to ensure the use of the
             icon is properly understood.
           </SubsectionText>
+          {pageDetails.status && <Status status={pageDetails.status} />}
         </Subsection>
         <ButtonRow>
           <Button

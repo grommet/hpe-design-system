@@ -1,15 +1,22 @@
 import React from 'react';
 import { Anchor } from 'grommet';
 
-import { BulletedList, CardGrid, Meta, SubsectionText } from '../../components';
+import {
+  BulletedList,
+  CardGrid,
+  Meta,
+  Status,
+  SubsectionText,
+} from '../../components';
 import {
   ButtonExample,
   ButtonIconExample,
   ButtonSizingExample,
   ButtonStatesExample,
   ColorButtonExample,
+  DefaultButtonExample,
   PrimaryButtonExample,
-  SimpleButtonExample,
+  SecondaryButtonExample,
 } from '../../examples';
 import { ContentSection, Layout, Subsection, Example } from '../../layouts';
 import { getPageDetails, getRelatedContent } from '../../utils';
@@ -28,9 +35,8 @@ const Button = () => (
     />
     <ContentSection>
       <Subsection name={title} level={1} topic={topic}>
-        <SubsectionText>
-          Buttons are used to indicate actions that can be performed.
-        </SubsectionText>
+        <SubsectionText>{page.description}</SubsectionText>
+        {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonExample.js"
@@ -126,6 +132,39 @@ const Button = () => (
           <PrimaryButtonExample />
         </Example>
       </Subsection>
+      <Subsection name="Secondary Button" level={3}>
+        <SubsectionText>
+          Secondary buttons are used to represent calls to action that are
+          either in support of the primary call to action or stand-alone. There
+          can be multiple secondary buttons per page. However, a{' '}
+          <Anchor label="default button" href="#default-button" /> should be
+          used for any navigation-type actions.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/SecondaryButtonExample.js"
+          height={{ min: 'small' }}
+        >
+          <SecondaryButtonExample />
+        </Example>
+      </Subsection>
+      <Subsection name="Default Button" level={3}>
+        <SubsectionText>
+          This is the default appreance and behavior of button. The majority of
+          buttons on your page should use this form of button. If you are
+          designating a primary call to action, use a{' '}
+          <Anchor href="#primary-button" label="primary button" />. If you are
+          designating a secondary call to action, use a{' '}
+          <Anchor href="#secondary-button" label="secondary button" />.
+        </SubsectionText>
+        <Example
+          docs="https://v2.grommet.io/button?theme=hpe#props"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/DefaultButtonExample.js"
+          height={{ min: 'small' }}
+        >
+          <DefaultButtonExample />
+        </Example>
+      </Subsection>
       <Subsection name="Color Button" level={3}>
         <SubsectionText>
           When looking to accent an interaction or for special use cases that
@@ -140,21 +179,6 @@ const Button = () => (
           height={{ min: 'small' }}
         >
           <ColorButtonExample />
-        </Example>
-      </Subsection>
-      <Subsection name="Simple Button" level={3}>
-        <SubsectionText>
-          Simple button is used when you want the action to blend into the
-          content. All the states, styles, and behaviors are persisted in the
-          Simple Button, but without the chrome for time when the content-first
-          approach is required.
-        </SubsectionText>
-        <Example
-          docs="https://v2.grommet.io/button?theme=hpe#props"
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/SimpleButtonExample.js"
-          height={{ min: 'small' }}
-        >
-          <SimpleButtonExample />
         </Example>
       </Subsection>
       <Subsection name="Button with Icon" level={3}>
@@ -189,7 +213,7 @@ const Button = () => (
       <Subsection name="Button Sizes" level={3}>
         <SubsectionText>
           Button label text size may be specified. Padding and rounding scale
-          proportionately to the label size.
+          proportionately to the label size. The default size is medium.
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"

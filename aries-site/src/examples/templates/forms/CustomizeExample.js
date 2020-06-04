@@ -10,7 +10,18 @@ import {
   RadioButtonGroup,
   Text,
 } from 'grommet';
-import { FormContainer } from '.';
+
+const FormContainer = ({ ...rest }) => {
+  return (
+    <Box background="background-front" border round="small" overflow="hidden">
+      <Box
+        flex
+        pad={{ horizontal: 'medium', vertical: 'medium' }}
+        {...rest}
+       />
+    </Box>
+  );
+};
 
 export const CustomizeExample = () => {
   const [formValues, setFormValues] = React.useState({});

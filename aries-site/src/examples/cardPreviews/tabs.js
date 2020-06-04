@@ -4,9 +4,9 @@ import { Tabs, Tab } from 'grommet';
 export const TabsPreview = () => {
   return (
     <Tabs>
-      <Tab title="Tab 1"/>
-      <Tab title="Tab 2" />
-      <Tab title="Tab 3" />
+      <Tab title="Tab 1" tabIndex={-1} />
+      <Tab title="Tab 2" tabIndex={-1} />
+      <Tab title="Tab 3" tabIndex={-1} />
     </Tabs>
   );
 };

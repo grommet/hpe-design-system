@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, SubsectionText } from '../../components';
+import { Meta, Status, SubsectionText } from '../../components';
 import { ListScreenExample } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
@@ -28,6 +28,7 @@ const Lists = () => {
             Each list item provides users focussed information and identity
             labels to aid selection, decision making, and action.
           </SubsectionText>
+          {page.status && <Status status={page.status} />}
         </Subsection>
       </ContentSection>
       <ContentSection>

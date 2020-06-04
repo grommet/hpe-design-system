@@ -14,7 +14,7 @@ const Cards = () => {
       <Meta
         title={title}
         description={pageDetails.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/foundation/cards"
+        canonicalUrl="https://design-system.hpe.design/templates/cards"
       />
       <ContentSection>
         <Subsection name={title} level={1} topic={topic} />

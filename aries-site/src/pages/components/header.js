@@ -31,7 +31,7 @@ const Header = () => (
           designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com"
           docs="https://v2.grommet.io/header?theme=hpe"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
-          figma="https://www.figma.com/file/FwJr2zaT8Rr7RyIKLm7Lvg/hpe-design-system-library-headers?node-id=0%3A1"
+          figma="https://www.figma.com/file/krgk9GTsccqOvcTm8OVzH2/HPE-Header-Component?node-id=0%3A2"
           width="100%"
         >
           <HeaderExample />
@@ -59,7 +59,7 @@ const Header = () => (
             'Creating a navigation structure for an application',
             `Providing a search field for an application or single page within
              an application`,
-            `Displaying an action button that affects the applicaiton or 
+            `Displaying an action button that affects the application or 
             current page content`,
           ]}
         />
