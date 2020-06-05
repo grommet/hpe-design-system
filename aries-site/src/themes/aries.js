@@ -35,13 +35,6 @@ export const aries = deepMerge(hpe, {
         color: undefined,
       },
     },
-    icons: {
-      circle: () => (
-        <Blank color="selected-background">
-          <circle cx="12" cy="12" r="8" />
-        </Blank>
-      ),
-    },
   },
   rangeInput: {
     thumb: {
