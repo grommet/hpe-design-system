@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Anchor, Box, Text } from 'grommet';
 
 import {
@@ -35,8 +36,8 @@ const RadioButtonGroup = () => {
           {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
-            docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
             figma="https://www.figma.com/file/aZyY606ENQedz4FXugdzgS/HPE-Radio-Button-Group-Component?node-id=105%3A643"
+            docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
             width="medium"
           >
             <RadioButtonGroupExample />
@@ -56,13 +57,15 @@ const RadioButtonGroup = () => {
                 <Text>
                   If there are more than five options, or if the default value
                   is expected most of the time, consider using{' '}
-                  <Anchor href={nameToPath('select')}>Select</Anchor> instead to
-                  avoid cluttering the experience.
+                  <Link href={nameToPath('Select')} passHref>
+                    <Anchor>Select</Anchor>
+                  </Link>{' '}
+                  instead to avoid cluttering the experience.
                 </Text>,
                 'Use when the user needs to see all related options.',
                 `Radio buttons should always be listed vertically with one 
                 choice per line.`,
-                'Never add sub-categories to a Radio Button Group.',
+                'Never add sub-categories to a RadioButtonGroup.',
               ]}
             />
           </Box>
@@ -75,8 +78,11 @@ const RadioButtonGroup = () => {
             asked of the user on the label.
           </SubsectionText>
           <SubsectionText>
-            When users should be able to select more than one option, use
-            CheckboxGroup instead.
+            When users should be able to select more than one option, use{' '}
+            <Link href={nameToPath('CheckBoxGroup')} passHref>
+              <Anchor>CheckboxGroup</Anchor>
+            </Link>{' '}
+            instead.
           </SubsectionText>
         </Subsection>
       </ContentSection>
@@ -95,7 +101,7 @@ const RadioButtonGroup = () => {
             why a required selection is beneficial to the user.
           </SubsectionText>
           <Example
-            code=""
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupValidationExample.js"
             docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
             height={{ min: 'small' }}
             width="medium"
@@ -105,10 +111,11 @@ const RadioButtonGroup = () => {
         </Subsection>
         <Subsection name="Disabled" level={3} gap="small">
           <SubsectionText>
-            Indicates that the RadioButtonGroup cannot be interacted with.
+            Indicates that the RadioButtonGroup input exists but cannot be
+            interacted with until a precondition is met.
           </SubsectionText>
           <Example
-            code=""
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupDisabledExample.js"
             docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
             height={{ min: 'small' }}
             width="medium"

@@ -181,7 +181,7 @@ const Select = () => {
         </Subsection>
         <Subsection name="Disabled" level={3}>
           <SubsectionText>
-            Indicates that the Select is exists but cannot yet be interacted
+            Indicates that the Select input exists but cannot be interacted with
             until a precondition is met.
           </SubsectionText>
           <Example

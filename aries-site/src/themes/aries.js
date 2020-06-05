@@ -7,18 +7,17 @@ export const aries = deepMerge(hpe, {
   radioButton: {
     border: {
       color: 'border',
-      width: '1px',
+      width: 'xsmall',
     },
     check: {
-      radius: '100%',
       color: 'selected-background',
-      // extend: undefined,
-      extend: ({ checked }) => {
-        return checked && 'border-color: blue;';
-      },
+      extend: ({ theme }) => `
+        background-color: ${
+          theme.global.colors['background-front'][theme.dark ? 'dark' : 'light']
+        };
+      `,
     },
-    // color: 'text-strong', // I don't think radioButton.color
-    // exists in base.js and should be removed from hpe theme.
+    color: 'selected-background',
     extend: ({ theme }) => `
       :not(div):hover {
         background-color: ${
@@ -27,9 +26,7 @@ export const aries = deepMerge(hpe, {
           ]
         };
       }
-      :not(div) {
-        width: 100%;
-      }
+      width: auto;
       padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
     `,
     gap: 'xsmall',
@@ -38,18 +35,13 @@ export const aries = deepMerge(hpe, {
         color: undefined,
       },
     },
-    icon: {
-      size: '22px',
-      // extend: undefined,
-    },
     icons: {
       circle: () => (
-        <Blank color={aries.radioButton.check.color}>
+        <Blank color="selected-background">
           <circle cx="12" cy="12" r="8" />
         </Blank>
       ),
     },
-    // size: undefined,
   },
   rangeInput: {
     thumb: {

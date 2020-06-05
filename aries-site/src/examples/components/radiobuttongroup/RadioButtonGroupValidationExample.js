@@ -10,10 +10,11 @@ const powerRegulationOptions = [
 
 export const RadioButtonGroupValidationExample = () => {
   const [powerRegulation, setPowerRegulation] = useState();
-  const [message, setMessage] = useState(
-    `To ensure your product is configured correctly, select 
+  const [message, setMessage] = useState({
+    error: 'Required information.',
+    info: `To ensure your product is configured correctly, select 
     a Power Regulation option to resolve this error.`,
-  );
+  });
 
   const onChange = value => {
     setPowerRegulation(value);
@@ -28,7 +29,8 @@ export const RadioButtonGroupValidationExample = () => {
         htmlFor="power-stzy"
         name="pwr-regulation"
         label="Label"
-        error={message}
+        error={message.error}
+        info={message.info}
       >
         <RadioButtonGroup
           id="power-stzy"
@@ -36,6 +38,7 @@ export const RadioButtonGroupValidationExample = () => {
           options={powerRegulationOptions}
           value={powerRegulation}
           onChange={event => onChange(event.target.value)}
+          gap="none"
         />
       </FormField>
     </Form>
