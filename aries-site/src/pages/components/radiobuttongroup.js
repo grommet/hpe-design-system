@@ -36,6 +36,7 @@ const RadioButtonGroup = () => {
           {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
+            designer="https://designer.grommet.io/radiobuttongroup?id=HPE-design-system-hpedesignsystem-hpe-com"
             figma="https://www.figma.com/file/aZyY606ENQedz4FXugdzgS/HPE-Radio-Button-Group-Component?node-id=105%3A643"
             docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
             width="medium"
