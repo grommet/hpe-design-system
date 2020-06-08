@@ -28,7 +28,7 @@ const Header = () => (
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
         <Example
-          designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           docs="https://v2.grommet.io/header?theme=hpe"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
           figma="https://www.figma.com/file/krgk9GTsccqOvcTm8OVzH2/HPE-Header-Component?node-id=0%3A2"

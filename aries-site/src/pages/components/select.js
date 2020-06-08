@@ -30,7 +30,7 @@ const Select = () => {
           <SubsectionText>{page.description}</SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/select/SelectExample.js"
-            designer="https://designer.grommet.io/select?id=HPE-design-system-hpedesignsystem-hpe-com"
+            designer="https://designer.grommet.io/select?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
             docs="https://v2.grommet.io/select?theme=hpe#props"
             figma="https://www.figma.com/file/fZJdRcNrvZ1JjdPRYHpFFU/hpe-select?node-id=117%3A4"
           >

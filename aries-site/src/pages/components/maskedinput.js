@@ -40,7 +40,7 @@ const MaskedInput = () => {
           {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/input/maskedinput/MaskedPhoneExample.js"
-            designer="https://designer.grommet.io/maskedinput?id=HPE-design-system-hpedesignsystem-hpe-com"
+            designer="https://designer.grommet.io/maskedinput?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
             docs="https://v2.grommet.io/maskedinput?theme=hpe#props"
             figma="https://www.figma.com/file/fO285pXUqN9pVZ0xpRoKjL/HPE-Masked-Input-Component?node-id=1%3A89"
           >
