@@ -47,7 +47,7 @@ const Footer = () => (
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
         <Example
-          designer="https://designer.grommet.io/footer?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/footer?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           docs="https://v2.grommet.io/footer?theme=hpe"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/footer/FooterExample.js"
           figma="https://www.figma.com/file/9aoCaf5lqzdQv1q4NFi0GN/HPE-Footer-Component?node-id=84%3A26"
