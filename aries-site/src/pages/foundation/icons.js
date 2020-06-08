@@ -86,7 +86,7 @@ const Icons = () => {
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSimpleExample.js"
-            figma="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons?node-id=261%3A0"
+            figma="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons?node-id=246%3A6"
           >
             <IconComponentExample />
           </Example>

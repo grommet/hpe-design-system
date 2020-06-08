@@ -48,7 +48,7 @@ const Typography = () => (
         <ButtonRow>
           <Button
             label="See in Figma"
-            href="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=19%3A4"
+            href="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
             primary
             target="_blank"
             rel="noreferrer noopener"
@@ -71,7 +71,7 @@ const Typography = () => (
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/HeadingExample.js"
           docs="https://v2.grommet.io/heading?theme=hpe#props"
-          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A65"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
         >
           <HeadingExample />
         </Example>
@@ -94,7 +94,7 @@ const Typography = () => (
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/HeadingSizingExample.js"
           docs="https://v2.grommet.io/heading?theme=hpe#level"
-          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A112"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
         >
           <HeadingSizingExample />
         </Example>
@@ -105,7 +105,7 @@ const Typography = () => (
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/ParagraphExample.js"
           docs="https://v2.grommet.io/paragraph?theme=hpe#props"
-          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A66"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
         >
           <ParagraphExample />
         </Example>
@@ -116,7 +116,7 @@ const Typography = () => (
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/TextExample.js"
           docs="https://v2.grommet.io/text?theme=hpe#props"
-          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/hpe-design-system-library-typography?node-id=18%3A67"
+          figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
         >
           <TextSizeExample />
         </Example>
