@@ -31,6 +31,7 @@ const RangeInput = () => {
               a value displayed to communicate with the user. This
               help ensure conficence in the use of the control.`,
             ]}
+            figma="https://www.figma.com/file/BqCjvjc0rECQ4Ln2QhyjNi/HPE-Range-Input-Component?node-id=1%3A11"
           >
             <RangeInputExample />
           </Example>
