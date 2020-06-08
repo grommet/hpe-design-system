@@ -87,8 +87,4 @@ yarn build
 - Initial list template design review 
 - Final Card template design review 
 
-7/13
-- 
 
-7/20 
-- 
