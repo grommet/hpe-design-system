@@ -44,7 +44,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
         <Button
           href={designer}
           icon={<Grommet color="plain" />}
-          label="Open in Grommet"
+          label="Open in Grommet Designer"
           target="_blank"
         />
       )}
