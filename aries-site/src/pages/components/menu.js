@@ -30,7 +30,7 @@ const Menu = () => {
           {page.status && <Status status={page.status} />}
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/menu/MenuExample.js"
-            designer="https://designer.grommet.io/menu?id=HPE-design-system-hpedesignsystem-hpe-com"
+            designer="https://designer.grommet.io/menu?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
             docs="https://v2.grommet.io/menu?theme=hpe#props"
             figma="https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component?node-id=38%3A40"
           >
