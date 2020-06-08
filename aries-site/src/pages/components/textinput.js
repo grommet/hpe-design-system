@@ -31,7 +31,7 @@ const TextInput = () => (
           designer="https://designer.grommet.io/textinput?id=HPE-design-system-hpedesignsystem-hpe-com"
           docs="https://v2.grommet.io/textinput?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textinput/TextInputExample.js"
-          figma="https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component"
+          figma="https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component?node-id=2644%3A86"
         >
           <TextInputExample />
         </Example>
