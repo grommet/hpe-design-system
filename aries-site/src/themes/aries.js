@@ -2,7 +2,7 @@ import { hpe } from 'grommet-theme-hpe';
 import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
-  defaultMode: 'light',
+  defaultMode: 'dark',
   rangeInput: {
     thumb: {
       color: {
