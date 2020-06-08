@@ -58,7 +58,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
       )}
       {docs && (
         <Button
-          href={figma}
+          href={docs}
           icon={<Document />}
           label="Open docs"
           target="_blank"
