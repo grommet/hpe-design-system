@@ -61,130 +61,34 @@ yarn build
 
 ## Sprint Schedule 
 
-**1. January 13 - 17**  
-- Server app component breakdown
-- Finalize Component pages (Design System site) 
-- Review site
-- Establish research plan
+### Q3
+**June 2020**  
+6/8
+- Digest company app page layout variations 
+- Initial [page layout](https://github.com/hpe-design/design-system/issues/797) design review 
+- Developer "how to get started" training video
+- Grommet Designer Page Layout tetorial  
 
-**2. January 20 - 24**  
-- Incorporate Design System site feedback 
-- HPE XS showcase
-- Core component discovery
+6/15
+- Final Page Layout design review 
+- Designer "How to get started" training video 
+- Grommet Designer Navigation tetorial  
 
-**3. January 27 - 31**   
-- Finalize Design System site
-- Reprioritize roadmap 
-- Identify simple patterns 
-- Remove references to Aries
+6/22
+- Add page layouts to the Design System site 
+- [Card](https://github.com/hpe-design/design-system/issues/801) and [List](https://github.com/hpe-design/design-system/issues/799) template exploration 
 
-**4. February 3 - 7**   
-- Publish HPE theme
-- Incorporate site testing (discuss approach) 
-- Optimize Netlify build process
-- Finalize pattern vis approach (inline vs storybook) 
-- Designs for: Button, Type, Anchor, Color
-- Research kick off email 
-- Schedule stakeholder interviews and gather probing questions. (what info is valuable for us moving forward?) 
+6/29
+- Initial Card teamplate design review 
 
-**5. February 10 - 14**   
-- Dev: 
-  - Button Pattern
-  - Type patterns
-- Design: 
-  - Anchor pattern  
-  - Grid Layout template 
-- Research: 
-  - Usability testing the website 
+### Q4
+**July 2020**  
+7/6
+- Initial list template design review 
+- Final Card template design review 
 
-**6. February 17 - 21**  
-- Dev: 
-  - List template
-  - Dashboard template
-- Research:
-  - Moterated stakeholder interviews
-- Update website to accomidate templates 
-- Form Discovery 
+7/13
+- 
 
-**7. February 24 - 28**  
-- Development:
-  - Refine Dashboard and List template implementation
-- Design: 
-  - Form and Dashboard template variations
-  - Finalize stickersheet 
-  - Finalize Sidebar navigation template 
-- Research  
-  - User testing shareout 
-  
-**8. March 2 - 6**
-- Design:
-  - Navigation variations 
-  - Dashboard variation 
-- Development: 
-  - Anchor pattern
-  - Form dev/design sync
-  - Website refinments 
-- Research
-  - Moderated interview shareout 
-  
-**9. March 9 - 13**  
-- Design:
-  - List variation 
-- Development:
-  - Form template variations
-  - Navigation dev/design sync
-
-  
-**10. March 16 - 20**
-- Design: 
-  - On-boarding Vicky and Maggie
-  - Anchor
-  - Button
-- Development: 
-  - Sidebar Navigation 
-  - Theme Updates 
-  
-**11. March 23 - 27**  
-- HPE XS Showcase
-  - Update/Community
-  - Usability/moderated interview shareout
-  - Testing suite
-  - Design tools and feeback 
-- Design:
-  - Search
-  - CheckBox
-  - TextInput
-- Development:
-  - Website design updates 
-  
-**12. March 30 - April 3**  
-- Design:
-  - TextArea
-  - Radio Button Group 
-- Development:
-  - Website design updates 
-  
-**13. April 6 - 10**  
-- Design:
-  - Select  
-  - Menu
-  - Layer
-- Development:
-  - Website design
-  - Theme updates 
-  
-**14. April 13 - 17** 
-- Design: 
-  - Accordian
-  - Tabs 
-  - MaskedInput 
-- Development:
-  - Theme updates 
-  
-**15. April 20 - 24** 
-- Research:
-  - Usability testing 
-- Design:
-  - RangeInput
-  - Stack
-- Development: 
+7/20 
+- 
