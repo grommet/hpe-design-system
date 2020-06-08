@@ -29,7 +29,7 @@ const Search = () => {
           <SubsectionText>{page.description}</SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/search/SearchExample.js"
-            designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com"
+            designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
             docs="https://v2.grommet.io/textinput?theme=hpe#props"
             figma="https://www.figma.com/file/KKHWJN4GAI0Mq5yh0snDT6/HPE-Search-Component?node-id=265%3A112"
             width="medium"

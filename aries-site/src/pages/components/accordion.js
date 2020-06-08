@@ -31,7 +31,7 @@ const Accordion = () => (
         {page.status && <Status status={page.status} />}
         <Example
           docs="https://v2.grommet.io/accordion#props"
-          designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/accordion/AccordionExample.js"
           figma="https://www.figma.com/file/UvTBUQdhk07wV79nijsrtr/HPE-Accordion-Component?node-id=151%3A1"
         >
