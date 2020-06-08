@@ -202,4 +202,14 @@ export const templates = [
     sections: [],
     relatedContent: [],
   },
+  {
+    name: 'Data Visualization',
+    available: false,
+    description: `Data visualizations are an effective way to present 
+    quantitative data to a user.`,
+    seoDescription:
+      'HPE Design System data visualization examples and templates.',
+    sections: [],
+    relatedContent: [],
+  },
 ];
