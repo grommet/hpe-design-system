@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button } from 'grommet';
+import { Box, Button, Grid } from 'grommet';
 import { Document, Expand, Grommet, Figma } from 'grommet-icons';
 
 const ControlButton = ({ children, ...rest }) => (
@@ -39,7 +39,13 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
     pad={{ horizontal: 'medium', vertical: 'small' }}
     round={{ corner: 'bottom', size: 'small' }}
   >
-    <Box direction="row-responsive" gap="small">
+    <Grid
+      columns={{ count: 'fill', size: ['small', 'auto'] }}
+      alignSelf="center"
+      justify="start"
+      fill
+      gap="xsmall"
+    >
       {designer && (
         <Button
           href={designer}
@@ -64,7 +70,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => (
           target="_blank"
         />
       )}
-    </Box>
+    </Grid>
     <Button
       icon={<Expand />}
       label="See Fullscreen"
