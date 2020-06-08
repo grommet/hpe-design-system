@@ -26,7 +26,7 @@ const Tabs = () => (
         <SubsectionText>{page.description}</SubsectionText>
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/tabs/TabsExample.js"
-          designer="https://designer.grommet.io/tabs?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/tabs?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           docs="https://v2.grommet.io/tabs?theme=hpe#props"
           figma="https://www.figma.com/file/Kp4dWyhUTnKIJ1Cg5CoL9o/HPE-Tabs-Component"
         >
