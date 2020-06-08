@@ -19,7 +19,7 @@ export const RadioButtonGroupValidationExample = () => {
   const onChange = value => {
     setPowerRegulation(value);
     if (typeof powerRegulation === 'undefined') {
-      setMessage();
+      setMessage({});
     }
   };
 

@@ -46,11 +46,12 @@ const RadioButtonGroup = () => {
         </Subsection>
       </ContentSection>
       <ContentSection>
-        <Subsection name="Guidance">
-          <SubsectionText>Keep labels concise and simple.</SubsectionText>
-        </Subsection>
+        <Subsection name="Guidance" />
         <Subsection name="Best Practices" level={3} gap="small">
           <Box width={{ max: 'large' }}>
+            <SubsectionText level={3}>
+              Keep labels concise and simple.
+            </SubsectionText>
             <BulletedList
               level={3}
               items={[
