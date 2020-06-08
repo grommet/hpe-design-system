@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'next/link';
 import { Anchor, Text } from 'grommet';
 import {
   CardGrid,
@@ -94,7 +94,10 @@ const CheckBoxGroup = () => (
         <SubsectionText>
           When using multiple checkboxes in a single FormField, use a
           CheckBoxGroup. If you're using a single checkbox, use{' '}
-          <Anchor label="Checkbox" href={nameToPath('Checkbox')} />.
+          <Link href={nameToPath('CheckBox')} passHref>
+            <Anchor label="Checkbox" />
+          </Link>
+          .
         </SubsectionText>
       </Subsection>
     </ContentSection>
