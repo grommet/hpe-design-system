@@ -22,18 +22,24 @@ export const LayerNotificationExample = () => {
           <Box
             align="center"
             direction="row"
-            gap="small"
+            gap="xsmall"
             justify="between"
             round="medium"
             elevation="medium"
-            pad={{ vertical: 'xsmall', horizontal: 'small' }}
+            pad={{ vertical: 'xxsmall', horizontal: 'small' }}
             background="status-ok"
           >
-            <Box align="center" direction="row" gap="xsmall">
-              <StatusGood />
-              <Text>This is a notifcation with position="top"</Text>
+            <Box align="center" direction="row" gap="small">
+              <StatusGood color="text-strong" />
+              <Text color={{ light: 'text', dark: 'text-strong' }}>
+                This is a notifcation with position="top"
+              </Text>
             </Box>
-            <Button icon={<FormClose />} onClick={onClose} plain />
+            <Button
+              icon={<FormClose color="text-strong" />}
+              onClick={onClose}
+              plain
+            />
           </Box>
         </Layer>
       )}
