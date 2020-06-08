@@ -40,7 +40,7 @@ const Button = () => (
         <Example
           docs="https://v2.grommet.io/button?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonExample.js"
-          figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/hpe-design-system-library-button?node-id=0%3A1"
+          figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=1%3A2"
           designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
         >
           <ButtonExample />

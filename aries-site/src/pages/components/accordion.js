@@ -33,7 +33,7 @@ const Accordion = () => (
           docs="https://v2.grommet.io/accordion#props"
           designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/accordion/AccordionExample.js"
-          figma="https://www.figma.com/file/UvTBUQdhk07wV79nijsrtr/HPE-Accordion-Component?node-id=71%3A25"
+          figma="https://www.figma.com/file/UvTBUQdhk07wV79nijsrtr/HPE-Accordion-Component?node-id=151%3A1"
         >
           <AccordionExample />
         </Example>
