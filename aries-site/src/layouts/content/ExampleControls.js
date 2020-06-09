@@ -25,6 +25,7 @@ export const ExampleControls = ({ designer, docs, figma, setShowLayer }) => {
         columns={{ count: 'fill', size: ['small', 'auto'] }}
         fill
         gap="xsmall"
+        align="start"
         justify="start"
       >
         {designer && (
