@@ -49,13 +49,11 @@ const RadioButtonGroup = () => {
         <Subsection name="Guidance" />
         <Subsection name="Best Practices" level={3} gap="small">
           <Box width={{ max: 'large' }}>
-            <SubsectionText level={3}>
-              Keep labels concise and simple.
-            </SubsectionText>
             <BulletedList
               level={3}
               items={[
-                'Avoid long text descriptions as labels.',
+                `Keep labels concise and simple. Avoid lengthy descriptions, 
+                however err on clarity over brevity.`,
                 <Text>
                   If there are more than five options, or if the default value
                   is expected most of the time, consider using{' '}
