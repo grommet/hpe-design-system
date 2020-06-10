@@ -14,11 +14,7 @@ import {
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -76,23 +72,7 @@ export const CustomizeExample = () => {
                   '32GB (2x16GB) DDR4-2400 ECC memory',
                   '64GB (2x32GB) DDR4-2400 ECC memory',
                 ]}
-              >
-                {(option, { checked, hover }) => {
-                  let border;
-                  if (checked) border = { color: 'brand', side: 'all' };
-                  else if (hover) border = { color: 'active', side: 'all' };
-                  else border = { color: border, side: 'all' };
-                  return (
-                    <Box
-                      border={border}
-                      pad={{ horizontal: 'small', vertical: 'xsmall' }}
-                      round="xsmall"
-                    >
-                      {option}
-                    </Box>
-                  );
-                }}
-              </RadioButtonGroup>
+              />
             </FormField>
             <FormField
               label={
@@ -116,23 +96,7 @@ export const CustomizeExample = () => {
                   'AMD Opteron™ 2.1GHz (Turbo Boost 3.4GHz), 4 cores, 8 ' +
                     'graphic cores, 2MB',
                 ]}
-              >
-                {(option, { checked, hover }) => {
-                  let border;
-                  if (checked) border = { color: 'brand', side: 'all' };
-                  else if (hover) border = { color: 'active', side: 'all' };
-                  else border = { color: border, side: 'all' };
-                  return (
-                    <Box
-                      border={border}
-                      pad={{ horizontal: 'small', vertical: 'xsmall' }}
-                      round="xsmall"
-                    >
-                      {option}
-                    </Box>
-                  );
-                }}
-              </RadioButtonGroup>
+              />
             </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Continue" primary type="submit" />
