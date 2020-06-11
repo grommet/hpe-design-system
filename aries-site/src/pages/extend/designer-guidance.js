@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, List } from 'grommet';
+import { Anchor, List, Video } from 'grommet';
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
@@ -68,6 +68,23 @@ const DesignerGuidance = () => {
             />{' '}
             for MacOS or Windows.
           </SubsectionText>
+        </Subsection>
+        <Subsection name="Video Proof of Concept" level={3}>
+          <Video controls="over" fit="cover">
+            <source
+              key="video"
+              src="https://d3hq6blov2iije.cloudfront.net/media/design/DS+Figma+Intro.mp4"
+              type="video/mp4"
+            />
+            <track
+              key="cc"
+              label="English"
+              kind="subtitles"
+              srcLang="en"
+              // src="/assets/small-en.vtt"
+              default
+            />
+          </Video>
         </Subsection>
         <Subsection name="Joining the HPE Design System Figma team" level={3}>
           <SubsectionText>
