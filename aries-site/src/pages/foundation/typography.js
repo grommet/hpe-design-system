@@ -114,7 +114,7 @@ const Typography = () => (
     <ContentSection>
       <Subsection name="Text">
         <Example
-          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/TextExample.js"
+          code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/typography/TextSizeExample.js"
           docs="https://v2.grommet.io/text?theme=hpe#props"
           figma="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
         >
