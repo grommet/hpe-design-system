@@ -35,7 +35,7 @@ const CheckBoxGroup = () => (
         <SubsectionText>{page.description}</SubsectionText>
         {page.status && <Status status={page.status} />}
         <Example
-          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupSimpleExample.js"
           figma="https://www.figma.com/file/zkQOQRUt8frxiSo67kTkfE/HPE-Checkbox-Group-Component?node-id=174%3A23"
           designer="https://designer.grommet.io/checkboxgroup?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
@@ -115,7 +115,7 @@ const CheckBoxGroup = () => (
           the context or purpose of the CheckBoxGroup.
         </SubsectionText>
         <Example
-          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupDescriptionExample.js"
           height={{ min: 'small' }}
         >
@@ -128,7 +128,7 @@ const CheckBoxGroup = () => (
           validation requirements of its bounding FormField.
         </SubsectionText>
         <Example
-          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupValidationExample.js"
           height={{ min: 'small' }}
         >
@@ -141,7 +141,7 @@ const CheckBoxGroup = () => (
           also be an array of objects.
         </SubsectionText>
         <Example
-          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupObjectExample.js"
           height={{ min: 'small' }}
         >
@@ -153,7 +153,7 @@ const CheckBoxGroup = () => (
           Used to indicate that CheckBoxGroup cannot be interacted with.
         </SubsectionText>
         <Example
-          //   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+          docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupDisabledExample.js"
           height={{ min: 'small' }}
         >
