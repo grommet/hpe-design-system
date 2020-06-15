@@ -66,20 +66,21 @@ yarn build
 6/8
 - Digest company app page layout variations 
 - Initial [page layout](https://github.com/hpe-design/design-system/issues/797) design review 
-- Developer "how to get started" training video
-- Grommet Designer Page Layout tetorial  
+- Designer "How to get started" training video 
 
 6/15
 - Final Page Layout design review 
-- Designer "How to get started" training video 
-- Grommet Designer Navigation tetorial  
+- Developer "how to get started" training video
+- Grommet Designer Intro tetorial  
 
 6/22
 - Add page layouts to the Design System site 
 - [Card](https://github.com/hpe-design/design-system/issues/801) and [List](https://github.com/hpe-design/design-system/issues/799) template exploration 
+- Grommet Designer Share tetorial 
 
 6/29
 - Initial Card teamplate design review 
+- Grommet Designer Backing up tetorial 
 
 ### Q4
 **July 2020**  
