@@ -12,11 +12,13 @@ export const SidebarHeaderExample = () => {
             height="xxsmall"
             background="green!"
             pad="small"
+            round="xsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
             </Text>
           </Header>
+          round="xsmall"
           <Main flex="grow" background="orange" pad="small">
             <Text weight="bold">Main</Text>
           </Main>
@@ -37,6 +39,7 @@ const AppSidebar = () => {
       height={size !== 'small' ? { min: '100%' } : undefined}
       background={{ color: 'purple', dark: true }}
       pad="small"
+      round="xsmall"
     >
       <Text weight="bold" color="text-strong">
         Sidebar
