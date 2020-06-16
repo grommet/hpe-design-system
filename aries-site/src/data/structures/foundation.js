@@ -155,11 +155,10 @@ export const foundation = [
     ],
   },
   {
-    name: 'Philosophy',
+    name: 'Philosophy and Principles',
     category: 'Philosophy',
     cardOrder: 0,
-    description: `The HPE Design System is focused on key values which 
-    engender and support human engagement and community.`,
+    description: 'What the HPE Design System is and why we’re creating it.',
     preview: {
       image: {
         src: {
@@ -172,29 +171,16 @@ export const foundation = [
     seoDescription: `Learn about the underlying philosophy guiding the HPE 
     Design System and how generosity and community enable HPE to craft 
     experiences which advance the way people live and work`,
-    sections: ['Relational', 'Generous', 'Community'],
-  },
-  {
-    name: 'Principles',
-    category: 'Philosophy',
-    cardOrder: 3,
-    description: `A clear criteria of creativity, innovation, and craftsmanship 
-    which accelerate the way people live and work.`,
-    preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-principles.svg',
-          dark: '/foundationImages/foundation-preview-principles-invert.svg',
-        },
-        alt: 'HPE Principles Preview',
-      },
-    },
-    seoDescription: `HPE Design System principles provide clear criteria for 
-    creating experiences our clients and partners deserve.`,
     sections: [
-      'Innovative and Adventurous',
-      'Purposeful and Useful',
-      'Integrated but Composable',
+      'Philosophy',
+      'Human-centered Design',
+      'Common Design Language',
+      'Collaboration and Community',
+      'Princples',
+      'Focus on the experience',
+      'Simplify',
+      'Be Intuitive',
+      'Lead people to success',
     ],
   },
 ];
