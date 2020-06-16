@@ -51,7 +51,7 @@ const AppSidebar = () => {
       direction={size !== 'small' ? 'column' : 'row'}
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
-      background="blue!"
+      background={{ color: 'purple', dark: true }}
       pad="small"
     >
       <Text weight="bold" color="text-strong">
