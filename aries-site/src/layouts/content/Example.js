@@ -199,10 +199,7 @@ export const Example = ({
               }}
               onClick={() => setCodeOpen(!codeOpen)}
             >
-              <CardGrid
-                cards={getRelatedCards(['Global Sidebar', 'Header', 'Footer'])}
-                minimal
-              />
+              <CardGrid cards={getRelatedCards(relevantComponents)} minimal />
             </CollapsibleSection>
           )}
         </Box>
