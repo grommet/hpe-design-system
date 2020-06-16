@@ -14,7 +14,7 @@ const StyledTile = styled(Tile)`
   }
 `;
 
-export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
+export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const { description, name, parent, preview } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
@@ -33,34 +33,36 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
       {...rest}
     >
       <Box gap="large">
-        <PreviewImageCard background={preview && preview.background}>
-          {preview &&
-            (preview.image && preview.image.src ? (
-              <Image
-                src={
-                  darkMode.value
-                    ? preview.image.src.dark || preview.image.src
-                    : preview.image.src.light || preview.image.src
-                }
-                alt={preview.image.alt}
-                fit={preview.image.fit || 'cover'}
-              />
-            ) : (
-              preview.component && (
-                <Box
-                  style={{ pointerEvents: 'none' }}
-                  flex
-                  justify={preview.justify || 'center'}
-                  align="center"
-                >
-                  {preview.component()}
-                </Box>
-              )
-            ))}
-        </PreviewImageCard>
+        {!minimal && (
+          <PreviewImageCard background={preview && preview.background}>
+            {preview &&
+              (preview.image && preview.image.src ? (
+                <Image
+                  src={
+                    darkMode.value
+                      ? preview.image.src.dark || preview.image.src
+                      : preview.image.src.light || preview.image.src
+                  }
+                  alt={preview.image.alt}
+                  fit={preview.image.fit || 'cover'}
+                />
+              ) : (
+                preview.component && (
+                  <Box
+                    style={{ pointerEvents: 'none' }}
+                    flex
+                    justify={preview.justify || 'center'}
+                    align="center"
+                  >
+                    {preview.component()}
+                  </Box>
+                )
+              ))}
+          </PreviewImageCard>
+        )}
         <Box gap="small">
           <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
-            {parent && parent.icon && (
+            {parent && parent.icon && !minimal && (
               <Box direction="row" align="center" gap="xsmall">
                 {parent.icon('small', parent.color)}
                 <Text>{parent.name}</Text>
@@ -75,6 +77,7 @@ export const ContentCard = forwardRef(({ topic, ...rest }, ref) => {
 });
 
 ContentCard.propTypes = {
+  minimal: PropTypes.bool,
   topic: PropTypes.shape({
     description: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

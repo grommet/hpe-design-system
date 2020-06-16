@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Anchor } from 'grommet';
-import { CardGrid, Meta, SubsectionText, BulletedList } from '../../components';
+import { Meta, SubsectionText, BulletedList } from '../../components';
 import {
   HeaderOnlyExample,
   HeaderFooterExample,
@@ -14,9 +14,6 @@ import { getPageDetails } from '../../utils';
 const title = 'Page Layouts';
 const topic = 'Templates';
 const pageDetails = getPageDetails(title);
-
-const getRelatedCards = names =>
-  names.sort().map(pattern => getPageDetails(pattern));
 
 const PageLayouts = () => {
   return (
@@ -63,20 +60,12 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
+            relevantComponents={['Footer', 'Global Sidebar', 'Header']}
             width="100%"
             template
           >
             <SidebarHeaderFooterExample />
           </Example>
-        </Subsection>
-        <Subsection name="Relevant components" level={3}>
-          <SubsectionText>
-            For guidance on how to place components within these content areas,
-            see the examples on these pages.
-          </SubsectionText>
-          <CardGrid
-            cards={getRelatedCards(['Global Sidebar', 'Header', 'Footer'])}
-          />
         </Subsection>
         <Subsection name="Sidebar and header">
           <SubsectionText>
@@ -86,18 +75,12 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
+            relevantComponents={['Global Sidebar', 'Header']}
             width="100%"
             template
           >
             <SidebarHeaderExample />
           </Example>
-        </Subsection>
-        <Subsection name="Relevant components" level={3}>
-          <SubsectionText>
-            For guidance on how to place components within these content areas,
-            see the examples on these pages.
-          </SubsectionText>
-          <CardGrid cards={getRelatedCards(['Global Sidebar', 'Header'])} />
         </Subsection>
         <Subsection name="Header and footer">
           <SubsectionText>
@@ -107,18 +90,12 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+            relevantComponents={['Header', 'Footer']}
             width="100%"
             template
           >
             <HeaderFooterExample />
           </Example>
-        </Subsection>
-        <Subsection name="Relevant components" level={3}>
-          <SubsectionText>
-            For guidance on how to place components within these content areas,
-            see the examples on these pages.
-          </SubsectionText>
-          <CardGrid cards={getRelatedCards(['Header', 'Footer'])} />
         </Subsection>
         <Subsection name="Header only">
           <SubsectionText>
@@ -128,18 +105,12 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
+            relevantComponents={['Header']}
             width="100%"
             template
           >
             <HeaderOnlyExample />
           </Example>
-        </Subsection>
-        <Subsection name="Relevant components" level={3}>
-          <SubsectionText>
-            For guidance on how to place components within these content areas,
-            see the examples on these pages.
-          </SubsectionText>
-          <CardGrid cards={getRelatedCards(['Header'])} />
         </Subsection>
       </ContentSection>
     </Layout>
