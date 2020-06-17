@@ -15,7 +15,7 @@ export const components = {
         <Anchor {...props} />
       </Link>
     ) : (
-      <Anchor {...props} />
+      <Anchor rel="noopener" target="_blank" {...props} />
     ),
   ul: props => (
     <SubsectionText
