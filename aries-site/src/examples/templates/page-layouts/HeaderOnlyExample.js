@@ -17,13 +17,7 @@ export const HeaderOnlyExample = () => {
               Header
             </Text>
           </Header>
-          <Main
-            flex="grow"
-            fill={undefined}
-            background="orange"
-            pad="small"
-            round="xsmall"
-          >
+          <Main flex="grow" background="orange" pad="small" round="xsmall">
             <Text weight="bold">Main</Text>
           </Main>
         </Box>
