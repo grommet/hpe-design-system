@@ -5,7 +5,7 @@ import { Hpe } from 'grommet-icons';
 export const HeaderAvatarExample = () => {
   return (
     <Header fill="horizontal">
-      <Button>
+      <Button plain>
         <Box direction="row" align="center" gap="medium">
           <Hpe color="brand" />
           <Box direction="row" gap="xsmall">
