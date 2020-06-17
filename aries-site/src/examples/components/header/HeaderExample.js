@@ -28,7 +28,7 @@ export const HeaderExample = () => {
 
   return (
     <Header fill="horizontal" pad="none" background="background-front">
-      <Button>
+      <Button plain>
         <Box direction="row" align="center" gap="medium">
           <Hpe color="brand" />
           {(size !== 'small' || (size === 'small' && !focused)) && (
