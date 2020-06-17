@@ -1,0 +1,17 @@
+name: Run linter on aries-site and aries-core
+on: pull_request
+
+jobs:
+  build:
+    name:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use node.js
+        uses: actions/setup-node@v1
+      - name: Linter for aries-site
+        run: npm run lint-fix
+        working-directory: ./aries-site
+      - name: Linter for aries-core
+        run: npm run lint-fix
+        working-directory: ./aries-core
