@@ -18,8 +18,7 @@ export const SidebarHeaderExample = () => {
               Header
             </Text>
           </Header>
-          round="xsmall"
-          <Main flex="grow" background="orange" pad="small">
+          <Main flex="grow" background="orange" pad="small" round="xsmall">
             <Text weight="bold">Main</Text>
           </Main>
         </Box>
