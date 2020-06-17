@@ -1,15 +1,14 @@
-name: Target Multiple Node.js Versions and Operating Systems
+name: End-to-End Tests
 on: pull_request
 
 jobs:
-  build:
-    name: Run Tests Across Node.js Versions and Operating Systems
-    runs-on: ubuntu-latest
+  test:
+    name: Run TestCafe Tests
+    runs-on: windows-latest
     steps:
-      - uses: actions/setup-node@v1
-      - uses: actions/checkout@v1
-      - name: Run TestCafe Tests
+      - name: Check out the repository
+        uses: actions/checkout@v1
+      - name: Run tests
         uses: DevExpress/testcafe-action@latest
-        working-directory: ./aries-site
         with:
-          args: 'chrome tests'
+          args: 'chrome ./aries-site/src/tests'
