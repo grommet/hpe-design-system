@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v1
-      - name: Run tests
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: 'chrome ./aries-site/src/tests/navigation'
+      - name: Use node.js
+        uses: actions/setup-node@v1
+      - run: npm run test:local
+        working-directory: ./aries-site
