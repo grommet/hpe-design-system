@@ -1,19 +1,15 @@
-name: Run linter on aries-site and aries-core
+name: Target Multiple Node.js Versions and Operating Systems
 on: pull_request
 
 jobs:
   build:
-    name:
+    name: Run Tests Across Node.js Versions and Operating Systems
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v1
       - uses: actions/checkout@v1
-      - name: Use node.js
-        uses: actions/setup-node@v1
-      - name: Install modules
-        run: yarn
-      - name: Linter for aries-site
-        run: npm run lint-fix
+      - name: Run TestCafe Tests
+        uses: DevExpress/testcafe-action@latest
         working-directory: ./aries-site
-      - name: Linter for aries-core
-        run: npm run lint-fix
-        working-directory: ./aries-core
+        with:
+          args: 'chrome tests'
