@@ -5,7 +5,7 @@ import { Anchor, Heading } from 'grommet';
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
-const internalLink = RegExp('^/.*');
+const internalLink = RegExp('^/.*|#.*');
 
 export const components = {
   p: SubsectionText,
