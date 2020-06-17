@@ -44,6 +44,9 @@ const PageLayouts = () => {
                 <Link href="#header-and-footer" passHref>
                   <Anchor label="Page with header and footer" />
                 </Link>,
+                <Link href="#sticky-header" passHref>
+                  <Anchor label="Page with sticky header" />
+                </Link>,
                 <Link href="#header-only" passHref>
                   <Anchor label="Page with header only" />
                 </Link>,
