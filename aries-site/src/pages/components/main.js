@@ -22,7 +22,11 @@ const Main = () => (
           primary context of your content. See it here in the context of an app
           layout.
         </SubsectionText>
-        <Example width="100%">
+        <Example
+          docs="https://v2.grommet.io/main?theme=hpe"
+          figma="https://www.figma.com/file/gz8B7G0jAD9B8DsLEAROT6/HPE-Main-Component?node-id=6%3A11"
+          width="100%"
+        >
           <GridExample />
         </Example>
       </Subsection>

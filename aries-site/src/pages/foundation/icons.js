@@ -85,8 +85,8 @@ const Icons = () => {
           </SubsectionText>
           <Example
             docs="https://icons.grommet.io/?theme=hpe"
-            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconSimpleExample.js"
-            figma="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons?node-id=261%3A0"
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconComponentExample.js"
+            figma="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons?node-id=246%3A6"
           >
             <IconComponentExample />
           </Example>
@@ -115,11 +115,11 @@ const Icons = () => {
           <SubsectionText>
             The default icon color is 'text-strong' for the corresponding
             light/dark mode. For some icons there are spcific colors in how they
-            are represented, such as Aruba, Amazon, HPE that need to respect the
+            are represented, such as HPE, HP, Aruba that need to respect the
             built in colors for those SVGs so the color prop can be given
             'plain'.
           </SubsectionText>
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconColorExample.js">
+          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/foundation/icons/IconPlainExample.js">
             <IconPlainExample />
           </Example>
         </Subsection>

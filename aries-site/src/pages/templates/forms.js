@@ -35,7 +35,7 @@ const Forms = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
             docs="https://v2.grommet.io/form?theme=hpe"
-            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1%3A2"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
           >
             <SimpleSignUpExample />
           </Example>
@@ -156,7 +156,7 @@ const Forms = () => {
         <Subsection name="Sign Up">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A86"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
           >
             <SignUpExample />
           </Example>
@@ -166,7 +166,7 @@ const Forms = () => {
         <Subsection name="Sign In">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=242%3A28"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
           >
             <SignInExample />
           </Example>
@@ -176,7 +176,7 @@ const Forms = () => {
         <Subsection name="Filter">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A437"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A527"
           >
             <FilterExample />
           </Example>
@@ -184,7 +184,10 @@ const Forms = () => {
       </ContentSection>
       <ContentSection>
         <Subsection name="Sort">
-          <Example code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js">
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A562"
+          >
             <SortExample />
           </Example>
         </Subsection>
@@ -193,7 +196,7 @@ const Forms = () => {
         <Subsection name="Change Password">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ChangePasswordExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A85"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A542"
           >
             <ChangePasswordExample />
           </Example>
@@ -203,7 +206,7 @@ const Forms = () => {
         <Subsection name="Settings">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=267%3A77"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A459"
           >
             <SettingsExample />
           </Example>
@@ -213,7 +216,7 @@ const Forms = () => {
         <Subsection name="Pay">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=0%3A1"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A431"
           >
             <PayExample />
           </Example>
@@ -223,7 +226,7 @@ const Forms = () => {
         <Subsection name="Shipping">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=251%3A189"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A382"
           >
             <ShippingExample />
           </Example>
@@ -233,7 +236,7 @@ const Forms = () => {
         <Subsection name="Customize">
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
-            figma="https://www.figma.com/file/K0PppsSh6aQSszqlwKAekg/hpe-design-system-stickers?node-id=259%3A87"
+            figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
           >
             <CustomizeExample />
           </Example>

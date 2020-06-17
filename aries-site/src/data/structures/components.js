@@ -321,6 +321,7 @@ export const components = [
       component: () => <RadioButtonGroupPreview />,
       background: 'background-front',
     },
+    relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
     status: {
       figma: statuses.complete,
       grommet: statuses.inProgress,
