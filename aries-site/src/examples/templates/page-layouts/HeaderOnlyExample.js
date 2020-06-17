@@ -11,12 +11,19 @@ export const HeaderOnlyExample = () => {
             height="xxsmall"
             background="green!"
             pad="small"
+            round="xsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
             </Text>
           </Header>
-          <Main flex="grow" fill={undefined} background="orange" pad="small">
+          <Main
+            flex="grow"
+            fill={undefined}
+            background="orange"
+            pad="small"
+            round="xsmall"
+          >
             <Text weight="bold">Main</Text>
           </Main>
         </Box>
