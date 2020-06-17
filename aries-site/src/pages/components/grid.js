@@ -24,7 +24,7 @@ const Grid = () => (
         </SubsectionText>
         <Example
           docs="https://v2.grommet.io/grid?theme=hpe#props"
-          figma="https://www.figma.com/file/OvLyDPjqHbwoDI97r2nD8j/hpe-design-system-library-grid?node-id=0%3A1"
+          figma="https://www.figma.com/file/OvLyDPjqHbwoDI97r2nD8j/HPE-Grid-Component?node-id=177%3A12"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/layouts/GridExample.js"
           width="100%"
         >

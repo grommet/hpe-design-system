@@ -25,9 +25,9 @@ const TextArea = () => (
         <SubsectionText>{page.description}</SubsectionText>
         <Example
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/textarea/TextAreaExample.js"
-          designer="https://designer.grommet.io/textarea?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/textarea?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           docs="https://v2.grommet.io/textarea?theme=hpe#props"
-          figma="https://www.figma.com/file/evH1LQewFPc8Y2fteywMxM/HPE-Text-Area-Component"
+          figma="https://www.figma.com/file/evH1LQewFPc8Y2fteywMxM/HPE-Text-Area-Component?node-id=663%3A8"
         >
           <TextAreaExample />
         </Example>

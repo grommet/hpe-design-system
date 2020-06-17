@@ -27,7 +27,7 @@ const Anchor = () => (
       <Subsection name={title} level={1} topic={topic}>
         <SubsectionText>{page.description}</SubsectionText>
         <Example
-          designer="https://designer.grommet.io/anchor?id=HPE-design-system-hpedesignsystem-hpe-com"
+          designer="https://designer.grommet.io/anchor?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
           docs="https://v2.grommet.io/anchor?theme=hpe#props"
           code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/anchor/AnchorExample.js"
           figma="https://www.figma.com/file/I7PsiUmvr7OEJ6311rBUfg/HPE-Anchor-Component?node-id=127%3A0"
