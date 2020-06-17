@@ -7,6 +7,7 @@ import {
   HeaderFooterExample,
   SidebarHeaderExample,
   SidebarHeaderFooterExample,
+  StickyHeaderExample,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
 import { getPageDetails } from '../../utils';
@@ -95,6 +96,21 @@ const PageLayouts = () => {
             template
           >
             <HeaderFooterExample />
+          </Example>
+        </Subsection>
+        <Subsection name="Sticky header">
+          <SubsectionText>
+            Photo booth la croix tofu mumblecore vaporware edison bulb leggings
+            affogato schlitz readymade polaroid air plant farm-to-table
+            adaptogen stumptown.
+          </SubsectionText>
+          <Example
+            code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+            relevantComponents={['Header', 'Footer']}
+            width="100%"
+            template
+          >
+            <StickyHeaderExample />
           </Example>
         </Subsection>
         <Subsection name="Header only">
