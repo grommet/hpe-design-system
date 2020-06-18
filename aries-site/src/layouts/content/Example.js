@@ -135,35 +135,19 @@ export const Example = ({
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
           {showResponsiveControls && (
-            <Box direction="row">
-              <Box
-                title="Desktop layout"
-                background={!mobile ? 'background-contrast' : undefined}
-                direction="row"
-                pad="small"
-                align="center"
-                gap="small"
-                hoverIndicator
+            <Box direction="row" margin={{ bottom: 'small' }} gap="xsmall">
+              <Button
+                label="Desktop"
+                icon={<Desktop />}
+                active={!mobile}
                 onClick={() => setMobile(false)}
-                round={{ corner: 'top', size: 'xsmall' }}
-              >
-                <Desktop />
-                <Text>Desktop</Text>
-              </Box>
-              <Box
-                title="Mobile layout"
-                background={mobile ? 'background-contrast' : undefined}
-                direction="row"
-                pad="small"
-                align="center"
-                gap="small"
+              />
+              <Button
+                label="Mobile"
+                icon={<IconMobile />}
+                active={mobile}
                 onClick={() => setMobile(true)}
-                hoverIndicator
-                round={{ corner: 'top', size: 'xsmall' }}
-              >
-                <IconMobile />
-                <Text>Mobile</Text>
-              </Box>
+              />
             </Box>
           )}
           <Box
