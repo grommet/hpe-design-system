@@ -97,6 +97,7 @@ export const Example = ({
   figma,
   height,
   relevantComponents,
+  showResponsiveControls,
   template,
   width,
   ...rest
@@ -133,6 +134,38 @@ export const Example = ({
     <>
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
+          {showResponsiveControls && (
+            <Box direction="row">
+              <Box
+                title="Desktop layout"
+                background={!mobile ? 'background-contrast' : undefined}
+                direction="row"
+                pad="small"
+                align="center"
+                gap="small"
+                hoverIndicator
+                onClick={() => setMobile(false)}
+                round={{ corner: 'top', size: 'xsmall' }}
+              >
+                <Desktop />
+                <Text>Desktop</Text>
+              </Box>
+              <Box
+                title="Mobile layout"
+                background={mobile ? 'background-contrast' : undefined}
+                direction="row"
+                pad="small"
+                align="center"
+                gap="small"
+                onClick={() => setMobile(true)}
+                hoverIndicator
+                round={{ corner: 'top', size: 'xsmall' }}
+              >
+                <IconMobile />
+                <Text>Mobile</Text>
+              </Box>
+            </Box>
+          )}
           <Box
             align={!template ? 'center' : undefined}
             background="background-front"
@@ -144,7 +177,7 @@ export const Example = ({
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
               designer || docs || figma || template
-                ? { corner: 'top', size: 'small' }
+                ? { corner: 'top', size: 'none' }
                 : 'small'
             }
             {...rest}
@@ -293,6 +326,7 @@ Example.propTypes = {
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
+  showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
