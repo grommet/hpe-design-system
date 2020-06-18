@@ -21,9 +21,10 @@ export const StickyHeaderExample = () => {
         <Box flex overflow="auto" gap="small">
           <Main
             background="orange"
-            flex="grow"
-            fill={undefined}
+            // height is for demonstration of scroll
             height="xlarge"
+            fill={undefined}
+            flex={false}
             pad="small"
             round="xsmall"
           >
