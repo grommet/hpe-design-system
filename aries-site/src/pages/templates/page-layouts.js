@@ -67,6 +67,7 @@ const PageLayouts = () => {
             relevantComponents={['Footer', 'Global Sidebar', 'Header']}
             width="100%"
             template
+            showResponsiveControls
           >
             <SidebarHeaderFooterExample />
           </Example>
@@ -82,6 +83,7 @@ const PageLayouts = () => {
             relevantComponents={['Global Sidebar', 'Header']}
             width="100%"
             template
+            showResponsiveControls
           >
             <SidebarHeaderExample />
           </Example>
@@ -97,6 +99,7 @@ const PageLayouts = () => {
             relevantComponents={['Header', 'Footer']}
             width="100%"
             template
+            showResponsiveControls
           >
             <HeaderFooterExample />
           </Example>
@@ -112,6 +115,7 @@ const PageLayouts = () => {
             relevantComponents={['Header', 'Footer']}
             width="100%"
             template
+            showResponsiveControls
           >
             <StickyHeaderExample />
           </Example>
@@ -127,6 +131,7 @@ const PageLayouts = () => {
             relevantComponents={['Header']}
             width="100%"
             template
+            showResponsiveControls
           >
             <HeaderOnlyExample />
           </Example>
