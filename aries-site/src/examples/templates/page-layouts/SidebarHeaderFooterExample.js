@@ -26,7 +26,15 @@ export const SidebarHeaderFooterExample = () => {
               Header
             </Text>
           </Header>
-          <Main flex="grow" background="orange" pad="small" round="xsmall">
+          <Main
+            // height is for demonstration of scroll
+            height="xlarge"
+            fill={undefined}
+            flex={false}
+            background="orange"
+            pad="small"
+            round="xsmall"
+          >
             <Text weight="bold">Main</Text>
           </Main>
           <Footer
