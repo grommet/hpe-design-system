@@ -135,7 +135,7 @@ export const Example = ({
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
           {showResponsiveControls && (
-            <Box direction="row" margin={{ bottom: 'small' }} gap="xsmall">
+            <Box direction="row" margin={{ bottom: 'xsmall' }} gap="xsmall">
               <Button
                 label="Desktop"
                 icon={<Desktop />}
