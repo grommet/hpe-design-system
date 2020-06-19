@@ -161,7 +161,7 @@ export const Example = ({
             pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
             round={
               designer || docs || figma || template
-                ? { corner: 'top', size: 'none' }
+                ? { corner: 'top', size: 'small' }
                 : 'small'
             }
             {...rest}
