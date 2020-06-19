@@ -42,6 +42,7 @@ const AppSidebar = () => {
       /* Sidebar should switch from column to row orientation
        * when on smaller screens */
       direction={size !== 'small' ? 'column' : 'row'}
+      flex={false}
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
       background={{ color: 'purple', dark: true }}
