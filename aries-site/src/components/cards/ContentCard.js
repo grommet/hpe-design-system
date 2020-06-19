@@ -6,7 +6,7 @@ import { Identifier, Tile } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
-const StyledTile = styled(Tile)`
+export const StyledTile = styled(Tile)`
   transition: all 0.3s ease-in-out;
   :focus,
   :hover {
