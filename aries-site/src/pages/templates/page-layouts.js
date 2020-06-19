@@ -90,13 +90,18 @@ const PageLayouts = () => {
             <ContentSection>
               <Subsection name="Sidebar, header, and footer">
                 <SubsectionText>
-                  Photo booth la croix tofu mumblecore vaporware edison bulb
-                  leggings affogato schlitz readymade polaroid air plant
-                  farm-to-table adaptogen stumptown.
+                  On desktop, the sidebar is fixed to the left side while
+                  header, main, and footer are a scrollable region. On mobile,
+                  the sidebar is fixed to the bottom of the screen.
                 </SubsectionText>
                 <Example
                   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
-                  relevantComponents={['Footer', 'Global Sidebar', 'Header']}
+                  relevantComponents={[
+                    'Footer',
+                    'Global Sidebar',
+                    'Header',
+                    'Main',
+                  ]}
                   width="100%"
                   template
                   showResponsiveControls
@@ -106,13 +111,13 @@ const PageLayouts = () => {
               </Subsection>
               <Subsection name="Sidebar and header">
                 <SubsectionText>
-                  Photo booth la croix tofu mumblecore vaporware edison bulb
-                  leggings affogato schlitz readymade polaroid air plant
-                  farm-to-table adaptogen stumptown.
+                  On desktop, the sidebar is fixed to the left side while header
+                  and main are a scrollable region. On mobile, the sidebar is
+                  fixed to the bottom of the screen.
                 </SubsectionText>
                 <Example
                   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
-                  relevantComponents={['Global Sidebar', 'Header']}
+                  relevantComponents={['Global Sidebar', 'Header', 'Main']}
                   width="100%"
                   template
                   showResponsiveControls
@@ -122,9 +127,7 @@ const PageLayouts = () => {
               </Subsection>
               <Subsection name="Header and footer">
                 <SubsectionText>
-                  Photo booth la croix tofu mumblecore vaporware edison bulb
-                  leggings affogato schlitz readymade polaroid air plant
-                  farm-to-table adaptogen stumptown.
+                  On both desktop and mobile, all content scrolls.
                 </SubsectionText>
                 <Example
                   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
@@ -138,13 +141,12 @@ const PageLayouts = () => {
               </Subsection>
               <Subsection name="Sticky header">
                 <SubsectionText>
-                  Photo booth la croix tofu mumblecore vaporware edison bulb
-                  leggings affogato schlitz readymade polaroid air plant
-                  farm-to-table adaptogen stumptown.
+                  On both desktop and mobile, header is fixed to the top of the
+                  screen while main and footer are a scrollable region.
                 </SubsectionText>
                 <Example
                   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
-                  relevantComponents={['Header', 'Footer']}
+                  relevantComponents={['Header', 'Footer', 'Main']}
                   width="100%"
                   template
                   showResponsiveControls
@@ -154,13 +156,11 @@ const PageLayouts = () => {
               </Subsection>
               <Subsection name="Header only">
                 <SubsectionText>
-                  Photo booth la croix tofu mumblecore vaporware edison bulb
-                  leggings affogato schlitz readymade polaroid air plant
-                  farm-to-table adaptogen stumptown.
+                  On both desktop and mobile, all content scrolls.
                 </SubsectionText>
                 <Example
                   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
-                  relevantComponents={['Header']}
+                  relevantComponents={['Header', 'Main']}
                   width="100%"
                   template
                   showResponsiveControls
