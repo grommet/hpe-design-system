@@ -1,6 +1,9 @@
 name: Run end-to-end tests
 on: pull_request
 
+defaults:
+  run:
+    working-directory: ./aries-site
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,10 +13,9 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
       - run: yarn upgrade
-        working-directory: aries-core
+        working-directory: ../aries-core
       - run: yarn upgrade
-        working-directory: aries-site
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: 'chrome /aries-site/src/tests'
+          args: 'chrome src/tests'
