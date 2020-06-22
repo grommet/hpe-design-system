@@ -1,0 +1,20 @@
+name: RUn end-to-end tests
+on: pull_request
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    name: Build and test
+    steps:
+      - uses: actions/checkout@v1
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: aries-core
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: aries-site
+      - name: Run tests
+        uses: DevExpress/testcafe-action@latest
+        working-directory: aries-site
+        with:
+          args: 'chrome src/tests'
