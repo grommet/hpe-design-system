@@ -12,9 +12,12 @@ jobs:
       - uses: actions/checkout@v1
       - name: Use Node.js
         uses: actions/setup-node@v1
-      - run: yarn upgrade
+      - name: Install aries-core dependencies
+        run: yarn upgrade
         working-directory: aries-core
-      - run: yarn upgrade
+      - name: Install aries-site dependencies
+        run: yarn upgrade
+        working-directory: aries-site
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
