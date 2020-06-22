@@ -13,7 +13,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
       - run: yarn upgrade
-        working-directory: ../aries-core
+        working-directory: aries-core
       - run: yarn upgrade
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
