@@ -1,8 +1,8 @@
-name: RUn end-to-end tests
+name: Run end-to-end tests
 on: pull_request
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     name: Build and test
     steps:
