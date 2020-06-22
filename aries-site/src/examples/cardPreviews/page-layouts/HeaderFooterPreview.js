@@ -1,12 +1,20 @@
 import React from 'react';
-import { Box } from 'grommet';
+import { Box, defaultProps } from 'grommet';
 
 export const HeaderFooterPreview = () => {
   return (
     <Box gap="xsmall" fill>
-      <Box height="20px" background="green!" round="xsmall" />
+      <Box
+        height={defaultProps.theme.global.edgeSize.medium}
+        background="green!"
+        round="xsmall"
+      />
       <Box background="orange" round="xsmall" flex />
-      <Box height="20px" background="blue" round="xsmall" />
+      <Box
+        height={defaultProps.theme.global.edgeSize.medium}
+        background="blue"
+        round="xsmall"
+      />
     </Box>
   );
 };

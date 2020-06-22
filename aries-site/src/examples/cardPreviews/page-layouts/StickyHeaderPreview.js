@@ -1,17 +1,17 @@
 import React from 'react';
-import { Box } from 'grommet';
+import { Box, defaultProps } from 'grommet';
 
 export const StickyHeaderPreview = () => {
   return (
     <Box fill direction="row" gap="xsmall">
       <Box
-        basis="20px"
+        basis={defaultProps.theme.global.edgeSize.medium}
         background={{ color: 'purple', dark: true }}
         round="xsmall"
       />
       <Box fill>
         <Box
-          height="20px"
+          height={defaultProps.theme.global.edgeSize.medium}
           background="green!"
           round={{ corner: 'top', size: 'xsmall' }}
         />
@@ -21,7 +21,11 @@ export const StickyHeaderPreview = () => {
             round={{ corner: 'bottom', size: 'xsmall' }}
             flex
           />
-          <Box height="20px" background="blue" round="xsmall" />
+          <Box
+            height={defaultProps.theme.global.edgeSize.medium}
+            background="blue"
+            round="xsmall"
+          />
         </Box>
       </Box>
     </Box>
