@@ -18,4 +18,4 @@ jobs:
       - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: 'chrome src/tests'
+          args: 'chrome aries-site/src/tests'
