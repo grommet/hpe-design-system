@@ -1,9 +1,31 @@
 import React, { useContext, useState } from 'react';
 import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
-import { ChatOption, MailOption, Close, Github } from 'grommet-icons';
+import { ChatOption, Contact, MailOption, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
 const Subscribe = () => (
+  <Box gap="small">
+    <Contact size="large" />
+    <Text weight="bold" size="large">
+      Stay up-to-date
+    </Text>
+    <SubsectionText>
+      Get the latest updates on the HPE Design System by suscribing to our
+      process mailbox.
+    </SubsectionText>
+    <Box align="start">
+      <Button
+        label="Subscribe"
+        href="https://announce.now.hpe.com/home/NewsLetter/OpenSubscription/254?u=1"
+        target="_blank"
+        rel="noreferrer noopener"
+        primary
+      />
+    </Box>
+  </Box>
+);
+
+const Email = () => (
   <Box gap="small">
     <MailOption size="large" />
     <Text weight="bold" size="large">
@@ -80,6 +102,7 @@ export const FeedbackOptions = () => {
         <JoinConversation />
         <Contribute />
         <Subscribe />
+        <Email />
       </Grid>
     </Box>
   );
