@@ -5,7 +5,6 @@ export const StickyHeaderExample = () => {
   return (
     <AppContainer overflow="auto">
       <Box fill>
-        {/* <Box height={{ min: '100%' }} gap="small"> */}
         <Header
           flex={false}
           fill="horizontal"
@@ -41,7 +40,6 @@ export const StickyHeaderExample = () => {
           </Footer>
         </Box>
       </Box>
-      {/* </Box> */}
     </AppContainer>
   );
 };
