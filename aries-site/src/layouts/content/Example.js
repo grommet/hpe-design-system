@@ -11,15 +11,10 @@ import {
   ThemeContext,
   ResponsiveContext,
 } from 'grommet';
-import { Contract, Desktop } from 'grommet-icons';
+import { Contract } from 'grommet-icons';
 import Prism from 'prismjs';
-import {
-  CardGrid,
-  CollapsibleSection,
-  IconMobile,
-  SubsectionText,
-} from '../../components';
-import { ExampleControls } from '.';
+import { CardGrid, CollapsibleSection, SubsectionText } from '../../components';
+import { ExampleControls, ResponsiveControls } from '.';
 import { getPageDetails } from '../../utils';
 
 const getRelatedCards = names =>
@@ -88,6 +83,52 @@ const syntax = {
   `,
 };
 
+export const screens = {
+  desktop: 'desktop',
+  mobile: 'mobile',
+  laptop: 'laptop',
+};
+
+const BrowserWrapper = ({ screen, ...rest }) => {
+  let width;
+  if (screen === screens.laptop) width = 'large';
+  else if (screen === screens.desktop) width = '100%';
+  else width = 'medium';
+
+  return (
+    <Box
+      margin={{ bottom: 'medium' }}
+      elevation={screen !== screens.mobile ? 'medium' : undefined}
+      round="xsmall"
+      overflow="hidden"
+      width={width}
+    >
+      {screen !== screens.mobile && (
+        <Box
+          direction="row"
+          gap="xsmall"
+          background="background-back"
+          align="center"
+          pad="small"
+        >
+          <Box round pad="xsmall" background="red" />
+          <Box round pad="xsmall" background="yellow" />
+          <Box round pad="xsmall" background="green" />
+        </Box>
+      )}
+      <Box
+        width={screen === screens.desktop ? 'large' : '100%'}
+        margin="auto"
+        {...rest}
+      />
+    </Box>
+  );
+};
+
+BrowserWrapper.propTypes = {
+  screen: PropTypes.string.isRequired,
+};
+
 export const Example = ({
   children,
   code,
@@ -96,6 +137,7 @@ export const Example = ({
   docs,
   figma,
   height,
+  layout,
   relevantComponents,
   showResponsiveControls,
   template,
@@ -106,11 +148,26 @@ export const Example = ({
   const [codeOpen, setCodeOpen] = React.useState();
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
-  const [mobile, setMobile] = React.useState(false);
+  const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
   const codeRef = React.useRef();
+
   const { small, medium } = defaultProps.theme.global.size;
-  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
+  // Height for template screen needs to be between medium and large
+  // to maintain aspect ratio, so this is small + medium
+  const laptopHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
+  // To demonstrate really wide displays, we need to cut the height slightly
+  const desktopHeight = `${
+    (parseInt(medium, 10) + parseInt(small, 10)) * 0.9
+  }px`;
+
+  let exampleHeight;
+  if (template || layout) {
+    if (screen !== screens.desktop) exampleHeight = laptopHeight;
+    else exampleHeight = desktopHeight;
+  } else {
+    exampleHeight = height;
+  }
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -134,50 +191,55 @@ export const Example = ({
     <>
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
+          {/* For use with templates or page layouts to toggle between laptop,
+           ** desktop, and mobile views */}
           {showResponsiveControls && (
-            <Box direction="row" margin={{ bottom: 'xsmall' }} gap="xsmall">
-              <Button
-                label="Desktop"
-                icon={<Desktop />}
-                active={!mobile}
-                onClick={() => setMobile(false)}
-              />
-              <Button
-                label="Mobile"
-                icon={<IconMobile />}
-                active={mobile}
-                onClick={() => setMobile(true)}
-              />
-            </Box>
+            <ResponsiveControls onSetScreen={setScreen} screen={screen} />
           )}
           <Box
-            align={!template ? 'center' : undefined}
+            align={!template && !layout ? 'center' : undefined}
             background="background-front"
             direction="row"
-            // Height for template screen needs to be between medium and large
-            // to maintain aspect ratio, so this is small + medium
-            height={template ? aspectHeight : height}
+            height={exampleHeight}
             justify="center"
-            pad={template ? { horizontal: 'large', top: 'large' } : 'large'}
+            margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
+            pad={
+              template || layout
+                ? { horizontal: 'large', top: 'large' }
+                : 'large'
+            }
             round={
-              designer || docs || figma || template
+              designer || docs || figma || layout || template
                 ? { corner: 'top', size: 'small' }
                 : 'small'
             }
             {...rest}
           >
-            <Box width={width}>
-              <ResponsiveContext.Provider value={mobile && 'small'}>
-                {children}
-              </ResponsiveContext.Provider>
-            </Box>
+            {layout ? (
+              // show page layouts inside of mock browser screen to demonstrate
+              // how content fills or is restricted at various widths
+              <BrowserWrapper screen={screen}>
+                <ResponsiveContext.Provider
+                  value={screen === screens.mobile && 'small'}
+                >
+                  {children}
+                </ResponsiveContext.Provider>
+              </BrowserWrapper>
+            ) : (
+              <Box width={width}>
+                <ResponsiveContext.Provider
+                  value={screen === screens.mobile && 'small'}
+                >
+                  {children}
+                </ResponsiveContext.Provider>
+              </Box>
+            )}
           </Box>
-          {(designer || docs || figma || template) && (
+          {(designer || docs || figma || layout || template) && (
             <ExampleControls
               designer={designer}
               docs={docs}
               figma={figma}
-              template={template}
               setShowLayer={value => setShowLayer(value)}
             />
           )}
@@ -225,51 +287,26 @@ export const Example = ({
         <Keyboard
           onEsc={() => {
             setShowLayer(false);
-            setMobile(false);
+            setScreen(screens.laptop);
           }}
         >
           <Layer full animation="fadeIn">
             <Box fill background="background-front">
               <Box
                 direction="row"
-                justify={template ? 'between' : 'end'}
+                justify={template || layout ? 'between' : 'end'}
                 pad="xxsmall"
                 background="#111"
               >
-                {template && (
-                  <Box direction="row">
-                    <Box
-                      title="Desktop layout"
-                      background={!mobile ? 'background-contrast' : undefined}
-                      direction="row"
-                      pad="small"
-                      align="center"
-                      gap="small"
-                      onClick={() => setMobile(false)}
-                    >
-                      <Desktop />
-                      <Text>Desktop</Text>
-                    </Box>
-                    <Box
-                      title="Mobile layout"
-                      background={mobile ? 'background-contrast' : undefined}
-                      direction="row"
-                      pad="small"
-                      align="center"
-                      gap="small"
-                      onClick={() => setMobile(true)}
-                    >
-                      <IconMobile />
-                      <Text>Mobile</Text>
-                    </Box>
-                  </Box>
+                {(template || layout) && (
+                  <ResponsiveControls onSetScreen={setScreen} screen={screen} />
                 )}
                 <Button
                   title="Leave full screen"
                   icon={<Contract />}
                   onClick={() => {
                     setShowLayer(false);
-                    setMobile(false);
+                    setScreen(screens.laptop);
                   }}
                   hoverIndicator
                 />
@@ -277,13 +314,25 @@ export const Example = ({
               <Box
                 direction="row"
                 justify="center"
-                align={!template ? 'center' : undefined}
+                align={!template && !layout ? 'center' : undefined}
                 flex
                 {...rest}
               >
-                <ResponsiveContext.Provider value={mobile && 'small'}>
-                  {children}
-                </ResponsiveContext.Provider>
+                {layout ? (
+                  <Box width={screen === screens.mobile ? 'medium' : '100%'}>
+                    <ResponsiveContext.Provider
+                      value={screen === screens.mobile && 'small'}
+                    >
+                      {children}
+                    </ResponsiveContext.Provider>
+                  </Box>
+                ) : (
+                  <ResponsiveContext.Provider
+                    value={screen === screens.mobile && 'small'}
+                  >
+                    {children}
+                  </ResponsiveContext.Provider>
+                )}
               </Box>
             </Box>
           </Layer>
@@ -309,6 +358,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  layout: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
