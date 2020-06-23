@@ -97,6 +97,7 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
+            figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
             relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
             width="100%"
             template
@@ -113,6 +114,7 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
+            figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6568"
             relevantComponents={['Global Sidebar', 'Header', 'Main']}
             width="100%"
             template
@@ -127,6 +129,7 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+            figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
             relevantComponents={['Header', 'Footer']}
             width="100%"
             template
@@ -142,6 +145,7 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+            figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
             relevantComponents={['Header', 'Footer', 'Main']}
             width="100%"
             template
@@ -156,6 +160,7 @@ const PageLayouts = () => {
           </SubsectionText>
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
+            figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6572"
             relevantComponents={['Header', 'Main']}
             width="100%"
             template
