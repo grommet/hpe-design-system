@@ -6,8 +6,6 @@ export * from './IconDevelop';
 export * from './IconExtend';
 export * from './IconFoundation';
 export * from './IconGuidelines';
-export * from './IconLaptop';
-export * from './IconMobile';
 export * from './IconMoon';
 export * from './IconResources';
 export * from './IconSun';

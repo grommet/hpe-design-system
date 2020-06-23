@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
 import PropTypes from 'prop-types';
-import { Desktop } from 'grommet-icons';
-import { IconMobile, IconLaptop } from '../../components';
+import { Desktop, PhoneVertical, PersonalComputer } from 'grommet-icons';
 import { screens } from '..';
 
 export const ResponsiveControls = ({ onSetScreen, screen }) => {
@@ -10,7 +9,7 @@ export const ResponsiveControls = ({ onSetScreen, screen }) => {
     <Box direction="row" gap="xsmall">
       <Button
         label="Laptop"
-        icon={<IconLaptop />}
+        icon={<PersonalComputer />}
         active={screen === screens.laptop}
         onClick={() => {
           onSetScreen(screens.laptop);
@@ -26,7 +25,7 @@ export const ResponsiveControls = ({ onSetScreen, screen }) => {
       />
       <Button
         label="Mobile"
-        icon={<IconMobile />}
+        icon={<PhoneVertical />}
         active={screen === screens.mobile}
         onClick={() => {
           onSetScreen(screens.mobile);
