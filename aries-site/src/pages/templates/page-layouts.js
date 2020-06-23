@@ -99,7 +99,7 @@ const PageLayouts = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
             relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
+            layout
             showResponsiveControls
           >
             <SidebarHeaderFooterExample />
@@ -115,7 +115,7 @@ const PageLayouts = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
             relevantComponents={['Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
+            layout
             showResponsiveControls
           >
             <SidebarHeaderExample />
@@ -129,7 +129,7 @@ const PageLayouts = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
             relevantComponents={['Header', 'Footer']}
             width="100%"
-            template
+            layout
             showResponsiveControls
           >
             <HeaderFooterExample />
@@ -144,7 +144,7 @@ const PageLayouts = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
             relevantComponents={['Header', 'Footer', 'Main']}
             width="100%"
-            template
+            layout
             showResponsiveControls
           >
             <StickyHeaderExample />
@@ -158,7 +158,7 @@ const PageLayouts = () => {
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
             relevantComponents={['Header', 'Main']}
             width="100%"
-            template
+            layout
             showResponsiveControls
           >
             <HeaderOnlyExample />
