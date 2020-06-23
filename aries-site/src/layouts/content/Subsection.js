@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Anchor, Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
-import { getPageDetails } from '../../utils';
+import { getPageDetails, formatName } from '../../utils';
 
 // Text size should be based on if its parent heading is an
 // h2, h3, etc.
@@ -32,10 +32,7 @@ export const Subsection = ({
   const [over, setOver] = useState(false);
   const parent = getPageDetails(topic);
 
-  const id = name
-    .split(' ')
-    .join('-')
-    .toLowerCase();
+  const id = formatName(name);
 
   const firstChild = React.Children.map(children, (child, index) => {
     if (index === 0) {
@@ -81,38 +78,41 @@ export const Subsection = ({
        * removes that extra space.
        */}
       <Box gap={level !== 3 ? 'small' : undefined}>
-        {showHeading && (
-          <Header>
-            <Box align="start" gap="small">
-              {level === 1 && topic && (
-                <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <Button
-                    label={<Text color="text">{parent.name}</Text>}
-                    icon={parent.icon('small', parent.color)}
-                    plain
-                    {...rest}
-                  />
-                </Link>
+        {
+          showHeading && (
+            <Header>
+              <Box align="start" gap="small">
+                {level === 1 && topic && (
+                  <Link href={`/${topic.toLowerCase()}`} passHref>
+                    <Button
+                      label={<Text color="text">{parent.name}</Text>}
+                      icon={parent.icon('small', parent.color)}
+                      plain
+                      {...rest}
+                    />
+                  </Link>
+                )}
+                <Subheading
+                  level={level}
+                  headingSize={headingSize || HEADING_SIZE[level]}
+                >
+                  {name}
+                </Subheading>
+              </Box>
+              {level > 1 && (
+                <Anchor
+                  a11yTitle={`Jump to section titled ${name}`}
+                  href={`#${id}`}
+                  icon={
+                    <LinkIcon color={over ? 'text-xweak' : 'transparent'} />
+                  }
+                />
               )}
-              <Subheading
-                level={level}
-                headingSize={headingSize || HEADING_SIZE[level]}
-              >
-                {name}
-              </Subheading>
-            </Box>
-            {level > 1 && (
-              <Anchor
-                a11yTitle={`Jump to section titled ${name}`}
-                href={`#${id}`}
-                icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-              />
-            )}
-          </Header>
-        )
-        /* Isolates the first child to ensure the gap between heading and
-         * first child is correct size. See comment on line 33 for reasoning.
-         */
+            </Header>
+          )
+          /* Isolates the first child to ensure the gap between heading and
+           * first child is correct size. See comment on line 33 for reasoning.
+           */
         }
         {firstChild}
       </Box>
