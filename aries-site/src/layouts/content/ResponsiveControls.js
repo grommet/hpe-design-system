@@ -8,19 +8,19 @@ export const ResponsiveControls = ({ onSetScreen, screen }) => {
   return (
     <Box direction="row" gap="xsmall">
       <Button
-        label="Laptop"
-        icon={<PersonalComputer />}
-        active={screen === screens.laptop}
-        onClick={() => {
-          onSetScreen(screens.laptop);
-        }}
-      />
-      <Button
         label="Desktop"
         icon={<Desktop />}
         active={screen === screens.desktop}
         onClick={() => {
           onSetScreen(screens.desktop);
+        }}
+      />
+      <Button
+        label="Laptop"
+        icon={<PersonalComputer />}
+        active={screen === screens.laptop}
+        onClick={() => {
+          onSetScreen(screens.laptop);
         }}
       />
       <Button

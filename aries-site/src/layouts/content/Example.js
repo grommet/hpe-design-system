@@ -106,6 +106,7 @@ const BrowserWrapper = ({ screen, ...rest }) => {
       {screen !== screens.mobile && (
         <Box
           direction="row"
+          flex={false}
           gap="xsmall"
           background="background-back"
           align="center"
@@ -117,7 +118,7 @@ const BrowserWrapper = ({ screen, ...rest }) => {
         </Box>
       )}
       <Box
-        width={screen === screens.desktop ? 'large' : '100%'}
+        width={screen === screens.desktop ? '75%' : '100%'}
         margin="auto"
         {...rest}
       />
@@ -158,7 +159,7 @@ export const Example = ({
   const laptopHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
   // To demonstrate really wide displays, we need to cut the height slightly
   const desktopHeight = `${
-    (parseInt(medium, 10) + parseInt(small, 10)) * 0.9
+    (parseInt(medium, 10) + parseInt(small, 10)) * 0.85
   }px`;
 
   let exampleHeight;
