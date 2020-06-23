@@ -91,7 +91,7 @@ export const screens = {
 
 const BrowserWrapper = ({ screen, ...rest }) => {
   let width;
-  if (screen === screens.laptop) width = 'large';
+  if (screen === screens.laptop) width = '75%';
   else if (screen === screens.desktop) width = '100%';
   else width = 'medium';
 
@@ -156,19 +156,7 @@ export const Example = ({
   const { small, medium } = defaultProps.theme.global.size;
   // Height for template screen needs to be between medium and large
   // to maintain aspect ratio, so this is small + medium
-  const laptopHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
-  // To demonstrate really wide displays, we need to cut the height slightly
-  const desktopHeight = `${
-    (parseInt(medium, 10) + parseInt(small, 10)) * 0.85
-  }px`;
-
-  let exampleHeight;
-  if (template || layout) {
-    if (screen !== screens.desktop) exampleHeight = laptopHeight;
-    else exampleHeight = desktopHeight;
-  } else {
-    exampleHeight = height;
-  }
+  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   React.useEffect(() => {
     if (codeOpen && !codeText) {
@@ -201,7 +189,7 @@ export const Example = ({
             align={!template && !layout ? 'center' : undefined}
             background="background-front"
             direction="row"
-            height={exampleHeight}
+            height={template || layout ? aspectHeight : height}
             justify="center"
             margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
             pad={
