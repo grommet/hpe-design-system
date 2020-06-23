@@ -14,11 +14,16 @@ import {
 import { Contract, Desktop } from 'grommet-icons';
 import Prism from 'prismjs';
 import {
+  CardGrid,
   CollapsibleSection,
   IconMobile,
   SubsectionText,
 } from '../../components';
 import { ExampleControls } from '.';
+import { getPageDetails } from '../../utils';
+
+const getRelatedCards = names =>
+  names.sort().map(pattern => getPageDetails(pattern));
 
 const syntax = {
   dark: styled.pre`
@@ -91,6 +96,8 @@ export const Example = ({
   docs,
   figma,
   height,
+  relevantComponents,
+  showResponsiveControls,
   template,
   width,
   ...rest
@@ -127,6 +134,22 @@ export const Example = ({
     <>
       <Box margin={{ vertical: 'small' }} gap="large">
         <Box>
+          {showResponsiveControls && (
+            <Box direction="row" margin={{ bottom: 'xsmall' }} gap="xsmall">
+              <Button
+                label="Desktop"
+                icon={<Desktop />}
+                active={!mobile}
+                onClick={() => setMobile(false)}
+              />
+              <Button
+                label="Mobile"
+                icon={<IconMobile />}
+                active={mobile}
+                onClick={() => setMobile(true)}
+              />
+            </Box>
+          )}
           <Box
             align={!template ? 'center' : undefined}
             background="background-front"
@@ -144,9 +167,9 @@ export const Example = ({
             {...rest}
           >
             <Box width={width}>
-            <ResponsiveContext.Provider value={mobile && 'small'}>
-                  {children}
-            </ResponsiveContext.Provider>
+              <ResponsiveContext.Provider value={mobile && 'small'}>
+                {children}
+              </ResponsiveContext.Provider>
             </Box>
           </Box>
           {(designer || docs || figma || template) && (
@@ -183,6 +206,17 @@ export const Example = ({
                   </code>
                 </Syntax>
               </Text>
+            </CollapsibleSection>
+          )}
+          {relevantComponents && (
+            <CollapsibleSection
+              label={{
+                closed: 'Show Relevant Components',
+                open: 'Hide Relevant Components',
+              }}
+              onClick={() => setCodeOpen(!codeOpen)}
+            >
+              <CardGrid cards={getRelatedCards(relevantComponents)} minimal />
             </CollapsibleSection>
           )}
         </Box>
@@ -275,6 +309,8 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  relevantComponents: PropTypes.arrayOf(PropTypes.string),
+  showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

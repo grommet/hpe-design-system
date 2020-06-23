@@ -6,7 +6,7 @@ import { Grid, ResponsiveContext } from 'grommet';
 import { ContentCard } from '.';
 import { nameToPath } from '../../utils';
 
-export const CardGrid = ({ cards, ...rest }) => {
+export const CardGrid = ({ cards, minimal, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
@@ -28,6 +28,7 @@ export const CardGrid = ({ cards, ...rest }) => {
               forwardedAs="a"
               style={{ textDecoration: 'none' }}
               topic={topic}
+              minimal={minimal}
             />
           </Link>
         ))}
@@ -41,4 +42,5 @@ CardGrid.propTypes = {
       name: PropTypes.string,
     }),
   ),
+  minimal: PropTypes.bool,
 };
