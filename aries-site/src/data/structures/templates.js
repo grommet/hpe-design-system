@@ -108,6 +108,15 @@ export const templates = [
         fit: 'contain',
       },
     },
+    relatedContent: [
+      'Navigation',
+      'Dashboards',
+      'Grid',
+      'Lists',
+      'Global Sidebar',
+      'Header',
+      'Footer',
+    ],
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [],
