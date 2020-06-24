@@ -116,7 +116,6 @@ export const templates = [
       'Global Sidebar',
       'Header',
       'Footer',
-      'Main',
     ],
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
