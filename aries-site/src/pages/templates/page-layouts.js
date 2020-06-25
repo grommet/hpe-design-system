@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { Box, Grid, ResponsiveContext, Text } from 'grommet';
-import { ContentPreviewCard, Meta, SubsectionText } from '../../components';
+import {
+  CardGrid,
+  ContentPreviewCard,
+  Meta,
+  SubsectionText,
+} from '../../components';
 import {
   HeaderOnlyExample,
   HeaderFooterExample,
@@ -14,11 +19,12 @@ import {
   HeaderOnlyPreview,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
-import { getPageDetails, formatName } from '../../utils';
+import { getPageDetails, getRelatedContent, formatName } from '../../utils';
 
 const title = 'Page Layouts';
 const topic = 'Templates';
 const pageDetails = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
 
 const layouts = [
   {
@@ -100,8 +106,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
             relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <SidebarHeaderFooterExample />
           </Example>
@@ -117,8 +122,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6568"
             relevantComponents={['Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <SidebarHeaderExample />
           </Example>
@@ -132,8 +136,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
             relevantComponents={['Header', 'Footer']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <HeaderFooterExample />
           </Example>
@@ -148,8 +151,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
             relevantComponents={['Header', 'Footer', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <StickyHeaderExample />
           </Example>
@@ -163,12 +165,21 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6572"
             relevantComponents={['Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <HeaderOnlyExample />
           </Example>
         </Subsection>
+      </ContentSection>
+      <ContentSection>
+        {relatedContent.length > 0 ? (
+          <Subsection name="Related">
+            <SubsectionText>
+              Related content you may find useful when using {title}.
+            </SubsectionText>
+            <CardGrid cards={relatedContent} />
+          </Subsection>
+        ) : null}
       </ContentSection>
     </Layout>
   );
