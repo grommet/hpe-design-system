@@ -19,36 +19,3 @@ jobs:
         with:
           name: report
           path: './report'
-
-name: Lint source code
-on: pull_request
-
-jobs: 
-  run:
-    name: Lint with ESLint
-    runs-on: ubuntu-latest
-    steps: 
-    - name: Checkout repo
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    
-    - name: Install dependencies
-      run: yarn upgrade
-
-    - name: Lint aries-site
-      run: yarn lint-fix
-      working-directory: aries-site
-    - name: Lint aries-core
-      run: yarn lint-fix
-      working-directory: aries-core
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v4
-      with:
-        message: "Lint fix on aries-site and aries-core"
-        add: "."
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
