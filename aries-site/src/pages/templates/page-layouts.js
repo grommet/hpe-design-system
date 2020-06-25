@@ -100,8 +100,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
             relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <SidebarHeaderFooterExample />
           </Example>
@@ -117,8 +116,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6568"
             relevantComponents={['Global Sidebar', 'Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <SidebarHeaderExample />
           </Example>
@@ -132,8 +130,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
             relevantComponents={['Header', 'Footer']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <HeaderFooterExample />
           </Example>
@@ -148,8 +145,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
             relevantComponents={['Header', 'Footer', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <StickyHeaderExample />
           </Example>
@@ -163,8 +159,7 @@ const PageLayouts = () => {
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6572"
             relevantComponents={['Header', 'Main']}
             width="100%"
-            template
-            showResponsiveControls
+            screenContainer
           >
             <HeaderOnlyExample />
           </Example>
