@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { Box, Grid, ResponsiveContext, Text } from 'grommet';
-import { ContentPreviewCard, Meta, SubsectionText } from '../../components';
+import {
+  CardGrid,
+  ContentPreviewCard,
+  Meta,
+  SubsectionText,
+} from '../../components';
 import {
   HeaderOnlyExample,
   HeaderFooterExample,
@@ -14,11 +19,12 @@ import {
   HeaderOnlyPreview,
 } from '../../examples';
 import { ContentSection, Example, Layout, Subsection } from '../../layouts';
-import { getPageDetails, formatName } from '../../utils';
+import { getPageDetails, getRelatedContent, formatName } from '../../utils';
 
 const title = 'Page Layouts';
 const topic = 'Templates';
 const pageDetails = getPageDetails(title);
+const relatedContent = getRelatedContent(title);
 
 const layouts = [
   {
@@ -164,6 +170,16 @@ const PageLayouts = () => {
             <HeaderOnlyExample />
           </Example>
         </Subsection>
+      </ContentSection>
+      <ContentSection>
+        {relatedContent.length > 0 ? (
+          <Subsection name="Related">
+            <SubsectionText>
+              Related content you may find useful when using {title}.
+            </SubsectionText>
+            <CardGrid cards={relatedContent} />
+          </Subsection>
+        ) : null}
       </ContentSection>
     </Layout>
   );
