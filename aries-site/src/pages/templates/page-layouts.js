@@ -130,7 +130,7 @@ const PageLayouts = () => {
           <Example
             code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
             figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
-            relevantComponents={['Header', 'Footer']}
+            relevantComponents={['Header', 'Footer', 'Main']}
             width="100%"
             template
             showResponsiveControls
