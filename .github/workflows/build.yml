@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install latest dependencies
-        run: yarn ugprade
+        run: yarn upgrade
         working-directory: aries-site
       - name: Build aries-site
         run: yarn build --if-present
