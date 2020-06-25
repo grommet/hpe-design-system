@@ -95,7 +95,7 @@ export const templates = [
   },
   {
     name: 'Page Layouts',
-    available: false,
+    available: true,
     description: `Page layout options, anatomies, and behaviors serving a wide 
     variety of enterprise application, workflow, and marketing contexts.`,
     preview: {
@@ -108,6 +108,15 @@ export const templates = [
         fit: 'contain',
       },
     },
+    relatedContent: [
+      'Navigation',
+      'Dashboards',
+      'Grid',
+      'Lists',
+      'Global Sidebar',
+      'Header',
+      'Footer',
+    ],
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [],
