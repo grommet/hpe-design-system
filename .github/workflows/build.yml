@@ -17,6 +17,6 @@ jobs:
       - name: Build aries-site
         run: yarn build
         working-directory: aries-site
-       - name: Run e2e tests
+      - name: Run e2e tests
         run: yarn test:ci
         working-directory: aries-site
