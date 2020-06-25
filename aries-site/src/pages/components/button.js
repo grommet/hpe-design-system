@@ -6,7 +6,7 @@ import {
   CardGrid,
   Meta,
   Status,
-  SubsectionText,
+  SubsectionTex,
 } from '../../components';
 import {
   ButtonExample,
