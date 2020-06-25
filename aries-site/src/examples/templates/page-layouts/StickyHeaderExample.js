@@ -1,9 +1,18 @@
-import React from 'react';
-import { Header, Box, Footer, Main, ResponsiveContext, Text } from 'grommet';
+import React, { useContext } from 'react';
+import {
+  Header,
+  Box,
+  Footer,
+  Main,
+  ResponsiveContext,
+  Sidebar,
+  Text,
+} from 'grommet';
 
 export const StickyHeaderExample = () => {
   return (
-    <AppContainer overflow="auto">
+    <AppContainer>
+      <AppSidebar />
       <Box fill>
         <Header
           flex={false}
@@ -41,6 +50,27 @@ export const StickyHeaderExample = () => {
         </Box>
       </Box>
     </AppContainer>
+  );
+};
+
+const AppSidebar = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Sidebar
+      /* Sidebar should switch from column to row orientation
+       * when on smaller screens */
+      direction={size !== 'small' ? 'column' : 'row'}
+      flex={false}
+      /* Min height is not needed in mobile contexts */
+      height={size !== 'small' ? { min: '100%' } : undefined}
+      background={{ color: 'purple', dark: true }}
+      pad="small"
+      round="xsmall"
+    >
+      <Text weight="bold" color="text-strong">
+        Sidebar
+      </Text>
+    </Sidebar>
   );
 };
 
