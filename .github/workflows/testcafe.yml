@@ -2,7 +2,7 @@ name: Run e2e tests
 on: pull_request
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
