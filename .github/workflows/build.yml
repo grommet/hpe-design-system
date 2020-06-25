@@ -1,4 +1,4 @@
-name: Build
+name: Build design system site
 on: pull_request
 
 jobs:
