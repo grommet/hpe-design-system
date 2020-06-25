@@ -15,5 +15,5 @@ jobs:
         run: yarn upgrade
         working-directory: aries-site
       - name: Build aries-site
-        run: yarn build --if-present
+        run: yarn build
         working-directory: aries-site
