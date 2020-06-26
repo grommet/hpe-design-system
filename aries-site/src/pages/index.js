@@ -54,14 +54,10 @@ const Index = () => (
     <Box gap="large">
       <PageIntro>
         <Box justify="center" fill>
-          <Heading margin="none">
-            Mix, match, and stack cards to change the game
-          </Heading>
+          <Heading margin="none">HPE Design System</Heading>
           <Paragraph size="large" fill>
             The Design System was created to empower designers, developers, and
-            others to contribute in making great experiences for the customer.
-            Pick your cards, then mix, match, and stack to see what experiences
-            you can create.
+            others to contribute to making great experiences for the customer.
           </Paragraph>
         </Box>
       </PageIntro>

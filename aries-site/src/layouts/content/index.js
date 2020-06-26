@@ -3,7 +3,6 @@ export * from './ColorRow';
 export * from './ContentSection';
 export * from './DocsPageHeader';
 export * from './Example';
-export * from './ExampleControls';
 export * from './FeedbackSection';
 export * from './Head';
 export * from './PageIntro';
