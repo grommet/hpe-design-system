@@ -1,0 +1,167 @@
+import { Anchor, Text } from 'grommet';
+import { Example } from '../../layouts';
+import {
+  HeaderExample,
+  HeaderActionExample,
+  HeaderNavigationExample,
+  HeaderPageExample,
+  HeaderAvatarExample,
+  HeaderSearchActionsExample,
+} from '../../examples';
+import { nameToPath } from '../../utils';
+
+<Example
+  designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/header?theme=hpe"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
+  figma="https://www.figma.com/file/krgk9GTsccqOvcTm8OVzH2/HPE-Header-Component?node-id=0%3A2"
+  width="100%"
+>
+  <HeaderExample />
+</Example>
+
+## Guidance
+
+Header is used to set the context for an application or a specific
+page within an application. It is a flexible element that can be
+composed of a variety of components to aid the user experience in an
+application.
+
+### About Header
+
+Header is extremely versatile and can be built by mixing and matching a variety of components to provide users with relevant interactive elements to navigate through or engage with an application.
+
+**Common use cases include:**
+
+- Creating a navigation structure for an application
+- Providing a search field for an application or single page within an application
+- Displaying an action button that affects the application or current page content
+
+**Components used within a Header:**
+
+Some of the most common components that can be used in Header are [Button](/components/button), Avatar, [Search](/components/search), and [Menu](/components/menu).
+
+### Usage
+
+While Header is flexible in its composition, there are some important guidelines and use cases to consider. Following these examples and guidance will help ensure your Header is compliant with the HPE Design System standards.
+
+**Keep Header contents to a limited set of elements in order to:**
+
+- Provide the user with relevant, helpful actions regarding the application or page
+- Layout smoothly and responsively across all browser widths
+
+**Include an App Identity at the start of your header:**
+
+- Contains brand logo and application/service name
+- Links to the landing page of your application
+
+### App Header
+
+An app-level Header sets the context for an entire application. It should contain the HPE or Aruba logo alongside text that provides the application name on the left side of the Header.
+
+**Here are some elements that are appropriate for an App Header:**
+
+- Application navigation structure
+- Profile Avatar button that leads to account information
+- Search field that searches entirety of the application
+
+If you have actions that pertain specifically to a single page, consider adding a Page Header to your layout in addition to your App Header.
+
+### Page Header
+
+A page-level Header sets the context for a single page within an application. It may contain the main heading of the page as well as some actions pertaining to the specific page content.
+
+**A page-level Header should:**
+
+- always be used in addition to the App Header
+- be placed below the App Header in the layout
+- contain actions relevant to a single page of an app
+
+For more guidance, check out an example of [how to use a page-level header](#header-for-a-single-page).
+
+### Accessibility
+
+When using Header as a navigation structure, use [Buttons](/components/button) as your navigational elements and wrap them in a Nav component. This allows screen readers to identify this as a navigation region. For guidance, check out this example of a [Header with navigation buttons](#header-with-navigation-buttons).
+
+## Variants
+
+There are various action elements that may live in a Header, depending on the application or page context.
+
+### Header with navigation buttons
+
+Header will commonly be used to provide the navigation structure within an application. On wider screens, the navigational buttons should display in a row. On mobile, these items will be collapsed into a <Anchor label="Menu" href={nameToPath('Menu')} />.
+
+<Example
+  docs="https://v2.grommet.io/menu?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderNavigationExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderNavigationExample />
+</Example>
+
+### Header with main action
+
+Used for key actions on the page. This action will often pertain to the content on the visible page.
+
+<Example
+  docs="https://v2.grommet.io/header?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderActionExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderActionExample />
+</Example>
+
+### Header with search
+
+Used to provide users with a quick, efficient way to find content. On mobile, the search input collapses into a single button that expands the input field when clicked.
+
+<Example
+  docs="https://v2.grommet.io/header?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderExample />
+</Example>
+
+### Header with avatar
+
+An avatar may be useful to have in a Header to allow users quick access to account related information. Wrap the Avatar in a [Button](/components/button), or provide an
+'onClick' property to turn it into an interactive element.
+
+<Example
+  docs="https://v2.grommet.io/header?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderAvatarExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderAvatarExample />
+</Example>
+
+### Header with search and actions
+
+A complex header can be effective for certain application purposes. However, it is important to note that this structure is suited better for wide desktop screens, as it is easy for the content to become crowded as the page width shrinks. Keep in mind the common use context of your user when creating Headers with lots of child elements.
+
+<Example
+  docs="https://v2.grommet.io/header?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderSearchActionsExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderSearchActionsExample />
+</Example>
+
+### Header for a single page
+
+A Page Header should never replace the App Header. It should be used in addition to the App Header and placed below the App Header in the layout. The actions within a Page Header should pertain only to the content within the current page.
+
+<Example
+  docs="https://v2.grommet.io/header?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/header/HeaderPageExample.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderPageExample />
+</Example>
