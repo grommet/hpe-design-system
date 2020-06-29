@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install latest dependencies
-        run: yarn upgrade grommet-theme-hpe && yarn upgrade grommet
+        run: yarn upgrade
         working-directory: aries-site
       # Tests are only run on headless Chrome
       - name: Build and run e2e tests
