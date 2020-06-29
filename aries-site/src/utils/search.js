@@ -29,7 +29,12 @@ export const formatName = name => {
 };
 
 export const getPageDetails = pageName =>
-  structure.find(page => page.name === pageName);
+  structure.find(
+    page =>
+      page.name &&
+      pageName &&
+      page.name.toLowerCase() === pageName.toLowerCase(),
+  );
 
 export const getParentPage = currentPage =>
   structure.find(page =>
@@ -94,7 +99,9 @@ export const getCards = cardCategory => {
  * pageName is a string.
  */
 export const getRelatedContent = pageName => {
-  let { relatedContent } = structure.find(page => page.name === pageName);
+  let { relatedContent } = structure.find(
+    page => page.name.toLowerCase() === pageName.toLowerCase(),
+  );
   relatedContent = typeof relatedContent !== 'undefined' ? relatedContent : [];
   return relatedContent.map(page => structure.find(obj => obj.name === page));
 };

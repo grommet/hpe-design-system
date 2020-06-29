@@ -24,7 +24,7 @@ const calcPad = size => {
 export const Layout = ({
   backgroundImage,
   children,
-  title,
+  title: titleProp,
   topic,
   isLanding,
 }) => {
@@ -35,9 +35,10 @@ export const Layout = ({
     }
   }, []);
 
-  const relatedContent = getRelatedContent(title);
-  const page = getPageDetails(title);
   const router = useRouter();
+  const relatedContent = getRelatedContent(titleProp);
+  // Allow proper capitalization to be used
+  const { name: title, seoDescription } = getPageDetails(titleProp);
 
   return (
     <>
@@ -60,7 +61,7 @@ export const Layout = ({
               <Head title={title} />
               <Meta
                 title={title}
-                description={page.seoDescription}
+                description={seoDescription}
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
