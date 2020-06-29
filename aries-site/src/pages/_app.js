@@ -4,24 +4,16 @@ import React from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 
-const capitalizeFLetter = word => {
-  return word.replace(/^./, word[0].toUpperCase());
-};
+const formatString = str => str.split('-').join(' ');
 
-const formatString = str => {
-  const formattedString = [];
-  const splitString = str.split('-');
-  splitString.forEach(s => formattedString.push(capitalizeFLetter(s)));
-  return formattedString.join(' ');
-};
-
-function MyApp({ Component, pageProps, router }) {
+function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
-  // final array item is the title of page we are on
+
+  // final array item from the route is the title of page we are on
   const title =
     route[route.length - 1].length && formatString(route[route.length - 1]);
 
-  // second to last array item is the topic
+  // second to last array item (if present) is the topic
   const topic =
     route[route.length - 2] &&
     route[route.length - 2].length &&
@@ -48,7 +40,7 @@ function MyApp({ Component, pageProps, router }) {
   );
 }
 
-MyApp.propTypes = {
+App.propTypes = {
   Component: PropTypes.func,
   pageProps: PropTypes.shape({}),
   router: PropTypes.shape({
@@ -56,4 +48,4 @@ MyApp.propTypes = {
   }).isRequired,
 };
 
-export default MyApp;
+export default App;

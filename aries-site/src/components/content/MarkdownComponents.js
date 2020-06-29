@@ -5,7 +5,7 @@ import { Anchor, Heading } from 'grommet';
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
-const internalLink = RegExp('^/.*|#.*');
+const internalLink = RegExp('^/.*|^#.*');
 
 export const components = {
   p: SubsectionText,
@@ -17,6 +17,17 @@ export const components = {
     ) : (
       <Anchor rel="noopener" target="_blank" {...props} />
     ),
+  ol: props => (
+    <SubsectionText
+      as="ol"
+      style={{
+        // don't let text wrap beneath bullet
+        listStylePosition: 'outside',
+        paddingLeft: '21px', // Left align bullet with p text
+      }}
+      {...props}
+    />
+  ),
   ul: props => (
     <SubsectionText
       as="ul"
