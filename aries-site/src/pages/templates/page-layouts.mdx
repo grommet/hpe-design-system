@@ -1,0 +1,142 @@
+import { useContext } from 'react';
+import { Box, Grid, ResponsiveContext, Text } from 'grommet';
+import { ContentPreviewCard } from '../../components';
+import {
+  HeaderOnlyExample,
+  HeaderFooterExample,
+  SidebarHeaderExample,
+  SidebarHeaderFooterExample,
+  StickyHeaderExample,
+  SidebarHeaderFooterPreview,
+  SidebarHeaderPreview,
+  HeaderFooterPreview,
+  StickyHeaderPreview,
+  HeaderOnlyPreview,
+} from '../../examples';
+import { Example } from '../../layouts';
+import { formatName } from '../../utils';
+
+Here are some common layouts to get you started:
+
+<LayoutPreviewGrid />
+
+## Sidebar, header, and footer
+
+On desktop, the sidebar is fixed to the left side while header, main, and footer are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
+  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
+  relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
+  width="100%"
+  screenContainer
+>
+  <SidebarHeaderFooterExample />
+</Example>
+
+## Sidebar and header
+
+On desktop, the sidebar is fixed to the left side while header and main are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
+  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6568"
+  relevantComponents={['Global Sidebar', 'Header', 'Main']}
+  width="100%"
+  screenContainer
+>
+  <SidebarHeaderExample />
+</Example>
+
+## Header and footer
+
+On both desktop and mobile, all content scrolls.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
+  relevantComponents={['Header', 'Footer', 'Main']}
+  width="100%"
+  screenContainer
+>
+  <HeaderFooterExample />
+</Example>
+
+## Sticky header
+
+On both desktop and mobile, header is fixed to the top of the screen while main and footer are a scrollable region.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
+  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
+  relevantComponents={['Header', 'Footer', 'Main']}
+  width="100%"
+  screenContainer
+>
+  <StickyHeaderExample />
+</Example>
+
+## Header only
+
+On both desktop and mobile, all content scrolls.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
+  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6572"
+  relevantComponents={['Header', 'Main']}
+  width="100%"
+  screenContainer
+>
+  <HeaderOnlyExample />
+</Example>
+
+export const layouts = [
+  {
+    name: 'Sidebar, header, and footer',
+    preview: <SidebarHeaderFooterPreview />,
+  },
+  {
+    name: 'Sidebar and header',
+    preview: <SidebarHeaderPreview />,
+  },
+  {
+    name: 'Header and footer',
+    preview: <HeaderFooterPreview />,
+  },
+  {
+    name: 'Sticky Header',
+    preview: <StickyHeaderPreview />,
+  },
+  {
+    name: 'Header only',
+    preview: <HeaderOnlyPreview />,
+  },
+];
+
+export const LayoutPreviewGrid = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Grid
+      columns={size !== 'small' ? 'medium' : '100%'}
+      rows={[['auto', 'full']]}
+      gap="medium"
+      justify="center"
+      fill
+    >
+      {layouts.map(layout => (
+        <ContentPreviewCard
+          forwardedAs="a"
+          style={{ textDecoration: 'none' }}
+          href={`#${formatName(layout.name)}`}
+        >
+          <Box height="small" width="100%" round="xsmall">
+            {layout.preview}
+          </Box>
+          <Text weight="bold" size="large" margin={{ top: 'small' }}>
+            {layout.name}
+          </Text>
+        </ContentPreviewCard>
+      ))}
+    </Grid>
+  );
+};
