@@ -18,6 +18,6 @@ jobs:
         run: yarn upgrade
         working-directory: aries-site
       # Tests are only run on headless Chrome
-      - name: Build and run e2e tests
+      - name: Build and run e2e tests on Chrome
         run: yarn test:ci
         working-directory: aries-site
