@@ -20,7 +20,49 @@ Here are some common layouts to get you started:
 
 <LayoutPreviewGrid />
 
-## Sidebar, header, and footer
+## Guidance
+
+The when, how, and why to use page layouts.
+
+### About Page Layouts
+
+Choosing a page layout is an important first step in designing an application or website. Use of these layouts will help to maintain consistency across your design. They also provide visual guidance for how your design behaves at different screen sizes.
+
+**Common use cases include:**
+
+- Creating a dashboard with global navigation
+- Providing a dialog for viewing or updating something
+- Displaying a page in a website
+
+**Components used within a Page Layout:**
+
+Page Layouts are built using the [Header](/components/header) and [Main](/components/main) components, with optional [Sidebar](/extend/global-sidebar) and [Footer](/components/footer) components. For guidance on page layout content, refer to the HPE Design System website pages for the components that make up your Page Layout.
+
+### Usage
+
+Page Layouts provide the basic structure for a variety of page types.
+
+- Page-level vertical scrolling is supported, but horizontal scrolling is not (and should be avoided, when possible).
+- Can be used with various [Navigation](/templates/navigation) patterns.
+- Are designed to be responsive, and thus behave well, regardless of the screen size they are displayed on.
+
+### Responsiveness
+
+Examples are included for different screen sizes – Desktop, Laptop and Mobile.
+
+Page content can expand to a max-width of 1440px and after that it stays centered. Specifically, the sidebar, main, footer, and header are constrained to stay centered, with equal margins on both sides. This behavior is demonstrated visually when a user clicks on a Desktop example.
+
+### Accessibility
+
+The screen reader reads page content in the order it is specified. Refer to the code examples to see the order in which Page Layout components are specified. Since Sidebar is typically used for global navigation, it is always specified first in Page Layout, when it is included.
+
+Specify page layout content so that it is understandable by the screen reader too. This should make the page easier to visually read as well.
+
+## Variants
+
+Examples of common page layouts.
+
+### Sidebar, header, and footer
 
 On desktop, the sidebar is fixed to the left side while header, main, and footer are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
 
@@ -34,7 +76,7 @@ On desktop, the sidebar is fixed to the left side while header, main, and footer
   <SidebarHeaderFooterExample />
 </Example>
 
-## Sidebar and header
+### Sidebar and header
 
 On desktop, the sidebar is fixed to the left side while header and main are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
 
@@ -48,7 +90,7 @@ On desktop, the sidebar is fixed to the left side while header and main are a sc
   <SidebarHeaderExample />
 </Example>
 
-## Header and footer
+### Header and footer
 
 On both desktop and mobile, all content scrolls.
 
@@ -62,7 +104,7 @@ On both desktop and mobile, all content scrolls.
   <HeaderFooterExample />
 </Example>
 
-## Sticky header
+### Sticky header
 
 On both desktop and mobile, header is fixed to the top of the screen while main and footer are a scrollable region.
 
@@ -76,7 +118,7 @@ On both desktop and mobile, header is fixed to the top of the screen while main 
   <StickyHeaderExample />
 </Example>
 
-## Header only
+### Header only
 
 On both desktop and mobile, all content scrolls.
 
