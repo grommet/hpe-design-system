@@ -26,7 +26,9 @@ export const HeaderOnlyExample = () => {
             pad="small"
             round="xsmall"
           >
-            <Text weight="bold">Main</Text>
+            <Text weight="bold" color="text-strong">
+              Main
+            </Text>
           </Main>
         </Box>
       </Box>
