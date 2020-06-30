@@ -12,7 +12,7 @@ export const HeaderFooterPreview = () => {
       <Box background="orange" round="xsmall" flex />
       <Box
         height={defaultProps.theme.global.edgeSize.medium}
-        background="blue"
+        background={{ color: { light: 'blue', dark: 'blue!' } }}
         round="xsmall"
       />
     </Box>
