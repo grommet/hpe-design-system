@@ -79,11 +79,7 @@ const emailMask = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -187,7 +183,7 @@ export const SignUpExample = () => {
               />
             </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Sign up" primary type="submit" />
+              <Button label="Sign Up" primary type="submit" />
             </Box>
           </Form>
         </Box>

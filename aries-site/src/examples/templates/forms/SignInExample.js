@@ -36,11 +36,7 @@ const emailValidation = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -183,7 +179,7 @@ export const SignInExample = () => {
             </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
-                label="Sign in"
+                label="Sign In"
                 icon={<FormNext />}
                 reverse
                 primary
