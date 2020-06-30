@@ -96,6 +96,21 @@ const Forms = () => {
             field's context.
           </SubsectionText>
         </Subsection>
+        <Subsection name="Capitalization in forms" level={3}>
+          <SubsectionText>
+            Writing standards contribute to the voice, tone, and grammatical
+            accuracy that inform the experiences we create. These standards are
+            aligned with HPE Brand.
+          </SubsectionText>
+          <SubsectionText>Within a form, you should:</SubsectionText>
+          <BulletedList
+            items={[
+              `Use title case and capitalize short prepositions when they are 
+              the last word in a sentence (e.g. Sign Up, Sign Out)`,
+              'For headings and captions, use sentence case',
+            ]}
+          />
+        </Subsection>
         <Subsection name="Button placement and labeling" level={3}>
           <SubsectionText>
             Submit, reset, or cancel buttons should always be placed at the
