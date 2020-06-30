@@ -54,7 +54,8 @@ const page = getPageDetails(title);
 const topic = 'Foundation';
 
 const Color = () => (
-  <Layout title={title}>
+  // Temp isLanding for proper layout until converted to MDX
+  <Layout title={title} isLanding>
     <Meta
       title={title}
       description={page.seoDescription}
@@ -79,7 +80,7 @@ const Color = () => (
               </SubsectionText>
               <ButtonRow>
                 <Button
-                  href='https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color'
+                  href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
                   icon={<Figma color="plain" />}
                   label="Open in Figma"
                   target="_blank"
