@@ -6,6 +6,12 @@ import { components } from '../components';
 
 const formatString = str => str.split('-').join(' ');
 
+/* _app.js allows for customizing Next.js's default <App> component
+ * Details: https://nextjs.org/docs/advanced-features/custom-app
+ *
+ * The `Component` prop is the active `page`, so whenever you
+ * navigate between routes, `Component` will change to the new `page`.
+ */
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
 
