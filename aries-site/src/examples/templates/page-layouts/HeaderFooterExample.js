@@ -26,16 +26,20 @@ export const HeaderFooterExample = () => {
             pad="small"
             round="xsmall"
           >
-            <Text weight="bold">Main</Text>
+            <Text weight="bold" color="text-strong">
+              Main
+            </Text>
           </Main>
           <Footer
             fill="horizontal"
             height="xxsmall"
-            background="blue"
+            background={{ color: { light: 'blue', dark: 'blue!' } }}
             pad="small"
             round="xsmall"
           >
-            <Text weight="bold">Footer</Text>
+            <Text weight="bold" color="text-strong">
+              Footer
+            </Text>
           </Footer>
         </Box>
       </Box>

@@ -6,7 +6,7 @@ export const SidebarHeaderFooterPreview = () => {
     <Box fill direction="row" gap="xsmall">
       <Box
         basis={defaultProps.theme.global.edgeSize.medium}
-        background={{ color: 'purple', dark: true }}
+        background={{ color: { light: 'purple', dark: 'purple!' }, dark: true }}
         round="xsmall"
       />
       <Box fill gap="xsmall">
@@ -18,7 +18,7 @@ export const SidebarHeaderFooterPreview = () => {
         <Box background="orange" round="xsmall" flex />
         <Box
           height={defaultProps.theme.global.edgeSize.medium}
-          background="blue"
+          background={{ color: { light: 'blue', dark: 'blue!' } }}
           round="xsmall"
         />
       </Box>
