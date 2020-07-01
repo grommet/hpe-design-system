@@ -150,8 +150,7 @@ const PageLayouts = () => {
                 Can be used with various{' '}
                 <Anchor
                   label="Navigation"
-                  href={nameToPath(`Navigation
-                `)}
+                  href={nameToPath('Navigation')}
                 />{' '}
                 patterns.
               </Text>,
