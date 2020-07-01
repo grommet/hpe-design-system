@@ -1,34 +1,9 @@
-import { Box, List, Text } from 'grommet';
 import { Example } from '../../layouts';
 import {
   FooterExample,
   FooterComboExample,
   FooterPageExample,
 } from '../../examples';
-import { getPageDetails, getRelatedContent, nameToPath } from '../../utils';
-
-export const data = [
-  {
-    title: 'Copyright information',
-    description: `It is vital to make it clear that the content within the
-website and applications is protected and copyrighted.`,
-  },
-  {
-    title: 'Terms of use',
-    description: `These guidelines will help ensure partners and customers the
-terms of doing business with us.`,
-  },
-  {
-    title: 'Privacy',
-    description: `As a large corporation, it is essential to display a link to
-our privacy policy page to let users know that we follow GDPR laws.`,
-  },
-  {
-    title: 'Security',
-    description: `It is important for users to get an overview that explains
-our security processes and tools that are used to protect data and users.`,
-  },
-];
 
 <Example
   designer="https://designer.grommet.io/footer?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
@@ -58,21 +33,14 @@ A simple, clean and straightforward app footer displays useful information for t
 
 **Always provide these essential links in your footer:**
 
-<List
-  as="ol"
-  data={data}
-  border={{ style: 'hidden' }}
-  pad={{ vertical: 'small' }}
->
-  {(datum, index) => (
-    <Box key={index} gap="xsmall">
-      <Text weight="bold">
-        {index + 1}) {datum.title}
-      </Text>
-      <SubsectionText size="small">{datum.description}</SubsectionText>
-    </Box>
-  )}
-</List>
+1. **Copyright information** - It is vital to make it clear that the content within the
+   website and applications is protected and copyrighted.
+1. **Terms of Use** - These guidelines will help ensure partners and customers the
+   terms of doing business with us.
+1. **Privacy** - As a large corporation, it is essential to display a link to
+   our privacy policy page to let users know that we follow GDPR laws.
+1. **Security** - It is important for users to get an overview that explains
+   our security processes and tools that are used to protect data and users.
 
 Check out this [simple Footer example](#) to see how these essential elements are included within a Footer.
 
