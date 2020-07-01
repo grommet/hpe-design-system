@@ -47,10 +47,6 @@ export const components = [
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [],
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
-    },
     preview: {
       component: () => <ButtonPreview />,
       background: 'background-front',
@@ -177,10 +173,6 @@ export const components = [
     seoDescription:
       'The accordion affords content to be delivered progressively.',
     sections: [],
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'Header',
@@ -276,10 +268,6 @@ export const components = [
       component: () => <LayerPreview />,
     },
     relatedContent: ['Forms', 'Button', 'Icons'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.complete,
-    },
   },
   {
     name: 'Main',
@@ -303,10 +291,6 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['TextInput', 'Forms', 'Select'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.complete,
-    },
   },
 
   {

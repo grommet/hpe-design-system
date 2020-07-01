@@ -36,16 +36,20 @@ export const StickyHeaderExample = () => {
             pad="small"
             round="xsmall"
           >
-            <Text weight="bold">Main</Text>
+            <Text weight="bold" color="text-strong">
+              Main
+            </Text>
           </Main>
           <Footer
             fill="horizontal"
             height="xxsmall"
-            background="blue"
+            background={{ color: { light: 'blue', dark: 'blue!' } }}
             pad="small"
             round="xsmall"
           >
-            <Text weight="bold">Footer</Text>
+            <Text weight="bold" color="text-strong">
+              Footer
+            </Text>
           </Footer>
         </Box>
       </Box>
@@ -63,7 +67,7 @@ const AppSidebar = () => {
       flex={false}
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
-      background={{ color: 'purple', dark: true }}
+      background={{ color: { light: 'purple', dark: 'purple!' }, dark: true }}
       pad="small"
       round="xsmall"
     >

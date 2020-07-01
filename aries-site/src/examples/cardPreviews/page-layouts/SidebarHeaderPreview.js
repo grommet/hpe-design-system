@@ -6,7 +6,7 @@ export const SidebarHeaderPreview = () => {
     <Box fill direction="row" gap="xsmall">
       <Box
         basis={defaultProps.theme.global.edgeSize.medium}
-        background={{ color: 'purple', dark: true }}
+        background={{ color: { light: 'purple', dark: 'purple!' }, dark: true }}
         round="xsmall"
       />
       <Box fill gap="xsmall">
