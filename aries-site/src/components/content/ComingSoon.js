@@ -26,13 +26,13 @@ export const ComingSoon = () => {
           <Text size={textSize}>Design System</Text>
         </Box>
         <SubsectionText>
-          The HPE Design System is the way Hewlett Packard Enterprise’s
-          brand, technology, and its partners share a single language for
-          application, web, and digitial experiences to answer your customers
-          needs—Look behind the element!
+          The HPE Design System is the way Hewlett Packard Enterprise’s brand,
+          technology, and its partners share a single language for application,
+          web, and digitial experiences to answer your customers needs—Look
+          behind the element!
         </SubsectionText>
         <Link href="/" passHref>
-          <Anchor label="Take me back to the Homepage" />
+          <Anchor label="Take me back to the Homepage" alignSelf="start" />
         </Link>
       </ContentSection>
     </>

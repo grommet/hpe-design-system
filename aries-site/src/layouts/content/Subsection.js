@@ -30,7 +30,7 @@ export const Subsection = ({
   ...rest
 }) => {
   const [over, setOver] = useState(false);
-  const parent = getPageDetails(topic);
+  const parent = topic && getPageDetails(topic);
 
   const id = formatName(name);
 
