@@ -135,7 +135,7 @@ export const components = [
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [],
-    relatedContent: ['Forms', 'RadioButtonGroup', 'Select'],
+    relatedContent: ['CheckBoxGroup', 'Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
       background: 'background-front',
