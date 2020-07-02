@@ -10,7 +10,7 @@ export const DocsPageHeader = ({ title, topic }) => {
 
   return (
     <Subsection name={title} topic={topic} level={1}>
-      <Box>
+      <Box margin={{ bottom: 'small' }}>
         <SubsectionText>{page.description}</SubsectionText>
         {page.status && <Status status={page.status} />}
       </Box>

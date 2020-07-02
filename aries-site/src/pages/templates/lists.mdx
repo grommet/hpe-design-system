@@ -1,16 +1,109 @@
 import { Example } from '../../layouts';
-import { ListScreenExample } from '../../examples';
+import {
+  ListIconIdentifierExample,
+  ListImageIdentifierExample,
+  ListNameOptionActionExample,
+  ListNameActionExample,
+  ListNameDescriptionOptionExample,
+  ListScreenExample,
+} from '../../examples';
 
 HPE Design System list view templates are go-to patterns for displaying homogeneous data such as services, devices, users, and more.
-
-List views are optimized for scanability and reading comprehension. Each list item provides users focussed information and identity labels to aid selection, decision making, and action.
-
-## Manage Users Screen
+List views are optimized for scanability and reading comprehension. Each list item provides users focused information and identity labels to aid selection, decision making, and action.
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListScreenExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
   template
   width="100%"
 >
   <ListScreenExample />
+</Example>
+
+## Guidance
+
+Lists are an effective way to display dense content to users. Here are some recommendations on how to make the data easily consumable.
+
+**Best Practices:**
+
+- Be consistent with layout and visual treatments for all list items.
+- Keep list item descriptions brief and concise.
+- Use Icons or Images in list items to help draw attention and support scanning.
+- Maintain sufficient space between list items or consider using dividers between rows.
+- Sort lists in a logical order such as alphabetically, numerically, chronologically, or by user preference.
+
+**Lists Types:**
+
+- Single-line lists are optimal for scan-ability, especially with the addition of an image.
+- Two-line lists provide a primary and secondary text which can be helpful when more detail is needed.
+- Three-line lists of a primary text and two lines of secondary text are not recommended.
+- Grid lists are made of image tiles and require more space.
+
+## Variants
+
+Below are some common list variations that demonstrate how to combine visual content, text, and list actions within the component.
+
+### Image + Name + Description + Action
+
+Two-line list with an image, primary title, description, and an action button.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListImageIdentifierExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  figma="https://www.figma.com/file/tMYTr17r6hhGajSlNRiPje/HPE-List-Component?node-id=19%3A135"
+  width="100%"
+>
+  <ListImageIdentifierExample />
+</Example>
+
+### Icon + Name + Option + Action
+
+Single-line list with an image, primary title, short status tag, and an action button.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListIconIdentifierExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  figma="https://www.figma.com/file/tMYTr17r6hhGajSlNRiPje/HPE-List-Component?node-id=19%3A135"
+  width="100%"
+>
+  <ListIconIdentifierExample />
+</Example>
+
+### Name + Option + Action
+
+Single-line list with a primary title, short status tag and an action button.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListNameOptionActionExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  figma="https://www.figma.com/file/tMYTr17r6hhGajSlNRiPje/HPE-List-Component?node-id=19%3A135"
+  width="100%"
+>
+  <ListNameOptionActionExample />
+</Example>
+
+### Name + Description + Option
+
+Two-line list with primary title, description, and a short status tag.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListNameOptionActionExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  figma="https://www.figma.com/file/tMYTr17r6hhGajSlNRiPje/HPE-List-Component?node-id=19%3A135"
+  width="100%"
+>
+  <ListNameDescriptionOptionExample />
+</Example>
+
+### Name + Action
+
+Single-line list with only a primary title and an action button.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListNameActionExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  figma="https://www.figma.com/file/tMYTr17r6hhGajSlNRiPje/HPE-List-Component?node-id=19%3A135"
+  width="100%"
+>
+  <ListNameActionExample />
 </Example>
