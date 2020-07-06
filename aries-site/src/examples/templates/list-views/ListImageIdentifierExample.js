@@ -25,7 +25,7 @@ const data = [
     name: 'User 4',
     description: 'Houston, TX',
     image:
-      'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
+      'https://images.unsplash.com/photo-1456049616707-070399496327?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80',
   },
   {
     name: 'User 5',
