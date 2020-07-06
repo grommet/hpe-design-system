@@ -79,13 +79,34 @@ yarn build
 - Grommet Designer Share tetorial 
 
 6/29
-- Initial Card teamplate design review 
+- Initial Card template design review 
 - Grommet Designer Backing up tetorial 
 
-### Q4
 **July 2020**  
 7/6
-- Initial list template design review 
+- Fisrt pass Card template review 
+- Design System/Brand Central content audit
+
+7/13
+- First pass list template review 
 - Final Card template design review 
+- Initial Table template design review 
+
+7/20
+- Final List template review
+- Align Design System/Brand Central content 
+
+7/27
+- First pass Table template review
+- Initial Data Visualization template design review 
+
+8/3
+- Final Table template review 
+
+8/10
+- First pass Data Visualization review 
+
+8/17 
+- Initial Asynchronous Notifications design review 
 
 
