@@ -3,6 +3,25 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
+  card: {
+    container: {
+      background: 'background-front',
+      elevation: 'medium',
+      round: 'small', // base.js default
+      // height: 'small',
+      // width: 'medium',
+    },
+    body: {
+      pad: { horizontal: 'medium', top: 'medium', bottom: 'large' },
+    },
+    footer: {
+      background: 'background-contrast', // base.js default
+      pad: { horizontal: 'medium', vertical: 'small' },
+    },
+    header: {
+      pad: 'medium',
+    },
+  },
   rangeInput: {
     thumb: {
       color: {
