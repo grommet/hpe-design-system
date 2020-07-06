@@ -31,7 +31,16 @@ export const ListNameOptionActionExample = () => {
       data={data}
       action={item => (
         <Box direction="row" align="center" gap="medium">
-          <Text>{item.option}</Text>
+          <Box direction="row" gap="small" align="center">
+            <Text>{item.option}</Text>
+            <Box
+              pad="xsmall"
+              background={
+                item.option === 'Active' ? 'status-ok' : 'status-critical'
+              }
+              round
+            />
+          </Box>
           <Menu
             icon={<More />}
             hoverIndicator
