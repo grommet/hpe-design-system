@@ -31,15 +31,17 @@ const data = [
 
 export const ListNameDescriptionOptionExample = () => {
   return (
-    <List data={data} action={item => <Text>{item.option}</Text>}>
-      {(datum, index) => (
-        <Box key={index}>
-          <Text weight="bold" size="small">
-            {datum.name}
-          </Text>
-          <Text size="small">{datum.description}</Text>
-        </Box>
-      )}
-    </List>
+    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <List data={data} action={item => <Text>{item.option}</Text>}>
+        {(datum, index) => (
+          <Box key={index}>
+            <Text weight="bold" size="small">
+              {datum.name}
+            </Text>
+            <Text size="small">{datum.description}</Text>
+          </Box>
+        )}
+      </List>
+    </Box>
   );
 };

@@ -37,29 +37,31 @@ const data = [
 
 export const ListImageIdentifierExample = () => {
   return (
-    <List
-      data={data}
-      action={() => (
-        <Menu
-          icon={<More />}
-          hoverIndicator
-          items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
-        />
-      )}
-    >
-      {(datum, index) => (
-        <Box direction="row" gap="small" key={index}>
-          <Box width="xxsmall" height="xxsmall">
-            <Image src={datum.image} fit="cover" />
+    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <List
+        data={data}
+        action={() => (
+          <Menu
+            icon={<More />}
+            hoverIndicator
+            items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
+          />
+        )}
+      >
+        {(datum, index) => (
+          <Box direction="row" gap="small" key={index}>
+            <Box width="xxsmall" height="xxsmall">
+              <Image src={datum.image} fit="cover" />
+            </Box>
+            <Box>
+              <Text weight="bold" size="large">
+                {datum.name}
+              </Text>
+              <Text size="small">Location: {datum.description}</Text>
+            </Box>
           </Box>
-          <Box>
-            <Text weight="bold" size="large">
-              {datum.name}
-            </Text>
-            <Text size="small">Location: {datum.description}</Text>
-          </Box>
-        </Box>
-      )}
-    </List>
+        )}
+      </List>
+    </Box>
   );
 };

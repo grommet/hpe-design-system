@@ -39,26 +39,28 @@ const data = [
 
 export const ListIconIdentifierExample = () => {
   return (
-    <List
-      data={data}
-      action={item => (
-        <Box direction="row" align="center" gap="medium">
-          <Text>{item.option}</Text>
-          <Menu
-            icon={<More />}
-            hoverIndicator
-            items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
-          />
-        </Box>
-      )}
-      onClickItem={() => {}}
-    >
-      {(datum, index) => (
-        <Box direction="row" gap="small" align="center" key={index}>
-          {datum.icon}
-          <Text weight="bold">{datum.name}</Text>
-        </Box>
-      )}
-    </List>
+    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <List
+        data={data}
+        action={item => (
+          <Box direction="row" align="center" gap="medium">
+            <Text>{item.option}</Text>
+            <Menu
+              icon={<More />}
+              hoverIndicator
+              items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
+            />
+          </Box>
+        )}
+        onClickItem={() => {}}
+      >
+        {(datum, index) => (
+          <Box direction="row" gap="small" align="center" key={index}>
+            {datum.icon}
+            <Text weight="bold">{datum.name}</Text>
+          </Box>
+        )}
+      </List>
+    </Box>
   );
 };
