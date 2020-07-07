@@ -1,3 +1,8 @@
+const statuses = {
+  complete: 'Complete',
+  inProgress: 'In Progress',
+};
+
 export const templates = [
   {
     name: 'Lists',
@@ -123,11 +128,9 @@ export const templates = [
   },
   {
     name: 'Cards',
-    available: false,
-    description: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
-    seoDescription: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
+    available: true,
+    description: 'Cards contain content and actions about a single subject.',
+    seoDescription: 'Cards contain content and actions about a single subject.',
     preview: {
       image: {
         src: {
@@ -137,7 +140,12 @@ export const templates = [
         alt: 'HPE Cards Preview',
       },
     },
+    relatedContent: ['Lists', 'Dashboards', 'Page Layouts'],
     sections: [],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Dashboards',
