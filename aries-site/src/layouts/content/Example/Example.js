@@ -14,6 +14,7 @@ import {
   ExampleControls,
   ExampleResources,
   ResponsiveControls,
+  ResponsiveContainer,
 } from '.';
 
 export const screens = {
@@ -46,9 +47,14 @@ export const Example = ({
   const { small, medium } = defaultProps.theme.global.size;
   const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
+  let ExampleWrapper;
   // show page layouts inside of mock browser screen to demonstrate
   // how content fills or is restricted at various widths
-  const ExampleWrapper = screenContainer ? BrowserWrapper : Box;
+  if (screenContainer) ExampleWrapper = BrowserWrapper;
+  // Wrap content in container that can mock "small" width to demonstrate
+  // responsive layout
+  else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
+  else ExampleWrapper = Box;
 
   return (
     <>
@@ -112,11 +118,15 @@ export const Example = ({
             <Box fill background="background-front">
               <Box
                 direction="row"
-                justify={template || screenContainer ? 'between' : 'end'}
+                justify={
+                  template || screenContainer || showResponsiveControls
+                    ? 'between'
+                    : 'end'
+                }
                 pad="xxsmall"
                 background="#111"
               >
-                {(template || screenContainer) && (
+                {(template || screenContainer || showResponsiveControls) && (
                   <ResponsiveControls onSetScreen={setScreen} screen={screen} />
                 )}
                 <Button
@@ -136,7 +146,7 @@ export const Example = ({
                 flex
                 {...rest}
               >
-                {screenContainer ? (
+                {screenContainer || showResponsiveControls ? (
                   <Box width={screen === screens.mobile ? 'medium' : '100%'}>
                     <ResponsiveContext.Provider
                       value={screen === screens.mobile && 'small'}
