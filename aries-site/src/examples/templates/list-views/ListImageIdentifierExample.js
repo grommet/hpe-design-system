@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Image, List, Menu, Text } from 'grommet';
-import { More } from 'grommet-icons';
+import { Box, Image, List, Text } from 'grommet';
 
 const data = [
   {
@@ -40,13 +39,10 @@ export const ListImageIdentifierExample = () => {
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
         data={data}
-        action={() => (
-          <Menu
-            icon={<More />}
-            hoverIndicator
-            items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
-          />
-        )}
+        onClickItem={e => {
+          // eslint-disable-next-line no-alert
+          alert(`You clicked on ${e.item.name}`);
+        }}
       >
         {(datum, index) => (
           <Box direction="row" gap="small" key={index}>

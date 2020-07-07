@@ -49,7 +49,6 @@ export const ListNameOptionActionExample = () => {
             />
           </Box>
         )}
-        onClickItem={() => {}}
       >
         {(datum, index) => (
           <Text weight="bold" key={index}>
