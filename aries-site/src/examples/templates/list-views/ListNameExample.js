@@ -1,0 +1,18 @@
+import React from 'react';
+import { Box, List, Text } from 'grommet';
+
+const data = ['Server 1', 'Server 2', 'Server 3', 'Server 4', 'Server 5'];
+
+export const ListNameExample = () => {
+  return (
+    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <List data={data}>
+        {(datum, index) => (
+          <Text weight="bold" key={index}>
+            {datum}
+          </Text>
+        )}
+      </List>
+    </Box>
+  );
+};

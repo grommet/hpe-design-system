@@ -1,8 +1,7 @@
 import React from 'react';
-import { Box, List, Menu, Text } from 'grommet';
+import { Box, List, Text } from 'grommet';
 import {
   Console,
-  More,
   PersonalComputer,
   Desktop,
   User,
@@ -42,17 +41,11 @@ export const ListIconIdentifierExample = () => {
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
         data={data}
-        action={item => (
-          <Box direction="row" align="center" gap="medium">
-            <Text>{item.option}</Text>
-            <Menu
-              icon={<More />}
-              hoverIndicator
-              items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
-            />
-          </Box>
-        )}
-        onClickItem={() => {}}
+        action={item => <Text>{item.option}</Text>}
+        onClickItem={e => {
+          // eslint-disable-next-line no-alert
+          alert(`You clicked on ${e.item.name}`);
+        }}
       >
         {(datum, index) => (
           <Box direction="row" gap="small" align="center" key={index}>
