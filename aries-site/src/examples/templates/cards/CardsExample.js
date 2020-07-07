@@ -16,7 +16,7 @@ import {
 
 export const CardsExample = () => {
   return (
-    <Box background="background-back" overflow="auto" pad="medium">
+    <Box background="background-back" overflow="auto" pad="medium" fill>
       <Grid columns={{ count: 'fit', size: ['auto', 'medium'] }} gap="medium">
         <CardDefaults />
         <Identifier />
