@@ -33,9 +33,9 @@ export const Example = ({
   height,
   relevantComponents,
   screenContainer,
-  // show screen size controls by default with screenContainer
-  showResponsiveControls = !!screenContainer,
   template,
+  // show screen size controls by default with screenContainer
+  showResponsiveControls = !!screenContainer || !!template,
   width,
   ...rest
 }) => {
