@@ -3,6 +3,9 @@ import { deepMerge, normalizeColor } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
+  // card object is for site dev purposes
+  // once Cards page is implemented, card object should be added to
+  // HPE theme, then removed from this file
   card: {
     container: {
       background: 'background-front',

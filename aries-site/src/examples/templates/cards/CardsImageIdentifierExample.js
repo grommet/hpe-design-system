@@ -1,7 +1,5 @@
 import React from 'react';
-import { Box, Grid, Image, Text } from 'grommet';
-
-import { Card, CardBody } from '../../../components/Card';
+import { Box, Card, CardBody, Grid, Image, Text } from 'grommet';
 import { data } from './data';
 
 export const CardsImageIdentifierExample = () => {

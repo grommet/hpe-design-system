@@ -1,13 +1,15 @@
 import React from 'react';
-import { Box, Image, Paragraph, Text } from 'grommet';
-import { CircleQuestion, Location, StatusWarning } from 'grommet-icons';
-
 import {
+  Box,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
-} from '../../../components/Card';
+  Image,
+  Paragraph,
+  Text,
+} from 'grommet';
+import { CircleQuestion, Location, StatusWarning } from 'grommet-icons';
 
 export const CardDefaults = () => (
   <Card>

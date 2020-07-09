@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Grid, Text } from 'grommet';
+import { Box, Card, CardBody, Grid, Text } from 'grommet';
 
-import { Card, CardBody } from '../../../components/Card';
+// import { Card, CardBody } from '../../../components/Card';
 import { data } from './data';
 
 export const CardsSimpleExample = () => {
