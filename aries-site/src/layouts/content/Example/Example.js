@@ -63,7 +63,11 @@ export const Example = ({
           {/* For use with templates or page layouts to toggle between laptop,
            ** desktop, and mobile views */}
           {showResponsiveControls && (
-            <ResponsiveControls onSetScreen={setScreen} screen={screen} />
+            <ResponsiveControls
+              controls={showResponsiveControls}
+              onSetScreen={setScreen}
+              screen={screen}
+            />
           )}
           <Box
             align={!template && !screenContainer ? 'center' : undefined}
