@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
@@ -27,14 +26,11 @@ export const Subsection = ({
   headingSize,
   level,
   name,
-  showEditButton,
   topic,
   ...rest
 }) => {
   const [over, setOver] = useState(false);
   const parent = topic && getPageDetails(topic);
-  const router = useRouter();
-  console.log(router);
   const id = formatName(name);
 
   const firstChild = React.Children.map(children, (child, index) => {
@@ -111,15 +107,6 @@ export const Subsection = ({
                   }
                 />
               )}
-              {showEditButton && (
-                <Button
-                  alignSelf="start"
-                  href={`https://github.com/hpe-design/design-system/tree/master/aries-site/src/pages${router.pathname}.mdx`}
-                  label="Edit this page"
-                  rel="noopener"
-                  target="_blank"
-                />
-              )}
             </Header>
           )
           /* Isolates the first child to ensure the gap between heading and
@@ -140,7 +127,6 @@ Subsection.propTypes = {
   headingSize: PropTypes.string,
   name: PropTypes.string.isRequired,
   showHeading: PropTypes.bool,
-  showEditButton: PropTypes.bool,
   topic: PropTypes.string,
 };
 
@@ -150,6 +136,5 @@ Subsection.defaultProps = {
   gap: 'medium',
   headingSize: undefined,
   showHeading: true,
-  showEditButton: false,
   topic: undefined,
 };
