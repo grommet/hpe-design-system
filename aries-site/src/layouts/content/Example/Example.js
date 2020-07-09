@@ -131,7 +131,11 @@ export const Example = ({
                 background="#111"
               >
                 {(template || screenContainer || showResponsiveControls) && (
-                  <ResponsiveControls onSetScreen={setScreen} screen={screen} />
+                  <ResponsiveControls
+                    controls={showResponsiveControls}
+                    onSetScreen={setScreen}
+                    screen={screen}
+                  />
                 )}
                 <Button
                   title="Leave full screen"
