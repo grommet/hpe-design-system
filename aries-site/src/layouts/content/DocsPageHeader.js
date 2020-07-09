@@ -9,7 +9,7 @@ export const DocsPageHeader = ({ title, topic }) => {
   const page = getPageDetails(title);
 
   return (
-    <Subsection name={title} topic={topic} level={1}>
+    <Subsection name={title} topic={topic} level={1} showEditButton>
       <Box>
         <SubsectionText>{page.description}</SubsectionText>
         {page.status && <Status status={page.status} />}
