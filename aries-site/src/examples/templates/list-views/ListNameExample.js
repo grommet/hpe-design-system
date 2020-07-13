@@ -6,7 +6,7 @@ const data = ['Server 1', 'Server 2', 'Server 3', 'Server 4', 'Server 5'];
 export const ListNameExample = () => {
   return (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-      <List data={data}>
+      <List background="background-front" data={data}>
         {(datum, index) => (
           <Text weight="bold" key={index}>
             {datum}

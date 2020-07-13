@@ -40,6 +40,7 @@ export const ListIconIdentifierExample = () => {
   return (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
+        background="background-front"
         data={data}
         action={item => <Text>{item.option}</Text>}
         onClickItem={e => {
