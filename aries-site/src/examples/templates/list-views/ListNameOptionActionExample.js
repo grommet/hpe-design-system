@@ -29,6 +29,7 @@ export const ListNameOptionActionExample = () => {
   return (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
+        background="background-front"
         data={data}
         action={item => (
           <Box direction="row" align="center" gap="medium">

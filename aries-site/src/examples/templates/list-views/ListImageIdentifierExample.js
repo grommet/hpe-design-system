@@ -38,6 +38,7 @@ export const ListImageIdentifierExample = () => {
   return (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
+        background="background-front"
         data={data}
         onClickItem={e => {
           // eslint-disable-next-line no-alert

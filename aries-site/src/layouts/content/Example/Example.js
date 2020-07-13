@@ -24,6 +24,7 @@ export const screens = {
 };
 
 export const Example = ({
+  background,
   children,
   code,
   designer,
@@ -88,7 +89,15 @@ export const Example = ({
             }
             {...rest}
           >
-            <ExampleWrapper screen={screen} width={width}>
+            <ExampleWrapper
+              background={
+                ExampleWrapper === ResponsiveContainer && background
+                  ? background
+                  : undefined
+              }
+              screen={screen}
+              width={width}
+            >
               <ResponsiveContext.Provider
                 value={screen === screens.mobile && 'small'}
               >
@@ -148,6 +157,11 @@ export const Example = ({
                 />
               </Box>
               <Box
+                background={
+                  ExampleWrapper === ResponsiveContainer && background
+                    ? background
+                    : undefined
+                }
                 direction="row"
                 justify="center"
                 align={!template && !screenContainer ? 'center' : undefined}
@@ -179,6 +193,7 @@ export const Example = ({
 };
 
 Example.propTypes = {
+  background: PropTypes.string,
   children: PropTypes.element,
   code: PropTypes.string,
   components: PropTypes.arrayOf(
