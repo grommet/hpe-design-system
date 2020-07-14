@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Card, CardBody, Grid, Image, Text } from 'grommet';
+
+import { cardSize } from './cardVariants';
 import { data } from './data';
 
 export const CardsImageIdentifierExample = () => {
   return (
     <Box background="background-back" overflow="auto" pad="medium" fill>
-      <Grid columns={{ count: 'fit', size: ['auto', 'medium'] }} gap="medium">
+      <Grid columns={{ count: 'fit', size: cardSize }} gap="medium">
         {data &&
           data.map(
             ({ displayName: title, location: subtitle, imageUrl }, index) => (

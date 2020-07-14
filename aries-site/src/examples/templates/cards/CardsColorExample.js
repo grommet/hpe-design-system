@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Card, CardBody, CardFooter, Grid, Text } from 'grommet';
+
+import { cardSize } from './cardVariants';
 import { data } from './data';
 
 export const CardsColorExample = () => {
   return (
     <Box background="background-back" overflow="auto" pad="medium" fill>
-      <Grid columns={{ count: 'fit', size: ['auto', 'medium'] }} gap="medium">
+      <Grid columns={{ count: 'fit', size: cardSize }} gap="medium">
         {data &&
           data.map(
             (

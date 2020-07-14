@@ -13,6 +13,9 @@ import {
 import { Image as ImageIcon, Location } from 'grommet-icons';
 
 const spacing = defaultProps.theme.global.edgeSize;
+const sizing = defaultProps.theme.global.size;
+export const cardSize = `${parseInt(sizing.small.replace('px', ''), 10) +
+  parseInt(sizing.xsmall.replace('px', ''), 10)}px`;
 
 const ContentBlock = ({ background, height, width }) => (
   <Box background={background} height={height} width={width} round="xxsmall" />
