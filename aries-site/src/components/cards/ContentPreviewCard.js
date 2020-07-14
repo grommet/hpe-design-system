@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyledTile } from './ContentCard';
+import { StyledCard } from './ContentCard';
 
 export const ContentPreviewCard = ({ ...rest }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <StyledTile
+    <StyledCard
       align="start"
       background="background-front"
       elevation={isFocused ? 'medium' : 'small'}
