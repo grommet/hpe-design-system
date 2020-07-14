@@ -53,17 +53,18 @@ export const CardsPreviewGrid = () => {
       justify="center"
     >
       {examples &&
-        examples.map(example => (
+        examples.map(({ contentSection, label, preview }) => (
           <ContentPreviewCard
+            key={label}
             forwardedAs="a"
             style={{ textDecoration: 'none' }}
-            href={`#${formatName(example.contentSection)}`}
+            href={`#${formatName(contentSection)}`}
           >
             <Box height="small" width="100%" round="xsmall">
-              {example.preview}
+              {preview}
             </Box>
             <Text weight="bold" size="large" margin={{ top: 'small' }}>
-              {example.label}
+              {label}
             </Text>
           </ContentPreviewCard>
         ))}

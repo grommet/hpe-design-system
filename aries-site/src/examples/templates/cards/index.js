@@ -6,3 +6,4 @@ export * from './CardsIconIdentifierVertExample';
 export * from './CardsImageIdentifierExample';
 export * from './CardsPreviewGrid';
 export * from './CardsSimpleExample';
+export * from './CardsVisualImageExample';

@@ -73,10 +73,6 @@ export const CardDefaults = () => (
 export const Identifier = () => (
   <Card>
     <CardBody>
-      {/* <Text color="text-strong" size="xxlarge" weight="bold">
-        Heading
-      </Text>
-      <Text>Subtitle</Text> */}
       <IdentifierBlock />
     </CardBody>
   </Card>
@@ -87,7 +83,6 @@ export const IdentifierImageRow = () => (
     <CardBody>
       <Box direction="row" align="center">
         <ImageIcon size="large" color="background-back" />
-        {/* <Image src="/static/images/color-swirls.png" /> */}
         <Box margin={{ left: 'medium' }}>
           <IdentifierBlock />
         </Box>
