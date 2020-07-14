@@ -8,25 +8,39 @@ import {
   Identifier,
   IdentifierFooter,
   IdentifierImageRow,
-  IdentifierIconColumn,
-  IdentifierIconRow,
   ImageCard,
-  MapCard,
   HelpHeader,
   ColorCard,
 } from './cardVariants';
 
 const examples = [
-  { name: 'Simple Identifier', preview: <Identifier /> },
-  { name: 'Image Identifier', preview: <IdentifierImageRow /> },
-  { name: 'Icon Identifier', preview: <IdentifierIconRow /> },
-  { name: 'Vertical Identifier', preview: <IdentifierIconColumn /> },
-  { name: 'With Footer', preview: <IdentifierFooter /> },
-  { name: 'With Color', preview: <ColorCard /> },
-  { name: 'Image Card', preview: <ImageCard /> },
-  { name: 'Map Card', preview: <MapCard /> },
-  { name: 'Key Performance Indicators', preview: <CardDefaults /> },
-  { name: 'Helper', preview: <HelpHeader /> },
+  {
+    label: 'Simple Identifier',
+    contentSection: 'Simple Identifier',
+    preview: <Identifier />,
+  },
+  {
+    label: 'Identifier with Images and Icons',
+    contentSection: 'Image Identifier',
+    preview: <IdentifierImageRow />,
+  },
+  {
+    label: 'With Footer',
+    contentSection: 'With Footer',
+    preview: <IdentifierFooter />,
+  },
+  { label: 'With Color', contentSection: 'With Color', preview: <ColorCard /> },
+  {
+    label: 'Rich Visual Content',
+    contentSection: 'Image Card',
+    preview: <ImageCard />,
+  },
+  {
+    label: 'Key Performance Indicators',
+    contentSection: 'Key Performance Indicators',
+    preview: <CardDefaults />,
+  },
+  { label: 'Helper', contentSection: 'Helper', preview: <HelpHeader /> },
 ];
 
 export const CardsPreviewGrid = () => {
@@ -35,23 +49,21 @@ export const CardsPreviewGrid = () => {
   return (
     <Grid
       columns={size !== 'small' ? 'medium' : '100%'}
-      // rows={[['auto', 'full']]}
       gap="medium"
       justify="center"
-      // fill
     >
       {examples &&
         examples.map(example => (
           <ContentPreviewCard
             forwardedAs="a"
             style={{ textDecoration: 'none' }}
-            href={`#${formatName(example.name)}`}
+            href={`#${formatName(example.contentSection)}`}
           >
             <Box height="small" width="100%" round="xsmall">
               {example.preview}
             </Box>
             <Text weight="bold" size="large" margin={{ top: 'small' }}>
-              {example.name}
+              {example.label}
             </Text>
           </ContentPreviewCard>
         ))}

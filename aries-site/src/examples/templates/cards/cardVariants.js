@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Card,
@@ -8,8 +9,61 @@ import {
   Image,
   Paragraph,
   Text,
+  defaultProps,
 } from 'grommet';
-import { CircleQuestion, Location, StatusWarning } from 'grommet-icons';
+import {
+  CircleQuestion,
+  Image as ImageIcon,
+  Location,
+  StatusWarning,
+} from 'grommet-icons';
+
+const spacing = defaultProps.theme.global.edgeSize;
+
+const ContentBlock = ({ background, height, width }) => (
+  <Box background={background} height={height} width={width} round="xxsmall" />
+);
+
+ContentBlock.propTypes = {
+  background: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ dark: PropTypes.string, light: PropTypes.string }),
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ min: PropTypes.string, max: PropTypes.string }),
+  ]),
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ min: PropTypes.string, max: PropTypes.string }),
+  ]),
+};
+
+ContentBlock.defaultProps = {
+  background: 'background-back',
+};
+
+const IdentifierBlock = ({ background }) => (
+  <Box gap="xsmall">
+    <ContentBlock
+      background={background}
+      height={spacing.large}
+      width="small"
+    />
+    <ContentBlock
+      background={background}
+      height={spacing.medium}
+      width="xsmall"
+    />
+  </Box>
+);
+
+IdentifierBlock.propTypes = {
+  background: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ dark: PropTypes.string, light: PropTypes.string }),
+  ]),
+};
 
 export const CardDefaults = () => (
   <Card>
@@ -22,10 +76,11 @@ export const CardDefaults = () => (
 export const Identifier = () => (
   <Card>
     <CardBody>
-      <Text color="text-strong" size="xxlarge" weight="bold">
+      {/* <Text color="text-strong" size="xxlarge" weight="bold">
         Heading
       </Text>
-      <Text>Subtitle</Text>
+      <Text>Subtitle</Text> */}
+      <IdentifierBlock />
     </CardBody>
   </Card>
 );
@@ -33,13 +88,11 @@ export const Identifier = () => (
 export const IdentifierImageRow = () => (
   <Card>
     <CardBody>
-      <Box direction="row">
-        <Image src="/static/images/color-swirls.png" />
+      <Box direction="row" align="center">
+        <ImageIcon size="large" color="background-back" />
+        {/* <Image src="/static/images/color-swirls.png" /> */}
         <Box margin={{ left: 'medium' }}>
-          <Text color="text-strong" size="xxlarge" weight="bold">
-            Heading
-          </Text>
-          <Text>Subtitle</Text>
+          <IdentifierBlock />
         </Box>
       </Box>
     </CardBody>
@@ -49,20 +102,15 @@ export const IdentifierImageRow = () => (
 export const IdentifierFooter = () => (
   <Card>
     <CardBody>
-      <Text color="text-strong" size="xxlarge" weight="bold">
-        Heading
-      </Text>
-      <Text>Subtitle</Text>
+      <IdentifierBlock />
     </CardBody>
     <CardFooter
       background="none"
       border={{ color: 'border-weak', side: 'top' }}
     >
       <Box direction="row" align="center" gap="small">
-        <StatusWarning size="medium" />
-        <Text size="small" weight="bold">
-          Text Small
-        </Text>
+        <ContentBlock height={spacing.medium} width={spacing.medium} />
+        <ContentBlock height={spacing.medium} width="small" />
       </Box>
     </CardFooter>
   </Card>
@@ -73,23 +121,9 @@ export const IdentifierIconRow = () => (
     <CardBody direction="row" align="center" gap="small">
       <Location size="large" />
       <Box>
-        <Text color="text-strong" size="xxlarge" weight="bold">
-          Heading
-        </Text>
-        <Text>Subtitle</Text>
+        <IdentifierBlock />
       </Box>
     </CardBody>
-    <CardFooter
-      background="none"
-      border={{ color: 'border-weak', side: 'top' }}
-    >
-      <Box direction="row" align="center" gap="small">
-        <StatusWarning size="medium" />
-        <Text size="small" weight="bold">
-          Text Small
-        </Text>
-      </Box>
-    </CardFooter>
   </Card>
 );
 
@@ -98,34 +132,19 @@ export const IdentifierIconColumn = () => (
     <CardBody gap="small">
       <Location size="large" />
       <Box>
-        <Text color="text-strong" size="xxlarge" weight="bold">
-          Heading
-        </Text>
-        <Text>Subtitle</Text>
+        <IdentifierBlock />
       </Box>
     </CardBody>
-    <CardFooter
-      background="none"
-      border={{ color: 'border-weak', side: 'top' }}
-    >
-      <Box direction="row" align="center" gap="small">
-        <StatusWarning size="medium" />
-        <Text size="small" weight="bold">
-          Text Small
-        </Text>
-      </Box>
-    </CardFooter>
   </Card>
 );
 
 export const ImageCard = () => (
   <Card>
-    <Image src="/static/images/Doorhood-4.jpg" />
-    <CardBody>
-      <Text color="text-strong" size="xxlarge" weight="bold">
-        Heading
-      </Text>
-      <Text>Subtitle</Text>
+    <Box>
+      <Image fit="cover" src="/templateImages/map-07.png" />
+    </Box>
+    <CardBody flex={false} pad={{ vertical: 'small', horizontal: 'medium' }}>
+      <ContentBlock height={spacing.medium} width="small" />
     </CardBody>
   </Card>
 );
@@ -144,48 +163,39 @@ export const MapCard = () => (
 
 export const HelpHeader = () => (
   <Card>
-    <CardHeader border={{ color: 'border-weak', side: 'bottom' }}>
-      <Box direction="row" gap="small">
-        <CircleQuestion />
-        <Text weight="bold">Text</Text>
-      </Box>
+    <CardHeader
+      border={{ color: 'border-weak', side: 'bottom' }}
+      pad={{ horizontal: 'medium', vertical: 'small' }}
+    >
+      <ContentBlock height={spacing.medium} width="small" />
     </CardHeader>
-    <CardBody>
-      <Paragraph margin={{ top: 'none' }}>
-        Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
-        incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-      </Paragraph>
+    <CardBody gap="xsmall" pad={{ vertical: 'medium', horizontal: 'medium' }}>
+      <ContentBlock height={spacing.medium} width="100%" />
+      <ContentBlock height={spacing.medium} width="100%" />
+      <ContentBlock height={spacing.medium} width="small" />
     </CardBody>
   </Card>
 );
 
 export const ColorCard = () => {
-  const textColor = 'text-strong';
-
   return (
     <Card background="blue!">
-      <CardBody pad={{ horizontal: 'medium', top: 'small' }}>
-        <Box
-          height="xsmall"
-          width="xsmall"
-          pad={{ vertical: 'small', left: 'none', right: 'medium' }}
-        >
-          <Image src="/static/images/i00045804.png" />
-        </Box>
-        <Box>
-          <Text color={textColor} size="xxlarge" weight="bold">
-            Heading
-          </Text>
-          <Text color={textColor}>Subtitle</Text>
-        </Box>
+      <CardBody direction="row" gap="small" align="center">
+        <ImageIcon size="large" color="background-contrast" />
+        <IdentifierBlock background="background-contrast" />
       </CardBody>
       <CardFooter>
         <Box direction="row" align="center" gap="small">
-          <StatusWarning color={textColor} />
-          <Text color={textColor} size="small" weight="bold">
-            Text Small
-          </Text>
+          <ContentBlock
+            background="background-contrast"
+            height={spacing.medium}
+            width={spacing.medium}
+          />
+          <ContentBlock
+            background="background-contrast"
+            height={spacing.medium}
+            width="small"
+          />
         </Box>
       </CardFooter>
     </Card>
