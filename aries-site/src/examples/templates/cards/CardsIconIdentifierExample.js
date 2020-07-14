@@ -11,7 +11,9 @@ export const CardsIconIdentifierExample = () => {
             ({ deviceName: title, ipAddress: subtitle, icon }, index) => (
               <Card key={index}>
                 <CardBody direction="row" gap="small">
-                  <Box pad={{ vertical: 'xsmall' }}>{icon('large')}</Box>
+                  <Box pad={{ vertical: 'xsmall' }}>
+                    {icon('text', 'large')}
+                  </Box>
                   <Box>
                     <Text color="text-strong" size="xxlarge" weight="bold">
                       {title}

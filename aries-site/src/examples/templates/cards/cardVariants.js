@@ -7,16 +7,10 @@ import {
   CardFooter,
   CardHeader,
   Image,
-  Paragraph,
   Text,
   defaultProps,
 } from 'grommet';
-import {
-  CircleQuestion,
-  Image as ImageIcon,
-  Location,
-  StatusWarning,
-} from 'grommet-icons';
+import { Image as ImageIcon, Location } from 'grommet-icons';
 
 const spacing = defaultProps.theme.global.edgeSize;
 
