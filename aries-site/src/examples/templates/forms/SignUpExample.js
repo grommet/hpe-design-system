@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Anchor,
   Box,
@@ -16,17 +16,17 @@ import {
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
+    message: '! Enter a valid email address',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
+    message: '! Enter a valid email address',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: '! Enter a valid email address',
     status: 'error',
   },
 ];
@@ -43,18 +43,13 @@ const passwordRulesStrong = [
     status: 'error',
   },
   {
-    regexp: new RegExp('(?=.*?[0-9])'),
-    message: 'At least one number',
-    status: 'error',
-  },
-  {
     regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
     message: 'At least one special character or space',
     status: 'error',
   },
   {
     regexp: new RegExp('.{8,}'),
-    message: 'At least eight characters',
+    message: 'At least 8 characters',
     status: 'error',
   },
 ];
@@ -87,7 +82,34 @@ const FormContainer = ({ ...rest }) => {
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
+    termsAndConditions: false,
   });
+  const [passwordError, setPasswordError] = useState(
+    <Text size="xsmall">
+      At least 8 characters, <br /> One lowercase letter <br /> One uppercase
+      letter <br /> One special character
+    </Text>,
+  );
+
+  const PasswordValidation = password => {
+    passwordRulesStrong.map(passwordRules => {
+      console.log('???', passwordRules.regexp);
+      console.log('message', passwordRules.message);
+      console.log(passwordRules.regexp.test(password));
+      if (passwordRules.regexp.test('password') === true) {
+        setPasswordError('CheckMark', passwordRules.message);
+      } else if (passwordRules.regexp.test('password') === false) {
+        setPasswordError('X', passwordRules.message);
+      } else {
+        PasswordError;
+      }
+      return passwordError;
+    });
+  };
+
+  useEffect(() => {
+    console.log(PasswordValidation('hello'));
+  }, []);
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -115,6 +137,10 @@ export const SignUpExample = () => {
           <Form
             validate="blur"
             value={formValues}
+            // messages={{required: <Box><icon ! ><Text>This is required</Text></Box>}}
+            messages={{
+              required: '! this is required',
+            }}
             onChange={setFormValues}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
@@ -124,12 +150,7 @@ export const SignUpExample = () => {
               name="email"
               validate={emailValidation}
             >
-              <MaskedInput
-                id="email-sign-up"
-                name="email"
-                mask={emailMask}
-                type="email"
-              />
+              <MaskedInput id="email-sign-up" name="email" type="email" />
             </FormField>
             <FormField
               label="Full Name"
@@ -140,16 +161,20 @@ export const SignUpExample = () => {
               <TextInput
                 id="fullName-sign-up"
                 name="fullName"
-                placeholder="Jane Smith"
+                placeholder="First and Last Name"
               />
             </FormField>
             <FormField
               label="Password"
               htmlFor="password-sign-up"
               name="password"
-              help="Include at least 8 characters, a lowercase letter, an
-              uppercase letter, a number, and a special character"
-              validate={passwordRulesStrong}
+              info={
+                <Text size="xsmall">
+                  At least 8 characters, <br /> One lowercase letter <br /> One
+                  uppercase letter <br /> One special character
+                </Text>
+              }
+              // validate={passwordRulesStrong}
             >
               <TextInput
                 id="password-sign-up"
@@ -158,10 +183,15 @@ export const SignUpExample = () => {
                 type="password"
               />
             </FormField>
-            <FormField htmlFor="terms-and-privacy">
+            <FormField
+              name="termsAndConditions"
+              required
+              validate={{ status: 'error', message: 'hello' }}
+              htmlFor="terms-and-privacy"
+            >
               <CheckBox
+                name="termsAndConditions"
                 id="terms-and-privacy"
-                name="termsAndPrivacy"
                 label={
                   <Text>
                     I accept the HPE{' '}

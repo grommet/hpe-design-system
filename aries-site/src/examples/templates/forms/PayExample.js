@@ -81,14 +81,30 @@ const creditCardMask = [
   },
 ];
 
+const FormFieldRequiredLabel = props => {
+  const { required, label, ...rest } = props;
+  return (
+    <FormField
+      label={
+        required ? (
+          <Box direction="row">
+            <Text size="xsmall">{label}</Text>
+            <Text size="xsmall">*</Text>
+          </Box>
+        ) : (
+          label
+        )
+      }
+      required={required}
+      {...rest}
+    />
+  );
+};
+
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -120,6 +136,20 @@ export const PayExample = () => {
           <Form
             value={formValues}
             onChange={setFormValues}
+            messages={{
+              required: (
+                <Box
+                  gap="xxsmall"
+                  background="background-front"
+                  direction="row"
+                >
+                  <Text size="xsmall" weight="bold">
+                    !
+                  </Text>
+                  <Text size="xsmall">This is required</Text>
+                </Box>
+              ),
+            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box>
@@ -139,14 +169,20 @@ export const PayExample = () => {
             <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
               Credit Card Information
             </Heading>
-            <FormField name="cardName" htmlFor="cardName" label="Name on Card">
+            <FormFieldRequiredLabel
+              required
+              name="cardName"
+              htmlFor="cardName"
+              label="Name on Card"
+            >
               <TextInput
                 id="cardName"
                 name="cardName"
                 placeholder="Jane Smith"
               />
-            </FormField>
-            <FormField
+            </FormFieldRequiredLabel>
+            <FormFieldRequiredLabel
+              required
               htmlFor="cardNumber"
               name="cardNumber"
               label="Credit Card Number"
@@ -158,10 +194,11 @@ export const PayExample = () => {
                 mask={creditCardMask}
                 icon={<CreditCard color="placeholder" />}
               />
-            </FormField>
+            </FormFieldRequiredLabel>
             <Box direction="row" gap="medium">
               <Box flex={false}>
-                <FormField
+                <FormFieldRequiredLabel
+                  required
                   htmlFor="expiration"
                   name="expiration"
                   label="Expires on"
@@ -172,17 +209,22 @@ export const PayExample = () => {
                     name="expiration"
                     mask={dateMask}
                   />
-                </FormField>
+                </FormFieldRequiredLabel>
               </Box>
               <Box fill>
-                <FormField htmlFor="cvv" name="cvv" label="CVV">
+                <FormFieldRequiredLabel
+                  required
+                  htmlFor="cvv"
+                  name="cvv"
+                  label="CVV"
+                >
                   <MaskedInput
                     mask={cvvMask}
                     id="cvv"
                     name="cvv"
                     placeholder="123"
                   />
-                </FormField>
+                </FormFieldRequiredLabel>
               </Box>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>

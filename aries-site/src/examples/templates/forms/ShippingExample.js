@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Box,
   Button,
@@ -123,20 +123,41 @@ const emailValidation = [
   },
 ];
 
+const FormFieldRequiredLabel = props => {
+  const { required, label, ...rest } = props;
+  return (
+    <FormField
+      label={
+        required ? (
+          <Box direction="row">
+            <Text size="xsmall">{label}</Text>
+            <Text size="xsmall">*</Text>
+          </Box>
+        ) : (
+          label
+        )
+      }
+      required={required}
+      {...rest}
+    />
+  );
+};
+
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
 
 export const ShippingExample = () => {
   const [formValues, setFormValues] = React.useState({});
+  const inputRef = useRef();
+
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // }, []);
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -172,7 +193,7 @@ export const ShippingExample = () => {
                 Shipping Information
               </Heading>
               <Text margin={{ horizontal: 'small', vertical: 'xsmall' }}>
-                Shipping Address
+                Shipping Address *
               </Text>
               <FormField htmlFor="firstName" name="firstName">
                 <TextInput
@@ -226,14 +247,15 @@ export const ShippingExample = () => {
               <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
                 <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
               </FormField>
-              <FormField
+              <FormFieldRequiredLabel
                 htmlFor="email-ship"
                 name="email"
+                required
                 label="Email Address"
                 validate={emailValidation}
               >
                 <MaskedInput id="email-ship" name="email" mask={emailMask} />
-              </FormField>
+              </FormFieldRequiredLabel>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Continue" primary type="submit" />
