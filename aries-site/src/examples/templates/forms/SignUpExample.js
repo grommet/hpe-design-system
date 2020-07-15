@@ -101,10 +101,10 @@ export const SignUpExample = () => {
       } else if (passwordRules.regexp.test('password') === false) {
         setPasswordError('X', passwordRules.message);
       } else {
-        PasswordError;
+        passwordError;
       }
-      return passwordError;
     });
+    return passwordError;
   };
 
   useEffect(() => {
@@ -150,7 +150,12 @@ export const SignUpExample = () => {
               name="email"
               validate={emailValidation}
             >
-              <MaskedInput id="email-sign-up" name="email" type="email" />
+              <MaskedInput
+                mask={emailMask}
+                id="email-sign-up"
+                name="email"
+                type="email"
+              />
             </FormField>
             <FormField
               label="Full Name"
@@ -186,7 +191,7 @@ export const SignUpExample = () => {
             <FormField
               name="termsAndConditions"
               required
-              validate={{ status: 'error', message: 'hello' }}
+              error="Accept the "
               htmlFor="terms-and-privacy"
             >
               <CheckBox
