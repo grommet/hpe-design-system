@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
+import { Card } from 'grommet';
 
 export const PreviewImageCard = ({ background, children, ...rest }) => {
   return (
-    <Box
+    <Card
       background={background}
+      elevation="none"
       height="small"
       round="xsmall"
-      overflow="hidden"
       style={{ position: 'relative' }}
       {...rest}
     >
       {children}
-    </Box>
+    </Card>
   );
 };
 

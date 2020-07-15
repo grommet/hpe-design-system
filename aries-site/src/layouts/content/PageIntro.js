@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
-import { Tile, Tiles } from 'aries-core';
+import { Box, Card, Grid, ResponsiveContext } from 'grommet';
 
 export const PageIntro = ({ children, ...rest }) => {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box height={{ min: 'medium' }} justify="center">
-      <Tiles
+      <Grid
         gap={size !== 'small' ? 'large' : 'medium'}
         columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
         {...rest}
       >
-        {/* Empty tile allows vertical space for background image to 
+        {/* Empty card allows vertical space for background image to 
         show on mobile */}
-        <Tile height="small" />
-        <Tile>{children}</Tile>
-      </Tiles>
+        <Card elevation="none" height="small" />
+        <Card elevation="none">{children}</Card>
+      </Grid>
     </Box>
   );
 };

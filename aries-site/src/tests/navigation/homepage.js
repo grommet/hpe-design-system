@@ -26,7 +26,7 @@ test('should navigate to correct path in Header when choosen via keyboard', asyn
 });
 
 // eslint-disable-next-line max-len
-test('should navigate to correct tile in home page when clicked on', async t => {
+test('should navigate to correct card in home page when clicked on', async t => {
   const page = 'Color';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
@@ -39,7 +39,7 @@ test('should navigate to correct tile in home page when clicked on', async t => 
 // once it has been resolved, but don't want to block other tests from running
 // as we make commits
 // eslint-disable-next-line max-len
-test('should navigate to correct path in home page tile when choosen via keyboard', async t => {
+test('should navigate to correct path in home page card when choosen via keyboard', async t => {
   const page = 'Color';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');

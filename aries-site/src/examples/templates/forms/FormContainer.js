@@ -1,9 +1,9 @@
 import React from 'react';
-import { Tile } from 'aries-core';
+import { Card } from 'grommet';
 
 export const FormContainer = ({ ...rest }) => {
   return (
-    <Tile
+    <Card
       background="background-front"
       border
       pad={{ horizontal: 'medium', vertical: 'medium' }}
