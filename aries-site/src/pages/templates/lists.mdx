@@ -24,22 +24,62 @@ List views are optimized for scanability and reading comprehension. Each list it
 
 ## Guidance
 
+The when, how, and why to use lists.
+
+### About Lists
+
+HPE Design System list view templates are go-to patterns for deploying homogeneous data such as services, devices, users, and more. List views are optimized for scanability and reading comprehension. Each list item provides users focused information and identity labels to aid selection, decision making, and action.
+
 Lists are an effective way to display dense content to users. Here are some recommendations on how to make the data easily consumable.
 
-**Best Practices:**
+### Best Practices:
 
 - Be consistent with layout and visual treatments for all list items.
 - Keep list item descriptions brief and concise.
-- Use Icons or Images in list items to help draw attention and support scanning.
+- Use icons or images in list items to help draw attention and support scanning.
 - Maintain sufficient space between list items or consider using dividers between rows.
 - Sort lists in a logical order such as alphabetically, numerically, chronologically, or by user preference.
 
-**Lists Types:**
+### Usage
+
+The following list types are supported:
 
 - Single-line lists are optimal for scan-ability, especially with the addition of an image.
 - Two-line lists provide a primary and secondary text which can be helpful when more detail is needed.
 - Three-line lists of a primary text and two lines of secondary text are not recommended.
-- Grid lists are made of image tiles and require more space.
+- Grid lists are made of image files and require more space.
+
+### Selection
+
+Use either selection of a whole list item or clickable areas on a list item (such as the action menu button). Do not combine these.
+
+Use hover states to indicate which kind of selection is being used. If the entire list item is clickable, the background of the list item receives the active background color and the cursor changes to a pointer hand. Otherwise, there is no hover state for a list item that is not interactive. If a list item contains an action button (or other clickable area), then that button respects its natural hover behavior.
+
+Selection use cases include:
+
+- A list with selectable items and a single action menu on the same page, allows for multi-selection of items
+- A list with selectable items and no action menu on the same page, allows an item to be selected. When an item is selected, a detail view can be shown with a single action menu for performing other things, such as powering on or off a device. Multi-select is not supported.
+- A list without selectable items, but an action menu on each item, allows an action to be performed inline on a single item. Multi-select is not supported.
+
+### Long Lists
+
+- Add a sticky header for the list
+- Avoid using multiple vertical scrollbars
+- For really long lists (i.e. hundreds or thousands), consider limiting the number of items that can be shown at a time and provide some mechanism for accessing the rest of the items
+- Provide search and filtering capabilities to allow customers to quickly find specific list items
+- Avoid paging, if possible. It is difficult to do and can result in a confusing user experience
+
+### Responsiveness
+
+Examples are included for different screen sizes – Laptop and Mobile.
+
+Lists should span the width of the page it is in, unless it is placed in a constraining box.
+
+Long data in lists should be wrapped, rather than truncated. We have customers who use long names (>100 chars) and they really need to distinguish one from the other. Truncating often ends up with multiple list entries that look the same, but really aren't.
+
+### Accessibility
+
+Lists are usually easier to navigate than tables. When creating a design that uses a table, especially a simple table, consider whether a list could be used instead.
 
 ## Variants
 
