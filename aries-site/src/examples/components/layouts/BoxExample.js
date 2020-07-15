@@ -1,26 +1,29 @@
-import React, { useContext } from 'react';
-import { Box, Heading, ResponsiveContext, Text } from 'grommet';
-import { IconGuidelines } from '../../../components';
+import React from 'react';
+import { Box, Text } from 'grommet';
 
 export const BoxExample = () => {
-  const size = useContext(ResponsiveContext);
-
   return (
-    <Box
-      align="start"
-      background="green"
-      gap={size === 'small' ? 'large' : 'medium'}
-      pad="large"
-      round="small"
-      width="medium"
-    >
-      <IconGuidelines size="xlarge" />
-      <Heading level={2} margin="none" responsive={false}>
-        Guidelines
-      </Heading>
-      <Text size="small">
-        This is the ideology and heartbeat of the HPE Design System.
-      </Text>
+    <Box direction="row-responsive" gap="medium" align="center">
+      <Box
+        align="center"
+        border={{ color: 'green', size: 'medium' }}
+        pad="large"
+        round="small"
+        width="medium"
+      >
+        <Text>Boxes are containers that drive the layout of your content.</Text>
+      </Box>
+      <Box
+        align="center"
+        justify="center"
+        border={{ color: 'green', size: 'medium' }}
+        pad="large"
+        round="small"
+        width="medium"
+        height="medium"
+      >
+        <Text>Boxes can be various sizes.</Text>
+      </Box>
     </Box>
   );
 };
