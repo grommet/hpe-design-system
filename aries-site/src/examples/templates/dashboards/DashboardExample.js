@@ -6,12 +6,14 @@ import {
   Heading,
   Button,
   Box,
+  Card,
+  CardBody,
+  CardFooter,
   Grid,
   Menu,
   Nav,
   ResponsiveContext,
   Sidebar,
-  Footer,
   Text,
 } from 'grommet';
 import {
@@ -96,11 +98,11 @@ const Dashboard = () => (
       </Heading>
       <Button label="Manage" primary />
     </Header>
-    <DashboardTiles />
+    <DashboardCards />
   </>
 );
 
-const DashboardTiles = () => {
+const DashboardCards = () => {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -111,30 +113,28 @@ const DashboardTiles = () => {
       margin={size === 'small' ? { bottom: 'xlarge' } : undefined}
     >
       {dashboardItems.map(item => (
-        <Tile content={item} />
+        <DashboardCard content={item} />
       ))}
     </Grid>
   );
 };
 
-const Tile = ({ content }) => {
+const DashboardCard = ({ content }) => {
   const cornerSize = 'small';
 
   return (
-    <Box
-      round={cornerSize}
-      background={content.color}
-      key={`Tile ${content.title}`}
+    <Card
       alignContent="center"
+      background={content.color}
+      elevation="none"
+      key={`Card ${content.title}`}
       onClick={() => {}}
+      round={cornerSize}
     >
-      <Box
-        pad={{ horizontal: 'medium', vertical: 'small' }}
-        gap="medium"
-        flex
-        size="small"
-        direction="column"
+      <CardBody
         align="start"
+        gap="medium"
+        pad={{ horizontal: 'medium', vertical: 'small' }}
       >
         {content.icon}
         <Box>
@@ -143,18 +143,14 @@ const Tile = ({ content }) => {
           </Text>
           <Text size="medium">{content.subTitle}</Text>
         </Box>
-      </Box>
-      <Footer
-        pad="small"
-        background="background-contrast"
-        round={{ corner: 'bottom', size: cornerSize }}
-      >
+      </CardBody>
+      <CardFooter pad="small">
         <Text size="xsmall">{content.message}</Text>
         {content.message === 'Connected' && (
           <Box round pad="xsmall" background="green" />
         )}
-      </Footer>
-    </Box>
+      </CardFooter>
+    </Card>
   );
 };
 
@@ -275,7 +271,7 @@ Page.propTypes = {
   children: PropTypes.element,
 };
 
-Tile.propTypes = {
+DashboardCard.propTypes = {
   content: PropTypes.shape({
     color: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     icon: PropTypes.element,

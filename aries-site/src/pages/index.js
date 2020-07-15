@@ -45,7 +45,7 @@ const Index = () => (
       small: {
         margin: { left: '-75px', top: '-75px' },
       },
-      useTiles: true,
+      useGrid: true,
     }}
     title={title}
     isLanding
