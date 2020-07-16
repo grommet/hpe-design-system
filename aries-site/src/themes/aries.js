@@ -9,7 +9,7 @@ export const aries = deepMerge(hpe, {
   card: {
     container: {
       background: 'background-front',
-      elevation: 'medium',
+      elevation: 'small',
       round: 'small', // base.js default
       // height: 'small',
       // width: 'medium',

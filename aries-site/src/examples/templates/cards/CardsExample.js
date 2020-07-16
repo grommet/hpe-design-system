@@ -1,215 +1,134 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Box, Card, CardBody, CardFooter, Chart, Text } from 'grommet';
+import { Wifi } from 'grommet-icons';
 
-import {
-  CardDefaults,
-  Identifier,
-  IdentifierFooter,
-  IdentifierImageRow,
-  IdentifierIconColumn,
-  IdentifierIconRow,
-  ImageCard,
-  MapCard,
-  HelpHeader,
-  ColorCard,
-} from './cardVariants';
+const mockData = Array(30)
+  .fill()
+  .map((_, index) => {
+    return {
+      value: [index, Math.random() * 100],
+    };
+  });
+
+const capacityWarnings = mockData.filter(datum => datum.value[1] >= 50).length;
+
+const gradient = [
+  { value: 0, color: 'status-ok' },
+  { value: 33, color: 'status-ok' },
+  { value: 67, color: 'status-warning' },
+  { value: 85, color: 'status-critical' },
+];
+
+const StyledCard = styled(Card)`
+  transition: all 0.3s ease-in-out;
+  :focus,
+  :hover {
+    transform: scale(1.01, 1.01);
+  }
+`;
 
 export const CardsExample = () => {
+  const [isFocused, setIsFocused] = React.useState(false);
+
   return (
-    <Box background="background-back" overflow="auto" pad="medium" fill>
-      <Grid columns={{ count: 'fit', size: ['auto', 'medium'] }} gap="medium">
-        <CardDefaults />
-        <Identifier />
-        <IdentifierImageRow />
-        <IdentifierFooter />
-        <IdentifierIconRow />
-        <IdentifierIconColumn />
-        <ImageCard />
-        <MapCard />
-        <HelpHeader />
-        <ColorCard />
-      </Grid>
+    <Box
+      align="center"
+      justify="center"
+      background="background-back"
+      overflow="auto"
+      pad="medium"
+      fill
+    >
+      <StyledCard
+        elevation={isFocused ? 'medium' : 'small'}
+        onClick={() => {
+          // eslint-disable-next-line no-alert
+          alert(
+            `Typically a click would route to a view with 
+            greater detail behind this summary information.`,
+          );
+        }}
+        onBlur={() => setIsFocused(false)}
+        onFocus={() => setIsFocused(true)}
+        onMouseOut={() => setIsFocused(false)}
+        onMouseOver={() => setIsFocused(true)}
+      >
+        <CardBody>
+          <Identifier
+            title="Network Traffic"
+            subtitle="Capacity Utilization - Last 30 Days"
+            icon={<Wifi size="large" />}
+          />
+          <Box margin={{ top: 'medium' }}>
+            <KPIChart data={mockData} />
+          </Box>
+        </CardBody>
+        <CardFooter>
+          <KPISummary
+            instances={capacityWarnings}
+            statusColor="status-warning"
+          />
+        </CardFooter>
+      </StyledCard>
     </Box>
   );
 };
 
-// const CardDefaults = () => (
-//   <Card>
-//     <CardHeader>Card Header</CardHeader>
-//     <CardBody>Card Body</CardBody>
-//     <CardFooter>Card Footer</CardFooter>
-//   </Card>
-// );
+const Identifier = ({ title, subtitle, icon }) => (
+  <Box direction="row" gap="small" align="center">
+    <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
+    <Box>
+      <Text color="text-strong" size="xxlarge" weight="bold">
+        {title}
+      </Text>
+      <Text>{subtitle}</Text>
+    </Box>
+  </Box>
+);
 
-// const Identifier = () => (
-//   <Card>
-//     <CardBody>
-//       <Text color="text-strong" size="xxlarge" weight="bold">
-//         Heading
-//       </Text>
-//       <Text>Subtitle</Text>
-//     </CardBody>
-//   </Card>
-// );
+Identifier.propTypes = {
+  title: PropTypes.node,
+  subtitle: PropTypes.node,
+  icon: PropTypes.node,
+};
 
-// const IdentifierImageRow = () => (
-//   <Card>
-//     <CardBody>
-//       <Box direction="row">
-//         <Image src="/static/images/color-swirls.png" />
-//         <Box margin={{ left: 'medium' }}>
-//           <Text color="text-strong" size="xxlarge" weight="bold">
-//             Heading
-//           </Text>
-//           <Text>Subtitle</Text>
-//         </Box>
-//       </Box>
-//     </CardBody>
-//   </Card>
-// );
+const KPIChart = ({ data }) => (
+  <Chart
+    aria-label="Card displaying network traffic"
+    type="line"
+    thickness="xxsmall"
+    values={data}
+    color={gradient}
+    size={{ height: 'xsmall' }}
+  />
+);
 
-// const IdentifierFooter = () => (
-//   <Card>
-//     <CardBody>
-//       <Text color="text-strong" size="xxlarge" weight="bold">
-//         Heading
-//       </Text>
-//       <Text>Subtitle</Text>
-//     </CardBody>
-//     <CardFooter
-//       background="none"
-//       border={{ color: 'border-weak', side: 'top' }}
-//     >
-//       <Box direction="row" align="center" gap="small">
-//         <StatusWarning size="medium" />
-//         <Text size="small" weight="bold">
-//           Text Small
-//         </Text>
-//       </Box>
-//     </CardFooter>
-//   </Card>
-// );
+KPIChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.array,
+    }),
+  ),
+};
 
-// const IdentifierIconRow = () => (
-//   <Card>
-//     <CardBody direction="row" align="center" gap="small">
-//       <Location size="large" />
-//       <Box>
-//         <Text color="text-strong" size="xxlarge" weight="bold">
-//           Heading
-//         </Text>
-//         <Text>Subtitle</Text>
-//       </Box>
-//     </CardBody>
-//     <CardFooter
-//       background="none"
-//       border={{ color: 'border-weak', side: 'top' }}
-//     >
-//       <Box direction="row" align="center" gap="small">
-//         <StatusWarning size="medium" />
-//         <Text size="small" weight="bold">
-//           Text Small
-//         </Text>
-//       </Box>
-//     </CardFooter>
-//   </Card>
-// );
+const KPISummary = ({ instances, statusColor }) => {
+  return (
+    <Box direction="row" align="center" gap="small">
+      <Box background={statusColor} height="12px" width="12px" round />
+      <Text>{instances} instances above utilization target</Text>
+    </Box>
+  );
+};
 
-// const IdentifierIconColumn = () => (
-//   <Card>
-//     <CardBody gap="small">
-//       <Location size="large" />
-//       <Box>
-//         <Text color="text-strong" size="xxlarge" weight="bold">
-//           Heading
-//         </Text>
-//         <Text>Subtitle</Text>
-//       </Box>
-//     </CardBody>
-//     <CardFooter
-//       background="none"
-//       border={{ color: 'border-weak', side: 'top' }}
-//     >
-//       <Box direction="row" align="center" gap="small">
-//         <StatusWarning size="medium" />
-//         <Text size="small" weight="bold">
-//           Text Small
-//         </Text>
-//       </Box>
-//     </CardFooter>
-//   </Card>
-// );
-
-// const ImageCard = () => (
-//   <Card>
-//     <Image src="/static/images/Doorhood-4.jpg" />
-//     <CardBody>
-//       <Text color="text-strong" size="xxlarge" weight="bold">
-//         Heading
-//       </Text>
-//       <Text>Subtitle</Text>
-//     </CardBody>
-//   </Card>
-// );
-
-// const MapCard = () => (
-//   <Card>
-//     <CardBody>
-//       <Text color="text-strong" size="xxlarge" weight="bold">
-//         Heading
-//       </Text>
-//       <Text>Subtitle</Text>
-//     </CardBody>
-//     <Image src="/static/images/map-07.png" />
-//   </Card>
-// );
-
-// const HelpHeader = () => (
-//   <Card>
-//     <CardHeader border={{ color: 'border-weak', side: 'bottom' }}>
-//       <Box direction="row" gap="small">
-//         <CircleQuestion />
-//         <Text weight="bold">Text</Text>
-//       </Box>
-//     </CardHeader>
-//     <CardBody>
-//       <Paragraph margin={{ top: 'none' }}>
-//         Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
-//         incididunt ut labore et magna aliqua. Ut enim ad minim veniam, quis
-//         nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-//       </Paragraph>
-//     </CardBody>
-//   </Card>
-// );
-
-// const ColorCard = () => {
-//   const textColor = 'text-strong';
-
-//   return (
-//     <Card background="blue!">
-//       <CardBody pad={{ horizontal: 'medium', top: 'small' }}>
-//         <Box
-//           height="xsmall"
-//           width="xsmall"
-//           pad={{ vertical: 'small', left: 'none', right: 'medium' }}
-//         >
-//           <Image src="/static/images/i00045804.png" />
-//         </Box>
-//         <Box>
-//           <Text color={textColor} size="xxlarge" weight="bold">
-//             Heading
-//           </Text>
-//           <Text color={textColor}>Subtitle</Text>
-//         </Box>
-//       </CardBody>
-//       <CardFooter>
-//         <Box direction="row" align="center" gap="small">
-//           <StatusWarning color={textColor} />
-//           <Text color={textColor} size="small" weight="bold">
-//             Text Small
-//           </Text>
-//         </Box>
-//       </CardFooter>
-//     </Card>
-//   );
-// };
+KPISummary.propTypes = {
+  instances: PropTypes.number,
+  statusColor: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      dark: PropTypes.string,
+      light: PropTypes.string,
+    }),
+  ]),
+};

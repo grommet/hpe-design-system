@@ -4,6 +4,8 @@ export * from './CardsFooterExample';
 export * from './CardsIconIdentifierExample';
 export * from './CardsIconIdentifierVertExample';
 export * from './CardsImageIdentifierExample';
+export * from './CardsInGridExample';
+export * from './CardsInRowExample';
 export * from './CardsPreviewGrid';
 export * from './CardsSimpleExample';
 export * from './CardsVisualImageExample';
