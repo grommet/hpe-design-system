@@ -178,7 +178,7 @@ export const SimpleSignUpExample = () => {
                         {formValues.password && rule.valid ? (
                           <FormCheckmark color="text-strong" />
                         ) : (
-                          <FormClose />
+                          <FormClose color="text-strong" />
                         )}
                         <Text>{rule.message}</Text>
                       </Box>
