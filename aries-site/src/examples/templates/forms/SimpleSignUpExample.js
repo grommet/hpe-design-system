@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   CheckBox,
+  List,
   Form,
   FormField,
   Header,
@@ -12,31 +13,27 @@ import {
   Text,
   TextInput,
 } from 'grommet';
+import { FormCheckmark, FormClose } from 'grommet-icons';
 
 const passwordRulesStrong = [
   {
     regexp: new RegExp('(?=.*?[A-Z])'),
-    message: 'At least one uppercase English letter',
+    message: 'One uppercase letter',
     status: 'error',
   },
   {
     regexp: new RegExp('(?=.*?[a-z])'),
-    message: 'At least one lowercase English letter',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[0-9])'),
-    message: 'At least one number',
+    message: 'One lowercase letter',
     status: 'error',
   },
   {
     regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
-    message: 'At least one special character or space',
+    message: 'One special character',
     status: 'error',
   },
   {
     regexp: new RegExp('.{8,}'),
-    message: 'At least eight characters',
+    message: 'At least 8 characters',
     status: 'error',
   },
 ];
@@ -88,6 +85,18 @@ export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
+  const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
+
+  const onChange = values => {
+    setFormValues(values);
+    const adjustedPasswordRules = passwordRules.map(rule => {
+      const adjustedRule = { ...rule };
+      const valid = adjustedRule.regexp.test(values.password);
+      adjustedRule.valid = valid;
+      return adjustedRule;
+    });
+    setPasswordRules(adjustedPasswordRules);
+  };
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -115,7 +124,7 @@ export const SimpleSignUpExample = () => {
           <Form
             validate="blur"
             value={formValues}
-            onChange={setFormValues}
+            onChange={nextValue => onChange(nextValue)}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <FormField
@@ -147,7 +156,36 @@ export const SimpleSignUpExample = () => {
               label="Password"
               htmlFor="password-sign-up-simple"
               name="password"
-              validate={passwordRulesStrong}
+              info={
+                <List
+                  data={passwordRules}
+                  border={{ color: 'none' }}
+                  pad="none"
+                >
+                  {rule => {
+                    if (
+                      formValues.password === undefined ||
+                      formValues.password.length === 0
+                    ) {
+                      return (
+                        <Box direction="row" gap="xsmall">
+                          <Text>{rule.message}</Text>
+                        </Box>
+                      );
+                    }
+                    return (
+                      <Box direction="row" gap="xsmall">
+                        {formValues.password && rule.valid ? (
+                          <FormCheckmark />
+                        ) : (
+                          <FormClose />
+                        )}
+                        <Text>{rule.message}</Text>
+                      </Box>
+                    );
+                  }}
+                </List>
+              }
             >
               <TextInput
                 id="password-sign-up-simple"
