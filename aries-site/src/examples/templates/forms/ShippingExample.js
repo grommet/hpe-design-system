@@ -188,7 +188,7 @@ export const ShippingExample = () => {
             value={formValues}
             onChange={setFormValues}
             messages={{
-              required: '! This is required',
+              required: '! This is a required field.',
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
