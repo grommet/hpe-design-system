@@ -180,7 +180,7 @@ export const SimpleSignUpExample = () => {
                         ) : (
                           <FormClose color="text-strong" />
                         )}
-                        <Text>{rule.message}</Text>
+                        <Text size="xsmall">{rule.message}</Text>
                       </Box>
                     );
                   }}
