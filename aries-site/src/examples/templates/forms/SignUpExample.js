@@ -176,7 +176,7 @@ export const SignUpExample = () => {
                     return (
                       <Box direction="row" gap="xsmall">
                         {formValues.password && rule.valid ? (
-                          <FormCheckmark />
+                          <FormCheckmark color="text-strong" />
                         ) : (
                           <FormClose />
                         )}
