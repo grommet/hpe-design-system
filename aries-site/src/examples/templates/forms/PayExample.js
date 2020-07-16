@@ -82,7 +82,7 @@ const creditCardMask = [
   },
 ];
 
-const FormFieldRequiredLabel = props => {
+const RequiredFormField = props => {
   const { required, label, ...rest } = props;
   return (
     <FormField
@@ -102,7 +102,7 @@ const FormFieldRequiredLabel = props => {
   );
 };
 
-FormFieldRequiredLabel.propTypes = {
+RequiredFormField.propTypes = {
   required: PropTypes.bool,
   label: PropTypes.string,
 };
@@ -164,7 +164,7 @@ export const PayExample = () => {
             <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
               Credit Card Information
             </Heading>
-            <FormFieldRequiredLabel
+            <RequiredFormField
               name="cardName"
               required
               htmlFor="cardName"
@@ -175,8 +175,8 @@ export const PayExample = () => {
                 name="cardName"
                 placeholder="Jane Smith"
               />
-            </FormFieldRequiredLabel>
-            <FormFieldRequiredLabel
+            </RequiredFormField>
+            <RequiredFormField
               htmlFor="cardNumber"
               required
               name="cardNumber"
@@ -189,10 +189,10 @@ export const PayExample = () => {
                 mask={creditCardMask}
                 icon={<CreditCard color="placeholder" />}
               />
-            </FormFieldRequiredLabel>
+            </RequiredFormField>
             <Box direction="row" gap="medium">
               <Box flex={false}>
-                <FormFieldRequiredLabel
+                <RequiredFormField
                   required
                   htmlFor="expiration"
                   name="expiration"
@@ -204,10 +204,10 @@ export const PayExample = () => {
                     name="expiration"
                     mask={dateMask}
                   />
-                </FormFieldRequiredLabel>
+                </RequiredFormField>
               </Box>
               <Box fill>
-                <FormFieldRequiredLabel
+                <RequiredFormField
                   required
                   htmlFor="cvv"
                   name="cvv"
@@ -219,7 +219,7 @@ export const PayExample = () => {
                     name="cvv"
                     placeholder="123"
                   />
-                </FormFieldRequiredLabel>
+                </RequiredFormField>
               </Box>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
