@@ -58,11 +58,11 @@ export const CardsExample = () => {
         <CardBody>
           <Identifier
             title="Network Traffic"
-            subtitle="Capacity Utilization - Last 30 Days"
+            subtitle="Bandwidth Utilization - Last 30 Days"
             icon={<Wifi size="large" />}
           />
           <Box margin={{ top: 'medium' }}>
-            <KPIChart data={mockData} />
+            <KPIChart id="metric-0" data={mockData} />
           </Box>
         </CardBody>
         <CardFooter>
@@ -94,14 +94,15 @@ Identifier.propTypes = {
   icon: PropTypes.node,
 };
 
-const KPIChart = ({ data }) => (
+const KPIChart = ({ data, ...rest }) => (
   <Chart
-    aria-label="Card displaying network traffic"
+    a11yTitle="Card displaying network traffic"
     type="line"
     thickness="xxsmall"
     values={data}
     color={gradient}
     size={{ height: 'xsmall' }}
+    {...rest}
   />
 );
 

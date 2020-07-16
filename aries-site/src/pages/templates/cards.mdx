@@ -2,6 +2,7 @@
 import { Example } from '../../layouts';
 import { 
   CardsColorExample,
+  CardsDashboardExample,
   CardsExample, 
   CardsFooterExample,
   CardsIconIdentifierExample, 
@@ -28,7 +29,12 @@ preview content in [dashboards](/templates/dashboards).
   <CardsExample />
 </Example>
 
+## Guidance ##
+- [Card anatomy and behaviors](#contents-and-interactivity)
+- [Presenting groups of cards](#collections)
+
 ## Collections ##
+Guidance pertaining to how to present a group of cards.
 
 ### Uniform & Scannable ###
 When presenting a set of Cards, they should be thought of as a uniform, 
@@ -63,13 +69,21 @@ to scale gracefully and present across screens widths.
   <CardsInRowExample />
 </Example>
 
-### As a Dashboard ###
+#### As a Dashboard ####
+Cards fit dashboard contexts nicely as they are designed to succinctly present information 
+and serve as an entry point to drill into greater detail.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsDashboardExample.js"
+  template
+  width="100%"
+>
+  <CardsDashboardExample />
+</Example>
 
 **Filtering and Sorting**
 
-## Cards ##
-
-### Contents & Interactivity ###
+## Contents & Interactivity ##
 Think focussed and concise. Each Card's content should concern a single subject. Its 
 objective serves as content preview allowing users to quickly find information and act 
 by drilling into the content's greater detail.
@@ -91,104 +105,3 @@ Focus, Elevation, Hover
 ### Anatomy ###
 
 Container, Identifier, Body, Header, Footer
-
-## Variants ##
-The following variants are meant to showcase a Card's versatility. Mix and match 
-variant elements to unleash your creativity.
-
-### Simple Identifier ###
-Contains an "identifier" composed of a title and a subtitle or brief description.
-
-<!-- 
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsSimpleExample.js"
-  template
-  width="100%"
->
-  <CardsSimpleExample />
-</Example>
--->
-
-### Identifier with Icons or Images ###
-Including an icon or image with a Card's identifier improves the scan-ability of a collection 
-of cards by aiding the user's ability to quickly identify content of interest.
-
-<!--
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsImageIdentifierExample.js"
-  template
-  width="100%"
->
-  <CardsImageIdentifierExample />
-</Example>
-
-### Icon Identifier ###
-Including an icon with a Card's identifier improves the scan-ability of a collection 
-of cards by aiding the user's ability to quickly identify content of interest.
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsIconIdentifierExample.js"
-  template
-  width="100%"
->
-  <CardsIconIdentifierExample />
-</Example>
-
-### Vertical Icon Identifier ###
-Visual design flexibility delivering same user benefits as [icon identifier](#icon-identifier).
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsIconIdentifierVertExample.js"
-  template
-  width="100%"
->
-  <CardsIconIdentifierVertExample />
-</Example>
--->
-
-### With Footer ###
-A card's footer allows for secondary information to be presented alongside the card's 
-primary content. The footer is a great place to display status or other related metadata.
-
-<!--
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsFooterExample.js"
-  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
-  template
-  width="100%"
->
-  <CardsFooterExample />
-</Example>
--->
-
-### With Color ###
-
-<!--
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsColorExample.js"
-  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
-  template
-  width="100%"
->
-  <CardsColorExample />
-</Example>
--->
-
-### Rich Imagery ###
-
-<!--
-### Image Card ###
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsVisualImageExample.js"
-  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
-  template
-  width="100%"
->
-  <CardsVisualImageExample />
-</Example>
-
-### Map Card ###
--->
-
-### Dashboards & Key Performance Indicators ###

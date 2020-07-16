@@ -98,6 +98,24 @@ export const data = [
     type: 'Server',
   },
   {
+    displayName: 'Clark Devereaux',
+    alias: 'Mouth',
+    cardColor: 'orange',
+    emailAddress: 'clark.devereaux@hpe.com',
+    icon: (color, size) => <Switch color={color} size={size} />,
+    location: 'Fort Collins',
+    deviceName: '4L-S2-T57',
+    ipAddress: '192.168.15.46',
+    imageUrl:
+      'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
+    status: {
+      value: 'status-ok',
+      message: 'ok',
+      icon: (color, size) => <StatusGood color={color} size={size} />,
+    },
+    type: 'Switch',
+  },
+  {
     displayName: 'Chester Copperpot',
     alias: undefined,
     cardColor: 'blue',
@@ -150,24 +168,6 @@ export const data = [
       icon: (color, size) => <StatusGood color={color} size={size} />,
     },
     type: 'Access Point',
-  },
-  {
-    displayName: 'Clark Devereaux',
-    alias: 'Mouth',
-    cardColor: 'orange',
-    emailAddress: 'clark.devereaux@hpe.com',
-    icon: (color, size) => <Switch color={color} size={size} />,
-    location: 'Fort Collins',
-    deviceName: '4L-S2-T57',
-    ipAddress: '192.168.15.46',
-    imageUrl:
-      'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
-    status: {
-      value: 'status-ok',
-      message: 'ok',
-      icon: (color, size) => <StatusGood color={color} size={size} />,
-    },
-    type: 'Switch',
   },
   {
     displayName: 'Stephanie Steinbrenner',

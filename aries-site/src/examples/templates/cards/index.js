@@ -1,4 +1,5 @@
 export * from './CardsColorExample';
+export * from './CardsDashboardExample';
 export * from './CardsExample';
 export * from './CardsFooterExample';
 export * from './CardsIconIdentifierExample';

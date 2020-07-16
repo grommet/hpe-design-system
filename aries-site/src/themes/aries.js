@@ -15,7 +15,7 @@ export const aries = deepMerge(hpe, {
       // width: 'medium',
     },
     body: {
-      pad: { horizontal: 'medium', top: 'medium', bottom: 'large' },
+      pad: 'medium',
     },
     footer: {
       background: 'background-contrast', // base.js default

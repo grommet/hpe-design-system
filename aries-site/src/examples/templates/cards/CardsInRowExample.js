@@ -21,7 +21,7 @@ export const CardsInRowExample = () => {
                 index,
               ) => (
                 <Card key={index} flex={false} width="219px" margin="small">
-                  <CardBody direction="row" gap="small">
+                  <CardBody>
                     <Box pad={{ vertical: 'xsmall' }}>
                       {icon('text', 'large')}
                     </Box>
