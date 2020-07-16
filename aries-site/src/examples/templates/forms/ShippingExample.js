@@ -132,7 +132,7 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
-const FormFieldRequiredLabel = props => {
+const RequiredFormField = props => {
   const { required, label, ...rest } = props;
   return (
     <FormField
@@ -152,7 +152,7 @@ const FormFieldRequiredLabel = props => {
   );
 };
 
-FormFieldRequiredLabel.propTypes = {
+RequiredFormField.propTypes = {
   required: PropTypes.bool,
   label: PropTypes.string,
 };
@@ -253,7 +253,7 @@ export const ShippingExample = () => {
               <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
                 <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
               </FormField>
-              <FormFieldRequiredLabel
+              <RequiredFormField
                 htmlFor="email-ship"
                 name="email"
                 required
@@ -261,7 +261,7 @@ export const ShippingExample = () => {
                 validate={emailValidation}
               >
                 <MaskedInput id="email-ship" name="email" mask={emailMask} />
-              </FormFieldRequiredLabel>
+              </RequiredFormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Continue" primary type="submit" />
