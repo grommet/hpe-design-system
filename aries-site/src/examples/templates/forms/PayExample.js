@@ -141,7 +141,7 @@ export const PayExample = () => {
         >
           <Form
             messages={{
-              required: '! This is required',
+              required: '! This is a required field.',
             }}
             value={formValues}
             onChange={setFormValues}
