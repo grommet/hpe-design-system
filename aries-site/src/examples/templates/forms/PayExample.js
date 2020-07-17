@@ -86,16 +86,7 @@ const RequiredFormField = props => {
   const { required, label, ...rest } = props;
   return (
     <FormField
-      label={
-        required ? (
-          <Box direction="row">
-            <Text size="xsmall">{label}</Text>
-            <Text size="xsmall">*</Text>
-          </Box>
-        ) : (
-          label
-        )
-      }
+      label={required ? `${label}*` : label}
       required={required}
       {...rest}
     />
