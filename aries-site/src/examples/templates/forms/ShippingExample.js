@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -126,13 +127,25 @@ const emailValidation = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
+};
+
+const RequiredFormField = props => {
+  const { required, label, ...rest } = props;
+  return (
+    <FormField
+      label={required ? `${label}*` : label}
+      required={required}
+      {...rest}
+    />
+  );
+};
+
+RequiredFormField.propTypes = {
+  required: PropTypes.bool,
+  label: PropTypes.string,
 };
 
 export const ShippingExample = () => {
@@ -165,6 +178,9 @@ export const ShippingExample = () => {
             validate="blur"
             value={formValues}
             onChange={setFormValues}
+            messages={{
+              required: '! This is a required field.',
+            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box>
@@ -172,23 +188,23 @@ export const ShippingExample = () => {
                 Shipping Information
               </Heading>
               <Text margin={{ horizontal: 'small', vertical: 'xsmall' }}>
-                Shipping Address
+                Shipping Address *
               </Text>
-              <FormField htmlFor="firstName" name="firstName">
+              <FormField required htmlFor="firstName" name="firstName">
                 <TextInput
                   id="firstName"
                   name="firstName"
                   placeholder="First Name"
                 />
               </FormField>
-              <FormField htmlFor="lastName" name="lastName">
+              <FormField required htmlFor="lastName" name="lastName">
                 <TextInput
                   id="lastName"
                   name="lastName"
                   placeholder="Last Name"
                 />
               </FormField>
-              <FormField htmlFor="address1" name="address1">
+              <FormField required htmlFor="address1" name="address1">
                 <TextInput
                   id="address1"
                   name="address1"
@@ -202,10 +218,10 @@ export const ShippingExample = () => {
                   placeholder="Apt., Suite, Building (Optional)"
                 />
               </FormField>
-              <FormField htmlFor="city" name="city">
+              <FormField required htmlFor="city" name="city">
                 <TextInput id="city" name="city" placeholder="City" />
               </FormField>
-              <FormField htmlFor="state" name="state">
+              <FormField required htmlFor="state" name="state">
                 <Select
                   id="state"
                   name="state"
@@ -214,10 +230,12 @@ export const ShippingExample = () => {
                   placeholder="Select State"
                 />
               </FormField>
-              <FormField htmlFor="zipcode" name="zipcode">
+              <FormField required htmlFor="zipcode" name="zipcode">
                 <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
               </FormField>
-              <CheckBox name="isBusiness" label="This is a business" />
+              <FormField htmlFor="isBusiness" name="isBusiness">
+                <CheckBox name="isBusiness" label="This is a business" />
+              </FormField>
             </Box>
             <Box>
               <Heading level={4} margin={{ bottom: 'small' }}>
@@ -226,14 +244,15 @@ export const ShippingExample = () => {
               <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
                 <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
               </FormField>
-              <FormField
+              <RequiredFormField
                 htmlFor="email-ship"
                 name="email"
+                required
                 label="Email Address"
                 validate={emailValidation}
               >
                 <MaskedInput id="email-ship" name="email" mask={emailMask} />
-              </FormField>
+              </RequiredFormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Continue" primary type="submit" />
