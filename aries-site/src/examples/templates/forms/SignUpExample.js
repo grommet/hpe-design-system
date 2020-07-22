@@ -169,7 +169,7 @@ export const SignUpExample = () => {
                     ) {
                       return (
                         <Box direction="row" gap="xsmall">
-                          <Text>{rule.message}</Text>
+                          <Text size="xsmall">{rule.message}</Text>
                         </Box>
                       );
                     }
