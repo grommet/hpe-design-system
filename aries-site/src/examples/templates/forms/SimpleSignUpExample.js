@@ -7,7 +7,6 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   MaskedInput,
   Text,
   TextInput,
@@ -103,9 +102,9 @@ export const SimpleSignUpExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Sign Up
-          </Heading>
+          </Text>
           <Text>for a Hewlett Packard Enterprise account</Text>
         </Header>
         <Box
@@ -152,7 +151,7 @@ export const SimpleSignUpExample = () => {
               <TextInput
                 id="password-sign-up-simple"
                 name="password"
-                placeholder="•••••••••••••••"
+                placeholder="Enter your password"
                 type="password"
               />
             </FormField>

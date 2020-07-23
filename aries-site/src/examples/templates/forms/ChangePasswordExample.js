@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  Header,
-  Heading,
-  TextInput,
-} from 'grommet';
+import { Box, Button, Form, FormField, Header, Text, TextInput } from 'grommet';
 
 const passwordRulesWeak = [
   {
@@ -25,18 +17,13 @@ const passwordRulesWeak = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
 
 export const ChangePasswordExample = () => {
   const [formValues, setFormValues] = React.useState({});
-  const [readyToSubmit, setReadyToSubmit] = React.useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -45,7 +32,6 @@ export const ChangePasswordExample = () => {
 
   const confirmPassword = () => {
     const doesMatch = formValues.newPassword === formValues.confirmPassword;
-    setReadyToSubmit(doesMatch);
     return doesMatch
       ? undefined
       : { message: 'Passwords do not match', status: 'error' };
@@ -60,9 +46,9 @@ export const ChangePasswordExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Change Password
-          </Heading>
+          </Text>
         </Header>
         <Box
           // Padding used to prevent focus from being cutoff
@@ -82,7 +68,7 @@ export const ChangePasswordExample = () => {
               <TextInput
                 id="currentPassword"
                 name="currentPassword"
-                placeholder="•••••••••••••••"
+                placeholder="Current password"
                 type="password"
               />
             </FormField>
@@ -90,15 +76,12 @@ export const ChangePasswordExample = () => {
               htmlFor="newPassword"
               name="newPassword"
               label="New Password"
-              help={`Include ${passwordRulesWeak.map(rule => {
-                return ` ${rule.message.toLowerCase()}`;
-              })}`}
               validate={passwordRulesWeak}
             >
               <TextInput
                 id="newPassword"
                 name="newPassword"
-                placeholder="•••••••••••••••"
+                placeholder="Enter new password"
                 type="password"
               />
             </FormField>
@@ -111,17 +94,12 @@ export const ChangePasswordExample = () => {
               <TextInput
                 id="confirmPassword"
                 name="confirmPassword"
-                placeholder="•••••••••••••••"
+                placeholder="Confirm new password"
                 type="password"
               />
             </FormField>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button
-                label="Update Password"
-                primary
-                type="submit"
-                disabled={!readyToSubmit}
-              />
+              <Button label="Update Password" primary type="submit" />
             </Box>
           </Form>
         </Box>
