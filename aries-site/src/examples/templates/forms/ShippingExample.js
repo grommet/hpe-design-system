@@ -7,7 +7,6 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   MaskedInput,
   Select,
   Text,
@@ -165,9 +164,9 @@ export const ShippingExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Shipping
-          </Heading>
+          </Text>
           <Text>for your HPE products</Text>
         </Header>
         <Box
@@ -184,10 +183,13 @@ export const ShippingExample = () => {
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box>
-              <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
+              <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
                 Shipping Information
-              </Heading>
-              <Text margin={{ horizontal: 'small', vertical: 'xsmall' }}>
+              </Text>
+              <Text
+                margin={{ horizontal: 'none', vertical: 'xsmall' }}
+                size="xsmall"
+              >
                 Shipping Address *
               </Text>
               <FormField required htmlFor="firstName" name="firstName">
@@ -238,9 +240,9 @@ export const ShippingExample = () => {
               </FormField>
             </Box>
             <Box>
-              <Heading level={4} margin={{ bottom: 'small' }}>
+              <Text size="large" margin={{ vertical: 'small' }}>
                 Contact Information
-              </Heading>
+              </Text>
               <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
                 <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
               </FormField>
