@@ -6,7 +6,6 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   RangeInput,
   Text,
   TextInput,
@@ -15,11 +14,7 @@ import {
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -45,9 +40,9 @@ export const SettingsExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Settings
-          </Heading>
+          </Text>
           <Text>for HPE Service</Text>
         </Header>
         <Box
