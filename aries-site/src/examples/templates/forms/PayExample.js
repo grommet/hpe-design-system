@@ -7,7 +7,6 @@ import {
   FormField,
   MaskedInput,
   Header,
-  Heading,
   Text,
   TextInput,
 } from 'grommet';
@@ -121,9 +120,9 @@ export const PayExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Pay
-          </Heading>
+          </Text>
           <Text>for your HPE products</Text>
         </Header>
         <Box
@@ -152,9 +151,9 @@ export const PayExample = () => {
             <Box margin="small" align="center">
               <Text color="text-xweak">or</Text>
             </Box>
-            <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
+            <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
               Credit Card Information
-            </Heading>
+            </Text>
             <RequiredFormField
               name="cardName"
               required

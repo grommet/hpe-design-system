@@ -4,9 +4,9 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   RadioButtonGroup,
   Select,
+  Text,
 } from 'grommet';
 
 const sortFeatures = ['Featured', 'Price', 'Users'];
@@ -14,11 +14,7 @@ const sortFeatures = ['Featured', 'Price', 'Users'];
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -47,9 +43,9 @@ export const SortExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Sort
-          </Heading>
+          </Text>
         </Header>
         <Box
           // Padding used to prevent focus from being cutoff

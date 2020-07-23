@@ -6,7 +6,6 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   RadioButtonGroup,
   Text,
 } from 'grommet';
@@ -36,9 +35,9 @@ export const CustomizeExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Customize
-          </Heading>
+          </Text>
           <Text>your HPE Edgeline Server </Text>
         </Header>
         <Box
@@ -53,9 +52,9 @@ export const CustomizeExample = () => {
           >
             <FormField
               label={
-                <Heading level={4} margin="none">
+                <Text size="large" weight="bold">
                   Memory
-                </Heading>
+                </Text>
               }
               help={
                 <Anchor href="#" size="xsmall">
@@ -76,9 +75,9 @@ export const CustomizeExample = () => {
             </FormField>
             <FormField
               label={
-                <Heading level={4} margin="none">
+                <Text size="large" weight="bold">
                   CPU
-                </Heading>
+                </Text>
               }
               help={
                 <Anchor href="#" size="xsmall">
