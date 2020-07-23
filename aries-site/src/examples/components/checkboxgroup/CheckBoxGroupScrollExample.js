@@ -4,7 +4,12 @@ import { Box, CheckBoxGroup, Form, FormField } from 'grommet';
 export const CheckBoxGroupScrollExample = () => {
   return (
     <Form>
-      <FormField name="scroll-checkbox" label="Label" htmlFor="scroll-checkbox">
+      <FormField
+        pad="xsmall"
+        name="scroll-checkbox"
+        label="Label"
+        htmlFor="scroll-checkbox"
+      >
         <Box width="medium" overflow="scroll" height="small">
           <CheckBoxGroup
             name="scroll-checkbox"
