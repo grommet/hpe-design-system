@@ -169,7 +169,7 @@ export const SimpleSignUpExample = () => {
                     ) {
                       return (
                         <Box direction="row" gap="xsmall">
-                          <Text>{rule.message}</Text>
+                          <Text size="xsmall">{rule.message}</Text>
                         </Box>
                       );
                     }
@@ -184,7 +184,7 @@ export const SimpleSignUpExample = () => {
                             <FormClose size="small" />
                           </Box>
                         )}
-                        <Text>{rule.message}</Text>
+                        <Text size="xsmall">{rule.message}</Text>
                       </Box>
                     );
                   }}
