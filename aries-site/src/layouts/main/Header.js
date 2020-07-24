@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { AppIdentity, Header } from 'aries-core';
-import { Box, Button, ResponsiveContext } from 'grommet';
+import { AppIdentity } from 'aries-core';
+import { Box, Button, Header, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
@@ -15,7 +15,13 @@ const StyledHeader = ({ ...rest }) => {
   const router = useRouter();
 
   return (
-    <Header {...rest}>
+    <Header
+      pad={{
+        vertical: 'medium',
+        horizontal: size !== 'small' ? 'xlarge' : 'large',
+      }}
+      {...rest}
+    >
       <Link href="/" passHref>
         <AppIdentity
           brand="hpe"
