@@ -49,17 +49,31 @@ The following list types are supported:
 - Three-line lists of a primary text and two lines of secondary text are not recommended.
 - Grid lists are made of image files and require more space.
 
+### List vs Table
+
+A List or a Table can be used to represent a set of related items, such as servers or devices or users. The one that is chosen will depend on the specific use cases that need to be supported.
+
+- If space is limited, a List uses less room than a Table
+- Use a List, If scanability is desired. It’s easier to read than a Table
+- If items can be selected using only the List contents, then use a List
+
 ### Selection
 
 Use either selection of a whole list item or clickable areas on a list item (such as the action menu button). Do not combine these.
-
 Use hover states to indicate which kind of selection is being used. If the entire list item is clickable, the background of the list item receives the active background color and the cursor changes to a pointer hand. Otherwise, there is no hover state for a list item that is not interactive. If a list item contains an action button (or other clickable area), then that button respects its natural hover behavior.
 
-Selection use cases include:
+**Selection use cases include:**
 
 - A list with selectable items and a single action menu on the same page, allows for multi-selection of items
 - A list with selectable items and no action menu on the same page, allows an item to be selected. When an item is selected, a detail view can be shown with a single action menu for performing other things, such as powering on or off a device. Multi-select is not supported.
 - A list without selectable items, but an action menu on each item, allows an action to be performed inline on a single item. Multi-select is not supported.
+
+### Action Menu in List Item
+
+- If space is limited, then don’t use an Action Menu in a List item (repetition of the Action Menu icon uses a lot of space)
+- If items can be selected using only the List contents, then use an Action Menu in a List item. Otherwise, go to a detail view to see additional information for the List item and use an Action Menu there.
+- If an action is simple and the results can be seen in the List contents (e.g. enable/disable), then use an Action Menu in a List item
+- If multi-select is required, then don’t use the Action Menu in the List item.
 
 ### Long Lists
 
@@ -71,11 +85,17 @@ Selection use cases include:
 
 ### Responsiveness
 
-Examples are included for different screen sizes – Laptop and Mobile.
+Examples are included for different screen sizes – Desktop, Laptop and Mobile.
 
 Lists should span the width of the page it is in, unless it is placed in a constraining box.
 
-Long data in lists should be wrapped, rather than truncated. We have customers who use long names (>100 chars) and they really need to distinguish one from the other. Truncating often ends up with multiple list entries that look the same, but really aren't.
+### Wrapping vs Truncation:
+
+- Long data in lists should be wrapped, rather than truncated.
+- It’s about respecting the user’s content; that is, the words they type in.
+- We have customers who use long names (>100 chars) and they really need to distinguish one from the other. Truncating often ends up with multiple list entries that look the same, but really aren't.
+- It can also apply to automatically generated data, such as product names and descriptions.
+- If for some reason the “Do not truncate” rule must be broken, then a way must be provided to see the entire content.
 
 ### Accessibility
 
@@ -83,7 +103,7 @@ Lists are usually easier to navigate than tables. When creating a design that us
 
 ## Variants
 
-Below are some common list variations that demonstrate how to combine visual content, text, and list actions within the component.
+Examples of common lists.
 
 ### Name
 
