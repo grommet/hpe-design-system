@@ -3,27 +3,27 @@ import { Box, List, Text } from 'grommet';
 
 const data = [
   {
-    name: 'User 1',
+    name: 'Eric Soderberg',
     description: '10.68.229.0',
     option: 'Inactive',
   },
   {
-    name: 'User 2',
+    name: 'Alex Mejias',
     description: '10.33.221.9',
     option: 'Active',
   },
   {
-    name: 'User 3',
+    name: 'Vicky Avalos',
     description: '10.45.229.1',
     option: 'Inactive',
   },
   {
-    name: 'User 4',
+    name: 'Matthew Glissmann',
     description: '10.35.239.3',
     option: 'Active',
   },
   {
-    name: 'User 5',
+    name: 'Chris Carlozzi',
     description: '10.48.129.1',
     option: 'Active',
   },

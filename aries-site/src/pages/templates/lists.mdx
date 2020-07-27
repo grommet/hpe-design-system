@@ -8,9 +8,6 @@ import {
   ListScreenExample,
 } from '../../examples';
 
-HPE Design System list view templates are go-to patterns for displaying homogeneous data such as services, devices, users, and more.
-List views are optimized for scanability and reading comprehension. Each list item provides users focused information and identity labels to aid selection, decision making, and action.
-
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListScreenExample.js"
   docs="https://v2.grommet.io/list?theme=hpe#props"
@@ -28,9 +25,15 @@ The when, how, and why to use lists.
 
 ### About Lists
 
-HPE Design System list view templates are go-to patterns for deploying homogeneous data such as services, devices, users, and more. List views are optimized for scanability and reading comprehension. Each list item provides users focused information and identity labels to aid selection, decision making, and action.
+HPE Design System list view templates are go-to patterns for displaying homogeneous data such as services, devices, users, and more. List views are optimized for scanability and reading comprehension. Each list item provides users focused information and identity labels to aid selection, decision making, and action.
 
-Lists are an effective way to display dense content to users. Here are some recommendations on how to make the data easily consumable.
+### Usage
+
+A list is primarily used for:
+
+- Looking for specific data or information. When coupled with search or filters, it provides a quick means of scanning to find something.
+- Aggregating. When coupled with search or filters, it provides a summary of what items match the search/filter criteria and verification of the matching items.
+- Selecting multiple items to perform an action with them.
 
 ### Best Practices:
 
@@ -40,22 +43,13 @@ Lists are an effective way to display dense content to users. Here are some reco
 - Maintain sufficient space between list items or consider using dividers between rows.
 - Sort lists in a logical order such as alphabetically, numerically, chronologically, or by user preference.
 
-### Usage
+### Types of Lists
 
 The following list types are supported:
 
 - Single-line lists are optimal for scan-ability, especially with the addition of an image.
 - Two-line lists provide a primary and secondary text which can be helpful when more detail is needed.
 - Three-line lists of a primary text and two lines of secondary text are not recommended.
-- Grid lists are made of image files and require more space.
-
-### List vs Table
-
-A List or a Table can be used to represent a set of related items, such as servers or devices or users. The one that is chosen will depend on the specific use cases that need to be supported.
-
-- If space is limited, a List uses less room than a Table
-- Use a List, If scanability is desired. It’s easier to read than a Table
-- If items can be selected using only the List contents, then use a List
 
 ### Selection
 
@@ -79,15 +73,15 @@ Use hover states to indicate which kind of selection is being used. If the entir
 
 - Add a sticky header for the list
 - Avoid using multiple vertical scrollbars
-- For really long lists (i.e. hundreds or thousands), consider limiting the number of items that can be shown at a time and provide some mechanism for accessing the rest of the items
+- For really long lists (i.e. hundreds or thousands), consider limiting the number of items that can be shown at a time and provide some mechanism for accessing the rest of the items, such as infinite scrolling with lazy retrieval and rendering
 - Provide search and filtering capabilities to allow customers to quickly find specific list items
-- Avoid paging, if possible. It is difficult to do and can result in a confusing user experience
+- Avoid pagination. It tends to cause a more complicated user experience, especially when selection and/or automatic updating are involved.
 
 ### Responsiveness
 
 Examples are included for different screen sizes – Desktop, Laptop and Mobile.
 
-Lists should span the width of the page it is in, unless it is placed in a constraining box.
+Lists should span the width of the container they are laid out in
 
 ### Wrapping vs Truncation:
 
@@ -101,22 +95,38 @@ Lists should span the width of the page it is in, unless it is placed in a const
 
 Lists are usually easier to navigate than tables. When creating a design that uses a table, especially a simple table, consider whether a list could be used instead.
 
+**Keyboard navigation:**
+
+When list items are interactive, the Tab key can be used to focus on the List. The focus is always on the list itself and up/down arrow keys are used to move an indicator demonstrating which item will be clicked when the Enter key is pressed.
+
+**Screen readers:**
+
+Each list should also have a clear aria-label indicating what the list contains and a summary of the contents, such as how many items are in the list.
+
+### List vs Table
+
+A List or a Table can be used to represent a set of related items, such as servers or devices or users. The one that is chosen will depend on the specific use cases that need to be supported.
+
+- If space is limited, a List uses less room than a Table
+- Use a List, If scanability is desired. It’s easier to read than a Table
+- If items can be selected using only the List contents, then use a List
+
 ## Variants
 
 Examples of common lists.
 
-### Name
+### Icon + Name + Option
 
-Single-line list with only a primary title.
+Single-line list with an icon, primary title, and a short status tag. In this example, the list items are clickable.
 
 <Example
   background="background-back"
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListNameExample.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListIconIdentifierExample.js"
   docs="https://v2.grommet.io/list?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   width="100%"
 >
-  <ListNameExample />
+  <ListIconIdentifierExample />
 </Example>
 
 ### Name + Description + Option
@@ -131,20 +141,6 @@ Two-line list with primary title, description, and a short status tag.
   width="100%"
 >
   <ListNameDescriptionOptionExample />
-</Example>
-
-### Icon + Name + Option + Action
-
-Single-line list with an icon, primary title, and a short status tag.
-
-<Example
-  background="background-back"
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/list-views/ListIconIdentifierExample.js"
-  docs="https://v2.grommet.io/list?theme=hpe#props"
-  showResponsiveControls={['laptop', 'mobile']}
-  width="100%"
->
-  <ListIconIdentifierExample />
 </Example>
 
 ### Name + Option + Action
