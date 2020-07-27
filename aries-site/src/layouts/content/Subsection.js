@@ -31,7 +31,6 @@ export const Subsection = ({
 }) => {
   const [over, setOver] = useState(false);
   const parent = topic && getPageDetails(topic);
-
   const id = formatName(name);
 
   const firstChild = React.Children.map(children, (child, index) => {

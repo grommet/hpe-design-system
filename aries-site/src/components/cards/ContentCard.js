@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Image, Text } from 'grommet';
-import { Identifier, Tile } from 'aries-core';
+import { Box, Card, CardBody, Image, Text } from 'grommet';
+import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
-export const StyledTile = styled(Tile)`
+export const StyledCard = styled(Card)`
   transition: all 0.3s ease-in-out;
   :focus,
   :hover {
@@ -19,8 +19,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
-    <StyledTile
-      align="start"
+    <StyledCard
       background="background-front"
       elevation={isFocused ? 'medium' : 'small'}
       fill
@@ -32,7 +31,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
       ref={ref}
       {...rest}
     >
-      <Box gap="large">
+      <CardBody gap="large">
         {!minimal && (
           <PreviewImageCard background={preview && preview.background}>
             {preview &&
@@ -71,8 +70,8 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           </Identifier>
           <Text size="small">{description}</Text>
         </Box>
-      </Box>
-    </StyledTile>
+      </CardBody>
+    </StyledCard>
   );
 });
 
