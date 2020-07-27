@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Image, ResponsiveContext } from 'grommet';
-import { Tile, Tiles } from 'aries-core';
+import { Box, Card, Grid, Image, ResponsiveContext } from 'grommet';
 import { useDarkMode } from '../../utils';
 
 export const PageBackground = ({ backgroundImage }) => {
   const size = useContext(ResponsiveContext);
   const themeMode = useDarkMode().value ? 'dark' : 'light';
-  const { src, alt, style, useTiles } = backgroundImage;
+  const { src, alt, style, useGrid } = backgroundImage;
   const margin =
     backgroundImage[size] && backgroundImage[size].margin
       ? backgroundImage[size].margin
@@ -22,15 +21,15 @@ export const PageBackground = ({ backgroundImage }) => {
       pad={{ horizontal: 'xlarge' }}
       margin="auto"
     >
-      {/* Landing page uses Tiles because otherwise it will span
+      {/* Landing page uses Grid because otherwise it will span
       too far behind the text */}
-      {!useTiles ? (
+      {!useGrid ? (
         <Box margin={margin} width={{ max: 'large' }} style={style}>
           <Image src={src[themeMode]} alt={alt} fit="contain" />
         </Box>
       ) : (
         <Box height={{ min: 'medium' }} justify="center">
-          <Tiles
+          <Grid
             gap={size !== 'small' ? 'large' : 'medium'}
             columns={{
               count: 'fit',
@@ -40,10 +39,10 @@ export const PageBackground = ({ backgroundImage }) => {
             <Box style={style} margin={margin}>
               <Image src={src[themeMode]} alt={alt} fit="contain" />
             </Box>
-            {/* Empty tile restricts width so it switches to one column
+            {/* Empty card restricts width so it switches to one column
             layout at same time as main content */}
-            <Tile />
-          </Tiles>
+            <Card elevation="none" />
+          </Grid>
         </Box>
       )}
     </Box>
@@ -62,6 +61,6 @@ PageBackground.propTypes = {
     size: PropTypes.shape({
       margin: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
     }),
-    useTiles: PropTypes.bool,
+    useGrid: PropTypes.bool,
   }),
 };

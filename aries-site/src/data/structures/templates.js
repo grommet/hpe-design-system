@@ -164,7 +164,7 @@ export const templates = [
       },
     },
     seoDescription: `HPE Design System dashboard template for screens 
-    featuring content within tiles.`,
+    featuring content within cards.`,
     sections: [],
     relatedContent: ['Cards', 'Lists', 'Grid'],
   },

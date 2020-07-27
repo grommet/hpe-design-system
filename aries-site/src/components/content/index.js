@@ -1,4 +1,3 @@
-export * from './BulletedList';
 export * from './CollapsibleSection';
 export * from './ComingSoon';
 export * from './PageBackground';

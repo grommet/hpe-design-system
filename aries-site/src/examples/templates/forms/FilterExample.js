@@ -5,8 +5,8 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   Select,
+  Text,
   TextInput,
 } from 'grommet';
 
@@ -64,9 +64,9 @@ export const FilterExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Filter
-          </Heading>
+          </Text>
         </Header>
         <Box
           // Padding used to prevent focus from being cutoff

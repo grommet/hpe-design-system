@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -6,7 +7,6 @@ import {
   FormField,
   MaskedInput,
   Header,
-  Heading,
   Text,
   TextInput,
 } from 'grommet';
@@ -81,14 +81,26 @@ const creditCardMask = [
   },
 ];
 
+const RequiredFormField = props => {
+  const { required, label, ...rest } = props;
+  return (
+    <FormField
+      label={required ? `${label}*` : label}
+      required={required}
+      {...rest}
+    />
+  );
+};
+
+RequiredFormField.propTypes = {
+  required: PropTypes.bool,
+  label: PropTypes.string,
+};
+
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
@@ -108,9 +120,9 @@ export const PayExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Pay
-          </Heading>
+          </Text>
           <Text>for your HPE products</Text>
         </Header>
         <Box
@@ -118,6 +130,9 @@ export const PayExample = () => {
           pad={{ horizontal: 'xxsmall' }}
         >
           <Form
+            messages={{
+              required: '! This is a required field.',
+            }}
             value={formValues}
             onChange={setFormValues}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
@@ -136,18 +151,24 @@ export const PayExample = () => {
             <Box margin="small" align="center">
               <Text color="text-xweak">or</Text>
             </Box>
-            <Heading level={4} margin={{ bottom: 'small', top: 'none' }}>
+            <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
               Credit Card Information
-            </Heading>
-            <FormField name="cardName" htmlFor="cardName" label="Name on Card">
+            </Text>
+            <RequiredFormField
+              name="cardName"
+              required
+              htmlFor="cardName"
+              label="Name on Card"
+            >
               <TextInput
                 id="cardName"
                 name="cardName"
                 placeholder="Jane Smith"
               />
-            </FormField>
-            <FormField
+            </RequiredFormField>
+            <RequiredFormField
               htmlFor="cardNumber"
+              required
               name="cardNumber"
               label="Credit Card Number"
             >
@@ -158,10 +179,11 @@ export const PayExample = () => {
                 mask={creditCardMask}
                 icon={<CreditCard color="placeholder" />}
               />
-            </FormField>
+            </RequiredFormField>
             <Box direction="row" gap="medium">
               <Box flex={false}>
-                <FormField
+                <RequiredFormField
+                  required
                   htmlFor="expiration"
                   name="expiration"
                   label="Expires on"
@@ -172,17 +194,22 @@ export const PayExample = () => {
                     name="expiration"
                     mask={dateMask}
                   />
-                </FormField>
+                </RequiredFormField>
               </Box>
               <Box fill>
-                <FormField htmlFor="cvv" name="cvv" label="CVV">
+                <RequiredFormField
+                  required
+                  htmlFor="cvv"
+                  name="cvv"
+                  label="CVV"
+                >
                   <MaskedInput
                     mask={cvvMask}
                     id="cvv"
                     name="cvv"
                     placeholder="123"
                   />
-                </FormField>
+                </RequiredFormField>
               </Box>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
