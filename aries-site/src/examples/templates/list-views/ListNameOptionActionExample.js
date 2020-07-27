@@ -4,24 +4,24 @@ import { More } from 'grommet-icons';
 
 const data = [
   {
-    name: 'Server 1',
-    option: 'Active',
+    name: 'My PVT Cloud Order',
+    option: 'Complete',
   },
   {
-    name: 'Server 2',
-    option: 'Inactive',
+    name: 'VMaaS for R&D',
+    option: 'Critical',
   },
   {
-    name: 'Server 3',
-    option: 'Active',
+    name: 'GEM_1',
+    option: 'Complete',
   },
   {
-    name: 'Server 4',
-    option: 'Active',
+    name: 'Mercury',
+    option: 'Complete',
   },
   {
-    name: 'Server 5',
-    option: 'Inactive',
+    name: 'MCC',
+    option: 'Critical',
   },
 ];
 
@@ -38,7 +38,7 @@ export const ListNameOptionActionExample = () => {
               <Box
                 pad="xsmall"
                 background={
-                  item.option === 'Active' ? 'status-ok' : 'status-critical'
+                  item.option === 'Complete' ? 'status-ok' : 'status-critical'
                 }
                 round
               />
@@ -46,7 +46,7 @@ export const ListNameOptionActionExample = () => {
             <Menu
               icon={<More />}
               hoverIndicator
-              items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
+              items={[{ label: 'Manage Order' }, { label: 'Cancel Order' }]}
             />
           </Box>
         )}
