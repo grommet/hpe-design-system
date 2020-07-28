@@ -150,18 +150,35 @@ RequiredFormField.propTypes = {
   label: PropTypes.string,
 };
 
+const setFocus = errors => {
+  console.log('error', errors);
+  const FormFieldBox = errors.parentNode;
+  console.log('FormFieldBox', FormFieldBox);
+  const FormFieldContentBox = FormFieldBox.childNodes[1];
+  console.log('first child', FormFieldContentBox);
+  const TextInputBox = FormFieldContentBox.childNodes[0];
+  console.log('textinput', TextInputBox);
+  const TextInputError = TextInputBox.childNodes[0];
+  console.log('input', TextInputError);
+  TextInputError.focus();
+};
+
 export const ShippingExample = () => {
   const [errors, setErrors] = React.useState(undefined);
   const [formValues, setFormValues] = React.useState({});
-
+  // add values for state fields
+  // start as a controlled input
   // add time out to wait the dom
+
   React.useEffect(() => {
-    if (errors !== undefined) {
+    if (errors) {
       console.log('update');
+      setFocus(errors);
     }
   }, [errors]);
   const checkdom = () => {
     const spanTags = document.getElementsByTagName('span');
+    console.log('span', spanTags);
     const searchText = requiredErrorMessage;
     const emailText = emailErrorMessage;
     let found;
@@ -176,22 +193,15 @@ export const ShippingExample = () => {
         break;
       }
     }
+
     setErrors(found);
-    console.log('error', errors);
-    const FormFieldBox = errors.parentNode;
-    console.log('FormFieldBox', FormFieldBox);
-    const FormFieldContentBox = FormFieldBox.childNodes[1];
-    console.log('first child', FormFieldContentBox);
-    const TextInputBox = FormFieldContentBox.childNodes[0];
-    console.log('textinput', TextInputBox);
-    const TextInputError = TextInputBox.childNodes[0];
-    console.log('input', TextInputError);
-    TextInputError.focus();
   };
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+    console.log('hello');
+    // checkdom();
   };
 
   return (
@@ -217,9 +227,6 @@ export const ShippingExample = () => {
             value={formValues}
             messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
-            messages={{
-              required: '! This is a required field.',
-            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <Box>
@@ -232,21 +239,21 @@ export const ShippingExample = () => {
               >
                 Shipping Address *
               </Text>
-              <FormField required htmlFor="firstName" name="firstName">
+              <FormField htmlFor="firstName" name="firstName">
                 <TextInput
                   id="firstName"
                   name="firstName"
                   placeholder="First Name"
                 />
               </FormField>
-              <FormField required htmlFor="lastName" name="lastName">
+              <FormField htmlFor="lastName" name="lastName">
                 <TextInput
                   id="lastName"
                   name="lastName"
                   placeholder="Last Name"
                 />
               </FormField>
-              <FormField required htmlFor="address1" name="address1">
+              <FormField htmlFor="address1" name="address1">
                 <TextInput
                   id="address1"
                   name="address1"
@@ -260,10 +267,10 @@ export const ShippingExample = () => {
                   placeholder="Apt., Suite, Building (Optional)"
                 />
               </FormField>
-              <FormField required htmlFor="city" name="city">
+              <FormField htmlFor="city" name="city">
                 <TextInput id="city" name="city" placeholder="City" />
               </FormField>
-              <FormField required htmlFor="state" name="state">
+              <FormField htmlFor="state" name="state">
                 <Select
                   id="state"
                   name="state"
@@ -272,7 +279,7 @@ export const ShippingExample = () => {
                   placeholder="Select State"
                 />
               </FormField>
-              <FormField required htmlFor="zipcode" name="zipcode">
+              <FormField htmlFor="zipcode" name="zipcode">
                 <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
               </FormField>
               <FormField htmlFor="isBusiness" name="isBusiness">
