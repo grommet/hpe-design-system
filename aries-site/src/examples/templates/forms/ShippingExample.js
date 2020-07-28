@@ -105,20 +105,23 @@ const phoneMask = [
   },
 ];
 
+const emailErrorMessage = 'Enter a valid email address.';
+const requiredErrorMessage = '! This is a required field.';
+
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
+    message: emailErrorMessage,
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
+    message: emailErrorMessage,
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: emailErrorMessage,
     status: 'error',
   },
 ];
@@ -126,17 +129,49 @@ const emailValidation = [
 const FormContainer = ({ ...rest }) => {
   return (
     <Box background="background-front" border round="small" overflow="hidden">
-      <Box
-        flex
-        pad={{ horizontal: 'medium', vertical: 'medium' }}
-        {...rest}
-       />
+      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
     </Box>
   );
 };
 
 export const ShippingExample = () => {
+  const [errors, setErrors] = React.useState(undefined);
   const [formValues, setFormValues] = React.useState({});
+
+  // add time out to wait the dom
+  React.useEffect(() => {
+    if (errors !== undefined) {
+      console.log('update');
+    }
+  }, [errors]);
+  const checkdom = () => {
+    const spanTags = document.getElementsByTagName('span');
+    const searchText = requiredErrorMessage;
+    const emailText = emailErrorMessage;
+    let found;
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < spanTags.length; i++) {
+      if (
+        spanTags[i].textContent === searchText ||
+        spanTags[i].textContent === emailText
+      ) {
+        found = spanTags[i];
+        break;
+      }
+    }
+    setErrors(found);
+    console.log('error', errors);
+    const FormFieldBox = errors.parentNode;
+    console.log('FormFieldBox', FormFieldBox);
+    const FormFieldContentBox = FormFieldBox.childNodes[1];
+    console.log('first child', FormFieldContentBox);
+    const TextInputBox = FormFieldContentBox.childNodes[0];
+    console.log('textinput', TextInputBox);
+    const TextInputError = TextInputBox.childNodes[0];
+    console.log('input', TextInputError);
+    TextInputError.focus();
+  };
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -164,6 +199,7 @@ export const ShippingExample = () => {
           <Form
             validate="blur"
             value={formValues}
+            messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
@@ -223,12 +259,25 @@ export const ShippingExample = () => {
               <Heading level={4} margin={{ bottom: 'small' }}>
                 Contact Information
               </Heading>
+              <FormField
+                label="Full Name"
+                required
+                htmlFor="fullName"
+                name="fullName"
+              >
+                <TextInput
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Full Name"
+                />
+              </FormField>
               <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
                 <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
               </FormField>
               <FormField
                 htmlFor="email-ship"
                 name="email"
+                required
                 label="Email Address"
                 validate={emailValidation}
               >
@@ -236,7 +285,12 @@ export const ShippingExample = () => {
               </FormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Continue" primary type="submit" />
+              <Button
+                onClick={checkdom}
+                label="Continue"
+                primary
+                type="submit"
+              />
             </Box>
           </Form>
         </Box>
