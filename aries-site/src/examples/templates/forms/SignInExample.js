@@ -8,7 +8,6 @@ import {
   Form,
   FormField,
   Header,
-  Heading,
   Layer,
   Text,
   TextInput,
@@ -69,9 +68,9 @@ const ResetPassword = ({ closeLayer, email }) => {
         margin={{ horizontal: 'xlarge', bottom: 'xlarge', top: 'large' }}
         width="medium"
       >
-        <Heading level={2} margin="none">
+        <Text size="xxlarge" weight="bold">
           Reset Password
-        </Heading>
+        </Text>
         <Form
           validate="blur"
           value={formValues}
@@ -130,9 +129,9 @@ export const SignInExample = () => {
           gap="xxsmall"
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Heading level={3} margin="none">
+          <Text size="xxlarge" weight="bold">
             Sign In
-          </Heading>
+          </Text>
           <Text>to Hewlett Packard Enterprise</Text>
         </Header>
         <Box
@@ -166,7 +165,7 @@ export const SignInExample = () => {
               <TextInput
                 id="password-sign-in"
                 name="password"
-                placeholder="•••••••••••••••"
+                placeholder="Enter your password"
                 type="password"
               />
             </FormField>

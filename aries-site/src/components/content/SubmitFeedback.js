@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
 import { ChatOption, Contact, MailOption, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
@@ -112,11 +113,19 @@ export const SubmitFeedback = () => {
   const [open, setOpen] = useState();
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
+  const router = useRouter();
 
   return (
     <>
-      <Box align="start">
+      <Box direction="row" gap="small">
         <Button label="Leave feedback" onClick={onOpen} primary />
+        <Button
+          alignSelf="start"
+          href={`https://github.com/hpe-design/design-system/tree/master/aries-site/src/pages${router.pathname}.mdx`}
+          label="Edit this page"
+          rel="noopener"
+          target="_blank"
+        />
       </Box>
       {open && (
         <Layer modal onClickOutside={onClose} onEsc={onClose} margin="medium">
