@@ -1,3 +1,8 @@
+const statuses = {
+  complete: 'Complete',
+  inProgress: 'In Progress',
+};
+
 export const templates = [
   {
     name: 'Lists',
@@ -14,9 +19,14 @@ export const templates = [
         fit: 'contain',
       },
     },
+    relatedContent: ['Dashboards', 'Cards', 'Page Layouts'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
   {
     name: 'Navigation',
