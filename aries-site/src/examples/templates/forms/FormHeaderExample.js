@@ -13,7 +13,7 @@ import {
   TextArea,
 } from 'grommet';
 
-const superPower = ['Flying', 'Sky Runner', 'invisibility'];
+const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PBJ', 'Kryptonite'];
 
 const RequiredFormField = props => {
