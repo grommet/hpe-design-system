@@ -46,7 +46,7 @@ export const FormHeaderExample = () => {
     superPower: 'Sky Runner',
     nemesis: true,
     email: 'enduro@skyrunner.io.com',
-    weakness: 'PBJ',
+    weakness: 'PB & J',
   });
 
   const onFormChange = value => {
