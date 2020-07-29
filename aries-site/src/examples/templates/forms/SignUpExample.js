@@ -85,8 +85,6 @@ export const SignUpExample = () => {
     email: 'jane.smith@hpe.com',
   });
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
-  const [password] = React.useState('');
-  const [credentialError, setCredentialError] = React.useState(false);
 
   const onChange = values => {
     setFormValues(values);
@@ -102,10 +100,6 @@ export const SignUpExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
-    // For demonstration purposes, your call to API returns a credential error
-    if (password !== 'password') {
-      setCredentialError(true);
-    }
   };
 
   return (
@@ -228,19 +222,6 @@ export const SignUpExample = () => {
                 }
               />
             </FormField>
-            {credentialError && (
-              <Box
-                direction="row"
-                margin={{ top: 'medium', bottom: 'medium' }}
-                gap="xsmall"
-                round="4px"
-                pad="small"
-                background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
-              >
-                <strong>!</strong>
-                <Text size="xsmall">Invalid credentials.</Text>
-              </Box>
-            )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Sign Up" primary type="submit" />
             </Box>

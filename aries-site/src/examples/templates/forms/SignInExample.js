@@ -106,6 +106,9 @@ const ResetPassword = ({ closeLayer, email }) => {
 export const SignInExample = () => {
   const [formValues, setFormValues] = React.useState({});
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [password, setPassword] = React.useState('');
+  const [credentialError, setCredentialError] = React.useState(false);
 
   const onClose = () => {
     setShowForgotPassword(false);
@@ -118,6 +121,10 @@ export const SignInExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+    // For demonstration purposes, your call to API returns a credential error
+    if (password !== 'password') {
+      setCredentialError(true);
+    }
   };
 
   return (
@@ -176,6 +183,19 @@ export const SignInExample = () => {
                 label="Remember me"
               />
             </FormField>
+            {credentialError && (
+              <Box
+                direction="row"
+                margin={{ top: 'medium', bottom: 'medium' }}
+                gap="xsmall"
+                round="4px"
+                pad="small"
+                background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
+              >
+                <strong>!</strong>
+                <Text size="xsmall">Invalid credentials.</Text>
+              </Box>
+            )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
                 label="Sign In"
