@@ -13,8 +13,8 @@ import {
   TextArea,
 } from 'grommet';
 
-const superPower = ['Flying', 'Sky Runner', 'invisibility'];
-const weakness = ['Fire', 'PBJ', 'Kryptonite'];
+const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
+const weakness = ['Fire', 'PB & J', 'Kryptonite'];
 
 const RequiredFormField = props => {
   const { required, label, ...rest } = props;
@@ -46,7 +46,7 @@ export const FormHeaderExample = () => {
     superPower: 'Sky Runner',
     nemesis: true,
     email: 'enduro@skyrunner.io.com',
-    weakness: 'PBJ',
+    weakness: 'PB & J',
   });
 
   const onFormChange = value => {
