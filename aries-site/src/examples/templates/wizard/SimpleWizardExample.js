@@ -205,7 +205,11 @@ export const SimpleWizardExample = () => {
             />
           </Box>
         </Header>
-        <Box align="center" pad={size !== 'small' ? 'large' : 'medium'}>
+        <Box
+          align="center"
+          pad={size !== 'small' ? 'large' : 'medium'}
+          flex={false}
+        >
           <Box width="medium" gap="medium">
             <Box gap="medium" flex={false}>
               <Box>

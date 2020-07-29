@@ -180,6 +180,7 @@ export const TwoColumnWizardExample = () => {
         <Box
           pad={size === 'small' ? 'medium' : 'small'}
           gap={size !== 'small' ? 'large' : 'medium'}
+          flex={false}
         >
           <Box flex={false} gap="medium">
             <Box align={size !== 'small' ? 'center' : 'start'}>

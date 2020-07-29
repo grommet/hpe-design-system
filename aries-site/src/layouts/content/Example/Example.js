@@ -166,6 +166,7 @@ export const Example = ({
                 justify="center"
                 align={!template && !screenContainer ? 'center' : undefined}
                 flex
+                overflow="auto"
                 {...rest}
               >
                 {screenContainer || showResponsiveControls ? (
