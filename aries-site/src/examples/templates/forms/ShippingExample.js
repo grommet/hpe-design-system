@@ -151,42 +151,30 @@ RequiredFormField.propTypes = {
 };
 
 const setFocus = errors => {
-  console.log('error', errors);
   const FormFieldBox = errors.parentNode;
-  console.log('FormFieldBox', FormFieldBox);
-  const FormFieldContentBox = FormFieldBox.childNodes[1];
-  console.log('first child', FormFieldContentBox);
-  const TextInputBox = FormFieldContentBox.childNodes[0];
-  console.log('textinput', TextInputBox);
-  const TextInputError = TextInputBox.childNodes[0];
-  console.log('input', TextInputError);
-  TextInputError.focus();
+  const inputArea = FormFieldBox.querySelectorAll('input');
+  inputArea[0].focus();
 };
 
 export const ShippingExample = () => {
   const [errors, setErrors] = React.useState(undefined);
   const [formValues, setFormValues] = React.useState({});
-  // add values for state fields
-  // start as a controlled input
-  // add time out to wait the dom
 
   React.useEffect(() => {
     if (errors) {
-      console.log('update');
       setFocus(errors);
     }
   }, [errors]);
   const checkdom = () => {
     const spanTags = document.getElementsByTagName('span');
-    console.log('span', spanTags);
-    const searchText = requiredErrorMessage;
+    const requiredText = requiredErrorMessage;
     const emailText = emailErrorMessage;
     let found;
 
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < spanTags.length; i++) {
       if (
-        spanTags[i].textContent === searchText ||
+        spanTags[i].textContent === requiredText ||
         spanTags[i].textContent === emailText
       ) {
         found = spanTags[i];
@@ -200,8 +188,6 @@ export const ShippingExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
-    console.log('hello');
-    // checkdom();
   };
 
   return (
@@ -223,7 +209,7 @@ export const ShippingExample = () => {
           pad={{ horizontal: 'xxsmall' }}
         >
           <Form
-            validate="blur"
+            validate="submit"
             value={formValues}
             messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
@@ -239,7 +225,7 @@ export const ShippingExample = () => {
               >
                 Shipping Address *
               </Text>
-              <FormField htmlFor="firstName" name="firstName">
+              <FormField required htmlFor="firstName" name="firstName">
                 <TextInput
                   id="firstName"
                   name="firstName"
