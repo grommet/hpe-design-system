@@ -231,14 +231,14 @@ export const SignUpExample = () => {
             {credentialError && (
               <Box
                 direction="row"
-                margin={{ top: 'medium' }}
+                margin={{ top: 'medium', bottom: 'medium' }}
                 gap="xsmall"
                 round="4px"
                 pad="small"
                 background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
               >
                 <strong>!</strong>
-                <Text>Invalid credentials.</Text>
+                <Text size="xsmall">Invalid credentials.</Text>
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
