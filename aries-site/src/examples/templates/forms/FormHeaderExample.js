@@ -125,7 +125,7 @@ export const FormHeaderExample = () => {
               background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
             >
               <strong>!</strong>
-              <Text size="small">
+              <Text size="xsmall">
                 The name of your superhero is already being used. Provide a
                 unique name.
               </Text>
