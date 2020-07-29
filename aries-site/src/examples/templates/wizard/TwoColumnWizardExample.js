@@ -29,22 +29,26 @@ import {
 
 const StepOne = () => (
   <Box margin={{ bottom: 'large' }}>
-    <FormField label="Text Input" htmlFor="text-input" name="text-input">
+    <FormField
+      label="Text Input"
+      htmlFor="twocolumn-textinput"
+      name="twocolumn-textinput"
+    >
       <TextInput
         placeholder="Placeholder text"
-        id="text-input"
-        name="text-input"
+        id="twocolumn-textinput"
+        name="twocolumn-textinput"
       />
     </FormField>
     <FormField
       help="Click on the ‘eye’ icon for the description text field to hide."
-      htmlFor="radio-button-group"
+      htmlFor="twocolumn-radiobuttongroup"
       label="RadioButtonGroup"
-      name="radio-button-group"
+      name="twocolumn-radiobuttongroup"
     >
       <RadioButtonGroup
-        id="radio-button-group"
-        name="radio-button-group"
+        id="twocolumn-radiobuttongroup"
+        name="twocolumn-radiobuttongroup"
         options={['Radio button 1', 'Radio button 2']}
       />
     </FormField>
@@ -53,30 +57,38 @@ const StepOne = () => (
 
 const StepTwo = () => (
   <Box margin={{ bottom: 'large' }}>
-    <FormField label="Select" htmlFor="select" name="select">
+    <FormField
+      label="Select"
+      htmlFor="twocolumn-select"
+      name="twocolumn-select"
+    >
       <Select
-        placeholder="Select item"
-        id="select"
-        name="select"
+        placeholder="twocolumn-select item"
+        id="twocolumn-select"
+        name="twocolumn-select"
         options={['Option 1', 'Option 2']}
       />
     </FormField>
-    <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
+    <FormField
+      htmlFor="twocolumn-checkboxgroup"
+      label="Label"
+      name="twocolumn-checkboxgroup"
+    >
       <CheckBoxGroup
-        id="checkboxgroup"
-        name="checkboxgroup"
+        id="twocolumn-checkboxgroup"
+        name="twocolumn-checkboxgroup"
         options={['CheckBox 1', 'CheckBox 2']}
       />
     </FormField>
     <FormField
       help="Description of how to use this field"
-      htmlFor="text-area"
+      htmlFor="twocolumn-text-area"
       label="Label"
-      name="text-area"
+      name="twocolumn-text-area"
     >
       <TextArea
-        id="text-area"
-        name="text-area"
+        id="twocolumn-text-area"
+        name="twocolumn-text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
       />
