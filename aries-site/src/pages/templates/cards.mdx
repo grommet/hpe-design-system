@@ -1,6 +1,7 @@
 
 import { Example } from '../../layouts';
 import { 
+  CardsActionsExample,
   CardsColorExample,
   CardsDashboardExample,
   CardsExample, 
@@ -30,8 +31,41 @@ preview content in [dashboards](/templates/dashboards).
 </Example>
 
 ## Guidance ##
+Contents:
 - [Card anatomy and behaviors](#contents-and-interactivity)
-- [Presenting groups of cards](#collections)
+- [Presenting collections of cards](#collections)
+
+## Contents & Interactivity ##
+Think focussed and concise. Each Card's content should concern a single subject. Its 
+objective serves as content preview allowing users to quickly find information and act 
+by drilling into the content's greater detail.
+
+### Actions ###
+- A card's primary action should represent the largest click/touch area on the card. 
+- When a card has a single action, the entire card shoule be thought of as a large [button](/components/button)
+leading to the content's detail screen. 
+- If a card has secondary actions such as favoriting, sharing, etc. the actions should be 
+placed in the card's header or footer, while the main body should be reserved for the card's 
+primary action.
+- Ensure focus traverses all actions within a card before transfering to the next card.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardsActionsExample.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <CardsActionsExample />
+</Example>
+
+### Behavior ###
+
+Focus, Elevation, Hover
+
+### Sizes ###
+### Controls ###
+### Anatomy ###
+
+Container, Identifier, Body, Header, Footer
 
 ## Collections ##
 Guidance pertaining to how to present a group of cards.
@@ -83,25 +117,3 @@ and serve as an entry point to drill into greater detail.
 
 **Filtering and Sorting**
 
-## Contents & Interactivity ##
-Think focussed and concise. Each Card's content should concern a single subject. Its 
-objective serves as content preview allowing users to quickly find information and act 
-by drilling into the content's greater detail.
-
-### Actions ###
-- A card's primary action should represent the largest click/touch area on the card. 
-- When a card has a single action, the entire card shoule be thought of as a large [button](/components/button)
-leading to the content's detail screen. 
-- If a card has secondary actions such as favoriting, sharing, etc. the actions should be 
-placed in the card's header or footer, while the main body should be reserved for the card's 
-primary action.
-
-### Behavior ###
-
-Focus, Elevation, Hover
-
-### Sizes ###
-### Controls ###
-### Anatomy ###
-
-Container, Identifier, Body, Header, Footer

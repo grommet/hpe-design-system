@@ -1,7 +1,66 @@
 import React from 'react';
 import { Box, Card, CardBody, CardFooter, Text } from 'grommet';
+import {
+  Aruba,
+  Archlinux,
+  Centos,
+  Cloudlinux,
+  CodeSandbox,
+  Codepen,
+  Debian,
+  Docker,
+} from 'grommet-icons';
 
-import { data } from './data';
+const technologies = [
+  {
+    name: 'Aruba',
+    icon: (color, size) => <Aruba color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'Archlinux',
+    icon: (color, size) => <Archlinux color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'Centos',
+    icon: (color, size) => <Centos color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'medium',
+  },
+  {
+    name: 'Cloudlinux',
+    icon: (color, size) => <Cloudlinux color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'CodeSandbox',
+    icon: (color, size) => <CodeSandbox color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'Codepen',
+    icon: (color, size) => <Codepen color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'Debian',
+    icon: (color, size) => <Debian color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'small',
+  },
+  {
+    name: 'Docker',
+    icon: (color, size) => <Docker color={color} size={size} />,
+    shortDesc: 'Subtitle',
+    size: 'medium',
+  },
+];
 
 export const CardsInRowExample = () => {
   return (
@@ -12,46 +71,39 @@ export const CardsInRowExample = () => {
       fill
     >
       <Box direction="row" wrap>
-        {data &&
-          data
-            .slice(0, 5)
-            .map(
-              (
-                { deviceName: title, ipAddress: subtitle, icon, status },
-                index,
-              ) => (
-                <Card key={index} flex={false} width="219px" margin="small">
-                  <CardBody>
-                    <Box pad={{ vertical: 'xsmall' }}>
-                      {icon('text', 'large')}
-                    </Box>
-                    <Box>
-                      <Text color="text-strong" size="xxlarge" weight="bold">
-                        {title}
-                      </Text>
-                      <Text>{subtitle}</Text>
-                    </Box>
-                  </CardBody>
-                  <CardFooter
-                    background="none"
-                    border={{ color: 'border-weak', side: 'top' }}
-                    height={{ min: 'xxsmall' }}
+        {technologies &&
+          technologies.map(
+            ({ name: title, shortDesc: subtitle, icon, size }, index) => (
+              <Card
+                key={index}
+                flex={false}
+                margin="small"
+                height="small"
+                width={size}
+              >
+                <CardBody
+                  direction={size === 'small' ? 'column' : 'row'}
+                  align="center"
+                >
+                  <Box
+                    margin={
+                      size === 'small'
+                        ? { bottom: 'small' }
+                        : { right: 'medium' }
+                    }
                   >
-                    {status && (
-                      <Box direction="row" align="center" gap="xsmall">
-                        <Box
-                          background={status.value}
-                          height="12px"
-                          width="12px"
-                          round="100%"
-                        />
-                        <Text weight="bold">{status.message}</Text>
-                      </Box>
-                    )}
-                  </CardFooter>
-                </Card>
-              ),
-            )}
+                    {icon(undefined, 'xlarge')}
+                  </Box>
+                  <Box align={size === 'small' ? 'center' : 'start'}>
+                    <Text color="text-strong" size="xlarge" weight="bold">
+                      {title}
+                    </Text>
+                    <Text>{subtitle}</Text>
+                  </Box>
+                </CardBody>
+              </Card>
+            ),
+          )}
       </Box>
     </Box>
   );
