@@ -123,7 +123,8 @@ export const SignInExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
-    // For demonstration purposes, your call to API returns a credential error
+    // For demonstration purposes, we are mocking a scenario where the password is incorrect.
+    // This will cause the error state to appear.
     if (password !== 'password') {
       setCredentialError(true);
     }
