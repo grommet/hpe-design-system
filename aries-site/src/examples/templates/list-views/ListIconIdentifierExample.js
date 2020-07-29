@@ -10,27 +10,27 @@ import {
 
 const data = [
   {
-    name: 'Title 1',
+    name: 'Eric Soderberg',
     option: 'Active',
     icon: <PersonalComputer />,
   },
   {
-    name: 'Title 2',
+    name: 'Shimrit Yacobi',
     option: 'Inactive',
     icon: <User />,
   },
   {
-    name: 'Title 3',
+    name: 'Chris Carlozzi',
     option: 'Active',
     icon: <Desktop />,
   },
   {
-    name: 'Title 4',
+    name: 'Matthew Glissmann',
     option: 'Active',
     icon: <System />,
   },
   {
-    name: 'Title 5',
+    name: 'Taylor Seamans',
     option: 'Inactive',
     icon: <Console />,
   },
