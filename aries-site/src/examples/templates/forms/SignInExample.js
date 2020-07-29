@@ -106,6 +106,8 @@ const ResetPassword = ({ closeLayer, email }) => {
 export const SignInExample = () => {
   const [formValues, setFormValues] = React.useState({});
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
+  // setPassword is here for demonstration purposes,
+  // for calling credential error
   // eslint-disable-next-line no-unused-vars
   const [password, setPassword] = React.useState('');
   const [credentialError, setCredentialError] = React.useState(false);
