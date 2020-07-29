@@ -14,7 +14,7 @@ import {
 } from 'grommet';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
-const weakness = ['Fire', 'PBJ', 'Kryptonite'];
+const weakness = ['Fire', 'PB & J', 'Kryptonite'];
 
 const RequiredFormField = props => {
   const { required, label, ...rest } = props;
