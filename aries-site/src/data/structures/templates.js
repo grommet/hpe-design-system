@@ -221,4 +221,12 @@ export const templates = [
     sections: [],
     relatedContent: [],
   },
+  {
+    name: 'Wizard',
+    available: false,
+    description: 'Wizards are an effective way to handle multi-step forms.',
+    seoDescription: 'Wizards are an effective way to handle multi-step forms.',
+    sections: [],
+    relatedContent: [],
+  },
 ];
