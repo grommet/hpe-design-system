@@ -52,9 +52,10 @@ const AppContainer = ({ ...rest }) => {
   return (
     <Box
       direction={size === 'small' ? 'column-reverse' : 'row'}
-      height={size === 'small' ? { max: 'large' } : '100%'}
-      width={size === 'small' ? 'medium' : '100%'}
+      fill
       gap={size !== 'small' ? 'small' : undefined}
+      margin="auto"
+      width={{ max: 'xxlarge' }}
       {...rest}
     />
   );
