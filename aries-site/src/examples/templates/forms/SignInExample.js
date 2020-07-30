@@ -22,7 +22,7 @@ const emailErrorMessage = (
     direction="row"
   >
     <CircleAlert size="small" />
-    <Text size="xsmall">This is a required field.</Text>
+    <Text size="xsmall">Enter a valid email address.</Text>
   </Box>
 );
 
@@ -30,12 +30,12 @@ const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
     message: emailErrorMessage,
-    status: 'info',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
     message: emailErrorMessage,
-    status: 'info',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
@@ -43,6 +43,19 @@ const emailValidation = [
     status: 'error',
   },
 ];
+
+const Error = ({ textError, ...rest }) => {
+  return (
+    <Box {...rest} align="center" gap="xsmall" direction="row">
+      <CircleAlert size="small" />
+      <Text size="xsmall">{textError}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  textError: PropTypes.string,
+};
 
 const FormContainer = ({ ...rest }) => {
   return (
@@ -166,15 +179,10 @@ export const SignInExample = () => {
             onChange={setFormValues}
             messages={{
               required: (
-                <Box
+                <Error
                   background="background-front"
-                  align="center"
-                  gap="xsmall"
-                  direction="row"
-                >
-                  <CircleAlert size="small" />
-                  <Text size="xsmall">This is a required field.</Text>
-                </Box>
+                  textError="This is a required field."
+                />
               ),
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
@@ -222,10 +230,7 @@ export const SignInExample = () => {
                 pad="small"
                 background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
               >
-                <Box align="center" gap="xsmall" direction="row">
-                  <CircleAlert size="small" />
-                  <Text size="xsmall">Invalid credentials.</Text>
-                </Box>
+                <Error textError="Invalid credentials." />
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>

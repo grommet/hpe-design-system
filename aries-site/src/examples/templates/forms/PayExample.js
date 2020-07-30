@@ -105,6 +105,19 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
+const Error = ({ textError, ...rest }) => {
+  return (
+    <Box {...rest} align="center" gap="xsmall" direction="row">
+      <CircleAlert size="small" />
+      <Text size="xsmall">{textError}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  textError: PropTypes.string,
+};
+
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});
   // eslint-disable-next-line no-unused-vars
@@ -132,15 +145,10 @@ export const PayExample = () => {
           <Form
             messages={{
               required: (
-                <Box
+                <Error
                   background="background-front"
-                  align="center"
-                  gap="xsmall"
-                  direction="row"
-                >
-                  <CircleAlert size="small" />
-                  <Text size="xsmall">This is a required field.</Text>
-                </Box>
+                  textError="This is a required field."
+                />
               ),
             }}
             value={formValues}
