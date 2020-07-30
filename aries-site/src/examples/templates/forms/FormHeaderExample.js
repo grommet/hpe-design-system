@@ -12,6 +12,7 @@ import {
   TextInput,
   TextArea,
 } from 'grommet';
+import { CircleAlert } from 'grommet-icons';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
@@ -70,10 +71,36 @@ export const FormHeaderExample = () => {
           // Padding used to prevent focus from being cutoff
           pad={{ horizontal: 'xxsmall' }}
         >
-          <Form value={formValues} onChange={onFormChange}>
+          <Form
+            messages={{
+              required: (
+                <Box
+                  background="background-front"
+                  align="center"
+                  gap="xsmall"
+                  direction="row"
+                >
+                  <CircleAlert size="small" />
+                  <Text size="xsmall">This is a required field.</Text>
+                </Box>
+              ),
+            }}
+            value={formValues}
+            onChange={onFormChange}
+          >
             <RequiredFormField
               required
-              error="! Provide a unique name."
+              error={
+                <Box
+                  background="background-front"
+                  align="center"
+                  gap="xsmall"
+                  direction="row"
+                >
+                  <CircleAlert size="small" />
+                  <Text size="xsmall">Invalid credentials.</Text>
+                </Box>
+              }
               htmlFor="name__input"
               name="name"
               label="Name"
@@ -124,11 +151,10 @@ export const FormHeaderExample = () => {
               pad="small"
               background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
             >
-              <strong>!</strong>
-              <Text size="xsmall">
-                The name of your superhero is already being used. Provide a
-                unique name.
-              </Text>
+              <Box align="center" gap="xsmall" direction="row">
+                <CircleAlert size="small" />
+                <Text size="xsmall">Invalid credentials.</Text>
+              </Box>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Create" primary type="submit" />
