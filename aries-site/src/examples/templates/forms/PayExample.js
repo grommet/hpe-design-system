@@ -10,7 +10,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Apple, CreditCard } from 'grommet-icons';
+import { Apple, CreditCard, CircleAlert } from 'grommet-icons';
 
 const currentDate = new Date();
 const dateValidation = [
@@ -131,7 +131,17 @@ export const PayExample = () => {
         >
           <Form
             messages={{
-              required: '! This is a required field.',
+              required: (
+                <Box
+                  background="background-front"
+                  align="center"
+                  gap="xsmall"
+                  direction="row"
+                >
+                  <CircleAlert size="small" />
+                  <Text size="xsmall">This is a required field.</Text>
+                </Box>
+              ),
             }}
             value={formValues}
             onChange={setFormValues}
