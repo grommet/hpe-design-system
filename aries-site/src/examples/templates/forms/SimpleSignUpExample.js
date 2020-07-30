@@ -87,6 +87,11 @@ export const SimpleSignUpExample = () => {
   const [backgroundError, setBackgroundError] = React.useState('');
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
 
+  // Since password rules are being checked outside the validation
+  // and being passed in the info message the background color is not
+  // being changed. We need to check if all password rules are applied
+  // then we can change background color to indicate there is no error.
+
   const onChange = values => {
     setFormValues(values);
     const adjustedPasswordRules = passwordRules.map(rule => {
