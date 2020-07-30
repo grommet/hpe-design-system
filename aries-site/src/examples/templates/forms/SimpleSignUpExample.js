@@ -84,6 +84,7 @@ export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
+  const [backgroundError, setBackgroundError] = React.useState('white');
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
 
   const onChange = values => {
@@ -92,6 +93,11 @@ export const SimpleSignUpExample = () => {
       const adjustedRule = { ...rule };
       const valid = adjustedRule.regexp.test(values.password);
       adjustedRule.valid = valid;
+      if (valid !== true) {
+        setBackgroundError('#FC61613D');
+      } else {
+        setBackgroundError('white');
+      }
       return adjustedRule;
     });
     setPasswordRules(adjustedPasswordRules);
@@ -191,6 +197,7 @@ export const SimpleSignUpExample = () => {
               }
             >
               <TextInput
+                style={{ backgroundColor: backgroundError }}
                 id="password-sign-up-simple"
                 name="password"
                 placeholder="Enter your password"
