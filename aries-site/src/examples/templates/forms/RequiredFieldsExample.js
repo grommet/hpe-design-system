@@ -41,6 +41,19 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
+const Error = ({ textError, ...rest }) => {
+  return (
+    <Box {...rest} align="center" gap="xsmall" direction="row">
+      <CircleAlert size="small" />
+      <Text size="xsmall">{textError}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  textError: PropTypes.string,
+};
+
 export const FormHeaderExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
@@ -74,15 +87,10 @@ export const FormHeaderExample = () => {
           <Form
             messages={{
               required: (
-                <Box
+                <Error
                   background="background-front"
-                  align="center"
-                  gap="xsmall"
-                  direction="row"
-                >
-                  <CircleAlert size="small" />
-                  <Text size="xsmall">This is a required field.</Text>
-                </Box>
+                  textError="This is a required field."
+                />
               ),
             }}
             value={formValues}
@@ -91,15 +99,10 @@ export const FormHeaderExample = () => {
             <RequiredFormField
               required
               error={
-                <Box
+                <Error
                   background="background-front"
-                  align="center"
-                  gap="xsmall"
-                  direction="row"
-                >
-                  <CircleAlert size="small" />
-                  <Text size="xsmall">Invalid credentials.</Text>
-                </Box>
+                  textError="Invalid credentials."
+                />
               }
               htmlFor="name__input"
               name="name"
@@ -151,10 +154,10 @@ export const FormHeaderExample = () => {
               pad="small"
               background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
             >
-              <Box align="center" gap="xsmall" direction="row">
-                <CircleAlert size="small" />
-                <Text size="xsmall">Invalid credentials.</Text>
-              </Box>
+              <Error
+                textError="The name of the superhero is already
+               being used. Provide a unique name."
+              />
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Create" primary type="submit" />
