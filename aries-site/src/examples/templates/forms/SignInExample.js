@@ -12,22 +12,34 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, FormNext } from 'grommet-icons';
+import { Close, FormNext, CircleAlert } from 'grommet-icons';
+
+const emailErrorMessage = (
+  <Box
+    background="background-front"
+    align="center"
+    gap="xsmall"
+    direction="row"
+  >
+    <CircleAlert size="small" />
+    <Text size="xsmall">This is a required field.</Text>
+  </Box>
+);
 
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
+    message: emailErrorMessage,
     status: 'info',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
+    message: emailErrorMessage,
     status: 'info',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: emailErrorMessage,
     status: 'error',
   },
 ];
@@ -151,9 +163,23 @@ export const SignInExample = () => {
             validate="blur"
             value={formValues}
             onChange={setFormValues}
+            messages={{
+              required: (
+                <Box
+                  background="background-front"
+                  align="center"
+                  gap="xsmall"
+                  direction="row"
+                >
+                  <CircleAlert size="small" />
+                  <Text size="xsmall">This is a required field.</Text>
+                </Box>
+              ),
+            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <FormField
+              required
               label="Email"
               name="email"
               htmlFor="email-sign-in"
@@ -167,6 +193,7 @@ export const SignInExample = () => {
               />
             </FormField>
             <FormField
+              required
               label="Password"
               htmlFor="password-sign-in"
               name="password"
@@ -194,8 +221,10 @@ export const SignInExample = () => {
                 pad="small"
                 background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
               >
-                <strong>!</strong>
-                <Text size="xsmall">Invalid credentials.</Text>
+                <Box align="center" gap="xsmall" direction="row">
+                  <CircleAlert size="small" />
+                  <Text size="xsmall">Invalid credentials.</Text>
+                </Box>
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
