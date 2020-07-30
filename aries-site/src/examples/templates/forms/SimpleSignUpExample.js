@@ -84,7 +84,7 @@ export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
-  const [backgroundError, setBackgroundError] = React.useState('white');
+  const [backgroundError, setBackgroundError] = React.useState('');
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
 
   const onChange = values => {
@@ -96,7 +96,7 @@ export const SimpleSignUpExample = () => {
       if (valid !== true) {
         setBackgroundError('#FC61613D');
       } else {
-        setBackgroundError('white');
+        setBackgroundError('');
       }
       return adjustedRule;
     });
