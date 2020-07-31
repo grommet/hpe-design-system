@@ -147,36 +147,7 @@ export const TwoColumnWizardExample = () => {
   return (
     <>
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-        <Header
-          border={{ side: 'bottom', color: 'border-weak' }}
-          pad="small"
-          margin={size !== 'small' ? { bottom: 'large' } : undefined}
-          fill="horizontal"
-          justify="center"
-        >
-          <Box direction="row" flex>
-            {active > 1 && (
-              <Button
-                label={size !== 'small' ? `Step ${active - 1}` : undefined}
-                icon={<FormPreviousLink color="text-strong" />}
-                onClick={() => setActive(active - 1)}
-              />
-            )}
-          </Box>
-          <Box>
-            <Text color="text-strong" weight="bold">
-              Action Title
-            </Text>
-          </Box>
-          <Box direction="row" flex justify="end">
-            <Button
-              label={size !== 'small' ? 'Cancel' : undefined}
-              icon={<FormClose color="text-strong" />}
-              reverse
-              onClick={() => setOpen(true)}
-            />
-          </Box>
-        </Header>
+        <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
         <Box
           pad={size === 'small' ? 'medium' : 'small'}
           gap={size !== 'small' ? 'large' : 'medium'}
@@ -281,6 +252,47 @@ export const TwoColumnWizardExample = () => {
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </>
   );
+};
+
+const WizardHeader = ({ active, setActive, setOpen }) => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Header
+      border={{ side: 'bottom', color: 'border-weak' }}
+      pad="small"
+      fill="horizontal"
+      justify="center"
+    >
+      <Box direction="row" flex>
+        {active > 1 && (
+          <Button
+            label={size !== 'small' ? `Step ${active - 1}` : undefined}
+            icon={<FormPreviousLink color="text-strong" />}
+            onClick={() => setActive(active - 1)}
+          />
+        )}
+      </Box>
+      <Box>
+        <Text color="text-strong" weight="bold">
+          Action Title
+        </Text>
+      </Box>
+      <Box direction="row" flex justify="end">
+        <Button
+          label={size !== 'small' ? 'Cancel' : undefined}
+          icon={<FormClose color="text-strong" />}
+          reverse
+          onClick={() => setOpen(true)}
+        />
+      </Box>
+    </Header>
+  );
+};
+
+WizardHeader.propTypes = {
+  active: PropTypes.number.isRequired,
+  setActive: PropTypes.func.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 
 const CancellationLayer = ({ onSetOpen }) => {
