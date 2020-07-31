@@ -233,7 +233,7 @@ export const templates = [
   },
   {
     name: 'Wizard',
-    available: false,
+    available: true,
     description: 'Wizards are an effective way to handle multi-step forms.',
     seoDescription: 'Wizards are an effective way to handle multi-step forms.',
     sections: [],
