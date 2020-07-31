@@ -99,10 +99,7 @@ export const RequiredFieldsExample = () => {
             <RequiredFormField
               required
               error={
-                <Error
-                  background="background-front"
-                  textError="Invalid credentials."
-                />
+                <Error>This is a required field.</Error>
               }
               htmlFor="name__input"
               name="name"
