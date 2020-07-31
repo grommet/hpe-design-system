@@ -54,7 +54,7 @@ Error.propTypes = {
   textError: PropTypes.string,
 };
 
-export const FormHeaderExample = () => {
+export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
     superPower: 'Sky Runner',
