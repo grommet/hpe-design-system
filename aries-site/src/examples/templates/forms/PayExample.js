@@ -107,7 +107,7 @@ const FormContainer = ({ ...rest }) => {
 
 const Error = ({ textError, ...rest }) => {
   return (
-    <Box {...rest} align="center" gap="xsmall" direction="row">
+    <Box align="center" gap="xsmall" direction="row" {...rest} >
       <CircleAlert size="small" />
       <Text size="xsmall">{textError}</Text>
     </Box>
