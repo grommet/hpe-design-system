@@ -26,6 +26,10 @@ It is helpful to provide concise and clear descriptions for each step of the for
 
 It is important to give the user an indication of where they are within the form. This should be done by indicating the total number of steps and the user's current position (i.e. "Step 1 of 3").
 
+### Validation
+
+Validation should occur within each step of the wizard. This can happen `onBlur` of each input or when the user clicks the button that would advance them to the next step. If there are any errors with the inputs in the current step, the user should not be able to advance.
+
 ### Summarizing what was accomplished or configured
 
 The final step of a wizard should summarize what has been accomplished or configured. This summary is displayed to the user prior to form submisson. In order to complete the wizard, the user will click a submit button provided on this screen. Examples of submit button labels include "Finish Setup", "Finish Configuration", etc.
