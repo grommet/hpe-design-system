@@ -13,6 +13,7 @@ import {
   TextInput,
 } from 'grommet';
 import { FormCheckmark, FormClose } from 'grommet-icons';
+import { useDarkMode } from '../../../utils';
 
 const passwordRulesStrong = [
   {
@@ -81,6 +82,7 @@ const FormContainer = ({ ...rest }) => {
 };
 
 export const SimpleSignUpExample = () => {
+  const themeMode = useDarkMode().value ? 'dark' : 'light';
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
@@ -99,7 +101,7 @@ export const SimpleSignUpExample = () => {
       const valid = adjustedRule.regexp.test(values.password);
       adjustedRule.valid = valid;
       if (valid !== true) {
-        setBackgroundError('#FC61613D');
+        setBackgroundError(themeMode === 'dark' ? '#C54E4B5C' : '#FC61613D');
       } else {
         setBackgroundError('');
       }
