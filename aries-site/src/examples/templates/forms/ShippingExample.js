@@ -150,6 +150,10 @@ RequiredFormField.propTypes = {
   label: PropTypes.string,
 };
 
+// once check dom function is ran to find the
+// correct error span we want to get that parent node
+// and set focus on the input within that parent node.
+
 const setFocus = errors => {
   const FormFieldBox = errors.parentNode;
   const inputArea = FormFieldBox.querySelectorAll('input');
@@ -159,6 +163,24 @@ const setFocus = errors => {
 export const ShippingExample = () => {
   const [errors, setErrors] = React.useState(undefined);
   const [formValues, setFormValues] = React.useState({});
+
+  // Problem
+  // Currently checkdom function is being called onClick with
+  // button. This causes the issue that the dom is not updated
+  // in time for checkdom to work correctly. On the first click 
+  // of button the validation is being checked at the same time 
+  // checkdom is searching the dom which is why only on the second
+  // click checkdom is finding the correct span. The span does 
+  // not exists in time. 
+  // A solution would be to be able to wait until the error span 
+  // is in the dom to run the checkdom function
+
+
+  // With checkdom function
+  // We want to be able to check the dom for any text that
+  // is an error message every time the error is updated.
+  // we can loop through all of the span tags to get the
+  // first one that contains the error message.
 
   React.useEffect(() => {
     if (errors) {
