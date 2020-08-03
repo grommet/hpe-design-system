@@ -145,10 +145,7 @@ export const PayExample = () => {
           <Form
             messages={{
               required: (
-                <Error
-                  background="background-front"
-                  textError="This is a required field."
-                />
+                <Error>This is a required field.</Error>
               ),
             }}
             value={formValues}
