@@ -107,7 +107,7 @@ const FormContainer = ({ ...rest }) => {
 
 const Error = ({ textError, ...rest }) => {
   return (
-    <Box {...rest} align="center" gap="xsmall" direction="row">
+    <Box align="center" gap="xsmall" direction="row" {...rest} >
       <CircleAlert size="small" />
       <Text size="xsmall">{textError}</Text>
     </Box>
@@ -145,10 +145,7 @@ export const PayExample = () => {
           <Form
             messages={{
               required: (
-                <Error
-                  background="background-front"
-                  textError="This is a required field."
-                />
+                <Error>This is a required field.</Error>
               ),
             }}
             value={formValues}
