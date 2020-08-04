@@ -60,6 +60,25 @@ Error.propTypes = {
   children: PropTypes.object,
 };
 
+const CredentialError = ({ children, ...rest }) => {
+  return (
+    <Box gap="xsmall" direction="row" {...rest}>
+      <Box margin={{ top: 'xxsmall', right: 'xxsmall' }}>
+        <CircleAlert size="small" />
+      </Box>
+      <Text size="xsmall">{children}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.object,
+};
+
+CredentialError.propTypes = {
+  children: PropTypes.object,
+};
+
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
@@ -150,10 +169,10 @@ export const RequiredFieldsExample = () => {
               pad="small"
               background="validation-critical"
             >
-              <Error background="undefined">
+              <CredentialError>
                 The name of the superhero is already being used. Provide a
                 unique name
-              </Error>
+              </CredentialError>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Create" primary type="submit" />
