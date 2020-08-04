@@ -3,6 +3,7 @@ import {
   SimpleWizardExample,
   StickyHeaderFooterExample,
   TwoColumnWizardExample,
+  WizardValidationExample,
 } from '../../examples';
 
 <Example
@@ -28,7 +29,7 @@ It is important to give the user an indication of where they are within the form
 
 ### Validation
 
-Validation should occur within each step of the wizard. This can happen `onBlur` of each input or when the user clicks the button that would advance them to the next step. If there are any errors with the inputs in the current step, the user should not be able to advance.
+Validation should occur within each step of the wizard. If there are any errors with the inputs in the current step, the user should not be able to advance and errors should be displayed. Error display should follow conventions established by [Form](/templates/forms).
 
 ### Summarizing what was accomplished or configured
 
@@ -84,4 +85,17 @@ When additional guidance is necessary, use a two-column wizard. Click "See Fulls
   width="100%"
 >
   <TwoColumnWizardExample />
+</Example>
+
+### With validation
+
+Validation should occur on each step. If a user has not properly completed a given step, they should not be able to advance to subsequent steps.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js"
+  figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=71%3A406"
+  screenContainer
+  width="100%"
+>
+  <WizardValidationExample />
 </Example>
