@@ -43,27 +43,8 @@ const FormContainer = ({ ...rest }) => {
 
 const Error = ({ children, ...rest }) => {
   return (
-    <Box
-      background="background-front"
-      align="center"
-      gap="xsmall"
-      direction="row"
-      {...rest}
-    >
-      <CircleAlert size="small" />
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.object,
-};
-
-const CredentialError = ({ children, ...rest }) => {
-  return (
-    <Box gap="xsmall" direction="row" {...rest}>
-      <Box margin={{ top: 'xxsmall', right: 'xxsmall' }}>
+    <Box direction="row" {...rest}>
+      <Box flex={false} margin={{ top: 'xxsmall', right: 'xxsmall' }}>
         <CircleAlert size="small" />
       </Box>
       <Text size="xsmall">{children}</Text>
@@ -72,10 +53,6 @@ const CredentialError = ({ children, ...rest }) => {
 };
 
 Error.propTypes = {
-  children: PropTypes.object,
-};
-
-CredentialError.propTypes = {
   children: PropTypes.object,
 };
 
@@ -111,14 +88,24 @@ export const RequiredFieldsExample = () => {
         >
           <Form
             messages={{
-              required: <Error>This is a required field.</Error>,
+              required: (
+                // need to define background otherwise
+                // inherits validation-critical background
+                <Error background="background-front">
+                  This is a required field.
+                </Error>
+              ),
             }}
             value={formValues}
             onChange={onFormChange}
           >
             <RequiredFormField
               required
-              error={<Error>This is a required field.</Error>}
+              error={
+                <Error background="background-front">
+                  Provide a unique name.
+                </Error>
+              }
               htmlFor="name__input"
               name="name"
               label="Name"
@@ -169,10 +156,10 @@ export const RequiredFieldsExample = () => {
               pad="small"
               background="validation-critical"
             >
-              <CredentialError>
+              <Error>
                 The name of the superhero is already being used. Provide a
                 unique name
-              </CredentialError>
+              </Error>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Create" primary type="submit" />
