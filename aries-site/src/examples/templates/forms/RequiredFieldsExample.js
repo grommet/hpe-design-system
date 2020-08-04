@@ -152,7 +152,7 @@ export const RequiredFieldsExample = () => {
               gap="xsmall"
               round="4px"
               pad="small"
-              background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
+              background='validation-critical'
             >
               <Error
                 textError="The name of the superhero is already
