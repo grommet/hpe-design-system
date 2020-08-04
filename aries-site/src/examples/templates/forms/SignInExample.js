@@ -228,7 +228,7 @@ export const SignInExample = () => {
                 gap="xsmall"
                 round="4px"
                 pad="small"
-                background={{ light: '#FC61613D', dark: '#C54E4B5C' }}
+                background="validation-critical"
               >
                 <Error textError="Invalid credentials." />
               </Box>
