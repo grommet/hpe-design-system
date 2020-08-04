@@ -41,11 +41,11 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
-const Error = ({ textError, ...rest }) => {
+const Error = ({ children, ...rest }) => {
   return (
-    <Box {...rest} align="center" gap="xsmall" direction="row">
+    <Box align="center" background="background-front" gap="xsmall" direction="row"  {...rest} >
       <CircleAlert size="small" />
-      <Text size="xsmall">{textError}</Text>
+      <Text size="xsmall">{children}</Text>
     </Box>
   );
 };
@@ -99,10 +99,7 @@ export const RequiredFieldsExample = () => {
             <RequiredFormField
               required
               error={
-                <Error
-                  background="background-front"
-                  textError="Invalid credentials."
-                />
+                <Error>This is a required field.</Error>
               }
               htmlFor="name__input"
               name="name"
