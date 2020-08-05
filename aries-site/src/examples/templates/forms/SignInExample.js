@@ -12,25 +12,50 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, FormNext } from 'grommet-icons';
+import { Close, FormNext, CircleAlert } from 'grommet-icons';
+
+const emailErrorMessage = (
+  <Box
+    background="background-front"
+    align="center"
+    gap="xsmall"
+    direction="row"
+  >
+    <CircleAlert size="small" />
+    <Text size="xsmall">Enter a valid email address.</Text>
+  </Box>
+);
 
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
+    message: emailErrorMessage,
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
+    message: emailErrorMessage,
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: emailErrorMessage,
     status: 'error',
   },
 ];
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box {...rest} align="center" gap="xsmall" direction="row">
+      <CircleAlert size="small" />
+      <Text size="xsmall">{children}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.string,
+};
 
 const FormContainer = ({ ...rest }) => {
   return (
@@ -106,6 +131,11 @@ const ResetPassword = ({ closeLayer, email }) => {
 export const SignInExample = () => {
   const [formValues, setFormValues] = React.useState({});
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
+  // setPassword is here for demonstration purposes,
+  // for calling credential error
+  // eslint-disable-next-line no-unused-vars
+  const [password, setPassword] = React.useState('');
+  const [credentialError, setCredentialError] = React.useState(false);
 
   const onClose = () => {
     setShowForgotPassword(false);
@@ -118,6 +148,11 @@ export const SignInExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+    // For demonstration purposes, we are mocking a scenario where the password is incorrect.
+    // This will cause the error state to appear.
+    if (password !== 'password') {
+      setCredentialError(true);
+    }
   };
 
   return (
@@ -142,9 +177,17 @@ export const SignInExample = () => {
             validate="blur"
             value={formValues}
             onChange={setFormValues}
+            messages={{
+              required: (
+                <Error background="background-front">
+                  This is a required field.
+                </Error>
+              ),
+            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
             <FormField
+              required
               label="Email"
               name="email"
               htmlFor="email-sign-in"
@@ -158,6 +201,7 @@ export const SignInExample = () => {
               />
             </FormField>
             <FormField
+              required
               label="Password"
               htmlFor="password-sign-in"
               name="password"
@@ -176,6 +220,19 @@ export const SignInExample = () => {
                 label="Remember me"
               />
             </FormField>
+            {credentialError && (
+              <Box
+                direction="row"
+                animation="fadeIn"
+                margin={{ top: 'medium', bottom: 'medium' }}
+                gap="xsmall"
+                round="4px"
+                pad="small"
+                background="validation-critical"
+              >
+                <Error>Invalid credentials.</Error>
+              </Box>
+            )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
                 label="Sign In"
