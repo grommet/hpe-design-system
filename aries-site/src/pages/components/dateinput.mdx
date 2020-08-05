@@ -1,0 +1,75 @@
+import { Example } from '../../layouts';
+import {
+  DateInputRangeExample,
+  DateInputExample,
+  DateInputSimpleExample,
+  DateInputValidationExample,
+} from '../../examples/components/dateinput';
+
+
+<Example
+  docs="https://v2.grommet.io/dateinput?theme=hpe"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/dateinput/DateInputSimpleExample.js"
+  figma="https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=1%3A567"
+>
+  <DateInputSimpleExample />
+</Example>
+
+## Guidance
+
+- DateInputs can be used to display past, present, or future dates or times.
+- Use dateinput when you are asking the user for a time or date, or for scheduling tasks.
+
+## When using Date Input, you should:
+
+* Use a label when appropriate
+* Correctly format to reduce mistakes such as having the caller specify
+  the appropriate date format for the locale the user is in. 
+* For example, in the U.S. dates are formatted as ‘mm/dd/yyyy’ whereas
+ in other countries, such as Europe it might be ‘dd/mm/yyyy’.
+
+## Usage
+* Use the date input component when you want the user to assign past,
+  present or future date(s).
+
+## Variants
+- Date Input - This date input can used to pick one day or a range of dates,
+depending on your use case. Concise labels should be included on this variant
+to let the user know what to do.
+
+### Single Date
+
+A single DateInput users can either manually input a date or select 
+a date from the calendar
+
+<Example
+  docs="https://v2.grommet.io/dateinput?theme=hpe"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/dateinput/DateInputExample.js"
+  figma="https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=1%3A567"
+>
+  <DateInputExample />
+</Example>
+
+### Range Dates
+Unlike a single date the RangeDate should be used for when a start and 
+end date is needed from the user. Users will need to use the calendar
+to select the range of dates.
+
+<Example
+  docs="https://v2.grommet.io/dateinput?theme=hpe"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/dateinput/DateInputRangeExample.js"
+>
+  <DateInputRangeExample />
+</Example>
+
+### Validation
+Invalid fields should be clear to the user what was missing
+so the user can clearly understand which to address to fix the error.
+
+<Example
+  docs="https://v2.grommet.io/dateinput?theme=hpe"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/dateinput/DateInputValidationExample.js"
+  figma="https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=1%3A567"
+>
+  <DateInputValidationExample />
+</Example>
