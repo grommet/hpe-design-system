@@ -64,9 +64,17 @@ export const RequiredFieldsExample = () => {
     email: 'enduro@skyrunner.io.com',
     weakness: 'PB & J',
   });
-
+  console.log('formvalues', formValues.name);
+  // Set FormLevelError is set to true for display purposes
+  // this should be set to false then api call will change state
+  // eslint-disable-next-line no-unused-vars
+  const [showFormLevelError, setShowFormLevelError] = React.useState(true);
   const onFormChange = value => {
     setFormValues(value);
+  };
+  // eslint-disable-next-line no-unused-vars
+  const onSubmit = ({ value, touched }) => {
+    // Your submission logic here
   };
 
   return (
@@ -96,6 +104,7 @@ export const RequiredFieldsExample = () => {
                 </Error>
               ),
             }}
+            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
             value={formValues}
             onChange={onFormChange}
           >
@@ -148,19 +157,22 @@ export const RequiredFieldsExample = () => {
             <FormField htmlFor="comments" name="comments" label="Comments">
               <TextArea id="comments" name="comments" placeholder="Comments" />
             </FormField>
-            <Box
-              direction="row"
-              margin={{ top: 'medium', bottom: 'medium' }}
-              gap="xsmall"
-              round="4px"
-              pad="small"
-              background="validation-critical"
-            >
-              <Error>
-                The name of the superhero is already being used. Provide a
-                unique name.
-              </Error>
-            </Box>
+            {/* Show error if api call came back as an error  */}
+            {showFormLevelError && (
+              <Box
+                direction="row"
+                margin={{ top: 'medium', bottom: 'medium' }}
+                gap="xsmall"
+                round="4px"
+                pad="small"
+                background="validation-critical"
+              >
+                <Error>
+                  The name of the superhero is already being used. Provide a
+                  unique name.
+                </Error>
+              </Box>
+            )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button label="Create" primary type="submit" />
             </Box>
