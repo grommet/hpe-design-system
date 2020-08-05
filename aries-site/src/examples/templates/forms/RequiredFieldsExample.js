@@ -158,7 +158,7 @@ export const RequiredFieldsExample = () => {
             >
               <Error>
                 The name of the superhero is already being used. Provide a
-                unique name
+                unique name.
               </Error>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
