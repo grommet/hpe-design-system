@@ -160,9 +160,7 @@ export const RequiredFieldsExample = () => {
             {/* Show error if api call came back as an error  */}
             {showFormLevelError && (
               <Box
-                direction="row"
                 margin={{ top: 'medium', bottom: 'medium' }}
-                gap="xsmall"
                 round="4px"
                 pad="small"
                 background="validation-critical"
