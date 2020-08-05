@@ -27,7 +27,7 @@ export const DateInputValidationExample = () => {
       <Form onSubmit={({ value: nextValue }) => console.log(nextValue)}>
         <FormField
           name="required-field"
-          label="Label"
+          label="Required Field"
           htmlFor="required-field"
           error={message}
         >
@@ -40,7 +40,8 @@ export const DateInputValidationExample = () => {
                 setMessage('Select date to resolve error');
               }
             }}
-            name="value"
+            name="dateinput"
+            id="required-field"
             format="mm/dd/yyyy"
           />
         </FormField>

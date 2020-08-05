@@ -14,8 +14,17 @@ export const DateInputExample = () => {
         onChange={onChange}
         onSubmit={({ value: nextValue }) => console.log(nextValue)}
       >
-        <FormField name="value" label="label" required>
-          <DateInput name="value" format="mm/dd/yyyy" />
+        <FormField
+          name="simple-dateinput"
+          htmlFor="simple-dateinput"
+          label="Simple DateInput"
+          required
+        >
+          <DateInput
+            name="simple-dateinput"
+            id="simple-dateinput"
+            format="mm/dd/yyyy"
+          />
         </FormField>
       </Form>
     </Box>
