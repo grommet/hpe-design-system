@@ -66,7 +66,8 @@ export const RequiredFieldsExample = () => {
   });
   console.log('formvalues', formValues.name);
   // setFormLevelError is set to true for display purposes
-  // this should be set to false then api call will change state
+  // this should be set to false by default in an application, then a successful API call
+  // would change state to true
   // eslint-disable-next-line no-unused-vars
   const [showFormLevelError, setShowFormLevelError] = React.useState(true);
   const onFormChange = value => {
