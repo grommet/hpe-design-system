@@ -91,7 +91,7 @@ const StepOne = ({ active, setActive, formValues }) => {
           const validation = stepOneValidate(formValues);
           // advance to next step if successful
           if (validation.isValid) setActive(active + 1);
-          // otherwise, display error
+          // otherwise, display error and wizard will not advance to next step
           else {
             setError(validation);
           }
