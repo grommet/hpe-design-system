@@ -44,17 +44,17 @@ const emailValidation = [
   },
 ];
 
-const Error = ({ textError, ...rest }) => {
+const Error = ({ children, ...rest }) => {
   return (
     <Box {...rest} align="center" gap="xsmall" direction="row">
       <CircleAlert size="small" />
-      <Text size="xsmall">{textError}</Text>
+      <Text size="xsmall">{children}</Text>
     </Box>
   );
 };
 
 Error.propTypes = {
-  textError: PropTypes.string,
+  children: PropTypes.string,
 };
 
 const FormContainer = ({ ...rest }) => {
@@ -179,10 +179,9 @@ export const SignInExample = () => {
             onChange={setFormValues}
             messages={{
               required: (
-                <Error
-                  background="background-front"
-                  textError="This is a required field."
-                />
+                <Error background="background-front">
+                  This is a required field.
+                </Error>
               ),
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
@@ -230,7 +229,7 @@ export const SignInExample = () => {
                 pad="small"
                 background="validation-critical"
               >
-                <Error textError="Invalid credentials." />
+                <Error>Invalid credentials.</Error>
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
