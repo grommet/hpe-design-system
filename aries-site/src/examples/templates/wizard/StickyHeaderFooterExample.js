@@ -141,6 +141,9 @@ export const StickyHeaderFooterExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
 
+  // ref allows us to access the wizard container and ensure scroll position
+  // is at the top as user advances between steps. useEffect is triggered
+  // when the active step changes.
   const wizardRef = React.useRef();
 
   React.useEffect(() => {
