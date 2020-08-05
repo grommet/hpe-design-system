@@ -170,7 +170,12 @@ export const Example = ({
                 {...rest}
               >
                 {screenContainer || showResponsiveControls ? (
-                  <Box width={screen === screens.mobile ? 'medium' : '100%'}>
+                  <Box
+                    // for purpose of inline scroll behavior on templates
+                    // this id is needed to reference the scroll parent
+                    id="layer-wrapper"
+                    width={screen === screens.mobile ? 'medium' : '100%'}
+                  >
                     <ResponsiveContext.Provider
                       value={screen === screens.mobile && 'small'}
                     >
