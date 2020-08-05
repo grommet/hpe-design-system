@@ -27,9 +27,16 @@ export const DateInputRangeExample = () => {
         onChange={onChange}
         onSubmit={({ value: nextValue }) => console.log(nextValue)}
       >
-        <FormField name="value" label="value" required>
+        <FormField
+          name="dateinput-range"
+          htmlFor="dateinput-range"
+          label="DateInput Range"
+          required
+        >
           <DateInput
             value={value}
+            name="dateinput-range"
+            id="dateinput-range"
             format="mm/dd/yyyy-mm/dd/yyyy"
             buttonProps={{
               label: `${dateFormat.format(
