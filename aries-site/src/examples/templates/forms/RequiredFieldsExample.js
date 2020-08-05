@@ -43,8 +43,8 @@ const FormContainer = ({ ...rest }) => {
 
 const Error = ({ children, ...rest }) => {
   return (
-    <Box direction="row" {...rest}>
-      <Box flex={false} margin={{ top: 'xxsmall', right: 'xxsmall' }}>
+    <Box direction="row" gap="xsmall" {...rest}>
+      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
         <CircleAlert size="small" />
       </Box>
       <Text size="xsmall">{children}</Text>
