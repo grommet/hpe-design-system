@@ -19,6 +19,7 @@ import {
 } from 'grommet';
 import {
   Checkmark,
+  CircleAlert,
   FormClose,
   FormNextLink,
   FormPreviousLink,
@@ -48,6 +49,7 @@ const StepOne = ({ active, setActive, formValues }) => {
   const [error, setError] = useState({
     email: '',
     radiobuttongroup: '',
+    isValid: true,
   });
 
   return (
@@ -79,6 +81,9 @@ const StepOne = ({ active, setActive, formValues }) => {
           />
         </FormField>
       </Box>
+      {!error.isValid && (
+        <Error>There is an error with one or more inputs.</Error>
+      )}
       <Button
         fill="horizontal"
         label="Next"
@@ -342,4 +347,26 @@ const CancellationLayer = ({ onSetOpen }) => {
 
 CancellationLayer.propTypes = {
   onSetOpen: PropTypes.func.isRequired,
+};
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box
+      background="validation-critical"
+      margin={{ bottom: 'medium' }}
+      pad="small"
+      round="4px"
+    >
+      <Box direction="row" gap="xsmall" {...rest}>
+        <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
+          <CircleAlert size="small" />
+        </Box>
+        <Text size="xsmall">{children}</Text>
+      </Box>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.object,
 };
