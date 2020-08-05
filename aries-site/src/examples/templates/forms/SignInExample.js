@@ -223,6 +223,7 @@ export const SignInExample = () => {
             {credentialError && (
               <Box
                 direction="row"
+                animation="fadeIn"
                 margin={{ top: 'medium', bottom: 'medium' }}
                 gap="xsmall"
                 round="4px"
