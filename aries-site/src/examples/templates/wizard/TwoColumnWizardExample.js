@@ -63,7 +63,7 @@ const StepTwo = () => (
       name="twocolumn-select"
     >
       <Select
-        placeholder="twocolumn-select item"
+        placeholder="Select Item"
         id="twocolumn-select"
         name="twocolumn-select"
         options={['Option 1', 'Option 2']}
@@ -144,9 +144,27 @@ export const TwoColumnWizardExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
 
+  const wizardRef = React.useRef();
+
+  React.useEffect(() => {
+    // This block is purely to ensure proper scrolling for the inline
+    // site demo. Use line 161 for applications
+    const layerContainer = document.querySelector('#layer-wrapper');
+    if (layerContainer) {
+      wizardRef.current.scrollIntoView();
+    } else {
+      const container = wizardRef.current.parentNode;
+      console.log(container, container.getBoundingClientRect().top);
+      container.scrollTop = -container.getBoundingClientRect().top;
+    }
+
+    // USE THIS CODE FOR APPLICATION:
+    // wizardRef.current.scrollIntoView();
+  }, [active, open]);
+
   return (
     <>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <Box width={{ max: 'xxlarge' }} margin="auto" fill ref={wizardRef}>
         <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
         <Box
           pad={size === 'small' ? 'medium' : 'small'}
