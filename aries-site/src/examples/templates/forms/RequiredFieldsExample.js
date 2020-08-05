@@ -64,7 +64,6 @@ export const RequiredFieldsExample = () => {
     email: 'enduro@skyrunner.io.com',
     weakness: 'PB & J',
   });
-  console.log('formvalues', formValues.name);
   // Set FormLevelError is set to true for display purposes
   // this should be set to false then api call will change state
   // eslint-disable-next-line no-unused-vars
