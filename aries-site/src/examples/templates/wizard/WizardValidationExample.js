@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -45,7 +45,7 @@ const stepOneValidate = values => {
   };
 };
 
-const StepOne = ({ active, setActive, formValues }) => {
+const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
   const [error, setError] = useState({
     email: '',
     radiobuttongroup: '',
@@ -94,7 +94,7 @@ const StepOne = ({ active, setActive, formValues }) => {
           // check for errors
           const validation = stepOneValidate(formValues);
           // advance to next step if successful
-          if (validation.isValid) setActive(active + 1);
+          if (validation.isValid) setActiveIndex(activeIndex + 1);
           // otherwise, display error and wizard will not advance to next step
           else {
             setError(validation);
@@ -106,12 +106,12 @@ const StepOne = ({ active, setActive, formValues }) => {
 };
 
 StepOne.propTypes = {
-  active: PropTypes.number.isRequired,
+  activeIndex: PropTypes.number.isRequired,
   formValues: PropTypes.shape({}).isRequired,
-  setActive: PropTypes.func.isRequired,
+  setActiveIndex: PropTypes.func.isRequired,
 };
 
-const StepTwo = ({ active, setActive }) => (
+const StepTwo = ({ activeIndex, setActiveIndex }) => (
   <>
     <Box margin={{ bottom: 'large' }}>
       <FormField label="Select" htmlFor="select" name="select">
@@ -149,14 +149,14 @@ const StepTwo = ({ active, setActive }) => (
       icon={<FormNextLink />}
       primary
       reverse
-      onClick={() => setActive(active + 1)}
+      onClick={() => setActiveIndex(activeIndex + 1)}
     />
   </>
 );
 
 StepTwo.propTypes = {
-  active: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired,
+  activeIndex: PropTypes.number.isRequired,
+  setActiveIndex: PropTypes.func.isRequired,
 };
 
 const data = [
@@ -191,27 +191,34 @@ const steps = [
   {
     description: `Step one description. Keep each step simple and in chunks 
     easy enough to fit on a single page.`,
-    inputs: (active, setActive, formValues) => (
-      <StepOne active={active} setActive={setActive} formValues={formValues} />
+    inputs: (activeIndex, setActiveIndex, formValues) => (
+      <StepOne
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        formValues={formValues}
+      />
     ),
   },
   {
     description: 'Step 2 description.',
-    inputs: (active, setActive) => (
-      <StepTwo active={active} setActive={setActive} />
+    inputs: (activeIndex, setActiveIndex) => (
+      <StepTwo activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
     ),
   },
   {
     description: 'Provide a summary of what was accomplished or configured. ',
-    inputs: (active, setActive) => (
-      <StepThree active={active} setActive={setActive} />
+    inputs: (activeIndex, setActiveIndex) => (
+      <StepThree activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
     ),
     title: 'Finish title',
   },
 ];
 
 export const WizardValidationExample = () => {
-  const [active, setActive] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  // for readability, this is used to display numeric value of step on screen,
+  // such as step 1 of 3. it will always be one more than the active array index
+  const [activeStep, setActiveStep] = useState(activeIndex + 1);
 
   // store form values in state so they persist
   // when user goes back a step
@@ -221,10 +228,19 @@ export const WizardValidationExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
 
+  useEffect(() => {
+    setActiveStep(activeIndex + 1);
+  }, [activeIndex]);
+
   return (
     <>
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-        <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
+        <WizardHeader
+          activeIndex={activeIndex}
+          activeStep={activeStep}
+          setActiveIndex={setActiveIndex}
+          setOpen={setOpen}
+        />
         <Box
           align="center"
           pad={size !== 'small' ? 'large' : 'medium'}
@@ -234,16 +250,15 @@ export const WizardValidationExample = () => {
             <Box gap="medium" flex={false}>
               <Box>
                 <Heading color="text-strong" margin="none">
-                  {steps[active - 1].title || `Step ${active} Title`}
+                  {steps[activeIndex].title || `Step ${activeStep} Title`}
                 </Heading>
                 <Text
                   color="text-strong"
                   size="small"
-                >{`Step ${active} of ${steps.length}`}</Text>
+                >{`Step ${activeStep} of ${steps.length}`}</Text>
               </Box>
               <Text color="text-strong" size="large">
-                {/* Index an array starts at 0 */}
-                {steps[active - 1].description}
+                {steps[activeIndex].description}
               </Text>
             </Box>
             <Form
@@ -251,8 +266,11 @@ export const WizardValidationExample = () => {
               onChange={nextValue => setFormValues(nextValue)}
               onSubmit={({ value }) => console.log(value)}
             >
-              {/* Index an array starts at 0 */}
-              {steps[active - 1].inputs(active, setActive, formValues)}
+              {steps[activeIndex].inputs(
+                activeIndex,
+                setActiveIndex,
+                formValues,
+              )}
             </Form>
           </Box>
         </Box>
@@ -262,7 +280,7 @@ export const WizardValidationExample = () => {
   );
 };
 
-const WizardHeader = ({ active, setActive, setOpen }) => {
+const WizardHeader = ({ activeIndex, activeStep, setActiveIndex, setOpen }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Header
@@ -272,11 +290,11 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
       justify="center"
     >
       <Box direction="row" flex>
-        {active > 1 && (
+        {activeStep > 1 && (
           <Button
-            label={size !== 'small' ? `Step ${active - 1}` : undefined}
+            label={size !== 'small' ? `Step ${activeStep - 1}` : undefined}
             icon={<FormPreviousLink color="text-strong" />}
-            onClick={() => setActive(active - 1)}
+            onClick={() => setActiveIndex(activeIndex - 1)}
           />
         )}
       </Box>
@@ -298,8 +316,9 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
 };
 
 WizardHeader.propTypes = {
-  active: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired,
+  activeIndex: PropTypes.number.isRequired,
+  activeStep: PropTypes.number.isRequired,
+  setActiveIndex: PropTypes.func.isRequired,
   setOpen: PropTypes.func.isRequired,
 };
 
