@@ -68,7 +68,6 @@ const StepOne = ({ active, setActive, formValues }) => {
           />
         </FormField>
         <FormField
-          help="Click on the ‘eye’ icon for the description text field to hide."
           htmlFor="radio-button-group-validation"
           label="RadioButtonGroup"
           name="radio-button-group-validation"
