@@ -66,8 +66,9 @@ All Form input elements need to be contained within a FormField.
 - A "name" property applied on both the FormField and its child input element
 - A clear, concise label
 
+## Variants
 
-## Filter
+### Filter
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
@@ -76,7 +77,7 @@ All Form input elements need to be contained within a FormField.
   <FilterExample />
 </Example>
 
-## Sort
+### Sort
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
@@ -85,7 +86,7 @@ All Form input elements need to be contained within a FormField.
   <SortExample />
 </Example>
 
-## Settings
+### Settings
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
@@ -94,7 +95,7 @@ All Form input elements need to be contained within a FormField.
   <SettingsExample />
 </Example>
 
-## Change Password
+### Change Password
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ChangePasswordExample.js"
@@ -103,7 +104,7 @@ All Form input elements need to be contained within a FormField.
   <ChangePasswordExample />
 </Example>
 
-## Customize
+### Customize
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
@@ -112,41 +113,39 @@ All Form input elements need to be contained within a FormField.
   <CustomizeExample />
 </Example>
 
+## Guidance with validation
+
+validation should happen both on formfield level as well as submission of the form. 
+
 ### Required vs. optional fields
 
 When possible, restrict Forms only to fields that are required. This ensures that the Form remains concise for the user. However, there may be cases where optional fields may be fitting.
 
-When using a mixture of required and optional fields, apply the "required" prop as well as an asterisk to any given FormField label in which will disable form submission until this field has been completed.
+When using a mixture of required and optional fields, apply the "required" prop to any given FormField label in which will disable form submission until this field has been completed.
 
-‘Sign In’ and ‘Sign Up’ forms do not use an asterisk for required fields. All other standard forms/long forms will use an asterisk for required fields. 
+For standard forms, use an asterisk(*) to indicate required field/controls. 
+Optional fields receive no treatment.
+
+Sign In and Sign Up forms do not use an asterisk for required fields. All other standard forms/long forms will use an asterisk for required fields. 
 
 Optional fields receive no treatments.
 
-## Pay
 
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A431"
->
-  <PayExample />
-</Example>
-
-### Using help text
+### Using help & info text
 
 In most cases, the FormField label should be clear enough to instruct the user how to complete a field. However, if help text is required, ensure that it is kept brief and precise.
 
-Help text may be relevant for cases such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context
+Help/Info text may be relevant for cases such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context
 
-Info text is also relevant for fields such as password to show the user what password requirements are needed while they are filling out the form.
+### Field validation
 
-## Sign Up
+In most cases field validation is used in order to ensure that the data filled out passes any set paramaters. 
 
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
->
-  <SignUpExample />
-</Example>
+Field validation should be followed with an error message that will help the user understand the problem and will be able to fix it. 
+
+For any required field the following should be used "This is a required field"
+
+Form validation will occur before any api call is made to ensure the correct information is being used.
 
 ### Form submission
 
@@ -161,11 +160,28 @@ Visual feedback is important to instill confidence in a user after form submissi
 
 Never force the user to wait for post-submission processing to complete before they can continue using an application.
 
-## Sign in
-## Required and Optional Fields
+## Variants
 
-For standard forms, use an asterisk(*) to indicate required field/controls. 
-Optional fields receive no treatment.
+### Sign Up
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
+>
+  <SignUpExample />
+</Example>
+
+
+### Pay
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A431"
+>
+  <PayExample />
+</Example>
+
+### Required Fields
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/RequiredFieldsExample.js"
@@ -174,16 +190,7 @@ Optional fields receive no treatment.
   <RequiredFieldsExample />
 </Example>
 
-## Customize
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
->
-  <SignInExample />
-</Example>
-
-## Shipping
+### Shipping
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
