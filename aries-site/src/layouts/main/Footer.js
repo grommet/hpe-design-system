@@ -44,14 +44,12 @@ export const Footer = () => {
         <Box direction="row" gap="xsmall">
           {externalFooterLinks.map(item => (
             <Box key={item.name} align="start">
-              <Link href={item.href} passHref>
-                <Button
-                  label={item.name}
-                  active={router.pathname === item.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                />
-              </Link>
+              <Button
+                label={item.name}
+                active={router.pathname === item.href}
+                target="_blank"
+                rel="noreferrer noopener"
+              />
             </Box>
           ))}
           {/* Need to pass href because of:
