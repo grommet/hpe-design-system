@@ -209,12 +209,10 @@ export const SimpleSignUpExample = () => {
                     }
                     return (
                       <Box direction="row" gap="xsmall">
-                        {formValues.password && rule.valid ? (
+                        {formValues.password && rule.valid && (
                           <Box alignSelf="center">
                             <FormCheckmark size="small" />
                           </Box>
-                        ) : (
-                          <></>
                         )}
                         <Text size="xsmall">{rule.message}</Text>
                       </Box>
