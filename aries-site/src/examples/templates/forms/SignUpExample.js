@@ -167,6 +167,7 @@ export const SignUpExample = () => {
               label="Password"
               htmlFor="password-sign-up"
               name="password"
+              required
               info={
                 <List
                   data={passwordRules}
