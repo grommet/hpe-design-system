@@ -127,14 +127,14 @@ const emailValidation = [
     message: (
       <Error background="background-front">Enter a valid email address.</Error>
     ),
-    status: 'info',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
     message: (
       <Error background="background-front">Enter a valid email address.</Error>
     ),
-    status: 'info',
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
