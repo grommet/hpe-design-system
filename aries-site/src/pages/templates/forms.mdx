@@ -37,18 +37,6 @@ Forms don't need to be a tedious task for users to complete, as they often come 
 - Use clear, concise labels for each field
 - Use placeholder text as an added visual indication of expected input value format
 
-### Required vs. optional fields
-
-When possible, restrict Forms only to fields that are required. This ensures that the Form remains concise for the user. However, there may be cases where optional fields may be fitting.
-
-When using a mixture of required and optional fields, apply the "required" prop to any given FormField restrict form submission until this field has been completed.
-
-### Using help text
-
-In most cases, the FormField label should be clear enough to instruct the user how to complete a field. However, if help text is required, ensure that it is kept brief and precise.
-
-Help text may be relevant for cases such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context.
-
 ### Capitalization in forms
 
 Writing standards contribute to the voice, tone, and grammatical accuracy that inform the experiences we create. These standards are aligned with HPE Brand.
@@ -66,18 +54,6 @@ Button labels should be specific to the action of the button. For example, a [si
 
 Button label specificity provides users confidence in the action they are performing.
 
-### Form submission
-
-Visual feedback is important to instill confidence in a user after form submission.
-
-**On submission, your form should:**
-
-- In the case of an error, focus should be placed on the input element where the error occurred.
-- Provide user with indication that form was submitted successfully (e.g. notification, success page, etc.)
-- Display all relevant errors accompanied by text explaining actions needed to resolve.
-- Allow user to continue navigating through the application immediately
-
-Never force the user to wait for post-submission processing to complete before they can continue using an application.
 
 ### Accessibility
 
@@ -89,23 +65,6 @@ All Form input elements need to be contained within a FormField.
 - A "name" property applied on both the FormField and its child input element
 - A clear, concise label
 
-## Sign Up
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
->
-  <SignUpExample />
-</Example>
-
-## Sign in
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
->
-  <SignInExample />
-</Example>
 
 ## Filter
 
@@ -125,6 +84,15 @@ All Form input elements need to be contained within a FormField.
   <SortExample />
 </Example>
 
+## Settings
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A459"
+>
+  <SettingsExample />
+</Example>
+
 ## Change Password
 
 <Example
@@ -134,14 +102,24 @@ All Form input elements need to be contained within a FormField.
   <ChangePasswordExample />
 </Example>
 
-## Settings
+## Customize
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A459"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
 >
-  <SettingsExample />
+  <CustomizeExample />
 </Example>
+
+### Required vs. optional fields
+
+When possible, restrict Forms only to fields that are required. This ensures that the Form remains concise for the user. However, there may be cases where optional fields may be fitting.
+
+When using a mixture of required and optional fields, apply the "required" prop as well as an asterisk to any given FormField label in which will disable form submission until this field has been completed.
+
+‘Sign In’ and ‘Sign Up’ forms do not use an asterisk for required fields. All other standard forms/long forms will use an asterisk for required fields. 
+
+Optional fields receive no treatments.
 
 ## Pay
 
@@ -152,6 +130,45 @@ All Form input elements need to be contained within a FormField.
   <PayExample />
 </Example>
 
+### Using help text
+
+In most cases, the FormField label should be clear enough to instruct the user how to complete a field. However, if help text is required, ensure that it is kept brief and precise.
+
+Help text may be relevant for cases such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context
+
+Info text is also relevant for fields such as password to show the user what password requirements are needed while they are filling out the form.
+
+## Sign Up
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
+>
+  <SignUpExample />
+</Example>
+
+### Form submission
+
+Visual feedback is important to instill confidence in a user after form submission.
+
+**On submission, your form should:**
+
+- In the case of an error, focus should be placed on the input element where the error occurred.
+- Provide user with indication that form was submitted successfully (e.g. notification, success page, etc.)
+- Display all relevant errors accompanied by text explaining actions needed to resolve.
+- Allow user to continue navigating through the application immediately
+
+Never force the user to wait for post-submission processing to complete before they can continue using an application.
+
+## Sign in
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
+>
+  <SignInExample />
+</Example>
+
 ## Shipping
 
 <Example
@@ -159,13 +176,4 @@ All Form input elements need to be contained within a FormField.
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A382"
 >
   <ShippingExample />
-</Example>
-
-## Customize
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
->
-  <CustomizeExample />
 </Example>
