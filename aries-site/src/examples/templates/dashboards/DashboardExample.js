@@ -228,6 +228,7 @@ const AppContainer = ({ ...rest }) => {
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
+      fill
       {...rest}
     />
   );

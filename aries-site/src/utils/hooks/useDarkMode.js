@@ -1,6 +1,12 @@
 import { useEffect, useCallback, useMemo } from 'react';
 import { initialize, useEventListener } from '..';
 
+// The following code is coming from https://github.com/donavon/use-dark-mode.
+// Instead of importing we opted to just include it in our files.
+// The purpose of this hook in general is to allow the themeMode to persist
+// in localStorage.
+// without it, sometimes the themeMode would glitch from light to dark or
+// not persist when you routed to a new page/opened in new tab
 export const useDarkMode = (
   initialValue = true,
   {
