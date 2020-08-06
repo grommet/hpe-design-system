@@ -179,8 +179,12 @@ export const SimpleWizardExample = () => {
   const wizardRef = React.useRef();
 
   React.useEffect(() => {
+    // FOR SCROLL USE IN APPLICATION: Uncomment line below.
+    // wizardRef.current.scrollIntoView();
+    
+    // MODIFIED SCROLL FOR USE IN DEMO:
     // This block is purely to ensure proper scrolling for the inline
-    // site demo. Use line 190 for applications
+    // site demo. Use line above and remove this block for your app.
     const layerContainer = document.querySelector('#layer-wrapper');
     if (layerContainer) {
       wizardRef.current.scrollIntoView();
@@ -188,9 +192,6 @@ export const SimpleWizardExample = () => {
       const container = wizardRef.current.parentNode;
       container.scrollTop = -container.getBoundingClientRect().top;
     }
-
-    // USE THIS CODE FOR APPLICATION:
-    // wizardRef.current.scrollIntoView();
   }, [active, open]);
 
   return (
