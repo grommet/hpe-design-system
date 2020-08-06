@@ -46,6 +46,7 @@ const stepOneValidate = values => {
 };
 
 const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
+  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
   const [error, setError] = useState({
     email: '',
     radiobuttongroup: '',
@@ -54,13 +55,15 @@ const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
 
   return (
     <>
-      <Box margin={{ bottom: 'large' }}>
+      <Box margin={{ bottom: 'medium' }}>
         <FormField
           label="Email"
           htmlFor="text-input-validation"
           name="text-input-validation"
           error={error.email}
-          onChange={() => setError(stepOneValidate(formValues))}
+          onChange={() =>
+            attemptedAdvance && setError(stepOneValidate(formValues))
+          }
         >
           <TextInput
             placeholder="jane.smith@hpe.com"
@@ -80,10 +83,10 @@ const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
             options={['Radio button 1', 'Radio button 2']}
           />
         </FormField>
+        {!error.isValid && (
+          <Error>There is an error with one or more inputs.</Error>
+        )}
       </Box>
-      {!error.isValid && (
-        <Error>There is an error with one or more inputs.</Error>
-      )}
       <Button
         fill="horizontal"
         label="Next"
@@ -91,6 +94,9 @@ const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
         primary
         reverse
         onClick={() => {
+          // mark that the user is trying to advance, so that onChange
+          // validation will run on any errors in the future
+          setAttemptedAdvance(true);
           // check for errors
           const validation = stepOneValidate(formValues);
           // advance to next step if successful
@@ -371,8 +377,9 @@ CancellationLayer.propTypes = {
 const Error = ({ children, ...rest }) => {
   return (
     <Box
+      animation="fadeIn"
       background="validation-critical"
-      margin={{ bottom: 'medium' }}
+      margin={{ top: 'small' }}
       pad="small"
       round="4px"
     >
