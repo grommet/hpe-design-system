@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -12,22 +13,55 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormCheckmark, FormClose } from 'grommet-icons';
+import { FormCheckmark, CircleAlert } from 'grommet-icons';
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box direction="row" gap="xsmall" {...rest}>
+      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
+        <CircleAlert size="small" />
+      </Box>
+      <Text size="xsmall">{children}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.object,
+};
+
+const passwordRequirements = [
+  {
+    regexp: new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$ %^&*-]).{8,}'),
+    message: (
+      <Error background="background-front">
+        Password requirements not meet.
+      </Error>
+    ),
+    status: 'error',
+  },
+];
 
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
     status: 'error',
   },
 ];
@@ -153,6 +187,7 @@ export const SignUpExample = () => {
             </FormField>
             <FormField
               label="Password"
+              validate={passwordRequirements}
               htmlFor="password-sign-up"
               name="password"
               required
@@ -180,9 +215,7 @@ export const SignUpExample = () => {
                             <FormCheckmark size="small" />
                           </Box>
                         ) : (
-                          <Box alignSelf="center">
-                            <FormClose size="small" />
-                          </Box>
+                          <></>
                         )}
                         <Text size="xsmall">{rule.message}</Text>
                       </Box>
