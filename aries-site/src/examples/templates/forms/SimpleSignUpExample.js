@@ -13,7 +13,6 @@ import {
   TextInput,
 } from 'grommet';
 import { FormCheckmark, FormClose } from 'grommet-icons';
-import { useDarkMode } from '../../../utils';
 
 const passwordRulesStrong = [
   {
@@ -82,17 +81,10 @@ const FormContainer = ({ ...rest }) => {
 };
 
 export const SimpleSignUpExample = () => {
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
-  const [backgroundError, setBackgroundError] = React.useState('');
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
-
-  // Since password rules are being checked outside the validation
-  // and being passed in the info message the background color is not
-  // being changed. We need to check if all password rules are applied
-  // then we can change background color to indicate there is no error.
 
   const onChange = values => {
     setFormValues(values);
@@ -100,11 +92,6 @@ export const SimpleSignUpExample = () => {
       const adjustedRule = { ...rule };
       const valid = adjustedRule.regexp.test(values.password);
       adjustedRule.valid = valid;
-      if (valid !== true) {
-        setBackgroundError(themeMode === 'dark' ? '#C54E4B5C' : '#FC61613D');
-      } else {
-        setBackgroundError('');
-      }
       return adjustedRule;
     });
     setPasswordRules(adjustedPasswordRules);
@@ -204,7 +191,6 @@ export const SimpleSignUpExample = () => {
               }
             >
               <TextInput
-                style={{ backgroundColor: backgroundError }}
                 id="password-sign-up-simple"
                 name="password"
                 placeholder="Enter your password"
