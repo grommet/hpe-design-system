@@ -172,11 +172,24 @@ export const StickyHeaderFooterExample = () => {
   // controls state of cancel layer
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
+
+  // ref allows us to access the wizard container and ensure scroll position
+  // is at the top as user advances between steps. useEffect is triggered
+  // when the active step changes.
+  const wizardRef = React.useRef();
+
+  React.useEffect(() => {
+    const container = wizardRef.current;
+    const header = document.querySelector('#sticky-header');
+    container.scrollTop = -header.getBoundingClientRect().bottom;
+  }, [active, open]);
+
   return (
     <>
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
         <Box
+          ref={wizardRef}
           align="center"
           pad={size !== 'small' ? 'large' : 'medium'}
           flex
@@ -214,7 +227,7 @@ export const StickyHeaderFooterExample = () => {
   );
 };
 
-const WizardHeader = ({ active, setActive, setOpen }) => {
+const WizardHeader = ({ active, setActive, setOpen, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Header
@@ -223,6 +236,7 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
       fill="horizontal"
       flex={false}
       justify="center"
+      {...rest}
     >
       <Box direction="row" flex>
         {active > 1 && (
