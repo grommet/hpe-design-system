@@ -8,7 +8,6 @@ import {
   Heading,
   Form,
   FormField,
-  Footer,
   Layer,
   List,
   RadioButtonGroup,
@@ -25,62 +24,92 @@ import {
   FormPreviousLink,
 } from 'grommet-icons';
 
-const StepOne = () => (
-  <Box>
-    <FormField label="Text Input" htmlFor="text-input" name="text-input">
-      <TextInput
-        placeholder="Placeholder text"
-        id="text-input"
-        name="text-input"
-      />
-    </FormField>
-    <FormField
-      help="Click on the ‘eye’ icon for the description text field to hide."
-      htmlFor="radio-button-group"
-      label="RadioButtonGroup"
-      name="radio-button-group"
-    >
-      <RadioButtonGroup
-        id="radio-button-group"
+const StepOne = ({ active, setActive }) => (
+  <>
+    <Box margin={{ bottom: 'large' }}>
+      <FormField label="Text Input" htmlFor="text-input" name="text-input">
+        <TextInput
+          placeholder="Placeholder text"
+          id="text-input"
+          name="text-input"
+        />
+      </FormField>
+      <FormField
+        help="Click on the ‘eye’ icon for the description text field to hide."
+        htmlFor="radio-button-group"
+        label="RadioButtonGroup"
         name="radio-button-group"
-        options={['Radio button 1', 'Radio button 2']}
-      />
-    </FormField>
-  </Box>
+      >
+        <RadioButtonGroup
+          id="radio-button-group"
+          name="radio-button-group"
+          options={['Radio button 1', 'Radio button 2']}
+        />
+      </FormField>
+    </Box>
+    <Button
+      fill="horizontal"
+      label="Next"
+      icon={<FormNextLink />}
+      primary
+      reverse
+      onClick={() => setActive(active + 1)}
+    />
+  </>
 );
 
-const StepTwo = () => (
-  <Box>
-    <FormField label="Select" htmlFor="select" name="select">
-      <Select
-        placeholder="Select item"
-        id="select"
-        name="select"
-        options={['Option 1', 'Option 2']}
-      />
-    </FormField>
-    <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
-      <CheckBoxGroup
-        id="checkboxgroup"
-        name="checkboxgroup"
-        options={['CheckBox 1', 'CheckBox 2']}
-      />
-    </FormField>
-    <FormField
-      help="Description of how to use this field"
-      htmlFor="text-area"
-      label="Label"
-      name="text-area"
-    >
-      <TextArea
-        id="text-area"
+StepOne.propTypes = {
+  active: PropTypes.number.isRequired,
+  setActive: PropTypes.func.isRequired,
+};
+
+const StepTwo = ({ active, setActive }) => (
+  <>
+    <Box margin={{ bottom: 'large' }}>
+      <FormField label="Select" htmlFor="select" name="select">
+        <Select
+          placeholder="Select item"
+          id="select"
+          name="select"
+          options={['Option 1', 'Option 2']}
+        />
+      </FormField>
+      <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
+        <CheckBoxGroup
+          id="checkboxgroup"
+          name="checkboxgroup"
+          options={['CheckBox 1', 'CheckBox 2']}
+        />
+      </FormField>
+      <FormField
+        help="Description of how to use this field"
+        htmlFor="text-area"
+        label="Label"
         name="text-area"
-        options={['CheckBox 1', 'CheckBox 2']}
-        placeholder="Placeholder text"
-      />
-    </FormField>
-  </Box>
+      >
+        <TextArea
+          id="text-area"
+          name="text-area"
+          options={['CheckBox 1', 'CheckBox 2']}
+          placeholder="Placeholder text"
+        />
+      </FormField>
+    </Box>
+    <Button
+      fill="horizontal"
+      label="Next"
+      icon={<FormNextLink />}
+      primary
+      reverse
+      onClick={() => setActive(active + 1)}
+    />
+  </>
 );
+
+StepTwo.propTypes = {
+  active: PropTypes.number.isRequired,
+  setActive: PropTypes.func.isRequired,
+};
 
 const data = [
   'Summary value of step 1',
@@ -91,19 +120,22 @@ const data = [
 
 const StepThree = () => {
   return (
-    <Box gap="small">
-      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-        {(datum, index) => (
-          <Box key={index} direction="row" gap="medium" align="center">
-            <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong">{datum}</Text>
-          </Box>
-        )}
-      </List>
-      <Text color="text-strong">
-        Include guidance to what will occur when “Finish Setup” is clicked.
-      </Text>
-    </Box>
+    <>
+      <Box gap="small" margin={{ bottom: 'large' }}>
+        <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+          {(datum, index) => (
+            <Box key={index} direction="row" gap="medium" align="center">
+              <Checkmark color="text-strong" size="small" />
+              <Text color="text-strong">{datum}</Text>
+            </Box>
+          )}
+        </List>
+        <Text color="text-strong">
+          Include guidance to what will occur when “Finish Setup” is clicked.
+        </Text>
+      </Box>
+      <Button fill="horizontal" label="Finish Setup" primary type="submit" />
+    </>
   );
 };
 
@@ -154,13 +186,8 @@ export const StickyHeaderFooterExample = () => {
 
   return (
     <>
-      <Box fill>
-        <WizardHeader
-          id="sticky-header"
-          active={active}
-          setActive={setActive}
-          setOpen={setOpen}
-        />
+      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+        <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
         <Box
           ref={wizardRef}
           align="center"
@@ -168,7 +195,7 @@ export const StickyHeaderFooterExample = () => {
           flex
           overflow="auto"
         >
-          <Box width="medium" gap="medium">
+          <Box width="medium" gap="medium" flex={false}>
             <Box gap="medium" flex={false}>
               <Box>
                 <Heading color="text-strong" margin="none">
@@ -194,7 +221,6 @@ export const StickyHeaderFooterExample = () => {
             </Form>
           </Box>
         </Box>
-        <WizardFooter active={active} setActive={setActive} />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </>
@@ -242,43 +268,6 @@ WizardHeader.propTypes = {
   active: PropTypes.number.isRequired,
   setActive: PropTypes.func.isRequired,
   setOpen: PropTypes.func.isRequired,
-};
-
-const WizardFooter = ({ active, setActive }) => {
-  return (
-    <Footer
-      border={{ side: 'bottom', color: 'border-weak' }}
-      pad="small"
-      fill="horizontal"
-      justify="center"
-      flex={false}
-    >
-      <Box width="medium">
-        {active < steps.length ? (
-          <Button
-            fill="horizontal"
-            label="Next"
-            icon={<FormNextLink />}
-            primary
-            reverse
-            onClick={() => setActive(active + 1)}
-          />
-        ) : (
-          <Button
-            fill="horizontal"
-            label="Finish Setup"
-            primary
-            type="submit"
-          />
-        )}
-      </Box>
-    </Footer>
-  );
-};
-
-WizardFooter.propTypes = {
-  active: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired,
 };
 
 const CancellationLayer = ({ onSetOpen }) => {
