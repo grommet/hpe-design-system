@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'grommet';
-import { IconMoon, IconSun } from '../icons';
+import { Moon as IconMoon, Sun as IconSun } from 'grommet-icons';
 import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = ({ active }) => {
