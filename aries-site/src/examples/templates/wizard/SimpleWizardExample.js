@@ -173,9 +173,30 @@ export const SimpleWizardExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
 
+  // ref allows us to access the wizard container and ensure scroll position
+  // is at the top as user advances between steps. useEffect is triggered
+  // when the active step changes.
+  const wizardRef = React.useRef();
+
+  React.useEffect(() => {
+    // FOR SCROLL USE IN APPLICATION: Uncomment line below.
+    // wizardRef.current.scrollIntoView();
+    
+    // MODIFIED SCROLL FOR USE IN DEMO:
+    // This block is purely to ensure proper scrolling for the inline
+    // site demo. Use line above and remove this block for your app.
+    const layerContainer = document.querySelector('#layer-wrapper');
+    if (layerContainer) {
+      wizardRef.current.scrollIntoView();
+    } else {
+      const container = wizardRef.current.parentNode;
+      container.scrollTop = -container.getBoundingClientRect().top;
+    }
+  }, [active, open]);
+
   return (
     <>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <Box width={{ max: 'xxlarge' }} margin="auto" fill ref={wizardRef}>
         <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
         <Box
           align="center"
