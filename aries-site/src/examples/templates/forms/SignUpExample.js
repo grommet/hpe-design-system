@@ -35,7 +35,7 @@ const passwordRequirements = [
     regexp: new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$ %^&*-]).{8,}'),
     message: (
       <Error background="background-front">
-        Password requirements not meet.
+        Password requirements not met.
       </Error>
     ),
     status: 'error',
