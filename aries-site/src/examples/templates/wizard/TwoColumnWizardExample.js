@@ -161,7 +161,6 @@ export const TwoColumnWizardExample = () => {
       wizardRef.current.scrollIntoView();
     } else {
       const container = wizardRef.current.parentNode;
-      console.log(container, container.getBoundingClientRect().top);
       container.scrollTop = -container.getBoundingClientRect().top;
     }
   }, [active, open]);
