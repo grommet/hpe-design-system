@@ -231,6 +231,7 @@ const WizardHeader = ({ active, setActive, setOpen, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Header
+      id="sticky-header"
       border={{ side: 'bottom', color: 'border-weak' }}
       pad="small"
       fill="horizontal"
