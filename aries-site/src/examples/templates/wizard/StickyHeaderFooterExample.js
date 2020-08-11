@@ -36,12 +36,12 @@ const StepOne = ({ active, setActive }) => (
       </FormField>
       <FormField
         help="Click on the ‘eye’ icon for the description text field to hide."
-        htmlFor="radio-button-group"
+        htmlFor="radio-button-group-sticky"
         label="RadioButtonGroup"
         name="radio-button-group"
       >
         <RadioButtonGroup
-          id="radio-button-group"
+          id="radio-button-group-sticky"
           name="radio-button-group"
           options={['Radio button 1', 'Radio button 2']}
         />
