@@ -89,21 +89,25 @@ export const Example = ({
             }
             {...rest}
           >
-            <ExampleWrapper
-              background={
-                ExampleWrapper === ResponsiveContainer && background
-                  ? background
-                  : undefined
-              }
-              screen={screen}
-              width={width}
-            >
-              <ResponsiveContext.Provider
-                value={screen === screens.mobile && 'small'}
+            {/* when Layer is open, we remove the inline Example to avoid 
+            repeat id tags that may impede interactivity of inputs */}
+            {!showLayer && (
+              <ExampleWrapper
+                background={
+                  ExampleWrapper === ResponsiveContainer && background
+                    ? background
+                    : undefined
+                }
+                screen={screen}
+                width={width}
               >
-                {children}
-              </ResponsiveContext.Provider>
-            </ExampleWrapper>
+                <ResponsiveContext.Provider
+                  value={screen === screens.mobile && 'small'}
+                >
+                  {children}
+                </ResponsiveContext.Provider>
+              </ExampleWrapper>
+            )}
           </Box>
           {(designer || docs || figma || screenContainer || template) && (
             <ExampleControls
