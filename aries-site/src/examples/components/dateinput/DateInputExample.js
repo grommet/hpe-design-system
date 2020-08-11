@@ -12,7 +12,6 @@ export const DateInputExample = () => {
       <Form
         value={value}
         onChange={onChange}
-        onSubmit={({ value: nextValue }) => console.log(nextValue)}
       >
         <FormField
           name="simple-dateinput"
