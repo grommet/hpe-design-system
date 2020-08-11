@@ -19,12 +19,19 @@ Error.propTypes = {
 };
 
 export const DateInputValidationExample = () => {
+  const [value, setValue] = React.useState('');
   const [message, setMessage] = React.useState(
     <Error background="background-front">Select date to resolve error</Error>,
   );
+  const onChange = event => {
+    const nextValue = event.value;
+    console.log('onChange', nextValue);
+    setValue(nextValue);
+    setMessage('');
+  };
   return (
     <Box align="center" pad="large">
-      <Form onSubmit={({ value: nextValue }) => console.log(nextValue)}>
+      <Form>
         <FormField
           name="required-field"
           label="Required Field"
@@ -32,17 +39,11 @@ export const DateInputValidationExample = () => {
           error={message}
         >
           <DateInput
-            onChange={event => {
-              if (event.value) {
-                setMessage('');
-              }
-              if (!event.value) {
-                setMessage('Select date to resolve error');
-              }
-            }}
+            onChange={onChange}
             name="dateinput"
             id="required-field"
             format="mm/dd/yyyy"
+            value={value}
           />
         </FormField>
       </Form>
