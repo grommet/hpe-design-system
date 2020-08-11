@@ -5,15 +5,11 @@ const now = new Date();
 const nextWeek = new Date(now);
 nextWeek.setDate(nextWeek.getDate() + 7);
 
-const dateFormat = new Intl.DateTimeFormat(undefined, {
-  month: 'short',
-  day: 'numeric',
-});
 
 export const DateInputRangeExample = () => {
   const [value, setValue] = React.useState([
-    nextWeek.toISOString(),
-    now.toISOString(),
+    '2020-07-31T15:27:42.920Z',
+    '2020-08-07T15:27:42.920Z',
   ]);
   const onChange = event => {
     const nextValue = event.value;
@@ -38,11 +34,6 @@ export const DateInputRangeExample = () => {
             name="dateinput-range"
             id="dateinput-range"
             format="mm/dd/yyyy-mm/dd/yyyy"
-            buttonProps={{
-              label: `${dateFormat.format(
-                new Date(value[0]),
-              )} - ${dateFormat.format(new Date(value[1]))}`,
-            }}
             onChange={onChange}
           />
         </FormField>
