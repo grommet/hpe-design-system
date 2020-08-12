@@ -5,7 +5,6 @@ export const DateInputSimpleExample = () => {
   const [value, setValue] = React.useState('');
   const onChange = event => {
     const nextValue = event.value;
-    console.log('onChange', nextValue);
     setValue(nextValue);
   };
   return (

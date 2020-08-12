@@ -13,7 +13,6 @@ export const DateInputRangeExample = () => {
   ]);
   const onChange = event => {
     const nextValue = event.value;
-    console.log('onChange', nextValue);
     setValue(nextValue);
   };
   return (
