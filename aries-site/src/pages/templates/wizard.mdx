@@ -1,0 +1,99 @@
+import { Example } from '../../layouts';
+import {
+  SimpleWizardExample,
+  StickyHeaderFooterExample,
+  TwoColumnWizardExample,
+  WizardValidationExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/wizard/SimpleWizardExample.js"
+  figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=1%3A2"
+  screenContainer
+  width="100%"
+>
+  <SimpleWizardExample />
+</Example>
+
+## Guidance
+
+Use a wizard when your form involves multiple steps. This makes the experience more manageable for the user and helps to eliminate error by validating inputs as the user progresses.
+
+### Providing guidance for a form step
+
+It is helpful to provide concise and clear descriptions for each step of the form. Keep each step simple and in chunks easy enough to fit on a single page. This helps the user have confidence in how to fill out the form correctly.
+
+### Indicating progress
+
+It is important to give the user an indication of where they are within the form. This should be done by indicating the total number of steps and the user's current position (i.e. "Step 1 of 3").
+
+### Validation
+
+Validation should occur within each step of the wizard. If there are any errors with the inputs in the current step, the user should not be able to advance and errors should be displayed. Error display should follow conventions established by [Form](/templates/forms). See this behavior demonstrated in the [wizard with validation example](#with-validation).
+
+### Summarizing what was accomplished or configured
+
+The final step of a wizard should summarize what has been accomplished or configured. This summary is displayed to the user prior to form submisson. In order to complete the wizard, the user will click a submit button provided on this screen. Examples of submit button labels include "Finish Setup", "Finish Configuration", etc.
+
+### Cancellation
+
+It is important to provide the user with an option to "Cancel" or leave the wizard. Place this button on the upper right hand corner of the wizard. When clicked, the "Cancel" button should:
+
+- Open a layer that allows the user to confirm they want to cancel.
+- Provide two buttons: the primary button confirming cancellation (i.e. "Yes, cancel setup") and a secondary button allowing them to return back to completing the wizard (i.e. "No, continue setup").
+
+### Single Column vs Two Column Wizards
+
+If guidance can be provided in a short description, use a single column wizard. When additional guidance is required for the form or content of the wizard, you might consider a two-column format.
+
+**If using a single column format:**
+
+- Center the "Next" or submit button directly under the form inputs.
+
+**If using a two column format:**
+
+- Wrap guidance in a containing box with different background color than the page, so that it is visually separate from form inputs.
+- Center the "Next" or submit button underneath both the form inputs and the guidance.
+- On desktop, place the guidance to the right of form inputs.
+- On mobile, place the guidance above form inputs.
+
+## Variants
+
+Common wizard variants.
+
+### Sticky Header Wizard
+
+Using a sticky header allows the user to easily access the buttons that allow them to move back to a previous step or cancel.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/wizard/StickyHeaderFooterExample.js"
+  screenContainer
+  width="100%"
+>
+  <StickyHeaderFooterExample />
+</Example>
+
+### Two-column Wizard
+
+When additional guidance is necessary, use a two-column wizard. Click "See Fullscreen" for a more realistic experience.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js"
+  figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=71%3A406"
+  screenContainer
+  width="100%"
+>
+  <TwoColumnWizardExample />
+</Example>
+
+### With validation
+
+Validation should occur on each step. If a user has not properly completed a given step, they should not be able to advance to subsequent steps.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js"
+  screenContainer
+  width="100%"
+>
+  <WizardValidationExample />
+</Example>

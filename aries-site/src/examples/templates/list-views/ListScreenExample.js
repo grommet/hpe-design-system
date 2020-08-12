@@ -124,7 +124,8 @@ const SidebarExample = ({ ...rest }) => {
         horizontal: size !== 'small' ? 'small' : 'medium',
         vertical: size !== 'small' ? 'medium' : 'small',
       }}
-      fill={size !== 'small' ? 'vertical' : 'horizontal'}
+      fill={size === 'small' ? 'horizontal' : undefined}
+      flex={false}
       {...rest}
     >
       {size !== 'small' && (
@@ -207,8 +208,15 @@ const ScreenContainer = ({ mobile, ...rest }) => {
       width={size === 'small' ? 'medium' : '100%'}
       height={size === 'small' ? { max: 'large' } : undefined}
       style={{ position: 'relative' }}
+      fill
     >
-      <Box direction="row" fill>
+      <Box
+        background="background-contrast"
+        direction="row"
+        width={{ max: 'xxlarge' }}
+        margin="auto"
+        fill
+      >
         {size !== 'small' && <SidebarExample />}
         <Box
           overflow="auto"
