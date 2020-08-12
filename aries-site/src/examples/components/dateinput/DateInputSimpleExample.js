@@ -10,6 +10,7 @@ export const DateInputSimpleExample = () => {
   return (
     <Box align="center" pad="large">
       <DateInput
+        aria-label="dateinput"
         name="dateinput"
         id="dateinput"
         value={value}
