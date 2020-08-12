@@ -25,7 +25,6 @@ export const DateInputValidationExample = () => {
   );
   const onChange = event => {
     const nextValue = event.value;
-    console.log('onChange', nextValue);
     setValue(nextValue);
     setMessage('');
   };
