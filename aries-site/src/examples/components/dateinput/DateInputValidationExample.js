@@ -39,7 +39,7 @@ export const DateInputValidationExample = () => {
         >
           <DateInput
             onChange={onChange}
-            name="dateinput"
+            name="required-field"
             id="required-field"
             format="mm/dd/yyyy"
             value={value}
