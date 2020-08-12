@@ -1,5 +1,3 @@
-import { IconHumanCentered, IconIcons } from '../../components';
-
 const statuses = {
   complete: 'Complete',
   inProgress: 'In Progress',
@@ -89,7 +87,6 @@ export const foundation = [
     category: 'Philosophy',
     description: `The starting point of the design system is human 
     centered, generating experiences which are inclusive and vibrant.`,
-    icon: (size, color) => <IconHumanCentered size={size} color={color} />,
     preview: {
       image: {
         src: {
@@ -112,7 +109,6 @@ export const foundation = [
     to represent objects, actions, programs and other communicative symbols. 
     This clean, dynamic style remains flexible while retaining the voice of our 
     brand.`,
-    icon: (size, color) => <IconIcons size={size} color={color} />,
     preview: {
       image: {
         src: {

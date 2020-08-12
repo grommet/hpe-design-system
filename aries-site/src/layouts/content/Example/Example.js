@@ -14,6 +14,7 @@ import {
   ExampleControls,
   ExampleResources,
   ResponsiveControls,
+  ResponsiveContainer,
 } from '.';
 
 export const screens = {
@@ -23,6 +24,7 @@ export const screens = {
 };
 
 export const Example = ({
+  background,
   children,
   code,
   designer,
@@ -32,9 +34,9 @@ export const Example = ({
   height,
   relevantComponents,
   screenContainer,
-  // show screen size controls by default with screenContainer
-  showResponsiveControls = !!screenContainer,
   template,
+  // show screen size controls by default with screenContainer or template
+  showResponsiveControls = !!screenContainer || !!template,
   width,
   ...rest
 }) => {
@@ -46,9 +48,14 @@ export const Example = ({
   const { small, medium } = defaultProps.theme.global.size;
   const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
+  let ExampleWrapper;
   // show page layouts inside of mock browser screen to demonstrate
   // how content fills or is restricted at various widths
-  const ExampleWrapper = screenContainer ? BrowserWrapper : Box;
+  if (screenContainer) ExampleWrapper = BrowserWrapper;
+  // Wrap content in container that can mock "small" width to demonstrate
+  // responsive layout
+  else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
+  else ExampleWrapper = Box;
 
   return (
     <>
@@ -57,7 +64,11 @@ export const Example = ({
           {/* For use with templates or page layouts to toggle between laptop,
            ** desktop, and mobile views */}
           {showResponsiveControls && (
-            <ResponsiveControls onSetScreen={setScreen} screen={screen} />
+            <ResponsiveControls
+              controls={showResponsiveControls}
+              onSetScreen={setScreen}
+              screen={screen}
+            />
           )}
           <Box
             align={!template && !screenContainer ? 'center' : undefined}
@@ -78,13 +89,25 @@ export const Example = ({
             }
             {...rest}
           >
-            <ExampleWrapper screen={screen} width={width}>
-              <ResponsiveContext.Provider
-                value={screen === screens.mobile && 'small'}
+            {/* when Layer is open, we remove the inline Example to avoid 
+            repeat id tags that may impede interactivity of inputs */}
+            {!showLayer && (
+              <ExampleWrapper
+                background={
+                  ExampleWrapper === ResponsiveContainer && background
+                    ? background
+                    : undefined
+                }
+                screen={screen}
+                width={width}
               >
-                {children}
-              </ResponsiveContext.Provider>
-            </ExampleWrapper>
+                <ResponsiveContext.Provider
+                  value={screen === screens.mobile && 'small'}
+                >
+                  {children}
+                </ResponsiveContext.Provider>
+              </ExampleWrapper>
+            )}
           </Box>
           {(designer || docs || figma || screenContainer || template) && (
             <ExampleControls
@@ -112,12 +135,20 @@ export const Example = ({
             <Box fill background="background-front">
               <Box
                 direction="row"
-                justify={template || screenContainer ? 'between' : 'end'}
+                justify={
+                  template || screenContainer || showResponsiveControls
+                    ? 'between'
+                    : 'end'
+                }
                 pad="xxsmall"
                 background="#111"
               >
-                {(template || screenContainer) && (
-                  <ResponsiveControls onSetScreen={setScreen} screen={screen} />
+                {(template || screenContainer || showResponsiveControls) && (
+                  <ResponsiveControls
+                    controls={showResponsiveControls}
+                    onSetScreen={setScreen}
+                    screen={screen}
+                  />
                 )}
                 <Button
                   title="Leave full screen"
@@ -130,14 +161,25 @@ export const Example = ({
                 />
               </Box>
               <Box
+                background={
+                  ExampleWrapper === ResponsiveContainer && background
+                    ? background
+                    : undefined
+                }
                 direction="row"
                 justify="center"
                 align={!template && !screenContainer ? 'center' : undefined}
                 flex
+                overflow="auto"
                 {...rest}
               >
-                {screenContainer ? (
-                  <Box width={screen === screens.mobile ? 'medium' : '100%'}>
+                {screenContainer || showResponsiveControls ? (
+                  <Box
+                    // for purpose of inline scroll behavior on templates
+                    // this id is needed to reference the scroll parent
+                    id="layer-wrapper"
+                    width={screen === screens.mobile ? 'medium' : '100%'}
+                  >
                     <ResponsiveContext.Provider
                       value={screen === screens.mobile && 'small'}
                     >
@@ -161,6 +203,7 @@ export const Example = ({
 };
 
 Example.propTypes = {
+  background: PropTypes.string,
   children: PropTypes.element,
   code: PropTypes.string,
   components: PropTypes.arrayOf(

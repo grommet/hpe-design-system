@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -12,8 +13,34 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormCheckmark, FormClose } from 'grommet-icons';
-import { useDarkMode } from '../../../utils';
+import { FormCheckmark, CircleAlert } from 'grommet-icons';
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box direction="row" gap="xsmall" {...rest}>
+      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
+        <CircleAlert size="small" />
+      </Box>
+      <Text size="xsmall">{children}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.object,
+};
+
+const passwordRequirements = [
+  {
+    regexp: new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$ %^&*-]).{8,}'),
+    message: (
+      <Error background="background-front">
+        Password requirements not met.
+      </Error>
+    ),
+    status: 'error',
+  },
+];
 
 const passwordRulesStrong = [
   {
@@ -41,17 +68,23 @@ const passwordRulesStrong = [
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Missing an @?',
-    status: 'info',
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Missing an .?',
-    status: 'info',
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
+    status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: "Email address doesn't look quite right",
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
     status: 'error',
   },
 ];
@@ -82,17 +115,10 @@ const FormContainer = ({ ...rest }) => {
 };
 
 export const SimpleSignUpExample = () => {
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
-  const [backgroundError, setBackgroundError] = React.useState('');
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
-
-  // Since password rules are being checked outside the validation
-  // and being passed in the info message the background color is not
-  // being changed. We need to check if all password rules are applied
-  // then we can change background color to indicate there is no error.
 
   const onChange = values => {
     setFormValues(values);
@@ -100,11 +126,6 @@ export const SimpleSignUpExample = () => {
       const adjustedRule = { ...rule };
       const valid = adjustedRule.regexp.test(values.password);
       adjustedRule.valid = valid;
-      if (valid !== true) {
-        setBackgroundError(themeMode === 'dark' ? '#C54E4B5C' : '#FC61613D');
-      } else {
-        setBackgroundError('');
-      }
       return adjustedRule;
     });
     setPasswordRules(adjustedPasswordRules);
@@ -166,6 +187,7 @@ export const SimpleSignUpExample = () => {
             </FormField>
             <FormField
               label="Password"
+              validate={passwordRequirements}
               htmlFor="password-sign-up-simple"
               name="password"
               info={
@@ -187,13 +209,9 @@ export const SimpleSignUpExample = () => {
                     }
                     return (
                       <Box direction="row" gap="xsmall">
-                        {formValues.password && rule.valid ? (
+                        {formValues.password && rule.valid && (
                           <Box alignSelf="center">
                             <FormCheckmark size="small" />
-                          </Box>
-                        ) : (
-                          <Box alignSelf="center">
-                            <FormClose size="small" />
                           </Box>
                         )}
                         <Text size="xsmall">{rule.message}</Text>
@@ -204,7 +222,6 @@ export const SimpleSignUpExample = () => {
               }
             >
               <TextInput
-                style={{ backgroundColor: backgroundError }}
                 id="password-sign-up-simple"
                 name="password"
                 placeholder="Enter your password"

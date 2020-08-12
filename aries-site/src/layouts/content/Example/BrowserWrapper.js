@@ -12,7 +12,7 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
   return (
     <Box
       margin={{ bottom: 'medium' }}
-      elevation={screen !== screens.mobile ? 'medium' : undefined}
+      elevation="medium"
       round="xsmall"
       overflow="hidden"
       width={width}
@@ -36,6 +36,7 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
         // allow BrowserWrapper width to override width from rest
         width={screen === screens.desktop ? '75%' : '100%'}
         margin="auto"
+        overflow="auto"
       />
     </Box>
   );
