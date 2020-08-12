@@ -31,7 +31,6 @@ export const RadioButtonGroupDisabledExample = () => {
           /* Note: The `disabled` property should be set on both 
           the FormField as well as the RadioButtonGroup component */
           disabled={disabled}
-          gap="none"
         />
       </FormField>
       <FormField
