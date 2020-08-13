@@ -5,6 +5,7 @@ import {
   ButtonPreview,
   CheckBoxPreview,
   CheckBoxGroupPreview,
+  DateInputPreview,
   FooterPreview,
   GridPreview,
   HeaderPreview,
@@ -65,6 +66,20 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Button', 'Menu', 'Global Sidebar'],
+  },
+  {
+    name: 'DateInput',
+    category: 'Inputs',
+    description:
+      'A widget which allows the user to select a date or range of dates from a calendar.',
+    seoDescription:
+      'A widget which allows the user to select a date or range of dates from a calendar.',
+      relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      component: () => <DateInputPreview />,
+      background: 'background-front',
+    },
   },
   {
     name: 'TextArea',
