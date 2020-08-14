@@ -150,66 +150,39 @@ RequiredFormField.propTypes = {
   label: PropTypes.string,
 };
 
-// once check dom function is ran to find the
-// correct error span we want to get that parent node
-// and set focus on the input within that parent node.
-
-const setFocus = errors => {
-  const FormFieldBox = errors.parentNode;
-  const inputArea = FormFieldBox.querySelectorAll('input');
-  inputArea[0].focus();
-};
-
 export const ShippingExample = () => {
-  const [errors, setErrors] = React.useState(undefined);
   const [formValues, setFormValues] = React.useState({});
-
-  // Problem
-  // Currently checkdom function is being called onClick with
-  // button. This causes the issue that the dom is not updated
-  // in time for checkdom to work correctly. On the first click 
-  // of button the validation is being checked at the same time 
-  // checkdom is searching the dom which is why only on the second
-  // click checkdom is finding the correct span. The span does 
-  // not exists in time. 
-  // A solution would be to be able to wait until the error span 
-  // is in the dom to run the checkdom function
-
-
-  // With checkdom function
-  // We want to be able to check the dom for any text that
-  // is an error message every time the error is updated.
-  // we can loop through all of the span tags to get the
-  // first one that contains the error message.
-
-  React.useEffect(() => {
-    if (errors) {
-      setFocus(errors);
-    }
-  }, [errors]);
-  const checkdom = () => {
-    const spanTags = document.getElementsByTagName('span');
-    const requiredText = requiredErrorMessage;
-    const emailText = emailErrorMessage;
-    let found;
-
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < spanTags.length; i++) {
-      if (
-        spanTags[i].textContent === requiredText ||
-        spanTags[i].textContent === emailText
-      ) {
-        found = spanTags[i];
-        break;
-      }
-    }
-
-    setErrors(found);
-  };
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+  };
+
+  // provide order of formfields for validation
+  // to properly place focus on any errors or infos
+  const formFields = [
+    'firstName',
+    'lastName',
+    'address1',
+    'address2',
+    'city',
+    'state',
+    'zipcode',
+    'isBusiness',
+    'fullName-shipping',
+    'phone-shipping',
+    'email-shipping',
+  ];
+
+  const onValidate = validationResults => {
+    const target = formFields.find(
+      field =>
+        field in validationResults.errors || field in validationResults.infos,
+    );
+    if (target) {
+      const targetFormField = document.getElementsByName(target);
+      targetFormField[0].focus();
+    }
   };
 
   return (
@@ -231,11 +204,12 @@ export const ShippingExample = () => {
           pad={{ horizontal: 'xxsmall' }}
         >
           <Form
-            validate="submit"
             value={formValues}
             messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+            onValidate={onValidate}
+            validate="submit"
           >
             <Box>
               <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
@@ -302,30 +276,42 @@ export const ShippingExample = () => {
                 label="Full Name"
                 required
                 htmlFor="fullName"
-                name="fullName"
+                name="fullName-shipping"
               >
                 <TextInput
                   id="fullName"
-                  name="fullName"
+                  name="fullName-shipping"
                   placeholder="Full Name"
                 />
               </FormField>
-              <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
-                <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
+              <FormField
+                htmlFor="phone-ship"
+                name="phone-shipping"
+                label="Phone Number"
+              >
+                <MaskedInput
+                  id="phone-ship"
+                  name="phone-shipping"
+                  mask={phoneMask}
+                />
               </FormField>
               <RequiredFormField
                 htmlFor="email-ship"
-                name="email"
+                name="email-shipping"
                 required
                 label="Email Address"
                 validate={emailValidation}
               >
-                <MaskedInput id="email-ship" name="email" mask={emailMask} />
+                <MaskedInput
+                  id="email-ship"
+                  name="email-shipping"
+                  mask={emailMask}
+                />
               </RequiredFormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
               <Button
-                onClick={checkdom}
+                // onClick={checkdom}
                 label="Continue"
                 primary
                 type="submit"
