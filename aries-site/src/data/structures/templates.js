@@ -14,6 +14,7 @@ export const templates = [
         fit: 'contain',
       },
     },
+    relatedContent: ['Dashboards', 'Cards', 'Page Layouts'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
@@ -220,5 +221,13 @@ export const templates = [
       'HPE Design System data visualization examples and templates.',
     sections: [],
     relatedContent: [],
+  },
+  {
+    name: 'Wizard',
+    available: true,
+    description: 'Wizards are an effective way to handle multi-step forms.',
+    seoDescription: 'Wizards are an effective way to handle multi-step forms.',
+    sections: [],
+    relatedContent: ['Forms'],
   },
 ];

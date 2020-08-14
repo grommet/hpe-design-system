@@ -12,6 +12,22 @@ import {
   Text,
   TextInput,
 } from 'grommet';
+import { CircleAlert } from 'grommet-icons';
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box direction="row" gap="xsmall" {...rest}>
+      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
+        <CircleAlert size="small" />
+      </Box>
+      <Text size="xsmall">{children}</Text>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.object,
+};
 
 const emailMask = [
   {
@@ -105,23 +121,26 @@ const phoneMask = [
   },
 ];
 
-const emailErrorMessage = 'Enter a valid email address.';
-const requiredErrorMessage = '! This is a required field.';
-
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: emailErrorMessage,
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: emailErrorMessage,
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: emailErrorMessage,
+    message: (
+      <Error background="background-front">Enter a valid email address.</Error>
+    ),
     status: 'error',
   },
 ];
@@ -205,8 +224,15 @@ export const ShippingExample = () => {
         >
           <Form
             value={formValues}
-            messages={{ required: requiredErrorMessage }}
+            // messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
+            messages={{
+              required: (
+                <Error background="background-front">
+                  This is a required field.
+                </Error>
+              ),
+            }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
             onValidate={onValidate}
             validate="submit"

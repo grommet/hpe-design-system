@@ -38,7 +38,6 @@ export const RadioButtonGroupValidationExample = () => {
           options={powerRegulationOptions}
           value={powerRegulation}
           onChange={event => onChange(event.target.value)}
-          gap="none"
         />
       </FormField>
     </Form>

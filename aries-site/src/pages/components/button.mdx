@@ -1,6 +1,10 @@
 import { Example } from '../../layouts';
 import {
   ButtonExample,
+  ButtonIconExample,
+  ButtonStatesExample,
+  ButtonSizingExample,
+  ColorButtonExample,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -88,4 +92,52 @@ This is the default appreance and behavior of button. The majority of buttons on
   height={{ min: 'small' }}
 >
   <DefaultButtonExample />
+</Example>
+
+### Color Button
+
+When looking to accent an interaction or for special use cases that require more importance than a [default button](#default-button), the Color Button can be used to support an HPE sub-brand when appropriate or a serious action (ie. using red for a destructive task).
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ColorButtonExample.js"
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <ColorButtonExample />
+</Example>
+
+### Button with Icon
+
+Icons may be incorporated into buttons, either inline with text or as an icon only. When using icon only buttons, the dimension of the clickable area should be kept in mind for its use on mobile devices. Areas too small lead to errant clicks, and as result, poor experience.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonIconExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonIconExample />
+</Example>
+
+### Button States
+
+A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonStatesExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonStatesExample />
+</Example>
+
+### Button Sizes
+
+Button label text size may be specified. Padding and rounding scale proportionately to the label size. The default size is medium.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonSizingExample />
 </Example>
