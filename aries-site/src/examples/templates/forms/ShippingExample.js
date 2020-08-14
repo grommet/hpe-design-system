@@ -224,7 +224,6 @@ export const ShippingExample = () => {
         >
           <Form
             value={formValues}
-            // messages={{ required: requiredErrorMessage }}
             onChange={setFormValues}
             messages={{
               required: (
@@ -254,7 +253,7 @@ export const ShippingExample = () => {
                   placeholder="First Name"
                 />
               </FormField>
-              <FormField htmlFor="lastName" name="lastName">
+              <FormField required htmlFor="lastName" name="lastName">
                 <TextInput
                   id="lastName"
                   name="lastName"
@@ -336,12 +335,7 @@ export const ShippingExample = () => {
               </RequiredFormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button
-                // onClick={checkdom}
-                label="Continue"
-                primary
-                type="submit"
-              />
+              <Button label="Continue" primary type="submit" />
             </Box>
           </Form>
         </Box>
