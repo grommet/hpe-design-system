@@ -193,6 +193,9 @@ export const ShippingExample = () => {
     'email-shipping',
   ];
 
+  // On long forms, we want to focus the first of any fields that
+  // return an error or info message. This removes the need for the
+  // user to scroll to find which field blocked form submission.
   const onValidate = validationResults => {
     const target = formFields.find(
       field =>
