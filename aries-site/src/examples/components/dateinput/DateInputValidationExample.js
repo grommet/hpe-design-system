@@ -25,8 +25,16 @@ export const DateInputValidationExample = () => {
   );
   const onChange = event => {
     const nextValue = event.value;
-    setValue(nextValue);
-    setMessage('');
+    if (!nextValue) {
+      setMessage(
+        <Error background="background-front">
+          Select date to resolve error
+        </Error>,
+      );
+    } else {
+      setMessage('');
+      setValue(nextValue);
+    }
   };
   return (
     <Box align="center" pad="large">
