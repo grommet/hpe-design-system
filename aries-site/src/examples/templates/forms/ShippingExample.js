@@ -177,6 +177,36 @@ export const ShippingExample = () => {
     // Your submission logic here
   };
 
+  // provide order of formfields for validation
+  // to properly place focus on any errors or infos
+  const formFields = [
+    'firstName',
+    'lastName',
+    'address1',
+    'address2',
+    'city',
+    'state',
+    'zipcode',
+    'isBusiness',
+    'fullName-shipping',
+    'phone-shipping',
+    'email-shipping',
+  ];
+
+  // On long forms, we want to focus the first of any fields that
+  // return an error or info message. This removes the need for the
+  // user to scroll to find which field blocked form submission.
+  const onValidate = validationResults => {
+    const target = formFields.find(
+      field =>
+        field in validationResults.errors || field in validationResults.infos,
+    );
+    if (target) {
+      const targetFormField = document.getElementsByName(target);
+      targetFormField[0].focus();
+    }
+  };
+
   return (
     <FormContainer width="medium">
       <Box gap="medium">
@@ -196,7 +226,6 @@ export const ShippingExample = () => {
           pad={{ horizontal: 'xxsmall' }}
         >
           <Form
-            validate="blur"
             value={formValues}
             onChange={setFormValues}
             messages={{
@@ -207,6 +236,8 @@ export const ShippingExample = () => {
               ),
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+            onValidate={onValidate}
+            validate="submit"
           >
             <Box>
               <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
@@ -232,7 +263,7 @@ export const ShippingExample = () => {
                   placeholder="Last Name"
                 />
               </FormField>
-              <FormField required htmlFor="address1" name="address1">
+              <FormField htmlFor="address1" name="address1">
                 <TextInput
                   id="address1"
                   name="address1"
@@ -246,10 +277,10 @@ export const ShippingExample = () => {
                   placeholder="Apt., Suite, Building (Optional)"
                 />
               </FormField>
-              <FormField required htmlFor="city" name="city">
+              <FormField htmlFor="city" name="city">
                 <TextInput id="city" name="city" placeholder="City" />
               </FormField>
-              <FormField required htmlFor="state" name="state">
+              <FormField htmlFor="state" name="state">
                 <Select
                   id="state"
                   name="state"
@@ -258,7 +289,7 @@ export const ShippingExample = () => {
                   placeholder="Select State"
                 />
               </FormField>
-              <FormField required htmlFor="zipcode" name="zipcode">
+              <FormField htmlFor="zipcode" name="zipcode">
                 <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
               </FormField>
               <FormField htmlFor="isBusiness" name="isBusiness">
@@ -269,17 +300,41 @@ export const ShippingExample = () => {
               <Text size="large" margin={{ vertical: 'small' }}>
                 Contact Information
               </Text>
-              <FormField htmlFor="phone-ship" name="phone" label="Phone Number">
-                <MaskedInput id="phone-ship" name="phone" mask={phoneMask} />
+              <FormField
+                label="Full Name"
+                required
+                htmlFor="fullName"
+                name="fullName-shipping"
+              >
+                <TextInput
+                  id="fullName"
+                  name="fullName-shipping"
+                  placeholder="Full Name"
+                />
+              </FormField>
+              <FormField
+                htmlFor="phone-ship"
+                name="phone-shipping"
+                label="Phone Number"
+              >
+                <MaskedInput
+                  id="phone-ship"
+                  name="phone-shipping"
+                  mask={phoneMask}
+                />
               </FormField>
               <RequiredFormField
                 htmlFor="email-ship"
-                name="email"
+                name="email-shipping"
                 required
                 label="Email Address"
                 validate={emailValidation}
               >
-                <MaskedInput id="email-ship" name="email" mask={emailMask} />
+                <MaskedInput
+                  id="email-ship"
+                  name="email-shipping"
+                  mask={emailMask}
+                />
               </RequiredFormField>
             </Box>
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
