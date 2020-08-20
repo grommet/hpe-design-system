@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  defaultProps,
-  Keyboard,
-  Layer,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
+  Container,
   ExampleControls,
   ExampleResources,
   ResponsiveControls,
@@ -32,6 +26,7 @@ export const Example = ({
   docs,
   figma,
   height,
+  horizontalLayout,
   relevantComponents,
   screenContainer,
   template,
@@ -40,13 +35,9 @@ export const Example = ({
   width,
   ...rest
 }) => {
+  const size = React.useContext(ResponsiveContext);
   const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
-
-  // Height for template screen needs to be between medium and large
-  // to maintain aspect ratio, so this is small + medium
-  const { small, medium } = defaultProps.theme.global.size;
-  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   let ExampleWrapper;
   // show page layouts inside of mock browser screen to demonstrate
@@ -56,6 +47,65 @@ export const Example = ({
   // responsive layout
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
+
+  // These props control the styling of the example within the overall example
+  // container
+  const containerProps = {
+    height,
+    horizontalLayout,
+    template,
+    screenContainer,
+    showResponsiveControls,
+    designer,
+    docs,
+    figma,
+  };
+
+  // when Layer is open, we remove the inline Example to avoid
+  // repeat id tags that may impede interactivity of inputs
+  const content = !showLayer && (
+    <Container {...containerProps}>
+      <ExampleWrapper
+        background={
+          ExampleWrapper === ResponsiveContainer && background
+            ? background
+            : undefined
+        }
+        screen={screen}
+        width={width}
+      >
+        <ResponsiveContext.Provider
+          value={screen === screens.mobile && 'small'}
+        >
+          {children}
+        </ResponsiveContext.Provider>
+      </ExampleWrapper>
+    </Container>
+  );
+
+  const controls = (designer ||
+    docs ||
+    figma ||
+    screenContainer ||
+    template) && (
+    <ExampleControls
+      designer={designer}
+      docs={docs}
+      figma={figma}
+      horizontalLayout={horizontalLayout}
+      setShowLayer={value => setShowLayer(value)}
+    />
+  );
+
+  const resources = (
+    <ExampleResources
+      code={code}
+      details={details}
+      margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
+      horizontalLayout={horizontalLayout}
+      relevantComponents={relevantComponents}
+    />
+  );
 
   return (
     <>
@@ -70,59 +120,23 @@ export const Example = ({
               screen={screen}
             />
           )}
-          <Box
-            align={!template && !screenContainer ? 'center' : undefined}
-            background="background-front"
-            direction="row"
-            height={template || screenContainer ? aspectHeight : height}
-            justify="center"
-            margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
-            pad={
-              template || screenContainer
-                ? { horizontal: 'large', top: 'large' }
-                : 'large'
-            }
-            round={
-              designer || docs || figma || screenContainer || template
-                ? { corner: 'top', size: 'small' }
-                : 'small'
-            }
-            {...rest}
-          >
-            {/* when Layer is open, we remove the inline Example to avoid 
-            repeat id tags that may impede interactivity of inputs */}
-            {!showLayer && (
-              <ExampleWrapper
-                background={
-                  ExampleWrapper === ResponsiveContainer && background
-                    ? background
-                    : undefined
-                }
-                screen={screen}
-                width={width}
-              >
-                <ResponsiveContext.Provider
-                  value={screen === screens.mobile && 'small'}
-                >
-                  {children}
-                </ResponsiveContext.Provider>
-              </ExampleWrapper>
-            )}
-          </Box>
-          {(designer || docs || figma || screenContainer || template) && (
-            <ExampleControls
-              designer={designer}
-              docs={docs}
-              figma={figma}
-              setShowLayer={value => setShowLayer(value)}
-            />
+          {!horizontalLayout ? (
+            <>
+              {content}
+              {controls}
+              {resources}
+            </>
+          ) : (
+            <Box align="start" direction="row-responsive" gap="medium">
+              <Box width={width || 'large'}>{content}</Box>
+              <Box>
+                {size !== 'small' && resources}
+                {controls}
+                {size === 'small' && resources}
+              </Box>
+            </Box>
           )}
         </>
-        <ExampleResources
-          code={code}
-          details={details}
-          relevantComponents={relevantComponents}
-        />
       </Box>
       {showLayer && (
         <Keyboard
@@ -219,6 +233,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  horizontalLayout: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.bool,

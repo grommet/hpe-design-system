@@ -1,4 +1,5 @@
 export * from './BrowserWrapper';
+export * from './Container';
 export * from './Example';
 export * from './ExampleControls';
 export * from './ExampleResources';
