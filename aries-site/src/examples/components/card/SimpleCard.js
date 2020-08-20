@@ -10,7 +10,7 @@ export const SimpleCard = () => (
         <Text color="text-strong" size="xxlarge" weight="bold">
           HPE
         </Text>
-        <Text color="text-strong">Application Name</Text>
+        <Text color="text-strong">Design System</Text>
       </Box>
     </Box>
   </Card>
