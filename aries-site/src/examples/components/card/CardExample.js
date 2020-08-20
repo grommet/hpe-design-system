@@ -37,10 +37,10 @@ export const CardExample = () => {
       elevation={isFocused ? 'medium' : 'small'}
       onClick={() => {
         // eslint-disable-next-line no-alert
-        alert(
-          `Typically a click would route to a view with 
-            greater detail behind this summary information.`,
-        );
+        alert(`
+        Typically a click would route to a view with 
+        greater detail behind this summary information.`,
+        `);
       }}
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
