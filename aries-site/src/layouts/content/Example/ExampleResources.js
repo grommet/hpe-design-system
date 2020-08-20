@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import { Box, Text, ThemeContext } from 'grommet';
+import { Box, ResponsiveContext, Text, ThemeContext } from 'grommet';
 import {
   CardGrid,
   CollapsibleSection,
@@ -13,9 +13,19 @@ import { syntax } from '.';
 const getRelatedCards = names =>
   names.sort().map(pattern => getPageDetails(pattern));
 
-export const ExampleResources = ({ code, details, relevantComponents }) => {
-  const theme = React.useContext(ThemeContext);
-  const [codeOpen, setCodeOpen] = React.useState();
+export const ExampleResources = ({
+  code,
+  details,
+  horizontalLayout,
+  relevantComponents,
+  ...rest
+}) => {
+  const theme = useContext(ThemeContext);
+  const size = useContext(ResponsiveContext);
+
+  const [codeOpen, setCodeOpen] = React.useState(
+    horizontalLayout ? true : undefined,
+  );
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
   const codeRef = React.useRef();
@@ -38,8 +48,42 @@ export const ExampleResources = ({ code, details, relevantComponents }) => {
     theme.dark,
   ]);
 
+  if (horizontalLayout && code) {
+    return size !== 'small' ? (
+      <Box
+        background="background-contrast"
+        height={{ max: 'medium' }}
+        overflow="auto"
+        pad="medium"
+        round="small"
+        width={{ min: 'small' }}
+        {...rest}
+      >
+        <Text size="xsmall" color="text">
+          <Syntax>
+            <code ref={codeRef} className="language-jsx">
+              {codeText}
+            </code>
+          </Syntax>
+        </Text>
+      </Box>
+    ) : (
+      <CollapsibleSection
+        label={{ closed: 'Show Code', open: 'Hide Code' }}
+        onClick={() => setCodeOpen(!codeOpen)}
+      >
+        <Text size="xsmall" color="text">
+          <Syntax>
+            <code ref={codeRef} className="language-jsx">
+              {codeText}
+            </code>
+          </Syntax>
+        </Text>
+      </CollapsibleSection>
+    );
+  }
   return (
-    <Box gap="medium">
+    <Box gap="medium" margin={{ top: 'large' }}>
       {details && (
         <CollapsibleSection
           label={{ closed: 'Show Details', open: 'Hide Details' }}
@@ -85,5 +129,6 @@ ExampleResources.propTypes = {
   details: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   ),
+  horizontalLayout: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
 };
