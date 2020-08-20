@@ -6,7 +6,7 @@ import { aries as theme } from '../themes/aries';
  */
 
 const { colors, elevation } = theme.global;
-const { formField, layer } = theme;
+const { layer } = theme;
 
 /* Color Palette */
 const primaryColors = [
