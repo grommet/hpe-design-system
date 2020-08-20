@@ -55,7 +55,7 @@ export const components = [
   },
   {
     name: 'Card',
-    category: 'Controls',
+    category: 'Layouts',
     description: `Flexible props allow the behavior of content to be defined 
     to optimize the user experience.`,
     seoDescription: `Flexible props allow the behavior of content to be defined 
