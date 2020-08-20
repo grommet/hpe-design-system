@@ -56,10 +56,8 @@ export const components = [
   {
     name: 'Card',
     category: 'Layouts',
-    description: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
-    seoDescription: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
+    description: `A container providing at-a-glance information and easy access to more details.`,
+    seoDescription: `A container providing at-a-glance information and easy access to more details.`,
     preview: {
       image: {
         src: {
