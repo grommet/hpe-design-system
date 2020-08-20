@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Card, CardFooter, Text } from 'grommet';
-import { Alert, Location } from 'grommet-icons';
+import { Alert, Server } from 'grommet-icons';
 
 export const CardWithFooter = () => (
   <Card width="medium">
     <Identifier
-      icon={<Location size="large" color="text-strong" />}
-      title="Title"
-      subtitle="Subtitle"
+      icon={<Server size="large" color="text-strong" />}
+      title="OmniStackVC-10"
+      subtitle="LA_cluster_1"
     />
     <CardFooter
       pad={{ horizontal: 'medium', vertical: 'small' }}
@@ -16,7 +16,7 @@ export const CardWithFooter = () => (
       justify="start"
     >
       <Alert />
-      <Text weight="bold">This is a footer</Text>
+      <Text weight="bold">Expired</Text>
     </CardFooter>
   </Card>
 );

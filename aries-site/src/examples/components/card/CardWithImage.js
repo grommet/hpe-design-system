@@ -12,9 +12,11 @@ export const CardWithImage = () => (
     <CardBody gap="xsmall" pad="medium">
       <Box>
         <Text color="text-strong" size="xxlarge" weight="bold">
-          Title
+          HPE HQ
         </Text>
-        <Text color="text-strong">Subtitle</Text>
+        <Text color="text-strong">
+          6280 America Center Dr, San Jose, CA 95002
+        </Text>
       </Box>
     </CardBody>
   </Card>

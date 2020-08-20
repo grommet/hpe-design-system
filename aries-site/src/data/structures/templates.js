@@ -14,7 +14,7 @@ export const templates = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Dashboards', 'Cards', 'Page Layouts'],
+    relatedContent: ['Dashboards', 'Card', 'Page Layouts'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
@@ -123,25 +123,6 @@ export const templates = [
     sections: [],
   },
   {
-    name: 'Cards',
-    available: true,
-    description: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
-    seoDescription: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-cards.svg',
-          dark: '/templateImages/template-preview-cards-invert.svg',
-        },
-        alt: 'HPE Cards Preview',
-      },
-    },
-    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
-    sections: [],
-  },
-  {
     name: 'Dashboards',
     available: true,
     description: `At-a-glance preview for operation critical information 
@@ -158,7 +139,7 @@ export const templates = [
     seoDescription: `HPE Design System dashboard template for screens 
     featuring content within cards.`,
     sections: [],
-    relatedContent: ['Cards', 'Lists', 'Grid'],
+    relatedContent: ['Card', 'Lists', 'Grid'],
   },
   {
     name: 'Forms',
