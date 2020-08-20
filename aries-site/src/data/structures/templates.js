@@ -125,8 +125,7 @@ export const templates = [
   {
     name: 'Cards',
     available: true,
-    description: `Flexible props allow the behavior of content to be defined 
-    to optimize the user experience.`,
+    description: `A container of information that provides at-a-glance information and easy access to more details.`,
     seoDescription: `Flexible props allow the behavior of content to be defined 
     to optimize the user experience.`,
     preview: {
