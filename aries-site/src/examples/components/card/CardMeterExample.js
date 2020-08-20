@@ -9,10 +9,10 @@ export const CardMeterExample = () => (
   <Card
     onClick={() => {
       // eslint-disable-next-line no-alert
-      alert(
-        `Typically a click would route to a view with 
-                  greater detail behind this summary information.`,
-      );
+        alert(`
+        Typically a click would route to a view with 
+        greater detail behind this summary information.`,
+        `);
     }}
   >
     <CardBody pad="medium" gap="medium">
