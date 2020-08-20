@@ -233,9 +233,9 @@ const inputLight = [
     type: 'border',
   },
   {
-    name: 'validation-error',
-    value: formField.error.background.color.light,
-    hex: formField.error.background.color.light,
+    name: 'validation-critical',
+    value: colors['validation-critical'].light,
+    hex: colors['validation-critical'].light,
   },
   {
     name: 'disabled',
@@ -258,9 +258,9 @@ const inputDark = [
     type: 'border',
   },
   {
-    name: 'validation-error',
-    value: formField.error.background.color.dark,
-    hex: formField.error.background.color.dark,
+    name: 'validation-critical',
+    value: colors['validation-critical'].dark,
+    hex: colors['validation-critical'].dark,
   },
   {
     name: 'disabled',
@@ -291,18 +291,18 @@ const textColors = [
 const statusColorsLight = [
   {
     name: 'status-critical',
-    value: colors.red.light,
-    hex: colors.red.light,
+    value: colors['status-critical'].light,
+    hex: colors['status-critical'].light,
   },
   {
     name: 'status-warning',
-    value: colors.orange.light,
-    hex: colors.orange.light,
+    value: colors['status-warning'].light,
+    hex: colors['status-warning'].light,
   },
   {
     name: 'status-ok',
-    value: colors.green.light,
-    hex: colors.green.light,
+    value: colors['status-ok'].light,
+    hex: colors['status-ok'].light,
   },
   {
     name: 'status-unknown',
@@ -314,18 +314,18 @@ const statusColorsLight = [
 const statusColorsDark = [
   {
     name: 'status-critical',
-    value: colors['red!'],
-    hex: colors['red!'],
+    value: colors['status-critical'].dark,
+    hex: colors['status-critical'].dark,
   },
   {
     name: 'status-warning',
-    value: colors.orange.dark,
-    hex: colors.orange.dark,
+    value: colors['status-warning'].dark,
+    hex: colors['status-warning'].dark,
   },
   {
     name: 'status-ok',
-    value: colors.green.dark,
-    hex: colors.green.dark,
+    value: colors['status-ok'].dark,
+    hex: colors['status-ok'].dark,
   },
   {
     name: 'status-unknown',
