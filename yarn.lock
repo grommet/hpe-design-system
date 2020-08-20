@@ -8197,12 +8197,12 @@ grommet-styles@^0.2.0:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable#83003c2a76f2b9539daac0d7fe7f3a2df01b59f2"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable#33106fbdd433842ba4376153648f3db222de9175"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.14.0"
-  uid "6630e829116fb6ea43242da27bbd6507bcc26d4e"
-  resolved "https://github.com/grommet/grommet/tarball/stable#6630e829116fb6ea43242da27bbd6507bcc26d4e"
+  uid "741e2a03059fbbc4a02fa6495c774bd21e3bd857"
+  resolved "https://github.com/grommet/grommet/tarball/stable#741e2a03059fbbc4a02fa6495c774bd21e3bd857"
   dependencies:
     grommet-icons "^4.2.0"
     hoist-non-react-statics "^3.2.0"
