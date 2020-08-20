@@ -124,7 +124,7 @@ export const templates = [
   },
   {
     name: 'Cards',
-    available: false,
+    available: true,
     description: `Flexible props allow the behavior of content to be defined 
     to optimize the user experience.`,
     seoDescription: `Flexible props allow the behavior of content to be defined 
@@ -138,6 +138,7 @@ export const templates = [
         alt: 'HPE Cards Preview',
       },
     },
+    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
     sections: [],
   },
   {
