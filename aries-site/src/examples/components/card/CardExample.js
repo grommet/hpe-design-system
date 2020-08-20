@@ -39,7 +39,7 @@ export const CardExample = () => {
         // eslint-disable-next-line no-alert
         alert(`
         Typically a click would route to a view with 
-        greater detail behind this summary information.`,
+        greater detail behind this summary information.
         `);
       }}
       onBlur={() => setIsFocused(false)}

@@ -56,8 +56,8 @@ export const components = [
   {
     name: 'Card',
     category: 'Layouts',
-    description: `A container providing at-a-glance information and easy access to more details.`,
-    seoDescription: `A container providing at-a-glance information and easy access to more details.`,
+    description: 'A container providing at-a-glance information and easy access to more details.',
+    seoDescription: 'A container providing at-a-glance information and easy access to more details.',
     preview: {
       image: {
         src: {
