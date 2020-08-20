@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Card, CardBody, CardFooter, Meter, Stack, Text } from 'grommet';
 import { Wifi } from 'grommet-icons';
 
-const mockAvailability = 0.958;
+const mockAvailability = 0.872;
 
 export const CardMeterExample = () => (
   <Card
@@ -24,6 +24,7 @@ export const CardMeterExample = () => (
       <Box flex align="center" justify="center">
         <KPIMeter
           id="metric-11"
+          background="background-back"
           values={[
             {
               value: mockAvailability,
