@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Box, Image } from 'grommet';
-import { Figma, Share } from 'grommet-icons';
+import { Anchor, Box, Image } from 'grommet';
 
-export const ExampleImagePreview = ({ figma, label, href, ...rest }) => {
+export const ExampleImagePreview = ({ label, href, ...rest }) => {
   return (
     <Box align="start" gap="medium">
       <Box
@@ -15,10 +14,7 @@ export const ExampleImagePreview = ({ figma, label, href, ...rest }) => {
       >
         <Image fit="cover" {...rest} />
       </Box>
-      <Box direction="row" gap="xsmall">
-        {figma && <Button icon={<Figma color="plain" />} href={figma} />}
-        {label && href && <Button icon={<Share />} label={label} href={href} />}
-      </Box>
+      {label && href && <Anchor label={label} href={href} />}
     </Box>
   );
 };
