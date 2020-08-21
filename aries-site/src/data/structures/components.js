@@ -21,6 +21,7 @@ import {
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
+import { TableExample } from '../../examples/components/table';
 
 const statuses = {
   complete: 'Complete',
@@ -74,7 +75,7 @@ export const components = [
       'A widget which allows the user to select a date or range of dates from a calendar.',
     seoDescription:
       'A widget which allows the user to select a date or range of dates from a calendar.',
-      relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
       component: () => <DateInputPreview />,
@@ -354,6 +355,18 @@ export const components = [
     },
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
+    sections: [],
+  },
+  {
+    name: 'Table',
+    category: 'Visualizations',
+    description: 'Table presents data in a column and row format.',
+    preview: {
+      component: () => <TableExample />,
+      background: 'background-front',
+    },
+    relatedContent: ['Lists', 'Cards'],
+    seoDescription: 'Data presentation in column and row format.',
     sections: [],
   },
 ];

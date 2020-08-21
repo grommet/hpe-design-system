@@ -1,0 +1,120 @@
+import { Anchor, Box, Image } from 'grommet';
+import { Example } from '../../layouts';
+import {
+  TableExample
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  height={{ min: 'small' }}
+>
+  <TableExample />
+</Example>
+
+## What Makes Up a Table? (Why & What)
+Tables enable users to accomplish a task by finding records of interest, then take action against them.
+They present structured data in a grid, with columns and rows to aid readability, scanability, and show 
+the meaning of the data.
+
+<Box align="start" fill height={{max: 'medium'}} margin={{top: 'small', bottom: 'medium'}} >
+  <Image src="/static/images/Table_Anatomy.svg" />
+</Box>
+
+**Columns**<br />
+Contain a single data type and help users scan, read and take action through data.
+They may be enhanced by allowing users to sort or filter records by the column's data.
+[Column details >]()
+
+**Rows**<br />
+Rows help users scan, read and take action through data. 
+They may be enhanced by actions such as selection and navigation to record detail.
+[Row detail >]()
+
+
+**Cells**<br />
+Commonly contain numerical and textual data, but may also include visuals such as meters, 
+status indicators, anchors, and buttons.
+[Cell variants, actions & behaviors >]()
+
+
+## When to Use (When)
+
+- Finding and taking action agains a specific record. (Searching)
+
+<Box align="start" height={{max: 'medium'}} width="medium" margin={{top: 'small', bottom: 'medium'}} >
+  <Image src="/static/images/Finding_Specific_Records.png" fit="cover" fill />
+</Box>
+
+<Box align="start" gap="medium">
+  <Box
+    width="medium"
+    height=""
+    round="small"
+    elevation="medium"
+    overflow="hidden"
+  >
+    <Image fit="cover" src="/static/images/Finding_Specific_Records.png" />
+  </Box>
+  <Anchor label="See Example" href="#" />
+</Box>
+
+- Narrowing a result set down to a group of records sharing similar characteristics. (Filtering)
+- Facilitate scanning of records to identify potential outliers or records which the user is unaware need attention or action. (Browsing)
+- Assembling a data set for analysis. (Filtering)
+
+## Guidelines (How)
+### Too many columns?
+The number of columns and rows should be guided by the task the user is setting 
+out to accomplish.
+
+Generally, if there are more than 5-7 columns in the table, it is a sign that 
+a single table is trying to solve too many user problems at once. In that case, 
+consider:
+- Are there too many user persona types using this view? If so, are there opportunities 
+to personalize the view by role?
+- What are the user interactions leading up to the table view? Are there opportunities 
+to improve navigation and build intentful user flows?
+- Perhaps, it is unclear as to what the user problem the table is attempting 
+to solve? A good opportunity for speaking to and learning from end users!
+
+**The Exception**
+
+In an analytical context, where the goal is to assemble a data set and identify patterns 
+within it, a larger number of columns may be neccessary.
+
+In this context, a Table should facilitate the assembly of the data set and make the set 
+accessible in a tool specifically designed for analysis.
+
+### Search vs. Filter?
+Great question. 
+
+Complimenatary elements such as search or filters should be guided by the task the user 
+is setting out to accomplish.
+- Trying to find a specific record? --> Search.
+- Trying to narrow records down to a set of shared characteristics? --> Filter.
+- Not quite certain for what I am looking, but I know its general characteristics? --> Filter.
+
+... btw, what's the difference anyway? 🤔
+
+[See Searching & Filtering]() for greater detail.
+
+### Pagination vs. Infinite Scroll
+Should be guided by the task the user is setting out to accomplish.
+
+- Browsing? --> Infinite Scroll
+  - Perhaps I am reviewing a customer's account history. I am not looking for 
+  a particular record, rather I am in scanning mode, trying to get a sense of 
+  the volume and types of interaction with a customer over time. Infinite Scroll 
+  creates a nice, frictionless experirence for this to occur.
+- Searching for a specific record? --> It depends.
+  - Do you have a good search experience? --> Infinite Scroll
+  - Do you have a performant API?
+  - Do you require page reloads?
+  - Is your data structured? 
+- Do rows have many interactive elements? --> Pagination
+  - Be mindful of keyboard users.
+
+## Variants for how Table can be used
+
