@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  CardAnatomy,
   CardExample,
   CardMeterExample,
   CardWithFooter,
@@ -11,7 +12,7 @@ import {
 Elements of a card can include titles, subheadings, charts, media, metadata, and notifications. They are flexible and customizable to organize your content.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardExample.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/CardExample.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
   figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
 >
@@ -20,6 +21,14 @@ Elements of a card can include titles, subheadings, charts, media, metadata, and
 
 ## What makes up a Card?
 
+### Purpose
+
+- Allows the user to quickly scan and determine if they should engage further
+- Focused and concise information of a single subject
+- Primarily limited to a singular action (like a large button)
+- Secondary actions (i.e. clickable icons, anchors, buttons) should be clearly 
+distiguishable. When applying these use cases, the card no longer should behave as a primary action.
+
 ### Form
 
 - Aligns to the grid and global edge size for gap, margin, and pad
@@ -27,38 +36,31 @@ Elements of a card can include titles, subheadings, charts, media, metadata, and
 - Can include a footer for additional information
 - Customizable background, border, and elevation
 
-### Purpose
-
-- Allows the user to quickly scan and determine if they should engage further
-- Focused and concise information of a single subject
-- Primarily limited to a singular action (like a large button)
-- Secondary actions (i.e. clickable icons, anchors, buttons) should be clearly distiguishable. When applying these use cases, the card no longer should behave as a primary action.
+### Content
+- Provides a summary preview of information to scan and process
+- Visually group content or distinguish various types of information
+- Organize in a responsive grid or list
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardMeterExample.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/CardAnatomy.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
 >
-  <CardMeterExample />
+  <CardAnatomy />
 </Example>
 
-## How might a Card be used?
+## When to Use
 
-### Content
-
-- Provides the user a preview of information to scan and process
-- Visually group content or distinguish various types of information
-- Easily organize content in grid or list layouts
-
-### Layout
-
-- Summarizes information to easily visualize and compare
-- Creates a uniform, homogenous collection of content
-- Organize in a responsive grid or list (i.e. dashboard or navigation)
-- Displays items in a data set that can best be identified visually
+- When presenting a collection of high-level pieces of information (e.g. dashboard)
+- When presenting a menu of options (e.g. a catalog of available services)
+- Best for sets of items which can best be consumed visually
 
 ### Dashboard Example
+Cards may be customized to meet the needs of the content they contain.
+In a dashboard, content is organized and displayed for the user to quickly 
+scan and identify areas which may need for further engagement.
 
-Cards can be customized to meet the needs of the content. In a dashboard, content is organized and displayed for the user to quickly scan and make decisions about further engagement. Each card is customizable and clickable (like a large button) to explore details of the summarized content.
+Each card is customizable and clickable (like a large button) allowing users to explore 
+the detail behind the summarized content.
 Learn more about [Dashboard Templates](/templates/dashboards).
 
 <ExampleImagePreview
@@ -70,8 +72,10 @@ Learn more about [Dashboard Templates](/templates/dashboards).
 
 ### Navigation Example
 
-A grid of cards can provide a simple set of easy to navigate items. In this example, the cards are a uniform, homogenous collection of services that can be easily scanned. Each card is clickable to enter or explore the service.
-Learn about the [Grid Component](/components/grid).
+A grid of cards can provide a simple set of easy to navigate items. In this example, 
+the cards are a uniform, homogenous collection of services, which can be browsed
+and easily digested. A click on card leads to that service's view and allow the user
+to explore further.
 
 <ExampleImagePreview
   label="See Cards as Navigation"
@@ -80,7 +84,7 @@ Learn about the [Grid Component](/components/grid).
   alt="HPE Design System Card Navigation Example"
 />
 
-## Any additional guidelines for Card?
+## Guidelines
 
 ### General
 
@@ -109,7 +113,7 @@ Learn about the [Grid Component](/components/grid).
 Consider a small, simple card for smaller data sets that can be scanned easily in a list.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/SimpleCard.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/SimpleCard.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
 >
   <SimpleCard />
@@ -120,7 +124,7 @@ Consider a small, simple card for smaller data sets that can be scanned easily i
 Adding footer content can help provide additional information that can provide more context, clarity, or display notification data.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardWithFooter.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/CardWithFooter.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
   background="background-back"
 >
@@ -132,8 +136,22 @@ Adding footer content can help provide additional information that can provide m
 When images are featured on cards, they have a full ‘bleed’ as well as heirachical text to give additional context for the content.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/cards/CardWithImage.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/CardWithImage.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
 >
   <CardWithImage />
+</Example>
+
+### Card as a Dashboard Element
+
+Card's versatility allows for it to serve dashboard contexts quite nicely. The main content can 
+showcase a key performance indicator and be represented by a wide variety of charts or meters. Ideally the 
+key performance indicator is accompanied by a contextual signal, indicating whether a user should 
+drill into the detail behind the metric's current value.
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/card/CardMeterExample.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+>
+  <CardMeterExample />
 </Example>
