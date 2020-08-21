@@ -1,6 +1,7 @@
 export * from './anchor';
 export * from './button';
 export * from './accordion';
+export * from './card';
 export * from './checkbox';
 export * from './checkboxgroup';
 export * from './header';

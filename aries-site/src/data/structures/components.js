@@ -54,6 +54,23 @@ export const components = [
     },
   },
   {
+    name: 'Card',
+    category: 'Layouts',
+    description: 'A container providing at-a-glance information and easy access to more details.',
+    seoDescription: 'A container providing at-a-glance information and easy access to more details.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
+    sections: [],
+  },
+  {
     name: 'Tabs',
     category: 'Controls',
     description:
@@ -74,7 +91,7 @@ export const components = [
       'A widget which allows the user to select a date or range of dates from a calendar.',
     seoDescription:
       'A widget which allows the user to select a date or range of dates from a calendar.',
-      relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
       component: () => <DateInputPreview />,
