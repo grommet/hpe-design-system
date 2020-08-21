@@ -14,6 +14,7 @@ export const CardMeterExample = () => (
         greater detail behind this summary information.
         `);
     }}
+    width="medium"
   >
     <CardBody pad="medium" gap="medium">
       <Identifier

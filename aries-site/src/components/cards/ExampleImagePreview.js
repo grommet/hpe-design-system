@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Image } from 'grommet';
+import Link from 'next/link';
+import { Anchor, Box, Button, Image } from 'grommet';
 
 export const ExampleImagePreview = ({ label, href, ...rest }) => {
   return (
     <Box align="start" gap="medium">
-      <Box
-        width="medium"
-        height="215px"
-        round="small"
-        elevation="medium"
-        overflow="hidden"
-      >
-        <Image fit="cover" {...rest} />
-      </Box>
+      <Link href={href} passHref>
+        <Box
+          width="medium"
+          height="215px"
+          round="small"
+          elevation="medium"
+          overflow="hidden"
+        >
+          <Image fit="cover" {...rest} />
+        </Box>
+      </Link>
       {label && href && <Anchor label={label} href={href} />}
     </Box>
   );
