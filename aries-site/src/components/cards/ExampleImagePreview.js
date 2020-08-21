@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, Box, Button, Image } from 'grommet';
+import { Anchor, Box, Image } from 'grommet';
 
 export const ExampleImagePreview = ({ label, href, ...rest }) => {
   return (
