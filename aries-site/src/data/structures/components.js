@@ -57,8 +57,10 @@ export const components = [
   {
     name: 'Card',
     category: 'Layouts',
-    description: 'A container providing at-a-glance information and easy access to more details.',
-    seoDescription: 'A container providing at-a-glance information and easy access to more details.',
+    description:
+      'A container providing at-a-glance information and easy access to more details.',
+    seoDescription:
+      'A container providing at-a-glance information and easy access to more details.',
     preview: {
       image: {
         src: {
@@ -382,7 +384,7 @@ export const components = [
       component: () => <TableExample />,
       background: 'background-front',
     },
-    relatedContent: ['Lists', 'Cards'],
+    relatedContent: ['Lists', 'Card'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
   },
