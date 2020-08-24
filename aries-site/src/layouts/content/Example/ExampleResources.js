@@ -56,7 +56,7 @@ export const ExampleResources = ({
         overflow="auto"
         pad="medium"
         round="small"
-        width={{ min: 'small' }}
+        width={{ min: 'small', max: 'large' }}
         {...rest}
       >
         <Text size="xsmall" color="text">

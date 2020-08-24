@@ -7,8 +7,9 @@ export const Container = ({
   designer,
   docs,
   figma,
-  height,
+  height: heightProp,
   horizontalLayout,
+  plain,
   screenContainer,
   showResponsiveControls,
   template,
@@ -18,12 +19,17 @@ export const Container = ({
   // to maintain aspect ratio, so this is small + medium
   const { small, medium } = defaultProps.theme.global.size;
   const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
+
+  let height;
+  if (template || screenContainer) height = aspectHeight;
+  else if (!plain) height = { min: 'medium' };
+  else height = undefined;
   return (
     <Box
       align={!template && !screenContainer ? 'center' : undefined}
       background="background-front"
       direction="row"
-      height={template || screenContainer ? aspectHeight : height}
+      height={height}
       justify="center"
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       pad={
@@ -48,7 +54,12 @@ Container.propTypes = {
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  plain: PropTypes.bool,
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
+};
+
+Container.defaultProps = {
+  height: { min: 'medium' },
 };
