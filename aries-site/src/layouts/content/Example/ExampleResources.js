@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import { Box, ResponsiveContext, Text, ThemeContext } from 'grommet';
+import { Box, Text, ThemeContext } from 'grommet';
 import {
   CardGrid,
   CollapsibleSection,
@@ -21,7 +21,6 @@ export const ExampleResources = ({
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
-  const size = useContext(ResponsiveContext);
 
   const [codeOpen, setCodeOpen] = React.useState(
     horizontalLayout ? true : undefined,
@@ -49,14 +48,13 @@ export const ExampleResources = ({
   ]);
 
   if (horizontalLayout && code) {
-    return size !== 'small' ? (
+    return (
       <Box
         background="background-contrast"
         height={{ max: 'medium' }}
         overflow="auto"
         pad="medium"
         round="small"
-        width={{ min: 'small', max: 'large' }}
         {...rest}
       >
         <Text size="xsmall" color="text">
@@ -67,19 +65,6 @@ export const ExampleResources = ({
           </Syntax>
         </Text>
       </Box>
-    ) : (
-      <CollapsibleSection
-        label={{ closed: 'Show Code', open: 'Hide Code' }}
-        onClick={() => setCodeOpen(!codeOpen)}
-      >
-        <Text size="xsmall" color="text">
-          <Syntax>
-            <code ref={codeRef} className="language-jsx">
-              {codeText}
-            </code>
-          </Syntax>
-        </Text>
-      </CollapsibleSection>
     );
   }
   return (
