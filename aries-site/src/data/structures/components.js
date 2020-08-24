@@ -55,6 +55,23 @@ export const components = [
     },
   },
   {
+    name: 'Card',
+    category: 'Layouts',
+    description: 'A container providing at-a-glance information and easy access to more details.',
+    seoDescription: 'A container providing at-a-glance information and easy access to more details.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
+    sections: [],
+  },
+  {
     name: 'Tabs',
     category: 'Controls',
     description:

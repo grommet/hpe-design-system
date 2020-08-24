@@ -5,6 +5,10 @@ import { CaretDown, CaretUp } from 'grommet-icons';
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   // To be stripped out once theme changes are made in grommet-theme-hpe
+
+  // keeping file for use as playground for future theme adjusments that need
+  // to be quickly tested
+
   dataTable: {
     // body: {
     //   extend: undefined,
