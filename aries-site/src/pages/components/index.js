@@ -52,6 +52,11 @@ const Components = () => (
         <Subsection name="Inputs">
           <CardGrid cards={cards.filter(card => card.category === 'Inputs')} />
         </Subsection>
+        <Subsection name="Visualizations">
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Visualizations')}
+          />
+        </Subsection>
       </ContentSection>
     </Box>
   </Layout>
