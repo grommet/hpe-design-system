@@ -7,6 +7,7 @@ import {
   Container,
   ExampleControls,
   ExampleResources,
+  HorizontalExample,
   ResponsiveControls,
   ResponsiveContainer,
 } from '.';
@@ -27,6 +28,7 @@ export const Example = ({
   figma,
   height,
   horizontalLayout,
+  plain,
   relevantComponents,
   screenContainer,
   template,
@@ -35,10 +37,29 @@ export const Example = ({
   width,
   ...rest
 }) => {
-  const size = React.useContext(ResponsiveContext);
   const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
 
+  // If plain, we remove the Container that creates a padded
+  // box with rounded corners around Example content
+  const ExampleContainer = plain ? Box : Container;
+
+  // These props control the styling of the example within the overall example
+  // container
+  const containerProps = {
+    height,
+    horizontalLayout,
+    plain,
+    template,
+    screenContainer,
+    showResponsiveControls,
+    designer,
+    docs,
+    figma,
+  };
+
+  // Affects how the Example can behave/display within the outer container
+  // for example, wrapping on a mock browser, etc.s
   let ExampleWrapper;
   // show page layouts inside of mock browser screen to demonstrate
   // how content fills or is restricted at various widths
@@ -48,23 +69,10 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
-  // These props control the styling of the example within the overall example
-  // container
-  const containerProps = {
-    height,
-    horizontalLayout,
-    template,
-    screenContainer,
-    showResponsiveControls,
-    designer,
-    docs,
-    figma,
-  };
-
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   const content = !showLayer && (
-    <Container {...containerProps}>
+    <ExampleContainer {...containerProps}>
       <ExampleWrapper
         background={
           ExampleWrapper === ResponsiveContainer && background
@@ -80,7 +88,7 @@ export const Example = ({
           {children}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
-    </Container>
+    </ExampleContainer>
   );
 
   const controls = (designer ||
@@ -127,14 +135,14 @@ export const Example = ({
               {resources}
             </>
           ) : (
-            <Box align="start" direction="row-responsive" gap="medium">
-              <Box width={width || 'large'}>{content}</Box>
-              <Box>
-                {size !== 'small' && resources}
-                {controls}
-                {size === 'small' && resources}
-              </Box>
-            </Box>
+            <HorizontalExample
+              content={content}
+              controls={controls}
+              plain={plain}
+              resources={resources}
+              showResponsiveControls={showResponsiveControls}
+              width={width}
+            />
           )}
         </>
       </Box>
@@ -234,13 +242,10 @@ Example.propTypes = {
   figma: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  plain: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
-
-Example.defaultProps = {
-  height: { min: 'medium' },
 };

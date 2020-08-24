@@ -7,6 +7,7 @@ const mockAvailability = 0.872;
 
 export const CardMeterExample = () => (
   <Card
+    background="background"
     onClick={() => {
       // eslint-disable-next-line no-alert
       alert(`
