@@ -11,22 +11,27 @@ export const HorizontalExample = ({
   width,
 }) => {
   const size = useContext(ResponsiveContext);
+
   return (
-    <Box align="start" direction="row-responsive" gap="large">
+    <Box align="start" direction="row-responsive" gap="large" wrap>
       <Box
         // let content maintain its defined width
         flex={false}
         // when plain, keep spacing between content and
         // responsiveControls to align with code block to its right
-        margin={plain && showResponsiveControls && { top: 'xsmall' }}
+        margin={
+          plain && showResponsiveControls
+            ? { top: 'xsmall', bottom: size !== 'small' ? 'medium' : undefined }
+            : // on small screens, gap from outer box handles spacing
+              { bottom: size !== 'small' ? 'medium' : undefined }
+        }
         width={width}
       >
         {content}
       </Box>
-      <Box flex>
-        {size !== 'small' && resources}
+      <Box flex={false} width="large">
+        {resources}
         {controls}
-        {size === 'small' && resources}
       </Box>
     </Box>
   );
