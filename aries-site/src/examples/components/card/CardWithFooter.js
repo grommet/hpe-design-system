@@ -10,11 +10,7 @@ export const CardWithFooter = () => (
       title="OmniStackVC-10"
       subtitle="LA_cluster_1"
     />
-    <CardFooter
-      pad={{ horizontal: 'medium', vertical: 'small' }}
-      align="center"
-      justify="start"
-    >
+    <CardFooter align="center" justify="start">
       <Alert />
       <Text weight="bold">Expired</Text>
     </CardFooter>
