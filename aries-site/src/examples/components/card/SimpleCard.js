@@ -3,7 +3,7 @@ import { Box, Card, Text } from 'grommet';
 import { Hpe } from 'grommet-icons';
 
 export const SimpleCard = () => (
-  <Card background="background" pad="medium" width="medium">
+  <Card background="background-front" pad="medium" width="medium">
     <Box direction="row" gap="small">
       <Hpe size="large" color="plain" />
       <Box>
