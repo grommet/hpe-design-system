@@ -6,7 +6,7 @@ import { Info, Emoji } from 'grommet-icons';
 const spacing = defaultProps.theme.global.edgeSize;
 
 export const CardAnatomy = () => (
-  <Card background="background" width="medium">
+  <Card background="background-front" width="medium">
     <CardBody>
       <Identifier
         icon={<Emoji size="large" color="text-strong" />}
