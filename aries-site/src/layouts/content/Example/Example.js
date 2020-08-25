@@ -47,15 +47,15 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
-    height,
-    horizontalLayout,
-    plain,
-    template,
-    screenContainer,
-    showResponsiveControls,
     designer,
     docs,
     figma,
+    height,
+    horizontalLayout,
+    plain,
+    screenContainer,
+    showResponsiveControls,
+    template,
   };
 
   // Affects how the Example can behave/display within the outer container
