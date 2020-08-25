@@ -24,6 +24,7 @@ export const Container = ({
   if (template || screenContainer) height = aspectHeight;
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
+
   return (
     <Box
       align={!template && !screenContainer ? 'center' : undefined}
@@ -58,8 +59,4 @@ Container.propTypes = {
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.bool,
   template: PropTypes.bool,
-};
-
-Container.defaultProps = {
-  height: { min: 'medium' },
 };
