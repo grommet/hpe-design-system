@@ -212,4 +212,14 @@ export const templates = [
     sections: [],
     relatedContent: ['Forms'],
   },
+  {
+    name: 'Filtering',
+    available: false,
+    description: `Filtering allows users to narrow down larger data sets based 
+    on specific attributes.`,
+    seoDescription: `Filtering allows users to narrow down larger data sets 
+    based on specific attributes.`,
+    sections: [],
+    relatedContent: ['Lists', 'Card'],
+  },
 ];
