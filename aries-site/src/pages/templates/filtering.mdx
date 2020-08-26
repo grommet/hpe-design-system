@@ -1,0 +1,81 @@
+import { Example } from '../../layouts';
+import {
+  FilteringCards,
+  FilteringLists,
+  FilteringWithRangeInput,
+  FilteringWithSelect,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <FilteringLists />
+</Example>
+
+## What is filtering?
+
+Filtering allows data to be narrowed down around a set of specified parameters. When users may not have a specific record in mind but are seeking to group data around a certain set of attributes, filtering should be used to allow the user to narrow the data and take action on relevant records.
+
+If a user will likely be looking for a specific record as opposed to groups of data, consider implementing [search](/templates/searching).
+
+## When to use
+
+### Filtering within a List
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <FilteringLists />
+</Example>
+
+### Filtering within Cards
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <FilteringCards />
+</Example>
+
+### Filtering within a Table
+
+TBD
+
+## Guidelines
+
+Filtering should help users quickly narrow down data sets by selecting certain parameters to define the relevant data bounds. Different types of inputs may better suited for filtering depending on the type of data.
+
+Use your best judgement around which input type is appropriate for the data you are filtering. However, here are a few things to consider:
+
+- Is the user going to be selecting multiple options? --> Filtering with Select or Filtering with CheckBoxGroup
+- Is the user aiming to filter based on a range? --> Filtering with RangeSelector
+- Is the user filtering multiple attributes at once? --> Present filters in a layer
+
+## More examples of filtering
+
+### Filtering with Select
+
+Filtering with Select should be used when ...
+
+<Example template showResponsiveControls={['laptop', 'mobile']}>
+  <FilteringWithSelect />
+</Example>
+
+### Filtering with DateInput
+
+A DateInput is an effective way to allow users to narrow data to a specific date or range of dates.
+
+### Filtering with CheckBoxGroup
+
+Filtering with CheckBoxGroup easily allows for ....
+
+### Filtering with RangeInput
+
+<Example template showResponsiveControls={['laptop', 'mobile']}>
+  <FilteringWithRangeInput />
+</Example>
