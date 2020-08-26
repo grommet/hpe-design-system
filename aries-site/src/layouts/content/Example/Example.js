@@ -21,17 +21,17 @@ export const screens = {
 export const Example = ({
   background,
   children,
-  code,
-  designer,
+  code, // github code link used to display code inline
+  designer, // link to grommet designer example
   details,
-  docs,
-  figma,
+  docs, // link to grommet doc for component
+  figma, // link to figma design
   height,
   horizontalLayout,
-  plain,
+  plain, // remove Container from around example
   relevantComponents,
-  screenContainer,
-  template,
+  screenContainer, // show example in mock browser
+  template, // showing as template causes appropriate aspect ratio
   // show screen size controls by default with screenContainer or template
   showResponsiveControls = !!screenContainer || !!template,
   width,

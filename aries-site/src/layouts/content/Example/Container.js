@@ -4,15 +4,15 @@ import { Box, defaultProps } from 'grommet';
 
 // This creates the overall canvas/frame that the Example sits inside of
 export const Container = ({
-  designer,
-  docs,
-  figma,
+  designer, // link to grommet designer example
+  docs, // link to grommet doc for component
+  figma, // link to figma design
   height: heightProp,
   horizontalLayout,
-  plain,
-  screenContainer,
+  plain, // remove Container from around example
+  screenContainer, // show example in mock browser
   showResponsiveControls,
-  template,
+  template, // showing as template causes appropriate aspect ratio
   ...rest
 }) => {
   // Height for template screen needs to be between medium and large
