@@ -13,10 +13,7 @@ export const CardAnatomy = () => (
         title="Title of the Card"
         subtitle="Subtext to provide further context"
       />
-      <Box
-        gap="xsmall"
-        pad={{ top: 'xsmall', bottom: 'medium', horizontal: 'medium' }}
-      >
+      <Box gap="xsmall" pad={{ top: 'medium' }}>
         <ContentBlock
           height={spacing.medium}
           width="100%"
@@ -28,12 +25,7 @@ export const CardAnatomy = () => (
         <ContentBlock height={spacing.medium} width="small" />
       </Box>
     </CardBody>
-    <CardFooter
-      pad={{ horizontal: 'medium', vertical: 'small' }}
-      align="center"
-      gap="small"
-      justify="start"
-    >
+    <CardFooter align="center" gap="small" justify="start">
       <Info />
       <Text>
         Versatile area for presenting context, meta data, or other related
@@ -44,12 +36,7 @@ export const CardAnatomy = () => (
 );
 
 const Identifier = ({ title, subtitle, icon }) => (
-  <Box
-    direction="row"
-    gap="small"
-    align="center"
-    pad={{ horizontal: 'small', vertical: 'medium' }}
-  >
+  <Box direction="row" gap="small" align="center">
     <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
     <Box>
       <Text color="text-strong" size="xxlarge" weight="bold">
