@@ -21,7 +21,6 @@ import {
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
-import { TableExample } from '../../examples/components/table';
 
 const statuses = {
   complete: 'Complete',
@@ -381,7 +380,6 @@ export const components = [
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',
     preview: {
-      component: () => <TableExample />,
       background: 'background-front',
     },
     relatedContent: ['Lists', 'Card'],
