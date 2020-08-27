@@ -215,10 +215,10 @@ export const templates = [
   {
     name: 'Filtering',
     available: false,
-    description: `Filtering allows users to narrow down larger data sets based 
-    on specific attributes.`,
-    seoDescription: `Filtering allows users to narrow down larger data sets 
-    based on specific attributes.`,
+    description: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    seoDescription: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
     sections: [],
     relatedContent: ['Lists', 'Card'],
   },
