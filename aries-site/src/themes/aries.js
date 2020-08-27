@@ -45,17 +45,16 @@ export const aries = deepMerge(hpe, {
     header: {
       // align: 'start',
       // pad: { horizontal: 'small', vertical: 'xsmall' },
-      // border: 'bottom',
-      // verticalAlign: undefined,
-      // background: undefined,
+      border: { side: 'bottom' },
+      verticalAlign: 'bottom',
+      background: {
+        color: 'background-front',
+      },
       extend: ({ theme }) => `
         color: ${
           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
         };
         font-weight: bold;
-        button {
-          width: 100%;
-        }
         :hover {
           > button {
             background: ${
@@ -73,7 +72,15 @@ export const aries = deepMerge(hpe, {
       // pad: { horizontal: 'small', vertical: 'xsmall' },
       // background: undefined,
       // border: undefined,
-      // extend: undefined,
+      extend: ({ theme }) => {
+        const { size, height } = theme.text.small;
+        return `
+          span {
+            font-size: ${size};
+            line-height: ${height};
+          }
+        `;
+      },
     },
     row: {
       hover: {

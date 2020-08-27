@@ -1,7 +1,9 @@
 import { Anchor, Box, Image } from 'grommet';
 import { Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
 import {
-  TableExample
+  TableExample,
+  TableMultiSelectExample,
 } from '../../examples';
 
 <Example
@@ -13,7 +15,7 @@ import {
   <TableExample />
 </Example>
 
-## What Makes Up a Table? (Why & What)
+## What Makes Up a Table?
 Tables enable users to accomplish a task by finding records of interest, then take action against them.
 They present structured data in a grid, with columns and rows to aid readability, scanability, and show 
 the meaning of the data.
@@ -22,15 +24,21 @@ the meaning of the data.
   <Image src="/static/images/Table_Anatomy.svg" />
 </Box>
 
+**Controls**<br />
+Table controls should live above the table and facilitate a user's ability to locate and 
+take actions against records of interest. A controls section may contain search and filter 
+controls, as well as action controls such as batch applying settings or data export.
+[About Table Controls >](#sorting)
+
 **Columns**<br />
 Contain a single data type and help users scan, read and take action through data.
 They may be enhanced by allowing users to sort or filter records by the column's data.
-[Column details >]()
+[Column details >](#sorting)
 
 **Rows**<br />
 Rows help users scan, read and take action through data. 
 They may be enhanced by actions such as selection and navigation to record detail.
-[Row detail >]()
+[Row detail >](#record-selection)
 
 
 **Cells**<br />
@@ -39,64 +47,71 @@ status indicators, anchors, and buttons.
 [Cell variants, actions & behaviors >]()
 
 
-## When to Use (When)
+## When to Use
+Users interacting with a Table are trying to accomplish one of the following types of tasks.
+They are not, however, trying to do all of these tasks at once.
+Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which 
+table features to include and, more importantly, exclude when we add a Table to our interfaces.
 
-- Finding and taking action agains a specific record. (Searching)
-
-<Box align="start" height={{max: 'medium'}} width="medium" margin={{top: 'small', bottom: 'medium'}} >
-  <Image src="/static/images/Finding_Specific_Records.png" fit="cover" fill />
-</Box>
-
-<Box align="start" gap="medium">
-  <Box
-    width="medium"
-    height=""
-    round="small"
-    elevation="medium"
-    overflow="hidden"
-  >
-    <Image fit="cover" src="/static/images/Finding_Specific_Records.png" />
-  </Box>
-  <Anchor label="See Example" href="#" />
-</Box>
-
+- Finding and taking action against a specific record. (Searching)
 - Narrowing a result set down to a group of records sharing similar characteristics. (Filtering)
 - Facilitate scanning of records to identify potential outliers or records which the user is unaware need attention or action. (Browsing)
 - Assembling a data set for analysis. (Filtering)
 
-## Guidelines (How)
-### Too many columns?
-The number of columns and rows should be guided by the task the user is setting 
-out to accomplish.
+### Finding a Specific Record
+Search experience
 
-Generally, if there are more than 5-7 columns in the table, it is a sign that 
-a single table is trying to solve too many user problems at once. In that case, 
-consider:
-- Are there too many user persona types using this view? If so, are there opportunities 
-to personalize the view by role?
-- What are the user interactions leading up to the table view? Are there opportunities 
-to improve navigation and build intentful user flows?
-- Perhaps, it is unclear as to what the user problem the table is attempting 
-to solve? A good opportunity for speaking to and learning from end users!
+<ExampleImagePreview
+  label="See Finding a Specific Record"
+  href="#"
+  src="/static/images/Finding_Specific_Records.png"
+  alt="Example demonstrating how to find a record of interest with a Table"
+/>
 
-**The Exception**
+### Narrowing a Result Set
+Filtering experience
+- Batch actions
 
-In an analytical context, where the goal is to assemble a data set and identify patterns 
-within it, a larger number of columns may be neccessary.
+<ExampleImagePreview
+  label="See Finding a Specific Record"
+  href="#"
+  src="/static/images/Finding_Specific_Records.png"
+  alt="Example demonstrating how to find a record of interest with a Table"
+/>
 
-In this context, a Table should facilitate the assembly of the data set and make the set 
-accessible in a tool specifically designed for analysis.
+### Browsing a Result Set
+Browsing experience
+- InfiniteScroll
+- Indicators
+
+<ExampleImagePreview
+  label="See Finding a Specific Record"
+  href="#"
+  src="/static/images/Finding_Specific_Records.png"
+  alt="Example demonstrating how to find a record of interest with a Table"
+/>
+
+### Assembling a Data Set
+Filtering experience
+- Filtering
+- Exports
+- Footer aggregate/summary
+
+<ExampleImagePreview
+  label="See Finding a Specific Record"
+  href="#"
+  src="/static/images/Finding_Specific_Records.png"
+  alt="Example demonstrating how to find a record of interest with a Table"
+/>
+
+## Guidelines
 
 ### Search vs. Filter?
-Great question. 
-
 Complimenatary elements such as search or filters should be guided by the task the user 
 is setting out to accomplish.
-- Trying to find a specific record? --> Search.
+- Looking for a specific record? --> Search.
 - Trying to narrow records down to a set of shared characteristics? --> Filter.
 - Not quite certain for what I am looking, but I know its general characteristics? --> Filter.
-
-... btw, what's the difference anyway? 🤔
 
 [See Searching & Filtering]() for greater detail.
 
@@ -116,5 +131,57 @@ Should be guided by the task the user is setting out to accomplish.
 - Do rows have many interactive elements? --> Pagination
   - Be mindful of keyboard users.
 
-## Variants for how Table can be used
+### How many columns?
+The number of columns and rows should be guided by the task the user is setting 
+out to accomplish.
 
+Generally, if there are more than 5-7 columns in the table, it is a sign that 
+a single table is trying to solve too many user problems at once. In that case, 
+consider:
+- Are there too many user persona types using this view? If so, are there opportunities 
+to personalize the view by role?
+- What are the user interactions leading up to the table view? Are there opportunities 
+to improve navigation and build intentful user flows?
+- Perhaps, it is unclear as to what the user problem the table is attempting 
+to solve? A good opportunity for speaking to and learning from end users!
+
+**The Exception**<br />
+In an analytical context, where the goal is to assemble a data set and identify patterns 
+within it, a larger number of columns may be neccessary.
+
+In this context, a Table should facilitate the assembly of the data set and make the set 
+accessible in a tool specifically designed for analysis.
+
+## Behaviors & Actions
+
+### Sorting
+
+### Searching
+[See Searching & Filtering]() for greater detail.
+
+### Filtering
+[See Searching & Filtering]() for greater detail.
+
+### Record Selection
+
+
+### Selecting Multiple Records & Batch Actions
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
+  figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  height={{ min: 'small' }}
+>
+  <TableMultiSelectExample />
+</Example>
+
+### Fixed Column Headers
+
+### Column Summary & Aggregation
+
+<!-- To be added. Placeholders for future content.
+### Pagination
+
+### Infinite Scroll
+
+## Table Cells
+-->

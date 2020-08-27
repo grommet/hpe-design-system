@@ -1,9 +1,9 @@
 import React from 'react';
-import { DataTable, Text } from 'grommet';
+import { Box, DataTable, Text } from 'grommet';
 
 const data = [
   {
-    id: '1',
+    id: 1,
     poolName: 'Asup-array01-lvs (default)',
     groupName: 'Asup',
     arrays: 'asup-array01-lvs',
@@ -16,7 +16,7 @@ const data = [
     ],
   },
   {
-    id: '2',
+    id: 2,
     poolName: 'Dev-K8-Sym-R5-3 (default)',
     groupName: 'Dev',
     arrays: 'harm-stage-array01',
@@ -29,7 +29,7 @@ const data = [
     ],
   },
   {
-    id: '3',
+    id: 3,
     poolName: 'Dev36-erray01 ( default)',
     groupName: 'Dev',
     arrays: 'harm-stage-array02',
@@ -42,7 +42,7 @@ const data = [
     ],
   },
   {
-    id: '4',
+    id: 4,
     poolName: 'asup-array1 (default)',
     groupName: 'Asup',
     arrays: 'harm-stage-array04',
@@ -55,7 +55,7 @@ const data = [
     ],
   },
   {
-    id: '5',
+    id: 5,
     poolName: 'Dev-K8-Sym-R5-3 (default)',
     groupName: 'Dev',
     arrays: 'Harm-cs-stage-R4-5',
@@ -68,7 +68,7 @@ const data = [
     ],
   },
   {
-    id: '6',
+    id: 6,
     poolName: 'asup-array2 (default)',
     groupName: 'Asup',
     arrays: 'ds-array02',
@@ -81,7 +81,7 @@ const data = [
     ],
   },
   {
-    id: '7',
+    id: 7,
     poolName: 'Dev36-varray02 (default)',
     groupName: 'Dev',
     arrays: 'ds-array01',
@@ -94,7 +94,7 @@ const data = [
     ],
   },
   {
-    id: '8',
+    id: 8,
     poolName: 'DevHarmCs2R39',
     groupName: 'Dev',
     arrays: 'harm-stage-array03',
@@ -107,7 +107,59 @@ const data = [
     ],
   },
   {
-    id: '9',
+    id: 9,
+    poolName: 'DevStageSymR31 (default)',
+    groupName: 'Dev',
+    arrays: 'rtp-array198',
+    size: '173.4 TiB',
+    pinnable: '3.0 TiB',
+    pinned: '0.0 B',
+    savings: [
+      { unit: 'TiB', value: 8.0 },
+      { unit: 'xGHz', value: 333.2 },
+    ],
+  },
+  {
+    id: 10,
+    poolName: 'asup-array2 (default)',
+    groupName: 'Asup',
+    arrays: 'ds-array02',
+    size: '173.4 TiB',
+    pinnable: '1.1 TiB',
+    pinned: '0.0 B',
+    savings: [
+      { unit: 'TiB', value: 8.0 },
+      { unit: 'xGHz', value: 3955.2 },
+    ],
+  },
+  {
+    id: 11,
+    poolName: 'Dev36-varray02 (default)',
+    groupName: 'Dev',
+    arrays: 'ds-array01',
+    size: '92.0 TiB',
+    pinnable: '1.3 TiB',
+    pinned: '0.0 B',
+    savings: [
+      { unit: 'TiB', value: 8.0 },
+      { unit: 'xGHz', value: 333.2 },
+    ],
+  },
+  {
+    id: 12,
+    poolName: 'DevHarmCs2R39',
+    groupName: 'Dev',
+    arrays: 'harm-stage-array03',
+    size: '7.2 TiB',
+    pinnable: '2.9 TiB',
+    pinned: '0.0 B',
+    savings: [
+      { unit: 'TiB', value: 8.0 },
+      { unit: 'xGHz', value: 333.2 },
+    ],
+  },
+  {
+    id: 13,
     poolName: 'DevStageSymR31 (default)',
     groupName: 'Dev',
     arrays: 'rtp-array198',
@@ -126,6 +178,7 @@ const columns = [
     property: 'poolName',
     header: 'Pool Name',
     render: datum => <Text truncate>{datum.poolName}</Text>,
+    size: 'small',
   },
   {
     property: 'groupName',
@@ -134,13 +187,14 @@ const columns = [
   {
     property: 'arrays',
     header: 'Arrays',
+    render: datum => <Text truncate>{datum.arrays}</Text>,
+    size: 'xsmall',
     sortable: false,
   },
   {
     property: 'size',
     header: 'Size',
     align: 'end',
-    sortable: false,
   },
   {
     property: 'pinnable',
@@ -155,10 +209,11 @@ const columns = [
     sortable: false,
   },
   {
-    property: 'savings.value',
+    property: 'savings',
     header: 'Savings',
+    align: 'end',
     render: datum => (
-      <Text>
+      <Text truncate>
         {datum.savings[0] &&
           `${datum.savings[0].value} ${datum.savings[0].unit}`}
         {datum.savings[0] && datum.savings[1] && ' | '}
@@ -166,7 +221,7 @@ const columns = [
           `${datum.savings[1].value} ${datum.savings[1].unit}`}
       </Text>
     ),
-    align: 'end',
+    size: 'small',
   },
 ];
 
@@ -186,11 +241,15 @@ const handleClickRow = obj => {
 };
 
 export const TableExample = () => (
-  <DataTable
-    data={data}
-    columns={columns}
-    primaryKey="id"
-    onClickRow={({ datum }) => handleClickRow(datum)}
-    sortable
-  />
+  <Box height="medium" overflow="auto">
+    <DataTable
+      data={data}
+      primaryKey="id"
+      columns={columns}
+      fill
+      onClickRow={({ datum }) => handleClickRow(datum)}
+      pin
+      sortable
+    />
+  </Box>
 );
