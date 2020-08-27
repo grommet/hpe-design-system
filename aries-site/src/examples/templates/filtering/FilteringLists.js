@@ -7,12 +7,13 @@ import {
   Image,
   Header,
   Heading,
+  Layer,
   List,
   ResponsiveContext,
   Select,
   Text,
 } from 'grommet';
-import { Filter } from 'grommet-icons';
+import { Filter, FormClose } from 'grommet-icons';
 
 const allData = [
   {
@@ -70,7 +71,7 @@ const allData = [
 
 const defaultFilters = {};
 const defaultLocationType = 'All Location Types';
-const defaultStatus = 'All statuses';
+const defaultStatus = 'All Statuses';
 
 export const FilteringLists = () => {
   const [data, setData] = useState(allData);
@@ -91,6 +92,7 @@ export const FilteringLists = () => {
             Sites
           </Heading>
           <Filters
+            data={data}
             filtering={filtering}
             setFiltering={setFiltering}
             setData={setData}
@@ -103,10 +105,12 @@ export const FilteringLists = () => {
   );
 };
 
-const Filters = ({ filtering, setData, setFiltering }) => {
+const Filters = ({ data, filtering, setData, setFiltering }) => {
   const [filters, setFilters] = useState(defaultFilters);
   const [locationType, setLocationType] = useState(defaultLocationType);
   const [status, setStatus] = useState(defaultStatus);
+  const [showLayer, setShowLayer] = useState(false);
+
   const size = useContext(ResponsiveContext);
 
   const resetFilters = () => {
@@ -137,34 +141,87 @@ const Filters = ({ filtering, setData, setFiltering }) => {
     });
   };
 
+  const content = (
+    <Box direction={size !== 'small' ? 'row' : 'column'} gap="small">
+      <LocationTypeFilter
+        locationType={locationType}
+        filterData={filterData}
+        filters={filters}
+        setLocationType={setLocationType}
+        setData={setData}
+      />
+      <StatusFilter
+        filters={filters}
+        filterData={filterData}
+        setStatus={setStatus}
+        setData={setData}
+        status={status}
+      />
+    </Box>
+  );
+
   return (
-    <Box align="center" direction="row" gap="small">
+    <>
       {size !== 'small' ? (
-        <Box direction="row" gap="small">
-          <LocationTypeFilter
-            locationType={locationType}
-            filterData={filterData}
-            filters={filters}
-            setLocationType={setLocationType}
-            setData={setData}
-          />
-          <StatusFilter
-            filters={filters}
-            filterData={filterData}
-            setStatus={setStatus}
-            setData={setData}
-            status={status}
-          />
+        <Box align="center" direction="row" gap="small">
+          <Box direction="row" gap="small">
+            {content}
+          </Box>
+          {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
         </Box>
       ) : (
-        <Button icon={<Filter />} />
+        <>
+          <Button icon={<Filter />} onClick={() => setShowLayer(true)} />
+          {showLayer && (
+            <Layer full>
+              <Box
+                width={{ max: 'medium' }}
+                pad="medium"
+                margin="auto"
+                gap="small"
+                fill
+              >
+                <Header>
+                  <Text color="text-strong" size="xlarge" weight="bold">
+                    Filters
+                  </Text>
+                  <Button
+                    icon={<FormClose />}
+                    onClick={() => setShowLayer(!showLayer)}
+                  />
+                </Header>
+                {content}
+                <Box align="center" justify="end" direction="row" gap="small">
+                  {filtering && (
+                    <Anchor label="Clear filters" onClick={resetFilters} />
+                  )}
+                  <Button
+                    label={`Show ${data.length} results`}
+                    onClick={() => {
+                      setShowLayer(!showLayer);
+                    }}
+                    primary
+                  />
+                </Box>
+              </Box>
+            </Layer>
+          )}
+        </>
       )}
-      {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
-    </Box>
+    </>
   );
 };
 
 Filters.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      address: PropTypes.string,
+      image: PropTypes.string,
+      locationType: PropTypes.string,
+      name: PropTypes.string,
+      status: PropTypes.string,
+    }),
+  ).isRequired,
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
