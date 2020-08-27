@@ -47,7 +47,7 @@ export const CardExample = () => {
       onMouseOut={() => setIsFocused(false)}
       onMouseOver={() => setIsFocused(true)}
     >
-      <CardBody>
+      <CardBody pad="none">
         <Identifier
           title="Network Traffic"
           subtitle="Bandwidth Utilization - Last 30 Days"
@@ -57,7 +57,7 @@ export const CardExample = () => {
           <KPIChart id="metric-0" data={mockData} />
         </Box>
       </CardBody>
-      <CardFooter background="background-back" pad="medium">
+      <CardFooter background="background-back">
         <KPISummary instances={capacityWarnings} statusColor="status-warning" />
       </CardFooter>
     </StyledCard>

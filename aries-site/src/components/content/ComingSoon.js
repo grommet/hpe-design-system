@@ -28,7 +28,7 @@ export const ComingSoon = () => {
         <SubsectionText>
           The HPE Design System is the way Hewlett Packard Enterprise’s brand,
           technology, and its partners share a single language for application,
-          web, and digitial experiences to answer your customers needs—Look
+          web, and digital experiences to answer your customers needs—Look
           behind the element!
         </SubsectionText>
         <Link href="/" passHref>

@@ -9,6 +9,20 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
 
+  card: {
+    container: {
+      background: 'background-front',
+    },
+    body: {
+      pad: 'medium',
+    },
+    footer: {
+      pad: { horizontal: 'medium', vertical: 'small' },
+    },
+    header: {
+      pad: 'medium',
+    },
+  },
   dataTable: {
     // body: {
     //   extend: undefined,
