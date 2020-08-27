@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -74,39 +75,6 @@ const defaultStatus = 'All statuses';
 export const FilteringLists = () => {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
-  const [filters, setFilters] = useState(defaultFilters);
-  const [locationType, setLocationType] = useState(defaultLocationType);
-  const [status, setStatus] = useState(defaultStatus);
-  const size = useContext(ResponsiveContext);
-
-  const resetFilters = () => {
-    setData(allData);
-    setStatus(defaultStatus);
-    setLocationType(defaultLocationType);
-    setFiltering(false);
-    setFilters(defaultFilters);
-  };
-
-  useEffect(() => {
-    if (locationType === defaultLocationType && status === defaultStatus) {
-      resetFilters();
-    } else {
-      setFiltering(true);
-    }
-  }, [locationType, status]);
-
-  const filterData = (array, criteria) => {
-    setFilters(criteria);
-    const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
-      // validates all filter criteria
-      return filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
-      });
-    });
-  };
 
   return (
     <Box
@@ -122,130 +90,252 @@ export const FilteringLists = () => {
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Sites
           </Heading>
-          <Box align="center" direction="row" gap="small">
-            {size !== 'small' ? (
-              <Box direction="row" gap="small">
-                <Select
-                  options={[defaultLocationType, 'Customer Center', 'Office']}
-                  value={locationType}
-                  onChange={({ option }) => {
-                    const nextFilters = {
-                      ...filters,
-                      locationType: nextLocationType =>
-                        nextLocationType === option,
-                    };
-                    const nextData = filterData(allData, nextFilters);
-                    setLocationType(option);
-                    setData(nextData);
-                  }}
-                />
-                <Select
-                  options={[defaultStatus, 'Online', 'Offline']}
-                  value={status}
-                  onChange={({ option }) => {
-                    const nextFilters = {
-                      ...filters,
-                      status:
-                        option !== defaultStatus
-                          ? nextStatus => nextStatus === option
-                          : undefined,
-                    };
-                    const nextData = filterData(allData, nextFilters);
-                    setStatus(option);
-                    setData(nextData);
-                  }}
-                />
-              </Box>
-            ) : (
-              <Button icon={<Filter />} />
-            )}
-            {filtering && (
-              <Anchor label="Clear filters" onClick={resetFilters} />
-            )}
-          </Box>
-          <Box direction="row" gap="xxsmall">
-            <Text color="text-weak" size="small" weight="bold">
-              {data.length}
-            </Text>
-            <Text color="text-weak" size="small">
-              {filtering ? 'results' : 'items'}
-            </Text>
-          </Box>
+          <Filters
+            filtering={filtering}
+            setFiltering={setFiltering}
+            setData={setData}
+          />
+          <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
-      <Box fill overflow="auto">
-        <List
-          action={(item, index) =>
-            size !== 'small' && (
-              <Box key={index} align="center" direction="row" gap="xsmall">
-                <Box
-                  background={item.status === 'Online' ? 'brand' : 'text-weak'}
-                  pad="xsmall"
-                  round
-                />
-                <Text color="text-strong">{item.status}</Text>
-              </Box>
-            )
-          }
-          border="horizontal"
-          data={data}
-          onClickItem={() => {
-            // eslint-disable-next-line no-alert
-            alert(`
+      <Results data={data} />
+    </Box>
+  );
+};
+
+const Filters = ({ filtering, setData, setFiltering }) => {
+  const [filters, setFilters] = useState(defaultFilters);
+  const [locationType, setLocationType] = useState(defaultLocationType);
+  const [status, setStatus] = useState(defaultStatus);
+  const size = useContext(ResponsiveContext);
+
+  const resetFilters = () => {
+    setData(allData);
+    setStatus(defaultStatus);
+    setLocationType(defaultLocationType);
+    setFilters(defaultFilters);
+  };
+
+  useEffect(() => {
+    if (locationType === defaultLocationType && status === defaultStatus) {
+      setFiltering(false);
+    } else {
+      setFiltering(true);
+    }
+  }, [locationType, status, setFiltering]);
+
+  const filterData = (array, criteria) => {
+    setFilters(criteria);
+    const filterKeys = Object.keys(criteria);
+    return array.filter(item => {
+      // validates all filter criteria
+      return filterKeys.every(key => {
+        // ignores non-function predicates
+        if (typeof criteria[key] !== 'function') return true;
+        return criteria[key](item[key]);
+      });
+    });
+  };
+
+  return (
+    <Box align="center" direction="row" gap="small">
+      {size !== 'small' ? (
+        <Box direction="row" gap="small">
+          <LocationTypeFilter
+            locationType={locationType}
+            filterData={filterData}
+            filters={filters}
+            setLocationType={setLocationType}
+            setData={setData}
+          />
+          <StatusFilter
+            filters={filters}
+            filterData={filterData}
+            setStatus={setStatus}
+            setData={setData}
+            status={status}
+          />
+        </Box>
+      ) : (
+        <Button icon={<Filter />} />
+      )}
+      {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
+    </Box>
+  );
+};
+
+Filters.propTypes = {
+  filtering: PropTypes.bool.isRequired,
+  setData: PropTypes.func.isRequired,
+  setFiltering: PropTypes.func.isRequired,
+};
+
+const LocationTypeFilter = ({
+  locationType,
+  filterData,
+  filters,
+  setLocationType,
+  setData,
+}) => (
+  <Select
+    options={[defaultLocationType, 'Customer Center', 'Office']}
+    value={locationType}
+    onChange={({ option }) => {
+      const nextFilters = {
+        ...filters,
+        locationType:
+          option !== defaultLocationType &&
+          (nextLocationType => nextLocationType === option),
+      };
+      const nextData = filterData(allData, nextFilters);
+      setLocationType(option);
+      setData(nextData);
+    }}
+  />
+);
+
+LocationTypeFilter.propTypes = {
+  filters: PropTypes.shape({
+    locationType: PropTypes.string,
+    status: PropTypes.string,
+  }).isRequired,
+  filterData: PropTypes.func.isRequired,
+  locationType: PropTypes.string.isRequired,
+  setLocationType: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
+};
+
+const StatusFilter = ({ filters, filterData, setStatus, setData, status }) => (
+  <Select
+    options={[defaultStatus, 'Online', 'Offline']}
+    value={status}
+    onChange={({ option }) => {
+      const nextFilters = {
+        ...filters,
+        status:
+          option !== defaultStatus
+            ? nextStatus => nextStatus === option
+            : undefined,
+      };
+      const nextData = filterData(allData, nextFilters);
+      setStatus(option);
+      setData(nextData);
+    }}
+  />
+);
+
+StatusFilter.propTypes = {
+  filters: PropTypes.shape({
+    locationType: PropTypes.string,
+    status: PropTypes.string,
+  }).isRequired,
+  filterData: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
+  setStatus: PropTypes.func.isRequired,
+};
+
+const RecordSummary = ({ data, filtering }) => (
+  <Box direction="row" gap="xxsmall">
+    <Text color="text-weak" size="small" weight="bold">
+      {data.length}
+    </Text>
+    <Text color="text-weak" size="small">
+      {filtering ? 'results' : 'items'}
+    </Text>
+  </Box>
+);
+
+RecordSummary.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      locationType: PropTypes.string,
+      status: PropTypes.string,
+    }),
+  ).isRequired,
+  filtering: PropTypes.bool.isRequired,
+};
+
+const Results = ({ data }) => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <Box fill overflow="auto">
+      <List
+        action={(item, index) =>
+          size !== 'small' && (
+            <Box key={index} align="center" direction="row" gap="xsmall">
+              <Box
+                background={item.status === 'Online' ? 'brand' : 'text-weak'}
+                pad="xsmall"
+                round
+              />
+              <Text color="text-strong">{item.status}</Text>
+            </Box>
+          )
+        }
+        border="horizontal"
+        data={data}
+        onClickItem={() => {
+          // eslint-disable-next-line no-alert
+          alert(`
             Typically a click would route to a view with 
             greater detail behind this summary information.
             `);
-          }}
-        >
-          {(datum, index) => (
-            <Box key={index}>
-              <Box direction="row" gap="small">
-                <Box
-                  flex={false}
-                  height="xxsmall"
-                  width="xxsmall"
-                  round="small"
-                  overflow="hidden"
-                >
-                  <Image src={datum.image} fit="cover" />
-                </Box>
-                <Box gap="xsmall" justify="between">
-                  <Box>
-                    <Text color="text-strong" size="large" weight="bold">
-                      {datum.name}
-                    </Text>
-                    {size !== 'small' && (
-                      <Text color="text-strong">{datum.address}</Text>
-                    )}
-                  </Box>
-                  {size !== 'small' ? (
-                    <Box direction="row" gap="xsmall">
-                      <Text size="small">Location Type:</Text>
-                      <Text size="small">{datum.locationType}</Text>
-                    </Box>
-                  ) : (
-                    <Box
-                      key={index}
-                      align="center"
-                      direction="row"
-                      gap="xsmall"
-                    >
-                      <Box
-                        background={
-                          datum.status === 'Online' ? 'brand' : 'text-weak'
-                        }
-                        pad="xsmall"
-                        round
-                      />
-                      <Text color="text-strong">{datum.status}</Text>
-                    </Box>
+        }}
+      >
+        {(datum, index) => (
+          <Box key={index}>
+            <Box direction="row" gap="small">
+              <Box
+                flex={false}
+                height="xxsmall"
+                width="xxsmall"
+                round="small"
+                overflow="hidden"
+              >
+                <Image src={datum.image} fit="cover" />
+              </Box>
+              <Box gap="xsmall" justify="between">
+                <Box>
+                  <Text color="text-strong" size="large" weight="bold">
+                    {datum.name}
+                  </Text>
+                  {size !== 'small' && (
+                    <Text color="text-strong">{datum.address}</Text>
                   )}
                 </Box>
+                {size !== 'small' ? (
+                  <Box direction="row" gap="xsmall">
+                    <Text size="small">Location Type:</Text>
+                    <Text size="small">{datum.locationType}</Text>
+                  </Box>
+                ) : (
+                  <Box key={index} align="center" direction="row" gap="xsmall">
+                    <Box
+                      background={
+                        datum.status === 'Online' ? 'brand' : 'text-weak'
+                      }
+                      pad="xsmall"
+                      round
+                    />
+                    <Text color="text-strong">{datum.status}</Text>
+                  </Box>
+                )}
               </Box>
             </Box>
-          )}
-        </List>
-      </Box>
+          </Box>
+        )}
+      </List>
     </Box>
   );
+};
+
+Results.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      locationType: PropTypes.string,
+      status: PropTypes.string,
+    }),
+  ).isRequired,
 };
