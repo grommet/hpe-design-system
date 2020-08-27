@@ -1,4 +1,4 @@
 export * from './FilteringCards';
 export * from './FilteringLists';
-export * from './FilteringWithRangeInput';
+export * from './FilteringWithRangeSelector';
 export * from './FilteringWithSelect';
