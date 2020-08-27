@@ -17,7 +17,7 @@ export const CardMeterExample = () => (
     }}
     width="medium"
   >
-    <CardBody pad="medium" gap="medium">
+    <CardBody gap="medium">
       <Identifier
         title="Availability"
         subtitle="Uptime - Last 30 Days"
@@ -42,7 +42,7 @@ export const CardMeterExample = () => (
         />
       </Box>
     </CardBody>
-    <CardFooter pad="medium">
+    <CardFooter>
       <KPISummary
         message={`${mockAvailability * 100}% vs. SLA 99.5%`}
         statusColor="status-critical"
