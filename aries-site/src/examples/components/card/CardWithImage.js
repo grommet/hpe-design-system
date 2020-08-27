@@ -9,7 +9,7 @@ export const CardWithImage = () => (
         fit="cover"
       />
     </Box>
-    <CardBody gap="xsmall" pad="medium">
+    <CardBody gap="xsmall">
       <Box>
         <Text color="text-strong" size="xxlarge" weight="bold">
           HPE HQ
