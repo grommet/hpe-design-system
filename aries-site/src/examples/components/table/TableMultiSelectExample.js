@@ -149,31 +149,29 @@ const data = [
   },
 ];
 
+const onClickHandler = record => {
+  // eslint-disable-next-line no-alert
+  alert(`
+    Record was clicked:
+    { 
+        id: ${record.id},
+        orderName: ${record.orderName}
+        state: ${record.state}
+        orderDate: ${record.orderDate}
+    }
+    
+    You can use onClick() to navigate to a record's detail
+    page, open a panel or modal to edit the record, or perform 
+    other actions as you see fit.
+  `);
+};
+
 const columns = [
   {
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button
-        alignSelf="start"
-        onClick={event => {
-          console.log(event.target);
-          // eslint-disable-next-line no-alert
-          alert(`
-          Record was clicked:
-          { 
-              id: ${datum.id},
-              orderName: ${datum.orderName}
-              state: ${datum.state}
-              orderDate: ${datum.orderDate}
-          }
-          
-          You can use onClick() to navigate to a record's detail
-          page, open a panel or modal to edit the record, or perform 
-          other actions as you see fit.
-          `);
-        }}
-      >
+      <Button alignSelf="start" onClick={() => onClickHandler(datum)}>
         <Text truncate>{datum.orderName}</Text>
       </Button>
     ),
@@ -229,42 +227,40 @@ export const TableMultiSelectExample = () => {
     setChecked(event.target.checked ? data.map(datum => datum.id) : []);
 
   return (
-    <>
-      <Box height="medium" overflow="auto">
-        <TableControls selected={checked} />
-        <Box>
-          <DataTable
-            data={data}
-            primaryKey="id"
-            columns={[
-              {
-                property: 'checkbox',
-                render: datum => (
-                  <CheckBox
-                    key={datum.id}
-                    checked={checked.indexOf(datum.id) !== -1}
-                    onChange={e => onCheck(e, datum.id)}
-                  />
-                ),
-                header: (
-                  <CheckBox
-                    checked={checked.length === data.length}
-                    indeterminate={
-                      checked.length > 0 && checked.length < data.length
-                    }
-                    onChange={onCheckAll}
-                  />
-                ),
-                sortable: false,
-              },
-              ...columns,
-            ]}
-            fill
-            pin
-          />
-        </Box>
+    <Box height="medium" overflow="auto">
+      <TableControls selected={checked} />
+      <Box>
+        <DataTable
+          data={data}
+          primaryKey="id"
+          columns={[
+            {
+              property: 'checkbox',
+              render: datum => (
+                <CheckBox
+                  key={datum.id}
+                  checked={checked.indexOf(datum.id) !== -1}
+                  onChange={e => onCheck(e, datum.id)}
+                />
+              ),
+              header: (
+                <CheckBox
+                  checked={checked.length === data.length}
+                  indeterminate={
+                    checked.length > 0 && checked.length < data.length
+                  }
+                  onChange={onCheckAll}
+                />
+              ),
+              sortable: false,
+            },
+            ...columns,
+          ]}
+          fill
+          pin
+        />
       </Box>
-    </>
+    </Box>
   );
 };
 
@@ -275,7 +271,7 @@ const TableControls = ({ selected }) => {
       `
       Handler called to perform an action
       against these records:
-      ${records}
+      [${records}]
       `,
     );
   };
