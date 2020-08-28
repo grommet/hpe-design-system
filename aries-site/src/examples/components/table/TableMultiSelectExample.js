@@ -13,7 +13,7 @@ const data = [
     contact: {
       email: 'melinda@suncor.co',
     },
-    orderDate: '30/04/2020',
+    orderDate: '04/30/2020',
   },
   {
     id: 'OID789345',
@@ -25,7 +25,7 @@ const data = [
     contact: {
       email: 'wan@nestle.com',
     },
-    orderDate: '05/04/2020',
+    orderDate: '04/05/2020',
   },
   {
     id: 'OID894567',
@@ -37,7 +37,7 @@ const data = [
     contact: {
       email: 'muhtar@coke.com',
     },
-    orderDate: '04/03/2020',
+    orderDate: '03/04/2020',
   },
   {
     id: 'OID829374',
@@ -49,7 +49,7 @@ const data = [
     contact: {
       email: 'priyanka@domain.com',
     },
-    orderDate: '28/02/2020',
+    orderDate: '02/28/2020',
   },
   {
     id: 'OID648379',
@@ -61,7 +61,7 @@ const data = [
     contact: {
       email: 'wan@nestle.com',
     },
-    orderDate: '15/02/2020',
+    orderDate: '02/15/2020',
   },
   {
     id: 'OID192653',
@@ -73,7 +73,7 @@ const data = [
     contact: {
       email: 'melinda@suncor.co',
     },
-    orderDate: '30/01/2020',
+    orderDate: '01/30/2020',
   },
   {
     id: 'OID524387',
@@ -85,7 +85,7 @@ const data = [
     contact: {
       email: 'susan@boeing.com',
     },
-    orderDate: '15/01/2020',
+    orderDate: '01/15/2020',
   },
   {
     id: 'OID824567',
@@ -97,7 +97,7 @@ const data = [
     contact: {
       email: 'muhtar@coke.com',
     },
-    orderDate: '29/12/2019',
+    orderDate: '12/29/2019',
   },
   {
     id: 'OID945423',
@@ -109,7 +109,7 @@ const data = [
     contact: {
       email: 'priyanka@domain.com',
     },
-    orderDate: '15/12/2019',
+    orderDate: '12/15/2019',
   },
   {
     id: 'OID253462',
@@ -121,7 +121,7 @@ const data = [
     contact: {
       email: 'melinda@suncor.co',
     },
-    orderDate: '01/11/2019',
+    orderDate: '11/01/2019',
   },
   {
     id: 'OID953856',
@@ -133,7 +133,7 @@ const data = [
     contact: {
       email: 'muhtar@coke.com',
     },
-    orderDate: '01/11/2019',
+    orderDate: '11/01/2019',
   },
   {
     id: 'OID953890',
@@ -145,7 +145,7 @@ const data = [
     contact: {
       email: 'wan@nestle.com',
     },
-    orderDate: '01/11/2019',
+    orderDate: '11/01/2019',
   },
 ];
 
@@ -208,7 +208,6 @@ const columns = [
   {
     property: 'orderDate',
     header: 'Order Date',
-    align: 'end',
   },
 ];
 

@@ -6,6 +6,7 @@ import {
   TableExample,
   TableFixedHeaderExample,
   TableMultiSelectExample,
+  TableSortable,
 } from '../../examples';
 
 <Example
@@ -177,6 +178,15 @@ accessible in a tool specifically designed for analysis.
 ## Behaviors & Actions
 
 ### Sorting
+Column headers behave as a button and perform the sort action. A caret icon indicates 
+the directionality and to which column the sort is currently applied.
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableSortable.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <TableSortable />
+</Example>
 
 ### Searching
 [See Searching & Filtering]() for greater detail.
