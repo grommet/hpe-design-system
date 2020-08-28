@@ -99,12 +99,12 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
   const size = useContext(ResponsiveContext);
 
   useEffect(() => {
-    if (availability !== defaultAvailability || location !== defaultLocation) {
+    if (Object.keys(filters).length !== 0) {
       setFiltering(true);
     } else {
       setFiltering(false);
     }
-  }, [availability, location, setFiltering]);
+  }, [filters, setFiltering]);
 
   const resetFilters = () => {
     setAvailability(defaultAvailability);
