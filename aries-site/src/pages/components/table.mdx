@@ -53,52 +53,74 @@ They are not, however, trying to do all of these tasks at once.
 Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which 
 table features to include and, more importantly, exclude when we add a Table to our interfaces.
 
-- Finding and taking action against a specific record. (Searching)
-- Narrowing a result set down to a group of records sharing similar characteristics. (Filtering)
-- Facilitate scanning of records to identify potential outliers or records which the user is unaware need attention or action. (Browsing)
-- Assembling a data set for analysis. (Filtering)
-
 ### Finding a Specific Record
-Search experience
+Often, a user's task is to find and take action against a specific record. Whether it be 
+finding a customer's record to review their chat history, tracking a particular order's 
+status, etc., the user experience objective is to enable a user to locate that record as 
+quickly as possible.
+
+- Use Search. It can be as fast and efficient as it gets. 
+- As backup, use sortable columns coupled with paginated results. This combination 
+provides users with the knowledge of alpha-numeric range, enabling an 
+educated guess as to the record's location in the sort.
 
 <ExampleImagePreview
-  label="See Finding a Specific Record"
+  label="See finding a specific record"
   href="#"
   src="/static/images/Finding_Specific_Records.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
 ### Narrowing a Result Set
-Filtering experience
-- Batch actions
+When a user is looking to focus on a group of records sharing similar characteristics, 
+providing thoughtful filter controls allows for incremental reduction of the table's 
+result set.
+
+- Provide filter controls.
+- Filter control input types should be chosen to best fit the data type and breadth of values.
 
 <ExampleImagePreview
-  label="See Finding a Specific Record"
+  label="Learn more about providing a great filter experience"
   href="#"
   src="/static/images/Finding_Specific_Records.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
 ### Browsing a Result Set
-Browsing experience
-- InfiniteScroll
-- Indicators
+Sometimes users are "checking up on things" or do not have specific records 
+in mind. In this case, they are assessing the state of their records and the 
+user experience objective is to facilitate the scanning of records to identify 
+potential outliers or records which the user is unaware need attention or action.
+
+- Use infinite scroll. In this scenario, infinite scroll removes friction, 
+allowing users to browse records effortlessly.
+- Consider adding column data types such as status indicators or meters 
+which call attention to records needing attention.
 
 <ExampleImagePreview
-  label="See Finding a Specific Record"
+  label="Using infinite scroll with tables"
   href="#"
   src="/static/images/Finding_Specific_Records.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
 ### Assembling a Data Set
-Filtering experience
-- Filtering
-- Exports
-- Footer aggregate/summary
+Distinct from the user objectives above, tables containing data for analytical 
+purposes deserve distinct treatments as well. While tables are useful for 
+providing initial "discovery" type insights, such as identifying available attributes
+and ranges of values, purpose built tools are often a better choice for conducting 
+in depth analysis. In this scenario, a table's design should be optimized for 
+assembling the data set for analysis and easy portability of that data into the 
+user's preferred analytical tool.
+
+- Provide filter controls.
+- Filter control input types should be chosen to best fit the data type and breadth of values.
+- Provide export capability for users to consume the data in their analytical 
+tool of choice.
+- Provide aggregate measures in the table footer.
 
 <ExampleImagePreview
-  label="See Finding a Specific Record"
+  label="Learn more about providing a great filter experience"
   href="#"
   src="/static/images/Finding_Specific_Records.png"
   alt="Example demonstrating how to find a record of interest with a Table"
