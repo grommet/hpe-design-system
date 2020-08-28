@@ -256,8 +256,6 @@ export const TableMultiSelectExample = () => {
             },
             ...columns,
           ]}
-          fill
-          pin
         />
       </Box>
     </Box>
@@ -277,7 +275,12 @@ const TableControls = ({ selected }) => {
   };
 
   return (
-    <Box direction="column" fill="horizontal" pad={{ vertical: 'small' }}>
+    <Box
+      direction="row"
+      fill="horizontal"
+      justify="end"
+      pad={{ vertical: 'small' }}
+    >
       <Menu
         label="Actions"
         items={[
@@ -300,7 +303,6 @@ const TableControls = ({ selected }) => {
             },
           },
         ]}
-        alignSelf="end"
       />
     </Box>
   );

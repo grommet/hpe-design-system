@@ -2,6 +2,7 @@ import { Anchor, Box, Image } from 'grommet';
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  TableAnatomy,
   TableExample,
   TableFixedHeaderExample,
   TableMultiSelectExample,
@@ -21,15 +22,13 @@ Tables enable users to accomplish a task by finding records of interest, then ta
 They present structured data in a grid, with columns and rows to aid readability, scanability, and show 
 the meaning of the data.
 
-<Box align="start" fill height={{max: 'medium'}} margin={{top: 'small', bottom: 'medium'}} >
-  <Image src="/static/images/Table_Anatomy.svg" />
-</Box>
+<TableAnatomy />
 
 **Controls**<br />
 Table controls should live above the table and facilitate a user's ability to locate and 
 take actions against records of interest. A controls section may contain search and filter 
 controls, as well as action controls such as batch applying settings or data export.
-[About Table Controls >](#sorting)
+[About table controls >](#sorting)
 
 **Columns**<br />
 Contain a single data type and help users scan, read and take action through data.
@@ -169,6 +168,7 @@ accessible in a tool specifically designed for analysis.
 ### Selecting Multiple Records & Batch Actions
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
   height={{ min: 'small' }}
 >
   <TableMultiSelectExample />
@@ -177,6 +177,7 @@ accessible in a tool specifically designed for analysis.
 ### Fixed Column Headers
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
   height={{ min: 'small' }}
 >
   <TableFixedHeaderExample />

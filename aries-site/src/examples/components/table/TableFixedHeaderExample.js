@@ -182,7 +182,6 @@ const columns = [
   {
     property: 'connectionType',
     header: 'Connection Type',
-    size: 'xsmall',
   },
   {
     property: 'category',
@@ -197,7 +196,6 @@ const columns = [
   {
     property: 'status',
     header: 'Status',
-    size: 'xsmall',
   },
   {
     property: 'networkBand.value',
@@ -206,16 +204,14 @@ const columns = [
       <Text>{`${datum.networkBand.value} ${datum.networkBand.unit}`}</Text>
     ),
     align: 'end',
-    size: 'xsmall',
   },
   {
     property: 'linkRate.value',
     header: 'Link Rate',
     render: datum => (
-      <Text>{`${datum.linkRate.value} ${datum.linkRate.unit}`}</Text>
+      <Text truncate>{`${datum.linkRate.value} ${datum.linkRate.unit}`}</Text>
     ),
     align: 'end',
-    size: 'small',
   },
 ];
 
