@@ -7,13 +7,18 @@ import {
   Button,
   Card,
   CardBody,
+  DropButton,
+  Form,
+  FormField,
   Image,
   Header,
   Heading,
   Grid,
   Layer,
+  RangeSelector,
   ResponsiveContext,
   Select,
+  Stack,
   Text,
 } from 'grommet';
 import { Filter, FormClose } from 'grommet-icons';
@@ -21,6 +26,7 @@ import { Filter, FormClose } from 'grommet-icons';
 const allData = [
   {
     address: 'Engholm Parkvej 8, Ground Floor, Alleroed, DK-3450, Denmark',
+    employeeCount: 200,
     image:
       'https://images.unsplash.com/photo-1584704135557-d8bf7ca50eae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     locationType: 'Office',
@@ -29,6 +35,7 @@ const allData = [
   },
   {
     address: 'Vicente Aleixandre 1, Las Rozas, 28232, Spain',
+    employeeCount: 700,
     image:
       'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     locationType: 'Office',
@@ -38,6 +45,7 @@ const allData = [
   {
     address:
       '3404 E Harmony Road, Fort Collins, Colorado, 80528, United States',
+    employeeCount: 1100,
     image:
       'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
     locationType: 'Office',
@@ -47,6 +55,7 @@ const allData = [
   {
     address:
       '6280 America Center Dr., San Jose, California, 95002, United States',
+    employeeCount: 1000,
     image:
       'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80',
     locationType: 'Customer Center',
@@ -55,6 +64,7 @@ const allData = [
   },
   {
     address: '461 Fifth Avenue, New York, NY, 10017, United States',
+    employeeCount: 300,
     image:
       'https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     locationType: 'Customer Center',
@@ -64,6 +74,7 @@ const allData = [
   {
     address: `Stroombaan 16, 1181 VX Amstelveen, 
     Amstelveen, The Netherlands`,
+    employeeCount: 500,
     image:
       'https://images.unsplash.com/photo-1584450150050-4b9bdbd51f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     locationType: 'Customer Center',
@@ -79,8 +90,8 @@ const StyledCard = styled(Card)`
     transform: scale(1.01, 1.01);
   }
 `;
-
 const defaultFilters = {};
+const defaultEmployeeCount = [0, 2000];
 const defaultLocationType = 'All Location Types';
 const defaultStatus = 'All Statuses';
 
@@ -118,26 +129,30 @@ export const FilteringCards = () => {
 
 const Filters = ({ data, filtering, setData, setFiltering }) => {
   const [filters, setFilters] = useState(defaultFilters);
+  const [employeeCount, setEmployeeCount] = useState(defaultEmployeeCount);
   const [locationType, setLocationType] = useState(defaultLocationType);
-  const [status, setStatus] = useState(defaultStatus);
+  const [open, setOpen] = useState(false);
+  const [previousValues, setPreviousValues] = useState({});
+  const [status, setStatus] = useState([defaultStatus]);
   const [showLayer, setShowLayer] = useState(false);
 
   const size = useContext(ResponsiveContext);
 
   const resetFilters = () => {
     setData(allData);
+    setEmployeeCount(defaultEmployeeCount);
     setStatus(defaultStatus);
     setLocationType(defaultLocationType);
     setFilters(defaultFilters);
   };
 
   useEffect(() => {
-    if (locationType === defaultLocationType && status === defaultStatus) {
-      setFiltering(false);
-    } else {
+    if (Object.keys(filters).length !== 0) {
       setFiltering(true);
+    } else {
+      setFiltering(false);
     }
-  }, [locationType, status, setFiltering]);
+  }, [filters, setFilters, setFiltering]);
 
   const filterData = (array, criteria) => {
     setFilters(criteria);
@@ -162,12 +177,98 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
         setData={setData}
       />
       <StatusFilter
-        filters={filters}
+        status={status}
         filterData={filterData}
+        filters={filters}
         setStatus={setStatus}
         setData={setData}
-        status={status}
       />
+      {size !== 'small' ? (
+        <DropButton
+          alignSelf="start"
+          icon={<Filter />}
+          open={open}
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+          dropContent={
+            <Box pad="medium" width="medium">
+              <Form>
+                <FormField
+                  name="range-selector-employee-count"
+                  htmlFor="range-selector-employee-count"
+                  label="Employee Count"
+                >
+                  <EmployeeCountFilter
+                    filters={filters}
+                    filterData={filterData}
+                    previousValues={previousValues}
+                    setPreviousValues={setPreviousValues}
+                    setEmployeeCount={setEmployeeCount}
+                    setData={setData}
+                    employeeCount={employeeCount}
+                  />
+                </FormField>
+                <Text size="small">
+                  {`${employeeCount[0]} - ${employeeCount[1]} people`}
+                </Text>
+                <Box direction="row" justify="end" gap="small">
+                  <Button
+                    label="Reset Filter"
+                    secondary
+                    onClick={() => {
+                      const nextFilters = {
+                        ...filters,
+                        employeeCount: undefined,
+                      };
+                      const nextData = filterData(allData, nextFilters);
+                      setData(nextData);
+                      setEmployeeCount(defaultEmployeeCount);
+                      setOpen(!open);
+                    }}
+                  />
+                  <Button
+                    label="Apply Filter"
+                    primary
+                    onClick={() => {
+                      const nextFilters = {
+                        ...filters,
+                        employeeCount: nextEmployeeCount =>
+                          nextEmployeeCount >= employeeCount[0] &&
+                          nextEmployeeCount <= employeeCount[1],
+                      };
+                      const nextData = filterData(allData, nextFilters);
+                      setData(nextData);
+                      setOpen(!open);
+                    }}
+                  />
+                </Box>
+              </Form>
+            </Box>
+          }
+          dropAlign={{ top: 'bottom', left: 'left' }}
+        />
+      ) : (
+        <>
+          <FormField
+            name="range-selector-employee-count"
+            htmlFor="range-selector-employee-count"
+            label="Employee Count"
+          >
+            <EmployeeCountFilter
+              filters={filters}
+              filterData={filterData}
+              previousValues={previousValues}
+              setPreviousValues={setPreviousValues}
+              setEmployeeCount={setEmployeeCount}
+              setData={setData}
+              employeeCount={employeeCount}
+            />
+          </FormField>
+          <Text size="small">
+            {`${employeeCount[0]} - ${employeeCount[1]} people`}
+          </Text>
+        </>
+      )}
     </Box>
   );
 
@@ -255,10 +356,9 @@ const LocationTypeFilter = ({
     onChange={({ option }) => {
       const nextFilters = {
         ...filters,
-        locationType:
-          option !== defaultLocationType &&
-          (nextLocationType => nextLocationType === option),
+        locationType: nextLocationType => nextLocationType === option,
       };
+      if (option === defaultLocationType) delete nextFilters.locationType;
       const nextData = filterData(allData, nextFilters);
       setLocationType(option);
       setData(nextData);
@@ -268,8 +368,8 @@ const LocationTypeFilter = ({
 
 LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.string,
-    status: PropTypes.string,
+    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   filterData: PropTypes.func.isRequired,
   locationType: PropTypes.string.isRequired,
@@ -284,11 +384,9 @@ const StatusFilter = ({ filters, filterData, setStatus, setData, status }) => (
     onChange={({ option }) => {
       const nextFilters = {
         ...filters,
-        status:
-          option !== defaultStatus
-            ? nextStatus => nextStatus === option
-            : undefined,
+        status: nextStatus => nextStatus === option,
       };
+      if (option === defaultStatus) delete nextFilters.status;
       const nextData = filterData(allData, nextFilters);
       setStatus(option);
       setData(nextData);
@@ -298,13 +396,78 @@ const StatusFilter = ({ filters, filterData, setStatus, setData, status }) => (
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.string,
-    status: PropTypes.string,
+    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
+  status: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
   setStatus: PropTypes.func.isRequired,
+};
+
+const EmployeeCountFilter = ({
+  filters,
+  filterData,
+  previousValues,
+  setPreviousValues,
+  setEmployeeCount,
+  setData,
+  employeeCount,
+}) => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Stack>
+      <Box background="border" height="3px" direction="row" />
+      <RangeSelector
+        name="range-selector-employee-count"
+        id="range-selector-employee-count"
+        min={0}
+        max={2000}
+        values={employeeCount}
+        onChange={nextRange => {
+          setEmployeeCount(nextRange);
+          // on mobile, we want to filter the data immediately but
+          // on desktop, we wait until the user clicks
+          // "Apply Filter" to filter the data
+          if (size === 'small') {
+            const nextFilters = {
+              ...filters,
+              employeeCount: nextEmployeeCount =>
+                nextEmployeeCount >= employeeCount[0] &&
+                nextEmployeeCount <= employeeCount[1],
+            };
+            const nextData = filterData(allData, nextFilters);
+            // save previous value in case user
+            // clicks 'x'
+            setPreviousValues({
+              ...previousValues,
+              employeeCount,
+            });
+            setData(nextData);
+          }
+        }}
+      />
+    </Stack>
+  );
+};
+
+EmployeeCountFilter.propTypes = {
+  filters: PropTypes.shape({
+    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  }).isRequired,
+  filterData: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
+  employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
+  setEmployeeCount: PropTypes.func.isRequired,
+  previousValues: PropTypes.shape({
+    availability: PropTypes.arrayOf(PropTypes.number),
+    location: PropTypes.string,
+  }).isRequired,
+  setPreviousValues: PropTypes.func.isRequired,
 };
 
 const RecordSummary = ({ data, filtering }) => (
@@ -333,8 +496,9 @@ const Results = ({ data }) => {
 
   return (
     <Grid columns={size !== 'small' ? 'medium' : '100%'} fill gap="medium">
-      {data.map(datum => (
+      {data.map((datum, index) => (
         <StyledCard
+          key={index}
           height="medium"
           onClick={() => {
             // eslint-disable-next-line no-alert

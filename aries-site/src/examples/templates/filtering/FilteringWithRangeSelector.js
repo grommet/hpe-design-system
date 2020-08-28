@@ -412,7 +412,7 @@ const AvailabilityFilter = ({
 };
 
 AvailabilityFilter.propTypes = {
-  availability: PropTypes.string.isRequired,
+  availability: PropTypes.arrayOf(PropTypes.number).isRequired,
   filters: PropTypes.shape({
     availability: PropTypes.func,
     location: PropTypes.func,
@@ -446,7 +446,7 @@ RecordSummary.propTypes = {
       location: PropTypes.string,
     }),
   ).isRequired,
-  filtering: PropTypes.bool.isRequired,
+  filtering: PropTypes.bool,
 };
 
 const Results = ({ data }) => (
@@ -455,8 +455,8 @@ const Results = ({ data }) => (
       background="background-front"
       border="horizontal"
       data={data}
-      action={item => (
-        <Box direction="row" align="center" gap="medium">
+      action={(item, index) => (
+        <Box direction="row" align="center" gap="medium" key={index}>
           <Box direction="row" gap="small" align="center">
             <Text>Availability: {item.availability}%</Text>
             <Box
