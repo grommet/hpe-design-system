@@ -18,7 +18,7 @@ export const Container = ({
   // Height for template screen needs to be between medium and large
   // to maintain aspect ratio, so this is small + medium
   const { small, medium } = defaultProps.theme.global.size;
-  const aspectHeight = `${Number(medium) + Number(small)}px`;
+  const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   let height;
   if (template || screenContainer) height = aspectHeight;
