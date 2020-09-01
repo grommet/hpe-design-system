@@ -4,3 +4,4 @@ export * from './TableSortable';
 export * from './TableFixedHeaderExample';
 export * from './TableMultiSelectExample';
 export * from './TableSingleSelectExample';
+export * from './TableSummaryExample';

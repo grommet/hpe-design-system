@@ -107,8 +107,17 @@ export const aries = deepMerge(hpe, {
       // pad: { horizontal: 'small', vertical: 'xsmall' },
       // border: 'top',
       // verticalAlign: undefined,
-      // background: undefined,
-      // extend: undefined,
+      background: 'background-front',
+      extend: ({ theme }) => {
+        const { size, height } = theme.text.small;
+        return `
+          span {
+            font-size: ${size};
+            line-height: ${height};
+            font-weight: bold;
+          }
+        `;
+      },
     },
   },
 });
