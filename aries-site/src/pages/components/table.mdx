@@ -6,6 +6,7 @@ import {
   TableExample,
   TableFixedHeaderExample,
   TableMultiSelectExample,
+  TableSingleSelectExample,
   TableSortable,
 } from '../../examples';
 
@@ -18,7 +19,7 @@ import {
   <TableExample />
 </Example>
 
-## What Makes Up a Table?
+## What makes up a table?
 Tables enable users to accomplish a task by finding records of interest, then take action against them.
 They present structured data in a grid, with columns and rows to aid readability, scanability, and show 
 the meaning of the data.
@@ -48,13 +49,13 @@ status indicators, anchors, and buttons.
 [Cell variants, actions & behaviors >]()
 
 
-## When to Use
+## When to use
 Users interacting with a Table are trying to accomplish one of the following types of tasks.
 They are not, however, trying to do all of these tasks at once.
 Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which 
 table features to include and, more importantly, exclude when we add a Table to our interfaces.
 
-### Finding a Specific Record
+### Finding a specific record
 Often, a user's task is to find and take action against a specific record. Whether it be 
 finding a customer's record to review their chat history, tracking a particular order's 
 status, etc., the user experience objective is to enable a user to locate that record as 
@@ -72,7 +73,7 @@ educated guess as to the record's location in the sort.
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
-### Narrowing a Result Set
+### Narrowing a result set
 When a user is looking to focus on a group of records sharing similar characteristics, 
 providing thoughtful filter controls allows for incremental reduction of the table's 
 result set.
@@ -87,7 +88,7 @@ result set.
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
-### Browsing a Result Set
+### Browsing a result set
 Sometimes users are "checking up on things" or do not have specific records 
 in mind. In this case, they are assessing the state of their records and the 
 user experience objective is to facilitate the scanning of records to identify 
@@ -100,12 +101,12 @@ which call attention to records needing attention.
 
 <ExampleImagePreview
   label="Using infinite scroll with tables"
-  href="#"
+  href="#pagination-vs-infinite-scroll"
   src="/static/images/Finding_Specific_Records.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
-### Assembling a Data Set
+### Assembling a data set
 Distinct from the user objectives above, tables containing data for analytical 
 purposes deserve distinct treatments as well. While tables are useful for 
 providing initial "discovery" type insights, such as identifying available attributes
@@ -127,33 +128,11 @@ tool of choice.
   alt="Example demonstrating how to find a record of interest with a Table"
 />
 
+<!--
 ## Guidelines
+-->
 
-### Search vs. Filter?
-Complimenatary elements such as search or filters should be guided by the task the user 
-is setting out to accomplish.
-- Looking for a specific record? --> Search.
-- Trying to narrow records down to a set of shared characteristics? --> Filter.
-- Not quite certain for what I am looking, but I know its general characteristics? --> Filter.
-
-[See Searching & Filtering]() for greater detail.
-
-### Pagination vs. Infinite Scroll
-Should be guided by the task the user is setting out to accomplish.
-
-- Browsing? --> Infinite Scroll
-  - Perhaps I am reviewing a customer's account history. I am not looking for 
-  a particular record, rather I am in scanning mode, trying to get a sense of 
-  the volume and types of interaction with a customer over time. Infinite Scroll 
-  creates a nice, frictionless experirence for this to occur.
-- Searching for a specific record? --> It depends.
-  - Do you have a good search experience? --> Infinite Scroll
-  - Do you have a performant API?
-  - Do you require page reloads?
-  - Is your data structured? 
-- Do rows have many interactive elements? --> Pagination
-  - Be mindful of keyboard users.
-
+<!--
 ### How many columns?
 The number of columns and rows should be guided by the task the user is setting 
 out to accomplish.
@@ -174,8 +153,9 @@ within it, a larger number of columns may be neccessary.
 
 In this context, a Table should facilitate the assembly of the data set and make the set 
 accessible in a tool specifically designed for analysis.
+-->
 
-## Behaviors & Actions
+## Table behaviors & actions
 
 ### Sorting
 Column headers behave as a button and perform the sort action. A caret icon indicates 
@@ -188,16 +168,28 @@ the directionality and to which column the sort is currently applied.
   <TableSortable />
 </Example>
 
-### Searching
+### Searching and filtering tables
+Complimenatary elements such as search or filters should be guided by the task the user 
+is setting out to accomplish.
+- Looking for a specific record? --> Search.
+- Trying to narrow records down to a set of shared characteristics? --> Filter.
+- Not quite certain for what I am looking, but I know its general characteristics? --> Filter.
+
 [See Searching & Filtering]() for greater detail.
 
-### Filtering
-[See Searching & Filtering]() for greater detail.
+### Selecting single records
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <TableSingleSelectExample />
+</Example>
 
-### Record Selection
+### Selecting multiple records & batch actions
+Checkboxes allow for selection of multiple records, which then may apply 
+batch actions via action control buttons or menus. 
 
-
-### Selecting Multiple Records & Batch Actions
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
@@ -206,7 +198,10 @@ the directionality and to which column the sort is currently applied.
   <TableMultiSelectExample />
 </Example>
 
-### Fixed Column Headers
+### Fixing header row and/or columns
+Fixing or pinning header rows, columns, or footers allow users to track and 
+maintain context across long and wide data sets.
+
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
@@ -215,7 +210,23 @@ the directionality and to which column the sort is currently applied.
   <TableFixedHeaderExample />
 </Example>
 
-### Column Summary & Aggregation
+### Column summaries & aggregation
+
+### Use pagination or infinite scroll with tables
+Should be guided by the task the user is setting out to accomplish.
+
+- Browsing? --> Infinite Scroll
+  - Perhaps I am reviewing a customer's account history. I am not looking for 
+  a particular record, rather I am in scanning mode, trying to get a sense of 
+  the volume and types of interaction with a customer over time. Infinite Scroll 
+  creates a nice, frictionless experirence for this to occur.
+- Searching for a specific record? --> It depends.
+  - Do you have a good search experience? --> Infinite Scroll
+  - Do you have a performant API?
+  - Do you require page reloads?
+  - Is your data structured? 
+- Do rows have many interactive elements? --> Pagination
+  - Be mindful of keyboard users.
 
 <!-- To be added. Placeholders for future content.
 ### Pagination

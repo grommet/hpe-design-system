@@ -164,8 +164,8 @@ const columns = [
   {
     property: 'macAddress',
     header: 'MAC Address',
-    render: datum => <Text truncate>{datum.macAddress}</Text>,
-    size: 'xsmall',
+    render: datum => <Text>{datum.macAddress}</Text>,
+    pin: true,
   },
   {
     property: 'ipAddress',
@@ -217,10 +217,18 @@ const columns = [
 
 export const TableFixedHeaderExample = () => {
   return (
-    <Box height="medium" overflow="auto">
-      <Box>
-        <DataTable data={data} primaryKey="id" columns={columns} fill pin />
-      </Box>
+    <Box height="medium" width="large" overflow="auto">
+      <DataTable
+        data={data}
+        primaryKey="id"
+        columns={columns}
+        background={{
+          pinned: 'background-front',
+          header: 'background-front',
+        }}
+        fill
+        pin
+      />
     </Box>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Button, CheckBox, DataTable, Menu, Text } from 'grommet';
+import { DataTable, Text } from 'grommet';
 
 const data = [
   {
@@ -149,31 +148,14 @@ const data = [
   },
 ];
 
-const onClickHandler = record => {
-  // eslint-disable-next-line no-alert
-  alert(`
-    Record was clicked:
-    { 
-        id: ${record.id},
-        orderName: ${record.orderName}
-        state: ${record.state}
-        orderDate: ${record.orderDate}
-    }
-    
-    You can use onClick() to navigate to a record's detail
-    page, open a panel or modal to edit the record, or perform 
-    other actions as you see fit.
-  `);
-};
-
 const columns = [
   {
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button alignSelf="start" onClick={() => onClickHandler(datum)}>
-        <Text truncate>{datum.orderName}</Text>
-      </Button>
+      <Text weight="bold" truncate>
+        {datum.orderName}
+      </Text>
     ),
     size: 'small',
   },
@@ -193,7 +175,7 @@ const columns = [
     property: 'service',
     header: 'Service',
     render: datum => <Text truncate>{datum.service}</Text>,
-    size: 'xsmall',
+    size: 'small',
   },
   {
     property: 'tenant',
@@ -211,102 +193,28 @@ const columns = [
   },
 ];
 
-export const TableMultiSelectExample = () => {
-  const [checked, setChecked] = React.useState([]);
-
-  const onCheck = (event, value) => {
-    if (event.target.checked) {
-      setChecked([...checked, value]);
-    } else {
-      setChecked(checked.filter(item => item !== value));
+const onClickHandler = record => {
+  // eslint-disable-next-line no-alert
+  alert(`
+    Record was clicked:
+    { 
+        id: ${record.id},
+        orderName: ${record.orderName}
+        state: ${record.state}
+        orderDate: ${record.orderDate}
     }
-  };
-
-  const onCheckAll = event =>
-    setChecked(event.target.checked ? data.map(datum => datum.id) : []);
-
-  return (
-    <Box height="medium" overflow="auto">
-      <TableControls selected={checked} />
-      <Box>
-        <DataTable
-          data={data}
-          primaryKey="id"
-          columns={[
-            {
-              property: 'checkbox',
-              render: datum => (
-                <CheckBox
-                  key={datum.id}
-                  checked={checked.indexOf(datum.id) !== -1}
-                  onChange={e => onCheck(e, datum.id)}
-                />
-              ),
-              header: (
-                <CheckBox
-                  checked={checked.length === data.length}
-                  indeterminate={
-                    checked.length > 0 && checked.length < data.length
-                  }
-                  onChange={onCheckAll}
-                />
-              ),
-              sortable: false,
-            },
-            ...columns,
-          ]}
-        />
-      </Box>
-    </Box>
-  );
+    
+    You can use onClick() to navigate to a record's detail
+    page, open a panel or modal to edit the record, or perform 
+    other actions as you see fit.
+  `);
 };
 
-const TableControls = ({ selected }) => {
-  const demoActionHandler = records => {
-    // eslint-disable-next-line no-alert
-    alert(
-      `
-      Handler called to perform an action
-      against these records:
-      [${records}]
-      `,
-    );
-  };
-
-  return (
-    <Box
-      direction="row"
-      fill="horizontal"
-      justify="end"
-      pad={{ vertical: 'small' }}
-    >
-      <Menu
-        label="Actions"
-        items={[
-          {
-            label: 'Apply Batch Update',
-            onClick: () => {
-              demoActionHandler(selected);
-            },
-          },
-          {
-            label: 'Update Order Status',
-            onClick: () => {
-              demoActionHandler(selected);
-            },
-          },
-          {
-            label: 'Export',
-            onClick: () => {
-              demoActionHandler(selected);
-            },
-          },
-        ]}
-      />
-    </Box>
-  );
-};
-
-TableControls.propTypes = {
-  selected: PropTypes.array,
-};
+export const TableSingleSelectExample = () => (
+  <DataTable
+    data={data}
+    primaryKey="id"
+    columns={columns}
+    onClickRow={({ datum }) => onClickHandler(datum)}
+  />
+);
