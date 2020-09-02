@@ -126,20 +126,20 @@ const FilterButton = styled(Button)`
 
 const Filters = ({ filtering, setData, setFiltering }) => {
   const [filters, setFilters] = useState(defaultFilters);
-  const [service, setService] = useState(defaultservice);
+  const [service, setService] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
-  const [status, setStatus] = useState(defaultStatus);
-  const [tenant, setTenant] = useState(defaultTenant);
+  const [status, setStatus] = useState([]);
+  const [tenant, setTenant] = useState([]);
   const [showLayer, setShowLayer] = useState(false);
 
   const size = useContext(ResponsiveContext);
 
   const resetFilters = () => {
     setData(allData);
-    setStatus(defaultStatus);
-    setService(defaultservice);
-    setTenant(defaultTenant);
+    setStatus([]);
+    setService([]);
+    setTenant([]);
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -306,7 +306,7 @@ const ServiceFilter = ({ filters, setFilters, service, setService }) => (
       setService(value);
       const nextFilters = {
         ...filters,
-        service: nextservice => value.includes(nextservice),
+        service: value.length && (nextservice => value.includes(nextservice)),
       };
       setFilters(nextFilters);
     }}
@@ -331,7 +331,7 @@ const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
       setStatus(value);
       const nextFilters = {
         ...filters,
-        status: nextStatus => value.includes(nextStatus),
+        status: value.length && (nextStatus => value.includes(nextStatus)),
       };
       setFilters(nextFilters);
     }}
@@ -359,7 +359,7 @@ const TenantFilter = ({ filters, setFilters, setTenant, tenant }) => (
       setTenant(value);
       const nextFilters = {
         ...filters,
-        tenant: nextTenant => value.includes(nextTenant),
+        tenant: value.length && (nextTenant => value.includes(nextTenant)),
       };
       setFilters(nextFilters);
     }}
