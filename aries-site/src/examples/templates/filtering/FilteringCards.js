@@ -96,9 +96,9 @@ const StyledCard = styled(Card)`
 
 const defaultFilters = {};
 const defaultEmployeeCount = [0, 2000];
-const defaultCountry = ['Denmark', 'Netherlands', 'Spain', 'United States'];
-const defaultLocationType = ['Customer Center', 'Office'];
-const defaultStatus = ['Online', 'Offline'];
+const countries = ['Denmark', 'Netherlands', 'Spain', 'United States'];
+const locationTypes = ['Customer Center', 'Office'];
+const statuses = ['Online', 'Offline'];
 
 export const FilteringCards = () => {
   const [data, setData] = useState(allData);
@@ -143,21 +143,21 @@ const FilterButton = styled(Button)`
 const Filters = ({ filtering, setData, setFiltering }) => {
   const [employeeCount, setEmployeeCount] = useState(defaultEmployeeCount);
   const [filters, setFilters] = useState(defaultFilters);
-  const [country, setCountry] = useState(defaultCountry);
-  const [locationType, setLocationType] = useState(defaultLocationType);
+  const [country, setCountry] = useState([]);
+  const [locationType, setLocationType] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
-  const [status, setStatus] = useState(defaultStatus);
+  const [status, setStatus] = useState([]);
   const [showLayer, setShowLayer] = useState(false);
 
   const size = useContext(ResponsiveContext);
 
   const resetFilters = () => {
     setData(allData);
-    setCountry(defaultCountry);
+    setCountry([]);
     setEmployeeCount(defaultEmployeeCount);
-    setStatus(defaultStatus);
-    setLocationType(defaultLocationType);
+    setStatus([]);
+    setLocationType([]);
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -337,13 +337,15 @@ const LocationTypeFilter = ({
   setLocationType,
 }) => (
   <CheckBoxGroup
-    options={defaultLocationType}
+    options={locationTypes}
     value={locationType}
     onChange={({ value }) => {
       setLocationType(value);
       const nextFilters = {
         ...filters,
-        locationType: nextLocationType => value.includes(nextLocationType),
+        locationType:
+          value.length &&
+          (nextLocationType => value.includes(nextLocationType)),
       };
       setFilters(nextFilters);
     }}
@@ -362,13 +364,13 @@ LocationTypeFilter.propTypes = {
 
 const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
   <CheckBoxGroup
-    options={defaultStatus}
+    options={statuses}
     value={status}
     onChange={({ value }) => {
       setStatus(value);
       const nextFilters = {
         ...filters,
-        status: nextStatus => value.includes(nextStatus),
+        status: value.length && (nextStatus => value.includes(nextStatus)),
       };
       setFilters(nextFilters);
     }}
@@ -390,13 +392,13 @@ StatusFilter.propTypes = {
 
 const CountryFilter = ({ filters, setFilters, setCountry, country }) => (
   <CheckBoxGroup
-    options={defaultCountry}
+    options={countries}
     value={country}
     onChange={({ value }) => {
       setCountry(value);
       const nextFilters = {
         ...filters,
-        country: nextCountry => value.includes(nextCountry),
+        country: value.length && (nextCountry => value.includes(nextCountry)),
       };
       setFilters(nextFilters);
     }}
