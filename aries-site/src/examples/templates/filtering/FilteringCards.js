@@ -354,7 +354,7 @@ LocationTypeFilter.propTypes = {
 
 const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
   <CheckBoxGroup
-    options={['Online', 'Offline']}
+    options={defaultStatus}
     value={status}
     onChange={({ value }) => {
       setStatus(value);
