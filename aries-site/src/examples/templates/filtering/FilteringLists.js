@@ -254,7 +254,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           >
             <Header>
               <Text color="text-strong" size="xxlarge" weight="bold">
-                Filter Categories
+                Filters
               </Text>
               <Button
                 icon={<FormClose />}
