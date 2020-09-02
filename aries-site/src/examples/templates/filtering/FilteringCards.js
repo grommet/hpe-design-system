@@ -159,7 +159,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
     setStatus(defaultStatus);
     setLocationType(defaultLocationType);
     setFilters(defaultFilters);
-    setFiltering(!filtering);
+    setFiltering(false);
   };
 
   // everytime the Filters layer opens, save a temp
@@ -266,8 +266,16 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           position={size !== 'small' ? 'right' : undefined}
           full={size !== 'small' ? 'vertical' : true}
           modal
-          onClickOutside={() => setShowLayer(!showLayer)}
-          onEsc={() => setShowLayer(!showLayer)}
+          onClickOutside={() => {
+            filterData(allData, previousFilters);
+            restoreValues(previousValues);
+            setShowLayer(!showLayer);
+          }}
+          onEsc={() => {
+            filterData(allData, previousFilters);
+            restoreValues(previousValues);
+            setShowLayer(!showLayer);
+          }}
         >
           <Box
             alignSelf="center"
