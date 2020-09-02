@@ -249,13 +249,13 @@ const Filters = ({ filtering, setData, setFiltering }) => {
         >
           <Box
             height={size !== 'small' ? { max: 'large' } : undefined}
-            pad="medium"
+            pad={{ horizontal: 'large', vertical: 'medium' }}
             gap="medium"
           >
             <Header>
-              <Text color="text-strong" size="xxlarge" weight="bold">
+              <Heading as="p" color="text-strong" level={1} margin="none">
                 Filters
-              </Text>
+              </Heading>
               <Button
                 icon={<FormClose />}
                 onClick={() => {
@@ -266,7 +266,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
               />
             </Header>
             {content}
-            <Box align="center" direction="row" gap="small">
+            <Box align="center" direction="row" justify="end" gap="small">
               <Button
                 label="Apply Filters"
                 onClick={() => {

@@ -279,15 +279,15 @@ const Filters = ({ filtering, setData, setFiltering }) => {
         >
           <Box
             alignSelf="center"
-            width="medium"
-            pad="medium"
+            width={{ min: 'medium' }}
+            pad={{ horizontal: 'large', vertical: 'medium' }}
             gap="medium"
             fill="vertical"
           >
             <Header>
-              <Text color="text-strong" size="xxlarge" weight="bold">
+              <Heading as="p" color="text-strong" margin="none">
                 Filters
-              </Text>
+              </Heading>
               <Button
                 icon={<FormClose />}
                 onClick={() => {
