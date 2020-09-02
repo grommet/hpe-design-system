@@ -199,7 +199,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
 
   const content = (
     <Box gap="small" overflow="auto" flex>
-      <Box gap="xsmall">
+      <Box gap="xsmall" flex={false}>
         <Text color="text-strong" size="large" weight="bold">
           Location Type
         </Text>
@@ -210,7 +210,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           setLocationType={setLocationType}
         />
       </Box>
-      <Box gap="xsmall">
+      <Box gap="xsmall" flex={false}>
         <Text color="text-strong" size="large" weight="bold">
           Status
         </Text>
@@ -221,7 +221,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           setStatus={setStatus}
         />
       </Box>
-      <Box gap="xsmall">
+      <Box gap="xsmall" flex={false}>
         <Text color="text-strong" size="large" weight="bold">
           Country
         </Text>
