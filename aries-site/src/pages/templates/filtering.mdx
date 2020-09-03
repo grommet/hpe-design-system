@@ -4,14 +4,15 @@ import {
   FilteringLists,
   FilteringWithRangeSelector,
   FilteringWithSelect,
+  PersistentFiltering,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringLists.js"
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/PersistentFiltering.js"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <FilteringCards />
+  <PersistentFiltering />
 </Example>
 
 ## What makes up filtering?
@@ -60,6 +61,18 @@ TBD
   template
 >
   <FilteringCards />
+</Example>
+
+### Persistent filtering
+
+Persistent filtering should be used only when there is ample screen width. It is an efficient way to allow users to immediately filter records when displaying data as [Cards](/components/cards) or [List](/templates/lists).
+
+<Example
+  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <PersistentFiltering />
 </Example>
 
 ## Guidelines
