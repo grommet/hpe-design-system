@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   Anchor,
   Box,
@@ -88,6 +89,14 @@ export const FilteringWithRangeSelector = () => {
     </Box>
   );
 };
+
+const FilterButton = styled(DropButton)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+  &:hover {
+    background: transparent;
+  }
+`;
 
 const Filters = ({ data, filtering, setData, setFiltering }) => {
   const [availability, setAvailability] = useState(defaultAvailability);
@@ -227,7 +236,7 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
           previousValues={previousValues}
           setPreviousValues={setPreviousValues}
         />
-        <DropButton
+        <FilterButton
           alignSelf="start"
           icon={<Filter />}
           open={open}

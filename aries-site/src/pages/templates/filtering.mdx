@@ -3,12 +3,14 @@ import {
   FilteringCards,
   FilteringLists,
   FilteringWithRangeSelector,
+  FilteringWithDropButton,
   FilteringWithSelect,
   PersistentFiltering,
 } from '../../examples';
 
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/PersistentFiltering.js"
+  figma="https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=681%3A1430"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
@@ -41,6 +43,8 @@ If the number of records displayed per page is limited, pagination should be pla
 
 ### Filtering within a List
 
+When applying many filters at once, it is helpful to present them in a consolidated Layer. In this example, the Layer is positioned at the center of the screen.
+
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
   showResponsiveControls={['laptop', 'mobile']}
@@ -55,6 +59,8 @@ TBD
 
 ### Filtering within Cards
 
+When applying many filters at once, it is helpful to present them in a consolidated Layer. In this example, the Layer is anchored to the right edge of the screen.
+
 <Example
   code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
   showResponsiveControls={['laptop', 'mobile']}
@@ -63,30 +69,24 @@ TBD
   <FilteringCards />
 </Example>
 
-### Persistent filtering
-
-Persistent filtering should be used only when there is ample screen width. It is an efficient way to allow users to immediately filter records when displaying data as [Cards](/components/cards) or [List](/templates/lists).
-
-<Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
-  showResponsiveControls={['laptop', 'mobile']}
-  template
->
-  <PersistentFiltering />
-</Example>
-
 ## Guidelines
 
 Filtering should help users quickly narrow down data sets by selecting certain parameters to define the relevant data bounds. Different types of inputs may better suited for filtering depending on the type of data.
 
 Use your best judgement around which input type is appropriate for the data you are filtering. However, here are a few things to consider:
 
-- **Is data presented as Cards or List?** When there is ample screen space, display the filters to the left of the data as a persistent column. Once space becomes limited, use a single filter button that opens a Layer containing the fitlers
+- **Is data presented as Cards or List?** When there is ample screen space, display the filters to the left of the data as [a persistent column](/templates/filtering). Once space becomes limited, use a single filter button that opens a Layer containing the fitlers
 - **Is there more than one filter?** Use a single button with filter icon that opens a Layer containing the filters
 - **Is the user going to be selecting multiple options?** Filter with CheckBoxGroup
 - **Is the user aiming to filter based on a range?** Filter with RangeSelector
 
 ## More examples of filtering
+
+### Filtering with DropButton
+
+<Example template showResponsiveControls={['laptop', 'mobile']}>
+  <FilteringWithDropButton />
+</Example>
 
 ### Filtering with RangeSelector
 
@@ -96,16 +96,8 @@ Use your best judgement around which input type is appropriate for the data you 
 
 ### Filtering with Select
 
-Filtering with Select should be used when ...
+Filtering with Select should be used when the goal of the user will likely be to filter data around one specific criteria. If the user will be selecting multiple criteria, consider using CheckBoxGroup.
 
 <Example template showResponsiveControls={['laptop', 'mobile']}>
   <FilteringWithSelect />
 </Example>
-
-### Filtering with DateInput
-
-A DateInput is an effective way to allow users to narrow data to a specific date or range of dates.
-
-### Filtering with CheckBoxGroup
-
-Filtering with CheckBoxGroup easily allows for ....
