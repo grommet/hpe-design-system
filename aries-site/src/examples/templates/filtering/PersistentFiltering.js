@@ -184,7 +184,6 @@ export const PersistentFiltering = () => {
     setFilters,
     filtering,
     setFiltering,
-    setSearch,
   };
 
   return (
@@ -298,7 +297,6 @@ const Filters = ({
   filterData,
   setData,
   setFiltering,
-  setSearch,
 }) => {
   const [employeeCount, setEmployeeCount] = useState(
     allFilters.employeeCount.defaultValue,
@@ -322,7 +320,6 @@ const Filters = ({
     setLocationType(allFilters.locationType.defaultValue);
     setFilters(defaultFilters);
     setFiltering(false);
-    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -490,7 +487,6 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
-  setSearch: PropTypes.func.isRequired,
 };
 
 const LocationTypeFilter = ({

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -17,8 +17,9 @@ import {
   ResponsiveContext,
   Stack,
   Text,
+  TextInput,
 } from 'grommet';
-import { Filter, FormClose } from 'grommet-icons';
+import { Filter, FormClose, Search } from 'grommet-icons';
 
 const allData = [
   {
@@ -94,6 +95,18 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const StyledButton = styled(Button)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+  &:hover {
+    background: transparent;
+  }
+`;
+
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-icon',
+}))``;
+
 const defaultFilters = {};
 const defaultEmployeeCount = [0, 2000];
 const countries = ['Denmark', 'Netherlands', 'Spain', 'United States'];
@@ -103,6 +116,45 @@ const statuses = ['Online', 'Offline'];
 export const FilteringCards = () => {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
+  const [filters, setFilters] = useState(defaultFilters);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [search, setSearch] = useState();
+  const inputRef = useRef();
+  const size = useContext(ResponsiveContext);
+
+  useEffect(() => {
+    if (searchFocused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [searchFocused, setSearchFocused]);
+
+  const filterData = (array, criteria, searchValue = search) => {
+    if (Object.keys(criteria).length) setFiltering(true);
+    else setFiltering(false);
+    setFilters(criteria);
+
+    let filterResults;
+    const filterKeys = Object.keys(criteria);
+    filterResults = array.filter(item => {
+      // validates all filter criteria
+      return filterKeys.every(key => {
+        // ignores non-function predicates
+        if (typeof criteria[key] !== 'function') return true;
+        return criteria[key](item[key]);
+      });
+    });
+
+    if (searchValue) {
+      filterResults = filterResults.filter(o =>
+        Object.keys(o).some(
+          k =>
+            typeof o[k] === 'string' &&
+            o[k].toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    }
+    return filterResults;
+  };
 
   return (
     <Box
@@ -118,12 +170,46 @@ export const FilteringCards = () => {
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Sites
           </Heading>
-          <Filters
-            data={data}
-            filtering={filtering}
-            setFiltering={setFiltering}
-            setData={setData}
-          />
+          <Box align="center" direction="row" gap="small">
+            {size !== 'small' || searchFocused ? (
+              <Box width="medium">
+                <StyledTextInput
+                  ref={inputRef}
+                  icon={<Search id="search-icon" />}
+                  placeholder="Search placeholder"
+                  onBlur={() => setSearchFocused(false)}
+                  value={search}
+                  onChange={event => {
+                    setSearch(event.target.value);
+                    const nextData = filterData(
+                      allData,
+                      filters,
+                      event.target.value,
+                    );
+                    setData(nextData);
+                  }}
+                />
+              </Box>
+            ) : (
+              <StyledButton
+                id="search-button"
+                icon={<Search />}
+                onClick={() => setSearchFocused(true)}
+              />
+            )}
+            {(size !== 'small' || !searchFocused) && (
+              <Filters
+                data={data}
+                filtering={filtering}
+                setFiltering={setFiltering}
+                setData={setData}
+                filters={filters}
+                setFilters={setFilters}
+                filterData={filterData}
+              />
+            )}
+          </Box>
+
           <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
@@ -132,17 +218,15 @@ export const FilteringCards = () => {
   );
 };
 
-const FilterButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
-const Filters = ({ filtering, setData, setFiltering }) => {
+const Filters = ({
+  filtering,
+  filters,
+  setFilters,
+  filterData,
+  setData,
+  setFiltering,
+}) => {
   const [employeeCount, setEmployeeCount] = useState(defaultEmployeeCount);
-  const [filters, setFilters] = useState(defaultFilters);
   const [country, setCountry] = useState([]);
   const [locationType, setLocationType] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
@@ -180,21 +264,6 @@ const Filters = ({ filtering, setData, setFiltering }) => {
     setEmployeeCount(values.employeeCount);
     setLocationType(values.locationType);
     setStatus(values.status);
-  };
-
-  const filterData = (array, criteria) => {
-    if (Object.keys(criteria).length) setFiltering(true);
-    setFilters(criteria);
-
-    const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
-      // validates all filter criteria
-      return filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
-      });
-    });
   };
 
   const content = (
@@ -237,7 +306,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
   return (
     <>
       <Box align="center" direction="row" gap="small">
-        <FilterButton
+        <StyledButton
           icon={<Filter />}
           onClick={() => {
             setShowLayer(true);
@@ -311,7 +380,10 @@ const Filters = ({ filtering, setData, setFiltering }) => {
 };
 
 Filters.propTypes = {
+  filters: PropTypes.shape({}).isRequired,
+  setFilters: PropTypes.func.isRequired,
   filtering: PropTypes.bool.isRequired,
+  filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
 };
