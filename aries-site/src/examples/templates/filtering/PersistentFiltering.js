@@ -717,7 +717,6 @@ const Results = ({ data }) => {
         {data.map((datum, index) => (
           <StyledCard
             key={index}
-            height="medium"
             onClick={() => {
               // eslint-disable-next-line no-alert
               alert(`

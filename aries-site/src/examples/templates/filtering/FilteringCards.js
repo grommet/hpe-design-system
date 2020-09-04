@@ -8,7 +8,6 @@ import {
   Card,
   CardBody,
   CheckBoxGroup,
-  Image,
   Header,
   Heading,
   Grid,
@@ -495,11 +494,11 @@ const Results = ({ data }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Grid columns={size !== 'small' ? 'medium' : '100%'} fill gap="medium">
+    <Grid columns={size !== 'small' ? 'medium' : '100%'} gap="medium">
       {data.map((datum, index) => (
         <StyledCard
+          background="background-contrast"
           key={index}
-          height="medium"
           onClick={() => {
             // eslint-disable-next-line no-alert
             alert(`
@@ -508,9 +507,6 @@ const Results = ({ data }) => {
             `);
           }}
         >
-          <Box height="small" fill="horizontal">
-            <Image src={datum.image} fit="cover" />
-          </Box>
           <CardBody gap="xsmall" pad="medium" justify="between">
             <Box flex={false}>
               <Box align="center" direction="row" gap="xsmall">
@@ -527,9 +523,7 @@ const Results = ({ data }) => {
               <Text color="text-strong">{datum.address}</Text>
             </Box>
             <Box>
-              <Text color="text-weak" size="small">
-                Location Type
-              </Text>
+              <Text size="small">Location Type</Text>
               <Text color="text-strong">{datum.locationType}</Text>
             </Box>
           </CardBody>
