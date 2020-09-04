@@ -138,6 +138,7 @@ export const PersistentFiltering = () => {
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [search, setSearch] = useState();
   const size = useContext(ResponsiveContext);
   const inputRef = useRef();
 
@@ -147,13 +148,14 @@ export const PersistentFiltering = () => {
     }
   }, [searchFocused, setSearchFocused]);
 
-  const filterData = (array, criteria) => {
+  const filterData = (array, criteria, searchValue = search) => {
     if (Object.keys(criteria).length) setFiltering(true);
     else setFiltering(false);
     setFilters(criteria);
 
+    let filterResults;
     const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
+    filterResults = array.filter(item => {
       // validates all filter criteria
       return filterKeys.every(key => {
         // ignores non-function predicates
@@ -161,6 +163,17 @@ export const PersistentFiltering = () => {
         return criteria[key](item[key]);
       });
     });
+
+    if (searchValue) {
+      filterResults = filterResults.filter(o =>
+        Object.keys(o).some(
+          k =>
+            typeof o[k] === 'string' &&
+            o[k].toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    }
+    return filterResults;
   };
 
   const filterProps = {
@@ -171,6 +184,7 @@ export const PersistentFiltering = () => {
     setFilters,
     filtering,
     setFiltering,
+    setSearch,
   };
 
   return (
@@ -199,6 +213,16 @@ export const PersistentFiltering = () => {
                   icon={<Search id="search-icon" />}
                   placeholder="Search placeholder"
                   onBlur={() => setSearchFocused(false)}
+                  value={search}
+                  onChange={event => {
+                    setSearch(event.target.value);
+                    const nextData = filterData(
+                      allData,
+                      filters,
+                      event.target.value,
+                    );
+                    setData(nextData);
+                  }}
                 />
               </Box>
             ) : (
@@ -274,6 +298,7 @@ const Filters = ({
   filterData,
   setData,
   setFiltering,
+  setSearch,
 }) => {
   const [employeeCount, setEmployeeCount] = useState(
     allFilters.employeeCount.defaultValue,
@@ -297,6 +322,7 @@ const Filters = ({
     setLocationType(allFilters.locationType.defaultValue);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -410,6 +436,7 @@ const Filters = ({
                 }}
               />
             </Header>
+            {/* pad needed so focus indicator doesn't get cut off */}
             <Box pad="xxsmall" overflow="auto" flex>
               {content}
             </Box>
@@ -463,6 +490,7 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 const LocationTypeFilter = ({
