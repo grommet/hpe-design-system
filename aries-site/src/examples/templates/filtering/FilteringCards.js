@@ -8,6 +8,7 @@ import {
   Card,
   CardBody,
   CheckBoxGroup,
+  FormField,
   Header,
   Heading,
   Grid,
@@ -197,11 +198,8 @@ const Filters = ({ filtering, setData, setFiltering }) => {
   };
 
   const content = (
-    <Box gap="small" overflow="auto" flex>
-      <Box gap="xsmall" flex={false}>
-        <Text color="text-strong" size="large" weight="bold">
-          Location Type
-        </Text>
+    <Box flex overflow="auto" pad={{ horizontal: 'xsmall' }}>
+      <Box flex={false}>
         <LocationTypeFilter
           filters={filters}
           setFilters={setFilters}
@@ -209,10 +207,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           setLocationType={setLocationType}
         />
       </Box>
-      <Box gap="xsmall" flex={false}>
-        <Text color="text-strong" size="large" weight="bold">
-          Status
-        </Text>
+      <Box flex={false}>
         <StatusFilter
           filters={filters}
           setFilters={setFilters}
@@ -220,10 +215,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           setStatus={setStatus}
         />
       </Box>
-      <Box gap="xsmall" flex={false}>
-        <Text color="text-strong" size="large" weight="bold">
-          Country
-        </Text>
+      <Box flex={false}>
         <CountryFilter
           filters={filters}
           setFilters={setFilters}
@@ -231,19 +223,13 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           setCountry={setCountry}
         />
       </Box>
-      <Box gap="medium">
-        <Text color="text-strong" size="large" weight="bold">
-          Employee Count
-        </Text>
+      <Box flex={false}>
         <EmployeeCountFilter
           employeeCount={employeeCount}
           setEmployeeCount={setEmployeeCount}
           filters={filters}
           setFilters={setFilters}
         />
-        <Text size="small">
-          {`${employeeCount[0]} - ${employeeCount[1]} people`}
-        </Text>
       </Box>
     </Box>
   );
@@ -277,9 +263,8 @@ const Filters = ({ filtering, setData, setFiltering }) => {
           }}
         >
           <Box
-            alignSelf="center"
             width={{ min: 'medium' }}
-            pad={{ horizontal: 'large', vertical: 'medium' }}
+            pad={{ horizontal: 'medium', vertical: 'medium' }}
             gap="medium"
             fill="vertical"
           >
@@ -296,7 +281,9 @@ const Filters = ({ filtering, setData, setFiltering }) => {
                 }}
               />
             </Header>
-            {content}
+            <Box pad="xsmall" overflow="auto" flex>
+              {content}
+            </Box>
             <Box align="center" direction="row" gap="small">
               <Button
                 label="Apply Filters"
@@ -335,20 +322,28 @@ const LocationTypeFilter = ({
   locationType,
   setLocationType,
 }) => (
-  <CheckBoxGroup
-    options={locationTypes}
-    value={locationType}
-    onChange={({ value }) => {
-      setLocationType(value);
-      const nextFilters = {
-        ...filters,
-        locationType:
-          value.length &&
-          (nextLocationType => value.includes(nextLocationType)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField
+    label="Location Type"
+    name="location-type-a"
+    htmlFor="location-type-a"
+  >
+    <CheckBoxGroup
+      id="location-type-a"
+      name="location-type-a"
+      options={locationTypes}
+      value={locationType}
+      onChange={({ value }) => {
+        setLocationType(value);
+        const nextFilters = {
+          ...filters,
+          locationType:
+            value.length &&
+            (nextLocationType => value.includes(nextLocationType)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 LocationTypeFilter.propTypes = {
@@ -362,18 +357,22 @@ LocationTypeFilter.propTypes = {
 };
 
 const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
-  <CheckBoxGroup
-    options={statuses}
-    value={status}
-    onChange={({ value }) => {
-      setStatus(value);
-      const nextFilters = {
-        ...filters,
-        status: value.length && (nextStatus => value.includes(nextStatus)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField label="Status" name="status-filter-a" htmlFor="status-filter-a">
+    <CheckBoxGroup
+      id="status-filter-a"
+      name="status-filter-a"
+      options={statuses}
+      value={status}
+      onChange={({ value }) => {
+        setStatus(value);
+        const nextFilters = {
+          ...filters,
+          status: value.length && (nextStatus => value.includes(nextStatus)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 StatusFilter.propTypes = {
@@ -390,18 +389,22 @@ StatusFilter.propTypes = {
 };
 
 const CountryFilter = ({ filters, setFilters, setCountry, country }) => (
-  <CheckBoxGroup
-    options={countries}
-    value={country}
-    onChange={({ value }) => {
-      setCountry(value);
-      const nextFilters = {
-        ...filters,
-        country: value.length && (nextCountry => value.includes(nextCountry)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField label="Country" htmlFor="country-filter-a" name="country-filter-a">
+    <CheckBoxGroup
+      id="country-filter-a"
+      name="country-filter-a"
+      options={countries}
+      value={country}
+      onChange={({ value }) => {
+        setCountry(value);
+        const nextFilters = {
+          ...filters,
+          country: value.length && (nextCountry => value.includes(nextCountry)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 CountryFilter.propTypes = {
@@ -424,27 +427,32 @@ const EmployeeCountFilter = ({
   setFilters,
 }) => {
   return (
-    <Box pad={{ horizontal: 'xsmall' }}>
-      <Stack>
-        <Box background="border" height="3px" direction="row" />
-        <RangeSelector
-          name="range-selector-employee-count"
-          id="range-selector-employee-count"
-          min={0}
-          max={2000}
-          values={employeeCount}
-          onChange={nextRange => {
-            setEmployeeCount(nextRange);
-            const nextFilters = {
-              ...filters,
-              employeeCount: nextEmployeeCount =>
-                nextEmployeeCount >= employeeCount[0] &&
-                nextEmployeeCount <= employeeCount[1],
-            };
-            setFilters(nextFilters);
-          }}
-        />
-      </Stack>
+    <Box flex={false}>
+      <FormField label="Employee Count" pad="medium">
+        <Stack>
+          <Box background="border" height="3px" direction="row" />
+          <RangeSelector
+            name="range-selector-employee-count"
+            id="range-selector-employee-count"
+            min={0}
+            max={2000}
+            values={employeeCount}
+            onChange={nextRange => {
+              setEmployeeCount(nextRange);
+              const nextFilters = {
+                ...filters,
+                employeeCount: nextEmployeeCount =>
+                  nextEmployeeCount >= employeeCount[0] &&
+                  nextEmployeeCount <= employeeCount[1],
+              };
+              setFilters(nextFilters);
+            }}
+          />
+        </Stack>
+      </FormField>
+      <Text size="small">
+        {`${employeeCount[0]} - ${employeeCount[1]} people`}
+      </Text>
     </Box>
   );
 };

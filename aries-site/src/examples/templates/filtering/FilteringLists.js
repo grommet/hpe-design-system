@@ -7,6 +7,7 @@ import {
   Button,
   CheckBoxGroup,
   Grid,
+  FormField,
   Header,
   Heading,
   Layer,
@@ -178,15 +179,12 @@ const Filters = ({ filtering, setData, setFiltering }) => {
   };
 
   const content = (
-    <Box width={size !== 'small' ? 'large' : undefined} overflow="auto">
+    <Box width={size !== 'small' ? 'large' : undefined}>
       <Grid
         columns={size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'}
-        gap="large"
+        gap={size !== 'small' ? 'large' : undefined}
       >
-        <Box gap="xsmall">
-          <Text color="text-strong" size="large" weight="bold">
-            Service
-          </Text>
+        <Box flex={false}>
           <ServiceFilter
             filters={filters}
             setFilters={setFilters}
@@ -194,10 +192,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
             setService={setService}
           />
         </Box>
-        <Box gap="xsmall">
-          <Text color="text-strong" size="large" weight="bold">
-            Status
-          </Text>
+        <Box flex={false}>
           <StatusFilter
             filters={filters}
             setFilters={setFilters}
@@ -205,10 +200,7 @@ const Filters = ({ filtering, setData, setFiltering }) => {
             setStatus={setStatus}
           />
         </Box>
-        <Box gap="xsmall">
-          <Text color="text-strong" size="large" weight="bold">
-            Tenant
-          </Text>
+        <Box flex={false}>
           <TenantFilter
             filters={filters}
             setFilters={setFilters}
@@ -265,8 +257,10 @@ const Filters = ({ filtering, setData, setFiltering }) => {
                 }}
               />
             </Header>
-            {content}
-            <Box align="center" direction="row" justify="end" gap="small">
+            <Box pad="xsmall" overflow="auto" flex>
+              {content}
+            </Box>
+            <Box align="center" direction="row" gap="small">
               <Button
                 label="Apply Filters"
                 onClick={() => {
@@ -299,18 +293,22 @@ Filters.propTypes = {
 };
 
 const ServiceFilter = ({ filters, setFilters, service, setService }) => (
-  <CheckBoxGroup
-    options={defaultservice}
-    value={service}
-    onChange={({ value }) => {
-      setService(value);
-      const nextFilters = {
-        ...filters,
-        service: value.length && (nextservice => value.includes(nextservice)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField label="Service" htmlFor="service-filter-a" name="service-filter-a">
+    <CheckBoxGroup
+      id="service-filter-a"
+      name="service-filter-a"
+      options={defaultservice}
+      value={service}
+      onChange={({ value }) => {
+        setService(value);
+        const nextFilters = {
+          ...filters,
+          service: value.length && (nextservice => value.includes(nextservice)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 ServiceFilter.propTypes = {
@@ -324,18 +322,22 @@ ServiceFilter.propTypes = {
 };
 
 const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
-  <CheckBoxGroup
-    options={defaultStatus}
-    value={status}
-    onChange={({ value }) => {
-      setStatus(value);
-      const nextFilters = {
-        ...filters,
-        status: value.length && (nextStatus => value.includes(nextStatus)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField label="Status" htmlFor="status-c" name="status-c">
+    <CheckBoxGroup
+      id="status-c"
+      name="status-c"
+      options={defaultStatus}
+      value={status}
+      onChange={({ value }) => {
+        setStatus(value);
+        const nextFilters = {
+          ...filters,
+          status: value.length && (nextStatus => value.includes(nextStatus)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 StatusFilter.propTypes = {
@@ -352,18 +354,22 @@ StatusFilter.propTypes = {
 };
 
 const TenantFilter = ({ filters, setFilters, setTenant, tenant }) => (
-  <CheckBoxGroup
-    options={defaultTenant}
-    value={tenant}
-    onChange={({ value }) => {
-      setTenant(value);
-      const nextFilters = {
-        ...filters,
-        tenant: value.length && (nextTenant => value.includes(nextTenant)),
-      };
-      setFilters(nextFilters);
-    }}
-  />
+  <FormField label="Tenant" id="tenant-c" htmlFor="tenant-c">
+    <CheckBoxGroup
+      id="tenant-c"
+      name="tenant-c"
+      options={defaultTenant}
+      value={tenant}
+      onChange={({ value }) => {
+        setTenant(value);
+        const nextFilters = {
+          ...filters,
+          tenant: value.length && (nextTenant => value.includes(nextTenant)),
+        };
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
 );
 
 TenantFilter.propTypes = {
