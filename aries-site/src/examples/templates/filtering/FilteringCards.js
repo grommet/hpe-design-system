@@ -23,66 +23,57 @@ import { Filter, FormClose, Search } from 'grommet-icons';
 
 const allData = [
   {
-    address: 'Engholm Parkvej 8, Ground Floor, Alleroed, DK-3450, Denmark',
-    country: 'Denmark',
-    employeeCount: 200,
+    location: 'San Jose, CA',
+    hoursAvailable: 10,
     image:
       'https://images.unsplash.com/photo-1584704135557-d8bf7ca50eae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    locationType: 'Office',
-    name: 'Allerod, Denmark (ALL)',
+    role: 'Engineer',
+    name: 'Eric Soderberg',
     status: 'Online',
   },
   {
-    address: 'Vicente Aleixandre 1, Las Rozas, 28232, Spain',
-    country: 'Spain',
-    employeeCount: 700,
+    location: 'San Jose, CA',
+    hoursAvailable: 30,
     image:
       'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    locationType: 'Office',
-    name: 'Madrid, Spain (ESM)',
-    status: 'Offline',
+    role: 'Engineer',
+    name: 'Taylor Seamans',
+    status: 'Online',
   },
   {
-    address:
-      '3404 E Harmony Road, Fort Collins, Colorado, 80528, United States',
-    country: 'United States',
-    employeeCount: 1100,
+    location: 'Fort Collins, CO',
+    hoursAvailable: 25,
     image:
       'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
-    locationType: 'Office',
-    name: 'Fort Collins, CO',
-    status: 'Online',
-  },
-  {
-    address:
-      '6280 America Center Dr., San Jose, California, 95002, United States',
-    country: 'United States',
-    employeeCount: 1000,
-    image:
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80',
-    locationType: 'Customer Center',
-    name: 'WW Corporate Headquarters - San Jose, CA',
-    status: 'Online',
-  },
-  {
-    address: '461 Fifth Avenue, New York, NY, 10017, United States',
-    country: 'United States',
-    employeeCount: 300,
-    image:
-      'https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    locationType: 'Customer Center',
-    name: 'New York, NY',
+    role: 'Engineer',
+    name: 'Matthew Glissmann',
     status: 'Offline',
   },
   {
-    address: `Stroombaan 16, 1181 VX Amstelveen, 
-    Amstelveen, The Netherlands`,
-    country: 'Netherlands',
-    employeeCount: 500,
+    location: 'Fort Collins, CO',
+    hoursAvailable: 5,
+    image:
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80',
+    role: 'Designer',
+    name: 'Greg Furuiye',
+    status: 'Online',
+  },
+  {
+    location: 'San Jose, CA',
+    hoursAvailable: 25,
+    image:
+      'https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    role: 'Designer',
+    name: 'Vicky Avalos',
+    status: 'Offline',
+  },
+  {
+    location: 'Fort Collins, CO',
+    hoursAvailable: 12,
     image:
       'https://images.unsplash.com/photo-1584450150050-4b9bdbd51f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    locationType: 'Customer Center',
-    name: 'Amstelveen HQ, NL',
+    role: 'Engineer',
+    name: 'Shimi Yacobi',
     status: 'Online',
   },
 ];
@@ -108,9 +99,9 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
 }))``;
 
 const defaultFilters = {};
-const defaultEmployeeCount = [0, 2000];
-const countries = ['Denmark', 'Netherlands', 'Spain', 'United States'];
-const locationTypes = ['Customer Center', 'Office'];
+const defaultHoursAvailable = [0, 40];
+const locations = ['Fort Collins, CO', 'San Jose, CA'];
+const roles = ['Designer', 'Engineer'];
 const statuses = ['Online', 'Offline'];
 
 export const FilteringCards = () => {
@@ -168,7 +159,7 @@ export const FilteringCards = () => {
       <Header>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            Sites
+            Users
           </Heading>
           <Box align="center" direction="row" gap="small">
             {size !== 'small' || searchFocused ? (
@@ -225,9 +216,9 @@ const Filters = ({
   setData,
   setFiltering,
 }) => {
-  const [employeeCount, setEmployeeCount] = useState(defaultEmployeeCount);
-  const [country, setCountry] = useState([]);
-  const [locationType, setLocationType] = useState([]);
+  const [hoursAvailable, setHoursAvailable] = useState(defaultHoursAvailable);
+  const [location, setLocation] = useState([]);
+  const [role, setRole] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
   const [status, setStatus] = useState([]);
@@ -237,10 +228,10 @@ const Filters = ({
 
   const resetFilters = () => {
     setData(allData);
-    setCountry([]);
-    setEmployeeCount(defaultEmployeeCount);
+    setLocation([]);
+    setHoursAvailable(defaultHoursAvailable);
     setStatus([]);
-    setLocationType([]);
+    setRole([]);
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -251,28 +242,28 @@ const Filters = ({
     setPreviousFilters(filters);
     setPreviousValues({
       ...previousValues,
-      country,
-      employeeCount,
-      locationType,
+      location,
+      hoursAvailable,
+      role,
       status,
     });
   };
 
   const restoreValues = values => {
-    setCountry(values.country);
-    setEmployeeCount(values.employeeCount);
-    setLocationType(values.locationType);
+    setLocation(values.location);
+    setHoursAvailable(values.hoursAvailable);
+    setRole(values.role);
     setStatus(values.status);
   };
 
   const content = (
     <Box flex overflow="auto" pad={{ horizontal: 'xsmall' }}>
       <Box flex={false}>
-        <LocationTypeFilter
+        <RoleFilter
           filters={filters}
           setFilters={setFilters}
-          locationType={locationType}
-          setLocationType={setLocationType}
+          role={role}
+          setRole={setRole}
         />
       </Box>
       <Box flex={false}>
@@ -284,17 +275,17 @@ const Filters = ({
         />
       </Box>
       <Box flex={false}>
-        <CountryFilter
+        <LocationFilter
           filters={filters}
           setFilters={setFilters}
-          country={country}
-          setCountry={setCountry}
+          location={location}
+          setLocation={setLocation}
         />
       </Box>
       <Box flex={false}>
-        <EmployeeCountFilter
-          employeeCount={employeeCount}
-          setEmployeeCount={setEmployeeCount}
+        <HoursAvailableFilter
+          hoursAvailable={hoursAvailable}
+          setHoursAvailable={setHoursAvailable}
           filters={filters}
           setFilters={setFilters}
         />
@@ -387,29 +378,18 @@ Filters.propTypes = {
   setFiltering: PropTypes.func.isRequired,
 };
 
-const LocationTypeFilter = ({
-  filters,
-  setFilters,
-  locationType,
-  setLocationType,
-}) => (
-  <FormField
-    label="Location Type"
-    name="location-type-a"
-    htmlFor="location-type-a"
-  >
+const RoleFilter = ({ filters, setFilters, role, setRole }) => (
+  <FormField label="Role" name="role-a" htmlFor="role-a">
     <CheckBoxGroup
-      id="location-type-a"
-      name="location-type-a"
-      options={locationTypes}
-      value={locationType}
+      id="rle-a"
+      name="rle-a"
+      options={roles}
+      value={role}
       onChange={({ value }) => {
-        setLocationType(value);
+        setRole(value);
         const nextFilters = {
           ...filters,
-          locationType:
-            value.length &&
-            (nextLocationType => value.includes(nextLocationType)),
+          role: value.length && (nextRole => value.includes(nextRole)),
         };
         setFilters(nextFilters);
       }}
@@ -417,13 +397,12 @@ const LocationTypeFilter = ({
   </FormField>
 );
 
-LocationTypeFilter.propTypes = {
+RoleFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    role: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
-  locationType: PropTypes.array.isRequired,
-  setLocationType: PropTypes.func.isRequired,
+  role: PropTypes.array.isRequired,
+  setRole: PropTypes.func.isRequired,
   setFilters: PropTypes.func.isRequired,
 };
 
@@ -448,7 +427,7 @@ const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    role: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   setFilters: PropTypes.func.isRequired,
@@ -459,18 +438,23 @@ StatusFilter.propTypes = {
   setStatus: PropTypes.func.isRequired,
 };
 
-const CountryFilter = ({ filters, setFilters, setCountry, country }) => (
-  <FormField label="Country" htmlFor="country-filter-a" name="country-filter-a">
+const LocationFilter = ({ filters, setFilters, setLocation, location }) => (
+  <FormField
+    label="Location"
+    htmlFor="location-filter-a"
+    name="location-filter-a"
+  >
     <CheckBoxGroup
-      id="country-filter-a"
-      name="country-filter-a"
-      options={countries}
-      value={country}
+      id="location-filter-a"
+      name="location-filter-a"
+      options={locations}
+      value={location}
       onChange={({ value }) => {
-        setCountry(value);
+        setLocation(value);
         const nextFilters = {
           ...filters,
-          country: value.length && (nextCountry => value.includes(nextCountry)),
+          location:
+            value.length && (nextLocation => value.includes(nextLocation)),
         };
         setFilters(nextFilters);
       }}
@@ -478,43 +462,43 @@ const CountryFilter = ({ filters, setFilters, setCountry, country }) => (
   </FormField>
 );
 
-CountryFilter.propTypes = {
+LocationFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    role: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   setFilters: PropTypes.func.isRequired,
-  country: PropTypes.oneOfType([
+  location: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
-  setCountry: PropTypes.func.isRequired,
+  setLocation: PropTypes.func.isRequired,
 };
 
-const EmployeeCountFilter = ({
-  employeeCount,
-  setEmployeeCount,
+const HoursAvailableFilter = ({
+  hoursAvailable,
+  setHoursAvailable,
   filters,
   setFilters,
 }) => {
   return (
     <Box flex={false}>
-      <FormField label="Employee Count" pad="medium">
+      <FormField label="Remaining Available Work Hours" pad="medium">
         <Stack>
           <Box background="border" height="3px" direction="row" />
           <RangeSelector
             name="range-selector-employee-count"
             id="range-selector-employee-count"
-            min={0}
-            max={2000}
-            values={employeeCount}
+            min={defaultHoursAvailable[0]}
+            max={defaultHoursAvailable[1]}
+            values={hoursAvailable}
             onChange={nextRange => {
-              setEmployeeCount(nextRange);
+              setHoursAvailable(nextRange);
               const nextFilters = {
                 ...filters,
-                employeeCount: nextEmployeeCount =>
-                  nextEmployeeCount >= employeeCount[0] &&
-                  nextEmployeeCount <= employeeCount[1],
+                hoursAvailable: nexthoursAvailable =>
+                  nexthoursAvailable >= hoursAvailable[0] &&
+                  nexthoursAvailable <= hoursAvailable[1],
               };
               setFilters(nextFilters);
             }}
@@ -522,20 +506,20 @@ const EmployeeCountFilter = ({
         </Stack>
       </FormField>
       <Text size="small">
-        {`${employeeCount[0]} - ${employeeCount[1]} people`}
+        {`${hoursAvailable[0]} - ${hoursAvailable[1]} hours`}
       </Text>
     </Box>
   );
 };
 
-EmployeeCountFilter.propTypes = {
+HoursAvailableFilter.propTypes = {
   filters: PropTypes.shape({
-    locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    role: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   setFilters: PropTypes.func.isRequired,
-  employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
-  setEmployeeCount: PropTypes.func.isRequired,
+  hoursAvailable: PropTypes.arrayOf(PropTypes.number).isRequired,
+  setHoursAvailable: PropTypes.func.isRequired,
 };
 
 const RecordSummary = ({ data, filtering }) => (
@@ -562,7 +546,7 @@ const RecordSummary = ({ data, filtering }) => (
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      locationType: PropTypes.string,
+      role: PropTypes.string,
       status: PropTypes.string,
     }),
   ).isRequired,
@@ -599,11 +583,11 @@ const Results = ({ data }) => {
               <Text color="text-strong" size="large" weight="bold">
                 {datum.name}
               </Text>
-              <Text color="text-strong">{datum.address}</Text>
+              <Text color="text-strong">{datum.location}</Text>
             </Box>
             <Box>
-              <Text size="small">Location Type</Text>
-              <Text color="text-strong">{datum.locationType}</Text>
+              <Text size="small">Role</Text>
+              <Text color="text-strong">{datum.role}</Text>
             </Box>
           </CardBody>
         </StyledCard>
@@ -615,7 +599,7 @@ const Results = ({ data }) => {
 Results.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      locationType: PropTypes.string,
+      role: PropTypes.string,
       status: PropTypes.string,
     }),
   ).isRequired,
