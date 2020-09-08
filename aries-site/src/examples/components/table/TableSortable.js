@@ -132,6 +132,7 @@ export const TableSortable = () => (
     data={formatData(data)}
     primaryKey="id"
     columns={columns}
+    sort={{ property: 'numeric', direction: 'desc' }}
     sortable
   />
 );
