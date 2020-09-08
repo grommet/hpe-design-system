@@ -21,34 +21,34 @@ import { Filter, Search } from 'grommet-icons';
 
 const allData = [
   {
-    deviceType: 'MacOS',
-    name: '54678GI468038489UF466238sl',
     status: 'Online',
+    name: 'd6db7379-c71c-4e88-ab26-ab788cdccaa5',
+    ram: '16',
   },
   {
-    deviceType: 'Windows 10',
-    name: '54678GDJAI8489UF466238sl',
     status: 'Offline',
+    name: 'bbde1017-2de5-4a6a-9fa0-7802dafc852c',
+    ram: '32',
   },
   {
-    deviceType: 'MacOS',
-    name: '1231GI4680w923j66238sl',
     status: 'Online',
+    name: '931cdda8-d5f2-4294-85b5-da8ff8100fa5',
+    ram: '128',
   },
   {
-    deviceType: 'MacOS',
-    name: '431HHIGI468sql489UF466238sl',
     status: 'Online',
+    name: '09ff2e6f-b452-4943-b6b6-a13d70a20117',
+    ram: '128',
   },
   {
-    deviceType: '461 Fifth Avenue, New York, NY, 10017, United States',
-    name: '3321I46803jksUF466238sl',
+    status: '461 Fifth Avenue, New York, NY, 10017, United States',
+    name: '8a617640-69ca-4d6f-8503-4b272426728f',
+    ram: '128',
+  },
+  {
     status: 'Offline',
-  },
-  {
-    deviceType: 'Windows 10',
-    name: '9823aaBuI468038489UF466238sl',
-    status: 'Online',
+    name: '16c9aae6-6732-4f95-b139-3363701e7770',
+    ram: '32',
   },
 ];
 
@@ -73,7 +73,7 @@ const StyledButton = styled(Button)`
 `;
 
 const defaultFilters = {};
-const deviceTypes = ['MacOS', 'Windows 10'];
+const ramOptions = ['16', '32', '128'];
 const statuses = ['Online', 'Offline'];
 
 export const FilteringWithDropButton = () => {
@@ -125,7 +125,7 @@ export const FilteringWithDropButton = () => {
       <Header>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            Sites
+            Machines
           </Heading>
           <Box align="center" direction="row" gap="small">
             {size !== 'small' || searchFocused ? (
@@ -190,7 +190,7 @@ const Filters = ({
   setData,
   setFiltering,
 }) => {
-  const [deviceType, setDeviceType] = useState([]);
+  const [ram, setRam] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
   const [status, setStatus] = useState([]);
@@ -199,7 +199,7 @@ const Filters = ({
   const resetFilters = () => {
     setData(allData);
     setStatus([]);
-    setDeviceType([]);
+    setRam([]);
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -210,13 +210,13 @@ const Filters = ({
     setPreviousFilters(filters);
     setPreviousValues({
       ...previousValues,
-      deviceType,
+      ram,
       status,
     });
   };
 
   const restoreValues = values => {
-    setDeviceType(values.deviceType);
+    setRam(values.ram);
     setStatus(values.status);
   };
 
@@ -226,12 +226,12 @@ const Filters = ({
         Filters
       </Heading>
       <Form>
-        <FormField label="Device Type">
-          <DeviceTypeFilter
+        <FormField label="RAM (GiB)">
+          <RamFilter
             filters={filters}
             setFilters={setFilters}
-            deviceType={deviceType}
-            setDeviceType={setDeviceType}
+            ram={ram}
+            setRam={setRam}
           />
         </FormField>
         <FormField label="Status">
@@ -297,34 +297,27 @@ Filters.propTypes = {
   setFiltering: PropTypes.func.isRequired,
 };
 
-const DeviceTypeFilter = ({
-  filters,
-  setFilters,
-  deviceType,
-  setDeviceType,
-}) => (
+const RamFilter = ({ filters, setFilters, ram, setRam }) => (
   <CheckBoxGroup
-    options={deviceTypes}
-    value={deviceType}
+    options={ramOptions}
+    value={ram}
     onChange={({ value }) => {
-      setDeviceType(value);
+      setRam(value);
       const nextFilters = {
         ...filters,
-        deviceType:
-          value.length && (nextdeviceType => value.includes(nextdeviceType)),
+        ram: value.length && (nextRam => value.includes(nextRam)),
       };
       setFilters(nextFilters);
     }}
   />
 );
 
-DeviceTypeFilter.propTypes = {
+RamFilter.propTypes = {
   filters: PropTypes.shape({
-    deviceType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    ram: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
-  deviceType: PropTypes.array.isRequired,
-  setDeviceType: PropTypes.func.isRequired,
+  ram: PropTypes.array.isRequired,
+  setRam: PropTypes.func.isRequired,
   setFilters: PropTypes.func.isRequired,
 };
 
@@ -345,7 +338,7 @@ const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
-    deviceType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    ram: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
   setFilters: PropTypes.func.isRequired,
@@ -380,7 +373,7 @@ const RecordSummary = ({ data, filtering }) => (
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      deviceType: PropTypes.string,
+      ram: PropTypes.string,
       status: PropTypes.string,
     }),
   ).isRequired,
@@ -419,9 +412,9 @@ const Results = ({ data }) => {
             </Box>
             <Box>
               <Text color="text-weak" size="small">
-                Device Type
+                RAM
               </Text>
-              <Text color="text-strong">{datum.deviceType}</Text>
+              <Text color="text-strong">{`${datum.ram} GiB`}</Text>
             </Box>
           </Box>
         </StyledCard>
@@ -433,7 +426,7 @@ const Results = ({ data }) => {
 Results.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      deviceType: PropTypes.string,
+      ram: PropTypes.string,
       status: PropTypes.string,
     }),
   ).isRequired,
