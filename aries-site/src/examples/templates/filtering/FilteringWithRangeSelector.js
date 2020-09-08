@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -13,12 +13,13 @@ import {
   Header,
   Heading,
   RangeSelector,
+  ResponsiveContext,
   Stack,
   Select,
   Text,
-  ResponsiveContext,
+  TextInput,
 } from 'grommet';
-import { FormClose, Filter } from 'grommet-icons';
+import { FormClose, Filter, Search } from 'grommet-icons';
 
 const allData = [
   {
@@ -58,9 +59,54 @@ const defaultLocation = 'All Locations';
 const defaultAvailability = [0, 100];
 const defaultFilters = {};
 
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-icon',
+}))``;
+
+const StyledButton = styled(Button)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+  &:hover {
+    background: transparent;
+  }
+`;
+
 export const FilteringWithRangeSelector = () => {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [filters, setFilters] = useState(defaultFilters);
+  const [search, setSearch] = useState();
+  const size = useContext(ResponsiveContext);
+  const inputRef = useRef();
+
+  const filterData = (array, criteria, searchValue = search) => {
+    if (Object.keys(criteria).length) setFiltering(true);
+    else setFiltering(false);
+    setFilters(criteria);
+
+    let filterResults;
+    const filterKeys = Object.keys(criteria);
+    filterResults = array.filter(item => {
+      // validates all filter criteria
+      return filterKeys.every(key => {
+        // ignores non-function predicates
+        if (typeof criteria[key] !== 'function') return true;
+        return criteria[key](item[key]);
+      });
+    });
+
+    if (searchValue) {
+      filterResults = filterResults.filter(o =>
+        Object.keys(o).some(
+          k =>
+            typeof o[k] === 'string' &&
+            o[k].toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    }
+    return filterResults;
+  };
 
   return (
     <Box
@@ -76,12 +122,45 @@ export const FilteringWithRangeSelector = () => {
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Storage
           </Heading>
-          <Filters
-            data={data}
-            setData={setData}
-            filtering={filtering}
-            setFiltering={setFiltering}
-          />
+          <Box align="center" direction="row" gap="small">
+            {size !== 'small' || searchFocused ? (
+              <Box width="medium">
+                <StyledTextInput
+                  ref={inputRef}
+                  icon={<Search id="search-icon" />}
+                  placeholder="Search placeholder"
+                  onBlur={() => setSearchFocused(false)}
+                  value={search}
+                  onChange={event => {
+                    setSearch(event.target.value);
+                    const nextData = filterData(
+                      allData,
+                      filters,
+                      event.target.value,
+                    );
+                    setData(nextData);
+                  }}
+                />
+              </Box>
+            ) : (
+              <StyledButton
+                id="search-button"
+                icon={<Search />}
+                onClick={() => setSearchFocused(true)}
+              />
+            )}
+            {(size !== 'small' || !searchFocused) && (
+              <Filters
+                data={data}
+                filtering={filtering}
+                setFiltering={setFiltering}
+                setData={setData}
+                filters={filters}
+                setFilters={setFilters}
+                filterData={filterData}
+              />
+            )}
+          </Box>
           <RecordSummary data={data} filter={filtering} />
         </Box>
       </Header>
@@ -139,7 +218,7 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
     return (
       <>
         <Box align="center" direction="row" gap="xsmall">
-          <Button
+          <StyledButton
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
@@ -225,8 +304,8 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
   }
 
   return (
-    <Box align="center" direction="row" justify="between" gap="xsmall">
-      <Box direction="row" gap="xsmall">
+    <Box align="center" direction="row" justify="between" gap="small">
+      <Box direction="row" gap="small">
         <LocationFilter
           filters={filters}
           filterData={filterData}
@@ -442,8 +521,18 @@ const RecordSummary = ({ data, filtering }) => (
       {data.length}
     </Text>
     <Text color="text-weak" size="small">
-      {filtering ? 'results' : 'items'}
+      {filtering ? 'results of ' : 'items'}
     </Text>
+    {filtering && (
+      <Box direction="row" gap="xxsmall">
+        <Text color="text-weak" size="small" weight="bold">
+          {allData.length}
+        </Text>
+        <Text color="text-weak" size="small">
+          items
+        </Text>
+      </Box>
+    )}
   </Box>
 );
 

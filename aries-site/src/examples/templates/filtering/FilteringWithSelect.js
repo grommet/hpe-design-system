@@ -1,7 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, List, Header, Heading, Menu, Select, Text } from 'grommet';
-import { More } from 'grommet-icons';
+import styled from 'styled-components';
+import {
+  Anchor,
+  Box,
+  Button,
+  Layer,
+  List,
+  Header,
+  Heading,
+  Menu,
+  ResponsiveContext,
+  Select,
+  Text,
+  TextInput,
+} from 'grommet';
+import { Filter, FormClose, More, Search } from 'grommet-icons';
 
 const allData = [
   { name: 'My PVT Cloud Order', status: 'Complete' },
@@ -16,11 +30,60 @@ const allData = [
 const defaultSelectValue = 'All';
 const defaultFilters = {};
 
+const StyledButton = styled(Button)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+  &:hover {
+    background: transparent;
+  }
+`;
+
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-icon',
+}))``;
+
 export const FilteringWithSelect = () => {
   const [data, setData] = useState(allData);
-  const [selectValue, setSelectValue] = useState(defaultSelectValue);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [search, setSearch] = useState();
+  const inputRef = useRef();
+  const size = useContext(ResponsiveContext);
+
+  useEffect(() => {
+    if (searchFocused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [searchFocused, setSearchFocused]);
+
+  const filterData = (array, criteria, searchValue = search) => {
+    if (Object.keys(criteria).length) setFiltering(true);
+    else setFiltering(false);
+    setFilters(criteria);
+
+    let filterResults;
+    const filterKeys = Object.keys(criteria);
+    filterResults = array.filter(item => {
+      // validates all filter criteria
+      return filterKeys.every(key => {
+        // ignores non-function predicates
+        if (typeof criteria[key] !== 'function') return true;
+        return criteria[key](item[key]);
+      });
+    });
+
+    if (searchValue) {
+      filterResults = filterResults.filter(o =>
+        Object.keys(o).some(
+          k =>
+            typeof o[k] === 'string' &&
+            o[k].toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    }
+    return filterResults;
+  };
 
   useEffect(() => {
     if (filters !== defaultFilters) {
@@ -30,31 +93,11 @@ export const FilteringWithSelect = () => {
     }
   }, [filters, setFiltering]);
 
-  const filterData = (array, criteria) => {
-    setFilters(criteria);
-    const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
-      // validates all filter criteria
-      return filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
-      });
-    });
-  };
-
-  // const filterData = value => {
-  //   const nextData =
-  //     value !== defaultSelectValue
-  //       ? allData.filter(datum => datum.status === value)
-  //       : allData;
-  //   setData(nextData);
-  // };
-
   return (
     <Box
       gap="medium"
       width={{ max: 'xxlarge' }}
+      pad={{ horizontal: 'xsmall' }}
       margin="auto"
       overflow="auto"
       fill
@@ -64,20 +107,46 @@ export const FilteringWithSelect = () => {
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Orders
           </Heading>
-          <Select
-            options={[defaultSelectValue, 'Complete', 'Critical']}
-            value={selectValue}
-            onChange={({ option }) => {
-              const nextFilters = {
-                status:
-                  option !== defaultSelectValue &&
-                  (nextValue => nextValue === option),
-              };
-              const nextData = filterData(allData, nextFilters);
-              setData(nextData);
-              setSelectValue(option);
-            }}
-          />
+          <Box align="center" direction="row" gap="small">
+            {size !== 'small' || searchFocused ? (
+              <Box width="medium">
+                <StyledTextInput
+                  ref={inputRef}
+                  icon={<Search id="search-icon" />}
+                  placeholder="Search placeholder"
+                  onBlur={() => setSearchFocused(false)}
+                  value={search}
+                  onChange={event => {
+                    setSearch(event.target.value);
+                    const nextData = filterData(
+                      allData,
+                      filters,
+                      event.target.value,
+                    );
+                    setData(nextData);
+                  }}
+                />
+              </Box>
+            ) : (
+              <StyledButton
+                id="search-button"
+                icon={<Search />}
+                onClick={() => setSearchFocused(true)}
+              />
+            )}
+            {(size !== 'small' || !searchFocused) && (
+              <Filters
+                data={data}
+                filtering={filtering}
+                setFiltering={setFiltering}
+                setData={setData}
+                filters={filters}
+                setFilters={setFilters}
+                filterData={filterData}
+              />
+            )}
+          </Box>
+
           <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
@@ -86,14 +155,164 @@ export const FilteringWithSelect = () => {
   );
 };
 
+const Filters = ({
+  filtering,
+  filters,
+  setData,
+  filterData,
+  setFilters,
+  setFiltering,
+}) => {
+  const [selectValue, setSelectValue] = useState(defaultSelectValue);
+  const [previousValues, setPreviousValues] = useState({});
+  const [previousFilters, setPreviousFilters] = useState({});
+  const [showLayer, setShowLayer] = useState(false);
+
+  const size = useContext(ResponsiveContext);
+  const resetFilters = () => {
+    setData(allData);
+    setSelectValue(defaultSelectValue);
+    setFilters(defaultFilters);
+    setFiltering(false);
+  };
+
+  // everytime the Filters layer opens, save a temp
+  // of the previous filters and values in case user clicks "x"
+  const storePreviousFilterInfo = () => {
+    setPreviousFilters(filters);
+    setPreviousValues({
+      ...previousValues,
+      selectValue,
+    });
+  };
+
+  const restoreValues = values => {
+    setSelectValue(values.selectValue);
+  };
+
+  const content = (
+    <Select
+      options={[defaultSelectValue, 'Complete', 'Critical']}
+      value={selectValue}
+      onChange={({ option }) => {
+        const nextFilters = {
+          status:
+            option !== defaultSelectValue &&
+            (nextValue => nextValue === option),
+        };
+        const nextData = filterData(allData, nextFilters);
+        setData(nextData);
+        setSelectValue(option);
+      }}
+    />
+  );
+  return (
+    <>
+      <Box align="center" direction="row" gap="small">
+        {size !== 'small' ? (
+          content
+        ) : (
+          <StyledButton
+            icon={<Filter />}
+            onClick={() => {
+              setShowLayer(true);
+              storePreviousFilterInfo();
+            }}
+          />
+        )}
+        {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
+      </Box>
+      {showLayer && (
+        <Layer
+          position={size !== 'small' ? 'right' : undefined}
+          full={size !== 'small' ? 'vertical' : true}
+          modal
+          onClickOutside={() => {
+            filterData(allData, previousFilters);
+            restoreValues(previousValues);
+            setShowLayer(!showLayer);
+          }}
+          onEsc={() => {
+            filterData(allData, previousFilters);
+            restoreValues(previousValues);
+            setShowLayer(!showLayer);
+          }}
+        >
+          <Box
+            width={{ min: 'medium' }}
+            pad={{ horizontal: 'medium', vertical: 'medium' }}
+            gap="medium"
+            fill="vertical"
+          >
+            <Header>
+              <Heading as="p" color="text-strong" margin="none">
+                Filters
+              </Heading>
+              <Button
+                icon={<FormClose />}
+                onClick={() => {
+                  filterData(allData, previousFilters);
+                  restoreValues(previousValues);
+                  setShowLayer(!showLayer);
+                }}
+              />
+            </Header>
+            <Box pad="xsmall" overflow="auto" flex>
+              {content}
+            </Box>
+            <Box align="center" direction="row" gap="small">
+              <Button
+                label="Apply Filters"
+                onClick={() => {
+                  const nextData = filterData(allData, filters);
+                  setData(nextData);
+                  setShowLayer(!showLayer);
+                }}
+                primary
+              />
+              <Button
+                label="Reset Filters"
+                onClick={() => {
+                  resetFilters();
+                  setShowLayer(!showLayer);
+                }}
+                secondary
+              />
+            </Box>
+          </Box>
+        </Layer>
+      )}
+    </>
+  );
+};
+
+Filters.propTypes = {
+  filters: PropTypes.shape({}).isRequired,
+  setFilters: PropTypes.func.isRequired,
+  filtering: PropTypes.bool.isRequired,
+  filterData: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
+  setFiltering: PropTypes.func.isRequired,
+};
+
 const RecordSummary = ({ data, filtering }) => (
   <Box direction="row" gap="xxsmall">
     <Text color="text-weak" size="small" weight="bold">
       {data.length}
     </Text>
     <Text color="text-weak" size="small">
-      {filtering ? 'results' : 'items'}
+      {filtering ? 'results of ' : 'items'}
     </Text>
+    {filtering && (
+      <Box direction="row" gap="xxsmall">
+        <Text color="text-weak" size="small" weight="bold">
+          {allData.length}
+        </Text>
+        <Text color="text-weak" size="small">
+          items
+        </Text>
+      </Box>
+    )}
   </Box>
 );
 
