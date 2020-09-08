@@ -4,7 +4,7 @@ import { Box, Card, CardFooter, Text } from 'grommet';
 import { Alert, Server } from 'grommet-icons';
 
 export const CardWithFooter = () => (
-  <Card width="medium">
+  <Card background="background-front" width="medium">
     <Identifier
       icon={<Server size="large" color="text-strong" />}
       title="OmniStackVC-10"
