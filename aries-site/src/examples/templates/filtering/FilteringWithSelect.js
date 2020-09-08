@@ -18,13 +18,13 @@ import {
 import { Filter, FormClose, More, Search } from 'grommet-icons';
 
 const allData = [
-  { name: 'My PVT Cloud Order', status: 'Complete' },
-  { name: 'VMaaS for R&D', status: 'Critical' },
-  { name: 'GEM_1', status: 'Complete' },
-  { name: 'Mercury', status: 'Complete' },
-  { name: 'MCC', status: 'Critical' },
-  { name: 'GEM_2', status: 'Complete' },
-  { name: 'Mercury_2', status: 'Critical' },
+  { name: 'Apex-Server', status: 'Ready' },
+  { name: 'AuroraEdge-7.7.-edgedeploy4', status: 'Paused' },
+  { name: 'ECAAS3', status: 'Ready' },
+  { name: 'ECP-Master-01', status: 'Ready' },
+  { name: 'ECaas-EdgeSite1', status: 'Paused' },
+  { name: 'IronMan-2', status: 'Ready' },
+  { name: 'california_1', status: 'Paused' },
 ];
 
 const defaultSelectValue = 'All';
@@ -105,7 +105,7 @@ export const FilteringWithSelect = () => {
       <Header>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            Orders
+            Hosts
           </Heading>
           <Box align="center" direction="row" gap="small">
             {size !== 'small' || searchFocused ? (
@@ -192,7 +192,7 @@ const Filters = ({
 
   const content = (
     <Select
-      options={[defaultSelectValue, 'Complete', 'Critical']}
+      options={[defaultSelectValue, 'Ready', 'Paused']}
       value={selectValue}
       onChange={({ option }) => {
         const nextFilters = {
@@ -339,7 +339,7 @@ const Results = ({ data }) => (
           <Box
             pad="xsmall"
             background={
-              item.status === 'Complete' ? 'status-ok' : 'status-critical'
+              item.status === 'Ready' ? 'status-ok' : 'status-warning'
             }
             round
           />
@@ -347,7 +347,7 @@ const Results = ({ data }) => (
         <Menu
           icon={<More />}
           hoverIndicator
-          items={[{ label: 'Manage Order' }, { label: 'Cancel Order' }]}
+          items={[{ label: 'Manage Host' }]}
         />
       </Box>
     )}
