@@ -171,15 +171,17 @@ const columns = [
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button alignSelf="start" onClick={() => onClickHandler(datum)}>
-        <Text truncate>{datum.orderName}</Text>
+      <Button alignSelf="start" onClick={() => onClickHandler(datum)} plain>
+        <Text truncate weight="bold">
+          {datum.orderName}
+        </Text>
       </Button>
     ),
     size: 'small',
   },
   {
     property: 'purchaseOrder',
-    header: 'Purchase Order #',
+    header: 'P.O. #',
     render: datum => <Text truncate>{datum.purchaseOrder}</Text>,
     size: 'xsmall',
   },
@@ -208,6 +210,9 @@ const columns = [
   {
     property: 'orderDate',
     header: 'Order Date',
+    render: datum =>
+      datum.orderDate && new Date(datum.orderDate).toLocaleDateString(),
+    align: 'end',
   },
 ];
 
@@ -226,7 +231,7 @@ export const TableMultiSelectExample = () => {
     setChecked(event.target.checked ? data.map(datum => datum.id) : []);
 
   return (
-    <Box height="medium" overflow="auto">
+    <Box overflow="auto">
       <TableControls selected={checked} />
       <Box>
         <DataTable

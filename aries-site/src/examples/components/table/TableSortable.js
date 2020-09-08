@@ -65,7 +65,7 @@ const columns = [
   },
   {
     property: 'percent',
-    header: 'Percent Complete',
+    header: '% Complete',
     render: datum => (
       <Box pad={{ vertical: 'xsmall' }}>
         <Meter

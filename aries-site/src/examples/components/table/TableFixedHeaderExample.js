@@ -199,25 +199,25 @@ const columns = [
   },
   {
     property: 'networkBand.value',
-    header: 'Network Band',
-    render: datum => (
-      <Text>{`${datum.networkBand.value} ${datum.networkBand.unit}`}</Text>
-    ),
+    header: 'Network Band (GHz)',
+    render: datum => datum.networkBand.value,
     align: 'end',
   },
   {
     property: 'linkRate.value',
-    header: 'Link Rate',
-    render: datum => (
-      <Text truncate>{`${datum.linkRate.value} ${datum.linkRate.unit}`}</Text>
-    ),
+    header: 'Link Rate (Mbps)',
+    render: datum => datum.linkRate.value,
     align: 'end',
   },
 ];
 
 export const TableFixedHeaderExample = () => {
   return (
-    <Box height="medium" width="large" overflow="auto">
+    <Box
+      height="medium"
+      width={{ min: 'medium', max: 'large' }}
+      overflow="auto"
+    >
       <DataTable
         data={data}
         primaryKey="id"

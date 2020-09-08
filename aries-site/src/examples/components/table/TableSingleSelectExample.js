@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, Text } from 'grommet';
+import { DataTable, Text, Box } from 'grommet';
 
 const data = [
   {
@@ -161,7 +161,7 @@ const columns = [
   },
   {
     property: 'purchaseOrder',
-    header: 'Purchase Order #',
+    header: 'P.O. #',
     render: datum => <Text truncate>{datum.purchaseOrder}</Text>,
     size: 'xsmall',
   },
@@ -190,6 +190,9 @@ const columns = [
   {
     property: 'orderDate',
     header: 'Order Date',
+    render: datum =>
+      datum.orderDate && new Date(datum.orderDate).toLocaleDateString(),
+    align: 'end',
   },
 ];
 
@@ -211,10 +214,12 @@ const onClickHandler = record => {
 };
 
 export const TableSingleSelectExample = () => (
-  <DataTable
-    data={data}
-    primaryKey="id"
-    columns={columns}
-    onClickRow={({ datum }) => onClickHandler(datum)}
-  />
+  <Box overflow="auto">
+    <DataTable
+      data={data}
+      primaryKey="id"
+      columns={columns}
+      onClickRow={({ datum }) => onClickHandler(datum)}
+    />
+  </Box>
 );
