@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -15,8 +15,9 @@ import {
   Grid,
   ResponsiveContext,
   Text,
+  TextInput,
 } from 'grommet';
-import { Filter } from 'grommet-icons';
+import { Filter, Search } from 'grommet-icons';
 
 const allData = [
   {
@@ -59,6 +60,18 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-icon',
+}))``;
+
+const StyledButton = styled(Button)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+  &:hover {
+    background: transparent;
+  }
+`;
+
 const defaultFilters = {};
 const deviceTypes = ['MacOS', 'Windows 10'];
 const statuses = ['Online', 'Offline'];
@@ -66,6 +79,39 @@ const statuses = ['Online', 'Offline'];
 export const FilteringWithDropButton = () => {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [filters, setFilters] = useState(defaultFilters);
+  const [search, setSearch] = useState();
+  const size = useContext(ResponsiveContext);
+  const inputRef = useRef();
+
+  const filterData = (array, criteria, searchValue = search) => {
+    if (Object.keys(criteria).length) setFiltering(true);
+    else setFiltering(false);
+    setFilters(criteria);
+
+    let filterResults;
+    const filterKeys = Object.keys(criteria);
+    filterResults = array.filter(item => {
+      // validates all filter criteria
+      return filterKeys.every(key => {
+        // ignores non-function predicates
+        if (typeof criteria[key] !== 'function') return true;
+        return criteria[key](item[key]);
+      });
+    });
+
+    if (searchValue) {
+      filterResults = filterResults.filter(o =>
+        Object.keys(o).some(
+          k =>
+            typeof o[k] === 'string' &&
+            o[k].toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    }
+    return filterResults;
+  };
 
   return (
     <Box
@@ -81,12 +127,45 @@ export const FilteringWithDropButton = () => {
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Sites
           </Heading>
-          <Filters
-            data={data}
-            filtering={filtering}
-            setFiltering={setFiltering}
-            setData={setData}
-          />
+          <Box align="center" direction="row" gap="small">
+            {size !== 'small' || searchFocused ? (
+              <Box width="medium">
+                <StyledTextInput
+                  ref={inputRef}
+                  icon={<Search id="search-icon" />}
+                  placeholder="Search placeholder"
+                  onBlur={() => setSearchFocused(false)}
+                  value={search}
+                  onChange={event => {
+                    setSearch(event.target.value);
+                    const nextData = filterData(
+                      allData,
+                      filters,
+                      event.target.value,
+                    );
+                    setData(nextData);
+                  }}
+                />
+              </Box>
+            ) : (
+              <StyledButton
+                id="search-button"
+                icon={<Search />}
+                onClick={() => setSearchFocused(true)}
+              />
+            )}
+            {(size !== 'small' || !searchFocused) && (
+              <Filters
+                data={data}
+                filtering={filtering}
+                setFiltering={setFiltering}
+                setData={setData}
+                filters={filters}
+                setFilters={setFilters}
+                filterData={filterData}
+              />
+            )}
+          </Box>
           <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
@@ -103,8 +182,14 @@ const FilterButton = styled(DropButton)`
   }
 `;
 
-const Filters = ({ filtering, setData, setFiltering }) => {
-  const [filters, setFilters] = useState(defaultFilters);
+const Filters = ({
+  filters,
+  filterData,
+  setFilters,
+  filtering,
+  setData,
+  setFiltering,
+}) => {
   const [deviceType, setDeviceType] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
@@ -133,21 +218,6 @@ const Filters = ({ filtering, setData, setFiltering }) => {
   const restoreValues = values => {
     setDeviceType(values.deviceType);
     setStatus(values.status);
-  };
-
-  const filterData = (array, criteria) => {
-    if (Object.keys(criteria).length) setFiltering(true);
-    setFilters(criteria);
-
-    const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
-      // validates all filter criteria
-      return filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
-      });
-    });
   };
 
   const content = (
@@ -219,7 +289,10 @@ const Filters = ({ filtering, setData, setFiltering }) => {
 };
 
 Filters.propTypes = {
+  filters: PropTypes.shape({}).isRequired,
+  setFilters: PropTypes.func.isRequired,
   filtering: PropTypes.bool.isRequired,
+  filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
 };

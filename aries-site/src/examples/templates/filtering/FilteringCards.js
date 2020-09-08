@@ -209,7 +209,6 @@ export const FilteringCards = () => {
               />
             )}
           </Box>
-
           <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
