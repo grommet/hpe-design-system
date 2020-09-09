@@ -127,6 +127,7 @@ export const FilteringWithRangeSelector = () => {
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
+                  type="search"
                   icon={<Search id="search-icon" />}
                   placeholder="Search placeholder"
                   onBlur={() => setSearchFocused(false)}
