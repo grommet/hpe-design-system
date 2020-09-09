@@ -45,9 +45,9 @@ export const aries = deepMerge(hpe, {
       descending: CaretUp,
       //   expand: FormDown,
     },
-    primary: {
-      weight: 'bold',
-    },
+    // primary: {
+    //   // weight: 'bold',
+    // },
     // resize: {
     //   border: {
     //     color: 'border',

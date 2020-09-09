@@ -69,22 +69,10 @@ const data = [
     delivered: 616,
   },
   {
-    id: 11,
-    application: 'Storage Optimized Compute',
-    requests: 298,
-    delivered: 220,
-  },
-  {
     id: 12,
     application: 'Enterprise-Ready VMs',
     requests: 1074,
     delivered: 752,
-  },
-  {
-    id: 13,
-    application: 'Mission Critical Storage',
-    requests: 322,
-    delivered: 213,
   },
 ];
 
