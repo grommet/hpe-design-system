@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -137,6 +143,12 @@ export const PersistentFiltering = () => {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
+  const [filterValues, setFilterValues] = useState({
+    country: allFilters.country.defaultValue,
+    employeeCount: allFilters.employeeCount.defaultValue,
+    locationType: allFilters.locationType.defaultValue,
+    status: allFilters.status.defaultValue,
+  });
   const [searchFocused, setSearchFocused] = useState(false);
   const [search, setSearch] = useState();
   const size = useContext(ResponsiveContext);
@@ -148,33 +160,41 @@ export const PersistentFiltering = () => {
     }
   }, [searchFocused, setSearchFocused]);
 
-  const filterData = (array, criteria, searchValue = search) => {
-    if (Object.keys(criteria).length) setFiltering(true);
-    else setFiltering(false);
-    setFilters(criteria);
+  const filterData = useCallback(
+    (array, criteria, searchValue = search) => {
+      if (Object.keys(criteria).length) setFiltering(true);
+      else setFiltering(false);
+      setFilters(criteria);
 
-    let filterResults;
-    const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
-      // validates all filter criteria
-      return filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
+      let filterResults;
+      const filterKeys = Object.keys(criteria);
+      filterResults = array.filter(item => {
+        // validates all filter criteria
+        return filterKeys.every(key => {
+          // ignores non-function predicates
+          if (typeof criteria[key] !== 'function') return true;
+          return criteria[key](item[key]);
+        });
       });
-    });
 
-    if (searchValue) {
-      filterResults = filterResults.filter(o =>
-        Object.keys(o).some(
-          k =>
-            typeof o[k] === 'string' &&
-            o[k].toLowerCase().includes(searchValue.toLowerCase()),
-        ),
-      );
-    }
-    return filterResults;
-  };
+      if (searchValue) {
+        filterResults = filterResults.filter(o =>
+          Object.keys(o).some(
+            k =>
+              typeof o[k] === 'string' &&
+              o[k].toLowerCase().includes(searchValue.toLowerCase()),
+          ),
+        );
+      }
+      return filterResults;
+    },
+    [search],
+  );
+
+  useEffect(() => {
+    const nextData = filterData(allData, filters);
+    setData(nextData);
+  }, [filters, filterData]);
 
   const filterProps = {
     data,
@@ -184,6 +204,8 @@ export const PersistentFiltering = () => {
     setFilters,
     filtering,
     setFiltering,
+    filterValues,
+    setFilterValues,
   };
 
   return (
@@ -244,6 +266,8 @@ export const PersistentFiltering = () => {
             <ActiveFilters
               filters={filters}
               filterData={filterData}
+              filterValues={filterValues}
+              setFilterValues={setFilterValues}
               setData={setData}
               setFilters={setFilters}
             />
@@ -255,40 +279,122 @@ export const PersistentFiltering = () => {
   );
 };
 
-const ActiveFilters = ({ filters, filterData, setData, setFilters }) => {
+const ActiveFilters = ({
+  filterValues,
+  setFilterValues,
+  filters,
+  filterData,
+  setData,
+  setFilters,
+}) => {
+  const activeValues = Object.keys(filterValues)
+    .filter(key => {
+      if (key === 'employeeCount') {
+        if (
+          filterValues.employeeCount[0] ===
+            allFilters.employeeCount.defaultValue[0] &&
+          filterValues.employeeCount[1] ===
+            allFilters.employeeCount.defaultValue[1]
+        )
+          return false;
+        return true;
+      }
+      return true;
+    })
+    .reduce((obj, key) => {
+      const reducedObject = obj;
+      reducedObject[key] = filterValues[key];
+      return reducedObject;
+    }, {});
+
   return (
     <Box
       direction="row"
       gap="xsmall"
       pad={{ horizontal: 'medium', vertical: 'xxsmall' }}
       flex={false}
+      wrap
     >
-      {filters &&
-        Object.keys(filters).map((key, index) => (
-          <Button
-            key={index}
-            label={allFilters[key].name}
-            icon={<FormClose />}
-            gap="xsmall"
-            onClick={() => {
-              const nextFilters = filters;
-              delete nextFilters[key];
-              const nextData = filterData(allData, nextFilters);
-              setData(nextData);
-              setFilters(nextFilters);
-            }}
-            reverse
-          />
-        ))}
+      {activeValues &&
+        Object.entries(activeValues).map(([key, value], index) => {
+          if (Array.isArray(value)) {
+            // special case we show employeeCount as label
+            if (key === 'employeeCount') {
+              if (
+                value[0] !== allFilters.employeeCount.defaultValue[0] ||
+                value[1] !== allFilters.employeeCount.defaultValue[1]
+              )
+                return (
+                  <Button
+                    key={index}
+                    label={allFilters[key].name}
+                    icon={<FormClose />}
+                    gap="xsmall"
+                    onClick={() => {
+                      const nextFilters = filters;
+                      delete nextFilters[key];
+                      setFilterValues({
+                        ...filterValues,
+                        employeeCount: allFilters.employeeCount.defaultValue,
+                      });
+                      setFilters(nextFilters);
+                    }}
+                    reverse
+                  />
+                );
+            } else
+              return value.map(option => (
+                <Button
+                  key={option}
+                  label={option}
+                  icon={<FormClose />}
+                  gap="xsmall"
+                  onClick={() => {
+                    const nextValue = value.filter(a => a !== option);
+                    const nextFilters = {
+                      ...filters,
+                      [key]:
+                        nextValue.length &&
+                        (incomingValue => nextValue.includes(incomingValue)),
+                    };
+                    if (!nextValue.length) delete nextFilters[key];
+                    setFilterValues({ ...filterValues, [key]: nextValue });
+                    setFilters(nextFilters);
+                  }}
+                  reverse
+                />
+              ));
+          }
+          return (
+            <Button
+              key={index}
+              label={value}
+              icon={<FormClose />}
+              gap="xsmall"
+              onClick={() => {
+                const nextFilters = filters;
+                delete nextFilters[key];
+                const nextData = filterData(allData, nextFilters);
+                setData(nextData);
+                setFilters(nextFilters);
+              }}
+              reverse
+            />
+          );
+        })}
     </Box>
   );
 };
 
 ActiveFilters.propTypes = {
   filters: PropTypes.shape({}),
+  filterValues: PropTypes.shape({
+    employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }),
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFilters: PropTypes.func.isRequired,
+  setFilterValues: PropTypes.func.isRequired,
 };
 
 const Filters = ({
@@ -298,15 +404,10 @@ const Filters = ({
   filterData,
   setData,
   setFiltering,
+  filterValues,
+  setFilterValues,
 }) => {
-  const [employeeCount, setEmployeeCount] = useState(
-    allFilters.employeeCount.defaultValue,
-  );
-  const [country, setCountry] = useState(allFilters.country.defaultValue);
-  const [locationType, setLocationType] = useState(
-    allFilters.locationType.defaultValue,
-  );
-  const [status, setStatus] = useState(allFilters.status.defaultValue);
+  const { country, employeeCount, locationType, status } = filterValues;
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
   const [showLayer, setShowLayer] = useState(false);
@@ -315,10 +416,12 @@ const Filters = ({
 
   const resetFilters = () => {
     setData(allData);
-    setCountry(allFilters.country.defaultValue);
-    setEmployeeCount(allFilters.employeeCount.defaultValue);
-    setStatus(allFilters.status.defaultValue);
-    setLocationType(allFilters.locationType.defaultValue);
+    setFilterValues({
+      country: allFilters.country.defaultValue,
+      employeeCount: allFilters.employeeCount.defaultValue,
+      status: allFilters.status.defaultValue,
+      locationType: allFilters.locationType.defaultValue,
+    });
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -337,52 +440,33 @@ const Filters = ({
   };
 
   const restoreValues = values => {
-    setCountry(values.country);
-    setEmployeeCount(values.employeeCount);
-    setLocationType(values.locationType);
-    setStatus(values.status);
+    setFilterValues({
+      country: values.country,
+      employeeCount: values.employeeCount,
+      locationType: values.locationType,
+      status: values.status,
+    });
+  };
+
+  const filterProps = {
+    filters,
+    setFilters,
+    filterValues,
+    setFilterValues,
   };
 
   const content = (
     <Box>
       <Box flex={false}>
-        <LocationTypeFilter
-          setData={setData}
-          filterData={filterData}
-          filters={filters}
-          setFilters={setFilters}
-          locationType={locationType}
-          setLocationType={setLocationType}
-        />
+        <LocationTypeFilter {...filterProps} />
       </Box>
       <Box flex={false}>
-        <StatusFilter
-          setData={setData}
-          filterData={filterData}
-          filters={filters}
-          setFilters={setFilters}
-          status={status}
-          setStatus={setStatus}
-        />
+        <StatusFilter {...filterProps} />
       </Box>
       <Box flex={false}>
-        <CountryFilter
-          setData={setData}
-          filterData={filterData}
-          filters={filters}
-          setFilters={setFilters}
-          country={country}
-          setCountry={setCountry}
-        />
+        <CountryFilter {...filterProps} />
       </Box>
-      <EmployeeCountFilter
-        setData={setData}
-        filterData={filterData}
-        employeeCount={employeeCount}
-        setEmployeeCount={setEmployeeCount}
-        filters={filters}
-        setFilters={setFilters}
-      />
+      <EmployeeCountFilter {...filterProps} />
     </Box>
   );
 
@@ -483,6 +567,22 @@ const Filters = ({
 
 Filters.propTypes = {
   filters: PropTypes.shape({}),
+  filterValues: PropTypes.shape({
+    country: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+    employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
+    locationType: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+    status: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+  }),
+  setFilterValues: PropTypes.func.isRequired,
   setFilters: PropTypes.func.isRequired,
   filterData: PropTypes.func.isRequired,
   filtering: PropTypes.bool.isRequired,
@@ -491,18 +591,11 @@ Filters.propTypes = {
 };
 
 const LocationTypeFilter = ({
-  filterData,
-  setData,
   filters,
   setFilters,
-  locationType,
-  setLocationType,
+  filterValues,
+  setFilterValues,
 }) => {
-  useEffect(() => {
-    if (!filters.locationType) {
-      setLocationType(allFilters.locationType.defaultValue);
-    }
-  }, [filters, setLocationType]);
   return (
     <FormField
       label="Location Type"
@@ -513,9 +606,9 @@ const LocationTypeFilter = ({
         id="location-type-b"
         name="location-type-b"
         options={allFilters.locationType.options}
-        value={filters.locationType ? locationType : []}
+        value={filters.locationType ? filterValues.locationType : []}
         onChange={({ value }) => {
-          setLocationType(value);
+          setFilterValues({ ...filterValues, locationType: value });
           const nextFilters = {
             ...filters,
             locationType:
@@ -524,8 +617,6 @@ const LocationTypeFilter = ({
           };
           if (!value.length) delete nextFilters.locationType;
           setFilters(nextFilters);
-          const nextData = filterData(allData, nextFilters);
-          setData(nextData);
         }}
       />
     </FormField>
@@ -536,43 +627,37 @@ LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
     locationType: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
-  filterData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
-  locationType: PropTypes.array.isRequired,
-  setLocationType: PropTypes.func.isRequired,
+  filterValues: PropTypes.shape({
+    locationType: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+  }).isRequired,
   setFilters: PropTypes.func.isRequired,
+  setFilterValues: PropTypes.func.isRequired,
 };
 
 const StatusFilter = ({
-  filterData,
-  setData,
   filters,
   setFilters,
-  setStatus,
-  status,
+  filterValues,
+  setFilterValues,
 }) => {
-  useEffect(() => {
-    if (!filters.status) {
-      setStatus(allFilters.status.defaultValue);
-    }
-  }, [filters, setStatus]);
   return (
     <FormField label="Status" htmlFor="status-b" name="status-b">
       <CheckBoxGroup
         id="status-b"
         name="status-b"
         options={allFilters.status.options}
-        value={filters.status ? status : []}
+        value={filters.status ? filterValues.status : []}
         onChange={({ value }) => {
-          setStatus(value);
+          setFilterValues({ ...filterValues, status: value });
           const nextFilters = {
             ...filters,
             status: value.length && (nextStatus => value.includes(nextStatus)),
           };
           if (!value.length) delete nextFilters.status;
           setFilters(nextFilters);
-          const nextData = filterData(allData, nextFilters);
-          setData(nextData);
         }}
       />
     </FormField>
@@ -583,38 +668,31 @@ StatusFilter.propTypes = {
   filters: PropTypes.shape({
     status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
+  filterValues: PropTypes.shape({
+    status: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+  }).isRequired,
   setFilters: PropTypes.func.isRequired,
-  filterData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
-  status: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
-  setStatus: PropTypes.func.isRequired,
+  setFilterValues: PropTypes.func.isRequired,
 };
 
 const CountryFilter = ({
-  filterData,
-  setData,
   filters,
   setFilters,
-  setCountry,
-  country,
+  filterValues,
+  setFilterValues,
 }) => {
-  useEffect(() => {
-    if (!filters.country) {
-      setCountry(allFilters.country.defaultValue);
-    }
-  }, [filters, setCountry]);
   return (
     <FormField label="Country" htmlFor="country-b" name="country-b">
       <CheckBoxGroup
         id="country-b"
         name="country-b"
         options={allFilters.country.options}
-        value={filters.country ? country : []}
+        value={filters.country ? filterValues.country : []}
         onChange={({ value }) => {
-          setCountry(value);
+          setFilterValues({ ...filterValues, country: value });
           const nextFilters = {
             ...filters,
             country:
@@ -622,8 +700,6 @@ const CountryFilter = ({
           };
           if (!value.length) delete nextFilters.country;
           setFilters(nextFilters);
-          const nextData = filterData(allData, nextFilters);
-          setData(nextData);
         }}
       />
     </FormField>
@@ -634,29 +710,22 @@ CountryFilter.propTypes = {
   filters: PropTypes.shape({
     country: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
+  filterValues: PropTypes.shape({
+    country: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]).isRequired,
+  }).isRequired,
   setFilters: PropTypes.func.isRequired,
-  filterData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
-  country: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
-  setCountry: PropTypes.func.isRequired,
+  setFilterValues: PropTypes.func.isRequired,
 };
 
 const EmployeeCountFilter = ({
-  employeeCount,
-  setEmployeeCount,
   filters,
-  filterData,
-  setData,
   setFilters,
+  filterValues,
+  setFilterValues,
 }) => {
-  useEffect(() => {
-    if (!filters.employeeCount) {
-      setEmployeeCount(allFilters.employeeCount.defaultValue);
-    }
-  }, [filters, setEmployeeCount]);
   return (
     <Box flex={false}>
       <FormField
@@ -673,16 +742,16 @@ const EmployeeCountFilter = ({
             max={2000}
             values={
               filters.employeeCount
-                ? employeeCount
+                ? filterValues.employeeCount
                 : allFilters.employeeCount.defaultValue
             }
             onChange={nextRange => {
-              setEmployeeCount(nextRange);
+              setFilterValues({ ...filterValues, employeeCount: nextRange });
               const nextFilters = {
                 ...filters,
                 employeeCount: nextEmployeeCount =>
-                  nextEmployeeCount >= employeeCount[0] &&
-                  nextEmployeeCount <= employeeCount[1],
+                  nextEmployeeCount >= filterValues.employeeCount[0] &&
+                  nextEmployeeCount <= filterValues.employeeCount[1],
               };
               if (
                 nextRange[0] === allFilters.employeeCount.defaultValue[0] &&
@@ -691,14 +760,13 @@ const EmployeeCountFilter = ({
                 delete nextFilters.employeeCount;
               }
               setFilters(nextFilters);
-              const nextData = filterData(allData, nextFilters);
-              setData(nextData);
             }}
           />
         </Stack>
       </FormField>
       <Text size="small">
-        {`${employeeCount[0]} - ${employeeCount[1]} people`}
+        {`${filterValues.employeeCount[0]} - 
+        ${filterValues.employeeCount[1]} people`}
       </Text>
     </Box>
   );
@@ -708,11 +776,11 @@ EmployeeCountFilter.propTypes = {
   filters: PropTypes.shape({
     employeeCount: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   }).isRequired,
-  filterData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
+  filterValues: PropTypes.shape({
+    employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
   setFilters: PropTypes.func.isRequired,
-  employeeCount: PropTypes.arrayOf(PropTypes.number).isRequired,
-  setEmployeeCount: PropTypes.func.isRequired,
+  setFilterValues: PropTypes.func.isRequired,
 };
 
 const RecordSummary = ({ data, filtering }) => (
