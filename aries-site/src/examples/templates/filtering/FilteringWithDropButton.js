@@ -41,7 +41,7 @@ const allData = [
     ram: '128',
   },
   {
-    status: '461 Fifth Avenue, New York, NY, 10017, United States',
+    status: 'Offline',
     name: '8a617640-69ca-4d6f-8503-4b272426728f',
     ram: '128',
   },
@@ -132,6 +132,7 @@ export const FilteringWithDropButton = () => {
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
+                  type="search"
                   icon={<Search id="search-icon" />}
                   placeholder="Search placeholder"
                   onBlur={() => setSearchFocused(false)}
