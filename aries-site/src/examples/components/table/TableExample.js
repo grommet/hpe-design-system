@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, DataTable, Meter, Text } from 'grommet';
+import { Box, DataTable, Heading, Meter, Text } from 'grommet';
 
 const data = [
   {
-    id: 1,
+    id: 'mjbpiclthh8y',
     poolName: 'Asup-array01-lvs (default)',
     groupName: 'Asup',
     arrays: 'asup-array01-lvs',
@@ -16,7 +16,7 @@ const data = [
     ],
   },
   {
-    id: 2,
+    id: 'hx5f2e57phfb',
     poolName: 'Dev-K8-Sym-R5-3 (default)',
     groupName: 'Dev',
     arrays: 'harm-stage-array01',
@@ -29,7 +29,7 @@ const data = [
     ],
   },
   {
-    id: 3,
+    id: 'om2hy2z79kyz',
     poolName: 'Dev36-erray01 ( default)',
     groupName: 'Dev',
     arrays: 'harm-stage-array02',
@@ -42,7 +42,7 @@ const data = [
     ],
   },
   {
-    id: 4,
+    id: '6d9u4hv95xjq',
     poolName: 'asup-array1 (default)',
     groupName: 'Asup',
     arrays: 'harm-stage-array04',
@@ -55,7 +55,7 @@ const data = [
     ],
   },
   {
-    id: 5,
+    id: 'qpsidi3ccnpr',
     poolName: 'Dev-K8-Sym-R5-3 (default)',
     groupName: 'Dev',
     arrays: 'Harm-cs-stage-R4-5',
@@ -68,7 +68,7 @@ const data = [
     ],
   },
   {
-    id: 6,
+    id: 'l3d8xkm0knx4',
     poolName: 'asup-array2 (default)',
     groupName: 'Asup',
     arrays: 'ds-array02',
@@ -81,7 +81,7 @@ const data = [
     ],
   },
   {
-    id: 7,
+    id: 'jsjas87qeqgj',
     poolName: 'Dev36-varray02 (default)',
     groupName: 'Dev',
     arrays: 'ds-array01',
@@ -94,7 +94,7 @@ const data = [
     ],
   },
   {
-    id: 8,
+    id: '1jrnzxds9419',
     poolName: 'DevHarmCs2R39',
     groupName: 'Dev',
     arrays: 'harm-stage-array03',
@@ -107,7 +107,7 @@ const data = [
     ],
   },
   {
-    id: 9,
+    id: 'lva18ol56t7a',
     poolName: 'DevStageSymR31 (default)',
     groupName: 'Dev',
     arrays: 'rtp-array198',
@@ -120,52 +120,52 @@ const data = [
     ],
   },
   {
-    id: 10,
+    id: 'g9v1104koten',
     poolName: 'asup-array2 (default)',
     groupName: 'Asup',
     arrays: 'ds-array02',
     size: 5655321234567,
-    // pinnable: { value: 10.1, unit: 'TiB' },
-    // pinned: { value: 0.0, unit: 'B' },
+    pinnable: 12529511627776,
+    pinned: 0,
     savings: [
       { unit: 'TiB', value: 8.0 },
       { unit: 'xGHz', value: 3955.2 },
     ],
   },
   {
-    id: 11,
+    id: 'ny13xepj8wyc',
     poolName: 'Dev36-varray02 (default)',
     groupName: 'Dev',
     arrays: 'ds-array01',
     size: 655321234567,
-    // pinnable: { value: 1.3, unit: 'TiB' },
-    // pinned: { value: 0.0, unit: 'B' },
+    pinnable: 1329511627776,
+    pinned: 0,
     savings: [
       { unit: 'TiB', value: 8.0 },
       { unit: 'xGHz', value: 333.2 },
     ],
   },
   {
-    id: 12,
+    id: 'vz86u3ll4ai2',
     poolName: 'DevHarmCs2R39',
     groupName: 'Dev',
     arrays: 'harm-stage-array03',
     size: 52655321234567,
-    // pinnable: { value: 2.9, unit: 'TiB' },
-    // pinned: { value: 0.0, unit: 'B' },
+    pinnable: 2529511627776,
+    pinned: 0,
     savings: [
       { unit: 'TiB', value: 8.0 },
       { unit: 'xGHz', value: 333.2 },
     ],
   },
   {
-    id: 13,
+    id: 'f1iucu2ybzf3',
     poolName: 'DevStageSymR31 (default)',
     groupName: 'Dev',
     arrays: 'rtp-array198',
     size: 30655321234567,
-    // pinnable: { value: 3.0, unit: 'TiB' },
-    // pinned: { value: 0.0, unit: 'B' },
+    pinnable: 22529511627776,
+    pinned: 7529511627776,
     savings: [
       { unit: 'TiB', value: 8.0 },
       { unit: 'xGHz', value: 333.2 },
@@ -175,9 +175,16 @@ const data = [
 
 const columns = [
   {
+    property: 'id',
+    header: 'Id',
+    primary: true,
+    render: datum => datum.id.slice(datum.id.length - 5),
+  },
+  {
     property: 'poolName',
     header: 'Pool Name',
     render: datum => <Text truncate>{datum.poolName}</Text>,
+    primary: true,
   },
   {
     property: 'groupName',
@@ -204,7 +211,6 @@ const columns = [
       // bytes to tebibytes
       (datum.pinnable / 2 ** 40).toFixed([1]),
     align: 'end',
-    sortable: false,
   },
   {
     property: 'pinned',
@@ -219,6 +225,7 @@ const columns = [
         />
       </Box>
     ),
+    sortable: false,
   },
   {
     property: 'savings',
@@ -249,16 +256,20 @@ const handleClickRow = obj => {
   `);
 };
 
-export const TableExample = () => (
-  <Box height="medium" overflow="auto">
-    <DataTable
-      data={data}
-      primaryKey="id"
-      columns={columns}
-      fill
-      onClickRow={({ datum }) => handleClickRow(datum)}
-      pin
-      sortable
-    />
-  </Box>
-);
+export const TableExample = () => {
+  return (
+    <>
+      <Heading level={3}>Storage Pools</Heading>
+      <Box height="medium" overflow="auto">
+        <DataTable
+          data={data}
+          columns={columns}
+          fill
+          onClickRow={({ datum }) => handleClickRow(datum)}
+          pin
+          sortable
+        />
+      </Box>
+    </>
+  );
+};

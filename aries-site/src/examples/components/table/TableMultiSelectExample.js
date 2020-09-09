@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, CheckBox, DataTable, Menu, Text } from 'grommet';
+import { Box, Button, CheckBox, DataTable, Heading, Menu, Text } from 'grommet';
 
 const data = [
   {
@@ -168,6 +168,11 @@ const onClickHandler = record => {
 
 const columns = [
   {
+    primary: true,
+    property: 'id',
+    header: 'Id',
+  },
+  {
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
@@ -177,7 +182,6 @@ const columns = [
         </Text>
       </Button>
     ),
-    size: 'small',
   },
   {
     property: 'purchaseOrder',
@@ -189,7 +193,6 @@ const columns = [
     property: 'state',
     header: 'State',
     render: datum => <Text truncate>{datum.state}</Text>,
-    size: 'xsmall',
   },
   {
     property: 'service',
@@ -201,7 +204,6 @@ const columns = [
     property: 'tenant',
     header: 'Tenant',
     render: datum => <Text truncate>{datum.tenant}</Text>,
-    size: 'xsmall',
   },
   {
     property: 'contact.email',
@@ -231,9 +233,12 @@ export const TableMultiSelectExample = () => {
     setChecked(event.target.checked ? data.map(datum => datum.id) : []);
 
   return (
-    <Box overflow="auto">
+    <>
+      <Heading level={3} margin="none">
+        Manage Orders
+      </Heading>
       <TableControls selected={checked} />
-      <Box>
+      <Box overflow="auto">
         <DataTable
           data={data}
           primaryKey="id"
@@ -262,7 +267,7 @@ export const TableMultiSelectExample = () => {
           ]}
         />
       </Box>
-    </Box>
+    </>
   );
 };
 

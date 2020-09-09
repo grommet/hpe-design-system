@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, DataTable, Text } from 'grommet';
+import { Box, DataTable, Text, Heading } from 'grommet';
 
 const data = [
   {
@@ -34,7 +34,7 @@ const data = [
     connectionType: 'Wireless',
     category: 'Network',
     status: 'Active',
-    deviceName: 'Google-Home',
+    deviceName: 'Amazon-Firestick',
     networkBand: { value: 2.4, unit: 'GHz' },
     linkRate: { value: 72, unit: 'Mbps' },
   },
@@ -58,7 +58,7 @@ const data = [
     connectionType: 'Wireless',
     category: 'Network',
     status: 'Active',
-    deviceName: 'Matts-MBP',
+    deviceName: 'Daras-MBP',
     networkBand: { value: 5, unit: 'GHz' },
     linkRate: { value: 702, unit: 'Mbps' },
   },
@@ -70,7 +70,7 @@ const data = [
     connectionType: 'Wireless',
     category: 'Network',
     status: 'Active',
-    deviceName: 'Matts-Air',
+    deviceName: 'Daras-Air',
     networkBand: { value: 2.4, unit: 'GHz' },
     linkRate: { value: 78, unit: 'Mbps' },
   },
@@ -118,7 +118,7 @@ const data = [
     connectionType: 'Wireless',
     category: 'Network',
     status: 'Active',
-    deviceName: 'Google-Home-Mini',
+    deviceName: 'Amazon-Alexa',
     networkBand: { value: 2.4, unit: 'GHz' },
     linkRate: { value: 72, unit: 'Mbps' },
   },
@@ -162,9 +162,10 @@ const data = [
 
 const columns = [
   {
+    primary: true,
     property: 'macAddress',
     header: 'MAC Address',
-    render: datum => <Text>{datum.macAddress}</Text>,
+    render: datum => datum.macAddress,
     pin: true,
   },
   {
@@ -213,22 +214,26 @@ const columns = [
 
 export const TableFixedHeaderExample = () => {
   return (
-    <Box
-      height="medium"
-      width={{ min: 'medium', max: 'large' }}
-      overflow="auto"
-    >
-      <DataTable
-        data={data}
-        primaryKey="id"
-        columns={columns}
-        background={{
-          pinned: 'background-front',
-          header: 'background-front',
-        }}
-        fill
-        pin
-      />
-    </Box>
+    <>
+      <Heading level={3} margin="none">
+        Connected Devices
+      </Heading>
+      <Box
+        height="medium"
+        width={{ min: 'medium', max: 'large' }}
+        overflow="auto"
+      >
+        <DataTable
+          data={data}
+          columns={columns}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+          }}
+          fill
+          pin
+        />
+      </Box>
+    </>
   );
 };

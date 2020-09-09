@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, DataTable } from 'grommet';
+import { Box, DataTable, Heading } from 'grommet';
 
 const data = [
   {
@@ -95,7 +95,7 @@ const enhancedData = data.map(datum => {
 });
 
 const columns = [
-  { property: 'application', header: 'Service' },
+  { primary: true, property: 'application', header: 'Service' },
   {
     property: 'requests',
     header: 'Requests',
@@ -123,7 +123,10 @@ const columns = [
 ];
 
 export const TableSummaryExample = () => (
-  <Box height="medium" overflow="auto">
-    <DataTable data={enhancedData} primaryKey="id" columns={columns} pin />
-  </Box>
+  <>
+    <Heading level={3}>Service Adoption</Heading>
+    <Box height="medium" overflow="auto">
+      <DataTable data={enhancedData} columns={columns} pin />
+    </Box>
+  </>
 );

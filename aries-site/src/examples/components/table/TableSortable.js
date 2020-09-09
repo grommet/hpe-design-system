@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, DataTable, Meter, Text } from 'grommet';
+import { Box, DataTable, Heading, Meter, Text } from 'grommet';
 
 const data = [
   {
+    id: 1,
     string: 'durian',
     numeric: 42,
     date: '01/25/1915',
@@ -10,6 +11,7 @@ const data = [
     status: 'ok',
   },
   {
+    id: 2,
     string: 'cherimoya',
     numeric: 3.14159,
     date: '12/07/1941',
@@ -17,6 +19,7 @@ const data = [
     status: 'ok',
   },
   {
+    id: 3,
     string: 'mangosteen',
     numeric: 3,
     date: '03/21/1965',
@@ -24,6 +27,7 @@ const data = [
     status: 'warning',
   },
   {
+    id: 4,
     string: 'jackfruit',
     numeric: 2.7182,
     date: '12/15/1791',
@@ -31,6 +35,7 @@ const data = [
     status: 'ok',
   },
   {
+    id: 5,
     string: 'kiwi',
     numeric: 1.618,
     date: '11/03/2020',
@@ -38,6 +43,7 @@ const data = [
     status: 'critical',
   },
   {
+    id: 6,
     string: 'lemon',
     numeric: 182282,
     date: '07/20/1969',
@@ -45,6 +51,7 @@ const data = [
     status: 'warning',
   },
   {
+    id: 7,
     string: 'rambutan',
     numeric: 73,
     date: '08/06/1991',
@@ -54,6 +61,7 @@ const data = [
 ];
 
 const columns = [
+  { property: 'id', header: 'Id', primary: true },
   { property: 'string', header: 'Fruits' },
   { property: 'numeric', header: 'Favorite Numbers', align: 'end' },
   {
@@ -128,11 +136,13 @@ const formatData = dataSet =>
   });
 
 export const TableSortable = () => (
-  <DataTable
-    data={formatData(data)}
-    primaryKey="id"
-    columns={columns}
-    sort={{ property: 'numeric', direction: 'desc' }}
-    sortable
-  />
+  <>
+    <Heading level={3}>Sortable Items</Heading>
+    <DataTable
+      data={formatData(data)}
+      columns={columns}
+      sort={{ property: 'numeric', direction: 'desc' }}
+      sortable
+    />
+  </>
 );
