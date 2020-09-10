@@ -118,7 +118,6 @@ export const FilteringWithDropButton = () => {
       fill
       gap="medium"
       margin="auto"
-      overflow="auto"
       pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
     >
