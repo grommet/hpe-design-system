@@ -323,40 +323,49 @@ RecordSummary.propTypes = {
   filtering: PropTypes.bool,
 };
 
-const Results = ({ data }) => (
-  <Box pad={{ bottom: 'medium' }} overflow="auto" fill>
-    <List
-      background="background-front"
-      border="horizontal"
-      data={data}
-      action={(item, index) => (
-        <Box direction="row" align="center" gap="medium" key={index}>
-          <Box direction="row" gap="small" align="center">
-            <Text>{item.status}</Text>
-            <Box
-              pad="xsmall"
-              background={
-                item.status === 'Ready' ? 'status-ok' : 'status-warning'
-              }
-              round
+const Results = ({ data }) => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box pad={{ bottom: 'medium' }} overflow="auto" fill>
+      <List
+        background="background-front"
+        border="horizontal"
+        data={data}
+        action={(item, index) => (
+          <Box
+            direction="row"
+            align="center"
+            gap="medium"
+            key={index}
+            flex={false}
+          >
+            <Box direction="row" gap="small" align="center">
+              {size !== 'small' && <Text>{item.status}</Text>}
+              <Box
+                pad="xsmall"
+                background={
+                  item.status === 'Ready' ? 'status-ok' : 'status-warning'
+                }
+                round
+              />
+            </Box>
+            <Menu
+              icon={<More />}
+              hoverIndicator
+              items={[{ label: 'Manage Host' }]}
             />
           </Box>
-          <Menu
-            icon={<More />}
-            hoverIndicator
-            items={[{ label: 'Manage Host' }]}
-          />
-        </Box>
-      )}
-    >
-      {(datum, index) => (
-        <Text weight="bold" key={index}>
-          {datum.name}
-        </Text>
-      )}
-    </List>
-  </Box>
-);
+        )}
+      >
+        {(datum, index) => (
+          <Text weight="bold" key={index}>
+            {datum.name}
+          </Text>
+        )}
+      </List>
+    </Box>
+  );
+};
 
 Results.propTypes = {
   data: PropTypes.arrayOf(
