@@ -21,7 +21,7 @@ import {
 
 Filtering allows data to be narrowed down around a set of specified parameters. When users may not have a specific record in mind but are seeking to group data around a certain set of attributes, filtering should be used to allow the user to narrow the data and take action on relevant records.
 
-If a user will likely be looking for a specific record as opposed to groups of data, consider implementing [search](/templates/searching).
+If a user will likely be looking for a specific record as opposed to groups of data, consider implementing search.
 
 ### Controls
 
@@ -33,7 +33,7 @@ The way filters are displayed is dependent on the use case, number of filters, a
 
 ### Results
 
-Results should live below the controls and display any records that meet filter criteria. Depending on the data types and use case, results may be represented by a [List](#filtering-within-a-list), [Cards](#filtering-within-cards), or [Table](#filtering-within-a-table)
+Results should live below the controls and display any records that meet filter criteria. Depending on the data types and use case, results may be represented by a [List](/templates/lists), [Cards](/components/card), or Table.
 
 ### Pagination
 
@@ -72,9 +72,9 @@ Filtering should help users quickly narrow down data sets by selecting certain p
 Use your best judgement around which input type is appropriate for the data you are filtering. However, here are a few things to consider:
 
 - **Is data presented as Cards or List?** When there is ample screen space, display the filters to the left of the data as [a persistent column](/templates/filtering). Once space becomes limited, use a single filter button that opens a Layer containing the fitlers
-- **Is there more than one filter?** Use a single button with filter icon that opens a Layer containing the filters
-- **Is the user going to be selecting multiple options?** Filter with CheckBoxGroup
-- **Is the user aiming to filter based on a range?** Filter with RangeSelector
+- **Is there more than one filter?** Use a single button with filter icon that [opens a Layer containing the filters](#filters-in-a-right-anchored-layer)
+- **Is the user going to be selecting multiple options?** Filter with [CheckBoxGroup](#filters-in-a-center-layer)
+- **Is the user aiming to filter based on a range?** Filter with [RangeSelector](#filtering-with-rangeselector)
 
 ## More examples of filtering
 
