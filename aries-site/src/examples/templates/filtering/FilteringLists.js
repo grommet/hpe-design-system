@@ -468,20 +468,16 @@ TenantFilter.propTypes = {
 
 const RecordSummary = ({ data, filtering }) => (
   <Box direction="row" gap="xxsmall">
-    <Text color="text-weak" size="small" weight="bold">
+    <Text size="small" weight="bold">
       {data.length}
     </Text>
-    <Text color="text-weak" size="small">
-      {filtering ? 'results of ' : 'items'}
-    </Text>
+    <Text size="small">{filtering ? 'results of ' : 'items'}</Text>
     {filtering && (
       <Box direction="row" gap="xxsmall">
-        <Text color="text-weak" size="small" weight="bold">
+        <Text size="small" weight="bold">
           {allData.length}
         </Text>
-        <Text color="text-weak" size="small">
-          items
-        </Text>
+        <Text size="small">items</Text>
       </Box>
     )}
   </Box>
