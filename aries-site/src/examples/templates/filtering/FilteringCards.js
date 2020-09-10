@@ -556,7 +556,7 @@ const Results = ({ data }) => {
     <Box overflow="auto" pad={{ bottom: 'medium' }} fill>
       <Grid
         columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
-        gap="medium"
+        gap={size !== 'small' ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
           <StyledCard
