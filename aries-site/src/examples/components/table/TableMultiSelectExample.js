@@ -176,7 +176,7 @@ const columns = [
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button alignSelf="start" onClick={() => onClickHandler(datum)} plain>
+      <Button onClick={() => onClickHandler(datum)} plain>
         <Text truncate weight="bold">
           {datum.orderName}
         </Text>

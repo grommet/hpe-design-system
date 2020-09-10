@@ -70,13 +70,14 @@ export const aries = deepMerge(hpe, {
         };
         font-weight: bold;
         :hover {
-          > button {
-            background: ${
+          button {
+            background-color: ${
               theme.global.colors['background-contrast'][
                 theme.dark ? 'dark' : 'light'
               ]
             };
-            padding: 6px 12px;
+            height: 100%;
+            width: 100%;
           }
         }
       `,
@@ -92,6 +93,15 @@ export const aries = deepMerge(hpe, {
           span {
             font-size: ${size};
             line-height: ${height};
+          }
+          :hover {
+            button {
+              background: ${
+                theme.global.colors['background-contrast'][
+                  theme.dark ? 'dark' : 'light'
+                ]
+              }
+            }
           }
         `;
       },
