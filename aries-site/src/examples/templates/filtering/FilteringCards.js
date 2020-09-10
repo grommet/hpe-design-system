@@ -152,11 +152,10 @@ export const FilteringCards = () => {
       fill
       gap="medium"
       margin="auto"
-      overflow="auto"
-      pad="medium"
+      pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
     >
-      <Header>
+      <Header pad={{ top: 'medium' }}>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Users
@@ -554,45 +553,49 @@ const Results = ({ data }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Grid
-      columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
-      gap="medium"
-    >
-      {data.map((datum, index) => (
-        <StyledCard
-          background="background-contrast"
-          key={index}
-          onClick={() => {
-            // eslint-disable-next-line no-alert
-            alert(`
+    <Box overflow="auto" pad={{ bottom: 'medium' }} fill>
+      <Grid
+        columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
+        gap="medium"
+      >
+        {data.map((datum, index) => (
+          <StyledCard
+            background="background-contrast"
+            key={index}
+            onClick={() => {
+              // eslint-disable-next-line no-alert
+              alert(`
             Typically a click would route to a view with 
             greater detail behind this summary information.
             `);
-          }}
-        >
-          <CardBody gap="xsmall" justify="between">
-            <Box flex={false}>
-              <Box align="center" direction="row" gap="xsmall">
-                <Box
-                  background={datum.status === 'Online' ? 'brand' : 'text-weak'}
-                  pad="xsmall"
-                  round
-                />
-                <Text color="text-strong">{datum.status}</Text>
+            }}
+          >
+            <CardBody gap="xsmall" justify="between">
+              <Box flex={false}>
+                <Box align="center" direction="row" gap="xsmall">
+                  <Box
+                    background={
+                      datum.status === 'Online' ? 'brand' : 'text-weak'
+                    }
+                    pad="xsmall"
+                    round
+                  />
+                  <Text color="text-strong">{datum.status}</Text>
+                </Box>
+                <Text color="text-strong" size="large" weight="bold">
+                  {datum.name}
+                </Text>
+                <Text color="text-strong">{datum.location}</Text>
               </Box>
-              <Text color="text-strong" size="large" weight="bold">
-                {datum.name}
-              </Text>
-              <Text color="text-strong">{datum.location}</Text>
-            </Box>
-            <Box>
-              <Text size="small">Role</Text>
-              <Text color="text-strong">{datum.role}</Text>
-            </Box>
-          </CardBody>
-        </StyledCard>
-      ))}
-    </Grid>
+              <Box>
+                <Text size="small">Role</Text>
+                <Text color="text-strong">{datum.role}</Text>
+              </Box>
+            </CardBody>
+          </StyledCard>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

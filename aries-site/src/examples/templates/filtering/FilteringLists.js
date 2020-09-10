@@ -147,11 +147,10 @@ export const FilteringLists = () => {
       fill
       gap="medium"
       margin="auto"
-      overflow="auto"
-      pad="medium"
+      pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
     >
-      <Header>
+      <Header pad={{ vertical: 'medium' }}>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Orders
@@ -497,7 +496,11 @@ const Results = ({ data }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Box fill overflow="auto">
+    <Box
+      fill
+      overflow="auto"
+      pad={{ horizontal: 'xxsmall', bottom: 'medium', top: 'xxsmall' }}
+    >
       <List
         action={(item, index) => (
           <Box key={index} align="center" direction="row" gap="small">
@@ -516,27 +519,13 @@ const Results = ({ data }) => {
         }}
       >
         {(datum, index) => (
-          <Box key={index}>
-            <Box direction="row" gap="small">
-              {/* <Box
-                flex={false}
-                height="xxsmall"
-                width="xxsmall"
-                round="small"
-                overflow="hidden"
-              >
-                <Image src={datum.image} fit="cover" />
-              </Box> */}
-
-              <Box gap="xsmall" justify="between">
-                <Text color="text-strong" size="large" weight="bold">
-                  {datum.name}
-                </Text>
-                <Text color="text-strong">
-                  {datum.tenant} | {datum.service}
-                </Text>
-              </Box>
-            </Box>
+          <Box gap="xsmall" justify="between" key={index}>
+            <Text color="text-strong" size="large" weight="bold">
+              {datum.name}
+            </Text>
+            <Text color="text-strong">
+              {datum.tenant} | {datum.service}
+            </Text>
           </Box>
         )}
       </List>

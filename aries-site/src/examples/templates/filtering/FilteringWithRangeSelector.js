@@ -113,11 +113,10 @@ export const FilteringWithRangeSelector = () => {
       gap="medium"
       width={{ max: 'xxlarge' }}
       margin="auto"
-      overflow="auto"
-      pad="small"
+      pad={{ horizontal: 'medium' }}
       fill
     >
-      <Header>
+      <Header pad={{ top: 'medium' }}>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
             Storage
@@ -545,7 +544,11 @@ RecordSummary.propTypes = {
 };
 
 const Results = ({ data }) => (
-  <Box pad="xxsmall" overflow="auto" fill>
+  <Box
+    pad={{ horizontal: 'xxsmall', bottom: 'medium', top: 'xxsmall' }}
+    overflow="auto"
+    fill
+  >
     <List
       background="background-front"
       border="horizontal"
