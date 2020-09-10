@@ -41,7 +41,7 @@ export const PageBackground = ({ backgroundImage }) => {
             </Box>
             {/* Empty card restricts width so it switches to one column
             layout at same time as main content */}
-            <Card elevation="none" />
+            <Card background="none" elevation="none" />
           </Grid>
         </Box>
       )}

@@ -4,17 +4,13 @@ import { Box, Card, CardFooter, Text } from 'grommet';
 import { Alert, Server } from 'grommet-icons';
 
 export const CardWithFooter = () => (
-  <Card width="medium">
+  <Card background="background-front" width="medium">
     <Identifier
       icon={<Server size="large" color="text-strong" />}
       title="OmniStackVC-10"
       subtitle="LA_cluster_1"
     />
-    <CardFooter
-      pad={{ horizontal: 'medium', vertical: 'small' }}
-      align="center"
-      justify="start"
-    >
+    <CardFooter align="center" justify="start">
       <Alert />
       <Text weight="bold">Expired</Text>
     </CardFooter>

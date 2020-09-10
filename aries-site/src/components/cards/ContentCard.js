@@ -20,14 +20,13 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const darkMode = useDarkMode();
   return (
     <StyledCard
-      background="background-front"
       elevation={isFocused ? 'medium' : 'small'}
       fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}
       onMouseOver={() => setIsFocused(true)}
-      pad="large"
+      pad="medium"
       ref={ref}
       {...rest}
     >
