@@ -385,5 +385,9 @@ export const components = [
     relatedContent: ['Lists', 'Card'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
 ];

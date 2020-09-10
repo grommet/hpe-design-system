@@ -333,17 +333,28 @@ TableControls.propTypes = {
 const SelectionSummary = ({ selected }) => {
   return (
     <>
-      {selected && selected.length > 0 && (
-        <Box direction="row" gap="xxsmall">
-          <Text size="small" weight="bold">
-            {selected.length}
-          </Text>
-          <Text size="small">of</Text>
-          <Text size="small" weight="bold">
-            {data.length}
-          </Text>
-          <Text size="small">items selected</Text>
-        </Box>
+      {selected && (
+        <>
+          {selected.length > 0 ? (
+            <Box direction="row" gap="xxsmall">
+              <Text size="small" weight="bold">
+                {selected.length}
+              </Text>
+              <Text size="small">of</Text>
+              <Text size="small" weight="bold">
+                {data.length}
+              </Text>
+              <Text size="small">items selected</Text>
+            </Box>
+          ) : (
+            <Box direction="row" gap="xxsmall">
+              <Text size="small" weight="bold">
+                {data.length}
+              </Text>
+              <Text size="small">items</Text>
+            </Box>
+          )}
+        </>
       )}
     </>
   );
