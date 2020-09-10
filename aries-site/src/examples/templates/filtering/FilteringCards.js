@@ -558,7 +558,10 @@ const Results = ({ data }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Grid columns={size !== 'small' ? 'medium' : '100%'} gap="medium">
+    <Grid
+      columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
+      gap="medium"
+    >
       {data.map((datum, index) => (
         <StyledCard
           background="background-contrast"
