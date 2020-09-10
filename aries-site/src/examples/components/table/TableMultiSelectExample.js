@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Box, Button, CheckBox, DataTable, Heading, Menu, Text } from 'grommet';
 
 const data = [
@@ -271,6 +272,11 @@ export const TableMultiSelectExample = () => {
   );
 };
 
+const ActionsMenu = styled(Menu)`
+  border: 1px solid
+    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
+`;
+
 const TableControls = ({ selected }) => {
   const demoActionHandler = records => {
     // eslint-disable-next-line no-alert
@@ -287,10 +293,13 @@ const TableControls = ({ selected }) => {
     <Box
       direction="row"
       fill="horizontal"
-      justify="end"
+      justify="between"
       pad={{ vertical: 'small' }}
     >
-      <Menu
+      <Box justify="center">
+        <SelectionSummary selected={selected} data={data} />
+      </Box>
+      <ActionsMenu
         label="Actions"
         items={[
           {
@@ -318,5 +327,28 @@ const TableControls = ({ selected }) => {
 };
 
 TableControls.propTypes = {
+  selected: PropTypes.array,
+};
+
+const SelectionSummary = ({ selected }) => {
+  return (
+    <>
+      {selected && selected.length > 0 && (
+        <Box direction="row" gap="xxsmall">
+          <Text size="small" weight="bold">
+            {selected.length}
+          </Text>
+          <Text size="small">of</Text>
+          <Text size="small" weight="bold">
+            {data.length}
+          </Text>
+          <Text size="small">items selected</Text>
+        </Box>
+      )}
+    </>
+  );
+};
+
+SelectionSummary.propTypes = {
   selected: PropTypes.array,
 };
