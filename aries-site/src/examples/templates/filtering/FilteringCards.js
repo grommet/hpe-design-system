@@ -574,7 +574,7 @@ const Results = ({ data }) => {
             `);
           }}
         >
-          <CardBody gap="xsmall" pad="medium" justify="between">
+          <CardBody gap="xsmall" justify="between">
             <Box flex={false}>
               <Box align="center" direction="row" gap="xsmall">
                 <Box
