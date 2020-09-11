@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, DataTable, Heading, Meter, Text } from 'grommet';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Meter,
+  Text,
+  ResponsiveContext,
+} from 'grommet';
 
 const data = [
   {
@@ -175,12 +182,6 @@ const data = [
 
 const columns = [
   {
-    property: 'id',
-    header: 'Id',
-    primary: true,
-    render: datum => datum.id.slice(datum.id.length - 5),
-  },
-  {
     property: 'poolName',
     header: 'Pool Name',
     render: datum => <Text truncate>{datum.poolName}</Text>,
@@ -257,13 +258,28 @@ const handleClickRow = obj => {
 };
 
 export const TableExample = () => {
+  const size = React.useContext(ResponsiveContext);
+
   return (
     <>
       <Heading level={3}>Storage Pools</Heading>
       <Box height="medium" overflow="auto">
         <DataTable
           data={data}
-          columns={columns}
+          columns={[
+            {
+              property: 'id',
+              header: 'Id',
+              primary: true,
+              render: datum => datum.id.slice(datum.id.length - 5),
+              pin: size === 'small',
+            },
+            ...columns,
+          ]}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+          }}
           fill
           onClickRow={({ datum }) => handleClickRow(datum)}
           pin

@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, Button, CheckBox, DataTable, Heading, Menu, Text } from 'grommet';
+import {
+  Box,
+  Button,
+  CheckBox,
+  DataTable,
+  Heading,
+  Menu,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
 
 const data = [
   {
@@ -169,11 +178,6 @@ const onClickHandler = record => {
 
 const columns = [
   {
-    primary: true,
-    property: 'id',
-    header: 'Id',
-  },
-  {
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
@@ -220,6 +224,7 @@ const columns = [
 ];
 
 export const TableMultiSelectExample = () => {
+  const size = React.useContext(ResponsiveContext);
   const [checked, setChecked] = React.useState([]);
 
   const onCheck = (event, value) => {
@@ -239,7 +244,7 @@ export const TableMultiSelectExample = () => {
         Manage Orders
       </Heading>
       <TableControls selected={checked} />
-      <Box overflow="auto">
+      <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
           data={data}
           primaryKey="id"
@@ -264,8 +269,19 @@ export const TableMultiSelectExample = () => {
               ),
               sortable: false,
             },
+            {
+              primary: true,
+              property: 'id',
+              header: 'Id',
+              pin: size === 'small',
+            },
             ...columns,
           ]}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+          }}
+          pin={size === 'small'}
         />
       </Box>
     </>

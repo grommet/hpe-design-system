@@ -214,12 +214,14 @@ const columns = [
 
 export const TableFixedHeaderExample = () => {
   return (
-    <>
+    <Box alignSelf="center">
       <Heading level={3} margin="none">
         Connected Devices
       </Heading>
       <Box
+        // restricting height to demonstrate pinned header behavior
         height="medium"
+        // restricting width to demonstrate pinned column behavior
         width={{ min: 'medium', max: 'large' }}
         overflow="auto"
       >
@@ -234,6 +236,6 @@ export const TableFixedHeaderExample = () => {
           pin
         />
       </Box>
-    </>
+    </Box>
   );
 };

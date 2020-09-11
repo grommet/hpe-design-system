@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, DataTable, Heading, Meter, Text } from 'grommet';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Meter,
+  Text,
+  ResponsiveContext,
+} from 'grommet';
 
 const data = [
   {
@@ -61,7 +68,6 @@ const data = [
 ];
 
 const columns = [
-  { property: 'id', header: 'Id', primary: true },
   { property: 'string', header: 'Fruits' },
   { property: 'numeric', header: 'Favorite Numbers', align: 'end' },
   {
@@ -135,14 +141,33 @@ const formatData = dataSet =>
     return adjustedDatum;
   });
 
-export const TableSortable = () => (
-  <>
-    <Heading level={3}>Sortable Items</Heading>
-    <DataTable
-      data={formatData(data)}
-      columns={columns}
-      sort={{ property: 'numeric', direction: 'desc' }}
-      sortable
-    />
-  </>
-);
+export const TableSortable = () => {
+  const size = React.useContext(ResponsiveContext);
+
+  return (
+    <>
+      <Heading level={3}>Sortable Items</Heading>
+      <Box overflow="auto">
+        <DataTable
+          data={formatData(data)}
+          columns={[
+            {
+              property: 'id',
+              header: 'Id',
+              primary: true,
+              pin: size === 'small',
+            },
+            ...columns,
+          ]}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+          }}
+          pin={size === 'small'}
+          sort={{ property: 'numeric', direction: 'desc' }}
+          sortable
+        />
+      </Box>
+    </>
+  );
+};

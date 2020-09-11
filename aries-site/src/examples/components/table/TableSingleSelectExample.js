@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, Heading, Text, Box } from 'grommet';
+import { Box, DataTable, Heading, Text, ResponsiveContext } from 'grommet';
 
 const data = [
   {
@@ -150,11 +150,6 @@ const data = [
 
 const columns = [
   {
-    primary: true,
-    property: 'id',
-    header: 'Id',
-  },
-  {
     property: 'orderName',
     header: 'Name',
     render: datum => (
@@ -218,18 +213,29 @@ const onClickHandler = record => {
   `);
 };
 
-export const TableSingleSelectExample = () => (
-  <>
-    <Heading level={3} margin="none">
-      Orders
-    </Heading>
-    <Box overflow="auto">
-      <DataTable
-        data={data}
-        primaryKey="id"
-        columns={columns}
-        onClickRow={({ datum }) => onClickHandler(datum)}
-      />
-    </Box>
-  </>
-);
+export const TableSingleSelectExample = () => {
+  const size = React.useContext(ResponsiveContext);
+
+  return (
+    <>
+      <Heading level={3} margin="none">
+        Orders
+      </Heading>
+      <Box overflow="auto">
+        <DataTable
+          data={data}
+          columns={[
+            { property: 'id', header: 'Id', pin: size === 'small' },
+            ...columns,
+          ]}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+          }}
+          onClickRow={({ datum }) => onClickHandler(datum)}
+          pin={size === 'small'}
+        />
+      </Box>
+    </>
+  );
+};

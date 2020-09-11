@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, DataTable, Heading } from 'grommet';
+import { Box, DataTable, Heading, ResponsiveContext } from 'grommet';
 
 const data = [
   {
@@ -83,7 +83,6 @@ const enhancedData = data.map(datum => {
 });
 
 const columns = [
-  { primary: true, property: 'application', header: 'Service' },
   {
     property: 'requests',
     header: 'Requests',
@@ -110,11 +109,32 @@ const columns = [
   },
 ];
 
-export const TableSummaryExample = () => (
-  <>
-    <Heading level={3}>Service Adoption</Heading>
-    <Box height="medium" overflow="auto">
-      <DataTable data={enhancedData} columns={columns} pin />
-    </Box>
-  </>
-);
+export const TableSummaryExample = () => {
+  const size = React.useContext(ResponsiveContext);
+
+  return (
+    <>
+      <Heading level={3}>Service Adoption</Heading>
+      <Box height="medium" overflow="auto">
+        <DataTable
+          data={enhancedData}
+          columns={[
+            {
+              primary: true,
+              property: 'application',
+              header: 'Service',
+              pin: size === 'small',
+            },
+            ...columns,
+          ]}
+          background={{
+            pinned: 'background-front',
+            header: 'background-front',
+            footer: 'background-front',
+          }}
+          pin
+        />
+      </Box>
+    </>
+  );
+};
