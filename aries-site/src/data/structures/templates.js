@@ -212,4 +212,14 @@ export const templates = [
     sections: [],
     relatedContent: ['Forms'],
   },
+  {
+    name: 'Filtering',
+    available: false,
+    description: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    seoDescription: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    sections: [],
+    relatedContent: ['Lists', 'Card'],
+  },
 ];
