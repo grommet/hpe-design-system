@@ -306,7 +306,7 @@ export const TableExample = () => {
           }}
           fill
           onClickRow={({ datum }) => handleClickRow(datum)}
-          // pin
+          pin
           sortable
         />
       </Box>
