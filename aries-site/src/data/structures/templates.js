@@ -220,6 +220,6 @@ export const templates = [
     seoDescription: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     sections: [],
-    relatedContent: ['Lists', 'Card'],
+    relatedContent: ['Table', 'Lists', 'Card'],
   },
 ];

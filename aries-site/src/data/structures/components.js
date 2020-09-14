@@ -382,7 +382,7 @@ export const components = [
     preview: {
       background: 'background-front',
     },
-    relatedContent: ['Lists', 'Card'],
+    relatedContent: ['Filtering', 'Lists', 'Card'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
     status: {
