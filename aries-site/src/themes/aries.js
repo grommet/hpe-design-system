@@ -24,9 +24,11 @@ export const aries = deepMerge(hpe, {
     },
   },
   dataTable: {
-    // body: {
-    //   extend: undefined,
-    // },
+    body: {
+      extend: ({ theme }) => `
+        padding: ${theme.global.edgeSize.xxsmall};
+      `,
+    },
     // groupHeader: {
     //   background: {
     //     dark: 'dark-2',
@@ -60,7 +62,7 @@ export const aries = deepMerge(hpe, {
       // align: 'start',
       // pad: { horizontal: 'small', vertical: 'xsmall' },
       border: { side: 'bottom' },
-      verticalAlign: 'bottom',
+      // verticalAlign: 'center',
       background: {
         color: 'background-front',
       },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, DataTable, Heading, ResponsiveContext } from 'grommet';
+import { Box, DataTable, Heading, ResponsiveContext, Text } from 'grommet';
 
 const data = [
   {
@@ -101,8 +101,15 @@ const columns = [
   },
   {
     property: 'attachment',
-    header: 'Attachment',
-    render: datum => `${(datum.attachment * 100).toFixed([1])}%`,
+    header: (
+      <>
+        Attachement&nbsp;
+        <Text color="text" weight="normal">
+          %
+        </Text>
+      </>
+    ),
+    render: datum => `${(datum.attachment * 100).toFixed([1])}`,
     align: 'end',
     aggregate: 'avg',
     footer: { aggregate: true },

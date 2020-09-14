@@ -152,11 +152,7 @@ const columns = [
   {
     property: 'orderName',
     header: 'Name',
-    render: datum => (
-      <Text truncate weight="bold">
-        {datum.orderName}
-      </Text>
-    ),
+    render: datum => <Text truncate>{datum.orderName}</Text>,
     size: 'small',
   },
   {

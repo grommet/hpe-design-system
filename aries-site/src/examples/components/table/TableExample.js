@@ -199,7 +199,14 @@ const columns = [
   },
   {
     property: 'size',
-    header: 'Size (TiB)',
+    header: (
+      <>
+        Size&nbsp;
+        <Text color="text" weight="normal">
+          (TiB)
+        </Text>
+      </>
+    ),
     render: datum =>
       // bytes to tebibytes
       (datum.size / 2 ** 40).toFixed([1]),
@@ -207,7 +214,14 @@ const columns = [
   },
   {
     property: 'pinnable',
-    header: 'Pinnable (TiB)',
+    header: (
+      <>
+        Pinnable&nbsp;
+        <Text color="text" weight="normal">
+          (TiB)
+        </Text>
+      </>
+    ),
     render: datum =>
       // bytes to tebibytes
       (datum.pinnable / 2 ** 40).toFixed([1]),
@@ -215,7 +229,14 @@ const columns = [
   },
   {
     property: 'pinned',
-    header: 'Pinned %',
+    header: (
+      <>
+        Pinned&nbsp;
+        <Text color="text" weight="normal">
+          %
+        </Text>
+      </>
+    ),
     render: datum => (
       <Box pad={{ vertical: 'xsmall' }}>
         <Meter
@@ -230,14 +251,17 @@ const columns = [
   },
   {
     property: 'savings',
-    header: 'Savings (TiB | xGHz)',
+    header: (
+      <>
+        Savings&nbsp;
+        <Text color="text" weight="normal">
+          (xGHz)
+        </Text>
+      </>
+    ),
     align: 'end',
     render: datum => (
-      <Text truncate>
-        {datum.savings[0] && `${datum.savings[0].value}`}
-        {datum.savings[0] && datum.savings[1] && ' | '}
-        {datum.savings[1] && `${datum.savings[1].value}`}
-      </Text>
+      <Text truncate>{datum.savings[1] && `${datum.savings[1].value}`}</Text>
     ),
   },
 ];
@@ -282,7 +306,7 @@ export const TableExample = () => {
           }}
           fill
           onClickRow={({ datum }) => handleClickRow(datum)}
-          pin
+          // pin
           sortable
         />
       </Box>
