@@ -181,6 +181,16 @@ export const templates = [
     name: 'Tables',
     available: false,
     description: 'Common table use cases.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-table.svg',
+          dark: '/templateImages/template-preview-table-invert.svg',
+        },
+        alt: 'HPE Tables Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription: 'HPE Design System table examples and templates.',
     sections: [],
     relatedContent: [],
@@ -190,6 +200,16 @@ export const templates = [
     available: false,
     description: `Notifications are a helpful way to notify a user of changes 
     to application state or to prompt action from a user.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-notifications.svg',
+          dark: '/templateImages/template-preview-notifications-invert.svg',
+        },
+        alt: 'HPE Notifications Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription: 'HPE Design System notification examples and templates.',
     sections: [],
     relatedContent: [],
@@ -199,6 +219,17 @@ export const templates = [
     available: false,
     description: `Data visualizations are an effective way to present 
     quantitative data to a user.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-data-visualization.svg',
+          dark:
+            '/templateImages/template-preview-data-visualization-invert.svg',
+        },
+        alt: 'HPE Data Visualization Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription:
       'HPE Design System data visualization examples and templates.',
     sections: [],
@@ -208,6 +239,16 @@ export const templates = [
     name: 'Wizard',
     available: true,
     description: 'Wizards are an effective way to handle multi-step forms.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-wizard.svg',
+          dark: '/templateImages/template-preview-wizard-invert.svg',
+        },
+        alt: 'HPE Wizard Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription: 'Wizards are an effective way to handle multi-step forms.',
     sections: [],
     relatedContent: ['Forms'],
@@ -217,6 +258,16 @@ export const templates = [
     available: false,
     description: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-filtering.svg',
+          dark: '/templateImages/template-preview-filtering-invert.svg',
+        },
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
+      },
+    },
     seoDescription: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     sections: [],
