@@ -102,12 +102,12 @@ const columns = [
   {
     property: 'attachment',
     header: (
-      <>
-        Attachement&nbsp;
+      <Box direction="row" gap="small">
+        Attachment
         <Text color="text" weight="normal">
           %
         </Text>
-      </>
+      </Box>
     ),
     render: datum => `${(datum.attachment * 100).toFixed([1])}`,
     align: 'end',
@@ -124,7 +124,12 @@ export const TableSummaryExample = () => {
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Service Adoption
       </Heading>
-      <Box align="start" height="medium" overflow="auto">
+      <Box
+        align="start"
+        height="medium"
+        margin={{ right: 'auto' }}
+        overflow="auto"
+      >
         <DataTable
           data={enhancedData}
           columns={[

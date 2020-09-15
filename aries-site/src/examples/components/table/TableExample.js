@@ -286,12 +286,10 @@ export const TableExample = () => {
 
   return (
     <>
-      <Heading level={3}>Storage Pools</Heading>
-      <Box
-        height="medium"
-        margin={{ bottom: 'small', top: 'none' }}
-        overflow="auto"
-      >
+      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+        Storage Pools
+      </Heading>
+      <Box height="medium" overflow="auto">
         <DataTable
           data={data}
           columns={[
