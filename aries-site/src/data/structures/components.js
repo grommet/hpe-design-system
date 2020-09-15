@@ -56,8 +56,10 @@ export const components = [
   {
     name: 'Card',
     category: 'Layouts',
-    description: 'A container providing at-a-glance information and easy access to more details.',
-    seoDescription: 'A container providing at-a-glance information and easy access to more details.',
+    description:
+      'A container providing at-a-glance information and easy access to more details.',
+    seoDescription:
+      'A container providing at-a-glance information and easy access to more details.',
     preview: {
       image: {
         src: {
@@ -372,5 +374,27 @@ export const components = [
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
+  },
+  {
+    name: 'Table',
+    category: 'Visualizations',
+    description: 'Table presents data in a column and row format.',
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-table.svg',
+          dark: '/componentImages/component-preview-table-invert.svg',
+        },
+        alt: 'HPE Tables Preview',
+        fit: 'contain',
+      },
+    },
+    relatedContent: ['Filtering', 'Lists', 'Card'],
+    seoDescription: 'Data presentation in column and row format.',
+    sections: [],
+    status: {
+      figma: statuses.inProgress,
+      grommet: statuses.inProgress,
+    },
   },
 ];

@@ -178,24 +178,6 @@ export const templates = [
     ],
   },
   {
-    name: 'Tables',
-    available: false,
-    description: 'Common table use cases.',
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-table.svg',
-          dark: '/templateImages/template-preview-table-invert.svg',
-        },
-        alt: 'HPE Tables Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: 'HPE Design System table examples and templates.',
-    sections: [],
-    relatedContent: [],
-  },
-  {
     name: 'Notifications',
     available: false,
     description: `Notifications are a helpful way to notify a user of changes 
@@ -271,6 +253,6 @@ export const templates = [
     seoDescription: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     sections: [],
-    relatedContent: ['Lists', 'Card'],
+    relatedContent: ['Table', 'Lists', 'Card'],
   },
 ];
