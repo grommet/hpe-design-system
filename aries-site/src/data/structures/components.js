@@ -380,7 +380,14 @@ export const components = [
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',
     preview: {
-      background: 'background-front',
+      image: {
+        src: {
+          light: '/componentImages/component-preview-table.svg',
+          dark: '/componentImages/component-preview-table-invert.svg',
+        },
+        alt: 'HPE Tables Preview',
+        fit: 'contain',
+      },
     },
     relatedContent: ['Filtering', 'Lists', 'Card'],
     seoDescription: 'Data presentation in column and row format.',
