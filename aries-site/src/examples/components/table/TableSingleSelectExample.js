@@ -214,7 +214,7 @@ export const TableSingleSelectExample = () => {
 
   return (
     <>
-      <Heading level={3} margin="none">
+      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Orders
       </Heading>
       <Box overflow="auto">

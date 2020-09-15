@@ -146,8 +146,10 @@ export const TableSortable = () => {
 
   return (
     <>
-      <Heading level={3}>Sortable Items</Heading>
-      <Box overflow="auto">
+      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+        Sortable Items
+      </Heading>
+      <Box align="start" overflow="auto">
         <DataTable
           data={formatData(data)}
           columns={[

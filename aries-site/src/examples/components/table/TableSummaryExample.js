@@ -121,8 +121,10 @@ export const TableSummaryExample = () => {
 
   return (
     <>
-      <Heading level={3}>Service Adoption</Heading>
-      <Box height="medium" overflow="auto">
+      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+        Service Adoption
+      </Heading>
+      <Box align="start" height="medium" overflow="auto">
         <DataTable
           data={enhancedData}
           columns={[

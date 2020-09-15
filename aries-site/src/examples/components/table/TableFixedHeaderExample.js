@@ -200,13 +200,27 @@ const columns = [
   },
   {
     property: 'networkBand.value',
-    header: 'Network Band (GHz)',
+    header: (
+      <Box direction="row" gap="xsmall">
+        Network Band
+        <Text color="text" weight="normal">
+          (GHz)
+        </Text>
+      </Box>
+    ),
     render: datum => datum.networkBand.value,
     align: 'end',
   },
   {
     property: 'linkRate.value',
-    header: 'Link Rate (Mbps)',
+    header: (
+      <Box direction="row" gap="xsmall">
+        Link Rate
+        <Text color="text" weight="normal">
+          (Mbps)
+        </Text>
+      </Box>
+    ),
     render: datum => datum.linkRate.value,
     align: 'end',
   },
@@ -214,11 +228,12 @@ const columns = [
 
 export const TableFixedHeaderExample = () => {
   return (
-    <Box alignSelf="center">
-      <Heading level={3} margin="none">
+    <>
+      <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
         Connected Devices
       </Heading>
       <Box
+        align="start"
         // restricting height to demonstrate pinned header behavior
         height="medium"
         // restricting width to demonstrate pinned column behavior
@@ -232,10 +247,9 @@ export const TableFixedHeaderExample = () => {
             pinned: 'background-front',
             header: 'background-front',
           }}
-          fill
           pin
         />
       </Box>
-    </Box>
+    </>
   );
 };

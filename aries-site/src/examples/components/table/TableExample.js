@@ -37,7 +37,7 @@ const data = [
   },
   {
     id: 'om2hy2z79kyz',
-    poolName: 'Dev36-erray01 ( default)',
+    poolName: 'Dev36-erray01 (default)',
     groupName: 'Dev',
     arrays: 'harm-stage-array02',
     size: 190655321234567,
@@ -200,12 +200,12 @@ const columns = [
   {
     property: 'size',
     header: (
-      <>
-        Size&nbsp;
+      <Box direction="row" gap="xsmall">
+        Size
         <Text color="text" weight="normal">
           (TiB)
         </Text>
-      </>
+      </Box>
     ),
     render: datum =>
       // bytes to tebibytes
@@ -215,12 +215,12 @@ const columns = [
   {
     property: 'pinnable',
     header: (
-      <>
-        Pinnable&nbsp;
+      <Box direction="row" gap="xsmall">
+        Pinnable
         <Text color="text" weight="normal">
           (TiB)
         </Text>
-      </>
+      </Box>
     ),
     render: datum =>
       // bytes to tebibytes
@@ -230,12 +230,12 @@ const columns = [
   {
     property: 'pinned',
     header: (
-      <>
-        Pinned&nbsp;
+      <Box direction="row" gap="xsmall">
+        Pinned
         <Text color="text" weight="normal">
           %
         </Text>
-      </>
+      </Box>
     ),
     render: datum => (
       <Box pad={{ vertical: 'xsmall' }}>
@@ -252,12 +252,12 @@ const columns = [
   {
     property: 'savings',
     header: (
-      <>
-        Savings&nbsp;
+      <Box direction="row" gap="xsmall">
+        Savings
         <Text color="text" weight="normal">
           (xGHz)
         </Text>
-      </>
+      </Box>
     ),
     align: 'end',
     render: datum => (
@@ -287,7 +287,11 @@ export const TableExample = () => {
   return (
     <>
       <Heading level={3}>Storage Pools</Heading>
-      <Box height="medium" overflow="auto">
+      <Box
+        height="medium"
+        margin={{ bottom: 'small', top: 'none' }}
+        overflow="auto"
+      >
         <DataTable
           data={data}
           columns={[
