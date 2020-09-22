@@ -12,7 +12,7 @@ import {
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
   showResponsiveControls={['laptop', 'mobile']}
@@ -22,16 +22,17 @@ import {
 </Example>
 
 ## What makes up a table?
+
 Tables enable users to accomplish a task by finding records of interest, then take action against them.
-They present structured data in a grid, with columns and rows to aid readability, scanability, and show 
+They present structured data in a grid, with columns and rows to aid readability, scanability, and show
 the meaning of the data.
 
 <TableAnatomy />
 
 **Controls**<br />
-Table controls should live above the table and facilitate a user's ability to locate and 
-take actions against records of interest. A controls section may contain [search and filter 
-controls](#searching-and-filtering-tables), as well as [action controls](#selecting-multiple-records-and-batch-actions) 
+Table controls should live above the table and facilitate a user's ability to locate and
+take actions against records of interest. A controls section may contain [search and filter
+controls](#searching-and-filtering-tables), as well as [action controls](#selecting-multiple-records-and-batch-actions)
 such as batch applying settings or data export.
 
 **Table header**<br />
@@ -39,8 +40,8 @@ Contain table header cells concisely labeling the column's contents.
 Column headers may be enhanced by enabling [sorting](#sorting).
 
 **Table body**<br />
-Consists of rows allowing users to scan, read and take action on the data. 
-Rows may be enhanced by enabling actions such as [record selection](#selecting-single-records) and 
+Consists of rows allowing users to scan, read and take action on the data.
+Rows may be enhanced by enabling actions such as [record selection](#selecting-single-records) and
 navigation to a record's detailed view.
 
 **Table footer**<br />
@@ -48,27 +49,29 @@ Optional. Used for presenting summary counts, sums, averages, and other [aggrega
 
 <!--
 **Cells**<br />
-Commonly contain numerical and textual data, but may also include visuals such as meters, 
+Commonly contain numerical and textual data, but may also include visuals such as meters,
 status indicators, anchors, and buttons.
 [Cell variants, actions & behaviors >]()
 -->
 
 ## When to use
+
 Users interacting with a Table are trying to accomplish one of the following types of tasks.
 They are not, however, trying to do all of these tasks at once.
-Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which 
+Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which
 table features to include and, more importantly, exclude when we add a Table to our interfaces.
 
 ### Finding a specific record
-Often, a user's task is to find and take action against a specific record. Whether it be 
-finding a customer's record to review their chat history, tracking a particular order's 
-status, etc., the user experience objective is to enable a user to locate that record as 
+
+Often, a user's task is to find and take action against a specific record. Whether it be
+finding a customer's record to review their chat history, tracking a particular order's
+status, etc., the user experience objective is to enable a user to locate that record as
 quickly as possible.
 
-- Use Search. This is often the quickest, most efficient method for users to find a record of interest. 
-- As backup, use sortable columns coupled with paginated results. This combination 
-provides users with the knowledge of alpha-numeric range, enabling an 
-educated guess as to the record's location in the sort.
+- Use Search. This is often the quickest, most efficient method for users to find a record of interest.
+- As backup, use sortable columns coupled with paginated results. This combination
+  provides users with the knowledge of alpha-numeric range, enabling an
+  educated guess as to the record's location in the sort.
 
 <ExampleImagePreview
   label="See finding a specific record"
@@ -78,8 +81,9 @@ educated guess as to the record's location in the sort.
 />
 
 ### Narrowing a result set
-When a user is looking to focus on a group of records sharing similar characteristics, 
-providing thoughtful filter controls allows for incremental reduction of the table's 
+
+When a user is looking to focus on a group of records sharing similar characteristics,
+providing thoughtful filter controls allows for incremental reduction of the table's
 result set.
 
 - Provide filter controls.
@@ -93,15 +97,16 @@ result set.
 />
 
 ### Browsing a result set
-Sometimes users are "checking up on things" or do not have specific records 
-in mind. In this case, they are assessing the state of their records and the 
-user experience objective is to facilitate the scanning of records to identify 
+
+Sometimes users are "checking up on things" or do not have specific records
+in mind. In this case, they are assessing the state of their records and the
+user experience objective is to facilitate the scanning of records to identify
 potential outliers or records which the user is unaware need attention or action.
 
-- Use infinite scroll. In this scenario, infinite scroll removes friction, 
-allowing users to browse records effortlessly.
-- Consider adding column data types such as status indicators or meters 
-which call attention to records needing attention.
+- Use infinite scroll. In this scenario, infinite scroll removes friction,
+  allowing users to browse records effortlessly.
+- Consider adding column data types such as status indicators or meters
+  which call attention to records needing attention.
 
 <ExampleImagePreview
   label="Using infinite scroll with tables"
@@ -111,18 +116,19 @@ which call attention to records needing attention.
 />
 
 ### Assembling a data set
-Distinct from the user objectives above, tables containing data for analytical 
-purposes deserve distinct treatments as well. While tables are useful for 
+
+Distinct from the user objectives above, tables containing data for analytical
+purposes deserve distinct treatments as well. While tables are useful for
 providing initial "discovery" type insights, such as identifying available attributes
-and ranges of values, purpose built tools are often a better choice for conducting 
-in depth analysis. In this scenario, a table's design should be optimized for 
-assembling the data set for analysis and easy portability of that data into the 
+and ranges of values, purpose built tools are often a better choice for conducting
+in depth analysis. In this scenario, a table's design should be optimized for
+assembling the data set for analysis and easy portability of that data into the
 user's preferred analytical tool.
 
 - Provide [filter controls](#searching-and-filtering-tables).
 - Filter control input types should be chosen to best fit the data type and breadth of values.
-- Provide export capability for users to consume the data in their analytical 
-tool of choice.
+- Provide export capability for users to consume the data in their analytical
+  tool of choice.
 - Provide aggregate measures in the [table footer](#column-summaries-and-aggregation).
 
 <!--
@@ -131,34 +137,36 @@ tool of choice.
 
 <!--
 ### How many columns?
-The number of columns and rows should be guided by the task the user is setting 
+The number of columns and rows should be guided by the task the user is setting
 out to accomplish.
 
-Generally, if there are more than 5-7 columns in the table, it is a sign that 
-a single table is trying to solve too many user problems at once. In that case, 
+Generally, if there are more than 5-7 columns in the table, it is a sign that
+a single table is trying to solve too many user problems at once. In that case,
 consider:
-- Are there too many user persona types using this view? If so, are there opportunities 
+- Are there too many user persona types using this view? If so, are there opportunities
 to personalize the view by role?
-- What are the user interactions leading up to the table view? Are there opportunities 
+- What are the user interactions leading up to the table view? Are there opportunities
 to improve navigation and build intentful user flows?
-- Perhaps, it is unclear as to what the user problem the table is attempting 
+- Perhaps, it is unclear as to what the user problem the table is attempting
 to solve? A good opportunity for speaking to and learning from end users!
 
 **The Exception**<br />
-In an analytical context, where the goal is to assemble a data set and identify patterns 
+In an analytical context, where the goal is to assemble a data set and identify patterns
 within it, a larger number of columns may be neccessary.
 
-In this context, a Table should facilitate the assembly of the data set and make the set 
+In this context, a Table should facilitate the assembly of the data set and make the set
 accessible in a tool specifically designed for analysis.
 -->
 
 ## Table behaviors & actions
 
 ### Sorting
-Column headers behave as a button and perform the sort action. A caret icon indicates 
+
+Column headers behave as a button and perform the sort action. A caret icon indicates
 the directionality and to which column the sort is currently applied.
+
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableSortable.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSortable.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
@@ -166,8 +174,10 @@ the directionality and to which column the sort is currently applied.
 </Example>
 
 ### Searching and filtering tables
-Complimenatary elements such as search or filters should be guided by the task the user 
+
+Complimenatary elements such as search or filters should be guided by the task the user
 is setting out to accomplish.
+
 - Looking for a specific record? --> Search.
 - Trying to narrow records down to a set of shared characteristics? --> Filter.
 - Not quite certain for what I am looking, but I know its general characteristics? --> Filter.
@@ -175,8 +185,9 @@ is setting out to accomplish.
 See [Filtering](/templates/filtering) for greater detail.
 
 ### Selecting single records
+
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
@@ -184,11 +195,12 @@ See [Filtering](/templates/filtering) for greater detail.
 </Example>
 
 ### Selecting multiple records & batch actions
-Checkboxes allow for selection of multiple records, which then may apply 
-batch actions via action control buttons or menus. 
+
+Checkboxes allow for selection of multiple records, which then may apply
+batch actions via action control buttons or menus.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
@@ -196,11 +208,12 @@ batch actions via action control buttons or menus.
 </Example>
 
 ### Fixing header row and/or columns
-Fixing or pinning header rows, columns, or footers allow users to track and 
+
+Fixing or pinning header rows, columns, or footers allow users to track and
 maintain context across long and wide data sets.
 
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
@@ -208,8 +221,9 @@ maintain context across long and wide data sets.
 </Example>
 
 ### Column summaries & aggregation
+
 <Example
-  code="https://raw.githubusercontent.com/hpe-design/design-system/master/aries-site/src/examples/components/table/TableSummaryExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSummaryExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
@@ -217,18 +231,19 @@ maintain context across long and wide data sets.
 </Example>
 
 ### Use pagination or infinite scroll with tables
+
 Should be guided by the task the user is setting out to accomplish.
 
 - Browsing? --> Infinite Scroll
-  - Perhaps I am reviewing a customer's account history. I am not looking for 
-  a particular record, rather I am in scanning mode, trying to get a sense of 
-  the volume and types of interaction with a customer over time. Infinite Scroll 
-  creates a nice, frictionless experirence for this to occur.
+  - Perhaps I am reviewing a customer's account history. I am not looking for
+    a particular record, rather I am in scanning mode, trying to get a sense of
+    the volume and types of interaction with a customer over time. Infinite Scroll
+    creates a nice, frictionless experirence for this to occur.
 - Searching for a specific record? --> It depends.
   - Do you have a good search experience? --> Infinite Scroll
   - Do you have a performant API?
   - Do you require page reloads?
-  - Is your data structured? 
+  - Is your data structured?
 - Do rows have many interactive elements? --> Pagination
   - Be mindful of keyboard users.
 
