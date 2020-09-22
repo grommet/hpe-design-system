@@ -1,15 +1,15 @@
 # hpe design-system monorepo
+
 ### HPE Design System Site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys) - https://design-system.hpe.design/  
-
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys) - https://design-system.hpe.design/
 
 ### Storybook
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e4cb8d72-f3c0-4490-a4d7-54273ac277ed/deploy-status)](https://app.netlify.com/sites/thirsty-shockley-2b7675/deploys) - http://storybook.hpe.design/
 
 # Welcome to HPE Design System
+
 Aries is a monorepo built from two modules.
 
 1. aries-core
@@ -59,54 +59,64 @@ Running in production mode:
 yarn build
 ```
 
-## Sprint Schedule 
+## Sprint Schedule
 
 ### Q3
+
 **June 2020**  
 6/8
-- Digest company app page layout variations 
-- Initial [page layout](https://github.com/hpe-design/design-system/issues/797) design review 
-- Designer "How to get started" training video 
+
+- Digest company app page layout variations
+- Initial [page layout](https://github.com/grommet/hpe-design-system/issues/797) design review
+- Designer "How to get started" training video
 
 6/15
-- Final Page Layout design review 
+
+- Final Page Layout design review
 - Developer "how to get started" training video
-- Grommet Designer Intro tetorial  
+- Grommet Designer Intro tutorial
 
 6/22
-- Add page layouts to the Design System site 
-- [Card](https://github.com/hpe-design/design-system/issues/801) and [List](https://github.com/hpe-design/design-system/issues/799) template exploration 
-- Grommet Designer Share tetorial 
+
+- Add page layouts to the Design System site
+- [Card](https://github.com/grommet/hpe-design-system/issues/801) and [List](https://github.com/grommet/hpe-design-system/issues/799) template exploration
+- Grommet Designer Share tetorial
 
 6/29
-- Initial Card template design review 
-- Grommet Designer Backing up tetorial 
+
+- Initial Card template design review
+- Grommet Designer Backing up tetorial
 
 **July 2020**  
 7/6
-- Fisrt pass Card template review 
+
+- Fisrt pass Card template review
 - Design System/Brand Central content audit
 
 7/13
-- First pass list template review 
-- Final Card template design review 
-- Initial Table template design review 
+
+- First pass list template review
+- Final Card template design review
+- Initial Table template design review
 
 7/20
+
 - Final List template review
-- Align Design System/Brand Central content 
+- Align Design System/Brand Central content
 
 7/27
+
 - First pass Table template review
-- Initial Data Visualization template design review 
+- Initial Data Visualization template design review
 
 8/3
-- Final Table template review 
+
+- Final Table template review
 
 8/10
-- First pass Data Visualization review 
 
-8/17 
-- Initial Asynchronous Notifications design review 
+- First pass Data Visualization review
 
+8/17
 
+- Initial Asynchronous Notifications design review
