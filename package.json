@@ -3,10 +3,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hpe-design/design-system.git"
+    "url": "git+https://github.com/grommet/hpe-design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/hpe-design/design-system/issues"
+    "url": "https://github.com/grommet/hpe-design-system/issues"
   },
   "devDependencies": {
     "@hpe/project-scripts": "^1.0.8",
