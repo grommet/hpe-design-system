@@ -121,7 +121,7 @@ export const SubmitFeedback = () => {
         <Button label="Leave feedback" onClick={onOpen} primary />
         <Button
           alignSelf="start"
-          href={`https://github.com/hpe-design/design-system/tree/master/aries-site/src/pages${router.pathname}.mdx`}
+          href={`https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/pages${router.pathname}.mdx`}
           label="Edit this page"
           rel="noopener"
           target="_blank"
