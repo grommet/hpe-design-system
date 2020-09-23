@@ -26,7 +26,8 @@ export const aries = deepMerge(hpe, {
   dataTable: {
     body: {
       extend: ({ theme }) => `
-        padding: ${theme.global.edgeSize.xxsmall};
+        /* Allows room for focus on table body */
+        margin: ${theme.global.edgeSize.xxsmall};
       `,
     },
     // groupHeader: {
