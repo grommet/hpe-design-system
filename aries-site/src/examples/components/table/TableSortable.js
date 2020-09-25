@@ -161,10 +161,6 @@ export const TableSortable = () => {
             },
             ...columns,
           ]}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-          }}
           pin={size === 'small'}
           sort={{ property: 'numeric', direction: 'desc' }}
           sortable

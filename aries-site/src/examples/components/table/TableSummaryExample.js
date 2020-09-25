@@ -102,11 +102,11 @@ const columns = [
   {
     property: 'attachment',
     header: (
-      <Box direction="row" gap="small">
-        Attachment
-        <Text color="text" weight="normal">
-          %
+      <Box direction="row" gap="xsmall">
+        <Text color="text-strong" weight="bold">
+          Attachment
         </Text>
+        %
       </Box>
     ),
     render: datum => `${(datum.attachment * 100).toFixed([1])}`,
@@ -141,11 +141,6 @@ export const TableSummaryExample = () => {
             },
             ...columns,
           ]}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-            footer: 'background-front',
-          }}
           pin
         />
       </Box>
