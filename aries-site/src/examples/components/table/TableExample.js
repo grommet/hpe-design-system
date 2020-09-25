@@ -201,10 +201,10 @@ const columns = [
     property: 'size',
     header: (
       <Box direction="row" gap="xsmall">
-        Size
-        <Text color="text" weight="normal">
-          (TiB)
+        <Text color="text-strong" weight="bold">
+          Size
         </Text>
+        (TiB)
       </Box>
     ),
     render: datum =>
@@ -216,10 +216,10 @@ const columns = [
     property: 'pinnable',
     header: (
       <Box direction="row" gap="xsmall">
-        Pinnable
-        <Text color="text" weight="normal">
-          (TiB)
+        <Text color="text-strong" weight="bold">
+          Pinnable
         </Text>
+        (TiB)
       </Box>
     ),
     render: datum =>
@@ -230,11 +230,11 @@ const columns = [
   {
     property: 'pinned',
     header: (
-      <Box direction="row" gap="xsmall">
-        Pinned
-        <Text color="text" weight="normal">
-          %
+      <Box direction="row" gap="xsmall" pad={{ horizontal: 'small' }}>
+        <Text color="text-strong" weight="bold">
+          Pinned
         </Text>
+        %
       </Box>
     ),
     render: datum => (
@@ -253,10 +253,10 @@ const columns = [
     property: 'savings',
     header: (
       <Box direction="row" gap="xsmall">
-        Savings
-        <Text color="text" weight="normal">
-          (xGHz)
+        <Text color="text-strong" weight="bold">
+          Savings
         </Text>
+        (xGHz)
       </Box>
     ),
     align: 'end',
@@ -302,10 +302,6 @@ export const TableExample = () => {
             },
             ...columns,
           ]}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-          }}
           fill
           onClickRow={({ datum }) => handleClickRow(datum)}
           pin
