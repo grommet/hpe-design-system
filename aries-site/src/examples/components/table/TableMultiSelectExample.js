@@ -259,13 +259,15 @@ export const TableMultiSelectExample = () => {
                 />
               ),
               header: (
-                <CheckBox
-                  checked={checked.length === data.length}
-                  indeterminate={
-                    checked.length > 0 && checked.length < data.length
-                  }
-                  onChange={onCheckAll}
-                />
+                <Box pad={{ left: 'small' }}>
+                  <CheckBox
+                    checked={checked.length === data.length}
+                    indeterminate={
+                      checked.length > 0 && checked.length < data.length
+                    }
+                    onChange={onCheckAll}
+                  />
+                </Box>
               ),
               sortable: false,
             },
@@ -277,10 +279,6 @@ export const TableMultiSelectExample = () => {
             },
             ...columns,
           ]}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-          }}
           pin={size === 'small'}
         />
       </Box>

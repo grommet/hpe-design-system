@@ -224,10 +224,6 @@ export const TableSingleSelectExample = () => {
             { property: 'id', header: 'Id', pin: size === 'small' },
             ...columns,
           ]}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-          }}
           onClickRow={({ datum }) => onClickHandler(datum)}
           pin={size === 'small'}
         />

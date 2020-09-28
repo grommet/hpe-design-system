@@ -202,10 +202,10 @@ const columns = [
     property: 'networkBand.value',
     header: (
       <Box direction="row" gap="xsmall">
-        Network Band
-        <Text color="text" weight="normal">
-          (GHz)
+        <Text color="text-strong" weight="bold">
+          Network Band
         </Text>
+        (GHz)
       </Box>
     ),
     render: datum => datum.networkBand.value,
@@ -215,10 +215,10 @@ const columns = [
     property: 'linkRate.value',
     header: (
       <Box direction="row" gap="xsmall">
-        Link Rate
-        <Text color="text" weight="normal">
-          (Mbps)
+        <Text color="text-strong" weight="bold">
+          Link Rate
         </Text>
+        (Mbps)
       </Box>
     ),
     render: datum => datum.linkRate.value,
@@ -240,15 +240,7 @@ export const TableFixedHeaderExample = () => {
         width={{ min: 'medium', max: 'large' }}
         overflow="auto"
       >
-        <DataTable
-          data={data}
-          columns={columns}
-          background={{
-            pinned: 'background-front',
-            header: 'background-front',
-          }}
-          pin
-        />
+        <DataTable data={data} columns={columns} pin />
       </Box>
     </>
   );
