@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {
   Box,
   Button,
-  CheckBox,
   DataTable,
   Heading,
   Menu,
@@ -225,52 +224,19 @@ const columns = [
 
 export const TableMultiSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
-  const [checked, setChecked] = React.useState([]);
-
-  const onCheck = (event, value) => {
-    if (event.target.checked) {
-      setChecked([...checked, value]);
-    } else {
-      setChecked(checked.filter(item => item !== value));
-    }
-  };
-
-  const onCheckAll = event =>
-    setChecked(event.target.checked ? data.map(datum => datum.id) : []);
+  const [selected, setSelected] = React.useState([]);
 
   return (
     <>
       <Heading level={3} margin="none">
         Manage Orders
       </Heading>
-      <TableControls selected={checked} />
+      <TableControls selected={selected} />
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
           data={data}
           primaryKey="id"
           columns={[
-            {
-              property: 'checkbox',
-              render: datum => (
-                <CheckBox
-                  key={datum.id}
-                  checked={checked.indexOf(datum.id) !== -1}
-                  onChange={e => onCheck(e, datum.id)}
-                />
-              ),
-              header: (
-                <Box pad={{ left: 'small' }}>
-                  <CheckBox
-                    checked={checked.length === data.length}
-                    indeterminate={
-                      checked.length > 0 && checked.length < data.length
-                    }
-                    onChange={onCheckAll}
-                  />
-                </Box>
-              ),
-              sortable: false,
-            },
             {
               primary: true,
               property: 'id',
@@ -280,6 +246,8 @@ export const TableMultiSelectExample = () => {
             ...columns,
           ]}
           pin={size === 'small'}
+          select={selected}
+          onSelect={setSelected}
         />
       </Box>
     </>
