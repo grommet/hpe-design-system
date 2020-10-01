@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { Unsorted } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -8,25 +9,12 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
 
-  card: {
-    container: {
-      background: 'background-front',
-    },
-    body: {
-      pad: 'medium',
-    },
-    footer: {
-      pad: { horizontal: 'medium', vertical: 'small' },
-    },
-    header: {
-      pad: 'medium',
-    },
-  },
   dataTable: {
     body: {
       extend: ({ theme }) => `
-        /* Allows room for focus on table body */
-        margin: ${theme.global.edgeSize.xxsmall};
+        /* Margin and pad allow room for focus on table body */
+        margin: ${theme.global.edgeSize.xxsmall} 0px;
+        pad: 0px ${theme.global.edgeSize.xxsmall};
       `,
     },
     // groupHeader: {
@@ -41,16 +29,25 @@ export const aries = deepMerge(hpe, {
     //   border: { side: 'bottom', size: 'xsmall' },
     // },
     header: {
-      pad: { horizontal: 'small', vertical: 'xsmall' },
+      // background: undefined,
+      border: { side: 'bottom' },
       color: 'text-strong',
       font: {
         weight: 'bold',
+        // size: undefined,
       },
+      // gap: 'small',
       hover: {
         background: {
           color: 'background-contrast',
         },
       },
+      pad: { horizontal: 'small', vertical: 'xsmall' },
+    },
+    icons: {
+      // contract: FormUp,
+      // expand: FormDown,
+      sortable: Unsorted,
     },
     pinned: {
       header: {
@@ -87,20 +84,10 @@ export const aries = deepMerge(hpe, {
   },
   table: {
     header: {
-      // align: 'start',
       // space for focus indicator on sortable columns
       pad: { left: 'none', vertical: 'none', right: 'xxsmall' },
-      border: { side: 'bottom' },
-      // verticalAlign: 'center',
-      background: {
-        color: 'background-front',
-      },
     },
     body: {
-      // align: 'start',
-      // pad: { horizontal: 'small', vertical: 'xsmall' },
-      // background: undefined,
-      // border: undefined,
       extend: ({ theme }) => {
         return `
           :hover {
@@ -118,15 +105,9 @@ export const aries = deepMerge(hpe, {
     row: {
       hover: {
         background: 'background-contrast',
-        // color: undefined,
       },
     },
     footer: {
-      // align: 'start',
-      // pad: { horizontal: 'small', vertical: 'xsmall' },
-      // border: 'top',
-      // verticalAlign: undefined,
-      background: 'background-front',
       extend: `
           span {
             font-weight: bold;
