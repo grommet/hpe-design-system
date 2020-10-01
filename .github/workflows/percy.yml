@@ -1,11 +1,11 @@
-name: Percy snapshots
+name: Percy
 on:
   pull_request:
     branches:
       - master
 
 jobs:
-  build-and-test:
+  snapshot-testing:
     runs-on: ubuntu-latest
 
     steps:
