@@ -36,7 +36,7 @@ export const aries = deepMerge(hpe, {
         weight: 'bold',
         // size: undefined,
       },
-      // gap: 'small',
+      gap: 'none',
       hover: {
         background: {
           color: 'background-contrast',
@@ -84,6 +84,12 @@ export const aries = deepMerge(hpe, {
   },
   table: {
     header: {
+      extend: `
+        > div { 
+          height: 100%;
+          justify-content: center;
+        }
+      `,
       // space for focus indicator on sortable columns
       pad: { left: 'none', vertical: 'none', right: 'xxsmall' },
     },
