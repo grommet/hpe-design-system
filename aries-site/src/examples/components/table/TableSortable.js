@@ -69,7 +69,11 @@ const data = [
 
 const columns = [
   { property: 'string', header: 'Fruits' },
-  { property: 'numeric', header: 'Favorite Numbers', align: 'end' },
+  {
+    property: 'numeric',
+    header: 'Favorite Numbers',
+    align: 'end',
+  },
   {
     property: 'date',
     header: 'Significant Dates',
