@@ -102,6 +102,7 @@ const AppContainer = ({ ...rest }) => {
       background="background-back"
       height={size === 'small' ? { max: 'large' } : undefined}
       width={size === 'small' ? 'medium' : '100%'}
+      fill
       {...rest}
     />
   );
@@ -153,30 +154,28 @@ const NavButton = ({ active, icon, name, ...rest }) => {
         onBlur={() => setHover(false)}
         {...rest}
       />
-      {
-        /* Show tooltip on hover and focus states as a supplemental
+      {/* Show tooltip on hover and focus states as a supplemental
       reminder to icon's meaning */
-        ref.current && hover && (
-          <Drop
-            align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-            target={ref.current}
-            plain
+      ref.current && hover && (
+        <Drop
+          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
+          target={ref.current}
+          plain
+        >
+          <Box
+            animation={{ type: ['fadeIn', 'slideRight'] }}
+            elevation="small"
+            margin={{ left: 'xsmall', vertical: 'xxsmall' }}
+            pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
+            background="blue"
+            round="xsmall"
           >
-            <Box
-              animation={{ type: ['fadeIn', 'slideRight'] }}
-              elevation="small"
-              margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-              pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-              background="blue"
-              round="xsmall"
-            >
-              <Text size="small" color="text-strong">
-                {name}
-              </Text>
-            </Box>
-          </Drop>
-        )
-      }
+            <Text size="small" color="text-strong">
+              {name}
+            </Text>
+          </Box>
+        </Drop>
+      )}
     </Box>
   );
 };

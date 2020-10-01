@@ -8,6 +8,7 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
+    "@percy/testcafe": "^0.2.0",
     "aries-core": "*",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
@@ -26,8 +27,8 @@
     "start": "next",
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3030 'testcafe all src/tests/'",
-    "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe all'",
+    "test:ci": "percy exec -- start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
