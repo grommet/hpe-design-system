@@ -27,9 +27,9 @@ test('should not appear on mobile', async t => {
   await percySnapshot(t, 'Screen Container on Mobile');
 });
 
-test(`should not appear on full screen and content should display as if in 
-application`, async t => {
-  const fullScreenButton = Selector('button').withText('See Fullscreen');
-  await t.click(fullScreenButton).wait(500);
-  await percySnapshot(t, 'Fullscreen mode');
-});
+// test(`should not appear on full screen and content should display as if in 
+// application`, async t => {
+//   const fullScreenButton = Selector('button').withText('See Fullscreen');
+//   await t.click(fullScreenButton).wait(500);
+//   await percySnapshot(t, 'Fullscreen mode');
+// });
