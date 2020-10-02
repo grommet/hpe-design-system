@@ -29,7 +29,6 @@
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
     "test:ci": "percy exec -- start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
-    "test:percy": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/examples/*.js'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
