@@ -1,5 +1,6 @@
 import { ClientFunction } from 'testcafe';
 import { ReactSelector } from 'testcafe-react-selectors';
+import percySnapshot from '@percy/testcafe';
 
 export const baseUrl = 'http://localhost:3030';
 
@@ -60,3 +61,13 @@ export const tabToSearch = ClientFunction(() => {
   // 4 times to get there.
   return tabCount + 1;
 });
+
+export const takeResponsiveSnapshots = async (t, title) => {
+  await percySnapshot(t, `Desktop — ${title}`, {
+    widths: [1280],
+  });
+  await t.resizeWindow(375, 667); // resize for mobile
+  await percySnapshot(t, `Mobile — ${title}`, {
+    widths: [375],
+  });
+};

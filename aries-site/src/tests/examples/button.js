@@ -1,8 +1,6 @@
-/* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { waitForReact } from 'testcafe-react-selectors';
-import percySnapshot from '@percy/testcafe';
-import { baseUrl } from '../utils';
+import { baseUrl, takeResponsiveSnapshots } from '../utils';
 
 fixture('Button page')
   .page(`${baseUrl}/components/button`)
@@ -10,12 +8,12 @@ fixture('Button page')
     await waitForReact();
   });
 
-test('should render Button inline example properly', async t => {
-  await percySnapshot(t, 'Button page');
+test('should align Button to center of inline Example', async t => {
+  await takeResponsiveSnapshots(t, 'Button page');
 });
 
-test('should render Button full screen example properly', async t => {
+test('should align Button to center of full screen layer', async t => {
   const fullScreenButton = Selector('button').withText('See Fullscreen');
   await t.click(fullScreenButton);
-  await percySnapshot(t, 'Full screen button');
+  await takeResponsiveSnapshots(t, 'Full screen button example');
 });
