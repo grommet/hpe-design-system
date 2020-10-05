@@ -63,7 +63,7 @@ export const tabToSearch = ClientFunction(() => {
 });
 
 export const takeResponsiveSnapshots = async (t, title) => {
-  await t.resizeWindow(1280, 720); // resize for mobile
+  await t.resizeWindow(1280, 720); // resize for desktop
   await percySnapshot(t, `Desktop — ${title}`, {
     widths: [1280],
   });
