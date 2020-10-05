@@ -37,7 +37,7 @@ with different browsers as to where
 the page actually lands when routed to a deep link
 */
 
-test.only(
+test(
   'should navigate to correct hash of page when' +
     'a deep link is directly routed to',
   async t => {
