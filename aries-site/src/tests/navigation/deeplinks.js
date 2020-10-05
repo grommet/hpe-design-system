@@ -10,8 +10,9 @@ page to match the hash of the intended subsection.
 
 fixture('Deep Linking')
   .page(baseUrl)
-  .beforeEach(async () => {
+  .beforeEach(async t => {
     await waitForReact();
+    await t.maximizeWindow();
   });
 
 /* This test will fail until issue #320 is fixed.
@@ -45,7 +46,6 @@ test(
     const pageSection = Selector('#background-colors');
     await t
       .navigateTo(url)
-      .wait(100)
       .expect(pageSection.getBoundingClientRectProperty('top'))
       .within(-150, 150);
   },
