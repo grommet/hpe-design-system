@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { waitForReact } from 'testcafe-react-selectors';
 import { baseUrl, takeResponsiveSnapshots } from '../utils';
