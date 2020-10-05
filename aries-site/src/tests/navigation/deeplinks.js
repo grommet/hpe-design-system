@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import {  waitForReact } from 'testcafe-react-selectors';
+import { waitForReact } from 'testcafe-react-selectors';
 import { Selector } from 'testcafe';
 import { baseUrl } from '../utils';
 
@@ -13,7 +13,6 @@ fixture('Deep Linking')
   .beforeEach(async () => {
     await waitForReact();
   });
-
 
 /* This test will fail until issue #320 is fixed.
 The page scroll is at the incorrect section of the 
@@ -38,12 +37,16 @@ with different browsers as to where
 the page actually lands when routed to a deep link
 */
 
-test('should navigate to correct hash of page when'
-+ 'a deep link is directly routed to', async t => {
-  const url = `${baseUrl}/foundation/color#background-colors`;
-  const pageSection = Selector('#background-colors');
-  await t
-    .navigateTo(url)
-    .expect(pageSection.getBoundingClientRectProperty('top'))
-    .within(-150, 150);
-});
+test.only(
+  'should navigate to correct hash of page when' +
+    'a deep link is directly routed to',
+  async t => {
+    const url = `${baseUrl}/foundation/color#background-colors`;
+    const pageSection = Selector('#background-colors');
+    await t
+      .navigateTo(url)
+      .wait(100)
+      .expect(pageSection.getBoundingClientRectProperty('top'))
+      .within(-150, 150);
+  },
+);
