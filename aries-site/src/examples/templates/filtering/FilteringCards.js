@@ -486,7 +486,7 @@ const NameFilter = ({ filters, setFilters, setName, name }) => {
         />
       </FormField>
       <Anchor
-        label={showMore ? 'Hide more' : 'Show more'}
+        label={showMore ? 'Show less' : 'Show more'}
         size="xsmall"
         onClick={() => setShowMore(!showMore)}
       />
