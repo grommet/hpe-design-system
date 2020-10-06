@@ -256,10 +256,7 @@ const Filters = ({
         />
         <Button
           label="Reset Filters"
-          onClick={() => {
-            resetFilters();
-            setOpen(!open);
-          }}
+          onClick={() => resetFilters()}
           secondary
         />
       </Box>
