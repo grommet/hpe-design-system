@@ -167,7 +167,7 @@ export const FilteringCards = () => {
       <Header pad={{ top: 'medium' }}>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            name
+            Users
           </Heading>
           <Box align="center" direction="row" gap="small">
             {size !== 'small' || searchFocused ? (
