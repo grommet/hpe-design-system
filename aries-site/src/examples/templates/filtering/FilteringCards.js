@@ -100,9 +100,18 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
 
 const defaultFilters = {};
 const defaultHoursAvailable = [0, 40];
-const locations = ['Fort Collins, CO', 'San Jose, CA'];
-const roles = ['Designer', 'Engineer'];
-const statuses = ['Online', 'Offline'];
+const getValues = field => {
+  const results = [];
+  allData.forEach(
+    item => !results.includes(item[field]) && results.push(item[field]),
+  );
+  return results;
+};
+
+const locations = getValues('location');
+const roles = getValues('role');
+const statuses = getValues('status');
+const names = getValues('name');
 
 export const FilteringCards = () => {
   const [data, setData] = useState(allData);
@@ -158,7 +167,7 @@ export const FilteringCards = () => {
       <Header pad={{ top: 'medium' }}>
         <Box gap="xsmall">
           <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            Users
+            name
           </Heading>
           <Box align="center" direction="row" gap="small">
             {size !== 'small' || searchFocused ? (
@@ -222,6 +231,7 @@ const Filters = ({
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
   const [status, setStatus] = useState([]);
+  const [name, setName] = useState([]);
   const [showLayer, setShowLayer] = useState(false);
 
   const size = useContext(ResponsiveContext);
@@ -232,6 +242,7 @@ const Filters = ({
     setHoursAvailable(defaultHoursAvailable);
     setStatus([]);
     setRole([]);
+    setName([]);
     setFilters(defaultFilters);
     setFiltering(false);
   };
@@ -246,6 +257,7 @@ const Filters = ({
       hoursAvailable,
       role,
       status,
+      name,
     });
   };
 
@@ -254,6 +266,7 @@ const Filters = ({
     setHoursAvailable(values.hoursAvailable);
     setRole(values.role);
     setStatus(values.status);
+    setName(values.name);
   };
 
   const content = (
@@ -272,6 +285,14 @@ const Filters = ({
           setFilters={setFilters}
           status={status}
           setStatus={setStatus}
+        />
+      </Box>
+      <Box flex={false}>
+        <NameFilter
+          filters={filters}
+          setFilters={setFilters}
+          name={name}
+          setName={setName}
         />
       </Box>
       <Box flex={false}>
@@ -436,6 +457,44 @@ StatusFilter.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
   setStatus: PropTypes.func.isRequired,
+};
+
+const NameFilter = ({ filters, setFilters, setName, name }) => (
+  <FormField label="User" name="user-filter-a" htmlFor="user-filter-a">
+    <Box
+      width="medium"
+      overflow="scroll"
+      height="small"
+      pad={{ vertical: 'xsmall' }}
+    >
+      <CheckBoxGroup
+        id="user-filter-a"
+        name="user-filter-a"
+        options={names}
+        value={name}
+        onChange={({ value }) => {
+          setName(value);
+          const nextFilters = {
+            ...filters,
+            name: value.length && (nextname => value.includes(nextname)),
+          };
+          setFilters(nextFilters);
+        }}
+      />
+    </Box>
+  </FormField>
+);
+
+NameFilter.propTypes = {
+  filters: PropTypes.shape({
+    name: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  }).isRequired,
+  setFilters: PropTypes.func.isRequired,
+  name: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+  setName: PropTypes.func.isRequired,
 };
 
 const LocationFilter = ({ filters, setFilters, setLocation, location }) => (
