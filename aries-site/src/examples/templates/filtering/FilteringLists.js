@@ -349,10 +349,7 @@ const Filters = ({
               />
               <Button
                 label="Reset Filters"
-                onClick={() => {
-                  resetFilters();
-                  setShowLayer(!showLayer);
-                }}
+                onClick={() => resetFilters()}
                 secondary
               />
             </Box>
