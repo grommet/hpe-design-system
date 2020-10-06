@@ -72,20 +72,19 @@ const statusIcons = {
   'Ready to Ship': <Package />,
 };
 
+const getValues = field => {
+  const results = [];
+  allData.forEach(
+    item => !results.includes(item[field]) && results.push(item[field]),
+  );
+  return results;
+};
+
 const defaultFilters = {};
-const defaultservice = [
-  'HPE GreenLake Private Cloud',
-  'Mercury',
-  'VMaaS for R&D',
-];
-const defaultTenant = ['Boeing', 'Coke', 'Suncor Energy'];
-const defaultStatus = [
-  'Cancelled',
-  'Created',
-  'Delivered',
-  'In Transit',
-  'Ready to Ship',
-];
+const defaultservice = getValues('service');
+const defaultTenant = getValues('tenant');
+const defaultStatus = getValues('status');
+const defaultName = getValues('name');
 
 const StyledButton = styled(Button)`
   border: 1px solid
@@ -223,6 +222,7 @@ const Filters = ({
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
   const [status, setStatus] = useState([]);
+  const [name, setName] = useState([]);
   const [tenant, setTenant] = useState([]);
   const [showLayer, setShowLayer] = useState(false);
 
@@ -230,6 +230,7 @@ const Filters = ({
 
   const resetFilters = () => {
     setData(allData);
+    setName([]);
     setStatus([]);
     setService([]);
     setTenant([]);
@@ -256,7 +257,7 @@ const Filters = ({
   };
 
   const content = (
-    <Box width={size !== 'small' ? 'large' : undefined}>
+    <Box width={size !== 'small' ? 'xlarge' : undefined}>
       <Grid
         columns={size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'}
         gap={size !== 'small' ? 'large' : undefined}
@@ -275,6 +276,14 @@ const Filters = ({
             setFilters={setFilters}
             status={status}
             setStatus={setStatus}
+          />
+        </Box>
+        <Box flex={false}>
+          <NameFilter
+            filters={filters}
+            setFilters={setFilters}
+            name={name}
+            setName={setName}
           />
         </Box>
         <Box flex={false}>
@@ -431,6 +440,40 @@ StatusFilter.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
   setStatus: PropTypes.func.isRequired,
+};
+
+const NameFilter = ({ filters, setFilters, setName, name }) => (
+  <FormField label="Name" htmlFor="name-c" name="name-c">
+    <Box height="small" overflow="auto" pad={{ vertical: 'xsmall' }}>
+      <CheckBoxGroup
+        id="name-c"
+        name="name-c"
+        options={defaultName}
+        value={name}
+        onChange={({ value }) => {
+          setName(value);
+          const nextFilters = {
+            ...filters,
+            name: value.length && (nextName => value.includes(nextName)),
+          };
+          setFilters(nextFilters);
+        }}
+      />
+    </Box>
+  </FormField>
+);
+
+NameFilter.propTypes = {
+  filters: PropTypes.shape({
+    service: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+    status: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  }).isRequired,
+  setFilters: PropTypes.func.isRequired,
+  name: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+  setName: PropTypes.func.isRequired,
 };
 
 const TenantFilter = ({ filters, setFilters, setTenant, tenant }) => (
