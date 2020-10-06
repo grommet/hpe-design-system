@@ -254,11 +254,7 @@ const Filters = ({
           }}
           primary
         />
-        <Button
-          label="Reset Filters"
-          onClick={() => resetFilters()}
-          secondary
-        />
+        <Button label="Reset Filters" onClick={resetFilters} secondary />
       </Box>
     </Box>
   );
