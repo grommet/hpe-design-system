@@ -354,7 +354,6 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
                       const nextData = filterData(allData, nextFilters);
                       setData(nextData);
                       setAvailability(defaultAvailability);
-                      setOpen(!open);
                     }}
                   />
                   <Button
