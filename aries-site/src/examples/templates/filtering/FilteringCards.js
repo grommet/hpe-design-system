@@ -459,31 +459,40 @@ StatusFilter.propTypes = {
   setStatus: PropTypes.func.isRequired,
 };
 
-const NameFilter = ({ filters, setFilters, setName, name }) => (
-  <FormField label="User" name="user-filter-a" htmlFor="user-filter-a">
-    <Box
-      width="medium"
-      overflow="scroll"
-      height="small"
-      pad={{ vertical: 'xsmall' }}
-    >
-      <CheckBoxGroup
-        id="user-filter-a"
+const NameFilter = ({ filters, setFilters, setName, name }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  return (
+    <Box margin={{ bottom: 'medium' }}>
+      <FormField
+        label="User"
         name="user-filter-a"
-        options={names}
-        value={name}
-        onChange={({ value }) => {
-          setName(value);
-          const nextFilters = {
-            ...filters,
-            name: value.length && (nextname => value.includes(nextname)),
-          };
-          setFilters(nextFilters);
-        }}
+        htmlFor="user-filter-a"
+        margin="none"
+      >
+        <CheckBoxGroup
+          id="user-filter-a"
+          name="user-filter-a"
+          options={showMore ? names : names.slice(0, 3)}
+          value={name}
+          onChange={({ value }) => {
+            setName(value);
+            const nextFilters = {
+              ...filters,
+              name: value.length && (nextname => value.includes(nextname)),
+            };
+            setFilters(nextFilters);
+          }}
+        />
+      </FormField>
+      <Anchor
+        label={showMore ? 'Hide more' : 'Show more'}
+        size="xsmall"
+        onClick={() => setShowMore(!showMore)}
       />
     </Box>
-  </FormField>
-);
+  );
+};
 
 NameFilter.propTypes = {
   filters: PropTypes.shape({
