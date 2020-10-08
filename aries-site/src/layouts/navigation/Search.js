@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, TextInput, ResponsiveContext, Keyboard } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { getSearchSuggestions, nameToPath } from '../../utils';
+import { internalLink } from '../../components';
 
 const allSuggestions = getSearchSuggestions;
 
@@ -63,7 +64,14 @@ export const Search = ({ focused, setFocused }) => {
   };
 
   const onSelect = event => {
-    router.push(nameToPath(event.suggestion));
+    const href = nameToPath(event.suggestion);
+
+    if (internalLink.test(href)) {
+      router.push(href);
+    } else {
+      // external links should open in a new tab
+      window.open(href);
+    }
   };
 
   return (
