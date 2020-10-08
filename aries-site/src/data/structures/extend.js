@@ -186,15 +186,6 @@ export const extend = [
     available: true,
     description:
       'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
-    preview: {
-      image: {
-        src: {
-          light: '/extendImages/extend-preview-table.svg',
-          dark: '/extendImages/extend-preview-table-invert.svg',
-        },
-        alt: 'HPE Design System Roadmap',
-      },
-    },
     seoDescription:
       'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
     sections: [],
