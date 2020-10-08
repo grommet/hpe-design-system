@@ -181,4 +181,24 @@ export const extend = [
       'Build tables for you app quickly with all the filtering, sorting, and controls you could need!',
     sections: [],
   },
+  {
+    name: 'Roadmap',
+    available: true,
+    description:
+      'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
+    preview: {
+      image: {
+        src: {
+          light: '/extendImages/extend-preview-table.svg',
+          dark: '/extendImages/extend-preview-table-invert.svg',
+        },
+        alt: 'HPE Design System Roadmap',
+      },
+    },
+    seoDescription:
+      'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
+    sections: [],
+    url:
+      'https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com',
+  },
 ];
