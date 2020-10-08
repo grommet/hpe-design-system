@@ -72,20 +72,18 @@ const statusIcons = {
   'Ready to Ship': <Package />,
 };
 
+const getValues = field => {
+  const results = [];
+  allData.forEach(
+    item => !results.includes(item[field]) && results.push(item[field]),
+  );
+  return results;
+};
+
 const defaultFilters = {};
-const defaultservice = [
-  'HPE GreenLake Private Cloud',
-  'Mercury',
-  'VMaaS for R&D',
-];
-const defaultTenant = ['Boeing', 'Coke', 'Suncor Energy'];
-const defaultStatus = [
-  'Cancelled',
-  'Created',
-  'Delivered',
-  'In Transit',
-  'Ready to Ship',
-];
+const defaultservice = getValues('service');
+const defaultTenant = getValues('tenant');
+const defaultStatus = getValues('status');
 
 const StyledButton = styled(Button)`
   border: 1px solid
