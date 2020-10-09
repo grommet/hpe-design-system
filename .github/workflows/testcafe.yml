@@ -22,4 +22,5 @@ jobs:
         run: yarn test:ci
         working-directory: aries-site
         env:
+          # Token can be found in Percy's project settings
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
