@@ -47,6 +47,12 @@ export const getSectionParent = section =>
   );
 
 export const nameToPath = name => {
+  // if a page defines its own url, then it is an external link
+  const external = structure.filter(e => e.name === name && e.url)[0];
+  if (external) {
+    return external.url;
+  }
+
   // Item selected is a main topic
   const [page] = structure.filter(p => p.name === name);
   if (typeof page !== 'undefined' && page.pages) {
