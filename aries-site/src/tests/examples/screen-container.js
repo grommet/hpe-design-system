@@ -20,7 +20,7 @@ desktop`, async t => {
   await takeResponsiveSnapshots(t, 'Screen Container on Desktop');
 });
 
-test('should not appear on mobile', async t => {
+test('should not display mock browser for mobile display', async t => {
   const mobileButton = Selector('button').withText('Mobile');
   await t.click(mobileButton);
   await takeResponsiveSnapshots(t, 'Screen Container on Mobile');
