@@ -173,6 +173,7 @@ const columns = [
     header: 'IP V4',
     render: datum => <Text truncate>{datum.ipAddress}</Text>,
     size: 'xsmall',
+    align: 'end',
   },
   {
     property: 'hostname',
