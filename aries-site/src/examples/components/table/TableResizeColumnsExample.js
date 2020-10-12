@@ -177,7 +177,7 @@ export const TableResizeColumnsExample = () => {
   return (
     <>
       <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
-        Contact Data
+        Contact Information
       </Heading>
       <Box
         align="start"
