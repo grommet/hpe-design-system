@@ -181,7 +181,7 @@ export const SimpleWizardExample = () => {
   React.useEffect(() => {
     // FOR SCROLL USE IN APPLICATION: Uncomment line below.
     // wizardRef.current.scrollIntoView();
-    
+
     // MODIFIED SCROLL FOR USE IN DEMO:
     // This block is purely to ensure proper scrolling for the inline
     // site demo. Use line above and remove this block for your app.
@@ -255,7 +255,7 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
       </Box>
       <Box>
         <Text color="text-strong" weight="bold">
-          Action Title
+          Step 1
         </Text>
       </Box>
       <Box direction="row" flex justify="end">
