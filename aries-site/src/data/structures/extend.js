@@ -189,8 +189,8 @@ export const extend = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-navigation.svg',
-          dark: '/templateImages/template-preview-navigation-invert.svg',
+          light: '/extendImages/extend-preview-roadmap.svg',
+          dark: '/extendImages/extend-preview-roadmap-invert.svg',
         },
         alt: 'HPE Design System Roadmap',
         fit: 'contain',
