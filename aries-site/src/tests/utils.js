@@ -66,8 +66,6 @@ const DESKTOP_HEIGHT = 720;
 const MOBILE_WIDTH = 375;
 const MOBILE_HEIGHT = 667;
 
-const batchId = `bid_${String(Math.random()).slice(2)}`;
-
 export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
   let browser;
   let width;
@@ -93,8 +91,6 @@ export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
 
   await t.resizeWindow(width, height); // resize for viewport
   await eyes.open({
-    batchId,
-    batchName: title,
     testName: `${title} — ${viewport}`,
     browser,
     t,
