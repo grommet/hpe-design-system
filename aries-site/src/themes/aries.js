@@ -91,6 +91,10 @@ export const aries = deepMerge(hpe, {
           height: 100%;
           justify-content: center;
         }
+        // align onSelect checkbox to center of header cell
+        label { 
+          justify-content: center;
+        }
       `,
       // space for focus indicator on sortable columns
       pad: { left: 'none', vertical: 'none', right: 'xxsmall' },
