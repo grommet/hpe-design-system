@@ -102,12 +102,12 @@ const columns = [
   {
     property: 'attachment',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Attachment
+      <Text color="text-strong" weight="bold">
+        Attachment{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          %
         </Text>
-        %
-      </Box>
+      </Text>
     ),
     render: datum => `${(datum.attachment * 100).toFixed([1])}`,
     align: 'end',
