@@ -255,7 +255,7 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
       </Box>
       <Box>
         <Text color="text-strong" weight="bold">
-          Action Title
+          Step 1
         </Text>
       </Box>
       <Box direction="row" flex justify="end">
