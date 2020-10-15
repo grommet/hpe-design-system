@@ -60,3 +60,43 @@ export const tabToSearch = ClientFunction(() => {
   // 4 times to get there.
   return tabCount + 1;
 });
+
+const DESKTOP_WIDTH = 1280;
+const DESKTOP_HEIGHT = 720;
+const MOBILE_WIDTH = 375;
+const MOBILE_HEIGHT = 667;
+
+const batchId = `bid_${String(Math.random()).slice(2)}`;
+
+export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
+  let browser;
+  let width;
+  let height;
+
+  if (viewport === 'desktop') {
+    browser = [
+      { width: DESKTOP_WIDTH, height: DESKTOP_HEIGHT, name: 'firefox' },
+      { width: DESKTOP_WIDTH, height: DESKTOP_HEIGHT, name: 'ie11' },
+      { width: DESKTOP_WIDTH, height: DESKTOP_HEIGHT, name: 'chrome' },
+    ];
+    width = DESKTOP_WIDTH;
+    height = DESKTOP_HEIGHT;
+  } else if (viewport === 'mobile') {
+    browser = [
+      { width: MOBILE_WIDTH, height: MOBILE_HEIGHT, name: 'firefox' },
+      { width: MOBILE_WIDTH, height: MOBILE_HEIGHT, name: 'ie11' },
+      { width: MOBILE_WIDTH, height: MOBILE_HEIGHT, name: 'chrome' },
+    ];
+    width = MOBILE_WIDTH;
+    height = MOBILE_HEIGHT;
+  }
+
+  await t.resizeWindow(width, height); // resize for viewport
+  await eyes.open({
+    batchId,
+    batchName: title,
+    testName: `${title} — ${viewport}`,
+    browser,
+    t,
+  });
+};

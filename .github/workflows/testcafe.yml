@@ -21,3 +21,6 @@ jobs:
       - name: Build and run e2e tests on Chrome
         run: yarn test:ci
         working-directory: aries-site
+        env:
+          # Token can be found in Applitools project settings
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOL_API_KEY }}
