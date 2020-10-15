@@ -23,4 +23,4 @@ jobs:
         working-directory: aries-site
         env:
           # Token can be found in Applitools project settings
-          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOL_API_KEY }}
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
