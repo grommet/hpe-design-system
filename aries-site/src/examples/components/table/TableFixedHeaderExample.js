@@ -202,12 +202,12 @@ const columns = [
   {
     property: 'networkBand.value',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Network Band
+      <Text color="text-strong" weight="bold">
+        Network Band{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          (GHz)
         </Text>
-        (GHz)
-      </Box>
+      </Text>
     ),
     render: datum => datum.networkBand.value,
     align: 'end',
@@ -215,12 +215,12 @@ const columns = [
   {
     property: 'linkRate.value',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Link Rate
+      <Text color="text-strong" weight="bold">
+        Link Rate{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          (Mbps)
         </Text>
-        (Mbps)
-      </Box>
+      </Text>
     ),
     render: datum => datum.linkRate.value,
     align: 'end',

@@ -200,12 +200,12 @@ const columns = [
   {
     property: 'size',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Size
+      <Text color="text-strong" weight="bold">
+        Size{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          (TiB)
         </Text>
-        (TiB)
-      </Box>
+      </Text>
     ),
     render: datum =>
       // bytes to tebibytes
@@ -215,12 +215,12 @@ const columns = [
   {
     property: 'pinnable',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Pinnable
+      <Text color="text-strong" weight="bold">
+        Pinnable{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          (B)
         </Text>
-        (TiB)
-      </Box>
+      </Text>
     ),
     render: datum =>
       // bytes to tebibytes
@@ -230,11 +230,13 @@ const columns = [
   {
     property: 'pinned',
     header: (
-      <Box direction="row" gap="xsmall" pad={{ horizontal: 'small' }}>
+      <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
         <Text color="text-strong" weight="bold">
-          Pinned
+          Pinned{' '}
+          <Text size="xsmall" weight="normal" color="text">
+            %
+          </Text>
         </Text>
-        %
       </Box>
     ),
     render: datum => (
@@ -252,12 +254,12 @@ const columns = [
   {
     property: 'savings',
     header: (
-      <Box direction="row" gap="xsmall">
-        <Text color="text-strong" weight="bold">
-          Savings
+      <Text color="text-strong" weight="bold">
+        Savings{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          (xGHz)
         </Text>
-        (xGHz)
-      </Box>
+      </Text>
     ),
     align: 'end',
     render: datum => (
