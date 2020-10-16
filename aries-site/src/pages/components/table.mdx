@@ -6,6 +6,7 @@ import {
   TableExample,
   TableFixedHeaderExample,
   TableMultiSelectExample,
+  TableResizeColumnsExample,
   TableSingleSelectExample,
   TableSortable,
   TableSummaryExample,
@@ -171,6 +172,19 @@ the directionality and to which column the sort is currently applied.
   showResponsiveControls={['laptop', 'mobile']}
 >
   <TableSortable />
+</Example>
+
+### Resizeable columns
+
+Columns can be resized if a DataTable has the `resizeable` prop applied. Column resizing allows the user to change the width of the header columns. Each column can be resized by
+dragging the right side of its header to the left or to the right to expand the column.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableResizeColumnsExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <TableResizeColumnsExample />
 </Example>
 
 ### Searching and filtering tables

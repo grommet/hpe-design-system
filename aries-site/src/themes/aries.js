@@ -75,18 +75,24 @@ export const aries = deepMerge(hpe, {
     // primary: {
     //   // weight: 'bold',
     // },
-    // resize: {
-    //   border: {
-    //     color: 'border',
-    //     side: 'end',
-    //   },
-    // },
+    resize: {
+      hover: {
+        border: {
+          color: 'border-strong',
+          size: 'small',
+        },
+      },
+    },
   },
   table: {
     header: {
       extend: `
         > div { 
           height: 100%;
+          justify-content: center;
+        }
+        // align onSelect checkbox to center of header cell
+        label { 
           justify-content: center;
         }
       `,
