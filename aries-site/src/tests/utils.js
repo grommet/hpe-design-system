@@ -66,9 +66,6 @@ const DESKTOP_HEIGHT = 720;
 const MOBILE_WIDTH = 375;
 const MOBILE_HEIGHT = 667;
 
-const batchName = null;
-const batchId = process.env.APPLITOOLS_BATCH_ID;
-
 export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
   let browser;
   let width;
@@ -94,8 +91,6 @@ export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
 
   await t.resizeWindow(width, height); // resize for viewport
   await eyes.open({
-    batchId,
-    batchName,
     testName: `${title} — ${viewport}`,
     browser,
     t,
