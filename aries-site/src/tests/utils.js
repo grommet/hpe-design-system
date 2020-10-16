@@ -93,9 +93,9 @@ export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {
   }
 
   await t.resizeWindow(width, height); // resize for viewport
-  // set the batch
-  await eyes.setBatch(batchName, batchId, 0);
   await eyes.open({
+    batchId,
+    batchName,
     testName: `${title} — ${viewport}`,
     browser,
     t,
