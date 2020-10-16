@@ -12,22 +12,32 @@ const testAllDisplays = async (eyes, t) => {
   await eyes.checkWindow({ tag: 'Fullscreen' });
 };
 
-fixture('Button page')
+const title = 'Button page';
+
+fixture(title)
   .page(`${baseUrl}/components/button`)
   .beforeEach(async () => {
     await waitForReact();
   });
 
-test('should display Button properly inline and fullscreen', async t => {
+test(`should display Button properly inline and fullscreen on 
+desktop`, async t => {
   const eyes = new Eyes();
-  const title = 'Button page';
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
   await testAllDisplays(eyes, t);
+
+  await eyes.close();
+  await eyes.waitForResults({ rejectOnErrors: false });
+});
+
+test(`should display Button properly inline and fullscreen on 
+mobile`, async t => {
+  const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults();
+  await eyes.waitForResults({ rejectOnErrors: false });
 });

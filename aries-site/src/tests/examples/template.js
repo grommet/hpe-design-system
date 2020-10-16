@@ -19,21 +19,30 @@ const testAllDisplays = async (eyes, t) => {
   await eyes.checkWindow({ tag: 'Fullscreen Mode' });
 };
 
-fixture('Template')
+const title = 'Template Page (Persistent Nav)';
+
+fixture(title)
   .page(`${baseUrl}/templates/persistent-navigation`)
   .beforeEach(async () => {
-    await waitForReact();
+    await waitForReact({ rejectOnErrors: false });
   });
 
-test('should render dashboard properly across all display modes', async t => {
+test.only(`should render dashboard properly across all display 
+modes on desktop`, async t => {
   const eyes = new Eyes();
-  const title = 'Template Page (Persistent Nav)';
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
   await testAllDisplays(eyes, t);
 
+  await eyes.close();
+  await eyes.waitForResults({ rejectOnErrors: false });
+});
+
+test(`should render dashboard properly across all display 
+modes on mobile`, async t => {
+  const eyes = new Eyes();
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults();
+  await eyes.waitForResults({ rejectOnErrors: false });
 });

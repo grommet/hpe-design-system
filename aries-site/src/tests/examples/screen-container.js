@@ -19,22 +19,32 @@ const testAllDisplays = async (eyes, t) => {
   await eyes.checkWindow({ tag: 'Mobile Mode' });
 };
 
-fixture('Screen Container')
+const title = 'Screen Container';
+
+fixture(title)
   .page(`${baseUrl}/templates/wizard`)
   .beforeEach(async () => {
     await waitForReact();
   });
 
-test('should wrap example content properly on all screen layouts', async t => {
+test(`should wrap example content properly on all 
+screen layouts on desktop`, async t => {
   const eyes = new Eyes();
-  const title = 'Screen Container';
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
   await testAllDisplays(eyes, t);
+
+  await eyes.close();
+  await eyes.waitForResults({ rejectOnErrors: false });
+});
+
+test.only(`should wrap example content properly on all 
+screen layouts on mobile`, async t => {
+  const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults();
+  await eyes.waitForResults({ rejectOnErrors: false });
 });
