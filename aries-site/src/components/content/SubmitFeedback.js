@@ -61,7 +61,7 @@ const JoinConversation = () => (
     <Box align="start">
       <Button
         label="Join us on Slack"
-        href="http://slackin.grommet.io/"
+        href="https://slack-invite.grommet.io/"
         target="_blank"
         rel="noreferrer noopener"
         primary
