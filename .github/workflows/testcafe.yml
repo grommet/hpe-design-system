@@ -15,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Log Git SHA
+        run: echo "$GITHUB_SHA"
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
