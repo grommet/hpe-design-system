@@ -10,7 +10,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Apple, CreditCard, CircleAlert } from 'grommet-icons';
+import { Apple, CreditCard } from 'grommet-icons';
 
 const currentDate = new Date();
 const dateValidation = [
@@ -105,19 +105,6 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
-const Error = ({ textError, ...rest }) => {
-  return (
-    <Box align="center" gap="xsmall" direction="row" {...rest} >
-      <CircleAlert size="small" />
-      <Text size="xsmall">{textError}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  textError: PropTypes.string,
-};
-
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({});
   // eslint-disable-next-line no-unused-vars
@@ -144,9 +131,7 @@ export const PayExample = () => {
         >
           <Form
             messages={{
-              required: (
-                <Error>This is a required field.</Error>
-              ),
+              required: 'This is a required field.',
             }}
             value={formValues}
             onChange={setFormValues}
