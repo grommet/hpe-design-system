@@ -1,23 +1,12 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { CircleAlert, Unsorted } from 'grommet-icons';
+import { Unsorted } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   // To be stripped out once theme changes are made in grommet-theme-hpe
-
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
-
-  // to be removed once merged into grommet-theme-hpe
-  formField: {
-    error: {
-      icon: <CircleAlert size="small" style={{ marginTop: '4px' }} />,
-      container: {
-        gap: 'xsmall',
-      },
-    },
-  },
   dataTable: {
     body: {
       extend: ({ theme }) => `
