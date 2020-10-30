@@ -41,21 +41,6 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box direction="row" gap="xsmall" {...rest}>
-      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-        <CircleAlert size="small" />
-      </Box>
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.object,
-};
-
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
@@ -95,12 +80,7 @@ export const RequiredFieldsExample = () => {
         >
           <Form
             messages={{
-              required:
-                // need to define background otherwise
-                // inherits validation-critical background
-                // <Error background="background-front">
-                'This is a required field.',
-              // </Error>
+              required: 'This is a required field.',
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
             value={formValues}
