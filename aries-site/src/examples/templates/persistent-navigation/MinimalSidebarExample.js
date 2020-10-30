@@ -222,13 +222,21 @@ const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
 
 const AppIdentity = ({ name }) => (
   <Button plain>
-    <Box direction="row" align="center" gap="small">
+    <Box
+      direction="row"
+      align="center"
+      gap="medium"
+      // pad maintains accessible hit target
+      // non-responsive maintains same dimensions for mobile
+      pad={{ vertical: 'small' }}
+      responsive={false}
+    >
       <Hpe color="brand" />
       <Box direction="row" gap="xsmall">
-        <Text color="text" weight="bold">
+        <Text color="text-strong" weight="bold">
           HPE
         </Text>
-        <Text color="text">{name}</Text>
+        <Text color="text-strong">{name}</Text>
       </Box>
     </Box>
   </Button>

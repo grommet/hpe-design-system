@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
@@ -39,6 +39,7 @@ export const Example = ({
 }) => {
   const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
+  const size = useContext(ResponsiveContext);
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
@@ -69,6 +70,11 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
+  let viewPort;
+  if (screen === screens.mobile) viewPort = 'small';
+  else if (!screenContainer && !showResponsiveControls) viewPort = size;
+  else viewPort = undefined;
+
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   const content = !showLayer && (
@@ -82,9 +88,7 @@ export const Example = ({
         screen={screen}
         width={width}
       >
-        <ResponsiveContext.Provider
-          value={screen === screens.mobile && 'small'}
-        >
+        <ResponsiveContext.Provider value={viewPort}>
           {children}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
@@ -202,16 +206,12 @@ export const Example = ({
                     id="layer-wrapper"
                     width={screen === screens.mobile ? 'medium' : '100%'}
                   >
-                    <ResponsiveContext.Provider
-                      value={screen === screens.mobile && 'small'}
-                    >
+                    <ResponsiveContext.Provider value={viewPort}>
                       {children}
                     </ResponsiveContext.Provider>
                   </Box>
                 ) : (
-                  <ResponsiveContext.Provider
-                    value={screen === screens.mobile && 'small'}
-                  >
+                  <ResponsiveContext.Provider value={viewPort}>
                     {children}
                   </ResponsiveContext.Provider>
                 )}
