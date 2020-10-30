@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -13,31 +12,12 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormCheckmark, CircleAlert } from 'grommet-icons';
-
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box direction="row" gap="xsmall" {...rest}>
-      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-        <CircleAlert size="small" />
-      </Box>
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.object,
-};
+import { FormCheckmark } from 'grommet-icons';
 
 const passwordRequirements = [
   {
     regexp: new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$ %^&*-]).{8,}'),
-    message: (
-      <Error background="background-front">
-        Password requirements not met.
-      </Error>
-    ),
+    message: 'Password requirements not met.',
     status: 'error',
   },
 ];
@@ -45,23 +25,17 @@ const passwordRequirements = [
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
 ];
