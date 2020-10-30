@@ -84,7 +84,7 @@ export const Search = ({ focused, setFocused }) => {
           <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
             <StyledTextInput
               ref={inputRef}
-              icon={<SearchIcon id="search-icon" />}
+              icon={<SearchIcon color="text-strong" id="search-icon" />}
               dropHeight="small"
               placeholder="Search HPE Design System"
               onChange={onChange}

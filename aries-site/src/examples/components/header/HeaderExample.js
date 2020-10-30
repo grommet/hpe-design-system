@@ -17,6 +17,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
 
 export const HeaderExample = () => {
   const size = useContext(ResponsiveContext);
+  console.log({ size });
   const [focused, setFocused] = useState(false);
   const inputRef = useRef();
 
@@ -29,12 +30,22 @@ export const HeaderExample = () => {
   return (
     <Header fill="horizontal" pad="none" background="background-front">
       <Button plain>
-        <Box direction="row" align="center" gap="medium">
+        <Box
+          direction="row"
+          align="center"
+          gap="medium"
+          // pad maintains accessible hit target
+          // non-responsive maintains same dimensions for mobile
+          pad={{ vertical: 'small' }}
+          responsive={false}
+        >
           <Hpe color="brand" />
           {(size !== 'small' || (size === 'small' && !focused)) && (
             <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>App Name</Text>
+              <Text color="text-strong" weight="bold">
+                HPE
+              </Text>
+              <Text color="text-strong">App Name</Text>
             </Box>
           )}
         </Box>
@@ -42,7 +53,7 @@ export const HeaderExample = () => {
       <>
         {!focused && size === 'small' && (
           <Button
-            icon={<SearchIcon />}
+            icon={<SearchIcon color="text-strong" />}
             hoverIndicator
             onClick={() => setFocused(true)}
           />
@@ -52,7 +63,9 @@ export const HeaderExample = () => {
             <Keyboard onEsc={() => setFocused(false)}>
               <StyledTextInput
                 ref={inputRef}
-                icon={<SearchIcon id="search-icon-example" />}
+                icon={
+                  <SearchIcon color="text-strong" id="search-icon-example" />
+                }
                 dropHeight="small"
                 placeholder="Search HPE Design System"
                 onBlur={() => setFocused(false)}

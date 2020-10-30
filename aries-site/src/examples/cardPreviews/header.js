@@ -12,14 +12,15 @@ export const HeaderPreview = () => {
       <Box direction="row">
         <Button icon={<Hpe color="brand" />} tabIndex={-1} />
         <Box gap="xsmall" direction="row">
-          <Text weight="bold" alignSelf="center">
-            {' '}
-            HPE{' '}
+          <Text color="text-strong" weight="bold" alignSelf="center">
+            HPE
           </Text>
-          <Text alignSelf="center"> Text</Text>
+          <Text color="text-strong" alignSelf="center">
+            Text
+          </Text>
         </Box>
       </Box>
-      <Button icon={<Menu />} tabIndex={-1} />
+      <Button icon={<Menu color="text-strong" />} tabIndex={-1} />
     </Header>
   );
 };

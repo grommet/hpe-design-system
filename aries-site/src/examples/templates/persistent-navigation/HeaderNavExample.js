@@ -93,12 +93,12 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const size = React.useContext(ResponsiveContext);
 
   return size !== 'small' ? (
-    <Nav direction="row" gap="xsmall">
+    <Nav align="center" direction="row" gap="xsmall">
       <NavItems activeItem={activeItem} setActiveItem={setActiveItem} />
     </Nav>
   ) : (
     <Menu
-      icon={<MenuIcon />}
+      icon={<MenuIcon color="text-strong" />}
       dropAlign={{ top: 'bottom', right: 'right' }}
       hoverIndicator
       items={pages.map((item, index) => ({
@@ -123,7 +123,6 @@ const NavItems = ({ activeItem, setActiveItem }) => {
         label={item.name}
         active={index === activeItem}
         onClick={() => setActiveItem(index)}
-        round="xsmall"
       />
     ))
   );
@@ -153,13 +152,21 @@ PageContent.propTypes = {
 
 const AppIdentity = ({ name }) => (
   <Button plain>
-    <Box direction="row" align="center" gap="small">
+    <Box
+      direction="row"
+      align="center"
+      gap="medium"
+      // pad maintains accessible hit target
+      // non-responsive maintains same dimensions for mobile
+      pad={{ vertical: 'small' }}
+      responsive={false}
+    >
       <Hpe color="brand" />
       <Box direction="row" gap="xsmall">
-        <Text color="text" weight="bold">
+        <Text color="text-strong" weight="bold">
           HPE
         </Text>
-        <Text color="text">{name}</Text>
+        <Text color="text-strong">{name}</Text>
       </Box>
     </Box>
   </Button>

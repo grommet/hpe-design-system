@@ -34,7 +34,7 @@ const Search = () => {
 
   return !focused && size === 'small' ? (
     <Button
-      icon={<SearchIcon />}
+      icon={<SearchIcon color="text-strong" />}
       hoverIndicator
       onClick={() => setFocused(true)}
     />
@@ -43,7 +43,7 @@ const Search = () => {
       <Keyboard onEsc={() => setFocused(false)}>
         <StyledTextInput
           ref={inputRef}
-          icon={<SearchIcon id="search-complex-example" />}
+          icon={<SearchIcon color="text-strong" id="search-complex-example" />}
           dropHeight="small"
           placeholder="Search App Name"
           onBlur={() => setFocused(false)}
@@ -59,11 +59,21 @@ export const HeaderSearchActionsExample = () => {
   return (
     <Header fill="horizontal">
       <Button plain>
-        <Box direction="row" align="center" gap="medium">
+        <Box
+          direction="row"
+          align="center"
+          gap="medium"
+          // pad maintains accessible hit target
+          // non-responsive maintains same dimensions for mobile
+          pad={{ vertical: 'small' }}
+          responsive={false}
+        >
           <Hpe color="brand" />
           <Box direction="row" gap="xsmall">
-            <Text weight="bold">HPE</Text>
-            <Text>App Name</Text>
+            <Text color="text-strong" weight="bold">
+              HPE
+            </Text>
+            <Text color="text-strong">App Name</Text>
           </Box>
         </Box>
       </Button>
