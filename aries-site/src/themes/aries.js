@@ -1,6 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { CircleAlert, Unsorted } from 'grommet-icons';
+import { Unsorted } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -11,12 +11,12 @@ export const aries = deepMerge(hpe, {
 
   // to be removed once merged into grommet-theme-hpe
   formField: {
-    error: {
-      icon: <CircleAlert size="small" style={{ marginTop: '4px' }} />,
-      container: {
-        gap: 'xsmall',
-      },
-    },
+    // error: {
+    //   icon: <CircleAlert size="small" style={{ marginTop: '4px' }} />,
+    //   container: {
+    //     gap: 'xsmall',
+    //   },
+    // },
   },
   dataTable: {
     body: {
@@ -133,6 +133,11 @@ export const aries = deepMerge(hpe, {
           }
         `,
     },
+  },
+  icon: {
+    extend: `
+      // stroke-linecap: round;      
+    `,
   },
 });
 
