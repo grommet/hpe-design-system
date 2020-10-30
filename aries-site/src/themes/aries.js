@@ -37,11 +37,11 @@ export const aries = deepMerge(hpe, {
             sort.property !== column &&
             `
               svg {
-                opacity: 0%;
+                opacity: 0;
               }
               :hover {
                 svg {
-                  opacity: 50%;
+                  opacity: 1;
                 }
               }
             `}
