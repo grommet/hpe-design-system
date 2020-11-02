@@ -12,22 +12,6 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { CircleAlert } from 'grommet-icons';
-
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box direction="row" gap="xsmall" {...rest}>
-      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-        <CircleAlert size="small" />
-      </Box>
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.object,
-};
 
 const emailMask = [
   {
@@ -124,23 +108,17 @@ const phoneMask = [
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: (
-      <Error background="background-front">Enter a valid email address.</Error>
-    ),
+    message: 'Enter a valid email address.',
     status: 'error',
   },
 ];
@@ -229,11 +207,7 @@ export const ShippingExample = () => {
             value={formValues}
             onChange={setFormValues}
             messages={{
-              required: (
-                <Error background="background-front">
-                  This is a required field.
-                </Error>
-              ),
+              required: 'This is a required field.',
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
             onValidate={onValidate}

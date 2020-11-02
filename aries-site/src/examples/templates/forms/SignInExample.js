@@ -14,48 +14,23 @@ import {
 } from 'grommet';
 import { Close, FormNext, CircleAlert } from 'grommet-icons';
 
-const emailErrorMessage = (
-  <Box
-    background="background-front"
-    align="center"
-    gap="xsmall"
-    direction="row"
-  >
-    <CircleAlert size="small" />
-    <Text size="xsmall">Enter a valid email address.</Text>
-  </Box>
-);
-
 const emailValidation = [
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: emailErrorMessage,
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: emailErrorMessage,
+    message: 'Enter a valid email address.',
     status: 'error',
   },
   {
     regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: emailErrorMessage,
+    message: 'Enter a valid email address.',
     status: 'error',
   },
 ];
-
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box {...rest} align="center" gap="xsmall" direction="row">
-      <CircleAlert size="small" />
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.string,
-};
 
 const FormContainer = ({ ...rest }) => {
   return (
@@ -178,11 +153,7 @@ export const SignInExample = () => {
             value={formValues}
             onChange={setFormValues}
             messages={{
-              required: (
-                <Error background="background-front">
-                  This is a required field.
-                </Error>
-              ),
+              required: 'This is a required field.',
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           >
@@ -222,15 +193,17 @@ export const SignInExample = () => {
             </FormField>
             {credentialError && (
               <Box
-                direction="row"
                 animation="fadeIn"
-                margin={{ top: 'medium', bottom: 'medium' }}
-                gap="xsmall"
-                round="4px"
-                pad="small"
+                align="center"
                 background="validation-critical"
+                direction="row"
+                gap="xsmall"
+                margin={{ top: 'medium', bottom: 'medium' }}
+                pad="small"
+                round="4px"
               >
-                <Error>Invalid credentials.</Error>
+                <CircleAlert size="small" />
+                <Text size="xsmall">Invalid credentials.</Text>
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>

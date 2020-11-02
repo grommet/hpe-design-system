@@ -41,21 +41,6 @@ const FormContainer = ({ ...rest }) => {
   );
 };
 
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box direction="row" gap="xsmall" {...rest}>
-      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-        <CircleAlert size="small" />
-      </Box>
-      <Text size="xsmall">{children}</Text>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.object,
-};
-
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
@@ -95,13 +80,7 @@ export const RequiredFieldsExample = () => {
         >
           <Form
             messages={{
-              required: (
-                // need to define background otherwise
-                // inherits validation-critical background
-                <Error background="background-front">
-                  This is a required field.
-                </Error>
-              ),
+              required: 'This is a required field.',
             }}
             onSubmit={({ value, touched }) => onSubmit({ value, touched })}
             value={formValues}
@@ -109,11 +88,7 @@ export const RequiredFieldsExample = () => {
           >
             <RequiredFormField
               required
-              error={
-                <Error background="background-front">
-                  Provide a unique name.
-                </Error>
-              }
+              error="Provide a unique name."
               htmlFor="name__input"
               name="name"
               label="Name"
@@ -163,11 +138,20 @@ export const RequiredFieldsExample = () => {
                 round="4px"
                 pad="small"
                 background="validation-critical"
+                direction="row"
+                gap="xsmall"
               >
-                <Error>
+                <Box
+                  flex={false}
+                  margin={{ top: 'hair' }}
+                  pad={{ top: 'xxsmall' }}
+                >
+                  <CircleAlert size="small" />
+                </Box>
+                <Text size="xsmall">
                   The name of the superhero is already being used. Provide a
                   unique name.
-                </Error>
+                </Text>
               </Box>
             )}
             <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
