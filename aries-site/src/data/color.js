@@ -221,19 +221,19 @@ const borderDark = [
 
 const inputLight = [
   {
-    name: 'enabled inputs have a border of `border`',
+    name: 'enabled inputs have a border of "border"',
     value: colors.border.light,
     hex: colors.border.light,
     type: 'border',
   },
   {
-    name: 'disabled inputs have a border of `border-weak`',
+    name: 'disabled inputs have a border of "border-weak"',
     value: colors['border-weak'].light,
     hex: colors['border-weak'].light,
     type: 'border',
   },
   {
-    name: 'inputs containing a value have a border of `border-strong`',
+    name: 'inputs containing a value have a border of "border-strong"',
     value: colors['border-strong'].light,
     hex: colors['border-strong'].light,
     type: 'border',
@@ -247,19 +247,19 @@ const inputLight = [
 
 const inputDark = [
   {
-    name: 'enabled inputs have a border of `border`',
+    name: 'enabled inputs have a border of "border"',
     value: colors.border.dark,
     hex: colors.border.dark,
     type: 'border',
   },
   {
-    name: 'disabled inputs have a border of `border-weak`',
+    name: 'disabled inputs have a border of "border-weak"',
     value: colors['border-weak'].dark,
     hex: colors['border-weak'].dark,
     type: 'border',
   },
   {
-    name: 'inputs containing a value have a border of `border-strong`',
+    name: 'inputs containing a value have a border of "border-strong"',
     value: colors['border-strong'].dark,
     hex: colors['border-strong'].dark,
     type: 'border',
