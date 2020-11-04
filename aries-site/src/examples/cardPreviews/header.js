@@ -20,7 +20,7 @@ export const HeaderPreview = () => {
           </Text>
         </Box>
       </Box>
-      <Button icon={<Menu color="text-strong" />} tabIndex={-1} />
+      <Button icon={<Menu />} tabIndex={-1} />
     </Header>
   );
 };

@@ -53,7 +53,7 @@ export const HeaderExample = () => {
       <>
         {!focused && size === 'small' && (
           <Button
-            icon={<SearchIcon color="text-strong" />}
+            icon={<SearchIcon />}
             hoverIndicator
             onClick={() => setFocused(true)}
           />
@@ -63,9 +63,7 @@ export const HeaderExample = () => {
             <Keyboard onEsc={() => setFocused(false)}>
               <StyledTextInput
                 ref={inputRef}
-                icon={
-                  <SearchIcon color="text-strong" id="search-icon-example" />
-                }
+                icon={<SearchIcon id="search-icon-example" />}
                 dropHeight="small"
                 placeholder="Search HPE Design System"
                 onBlur={() => setFocused(false)}
