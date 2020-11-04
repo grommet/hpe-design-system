@@ -8322,7 +8322,7 @@ grommet-styles@^0.2.0:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#b307defc7b6826a9fdc28699b3c1e73ad06c24f3"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#bd8d7d062c2a580df8c4c7f6a5b21b635620029d"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.15.2"
