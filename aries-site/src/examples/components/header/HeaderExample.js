@@ -17,7 +17,6 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
 
 export const HeaderExample = () => {
   const size = useContext(ResponsiveContext);
-  console.log({ size });
   const [focused, setFocused] = useState(false);
   const inputRef = useRef();
 
