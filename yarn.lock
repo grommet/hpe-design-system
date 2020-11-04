@@ -8324,10 +8324,10 @@ grommet-styles@^0.2.0:
   version "0.0.0"
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#bd8d7d062c2a580df8c4c7f6a5b21b635620029d"
 
-grommet@^2.15.2:
+"grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.15.2"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.15.2.tgz#0aad0c3a14c8e1b468e1460de1bbdf8ecae09269"
-  integrity sha512-Rb9kOC5IkA3zc2E8DZG6Tv7iK0ls45dqcPTMn4BD6x+sTI+scyre2UjCYSpuOkLR4h38Bh4CdfWjQYohx82VJw==
+  uid fc881ac2d5337eea63032f8d406856f81be00339
+  resolved "https://github.com/grommet/grommet/tarball/stable#fc881ac2d5337eea63032f8d406856f81be00339"
   dependencies:
     grommet-icons "^4.2.0"
     hoist-non-react-statics "^3.2.0"
