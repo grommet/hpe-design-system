@@ -145,7 +145,6 @@ const NavButton = ({ active, icon, name, ...rest }) => {
     <Box fill="horizontal">
       <Button
         ref={ref}
-        color="text-strong"
         icon={icon}
         onMouseOver={() => setHover(true)}
         onFocus={() => setHover(true)}

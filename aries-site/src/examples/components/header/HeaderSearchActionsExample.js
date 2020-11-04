@@ -34,7 +34,7 @@ const Search = () => {
 
   return !focused && size === 'small' ? (
     <Button
-      icon={<SearchIcon color="text-strong" />}
+      icon={<SearchIcon />}
       hoverIndicator
       onClick={() => setFocused(true)}
     />
@@ -43,7 +43,7 @@ const Search = () => {
       <Keyboard onEsc={() => setFocused(false)}>
         <StyledTextInput
           ref={inputRef}
-          icon={<SearchIcon color="text-strong" id="search-complex-example" />}
+          icon={<SearchIcon id="search-complex-example" />}
           dropHeight="small"
           placeholder="Search App Name"
           onBlur={() => setFocused(false)}

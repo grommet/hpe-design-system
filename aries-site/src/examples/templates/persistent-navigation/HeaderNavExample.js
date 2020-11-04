@@ -98,7 +98,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
     </Nav>
   ) : (
     <Menu
-      icon={<MenuIcon color="text-strong" />}
+      icon={<MenuIcon />}
       dropAlign={{ top: 'bottom', right: 'right' }}
       hoverIndicator
       items={pages.map((item, index) => ({

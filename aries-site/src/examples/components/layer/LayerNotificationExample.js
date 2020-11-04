@@ -35,11 +35,7 @@ export const LayerNotificationExample = () => {
                 This is a notifcation with position="top"
               </Text>
             </Box>
-            <Button
-              icon={<FormClose color="text-strong" />}
-              onClick={onClose}
-              plain
-            />
+            <Button icon={<FormClose />} onClick={onClose} plain />
           </Box>
         </Layer>
       )}
