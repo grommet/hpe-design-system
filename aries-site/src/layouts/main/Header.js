@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { Hpe, Search as SearchIcon } from 'grommet-icons';
+import { Box, Button, Header, ResponsiveContext } from 'grommet';
+import { Search as SearchIcon } from 'grommet-icons';
+import { AppIdentity } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
@@ -22,27 +23,11 @@ const StyledHeader = ({ ...rest }) => {
       {...rest}
     >
       <Link href="/" passHref>
-        <Button plain>
-          <Box
-            direction="row"
-            align="center"
-            gap="medium"
-            // pad maintains accessible hit target
-            // non-responsive maintains same dimensions for mobile
-            pad={{ vertical: 'small' }}
-            responsive={false}
-          >
-            <Hpe color="brand" />
-            {(size !== 'small' || (size === 'small' && !searchFocused)) && (
-              <Box direction="row" gap="xsmall">
-                <Text color="text-strong" weight="bold">
-                  HPE
-                </Text>
-                <Text color="text-strong">App Name</Text>
-              </Box>
-            )}
-          </Box>
-        </Button>
+        <AppIdentity
+          brand="hpe"
+          logoOnly={size === 'small' && searchFocused}
+          title="Design System"
+        />
       </Link>
       {!searchFocused ? (
         <Box direction="row" align="center" gap="xsmall">
