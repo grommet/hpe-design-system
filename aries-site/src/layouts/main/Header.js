@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { AppIdentity } from 'aries-core';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
+import { AppIdentity } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
