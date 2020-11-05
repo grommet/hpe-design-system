@@ -171,17 +171,17 @@ const AppHeaderExample = () => (
     <Button plain>
       <Box
         direction="row"
-        align="center"
+        align="start"
         gap="medium"
         pad={{ vertical: 'small' }}
         responsive={false}
       >
         <Hpe color="plain" />
-        <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium" color="text">
+        <Box direction="row" gap="xsmall" wrap>
+          <Text weight="bold" size="medium" color="text-strong">
             HPE
           </Text>
-          <Text size="medium" color="text">
+          <Text size="medium" color="text-strong">
             Server
           </Text>
         </Box>

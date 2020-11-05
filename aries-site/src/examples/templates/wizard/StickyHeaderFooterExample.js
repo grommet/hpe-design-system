@@ -243,7 +243,7 @@ const WizardHeader = ({ active, setActive, setOpen, ...rest }) => {
         {active > 1 && (
           <Button
             label={size !== 'small' ? `Step ${active - 1}` : undefined}
-            icon={<FormPreviousLink color="text-strong" />}
+            icon={<FormPreviousLink />}
             onClick={() => setActive(active - 1)}
           />
         )}
@@ -256,7 +256,7 @@ const WizardHeader = ({ active, setActive, setOpen, ...rest }) => {
       <Box direction="row" flex justify="end">
         <Button
           label={size !== 'small' ? 'Cancel' : undefined}
-          icon={<FormClose color="text-strong" />}
+          icon={<FormClose />}
           reverse
           onClick={() => setOpen(true)}
         />
