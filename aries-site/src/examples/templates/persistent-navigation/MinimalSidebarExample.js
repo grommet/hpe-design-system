@@ -223,7 +223,7 @@ const AppIdentity = ({ name }) => (
   <Button plain>
     <Box
       direction="row"
-      align="center"
+      align="start"
       gap="medium"
       // pad maintains accessible hit target
       // non-responsive maintains same dimensions for mobile
@@ -231,7 +231,7 @@ const AppIdentity = ({ name }) => (
       responsive={false}
     >
       <Hpe color="brand" />
-      <Box direction="row" gap="xsmall">
+      <Box direction="row" gap="xsmall" wrap>
         <Text color="text-strong" weight="bold">
           HPE
         </Text>

@@ -31,7 +31,7 @@ export const HeaderExample = () => {
       <Button plain>
         <Box
           direction="row"
-          align="center"
+          align="start"
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
@@ -40,7 +40,7 @@ export const HeaderExample = () => {
         >
           <Hpe color="brand" />
           {(size !== 'small' || (size === 'small' && !focused)) && (
-            <Box direction="row" gap="xsmall">
+            <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
               </Text>
