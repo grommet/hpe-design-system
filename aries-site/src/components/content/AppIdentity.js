@@ -22,7 +22,7 @@ export const AppIdentity = forwardRef(
       <Button href={href} ref={ref} {...rest}>
         <Box
           direction="row"
-          align="center"
+          align="start"
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
@@ -31,11 +31,11 @@ export const AppIdentity = forwardRef(
         >
           {brand && brands[brand].logo}
           {!logoOnly && (
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold" size={textSize} color="text">
+            <Box direction="row" gap="xsmall" wrap>
+              <Text weight="bold" size={textSize} color="text-strong">
                 {brands[brand].name}
               </Text>
-              <Text size={textSize} color="text">
+              <Text size={textSize} color="text-strong">
                 {title}
               </Text>
             </Box>
