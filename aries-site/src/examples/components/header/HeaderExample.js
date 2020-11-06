@@ -29,12 +29,22 @@ export const HeaderExample = () => {
   return (
     <Header fill="horizontal" pad="none" background="background-front">
       <Button plain>
-        <Box direction="row" align="center" gap="medium">
+        <Box
+          direction="row"
+          align="start"
+          gap="medium"
+          // pad maintains accessible hit target
+          // non-responsive maintains same dimensions for mobile
+          pad={{ vertical: 'small' }}
+          responsive={false}
+        >
           <Hpe color="brand" />
           {(size !== 'small' || (size === 'small' && !focused)) && (
-            <Box direction="row" gap="xsmall">
-              <Text weight="bold">HPE</Text>
-              <Text>App Name</Text>
+            <Box direction="row" gap="xsmall" wrap>
+              <Text color="text-strong" weight="bold">
+                HPE
+              </Text>
+              <Text color="text-strong">App Name</Text>
             </Box>
           )}
         </Box>

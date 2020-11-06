@@ -160,6 +160,7 @@ const columns = [
     header: 'P.O. #',
     render: datum => <Text truncate>{datum.purchaseOrder}</Text>,
     size: 'xsmall',
+    align: 'end',
   },
   {
     property: 'state',
