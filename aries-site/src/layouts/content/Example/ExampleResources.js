@@ -36,7 +36,12 @@ export const ExampleResources = ({
         .then(response => response.text())
         .then(text => setCodeText(text));
     } else if (codeOpen && codeText) {
-      Prism.highlightElement(codeRef.current);
+      // https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/
+      // setTimeout runs this after the DOM has updated which ensures
+      // ref is defined
+      setTimeout(() => {
+        Prism.highlightElement(codeRef.current);
+      }, 0);
     }
   }, [code, codeText, codeOpen, Syntax]);
 
@@ -100,7 +105,6 @@ export const ExampleResources = ({
             closed: 'Show Relevant Components',
             open: 'Hide Relevant Components',
           }}
-          onClick={() => setCodeOpen(!codeOpen)}
         >
           <CardGrid cards={getRelatedCards(relevantComponents)} minimal />
         </CollapsibleSection>
