@@ -5,26 +5,24 @@ export const HeaderOnlyExample = () => {
   return (
     <AppContainer>
       <Box flex overflow="auto">
-        <Box height={{ min: '100%' }} gap="small">
+        <Box height={{ min: '100%' }}>
           <Header
+            background="background-front"
             fill="horizontal"
-            height="xxsmall"
-            background="green!"
             pad="small"
-            round="xsmall"
+            border="border-weak" // remove in prod, for demo purposes only
+            height="xxsmall" // remove in prod, for demo purposes only
           >
             <Text weight="bold" color="text-strong">
               Header
             </Text>
           </Header>
           <Main
-            // height is for demonstration of scroll
-            height="xlarge"
             fill={undefined}
             flex={false}
-            background="orange"
             pad="small"
-            round="xsmall"
+            border="border-weak" // remove in prod, for demo purposes only
+            height="xlarge" // remove in prod, for demo purposes only
           >
             <Text weight="bold" color="text-strong">
               Main
@@ -42,7 +40,6 @@ const AppContainer = ({ ...rest }) => {
     <Box
       direction={size === 'small' ? 'column-reverse' : 'row'}
       fill
-      gap={size !== 'small' ? 'small' : undefined}
       margin="auto"
       width={{ max: 'xxlarge' }}
       {...rest}
