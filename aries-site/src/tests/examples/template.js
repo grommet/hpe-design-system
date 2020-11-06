@@ -24,17 +24,17 @@ const title = 'Template Page (Persistent Nav)';
 fixture(title)
   .page(`${baseUrl}/templates/persistent-navigation`)
   .beforeEach(async () => {
-    await waitForReact({ rejectOnErrors: false });
+    await waitForReact();
   });
 
-test.only(`should render dashboard properly across all display 
+test(`should render dashboard properly across all display 
 modes on desktop`, async t => {
   const eyes = new Eyes();
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });
 
 test(`should render dashboard properly across all display 
@@ -44,5 +44,5 @@ modes on mobile`, async t => {
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });

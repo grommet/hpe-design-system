@@ -35,10 +35,10 @@ screen layouts on desktop`, async t => {
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });
 
-test.only(`should wrap example content properly on all 
+test(`should wrap example content properly on all 
 screen layouts on mobile`, async t => {
   const eyes = new Eyes();
 
@@ -46,5 +46,5 @@ screen layouts on mobile`, async t => {
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });
