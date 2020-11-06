@@ -30,8 +30,14 @@ export const aries = deepMerge(hpe, {
       // background: undefined,
       border: { side: 'bottom' },
       color: 'text-strong',
-      extend: ({ column, sort, sortable }) => {
+      extend: ({ column, sort, sortable, theme }) => {
         return `
+          ${sort && sort.property === column && `
+            background: ${
+              theme.global.colors['background-contrast'][
+                theme.dark ? 'dark' : 'light'
+              ]}
+          `};
           ${sortable &&
             sort &&
             sort.property !== column &&
@@ -44,7 +50,7 @@ export const aries = deepMerge(hpe, {
                   opacity: 1;
                 }
               }
-            `}
+            `};
          `;
       },
       font: {
