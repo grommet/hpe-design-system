@@ -519,13 +519,15 @@ const RecordSummary = ({ data, filtering }) => (
     <Text size="small" weight="bold">
       {data.length}
     </Text>
-    <Text size="small">{filtering ? 'results of ' : 'items'}</Text>
+    <Text size="small">
+      {filtering ? `result${data.length > 1 ? 's' : ''} of ` : 'items'}
+    </Text>
     {filtering && (
       <Box direction="row" gap="xxsmall">
         <Text size="small" weight="bold">
           {allData.length}
         </Text>
-        <Text size="small">items</Text>
+        <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
   </Box>
