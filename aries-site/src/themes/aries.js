@@ -34,7 +34,7 @@ export const aries = deepMerge(hpe, {
         return `
           ${sort && sort.property === column && `
             background: ${
-              theme.global.colors['background-contrast'][
+              theme.global.colors['active-background'][
                 theme.dark ? 'dark' : 'light'
               ]}
           `};
