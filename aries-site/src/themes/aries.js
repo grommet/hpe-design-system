@@ -30,6 +30,23 @@ export const aries = deepMerge(hpe, {
       // background: undefined,
       border: { side: 'bottom' },
       color: 'text-strong',
+      extend: ({ column, sort, sortable }) => {
+        return `
+          ${sortable &&
+            sort &&
+            sort.property !== column &&
+            `
+              svg {
+                opacity: 0;
+              }
+              :hover {
+                svg {
+                  opacity: 1;
+                }
+              }
+            `}
+         `;
+      },
       font: {
         weight: 'bold',
         // size: undefined,
@@ -73,12 +90,14 @@ export const aries = deepMerge(hpe, {
     // primary: {
     //   // weight: 'bold',
     // },
-    // resize: {
-    //   border: {
-    //     color: 'border',
-    //     side: 'end',
-    //   },
-    // },
+    resize: {
+      hover: {
+        border: {
+          color: 'border-strong',
+          size: 'small',
+        },
+      },
+    },
   },
   table: {
     header: {
