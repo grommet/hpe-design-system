@@ -237,7 +237,7 @@ AppHeader.propTypes = {
 };
 
 const AppIdentity = ({ name, ...rest }) => (
-  <Button plain {...rest}>
+  <Button {...rest}>
     <Box
       direction="row"
       align="start"
