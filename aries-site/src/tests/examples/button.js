@@ -28,7 +28,7 @@ desktop`, async t => {
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });
 
 test(`should display Button properly inline and fullscreen on 
@@ -39,5 +39,5 @@ mobile`, async t => {
   await testAllDisplays(eyes, t);
 
   await eyes.close();
-  await eyes.waitForResults({ rejectOnErrors: false });
+  await eyes.waitForResults();
 });
