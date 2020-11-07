@@ -306,7 +306,7 @@ export const ShippingExample = () => {
           </Box>
           <Box
             align={size !== 'small' ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Continue" primary type="submit" />
           </Box>

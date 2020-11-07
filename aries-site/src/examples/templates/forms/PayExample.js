@@ -199,7 +199,7 @@ export const PayExample = () => {
           </Box>
           <Box
             align={size !== 'small' ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Checkout" primary type="submit" />
           </Box>
