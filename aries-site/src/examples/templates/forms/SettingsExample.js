@@ -75,7 +75,7 @@ export const SettingsExample = () => {
               />
             </FormField>
           </Box>
-          <Box margin={{ bottom: 'small' }}>
+          <Box>
             <FormField
               name="doNotDisturb"
               label="Key Feature"
@@ -95,12 +95,12 @@ export const SettingsExample = () => {
                 disabled={!formValues.doNotDisturb}
               />
             </FormField>
-          </Box>
-          <Box
-            align={size !== 'small' ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
-          >
-            <Button label="Apply Settings" primary type="submit" />
+            <Box
+              align={size !== 'small' ? 'start' : undefined}
+              margin={{ top: 'small', bottom: 'small' }}
+            >
+              <Button label="Apply Settings" primary type="submit" />
+            </Box>
           </Box>
         </Form>
       </Box>
