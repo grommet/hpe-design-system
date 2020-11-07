@@ -220,7 +220,7 @@ PageContent.propTypes = {
 const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
 
 const AppIdentity = ({ name }) => (
-  <Button plain>
+  <Button>
     <Box
       direction="row"
       align="start"

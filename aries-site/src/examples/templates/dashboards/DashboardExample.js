@@ -251,7 +251,7 @@ const AppHeader = () => (
 );
 
 const AppIdentity = ({ name }) => (
-  <Button plain>
+  <Button>
     <Box
       direction="row"
       align="start"
