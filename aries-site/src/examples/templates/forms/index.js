@@ -1,7 +1,6 @@
 export * from './ChangePasswordExample';
 export * from './CustomizeExample';
 export * from './FilterExample';
-export * from './FormContainer';
 export * from './RequiredFieldsExample';
 export * from './PayExample';
 export * from './SettingsExample';
