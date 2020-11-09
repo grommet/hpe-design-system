@@ -5,13 +5,7 @@ import { Chat } from 'grommet-icons';
 export const IconTextExample = () => {
   return (
     <Box pad="xsmall">
-      <Button
-        gap="small"
-        alignSelf="start"
-        plain
-        icon={<Chat />}
-        label="Chat"
-      />
+      <Button gap="small" alignSelf="start" icon={<Chat />} label="Chat" />
     </Box>
   );
 };

@@ -29,14 +29,6 @@ const serverTypes = [
   'Blade Infrastructure',
 ];
 
-const FormContainer = ({ ...rest }) => {
-  return (
-    <Box background="background-front" border round="small" overflow="hidden">
-      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
-    </Box>
-  );
-};
-
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
     locationType: 'All Locations',
@@ -56,55 +48,53 @@ export const FilterExample = () => {
   };
 
   return (
-    <FormContainer width="medium">
-      <Box gap="medium">
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Text size="xxlarge" weight="bold">
-            Filter
-          </Text>
-        </Header>
-        <Box
-          // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Form value={formValues} onChange={onFormChange}>
-            <FormField htmlFor="keyword" name="keyword" label="Keyword">
-              <TextInput
-                id="keyword"
-                name="keyword"
-                component={TextInput}
-                placeholder="server_name"
-              />
-            </FormField>
-            <FormField
-              htmlFor="locationType__input"
+    <Box gap="medium" width="medium">
+      <Header
+        direction="column"
+        align="start"
+        gap="xxsmall"
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Text size="xxlarge" weight="bold">
+          Filter
+        </Text>
+      </Header>
+      <Box
+        // Padding used to prevent focus from being cutoff
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Form value={formValues} onChange={onFormChange}>
+          <FormField htmlFor="keyword" name="keyword" label="Keyword">
+            <TextInput
+              id="keyword"
+              name="keyword"
+              component={TextInput}
+              placeholder="server_name"
+            />
+          </FormField>
+          <FormField
+            htmlFor="locationType__input"
+            name="locationType"
+            label="Location Type"
+          >
+            <Select
+              id="locationType"
               name="locationType"
-              label="Location Type"
-            >
-              <Select
-                id="locationType"
-                name="locationType"
-                options={locationTypes}
-              />
+              options={locationTypes}
+            />
+          </FormField>
+          {serverTypes && (
+            <FormField label="HPE Server Types" htmlFor="server-types">
+              <CheckBoxGroup options={serverTypes} id="server-types" />
             </FormField>
-            {serverTypes && (
-              <FormField label="HPE Server Types" htmlFor="server-types">
-                <CheckBoxGroup options={serverTypes} id="server-types" />
-              </FormField>
-            )}
-            {sellers && (
-              <FormField label="Seller" htmlFor="sellers">
-                <CheckBoxGroup options={sellers} id="sellers" />
-              </FormField>
-            )}
-          </Form>
-        </Box>
+          )}
+          {sellers && (
+            <FormField label="Seller" htmlFor="sellers">
+              <CheckBoxGroup options={sellers} id="sellers" />
+            </FormField>
+          )}
+        </Form>
       </Box>
-    </FormContainer>
+    </Box>
   );
 };

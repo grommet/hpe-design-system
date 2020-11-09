@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   Anchor,
@@ -9,6 +9,7 @@ import {
   FormField,
   Header,
   Layer,
+  ResponsiveContext,
   Text,
   TextInput,
 } from 'grommet';
@@ -31,14 +32,6 @@ const emailValidation = [
     status: 'error',
   },
 ];
-
-const FormContainer = ({ ...rest }) => {
-  return (
-    <Box background="background-front" border round="small" overflow="hidden">
-      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
-    </Box>
-  );
-};
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
@@ -105,6 +98,7 @@ const ResetPassword = ({ closeLayer, email }) => {
 
 export const SignInExample = () => {
   const [formValues, setFormValues] = React.useState({});
+  const size = useContext(ResponsiveContext);
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
   // setPassword is here for demonstration purposes,
   // for calling credential error
@@ -131,106 +125,103 @@ export const SignInExample = () => {
   };
 
   return (
-    <FormContainer width="medium">
-      <Box gap="medium">
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
+    <Box gap="medium" width="medium">
+      <Header
+        direction="column"
+        align="start"
+        gap="xxsmall"
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Text size="xxlarge" weight="bold">
+          Sign In
+        </Text>
+        <Text>to Hewlett Packard Enterprise</Text>
+      </Header>
+      <Box
+        // Padding used to prevent focus from being cutoff
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Form
+          validate="blur"
+          value={formValues}
+          onChange={setFormValues}
+          messages={{
+            required: 'This is a required field.',
+          }}
+          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
-          <Text size="xxlarge" weight="bold">
-            Sign In
-          </Text>
-          <Text>to Hewlett Packard Enterprise</Text>
-        </Header>
-        <Box
-          // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Form
-            validate="blur"
-            value={formValues}
-            onChange={setFormValues}
-            messages={{
-              required: 'This is a required field.',
-            }}
-            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          <FormField
+            required
+            label="Email"
+            name="email"
+            htmlFor="email-sign-in"
+            validate={emailValidation}
           >
-            <FormField
-              required
-              label="Email"
+            <TextInput
+              id="email-sign-in"
               name="email"
-              htmlFor="email-sign-in"
-              validate={emailValidation}
-            >
-              <TextInput
-                id="email-sign-in"
-                name="email"
-                placeholder="james@hpe.com"
-                type="email"
-              />
-            </FormField>
-            <FormField
-              required
-              label="Password"
-              htmlFor="password-sign-in"
+              placeholder="james@hpe.com"
+              type="email"
+            />
+          </FormField>
+          <FormField
+            required
+            label="Password"
+            htmlFor="password-sign-in"
+            name="password"
+          >
+            <TextInput
+              id="password-sign-in"
               name="password"
+              placeholder="Enter your password"
+              type="password"
+            />
+          </FormField>
+          <FormField htmlFor="remember-me">
+            <CheckBox id="remember-me" name="rememberMe" label="Remember me" />
+          </FormField>
+          {credentialError && (
+            <Box
+              animation="fadeIn"
+              align="center"
+              background="validation-critical"
+              direction="row"
+              gap="xsmall"
+              margin={{ top: 'medium', bottom: 'medium' }}
+              pad="small"
+              round="4px"
             >
-              <TextInput
-                id="password-sign-in"
-                name="password"
-                placeholder="Enter your password"
-                type="password"
-              />
-            </FormField>
-            <FormField htmlFor="remember-me">
-              <CheckBox
-                id="remember-me"
-                name="rememberMe"
-                label="Remember me"
-              />
-            </FormField>
-            {credentialError && (
-              <Box
-                animation="fadeIn"
-                align="center"
-                background="validation-critical"
-                direction="row"
-                gap="xsmall"
-                margin={{ top: 'medium', bottom: 'medium' }}
-                pad="small"
-                round="4px"
-              >
-                <CircleAlert size="small" />
-                <Text size="xsmall">Invalid credentials.</Text>
-              </Box>
-            )}
-            <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button
-                label="Sign In"
-                icon={<FormNext />}
-                reverse
-                primary
-                type="submit"
-              />
+              <CircleAlert size="small" />
+              <Text size="xsmall">Invalid credentials.</Text>
             </Box>
-          </Form>
-          <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-            <Anchor label="Forgot password?" onClick={onForgotPassword} />
-            {showForgotPassword && (
-              <Layer modal onClickOutside={onClose} onEsc={onClose}>
-                <ResetPassword
-                  closeLayer={onClose}
-                  email={formValues.email}
-                  updateForm={setFormValues}
-                />
-              </Layer>
-            )}
+          )}
+          <Box
+            align={size !== 'small' ? 'start' : undefined}
+            margin={{ top: 'medium', bottom: 'small' }}
+          >
+            <Button
+              label="Sign In"
+              icon={<FormNext />}
+              reverse
+              primary
+              type="submit"
+            />
           </Box>
+        </Form>
+        <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
+          <Anchor label="Forgot password?" onClick={onForgotPassword} />
+          {showForgotPassword && (
+            <Layer modal onClickOutside={onClose} onEsc={onClose}>
+              <ResetPassword
+                closeLayer={onClose}
+                email={formValues.email}
+                updateForm={setFormValues}
+              />
+            </Layer>
+          )}
         </Box>
       </Box>
-    </FormContainer>
+    </Box>
   );
 };
 

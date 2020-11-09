@@ -28,7 +28,7 @@ export const HeaderExample = () => {
 
   return (
     <Header fill="horizontal" pad="none" background="background-front">
-      <Button plain>
+      <Button>
         <Box
           direction="row"
           align="start"

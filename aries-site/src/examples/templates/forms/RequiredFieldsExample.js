@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -8,6 +8,7 @@ import {
   FormField,
   Header,
   Select,
+  ResponsiveContext,
   Text,
   TextInput,
   TextArea,
@@ -33,14 +34,6 @@ RequiredFormField.propTypes = {
   label: PropTypes.string,
 };
 
-const FormContainer = ({ ...rest }) => {
-  return (
-    <Box background="background-front" border round="small" overflow="hidden">
-      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
-    </Box>
-  );
-};
-
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
@@ -49,6 +42,7 @@ export const RequiredFieldsExample = () => {
     email: 'enduro@skyrunner.io.com',
     weakness: 'PB & J',
   });
+  const size = useContext(ResponsiveContext);
   // Set FormLevelError is set to true for display purposes
   // this should be set to false then api call will change state
   // eslint-disable-next-line no-unused-vars
@@ -62,104 +56,105 @@ export const RequiredFieldsExample = () => {
   };
 
   return (
-    <FormContainer width="medium">
-      <Box gap="medium">
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
+    <Box gap="medium" width="medium">
+      <Header
+        direction="column"
+        align="start"
+        gap="xxsmall"
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Text size="xxlarge" weight="bold">
+          Form Header
+        </Text>
+      </Header>
+      <Box
+        // Padding used to prevent focus from being cutoff
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Form
+          messages={{
+            required: 'This is a required field.',
+          }}
+          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          value={formValues}
+          onChange={onFormChange}
         >
-          <Text size="xxlarge" weight="bold">
-            Form Header
-          </Text>
-        </Header>
-        <Box
-          // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Form
-            messages={{
-              required: 'This is a required field.',
-            }}
-            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
-            value={formValues}
-            onChange={onFormChange}
+          <RequiredFormField
+            required
+            error="Provide a unique name."
+            htmlFor="name__input"
+            name="name"
+            label="Name"
           >
-            <RequiredFormField
-              required
-              error="Provide a unique name."
-              htmlFor="name__input"
-              name="name"
-              label="Name"
+            <TextInput id="name" name="name" />
+          </RequiredFormField>
+          <RequiredFormField
+            required
+            htmlFor="superPower__input"
+            name="superPower"
+            label="Superpower"
+          >
+            <Select options={superPower} id="superPower" name="superPower" />
+          </RequiredFormField>
+          <RequiredFormField
+            required
+            htmlFor="weakness__input"
+            name="weakness"
+            label="Weakness"
+          >
+            <Select options={weakness} id="weakness" name="weakness" />
+          </RequiredFormField>
+          <RequiredFormField
+            required
+            htmlFor="email__input"
+            name="email"
+            label="Email"
+          >
+            <TextInput id="email" name="email" />
+          </RequiredFormField>
+          <RequiredFormField
+            required
+            help="Would you like to apply nemesis character"
+            htmlFor="nemesis__input"
+            name="nemesis"
+            label="Nemesis"
+          >
+            <CheckBox name="nemesis" label="Bring it on" toggle reverse />
+          </RequiredFormField>
+          <FormField htmlFor="comments" name="comments" label="Comments">
+            <TextArea id="comments" name="comments" placeholder="Comments" />
+          </FormField>
+          {/* Show error if api call came back as an error  */}
+          {showFormLevelError && (
+            <Box
+              margin={{ top: 'medium', bottom: 'medium' }}
+              round="4px"
+              pad="small"
+              background="validation-critical"
+              direction="row"
+              gap="xsmall"
             >
-              <TextInput id="name" name="name" />
-            </RequiredFormField>
-            <RequiredFormField
-              required
-              htmlFor="superPower__input"
-              name="superPower"
-              label="Superpower"
-            >
-              <Select options={superPower} id="superPower" name="superPower" />
-            </RequiredFormField>
-            <RequiredFormField
-              required
-              htmlFor="weakness__input"
-              name="weakness"
-              label="Weakness"
-            >
-              <Select options={weakness} id="weakness" name="weakness" />
-            </RequiredFormField>
-            <RequiredFormField
-              required
-              htmlFor="email__input"
-              name="email"
-              label="Email"
-            >
-              <TextInput id="email" name="email" />
-            </RequiredFormField>
-            <RequiredFormField
-              required
-              help="Would you like to apply nemesis character"
-              htmlFor="nemesis__input"
-              name="nemesis"
-              label="Nemesis"
-            >
-              <CheckBox name="nemesis" label="Bring it on" toggle reverse />
-            </RequiredFormField>
-            <FormField htmlFor="comments" name="comments" label="Comments">
-              <TextArea id="comments" name="comments" placeholder="Comments" />
-            </FormField>
-            {/* Show error if api call came back as an error  */}
-            {showFormLevelError && (
               <Box
-                margin={{ top: 'medium', bottom: 'medium' }}
-                round="4px"
-                pad="small"
-                background="validation-critical"
-                direction="row"
-                gap="xsmall"
+                flex={false}
+                margin={{ top: 'hair' }}
+                pad={{ top: 'xxsmall' }}
               >
-                <Box
-                  flex={false}
-                  margin={{ top: 'hair' }}
-                  pad={{ top: 'xxsmall' }}
-                >
-                  <CircleAlert size="small" />
-                </Box>
-                <Text size="xsmall">
-                  The name of the superhero is already being used. Provide a
-                  unique name.
-                </Text>
+                <CircleAlert size="small" />
               </Box>
-            )}
-            <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Create" primary type="submit" />
+              <Text size="xsmall">
+                The name of the superhero is already being used. Provide a
+                unique name.
+              </Text>
             </Box>
-          </Form>
-        </Box>
+          )}
+          <Box
+            align={size !== 'small' ? 'start' : undefined}
+            margin={{ top: 'medium', bottom: 'small' }}
+          >
+            <Button label="Create" primary type="submit" />
+          </Box>
+        </Form>
       </Box>
-    </FormContainer>
+    </Box>
   );
 };
