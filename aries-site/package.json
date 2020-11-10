@@ -26,12 +26,13 @@
     "start": "next",
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3030 'testcafe all src/tests/'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe all'",
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
   "devDependencies": {
+    "@applitools/eyes-testcafe": "^1.11.1",
     "axe-core": "^3.4.2",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-prismjs": "^2.0.1",

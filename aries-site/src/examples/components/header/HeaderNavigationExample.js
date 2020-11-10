@@ -20,7 +20,7 @@ export const HeaderNavigationExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <Header fill="horizontal">
-      <Button plain>
+      <Button>
         <Box
           direction="row"
           align="start"
