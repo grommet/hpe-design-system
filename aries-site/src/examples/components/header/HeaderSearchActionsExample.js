@@ -58,7 +58,7 @@ const Search = () => {
 export const HeaderSearchActionsExample = () => {
   return (
     <Header fill="horizontal">
-      <Button plain>
+      <Button>
         <Box
           direction="row"
           align="start"

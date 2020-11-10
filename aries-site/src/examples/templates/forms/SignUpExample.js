@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Anchor,
   Box,
@@ -11,6 +11,7 @@ import {
   MaskedInput,
   Text,
   TextInput,
+  ResponsiveContext,
 } from 'grommet';
 import { FormCheckmark } from 'grommet-icons';
 
@@ -80,19 +81,12 @@ const emailMask = [
   },
 ];
 
-const FormContainer = ({ ...rest }) => {
-  return (
-    <Box background="background-front" border round="small" overflow="hidden">
-      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
-    </Box>
-  );
-};
-
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
   });
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
+  const size = useContext(ResponsiveContext);
 
   const onChange = values => {
     setFormValues(values);
@@ -111,128 +105,125 @@ export const SignUpExample = () => {
   };
 
   return (
-    <FormContainer width="medium">
-      <Box gap="medium">
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
+    <Box gap="medium" width="medium">
+      <Header
+        direction="column"
+        align="start"
+        gap="xxsmall"
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Text size="xxlarge" weight="bold">
+          Sign Up
+        </Text>
+        <Text>for a Hewlett Packard Enterprise account</Text>
+      </Header>
+      <Box
+        // Padding used to prevent focus from being cutoff
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Form
+          validate="blur"
+          onChange={nextValue => onChange(nextValue)}
+          value={formValues}
+          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
-          <Text size="xxlarge" weight="bold">
-            Sign Up
-          </Text>
-          <Text>for a Hewlett Packard Enterprise account</Text>
-        </Header>
-        <Box
-          // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Form
-            validate="blur"
-            onChange={nextValue => onChange(nextValue)}
-            value={formValues}
-            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          <FormField
+            label="Email"
+            htmlFor="email-sign-up"
+            name="email"
+            validate={emailValidation}
           >
-            <FormField
-              label="Email"
-              htmlFor="email-sign-up"
+            <MaskedInput
+              id="email-sign-up"
               name="email"
-              validate={emailValidation}
-            >
-              <MaskedInput
-                id="email-sign-up"
-                name="email"
-                mask={emailMask}
-                type="email"
-              />
-            </FormField>
-            <FormField
-              label="Full Name"
-              htmlFor="fullName-sign-up"
+              mask={emailMask}
+              type="email"
+            />
+          </FormField>
+          <FormField
+            label="Full Name"
+            htmlFor="fullName-sign-up"
+            name="fullName"
+            required
+          >
+            <TextInput
+              id="fullName-sign-up"
               name="fullName"
-              required
-            >
-              <TextInput
-                id="fullName-sign-up"
-                name="fullName"
-                placeholder="Jane Smith"
-              />
-            </FormField>
-            <FormField
-              label="Password"
-              validate={passwordRequirements}
-              htmlFor="password-sign-up"
-              name="password"
-              required
-              info={
-                <List
-                  data={passwordRules}
-                  border={{ color: 'none' }}
-                  pad="none"
-                >
-                  {rule => {
-                    if (
-                      formValues.password === undefined ||
-                      formValues.password.length === 0
-                    ) {
-                      return (
-                        <Box direction="row" gap="xsmall">
-                          <Text size="xsmall">{rule.message}</Text>
-                        </Box>
-                      );
-                    }
+              placeholder="Jane Smith"
+            />
+          </FormField>
+          <FormField
+            label="Password"
+            validate={passwordRequirements}
+            htmlFor="password-sign-up"
+            name="password"
+            required
+            info={
+              <List data={passwordRules} border={{ color: 'none' }} pad="none">
+                {rule => {
+                  if (
+                    formValues.password === undefined ||
+                    formValues.password.length === 0
+                  ) {
                     return (
                       <Box direction="row" gap="xsmall">
-                        {formValues.password && rule.valid && (
-                          <Box alignSelf="center">
-                            <FormCheckmark size="small" />
-                          </Box>
-                        )}
                         <Text size="xsmall">{rule.message}</Text>
                       </Box>
                     );
-                  }}
-                </List>
+                  }
+                  return (
+                    <Box direction="row" gap="xsmall">
+                      {formValues.password && rule.valid && (
+                        <Box alignSelf="center">
+                          <FormCheckmark size="small" />
+                        </Box>
+                      )}
+                      <Text size="xsmall">{rule.message}</Text>
+                    </Box>
+                  );
+                }}
+              </List>
+            }
+          >
+            <TextInput
+              id="password-sign-up"
+              name="password"
+              placeholder="Enter your password"
+              type="password"
+            />
+          </FormField>
+          <FormField htmlFor="terms-and-privacy">
+            <CheckBox
+              id="terms-and-privacy"
+              name="termsAndPrivacy"
+              label={
+                <Text>
+                  I accept the HPE{' '}
+                  <Anchor
+                    label="Terms of Use"
+                    href="#"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  />{' '}
+                  and{' '}
+                  <Anchor
+                    label="Privacy Policy"
+                    href="#"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  />
+                </Text>
               }
-            >
-              <TextInput
-                id="password-sign-up"
-                name="password"
-                placeholder="Enter your password"
-                type="password"
-              />
-            </FormField>
-            <FormField htmlFor="terms-and-privacy">
-              <CheckBox
-                id="terms-and-privacy"
-                name="termsAndPrivacy"
-                label={
-                  <Text>
-                    I accept the HPE{' '}
-                    <Anchor
-                      label="Terms of Use"
-                      href="#"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    />{' '}
-                    and{' '}
-                    <Anchor
-                      label="Privacy Policy"
-                      href="#"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    />
-                  </Text>
-                }
-              />
-            </FormField>
-            <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Sign Up" primary type="submit" />
-            </Box>
-          </Form>
-        </Box>
+            />
+          </FormField>
+          <Box
+            align={size !== 'small' ? 'start' : undefined}
+            margin={{ top: 'medium', bottom: 'small' }}
+          >
+            <Button label="Sign Up" primary type="submit" />
+          </Box>
+        </Form>
       </Box>
-    </FormContainer>
+    </Box>
   );
 };
