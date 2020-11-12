@@ -16,7 +16,7 @@ export const HeaderFooterPreview = () => {
       />
       <Box
         height={defaultProps.theme.global.edgeSize.medium}
-        // remove in prod, for demo purposes only
+        // remove dashed border in prod, for demo purposes only
         border={{ color: 'border', style: 'dashed' }}
       />
     </Box>
