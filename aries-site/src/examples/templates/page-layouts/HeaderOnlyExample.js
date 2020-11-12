@@ -22,7 +22,7 @@ export const HeaderOnlyExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-            // remove in prod, for demo purposes only
+        // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
             height="xlarge" // remove in prod, for demo purposes only
           >
