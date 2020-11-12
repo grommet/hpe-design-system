@@ -10,8 +10,9 @@ export const HeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            height="xxsmall" // remove in prod, for demo purposes only
-            // remove in prod, for demo purposes only
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
           >
             <Text weight="bold" color="text-strong">
@@ -22,8 +23,9 @@ export const HeaderFooterExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-            height="xlarge" // remove in prod, for demo purposes only
-            // remove in prod, for demo purposes only
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
           >
             <Text weight="bold" color="text-strong">
@@ -34,9 +36,10 @@ export const HeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xxsmall" // remove height="xxsmall" in prod, for demo purposes only
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Footer

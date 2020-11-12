@@ -19,9 +19,10 @@ export const SidebarHeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xxsmall" // remove in prod, for demo purposes only
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
@@ -31,9 +32,10 @@ export const SidebarHeaderFooterExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xlarge" // remove in prod, for demo purposes only
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
           >
             <Text weight="bold" color="text-strong">
               Main
@@ -43,9 +45,10 @@ export const SidebarHeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xxsmall" // remove height="xxsmall" in prod, for demo purposes only
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Footer
@@ -68,7 +71,7 @@ const AppSidebar = () => {
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
       pad="small"
-      // remove in prod, for demo purposes only
+      // remove dashed border in prod, for demo purposes only
       border={{ color: 'border', style: 'dashed' }}
     >
       <Text weight="bold" color="text-strong">

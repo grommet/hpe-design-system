@@ -10,9 +10,10 @@ export const HeaderOnlyExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xxsmall" // remove height="xxsmall" in prod, for demo purposes only
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
@@ -22,9 +23,10 @@ export const HeaderOnlyExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-        // remove dashed border in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xlarge" // remove in prod, for demo purposes only
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
           >
             <Text weight="bold" color="text-strong">
               Main

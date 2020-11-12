@@ -18,9 +18,10 @@ export const StickyHeaderExample = () => {
           background="background-front"
           fill="horizontal"
           pad="small"
-          // remove in prod, for demo purposes only
+          // remove dashed border in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
-          height="xxsmall" // remove height="xxsmall" in prod, for demo purposes only
+          // remove height="xxsmall" in prod, for demo purposes only
+          height="xxsmall"
         >
           <Text weight="bold" color="text-strong">
             Header
@@ -31,9 +32,10 @@ export const StickyHeaderExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xlarge" // remove height="xlarge" in prod, for demo purposes only
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
           >
             <Text weight="bold" color="text-strong">
               Main
@@ -43,9 +45,10 @@ export const StickyHeaderExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            // remove in prod, for demo purposes only
+            // remove dashed border in prod, for demo purposes only
             border={{ color: 'border', style: 'dashed' }}
-            height="xxsmall" // remove in prod, for demo purposes only
+            // remove height="xxmsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Footer
