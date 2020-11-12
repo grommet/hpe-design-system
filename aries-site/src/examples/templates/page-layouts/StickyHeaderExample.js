@@ -20,7 +20,7 @@ export const StickyHeaderExample = () => {
           pad="small"
           // remove in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
-          height="xxsmall" // remove in prod, for demo purposes only
+          height="xxsmall" // remove height="xxsmall" in prod, for demo purposes only
         >
           <Text weight="bold" color="text-strong">
             Header
