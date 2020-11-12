@@ -10,7 +10,7 @@ export const HeaderFooterPreview = () => {
         border={{ color: 'border', style: 'dashed' }}
       />
       <Box
-        // remove in prod, for demo purposes only
+        // remove dashed border in prod, for demo purposes only
         border={{ color: 'border', style: 'dashed' }}
         flex
       />
