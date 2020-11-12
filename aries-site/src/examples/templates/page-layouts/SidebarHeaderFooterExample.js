@@ -19,7 +19,8 @@ export const SidebarHeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            border="border-weak" // remove in prod, for demo purposes only
+            // remove in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
             height="xxsmall" // remove in prod, for demo purposes only
           >
             <Text weight="bold" color="text-strong">
@@ -30,7 +31,8 @@ export const SidebarHeaderFooterExample = () => {
             fill={undefined}
             flex={false}
             pad="small"
-            border="border-weak" // remove in prod, for demo purposes only
+            // remove in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
             height="xlarge" // remove in prod, for demo purposes only
           >
             <Text weight="bold" color="text-strong">
@@ -41,7 +43,8 @@ export const SidebarHeaderFooterExample = () => {
             background="background-front"
             fill="horizontal"
             pad="small"
-            border="border-weak" // remove in prod, for demo purposes only
+            // remove in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
             height="xxsmall" // remove in prod, for demo purposes only
           >
             <Text weight="bold" color="text-strong">
@@ -65,7 +68,8 @@ const AppSidebar = () => {
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
       pad="small"
-      border="border-weak" // remove in prod, for demo purposes only
+      // remove in prod, for demo purposes only
+      border={{ color: 'border', style: 'dashed' }}
     >
       <Text weight="bold" color="text-strong">
         Sidebar
