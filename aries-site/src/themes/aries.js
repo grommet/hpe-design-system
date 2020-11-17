@@ -8,7 +8,7 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   formField: {
-    errors: {
+    error: {
       margin: {
         bottom: 'xsmall',
         top: 'none',
@@ -58,7 +58,8 @@ export const aries = deepMerge(hpe, {
       color: 'text-strong',
       extend: ({ column, sort, sortable, theme }) => {
         return `
-          ${sort &&
+          ${
+            sort &&
             sort.property === column &&
             `
             background: ${
@@ -66,8 +67,10 @@ export const aries = deepMerge(hpe, {
                 theme.dark ? 'dark' : 'light'
               ]
             }
-          `};
-          ${sortable &&
+          `
+          };
+          ${
+            sortable &&
             sort &&
             sort.property !== column &&
             `
@@ -79,7 +82,8 @@ export const aries = deepMerge(hpe, {
                   opacity: 1;
                 }
               }
-            `};
+            `
+          };
          `;
       },
       font: {
