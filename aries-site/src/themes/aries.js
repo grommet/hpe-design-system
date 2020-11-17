@@ -7,6 +7,32 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  formField: {
+    errors: {
+      margin: {
+        bottom: 'xsmall',
+        top: 'none',
+        horizontal: 'none',
+      },
+    },
+    info: {
+      margin: {
+        bottom: 'xsmall',
+        top: 'none',
+        horizontal: 'none',
+      },
+    },
+    label: {
+      margin: {
+        bottom: 'none',
+        top: 'xsmall',
+        horizontal: 'none',
+      },
+    },
+    margin: {
+      bottom: 'none',
+    },
+  },
   dataTable: {
     body: {
       extend: ({ theme }) => `
@@ -32,11 +58,14 @@ export const aries = deepMerge(hpe, {
       color: 'text-strong',
       extend: ({ column, sort, sortable, theme }) => {
         return `
-          ${sort && sort.property === column && `
+          ${sort &&
+            sort.property === column &&
+            `
             background: ${
               theme.global.colors['background-contrast'][
                 theme.dark ? 'dark' : 'light'
-              ]}
+              ]
+            }
           `};
           ${sortable &&
             sort &&
