@@ -41,6 +41,7 @@ export const RequiredFieldsExample = () => {
     nemesis: true,
     email: 'enduro@skyrunner.io.com',
     weakness: 'PB & J',
+    comments: '',
   });
   const size = useContext(ResponsiveContext);
   // Set FormLevelError is set to true for display purposes
