@@ -99,7 +99,12 @@ RequiredFormField.propTypes = {
 };
 
 export const PayExample = () => {
-  const [formValues, setFormValues] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    cardName: '',
+    cardNumber: '',
+    expiration: '',
+    cvv: '',
+  });
   const size = useContext(ResponsiveContext);
 
   // eslint-disable-next-line no-unused-vars
