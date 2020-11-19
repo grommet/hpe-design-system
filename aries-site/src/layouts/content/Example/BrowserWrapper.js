@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { screens } from '.';
 
-export const BrowserWrapper = ({ screen, ...rest }) => {
+export const BrowserWrapper = forwardRef(({ screen, ...rest }, ref) => {
   let width;
   if (screen === screens.laptop) width = '75%';
   else if (screen === screens.desktop) width = '100%';
@@ -16,6 +16,7 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
       round="xsmall"
       overflow="hidden"
       width={width}
+      ref={ref}
     >
       {screen !== screens.mobile && (
         <Box
@@ -35,12 +36,13 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
         {...rest}
         // allow BrowserWrapper width to override width from rest
         width={screen === screens.desktop ? '75%' : '100%'}
+        fill="vertical"
         margin="auto"
         overflow="auto"
       />
     </Box>
   );
-};
+});
 
 BrowserWrapper.propTypes = {
   screen: PropTypes.string.isRequired,

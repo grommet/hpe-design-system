@@ -97,7 +97,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const FilteringLists = () => {
+export const FilteringLists = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -190,6 +191,8 @@ export const FilteringLists = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -199,6 +202,10 @@ export const FilteringLists = () => {
       <Results data={data} />
     </Box>
   );
+};
+
+FilteringLists.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 const FilterButton = styled(Button)`
@@ -216,6 +223,8 @@ const Filters = ({
   filtering,
   setData,
   setFiltering,
+  // target is for demo purposes only, remove in production
+  target,
 }) => {
   const [service, setService] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
@@ -302,6 +311,7 @@ const Filters = ({
       {showLayer && (
         <Layer
           position={size !== 'small' ? 'center' : undefined}
+          full={size === 'small' ? true : undefined}
           modal
           onClickOutside={() => {
             filterData(allData, previousFilters);
@@ -313,6 +323,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             height={size !== 'small' ? { max: 'large' } : undefined}
@@ -361,6 +373,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  target: PropTypes.object,
 };
 
 const ServiceFilter = ({ filters, setFilters, service, setService }) => (

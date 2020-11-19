@@ -71,7 +71,8 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const FilteringWithRangeSelector = () => {
+export const FilteringWithRangeSelector = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -158,6 +159,8 @@ export const FilteringWithRangeSelector = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -169,6 +172,10 @@ export const FilteringWithRangeSelector = () => {
   );
 };
 
+FilteringWithRangeSelector.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
 const FilterButton = styled(DropButton)`
   border: 1px solid
     ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
@@ -177,7 +184,13 @@ const FilterButton = styled(DropButton)`
   }
 `;
 
-const Filters = ({ data, filtering, setData, setFiltering }) => {
+const Filters = ({
+  data,
+  filtering,
+  setData,
+  setFiltering,
+  target, // target is for demo purposes only, remove in production
+}) => {
   const [availability, setAvailability] = useState(defaultAvailability);
   const [filters, setFilters] = useState(defaultFilters);
   const [location, setLocation] = useState(defaultLocation);
@@ -230,6 +243,9 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
               setShowLayer(!showLayer);
               setLocation(previousValues.location);
             }}
+            full
+            // target is for demo purposes only, remove in production
+            target={target}
           >
             <Box width="large" pad="large" gap="medium">
               <Header>
@@ -394,6 +410,8 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  // target is for demo purposes only, remove in production
+  target: PropTypes.object,
 };
 
 const LocationFilter = ({
