@@ -141,7 +141,19 @@ RequiredFormField.propTypes = {
 };
 
 export const ShippingExample = () => {
-  const [formValues, setFormValues] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    firstName: '',
+    lastName: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    isBusiness: '',
+    'fullName-shipping': '',
+    'phone-shipping': '',
+    'email-shipping': '',
+  });
   const size = useContext(ResponsiveContext);
 
   // eslint-disable-next-line no-unused-vars
