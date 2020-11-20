@@ -26,6 +26,7 @@ export const Example = ({
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
+  github, // link to github directory
   height,
   horizontalLayout,
   plain, // remove Container from around example
@@ -112,6 +113,7 @@ export const Example = ({
   const resources = (
     <ExampleResources
       code={code}
+      github={github}
       details={details}
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       horizontalLayout={horizontalLayout}
@@ -244,6 +246,7 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  github: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,

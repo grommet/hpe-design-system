@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import { Box, Button, Text, ThemeContext } from 'grommet';
+import { Github } from 'grommet-icons';
 import {
   CardGrid,
   CollapsibleSection,
@@ -21,6 +22,7 @@ const getFileName = file => {
 export const ExampleResources = ({
   code,
   details,
+  github,
   horizontalLayout,
   relevantComponents,
   ...rest
@@ -118,6 +120,14 @@ export const ExampleResources = ({
                   onClick={() => setActiveCode(file)}
                 />
               ))}
+              {github && (
+                <Button
+                  label="View in Github"
+                  icon={<Github />}
+                  href={github}
+                  target="_blank"
+                />
+              )}
             </Box>
           )}
           <Text size="xsmall" color="text">
@@ -152,5 +162,6 @@ ExampleResources.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   ),
   horizontalLayout: PropTypes.bool,
+  github: PropTypes.string,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
 };
