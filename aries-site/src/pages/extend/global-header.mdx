@@ -33,12 +33,13 @@ The Menu and App Identity are interactive elements whose presence and look are d
 **If user is logged in:**
 
 - Menu button is present and opens a Sidebar Layer containing additional navigation options. This Layer should have modal={false} applied to ensure users can continue to interact with the underlying page content.
-- App Identity has a text value of "HPE Console" with weight="bold". When clicked, this should route to the home page of the application.
+- App Identity has a text value of either "HPE Service Name" or "Aruba Service Name".
+- HPE/Aruba has weight="bold" and Service Name has default weight. When clicked, this should route to the home page of the application.
 
 **If user is not logged in:**
 
 - Menu button is not present since in-app navigation is not an option.
-- App Identity has text value of "Hewlett Packward Enterprise" with default text weight. When clicked, this should route to [ WHERE ? ].
+- App Identity has text value of "Hewlett Packward Enterprise" with weight="bold". When clicked, this should route to [ WHERE ? ].
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js"

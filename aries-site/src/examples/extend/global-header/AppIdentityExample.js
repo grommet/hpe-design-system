@@ -12,6 +12,7 @@ const defaultUser = {
 export const AppIdentityExample = () => {
   const [user, setUser] = useState(defaultUser);
   const [checked, setChecked] = useState(true);
+  const [isAruba, setIsAruba] = useState();
 
   const onToggle = () => {
     if (user) setUser();
@@ -23,12 +24,18 @@ export const AppIdentityExample = () => {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Box gap="small" align="start">
-        <AppIdentity />
+        <AppIdentity title="Service Name" brand={!isAruba ? 'hpe' : 'aruba'} />
         <CheckBox
           label="Signed In"
-          toggle
           checked={checked}
           onClick={onToggle}
+          toggle
+        />
+        <CheckBox
+          label="Aruba Service"
+          checked={isAruba}
+          onClick={() => setIsAruba(!isAruba)}
+          toggle
         />
       </Box>
     </UserContext.Provider>

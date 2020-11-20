@@ -37,7 +37,7 @@ const GlobalHeader = () => {
           vertical: 'small',
         }}
       >
-        <AppIdentity />
+        <AppIdentity title="Service Name" brand="hpe" />
         {user && <HeaderNav />}
       </Header>
     </>
