@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { AppIdentity, HeaderNav, SidebarLayer, UserContext } from '.';
+import { AppIdentity, HeaderNav, UserContext } from '.';
 
 const defaultUser = {
   firstName: 'John',
@@ -37,14 +37,7 @@ const GlobalHeader = () => {
           vertical: 'small',
         }}
       >
-        <Box
-          align="center"
-          direction="row"
-          gap={size !== 'small' ? 'medium' : 'small'}
-        >
-          {user && <SidebarLayer />}
-          <AppIdentity />
-        </Box>
+        <AppIdentity />
         {user && <HeaderNav />}
       </Header>
     </>

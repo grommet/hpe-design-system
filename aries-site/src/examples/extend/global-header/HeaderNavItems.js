@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, CheckBox, Button, Text } from 'grommet';
 import { HeaderNav, UserContext } from '.';
 
@@ -13,15 +13,21 @@ export const HeaderNavItems = () => {
   const [user, setUser] = useState(defaultUser);
   const [checked, setChecked] = useState(true);
 
+  useEffect(() => {
+    if (user && user.image) setChecked(true);
+  }, [user]);
+
   const onToggle = () => {
-    if (checked) setUser({ ...user, image: '' });
-    else setUser(defaultUser);
+    if (user) {
+      if (checked) setUser({ ...user, image: '' });
+      else setUser(defaultUser);
+    }
     setChecked(!checked);
   };
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Box gap="medium">
+      <Box align="start" gap="medium">
         <HeaderNav />
         {!user && (
           <Box gap="small">

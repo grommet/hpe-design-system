@@ -26,35 +26,32 @@ The Global Header is a standardized header to be used across applications. The s
 
 ## What makes up the Global Header?
 
-### Menu Button
+### Menu + App Identity
 
-The Menu button opens a left-anchored Layer containing additional navigation options.
+The Menu and App Identity are interactive elements whose presence and look are dependent on if the user is logged in. Follow the guidance below.
 
-When the Layer is open, it should not block the user from interacting with the rest of the page. The Layer should have "modal={false}" applied to ensure proper behavior.
+**If user is logged in:**
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/SidebarLayer.js"
-  horizontalLayout
-  height="none"
->
-  <SidebarLayer />
-</Example>
+- Menu button is present and opens a Sidebar Layer containing additional navigation options. This Layer should have modal={false} applied to ensure users can continue to interact with the underlying page content.
+- App Identity has a text value of "HPE Console" with weight="bold". When clicked, this should route to the home page of the application.
 
-### App Identity
+**If user is not logged in:**
 
-The App Identity contains the brand icon and application name of a given application. It is a clickable element that routes the application to the home page.
+- Menu button is not present since in-app navigation is not an option.
+- App Identity has text value of "Hewlett Packward Enterprise" with default text weight. When clicked, this should route to [ WHERE ? ].
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js"
   horizontalLayout
   height="none"
+  width={{ min: 'medium' }}
 >
   <AppIdentityExample />
 </Example>
 
 ### Header Nav
 
-The Header Nav contains three buttons: help information, home, and user avatar.
+The header navigation items should only be present if a user is logged in. This section contains three buttons: help information, home, and user avatar.
 
 1. The **Help button** links to [ WHERE? ].
 1. The **Home button** routes to the homepage of the application.
