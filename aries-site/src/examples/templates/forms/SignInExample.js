@@ -97,7 +97,10 @@ const ResetPassword = ({ closeLayer, email }) => {
 };
 
 export const SignInExample = () => {
-  const [formValues, setFormValues] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    email: '',
+    password: '',
+  });
   const size = useContext(ResponsiveContext);
   const [showForgotPassword, setShowForgotPassword] = React.useState(false);
   // setPassword is here for demonstration purposes,
