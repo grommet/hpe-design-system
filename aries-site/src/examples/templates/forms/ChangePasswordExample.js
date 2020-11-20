@@ -24,7 +24,11 @@ const passwordRulesWeak = [
 ];
 
 export const ChangePasswordExample = () => {
-  const [formValues, setFormValues] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  });
   const size = useContext(ResponsiveContext);
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {

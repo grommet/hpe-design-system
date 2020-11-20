@@ -31,6 +31,7 @@ const serverTypes = [
 
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
+    keyword: '',
     locationType: 'All Locations',
     'Rack Servers': true,
     'Tower Servers': true,

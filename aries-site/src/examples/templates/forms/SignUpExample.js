@@ -84,6 +84,8 @@ const emailMask = [
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
+    fullName: '',
+    password: '',
   });
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
   const size = useContext(ResponsiveContext);
