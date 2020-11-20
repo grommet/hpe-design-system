@@ -1,0 +1,71 @@
+import {
+  AppIdentityExample,
+  GlobalHeaderExample,
+  HeaderNavItems,
+  SidebarLayer,
+} from '../../examples';
+import { Example } from '../../layouts';
+import { Box } from 'grommet';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/GlobalHeaderExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/HeaderNav.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/SidebarLayer.js',
+  ]}
+  screenContainer
+  width="100%"
+>
+  <GlobalHeaderExample />
+</Example>
+
+## Guidelines
+
+The Global Header is a standardized header to be used across applications. The styling should be implemented as is demonstrated in these examples.
+
+## What makes up the Global Header?
+
+### Menu Button
+
+The Menu button opens a left-anchored Layer containing additional navigation options.
+
+When the Layer is open, it should not block the user from interacting with the rest of the page. The Layer should have "modal={false}" applied to ensure proper behavior.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/SidebarLayer.js"
+  horizontalLayout
+  height="none"
+>
+  <SidebarLayer />
+</Example>
+
+### App Identity
+
+The App Identity contains the brand icon and application name of a given application. It is a clickable element that routes the application to the home page.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js"
+  horizontalLayout
+  height="none"
+>
+  <AppIdentityExample />
+</Example>
+
+### Header Nav
+
+The Header Nav contains three buttons: help information, home, and user avatar.
+
+1. The **Help button** links to [ WHERE? ].
+1. The **Home button** routes to the homepage of the application.
+1. The **Avatar button** opens additional options regarding the active account.
+   - If a user has a profile picture, this should appear in the avatar. Otherwise, their first and last initials should appear.
+   - On click, a drop should open containing the user's name and email. The footer of the drop contains a "My Profile" button which routes to the user's profile page and a "Sign Out" button which signs the user out and routes back to the Sign In page.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/HeaderNav.js"
+  horizontalLayout
+  height="none"
+>
+  <HeaderNavItems />
+</Example>

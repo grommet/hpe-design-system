@@ -202,4 +202,24 @@ export const extend = [
     url:
       'https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com',
   },
+  {
+    name: 'Global Header',
+    available: false,
+    description:
+      'A standardized header for use when building applications and services that live in the HPE eccosystem.',
+    preview: {
+      image: {
+        src: {
+          light: '/extendImages/extend-preview-roadmap.svg',
+          dark: '/extendImages/extend-preview-roadmap-invert.svg',
+        },
+        alt: 'HPE Design System Global Header',
+        fit: 'contain',
+      },
+    },
+    seoDescription:
+      'A standardized header for use when building applications and services that live in the HPE eccosystem.',
+    sections: [],
+    relatedContent: ['Page Layouts', 'Header', 'Navigation'],
+  },
 ];

@@ -32,6 +32,7 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
         </Box>
       )}
       <Box
+        height="100%"
         {...rest}
         // allow BrowserWrapper width to override width from rest
         width={screen === screens.desktop ? '75%' : '100%'}

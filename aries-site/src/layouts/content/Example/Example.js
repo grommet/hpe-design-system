@@ -142,6 +142,7 @@ export const Example = ({
             <HorizontalExample
               content={content}
               controls={controls}
+              height={height}
               plain={plain}
               resources={resources}
               showResponsiveControls={showResponsiveControls}
@@ -227,7 +228,10 @@ export const Example = ({
 Example.propTypes = {
   background: PropTypes.string,
   children: PropTypes.element,
-  code: PropTypes.string,
+  code: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
