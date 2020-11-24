@@ -48,8 +48,7 @@ export const HeaderNav = () => {
 const AvatarDropContent = () => {
   const { user, setUser } = useContext(UserContext);
   return (
-    // ASK ABOUT WIDTH
-    <Box width="314px">
+    <Box width="medium">
       <Box pad="medium" direction="row" gap="small">
         {user && !user.image ? (
           <Avatar background="blue!" flex={false} size="large">
