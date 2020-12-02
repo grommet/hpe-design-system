@@ -23,7 +23,7 @@ import { Box } from 'grommet';
 
 ## Guidelines
 
-The Global Header is a standardized header to be used across applications. The styling should be implemented as is demonstrated in these examples.
+The Global Header is a standardized header to be used across applications.
 
 ## What makes up the Global Header?
 
@@ -53,13 +53,12 @@ The Menu and App Identity are interactive elements whose presence and look are d
 
 ### Header Nav
 
-The header navigation items should only be present if a user is logged in. This section contains three buttons: help information, home, and user avatar. [TO DO: WHAT CONTENT HERE IS FLEXIBLE?]
+The header navigation items should only be present if a user is logged in. The content of this section is flexible but should follow the guidelines established by [Header](/components/header).
 
-1. If present, the **Help button** links to help documentation that appropriate for the given service.
-1. The **Home button** routes to the homepage of the application.
-1. The **Avatar button** opens additional options regarding the active account.
-   - If a user has a profile picture, this should appear in the avatar. Otherwise, their first and last initials should appear.
-   - On click, a drop should open containing the user's name and email. The footer of the drop contains a "My Profile" button which routes to the user's profile page and a "Sign Out" button which signs the user out and routes back to the Sign In page.
+The **Avatar button** opens additional options regarding the active account.
+
+- If a user has a profile picture, this should appear in the avatar. Otherwise, their first and last initials should appear.
+- On click, a drop should open containing the user's name and email. The footer of the drop contains a "My Profile" button which routes to the user's profile page and a "Sign Out" button which signs the user out and routes back to the Sign In page.
 
 On mobile, the Avatar should remain in the header, but the remaining nav items should be moved into the sidebar menu.
 

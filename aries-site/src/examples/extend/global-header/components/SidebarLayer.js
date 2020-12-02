@@ -11,7 +11,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Aruba, Menu } from 'grommet-icons';
+import { Aruba, FormClose, Menu } from 'grommet-icons';
 
 export const SidebarLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -31,9 +31,16 @@ export const SidebarLayer = () => {
           onClickOutside={() => setShowLayer(false)}
           position={size !== 'small' ? 'left' : undefined}
         >
-          <Box fill="vertical" width={size !== 'small' ? 'medium' : undefined}>
+          <Box
+            fill="vertical"
+            width={size !== 'small' ? 'medium' : undefined}
+            elevation="large"
+          >
             <Header pad={pad}>
-              <Button icon={<Menu />} onClick={() => setShowLayer(false)} />
+              <Button
+                icon={<FormClose />}
+                onClick={() => setShowLayer(false)}
+              />
             </Header>
             <Box pad={pad} flex gap="medium" overflow="auto">
               <SidebarHeader />
