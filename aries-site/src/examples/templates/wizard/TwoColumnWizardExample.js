@@ -32,18 +32,18 @@ import {
 const WizardContext = React.createContext({});
 
 const defaultFormValues = {
-  'text-input-two-column': '',
-  'radio-button-group-two-column': '',
-  'select-two-column': '',
-  'checkboxgroup-two-column': '',
-  'text-area-two-column': '',
+  'twocolumn-textinput': '',
+  'twocolumn-radiobuttongroup': '',
+  'twocolumn-select': '',
+  'twocolumn-checkboxgroup': '',
+  'twocolumn-text-area': '',
 };
 
 const stepOneValidate = values => {
   const emailRegex = RegExp(
     '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
   );
-  const emailValid = emailRegex.test(values['text-input-two-column']);
+  const emailValid = emailRegex.test(values['twocolumn-textinput']);
 
   return {
     email: emailValid ? '' : 'Invalid email address.',
@@ -71,8 +71,8 @@ const StepOne = () => {
       <Box>
         <FormField
           label="Email"
-          htmlFor="text-input-two-column"
-          name="text-input-two-column"
+          htmlFor="twocolumn-textinput"
+          name="twocolumn-textinput"
           error={error.email}
           onChange={() =>
             attemptedAdvance && setError(stepOneValidate(formValues))
@@ -80,19 +80,19 @@ const StepOne = () => {
         >
           <TextInput
             placeholder="jane.smith@hpe.com"
-            id="text-input-two-column"
-            name="text-input-two-column"
+            id="twocolumn-textinput"
+            name="twocolumn-textinput"
             type="email"
           />
         </FormField>
         <FormField
-          htmlFor="radio-button-group-two-column"
+          htmlFor="twocolumn-radiobuttongroup"
           label="RadioButtonGroup"
-          name="radio-button-group-two-column"
+          name="twocolumn-radiobuttongroup"
         >
           <RadioButtonGroup
-            id="radio-button-group-two-column"
-            name="radio-button-group-two-column"
+            id="twocolumn-radiobuttongroup"
+            name="twocolumn-radiobuttongroup"
             options={['Radio button 1', 'Radio button 2']}
           />
         </FormField>
@@ -105,36 +105,36 @@ const StepTwo = () => (
   <Box>
     <FormField
       label="Select"
-      htmlFor="select-two-column"
-      name="select-two-column"
+      htmlFor="twocolumn-select"
+      name="twocolumn-select"
     >
       <Select
         placeholder="Select item"
-        id="select-two-column"
-        name="select-two-column"
+        id="twocolumn-select"
+        name="twocolumn-select"
         options={['Option 1', 'Option 2']}
       />
     </FormField>
     <FormField
-      htmlFor="checkboxgroup-two-column"
+      htmlFor="twocolumn-checkboxgroup"
       label="Label"
-      name="checkboxgroup-two-column"
+      name="twocolumn-checkboxgroup"
     >
       <CheckBoxGroup
-        id="checkboxgroup-two-column"
-        name="checkboxgroup-two-column"
+        id="twocolumn-checkboxgroup"
+        name="twocolumn-checkboxgroup"
         options={['CheckBox 1', 'CheckBox 2']}
       />
     </FormField>
     <FormField
       help="Description of how to use this field"
-      htmlFor="text-area-two-column"
+      htmlFor="twocolumn-text-area"
       label="Label"
-      name="text-area-two-column"
+      name="twocolumn-text-area"
     >
       <TextArea
-        id="text-area-two-column"
-        name="text-area-two-column"
+        id="twocolumn-text-area"
+        name="twocolumn-text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
       />
