@@ -109,7 +109,7 @@ const StepTwo = () => (
       name="twocolumn-select"
     >
       <Select
-        placeholder="Select item"
+        placeholder="Select Item"
         id="twocolumn-select"
         name="twocolumn-select"
         options={['Option 1', 'Option 2']}
