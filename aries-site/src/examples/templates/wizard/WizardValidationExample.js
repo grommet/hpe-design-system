@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
   Button,
   CheckBoxGroup,
+  Footer,
   Form,
   FormField,
   Header,
@@ -25,6 +26,8 @@ import {
   FormPreviousLink,
 } from 'grommet-icons';
 
+const WizardContext = React.createContext({});
+
 const defaultFormValues = {
   'text-input-validation': '',
   'radio-button-group-validation': '',
@@ -45,14 +48,22 @@ const stepOneValidate = values => {
   };
 };
 
-const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
-  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
-  const [error, setError] = useState({
-    email: '',
-    radiobuttongroup: '',
-    isValid: true,
-  });
+const validation = [
+  {
+    validator: values => stepOneValidate(values),
+    error: {
+      email: '',
+      radiobuttongroup: '',
+      isValid: true,
+    },
+  },
+];
 
+const StepOne = () => {
+  const { attemptedAdvance, formValues, error, setError } = useContext(
+    WizardContext,
+  );
+  console.log(formValues);
   return (
     <>
       <Box margin={{ bottom: 'medium' }}>
@@ -87,83 +98,42 @@ const StepOne = ({ activeIndex, setActiveIndex, formValues }) => {
           <Error>There is an error with one or more inputs.</Error>
         )}
       </Box>
-      <Button
-        fill="horizontal"
-        label="Next"
-        icon={<FormNextLink />}
-        primary
-        reverse
-        onClick={() => {
-          // mark that the user is trying to advance, so that onChange
-          // validation will run on any errors in the future
-          setAttemptedAdvance(true);
-          // check for errors
-          const validation = stepOneValidate(formValues);
-          // advance to next step if successful
-          if (validation.isValid) setActiveIndex(activeIndex + 1);
-          // otherwise, display error and wizard will not advance to next step
-          else {
-            setError(validation);
-          }
-        }}
-      />
     </>
   );
 };
 
-StepOne.propTypes = {
-  activeIndex: PropTypes.number.isRequired,
-  formValues: PropTypes.shape({}).isRequired,
-  setActiveIndex: PropTypes.func.isRequired,
-};
-
-const StepTwo = ({ activeIndex, setActiveIndex }) => (
-  <>
-    <Box margin={{ bottom: 'large' }}>
-      <FormField label="Select" htmlFor="select" name="select">
-        <Select
-          placeholder="Select item"
-          id="select"
-          name="select"
-          options={['Option 1', 'Option 2']}
-        />
-      </FormField>
-      <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
-        <CheckBoxGroup
-          id="checkboxgroup"
-          name="checkboxgroup"
-          options={['CheckBox 1', 'CheckBox 2']}
-        />
-      </FormField>
-      <FormField
-        help="Description of how to use this field"
-        htmlFor="text-area"
-        label="Label"
+const StepTwo = () => (
+  <Box margin={{ bottom: 'medium' }}>
+    <FormField label="Select" htmlFor="select" name="select">
+      <Select
+        placeholder="Select item"
+        id="select"
+        name="select"
+        options={['Option 1', 'Option 2']}
+      />
+    </FormField>
+    <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
+      <CheckBoxGroup
+        id="checkboxgroup"
+        name="checkboxgroup"
+        options={['CheckBox 1', 'CheckBox 2']}
+      />
+    </FormField>
+    <FormField
+      help="Description of how to use this field"
+      htmlFor="text-area"
+      label="Label"
+      name="text-area"
+    >
+      <TextArea
+        id="text-area"
         name="text-area"
-      >
-        <TextArea
-          id="text-area"
-          name="text-area"
-          options={['CheckBox 1', 'CheckBox 2']}
-          placeholder="Placeholder text"
-        />
-      </FormField>
-    </Box>
-    <Button
-      fill="horizontal"
-      label="Next"
-      icon={<FormNextLink />}
-      primary
-      reverse
-      onClick={() => setActiveIndex(activeIndex + 1)}
-    />
-  </>
+        options={['CheckBox 1', 'CheckBox 2']}
+        placeholder="Placeholder text"
+      />
+    </FormField>
+  </Box>
 );
-
-StepTwo.propTypes = {
-  activeIndex: PropTypes.number.isRequired,
-  setActiveIndex: PropTypes.func.isRequired,
-};
 
 const data = [
   'Summary value of step 1',
@@ -174,22 +144,19 @@ const data = [
 
 const StepThree = () => {
   return (
-    <>
-      <Box gap="small" margin={{ bottom: 'large' }}>
-        <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-          {(datum, index) => (
-            <Box key={index} direction="row" gap="medium" align="center">
-              <Checkmark color="text-strong" size="small" />
-              <Text color="text-strong">{datum}</Text>
-            </Box>
-          )}
-        </List>
-        <Text color="text-strong">
-          Include guidance to what will occur when “Finish Setup” is clicked.
-        </Text>
-      </Box>
-      <Button fill="horizontal" label="Finish Setup" primary type="submit" />
-    </>
+    <Box gap="small" margin={{ bottom: 'medium' }}>
+      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+        {(datum, index) => (
+          <Box key={index} direction="row" gap="medium" align="center">
+            <Checkmark color="text-strong" size="small" />
+            <Text color="text-strong">{datum}</Text>
+          </Box>
+        )}
+      </List>
+      <Text color="text-strong">
+        Include guidance to what will occur when “Finish Setup” is clicked.
+      </Text>
+    </Box>
   );
 };
 
@@ -197,25 +164,15 @@ const steps = [
   {
     description: `Step one description. Keep each step simple and in chunks 
     easy enough to fit on a single page.`,
-    inputs: (activeIndex, setActiveIndex, formValues) => (
-      <StepOne
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-        formValues={formValues}
-      />
-    ),
+    inputs: <StepOne />,
   },
   {
     description: 'Step 2 description.',
-    inputs: (activeIndex, setActiveIndex) => (
-      <StepTwo activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-    ),
+    inputs: <StepTwo />,
   },
   {
     description: 'Provide a summary of what was accomplished or configured. ',
-    inputs: (activeIndex, setActiveIndex) => (
-      <StepThree activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-    ),
+    inputs: <StepThree />,
     title: 'Finish title',
   },
 ];
@@ -234,60 +191,78 @@ export const WizardValidationExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
 
+  // controls error message for active step
+  const [error, setError] = useState(
+    validation[activeIndex] ? validation[activeIndex].error : undefined,
+  );
+
+  // tracks if user has attempted to advance to next step
+  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
+
+  // ref allows us to access the wizard container and ensure scroll position
+  // is at the top as user advances between steps. useEffect is triggered
+  // when the active step changes.
+  const wizardRef = useRef();
+
   useEffect(() => {
     setActiveStep(activeIndex + 1);
+    setAttemptedAdvance(false);
   }, [activeIndex]);
 
+  // scroll to top of step when step changes
+  React.useEffect(() => {
+    const container = wizardRef.current;
+    const header = document.querySelector('#sticky-header-single-column');
+    container.scrollTop = -header.getBoundingClientRect().bottom;
+  }, [activeIndex, open]);
+
   return (
-    <>
+    <WizardContext.Provider
+      value={{
+        activeIndex,
+        setActiveIndex,
+        activeStep,
+        setActiveStep,
+        attemptedAdvance,
+        setAttemptedAdvance,
+        error,
+        setError,
+        formValues,
+        setFormValues,
+      }}
+    >
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-        <WizardHeader
-          activeIndex={activeIndex}
-          activeStep={activeStep}
-          setActiveIndex={setActiveIndex}
-          setOpen={setOpen}
-        />
+        <WizardHeader setOpen={setOpen} />
         <Box
           align="center"
           pad={size !== 'small' ? 'large' : 'medium'}
-          flex={false}
+          overflow="auto"
+          ref={wizardRef}
         >
           <Box width="medium" gap="medium">
-            <Box gap="medium" flex={false}>
-              <Box>
-                <Heading color="text-strong" margin="none">
-                  {steps[activeIndex].title || `Step ${activeStep} Title`}
-                </Heading>
-                <Text
-                  color="text-strong"
-                  size="small"
-                >{`Step ${activeStep} of ${steps.length}`}</Text>
-              </Box>
-              <Text color="text-strong" size="large">
-                {steps[activeIndex].description}
-              </Text>
-            </Box>
+            <StepHeader />
             <Form
+              // needed to associate form submit button with form
+              // since submit button lives outside form tag
+              id="validation-form"
               value={formValues}
               onChange={nextValue => setFormValues(nextValue)}
               onSubmit={({ value }) => console.log(value)}
             >
-              {steps[activeIndex].inputs(
-                activeIndex,
-                setActiveIndex,
-                formValues,
-              )}
+              {steps[activeIndex].inputs}
             </Form>
           </Box>
         </Box>
+        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
-    </>
+    </WizardContext.Provider>
   );
 };
 
-const WizardHeader = ({ activeIndex, activeStep, setActiveIndex, setOpen }) => {
+const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
+  const { activeIndex, activeStep, setActiveIndex } = useContext(WizardContext);
   return (
     <Header
       border={{ side: 'bottom', color: 'border-weak' }}
@@ -306,7 +281,7 @@ const WizardHeader = ({ activeIndex, activeStep, setActiveIndex, setOpen }) => {
       </Box>
       <Box>
         <Text color="text-strong" weight="bold">
-          Action Title
+          Wizard Title
         </Text>
       </Box>
       <Box direction="row" flex justify="end">
@@ -322,13 +297,110 @@ const WizardHeader = ({ activeIndex, activeStep, setActiveIndex, setOpen }) => {
 };
 
 WizardHeader.propTypes = {
-  activeIndex: PropTypes.number.isRequired,
-  activeStep: PropTypes.number.isRequired,
-  setActiveIndex: PropTypes.func.isRequired,
   setOpen: PropTypes.func.isRequired,
 };
 
+const StepHeader = () => {
+  const { activeIndex, activeStep } = useContext(WizardContext);
+  return (
+    <Box id="sticky-header-single-column" gap="medium" flex={false}>
+      <Box>
+        <Text color="text-strong">
+          Step {activeStep} of {steps.length}
+        </Text>
+        <Heading color="text-strong" margin="none">
+          {steps[activeIndex].title || `Step ${activeStep} Title`}
+        </Heading>
+      </Box>
+      <Text color="text-strong" size="large">
+        {steps[activeIndex].description}
+      </Text>
+    </Box>
+  );
+};
+
+const StepFooter = () => {
+  const size = useContext(ResponsiveContext);
+  const {
+    activeIndex,
+    setActiveIndex,
+    formValues,
+    setError,
+    setAttemptedAdvance,
+  } = useContext(WizardContext);
+
+  const buttonProps = {
+    fill: size === 'small' ? 'horizontal' : undefined,
+    icon: <FormNextLink />,
+    primary: true,
+    reverse: true,
+  };
+
+  return (
+    // <Box
+    //   pad={{
+    //     horizontal: size !== 'small' ? 'large' : undefined,
+    //   }}
+    //   flex={false}
+    // >
+    <Footer
+      border={{ side: 'top', color: 'border' }}
+      justify="end"
+      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
+      pad={
+        size !== 'small'
+          ? { vertical: 'medium' }
+          : { vertical: 'small', horizontal: 'medium' }
+      }
+      width="medium"
+      alignSelf="center"
+    >
+      {activeIndex < steps.length - 1 && (
+        <Button
+          {...buttonProps}
+          label="Next"
+          onClick={() => {
+            // mark that the user is trying to advance, so that onChange
+            // validation will run on any errors in the future
+            setAttemptedAdvance(true);
+
+            let nextIndex = activeIndex + 1;
+            nextIndex = nextIndex <= steps.length - 1 ? nextIndex : activeIndex;
+
+            if (validation[activeIndex]) {
+              // check for errors
+              const validationRes =
+                validation[activeIndex].validator &&
+                validation[activeIndex].validator(formValues);
+              // advance to next step if successful
+              if (validationRes && validationRes.isValid)
+                setActiveIndex(nextIndex);
+              // otherwise, display error and wizard will not advance to
+              // next step
+              else {
+                setError(validationRes);
+              }
+            } else {
+              setActiveIndex(nextIndex);
+            }
+          }}
+        />
+      )}
+      {activeIndex === steps.length - 1 && (
+        <Button
+          {...buttonProps}
+          label="Finish Wizard"
+          form="validation-form-two-column"
+          type="submit"
+        />
+      )}
+    </Footer>
+    // </Box>
+  );
+};
+
 const CancellationLayer = ({ onSetOpen }) => {
+  const { setFormValues } = useContext(WizardContext);
   return (
     <Layer
       position="center"
@@ -340,7 +412,7 @@ const CancellationLayer = ({ onSetOpen }) => {
           <Heading color="text-strong" margin="none">
             Cancel
           </Heading>
-          <Text color="text-strong">Action Title</Text>
+          <Text color="text-strong">Wizard Title</Text>
         </Box>
         <Text color="text-strong">
           Cancelling setup will lose all of your progress. Are you sure you want
@@ -355,13 +427,16 @@ const CancellationLayer = ({ onSetOpen }) => {
           pad={{ top: 'medium', bottom: 'small' }}
         >
           <Button
-            label="No, continue setup"
+            label="No, continue wizarding"
             onClick={() => onSetOpen(false)}
             secondary
           />
           <Button
-            label="Yes, cancel setup"
-            onClick={() => onSetOpen(false)}
+            label="Yes, cancel wizarding"
+            onClick={() => {
+              onSetOpen(false);
+              setFormValues(defaultFormValues);
+            }}
             primary
           />
         </Box>
@@ -394,5 +469,5 @@ const Error = ({ children, ...rest }) => {
 };
 
 Error.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.string,
 };
