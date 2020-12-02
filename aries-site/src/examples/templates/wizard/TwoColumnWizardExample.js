@@ -247,6 +247,7 @@ export const TwoColumnWizardExample = () => {
             top: size !== 'small' ? 'large' : 'medium',
             horizontal: size !== 'small' ? 'large' : 'medium',
           }}
+          flex={size === 'small' ? true : undefined}
           overflow="auto"
           ref={wizardRef}
         >
@@ -308,6 +309,7 @@ const WizardHeader = ({ setOpen }) => {
       pad="small"
       fill="horizontal"
       justify="center"
+      responsive={false}
     >
       <Box direction="row" flex>
         {activeStep > 1 && (
@@ -435,6 +437,7 @@ const StepFooter = () => {
         }
         alignSelf="center"
         width={activeIndex === steps.length - 1 ? 'medium' : 'large'}
+        responsive={false}
       >
         {activeIndex < steps.length - 1 && (
           <Button

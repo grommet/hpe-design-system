@@ -238,6 +238,7 @@ export const WizardValidationExample = () => {
           pad={size !== 'small' ? 'large' : 'medium'}
           overflow="auto"
           ref={wizardRef}
+          flex={size === 'small' ? true : undefined}
         >
           <Box width="medium" gap="medium">
             <StepHeader />
@@ -269,6 +270,7 @@ const WizardHeader = ({ setOpen }) => {
       pad="small"
       fill="horizontal"
       justify="center"
+      responsive={false}
     >
       <Box direction="row" flex>
         {activeStep > 1 && (
@@ -337,12 +339,6 @@ const StepFooter = () => {
   };
 
   return (
-    // <Box
-    //   pad={{
-    //     horizontal: size !== 'small' ? 'large' : undefined,
-    //   }}
-    //   flex={false}
-    // >
     <Footer
       border={{ side: 'top', color: 'border' }}
       justify="end"
@@ -354,6 +350,7 @@ const StepFooter = () => {
       }
       width="medium"
       alignSelf="center"
+      responsive={false}
     >
       {activeIndex < steps.length - 1 && (
         <Button
@@ -395,7 +392,6 @@ const StepFooter = () => {
         />
       )}
     </Footer>
-    // </Box>
   );
 };
 
