@@ -235,28 +235,31 @@ export const WizardValidationExample = () => {
     >
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <WizardHeader setOpen={setOpen} />
-        <Box
-          align="center"
-          pad={size !== 'small' ? 'large' : 'medium'}
-          overflow="auto"
-          ref={wizardRef}
-          flex={size === 'small' ? true : undefined}
-        >
-          <Box width="medium" gap="medium">
-            <StepHeader />
-            <Form
-              // needed to associate form submit button with form
-              // since submit button lives outside form tag
-              id="validation-form"
-              value={formValues}
-              onChange={nextValue => setFormValues(nextValue)}
-              onSubmit={({ value }) => console.log(value)}
-            >
-              {steps[activeIndex].inputs}
-            </Form>
+        <Box align="center">
+          <Box
+            align="center"
+            pad={size !== 'small' ? { vertical: 'large' } : 'medium'}
+            overflow="auto"
+            ref={wizardRef}
+            flex={size === 'small' ? true : undefined}
+            width="medium"
+          >
+            <Box width="medium" gap="medium">
+              <StepHeader />
+              <Form
+                // needed to associate form submit button with form
+                // since submit button lives outside form tag
+                id="validation-form"
+                value={formValues}
+                onChange={nextValue => setFormValues(nextValue)}
+                onSubmit={({ value }) => console.log(value)}
+              >
+                {steps[activeIndex].inputs}
+              </Form>
+            </Box>
           </Box>
+          <StepFooter background="blue" />
         </Box>
-        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>

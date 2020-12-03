@@ -243,58 +243,63 @@ export const TwoColumnWizardExample = () => {
     >
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <WizardHeader setOpen={setOpen} />
-        <Box
-          align="center"
-          pad={{
-            top: size !== 'small' ? 'large' : 'medium',
-            horizontal: size !== 'small' ? 'large' : 'medium',
-          }}
-          flex={size === 'small' ? true : undefined}
-          overflow="auto"
-          ref={wizardRef}
-        >
-          <Box gap="medium">
-            <StepHeader />
-            <Form
-              // needed to associate form submit button with form
-              // since submit button lives outside form tag
-              id="validation-form-two-column"
-              value={formValues}
-              onChange={nextValue => setFormValues(nextValue)}
-              onSubmit={({ value }) => console.log(value)}
-            >
-              <Box
-                direction={size !== 'small' ? 'row' : 'column-reverse'}
-                margin={{ bottom: 'medium' }}
-                width={{ max: 'large' }}
-                justify="between"
-                wrap
+        <Box align="center">
+          <Box
+            align="center"
+            pad={{
+              top: size !== 'small' ? 'large' : 'medium',
+              horizontal: size !== 'small' ? 'large' : 'medium',
+            }}
+            flex={size === 'small' ? true : undefined}
+            overflow="auto"
+            ref={wizardRef}
+            width="large"
+          >
+            <Box gap="medium">
+              <StepHeader />
+              <Form
+                // needed to associate form submit button with form
+                // since submit button lives outside form tag
+                id="validation-form-two-column"
+                value={formValues}
+                onChange={nextValue => setFormValues(nextValue)}
+                onSubmit={({ value }) => console.log(value)}
               >
                 <Box
-                  width={size !== 'small' ? 'medium' : '100%'}
+                  direction={size !== 'small' ? 'row' : 'column-reverse'}
                   margin={{ bottom: 'medium' }}
-                  gap="medium"
-                  flex={false}
+                  width={{ max: 'large' }}
+                  justify="between"
+                  wrap
                 >
-                  {size !== 'small' && (
-                    <Text color="text-strong" size="large">
-                      {steps[activeIndex].description}
-                    </Text>
-                  )}
-                  <>
-                    {steps[activeIndex].inputs}
-                    {!error.isValid && (
-                      <Error>There is an error with one or more inputs.</Error>
+                  <Box
+                    width={size !== 'small' ? 'medium' : '100%'}
+                    margin={{ bottom: 'medium' }}
+                    gap="medium"
+                    flex={false}
+                  >
+                    {size !== 'small' && (
+                      <Text color="text-strong" size="large">
+                        {steps[activeIndex].description}
+                      </Text>
                     )}
-                  </>
+                    <>
+                      {steps[activeIndex].inputs}
+                      {!error.isValid && (
+                        <Error>
+                          There is an error with one or more inputs.
+                        </Error>
+                      )}
+                    </>
+                  </Box>
+                  <Box flex width={{ max: 'xsmall' }} />
+                  {activeIndex !== steps.length - 1 && <Guidance />}
                 </Box>
-                <Box flex width={{ max: 'xsmall' }} />
-                {activeIndex !== steps.length - 1 && <Guidance />}
-              </Box>
-            </Form>
+              </Form>
+            </Box>
           </Box>
+          <StepFooter />
         </Box>
-        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>
