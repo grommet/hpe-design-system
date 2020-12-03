@@ -156,7 +156,7 @@ const StepThree = () => {
         )}
       </List>
       <Text color="text-strong">
-        Include guidance to what will occur when “Finish Wizard is clicked.
+        Include guidance to what will occur when “Finish Wizard" is clicked.
       </Text>
     </Box>
   );
