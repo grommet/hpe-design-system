@@ -147,14 +147,16 @@ const StepThree = () => {
     <Box gap="small" margin={{ bottom: 'medium' }}>
       <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
         {(datum, index) => (
-          <Box key={index} direction="row" gap="medium" align="center">
+          <Box key={index} direction="row" gap="small" align="center">
             <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong">{datum}</Text>
+            <Text color="text-strong" weight={500}>
+              {datum}
+            </Text>
           </Box>
         )}
       </List>
       <Text color="text-strong">
-        Include guidance to what will occur when “Finish Setup” is clicked.
+        Include guidance to what will occur when “Finish Wizard is clicked.
       </Text>
     </Box>
   );
@@ -403,13 +405,13 @@ const CancellationLayer = ({ onSetOpen }) => {
       onClickOutside={() => onSetOpen(false)}
       onEsc={() => onSetOpen(false)}
     >
-      <Box pad="large" gap="small" width="large">
-        <Box>
+      <Box pad="large" gap="medium" width="large">
+        <>
           <Heading color="text-strong" margin="none">
             Cancel
           </Heading>
           <Text color="text-strong">Wizard Title</Text>
-        </Box>
+        </>
         <Text color="text-strong">
           Cancelling setup will lose all of your progress. Are you sure you want
           to exit the setup?
@@ -420,7 +422,6 @@ const CancellationLayer = ({ onSetOpen }) => {
           direction="row"
           align="center"
           justify="end"
-          pad={{ top: 'medium', bottom: 'small' }}
         >
           <Button
             label="No, continue wizarding"
