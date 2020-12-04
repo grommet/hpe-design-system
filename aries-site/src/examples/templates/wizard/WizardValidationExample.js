@@ -164,7 +164,8 @@ const StepThree = () => {
 
 const steps = [
   {
-    description: 'Two column configuration for wizard.',
+    description: `Step one description. Keep each step simple and in chunks 
+    easy enough to fit on a single page.`,
     inputs: <StepOne />,
     title: 'Step 1 Title',
   },
