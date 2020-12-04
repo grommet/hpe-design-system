@@ -248,7 +248,7 @@ export const TwoColumnWizardExample = () => {
             align="center"
             pad={{
               top: size !== 'small' ? 'large' : 'medium',
-              horizontal: size !== 'small' ? 'large' : 'medium',
+              horizontal: size === 'small' ? 'medium' : undefined,
             }}
             flex={size === 'small' ? true : undefined}
             overflow="auto"
@@ -277,6 +277,7 @@ export const TwoColumnWizardExample = () => {
                     margin={{ bottom: 'medium' }}
                     gap="medium"
                     flex={false}
+                    pad="xxsmall"
                   >
                     {size !== 'small' && (
                       <Text color="text-strong" size="large">

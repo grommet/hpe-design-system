@@ -164,13 +164,14 @@ const StepThree = () => {
 
 const steps = [
   {
-    description: `Step one description. Keep each step simple and in chunks 
-    easy enough to fit on a single page.`,
+    description: 'Two column configuration for wizard.',
     inputs: <StepOne />,
+    title: 'Step 1 Title',
   },
   {
     description: 'Step 2 description.',
     inputs: <StepTwo />,
+    title: 'Step 2 Title',
   },
   {
     description: 'Provide a summary of what was accomplished or configured. ',
@@ -244,7 +245,7 @@ export const WizardValidationExample = () => {
             flex={size === 'small' ? true : undefined}
             width="medium"
           >
-            <Box width="medium" gap="medium">
+            <Box width="medium" gap="medium" pad="xxsmall">
               <StepHeader />
               <Form
                 // needed to associate form submit button with form
@@ -280,7 +281,12 @@ const WizardHeader = ({ setOpen }) => {
       <Box direction="row" flex>
         {activeStep > 1 && (
           <Button
-            label={size !== 'small' ? `Step ${activeStep - 1}` : undefined}
+            label={
+              size !== 'small'
+                ? (steps[activeIndex - 1] && steps[activeIndex - 1].title) ||
+                  `Step ${activeStep - 1} Title`
+                : undefined
+            }
             icon={<FormPreviousLink />}
             onClick={() => setActiveIndex(activeIndex - 1)}
           />
