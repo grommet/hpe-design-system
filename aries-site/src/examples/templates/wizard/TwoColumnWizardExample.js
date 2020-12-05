@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
   Button,
   CheckBoxGroup,
+  Footer,
   Form,
   FormField,
   Header,
@@ -19,6 +20,7 @@ import {
 } from 'grommet';
 import {
   Checkmark,
+  CircleAlert,
   ContactInfo,
   FormClose,
   FormNextLink,
@@ -27,36 +29,80 @@ import {
   UserAdd,
 } from 'grommet-icons';
 
-const StepOne = () => (
-  <Box margin={{ bottom: 'large' }}>
-    <FormField
-      label="Text Input"
-      htmlFor="twocolumn-textinput"
-      name="twocolumn-textinput"
-    >
-      <TextInput
-        placeholder="Placeholder text"
-        id="twocolumn-textinput"
-        name="twocolumn-textinput"
-      />
-    </FormField>
-    <FormField
-      help="Click on the ‘eye’ icon for the description text field to hide."
-      htmlFor="twocolumn-radiobuttongroup"
-      label="RadioButtonGroup"
-      name="twocolumn-radiobuttongroup"
-    >
-      <RadioButtonGroup
-        id="twocolumn-radiobuttongroup"
-        name="twocolumn-radiobuttongroup"
-        options={['Radio button 1', 'Radio button 2']}
-      />
-    </FormField>
-  </Box>
-);
+const WizardContext = React.createContext({});
+
+const defaultFormValues = {
+  'twocolumn-textinput': '',
+  'twocolumn-radiobuttongroup': '',
+  'twocolumn-select': '',
+  'twocolumn-checkboxgroup': '',
+  'twocolumn-text-area': '',
+};
+
+const stepOneValidate = values => {
+  const emailRegex = RegExp(
+    '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
+  );
+  const emailValid = emailRegex.test(values['twocolumn-textinput']);
+
+  return {
+    email: emailValid ? '' : 'Invalid email address.',
+    isValid: !!emailValid,
+  };
+};
+
+const validation = [
+  {
+    validator: values => stepOneValidate(values),
+    error: {
+      email: '',
+      radiobuttongroup: '',
+      isValid: true,
+    },
+  },
+];
+
+const StepOne = () => {
+  const { attemptedAdvance, formValues, error, setError } = useContext(
+    WizardContext,
+  );
+  return (
+    <>
+      <Box>
+        <FormField
+          label="Email"
+          htmlFor="twocolumn-textinput"
+          name="twocolumn-textinput"
+          error={error.email}
+          onChange={() =>
+            attemptedAdvance && setError(stepOneValidate(formValues))
+          }
+        >
+          <TextInput
+            placeholder="jane.smith@hpe.com"
+            id="twocolumn-textinput"
+            name="twocolumn-textinput"
+            type="email"
+          />
+        </FormField>
+        <FormField
+          htmlFor="twocolumn-radiobuttongroup"
+          label="RadioButtonGroup"
+          name="twocolumn-radiobuttongroup"
+        >
+          <RadioButtonGroup
+            id="twocolumn-radiobuttongroup"
+            name="twocolumn-radiobuttongroup"
+            options={['Radio button 1', 'Radio button 2']}
+          />
+        </FormField>
+      </Box>
+    </>
+  );
+};
 
 const StepTwo = () => (
-  <Box margin={{ bottom: 'large' }}>
+  <Box>
     <FormField
       label="Select"
       htmlFor="twocolumn-select"
@@ -105,17 +151,19 @@ const data = [
 
 const StepThree = () => {
   return (
-    <Box gap="small" margin={{ bottom: 'large' }}>
+    <Box gap="small">
       <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
         {(datum, index) => (
-          <Box key={index} direction="row" gap="medium" align="center">
+          <Box key={index} direction="row" gap="small" align="center">
             <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong">{datum}</Text>
+            <Text color="text-strong" weight={500}>
+              {datum}
+            </Text>
           </Box>
         )}
       </List>
       <Text color="text-strong">
-        Include guidance to what will occur when “Finish Setup” is clicked.
+        Include guidance to what will occur when “Finish Wizard" is clicked.
       </Text>
     </Box>
   );
@@ -123,10 +171,15 @@ const StepThree = () => {
 
 const steps = [
   {
-    description: 'Two column configuration for wizard. ',
+    description: 'Two column configuration for wizard.',
     inputs: <StepOne />,
+    title: 'Step 1 Title',
   },
-  { description: 'Step 2 description.', inputs: <StepTwo /> },
+  {
+    description: 'Step 2 description.',
+    inputs: <StepTwo />,
+    title: 'Step 2 Title',
+  },
   {
     description: 'Provide a summary of what was accomplished or configured. ',
     inputs: <StepThree />,
@@ -135,167 +188,147 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = () => {
-  const [active, setActive] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
+  // for readability, this is used to display numeric value of step on screen,
+  // such as step 1 of 3. it will always be one more than the active array index
+  const [activeStep, setActiveStep] = useState(activeIndex + 1);
 
   // store form values in state so they persist
   // when user goes back a step
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState(defaultFormValues);
 
+  // controls state of cancel layer
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
+
+  // controls error message for active step
+  const [error, setError] = useState(
+    validation[activeIndex] ? validation[activeIndex].error : undefined,
+  );
+
+  // tracks if user has attempted to advance to next step
+  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
   // when the active step changes.
-  const wizardRef = React.useRef();
+  const wizardRef = useRef();
 
+  useEffect(() => {
+    setActiveStep(activeIndex + 1);
+    setAttemptedAdvance(false);
+  }, [activeIndex]);
+
+  // scroll to top of step when step changes
   React.useEffect(() => {
-    // FOR SCROLL USE IN APPLICATION: Uncomment line below.
-    // wizardRef.current.scrollIntoView();
-
-    // MODIFIED SCROLL FOR USE IN DEMO:
-    // This block is purely to ensure proper scrolling for the inline
-    // site demo. Use line above and remove this block for your app.
-    const layerContainer = document.querySelector('#layer-wrapper');
-    if (layerContainer) {
-      wizardRef.current.scrollIntoView();
-    } else {
-      const container = wizardRef.current.parentNode;
-      container.scrollTop = -container.getBoundingClientRect().top;
-    }
-  }, [active, open]);
+    const container = wizardRef.current;
+    const header = document.querySelector('#sticky-header-two-column');
+    container.scrollTop = -header.getBoundingClientRect().bottom;
+  }, [activeIndex, open]);
 
   return (
-    <>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill ref={wizardRef}>
-        <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
+    <WizardContext.Provider
+      value={{
+        activeIndex,
+        setActiveIndex,
+        activeStep,
+        setActiveStep,
+        attemptedAdvance,
+        setAttemptedAdvance,
+        error,
+        setError,
+        formValues,
+        setFormValues,
+      }}
+    >
+      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+        <WizardHeader setOpen={setOpen} />
         <Box
-          pad={size === 'small' ? 'medium' : 'small'}
-          gap={size !== 'small' ? 'large' : 'medium'}
-          flex={false}
+          align="center"
+          pad={{
+            top: size !== 'small' ? 'large' : 'medium',
+            horizontal: size !== 'small' ? 'large' : 'medium',
+          }}
+          flex={size === 'small' ? true : undefined}
+          overflow="auto"
+          ref={wizardRef}
         >
-          <Box flex={false} gap="medium">
-            <Box align={size !== 'small' ? 'center' : 'start'}>
-              <Heading color="text-strong" margin="none">
-                {steps[active - 1].title || `Step ${active} Title`}
-              </Heading>
-              <Text
-                color="text-strong"
-                size="small"
-              >{`Step ${active} of ${steps.length}`}</Text>
-            </Box>
-
-            {size === 'small' && (
-              <Text color="text-strong" size="large">
-                {steps[active - 1].description}
-              </Text>
-            )}
-          </Box>
-          <Form
-            value={formValues}
-            onChange={setFormValues}
-            onSubmit={({ value }) => console.log(value)}
-          >
-            <Box
-              align="start"
-              direction={size !== 'small' ? 'row' : 'column-reverse'}
-              justify="center"
-              gap={size !== 'small' ? 'xlarge' : 'small'}
+          <Box gap="medium">
+            <StepHeader />
+            <Form
+              // needed to associate form submit button with form
+              // since submit button lives outside form tag
+              id="validation-form-two-column"
+              value={formValues}
+              onChange={nextValue => setFormValues(nextValue)}
+              onSubmit={({ value }) => console.log(value)}
             >
-              <Box width={size !== 'small' ? 'medium' : '100%'} gap="medium">
-                {/* Index an array starts at 0 */}
-                {size !== 'small' && (
-                  <Text color="text-strong" size="large">
-                    {steps[active - 1].description}
-                  </Text>
-                )}
-                {/* Index an array starts at 0 */}
-                {steps[active - 1].inputs}
-              </Box>
               <Box
-                background="background-back"
-                gap="medium"
-                pad="medium"
-                round="small"
-                width={size !== 'small' ? 'medium' : '100%'}
+                direction={size !== 'small' ? 'row' : 'column-reverse'}
+                margin={{ bottom: 'medium' }}
+                width={{ max: 'large' }}
+                justify="between"
+                wrap
               >
-                <Text color="text-strong" size="large">
-                  When guidance is required for the form or content of the
-                  wizard, you might consider a two-column format.
-                </Text>
-                <Box direction="row" gap="small">
-                  <Stakeholder color="text-strong" />
-                  <Text color="text-strong">
-                    Instruction for the first field.
-                  </Text>
+                <Box
+                  width={size !== 'small' ? 'medium' : '100%'}
+                  margin={{ bottom: 'medium' }}
+                  gap="medium"
+                  flex={false}
+                >
+                  {size !== 'small' && (
+                    <Text color="text-strong" size="large">
+                      {steps[activeIndex].description}
+                    </Text>
+                  )}
+                  <>
+                    {steps[activeIndex].inputs}
+                    {!error.isValid && (
+                      <Error>There is an error with one or more inputs.</Error>
+                    )}
+                  </>
                 </Box>
-                <Box direction="row" gap="small">
-                  <ContactInfo color="text-strong" />
-                  <Text color="text-strong">
-                    Instruction for the next field.
-                  </Text>
-                </Box>
-                <Box direction="row" gap="small">
-                  <UserAdd color="text-strong" />
-                  <Text color="text-strong">
-                    Some information that helps to complete the next field.
-                  </Text>
-                </Box>
+                <Box flex width={{ max: 'xsmall' }} />
+                {activeIndex !== steps.length - 1 && <Guidance />}
               </Box>
-            </Box>
-            <Box align="center" fill="horizontal">
-              <Box width="medium">
-                {active < steps.length && (
-                  <Button
-                    fill="horizontal"
-                    label="Next"
-                    icon={<FormNextLink />}
-                    primary
-                    reverse
-                    onClick={() => {
-                      setActive(active + 1);
-                    }}
-                  />
-                )}
-                {active === steps.length && (
-                  <Button
-                    fill="horizontal"
-                    label="Finish Setup"
-                    primary
-                    type="submit"
-                  />
-                )}
-              </Box>
-            </Box>
-          </Form>
+            </Form>
+          </Box>
         </Box>
+        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
-    </>
+    </WizardContext.Provider>
   );
 };
 
-const WizardHeader = ({ active, setActive, setOpen }) => {
+const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
+  const { activeIndex, activeStep, setActiveIndex } = useContext(WizardContext);
   return (
     <Header
       border={{ side: 'bottom', color: 'border-weak' }}
       pad="small"
       fill="horizontal"
       justify="center"
+      responsive={false}
     >
       <Box direction="row" flex>
-        {active > 1 && (
+        {activeStep > 1 && (
           <Button
-            label={size !== 'small' ? `Step ${active - 1}` : undefined}
+            label={
+              size !== 'small'
+                ? (steps[activeIndex - 1] && steps[activeIndex - 1].title) ||
+                  `Step ${activeStep - 1} Title`
+                : undefined
+            }
             icon={<FormPreviousLink />}
-            onClick={() => setActive(active - 1)}
+            onClick={() => setActiveIndex(activeIndex - 1)}
           />
         )}
       </Box>
       <Box>
         <Text color="text-strong" weight="bold">
-          Action Title
+          Wizard Title
         </Text>
       </Box>
       <Box direction="row" flex justify="end">
@@ -311,48 +344,181 @@ const WizardHeader = ({ active, setActive, setOpen }) => {
 };
 
 WizardHeader.propTypes = {
-  active: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired,
   setOpen: PropTypes.func.isRequired,
 };
 
+const Guidance = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box
+      alignSelf="start"
+      background="background-contrast"
+      gap="medium"
+      pad="medium"
+      round="small"
+      flex
+      width={size !== 'small' ? { min: 'small' } : '100%'}
+    >
+      <Text color="text-strong" size="large">
+        When guidance is required for the form or content of the wizard, you
+        might consider a two-column format.
+      </Text>
+      <Box direction="row" gap="small">
+        <Stakeholder color="text-strong" />
+        <Text color="text-strong">Instruction for the first field.</Text>
+      </Box>
+      <Box direction="row" gap="small">
+        <ContactInfo color="text-strong" />
+        <Text color="text-strong">Instruction for the next field.</Text>
+      </Box>
+      <Box direction="row" gap="small">
+        <UserAdd color="text-strong" />
+        <Text color="text-strong">
+          Some information that helps to complete the next field.
+        </Text>
+      </Box>
+    </Box>
+  );
+};
+
+const StepHeader = () => {
+  const { activeIndex, activeStep } = useContext(WizardContext);
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box id="sticky-header-two-column" gap="medium" flex={false}>
+      <Box>
+        <Text color="text-strong">
+          Step {activeStep} of {steps.length}
+        </Text>
+        <Heading color="text-strong" margin="none">
+          {steps[activeIndex].title || `Step ${activeStep} Title`}
+        </Heading>
+      </Box>
+      {size === 'small' && (
+        <Text color="text-strong" size="large">
+          {steps[activeIndex].description}
+        </Text>
+      )}
+    </Box>
+  );
+};
+
+const StepFooter = () => {
+  const size = useContext(ResponsiveContext);
+  const {
+    activeIndex,
+    setActiveIndex,
+    formValues,
+    setError,
+    setAttemptedAdvance,
+  } = useContext(WizardContext);
+
+  const buttonProps = {
+    fill: size === 'small' ? 'horizontal' : undefined,
+    icon: <FormNextLink />,
+    primary: true,
+    reverse: true,
+  };
+
+  return (
+    <Box
+      pad={{
+        horizontal: size !== 'small' ? 'large' : undefined,
+      }}
+      flex={false}
+    >
+      <Footer
+        border={{ side: 'top', color: 'border' }}
+        justify="end"
+        margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
+        pad={
+          size !== 'small'
+            ? { vertical: 'medium' }
+            : { vertical: 'small', horizontal: 'medium' }
+        }
+        alignSelf="center"
+        width={activeIndex === steps.length - 1 ? 'medium' : 'large'}
+        responsive={false}
+      >
+        {activeIndex < steps.length - 1 && (
+          <Button
+            {...buttonProps}
+            label="Next"
+            onClick={() => {
+              // mark that the user is trying to advance, so that onChange
+              // validation will run on any errors in the future
+              setAttemptedAdvance(true);
+
+              let nextIndex = activeIndex + 1;
+              nextIndex =
+                nextIndex <= steps.length - 1 ? nextIndex : activeIndex;
+
+              if (validation[activeIndex]) {
+                // check for errors
+                const validationRes =
+                  validation[activeIndex].validator &&
+                  validation[activeIndex].validator(formValues);
+                // advance to next step if successful
+                if (validationRes && validationRes.isValid)
+                  setActiveIndex(nextIndex);
+                // otherwise, display error and wizard will not advance to
+                // next step
+                else {
+                  setError(validationRes);
+                }
+              } else {
+                setActiveIndex(nextIndex);
+              }
+            }}
+          />
+        )}
+        {activeIndex === steps.length - 1 && (
+          <Button
+            {...buttonProps}
+            label="Finish Wizard"
+            form="validation-form-two-column"
+            type="submit"
+          />
+        )}
+      </Footer>
+    </Box>
+  );
+};
+
 const CancellationLayer = ({ onSetOpen }) => {
+  const { setFormValues } = useContext(WizardContext);
   return (
     <Layer
       position="center"
       onClickOutside={() => onSetOpen(false)}
       onEsc={() => onSetOpen(false)}
     >
-      <Box pad="large" gap="small" width="large">
-        <Box>
+      <Box pad="large" gap="medium" width="large">
+        <>
           <Heading color="text-strong" margin="none">
             Cancel
           </Heading>
-          <Text color="text-strong">Action Title</Text>
-        </Box>
+          <Text color="text-strong">Wizard Title</Text>
+        </>
         <Text color="text-strong">
           Cancelling setup will lose all of your progress. Are you sure you want
           to exit the setup?
         </Text>
-        <Box
-          as="footer"
-          gap="small"
-          direction="row"
-          align="center"
-          justify="end"
-          pad={{ top: 'medium', bottom: 'small' }}
-        >
+        <Footer gap="small" align="center" justify="end">
           <Button
-            label="No, continue setup"
+            label="No, continue wizarding"
             onClick={() => onSetOpen(false)}
             secondary
           />
           <Button
-            label="Yes, cancel setup"
-            onClick={() => onSetOpen(false)}
+            label="Yes, cancel wizarding"
+            onClick={() => {
+              onSetOpen(false);
+              setFormValues(defaultFormValues);
+            }}
             primary
           />
-        </Box>
+        </Footer>
       </Box>
     </Layer>
   );
@@ -360,4 +526,27 @@ const CancellationLayer = ({ onSetOpen }) => {
 
 CancellationLayer.propTypes = {
   onSetOpen: PropTypes.func.isRequired,
+};
+
+const Error = ({ children, ...rest }) => {
+  return (
+    <Box
+      animation="fadeIn"
+      background="validation-critical"
+      margin={{ top: 'small' }}
+      pad="small"
+      round="4px"
+    >
+      <Box direction="row" gap="xsmall" {...rest}>
+        <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
+          <CircleAlert size="small" />
+        </Box>
+        <Text size="xsmall">{children}</Text>
+      </Box>
+    </Box>
+  );
+};
+
+Error.propTypes = {
+  children: PropTypes.string,
 };
