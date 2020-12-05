@@ -237,31 +237,28 @@ export const WizardValidationExample = () => {
     >
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <WizardHeader setOpen={setOpen} />
-        <Box align="center">
-          <Box
-            align="center"
-            pad={size !== 'small' ? { vertical: 'large' } : 'medium'}
-            overflow="auto"
-            ref={wizardRef}
-            flex={size === 'small' ? true : undefined}
-            width="medium"
-          >
-            <Box width="medium" gap="medium" pad="xxsmall">
-              <StepHeader />
-              <Form
-                // needed to associate form submit button with form
-                // since submit button lives outside form tag
-                id="validation-form"
-                value={formValues}
-                onChange={nextValue => setFormValues(nextValue)}
-                onSubmit={({ value }) => console.log(value)}
-              >
-                {steps[activeIndex].inputs}
-              </Form>
-            </Box>
+        <Box
+          align="center"
+          pad={size !== 'small' ? { vertical: 'large' } : 'medium'}
+          overflow="auto"
+          ref={wizardRef}
+          flex={size === 'small' ? true : undefined}
+        >
+          <Box width="medium" gap="medium">
+            <StepHeader />
+            <Form
+              // needed to associate form submit button with form
+              // since submit button lives outside form tag
+              id="validation-form"
+              value={formValues}
+              onChange={nextValue => setFormValues(nextValue)}
+              onSubmit={({ value }) => console.log(value)}
+            >
+              {steps[activeIndex].inputs}
+            </Form>
           </Box>
-          <StepFooter background="blue" />
         </Box>
+        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>
@@ -354,7 +351,6 @@ const StepFooter = () => {
     <Footer
       border={{ side: 'top', color: 'border' }}
       justify="end"
-      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
       pad={
         size !== 'small'
           ? { vertical: 'medium' }
@@ -362,7 +358,6 @@ const StepFooter = () => {
       }
       width="medium"
       alignSelf="center"
-      responsive={false}
     >
       {activeIndex < steps.length - 1 && (
         <Button

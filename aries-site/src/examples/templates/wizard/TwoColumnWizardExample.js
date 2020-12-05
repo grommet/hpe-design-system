@@ -243,64 +243,58 @@ export const TwoColumnWizardExample = () => {
     >
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <WizardHeader setOpen={setOpen} />
-        <Box align="center">
-          <Box
-            align="center"
-            pad={{
-              top: size !== 'small' ? 'large' : 'medium',
-              horizontal: size === 'small' ? 'medium' : undefined,
-            }}
-            flex={size === 'small' ? true : undefined}
-            overflow="auto"
-            ref={wizardRef}
-            width="large"
-          >
-            <Box gap="medium">
-              <StepHeader />
-              <Form
-                // needed to associate form submit button with form
-                // since submit button lives outside form tag
-                id="validation-form-two-column"
-                value={formValues}
-                onChange={nextValue => setFormValues(nextValue)}
-                onSubmit={({ value }) => console.log(value)}
+        <Box
+          align="center"
+          pad={{
+            top: size !== 'small' ? 'large' : 'medium',
+            horizontal: size !== 'small' ? 'large' : 'medium',
+          }}
+          flex={size === 'small' ? true : undefined}
+          overflow="auto"
+          ref={wizardRef}
+        >
+          <Box gap="medium">
+            <StepHeader />
+            <Form
+              // needed to associate form submit button with form
+              // since submit button lives outside form tag
+              id="validation-form-two-column"
+              value={formValues}
+              onChange={nextValue => setFormValues(nextValue)}
+              onSubmit={({ value }) => console.log(value)}
+            >
+              <Box
+                direction={size !== 'small' ? 'row' : 'column-reverse'}
+                margin={{ bottom: 'medium' }}
+                width={{ max: 'large' }}
+                justify="between"
+                wrap
               >
                 <Box
-                  direction={size !== 'small' ? 'row' : 'column-reverse'}
+                  width={size !== 'small' ? 'medium' : '100%'}
                   margin={{ bottom: 'medium' }}
-                  width={{ max: 'large' }}
-                  justify="between"
-                  wrap
+                  gap="medium"
+                  flex={false}
                 >
-                  <Box
-                    width={size !== 'small' ? 'medium' : '100%'}
-                    margin={{ bottom: 'medium' }}
-                    gap="medium"
-                    flex={false}
-                    pad="xxsmall"
-                  >
-                    {size !== 'small' && (
-                      <Text color="text-strong" size="large">
-                        {steps[activeIndex].description}
-                      </Text>
+                  {size !== 'small' && (
+                    <Text color="text-strong" size="large">
+                      {steps[activeIndex].description}
+                    </Text>
+                  )}
+                  <>
+                    {steps[activeIndex].inputs}
+                    {!error.isValid && (
+                      <Error>There is an error with one or more inputs.</Error>
                     )}
-                    <>
-                      {steps[activeIndex].inputs}
-                      {!error.isValid && (
-                        <Error>
-                          There is an error with one or more inputs.
-                        </Error>
-                      )}
-                    </>
-                  </Box>
-                  <Box flex width={{ max: 'xsmall' }} />
-                  {activeIndex !== steps.length - 1 && <Guidance />}
+                  </>
                 </Box>
-              </Form>
-            </Box>
+                <Box flex width={{ max: 'xsmall' }} />
+                {activeIndex !== steps.length - 1 && <Guidance />}
+              </Box>
+            </Form>
           </Box>
-          <StepFooter />
         </Box>
+        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>
