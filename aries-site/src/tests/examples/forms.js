@@ -15,5 +15,7 @@ test('should render inputs and default values properly', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
-  await eyes.checkWindow().close().waitForResults();
+  await eyes.checkWindow();
+  await eyes.close();
+  await eyes.waitForResults();
 });
