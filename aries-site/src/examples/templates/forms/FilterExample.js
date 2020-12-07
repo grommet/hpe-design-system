@@ -33,10 +33,8 @@ export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
     keyword: '',
     locationType: 'All Locations',
-    'Rack Servers': true,
-    'Tower Servers': true,
-    Amazon: true,
-    Insight: true,
+    'server-types': ['Rack Servers', 'Tower Servers'],
+    sellers: ['Amazon', 'Insight'],
   });
 
   const applyFilters = () => {
@@ -85,13 +83,21 @@ export const FilterExample = () => {
             />
           </FormField>
           {serverTypes && (
-            <FormField label="HPE Server Types" htmlFor="server-types">
-              <CheckBoxGroup options={serverTypes} id="server-types" />
+            <FormField
+              label="HPE Server Types"
+              htmlFor="server-types"
+              name="server-types"
+            >
+              <CheckBoxGroup
+                options={serverTypes}
+                id="server-types"
+                name="server-types"
+              />
             </FormField>
           )}
           {sellers && (
-            <FormField label="Seller" htmlFor="sellers">
-              <CheckBoxGroup options={sellers} id="sellers" />
+            <FormField label="Seller" htmlFor="sellers" name="sellers">
+              <CheckBoxGroup options={sellers} id="sellers" name="sellers" />
             </FormField>
           )}
         </Form>
