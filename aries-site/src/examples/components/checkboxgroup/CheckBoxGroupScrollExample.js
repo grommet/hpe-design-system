@@ -10,7 +10,7 @@ export const CheckBoxGroupScrollExample = () => {
         label="Label"
         htmlFor="scroll-checkbox"
       >
-        <Box width="medium" overflow="scroll" height="small">
+        <Box width="medium" overflow="auto" height="small">
           <CheckBoxGroup
             name="scroll-checkbox"
             id="scroll-checkbox"
