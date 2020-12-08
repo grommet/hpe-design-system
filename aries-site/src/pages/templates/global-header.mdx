@@ -1,0 +1,71 @@
+import {
+  AppIdentityExample,
+  GlobalHeaderExample,
+  HeaderNavItems,
+  SidebarLayer,
+} from '../../examples';
+import { Example } from '../../layouts';
+import { Box } from 'grommet';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/components/GlobalHeaderExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/components/AppIdentity.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/components/HeaderNav.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/components/SidebarLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/extend/global-header/components"
+  screenContainer
+  width="100%"
+>
+  <GlobalHeaderExample />
+</Example>
+
+## Guidelines
+
+The Global Header is a standardized header to be used across applications.
+
+## What makes up the Global Header?
+
+### Menu + App Identity
+
+The Menu and App Identity are interactive elements whose presence and look are dependent on if the user is logged in. Follow the guidance below.
+
+**If user is logged in:**
+
+- Menu button is present and opens a Sidebar Layer containing additional navigation options. This Layer should have modal={false} applied to ensure users can continue to interact with the underlying page content.
+- App Identity has a text value of either "HPE Service Name" or "Aruba Service Name".
+- HPE/Aruba has weight="bold" and Service Name has default weight. When clicked, this should route to the home page of the application.
+
+**If user is not logged in:**
+
+- Menu button is not present since in-app navigation is not an option.
+- App Identity has text value of "Hewlett Packward Enterprise" with weight="bold". When clicked, this should route to [https://www.hpe.com](https://www.hpe.com).
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js"
+  horizontalLayout
+  height="none"
+  width={{ min: 'medium' }}
+>
+  <AppIdentityExample />
+</Example>
+
+### Header Nav
+
+The header navigation items should only be present if a user is logged in. The content of this section is flexible but should follow the guidelines established by [Header](/components/header).
+
+The **Avatar button** opens additional options regarding the active account.
+
+- If a user has a profile picture, this should appear in the avatar. Otherwise, their first and last initials should appear.
+- On click, a drop should open containing the user's name and email. The footer of the drop contains a "My Profile" button which routes to the user's profile page and a "Sign Out" button which signs the user out and routes back to the Sign In page.
+
+On mobile, the Avatar should remain in the header, but the remaining nav items should be moved into the sidebar menu.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/HeaderNav.js"
+  horizontalLayout
+  height="none"
+>
+  <HeaderNavItems />
+</Example>
