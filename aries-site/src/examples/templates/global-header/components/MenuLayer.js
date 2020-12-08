@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import { Aruba, FormClose, Menu } from 'grommet-icons';
 
-export const SidebarLayer = () => {
+export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
   const [showLayer, setShowLayer] = useState(false);
 

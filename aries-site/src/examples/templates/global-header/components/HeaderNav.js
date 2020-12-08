@@ -25,7 +25,7 @@ export const HeaderNav = () => {
         </>
       )}
       <DropButton
-        dropContent={<AvatarDropContent />}
+        dropContent={<UserDetails />}
         dropProps={{ align: { top: 'bottom', right: 'right' } }}
         open={open}
         onOpen={() => setOpen(true)}
@@ -45,7 +45,7 @@ export const HeaderNav = () => {
   ) : null;
 };
 
-const AvatarDropContent = () => {
+const UserDetails = () => {
   const { user, setUser } = useContext(UserContext);
   return (
     <Box width="medium">
