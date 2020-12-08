@@ -1,13 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { AppIdentity, HeaderNav, UserContext } from '.';
-
-const defaultUser = {
-  firstName: 'John',
-  lastName: 'Doe',
-  email: 'john.doe@hpe.com',
-  image: '//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80',
-};
+import { AppIdentity, defaultUser, HeaderNav, UserContext } from '.';
 
 export const GlobalHeaderExample = () => {
   const [user, setUser] = useState(defaultUser);

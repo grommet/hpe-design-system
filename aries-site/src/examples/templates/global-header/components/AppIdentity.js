@@ -2,7 +2,7 @@ import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, ResponsiveContext, Text } from 'grommet';
 import { Aruba, Hpe } from 'grommet-icons';
-import { UserContext, SidebarLayer } from '.';
+import { UserContext, MenuLayer } from '.';
 
 const brands = {
   hpe: {
@@ -26,7 +26,8 @@ export const AppIdentity = forwardRef(
         direction="row"
         gap={size !== 'small' ? 'medium' : 'small'}
       >
-        {user && <SidebarLayer />}
+        {/* menu is only available when user is logged in */}
+        {user && <MenuLayer />}
         <Button href={href} ref={ref} {...rest} plain>
           <Box
             direction="row"
@@ -37,10 +38,14 @@ export const AppIdentity = forwardRef(
             pad={{ vertical: 'small' }}
             responsive={false}
           >
+            {/* If user is logged in, show the application specific logo.
+            This will be either HPE or Aruba. If user is logged out,
+            show HPE logo */}
             {brand && user ? brands[brand].logo : brands.hpe.logo}
             {!logoOnly && (
               <Box direction="row" gap="xsmall" wrap>
                 {user ? (
+                  // user is signed in, display service name
                   <Box direction="row" gap="xsmall">
                     <Text weight="bold" color="text-strong">
                       {brands[brand].name}
@@ -48,6 +53,7 @@ export const AppIdentity = forwardRef(
                     <Text color="text-strong">{title}</Text>
                   </Box>
                 ) : (
+                  // user is not signed in
                   <Text color="text-strong" weight="bold">
                     Hewlett Packard Enterprise
                   </Text>

@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Box, CheckBox, Button, Text } from 'grommet';
-import { HeaderNav, UserContext } from '.';
-
-const defaultUser = {
-  firstName: 'John',
-  lastName: 'Doe',
-  email: 'john.doe@hpe.com',
-  image: '//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80',
-};
+import { HeaderNav, defaultUser, UserContext } from '.';
 
 export const HeaderNavItems = () => {
   const [user, setUser] = useState(defaultUser);
-  const [checked, setChecked] = useState(true);
+  const [showProfilePicture, setShowProfilePicture] = useState(true);
 
   useEffect(() => {
-    if (user && user.image) setChecked(true);
+    if (user && user.image) setShowProfilePicture(true);
   }, [user]);
 
   const onToggle = () => {
     if (user) {
-      if (checked) setUser({ ...user, image: '' });
+      if (showProfilePicture) setUser({ ...user, image: '' });
       else setUser(defaultUser);
     }
-    setChecked(!checked);
+    setShowProfilePicture(!showProfilePicture);
   };
 
   return (
@@ -42,7 +35,7 @@ export const HeaderNavItems = () => {
         <CheckBox
           label="Profile Picture"
           toggle
-          checked={checked}
+          checked={showProfilePicture}
           onClick={onToggle}
         />
       </Box>
