@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import { Box, Text, ThemeContext } from 'grommet';
+import { Box, Button, Text, ThemeContext } from 'grommet';
+import { Github } from 'grommet-icons';
 import {
   CardGrid,
   CollapsibleSection,
@@ -13,9 +14,15 @@ import { syntax } from '.';
 const getRelatedCards = names =>
   names.sort().map(pattern => getPageDetails(pattern));
 
+const getFileName = file => {
+  const adjustedFileName = file.split('/');
+  return adjustedFileName[adjustedFileName.length - 1];
+};
+
 export const ExampleResources = ({
   code,
   details,
+  github,
   horizontalLayout,
   relevantComponents,
   ...rest
@@ -25,16 +32,29 @@ export const ExampleResources = ({
   const [codeOpen, setCodeOpen] = React.useState(
     horizontalLayout ? true : undefined,
   );
+  const [activeCode, setActiveCode] = React.useState(
+    Array.isArray(code) ? code[0] : code,
+  );
   const [codeText, setCodeText] = React.useState();
   const [Syntax, setSyntax] = React.useState(syntax.dark);
   const codeRef = React.useRef();
 
+  const fetchCode = file => {
+    setCodeText('loading');
+    fetch(file)
+      .then(response => response.text())
+      .then(text => setCodeText(text));
+  };
+
   React.useEffect(() => {
-    if (codeOpen && !codeText) {
-      setCodeText('loading');
-      fetch(code)
-        .then(response => response.text())
-        .then(text => setCodeText(text));
+    if (codeOpen) {
+      fetchCode(activeCode);
+    }
+  }, [activeCode, codeOpen]);
+
+  React.useEffect(() => {
+    if (codeOpen && !codeText && activeCode) {
+      fetchCode(activeCode);
     } else if (codeOpen && codeText) {
       // https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/
       // setTimeout runs this after the DOM has updated which ensures
@@ -43,7 +63,7 @@ export const ExampleResources = ({
         Prism.highlightElement(codeRef.current);
       }, 0);
     }
-  }, [code, codeText, codeOpen, Syntax]);
+  }, [activeCode, codeText, codeOpen, Syntax]);
 
   // Set the Syntax component after highlightElement. This will cause
   // highlightElement to be re-run when Sytanx changes. This is needed
@@ -90,6 +110,26 @@ export const ExampleResources = ({
           label={{ closed: 'Show Code', open: 'Hide Code' }}
           onClick={() => setCodeOpen(!codeOpen)}
         >
+          {Array.isArray(code) && (
+            <Box direction="row" gap="small" flex={false} wrap>
+              {code.map((file, index) => (
+                <Button
+                  active={activeCode === file}
+                  key={index}
+                  label={getFileName(file)}
+                  onClick={() => setActiveCode(file)}
+                />
+              ))}
+              {github && (
+                <Button
+                  label="View in Github"
+                  icon={<Github />}
+                  href={github}
+                  target="_blank"
+                />
+              )}
+            </Box>
+          )}
           <Text size="xsmall" color="text">
             <Syntax>
               <code ref={codeRef} className="language-jsx">
@@ -114,10 +154,14 @@ export const ExampleResources = ({
 };
 
 ExampleResources.propTypes = {
-  code: PropTypes.string,
+  code: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   details: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   ),
   horizontalLayout: PropTypes.bool,
+  github: PropTypes.string,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
 };

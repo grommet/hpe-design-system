@@ -255,4 +255,24 @@ export const templates = [
     sections: [],
     relatedContent: ['Table', 'Lists', 'Card'],
   },
+  {
+    name: 'Global Header',
+    available: false,
+    description: `A standardized header for use when building applications and 
+    services that live in the HPE ecosystem.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Design System Global Header',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `A standardized header for use when building applications 
+    and services that live in the HPE ecosystem.`,
+    sections: [],
+    relatedContent: ['Page Layouts', 'Header', 'Navigation'],
+  },
 ];
