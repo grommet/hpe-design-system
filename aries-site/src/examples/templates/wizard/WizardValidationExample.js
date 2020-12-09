@@ -155,7 +155,7 @@ const StepThree = () => {
           </Box>
         )}
       </List>
-      <Text color="text-strong">
+      <Text>
         Include guidance to what will occur when “Finish Wizard" is clicked.
       </Text>
     </Box>
@@ -316,16 +316,14 @@ const StepHeader = () => {
   return (
     <Box id="sticky-header-single-column" gap="medium" flex={false}>
       <Box>
-        <Text color="text-strong">
+        <Text>
           Step {activeStep} of {steps.length}
         </Text>
         <Heading color="text-strong" margin="none">
           {steps[activeIndex].title || `Step ${activeStep} Title`}
         </Heading>
       </Box>
-      <Text color="text-strong" size="large">
-        {steps[activeIndex].description}
-      </Text>
+      <Text size="large">{steps[activeIndex].description}</Text>
     </Box>
   );
 };
@@ -417,7 +415,7 @@ const CancellationLayer = ({ onSetOpen }) => {
           </Heading>
           <Text color="text-strong">Wizard Title</Text>
         </>
-        <Text color="text-strong">
+        <Text>
           Cancelling setup will lose all of your progress. Are you sure you want
           to exit the setup?
         </Text>
