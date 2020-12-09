@@ -502,12 +502,12 @@ const CancellationLayer = ({ onSetOpen }) => {
         </Text>
         <Footer gap="small" align="center" justify="end">
           <Button
-            label="No, continue wizarding"
+            label="No, Continue Wizarding"
             onClick={() => onSetOpen(false)}
             secondary
           />
           <Button
-            label="Yes, cancel wizarding"
+            label="Yes, Cancel Wizarding"
             onClick={() => {
               onSetOpen(false);
               setFormValues(defaultFormValues);
