@@ -130,13 +130,15 @@ export const ExampleResources = ({
               )}
             </Box>
           )}
-          <Text size="xsmall" color="text">
-            <Syntax>
-              <code ref={codeRef} className="language-jsx">
-                {codeText}
-              </code>
-            </Syntax>
-          </Text>
+          <Box overflow="auto">
+            <Text size="xsmall" color="text">
+              <Syntax>
+                <code ref={codeRef} className="language-jsx">
+                  {codeText}
+                </code>
+              </Syntax>
+            </Text>
+          </Box>
         </CollapsibleSection>
       )}
       {relevantComponents && (
