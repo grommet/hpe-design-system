@@ -11,7 +11,7 @@ export const ResponsiveContainer = ({ background, screen, ...rest }) => {
     <Box
       background={background}
       align="center"
-      pad={screen === screens.mobile && 'small'}
+      pad={screen === screens.mobile ? 'small' : undefined}
       fill
     >
       <Box
