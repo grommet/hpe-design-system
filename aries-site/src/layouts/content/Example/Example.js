@@ -161,7 +161,7 @@ export const Example = ({
           }}
         >
           <Layer full animation="fadeIn">
-            <Box fill background="background-front">
+            <Box fill background="background">
               <Box
                 direction="row"
                 justify={
@@ -252,7 +252,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
-  showResponsiveControls: PropTypes.bool,
+  showResponsiveControls: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.bool,
+  ]),
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
