@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { AppIdentity, defaultUser, HeaderNav, UserContext } from '.';
+import { Box, Button, Text } from 'grommet';
+import { defaultUser, GlobalHeader, UserContext } from '.';
 
 export const GlobalHeaderExample = () => {
   const [user, setUser] = useState(defaultUser);
@@ -12,28 +12,6 @@ export const GlobalHeaderExample = () => {
         <DemoPageContent />
       </Box>
     </UserContext.Provider>
-  );
-};
-
-const GlobalHeader = () => {
-  const size = useContext(ResponsiveContext);
-  const { user } = useContext(UserContext);
-  return (
-    <>
-      <Header
-        align="center"
-        background="background"
-        justify="between"
-        fill="horizontal"
-        pad={{
-          horizontal: size !== 'small' ? 'medium' : 'small',
-          vertical: 'small',
-        }}
-      >
-        <AppIdentity title="Service Name" brand="hpe" />
-        {user && <HeaderNav />}
-      </Header>
-    </>
   );
 };
 

@@ -58,6 +58,9 @@ Container.propTypes = {
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,
   screenContainer: PropTypes.bool,
-  showResponsiveControls: PropTypes.bool,
+  showResponsiveControls: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.bool,
+  ]),
   template: PropTypes.bool,
 };
