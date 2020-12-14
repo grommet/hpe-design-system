@@ -47,6 +47,7 @@ export const Footer = () => {
               <Button
                 label={item.name}
                 active={router.pathname === item.href}
+                href={item.href}
                 target="_blank"
                 rel="noreferrer noopener"
               />
