@@ -11,7 +11,7 @@ import { getPageDetails, formatName } from '../../utils';
 export const TEXT_SIZE = {
   1: 'large', // heading is h1, parapgraph text should be large
   2: 'large', // heading is h2, paragraph text should be large
-  3: 'medium', // heading is h3, paragraph text should be medium (default size)
+  3: 'large', // heading is h3, paragraph text should be medium (default size)
 };
 
 // Specific Heading size modifications for Subsection
@@ -77,41 +77,38 @@ export const Subsection = ({
        * removes that extra space.
        */}
       <Box gap={level !== 3 ? 'small' : undefined}>
-        {
-          showHeading && (
-            <Header>
-              <Box align="start" gap="small">
-                {level === 1 && topic && (
-                  <Link href={`/${topic.toLowerCase()}`} passHref>
-                    <Button {...rest}>
-                      <Box align="center" direction="row" gap="small">
-                        {parent.icon('small', parent.color)}
-                        <Text color="text">{parent.name}</Text>
-                      </Box>
-                    </Button>
-                  </Link>
-                )}
-                <Subheading
-                  level={level}
-                  headingSize={headingSize || HEADING_SIZE[level]}
-                >
-                  {name}
-                </Subheading>
-              </Box>
-              {level > 1 && (
-                <Anchor
-                  a11yTitle={`Jump to section titled ${name}`}
-                  href={`#${id}`}
-                  icon={
-                    <LinkIcon color={over ? 'text-xweak' : 'transparent'} />
-                  }
-                />
+        {showHeading && (
+          <Header>
+            <Box align="start" gap="small">
+              {level === 1 && topic && (
+                <Link href={`/${topic.toLowerCase()}`} passHref>
+                  <Button {...rest}>
+                    <Box align="center" direction="row" gap="small">
+                      {parent.icon('small', parent.color)}
+                      <Text color="text">{parent.name}</Text>
+                    </Box>
+                  </Button>
+                </Link>
               )}
-            </Header>
-          )
-          /* Isolates the first child to ensure the gap between heading and
-           * first child is correct size. See comment on line 33 for reasoning.
-           */
+              <Subheading
+                level={level}
+                headingSize={headingSize || HEADING_SIZE[level]}
+              >
+                {name}
+              </Subheading>
+            </Box>
+            {level > 1 && (
+              <Anchor
+                a11yTitle={`Jump to section titled ${name}`}
+                href={`#${id}`}
+                icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
+              />
+            )}
+          </Header>
+        )
+        /* Isolates the first child to ensure the gap between heading and
+         * first child is correct size. See comment on line 33 for reasoning.
+         */
         }
         {firstChild}
       </Box>
