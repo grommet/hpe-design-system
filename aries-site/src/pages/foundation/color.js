@@ -158,7 +158,7 @@ const Color = () => (
                 </UsageExample>
               )}
             </Subsection>
-            <Subsection name="Green Color Compliance">
+            <Subsection name="Green Color Accessibility">
               <SubsectionText>
                 The HPE Design System green ensures compliance with WCAG 2.1
                 standards for distinguishable text and color (
