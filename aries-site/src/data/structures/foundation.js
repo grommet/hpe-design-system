@@ -66,6 +66,7 @@ export const foundation = [
       'Core Palette',
       'Light Palette',
       'Dark Palette',
+      'Green Color Compliance',
       'Background Colors',
       'Background Palette',
       'Border Colors',
