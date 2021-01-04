@@ -125,8 +125,11 @@ export const SignUpExample = () => {
       >
         <Form
           validate="blur"
-          onChange={nextValue => onChange(nextValue)}
           value={formValues}
+          messages={{
+            required: 'This is a required field.',
+          }}
+          onChange={nextValue => onChange(nextValue)}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
           <FormField
