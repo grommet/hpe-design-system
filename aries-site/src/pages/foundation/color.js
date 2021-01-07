@@ -243,6 +243,16 @@ const Color = () => (
                 experience with the appropriate color palette creates a
                 successful customer experience.
               </SubsectionText>
+
+              <SubsectionText>
+                For more direction on how to use background colors within your
+                layout, see{' '}
+                <Anchor
+                  label="Background Colors Guidance"
+                  href="/foundation/background-colors-guidance"
+                />
+                .
+              </SubsectionText>
             </Subsection>
             <Subsection name="Background Palette" level={3}>
               <SubsectionText>

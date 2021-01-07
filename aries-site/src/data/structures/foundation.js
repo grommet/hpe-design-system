@@ -180,4 +180,23 @@ export const foundation = [
       'Lead people to success',
     ],
   },
+  {
+    name: 'Background Colors Guidance',
+    category: 'Philosophy',
+    cardOrder: 0,
+    description: `Leverage HPE background colors to seamlessly style 
+    your layout.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Background Colors Preview',
+      },
+    },
+    seoDescription: `Learn about how to leverage HPE background colors to 
+    seamlessly style your layout.`,
+    sections: [],
+  },
 ];
