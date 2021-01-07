@@ -33,7 +33,7 @@ export const BasicLayoutExample = () => {
             // height="xlarge"
           >
             <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
-              <Box gap="medium" flex>
+              <Box flex>
                 <Paragraph margin="none">
                   This is the main page content. It may include buttons, tables,
                   forms, or any other kind of component.
