@@ -1,3 +1,4 @@
+export * from './background-colors';
 export * from './branding';
 export * from './color';
 export * from './typography';
