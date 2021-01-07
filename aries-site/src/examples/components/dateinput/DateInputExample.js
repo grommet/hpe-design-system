@@ -16,7 +16,6 @@ export const DateInputExample = () => {
           name="simple-dateinput"
           htmlFor="simple-dateinput"
           label="Simple DateInput"
-          required
         >
           <DateInput
             name="simple-dateinput"
