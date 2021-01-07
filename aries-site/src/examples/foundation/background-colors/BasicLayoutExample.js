@@ -45,8 +45,7 @@ export const BasicLayoutExample = () => {
               </Box>
               <Box
                 background="background-contrast"
-                gap="medium"
-                pad="medium"
+                pad={{ horizontal: 'medium' }}
                 round="small"
                 width="medium"
               >
