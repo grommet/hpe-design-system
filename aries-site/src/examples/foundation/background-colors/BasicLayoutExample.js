@@ -49,13 +49,13 @@ export const BasicLayoutExample = () => {
                 round="small"
                 width="medium"
               >
-                <Text>
+                <Paragraph>
                   Here is some text that is supplementing the main content.
-                </Text>
-                <Text>
+                </Paragraph>
+                <Paragraph>
                   It is recommended to keep these supplemental sections to a
                   minimum.
-                </Text>
+                </Paragraph>
               </Box>
             </Box>
           </Main>
