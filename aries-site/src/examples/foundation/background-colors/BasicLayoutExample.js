@@ -34,14 +34,14 @@ export const BasicLayoutExample = () => {
           >
             <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
               <Box gap="medium" flex>
-                <Text>
+                <Paragraph margin="none">
                   This is the main page content. It may include buttons, tables,
                   forms, or any other kind of component.
-                </Text>
-                <Text>
+                </Paragraph>
+                <Paragraph>
                   For more info on building page layouts, see our{' '}
                   <Anchor label="page layouts guidance" />.
-                </Text>
+                </Paragraph>
               </Box>
               <Box
                 background="background-contrast"
