@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Box, CheckBoxGroup, Form, FormField } from 'grommet';
 
 export const CheckBoxGroupValidationExample = () => {
-  const [message, setMessage] = useState('Check checkbox to resolve error');
+  const demoErrorMessage =
+    'Select at least one checkbox option to resolve error.';
+  const [message, setMessage] = useState(demoErrorMessage);
 
   return (
     <Box width="small">
@@ -17,12 +19,8 @@ export const CheckBoxGroupValidationExample = () => {
             name="checkbox"
             id="required-field"
             onChange={event => {
-              if (event.target.checked) {
-                setMessage('');
-              }
-              if (!event.target.checked) {
-                setMessage('Check checkbox to resolve error');
-              }
+              // Demonstrating error message behavior
+              setMessage(event.value.length >= 1 ? '' : demoErrorMessage);
             }}
             options={['Option 1', 'Option 2', 'Option 3']}
           />
