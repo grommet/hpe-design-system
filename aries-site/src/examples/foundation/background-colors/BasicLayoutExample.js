@@ -28,7 +28,7 @@ export const BasicLayoutExample = () => {
           <Main
             fill={undefined}
             flex={false}
-            pad="small"
+            pad="medium"
             // // remove height="xlarge" in prod, for demo purposes only
             // height="xlarge"
           >
