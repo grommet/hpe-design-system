@@ -21,7 +21,7 @@ export const BasicLayoutExample = () => {
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background"
             fill="horizontal"
-            pad="small"
+            pad={{ horizontal: 'medium', vertical: 'small' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
