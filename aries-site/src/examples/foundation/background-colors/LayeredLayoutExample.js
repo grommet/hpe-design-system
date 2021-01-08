@@ -29,7 +29,7 @@ export const LayeredLayoutExample = () => {
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
-          <Main background="background-back" flex pad="small">
+          <Main background="background-back" flex pad="medium">
             <Heading color="text-strong" margin="none">
               Page title
             </Heading>
