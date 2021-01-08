@@ -4,6 +4,7 @@ import {
   Header,
   Box,
   Main,
+  Paragraph,
   ResponsiveContext,
   Sidebar,
   Text,
