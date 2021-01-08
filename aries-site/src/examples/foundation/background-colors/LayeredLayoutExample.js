@@ -25,7 +25,7 @@ export const LayeredLayoutExample = () => {
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background-back"
             fill="horizontal"
-            pad="small"
+            pad={{ horizontal: 'medium', vertical: 'small' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
