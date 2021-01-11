@@ -3,4 +3,5 @@ module.exports = {
   apiKey: process.env.APPLITOOLS_API_KEY,
   concurrency: 20,
   failTestcafeOnDiff: false,
+  setForceFullPageScreenshot: true,
 };
