@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Anchor,
   Header,
@@ -17,7 +18,7 @@ export const BasicLayoutExample = () => {
     <AppContainer>
       <AppSidebar />
       <Box flex overflow="auto">
-        <Box height={{ min: '100%' }}>
+        <Box fill>
           <Header
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background"
@@ -26,15 +27,13 @@ export const BasicLayoutExample = () => {
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
-          <Main
-            fill={undefined}
-            flex={false}
-            pad="medium"
-            // // remove height="xlarge" in prod, for demo purposes only
-            // height="xlarge"
-          >
-            <Box direction={size !== 'small' ? 'row' : 'column'} gap="medium">
-              <Box flex>
+          <Main background="background" flex={false} pad="medium">
+            <Box
+              direction={size !== 'small' ? 'row' : 'column'}
+              gap="medium"
+              wrap
+            >
+              <Box width={{ min: 'small' }} flex>
                 <Paragraph margin="none">
                   This is the main page content. It may include buttons, tables,
                   forms, or any other kind of component.
@@ -48,7 +47,7 @@ export const BasicLayoutExample = () => {
                 background="background-contrast"
                 pad={{ horizontal: 'medium' }}
                 round="small"
-                width="medium"
+                width={{ min: 'small', max: 'medium' }}
               >
                 <Paragraph>
                   Here is some text that is supplementing the main content.
@@ -68,6 +67,7 @@ export const BasicLayoutExample = () => {
 
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   return (
     <Sidebar
       /* Sidebar should switch from column to row orientation
@@ -77,7 +77,7 @@ const AppSidebar = () => {
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
       pad="small"
-      background={{ color: 'background', dark: true }}
+      background={!theme.dark ? { color: 'background', dark: true } : 'blue'}
     >
       <Text weight="bold" color="text-strong">
         Sidebar
