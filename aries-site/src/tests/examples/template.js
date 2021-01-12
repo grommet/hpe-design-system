@@ -10,25 +10,13 @@ const testAllDisplays = async (eyes, t) => {
   const mobileButton = Selector('button').withText('Mobile');
 
   await t.click(laptopButton);
-  await eyes.checkWindow({
-    tag: 'Inline - Laptop Mode',
-    fully: true,
-    target: 'window',
-  });
+  await eyes.checkWindow({ tag: 'Inline - Laptop Mode' });
 
   await t.click(mobileButton);
-  await eyes.checkWindow({
-    tag: 'Inline - Mobile Mode',
-    fully: true,
-    target: 'window',
-  });
+  await eyes.checkWindow({ tag: 'Inline - Mobile Mode' });
 
   await t.click(fullScreenButton);
-  await eyes.checkWindow({
-    tag: 'Fullscreen Mode',
-    fully: true,
-    target: 'window',
-  });
+  await eyes.checkWindow({ tag: 'Fullscreen Mode' });
 };
 
 const title = 'Template Page (Persistent Nav)';
