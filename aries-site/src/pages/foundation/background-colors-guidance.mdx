@@ -1,17 +1,9 @@
+import { useContext } from 'react';
 import { BasicLayoutExample, LayeredLayoutExample } from '../../examples';
 import { Example } from '../../layouts';
+import { ThemeContext } from 'styled-components';
 import { Box } from 'grommet';
-
-export const ColorSwatch = ({ background }) => (
-  <Box
-    background={background}
-    border
-    round="xsmall"
-    height="20px"
-    width="20px"
-    style={{ display: 'inline-block' }}
-  />
-);
+import { ColorSwatch } from '../../components';
 
 The overall design philosophy is to distinguish content sections with the strategic use of color
 and avoid the use of excessive borders. This helps reduce visual clutter which a reader's eye
@@ -37,7 +29,7 @@ achieving visual separation of the sidebar from the primary content.
 
 - **background** <ColorSwatch background="background" /> - The default background color when no other background color is specified.
 - **background-contrast** <ColorSwatch background="background-contrast" /> - Used to indicate secondary content.
-- **background (dark)** <ColorSwatch background={{color: 'background', dark: true}} /> or another color (dark) - Used to indicate a [primary navigation sidebar](/templates/persistent-navigation) or [header](/components/header).
+- **background (dark) or another color (dark)** <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> - Used to indicate a [primary navigation sidebar](/templates/persistent-navigation) or [header](/components/header).
 
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
@@ -68,7 +60,7 @@ above a main content section that uses `background-back`.
 - **background-back** <ColorSwatch background="background-back" /> - The overall background color.
 - **background-front** <ColorSwatch background="background-front" /> - The background color for content which should be the primary focus.
 - **background-contrast** <ColorSwatch background="background-contrast" /> - Could be used to indicate a secondary content area within a large content section.
-- **background (dark)** <ColorSwatch background={{color: "background", dark: true}} /> or another color (dark) - Could be used to indicate a primary navigation sidebar or header.
+- **background (dark) or another color (dark)** <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> - Could be used to indicate a primary navigation sidebar or header.
 
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
