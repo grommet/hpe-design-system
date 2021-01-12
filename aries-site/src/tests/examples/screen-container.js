@@ -10,7 +10,7 @@ const testAllDisplays = async (eyes, t) => {
   const mobileButton = Selector('button').withText('Mobile');
 
   await t.click(laptopButton);
-  await eyes.checkWindow({ tag: 'Laptop Mode', fully: true, target: 'window' });
+  await eyes.checkWindow({ tag: 'Laptop Mode' });
 
   await t.click(desktopButton);
   await eyes.checkWindow({
@@ -20,7 +20,7 @@ const testAllDisplays = async (eyes, t) => {
   });
 
   await t.click(mobileButton);
-  await eyes.checkWindow({ tag: 'Mobile Mode', fully: true, target: 'window' });
+  await eyes.checkWindow({ tag: 'Mobile Mode' });
 };
 
 const title = 'Screen Container';
