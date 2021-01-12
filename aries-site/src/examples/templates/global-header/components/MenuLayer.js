@@ -29,6 +29,7 @@ export const MenuLayer = () => {
           full={size !== 'small' ? 'vertical' : true}
           modal={false}
           onClickOutside={() => setShowLayer(false)}
+          onEsc={() => setShowLayer(false)}
           position={size !== 'small' ? 'left' : undefined}
         >
           <Box
