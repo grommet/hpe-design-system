@@ -1,6 +1,7 @@
 export * from './AppIdentity';
 export * from './CollapsibleSection';
 export * from './ColorCompliance';
+export * from './ColorSwatch';
 export * from './ComingSoon';
 export * from './PageBackground';
 export * from './SubsectionText';
