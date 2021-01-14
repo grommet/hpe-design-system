@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BasicLayoutExample, LayeredLayoutExample } from '../../examples';
+import { BasicLayoutExample, LayeredLayoutExample, LayeredLayoutFixedExample } from '../../examples';
 import { Example } from '../../layouts';
 import { ThemeContext } from 'styled-components';
 import { Box } from 'grommet';
@@ -65,13 +65,30 @@ above a main content section that uses `background-back`.
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
 
-### Example of layered layout
+## Examples of Layered Layout
 
 For example, a page with a [header](/components/header), summary content, and a grid of
 [cards](/components/card) would use `background-front` for each card and
 `background-back` for everything else.
 
 For a multi-column page layout, `background-front` could be used to distinguish the column which should be the primary focus.
+
+### With fixed header
+
+When the header is fixed, use `background-front` for the header since it is layered in front of the main content.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/background-colors/LayeredLayoutFixedExample.js"
+  width="100%"
+  showResponsiveControls={['laptop', 'mobile']}
+  screenContainer
+>
+  <LayeredLayoutFixedExample />
+</Example>
+
+### Header scrolls with content
+
+When the header scrolls with the main content, use `background-back` for the header since it is flush with the main content. An example of this design would be the Design System website.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/background-colors/LayeredLayoutExample.js"
