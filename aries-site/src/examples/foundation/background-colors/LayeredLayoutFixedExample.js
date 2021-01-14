@@ -15,7 +15,8 @@ import { ThemeContext } from 'styled-components';
 import { AppIdentity } from '../../../components/content/AppIdentity';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-export const LayeredLayoutExample = () => {
+
+export const LayeredLayoutFixedExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
@@ -24,13 +25,13 @@ export const LayeredLayoutExample = () => {
         <Box height={{ min: '100%' }}>
           <Header
             border={{ color: 'border-weak', side: 'bottom' }}
-            background="background-back"
+            background="background-front"
             fill="horizontal"
             pad={{ horizontal: 'medium', vertical: 'small' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
-          <Main background="background-back" pad="medium" fill={undefined}>
+          <Main background="background-back" flex pad="medium">
             <Heading color="text-strong" margin="none">
               Page title
             </Heading>
