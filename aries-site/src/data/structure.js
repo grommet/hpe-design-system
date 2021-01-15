@@ -93,6 +93,10 @@ export const structure = [
       .sortByAvailability()
       .map(page => page.name),
   },
+  {
+    name: 'Whats New',
+    seoDescription: '',
+  },
   components,
   foundation,
   templates,
