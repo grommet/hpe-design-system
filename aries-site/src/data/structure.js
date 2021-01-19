@@ -96,6 +96,7 @@ export const structure = [
   {
     name: 'Whats New',
     seoDescription: '',
+    pageLayout: 'plain',
   },
   components,
   foundation,
