@@ -1,17 +1,61 @@
-import { ThemeContext } from 'grommet';
+import { Box, ThemeContext } from 'grommet';
 
-import { ColorSwatch } from '../components';
+import { ColorSwatch } from '../components';  
 import { whatsNew } from '../themes/whatsNew';
+
+<!-- NOTES for content editors modifying this file
+  - See [editing markdown instructions]().
+  - Helpful markdown syntax reminders with this [markdown cheatsheet]().
+  - Reference the "New Entry Template" provided below for the markdown used to 
+    create new "What's New" entries.
+-->
 
 <ThemeContext.Extend value={whatsNew}>
 
+<!-- BEGIN: Page Intro -->
+<Box margin={{top: 'large', bottom: 'xlarge'}} pad={{bottom: 'xlarge'}}>
+
 # Welcome,<br />here's What's New
+
+</Box>
 
 Track Design System announcements, new template patterns, guidance, and released components.
 
-View the [Design System roadmap](https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com).
-
+View the [Design System roadmap](https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com).  
 Follow current [work in progress](https://github.com/orgs/grommet/projects/10) and [backlog](https://github.com/orgs/grommet/projects/10).
+<!-- END: Page Intro -->
+
+
+<!-- BEGIN: New Entry Template -- Markdown syntax and layout for creating new entries
+
+## Week of entry in Month Days, Year format
+
+### Feature 1
+
+- Item 1
+- Item 2
+- ...
+- Item n
+
+### Feature 2
+
+- Item 1
+- ...
+- Item n
+
+...
+
+### Feature n
+
+- Item 1
+- ...
+- Item n
+
+---------------------------
+
+--><!-- END: New Entry Template -->
+
+<!-- BEGIN: What's New Entries -->
 
 ## January 10-16, 2021
 
@@ -108,4 +152,5 @@ assemble use cases, etc. Check back soon.
 
 ---------------------------
 
+<!-- END: What's New Entries -->
 </ThemeContext.Extend>
