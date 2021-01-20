@@ -5,7 +5,12 @@ import { Button, Card, CardBody, Text } from 'grommet';
 export const DashboardCard = ({ card, ...rest }) => {
   const { background, cta, description, descriptionColor, icon, title } = card;
   return (
-    <Card background={background || 'background-front'} fill {...rest}>
+    <Card
+      background={background || 'background'}
+      elevation="medium"
+      fill
+      {...rest}
+    >
       <CardBody gap="small" align="start" flex="grow">
         {icon}
         <Text size="large" weight="bold" color="text-strong">
