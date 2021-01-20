@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BasicLayoutExample, LayeredLayoutExample, LayeredLayoutFixedExample } from '../../examples';
+import { BasicLayoutExample, BasicLayoutCardsExample, DashboardExample, LayeredLayoutExample, LayeredLayoutFixedExample } from '../../examples';
 import { Example } from '../../layouts';
 import { ThemeContext } from 'styled-components';
 import { Box } from 'grommet';
@@ -13,7 +13,18 @@ The application of background colors creates a visual hierarchy supporting the i
 hierarchy for the page. When applying background colors to content or layout, it is helpful
 to think about the content's role and relation to the page's information hierarchy.
 
-There are two approaches to how background colors should be used: [Basic](#basic) or [Layered](#layered). Explore guidance for applying each approach below.
+## Basic or Layered approach?
+
+There are two approaches to how background colors should be used: [Basic](#basic) or [Layered](#layered). For consistency across an application, a single approach should be used app-wide. 
+
+The decision to use the Basic or Layered approach comes down to how much visual differentiation is desired between background and foreground elements.
+
+- If a more subtle distinction is desired, use the [Basic](#basic) layout.
+- If a more defined contrast is desired, such as what is used for this Design System website, use the [Layered](#layered) layout.
+
+A single approach should be used app-wide. You should not use the layered approach on some pages of an application and the basic approach on others. 
+
+Explore detailed guidance for applying each approach below.
 
 ## Basic
 
@@ -34,7 +45,24 @@ achieving visual separation of the sidebar from the primary content.
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
 
-### Example of basic layout
+### Basic layout with Cards
+
+`background` <ColorSwatch background="background" /> should be used for the application background as well as foreground elements, like Cards.
+
+The header, main content, and cards all use `background` <ColorSwatch background="background" /> for the background color. The sidebar uses a different color <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> to differentiate it from the rest of the content.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/background-colors/BasicLayoutCardsExample.js"
+  width="100%"
+  showResponsiveControls={['laptop', 'mobile']}
+  screenContainer
+>
+  <BasicLayoutCardsExample />
+</Example>
+
+### Basic layout with supporting content
+
+In this example, the header and main content use `background` <ColorSwatch background="background" /> and the help text uses `background-contrast` <ColorSwatch background="background-contrast" />. Usage of `background-contrast` and supplemental regions like this should be kept to a minimum.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/background-colors/BasicLayoutExample.js"
