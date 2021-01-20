@@ -20,6 +20,10 @@ and hyperlinks to relevant content or GitHub issues
 
 The "What's New" page can be found at [src/pages/whats-new.mdx](https://github.com/grommet/hpe-design-system/blob/feat-1335/aries-site/src/pages/whats-new.mdx).
 - The file may be [edited directly](https://github.com/grommet/hpe-design-system/blob/feat-1335/aries-site/src/pages/whats-new.mdx) in GitHub.
+  1. Enter edit mode
+  1. Make Markdown edits
+  1. Select "Preview changes" to ensure your edits appear as desired.
+  1. Commit changes by selecting "Create a new branch ..." and clicking "Propose changes" button.
 - Content may be added / modified within the file by using [basic Markdown syntax](https://www.markdownguide.org/basic-syntax/).
 
 ### "What's New" Entry Template
