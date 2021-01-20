@@ -1,5 +1,7 @@
 # HPE Design System Site
 
+For HPE designers and developers, this is the documentation site for the HPE Design System. 
+
 ## Contributing Content
 
 TODO: Add background on markdown, .mdx files
