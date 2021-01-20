@@ -13,7 +13,7 @@ for templates, components, and any other MDX-based pages.
 
 ### Editing "What's New" Page
 
-The ["What's New" page](/whats-new) acts as a journal for which Design System stakeholders may 
+The ["What's New" page](https://design-system.hpe.design/whats-new) acts as a journal for which Design System stakeholders may 
 keep informed with the latest enhancements to the HPE Design System.
 
 Contributors to the HPE Design System should share their contributions with 
