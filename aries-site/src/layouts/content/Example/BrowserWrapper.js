@@ -22,7 +22,7 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
           direction="row"
           flex={false}
           gap="xsmall"
-          background="background-contrast"
+          background={{ color: 'border-weak' }}
           align="center"
           pad="small"
         >
