@@ -99,6 +99,7 @@ export const structure = [
       'Track Design System announcements, new template patterns, guidance, and released components.',
     seoDescription:
       'Track HPE Design System announcements, new template patterns, guidance, and released components.',
+    pages: [],
     pageLayout: 'plain',
   },
   components,
