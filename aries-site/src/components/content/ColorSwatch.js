@@ -17,13 +17,16 @@ export const ColorSwatch = ({ background }) => {
       round="xsmall"
       height="20px"
       width="20px"
-      style={{ display: 'inline-block' }}
+      style={{ display: 'inline-block', verticalAlign: 'text-top' }}
     />
   );
 };
 
 ColorSwatch.propTypes = {
-  background: PropTypes.shape({
-    sidebar: PropTypes.bool,
-  }).isRequired,
+  background: PropTypes.oneOfType([
+    PropTypes.shape({
+      sidebar: PropTypes.bool,
+    }),
+    PropTypes.string,
+  ]).isRequired,
 };
