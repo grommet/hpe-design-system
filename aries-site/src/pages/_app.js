@@ -4,7 +4,7 @@ import React from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 
-const formatString = str => str.split('-').join(' ');
+const slugToText = str => str.split('-').join(' ');
 
 /* _app.js allows for customizing Next.js's default <App> component
  * Details: https://nextjs.org/docs/advanced-features/custom-app
@@ -17,13 +17,13 @@ function App({ Component, pageProps, router }) {
 
   // final array item from the route is the title of page we are on
   const title =
-    route[route.length - 1].length && formatString(route[route.length - 1]);
+    route[route.length - 1].length && slugToText(route[route.length - 1]);
 
   // second to last array item (if present) is the topic
   const topic =
     route[route.length - 2] &&
     route[route.length - 2].length &&
-    formatString(route[route.length - 2]);
+    slugToText(route[route.length - 2]);
 
   // for mdx pages, we need to wrap the content in Layout and MDX provider
   if (Component.isMDXComponent) {
