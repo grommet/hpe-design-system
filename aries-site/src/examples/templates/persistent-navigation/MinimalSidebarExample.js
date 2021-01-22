@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
   Drop,
   Grid,
   Header,
@@ -24,6 +25,7 @@ import {
   Splits,
   StatusInfoSmall,
 } from 'grommet-icons';
+import { ThemeContext } from 'styled-components';
 
 const pages = [
   {
@@ -66,7 +68,7 @@ const pages = [
 export const MinimalSidebarExample = () => {
   const [activeItem, setActiveItem] = React.useState(1);
   const size = React.useContext(ResponsiveContext);
-
+  const theme = React.useContext(ThemeContext);
   return (
     <AppContainer activeItem={activeItem}>
       <Sidebar
@@ -79,7 +81,7 @@ export const MinimalSidebarExample = () => {
         /* Min height is not needed in mobile contexts */
         height={size !== 'small' ? { min: '100%' } : undefined}
         align="center"
-        background="blue!"
+        background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
         pad={{
           top: size !== 'small' ? 'medium' : 'small',
           bottom: 'medium',
@@ -249,7 +251,7 @@ const GridLayout = ({ items }) => {
   return (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
-        <Box key={index} background="background-front" fill round="small" />
+        <Card key={index} background="background-front" />
       ))}
     </Grid>
   );
