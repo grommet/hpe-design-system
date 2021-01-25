@@ -7,7 +7,12 @@ export const GlobalHeaderExample = () => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <Box
+        background="background"
+        width={{ max: 'xxlarge' }}
+        margin="auto"
+        fill
+      >
         <GlobalHeader />
         <DemoPageContent />
       </Box>

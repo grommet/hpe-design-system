@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
   Grid,
   Header,
   Heading,
@@ -180,7 +181,7 @@ const GridLayout = ({ items }) => {
   return (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
-        <Box key={index} background="background-front" fill round="small" />
+        <Card key={index} background="background-front" />
       ))}
     </Grid>
   );

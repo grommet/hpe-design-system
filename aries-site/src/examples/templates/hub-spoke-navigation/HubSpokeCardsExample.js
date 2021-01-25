@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  Card,
   Grid,
   Header,
   Heading,
@@ -266,7 +267,7 @@ const GridLayout = ({ items, onClick }) => (
   <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
     {items &&
       items.map((item, index) => (
-        <Box
+        <Card
           key={index}
           background="background-front"
           fill
@@ -280,7 +281,7 @@ const GridLayout = ({ items, onClick }) => (
               <Text>{item.name}</Text>
             </Header>
           )}
-        </Box>
+        </Card>
       ))}
   </Grid>
 );
