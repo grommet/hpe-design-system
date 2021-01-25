@@ -14,7 +14,7 @@ import {
   HeaderOnlyPreview,
 } from '../../examples';
 import { Example } from '../../layouts';
-import { formatName } from '../../utils';
+import { nameToSlug } from '../../utils';
 
 Here are some common layouts to get you started:
 
@@ -179,7 +179,7 @@ export const LayoutPreviewGrid = () => {
         <ContentPreviewCard
           forwardedAs="a"
           style={{ textDecoration: 'none' }}
-          href={`#${formatName(layout.name)}`}
+          href={`#${nameToSlug(layout.name)}`}
         >
           <Box height="small" width="100%" round="xsmall">
             {layout.preview}

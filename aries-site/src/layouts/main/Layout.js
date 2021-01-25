@@ -38,7 +38,8 @@ export const Layout = ({
   const router = useRouter();
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
-  const { name: title, seoDescription } = getPageDetails(titleProp);
+  const { name: title, seoDescription, pageLayout } = getPageDetails(titleProp);
+  const layout = isLanding ? 'plain' : pageLayout;
 
   return (
     <>
@@ -75,7 +76,7 @@ export const Layout = ({
                       top: 'medium',
                     }}
                   >
-                    {!isLanding ? (
+                    {layout !== 'plain' ? (
                       <>
                         <ContentSection>
                           <DocsPageHeader title={title} topic={topic} />

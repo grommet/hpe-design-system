@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
-import { formatName } from '../../utils';
+import { nameToSlug } from '../../utils';
 
 export const SubsectionHeader = ({ children, level }) => {
   const [over, setOver] = useState(false);
-  const id = formatName(children);
+  const id = nameToSlug(children);
   return (
     <Box
       direction="row"
