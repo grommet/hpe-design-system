@@ -11,6 +11,7 @@ import {
   ResponsiveContext,
   Sidebar,
   Text,
+  ThemeContext,
 } from 'grommet';
 import {
   Apps,
@@ -24,7 +25,6 @@ import {
   System,
   Hpe,
 } from 'grommet-icons';
-import { ThemeContext } from 'styled-components';
 
 const data = [
   {
