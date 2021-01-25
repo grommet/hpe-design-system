@@ -142,6 +142,7 @@ export const FilteringLists = () => {
 
   return (
     <Box
+      background="background"
       fill
       gap="medium"
       margin="auto"

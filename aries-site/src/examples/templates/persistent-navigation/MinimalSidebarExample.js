@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
   Drop,
   Grid,
   Header,
@@ -13,6 +14,7 @@ import {
   ResponsiveContext,
   Sidebar,
   Text,
+  ThemeContext,
 } from 'grommet';
 import {
   Cli,
@@ -66,7 +68,7 @@ const pages = [
 export const MinimalSidebarExample = () => {
   const [activeItem, setActiveItem] = React.useState(1);
   const size = React.useContext(ResponsiveContext);
-
+  const theme = React.useContext(ThemeContext);
   return (
     <AppContainer activeItem={activeItem}>
       <Sidebar
@@ -79,7 +81,7 @@ export const MinimalSidebarExample = () => {
         /* Min height is not needed in mobile contexts */
         height={size !== 'small' ? { min: '100%' } : undefined}
         align="center"
-        background="blue!"
+        background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
         pad={{
           top: size !== 'small' ? 'medium' : 'small',
           bottom: 'medium',
@@ -152,30 +154,28 @@ const NavButton = ({ active, icon, name, ...rest }) => {
         onBlur={() => setHover(false)}
         {...rest}
       />
-      {
-        /* Show tooltip on hover and focus states as a supplemental
+      {/* Show tooltip on hover and focus states as a supplemental
       reminder to icon's meaning */
-        ref.current && hover && (
-          <Drop
-            align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-            target={ref.current}
-            plain
+      ref.current && hover && (
+        <Drop
+          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
+          target={ref.current}
+          plain
+        >
+          <Box
+            animation={{ type: ['fadeIn', 'slideRight'] }}
+            elevation="small"
+            margin={{ left: 'xsmall', vertical: 'xxsmall' }}
+            pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
+            background="blue"
+            round="xsmall"
           >
-            <Box
-              animation={{ type: ['fadeIn', 'slideRight'] }}
-              elevation="small"
-              margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-              pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-              background="blue"
-              round="xsmall"
-            >
-              <Text size="small" color="text-strong">
-                {name}
-              </Text>
-            </Box>
-          </Drop>
-        )
-      }
+            <Text size="small" color="text-strong">
+              {name}
+            </Text>
+          </Box>
+        </Drop>
+      )}
     </Box>
   );
 };
@@ -249,7 +249,7 @@ const GridLayout = ({ items }) => {
   return (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
-        <Box key={index} background="background-front" fill round="small" />
+        <Card key={index} background="background-front" />
       ))}
     </Grid>
   );

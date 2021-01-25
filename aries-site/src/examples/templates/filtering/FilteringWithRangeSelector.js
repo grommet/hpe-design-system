@@ -110,6 +110,7 @@ export const FilteringWithRangeSelector = () => {
 
   return (
     <Box
+      background="background"
       gap="medium"
       width={{ max: 'xxlarge' }}
       margin="auto"
@@ -551,7 +552,6 @@ const Results = ({ data }) => (
     fill
   >
     <List
-      background="background-front"
       border="horizontal"
       data={data}
       action={(item, index) => (
