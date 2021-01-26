@@ -11,8 +11,9 @@ export const Error = ({ children, ...rest }) => {
       margin={{ top: 'small' }}
       pad="small"
       round="4px"
+      {...rest}
     >
-      <Box direction="row" gap="xsmall" {...rest}>
+      <Box direction="row" gap="xsmall">
         <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
           <CircleAlert size="small" />
         </Box>

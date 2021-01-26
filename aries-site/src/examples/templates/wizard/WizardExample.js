@@ -106,18 +106,23 @@ const stepOneInputs = [
       </FormField>
     </Box>
   ),
-  () => (
-    <FormField
-      htmlFor="radio-button-group-validation"
-      label="RadioButtonGroup"
-      name="radio-button-group-validation"
-    >
-      <RadioButtonGroup
-        id="radio-button-group-validation"
+  (attemptedAdvance, error, formValues, setError) => (
+    <>
+      <FormField
+        htmlFor="radio-button-group-validation"
+        label="RadioButtonGroup"
         name="radio-button-group-validation"
-        options={['Radio button 1', 'Radio button 2']}
-      />
-    </FormField>
+      >
+        <RadioButtonGroup
+          id="radio-button-group-validation"
+          name="radio-button-group-validation"
+          options={['Radio button 1', 'Radio button 2']}
+        />
+      </FormField>
+      {!error.isValid && (
+        <Error>There is an error with one or more inputs.</Error>
+      )}
+    </>
   ),
 ];
 
@@ -126,6 +131,7 @@ const StepOne = () => {
     WizardContext,
   );
   const size = useContext(ResponsiveContext);
+  console.log(error.isValid);
   return (
     <>
       <Box margin={{ bottom: 'medium' }}>
@@ -139,9 +145,6 @@ const StepOne = () => {
             input(attemptedAdvance, error, formValues, setError),
           )}
         </Grid>
-        {!error.isValid && (
-          <Error>There is an error with one or more inputs.</Error>
-        )}
       </Box>
     </>
   );
@@ -282,6 +285,7 @@ export const WizardExample = () => {
         steps,
         formValues,
         setFormValues,
+        validation,
       }}
     >
       <Box fill>
