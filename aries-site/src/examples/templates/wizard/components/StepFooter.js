@@ -2,13 +2,19 @@ import React, { useContext } from 'react';
 import { Button, Footer, ResponsiveContext } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import { WizardContext } from '.';
-import { steps } from '../WizardDemo';
+import { steps } from '../WizardExample';
 
 export const StepFooter = () => {
   const size = useContext(ResponsiveContext);
-  const { activeIndex, setActiveIndex, setAttemptedAdvance } = useContext(
-    WizardContext,
-  );
+  const {
+    activeIndex,
+    id,
+    formValues,
+    setActiveIndex,
+    setAttemptedAdvance,
+    setError,
+    validation,
+  } = useContext(WizardContext);
 
   const buttonProps = {
     fill: size === 'small' ? 'horizontal' : undefined,
@@ -41,7 +47,22 @@ export const StepFooter = () => {
             let nextIndex = activeIndex + 1;
             nextIndex = nextIndex <= steps.length - 1 ? nextIndex : activeIndex;
 
-            setActiveIndex(nextIndex);
+            if (validation && validation[activeIndex]) {
+              // check for errors
+              const validationRes =
+                validation[activeIndex].validator &&
+                validation[activeIndex].validator(formValues);
+              // advance to next step if successful
+              if (validationRes && validationRes.isValid)
+                setActiveIndex(nextIndex);
+              // otherwise, display error and wizard will not advance to
+              // next step
+              else {
+                setError(validationRes);
+              }
+            } else {
+              setActiveIndex(nextIndex);
+            }
           }}
         />
       )}
@@ -49,7 +70,7 @@ export const StepFooter = () => {
         <Button
           {...buttonProps}
           label="Finish Wizard"
-          form="validation-form-two-column"
+          form={`${id}-form`}
           type="submit"
         />
       )}

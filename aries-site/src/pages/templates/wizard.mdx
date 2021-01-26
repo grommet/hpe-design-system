@@ -4,26 +4,25 @@ import {
   StickyHeaderFooterExample,
   TwoColumnWizardExample,
   WizardValidationExample,
-  WizardDemo,
+  WizardExample,
 } from '../../examples';
 
-This is for demo purposes only.
-
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=1%3A2"
+  showResponsiveControls={['laptop', 'mobile']}
   screenContainer
   width="100%"
 >
-  <WizardDemo />
-</Example>
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js"
-  figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=1%3A2"
-  screenContainer
-  width="100%"
->
-  <WizardValidationExample />
+  <WizardExample />
 </Example>
 
 ## Guidance
@@ -83,9 +82,18 @@ Common wizard variants.
 When additional guidance is necessary, use a two-column wizard. Click "See Fullscreen" for a more realistic experience.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=71%3A406"
   screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
   width="100%"
 >
   <TwoColumnWizardExample />
