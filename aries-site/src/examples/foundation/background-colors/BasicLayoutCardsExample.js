@@ -1,51 +1,60 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
+  Button,
   Card,
   Header,
-  Heading,
   Box,
   Grid,
+  Heading,
   Main,
+  Paragraph,
   ResponsiveContext,
   Sidebar,
   Text,
-  Paragraph,
 } from 'grommet';
-import { ThemeContext } from 'styled-components';
 import { AppIdentity } from '../../../components/content/AppIdentity';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-export const LayeredLayoutExample = () => {
+export const BasicLayoutCardsExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
       <AppSidebar />
       <Box flex overflow="auto">
-        <Box height={{ min: '100%' }}>
-          <Header
-            border={{ color: 'border-weak', side: 'bottom' }}
-            background="background-back"
-            fill="horizontal"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-          >
-            <AppIdentity title="App Name" brand="hpe" />
-          </Header>
-          <Main background="background-back" pad="medium" fill={undefined}>
-            <Heading color="text-strong" margin="none">
+        <Header
+          border={{ color: 'border-weak', side: 'bottom' }}
+          background="background"
+          fill="horizontal"
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+        >
+          <AppIdentity title="App Name" brand="hpe" />
+        </Header>
+        <Main background="background" pad="medium" fill={undefined}>
+          <Box align="start" gap="medium">
+            <Heading margin="none" color="text-strong">
               Page title
             </Heading>
-            <Paragraph>
-              In a layered layout, background-back is used for the app
-              background, and background-front is used on the foreground
-              content, such as these Cards.
+            <Paragraph margin="none">
+              This is the main page content. It may include buttons, tables,
+              forms, or any other kind of component.
             </Paragraph>
+            <Button
+              label="Learn about page layouts"
+              href="/templates/page-layouts"
+              primary
+            />
             <Grid
-              columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
+              columns="small"
               gap={size !== 'small' ? 'medium' : 'small'}
+              fill
             >
               {data.map((datum, index) => (
                 <Card
-                  background="background-front"
+                  align="center"
+                  justify="center"
+                  background="background"
+                  elevation="medium"
                   key={index}
                   onClick={() => {
                     // eslint-disable-next-line no-alert
@@ -55,11 +64,13 @@ export const LayeredLayoutExample = () => {
             `);
                   }}
                   height="small"
-                />
+                >
+                  <Text weight="bold">Card {datum + 1}</Text>
+                </Card>
               ))}
             </Grid>
-          </Main>
-        </Box>
+          </Box>
+        </Main>
       </Box>
     </AppContainer>
   );
@@ -68,7 +79,6 @@ export const LayeredLayoutExample = () => {
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
-
   return (
     <Sidebar
       /* Sidebar should switch from column to row orientation

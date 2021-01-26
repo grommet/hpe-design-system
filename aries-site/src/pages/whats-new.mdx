@@ -1,0 +1,164 @@
+import { Box, ThemeContext } from 'grommet';
+
+import { ColorSwatch } from '../components';  
+import { whatsNew } from '../themes/whatsNew';
+
+<!-- NOTES for content editors modifying this file
+  - See [editing markdown instructions](https://github.com/grommet/hpe-design-system/blob/master/aries-site/README.md#editing-whats-new-page).
+  - Helpful markdown syntax reminders with this [markdown cheatsheet](https://www.markdownguide.org/basic-syntax/).
+  - Reference the "New Entry Template" provided below for the markdown used to 
+    create new "What's New" entries.
+-->
+
+<ThemeContext.Extend value={whatsNew}>
+
+# What's New
+
+Track Design System announcements, new template patterns, guidance, and released components.
+
+Our [roadmap](https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com) provides 
+an idea for what is on the horizon. Our [backlog](https://github.com/orgs/grommet/projects/10) 
+provides greater detail about what is being worked on. Please give feedback you may have on 
+either via [Slack](https://hpe.slack.com/archives/C04LMJWQT).
+
+
+<!-- BEGIN: New Entry Template -- Markdown syntax and layout for creating new entries
+
+## Week of entry in Month Days, Year format
+
+### Feature 1
+
+- Item 1
+- Item 2
+- ...
+- Item n
+
+### Feature 2
+
+- Item 1
+- ...
+- Item n
+
+...
+
+### Feature n
+
+- Item 1
+- ...
+- Item n
+
+---------------------------
+
+--><!-- END: New Entry Template -->
+
+<!-- BEGIN: What's New Entries -->
+
+## January 10-16, 2021
+
+### Headings
+
+- Headings in the Figma library have been updated to use `text-strong`.
+- TODO: Apply `text-strong` as default in HPE Theme.
+
+### Background colors
+
+- Published a new page providing guidance for 
+[how to apply background colors](https://design-system.hpe.design/foundation/background-colors-guidance) 
+in your application layout. We've already received great feedback and identified areas which need 
+to be addressed.
+
+### Anchor
+
+- Added an example for an [Anchor with weight](/components/anchor#anchor-with-weight) to the Anchor page.
+
+### Pagination
+
+- Added custom theming capabilities for the proposed Pagination Grommet component. [Play with Pagination behavior](https://deploy-preview-4646--sad-tereshkova-173d07.netlify.app/?path=/story/controls-pagination--custom) 
+and/or [follow the pull request progress](https://github.com/grommet/grommet/pull/4646).
+
+### Miscellaneous
+
+- Began implementation of the "What's New" page.
+- Fixed error preventing Grommet Docs site to deploy properly.
+
+---------------------------
+
+
+## January 3-9, 2021
+
+### Headings
+
+- Decision has been made to make `text-strong` <ColorSwatch background="text-strong" /> the 
+default font color for Headings. Previously, Headings defaulted to color `text` 
+<ColorSwatch background="text" />.
+
+### Pagination
+
+- Made pagination controls respect a uniform width for the proposed Pagination Grommet component.
+- Added abillity to control the sizing of pagination controls via "t-shirt sizing."
+- Explored approaches for allowing custom theming capabilities.
+- [Play with Pagination behavior](https://deploy-preview-4646--sad-tereshkova-173d07.netlify.app/?path=/story/controls-pagination--custom) 
+and/or [follow the pull request progress](https://github.com/grommet/grommet/pull/4646).
+
+### Searching & Filtering
+
+- Additional guidance was requested for how the text should read in a situation after 
+a user has filtered a set of table results and selected rows from the filtered table. 
+That work is represented in [this issue](https://github.com/grommet/hpe-design-system/issues/1343).
+
+### Miscellaneous
+
+- [Fixed order of plot points](https://github.com/grommet/grommet/issues/4854) in Chart.
+- Enhanced Layer to allow elevation to be [controlled via theme](https://github.com/grommet/grommet/pull/4851), 
+and [set default elevation](https://github.com/grommet/grommet-theme-hpe/pull/150) of 'large' in HPE Theme.
+- Made casing of form validation errors consistent across [Form examples](https://design-system.hpe.design/templates/forms).
+
+---------------------------
+
+## December 20, 2020 - January 2, 2021
+
+Happy holidays to all. See you in 2021!
+
+---------------------------
+
+## December 13-19, 2020
+
+### Colors
+
+- Added background context and criteria for how the ["green" colors in the HPE Theme](https://design-system.hpe.design/foundation/color#green-color-accessibility) were determined.
+
+### Miscellaneous
+
+- Fixed issue [formatting disabled Calendar dates](https://github.com/grommet/hpe-design-system/issues/1328).
+- Fixed issue with [Select with search](https://github.com/grommet/grommet/issues/4829)
+- Enhance Layer theming to [allow styling border radii](https://github.com/grommet/grommet/issues/4805).
+- Completed [Ideation phase for What's New page](https://github.com/grommet/hpe-design-system/issues/822) with recommended design for implementation.
+
+---------------------------
+
+## December 6-12, 2020
+
+### Tables
+
+- Hover effect on tables has been fixed. [Check it out!]()
+- Table now has guidance on using [unique identifiers](https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A13974) in your table.
+- Table also has guidance for how [interactive table cells](https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A13974) look and behave.
+
+### Select
+
+- Validation icon added to Select component within Figma. [Check it out!]()
+
+### Icons
+
+- Work to provide guidance for how and when to use icons in your designs has 
+begun. We are in the **Exploration** phase of this work where we gather research, 
+assemble use cases, etc. Check back soon.
+
+### Miscellaneous
+
+- Aligned of Wizard examples in Figma and Design System site.
+
+---------------------------
+
+<!-- END: What's New Entries -->
+</ThemeContext.Extend>

@@ -22,6 +22,7 @@ export const DashboardFooter = () => {
 
   return (
     <Footer
+      background="background"
       direction="row-responsive"
       pad={{ horizontal: 'medium', vertical: 'small' }}
       wrap
