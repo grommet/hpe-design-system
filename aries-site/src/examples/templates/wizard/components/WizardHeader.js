@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
 import { FormClose, FormPreviousLink } from 'grommet-icons';
 import { WizardContext } from '.';
-import { steps } from '../WizardDemo';
+import { steps } from '../WizardExample';
 
 export const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
@@ -34,7 +34,7 @@ export const WizardHeader = ({ setOpen }) => {
         </Box>
         <Box>
           <Text color="text-strong" weight="bold">
-            Configure SAML SSO
+            Wizard Title
           </Text>
         </Box>
         <Box direction="row" flex justify="end">

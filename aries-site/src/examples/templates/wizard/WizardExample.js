@@ -3,6 +3,7 @@ import {
   Box,
   CheckBoxGroup,
   FormField,
+  Grid,
   List,
   RadioButtonGroup,
   ResponsiveContext,
@@ -11,29 +12,29 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
-import { Checkmark, ContactInfo, Stakeholder, UserAdd } from 'grommet-icons';
+import { Checkmark } from 'grommet-icons';
 import {
   CancellationLayer,
   Error,
+  StepFooter,
+  StepContent,
   WizardContext,
   WizardHeader,
-  StepContent,
-  StepFooter,
 } from './components';
 
-const defaultFormValues = {
-  'twocolumn-textinput': '',
-  'twocolumn-radiobuttongroup': '',
-  'twocolumn-select': '',
-  'twocolumn-checkboxgroup': '',
-  'twocolumn-text-area': '',
+export const defaultFormValues = {
+  'text-input-validation': '',
+  'radio-button-group-validation': '',
+  select: '',
+  checkboxgroup: '',
+  'text-area': '',
 };
 
 const stepOneValidate = values => {
   const emailRegex = RegExp(
     '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
   );
-  const emailValid = emailRegex.test(values['twocolumn-textinput']);
+  const emailValid = emailRegex.test(values['text-input-validation']);
 
   return {
     email: emailValid ? '' : 'Invalid email address.',
@@ -45,11 +46,79 @@ const validation = [
   {
     validator: values => stepOneValidate(values),
     error: {
+      firstname: '',
+      lastname: '',
       email: '',
       radiobuttongroup: '',
       isValid: true,
     },
   },
+];
+
+const stepOneInputs = [
+  (attemptedAdvance, error, formValues, setError) => (
+    <Box>
+      <FormField
+        label="First Name"
+        htmlFor="firstname-validation"
+        name="firstname-validation"
+        error={error.firstname}
+        onChange={() =>
+          attemptedAdvance && setError(stepOneValidate(formValues))
+        }
+      >
+        <TextInput
+          placeholder="Jane"
+          id="firstname-validation"
+          name="firstname-validation"
+        />
+      </FormField>
+      <FormField
+        label="Last Name"
+        htmlFor="lastname-validation"
+        name="lastname-validation"
+        error={error.lastname}
+        onChange={() =>
+          attemptedAdvance && setError(stepOneValidate(formValues))
+        }
+      >
+        <TextInput
+          placeholder="Smith"
+          id="lastname-validation"
+          name="lastname-validation"
+        />
+      </FormField>
+      <FormField
+        label="Email"
+        htmlFor="text-input-validation"
+        name="text-input-validation"
+        error={error.email}
+        onChange={() =>
+          attemptedAdvance && setError(stepOneValidate(formValues))
+        }
+      >
+        <TextInput
+          placeholder="jane.smith@hpe.com"
+          id="text-input-validation"
+          name="text-input-validation"
+          type="email"
+        />
+      </FormField>
+    </Box>
+  ),
+  () => (
+    <FormField
+      htmlFor="radio-button-group-validation"
+      label="RadioButtonGroup"
+      name="radio-button-group-validation"
+    >
+      <RadioButtonGroup
+        id="radio-button-group-validation"
+        name="radio-button-group-validation"
+        options={['Radio button 1', 'Radio button 2']}
+      />
+    </FormField>
+  ),
 ];
 
 const StepOne = () => {
@@ -58,95 +127,52 @@ const StepOne = () => {
   );
   const size = useContext(ResponsiveContext);
   return (
-    <Box
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
-      margin={{ bottom: 'medium' }}
-      gap={size === 'small' ? 'small' : undefined}
-      width={{ max: 'large' }}
-      justify="between"
-      wrap
-    >
-      <Box
-        width={size !== 'small' ? 'medium' : '100%'}
-        margin={{ bottom: 'medium' }}
-        gap="medium"
-        flex={false}
-      >
-        <>
-          <Box>
-            <FormField
-              label="Email"
-              htmlFor="twocolumn-textinput"
-              name="twocolumn-textinput"
-              error={error.email}
-              onChange={() =>
-                attemptedAdvance && setError(stepOneValidate(formValues))
-              }
-            >
-              <TextInput
-                placeholder="jane.smith@hpe.com"
-                id="twocolumn-textinput"
-                name="twocolumn-textinput"
-                type="email"
-              />
-            </FormField>
-            <FormField
-              htmlFor="twocolumn-radiobuttongroup"
-              label="RadioButtonGroup"
-              name="twocolumn-radiobuttongroup"
-            >
-              <RadioButtonGroup
-                id="twocolumn-radiobuttongroup"
-                name="twocolumn-radiobuttongroup"
-                options={['Radio button 1', 'Radio button 2']}
-              />
-            </FormField>
-          </Box>
-          {!error.isValid && (
-            <Error>There is an error with one or more inputs.</Error>
+    <>
+      <Box margin={{ bottom: 'medium' }}>
+        <Grid
+          columns={size !== 'small' ? { count: 2, size: 'auto' } : '100%'}
+          rows={[['auto', 'full']]}
+          gap={size !== 'small' ? 'large' : undefined}
+          fill
+        >
+          {stepOneInputs.map(input =>
+            input(attemptedAdvance, error, formValues, setError),
           )}
-        </>
+        </Grid>
+        {!error.isValid && (
+          <Error>There is an error with one or more inputs.</Error>
+        )}
       </Box>
-      <Box flex width={{ max: 'xsmall' }} />
-      <Guidance />
-    </Box>
+    </>
   );
 };
 
 const StepTwo = () => (
-  <Box width="medium">
-    <FormField
-      label="Select"
-      htmlFor="twocolumn-select"
-      name="twocolumn-select"
-    >
+  <Box margin={{ bottom: 'medium' }} width="medium">
+    <FormField label="Select" htmlFor="select" name="select">
       <Select
-        placeholder="Select Item"
-        id="twocolumn-select"
-        name="twocolumn-select"
+        placeholder="Select item"
+        id="select"
+        name="select"
         options={['Option 1', 'Option 2']}
       />
     </FormField>
-    <FormField
-      htmlFor="twocolumn-checkboxgroup"
-      label="Label"
-      name="twocolumn-checkboxgroup"
-    >
+    <FormField htmlFor="checkboxgroup" label="Label" name="checkboxgroup">
       <CheckBoxGroup
-        id="twocolumn-checkboxgroup"
-        name="twocolumn-checkboxgroup"
+        id="checkboxgroup"
+        name="checkboxgroup"
         options={['CheckBox 1', 'CheckBox 2']}
       />
     </FormField>
     <FormField
       help="Description of how to use this field"
-      htmlFor="twocolumn-text-area"
+      htmlFor="text-area"
       label="Label"
-      name="twocolumn-text-area"
+      name="text-area"
     >
       <TextArea
-        id="twocolumn-text-area"
-        name="twocolumn-text-area"
+        id="text-area"
+        name="text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
       />
@@ -181,25 +207,27 @@ const StepThree = () => {
   );
 };
 
-const steps = [
+export const steps = [
   {
-    description: 'Two column configuration for wizard.',
+    description: `Step one description. Keep each step simple and in chunks 
+    easy enough to fit on a single page.`,
     inputs: <StepOne />,
     title: 'Step 1 Title',
   },
   {
-    description: 'Step 2 description.',
+    description: `Step 2 description. Even though this step is single-column, 
+    the width of the footer should be consistent across all steps.`,
     inputs: <StepTwo />,
     title: 'Step 2 Title',
   },
   {
-    description: 'Provide a summary of what was accomplished or configured. ',
+    description: 'Review your configuration details.',
     inputs: <StepThree />,
-    title: 'Finish title',
+    title: 'Review & Create',
   },
 ];
 
-export const TwoColumnWizardExample = () => {
+export const WizardExample = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   // for readability, this is used to display numeric value of step on screen,
   // such as step 1 of 3. it will always be one more than the active array index
@@ -230,8 +258,7 @@ export const TwoColumnWizardExample = () => {
     setAttemptedAdvance(false);
   }, [activeIndex]);
 
-  const id = 'sticky-header-two-column';
-
+  const id = 'simple-wizard';
   // scroll to top of step when step changes
   React.useEffect(() => {
     const container = wizardRef.current;
@@ -243,19 +270,18 @@ export const TwoColumnWizardExample = () => {
     <WizardContext.Provider
       value={{
         activeIndex,
+        id,
         setActiveIndex,
         activeStep,
         setActiveStep,
         attemptedAdvance,
         setAttemptedAdvance,
         error,
+        ref: wizardRef,
         setError,
+        steps,
         formValues,
         setFormValues,
-        id,
-        ref: wizardRef,
-        steps,
-        validation,
       }}
     >
       <Box fill>
@@ -265,39 +291,5 @@ export const TwoColumnWizardExample = () => {
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>
-  );
-};
-
-const Guidance = () => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Box
-      alignSelf="start"
-      background="background-contrast"
-      gap="medium"
-      pad="medium"
-      round="small"
-      flex
-      width={size !== 'small' ? { min: 'small' } : '100%'}
-    >
-      <Text color="text-strong" size="large">
-        When guidance is required for the form or content of the wizard, you
-        might consider a two-column format.
-      </Text>
-      <Box direction="row" gap="small">
-        <Stakeholder color="text-strong" />
-        <Text color="text-strong">Instruction for the first field.</Text>
-      </Box>
-      <Box direction="row" gap="small">
-        <ContactInfo color="text-strong" />
-        <Text color="text-strong">Instruction for the next field.</Text>
-      </Box>
-      <Box direction="row" gap="small">
-        <UserAdd color="text-strong" />
-        <Text color="text-strong">
-          Some information that helps to complete the next field.
-        </Text>
-      </Box>
-    </Box>
   );
 };
