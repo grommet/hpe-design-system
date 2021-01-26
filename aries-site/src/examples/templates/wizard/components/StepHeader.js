@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { Box, Heading, Paragraph, Text } from 'grommet';
 import { WizardContext } from '.';
-import { steps } from '../WizardExample';
 
 export const StepHeader = () => {
-  const { activeIndex, activeStep, id } = useContext(WizardContext);
+  const { activeIndex, activeStep, id, steps } = useContext(WizardContext);
   return (
     <Box id={id} gap="xsmall" flex={false}>
       <Text>
