@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
 import { FormClose, FormPreviousLink } from 'grommet-icons';
 import { WizardContext } from '.';
-import { steps } from '../WizardExample';
 
 export const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
-  const { activeIndex, activeStep, setActiveIndex } = useContext(WizardContext);
+  const { activeIndex, activeStep, setActiveIndex, steps } = useContext(
+    WizardContext,
+  );
   return (
     <Header background="background-contrast" pad="small" responsive={false}>
       <Box

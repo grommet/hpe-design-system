@@ -2,10 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Text } from 'grommet';
 import { WizardContext } from '.';
-import { defaultFormValues } from '../WizardExample';
 
 export const CancellationLayer = ({ onSetOpen }) => {
-  const { setFormValues } = useContext(WizardContext);
+  const { defaultFormValues, setFormValues } = useContext(WizardContext);
   return (
     <Layer
       position="center"

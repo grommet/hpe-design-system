@@ -248,6 +248,7 @@ export const TwoColumnWizardExample = () => {
         setActiveStep,
         attemptedAdvance,
         setAttemptedAdvance,
+        defaultFormValues,
         error,
         setError,
         formValues,

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Button, Footer, ResponsiveContext } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import { WizardContext } from '.';
-import { steps } from '../WizardExample';
 
 export const StepFooter = () => {
   const size = useContext(ResponsiveContext);
@@ -13,6 +12,7 @@ export const StepFooter = () => {
     setActiveIndex,
     setAttemptedAdvance,
     setError,
+    steps,
     validation,
   } = useContext(WizardContext);
 
