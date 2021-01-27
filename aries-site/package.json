@@ -32,7 +32,7 @@
     "lint-fix": "eslint src --fix"
   },
   "devDependencies": {
-    "@applitools/eyes-testcafe": "^1.12.3",
+    "@applitools/eyes-testcafe": "1.11.1",
     "axe-core": "^3.4.2",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-prismjs": "^2.0.1",
