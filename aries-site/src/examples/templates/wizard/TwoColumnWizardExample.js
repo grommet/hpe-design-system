@@ -1,15 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
   CheckBoxGroup,
-  Footer,
-  Form,
   FormField,
-  Header,
-  Heading,
-  Layer,
   List,
   RadioButtonGroup,
   ResponsiveContext,
@@ -18,18 +11,15 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
+import { Checkmark, ContactInfo, Stakeholder, UserAdd } from 'grommet-icons';
 import {
-  Checkmark,
-  CircleAlert,
-  ContactInfo,
-  FormClose,
-  FormNextLink,
-  FormPreviousLink,
-  Stakeholder,
-  UserAdd,
-} from 'grommet-icons';
-
-const WizardContext = React.createContext({});
+  CancellationLayer,
+  Error,
+  WizardContext,
+  WizardHeader,
+  StepContent,
+  StepFooter,
+} from './components';
 
 const defaultFormValues = {
   'twocolumn-textinput': '',
@@ -66,43 +56,65 @@ const StepOne = () => {
   const { attemptedAdvance, formValues, error, setError } = useContext(
     WizardContext,
   );
+  const size = useContext(ResponsiveContext);
   return (
-    <>
-      <Box>
-        <FormField
-          label="Email"
-          htmlFor="twocolumn-textinput"
-          name="twocolumn-textinput"
-          error={error.email}
-          onChange={() =>
-            attemptedAdvance && setError(stepOneValidate(formValues))
-          }
-        >
-          <TextInput
-            placeholder="jane.smith@hpe.com"
-            id="twocolumn-textinput"
-            name="twocolumn-textinput"
-            type="email"
-          />
-        </FormField>
-        <FormField
-          htmlFor="twocolumn-radiobuttongroup"
-          label="RadioButtonGroup"
-          name="twocolumn-radiobuttongroup"
-        >
-          <RadioButtonGroup
-            id="twocolumn-radiobuttongroup"
-            name="twocolumn-radiobuttongroup"
-            options={['Radio button 1', 'Radio button 2']}
-          />
-        </FormField>
+    <Box
+      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      margin={{ bottom: 'medium' }}
+      gap={size === 'small' ? 'small' : undefined}
+      width={{ max: 'large' }}
+      justify="between"
+      wrap
+    >
+      <Box
+        width={size !== 'small' ? 'medium' : '100%'}
+        margin={{ bottom: 'medium' }}
+        gap="medium"
+        flex={false}
+      >
+        <>
+          <Box>
+            <FormField
+              label="Email"
+              htmlFor="twocolumn-textinput"
+              name="twocolumn-textinput"
+              error={error.email}
+              onChange={() =>
+                attemptedAdvance && setError(stepOneValidate(formValues))
+              }
+            >
+              <TextInput
+                placeholder="jane.smith@hpe.com"
+                id="twocolumn-textinput"
+                name="twocolumn-textinput"
+                type="email"
+              />
+            </FormField>
+            <FormField
+              htmlFor="twocolumn-radiobuttongroup"
+              label="RadioButtonGroup"
+              name="twocolumn-radiobuttongroup"
+            >
+              <RadioButtonGroup
+                id="twocolumn-radiobuttongroup"
+                name="twocolumn-radiobuttongroup"
+                options={['Radio button 1', 'Radio button 2']}
+              />
+            </FormField>
+          </Box>
+          {!error.isValid && (
+            <Error>There is an error with one or more inputs.</Error>
+          )}
+        </>
       </Box>
-    </>
+      <Box flex width={{ max: 'xsmall' }} />
+      <Guidance />
+    </Box>
   );
 };
 
 const StepTwo = () => (
-  <Box>
+  <Box width="medium">
     <FormField
       label="Select"
       htmlFor="twocolumn-select"
@@ -199,7 +211,6 @@ export const TwoColumnWizardExample = () => {
 
   // controls state of cancel layer
   const [open, setOpen] = useState(false);
-  const size = useContext(ResponsiveContext);
 
   // controls error message for active step
   const [error, setError] = useState(
@@ -219,10 +230,12 @@ export const TwoColumnWizardExample = () => {
     setAttemptedAdvance(false);
   }, [activeIndex]);
 
+  const id = 'sticky-header-two-column';
+
   // scroll to top of step when step changes
   React.useEffect(() => {
     const container = wizardRef.current;
-    const header = document.querySelector('#sticky-header-two-column');
+    const header = document.querySelector(`#${id}`);
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
@@ -235,114 +248,25 @@ export const TwoColumnWizardExample = () => {
         setActiveStep,
         attemptedAdvance,
         setAttemptedAdvance,
+        defaultFormValues,
         error,
         setError,
         formValues,
         setFormValues,
+        id,
+        ref: wizardRef,
+        steps,
+        validation,
       }}
     >
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+      <Box fill>
         <WizardHeader setOpen={setOpen} />
-        <Box
-          align="center"
-          pad={{
-            top: size !== 'small' ? 'large' : 'medium',
-            horizontal: size !== 'small' ? 'large' : 'medium',
-          }}
-          flex={size === 'small' ? true : undefined}
-          overflow="auto"
-          ref={wizardRef}
-        >
-          <Box gap="medium">
-            <StepHeader />
-            <Form
-              // needed to associate form submit button with form
-              // since submit button lives outside form tag
-              id="validation-form-two-column"
-              value={formValues}
-              onChange={nextValue => setFormValues(nextValue)}
-              onSubmit={({ value }) => console.log(value)}
-            >
-              <Box
-                direction={size !== 'small' ? 'row' : 'column-reverse'}
-                margin={{ bottom: 'medium' }}
-                width={{ max: 'large' }}
-                justify="between"
-                wrap
-              >
-                <Box
-                  width={size !== 'small' ? 'medium' : '100%'}
-                  margin={{ bottom: 'medium' }}
-                  gap="medium"
-                  flex={false}
-                >
-                  {size !== 'small' && (
-                    <Text size="large">{steps[activeIndex].description}</Text>
-                  )}
-                  <>
-                    {steps[activeIndex].inputs}
-                    {!error.isValid && (
-                      <Error>There is an error with one or more inputs.</Error>
-                    )}
-                  </>
-                </Box>
-                <Box flex width={{ max: 'xsmall' }} />
-                {activeIndex !== steps.length - 1 && <Guidance />}
-              </Box>
-            </Form>
-          </Box>
-        </Box>
+        <StepContent />
         <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
     </WizardContext.Provider>
   );
-};
-
-const WizardHeader = ({ setOpen }) => {
-  const size = useContext(ResponsiveContext);
-  const { activeIndex, activeStep, setActiveIndex } = useContext(WizardContext);
-  return (
-    <Header
-      border={{ side: 'bottom', color: 'border-weak' }}
-      pad="small"
-      fill="horizontal"
-      justify="center"
-      responsive={false}
-    >
-      <Box direction="row" flex>
-        {activeStep > 1 && (
-          <Button
-            label={
-              size !== 'small'
-                ? (steps[activeIndex - 1] && steps[activeIndex - 1].title) ||
-                  `Step ${activeStep - 1} Title`
-                : undefined
-            }
-            icon={<FormPreviousLink />}
-            onClick={() => setActiveIndex(activeIndex - 1)}
-          />
-        )}
-      </Box>
-      <Box>
-        <Text color="text-strong" weight="bold">
-          Wizard Title
-        </Text>
-      </Box>
-      <Box direction="row" flex justify="end">
-        <Button
-          label={size !== 'small' ? 'Cancel' : undefined}
-          icon={<FormClose />}
-          reverse
-          onClick={() => setOpen(true)}
-        />
-      </Box>
-    </Header>
-  );
-};
-
-WizardHeader.propTypes = {
-  setOpen: PropTypes.func.isRequired,
 };
 
 const Guidance = () => {
@@ -377,172 +301,4 @@ const Guidance = () => {
       </Box>
     </Box>
   );
-};
-
-const StepHeader = () => {
-  const { activeIndex, activeStep } = useContext(WizardContext);
-  const size = useContext(ResponsiveContext);
-  return (
-    <Box id="sticky-header-two-column" gap="medium" flex={false}>
-      <Box>
-        <Text>
-          Step {activeStep} of {steps.length}
-        </Text>
-        <Heading color="text-strong" margin="none">
-          {steps[activeIndex].title || `Step ${activeStep} Title`}
-        </Heading>
-      </Box>
-      {size === 'small' && (
-        <Text size="large">{steps[activeIndex].description}</Text>
-      )}
-    </Box>
-  );
-};
-
-const StepFooter = () => {
-  const size = useContext(ResponsiveContext);
-  const {
-    activeIndex,
-    setActiveIndex,
-    formValues,
-    setError,
-    setAttemptedAdvance,
-  } = useContext(WizardContext);
-
-  const buttonProps = {
-    fill: size === 'small' ? 'horizontal' : undefined,
-    icon: <FormNextLink />,
-    primary: true,
-    reverse: true,
-  };
-
-  return (
-    <Box
-      pad={{
-        horizontal: size !== 'small' ? 'large' : undefined,
-      }}
-      flex={false}
-    >
-      <Footer
-        border={{ side: 'top', color: 'border' }}
-        justify="end"
-        margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
-        pad={
-          size !== 'small'
-            ? { vertical: 'medium' }
-            : { vertical: 'small', horizontal: 'medium' }
-        }
-        alignSelf="center"
-        width={activeIndex === steps.length - 1 ? 'medium' : 'large'}
-        responsive={false}
-      >
-        {activeIndex < steps.length - 1 && (
-          <Button
-            {...buttonProps}
-            label="Next"
-            onClick={() => {
-              // mark that the user is trying to advance, so that onChange
-              // validation will run on any errors in the future
-              setAttemptedAdvance(true);
-
-              let nextIndex = activeIndex + 1;
-              nextIndex =
-                nextIndex <= steps.length - 1 ? nextIndex : activeIndex;
-
-              if (validation[activeIndex]) {
-                // check for errors
-                const validationRes =
-                  validation[activeIndex].validator &&
-                  validation[activeIndex].validator(formValues);
-                // advance to next step if successful
-                if (validationRes && validationRes.isValid)
-                  setActiveIndex(nextIndex);
-                // otherwise, display error and wizard will not advance to
-                // next step
-                else {
-                  setError(validationRes);
-                }
-              } else {
-                setActiveIndex(nextIndex);
-              }
-            }}
-          />
-        )}
-        {activeIndex === steps.length - 1 && (
-          <Button
-            {...buttonProps}
-            label="Finish Wizard"
-            form="validation-form-two-column"
-            type="submit"
-          />
-        )}
-      </Footer>
-    </Box>
-  );
-};
-
-const CancellationLayer = ({ onSetOpen }) => {
-  const { setFormValues } = useContext(WizardContext);
-  return (
-    <Layer
-      position="center"
-      onClickOutside={() => onSetOpen(false)}
-      onEsc={() => onSetOpen(false)}
-    >
-      <Box pad="large" gap="medium" width="large">
-        <>
-          <Heading color="text-strong" margin="none">
-            Cancel
-          </Heading>
-          <Text color="text-strong">Wizard Title</Text>
-        </>
-        <Text>
-          Cancelling setup will lose all of your progress. Are you sure you want
-          to exit the setup?
-        </Text>
-        <Footer gap="small" align="center" justify="end">
-          <Button
-            label="No, Continue Wizarding"
-            onClick={() => onSetOpen(false)}
-            secondary
-          />
-          <Button
-            label="Yes, Cancel Wizarding"
-            onClick={() => {
-              onSetOpen(false);
-              setFormValues(defaultFormValues);
-            }}
-            primary
-          />
-        </Footer>
-      </Box>
-    </Layer>
-  );
-};
-
-CancellationLayer.propTypes = {
-  onSetOpen: PropTypes.func.isRequired,
-};
-
-const Error = ({ children, ...rest }) => {
-  return (
-    <Box
-      animation="fadeIn"
-      background="validation-critical"
-      margin={{ top: 'small' }}
-      pad="small"
-      round="4px"
-    >
-      <Box direction="row" gap="xsmall" {...rest}>
-        <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-          <CircleAlert size="small" />
-        </Box>
-        <Text size="xsmall">{children}</Text>
-      </Box>
-    </Box>
-  );
-};
-
-Error.propTypes = {
-  children: PropTypes.string,
 };
