@@ -8,7 +8,6 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   tab: {
     active: {
-      background: 'transparent',
       color: 'text-strong',
     },
     border: {
