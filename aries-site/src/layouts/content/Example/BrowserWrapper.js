@@ -22,6 +22,8 @@ export const BrowserWrapper = ({ screen, ...rest }) => {
           direction="row"
           flex={false}
           gap="xsmall"
+          /* This Box represents a header of a browser application window. The selected background color 
+           provides better contrast between the header and the examples being showcased. */
           background={{ color: 'border-weak' }}
           align="center"
           pad="small"
