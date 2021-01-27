@@ -6,6 +6,27 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  tab: {
+    active: {
+      background: 'transparent',
+      color: 'text-strong',
+    },
+    border: {
+      side: 'bottom',
+      size: 'medium',
+      color: 'transparent',
+      active: {
+        color: 'brand',
+        width: 'large',
+      },
+      disabled: {
+        color: 'transparent',
+      },
+      hover: {
+        color: 'transparent',
+      },
+    },
+  },
 });
 
 export const { colors } = aries.global;
