@@ -5,19 +5,11 @@ import Eyes from '@applitools/eyes-testcafe';
 import { baseUrl, startResponsiveSnapshots } from '../utils';
 
 const testAllDisplays = async (eyes, t) => {
-  const desktopButton = Selector('button').withText('Desktop');
   const laptopButton = Selector('button').withText('Laptop');
   const mobileButton = Selector('button').withText('Mobile');
 
   await t.click(laptopButton);
   await eyes.checkWindow({ tag: 'Laptop Mode', fully: true, target: 'window' });
-
-  await t.click(desktopButton);
-  await eyes.checkWindow({
-    tag: 'Desktop Mode',
-    fully: true,
-    target: 'window',
-  });
 
   await t.click(mobileButton);
   await eyes.checkWindow({ tag: 'Mobile Mode', fully: true, target: 'window' });
