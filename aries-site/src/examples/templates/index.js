@@ -5,5 +5,6 @@ export * from './global-header';
 export * from './hub-spoke-navigation';
 export * from './list-views';
 export * from './page-layouts';
+export * from './pagination';
 export * from './persistent-navigation';
 export * from './wizard';
