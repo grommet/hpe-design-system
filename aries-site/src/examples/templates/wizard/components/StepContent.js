@@ -14,7 +14,6 @@ export const StepContent = () => {
       overflow="auto"
       ref={ref}
       flex={size === 'small' ? true : undefined}
-      // margin={{ horizontal: 'medium' }}
     >
       <Box
         width="large"
