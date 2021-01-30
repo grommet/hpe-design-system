@@ -15,7 +15,7 @@ export const aries = deepMerge(hpe, {
       size: 'medium',
       color: 'transparent',
       active: {
-        color: 'brand',
+        color: 'border-strong',
         width: 'large',
       },
       disabled: {
