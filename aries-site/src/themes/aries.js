@@ -10,6 +10,11 @@ export const aries = deepMerge(hpe, {
     active: {
       color: 'text-strong',
     },
+    pad: {
+      bottom: 'small',
+      top: 'small',
+      horizontal: 'medium',
+    },
     border: {
       side: 'bottom',
       size: 'medium',
