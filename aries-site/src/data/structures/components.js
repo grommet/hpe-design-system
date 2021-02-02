@@ -316,9 +316,9 @@ export const components = [
     name: 'MaskedInput',
     category: 'Inputs',
     description:
-      'MaskedInput allows you to specify formailzed text within a form field.',
+      'MaskedInput allows you to specify formalized text within a form field.',
     seoDescription:
-      'MaskedInput allows you to specify formailzed text within a form field.',
+      'MaskedInput allows you to specify formalized text within a form field.',
     sections: [],
     preview: {
       component: () => <MaskedInputPreview />,
