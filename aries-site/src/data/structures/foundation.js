@@ -8,8 +8,9 @@ export const foundation = [
     name: 'Accessibility',
     category: 'Philosophy',
     cardOrder: 2,
-    description: `Accessibility is central to the HPE Design System and ensures 
-    that our applications are usable by as many people as posssible.`,
+    description: `Central to the HPE Design System, accessibility is 
+    incorporated into all Design System facets, ensuring HPE applications 
+    are usable by as many people as possible.`,
     preview: {
       image: {
         src: {
