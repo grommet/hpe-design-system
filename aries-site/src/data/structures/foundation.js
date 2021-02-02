@@ -21,7 +21,7 @@ export const foundation = [
       },
     },
     seoDescription: `Accessibility is central to the HPE Design System and 
-    ensures that our applications are usable by as many people as posssible.`,
+    ensures that HPE applications are usable by as many people as possible.`,
     sections: [],
   },
   {
