@@ -19,6 +19,7 @@ export const SelectMultipleExample = () => {
           placeholder="Select multiple items"
           options={options}
           value={selected}
+          closeOnChange={false}
           onChange={({ value: nextValue }) => setSelected(nextValue)}
           multiple
         />
