@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, Box, Heading } from 'grommet';
+import { Anchor, Box, Heading, Paragraph } from 'grommet';
 
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
@@ -9,6 +9,15 @@ import { SubsectionText } from '.';
 export const internalLink = RegExp('^/.*|^#.*');
 
 export const components = {
+  blockquote: props => (
+    <Box width="large">
+      <Paragraph
+        margin={{ top: 'large', bottom: 'none', left: 'large' }}
+        size="xxlarge"
+        {...props}
+      />
+    </Box>
+  ),
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
