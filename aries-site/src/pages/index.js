@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import {
   Box,
   Card,
@@ -53,6 +53,9 @@ Intro.propTypes = {
 
 const Index = () => {
   const size = useContext(ResponsiveContext);
+  const videoRef = useRef(null);
+
+  const [videoEnabled, setVideoEnabled] = useState(false);
   const backgroundImage = {
     src: { dark: '/home.svg', light: '/home.svg' },
     alt: 'HPE Design System',
@@ -84,9 +87,24 @@ const Index = () => {
           <Featured />
         </Stack>
         <WhatIs />
-        <Box fill>
-          <Video controls="below" poster="/static/images/cards.png">
-            <source src="/HPE Design System-v3.mp4" type="video/mp4" />
+        <Box
+          fill
+          onClick={() => {
+            if (!videoEnabled) {
+              setVideoEnabled(true);
+              videoRef.current.play();
+            }
+          }}
+        >
+          <Video
+            ref={videoRef}
+            controls={videoEnabled ? 'over' : false}
+            poster="/static/images/video-placeholder.png"
+          >
+            <source
+              src="https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4"
+              type="video/mp4"
+            />
           </Video>
         </Box>
         <Highlights />
