@@ -1,0 +1,107 @@
+import React, { Fragment, useContext } from 'react';
+import {
+  Box,
+  Button,
+  Grid,
+  Heading,
+  Image,
+  Paragraph,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
+import Link from 'next/link';
+
+import { ContentPreviewCard } from '../cards';
+import { internalLink } from '../content';
+import { nameToPath, useDarkMode } from '../../utils';
+import { highlights } from '../../data';
+
+const HighlightsLayout = () => {
+  const size = useContext(ResponsiveContext);
+  const darkMode = useDarkMode();
+
+  return (
+    <Grid
+      pad={{ horizontal: size !== 'small' ? 'medium' : 'large' }}
+      columns={size !== 'small' ? 'medium' : '100%'}
+      rows={[['auto', 'full']]}
+      gap="large"
+      fill
+      justify="center"
+    >
+      {highlights.map(({ name, summary, image }) => {
+        const href = nameToPath(name);
+        const isInternalLink = internalLink.test(href);
+        const Wrapper = isInternalLink ? Link : Fragment;
+        const wrapperProps = isInternalLink && {
+          href,
+          passHref: true,
+        };
+
+        return (
+          <Wrapper key={name} {...wrapperProps}>
+            <ContentPreviewCard
+              forwardedAs="a"
+              style={{ textDecoration: 'none' }}
+              pad="medium"
+            >
+              <Box direction="row" gap="medium">
+                <Box width="small" round="xsmall">
+                  {image && (
+                    <Image
+                      src={
+                        darkMode.value
+                          ? image.src.dark || image.src
+                          : image.src.light || image.src
+                      }
+                      alt={image.alt}
+                      fit={image.fit || 'contain'}
+                    />
+                  )}
+                </Box>
+                <Box fill>
+                  <Text weight="bold" size="large" margin={{ top: 'small' }}>
+                    {name}
+                  </Text>
+                  <Paragraph>{summary}</Paragraph>
+                </Box>
+              </Box>
+            </ContentPreviewCard>
+          </Wrapper>
+        );
+      })}
+    </Grid>
+  );
+};
+
+// pad={{ horizontal: 'medium', top: 'xlarge', bottom: 'small' }}
+export const Highlights = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box
+      fill
+      background="background-front"
+      gap="medium"
+      pad={{ vertical: 'large' }}
+    >
+      <Box
+        justify="center"
+        align="center"
+        pad={{ horizontal: size !== 'small' ? 'xlarge' : 'large' }}
+      >
+        <Heading margin="none">Highlights</Heading>
+        <Box width="large">
+          <Paragraph size="xlarge" fill textAlign="center">
+            The HPE Design System team is committed to conducting thorough
+            research so you don't have to think about it. Just find what you
+            need, design and deliver quickly!
+          </Paragraph>
+        </Box>
+      </Box>
+      <HighlightsLayout />
+      <Box fill="horizontal" align="center" justify="center" pad="medium">
+        <Button primary label="Show Me More" />
+      </Box>
+    </Box>
+  );
+};

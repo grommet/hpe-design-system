@@ -6,7 +6,7 @@ import { useDarkMode } from '../../utils';
 export const PageBackground = ({ backgroundImage }) => {
   const size = useContext(ResponsiveContext);
   const themeMode = useDarkMode().value ? 'dark' : 'light';
-  const { src, alt, style, useGrid } = backgroundImage;
+  const { src, alt, style, useGrid, position } = backgroundImage;
   const margin =
     backgroundImage[size] && backgroundImage[size].margin
       ? backgroundImage[size].margin
@@ -20,7 +20,10 @@ export const PageBackground = ({ backgroundImage }) => {
       width={{ max: 'xxlarge' }}
       pad={{ horizontal: 'xlarge' }}
       margin="auto"
+      direction={position === 'right' ? 'row' : 'column'}
+      justify={position === 'right' ? 'between' : undefined}
     >
+      {position === 'right' && <Box width="medium" flex="shrink" />}
       {/* Landing page uses Grid because otherwise it will span
       too far behind the text */}
       {!useGrid ? (
@@ -62,5 +65,6 @@ PageBackground.propTypes = {
       margin: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
     }),
     useGrid: PropTypes.bool,
+    position: PropTypes.string,
   }),
 };

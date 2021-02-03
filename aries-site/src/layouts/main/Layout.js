@@ -27,6 +27,7 @@ export const Layout = ({
   title: titleProp,
   topic,
   isLanding,
+  pad,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -70,11 +71,13 @@ export const Layout = ({
                 <Main overflow="visible">
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
-                    pad={{
-                      horizontal: calcPad(size),
-                      bottom: calcPad(size),
-                      top: 'medium',
-                    }}
+                    pad={
+                      pad || {
+                        horizontal: calcPad(size),
+                        bottom: calcPad(size),
+                        top: 'medium',
+                      }
+                    }
                   >
                     {layout !== 'plain' ? (
                       <>
@@ -111,6 +114,7 @@ Layout.propTypes = {
   isLanding: PropTypes.bool,
   title: PropTypes.string,
   topic: PropTypes.string,
+  pad: PropTypes.object,
 };
 
 Layout.defaultProps = {
