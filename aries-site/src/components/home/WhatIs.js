@@ -53,7 +53,7 @@ export const WhatIs = () => {
           supports HPE's pursuit in making great customer experiences.
         </Paragraph>
       </Box>
-      <Grid columns={{ count: 5, size: 'auto' }} justify="center" fill>
+      <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
         {whatIsContent.map(({ image, text }) => (
           <Box key={image} width="120px">
             <Box width="120px" height="120px">
