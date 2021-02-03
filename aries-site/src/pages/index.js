@@ -35,7 +35,7 @@ const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box height={{ min: 'medium' }} justify="center">
-      <Grid gap="large" columns={size === 'small' ? ['auto'] : ['2/3', 'auto']}>
+      <Grid gap="large" columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}>
         <Card background="none" elevation="none">
           {children}
         </Card>
@@ -69,7 +69,7 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box>
         <Intro position="left">
-          <Box pad={calcPad(size)}>
+          <Box pad={calcPad(size)} width={{ max: '900px' }}>
             {size === 'small' && (
               <Card background="none" elevation="none" height="small" />
             )}

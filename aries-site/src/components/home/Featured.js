@@ -17,8 +17,8 @@ const FeaturedLayout = () => {
       }}
     >
       <Grid
-        columns={size !== 'small' ? 'medium' : '100%'}
         rows={[['auto', 'full']]}
+        columns={{ count: 'fit', size: '300px' }}
         gap="large"
         fill
         justify="center"
