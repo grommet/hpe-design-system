@@ -22,7 +22,7 @@ const LinkButton = props => (
 
 const SlackOption = () => (
   <Box gap="medium">
-    <Slack size="large" />
+    <Slack size="large" color="text-strong" />
     <Box>
       <Heading level={4} margin="none">
         Slack
@@ -40,7 +40,7 @@ const SlackOption = () => (
 
 const Roadmap = () => (
   <Box gap="medium">
-    <Map size="large" />
+    <Map size="large" color="text-strong" />
     <Box>
       <Heading level={4} margin="none">
         Roadmap
@@ -57,7 +57,7 @@ const Roadmap = () => (
 
 const Backlog = () => (
   <Box gap="medium">
-    <Github size="large" />
+    <Github size="large" color="text-strong" />
     <Box>
       <Heading level={4} margin="none">
         Backlog

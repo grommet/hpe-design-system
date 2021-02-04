@@ -3,7 +3,10 @@ export const highlights = [
     name: 'Color',
     summary: 'Translated for code, light/dark themes, status, and more*',
     image: {
-      src: '/highlightImages/color.svg',
+      src: {
+        light: '/highlightImages/color.svg',
+        dark: '/highlightImages/color-dark.svg',
+      },
       alt: 'Color highlights',
     },
   },
@@ -56,7 +59,10 @@ export const highlights = [
     name: 'Table',
     summary: 'A table is a structured of data made up of rows and columns',
     image: {
-      src: '/highlightImages/table.svg',
+      src: {
+        light: '/highlightImages/table.svg',
+        dark: '/highlightImages/table-dark.svg',
+      },
       alt: 'Table highlights',
     },
   },
@@ -64,7 +70,10 @@ export const highlights = [
     name: 'Accessibility',
     summary: 'Ensure access to your experience no matter who the user is',
     image: {
-      src: '/highlightImages/accessibility.svg',
+      src: {
+        light: '/highlightImages/accessibility.svg',
+        dark: '/highlightImages/accessibility-dark.svg',
+      },
       alt: 'Accessibility highlights',
     },
   },

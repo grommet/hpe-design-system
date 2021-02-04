@@ -21,7 +21,7 @@ import {
   WhatIs,
 } from '../components/home';
 import { Layout /* , PageIntro */ } from '../layouts';
-import { getPageDetails } from '../utils';
+import { getPageDetails, useDarkMode } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
@@ -53,11 +53,12 @@ Intro.propTypes = {
 
 const Index = () => {
   const size = useContext(ResponsiveContext);
+  const darkMode = useDarkMode();
   const videoRef = useRef(null);
 
   const [videoEnabled, setVideoEnabled] = useState(false);
   const backgroundImage = {
-    src: { dark: '/home.svg', light: '/home.svg' },
+    src: { dark: '/home-dark.svg', light: '/home.svg' },
     alt: 'HPE Design System',
     margin: { top: '75px', left: '0px' },
     style: {},
@@ -99,7 +100,9 @@ const Index = () => {
           <Video
             ref={videoRef}
             controls={videoEnabled ? 'over' : false}
-            poster="/static/images/video-placeholder.png"
+            poster={`/static/images/video-placeholder${
+              darkMode.value ? '-dark' : ''
+            }.png`}
           >
             <source
               src="https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4"
