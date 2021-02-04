@@ -4,6 +4,7 @@ import {
   Card,
   Grid,
   Heading,
+  Image,
   Paragraph,
   ResponsiveContext,
   Stack,
@@ -20,7 +21,7 @@ import {
   Quote,
   WhatIs,
 } from '../components/home';
-import { Layout /* , PageIntro */ } from '../layouts';
+import { Layout } from '../layouts';
 import { getPageDetails, useDarkMode } from '../utils';
 
 const title = 'Home';
@@ -31,19 +32,39 @@ const calcPad = size => {
   return val;
 };
 
+// <Box background={backgroundImage} fill pad={{ right: calcPad(size) }} />
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
+  const darkMode = useDarkMode();
+  const image = `/home${darkMode.value ? '-dark' : ''}.svg`;
+
   return (
-    <Box height={{ min: 'medium' }} justify="center">
-      <Grid gap="large" columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}>
-        <Card background="none" elevation="none">
-          {children}
-        </Card>
-        {size !== 'small' && (
-          <Card background="none" elevation="none" height="small" />
-        )}
-      </Grid>
-    </Box>
+    <Stack guidingChild="last">
+      <Box
+        align="start"
+        justify="between"
+        pad={{ horizontal: calcPad(size) }}
+        direction="row"
+      >
+        {size !== 'small' && <Box width="small" />}
+        <Box>
+          <Image src={image} fit="contain" />
+        </Box>
+      </Box>
+      <Box height={{ min: 'medium' }} justify="center">
+        <Grid
+          gap="large"
+          columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}
+        >
+          <Card background="none" elevation="none">
+            {children}
+          </Card>
+          {size !== 'small' && (
+            <Card background="none" elevation="none" height="small" />
+          )}
+        </Grid>
+      </Box>
+    </Stack>
   );
 };
 
@@ -57,19 +78,12 @@ const Index = () => {
   const videoRef = useRef(null);
 
   const [videoEnabled, setVideoEnabled] = useState(false);
-  const backgroundImage = {
-    src: { dark: '/home-dark.svg', light: '/home.svg' },
-    alt: 'HPE Design System',
-    margin: { top: '75px', left: '0px' },
-    style: {},
-    position: size !== 'small' ? 'right' : 'left',
-  };
 
   return (
-    <Layout backgroundImage={backgroundImage} title={title} isLanding pad={{}}>
+    <Layout title={title} isLanding pad={{}} width={{}}>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box>
-        <Intro position="left">
+        <Intro>
           <Box pad={calcPad(size)} width={{ max: '900px' }}>
             {size === 'small' && (
               <Card background="none" elevation="none" height="small" />

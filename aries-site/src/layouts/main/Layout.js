@@ -28,6 +28,7 @@ export const Layout = ({
   topic,
   isLanding,
   pad,
+  width,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -56,7 +57,7 @@ export const Layout = ({
             <Box
               height={{ min: '100vh' }}
               margin="auto"
-              width={{ max: 'xxlarge' }}
+              width={width || { max: 'xxlarge' }}
             >
               {/* I think Head is redundant at this point, 
               but left it as is for now */}
@@ -115,6 +116,7 @@ Layout.propTypes = {
   title: PropTypes.string,
   topic: PropTypes.string,
   pad: PropTypes.object,
+  width: PropTypes.object,
 };
 
 Layout.defaultProps = {
