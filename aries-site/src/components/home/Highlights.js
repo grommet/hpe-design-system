@@ -60,7 +60,12 @@ const HighlightsLayout = () => {
                   )}
                 </Box>
                 <Box fill>
-                  <Text weight="bold" size="large" margin={{ top: 'small' }}>
+                  <Text
+                    weight="bold"
+                    size="large"
+                    margin={{ top: 'small' }}
+                    color="text-strong"
+                  >
                     {name}
                   </Text>
                   <Paragraph>{summary}</Paragraph>
@@ -74,7 +79,6 @@ const HighlightsLayout = () => {
   );
 };
 
-// pad={{ horizontal: 'medium', top: 'xlarge', bottom: 'small' }}
 export const Highlights = () => {
   const size = useContext(ResponsiveContext);
   return (
@@ -88,10 +92,13 @@ export const Highlights = () => {
         justify="center"
         align="center"
         pad={{ horizontal: size !== 'small' ? 'xlarge' : 'large' }}
+        gap="large"
       >
-        <Heading margin="none">Highlights</Heading>
-        <Box width="large">
-          <Paragraph size="xlarge" fill textAlign="center">
+        <Heading margin="none" level={2} size="large">
+          Highlights
+        </Heading>
+        <Box width="large" pad={{ bottom: 'medium' }}>
+          <Paragraph size="xlarge" fill textAlign="center" margin="none">
             The HPE Design System team is committed to conducting thorough
             research so you don't have to think about it. Just find what you
             need, design and deliver quickly!

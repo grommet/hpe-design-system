@@ -33,7 +33,12 @@ const FeaturedLayout = () => {
               <Box width="100%" round="xsmall">
                 {icon}
               </Box>
-              <Text weight="bold" size="xlarge" margin={{ top: 'small' }}>
+              <Text
+                weight="bold"
+                size="xlarge"
+                color="text-strong"
+                margin={{ top: 'small' }}
+              >
                 {name}
               </Text>
               <Paragraph size="small">{description}</Paragraph>
