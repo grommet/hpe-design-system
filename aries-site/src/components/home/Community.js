@@ -24,10 +24,10 @@ const SlackOption = () => (
   <Box gap="medium">
     <Slack size="large" color="text-strong" />
     <Box>
-      <Heading level={4} margin="none">
+      <Heading level={3} margin="none" size="small">
         Slack
       </Heading>
-      <Text>Stay in the loop and checkout what's next!</Text>
+      <Text>Specific questions? Want feedback or advice?</Text>
     </Box>
     <LinkButton
       icon={<ChatOption />}
@@ -42,7 +42,7 @@ const Roadmap = () => (
   <Box gap="medium">
     <Map size="large" color="text-strong" />
     <Box>
-      <Heading level={4} margin="none">
+      <Heading level={3} margin="none" size="small">
         Roadmap
       </Heading>
       <Text>Stay in the loop and checkout what's next!</Text>
@@ -59,10 +59,10 @@ const Backlog = () => (
   <Box gap="medium">
     <Github size="large" color="text-strong" />
     <Box>
-      <Heading level={4} margin="none">
+      <Heading level={3} margin="none" size="small">
         Backlog
       </Heading>
-      <Text>Stay in the loop and checkout what's next!</Text>
+      <Text>Eager to know what's marinating in the back?</Text>
     </Box>
     <LinkButton
       label="View Backlog"
@@ -84,9 +84,9 @@ export const Community = () => {
       <Box width="xlarge">
         <Heading margin="none">Community</Heading>
         <Paragraph size="xlarge" fill>
-          The HPE Design System in an open source framework for designers and
-          developers. We welcome feedback, ideas and suggestions to provide you
-          with flourished experiences.
+          The HPE Design System is an open-source framework for designers and
+          developers. We welcome feedback, ideas and appreciate your
+          suggestions.
         </Paragraph>
       </Box>
       <Grid columns="medium" rows={[['auto', 'full']]} gap="small" fill>

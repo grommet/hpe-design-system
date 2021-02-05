@@ -10,7 +10,7 @@ export const Quote = () => {
   }.svg`;
 
   return (
-    <Box direction="row" gap="large" justify="center" pad="large">
+    <Box direction="row-responsive" gap="large" justify="center" pad="large">
       <Box
         align="center"
         justify="center"
@@ -40,7 +40,7 @@ export const Quote = () => {
         >
           <Paragraph size="xxlarge" textAlign="center">
             The HPE Design System empowers developers, designers and others to
-            create consistent, accessible and flexible interfaces
+            create consistent, accessible and flexible interfaces.
           </Paragraph>
         </Box>
         <Box fill align="end" justify="end">
