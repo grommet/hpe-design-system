@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -123,22 +122,6 @@ const emailValidation = [
     status: 'error',
   },
 ];
-
-const RequiredFormField = props => {
-  const { required, label, ...rest } = props;
-  return (
-    <FormField
-      label={required ? `${label}*` : label}
-      required={required}
-      {...rest}
-    />
-  );
-};
-
-RequiredFormField.propTypes = {
-  required: PropTypes.bool,
-  label: PropTypes.string,
-};
 
 export const ShippingExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -302,7 +285,7 @@ export const ShippingExample = () => {
                 mask={phoneMask}
               />
             </FormField>
-            <RequiredFormField
+            <FormField
               htmlFor="email-ship"
               name="email-shipping"
               required
@@ -314,7 +297,7 @@ export const ShippingExample = () => {
                 name="email-shipping"
                 mask={emailMask}
               />
-            </RequiredFormField>
+            </FormField>
           </Box>
           <Box
             align={size !== 'small' ? 'start' : undefined}

@@ -12,6 +12,7 @@ export const TextInputValidationExample = () => {
         label="Label"
         htmlFor="required-field"
         error={message}
+        required
       >
         <TextInput
           name="required-field"
