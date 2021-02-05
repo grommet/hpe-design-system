@@ -14,6 +14,7 @@ export const CheckBoxGroupValidationExample = () => {
           label="Label"
           htmlFor="required-field"
           error={message}
+          required
         >
           <CheckBoxGroup
             name="checkbox"
