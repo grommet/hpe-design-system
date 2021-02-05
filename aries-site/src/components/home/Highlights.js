@@ -107,7 +107,9 @@ export const Highlights = () => {
       </Box>
       <HighlightsLayout />
       <Box fill="horizontal" align="center" justify="center" pad="medium">
-        <Button primary label="Show Me More" />
+        <Link href="/showmore" passHref>
+          <Button primary label="Show Me More" />
+        </Link>
       </Box>
     </Box>
   );

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Card,
@@ -8,7 +8,6 @@ import {
   Paragraph,
   ResponsiveContext,
   Stack,
-  Video,
 } from 'grommet';
 
 import PropTypes from 'prop-types';
@@ -19,6 +18,7 @@ import {
   Featured,
   Highlights,
   Quote,
+  Video,
   WhatIs,
 } from '../components/home';
 import { Layout } from '../layouts';
@@ -32,7 +32,6 @@ const calcPad = size => {
   return val;
 };
 
-// <Box background={backgroundImage} fill pad={{ right: calcPad(size) }} />
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
   const darkMode = useDarkMode();
@@ -74,10 +73,6 @@ Intro.propTypes = {
 
 const Index = () => {
   const size = useContext(ResponsiveContext);
-  const darkMode = useDarkMode();
-  const videoRef = useRef(null);
-
-  const [videoEnabled, setVideoEnabled] = useState(false);
 
   return (
     <Layout title={title} isLanding pad={{}} width={{}}>
@@ -102,28 +97,7 @@ const Index = () => {
           <Featured />
         </Stack>
         <WhatIs />
-        <Box
-          fill
-          onClick={() => {
-            if (!videoEnabled) {
-              setVideoEnabled(true);
-              videoRef.current.play();
-            }
-          }}
-        >
-          <Video
-            ref={videoRef}
-            controls={videoEnabled ? 'over' : false}
-            poster={`/static/images/video-placeholder${
-              darkMode.value ? '-dark' : ''
-            }.png`}
-          >
-            <source
-              src="https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4"
-              type="video/mp4"
-            />
-          </Video>
-        </Box>
+        <Video />
         <Highlights />
         <Quote />
         <Community />
