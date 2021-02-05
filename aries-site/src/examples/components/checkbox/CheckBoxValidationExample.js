@@ -16,6 +16,7 @@ export const CheckBoxValidationExample = () => {
             label="Label"
             htmlFor="required-field"
             error={message}
+            required
           >
             <CheckBox
               name="checkbox"
