@@ -13,6 +13,7 @@ export const TextAreaValidationExample = () => {
         label="Label"
         htmlFor="required-field"
         error={message}
+        required
       >
         <TextArea
           name="required-field"

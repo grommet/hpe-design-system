@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -82,22 +81,6 @@ const creditCardMask = [
   },
 ];
 
-const RequiredFormField = props => {
-  const { required, label, ...rest } = props;
-  return (
-    <FormField
-      label={required ? `${label}*` : label}
-      required={required}
-      {...rest}
-    />
-  );
-};
-
-RequiredFormField.propTypes = {
-  required: PropTypes.bool,
-  label: PropTypes.string,
-};
-
 export const PayExample = () => {
   const [formValues, setFormValues] = React.useState({
     cardName: '',
@@ -153,15 +136,15 @@ export const PayExample = () => {
           <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
             Credit Card Information
           </Text>
-          <RequiredFormField
+          <FormField
             name="cardName"
             required
             htmlFor="cardName"
             label="Name on Card"
           >
             <TextInput id="cardName" name="cardName" placeholder="Jane Smith" />
-          </RequiredFormField>
-          <RequiredFormField
+          </FormField>
+          <FormField
             htmlFor="cardNumber"
             required
             name="cardNumber"
@@ -174,10 +157,10 @@ export const PayExample = () => {
               mask={creditCardMask}
               icon={<CreditCard color="placeholder" />}
             />
-          </RequiredFormField>
+          </FormField>
           <Box direction="row" gap="medium">
             <Box flex={false}>
-              <RequiredFormField
+              <FormField
                 required
                 htmlFor="expiration"
                 name="expiration"
@@ -189,17 +172,17 @@ export const PayExample = () => {
                   name="expiration"
                   mask={dateMask}
                 />
-              </RequiredFormField>
+              </FormField>
             </Box>
             <Box fill>
-              <RequiredFormField required htmlFor="cvv" name="cvv" label="CVV">
+              <FormField required htmlFor="cvv" name="cvv" label="CVV">
                 <MaskedInput
                   mask={cvvMask}
                   id="cvv"
                   name="cvv"
                   placeholder="123"
                 />
-              </RequiredFormField>
+              </FormField>
             </Box>
           </Box>
           <Box
