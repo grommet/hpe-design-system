@@ -7861,8 +7861,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.16.3"
-  uid d41c5cc799d0988ddfed6b55b379eb149651273f
-  resolved "https://github.com/grommet/grommet/tarball/stable#d41c5cc799d0988ddfed6b55b379eb149651273f"
+  uid d3d4771c629e0dedf5550c5bf7cee15025528ea9
+  resolved "https://github.com/grommet/grommet/tarball/stable#d3d4771c629e0dedf5550c5bf7cee15025528ea9"
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
