@@ -92,8 +92,7 @@ export const RequiredFieldsExample = () => {
             <TextInput id="email" name="email" />
           </FormField>
           <FormField
-            required
-            help="Would you like to apply nemesis character"
+            help="Would you like to apply nemesis character?"
             htmlFor="nemesis__input"
             name="nemesis"
             label="Nemesis"
