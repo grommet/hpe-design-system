@@ -89,9 +89,9 @@ export const WhatIs = () => {
         </Paragraph>
       </Box>
       <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
-        {whatIsContent.map(({ image, text }) => {
+        {whatIsContent.map(({ image, text }, index) => {
           return (
-            <Box key={image} width="120px">
+            <Box key={`whatis-${index}`} width="120px">
               <Box width="120px" height="120px">
                 <Image
                   src={
