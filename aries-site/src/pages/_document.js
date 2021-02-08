@@ -36,7 +36,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
+          <div id="hpe_slim_header" className="hpe_slim_header" />
           <Main />
+          <div id="hpe_slim_footer" className="hpe_slim_footer" />
+          <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-5-1/jquery.js" />
+          <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&color_scheme=dark" />
           <NextScript />
         </body>
       </Html>

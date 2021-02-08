@@ -50,6 +50,12 @@ export const Video = () => {
           src="https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4"
           type="video/mp4"
         />
+        <track
+          default
+          kind="captions"
+          srcLang="en"
+          src="/static/HPE.Design.System.V6.vtt"
+        />
       </GrommetVideo>
     </Box>
   );
