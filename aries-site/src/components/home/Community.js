@@ -24,7 +24,7 @@ const SlackOption = () => (
   <Box gap="medium">
     <Slack size="large" color="text-strong" />
     <Box>
-      <Heading level={3} margin="none" size="small">
+      <Heading level={2} margin="none" size="xsmall">
         Slack
       </Heading>
       <Text>Specific questions? Want feedback or advice?</Text>
@@ -42,7 +42,7 @@ const Roadmap = () => (
   <Box gap="medium">
     <Map size="large" color="text-strong" />
     <Box>
-      <Heading level={3} margin="none" size="small">
+      <Heading level={2} margin="none" size="xsmall">
         Roadmap
       </Heading>
       <Text>Stay in the loop and checkout what's next!</Text>
@@ -59,7 +59,7 @@ const Backlog = () => (
   <Box gap="medium">
     <Github size="large" color="text-strong" />
     <Box>
-      <Heading level={3} margin="none" size="small">
+      <Heading level={2} margin="none" size="xsmall">
         Backlog
       </Heading>
       <Text>Eager to know what's marinating in the back?</Text>

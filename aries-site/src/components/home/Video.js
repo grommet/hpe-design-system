@@ -44,7 +44,7 @@ export const Video = () => {
         poster={`/static/images/video-placeholder${
           darkMode.value ? '-dark' : ''
         }.png`}
-        style={windowHeight ? { maxHeight: `${windowHeight}px` } : {}}
+        style={windowHeight ? { maxHeight: `${windowHeight}px` } : undefined}
       >
         <source
           src="https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4"
