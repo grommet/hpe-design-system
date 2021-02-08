@@ -213,11 +213,12 @@ export const PersistentFiltering = ({ containerRef }) => {
 
   return (
     <Box
+      background="background"
       gap="large"
       width={{ max: 'xxlarge' }}
       margin="auto"
       overflow="auto"
-      pad={{ horizontal: 'small', top: 'small' }}
+      pad={{ horizontal: 'medium', top: 'small' }}
       fill
     >
       <Header>
@@ -830,6 +831,8 @@ const Results = ({ data }) => {
       >
         {data.map((datum, index) => (
           <StyledCard
+            background="background"
+            elevation="medium"
             key={index}
             onClick={() => {
               // eslint-disable-next-line no-alert

@@ -18,7 +18,10 @@ with mouse`, async t => {
   const suggestion = getSuggestion(page);
 
   navbar.searchFor(page);
-  await t.click(suggestion).expect(getLocation()).eql(expectedPath);
+  await t
+    .click(suggestion)
+    .expect(getLocation())
+    .eql(expectedPath);
 });
 
 test(`should navigate to correct page after user types page name and hits 
@@ -27,7 +30,10 @@ enter`, async t => {
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
   navbar.searchFor(page);
-  await t.pressKey('enter').expect(getLocation()).eql(expectedPath);
+  await t
+    .pressKey('enter')
+    .expect(getLocation())
+    .eql(expectedPath);
 });
 
 test(`should navigate to correct hash after user clicks a suggestion that leads 
@@ -37,15 +43,20 @@ to a page subsection`, async t => {
   const suggestion = getSuggestion(page);
 
   navbar.searchFor('col');
-  await t.click(suggestion).expect(getLocation()).eql(expectedPath);
+  await t
+    .click(suggestion)
+    .expect(getLocation())
+    .eql(expectedPath);
 });
 
-test(`should navigate to correct page when user is only using 
-keyboard`, async t => {
-  const page = 'Aruba Logo';
-  const expectedPath = `${baseUrl}/foundation/our-brand#aruba-logo`;
+// commenting out until https://github.com/grommet/grommet/issues/4875
+// is resolved
+// test(`should navigate to correct page when user is only using
+// keyboard`, async t => {
+//   const page = 'Aruba Logo';
+//   const expectedPath = `${baseUrl}/foundation/our-brand#aruba-logo`;
 
-  await navbar.searchFor('a', { keyboard: true });
-  await navbar.navigateToSuggestion(page);
-  await t.expect(getLocation()).eql(expectedPath);
-});
+//   await navbar.searchFor('a', { keyboard: true });
+//   await navbar.navigateToSuggestion(page);
+//   await t.expect(getLocation()).eql(expectedPath);
+// });

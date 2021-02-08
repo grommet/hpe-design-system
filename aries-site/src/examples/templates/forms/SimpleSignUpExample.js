@@ -126,6 +126,9 @@ export const SimpleSignUpExample = () => {
         <Form
           validate="blur"
           value={formValues}
+          messages={{
+            required: 'This is a required field.',
+          }}
           onChange={nextValue => onChange(nextValue)}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
@@ -134,6 +137,7 @@ export const SimpleSignUpExample = () => {
             htmlFor="email-sign-up-simple"
             name="email"
             validate={emailValidation}
+            required
           >
             <MaskedInput
               id="email-sign-up-simple"
@@ -185,6 +189,7 @@ export const SimpleSignUpExample = () => {
                 }}
               </List>
             }
+            required
           >
             <TextInput
               id="password-sign-up-simple"

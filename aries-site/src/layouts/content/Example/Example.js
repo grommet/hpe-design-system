@@ -26,6 +26,7 @@ export const Example = ({
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
+  github, // link to github directory
   height,
   horizontalLayout,
   plain, // remove Container from around example
@@ -125,6 +126,7 @@ export const Example = ({
   const resources = (
     <ExampleResources
       code={code}
+      github={github}
       details={details}
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       horizontalLayout={horizontalLayout}
@@ -155,6 +157,7 @@ export const Example = ({
             <HorizontalExample
               content={content}
               controls={controls}
+              height={height}
               plain={plain}
               resources={resources}
               showResponsiveControls={showResponsiveControls}
@@ -171,7 +174,7 @@ export const Example = ({
           }}
         >
           <Layer full animation="fadeIn">
-            <Box fill background="background-front">
+            <Box fill background="background">
               <Box
                 direction="row"
                 justify={
@@ -243,7 +246,10 @@ export const Example = ({
 Example.propTypes = {
   background: PropTypes.string,
   children: PropTypes.element,
-  code: PropTypes.string,
+  code: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -256,6 +262,7 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  github: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,

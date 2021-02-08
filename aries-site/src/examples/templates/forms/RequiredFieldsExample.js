@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -17,22 +16,6 @@ import { CircleAlert } from 'grommet-icons';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
-
-const RequiredFormField = props => {
-  const { required, label, ...rest } = props;
-  return (
-    <FormField
-      label={required ? `${label}*` : label}
-      required={required}
-      {...rest}
-    />
-  );
-};
-
-RequiredFormField.propTypes = {
-  required: PropTypes.bool,
-  label: PropTypes.string,
-};
 
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -80,7 +63,7 @@ export const RequiredFieldsExample = () => {
           value={formValues}
           onChange={onFormChange}
         >
-          <RequiredFormField
+          <FormField
             required
             error="Provide a unique name."
             htmlFor="name__input"
@@ -88,40 +71,34 @@ export const RequiredFieldsExample = () => {
             label="Name"
           >
             <TextInput id="name" name="name" />
-          </RequiredFormField>
-          <RequiredFormField
+          </FormField>
+          <FormField
             required
             htmlFor="superPower__input"
             name="superPower"
             label="Superpower"
           >
             <Select options={superPower} id="superPower" name="superPower" />
-          </RequiredFormField>
-          <RequiredFormField
+          </FormField>
+          <FormField
             required
             htmlFor="weakness__input"
             name="weakness"
             label="Weakness"
           >
             <Select options={weakness} id="weakness" name="weakness" />
-          </RequiredFormField>
-          <RequiredFormField
-            required
-            htmlFor="email__input"
-            name="email"
-            label="Email"
-          >
+          </FormField>
+          <FormField required htmlFor="email__input" name="email" label="Email">
             <TextInput id="email" name="email" />
-          </RequiredFormField>
-          <RequiredFormField
-            required
-            help="Would you like to apply nemesis character"
+          </FormField>
+          <FormField
+            help="Would you like to apply nemesis character?"
             htmlFor="nemesis__input"
             name="nemesis"
             label="Nemesis"
           >
             <CheckBox name="nemesis" label="Bring it on" toggle reverse />
-          </RequiredFormField>
+          </FormField>
           <FormField htmlFor="comments" name="comments" label="Comments">
             <TextArea id="comments" name="comments" placeholder="Comments" />
           </FormField>

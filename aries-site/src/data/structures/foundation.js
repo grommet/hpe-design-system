@@ -8,8 +8,9 @@ export const foundation = [
     name: 'Accessibility',
     category: 'Philosophy',
     cardOrder: 2,
-    description: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    description: `Central to the HPE Design System, accessibility is 
+    incorporated into all Design System facets, ensuring HPE applications 
+    are usable by as many people as possible.`,
     preview: {
       image: {
         src: {
@@ -19,8 +20,8 @@ export const foundation = [
         alt: 'HPE Accessibility Preview',
       },
     },
-    seoDescription: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    seoDescription: `Accessibility is central to the HPE Design System and 
+    ensures that HPE applications are usable by as many people as possible.`,
     sections: [],
   },
   {
@@ -66,6 +67,7 @@ export const foundation = [
       'Core Palette',
       'Light Palette',
       'Dark Palette',
+      'Green Color Accessibility',
       'Background Colors',
       'Background Palette',
       'Border Colors',
@@ -80,6 +82,7 @@ export const foundation = [
       'Focus Color',
       'Elevation',
     ],
+    relatedContent: ['Background Colors Guidance', 'Typography', 'Icons'],
   },
   {
     name: 'Human Centered',
@@ -103,7 +106,7 @@ export const foundation = [
   },
   {
     name: 'Icons',
-    cardOrder: 7,
+    cardOrder: 8,
     category: 'Assets',
     description: `Icons are an integral part of our visual storytelling style 
     to represent objects, actions, programs and other communicative symbols. 
@@ -126,7 +129,7 @@ export const foundation = [
   },
   {
     name: 'Typography',
-    cardOrder: 6,
+    cardOrder: 7,
     category: 'Assets',
     description: `The MetricHPE font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
@@ -178,5 +181,25 @@ export const foundation = [
       'Be Intuitive',
       'Lead people to success',
     ],
+  },
+  {
+    name: 'Background Colors Guidance',
+    category: 'Assets',
+    cardOrder: 6,
+    description: `Leverage HPE background colors to seamlessly style 
+    your layout.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Background Colors Preview',
+      },
+    },
+    seoDescription: `Learn about how to leverage HPE background colors to 
+    seamlessly style your layout.`,
+    sections: [],
+    relatedContent: ['Color', 'Typography', 'Icons'],
   },
 ];

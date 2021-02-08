@@ -21,7 +21,8 @@ export const Container = ({
   const aspectHeight = `${parseInt(medium, 10) + parseInt(small, 10)}px`;
 
   let height;
-  if (template || screenContainer) height = aspectHeight;
+  if (heightProp) height = heightProp;
+  else if (template || screenContainer) height = aspectHeight;
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
 

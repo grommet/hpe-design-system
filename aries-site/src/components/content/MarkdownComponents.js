@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, Heading } from 'grommet';
+import { Anchor, Box, Heading, Paragraph } from 'grommet';
+
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
 export const internalLink = RegExp('^/.*|^#.*');
 
 export const components = {
+  blockquote: props => (
+    <Box width="large">
+      <Paragraph
+        margin={{ top: 'large', bottom: 'none', left: 'large' }}
+        size="xxlarge"
+        {...props}
+      />
+    </Box>
+  ),
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
@@ -42,6 +52,16 @@ export const components = {
   h1: props => <Heading margin={{ vertical: 'small' }} level={1} {...props} />,
   h2: props => <SubsectionHeader level={2} {...props} />,
   h3: props => <SubsectionHeader level={3} {...props} />,
+  hr: () => (
+    <Box
+      as="hr"
+      border={{
+        style: 'none',
+        side: 'bottom',
+      }}
+      fill="horizontal"
+    />
+  ),
 };
 
 components.a.propTypes = {

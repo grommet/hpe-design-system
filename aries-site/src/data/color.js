@@ -421,3 +421,69 @@ export const colorExamples = {
     elevationColorsLight,
   },
 };
+
+export const columns = [
+  {
+    property: 'name',
+    label: 'Name',
+    dataScope: 'row',
+  },
+  {
+    property: 'value',
+    label: 'Value',
+  },
+];
+
+export const greenLight = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '13.42:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Pass',
+  },
+];
+
+export const greenDark = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '4.61:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Fail',
+  },
+];
+
+export const greenDarkLarge = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '4.61:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Pass',
+  },
+];

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Figma } from 'grommet-icons';
-import { Anchor, Box, Button, ResponsiveContext } from 'grommet';
+import { Anchor, Box, Button, ResponsiveContext, Text } from 'grommet';
 
 import {
   ButtonRow,
@@ -11,9 +11,14 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { Meta, SubsectionText } from '../../components';
+import { ColorCompliance, Meta, SubsectionText } from '../../components';
 import { ElevationExample, TextExample } from '../../examples';
-import { colorExamples } from '../../data';
+import {
+  colorExamples,
+  greenDark,
+  greenDarkLarge,
+  greenLight,
+} from '../../data';
 import { getPageDetails, nameToPath } from '../../utils';
 
 const {
@@ -72,7 +77,7 @@ const Color = () => (
                 color palette over Brand Central when identifying colors for
                 your digital experience.
               </SubsectionText>
-              <SubsectionText size="medium">
+              <SubsectionText>
                 The HPE Design System team is working with HPE Brand to ensure
                 that the Brand Central color palettes (like 'secondary colors')
                 are updated to meet ADA complicance levels in a large variety of
@@ -153,12 +158,100 @@ const Color = () => (
                 </UsageExample>
               )}
             </Subsection>
+            <Subsection name="Green Color Accessibility">
+              <SubsectionText>
+                The HPE Design System green ensures compliance with WCAG 2.1
+                standards for distinguishable text and color (
+                <Anchor
+                  label="see success criterion 1.4.1 and 1.4.3"
+                  href="https://www.w3.org/TR/WCAG21/#distinguishable"
+                  target="_blank"
+                  rel="noopener"
+                />
+                ). With accessibility as one of its core principles, the HPE
+                Design System focused on keeping accessibilty research and
+                guidelines at the center of its color selection process.
+              </SubsectionText>
+
+              <SubsectionText>
+                See details below on how to remain compliant in both light and
+                dark theme modes.
+              </SubsectionText>
+            </Subsection>
+            <Subsection level={3} name="Light Mode">
+              <SubsectionText>
+                AAA compliance is met for text on a light mode green background
+                when using `text-strong` color. This is ensured for text of size
+                18px and above.
+              </SubsectionText>
+              <SubsectionText>
+                If a font size is below 18px, AAA compliance will fail with
+                default font weight on an HPE green background. In this case,
+                apply weight="bold" to meet AAA compliance.
+              </SubsectionText>
+              <Box direction="row-responsive" gap="medium">
+                <ColorCompliance
+                  color={{ color: 'green', dark: false }}
+                  data={greenLight}
+                >
+                  <Text color="text-strong">
+                    This text is default size, default weight, and color
+                    text-strong.
+                  </Text>
+                </ColorCompliance>
+                <ColorCompliance
+                  color={{ color: 'green', dark: false }}
+                  data={greenLight}
+                >
+                  <Text color="text-strong" size="small" weight="bold">
+                    This text is size small, bold weight, and color text-strong.
+                  </Text>
+                </ColorCompliance>
+              </Box>
+            </Subsection>
+            <Subsection level={3} name="Dark Mode">
+              <SubsectionText>
+                AA compliance is met for text on a dark mode green background
+                when using `text-strong` color. To meet AAA compliance, use text
+                size="large" and weight="bold".
+              </SubsectionText>
+
+              <Box direction="row-responsive" gap="medium">
+                <ColorCompliance
+                  color={{ color: 'green', dark: true }}
+                  data={greenDark}
+                >
+                  <Text color="text-strong" size="small" weight="bold">
+                    This text is default size, default weight, and color
+                    text-strong.
+                  </Text>
+                </ColorCompliance>
+                <ColorCompliance
+                  color={{ color: 'green', dark: true }}
+                  data={greenDarkLarge}
+                >
+                  <Text color="text-strong" size="large" weight="bold">
+                    This text is size large, bold weight, and color text-strong.
+                  </Text>
+                </ColorCompliance>
+              </Box>
+            </Subsection>
             <Subsection name="Background Colors">
               <SubsectionText>
                 Our color palette is only impactful when used in the correct
                 context. Accommodating both light and dark modes of a user
                 experience with the appropriate color palette creates a
                 successful customer experience.
+              </SubsectionText>
+
+              <SubsectionText>
+                For more direction on how to use background colors within your
+                layout, see{' '}
+                <Anchor
+                  label="Background Colors Guidance"
+                  href="/foundation/background-colors-guidance"
+                />
+                .
               </SubsectionText>
             </Subsection>
             <Subsection name="Background Palette" level={3}>

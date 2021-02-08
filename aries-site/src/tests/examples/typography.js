@@ -7,9 +7,9 @@ import { baseUrl, startResponsiveSnapshots } from '../utils';
 const testAllDisplays = async (eyes, t) => {
   const fullScreenButton = Selector('button').withText('See Fullscreen');
 
-  await eyes.checkWindow({ tag: 'Inline' });
+  await eyes.checkWindow({ tag: 'Inline', fully: true, target: 'window' });
   await t.click(fullScreenButton);
-  await eyes.checkWindow({ tag: 'Fullscreen' });
+  await eyes.checkWindow({ tag: 'Fullscreen', fully: true, target: 'window' });
 };
 
 const title = 'Typography page';

@@ -96,6 +96,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
 
   return (
     <Box
+      background="background"
       gap="medium"
       width={{ max: 'xxlarge' }}
       pad={{ horizontal: 'medium' }}
@@ -342,7 +343,6 @@ const Results = ({ data }) => {
   return (
     <Box pad={{ bottom: 'medium' }} overflow="auto" fill>
       <List
-        background="background-front"
         border="horizontal"
         data={data}
         action={(item, index) => (

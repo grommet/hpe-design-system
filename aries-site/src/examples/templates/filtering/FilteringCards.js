@@ -159,6 +159,7 @@ export const FilteringCards = ({ containerRef }) => {
 
   return (
     <Box
+      background="background"
       fill
       gap="medium"
       margin="auto"
@@ -631,10 +632,12 @@ const Results = ({ data }) => {
       <Grid
         columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
         gap={size !== 'small' ? 'medium' : 'small'}
+        margin={{ top: 'small' }}
       >
         {data.map((datum, index) => (
           <StyledCard
-            background="background-contrast"
+            background="background"
+            elevation="medium"
             key={index}
             onClick={() => {
               // eslint-disable-next-line no-alert
