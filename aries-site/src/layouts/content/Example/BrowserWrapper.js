@@ -40,7 +40,6 @@ export const BrowserWrapper = forwardRef(({ screen, ...rest }, ref) => {
         {...rest}
         // allow BrowserWrapper width to override width from rest
         width={screen === screens.desktop ? '75%' : '100%'}
-        fill="vertical"
         margin="auto"
         fill={screen === screens.mobile}
         overflow="auto"
