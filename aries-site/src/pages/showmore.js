@@ -54,7 +54,7 @@ const ShowMore = () => (
     <Box gap="large">
       <PageIntro>
         <Box justify="center" fill>
-          <Heading margin="none">HPE Design System</Heading>
+          <Heading margin="none">Highlights</Heading>
           <Paragraph size="large" fill>
             The Design System was created to empower designers, developers, and
             others to contribute to making great experiences for the customer.
