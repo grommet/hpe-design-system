@@ -44,7 +44,11 @@ export const Quote = () => {
           </Paragraph>
         </Box>
         <Box fill align="end" justify="end">
-          <Image src={quoteLines} margin={{ right: '-138px' }} />
+          <Image
+            src={quoteLines}
+            margin={{ right: '-138px' }}
+            alt="quote lines"
+          />
         </Box>
         <Box fill justify="between">
           <Text

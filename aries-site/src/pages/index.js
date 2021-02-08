@@ -47,7 +47,7 @@ const Intro = ({ children }) => {
       >
         {size !== 'small' && <Box width="small" />}
         <Box>
-          <Image src={image} fit="contain" />
+          <Image src={image} fit="contain" alt="HPE Design System" />
         </Box>
       </Box>
       <Box height={{ min: 'medium' }} justify="center">
