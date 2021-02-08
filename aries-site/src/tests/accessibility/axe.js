@@ -43,7 +43,7 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      exclude: ['#hpeslh_site-branding'],
     };
     const axeOptions = {
       rules: {
@@ -62,7 +62,7 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      exclude: ['#hpeslh_site-branding'],
     };
     const axeOptions = {
       rules: {

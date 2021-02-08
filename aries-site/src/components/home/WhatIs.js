@@ -100,6 +100,7 @@ export const WhatIs = () => {
                       : image.src.light || image.src
                   }
                   fit="contain"
+                  alt={image.alt}
                 />
               </Box>
               <Paragraph size="small">{text}</Paragraph>
