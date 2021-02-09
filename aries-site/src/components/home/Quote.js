@@ -50,9 +50,9 @@ export const Quote = () => {
             alt="quote lines"
           />
         </Box>
-        <Box fill justify="between">
+        <Box fill justify="between" pad={{ top: 'medium', bottom: 'small' }}>
           <Text
-            size="124px"
+            size="6xl"
             weight="bold"
             color="brand"
             style={{ marginLeft: '-15px' }}
@@ -60,7 +60,7 @@ export const Quote = () => {
             &ldquo;
           </Text>
           <Text
-            size="124px"
+            size="6xl"
             color="brand"
             weight="bold"
             alignSelf="end"
