@@ -13,50 +13,35 @@ import { useDarkMode } from '../../utils';
 const whatIsContent = [
   {
     image: {
-      src: {
-        light: '/whatis/base.svg',
-        dark: '/whatis/base-dark.svg',
-      },
+      src: '/whatis/base.svg',
       alt: 'Base elements',
     },
     text: 'Base elements and styles form the rudiments of composition.',
   },
   {
     image: {
-      src: {
-        light: '/whatis/combining.svg',
-        dark: '/whatis/combining-dark.svg',
-      },
+      src: '/whatis/combining.svg',
       alt: 'Combining elements',
     },
     text: 'Combining base elements to make templates.',
   },
   {
     image: {
-      src: {
-        light: '/whatis/tools.svg',
-        dark: '/whatis/tools-dark.svg',
-      },
+      src: '/whatis/tools.svg',
       alt: 'Tools',
     },
     text: 'Use tools to help expand and connect elements.',
   },
   {
     image: {
-      src: {
-        light: '/whatis/tailor.svg',
-        dark: '/whatis/tailor-dark.svg',
-      },
+      src: '/whatis/tailor.svg',
       alt: 'Tailored solution',
     },
     text: 'Tailor the code, resources, and tools into one solution.',
   },
   {
     image: {
-      src: {
-        light: '/whatis/app.svg',
-        dark: '/whatis/app-dark.svg',
-      },
+      src: '/whatis/app.svg',
       alt: 'Application',
     },
     text: 'Put it all together to make an application.',

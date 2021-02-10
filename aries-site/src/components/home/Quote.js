@@ -10,7 +10,13 @@ export const Quote = () => {
   }.svg`;
 
   return (
-    <Box direction="row-responsive" gap="large" justify="center" pad="large">
+    <Box
+      direction="row-responsive"
+      gap="large"
+      justify="center"
+      pad="large"
+      overflow="hidden"
+    >
       <Box
         align="center"
         justify="center"
@@ -50,25 +56,27 @@ export const Quote = () => {
             alt="quote lines"
           />
         </Box>
-        <Box fill justify="between" pad={{ top: 'medium', bottom: 'small' }}>
-          <Text
-            size="6xl"
-            weight="bold"
-            color="brand"
-            style={{ marginLeft: '-15px' }}
+        <Box fill justify="between" pad={{ top: 'large', bottom: 'large' }}>
+          <Box
+            background="background"
+            width={{ max: 'fit-content' }}
+            style={{ marginLeft: '-8px' }}
           >
-            &ldquo;
-          </Text>
-          <Text
-            size="6xl"
-            color="brand"
-            weight="bold"
+            <Image src="/static/images/quote.svg" width="40px" height="40px" />
+          </Box>
+          <Box
+            background="background"
+            width={{ max: 'fit-content' }}
             alignSelf="end"
-            textAlign="end"
-            style={{ marginRight: '-15px' }}
+            style={{ marginRight: '-8px' }}
           >
-            &rdquo;
-          </Text>
+            <Image
+              src="/static/images/quote.svg"
+              width="40px"
+              height="40px"
+              style={{ transform: 'rotate(180deg)' }}
+            />
+          </Box>
         </Box>
       </Stack>
     </Box>

@@ -4,7 +4,6 @@ import {
   Card,
   Grid,
   Heading,
-  Image,
   Paragraph,
   ResponsiveContext,
   Stack,
@@ -16,13 +15,14 @@ import { Meta } from '../components';
 import {
   Community,
   Featured,
+  Hero,
   Highlights,
   Quote,
   Video,
   WhatIs,
 } from '../components/home';
 import { Layout } from '../layouts';
-import { getPageDetails, useDarkMode } from '../utils';
+import { getPageDetails } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
@@ -34,21 +34,24 @@ const calcPad = size => {
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
-  const darkMode = useDarkMode();
-  const image = `/home${darkMode.value ? '-dark' : ''}.svg`;
-
-  return (
+  return size === 'small' ? (
+    <Box>
+      <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
+      <Card background="none" elevation="none">
+        {children}
+      </Card>
+    </Box>
+  ) : (
     <Stack guidingChild="last">
       <Box
         align="start"
         justify="between"
         pad={{ horizontal: calcPad(size) }}
         direction="row"
+        fill
       >
-        {size !== 'small' && <Box width="small" />}
-        <Box>
-          <Image src={image} fit="contain" alt="HPE Design System" />
-        </Box>
+        <Box width="small" />
+        <Hero />
       </Box>
       <Box height={{ min: 'medium' }} justify="center">
         <Grid
@@ -79,8 +82,8 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box>
         <Intro>
-          <Box pad={calcPad(size)} width={{ max: '900px' }}>
-            {size === 'small' && (
+          <Box pad={{ horizontal: calcPad(size) }} width={{ max: '900px' }}>
+            {size === 'xxxsmall' && (
               <Card background="none" elevation="none" height="small" />
             )}
             <Heading margin="none" size="large">
