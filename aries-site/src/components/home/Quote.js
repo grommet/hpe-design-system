@@ -58,23 +58,25 @@ export const Quote = () => {
         </Box>
         <Box fill justify="between" pad={{ top: 'large', bottom: 'large' }}>
           <Box
-            background="background"
+            background="background-back"
             width={{ max: 'fit-content' }}
             style={{ marginLeft: '-8px' }}
           >
             <Image src="/static/images/quote.svg" width="40px" height="40px" />
           </Box>
           <Box
-            background="background"
+            background="background-back"
             width={{ max: 'fit-content' }}
             alignSelf="end"
             style={{ marginRight: '-8px' }}
+            alt="start of quote"
           >
             <Image
               src="/static/images/quote.svg"
               width="40px"
               height="40px"
               style={{ transform: 'rotate(180deg)' }}
+              alt="end of quote"
             />
           </Box>
         </Box>

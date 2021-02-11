@@ -4,17 +4,6 @@ import { Box, ResponsiveContext, ThemeContext } from 'grommet';
 import { normalizeColor } from 'grommet/utils';
 import { useDarkMode } from '../../utils';
 
-const floatAnimation = css`
-  ${props => keyframes`
-    0% {
-      transform: ${props.reversed ? 'translateY(5%)' : 'none'};
-    }
-    100% {
-      transform: ${props.reversed ? 'none' : 'translateY(5%)'};
-    }
-  `} 3s 6s infinite alternate forwards
-`;
-
 const textFillAnimation = css`
   ${props => keyframes`
     0% {
@@ -64,7 +53,6 @@ const roundAnimation = css`
 const StyledLines = styled.g`
   stroke-width: 4;
   stroke-linecap: round;
-  animation: ${floatAnimation};
 `;
 
 const StyledType = styled.g`
