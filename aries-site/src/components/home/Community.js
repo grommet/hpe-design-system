@@ -72,28 +72,30 @@ const Backlog = () => (
   </Box>
 );
 
-export const Community = () => {
+export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box
-      fill="horizontal"
-      background="background-front"
-      pad={size !== 'small' ? 'xlarge' : 'large'}
-      gap="large"
-    >
-      <Box width="xlarge">
-        <Heading margin="none">Community</Heading>
-        <Paragraph size="xlarge" fill>
-          The HPE Design System is an open-source framework for designers and
-          developers. We welcome feedback, ideas and appreciate your
-          suggestions.
-        </Paragraph>
+    <Box fill="horizontal" background="background-front">
+      <Box
+        fill="horizontal"
+        pad={size !== 'small' ? 'xlarge' : 'large'}
+        gap="large"
+        {...rest}
+      >
+        <Box width="xlarge">
+          <Heading margin="none">Community</Heading>
+          <Paragraph size="xlarge" fill>
+            The HPE Design System is an open-source framework for designers and
+            developers. We welcome feedback, ideas and appreciate your
+            suggestions.
+          </Paragraph>
+        </Box>
+        <Grid columns="medium" rows={[['auto', 'full']]} gap="small" fill>
+          <SlackOption />
+          <Roadmap />
+          <Backlog />
+        </Grid>
       </Box>
-      <Grid columns="medium" rows={[['auto', 'full']]} gap="small" fill>
-        <SlackOption />
-        <Roadmap />
-        <Backlog />
-      </Grid>
     </Box>
   );
 };

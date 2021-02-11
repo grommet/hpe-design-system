@@ -62,14 +62,18 @@ export const Quote = () => {
             width={{ max: 'fit-content' }}
             style={{ marginLeft: '-8px' }}
           >
-            <Image src="/static/images/quote.svg" width="40px" height="40px" />
+            <Image
+              src="/static/images/quote.svg"
+              width="40px"
+              height="40px"
+              alt="start of quote"
+            />
           </Box>
           <Box
             background="background-back"
             width={{ max: 'fit-content' }}
             alignSelf="end"
             style={{ marginRight: '-8px' }}
-            alt="start of quote"
           >
             <Image
               src="/static/images/quote.svg"

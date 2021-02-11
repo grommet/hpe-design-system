@@ -6,7 +6,7 @@ import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
-const FeaturedLayout = () => {
+const FeaturedLayout = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -15,6 +15,7 @@ const FeaturedLayout = () => {
         horizontal: size !== 'small' ? 'xlarge' : 'large',
         bottom: 'small',
       }}
+      {...rest}
     >
       <Grid
         rows={[['auto', 'full']]}
@@ -50,11 +51,11 @@ const FeaturedLayout = () => {
   );
 };
 
-export const Featured = () => {
+export const Featured = ({ ...rest }) => {
   return (
     <Stack guidingChild="last">
       <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-      <FeaturedLayout />
+      <FeaturedLayout {...rest} />
     </Stack>
   );
 };

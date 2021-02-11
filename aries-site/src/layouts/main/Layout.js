@@ -68,7 +68,11 @@ export const Layout = ({
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
-                <Header />
+                <Header
+                  fill="horizontal"
+                  alignSelf="center"
+                  width={{ max: 'xxlarge' }}
+                />
                 <Main overflow="visible">
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
