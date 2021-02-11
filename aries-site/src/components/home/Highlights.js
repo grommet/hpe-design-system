@@ -79,37 +79,34 @@ const HighlightsLayout = () => {
   );
 };
 
-export const Highlights = () => {
+export const Highlights = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box
-      fill
-      background="background-front"
-      gap="medium"
-      pad={{ vertical: 'large' }}
-    >
-      <Box
-        justify="center"
-        align="center"
-        pad={{ horizontal: size !== 'small' ? 'xlarge' : 'large' }}
-        gap="large"
-      >
-        <Heading margin="none" level={2} size="large">
-          Highlights
-        </Heading>
-        <Box width="large" pad={{ bottom: 'medium' }}>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System team is committed to conducting thorough
-            research so you don't have to think about it. Just find what you
-            need, design and deliver quickly!
-          </Paragraph>
+    <Box fill background="background-front">
+      <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
+        <Box
+          justify="center"
+          align="center"
+          pad={{ horizontal: size !== 'small' ? 'xlarge' : 'large' }}
+          gap="large"
+        >
+          <Heading margin="none" level={2} size="large">
+            Highlights
+          </Heading>
+          <Box width="large" pad={{ bottom: 'medium' }}>
+            <Paragraph size="xlarge" fill textAlign="center" margin="none">
+              The HPE Design System team is committed to conducting thorough
+              research so you don't have to think about it. Just find what you
+              need, design and deliver quickly!
+            </Paragraph>
+          </Box>
         </Box>
-      </Box>
-      <HighlightsLayout />
-      <Box fill="horizontal" align="center" justify="center" pad="medium">
-        <Link href="/showmore" passHref>
-          <Button primary label="Show Me More" />
-        </Link>
+        <HighlightsLayout />
+        <Box fill="horizontal" align="center" justify="center" pad="medium">
+          <Link href="/showmore" passHref>
+            <Button primary label="Show Me More" />
+          </Link>
+        </Box>
       </Box>
     </Box>
   );

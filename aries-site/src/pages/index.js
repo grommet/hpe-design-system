@@ -32,6 +32,9 @@ const calcPad = size => {
   return val;
 };
 
+// These make a box width limited to xxlarge but centered
+const widthProps = { width: { max: 'xxlarge' }, margin: 'auto' };
+
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
   return size === 'small' ? (
@@ -49,11 +52,12 @@ const Intro = ({ children }) => {
         pad={{ horizontal: calcPad(size) }}
         direction="row"
         fill
+        {...widthProps}
       >
         <Box width="small" />
         <Hero />
       </Box>
-      <Box height={{ min: 'medium' }} justify="center">
+      <Box height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
           gap="large"
           columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}
@@ -97,13 +101,13 @@ const Index = () => {
         </Intro>
         <Stack guidingChild="last">
           <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-          <Featured />
+          <Featured {...widthProps} />
         </Stack>
-        <WhatIs />
-        <Video />
-        <Highlights />
+        <WhatIs {...widthProps} />
+        <Video {...widthProps} />
+        <Highlights {...widthProps} />
         <Quote />
-        <Community />
+        <Community {...widthProps} />
       </Box>
     </Layout>
   );

@@ -48,51 +48,53 @@ const whatIsContent = [
   },
 ];
 
-export const WhatIs = () => {
+export const WhatIs = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   const darkMode = useDarkMode();
 
   return (
-    <Box
-      fill
-      pad={{
-        horizontal: size !== 'small' ? 'xlarge' : 'large',
-        top: 'large',
-        bottom: 'medium',
-      }}
-      background="background-front"
-      gap="xlarge"
-    >
-      <Box justify="center" align="center" width="large" alignSelf="center">
-        <Heading level={2} size="large">
-          What is the HPE Design System?
-        </Heading>
-        <Paragraph size="xlarge" fill textAlign="center" margin="none">
-          The HPE Design System was created to empower designers, developers,
-          and others in contributing to an evolving design language that
-          supports HPE's pursuit in making great customer experiences.
-        </Paragraph>
-      </Box>
-      <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
-        {whatIsContent.map(({ image, text }, index) => {
-          return (
-            <Box key={`whatis-${index}`} width="120px">
-              <Box width="120px" height="120px">
-                <Image
-                  src={
-                    darkMode.value
-                      ? image.src.dark || image.src
-                      : image.src.light || image.src
-                  }
-                  fit="contain"
-                  alt={image.alt}
-                />
+    <Box fill background="background-front">
+      <Box
+        fill
+        pad={{
+          horizontal: size !== 'small' ? 'xlarge' : 'large',
+          top: 'large',
+          bottom: 'medium',
+        }}
+        gap="xlarge"
+        {...rest}
+      >
+        <Box justify="center" align="center" width="large" alignSelf="center">
+          <Heading level={2} size="large">
+            What is the HPE Design System?
+          </Heading>
+          <Paragraph size="xlarge" fill textAlign="center" margin="none">
+            The HPE Design System was created to empower designers, developers,
+            and others in contributing to an evolving design language that
+            supports HPE's pursuit in making great customer experiences.
+          </Paragraph>
+        </Box>
+        <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
+          {whatIsContent.map(({ image, text }, index) => {
+            return (
+              <Box key={`whatis-${index}`} width="120px">
+                <Box width="120px" height="120px">
+                  <Image
+                    src={
+                      darkMode.value
+                        ? image.src.dark || image.src
+                        : image.src.light || image.src
+                    }
+                    fit="contain"
+                    alt={image.alt}
+                  />
+                </Box>
+                <Paragraph size="small">{text}</Paragraph>
               </Box>
-              <Paragraph size="small">{text}</Paragraph>
-            </Box>
-          );
-        })}
-      </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
     </Box>
   );
 };
