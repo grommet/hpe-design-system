@@ -6,9 +6,13 @@ import { WizardContext } from '.';
 
 export const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
-  const { activeIndex, activeStep, setActiveIndex, steps } = useContext(
-    WizardContext,
-  );
+  const {
+    activeIndex,
+    activeStep,
+    setActiveIndex,
+    steps,
+    wizardTitle,
+  } = useContext(WizardContext);
   return (
     <Header background="background-contrast" pad="small" responsive={false}>
       <Box
@@ -35,7 +39,7 @@ export const WizardHeader = ({ setOpen }) => {
         </Box>
         <Box>
           <Text color="text-strong" weight="bold">
-            Wizard Title
+            {wizardTitle}
           </Text>
         </Box>
         <Box direction="row" flex justify="end">
