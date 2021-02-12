@@ -29,7 +29,7 @@ export const structure = [
   {
     name: 'Show More',
     seoDescription:
-      "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
+      "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and its partners share a single language for application, web, and digital experiences.",
     pages: ['Foundation', 'Components', 'Templates', 'Extend'],
   },
   {
