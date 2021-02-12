@@ -45,6 +45,7 @@ export const Video = ({ ...rest }) => {
         poster={`/static/images/video-placeholder${
           darkMode.value ? '-dark' : ''
         }.png`}
+        preload="none"
         style={windowHeight ? { maxHeight: `${windowHeight}px` } : undefined}
       >
         <source
