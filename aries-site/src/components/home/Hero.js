@@ -7,12 +7,12 @@ import { useDarkMode } from '../../utils';
 const moveAnimation = css`
   ${props => keyframes`
     0% {
-      y: ${props.y};
+      y: ${props.y}px;
     }
     100% {
-      y: ${Number(props.y) + Number(props.offset)};
+      y: ${Number(props.y) + Number(props.offset)}px;
     }
-  `} 0.5s ${props => props.moveStart || 0}s 1 forwards
+  `} 1s ${props => props.moveStart || 0}s 1 forwards
 `;
 
 const popAnimation = css`
@@ -28,10 +28,10 @@ const popAnimation = css`
 const roundAnimation = css`
   ${keyframes`
     0% {
-      rx: 6;
+      rx: 6px;
     }
     100% {
-      rx: 14.439;
+      rx: 14.439px;
     }
   `} 3s ${props => props.roundStart}s 1 forwards
 `;
@@ -65,14 +65,11 @@ const PoppingRect = styled.rect`
 
 const PoppingRoundRect = styled.rect`
   opacity: 0;
-  rx: 6;
   animation: ${popAnimation}, ${roundAnimation};
 `;
 
 const MovingRect = styled.rect`
   opacity: 0;
-  y: ${props => props.y};
-  rx: 6;
   animation: ${popAnimation}, ${moveAnimation}, ${roundAnimation};
 `;
 
@@ -132,6 +129,7 @@ export const Hero = props => {
           y="44"
           width="121"
           height="121"
+          rx="6"
           fill={purple}
           offset={142}
           popStart={sequence(0)}
@@ -143,6 +141,7 @@ export const Hero = props => {
           y="186"
           width="121"
           height="119"
+          rx="6"
           fill={normalizeColor('orange!', theme, darkMode.value)}
           offset={-142}
           popStart={sequence(1)}
@@ -197,6 +196,7 @@ export const Hero = props => {
           y="190"
           width="77"
           height="115"
+          rx="6"
           fill="#FFD63E"
           popStart={sequence(8)}
           roundStart={sequence(ROUND_STEP)}
@@ -207,6 +207,7 @@ export const Hero = props => {
           y="44"
           width="185"
           height="115"
+          rx="6"
           fill={normalizeColor('green', theme, false)}
           popStart={sequence(9)}
           roundStart={sequence(ROUND_STEP)}
