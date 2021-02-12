@@ -24,7 +24,8 @@ test('should check Home page', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      // excluding the HPE Slim header that gets a complaint about link text
+      exclude: ['#hpeslh_site-branding'],
     };
     const axeOptions = {
       rules: {
@@ -43,7 +44,8 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      // excluding the HPE Slim header that gets a complaint about link text
+      exclude: ['#hpeslh_site-branding'],
     };
     const axeOptions = {
       rules: {
@@ -62,7 +64,8 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      exclude: [],
+      // excluding the HPE Slim header that gets a complaint about link text
+      exclude: ['#hpeslh_site-branding'],
     };
     const axeOptions = {
       rules: {

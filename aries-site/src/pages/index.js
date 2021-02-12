@@ -1,69 +1,116 @@
-import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import React, { useContext } from 'react';
+import {
+  Box,
+  Card,
+  Grid,
+  Heading,
+  Paragraph,
+  ResponsiveContext,
+  Stack,
+} from 'grommet';
 
-import { CardGrid, Meta } from '../components';
-import { Layout, PageIntro } from '../layouts';
-import { getCards, getPageDetails } from '../utils';
+import PropTypes from 'prop-types';
+
+import { Meta } from '../components';
+import {
+  Community,
+  Featured,
+  Hero,
+  Highlights,
+  Quote,
+  Video,
+  WhatIs,
+} from '../components/home';
+import { Layout } from '../layouts';
+import { getPageDetails } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
-const cards = getCards();
-const featured = [
-  'Designer Guidance',
-  'Forms',
-  'Header',
-  'Human Centered',
-  'Developer Guidance',
-  'Button',
-  'Navigation',
-  'Icons',
-  'Search',
-  'Typography',
-];
 
-const featuredCards = [];
-const cardOrder = [];
+const calcPad = size => {
+  const val = size !== 'small' ? 'xlarge' : 'large';
+  return val;
+};
 
-cards.forEach(card => {
-  if (featured.includes(card.name)) featuredCards.push(card);
-  else cardOrder.push(card);
-});
+// These make a box width limited to xxlarge but centered
+const widthProps = { width: { max: 'xxlarge' }, margin: 'auto' };
 
-featuredCards.sort(
-  (a, b) => featured.indexOf(a.name) - featured.indexOf(b.name),
-);
-
-cardOrder.splice(0, 0, ...featuredCards);
-
-const Index = () => (
-  <Layout
-    backgroundImage={{
-      src: { dark: '/cards-dark.svg', light: '/cards.svg' },
-      alt: 'HPE Design System',
-      margin: { top: '50px', left: '-150px' },
-      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
-      small: {
-        margin: { left: '-75px', top: '-75px' },
-      },
-      useGrid: true,
-    }}
-    title={title}
-    isLanding
-  >
-    <Meta title={title} description={pageDetails.seoDescription} />
-    <Box gap="large">
-      <PageIntro>
-        <Box justify="center" fill>
-          <Heading margin="none">HPE Design System</Heading>
-          <Paragraph size="large" fill>
-            The Design System was created to empower designers, developers, and
-            others to contribute to making great experiences for the customer.
-          </Paragraph>
-        </Box>
-      </PageIntro>
-      <CardGrid cards={cardOrder} />
+const Intro = ({ children }) => {
+  const size = useContext(ResponsiveContext);
+  return size === 'small' ? (
+    <Box>
+      <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
+      <Card background="none" elevation="none">
+        {children}
+      </Card>
     </Box>
-  </Layout>
-);
+  ) : (
+    <Stack guidingChild="last">
+      <Box
+        align="start"
+        justify="between"
+        pad={{ horizontal: calcPad(size) }}
+        direction="row"
+        fill
+        {...widthProps}
+      >
+        <Box width="small" />
+        <Hero />
+      </Box>
+      <Box height={{ min: 'medium' }} justify="center" {...widthProps}>
+        <Grid
+          gap="large"
+          columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}
+        >
+          <Card background="none" elevation="none">
+            {children}
+          </Card>
+          {size !== 'small' && (
+            <Card background="none" elevation="none" height="small" />
+          )}
+        </Grid>
+      </Box>
+    </Stack>
+  );
+};
+
+Intro.propTypes = {
+  children: PropTypes.node,
+};
+
+const Index = () => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <Layout title={title} isLanding pad={{}} width={{}}>
+      <Meta title={title} description={pageDetails.seoDescription} />
+      <Box>
+        <Intro>
+          <Box pad={{ horizontal: calcPad(size) }} width={{ max: '900px' }}>
+            {size === 'xxxsmall' && (
+              <Card background="none" elevation="none" height="small" />
+            )}
+            <Heading margin="none" size="large">
+              Design, develop and deliver
+            </Heading>
+            <Paragraph size="xlarge">
+              Created to empower designers, developers, and others to quickly
+              create accessible user experiences
+            </Paragraph>
+          </Box>
+        </Intro>
+        <Stack guidingChild="last">
+          <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+          <Featured {...widthProps} />
+        </Stack>
+        <WhatIs {...widthProps} />
+        <Video {...widthProps} />
+        <Highlights {...widthProps} />
+        <Quote />
+        <Community {...widthProps} />
+      </Box>
+    </Layout>
+  );
+};
 
 export default Index;
