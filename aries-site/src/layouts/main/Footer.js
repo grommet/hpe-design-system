@@ -36,6 +36,9 @@ export const Footer = () => {
         // Match horizontal padding of aries-core Nav
         horizontal: size !== 'small' ? 'xlarge' : 'large',
       }}
+      fill="horizontal"
+      alignSelf="center"
+      width={{ max: 'xxlarge' }}
     >
       <Box direction="row-responsive" gap="xsmall" align="center">
         <Box>
