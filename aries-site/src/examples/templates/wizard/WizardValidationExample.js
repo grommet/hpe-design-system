@@ -287,6 +287,7 @@ export const WizardValidationExample = () => {
         formValues,
         setFormValues,
         validation,
+        wizardTitle: 'Wizard Title',
       }}
     >
       <Box fill>
