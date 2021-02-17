@@ -25,6 +25,7 @@ const StyledHeader = ({ ...rest }) => {
       <Link href="/" passHref>
         <AppIdentity
           brand="hpe"
+          logo={false}
           logoOnly={size === 'small' && searchFocused}
           title="Design System"
         />

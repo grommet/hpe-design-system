@@ -12,9 +12,13 @@ export const StepHeader = () => {
       <Heading color="text-strong" margin="none" size="small">
         {steps[activeIndex].title || `Step ${activeStep} Title`}
       </Heading>
-      <Paragraph size="large" margin="none">
-        {steps[activeIndex].description}
-      </Paragraph>
+      {typeof steps[activeIndex].description === 'string' ? (
+        <Paragraph size="large" margin="none">
+          {steps[activeIndex].description}
+        </Paragraph>
+      ) : (
+        steps[activeIndex].description
+      )}
     </Box>
   );
 };
