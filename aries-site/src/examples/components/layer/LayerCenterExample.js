@@ -23,15 +23,17 @@ export const LayerCenterExample = () => {
             <Box justify="between" direction="row">
               <Box flex={false} gap="small" direction="row">
                 <Box justify="center">
-                <MailOption />
+                  <MailOption />
                 </Box>
                 <Text margin="none" size="xlarge">
                   Modal Dialog
                 </Text>
               </Box>
               <Box justify="center">
-              <Button icon={<Close size="small" justify=
-              "center" />} onClick={onClose} />
+                <Button
+                  icon={<Close size="small" justify="center" />}
+                  onClick={onClose}
+                />
               </Box>
             </Box>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
