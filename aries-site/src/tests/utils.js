@@ -24,7 +24,8 @@ export const repeatKeyPress = ClientFunction((key, number) => {
 export const getTabCount = ClientFunction(expectedPath => {
   const tabbableElements = document.querySelectorAll(`
     button[tabindex]:not([tabindex="-1"]), button[id="search-button"], 
-    input[tabindex]:not([tabindex="-1"]), body [href]:not([class~="hpeslh_nav-link"]), 
+    input[tabindex]:not([tabindex="-1"]), 
+    body [href]:not([class~="hpeslh_nav-link"]), 
     input[tabindex]:not([tabindex="-1"]), 
     select[tabindex]:not([tabindex="-1"]), 
     textarea[tabindex]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])
