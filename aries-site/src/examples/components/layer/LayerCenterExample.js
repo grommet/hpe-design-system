@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Layer, ResponsiveContext, Text } from 'grommet';
+import { Button, Box, Layer, Heading, ResponsiveContext, Text } from 'grommet';
 import { Alert, MailOption, FormClose } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
@@ -25,9 +25,9 @@ export const LayerCenterExample = () => {
                 <Box justify="center">
                   <MailOption />
                 </Box>
-                <Text margin="none" size="xlarge">
+                <Heading margin="none" level={3} size="small">
                   Modal Dialog
-                </Text>
+                </Heading>
               </Box>
               <Box justify="center">
                 <Button icon={<FormClose />} onClick={onClose} />
