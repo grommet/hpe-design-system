@@ -27,6 +27,8 @@ export const Layout = ({
   title: titleProp,
   topic,
   isLanding,
+  pad,
+  width,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -55,7 +57,7 @@ export const Layout = ({
             <Box
               height={{ min: '100vh' }}
               margin="auto"
-              width={{ max: 'xxlarge' }}
+              width={width || { max: 'xxlarge' }}
             >
               {/* I think Head is redundant at this point, 
               but left it as is for now */}
@@ -66,15 +68,21 @@ export const Layout = ({
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
-                <Header />
+                <Header
+                  fill="horizontal"
+                  alignSelf="center"
+                  width={{ max: 'xxlarge' }}
+                />
                 <Main overflow="visible">
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
-                    pad={{
-                      horizontal: calcPad(size),
-                      bottom: calcPad(size),
-                      top: 'medium',
-                    }}
+                    pad={
+                      pad || {
+                        horizontal: calcPad(size),
+                        bottom: calcPad(size),
+                        top: 'medium',
+                      }
+                    }
                   >
                     {layout !== 'plain' ? (
                       <>
@@ -111,6 +119,8 @@ Layout.propTypes = {
   isLanding: PropTypes.bool,
   title: PropTypes.string,
   topic: PropTypes.string,
+  pad: PropTypes.object,
+  width: PropTypes.object,
 };
 
 Layout.defaultProps = {
