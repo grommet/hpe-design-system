@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Box, Layer, ResponsiveContext, Text } from 'grommet';
-import { Alert, MailOption, Close } from 'grommet-icons';
+import { Alert, MailOption, FormClose } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);
@@ -30,10 +30,7 @@ export const LayerCenterExample = () => {
                 </Text>
               </Box>
               <Box justify="center">
-                <Button
-                  icon={<Close size="small" align="center" />}
-                  onClick={onClose}
-                />
+                <Button icon={<FormClose />} onClick={onClose} />
               </Box>
             </Box>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
@@ -51,7 +48,7 @@ export const LayerCenterExample = () => {
             <Box
               direction="row"
               gap="small"
-              pad="medium"
+              pad={{ vertical: 'small', horizontal: 'medium' }}
               background="background-contrast"
             >
               <Alert color="status-critical" />
