@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
-import { Alert, MailOption } from 'grommet-icons';
+import { Button, Box, Layer, ResponsiveContext, Text } from 'grommet';
+import { Alert, MailOption, Close } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);
@@ -18,27 +18,36 @@ export const LayerCenterExample = () => {
             fill="vertical"
             overflow="auto"
             width={size !== 'small' ? 'medium' : undefined}
+            pad="medium"
           >
-            <Box
-              flex="grow"
-              direction="row"
-              gap="medium"
-              pad="medium"
-              height="small"
-            >
-              <Box pad={{ top: 'xsmall' }}>
-                <MailOption />
-              </Box>
-              <Box gap="medium">
-                <Heading margin="none" size="small">
+            <Box justify="between" direction="row">
+              <Box flex={false} gap="small" direction="row">
+                <Box justify="center">
+                  <MailOption />
+                </Box>
+                <Text margin="none" size="xlarge">
                   Modal Dialog
-                </Heading>
-                <Text>
-                  For modal dialogs, the use case will determine the design and
-                  size of the box for your content
                 </Text>
               </Box>
+              <Box justify="center">
+                <Button
+                  icon={<Close size="small" align="center" />}
+                  onClick={onClose}
+                />
+              </Box>
             </Box>
+            <Box overflow="auto" pad={{ vertical: 'medium' }}>
+              <Text>
+                For modal dialogs, the use case will determine the design and
+                size of the box for your content
+              </Text>
+            </Box>
+          </Box>
+          <Box
+            fill="vertical"
+            overflow="auto"
+            width={size !== 'small' ? 'medium' : undefined}
+          >
             <Box
               direction="row"
               gap="small"
