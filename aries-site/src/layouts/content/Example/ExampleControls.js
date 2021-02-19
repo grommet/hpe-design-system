@@ -12,7 +12,7 @@ export const ExampleControls = ({
 }) => {
   const size = useContext(ResponsiveContext);
   const isSmall = size === 'small';
-  const buttonSize = undefined;
+  const buttonSize = isSmall ? 'small' : undefined;
 
   const boxProps = !horizontalLayout
     ? {
