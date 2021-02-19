@@ -136,6 +136,15 @@ export const components = [
     seoDescription:
       'A tooltip gives a brief, informative message when the user hovers over an element.',
     sections: [],
+    preview: {
+      image: {
+        src: {
+          dark: '/components-preview-tooltip-invert.svg',
+          light: '/components-preview-tooltip.svg',
+        },
+        alt: 'HPE tooltip preview',
+      },
+    },
     relatedContent: ['Layer', 'Button'],
   },
   {
