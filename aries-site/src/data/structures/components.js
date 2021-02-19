@@ -129,7 +129,7 @@ export const components = [
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
   },
   {
-    name: 'ToolTip',
+    name: 'Tooltip',
     category: 'Controls',
     description:
       'A tooltip gives a brief, informative message when the user hovers over an element.',
