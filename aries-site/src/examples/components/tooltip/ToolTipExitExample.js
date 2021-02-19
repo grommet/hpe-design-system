@@ -18,7 +18,7 @@ export const ToolTipExitExample = () => {
           <Box width="small">
             <Text>
               Visit the HPE catalog to start addiing all of your favoriite
-              service.{' '}
+              service.
             </Text>
           </Box>
         </Box>
