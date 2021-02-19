@@ -129,6 +129,16 @@ export const components = [
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
   },
   {
+    name: 'ToolTip',
+    category: 'Controls',
+    description:
+      'A tooltip gives a brief, informative message when the user hovers over an element.',
+    seoDescription:
+      'A tooltip gives a brief, informative message when the user hovers over an element.',
+    sections: [],
+    relatedContent: ['Layer', 'Button'],
+  },
+  {
     name: 'Search',
     category: 'Controls',
     description: 'Find content corresponding to keyword queries.',
