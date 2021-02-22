@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Card,
-  Drop,
   Grid,
   Header,
   Heading,
@@ -15,6 +14,7 @@ import {
   Sidebar,
   Text,
   ThemeContext,
+  Tip,
 } from 'grommet';
 import {
   Cli,
@@ -116,10 +116,16 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   return (
     <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
-        pages
-          .slice(0, maxItems)
-          .map((item, index) => (
-            <NavButton
+        pages.slice(0, maxItems).map((item, index) => (
+          <Tip
+            dropProps={{ align: { left: 'right' } }}
+            content={
+              <Text size="small" color="text-strong">
+                {item.name}
+              </Text>
+            }
+          >
+            <Button
               key={item.name}
               a11yTitle={item.name}
               active={index === activeItem}
@@ -128,7 +134,8 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
               onClick={() => setActiveItem(index)}
               round="xsmall"
             />
-          ))}
+          </Tip>
+        ))}
     </Nav>
   );
 };
@@ -136,54 +143,6 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
 MainNavigation.propTypes = {
   activeItem: PropTypes.number,
   setActiveItem: PropTypes.func,
-};
-
-const NavButton = ({ active, icon, name, ...rest }) => {
-  const [hover, setHover] = React.useState();
-  const ref = React.useRef();
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Box fill="horizontal">
-      <Button
-        ref={ref}
-        icon={icon}
-        onMouseOver={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        {...rest}
-      />
-      {/* Show tooltip on hover and focus states as a supplemental
-      reminder to icon's meaning */
-      ref.current && hover && (
-        <Drop
-          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-          target={ref.current}
-          plain
-        >
-          <Box
-            animation={{ type: ['fadeIn', 'slideRight'] }}
-            elevation="small"
-            margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-            pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-            background="blue"
-            round="xsmall"
-          >
-            <Text size="small" color="text-strong">
-              {name}
-            </Text>
-          </Box>
-        </Drop>
-      )}
-    </Box>
-  );
-};
-
-NavButton.propTypes = {
-  active: PropTypes.bool,
-  icon: PropTypes.element,
-  name: PropTypes.string,
 };
 
 const PageContent = ({ activeItem }) => {
