@@ -6,7 +6,7 @@ export const ToolTipExitExample = () => {
   return (
     <Box align="center" justify="center" fill>
       <Box gap="xsmall" round="xsmall">
-        <Box justify="between" direction="row">
+        <Box justify="between" direction="row" align="center">
           <Text bold level={4} size="large">
             Add Service
           </Text>
