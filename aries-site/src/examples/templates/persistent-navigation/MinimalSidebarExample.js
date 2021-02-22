@@ -117,6 +117,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
     <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
         pages.slice(0, maxItems).map((item, index) => (
+          <Box fill="horizontal">
           <Tip
             dropProps={{
               align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
@@ -137,6 +138,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
               round="xsmall"
             />
           </Tip>
+          </Box>
         ))}
     </Nav>
   );
