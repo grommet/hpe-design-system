@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ChatOption, Github, Map, Slack } from 'grommet-icons';
+import { ChatOption, Github, Info, Map, Slack } from 'grommet-icons';
 
 const LinkButton = props => (
   <Button
@@ -72,6 +72,23 @@ const Backlog = () => (
   </Box>
 );
 
+const Feedback = () => (
+  <Box gap="medium">
+    <Info size="large" color="text-strong" />
+    <Box>
+      <Heading level={2} margin="none" size="xsmall">
+        Feedback
+      </Heading>
+      <Text>Let us know your feedback!</Text>
+    </Box>
+    <LinkButton
+      label="View Backlog"
+      href="https://github.com/orgs/grommet/projects/10"
+      secondary
+    />
+  </Box>
+);
+
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
@@ -90,10 +107,16 @@ export const Community = ({ ...rest }) => {
             suggestions.
           </Paragraph>
         </Box>
-        <Grid columns="medium" rows={[['auto', 'full']]} gap="small" fill>
+        <Grid
+          columns="medium"
+          rows={[['auto', 'full']]}
+          gap={{ row: 'large', column: 'small' }}
+          fill
+        >
           <SlackOption />
           <Roadmap />
           <Backlog />
+          <Feedback />
         </Grid>
       </Box>
     </Box>
