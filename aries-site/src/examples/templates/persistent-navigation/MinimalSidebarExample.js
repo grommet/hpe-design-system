@@ -118,7 +118,9 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
       {pages &&
         pages.slice(0, maxItems).map((item, index) => (
           <Tip
-            dropProps={{ align: { left: 'right' } }}
+            dropProps={{
+              align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
+            }}
             content={
               <Text size="small" color="text-strong">
                 {item.name}
