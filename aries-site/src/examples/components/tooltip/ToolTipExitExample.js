@@ -5,11 +5,11 @@ import { FormClose } from 'grommet-icons';
 export const ToolTipExitExample = () => {
   return (
     <Box align="center" justify="center" fill>
-      <Box justify="between" direction="row" align="center">
+      <Box align="start" justify="between" direction="row" align="center">
         <Text color="text-strong" size="large" weight="bold">
           Add Service
         </Text>
-        <Tip dropProps={{ align: { left: 'right' } }} content="Close">
+        <Tip content="Close">
           <Button icon={<FormClose />} />
         </Tip>
       </Box>

@@ -5,6 +5,7 @@ export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   tip: {
     content: {
+      margin: 'xxsmall',
       background: 'background',
       border: {
         color: 'border-weak',
