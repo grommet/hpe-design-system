@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
+import { ThemeModeToggle } from '..';
 
 const FeaturedLayout = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
@@ -46,6 +47,7 @@ const FeaturedLayout = ({ ...rest }) => {
             </ContentPreviewCard>
           </Link>
         ))}
+        <ThemeModeToggle />
       </Grid>
     </Box>
   );
