@@ -4,8 +4,8 @@ import { FormClose } from 'grommet-icons';
 
 export const ToolTipExitExample = () => {
   return (
-    <Box align="center" justify="center" fill>
-      <Box align="start" justify="between" direction="row">
+    <Box align="start" justify="center" fill>
+      <Box justify="between" direction="row">
         <Text color="text-strong" size="large" weight="bold">
           Add Service
         </Text>
