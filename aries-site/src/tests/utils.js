@@ -26,7 +26,7 @@ export const getTabCount = ClientFunction(expectedPath => {
     button[tabindex]:not([tabindex="-1"]), button[id="search-button"], 
     input[tabindex]:not([tabindex="-1"]), 
     body [href]:not([class~="hpeslh_nav-link"]), 
-    button[id="toggle-button"],
+    a[id="toggle-card"],
     input[tabindex]:not([tabindex="-1"]), 
     select[tabindex]:not([tabindex="-1"]), 
     textarea[tabindex]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])

@@ -11,7 +11,7 @@ export const ThemeModeToggle = ({ active }) => {
   const icon = darkMode.value ? <Sun size="large" /> : <Moon size="large" />;
   return (
     <ContentPreviewCard
-      id="toggle-button"
+      id="toggle-card"
       active={active}
       onClick={() => darkMode.toggle()}
       forwardedAs="a"
