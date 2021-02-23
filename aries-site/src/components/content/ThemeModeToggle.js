@@ -10,7 +10,11 @@ export const ThemeModeToggle = ({ active }) => {
   const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
   const icon = darkMode.value ? <Sun size="large" /> : <Moon size="large" />;
   return (
-    <Button active={active} onClick={() => darkMode.toggle()}>
+    <Button
+      id="toggle-button"
+      active={active}
+      onClick={() => darkMode.toggle()}
+    >
       <ContentPreviewCard
         forwardedAs="a"
         style={{ textDecoration: 'none' }}
