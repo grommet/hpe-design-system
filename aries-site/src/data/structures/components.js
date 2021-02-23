@@ -132,9 +132,9 @@ export const components = [
     name: 'Tooltip',
     category: 'Controls',
     description:
-      'A tooltip gives a brief, informative message when the user hovers over an element.',
+      'Tooltip provides a brief, informative message when hovering over an element.',
     seoDescription:
-      'A tooltip gives a brief, informative message when the user hovers over an element.',
+      'Tooltip provides a brief, informative message when hovering over an element.',
     sections: [],
     preview: {
       image: {
