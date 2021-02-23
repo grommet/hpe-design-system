@@ -145,7 +145,7 @@ export const components = [
         alt: 'HPE tooltip preview',
       },
     },
-    relatedContent: ['Layer', 'Button', 'Header'],
+    relatedContent: ['Layer', 'Button', 'Header', 'Persistent Navigation'],
   },
   {
     name: 'Search',
