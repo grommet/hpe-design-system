@@ -118,26 +118,26 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
       {pages &&
         pages.slice(0, maxItems).map((item, index) => (
           <Box fill="horizontal">
-          <Tip
-            dropProps={{
-              align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
-            }}
-            content={
-              <Text size="small" color="text-strong">
-                {item.name}
-              </Text>
-            }
-          >
-            <Button
-              key={item.name}
-              a11yTitle={item.name}
-              active={index === activeItem}
-              icon={item.icon}
-              name={item.name}
-              onClick={() => setActiveItem(index)}
-              round="xsmall"
-            />
-          </Tip>
+            <Tip
+              dropProps={{
+                align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
+              }}
+              content={
+                <Text size="small" color="text-strong">
+                  {item.name}
+                </Text>
+              }
+            >
+              <Button
+                key={item.name}
+                a11yTitle={item.name}
+                active={index === activeItem}
+                icon={item.icon}
+                name={item.name}
+                onClick={() => setActiveItem(index)}
+                round="xsmall"
+              />
+            </Tip>
           </Box>
         ))}
     </Nav>
