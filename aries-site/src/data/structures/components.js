@@ -132,9 +132,9 @@ export const components = [
     name: 'Tooltip',
     category: 'Controls',
     description:
-      'Tooltip provides a brief, informative message when hovering over an element.',
+      'A tooltip is used to specify extra information when the user moves the mouse pointer over the element.',
     seoDescription:
-      'Tooltip provides a brief, informative message when hovering over an element.',
+      'A tooltip is used to specify extra information when the user moves the mouse pointer over the element.',
     sections: [],
     preview: {
       image: {
