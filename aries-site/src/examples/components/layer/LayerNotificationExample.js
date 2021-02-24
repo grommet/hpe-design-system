@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState }  from 'react';
 import { Button, Box, Layer, Text } from 'grommet';
 import { StatusGood, FormClose } from 'grommet-icons';
 
@@ -17,17 +17,15 @@ export const LayerNotificationExample = () => {
           modal={false}
           margin={{ vertical: 'medium', horizontal: 'small' }}
           responsive={false}
-          plain
+          background="status-ok"
         >
           <Box
+            flex="grow"
             align="center"
             direction="row"
             gap="xsmall"
             justify="between"
-            round="medium"
-            elevation="medium"
             pad={{ vertical: 'xxsmall', horizontal: 'small' }}
-            background="status-ok"
           >
             <Box align="center" direction="row" gap="small">
               <StatusGood color="text-strong" />

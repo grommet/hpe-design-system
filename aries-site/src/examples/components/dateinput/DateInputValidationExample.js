@@ -15,6 +15,7 @@ export const DateInputValidationExample = () => {
           label="Required Field"
           htmlFor="required-field"
           error={message}
+          required
         >
           <DateInput
             onChange={event => {

@@ -15,7 +15,7 @@ const brands = {
 };
 
 export const AppIdentity = forwardRef(
-  ({ brand, logoOnly, href, title, ...rest }, ref) => {
+  ({ brand, logo = true, logoOnly, href, title, ...rest }, ref) => {
     const textSize = 'medium';
 
     return (
@@ -29,7 +29,7 @@ export const AppIdentity = forwardRef(
           pad={{ vertical: 'small' }}
           responsive={false}
         >
-          {brand && brands[brand].logo}
+          {brand && logo && brands[brand].logo}
           {!logoOnly && (
             <Box direction="row" gap="xsmall" wrap>
               <Text weight="bold" size={textSize} color="text-strong">
@@ -48,6 +48,7 @@ export const AppIdentity = forwardRef(
 
 AppIdentity.propTypes = {
   brand: PropTypes.string.isRequired,
+  logo: PropTypes.bool,
   logoOnly: PropTypes.bool,
   href: PropTypes.string,
   title: PropTypes.string,

@@ -8,8 +8,9 @@ export const foundation = [
     name: 'Accessibility',
     category: 'Philosophy',
     cardOrder: 2,
-    description: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    description: `Central to the HPE Design System, accessibility is 
+    incorporated into all Design System facets, ensuring HPE applications 
+    are usable by as many people as possible.`,
     preview: {
       image: {
         src: {
@@ -19,8 +20,8 @@ export const foundation = [
         alt: 'HPE Accessibility Preview',
       },
     },
-    seoDescription: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    seoDescription: `Accessibility is central to the HPE Design System and 
+    ensures that HPE applications are usable by as many people as possible.`,
     sections: [],
   },
   {

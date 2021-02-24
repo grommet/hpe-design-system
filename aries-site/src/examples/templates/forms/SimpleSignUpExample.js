@@ -137,6 +137,7 @@ export const SimpleSignUpExample = () => {
             htmlFor="email-sign-up-simple"
             name="email"
             validate={emailValidation}
+            required
           >
             <MaskedInput
               id="email-sign-up-simple"
@@ -188,6 +189,7 @@ export const SimpleSignUpExample = () => {
                 }}
               </List>
             }
+            required
           >
             <TextInput
               id="password-sign-up-simple"
