@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 
 import { Meta } from '../components';
 import {
+  ComponentsLayout,
   Community,
   Featured,
   Hero,
@@ -103,6 +104,7 @@ const Index = () => {
           <Box background="background-front" margin={{ top: 'xlarge' }} fill />
           <Featured {...widthProps} />
         </Stack>
+        <ComponentsLayout />
         <WhatIs {...widthProps} />
         <Video {...widthProps} />
         <Highlights {...widthProps} />

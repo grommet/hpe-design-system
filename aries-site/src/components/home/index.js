@@ -1,4 +1,5 @@
 export * from './Community';
+export * from './Components';
 export * from './Featured';
 export * from './Hero';
 export * from './Highlights';
