@@ -257,6 +257,7 @@ export const TwoColumnWizardExample = () => {
         ref: wizardRef,
         steps,
         validation,
+        wizardTitle: 'Wizard Title',
       }}
     >
       <Box fill>
