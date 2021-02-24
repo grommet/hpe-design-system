@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
-import { Close } from 'grommet-icons';
+import { FormClose } from 'grommet-icons';
 
 export const ToolTipExitExample = () => {
   return (
@@ -17,7 +17,7 @@ export const ToolTipExitExample = () => {
         </Box>
         <Box>
           <Tip content="Close">
-            <Button icon={<Close size="small" />} />
+            <Button icon={<FormClose />} />
           </Tip>
         </Box>
       </Box>
