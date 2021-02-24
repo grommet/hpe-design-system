@@ -83,7 +83,7 @@ const Feedback = () => (
     </Box>
     <LinkButton
       label="Provide feedback"
-      href="https://github.com/orgs/grommet/projects/10"
+      href="/feedback"
       secondary
     />
   </Box>
