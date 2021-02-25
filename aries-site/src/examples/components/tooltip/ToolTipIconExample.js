@@ -6,7 +6,7 @@ export const ToolTipIconExample = () => {
   return (
     <Box align="center" justify="center" fill>
       <Tip dropProps={{ align: { left: 'right' } }} content="Projects">
-        <Button icon={<Projects />} />
+        <Button a11yTitle="projects" icon={<Projects />} />
       </Tip>
     </Box>
   );

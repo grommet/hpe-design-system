@@ -11,7 +11,7 @@ export const ToolTipSimpleExample = () => {
           </Box>
         }
       >
-        <Button label="Button" />
+        <Button a11yTitle="simple button" label="Button" />
       </Tip>
     </Box>
   );
