@@ -139,7 +139,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const PersistentFiltering = () => {
+export const PersistentFiltering = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -206,6 +207,8 @@ export const PersistentFiltering = () => {
     setFiltering,
     filterValues,
     setFilterValues,
+    // target is for demo purposes only, remove in production
+    target: containerRef && containerRef.current,
   };
 
   return (
@@ -278,6 +281,10 @@ export const PersistentFiltering = () => {
       </Box>
     </Box>
   );
+};
+
+PersistentFiltering.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 const ActiveFilters = ({
@@ -407,6 +414,7 @@ const Filters = ({
   setFiltering,
   filterValues,
   setFilterValues,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const { country, employeeCount, locationType, status } = filterValues;
   const [previousValues, setPreviousValues] = useState({});
@@ -498,6 +506,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             alignSelf="center"
@@ -589,6 +599,7 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  target: PropTypes.object,
 };
 
 const LocationTypeFilter = ({

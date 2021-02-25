@@ -113,7 +113,8 @@ const roles = getValues('role');
 const statuses = getValues('status');
 const names = getValues('name');
 
-export const FilteringCards = () => {
+export const FilteringCards = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -207,6 +208,8 @@ export const FilteringCards = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -218,6 +221,10 @@ export const FilteringCards = () => {
   );
 };
 
+FilteringCards.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
 const Filters = ({
   filtering,
   filters,
@@ -225,6 +232,7 @@ const Filters = ({
   filterData,
   setData,
   setFiltering,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const [hoursAvailable, setHoursAvailable] = useState(defaultHoursAvailable);
   const [location, setLocation] = useState([]);
@@ -342,6 +350,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             width={{ min: 'medium' }}
@@ -391,6 +401,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  target: PropTypes.object,
 };
 
 const RoleFilter = ({ filters, setFilters, role, setRole }) => (
@@ -545,7 +556,7 @@ const HoursAvailableFilter = ({
 }) => {
   return (
     <Box flex={false}>
-      <FormField label="Remaining Available Work Hours" pad="medium">
+      <FormField label="Remaining Available Work Hours">
         <Stack>
           <Box background="border" height="3px" direction="row" />
           <RangeSelector
