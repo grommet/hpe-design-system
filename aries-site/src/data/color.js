@@ -243,6 +243,16 @@ const inputLight = [
     value: colors['validation-critical'].light,
     hex: colors['validation-critical'].light,
   },
+  {
+    name: 'validation-ok',
+    value: colors['validation-ok'].light,
+    hex: colors['validation-ok'].light,
+  },
+  {
+    name: 'validation-warning',
+    value: colors['validation-warning'].light,
+    hex: colors['validation-warning'].light,
+  },
 ];
 
 const inputDark = [
@@ -268,6 +278,16 @@ const inputDark = [
     name: 'validation-critical',
     value: colors['validation-critical'].dark,
     hex: colors['validation-critical'].dark,
+  },
+  {
+    name: 'validation-ok',
+    value: colors['validation-ok'].dark,
+    hex: colors['validation-ok'].dark,
+  },
+  {
+    name: 'validation-warning',
+    value: colors['validation-warning'].dark,
+    hex: colors['validation-warning'].dark,
   },
 ];
 
