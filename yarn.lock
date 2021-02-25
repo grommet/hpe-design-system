@@ -6384,9 +6384,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.488, electron-to-chromium@^1.3.649:
-  version "1.3.673"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.673.tgz#b4f81c930b388f962b7eba20d0483299aaa40913"
-  integrity sha512-ms+QR2ckfrrpEAjXweLx6kNCbpAl66DcW//3BZD4BV5KhUgr0RZRce1ON/9J3QyA3JO28nzgb5Xv8DnPr05ILg==
+  version "1.3.674"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.674.tgz#d97feefdf1d9411fdc9d56d17e1b9d67b818e710"
+  integrity sha512-DBmEKRVYLZAoQSW+AmLcTF5Bpwhk4RUkobtzXVDlfPPYIlbsH3Jfg3QbBjAfFcRARzMIo4YiMhp3N+RnMuo1Eg==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7895,8 +7895,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.16.3"
-  uid e2b95ef53d7767f0e487685d58081293601d2808
-  resolved "https://github.com/grommet/grommet/tarball/stable#e2b95ef53d7767f0e487685d58081293601d2808"
+  uid ea97f3ca608a402c4769f4e99e46753d36871ae2
+  resolved "https://github.com/grommet/grommet/tarball/stable#ea97f3ca608a402c4769f4e99e46753d36871ae2"
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
