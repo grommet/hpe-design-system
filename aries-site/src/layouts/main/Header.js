@@ -1,12 +1,18 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
-import { Header, ResponsiveContext } from 'grommet';
+import { useRouter } from 'next/router';
+import { Box, Button, Header, ResponsiveContext } from 'grommet';
+import { Search as SearchIcon } from 'grommet-icons';
+import { getPageDetails, nameToPath } from '../../utils';
 import { AppIdentity, ThemeModeToggle } from '../../components';
 import { Search } from '../navigation';
 
 const StyledHeader = ({ ...rest }) => {
+  const pageDetails = getPageDetails('Home');
+  const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
   const [searchFocused, setSearchFocused] = useState(false);
   const size = useContext(ResponsiveContext);
+  const router = useRouter();
 
   return (
     <Header
@@ -29,7 +35,19 @@ const StyledHeader = ({ ...rest }) => {
         focused={searchFocused}
         setFocused={value => setSearchFocused(value)}
       />
-      <ThemeModeToggle />
+      <Box direction="row" align="center" gap="xsmall">
+        {size !== 'small' &&
+          navItems.map(item => (
+            <Link key={item.name} href={nameToPath(item.name)} passHref>
+              <Button
+                key={item.name}
+                label={item.name}
+                active={router.pathname === nameToPath(item.name)}
+              />
+            </Link>
+          ))}
+        <ThemeModeToggle />
+      </Box>
     </Header>
   );
 };
