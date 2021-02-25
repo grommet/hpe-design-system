@@ -17,7 +17,7 @@ export const ToolTipExitExample = () => {
         </Box>
         <Box>
           <Tip content="Close">
-            <Button icon={<FormClose />} />
+            <Button a11yTitle="close" icon={<FormClose />} />
           </Tip>
         </Box>
       </Box>
