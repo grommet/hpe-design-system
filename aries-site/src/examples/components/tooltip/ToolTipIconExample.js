@@ -5,7 +5,7 @@ import { Projects } from 'grommet-icons';
 export const ToolTipIconExample = () => {
   return (
     <Button
-      tip={{ dropProps: { align: { left: 'right' } }, content: 'projects' }}
+      tip={{ dropProps: { align: { left: 'right' } }, content: 'Projects' }}
       a11yTitle="projects"
       icon={<Projects />}
     />
