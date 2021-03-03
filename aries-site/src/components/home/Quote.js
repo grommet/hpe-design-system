@@ -34,7 +34,7 @@ export const Quote = () => {
           <Text size="xlarge" weight="bold" color="text-strong">
             Tim Harms
           </Text>
-          <Text size="xlarge">HPE Head of Brand</Text>
+          <Text size="xlarge">Creative Director, HPE Global Brand</Text>
         </Box>
       </Box>
       <Stack>
