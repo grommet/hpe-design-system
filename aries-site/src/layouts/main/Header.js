@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
-import { AppIdentity } from '../../components';
+import { ThemeModeToggle, AppIdentity } from '../../components';
+
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
@@ -47,12 +48,16 @@ const StyledHeader = ({ ...rest }) => {
             icon={<SearchIcon />}
             onClick={() => setSearchFocused(true)}
           />
+          <ThemeModeToggle />
         </Box>
       ) : (
-        <Search
-          focused={searchFocused}
-          setFocused={value => setSearchFocused(value)}
-        />
+        <Box direction="row" align="center" gap="xsmall">
+          <Search
+            focused={searchFocused}
+            setFocused={value => setSearchFocused(value)}
+          />
+          <ThemeModeToggle />
+        </Box>
       )}
     </Header>
   );
