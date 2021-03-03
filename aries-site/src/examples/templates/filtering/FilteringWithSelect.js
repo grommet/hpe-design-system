@@ -42,7 +42,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const FilteringWithSelect = () => {
+export const FilteringWithSelect = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -144,6 +145,8 @@ export const FilteringWithSelect = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -156,6 +159,10 @@ export const FilteringWithSelect = () => {
   );
 };
 
+FilteringWithSelect.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
 const Filters = ({
   filtering,
   filters,
@@ -163,6 +170,7 @@ const Filters = ({
   filterData,
   setFilters,
   setFiltering,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const [selectValue, setSelectValue] = useState(defaultSelectValue);
   const [previousValues, setPreviousValues] = useState({});
@@ -238,6 +246,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             width={{ min: 'medium' }}
@@ -294,6 +304,8 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  // target is for demo purposes only, remove in production
+  target: PropTypes.object,
 };
 
 const RecordSummary = ({ data, filtering }) => (
