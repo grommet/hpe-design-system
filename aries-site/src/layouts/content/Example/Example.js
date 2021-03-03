@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
@@ -41,6 +41,16 @@ export const Example = ({
   const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
   const size = useContext(ResponsiveContext);
+  const inlineRef = useRef();
+  const layerRef = useRef();
+
+  // ensure that when page loads or layer opens/closes that the ref value
+  // is not null
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+  React.useEffect(() => {
+    forceUpdate();
+  }, [showLayer, forceUpdate]);
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
@@ -88,9 +98,12 @@ export const Example = ({
         }
         screen={screen}
         width={width}
+        ref={inlineRef}
       >
         <ResponsiveContext.Provider value={viewPort}>
-          {children}
+          {React.cloneElement(children, {
+            containerRef: inlineRef,
+          })}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
     </ExampleContainer>
@@ -208,9 +221,12 @@ export const Example = ({
                     // this id is needed to reference the scroll parent
                     id="layer-wrapper"
                     width={screen === screens.mobile ? 'medium' : '100%'}
+                    ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {children}
+                      {React.cloneElement(children, {
+                        containerRef: layerRef,
+                      })}
                     </ResponsiveContext.Provider>
                   </Box>
                 ) : (
