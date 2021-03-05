@@ -73,15 +73,15 @@ const Color = () => (
             <Subsection level={1} name={title} topic={topic}>
               <SubsectionText>
                 You will notice that the HPE Design System Color guidance is
-                different from Brand Central. Prioritize this HPE Design System
-                color palette over Brand Central when identifying colors for
-                your digital experience.
+                different from Brand Central. Prioritize the below HPE Design
+                System color palette over Brand Central when identifying colors
+                for your app or web based experience.
               </SubsectionText>
               <SubsectionText>
                 The HPE Design System team is working with HPE Brand to ensure
                 that the Brand Central color palettes (like 'secondary colors')
-                are updated to meet ADA complicance levels in a large variety of
-                user contexts.
+                are updated to meet ADA accessibility and color contrast levels
+                in a large variety of user contexts.
               </SubsectionText>
               <ButtonRow>
                 <Button
@@ -100,7 +100,8 @@ const Color = () => (
                 Color is a key way we express our brand. Using color on
                 interface elements, how typography is presented, displaying data
                 visualizations, and adjusting context of the experience to light
-                and dark are just some of the ways we illustrate our brand.
+                and dark are just some of the ways we illustrate inclusive
+                design for our app and web based experiences.
               </SubsectionText>
             </Subsection>
             <Subsection name="Brand Color" level={3}>
