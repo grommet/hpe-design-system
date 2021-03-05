@@ -79,7 +79,7 @@ const Color = () => (
               </SubsectionText>
               <SubsectionText>
                 The HPE Design System team is working with HPE Brand to ensure
-                that the Brand Central color palettes (like ‘secondary colors’)
+                that the Brand Central color palettes (like 'secondary colors')
                 are updated to meet ADA accessibility and color contrast levels
                 in a large variety of user contexts.
               </SubsectionText>
