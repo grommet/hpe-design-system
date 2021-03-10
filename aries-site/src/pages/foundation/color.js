@@ -42,17 +42,13 @@ const { focusColor, layerColor } = colorExamples;
 
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
-const generateColorExamples = (colors, textColor) => {
-  return (
+const generateColorExamples = (colors, textColor) => (
     <Box fill>
-      {colors.map(color => {
-        return (
+      {colors.map(color => (
           <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
-        );
-      })}
+        ))}
     </Box>
   );
-};
 
 const title = 'Color';
 const page = getPageDetails(title);
@@ -367,15 +363,13 @@ const Color = () => (
                 }}
               >
                 {textColors &&
-                  textColors.map(color => {
-                    return (
+                  textColors.map(color => (
                       <TextExample
                         key={color.name}
                         color={color.name}
                         hex={color.hex.light}
                       />
-                    );
-                  })}
+                    ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -393,15 +387,13 @@ const Color = () => (
                 }}
               >
                 {textColors &&
-                  textColors.map(color => {
-                    return (
+                  textColors.map(color => (
                       <TextExample
                         key={color.name}
                         color={color.name}
                         hex={color.hex.dark}
                       />
-                    );
-                  })}
+                    ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Status Colors" level={3}>
@@ -447,15 +439,13 @@ const Color = () => (
                 }}
               >
                 {elevationColorsLight &&
-                  elevationColorsLight.map(color => {
-                    return (
+                  elevationColorsLight.map(color => (
                       <ElevationExample
                         key={color.name}
                         color={color.name}
                         hex={color.hex}
                       />
-                    );
-                  })}
+                    ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -470,15 +460,13 @@ const Color = () => (
                 }}
               >
                 {elevationColorsDark &&
-                  elevationColorsDark.map(color => {
-                    return (
+                  elevationColorsDark.map(color => (
                       <ElevationExample
                         key={color.name}
                         color={color.name}
                         hex={color.hex}
                       />
-                    );
-                  })}
+                    ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Overlay Color">

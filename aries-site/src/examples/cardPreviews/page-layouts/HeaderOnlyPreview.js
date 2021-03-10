@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, defaultProps } from 'grommet';
 
-export const HeaderOnlyPreview = () => {
-  return (
+export const HeaderOnlyPreview = () => (
     <Box fill>
       <Box
         height={defaultProps.theme.global.edgeSize.medium}
@@ -16,4 +15,3 @@ export const HeaderOnlyPreview = () => {
       />
     </Box>
   );
-};

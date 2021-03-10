@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, defaultProps } from 'grommet';
 
-export const SidebarHeaderFooterPreview = () => {
-  return (
+export const SidebarHeaderFooterPreview = () => (
     <Box fill direction="row">
       <Box
         basis={defaultProps.theme.global.edgeSize.medium}
@@ -28,4 +27,3 @@ export const SidebarHeaderFooterPreview = () => {
       </Box>
     </Box>
   );
-};

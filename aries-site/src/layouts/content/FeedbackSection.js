@@ -2,8 +2,7 @@ import React from 'react';
 import { ContentSection, Subsection } from '.';
 import { SubmitFeedback, SubsectionText } from '../../components';
 
-export const FeedbackSection = () => {
-  return (
+export const FeedbackSection = () => (
     <ContentSection lastSection>
       <Subsection name="Still have questions?" level={2}>
         <SubsectionText>
@@ -14,4 +13,3 @@ export const FeedbackSection = () => {
       </Subsection>
     </ContentSection>
   );
-};

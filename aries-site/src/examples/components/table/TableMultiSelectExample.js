@@ -313,8 +313,7 @@ TableControls.propTypes = {
   selected: PropTypes.array,
 };
 
-const SelectionSummary = ({ selected }) => {
-  return (
+const SelectionSummary = ({ selected }) => (
     <>
       {selected && (
         <>
@@ -341,7 +340,6 @@ const SelectionSummary = ({ selected }) => {
       )}
     </>
   );
-};
 
 SelectionSummary.propTypes = {
   selected: PropTypes.array,

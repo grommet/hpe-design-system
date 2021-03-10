@@ -6,16 +6,16 @@ export const AccordionExample = () => {
 
   return (
     <Accordion>
-      <AccordionPanel label='Our Company'>
+      <AccordionPanel label="Our Company">
         <Box pad={pad}>We are HPE.</Box>
       </AccordionPanel>
-      <AccordionPanel label='Our History'>
+      <AccordionPanel label="Our History">
         <Box pad={pad}>
           At Hewlett Packard Enterprise, we advance the way you live and work by
           engineering experiences that unlock your full potential.
         </Box>
       </AccordionPanel>
-      <AccordionPanel label='Our Purpose'>
+      <AccordionPanel label="Our Purpose">
         <Box pad={pad}>
           We advance the way you live and work by engineering experiences that
           unlock your full potential.

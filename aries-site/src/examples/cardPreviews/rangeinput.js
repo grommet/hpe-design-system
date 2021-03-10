@@ -1,8 +1,7 @@
 import React from 'react';
 import { RangeInput } from 'grommet';
 
-export const RangeInputPreview = () => {
-  return (
+export const RangeInputPreview = () => (
     <RangeInput
       aria-label="preview"
       max={100}
@@ -11,4 +10,3 @@ export const RangeInputPreview = () => {
       tabIndex={-1}
     />
   );
-};
