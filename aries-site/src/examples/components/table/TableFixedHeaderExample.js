@@ -227,8 +227,7 @@ const columns = [
   },
 ];
 
-export const TableFixedHeaderExample = () => {
-  return (
+export const TableFixedHeaderExample = () => (
     <>
       <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
         Connected Devices
@@ -245,4 +244,3 @@ export const TableFixedHeaderExample = () => {
       </Box>
     </>
   );
-};

@@ -75,8 +75,7 @@ export const WhatIs = ({ ...rest }) => {
           </Paragraph>
         </Box>
         <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
-          {whatIsContent.map(({ image, text }, index) => {
-            return (
+          {whatIsContent.map(({ image, text }, index) => (
               <Box key={`whatis-${index}`} width="120px">
                 <Box width="120px" height="120px">
                   <Image
@@ -91,8 +90,7 @@ export const WhatIs = ({ ...rest }) => {
                 </Box>
                 <Paragraph size="small">{text}</Paragraph>
               </Box>
-            );
-          })}
+            ))}
         </Grid>
       </Box>
     </Box>

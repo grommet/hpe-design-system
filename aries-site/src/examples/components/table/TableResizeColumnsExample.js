@@ -173,8 +173,7 @@ const columns = [
   },
 ];
 
-export const TableResizeColumnsExample = () => {
-  return (
+export const TableResizeColumnsExample = () => (
     <>
       <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
         Contact Information
@@ -190,4 +189,3 @@ export const TableResizeColumnsExample = () => {
       </Box>
     </>
   );
-};
