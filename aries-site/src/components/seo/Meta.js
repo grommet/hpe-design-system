@@ -96,8 +96,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
         img-src 'self' *.google-analytics.com;
         script-src-elem 'self' *.hpe.com https://www.google-analytics.com/analytics.js;
         font-src *.hpe.com hpefonts.s3.amazonaws.com *.cloudfront.net/fonts/;
-        object-src none;"></meta>
-      {/* <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-5-1/jquery.js https://h50007.www5.hpe.com/hfws/us/en/hpe/slim/root?contentType=js&color_scheme=dark 'unsafe-inline'; "></meta> */}
+        object-src 'none';"></meta>
     </Head>
   );
 };
