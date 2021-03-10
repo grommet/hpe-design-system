@@ -9,7 +9,7 @@
     "url": "https://github.com/grommet/hpe-design-system/issues"
   },
   "devDependencies": {
-    "@hpe/project-scripts": "^1.0.8",
+    "@hpe/project-scripts": "^1.1.2",
     "eslint-plugin-prettier": "^3.3.0",
     "jest": "^25.1.0"
   },
