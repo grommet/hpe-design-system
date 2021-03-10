@@ -8,7 +8,5 @@ export const MenuExample = () => {
     { label: 'Logout' },
   ];
 
-  return (
-      <Menu label="Manage Account" items={items} width="medium" />
-  );
+  return <Menu label="Manage Account" items={items} width="medium" />;
 };

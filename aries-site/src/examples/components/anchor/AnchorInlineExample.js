@@ -1,8 +1,7 @@
 import React from 'react';
 import { Anchor, Paragraph } from 'grommet';
 
-export const AnchorInlineExample = () => {
-  return (
+export const AnchorInlineExample = () => (
     <Paragraph>
       Embracing the courage and commitment to learn, share and serve with
       uncompromising integrity, the HPE Design System will advance the way
@@ -14,4 +13,3 @@ export const AnchorInlineExample = () => {
       .
     </Paragraph>
   );
-};

@@ -3,8 +3,7 @@ import { Box, List, Text } from 'grommet';
 
 const data = ['Server 1', 'Server 2', 'Server 3', 'Server 4', 'Server 5'];
 
-export const ListNameExample = () => {
-  return (
+export const ListNameExample = () => (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List background="background-front" data={data}>
         {(datum, index) => (
@@ -15,4 +14,3 @@ export const ListNameExample = () => {
       </List>
     </Box>
   );
-};

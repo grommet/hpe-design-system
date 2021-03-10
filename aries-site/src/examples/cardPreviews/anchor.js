@@ -1,8 +1,7 @@
 import React from 'react';
 import { Anchor, Box, Text } from 'grommet';
 
-export const AnchorPreview = () => {
-  return (
+export const AnchorPreview = () => (
     <Box direction="row" gap="xsmall">
       <Text>The ship's</Text>
       {/* Placing as span to avoid nested Anchor errors in DOM. Since this is
@@ -10,4 +9,3 @@ export const AnchorPreview = () => {
       <Anchor as="span" label="Anchor" />.
     </Box>
   );
-};

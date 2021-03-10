@@ -10,15 +10,14 @@ export const getLocation = ClientFunction(() => document.location.href);
 
 export const formatForTyping = ClientFunction(text => text.split('').join(' '));
 
-export const getSuggestion = page => {
-  return ReactSelector(`${Search} StyledDrop Button`).withText(page);
-};
+export const getSuggestion = page =>
+  ReactSelector(`${Search} StyledDrop Button`).withText(page);
 
-export const repeatKeyPress = ClientFunction((key, number) => {
+export const repeatKeyPress = ClientFunction((key, number) =>
   // Array.join puts the argument between the array elements,
   // so we need to add 1 to get the correct output
-  return Array(number + 1).join(`${key} `);
-});
+  Array(number + 1).join(`${key} `),
+);
 
 // find how many tabs it takes to reach desired element
 export const getTabCount = ClientFunction(expectedPath => {
