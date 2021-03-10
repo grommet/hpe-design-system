@@ -228,15 +228,13 @@ const ScreenContainer = ({ mobile, ...rest }) => {
   );
 };
 
-export const ListScreenExample = ({ ...rest }) => {
-  return (
+export const ListScreenExample = ({ ...rest }) => (
     <ScreenContainer {...rest}>
       <AppHeaderExample />
       <PageHeaderExample title="User Controls" />
       <StyledList />
     </ScreenContainer>
   );
-};
 
 PageHeaderExample.propTypes = {
   title: PropTypes.string,

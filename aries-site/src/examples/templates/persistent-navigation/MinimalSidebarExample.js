@@ -208,15 +208,13 @@ AppIdentity.propTypes = {
   name: PropTypes.string,
 };
 
-const GridLayout = ({ items }) => {
-  return (
+const GridLayout = ({ items }) => (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
         <Card key={index} background="background-front" />
       ))}
     </Grid>
   );
-};
 
 GridLayout.propTypes = {
   items: PropTypes.array,
@@ -238,8 +236,7 @@ ListLayout.propTypes = {
   items: PropTypes.array,
 };
 
-const PanesLayout = ({ items }) => {
-  return items.map((item, index) => (
+const PanesLayout = ({ items }) => items.map((item, index) => (
     <Box
       key={index}
       background="background-front"
@@ -248,7 +245,6 @@ const PanesLayout = ({ items }) => {
       round="xsmall"
     />
   ));
-};
 
 PanesLayout.propTypes = {
   items: PropTypes.array,

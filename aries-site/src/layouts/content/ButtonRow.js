@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
-export const ButtonRow = ({ children, ...rest }) => {
-  return (
+export const ButtonRow = ({ children, ...rest }) => (
     <Box
       direction="row-responsive"
       gap="medium"
@@ -15,7 +14,6 @@ export const ButtonRow = ({ children, ...rest }) => {
       ))}
     </Box>
   );
-};
 
 ButtonRow.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])

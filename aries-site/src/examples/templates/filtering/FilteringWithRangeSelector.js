@@ -88,14 +88,14 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
+    filterResults = array.filter(item => 
       // validates all filter criteria
-      return filterKeys.every(key => {
+       filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
 
     if (searchValue) {
       filterResults = filterResults.filter(o =>
@@ -218,14 +218,14 @@ const Filters = ({
   const filterData = (array, criteria) => {
     setFilters(criteria);
     const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
+    return array.filter(item => 
       // validates all filter criteria
-      return filterKeys.every(key => {
+       filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
   };
 
   if (size === 'small') {
@@ -423,8 +423,7 @@ const LocationFilter = ({
   setLocation,
   previousValues,
   setPreviousValues,
-}) => {
-  return (
+}) => (
     <Select
       options={[
         'All Locations',
@@ -453,7 +452,6 @@ const LocationFilter = ({
       }}
     />
   );
-};
 
 LocationFilter.propTypes = {
   filters: PropTypes.shape({

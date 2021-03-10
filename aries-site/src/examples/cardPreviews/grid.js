@@ -1,8 +1,7 @@
 import React from 'react';
 import { Grid, Box } from 'grommet';
 
-export const GridPreview = () => {
-  return (
+export const GridPreview = () => (
     <Grid
       fill
       columns={{
@@ -11,10 +10,9 @@ export const GridPreview = () => {
       }}
       gap="small"
     >
-      <Box fill background="background-back"/>
-      <Box background="background-back"/>
-      <Box background="background-back"/>
-      <Box background="background-back"/>
+      <Box fill background="background-back" />
+      <Box background="background-back" />
+      <Box background="background-back" />
+      <Box background="background-back" />
     </Grid>
   );
-};

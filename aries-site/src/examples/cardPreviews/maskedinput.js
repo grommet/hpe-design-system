@@ -1,8 +1,7 @@
 import React from 'react';
 import { MaskedInput } from 'grommet';
 
-export const MaskedInputPreview = () => {
-  return (
+export const MaskedInputPreview = () => (
     <MaskedInput
       aria-label="preview"
       mask={[
@@ -21,4 +20,3 @@ export const MaskedInputPreview = () => {
       tabIndex={-1}
     />
   );
-};
