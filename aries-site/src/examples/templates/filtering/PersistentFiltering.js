@@ -139,7 +139,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const PersistentFiltering = () => {
+export const PersistentFiltering = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -168,14 +169,14 @@ export const PersistentFiltering = () => {
 
       let filterResults;
       const filterKeys = Object.keys(criteria);
-      filterResults = array.filter(item => {
+      filterResults = array.filter(item => 
         // validates all filter criteria
-        return filterKeys.every(key => {
+         filterKeys.every(key => {
           // ignores non-function predicates
           if (typeof criteria[key] !== 'function') return true;
           return criteria[key](item[key]);
-        });
-      });
+        }),
+      );
 
       if (searchValue) {
         filterResults = filterResults.filter(o =>
@@ -206,6 +207,8 @@ export const PersistentFiltering = () => {
     setFiltering,
     filterValues,
     setFilterValues,
+    // target is for demo purposes only, remove in production
+    target: containerRef && containerRef.current,
   };
 
   return (
@@ -278,6 +281,10 @@ export const PersistentFiltering = () => {
       </Box>
     </Box>
   );
+};
+
+PersistentFiltering.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 const ActiveFilters = ({
@@ -407,6 +414,7 @@ const Filters = ({
   setFiltering,
   filterValues,
   setFilterValues,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const { country, employeeCount, locationType, status } = filterValues;
   const [previousValues, setPreviousValues] = useState({});
@@ -498,6 +506,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             alignSelf="center"
@@ -589,6 +599,7 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  target: PropTypes.object,
 };
 
 const LocationTypeFilter = ({
@@ -596,8 +607,7 @@ const LocationTypeFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField
       label="Location Type"
       htmlFor="location-type-b"
@@ -622,7 +632,6 @@ const LocationTypeFilter = ({
       />
     </FormField>
   );
-};
 
 LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
@@ -643,8 +652,7 @@ const StatusFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField label="Status" htmlFor="status-b" name="status-b">
       <CheckBoxGroup
         id="status-b"
@@ -663,7 +671,6 @@ const StatusFilter = ({
       />
     </FormField>
   );
-};
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
@@ -684,8 +691,7 @@ const CountryFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField label="Country" htmlFor="country-b" name="country-b">
       <CheckBoxGroup
         id="country-b"
@@ -705,7 +711,6 @@ const CountryFilter = ({
       />
     </FormField>
   );
-};
 
 CountryFilter.propTypes = {
   filters: PropTypes.shape({
@@ -726,8 +731,7 @@ const EmployeeCountFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <Box flex={false}>
       <FormField
         label="Employee Count"
@@ -771,7 +775,6 @@ const EmployeeCountFilter = ({
       </Text>
     </Box>
   );
-};
 
 EmployeeCountFilter.propTypes = {
   filters: PropTypes.shape({

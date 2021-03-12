@@ -25,8 +25,7 @@ const data = [
   },
 ];
 
-export const ListNameOptionActionExample = () => {
-  return (
+export const ListNameOptionActionExample = () => (
     <Box width={{ max: 'xxlarge' }} margin="auto" fill>
       <List
         background="background-front"
@@ -59,4 +58,3 @@ export const ListNameOptionActionExample = () => {
       </List>
     </Box>
   );
-};

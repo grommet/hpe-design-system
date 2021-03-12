@@ -92,14 +92,14 @@ export const FilteringWithDropButton = () => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
+    filterResults = array.filter(item => 
       // validates all filter criteria
-      return filterKeys.every(key => {
+       filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
 
     if (searchValue) {
       filterResults = filterResults.filter(o =>

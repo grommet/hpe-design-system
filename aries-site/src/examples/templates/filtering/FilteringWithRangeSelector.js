@@ -71,7 +71,8 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const FilteringWithRangeSelector = () => {
+export const FilteringWithRangeSelector = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -87,14 +88,14 @@ export const FilteringWithRangeSelector = () => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
+    filterResults = array.filter(item => 
       // validates all filter criteria
-      return filterKeys.every(key => {
+       filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
 
     if (searchValue) {
       filterResults = filterResults.filter(o =>
@@ -159,6 +160,8 @@ export const FilteringWithRangeSelector = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -170,6 +173,10 @@ export const FilteringWithRangeSelector = () => {
   );
 };
 
+FilteringWithRangeSelector.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
 const FilterButton = styled(DropButton)`
   border: 1px solid
     ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
@@ -178,7 +185,13 @@ const FilterButton = styled(DropButton)`
   }
 `;
 
-const Filters = ({ data, filtering, setData, setFiltering }) => {
+const Filters = ({
+  data,
+  filtering,
+  setData,
+  setFiltering,
+  target, // target is for demo purposes only, remove in production
+}) => {
   const [availability, setAvailability] = useState(defaultAvailability);
   const [filters, setFilters] = useState(defaultFilters);
   const [location, setLocation] = useState(defaultLocation);
@@ -205,14 +218,14 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
   const filterData = (array, criteria) => {
     setFilters(criteria);
     const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
+    return array.filter(item => 
       // validates all filter criteria
-      return filterKeys.every(key => {
+       filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
   };
 
   if (size === 'small') {
@@ -231,6 +244,9 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
               setShowLayer(!showLayer);
               setLocation(previousValues.location);
             }}
+            full
+            // target is for demo purposes only, remove in production
+            target={target}
           >
             <Box width="large" pad="large" gap="medium">
               <Header>
@@ -395,6 +411,8 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  // target is for demo purposes only, remove in production
+  target: PropTypes.object,
 };
 
 const LocationFilter = ({
@@ -405,8 +423,7 @@ const LocationFilter = ({
   setLocation,
   previousValues,
   setPreviousValues,
-}) => {
-  return (
+}) => (
     <Select
       options={[
         'All Locations',
@@ -435,7 +452,6 @@ const LocationFilter = ({
       }}
     />
   );
-};
 
 LocationFilter.propTypes = {
   filters: PropTypes.shape({

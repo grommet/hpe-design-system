@@ -129,6 +129,25 @@ export const components = [
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
   },
   {
+    name: 'Tooltip',
+    category: 'Controls',
+    description:
+      'A tooltip is used to specify extra information when the user moves the mouse pointer over the element.',
+    seoDescription:
+      'A tooltip is used to specify extra information when the user moves the mouse pointer over the element.',
+    sections: [],
+    preview: {
+      image: {
+        src: {
+          dark: '/components-preview-tooltip-invert.svg',
+          light: '/components-preview-tooltip.svg',
+        },
+        alt: 'HPE tooltip preview',
+      },
+    },
+    relatedContent: ['Layer', 'Button', 'Header', 'Persistent Navigation'],
+  },
+  {
     name: 'Search',
     category: 'Controls',
     description: 'Find content corresponding to keyword queries.',
