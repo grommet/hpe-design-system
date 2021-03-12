@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { ContentSection, Subsection } from '.';
 import { CardGrid, SubsectionText } from '../../components';
 
-export const RelatedContent = ({ relatedContent, title }) => {
-  return (
+export const RelatedContent = ({ relatedContent, title }) => (
     <ContentSection>
       <Subsection name="Related">
         <SubsectionText>
@@ -14,7 +13,6 @@ export const RelatedContent = ({ relatedContent, title }) => {
       </Subsection>
     </ContentSection>
   );
-};
 
 RelatedContent.propTypes = {
   relatedContent: PropTypes.arrayOf(PropTypes.shape({})),

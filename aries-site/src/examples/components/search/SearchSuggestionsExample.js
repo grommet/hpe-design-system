@@ -87,13 +87,13 @@ export const SearchSuggestionsExample = () => {
   };
 
   return (
-      <StyledTextInput
-        icon={<SearchIcon id="search-icon" />}
-        placeholder="Search placeholder"
-        reverse
-        suggestions={suggestions}
-        value={value}
-        onChange={onChange}
-      />
+    <StyledTextInput
+      icon={<SearchIcon id="search-icon" />}
+      placeholder="Search placeholder"
+      reverse
+      suggestions={suggestions}
+      value={value}
+      onChange={onChange}
+    />
   );
 };

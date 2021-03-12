@@ -169,14 +169,14 @@ export const PersistentFiltering = ({ containerRef }) => {
 
       let filterResults;
       const filterKeys = Object.keys(criteria);
-      filterResults = array.filter(item => {
+      filterResults = array.filter(item => 
         // validates all filter criteria
-        return filterKeys.every(key => {
+         filterKeys.every(key => {
           // ignores non-function predicates
           if (typeof criteria[key] !== 'function') return true;
           return criteria[key](item[key]);
-        });
-      });
+        }),
+      );
 
       if (searchValue) {
         filterResults = filterResults.filter(o =>
@@ -607,8 +607,7 @@ const LocationTypeFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField
       label="Location Type"
       htmlFor="location-type-b"
@@ -633,7 +632,6 @@ const LocationTypeFilter = ({
       />
     </FormField>
   );
-};
 
 LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
@@ -654,8 +652,7 @@ const StatusFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField label="Status" htmlFor="status-b" name="status-b">
       <CheckBoxGroup
         id="status-b"
@@ -674,7 +671,6 @@ const StatusFilter = ({
       />
     </FormField>
   );
-};
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
@@ -695,8 +691,7 @@ const CountryFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <FormField label="Country" htmlFor="country-b" name="country-b">
       <CheckBoxGroup
         id="country-b"
@@ -716,7 +711,6 @@ const CountryFilter = ({
       />
     </FormField>
   );
-};
 
 CountryFilter.propTypes = {
   filters: PropTypes.shape({
@@ -737,8 +731,7 @@ const EmployeeCountFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
+}) => (
     <Box flex={false}>
       <FormField
         label="Employee Count"
@@ -782,7 +775,6 @@ const EmployeeCountFilter = ({
       </Text>
     </Box>
   );
-};
 
 EmployeeCountFilter.propTypes = {
   filters: PropTypes.shape({

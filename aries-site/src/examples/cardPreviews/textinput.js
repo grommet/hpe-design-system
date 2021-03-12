@@ -1,13 +1,9 @@
 import React from 'react';
 import { Form, FormField, TextInput } from 'grommet';
 
-export const TextInputPreview = () => {
-  return (
+export const TextInputPreview = () => (
     <Form>
-      <FormField
-        htmlFor="focus-id"
-        name="focus"
-      >
+      <FormField htmlFor="focus-id" name="focus">
         <TextInput
           aria-label="preview"
           id="focus-id"
@@ -22,4 +18,3 @@ export const TextInputPreview = () => {
       </FormField>
     </Form>
   );
-};

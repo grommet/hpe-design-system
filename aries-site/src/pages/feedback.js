@@ -8,8 +8,7 @@ import { getPageDetails } from '../utils';
 const title = 'Feedback';
 const page = getPageDetails(title);
 
-const Feedback = () => {
-  return (
+const Feedback = () => (
     <Layout title={title} isLanding>
       <Meta
         title={title}
@@ -26,6 +25,5 @@ const Feedback = () => {
       </Box>
     </Layout>
   );
-};
 
 export default Feedback;
