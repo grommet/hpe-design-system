@@ -1,5 +1,30 @@
 import React from 'react';
+import { Box, List, Menu } from 'grommet';
+import { More } from 'grommet-icons';
 
-export const PaginationListExample = () => {
-  return <div>hi</div>;
-};
+const data = [];
+
+for (let i = 0; i < 95; i += 1) {
+  data.push({
+    entry: `entry-${i + 1}`,
+  });
+}
+
+export const PaginationListExample = () => (
+  <Box overflow="auto" pad="xsmall">
+    <List
+      data={data}
+      action={(item, index) => (
+        <Menu
+          key={index}
+          icon={<More />}
+          hoverIndicator
+          items={[{ label: 'one' }]}
+        />
+      )}
+      step={7}
+      show={{ page: 7 }}
+      paginate
+    />
+  </Box>
+);
