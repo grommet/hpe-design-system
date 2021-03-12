@@ -190,8 +190,7 @@ const data = [
   'More summary values from step 2',
 ];
 
-const StepThree = () => {
-  return (
+const StepThree = () => (
     <Box gap="small">
       <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
         {(datum, index) => (
@@ -208,7 +207,6 @@ const StepThree = () => {
       </Text>
     </Box>
   );
-};
 
 export const steps = [
   {

@@ -20,13 +20,11 @@ const StyledBox = styled(Box)`
   }
 `;
 
-export const SubsectionText = ({ level, size, ...rest }) => {
-  return (
+export const SubsectionText = ({ level, size, ...rest }) => (
     <StyledBox width="large" margin={{ bottom: 'medium' }}>
       <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest} />
     </StyledBox>
   );
-};
 
 SubsectionText.propTypes = {
   children: PropTypes.oneOfType([

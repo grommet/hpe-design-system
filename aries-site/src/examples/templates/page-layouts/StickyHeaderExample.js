@@ -9,8 +9,7 @@ import {
   Text,
 } from 'grommet';
 
-export const StickyHeaderExample = () => {
-  return (
+export const StickyHeaderExample = () => (
     <AppContainer>
       <AppSidebar />
       <Box fill>
@@ -58,7 +57,6 @@ export const StickyHeaderExample = () => {
       </Box>
     </AppContainer>
   );
-};
 
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);

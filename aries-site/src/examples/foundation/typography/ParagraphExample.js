@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Paragraph } from 'grommet';
 
-export const ParagraphExample = () => {
-  return (
+export const ParagraphExample = () => (
     <Box direction="column" gap="medium">
       <Paragraph size="xxlarge" margin="none">
         Paragraph xxlarge
@@ -19,4 +18,3 @@ export const ParagraphExample = () => {
       </Paragraph>
     </Box>
   );
-};

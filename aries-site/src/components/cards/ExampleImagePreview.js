@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Anchor, Box, Image } from 'grommet';
 
-export const ExampleImagePreview = ({ label, href, ...rest }) => {
-  return (
+export const ExampleImagePreview = ({ label, href, ...rest }) => (
     <Box align="start" gap="medium">
       <Link href={href} passHref>
         <Box
@@ -20,7 +19,6 @@ export const ExampleImagePreview = ({ label, href, ...rest }) => {
       {label && href && <Anchor label={label} href={href} />}
     </Box>
   );
-};
 
 ExampleImagePreview.propTypes = {
   figma: PropTypes.string,

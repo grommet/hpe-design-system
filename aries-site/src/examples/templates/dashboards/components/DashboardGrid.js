@@ -13,9 +13,7 @@ export const DashboardGrid = ({ ...rest }) => {
       {...rest}
     >
       {data &&
-        data.map((datum, index) => {
-          return <DashboardCard key={index} card={datum} />;
-        })}
+        data.map((datum, index) => <DashboardCard key={index} card={datum} />)}
     </Grid>
   );
 };

@@ -94,14 +94,12 @@ KPIMeter.propTypes = {
   values: PropTypes.arrayOf(PropTypes.object),
 };
 
-const KPISummary = ({ message, statusColor }) => {
-  return (
+const KPISummary = ({ message, statusColor }) => (
     <Box direction="row" align="center" gap="small">
       <Box background={statusColor} height="12px" width="12px" round />
       <Text>{message}</Text>
     </Box>
   );
-};
 
 KPISummary.propTypes = {
   message: PropTypes.string,

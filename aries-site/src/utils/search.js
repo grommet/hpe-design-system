@@ -83,8 +83,7 @@ export const nameToPath = name => {
  * Returns an array of page objects which are decendents of the
  * provided cardCategory. Where cardCategory is a string.
  */
-export const getCards = cardCategory => {
-  return structure
+export const getCards = cardCategory => structure
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);
@@ -97,7 +96,6 @@ export const getCards = cardCategory => {
         ? page.parent.name !== 'Home'
         : page.parent.name === cardCategory,
     );
-};
 
 /*
  * Returns an array of page objects which are members of the

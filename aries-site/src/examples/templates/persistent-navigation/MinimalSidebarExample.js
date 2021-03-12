@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Card,
-  Drop,
   Grid,
   Header,
   Heading,
@@ -15,6 +14,7 @@ import {
   Sidebar,
   Text,
   ThemeContext,
+  Tip,
 } from 'grommet';
 import {
   Cli,
@@ -116,19 +116,30 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   return (
     <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
-        pages
-          .slice(0, maxItems)
-          .map((item, index) => (
-            <NavButton
-              key={item.name}
-              a11yTitle={item.name}
-              active={index === activeItem}
-              icon={item.icon}
-              name={item.name}
-              onClick={() => setActiveItem(index)}
-              round="xsmall"
-            />
-          ))}
+        pages.slice(0, maxItems).map((item, index) => (
+          <Box fill="horizontal">
+            <Tip
+              dropProps={{
+                align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
+              }}
+              content={
+                <Text size="small" color="text-strong">
+                  {item.name}
+                </Text>
+              }
+            >
+              <Button
+                key={item.name}
+                a11yTitle={item.name}
+                active={index === activeItem}
+                icon={item.icon}
+                name={item.name}
+                onClick={() => setActiveItem(index)}
+                round="xsmall"
+              />
+            </Tip>
+          </Box>
+        ))}
     </Nav>
   );
 };
@@ -136,54 +147,6 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
 MainNavigation.propTypes = {
   activeItem: PropTypes.number,
   setActiveItem: PropTypes.func,
-};
-
-const NavButton = ({ active, icon, name, ...rest }) => {
-  const [hover, setHover] = React.useState();
-  const ref = React.useRef();
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Box fill="horizontal">
-      <Button
-        ref={ref}
-        icon={icon}
-        onMouseOver={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        {...rest}
-      />
-      {/* Show tooltip on hover and focus states as a supplemental
-      reminder to icon's meaning */
-      ref.current && hover && (
-        <Drop
-          align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-          target={ref.current}
-          plain
-        >
-          <Box
-            animation={{ type: ['fadeIn', 'slideRight'] }}
-            elevation="small"
-            margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-            pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-            background="blue"
-            round="xsmall"
-          >
-            <Text size="small" color="text-strong">
-              {name}
-            </Text>
-          </Box>
-        </Drop>
-      )}
-    </Box>
-  );
-};
-
-NavButton.propTypes = {
-  active: PropTypes.bool,
-  icon: PropTypes.element,
-  name: PropTypes.string,
 };
 
 const PageContent = ({ activeItem }) => {
@@ -245,15 +208,13 @@ AppIdentity.propTypes = {
   name: PropTypes.string,
 };
 
-const GridLayout = ({ items }) => {
-  return (
+const GridLayout = ({ items }) => (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
         <Card key={index} background="background-front" />
       ))}
     </Grid>
   );
-};
 
 GridLayout.propTypes = {
   items: PropTypes.array,
@@ -275,8 +236,7 @@ ListLayout.propTypes = {
   items: PropTypes.array,
 };
 
-const PanesLayout = ({ items }) => {
-  return items.map((item, index) => (
+const PanesLayout = ({ items }) => items.map((item, index) => (
     <Box
       key={index}
       background="background-front"
@@ -285,7 +245,6 @@ const PanesLayout = ({ items }) => {
       round="xsmall"
     />
   ));
-};
 
 PanesLayout.propTypes = {
   items: PropTypes.array,

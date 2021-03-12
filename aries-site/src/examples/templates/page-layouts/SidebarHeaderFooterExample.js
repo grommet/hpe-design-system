@@ -9,8 +9,7 @@ import {
   Text,
 } from 'grommet';
 
-export const SidebarHeaderFooterExample = () => {
-  return (
+export const SidebarHeaderFooterExample = () => (
     <AppContainer>
       <AppSidebar />
       <Box flex overflow="auto">
@@ -58,7 +57,6 @@ export const SidebarHeaderFooterExample = () => {
       </Box>
     </AppContainer>
   );
-};
 
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);

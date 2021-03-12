@@ -9,7 +9,6 @@ import {
   Header,
   Head,
   FeedbackSection,
-  Footer,
   RelatedContent,
 } from '..';
 import { Meta, PageBackground } from '../../components';
@@ -103,7 +102,6 @@ export const Layout = ({
                     )}
                   </Box>
                 </Main>
-                <Footer />
               </>
             </Box>
           </Stack>

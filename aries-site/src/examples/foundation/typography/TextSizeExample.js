@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
 
-export const TextSizeExample = () => {
-  return (
+export const TextSizeExample = () => (
     <Box direction="column" gap="medium">
       <Text size="xxlarge">Text xxlarge</Text>
       <Text size="xlarge">Text xlarge</Text>
@@ -12,4 +11,3 @@ export const TextSizeExample = () => {
       <Text size="xsmall">Text xsmall</Text>
     </Box>
   );
-};

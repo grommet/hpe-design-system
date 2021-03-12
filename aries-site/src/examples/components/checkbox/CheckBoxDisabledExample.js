@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, CheckBox, Form, FormField } from 'grommet';
 
-export const CheckBoxDisabledExample = () => {
-  return (
+export const CheckBoxDisabledExample = () => (
     <Box gap="large" direction="row-responsive">
       <Box width="medium">
         <Form>
@@ -41,4 +40,3 @@ export const CheckBoxDisabledExample = () => {
       </Box>
     </Box>
   );
-};

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Header, Box, Main, ResponsiveContext, Sidebar, Text } from 'grommet';
 
-export const SidebarHeaderExample = () => {
-  return (
+export const SidebarHeaderExample = () => (
     <AppContainer>
       <AppSidebar />
       <Box flex overflow="auto">
@@ -37,7 +36,6 @@ export const SidebarHeaderExample = () => {
       </Box>
     </AppContainer>
   );
-};
 
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);

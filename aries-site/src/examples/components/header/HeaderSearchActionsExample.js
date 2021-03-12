@@ -55,8 +55,7 @@ const Search = () => {
   );
 };
 
-export const HeaderSearchActionsExample = () => {
-  return (
+export const HeaderSearchActionsExample = () => (
     <Header fill="horizontal">
       <Button>
         <Box
@@ -85,4 +84,3 @@ export const HeaderSearchActionsExample = () => {
       </Box>
     </Header>
   );
-};

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, CheckBoxGroup, Form, FormField } from 'grommet';
 
-export const CheckBoxGroupScrollExample = () => {
-  return (
+export const CheckBoxGroupScrollExample = () => (
     <Form>
       <FormField
         pad="xsmall"
@@ -28,4 +27,3 @@ export const CheckBoxGroupScrollExample = () => {
       </FormField>
     </Form>
   );
-};

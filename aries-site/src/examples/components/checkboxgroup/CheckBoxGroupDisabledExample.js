@@ -1,8 +1,7 @@
 import React from 'react';
 import { CheckBoxGroup, Form, FormField } from 'grommet';
 
-export const CheckBoxGroupDisabledExample = () => {
-  return (
+export const CheckBoxGroupDisabledExample = () => (
     <Form>
       <FormField
         name="disabled-checkbox"
@@ -19,4 +18,3 @@ export const CheckBoxGroupDisabledExample = () => {
       </FormField>
     </Form>
   );
-};

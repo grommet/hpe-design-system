@@ -9,8 +9,7 @@ for (let i = 1; i <= 3; i += 1) {
   });
 }
 
-export const CheckBoxGroupObjectExample = () => {
-  return (
+export const CheckBoxGroupObjectExample = () => (
     <Form>
       <FormField
         name="checkboxgroup-objectoptions"
@@ -27,4 +26,3 @@ export const CheckBoxGroupObjectExample = () => {
       </FormField>
     </Form>
   );
-};

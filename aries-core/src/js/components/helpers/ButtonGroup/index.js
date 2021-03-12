@@ -2,8 +2,7 @@
 import React from 'react';
 import { Button } from 'grommet';
 
-export const ButtonGroup = ({ items }) => {
-  return (
+export const ButtonGroup = ({ items }) => (
     <>
       {items &&
         items.map((item, index) => (
@@ -11,4 +10,3 @@ export const ButtonGroup = ({ items }) => {
         ))}
     </>
   );
-};

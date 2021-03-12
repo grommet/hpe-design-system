@@ -1,0 +1,55 @@
+import { Example } from '../../layouts';
+import {
+  ToolTipExitExample,
+  ToolTipIconExample,
+  ToolTipSimpleExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipSimpleExample.js"
+  docs="https://v2.grommet.io/tip?theme=hpe#props"
+  figma="https://www.figma.com/file/Jd34cI5yyZIPb5BIwkIPU2/HPE-Tooltip?node-id=0%3A1"
+>
+  <ToolTipSimpleExample />
+</Example>
+
+## Guidance
+
+Tooltips can be added to Button by Grommet [tip props](https://v2.grommet.io/button#tip).
+Tooltips will display information upon hover and focus.
+Tooltips provide messages that give the user more information about an element.
+
+### Usage
+
+1. Don't use Tooltips for information that is vital to task completion.
+2. Provide a brief and helpful content inside the Tooltip.
+3. Support both mouse and keyboard hover.
+4. Use Tooltip consistently throughout your site.
+5. Tooltip should never contain interactive components.
+
+Make sure to test Tooltip positioning to ensure that the content does not block other information pertinent to the user's goal.
+
+### Accessibility
+
+Tooltips should support both mouse hover and keyboard focus.
+Do not use tooltips for information that is vital for the user to complete the task.
+
+## Variants
+
+There are a few different ways that you can use a Tooltip.
+
+### Tooltip with icons
+
+An icon without a label should be provided a Tooltip to remove any ambiguity around an icon's meaning. An example can be found in a demonstration of [Persistent Navigation](/templates/persistent-navigation#minimal-sidebar), where a sidebar contains icon-only buttons.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipIconExample.js">
+  <ToolTipIconExample />
+</Example>
+
+### Tooltip with exit
+
+A tooltip can be used to reiterate traditional symbols.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipExitExample.js">
+  <ToolTipExitExample />
+</Example>
