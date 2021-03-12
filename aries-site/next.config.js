@@ -4,6 +4,22 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 
+const config = {
+  async headers() {
+    return [
+      {
+        source: '/(.*)?',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          }
+        ]
+      }
+    ]
+  }
+}
+
 module.exports = withPlugins([
   [
     withTM,
@@ -17,4 +33,5 @@ module.exports = withPlugins([
       pageExtensions: ['js', 'jsx', 'md', 'mdx'],
     },
   ],
-]);
+], config);
+
