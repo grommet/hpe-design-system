@@ -33,7 +33,7 @@ export const ModalSpinnerExample = () => {
             alignSelf="center"
             pad="large"
           >
-            <Spinner message="loading server"></Spinner>
+            <Spinner message="loading server" />
             <Text>Loading...</Text>
           </Box>
         </Layer>
