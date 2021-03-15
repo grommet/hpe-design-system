@@ -395,6 +395,16 @@ export const components = [
     sections: [],
   },
   {
+    name: 'Spinner',
+    category: 'Visualizations',
+    description: 'A loading component that gives the user visual.',
+    preview: {
+      background: 'background-front',
+    },
+    seoDescription: 'A loading component that gives the user visual.',
+    sections: [],
+  },
+  {
     name: 'Table',
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',

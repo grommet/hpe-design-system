@@ -1,0 +1,55 @@
+import { Example } from '../../layouts';
+import {
+  SpinnerExample,
+  ListSpinnerExample,
+  ModalSpinnerExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
+>
+  <SpinnerExample />
+</Example>
+
+## Guidance
+
+Loading Spinners are used to notify the user that an action is being processed. 
+This reassures the user that something is occuring and will be provided shortly. 
+
+Progress circles help the user to show the progression of a system operation (downloadnig, uploading, processing, etc) visually. 
+### When to use Spinner
+
+Use a spinner when an action requires a short time to process (downloadnig, uploading, processing, etc).
+When loading more information into a table or list a spinner should be used.
+
+### Accessibility
+
+In order for a spinner to be accessible we need to provide a [message](https://v2.grommet.io/spinner#message) that will be announced for screen readers. 
+
+## Variants
+
+A spinner is flexable to used and should be used to give verifcation to the user that something is happening upon their request. 
+
+### A spinner within a list
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ListSpinnerExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <ListSpinnerExample />
+</Example>
+
+### Spinner in Modal
+
+Allow user to be able to know when something is being loaded without explicitly telling them.
+
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ModalSpinnerExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <ModalSpinnerExample />
+</Example>
+
