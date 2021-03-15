@@ -19,7 +19,7 @@ export const PaginationListExample = () => (
           key={index}
           icon={<More />}
           hoverIndicator
-          items={[{ label: 'one' }]}
+          items={[{ label: 'See Details' }, { label: 'Delete' }]}
         />
       )}
       step={7}
