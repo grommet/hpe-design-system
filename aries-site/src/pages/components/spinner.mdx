@@ -1,12 +1,15 @@
 import { Example } from '../../layouts';
 import {
+  AnnounceSpinnerExample,
   SpinnerExample,
   ListSpinnerExample,
-  ModalSpinnerExample,
+  ContentSpinnerExample,
 } from '../../examples';
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  figma="https://www.figma.com/file/feIeYk1zX36y9E7e7rprc2/HPE-Loading-Indicator-Component?node-id=0%3A1"
 >
   <SpinnerExample />
 </Example>
@@ -30,26 +33,37 @@ In order for a spinner to be accessible we need to provide a [message](https://v
 
 A spinner is flexable to used and should be used to give verifcation to the user that something is happening upon their request. 
 
+### A spinner announcement on screen reader 
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/AnnounceSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  height={{ min: 'small' }}
+>
+  <AnnounceSpinnerExample />
+</Example>
+
 ### A spinner within a list
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ListSpinnerExample.js"
-  docs="https://v2.grommet.io/select?theme=hpe#props"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
   height={{ min: 'small' }}
 >
   <ListSpinnerExample />
 </Example>
 
-### Spinner in Modal
+### Spinner with content
 
 Allow user to be able to know when something is being loaded without explicitly telling them.
 
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ModalSpinnerExample.js"
-  docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ContentSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  width="100%"
   height={{ min: 'small' }}
 >
-  <ModalSpinnerExample />
+  <ContentSpinnerExample />
 </Example>
 

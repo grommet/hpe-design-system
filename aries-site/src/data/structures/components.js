@@ -397,11 +397,11 @@ export const components = [
   {
     name: 'Spinner',
     category: 'Visualizations',
-    description: 'A loading component that gives the user visual.',
+    description: 'A loading state for quick asynchronous task',
     preview: {
       background: 'background-front',
     },
-    seoDescription: 'A loading component that gives the user visual.',
+    seoDescription: 'A loading state for quick asynchronous task',
     sections: [],
   },
   {

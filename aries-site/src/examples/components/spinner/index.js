@@ -1,4 +1,4 @@
+export * from './AnnounceSpinnerExample';
 export * from './ListSpinnerExample';
-export * from './ModalSpinnerExample';
+export * from './ContentSpinnerExample';
 export * from './SpinnerExample';
- 

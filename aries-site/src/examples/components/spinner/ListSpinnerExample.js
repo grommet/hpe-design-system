@@ -56,7 +56,6 @@ export const ListSpinnerExample = () => (
     </List>
     <Box gap="small" alignSelf="center" direction="row-responsive">
       <Spinner message="loading more users in list" />
-      <Text>Loading More...</Text>
     </Box>
   </Box>
 );
