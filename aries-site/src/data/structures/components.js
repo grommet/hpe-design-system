@@ -399,9 +399,16 @@ export const components = [
     category: 'Visualizations',
     description: 'A loading state for quick asynchronous task',
     preview: {
-      background: 'background-front',
+      image: {
+        src: {
+          light: '/components-preview-spinner.svg',
+          dark: '/components-preview-spinner-invert.svg',
+        },
+        alt: 'HPE Spinner preview',
+      },
     },
     seoDescription: 'A loading state for quick asynchronous task',
+    relatedContent: ['Lists', 'Table', 'Forms'],
     sections: [],
   },
   {
