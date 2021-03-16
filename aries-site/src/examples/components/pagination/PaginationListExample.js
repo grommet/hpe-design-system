@@ -24,7 +24,13 @@ export const PaginationListExample = () => (
       )}
       step={7}
       show={{ page: 7 }}
-      paginate
+      paginate={{
+        border: 'top',
+        direction: 'row',
+        fill: 'horizontal',
+        justify: 'end',
+        pad: { top: 'xsmall' },
+      }}
     />
   </Box>
 );

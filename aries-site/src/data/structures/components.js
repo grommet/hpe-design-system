@@ -416,4 +416,24 @@ export const components = [
       grommet: statuses.inProgress,
     },
   },
+  {
+    name: 'Pagination',
+    available: false,
+    description: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Design System Global Header',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists', 'Card'],
+  },
 ];
