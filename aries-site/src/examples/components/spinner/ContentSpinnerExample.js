@@ -66,9 +66,7 @@ export const ContentSpinnerExample = () => {
       >
         <Tab title="Customer Details">
           <Box justify="center" height="small" margin="small" gap="small">
-            <Spinner
-              alignSelf="center"
-            />
+            <Spinner alignSelf="center" />
           </Box>
         </Tab>
         <Tab title="Customization">
