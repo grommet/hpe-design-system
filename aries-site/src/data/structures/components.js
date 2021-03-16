@@ -418,16 +418,17 @@ export const components = [
   },
   {
     name: 'Pagination',
-    available: false,
+    available: true,
+    category: 'Controls',
     description: `Pagination divides content into separate pages in order to 
     enhance navigation to specific items.`,
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-persistent.svg',
-          dark: '/templateImages/template-preview-persistent-invert.svg',
+          light: '/componentImages/component-preview-pagination.svg',
+          dark: '/componentImages/component-preview-pagination-invert.svg',
         },
-        alt: 'HPE Design System Global Header',
+        alt: 'HPE Design System Pagination',
         fit: 'contain',
       },
     },
