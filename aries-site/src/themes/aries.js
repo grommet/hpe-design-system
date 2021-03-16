@@ -4,6 +4,14 @@ import { deepMerge } from 'grommet/utils';
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   spinner: {
+    container: {
+      border: [
+        { side: 'all', color: 'background-contrast', size: 'medium' },
+        { side: 'right', color: 'green', size: 'medium' },
+        { side: 'top', color: 'green', size: 'medium' },
+        { side: 'left', color: 'green', size: 'medium' },
+      ],
+    },
     size: {
       small: '36px',
     },
