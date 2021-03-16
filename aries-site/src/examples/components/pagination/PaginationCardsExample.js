@@ -36,7 +36,7 @@ export const PaginationCardsExample = () => {
 
   return (
     <Box gap="medium" overflow="auto" pad="xsmall">
-      <Box height={{ min: 'medium' }} flex={false} pad="xsmall">
+      <Box flex={false} pad="xsmall">
         <Grid
           columns="small"
           rows="small"
@@ -51,6 +51,8 @@ export const PaginationCardsExample = () => {
       </Box>
       <Box
         align="center"
+        border="top"
+        pad={{ vertical: 'xsmall' }}
         direction={size !== 'small' ? 'row' : 'column-reverse'}
         justify="between"
         flex={false}

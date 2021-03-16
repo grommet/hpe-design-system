@@ -8,13 +8,8 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   pagination: {
     button: {
-      font: {
-        weight: 700,
-      },
-      active: {
-        font: {
-          weight: 700,
-        },
+      disabled: {
+        color: 'text-weak',
       },
     },
   },

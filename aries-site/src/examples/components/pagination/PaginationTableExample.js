@@ -534,11 +534,11 @@ export const PaginationTableExample = () => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <>
+    <Box pad="small">
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Storage Pools
       </Heading>
-      <Box pad="xsmall">
+      <Box>
         <DataTable
           data={data}
           columns={[
@@ -551,13 +551,19 @@ export const PaginationTableExample = () => {
             },
             ...columns,
           ]}
+          fill
           onClickRow={({ datum }) => handleClickRow(datum)}
-          paginate
+          paginate={{
+            border: 'top',
+            direction: 'row',
+            fill: 'horizontal',
+            justify: 'end',
+            pad: { top: 'xsmall' },
+          }}
           step={10}
           sortable
-          fill
         />
       </Box>
-    </>
+    </Box>
   );
 };
