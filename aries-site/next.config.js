@@ -4,17 +4,36 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 
-module.exports = withPlugins([
+const config = {
+  async headers() {
+    return [
+      {
+        source: '/(.*)?',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+        ],
+      },
+    ];
+  },
+};
+
+module.exports = withPlugins(
   [
-    withTM,
-    {
-      transpileModules: ['aries-core'],
-    },
+    [
+      withTM,
+      {
+        transpileModules: ['aries-core'],
+      },
+    ],
+    [
+      withMDX,
+      {
+        pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+      },
+    ],
   ],
-  [
-    withMDX,
-    {
-      pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-    },
-  ],
-]);
+  config,
+);
