@@ -408,7 +408,7 @@ export const components = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Filtering', 'Lists', 'Card'],
+    relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
     status: {

@@ -14,7 +14,7 @@ export const templates = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Dashboards', 'Card', 'Page Layouts'],
+    relatedContent: ['Dashboards', 'Card', 'Page Layouts', 'Pagination'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [],
