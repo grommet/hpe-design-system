@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   DataTable,
@@ -531,7 +531,7 @@ const handleClickRow = obj => {
 };
 
 export const PaginationTableExample = () => {
-  const size = React.useContext(ResponsiveContext);
+  const size = useContext(ResponsiveContext);
 
   return (
     <Box pad="small">
@@ -557,7 +557,7 @@ export const PaginationTableExample = () => {
             border: 'top',
             direction: 'row',
             fill: 'horizontal',
-            justify: 'end',
+            justify: size !== 'small' ? 'end' : 'center',
             pad: { top: 'xsmall' },
           }}
           step={10}
