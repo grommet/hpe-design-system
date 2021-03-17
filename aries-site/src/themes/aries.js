@@ -12,9 +12,6 @@ export const aries = deepMerge(hpe, {
         { side: 'left', color: 'green', size: 'medium' },
       ],
     },
-    size: {
-      small: '36px',
-    },
   },
 
   // To be stripped out once theme changes are made in grommet-theme-hpe
