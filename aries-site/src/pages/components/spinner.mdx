@@ -17,12 +17,15 @@ import {
 ## Guidance
 
 Loading Spinners are used to notify the user that an action is being processed. 
-This reassures the user that something is occuring and will be provided shortly. 
+This reassures the user that an action is occuring and will be provided shortly. 
 
-Progress circles help the user to show the progression of a system operation (downloadnig, uploading, processing, etc) visually. 
+Loading spinners can be made smaller or larger depending on the context in which the spinner is being used.
+
+For fast processes that take less than 300ms, consider a spinner.
+
 ### When to use Spinner
 
-Use a spinner when an action requires a short time to process (downloadnig, uploading, processing, etc).
+Use a spinner when an action requires a short time to process for example: (downloadnig, uploading, processing, etc).
 When loading more information into a table or list a spinner should be used.
 
 ### Accessibility
@@ -54,9 +57,9 @@ A Spinner can be used in various ways to indicate to the user that a task is in 
   <ListSpinnerExample />
 </Example>
 
-### Spinner with content
+### Spinner loading content
 
-Allow user to be able to know when something is being loaded without explicitly telling them.
+A Spinner allows users to know when something is being loaded without explicitly telling them.
 
 
 <Example
