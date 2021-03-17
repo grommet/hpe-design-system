@@ -37,7 +37,7 @@ const data = [
 ];
 
 export const ListSpinnerExample = () => (
-  <Box gap="small" width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box pad="small" gap="small" width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       background="background-front"
       data={data}
@@ -54,13 +54,6 @@ export const ListSpinnerExample = () => (
         </Box>
       )}
     </List>
-    <Box
-      margin="small"
-      gap="small"
-      alignSelf="center"
-      direction="row-responsive"
-    >
-      <Spinner />
-    </Box>
+    <Spinner alignSelf="center" />
   </Box>
 );
