@@ -54,7 +54,12 @@ export const ListSpinnerExample = () => (
         </Box>
       )}
     </List>
-    <Box gap="small" alignSelf="center" direction="row-responsive">
+    <Box
+      margin="small"
+      gap="small"
+      alignSelf="center"
+      direction="row-responsive"
+    >
       <Spinner />
     </Box>
   </Box>
