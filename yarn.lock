@@ -6153,9 +6153,9 @@ detect-node-es@^1.0.0:
   integrity sha512-S4AHriUkTX9FoFvL4G8hXDcx6t3gp2HpfCza3Q0v6S78gul2hKWifLQbeW+ZF89+hSm2ZIc/uF3J97ZgytgTRg==
 
 detect-node@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
-  integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.5.tgz#9d270aa7eaa5af0b72c4c9d9b814e7f4ce738b79"
+  integrity sha512-qi86tE6hRcFHy8jI1m2VG+LaPUR1LhqDa5G8tVjuUXmOrpuAgqsA1pN0+ldgr3aKUH+QLI9hCY/OcRYisERejw==
 
 detect-port-alt@1.1.6:
   version "1.1.6"
@@ -6446,9 +6446,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.488, electron-to-chromium@^1.3.649:
-  version "1.3.689"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.689.tgz#0f4082467c109844b79a7b32a2649c9ab6a6c822"
-  integrity sha512-WCn+ZaU3V8WttlLNSOGOAlR2XpxibGre7slwGrYBB6oTjYPgP29LNDGG6wLvLTMseLdE+G1vno7PfY7JyDV48g==
+  version "1.3.690"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.690.tgz#54df63ec42fba6b8e9e05fe4be52caeeedb6e634"
+  integrity sha512-zPbaSv1c8LUKqQ+scNxJKv01RYFkVVF1xli+b+3Ty8ONujHjAMg+t/COmdZqrtnS1gT+g4hbSodHillymt1Lww==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7960,8 +7960,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.16.3"
-  uid caebd33fe29800bb83f8280abdf2506c7c930400
-  resolved "https://github.com/grommet/grommet/tarball/stable#caebd33fe29800bb83f8280abdf2506c7c930400"
+  uid "8dc9a074c4a659f8fcb2c8d4127f2746ceeb94e3"
+  resolved "https://github.com/grommet/grommet/tarball/stable#8dc9a074c4a659f8fcb2c8d4127f2746ceeb94e3"
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
@@ -14160,9 +14160,9 @@ testcafe-legacy-api@4.2.4:
     testcafe-hammerhead ">=19.4.0"
 
 testcafe-react-selectors@^4.0.0:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/testcafe-react-selectors/-/testcafe-react-selectors-4.1.4.tgz#9aebba4eb102c410596e40957dccc81ea8ff59bf"
-  integrity sha512-+YkgZcQiFrdkqGJEE5q/YrANF2QPn6bG9Q1wG11rp0yZA405lG51CB9WXdSJkB2ACcEoIuWIqX2V839hPJ51og==
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/testcafe-react-selectors/-/testcafe-react-selectors-4.1.5.tgz#32b5b1f9d3d2874c67e3034b6b63d2b0e770c470"
+  integrity sha512-1S+AEznRnADCQZmbRIRxsuo8wKv7ET8JqeElEHAEgqwgd+FB/yGlL+umL+DoPNop5UQSmBo9+hCWD/bIKLNAGQ==
 
 testcafe-reporter-json@^2.1.0:
   version "2.2.0"
