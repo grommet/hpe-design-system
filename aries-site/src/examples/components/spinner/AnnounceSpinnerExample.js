@@ -19,6 +19,7 @@ export const AnnounceSpinnerExample = () => {
             setShow(false);
           }, 1500);
         }}
+        secondary
       />
       {show && <Spinner message="More data is loading" />}
     </Box>
