@@ -397,7 +397,7 @@ export const components = [
   {
     name: 'Spinner',
     category: 'Visualizations',
-    description: 'A loading state for quick asynchronous task',
+    description: 'A loading state for quick asynchronous tasks.',
     preview: {
       image: {
         src: {
@@ -407,7 +407,7 @@ export const components = [
         alt: 'HPE Spinner preview',
       },
     },
-    seoDescription: 'A loading state for quick asynchronous task',
+    seoDescription: 'A loading state for quick asynchronous tasks.',
     relatedContent: ['Lists', 'Table', 'Forms'],
     sections: [],
   },

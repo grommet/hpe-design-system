@@ -16,35 +16,24 @@ import {
 
 ## Guidance
 
-Loading Spinners are used to notify the user that an action is being processed. 
-This reassures the user that an action is occuring and will be provided shortly. 
+Loading Spinners are used to notify the user that an action is being processed. This reassures the user of the system status. 
 
-Loading spinners can be made smaller or larger depending on the context in which the spinner is being used.
+Loading spinners can be presented in various sizes depending on the context in which the spinner is being used.
 
-For fast processes that take less than 300ms, consider a spinner.
+For fast processes (less than 300ms), a spinner may not be required. However, for a process that may take time, a spinner should be used.
 
 ### When to use Spinner
 
-- A spinner can be used when an action takes a short time to process. A quick load of content from the server would be a great usecase for using a spinner while the content loads.
-- When loading more information into a table or list a spinner should be used.
+- When fetching data or content, where the expected response time is greater than ~300ms.
+- When loading more information into a Table or List.
 
 ### Accessibility
 
-We can provide advanced accessibility for screen readers by having a [message](https://v2.grommet.io/spinner#message) with the spinner. 
+For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user what kind of content is being loaded.
 
 ## Variants
 
 A Spinner can be used in various ways to indicate to the user that a task is in process.
-
-### Spinner with announcement on screen reader 
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/AnnounceSpinnerExample.js"
-  docs="https://v2.grommet.io/spinner?theme=hpe"
-  height={{ min: 'small' }}
->
-  <AnnounceSpinnerExample />
-</Example>
 
 ### Spinner within a list
 
@@ -55,6 +44,16 @@ A Spinner can be used in various ways to indicate to the user that a task is in 
   template
 >
   <ListSpinnerExample />
+</Example>
+
+### Spinner with announcement on screen reader 
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/AnnounceSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  height={{ min: 'small' }}
+>
+  <AnnounceSpinnerExample />
 </Example>
 
 ### Spinner loading content

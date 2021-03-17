@@ -20,7 +20,7 @@ export const AnnounceSpinnerExample = () => {
           }, 1500);
         }}
       />
-      {show && <Spinner message="Start Built-in Spinner Announcement" />}
+      {show && <Spinner message="More data is loading" />}
     </Box>
   );
 };
