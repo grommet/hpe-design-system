@@ -10,6 +10,7 @@ export * from './layer';
 export * from './layouts';
 export * from './maskedinput';
 export * from './menu';
+export * from './pagination';
 export * from './radiobuttongroup';
 export * from './rangeinput';
 export * from './search';
