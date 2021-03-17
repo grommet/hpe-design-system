@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Button,
   Header,
   Heading,
+  Menu,
   Tab,
   Tabs,
   Text,
   Spinner,
+  ResponsiveContext,
 } from 'grommet';
-import { Hpe, User, HelpOption, Notification } from 'grommet-icons';
+import {
+  Hpe,
+  User,
+  HelpOption,
+  Menu as MenuIcon,
+  Notification,
+} from 'grommet-icons';
 
 export const ContentSpinnerExample = () => {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
-
+  const size = useContext(ResponsiveContext);
   return (
     <>
       <Header fill="horizontal">
@@ -37,13 +45,25 @@ export const ContentSpinnerExample = () => {
             </Box>
           </Box>
         </Button>
-        <Box gap="medium" direction="row-responsive">
-          <HelpOption />
-          <Notification />
-          <User />
-        </Box>
+
+        {size !== 'small' ? (
+          <Box gap="xsmall" direction="row">
+            <Button icon={<HelpOption />} />
+            <Button icon={<Notification />} />
+            <Button icon={<User />} />
+          </Box>
+        ) : (
+          <Menu
+            icon={<MenuIcon />}
+            items={[
+              { icon: <HelpOption /> },
+              { icon: <Notification /> },
+              { icon: <User /> },
+            ]}
+          />
+        )}
       </Header>
-      <Heading level={3}> MLOPS139906-82-11570</Heading>
+      <Heading size="small"> MLOPS139906-82-11570</Heading>
       <Box gap="xlarge" direction="row-responsive">
         <Box direction="column">
           <Text>Status</Text>
@@ -65,14 +85,12 @@ export const ContentSpinnerExample = () => {
         justify="start"
       >
         <Tab title="Customer Details">
-          <Box justify="center" height="small" margin="small" gap="small">
-            <Spinner size="medium" alignSelf="center" />
+          <Box align="center" justify="center" height={{ min: 'small' }}>
+            <Spinner size="medium" />
           </Box>
         </Tab>
         <Tab title="Customization">
-          <Box margin="small" gap="small">
-            Customization Information
-          </Box>
+          <Box margin="small">Customization Information</Box>
         </Tab>
         <Tab title="Configuration">
           <Box margin="small">Billing Information</Box>
