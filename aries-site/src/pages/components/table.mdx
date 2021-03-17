@@ -2,6 +2,7 @@ import { Anchor, Box, Image } from 'grommet';
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  PaginationTableExample,
   TableAnatomy,
   TableExample,
   TableFixedHeaderExample,
@@ -219,6 +220,18 @@ batch actions via action control buttons or menus.
   showResponsiveControls={['laptop', 'mobile']}
 >
   <TableMultiSelectExample />
+</Example>
+
+### Paginated
+
+With long sets of data, pagination can help to create a more efficient means of navigating to a specific item or range of items.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationTableExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <PaginationTableExample />
 </Example>
 
 ### Fixing header row and/or columns

@@ -1,0 +1,89 @@
+import { Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
+import {
+  PaginationCardsExample,
+  PaginationExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/pagination/PaginationTableExample.js"
+  docs="https://v2.grommet.io/pagination?theme=hpe#props"
+  figma="https://www.figma.com/file/slRqNvhJub0QlgN46zSXoY/HPE-Pagination-Component?node-id=0%3A1"
+>
+  <PaginationExample />
+</Example>
+
+## When to use
+
+Use pagination when a user’s goal is to find a specific item rather than to peruse the full set of data. By breaking the data up into smaller, consistently sized groups, the user is more easily able to jump to specific sections of the data.
+
+If you expect the user will be scrolling and perusing large amounts of the data set, consider using [Infinite Scroll](https://v2.grommet.io/infinitescroll).
+
+Pagination is particularly effective for displaying large sets of results in components such as [Table](#paginated-table), [List](#paginated-list), and [Cards](#paginated-cards).
+
+## Guidelines
+
+### Number of results per page
+
+By default, 20 results should show at once. The examples on this page have been modified to show less results per page so that the pagination control is viewable in the single screen.
+
+### Placement of pagination component
+
+The pagination component should be placed underneath and justified to the end of the content it is paginating.
+
+### Showing summary of results
+
+It may be beneficial to provide users with a summary of what range of results they are viewing. This should take the format of "Showing 1-20 of 1000" and should be aligned in a row with the pagination component.
+
+The results summary should be justified to the start of the row and the pagination component should remain justified to the end of the row.
+
+## Accessibility
+
+Below are some accessibility requirements that ensure pagination is accessible for screen readers and keyboard navigation.
+
+If your team is developing with Grommet, these considerations are already handled, so no further action is required from your team.
+
+1. Wrap pagination links in a `<nav>` element.
+1. Provide an `aria-label="pagination navigaton"` and `role="navigation"`.
+1. Individual page buttons should have an `aria-label` that reads "Go to page X", where X is the page that will be navigated to upon selection.
+1. The active page button should have `aria-current="true"`.
+1. The next/previous arrow buttons should have `aria-label` that reads "Go to next page" and "Go to previous page", respectively.
+
+For more detailed documentation on these requirements, you can read more about [accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
+
+## Variants
+
+In addition to [Table](/comopnents/table#paginated) and [List](/templates/lists#paginated), here is another way pagination can be implemented.
+
+### Paginated Table
+
+Tables often contain large amounts of data. To improve the efficiency that a user can navigate to a specific item or range of items, use pagination.
+
+<ExampleImagePreview
+  label="See Paginated Table"
+  href="/components/table#paginated"
+  src="/pagination-table-preview.png"
+  alt="HPE Design System Paginated Table Example"
+/>
+
+### Paginated List
+
+Lists often contain large amounts of data. To improve the efficiency that a user can navigate to a specific item or range of items, use pagination.
+
+<ExampleImagePreview
+  label="See Paginated List"
+  href="/templates/lists#paginated"
+  src="/pagination-list-preview.png"
+  alt="HPE Design System Paginated List Example"
+/>
+
+### Paginated Cards
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationCardsExample.js"
+  docs="https://v2.grommet.io/pagination?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <PaginationCardsExample />
+</Example>

@@ -425,12 +425,33 @@ export const components = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Filtering', 'Lists', 'Card'],
+    relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
     status: {
       figma: statuses.inProgress,
       grommet: statuses.inProgress,
     },
+  },
+  {
+    name: 'Pagination',
+    available: true,
+    category: 'Controls',
+    description: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-pagination.svg',
+          dark: '/componentImages/component-preview-pagination-invert.svg',
+        },
+        alt: 'HPE Design System Pagination',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists', 'Card'],
   },
 ];
