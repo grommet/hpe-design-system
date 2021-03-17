@@ -7,7 +7,7 @@ export const AnnounceSpinnerExample = () => {
   return (
     <Box align="center" gap="small">
       <Paragraph textAlign="center">
-        Spinner has a built in Screen Reader functionality. The message prop is
+        Spinner has a built-in Screen Reader functionality for more advanced accessibility support. The message prop is
         going to be the message given over the voice reader.
       </Paragraph>
       <Button
