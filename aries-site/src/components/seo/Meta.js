@@ -89,6 +89,17 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
       <meta key="segment" name="segment" content={segment} />
       <meta key="lifecycle" name="lifecycle" content={lifecycle} />
       <meta key="page_content" name="page_content" content={pageContent} />
+      <meta
+        httpEquiv="Content-Security-Policy"
+        content="default-src 'self' 'unsafe-eval'; 
+        style-src 'self' *.hpe.com/hfws-static/slim/css/ 'unsafe-inline';
+        connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com https://eyes.applitools.com;
+        media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4;
+        img-src 'self' https://www.google-analytics.com;
+        script-src-elem 'self' *.hpe.com https://www.google-analytics.com/analytics.js;
+        font-src *.hpe.com hpefonts.s3.amazonaws.com *.cloudfront.net/fonts/;
+        object-src 'none';"
+      />
     </Head>
   );
 };
