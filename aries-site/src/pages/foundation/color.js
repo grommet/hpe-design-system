@@ -43,12 +43,12 @@ const { focusColor, layerColor } = colorExamples;
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor) => (
-    <Box fill>
-      {colors.map(color => (
-          <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
-        ))}
-    </Box>
-  );
+  <Box fill>
+    {colors.map(color => (
+      <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
+    ))}
+  </Box>
+);
 
 const title = 'Color';
 const page = getPageDetails(title);
@@ -69,15 +69,15 @@ const Color = () => (
             <Subsection level={1} name={title} topic={topic}>
               <SubsectionText>
                 You will notice that the HPE Design System Color guidance is
-                different from Brand Central. Prioritize this HPE Design System
-                color palette over Brand Central when identifying colors for
-                your digital experience.
+                different from Brand Central. Prioritize the below HPE Design
+                System color palette over Brand Central when identifying colors
+                for your app or web based experience.
               </SubsectionText>
               <SubsectionText>
                 The HPE Design System team is working with HPE Brand to ensure
-                that the Brand Central color palettes (like 'secondary colors')
-                are updated to meet ADA complicance levels in a large variety of
-                user contexts.
+                that the Brand Central color palettes (like ‘secondary colors’)
+                are updated to meet ADA accessibility and color contrast levels
+                in a large variety of user contexts.
               </SubsectionText>
               <ButtonRow>
                 <Button
@@ -96,7 +96,8 @@ const Color = () => (
                 Color is a key way we express our brand. Using color on
                 interface elements, how typography is presented, displaying data
                 visualizations, and adjusting context of the experience to light
-                and dark are just some of the ways we illustrate our brand.
+                and dark are just some of the ways we illustrate inclusive
+                design for our app and web based experiences.
               </SubsectionText>
             </Subsection>
             <Subsection name="Brand Color" level={3}>
@@ -364,12 +365,12 @@ const Color = () => (
               >
                 {textColors &&
                   textColors.map(color => (
-                      <TextExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex.light}
-                      />
-                    ))}
+                    <TextExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex.light}
+                    />
+                  ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -388,12 +389,12 @@ const Color = () => (
               >
                 {textColors &&
                   textColors.map(color => (
-                      <TextExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex.dark}
-                      />
-                    ))}
+                    <TextExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex.dark}
+                    />
+                  ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Status Colors" level={3}>
@@ -440,12 +441,12 @@ const Color = () => (
               >
                 {elevationColorsLight &&
                   elevationColorsLight.map(color => (
-                      <ElevationExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex}
-                      />
-                    ))}
+                    <ElevationExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex}
+                    />
+                  ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -461,12 +462,12 @@ const Color = () => (
               >
                 {elevationColorsDark &&
                   elevationColorsDark.map(color => (
-                      <ElevationExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex}
-                      />
-                    ))}
+                    <ElevationExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex}
+                    />
+                  ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Overlay Color">
