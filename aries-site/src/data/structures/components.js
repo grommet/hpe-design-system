@@ -395,6 +395,23 @@ export const components = [
     sections: [],
   },
   {
+    name: 'Spinner',
+    category: 'Visualizations',
+    description: 'A loading state for quick asynchronous tasks.',
+    preview: {
+      image: {
+        src: {
+          light: '/components-preview-spinner.svg',
+          dark: '/components-preview-spinner-invert.svg',
+        },
+        alt: 'HPE Spinner preview',
+      },
+    },
+    seoDescription: 'A loading state for quick asynchronous tasks.',
+    relatedContent: ['Lists', 'Table', 'Forms'],
+    sections: [],
+  },
+  {
     name: 'Table',
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',

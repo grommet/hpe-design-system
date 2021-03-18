@@ -1,0 +1,73 @@
+import { Example } from '../../layouts';
+import {
+  AnnounceSpinnerExample,
+  SpinnerExample,
+  ListSpinnerExample,
+  ContentSpinnerExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  figma="https://www.figma.com/file/feIeYk1zX36y9E7e7rprc2/HPE-Loading-Indicator-Component?node-id=0%3A1"
+>
+  <SpinnerExample />
+</Example>
+
+## Guidance
+
+Loading Spinners are used to notify the user that an action is being processed. This reassures the user of the system status. 
+
+Loading spinners can be presented in various sizes depending on the context in which the spinner is being used.
+
+For fast processes (less than 300ms), a spinner may not be required. However, for a process that may take time, a spinner should be used.
+
+### When to use Spinner
+
+- When fetching data or content, where the expected response time is greater than ~300ms.
+- When loading more information into a Table or List.
+
+### Accessibility
+
+For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user that the content is being loaded.
+
+[Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
+
+## Variants
+
+A Spinner can be used in various ways to indicate to the user that a task is in process.
+
+### Spinner within a list
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ListSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  height={{ min: 'small' }}
+  template
+>
+  <ListSpinnerExample />
+</Example>
+
+### Spinner with announcement on screen reader 
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/AnnounceSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  height={{ min: 'small' }}
+>
+  <AnnounceSpinnerExample />
+</Example>
+
+### Spinner loading content
+
+A Spinner allows users to know when something is being loaded without explicitly telling them. When using a spinner in a larger area you can increase the size of the spinner.
+
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/ContentSpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <ContentSpinnerExample />
+</Example>
