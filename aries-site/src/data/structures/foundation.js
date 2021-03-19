@@ -81,6 +81,7 @@ export const foundation = [
       'Status Colors',
       'Focus Color',
       'Elevation',
+      'Graph Colors',
     ],
     relatedContent: ['Background Colors Guidance', 'Typography', 'Icons'],
   },
