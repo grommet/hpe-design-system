@@ -481,12 +481,14 @@ const Color = () => (
               {layerColor && generateColorExamples(layerColor)}
             </Subsection>
             <Subsection name="Graph Colors">
+              <SubsectionText>
+                Graph colors should be applied in order, starting with graph-0.
+                This color order was selected to provide clear distinction
+                between adjacent data. When using Grommet DataChart, graph
+                colors will be applied in order by default.
+              </SubsectionText>
               {graphColor && generateColorExamples(graphColor)}
             </Subsection>
-            <SubsectionText>
-              When using graph colors they should be used in this order starting
-              with graph-0
-            </SubsectionText>
           </ContentSection>
         </>
       )}
