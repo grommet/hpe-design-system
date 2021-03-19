@@ -483,6 +483,10 @@ const Color = () => (
             <Subsection name="Graph Colors">
               {graphColor && generateColorExamples(graphColor)}
             </Subsection>
+            <SubsectionText>
+              When using graph colors they should be used in this order starting
+              with graph-0
+            </SubsectionText>
           </ContentSection>
         </>
       )}
