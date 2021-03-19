@@ -38,7 +38,7 @@ const {
 const { borderDark, borderLight } = colorExamples.borders;
 const { inputDark, inputLight } = colorExamples.input;
 const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
-const { focusColor, layerColor } = colorExamples;
+const { focusColor, layerColor, graphColor } = colorExamples;
 
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
@@ -479,6 +479,15 @@ const Color = () => (
                 controlled by `layer.overlay.background` in the theme.
               </SubsectionText>
               {layerColor && generateColorExamples(layerColor)}
+            </Subsection>
+            <Subsection name="Graph Colors">
+              <SubsectionText>
+                Graph colors should be applied in order, starting with graph-0.
+                This color order was selected to provide clear distinction
+                between adjacent data. When using Grommet DataChart, graph
+                colors will be applied in order by default.
+              </SubsectionText>
+              {graphColor && generateColorExamples(graphColor)}
             </Subsection>
           </ContentSection>
         </>

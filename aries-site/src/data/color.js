@@ -408,6 +408,34 @@ const layerColor = [
   },
 ];
 
+const graphColor = [
+  {
+    name: 'graph-0',
+    value: colors['orange!'],
+    hex: colors['orange!'],
+  },
+  {
+    name: 'graph-1',
+    value: colors['blue!'],
+    hex: colors['blue!'],
+  },
+  {
+    name: 'graph-2',
+    value: colors['purple!'],
+    hex: colors['purple!'],
+  },
+  {
+    name: 'graph-3',
+    value: colors['yellow!'],
+    hex: colors['yellow!'],
+  },
+  {
+    name: 'graph-4',
+    value: colors['teal!'],
+    hex: colors['teal!'],
+  },
+];
+
 export const colorExamples = {
   palettes: {
     primaryColors,
@@ -440,6 +468,7 @@ export const colorExamples = {
     elevationColorsDark,
     elevationColorsLight,
   },
+  graphColor,
 };
 
 export const columns = [
