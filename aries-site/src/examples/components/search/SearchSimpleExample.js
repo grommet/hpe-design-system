@@ -19,7 +19,7 @@ export const SearchSimpleExample = () => {
     <Box background="background-contrast" round="xsmall" width="medium">
       <StyledTextInput
         icon={<SearchIcon id="search-icon" color="placeholder" />}
-        placeholder="Search placeholder"
+        placeholder="Search"
         plain
         reverse
         value={value}
