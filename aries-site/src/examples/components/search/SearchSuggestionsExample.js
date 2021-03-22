@@ -89,7 +89,7 @@ export const SearchSuggestionsExample = () => {
   return (
     <StyledTextInput
       icon={<SearchIcon id="search-icon" />}
-      placeholder="Search placeholder"
+      placeholder="Search"
       reverse
       suggestions={suggestions}
       value={value}
