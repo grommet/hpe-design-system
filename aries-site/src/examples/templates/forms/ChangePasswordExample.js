@@ -63,6 +63,7 @@ export const ChangePasswordExample = () => {
           value={formValues}
           onChange={setFormValues}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
           <FormField
             htmlFor="currentPassword"

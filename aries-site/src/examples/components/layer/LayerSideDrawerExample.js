@@ -39,6 +39,7 @@ const LayerForm = ({ setOpen }) => {
       </Box>
       <Form
         validate="blur"
+        method="post"
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
       >
         <FormField
