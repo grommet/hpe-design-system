@@ -131,6 +131,7 @@ export const SignUpExample = () => {
           }}
           onChange={nextValue => onChange(nextValue)}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
           <FormField
             label="Email"

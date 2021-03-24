@@ -62,7 +62,7 @@ export const FilterExample = () => {
         // Padding used to prevent focus from being cutoff
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Form value={formValues} onChange={onFormChange}>
+        <Form value={formValues} onChange={onFormChange} method="post">
           <FormField htmlFor="keyword" name="keyword" label="Keyword">
             <TextInput
               id="keyword"

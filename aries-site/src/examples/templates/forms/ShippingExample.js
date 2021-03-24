@@ -199,6 +199,7 @@ export const ShippingExample = () => {
           }}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           onValidate={onValidate}
+          method="post"
           validate="submit"
         >
           <Box>

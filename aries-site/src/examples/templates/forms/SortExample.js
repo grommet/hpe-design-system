@@ -42,7 +42,7 @@ export const SortExample = () => {
         // Padding used to prevent focus from being cutoff
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Form value={formValues} onChange={onFormChange}>
+        <Form value={formValues} onChange={onFormChange} method="post">
           <FormField htmlFor="sortBy__input" name="sortBy" label="Sort by">
             <Select
               id="sortBy"
