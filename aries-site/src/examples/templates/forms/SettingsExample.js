@@ -46,6 +46,7 @@ export const SettingsExample = () => {
           value={formValues}
           onChange={setFormValues}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
           <Box margin={{ bottom: 'small' }}>
             <FormField

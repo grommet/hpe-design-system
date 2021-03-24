@@ -29,6 +29,7 @@ export const StepContent = () => {
             value={formValues}
             onChange={nextValue => setFormValues(nextValue)}
             onSubmit={({ value }) => console.log(value)}
+            method="post"
           >
             {steps[activeIndex].inputs}
           </Form>

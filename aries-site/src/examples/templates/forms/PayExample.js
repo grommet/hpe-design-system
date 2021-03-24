@@ -118,6 +118,7 @@ export const PayExample = () => {
           value={formValues}
           onChange={setFormValues}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
           <Box>
             <Button

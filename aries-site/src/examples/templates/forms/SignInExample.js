@@ -69,6 +69,7 @@ const ResetPassword = ({ closeLayer, email }) => {
           value={formValues}
           onChange={setFormValues}
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
           <Box gap="medium">
             <Text>
