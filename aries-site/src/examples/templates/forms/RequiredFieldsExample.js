@@ -62,6 +62,7 @@ export const RequiredFieldsExample = () => {
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           value={formValues}
           onChange={onFormChange}
+          method="post"
         >
           <FormField
             required

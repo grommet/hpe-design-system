@@ -92,9 +92,9 @@ export const FilteringWithDropButton = () => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
