@@ -37,7 +37,7 @@ jobs:
 
   batch-completion-notification:
     needs: build-and-test
-    if: always()
+    if: ${{ github.repository == 'grommet/hpe-design-system' }}
     runs-on: ubuntu-latest
     steps:
       - name: Update Applitools batch status
