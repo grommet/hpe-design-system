@@ -23,6 +23,8 @@ jobs:
       - name: Install latest dependencies
         run: yarn upgrade
         working-directory: aries-site
+      - name: Log Git Repository
+        run: echo "$GITHUB_REPOSITORY"
       # Tests are only run on headless Chrome
       - name: Build and run e2e tests on Chrome
         if: ${{ github.repository == 'grommet/hpe-design-system' }}
