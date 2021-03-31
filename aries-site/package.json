@@ -27,6 +27,7 @@
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
+    "test:fork": "start-server-and-test start-server 3030 'testcafe chrome:headless'",
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
