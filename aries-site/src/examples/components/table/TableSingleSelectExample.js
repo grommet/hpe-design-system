@@ -203,53 +203,9 @@ const columns = [
 
 export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
-  const [pageDetails, setPageDetals] = React.useState('');
+  const [pageDetails, setPageDetals] = React.useState({});
 
-  return pageDetails.id !== undefined ? (
-    <>
-      <Button
-        onClick={() => {
-          setPageDetals('');
-        }}
-        alignSelf="start"
-        icon={<FormPrevious />}
-        label="Orders"
-       />
-      <Box margin={{ horizontal: 'large' }} border="bottom">
-        <Heading level={3}>Order Number: {pageDetails.id}</Heading>
-      </Box>
-      <Text
-        margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
-        size="xxlarge"
-      >
-        Details
-      </Text>
-      <Box
-        margin={{ horizontal: 'large' }}
-        gap="medium"
-        direction="row-responsive"
-      >
-        <Box gap="small" direction="column">
-          <Text>Order Name:</Text>
-          <Text>Purchase Order:</Text>
-          <Text>State:</Text>
-          <Text>Service:</Text>
-          <Text>Tenant:</Text>
-          <Text>Contact:</Text>
-          <Text>Order Date:</Text>
-        </Box>
-        <Box gap="small" direction="column">
-          {pageDetails.orderName}
-          {pageDetails.purchaseOrder}
-          {pageDetails.state}
-          {pageDetails.service}
-          {pageDetails.tenant}
-          {pageDetails.contact.email}
-          {pageDetails.orderDate}
-        </Box>
-      </Box>
-    </>
-  ) : (
+  return pageDetails.id === undefined ? (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Orders
@@ -266,30 +222,49 @@ export const TableSingleSelectExample = () => {
         />
       </Box>
     </>
+  ) : (
+    <>
+      <Button
+        onClick={() => {
+          setPageDetals({});
+        }}
+        alignSelf="start"
+        icon={<FormPrevious />}
+        label="Orders"
+      />
+      <Box margin={{ horizontal: 'large' }} border="bottom">
+        <Heading level={2}>Order Number: {pageDetails.id}</Heading>
+      </Box>
+      <Text
+        margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
+        size="xxlarge"
+      >
+        Details
+      </Text>
+      <Box
+        margin={{ horizontal: 'large' }}
+        gap="medium"
+        direction="row-responsive"
+      >
+        <Box gap="small" direction="column">
+          <Text size="small">Order Name:</Text>
+          <Text size="small">Purchase Order:</Text>
+          <Text size="small">State:</Text>
+          <Text size="small">Service:</Text>
+          <Text size="small">Tenant:</Text>
+          <Text size="small">Contact:</Text>
+          <Text size="small">Order Date:</Text>
+        </Box>
+        <Box gap="small" direction="column">
+          <Text size="small">{pageDetails.orderName} </Text>
+          <Text size="small">{pageDetails.purchaseOrder}</Text>
+          <Text size="small">{pageDetails.state}</Text>
+          <Text size="small">{pageDetails.service}</Text>
+          <Text size="small">{pageDetails.tenant}</Text>
+          <Text size="small">{pageDetails.contact.email}</Text>
+          <Text size="small">{pageDetails.orderDate}</Text>
+        </Box>
+      </Box>
+    </>
   );
 };
-
-/* <>
-<Box border="bottom">
-  <Heading level={3}>{id}</Heading>
-</Box>
-<Box margin={{ vertical: 'large' }}>
-  <Text size="xxlarge">Details</Text>
-</Box>
-<Box gap="medium" direction="row-responsive">
-  <Box gap="small" direction="column">
-    <Text>Order Name:</Text>
-    <Text>Purchase Order:</Text>
-    <Text>State:</Text>
-    <Text>Service:</Text>
-    <Text>Tenant:</Text>
-  </Box>
-  <Box direction="column">
-    <Text>{record.orderName}</Text>
-    <Text>{record.purchaseOrder}</Text>
-    <Text>{record.state}</Text>
-    <Text>{record.service}</Text>
-    <Text>{record.tenant}</Text>
-  </Box>
-</Box>
-</> */
