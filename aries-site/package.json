@@ -17,7 +17,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.2.3"
   },
   "scripts": {
     "build": "next build",
@@ -27,6 +27,7 @@
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
+    "test:fork": "start-server-and-test start-server 3030 'testcafe chrome:headless'",
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
