@@ -67,6 +67,14 @@ Button labels should be specific to the action of the button. For example, a [si
 
 Button label specificity provides users confidence in the action they are performing.
 
+### User-Entered Input
+
+There should be few restrictions on user-entered input.
+
+- Resource naming should allow for spaces, punctional characters, unicode characters.
+    - Examples: Björk Guðmundsdóttir, 联想, John Q. Public, etc.
+- User-entered input needs to be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
+
 ### Form submission
 
 Visual feedback is important to instill confidence in a user after form submission.
