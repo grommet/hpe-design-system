@@ -30,7 +30,6 @@ const FeaturedLayout = ({ ...rest }) => {
               forwardedAs="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
-              href={url || nameToPath(name)}
             >
               <Box width="100%" round="xsmall">
                 {icon}
