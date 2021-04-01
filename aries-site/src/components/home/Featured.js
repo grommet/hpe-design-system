@@ -30,6 +30,7 @@ const FeaturedLayout = ({ ...rest }) => {
               forwardedAs="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
+              href={url || nameToPath(name)}
             >
               <Box width="100%" round="xsmall">
                 {icon}
@@ -52,8 +53,8 @@ const FeaturedLayout = ({ ...rest }) => {
 };
 
 export const Featured = ({ ...rest }) => (
-    <Stack guidingChild="last">
-      <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-      <FeaturedLayout {...rest} />
-    </Stack>
-  );
+  <Stack guidingChild="last">
+    <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+    <FeaturedLayout {...rest} />
+  </Stack>
+);
