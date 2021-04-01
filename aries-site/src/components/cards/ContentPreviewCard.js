@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { StyledCard } from './ContentCard';
 
-export const ContentPreviewCard = ({ ...rest }) => {
+export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <StyledCard
@@ -15,7 +15,8 @@ export const ContentPreviewCard = ({ ...rest }) => {
       onMouseOver={() => setIsFocused(true)}
       pad="large"
       round="small"
+      ref={ref}
       {...rest}
     />
   );
-};
+});

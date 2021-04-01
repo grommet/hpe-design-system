@@ -52,8 +52,8 @@ const FeaturedLayout = ({ ...rest }) => {
 };
 
 export const Featured = ({ ...rest }) => (
-    <Stack guidingChild="last">
-      <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-      <FeaturedLayout {...rest} />
-    </Stack>
-  );
+  <Stack guidingChild="last">
+    <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+    <FeaturedLayout {...rest} />
+  </Stack>
+);
