@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, DataTable, Heading, Text, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Text,
+  ResponsiveContext,
+  Button,
+} from 'grommet';
+import { FormPrevious } from 'grommet-icons';
 
 const data = [
   {
@@ -193,27 +201,55 @@ const columns = [
   },
 ];
 
-const onClickHandler = record => {
-  // eslint-disable-next-line no-alert
-  alert(`
-    Record was clicked:
-    { 
-        id: ${record.id},
-        orderName: ${record.orderName}
-        state: ${record.state}
-        orderDate: ${record.orderDate}
-    }
-    
-    You can use onClick() to navigate to a record's detail
-    page, open a panel or modal to edit the record, or perform 
-    other actions as you see fit.
-  `);
-};
-
 export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
+  const [pageDetails, setPageDetals] = React.useState('');
 
-  return (
+  return pageDetails.id !== undefined ? (
+    <>
+      <Button
+        onClick={() => {
+          setPageDetals('');
+        }}
+        alignSelf="start"
+        icon={<FormPrevious />}
+        label="Orders"
+      ></Button>
+      <Box margin={{ horizontal: 'large' }} border="bottom">
+        <Heading level={3}>Order Number: {pageDetails.id}</Heading>
+      </Box>
+      <Text
+        margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
+        size="xxlarge"
+      >
+        Details
+      </Text>
+      <Box
+        margin={{ horizontal: 'large' }}
+        gap="medium"
+        direction="row-responsive"
+      >
+        <Box gap="small" direction="column">
+          <Text>Order Name:</Text>
+          <Text>Purchase Order:</Text>
+          <Text>State:</Text>
+          <Text>Service:</Text>
+          <Text>Tenant:</Text>
+          <Text>Contact:</Text>
+          <Text>Order Date:</Text>
+        </Box>
+        <Box gap="small" direction="column">
+          {pageDetails.orderName}
+          {pageDetails.purchaseOrder}
+          {pageDetails.state}
+          {pageDetails.service}
+          {pageDetails.tenant}
+          {pageDetails.contact.email}
+          {pageDetails.orderDate}
+        </Box>
+      </Box>
+    </>
+  ) : (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Orders
@@ -225,10 +261,35 @@ export const TableSingleSelectExample = () => {
             { property: 'id', header: 'Id', pin: size === 'small' },
             ...columns,
           ]}
-          onClickRow={({ datum }) => onClickHandler(datum)}
+          onClickRow={({ datum }) => setPageDetals(datum)}
           pin={size === 'small'}
         />
       </Box>
     </>
   );
 };
+
+/* <>
+<Box border="bottom">
+  <Heading level={3}>{id}</Heading>
+</Box>
+<Box margin={{ vertical: 'large' }}>
+  <Text size="xxlarge">Details</Text>
+</Box>
+<Box gap="medium" direction="row-responsive">
+  <Box gap="small" direction="column">
+    <Text>Order Name:</Text>
+    <Text>Purchase Order:</Text>
+    <Text>State:</Text>
+    <Text>Service:</Text>
+    <Text>Tenant:</Text>
+  </Box>
+  <Box direction="column">
+    <Text>{record.orderName}</Text>
+    <Text>{record.purchaseOrder}</Text>
+    <Text>{record.state}</Text>
+    <Text>{record.service}</Text>
+    <Text>{record.tenant}</Text>
+  </Box>
+</Box>
+</> */
