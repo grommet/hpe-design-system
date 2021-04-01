@@ -214,7 +214,7 @@ export const TableSingleSelectExample = () => {
         alignSelf="start"
         icon={<FormPrevious />}
         label="Orders"
-      ></Button>
+       />
       <Box margin={{ horizontal: 'large' }} border="bottom">
         <Heading level={3}>Order Number: {pageDetails.id}</Heading>
       </Box>
