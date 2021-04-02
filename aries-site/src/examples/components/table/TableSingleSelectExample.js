@@ -9,6 +9,16 @@ import {
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 
+const orderDeatils = [
+  'Order Name:',
+  'Purchase Order:',
+  'State:',
+  'Service:',
+  'Tenant:',
+  'Order Date:',
+  'Contact:',
+];
+
 const data = [
   {
     id: 'OID257383',
@@ -205,6 +215,15 @@ export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetals] = React.useState({});
 
+  const pageDetailsList = [
+    pageDetails.id,
+    pageDetails.purchaseOrder,
+    pageDetails.state,
+    pageDetails.service,
+    pageDetails.tenant,
+    pageDetails.orderDate,
+  ];
+
   return !pageDetails.id ? (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
@@ -233,36 +252,36 @@ export const TableSingleSelectExample = () => {
         label="Orders"
       />
       <Box margin={{ horizontal: 'large' }} border="bottom">
-        <Heading level={2}>Order Number: {pageDetails.id}</Heading>
+        <Heading size="small" level={1}>
+          Order Number: {pageDetails.id}
+        </Heading>
       </Box>
-      <Text
+      <Heading
+        size="small"
+        level={3}
         margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
-        size="xxlarge"
       >
         Details
-      </Text>
+      </Heading>
       <Box
         margin={{ horizontal: 'large' }}
         gap="medium"
         direction="row-responsive"
       >
         <Box gap="small" direction="column">
-          <Text size="small">Order Name:</Text>
-          <Text size="small">Purchase Order:</Text>
-          <Text size="small">State:</Text>
-          <Text size="small">Service:</Text>
-          <Text size="small">Tenant:</Text>
-          <Text size="small">Contact:</Text>
-          <Text size="small">Order Date:</Text>
+          {orderDeatils.map((item, index) => (
+            <Text key={index} size="small">
+              {item}
+            </Text>
+          ))}
         </Box>
         <Box gap="small" direction="column">
-          <Text size="small">{pageDetails.orderName} </Text>
-          <Text size="small">{pageDetails.purchaseOrder}</Text>
-          <Text size="small">{pageDetails.state}</Text>
-          <Text size="small">{pageDetails.service}</Text>
-          <Text size="small">{pageDetails.tenant}</Text>
+          {pageDetailsList.map((item, index) => (
+            <Text key={index} size="small">
+              {item}{' '}
+            </Text>
+          ))}
           <Text size="small">{pageDetails.contact.email}</Text>
-          <Text size="small">{pageDetails.orderDate}</Text>
         </Box>
       </Box>
     </>
