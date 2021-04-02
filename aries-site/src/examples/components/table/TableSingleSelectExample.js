@@ -205,7 +205,7 @@ export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetals] = React.useState({});
 
-  return pageDetails.id === undefined ? (
+  return !pageDetails.id ? (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Orders
