@@ -281,7 +281,7 @@ export const TableSingleSelectExample = () => {
               {item}{' '}
             </Text>
           ))}
-          <Text size="small">{pageDetails.contact.email}</Text>
+          <Text color="text-strong">{pageDetails.contact.email}</Text>
         </Box>
       </Box>
     </>
