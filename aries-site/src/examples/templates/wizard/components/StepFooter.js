@@ -35,7 +35,7 @@ export const StepFooter = () => {
         pad={
           size !== 'small'
             ? { vertical: 'medium' }
-            : { vertical: 'small', horizontal: 'small' }
+            : { vertical: 'small', horizontal: 'medium' }
         }
         alignSelf="center"
         width={width}
