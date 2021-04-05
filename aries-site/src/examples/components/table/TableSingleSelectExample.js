@@ -277,7 +277,7 @@ export const TableSingleSelectExample = () => {
         </Box>
         <Box gap="small" direction="column">
           {pageDetailsList.map((item, index) => (
-            <Text key={index} size="small">
+            <Text key={index} color="text-strong">
               {item}{' '}
             </Text>
           ))}
