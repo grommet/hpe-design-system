@@ -26,7 +26,7 @@ export const StepContent = () => {
       <Box
         width={width}
         gap="medium"
-        pad={size === 'small' ? { horizontal: 'small' } : 'xxsmall'}
+        pad={size === 'small' ? { horizontal: 'medium' } : 'xxsmall'}
       >
         <StepHeader />
         <Box margin={{ top: 'small' }}>
