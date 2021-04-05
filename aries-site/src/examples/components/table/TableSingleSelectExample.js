@@ -269,7 +269,7 @@ export const TableSingleSelectExample = () => {
         direction="row-responsive"
       >
         <Box gap="small" direction="column">
-          {orderDeatils.map((item, index) => (
+          {orderDetails.map((item, index) => (
             <Text key={index} size="small">
               {item}
             </Text>
