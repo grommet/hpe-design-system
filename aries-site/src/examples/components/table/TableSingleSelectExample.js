@@ -9,7 +9,7 @@ import {
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 
-const orderDeatils = [
+const orderDetails = [
   'Order Name:',
   'Purchase Order:',
   'State:',
