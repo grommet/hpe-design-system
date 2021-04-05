@@ -10,13 +10,13 @@ import {
 import { FormPrevious } from 'grommet-icons';
 
 const orderDetails = [
-  'Order Name:',
-  'Purchase Order:',
-  'State:',
-  'Service:',
-  'Tenant:',
-  'Order Date:',
-  'Contact:',
+  'Order Name',
+  'Purchase Order',
+  'State',
+  'Service',
+  'Tenant',
+  'Order Date',
+  'Contact',
 ];
 
 const data = [
