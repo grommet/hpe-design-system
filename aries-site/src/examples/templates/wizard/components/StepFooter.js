@@ -25,11 +25,18 @@ export const StepFooter = () => {
   };
 
   return (
-    <Box margin={{ horizontal: 'medium' }} flex={false}>
+    <Box
+      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
+      flex={false}
+    >
       <Footer
         border={{ side: 'top', color: 'border' }}
         justify="end"
-        pad={size !== 'small' ? { vertical: 'medium' } : { vertical: 'small' }}
+        pad={
+          size !== 'small'
+            ? { vertical: 'medium' }
+            : { vertical: 'small', horizontal: 'small' }
+        }
         alignSelf="center"
         width={width}
       >
