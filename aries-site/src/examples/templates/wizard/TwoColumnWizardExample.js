@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
   CheckBoxGroup,
@@ -20,6 +21,7 @@ import {
   StepContent,
   StepFooter,
 } from './components';
+import { getWidth } from './utils';
 
 const defaultFormValues = {
   'twocolumn-textinput': '',
@@ -162,22 +164,22 @@ const data = [
 ];
 
 const StepThree = () => (
-    <Box gap="small">
-      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-        {(datum, index) => (
-          <Box key={index} direction="row" gap="small" align="center">
-            <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong" weight={500}>
-              {datum}
-            </Text>
-          </Box>
-        )}
-      </List>
-      <Text color="text-strong">
-        Include guidance to what will occur when “Finish Wizard" is clicked.
-      </Text>
-    </Box>
-  );
+  <Box gap="small">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+      {(datum, index) => (
+        <Box key={index} direction="row" gap="small" align="center">
+          <Checkmark color="text-strong" size="small" />
+          <Text color="text-strong" weight={500}>
+            {datum}
+          </Text>
+        </Box>
+      )}
+    </List>
+    <Text color="text-strong">
+      Include guidance to what will occur when “Finish Wizard" is clicked.
+    </Text>
+  </Box>
+);
 
 const steps = [
   {
@@ -198,6 +200,8 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = () => {
+  const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
   // for readability, this is used to display numeric value of step on screen,
   // such as step 1 of 3. it will always be one more than the active array index
@@ -237,6 +241,8 @@ export const TwoColumnWizardExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
+  const countColumns = 2;
+  const width = getWidth(countColumns, theme, size);
   return (
     <WizardContext.Provider
       value={{
@@ -256,6 +262,7 @@ export const TwoColumnWizardExample = () => {
         steps,
         validation,
         wizardTitle: 'Wizard Title',
+        width,
       }}
     >
       <Box fill>
@@ -278,7 +285,7 @@ const Guidance = () => {
       pad="medium"
       round="small"
       flex
-      width={size !== 'small' ? { min: 'small' } : '100%'}
+      width={size !== 'small' ? { max: 'medium' } : '100%'}
     >
       <Text color="text-strong" size="large">
         When guidance is required for the form or content of the wizard, you
