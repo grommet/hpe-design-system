@@ -240,8 +240,7 @@ export const TwoColumnWizardExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
-  const numberColumns = 2;
-  const width = getWidth(numberColumns, theme, size);
+  const width = getWidth(numberColumns = 2, theme, size);
   return (
     <WizardContext.Provider
       value={{
