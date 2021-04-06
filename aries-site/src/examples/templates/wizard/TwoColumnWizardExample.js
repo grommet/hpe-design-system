@@ -64,7 +64,6 @@ const StepOne = () => {
       direction={size !== 'small' ? 'row' : 'column-reverse'}
       margin={{ bottom: 'medium' }}
       gap={size === 'small' ? 'small' : undefined}
-      width={{ max: 'large' }}
       justify="between"
       wrap
     >
@@ -74,8 +73,8 @@ const StepOne = () => {
         gap="medium"
         flex={false}
       >
-        <>
-          <Box>
+        <Box gap="medium">
+          <>
             <FormField
               label="Email"
               htmlFor="twocolumn-textinput"
@@ -103,13 +102,13 @@ const StepOne = () => {
                 options={['Radio button 1', 'Radio button 2']}
               />
             </FormField>
-          </Box>
+          </>
           {!error.isValid && (
             <Error>There is an error with one or more inputs.</Error>
           )}
-        </>
+        </Box>
       </Box>
-      <Box flex width={{ max: 'xsmall' }} />
+      <Box flex width={{ max: 'xxsmall' }} />
       <Guidance />
     </Box>
   );
@@ -241,8 +240,8 @@ export const TwoColumnWizardExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
-  const countColumns = 2;
-  const width = getWidth(countColumns, theme, size);
+  const numberColumns = 2;
+  const width = getWidth(numberColumns, theme, size);
   return (
     <WizardContext.Provider
       value={{
@@ -285,7 +284,7 @@ const Guidance = () => {
       pad="medium"
       round="small"
       flex
-      width={size !== 'small' ? { max: 'medium' } : '100%'}
+      width={size !== 'small' ? { min: 'small', max: 'medium' } : '100%'}
     >
       <Text color="text-strong" size="large">
         When guidance is required for the form or content of the wizard, you

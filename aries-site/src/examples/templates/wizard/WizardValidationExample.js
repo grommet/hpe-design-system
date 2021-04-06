@@ -59,7 +59,7 @@ const validation = [
 
 const stepOneInputs = [
   (attemptedAdvance, error, formValues, setError) => (
-    <Box width={{ max: 'medium' }}>
+    <>
       <FormField
         label="First Name"
         htmlFor="firstname-validation"
@@ -106,25 +106,20 @@ const stepOneInputs = [
           type="email"
         />
       </FormField>
-    </Box>
+    </>
   ),
-  (attemptedAdvance, error) => (
-    <Box width={{ max: 'medium' }}>
-      <FormField
-        htmlFor="radio-button-group-validation"
-        label="RadioButtonGroup"
+  () => (
+    <FormField
+      htmlFor="radio-button-group-validation"
+      label="RadioButtonGroup"
+      name="radio-button-group-validation"
+    >
+      <RadioButtonGroup
+        id="radio-button-group-validation"
         name="radio-button-group-validation"
-      >
-        <RadioButtonGroup
-          id="radio-button-group-validation"
-          name="radio-button-group-validation"
-          options={['Radio button 1', 'Radio button 2']}
-        />
-      </FormField>
-      {!error.isValid && (
-        <Error>There is an error with one or more inputs.</Error>
-      )}
-    </Box>
+        options={['Radio button 1', 'Radio button 2']}
+      />
+    </FormField>
   ),
 ];
 
@@ -136,18 +131,20 @@ const StepOne = () => {
 
   return (
     <>
-      <Box margin={{ bottom: 'medium' }}>
-        <Grid
-          columns={size !== 'small' ? { count: 'fit', size: 'medium' } : '100%'}
-          rows={[['auto', 'full']]}
-          gap={size !== 'small' ? 'large' : undefined}
-          fill
-        >
-          {stepOneInputs.map(input =>
-            input(attemptedAdvance, error, formValues, setError),
-          )}
-        </Grid>
-      </Box>
+      <Grid
+        columns={size !== 'small' ? { count: 'fit', size: 'medium' } : '100%'}
+        gap={size !== 'small' ? 'large' : undefined}
+        margin={{ bottom: 'medium' }}
+      >
+        {stepOneInputs.map((input, index) => (
+          <Box width={{ max: 'medium' }} key={index}>
+            {input(attemptedAdvance, error, formValues, setError)}
+          </Box>
+        ))}
+      </Grid>
+      {!error.isValid && (
+        <Error>There is an error with one or more inputs.</Error>
+      )}
     </>
   );
 };
@@ -271,8 +268,8 @@ export const WizardValidationExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
-  const countColumns = 2;
-  const width = getWidth(countColumns, theme, size);
+  const numberColumns = 2;
+  const width = getWidth(numberColumns, theme, size);
   return (
     <WizardContext.Provider
       value={{
