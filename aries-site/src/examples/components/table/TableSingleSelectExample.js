@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   DataTable,
@@ -9,15 +10,19 @@ import {
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 
-const orderDetails = [
-  'Order Name',
-  'Purchase Order',
-  'State',
-  'Service',
-  'Tenant',
-  'Order Date',
-  'Contact',
-];
+const DetalsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
+  <Box direction="row" align="start" {...rest}>
+    <Box width="small">
+      <Text size="small">{orderDetails}</Text>
+    </Box>
+    <Text color="text-strong">{orderPageDetails}</Text>
+  </Box>
+);
+
+DetalsPage.propTypes = {
+  orderDetails: PropTypes.string,
+  orderPageDetails: PropTypes.string,
+};
 
 const data = [
   {
@@ -215,15 +220,6 @@ export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetals] = React.useState({});
 
-  const pageDetailsList = [
-    pageDetails.id,
-    pageDetails.purchaseOrder,
-    pageDetails.state,
-    pageDetails.service,
-    pageDetails.tenant,
-    pageDetails.orderDate,
-  ];
-
   return !pageDetails.id ? (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
@@ -263,26 +259,32 @@ export const TableSingleSelectExample = () => {
       >
         Details
       </Heading>
-      <Box
-        margin={{ horizontal: 'large' }}
-        gap="medium"
-        direction="row-responsive"
-      >
-        <Box gap="small" direction="column">
-          {orderDetails.map((item, index) => (
-            <Text key={index} size="small">
-              {item}
-            </Text>
-          ))}
-        </Box>
-        <Box gap="small" direction="column">
-          {pageDetailsList.map((item, index) => (
-            <Text key={index} color="text-strong">
-              {item}{' '}
-            </Text>
-          ))}
-          <Text color="text-strong">{pageDetails.contact.email}</Text>
-        </Box>
+      <Box margin={{ horizontal: 'large' }} gap="medium" direction="column">
+        <DetalsPage
+          orderDetails="Order Name"
+          orderPageDetails={pageDetails.orderName}
+        />
+        <DetalsPage
+          orderDetails="Purchase Order"
+          orderPageDetails={pageDetails.purchaseOrder}
+        />
+        <DetalsPage orderDetails="State" orderPageDetails={pageDetails.state} />
+        <DetalsPage
+          orderDetails="Services"
+          orderPageDetails={pageDetails.service}
+        />
+        <DetalsPage
+          orderDetails="Tenant"
+          orderPageDetails={pageDetails.tenant}
+        />
+        <DetalsPage
+          orderDetails="Order Date"
+          orderPageDetails={pageDetails.orderDate}
+        />
+        <DetalsPage
+          orderDetails="Contact"
+          orderPageDetails={pageDetails.contact.email}
+        />
       </Box>
     </>
   );
