@@ -1,5 +1,28 @@
 import React from 'react';
-import { Box, DataTable, Heading, Text, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Text,
+  ResponsiveContext,
+  Button,
+} from 'grommet';
+import { FormPrevious } from 'grommet-icons';
+
+const DetailsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
+  <Box direction="row" align="start" {...rest}>
+    <Box width="small">
+      <Text size="small">{orderDetails}</Text>
+    </Box>
+    <Text color="text-strong">{orderPageDetails}</Text>
+  </Box>
+);
+
+DetailsPage.propTypes = {
+  orderDetails: PropTypes.string,
+  orderPageDetails: PropTypes.string,
+};
 
 const data = [
   {
@@ -193,27 +216,11 @@ const columns = [
   },
 ];
 
-const onClickHandler = record => {
-  // eslint-disable-next-line no-alert
-  alert(`
-    Record was clicked:
-    { 
-        id: ${record.id},
-        orderName: ${record.orderName}
-        state: ${record.state}
-        orderDate: ${record.orderDate}
-    }
-    
-    You can use onClick() to navigate to a record's detail
-    page, open a panel or modal to edit the record, or perform 
-    other actions as you see fit.
-  `);
-};
-
 export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
+  const [pageDetails, setPageDetals] = React.useState({});
 
-  return (
+  return !pageDetails.id ? (
     <>
       <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
         Orders
@@ -225,8 +232,59 @@ export const TableSingleSelectExample = () => {
             { property: 'id', header: 'Id', pin: size === 'small' },
             ...columns,
           ]}
-          onClickRow={({ datum }) => onClickHandler(datum)}
+          onClickRow={({ datum }) => setPageDetals(datum)}
           pin={size === 'small'}
+        />
+      </Box>
+    </>
+  ) : (
+    <>
+      <Button
+        onClick={() => {
+          setPageDetals({});
+        }}
+        alignSelf="start"
+        icon={<FormPrevious />}
+        label="Orders"
+      />
+      <Box margin={{ horizontal: 'large' }} border="bottom">
+        <Heading size="small">Order Number: {pageDetails.id}</Heading>
+      </Box>
+      <Heading
+        size="small"
+        level={2}
+        margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
+      >
+        Details
+      </Heading>
+      <Box margin={{ horizontal: 'large' }} gap="small">
+        <DetailsPage
+          orderDetails="Order Name"
+          orderPageDetails={pageDetails.orderName}
+        />
+        <DetailsPage
+          orderDetails="Purchase Order"
+          orderPageDetails={pageDetails.purchaseOrder}
+        />
+        <DetailsPage
+          orderDetails="State"
+          orderPageDetails={pageDetails.state}
+        />
+        <DetailsPage
+          orderDetails="Services"
+          orderPageDetails={pageDetails.service}
+        />
+        <DetailsPage
+          orderDetails="Tenant"
+          orderPageDetails={pageDetails.tenant}
+        />
+        <DetailsPage
+          orderDetails="Order Date"
+          orderPageDetails={pageDetails.orderDate}
+        />
+        <DetailsPage
+          orderDetails="Contact"
+          orderPageDetails={pageDetails.contact.email}
         />
       </Box>
     </>
