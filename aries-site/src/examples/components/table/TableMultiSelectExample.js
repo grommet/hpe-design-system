@@ -181,11 +181,14 @@ const columns = [
     header: 'Order Name',
     render: datum => (
       <Button onClick={() => onClickHandler(datum)}>
-        <Text truncate weight="bold">
-          {datum.orderName}
-        </Text>
+        <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+          <Text truncate weight="bold">
+            {datum.orderName}
+          </Text>
+        </Box>
       </Button>
     ),
+    plain: true,
   },
   {
     property: 'purchaseOrder',
@@ -314,32 +317,32 @@ TableControls.propTypes = {
 };
 
 const SelectionSummary = ({ selected }) => (
-    <>
-      {selected && (
-        <>
-          {selected.length > 0 ? (
-            <Box direction="row" gap="xxsmall">
-              <Text size="small" weight="bold">
-                {selected.length}
-              </Text>
-              <Text size="small">of</Text>
-              <Text size="small" weight="bold">
-                {data.length}
-              </Text>
-              <Text size="small">items selected</Text>
-            </Box>
-          ) : (
-            <Box direction="row" gap="xxsmall">
-              <Text size="small" weight="bold">
-                {data.length}
-              </Text>
-              <Text size="small">items</Text>
-            </Box>
-          )}
-        </>
-      )}
-    </>
-  );
+  <>
+    {selected && (
+      <>
+        {selected.length > 0 ? (
+          <Box direction="row" gap="xxsmall">
+            <Text size="small" weight="bold">
+              {selected.length}
+            </Text>
+            <Text size="small">of</Text>
+            <Text size="small" weight="bold">
+              {data.length}
+            </Text>
+            <Text size="small">items selected</Text>
+          </Box>
+        ) : (
+          <Box direction="row" gap="xxsmall">
+            <Text size="small" weight="bold">
+              {data.length}
+            </Text>
+            <Text size="small">items</Text>
+          </Box>
+        )}
+      </>
+    )}
+  </>
+);
 
 SelectionSummary.propTypes = {
   selected: PropTypes.array,
