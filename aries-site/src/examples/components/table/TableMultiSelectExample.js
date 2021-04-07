@@ -180,7 +180,7 @@ const columns = [
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button onClick={() => onClickHandler(datum)} fill>
+      <Button onClick={() => onClickHandler(datum)}>
         <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
           <Text truncate weight="bold">
             {datum.orderName}
