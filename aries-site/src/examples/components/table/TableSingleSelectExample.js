@@ -10,7 +10,7 @@ import {
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 
-const DetalsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
+const DetailsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
   <Box direction="row" align="start" {...rest}>
     <Box width="small">
       <Text size="small">{orderDetails}</Text>
@@ -19,7 +19,7 @@ const DetalsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
   </Box>
 );
 
-DetalsPage.propTypes = {
+DetailsPage.propTypes = {
   orderDetails: PropTypes.string,
   orderPageDetails: PropTypes.string,
 };
@@ -248,40 +248,41 @@ export const TableSingleSelectExample = () => {
         label="Orders"
       />
       <Box margin={{ horizontal: 'large' }} border="bottom">
-        <Heading size="small" level={1}>
-          Order Number: {pageDetails.id}
-        </Heading>
+        <Heading size="small">Order Number: {pageDetails.id}</Heading>
       </Box>
       <Heading
         size="small"
-        level={3}
+        level={2}
         margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
       >
         Details
       </Heading>
-      <Box margin={{ horizontal: 'large' }} gap="medium" direction="column">
-        <DetalsPage
+      <Box margin={{ horizontal: 'large' }} gap="small">
+        <DetailsPage
           orderDetails="Order Name"
           orderPageDetails={pageDetails.orderName}
         />
-        <DetalsPage
+        <DetailsPage
           orderDetails="Purchase Order"
           orderPageDetails={pageDetails.purchaseOrder}
         />
-        <DetalsPage orderDetails="State" orderPageDetails={pageDetails.state} />
-        <DetalsPage
+        <DetailsPage
+          orderDetails="State"
+          orderPageDetails={pageDetails.state}
+        />
+        <DetailsPage
           orderDetails="Services"
           orderPageDetails={pageDetails.service}
         />
-        <DetalsPage
+        <DetailsPage
           orderDetails="Tenant"
           orderPageDetails={pageDetails.tenant}
         />
-        <DetalsPage
+        <DetailsPage
           orderDetails="Order Date"
           orderPageDetails={pageDetails.orderDate}
         />
-        <DetalsPage
+        <DetailsPage
           orderDetails="Contact"
           orderPageDetails={pageDetails.contact.email}
         />
