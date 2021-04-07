@@ -103,7 +103,7 @@ export const FilteringLists = ({ containerRef }) => {
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
 
@@ -120,9 +120,9 @@ export const FilteringLists = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -192,6 +192,7 @@ export const FilteringLists = ({ containerRef }) => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
                 // target is for demo purposes only, remove in production
                 target={containerRef && containerRef.current}
               />
@@ -224,6 +225,7 @@ const Filters = ({
   filtering,
   setData,
   setFiltering,
+  setSearch,
   // target is for demo purposes only, remove in production
   target,
 }) => {
@@ -243,6 +245,7 @@ const Filters = ({
     setTenant([]);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -374,6 +377,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
   target: PropTypes.object,
 };
 
