@@ -65,9 +65,9 @@ export const FilteringWithSelect = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -145,6 +145,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
                 // target is for demo purposes only, remove in production
                 target={containerRef && containerRef.current}
               />
@@ -170,6 +171,7 @@ const Filters = ({
   filterData,
   setFilters,
   setFiltering,
+  setSearch,
   target, // target is for demo purposes only, remove in production
 }) => {
   const [selectValue, setSelectValue] = useState(defaultSelectValue);
@@ -183,6 +185,7 @@ const Filters = ({
     setSelectValue(defaultSelectValue);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch();
   };
 
   // everytime the Filters layer opens, save a temp
@@ -304,6 +307,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
   // target is for demo purposes only, remove in production
   target: PropTypes.object,
 };

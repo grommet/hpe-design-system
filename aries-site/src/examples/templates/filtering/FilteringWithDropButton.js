@@ -164,6 +164,7 @@ export const FilteringWithDropButton = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
               />
             )}
           </Box>
@@ -190,6 +191,7 @@ const Filters = ({
   filtering,
   setData,
   setFiltering,
+  setSearch,
 }) => {
   const [ram, setRam] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
@@ -203,6 +205,7 @@ const Filters = ({
     setRam([]);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch();
   };
 
   // everytime the Filters layer opens, save a temp
@@ -289,6 +292,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 const RamFilter = ({ filters, setFilters, ram, setRam }) => (
