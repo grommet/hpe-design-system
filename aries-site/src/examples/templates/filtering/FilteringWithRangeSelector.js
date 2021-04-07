@@ -215,7 +215,7 @@ const Filters = ({
     setData(allData);
     setFilters(defaultFilters);
     setLocation(defaultLocation);
-    setSearch();
+    setSearch('');
   };
 
   const filterData = (array, criteria) => {

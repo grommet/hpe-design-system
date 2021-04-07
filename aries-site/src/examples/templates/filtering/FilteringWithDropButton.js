@@ -205,7 +205,7 @@ const Filters = ({
     setRam([]);
     setFilters(defaultFilters);
     setFiltering(false);
-    setSearch();
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp

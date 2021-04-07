@@ -185,7 +185,7 @@ const Filters = ({
     setSelectValue(defaultSelectValue);
     setFilters(defaultFilters);
     setFiltering(false);
-    setSearch();
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
