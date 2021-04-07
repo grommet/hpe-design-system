@@ -136,9 +136,9 @@ export const FilteringCards = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -208,6 +208,7 @@ export const FilteringCards = ({ containerRef }) => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
                 // target is for demo purposes only, remove in production
                 target={containerRef && containerRef.current}
               />
@@ -232,6 +233,7 @@ const Filters = ({
   filterData,
   setData,
   setFiltering,
+  setSearch,
   target, // target is for demo purposes only, remove in production
 }) => {
   const [hoursAvailable, setHoursAvailable] = useState(defaultHoursAvailable);
@@ -254,6 +256,7 @@ const Filters = ({
     setName([]);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch();
   };
 
   // everytime the Filters layer opens, save a temp
@@ -401,6 +404,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
   target: PropTypes.object,
 };
 
@@ -554,34 +558,34 @@ const HoursAvailableFilter = ({
   filters,
   setFilters,
 }) => (
-    <Box flex={false}>
-      <FormField label="Remaining Available Work Hours">
-        <Stack>
-          <Box background="border" height="3px" direction="row" />
-          <RangeSelector
-            name="range-selector-employee-count"
-            id="range-selector-employee-count"
-            min={defaultHoursAvailable[0]}
-            max={defaultHoursAvailable[1]}
-            values={hoursAvailable}
-            onChange={nextRange => {
-              setHoursAvailable(nextRange);
-              const nextFilters = {
-                ...filters,
-                hoursAvailable: nexthoursAvailable =>
-                  nexthoursAvailable >= hoursAvailable[0] &&
-                  nexthoursAvailable <= hoursAvailable[1],
-              };
-              setFilters(nextFilters);
-            }}
-          />
-        </Stack>
-      </FormField>
-      <Text size="small">
-        {`${hoursAvailable[0]} - ${hoursAvailable[1]} hours`}
-      </Text>
-    </Box>
-  );
+  <Box flex={false}>
+    <FormField label="Remaining Available Work Hours">
+      <Stack>
+        <Box background="border" height="3px" direction="row" />
+        <RangeSelector
+          name="range-selector-employee-count"
+          id="range-selector-employee-count"
+          min={defaultHoursAvailable[0]}
+          max={defaultHoursAvailable[1]}
+          values={hoursAvailable}
+          onChange={nextRange => {
+            setHoursAvailable(nextRange);
+            const nextFilters = {
+              ...filters,
+              hoursAvailable: nexthoursAvailable =>
+                nexthoursAvailable >= hoursAvailable[0] &&
+                nexthoursAvailable <= hoursAvailable[1],
+            };
+            setFilters(nextFilters);
+          }}
+        />
+      </Stack>
+    </FormField>
+    <Text size="small">
+      {`${hoursAvailable[0]} - ${hoursAvailable[1]} hours`}
+    </Text>
+  </Box>
+);
 
 HoursAvailableFilter.propTypes = {
   filters: PropTypes.shape({

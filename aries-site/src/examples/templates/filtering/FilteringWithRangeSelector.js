@@ -88,9 +88,9 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -160,6 +160,7 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
                 // target is for demo purposes only, remove in production
                 target={containerRef && containerRef.current}
               />
@@ -190,6 +191,7 @@ const Filters = ({
   filtering,
   setData,
   setFiltering,
+  setSearch,
   target, // target is for demo purposes only, remove in production
 }) => {
   const [availability, setAvailability] = useState(defaultAvailability);
@@ -213,14 +215,15 @@ const Filters = ({
     setData(allData);
     setFilters(defaultFilters);
     setLocation(defaultLocation);
+    setSearch();
   };
 
   const filterData = (array, criteria) => {
     setFilters(criteria);
     const filterKeys = Object.keys(criteria);
-    return array.filter(item => 
+    return array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -411,6 +414,7 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
   // target is for demo purposes only, remove in production
   target: PropTypes.object,
 };
@@ -424,34 +428,34 @@ const LocationFilter = ({
   previousValues,
   setPreviousValues,
 }) => (
-    <Select
-      options={[
-        'All Locations',
-        'Fort Collins, CO',
-        'Houston, TX',
-        'New York, NY',
-        'San Jose, CA',
-      ]}
-      value={location}
-      onChange={({ option }) => {
-        const nextFilters = {
-          ...filters,
-          location:
-            option !== defaultLocation &&
-            (nextLocation => nextLocation === option),
-        };
-        const nextData = filterData(allData, nextFilters);
-        // save previous value in case user
-        // clicks 'x'
-        setPreviousValues({
-          ...previousValues,
-          location,
-        });
-        setLocation(option);
-        setData(nextData);
-      }}
-    />
-  );
+  <Select
+    options={[
+      'All Locations',
+      'Fort Collins, CO',
+      'Houston, TX',
+      'New York, NY',
+      'San Jose, CA',
+    ]}
+    value={location}
+    onChange={({ option }) => {
+      const nextFilters = {
+        ...filters,
+        location:
+          option !== defaultLocation &&
+          (nextLocation => nextLocation === option),
+      };
+      const nextData = filterData(allData, nextFilters);
+      // save previous value in case user
+      // clicks 'x'
+      setPreviousValues({
+        ...previousValues,
+        location,
+      });
+      setLocation(option);
+      setData(nextData);
+    }}
+  />
+);
 
 LocationFilter.propTypes = {
   filters: PropTypes.shape({
