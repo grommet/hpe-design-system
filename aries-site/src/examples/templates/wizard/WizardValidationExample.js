@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
   CheckBoxGroup,
@@ -21,6 +22,7 @@ import {
   WizardContext,
   WizardHeader,
 } from './components';
+import { getWidth } from './utils';
 
 export const defaultFormValues = {
   'text-input-validation': '',
@@ -57,7 +59,7 @@ const validation = [
 
 const stepOneInputs = [
   (attemptedAdvance, error, formValues, setError) => (
-    <Box>
+    <>
       <FormField
         label="First Name"
         htmlFor="firstname-validation"
@@ -104,25 +106,20 @@ const stepOneInputs = [
           type="email"
         />
       </FormField>
-    </Box>
-  ),
-  (attemptedAdvance, error) => (
-    <>
-      <FormField
-        htmlFor="radio-button-group-validation"
-        label="RadioButtonGroup"
-        name="radio-button-group-validation"
-      >
-        <RadioButtonGroup
-          id="radio-button-group-validation"
-          name="radio-button-group-validation"
-          options={['Radio button 1', 'Radio button 2']}
-        />
-      </FormField>
-      {!error.isValid && (
-        <Error>There is an error with one or more inputs.</Error>
-      )}
     </>
+  ),
+  () => (
+    <FormField
+      htmlFor="radio-button-group-validation"
+      label="RadioButtonGroup"
+      name="radio-button-group-validation"
+    >
+      <RadioButtonGroup
+        id="radio-button-group-validation"
+        name="radio-button-group-validation"
+        options={['Radio button 1', 'Radio button 2']}
+      />
+    </FormField>
   ),
 ];
 
@@ -131,21 +128,23 @@ const StepOne = () => {
     WizardContext,
   );
   const size = useContext(ResponsiveContext);
-  console.log(error.isValid);
+
   return (
     <>
-      <Box margin={{ bottom: 'medium' }}>
-        <Grid
-          columns={size !== 'small' ? { count: 2, size: 'auto' } : '100%'}
-          rows={[['auto', 'full']]}
-          gap={size !== 'small' ? 'large' : undefined}
-          fill
-        >
-          {stepOneInputs.map(input =>
-            input(attemptedAdvance, error, formValues, setError),
-          )}
-        </Grid>
-      </Box>
+      <Grid
+        columns={size !== 'small' ? { count: 'fit', size: 'medium' } : '100%'}
+        gap={size !== 'small' ? 'large' : undefined}
+        margin={{ bottom: 'medium' }}
+      >
+        {stepOneInputs.map((input, index) => (
+          <Box width={{ max: 'medium' }} key={index}>
+            {input(attemptedAdvance, error, formValues, setError)}
+          </Box>
+        ))}
+      </Grid>
+      {!error.isValid && (
+        <Error>There is an error with one or more inputs.</Error>
+      )}
     </>
   );
 };
@@ -191,22 +190,22 @@ const data = [
 ];
 
 const StepThree = () => (
-    <Box gap="small">
-      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-        {(datum, index) => (
-          <Box key={index} direction="row" gap="small" align="center">
-            <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong" weight={500}>
-              {datum}
-            </Text>
-          </Box>
-        )}
-      </List>
-      <Text color="text-strong">
-        Include guidance to what will occur when “Finish Wizard" is clicked.
-      </Text>
-    </Box>
-  );
+  <Box gap="small">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+      {(datum, index) => (
+        <Box key={index} direction="row" gap="small" align="center">
+          <Checkmark color="text-strong" size="small" />
+          <Text color="text-strong" weight={500}>
+            {datum}
+          </Text>
+        </Box>
+      )}
+    </List>
+    <Text color="text-strong">
+      Include guidance to what will occur when “Finish Wizard" is clicked.
+    </Text>
+  </Box>
+);
 
 export const steps = [
   {
@@ -229,6 +228,8 @@ export const steps = [
 ];
 
 export const WizardValidationExample = () => {
+  const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
   // for readability, this is used to display numeric value of step on screen,
   // such as step 1 of 3. it will always be one more than the active array index
@@ -267,6 +268,8 @@ export const WizardValidationExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
+  const numberColumns = 2;
+  const width = getWidth(numberColumns, theme, size);
   return (
     <WizardContext.Provider
       value={{
@@ -286,6 +289,7 @@ export const WizardValidationExample = () => {
         setFormValues,
         validation,
         wizardTitle: 'Wizard Title',
+        width,
       }}
     >
       <Box fill>
