@@ -4,9 +4,16 @@ import { StepHeader, WizardContext } from '.';
 
 export const StepContent = () => {
   const size = useContext(ResponsiveContext);
-  const { activeIndex, formValues, id, ref, setFormValues, steps } = useContext(
-    WizardContext,
-  );
+  const {
+    activeIndex,
+    formValues,
+    id,
+    ref,
+    setFormValues,
+    steps,
+    width,
+  } = useContext(WizardContext);
+
   return (
     <Box
       align="center"
@@ -14,11 +21,12 @@ export const StepContent = () => {
       overflow="auto"
       ref={ref}
       flex={size === 'small' ? true : undefined}
+      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
     >
       <Box
-        width="large"
+        width={width}
         gap="medium"
-        pad={size === 'small' ? { horizontal: 'small' } : 'xxsmall'}
+        pad={size === 'small' ? { horizontal: 'medium' } : 'xxsmall'}
       >
         <StepHeader />
         <Box margin={{ top: 'small' }}>

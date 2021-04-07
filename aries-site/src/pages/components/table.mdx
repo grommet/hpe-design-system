@@ -132,6 +132,7 @@ user's preferred analytical tool.
 - Provide export capability for users to consume the data in their analytical
   tool of choice.
 - Provide aggregate measures in the [table footer](#column-summaries-and-aggregation).
+- Organize table columns to group like elements and to keep most important elements to the left.
 
 <!--
 ## Guidelines
@@ -199,7 +200,10 @@ is setting out to accomplish.
 
 See [Filtering](/templates/filtering) for greater detail.
 
-### Selecting single records
+### Navigation via table
+
+Clicking on a table row takes the user to a context where the most prominent heading matches the primary column text.
+This context could either be a page or a modal. In this example, clicking on a table row navigates to a detail page.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
