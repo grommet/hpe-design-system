@@ -81,7 +81,7 @@ export const FilteringWithDropButton = () => {
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const size = useContext(ResponsiveContext);
   const inputRef = useRef();
 

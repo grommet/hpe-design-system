@@ -119,7 +119,7 @@ export const FilteringCards = ({ containerRef }) => {
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
 
