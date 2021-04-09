@@ -65,9 +65,9 @@ export const Search = ({ focused, setFocused }) => {
 
   const onSelect = event => {
     const href = nameToPath(event.suggestion);
-
     if (internalLink.test(href)) {
       router.push(href);
+      setFocused(false);
     } else {
       // external links should open in a new tab
       window.open(href);
@@ -88,12 +88,18 @@ export const Search = ({ focused, setFocused }) => {
               dropHeight="small"
               placeholder="Search HPE Design System"
               onChange={onChange}
-              onSelect={onSelect}
+              onSuggestionSelect={onSelect}
               suggestions={suggestions}
-              onSuggestionsClose={() => setFocused(false)}
               value={value}
               plain
               reverse
+              onBlur={event => {
+                // Only treat it as a blur if the element receiving focus
+                // isn't in our drop. The relatedTarget will be our drop
+                if (!event.relatedTarget) {
+                  setFocused(false);
+                }
+              }}
             />
           </Keyboard>
         </Box>
