@@ -1,18 +1,47 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Form, ResponsiveContext } from 'grommet';
 import { StepHeader, WizardContext } from '.';
 
-export const StepContent = () => {
+export const StepContent = ({ onSubmit }) => {
   const size = useContext(ResponsiveContext);
   const {
     activeIndex,
+    setActiveIndex,
     formValues,
     id,
     ref,
     setFormValues,
+    setValidationResults,
     steps,
     width,
   } = useContext(WizardContext);
+
+  const handleSubmit = (evt) => {
+    setValidationResults({ valid: true });
+    if (activeIndex < steps.length - 1) {
+      setActiveIndex(activeIndex + 1);
+    }
+    else if (onSubmit) {
+      onSubmit(evt);
+    }
+  };
+
+  // On long forms, we want to focus the first of any fields that
+  // return an error or info message. This removes the need for the
+  // user to scroll to find which field blocked form submission.
+  const onValidate = validationResults => {
+    const names  = [ ...Object.keys(validationResults.errors),
+      ...Object.keys(validationResults.infos) ];
+      if (names.length > 0) {
+        const selector = names.map(name => `[name=${name}]`).join(',');
+        const firstInvalid = document.querySelectorAll(selector)[0];
+        if (firstInvalid) {
+          firstInvalid.focus();
+        }
+    }
+    setValidationResults(validationResults);
+  };
 
   return (
     <Box
@@ -36,7 +65,9 @@ export const StepContent = () => {
             id={`${id}-form`}
             value={formValues}
             onChange={nextValue => setFormValues(nextValue)}
-            onSubmit={({ value }) => console.log(value)}
+            onSubmit={handleSubmit}
+            onValidate={onValidate}
+            validate="blur"
             method="post"
           >
             {steps[activeIndex].inputs}
@@ -45,4 +76,8 @@ export const StepContent = () => {
       </Box>
     </Box>
   );
+};
+
+StepContent.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

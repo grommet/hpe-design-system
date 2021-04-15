@@ -31,33 +31,8 @@ const defaultFormValues = {
   'twocolumn-text-area': '',
 };
 
-const stepOneValidate = values => {
-  const emailRegex = RegExp(
-    '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
-  );
-  const emailValid = emailRegex.test(values['twocolumn-textinput']);
-
-  return {
-    email: emailValid ? '' : 'Invalid email address.',
-    isValid: !!emailValid,
-  };
-};
-
-const validation = [
-  {
-    validator: values => stepOneValidate(values),
-    error: {
-      email: '',
-      radiobuttongroup: '',
-      isValid: true,
-    },
-  },
-];
-
 const StepOne = () => {
-  const { attemptedAdvance, formValues, error, setError } = useContext(
-    WizardContext,
-  );
+  const { validationResults } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -79,10 +54,13 @@ const StepOne = () => {
               label="Email"
               htmlFor="twocolumn-textinput"
               name="twocolumn-textinput"
-              error={error.email}
-              onChange={() =>
-                attemptedAdvance && setError(stepOneValidate(formValues))
-              }
+              validate={{
+                regexp: new RegExp(
+                  '(^$)|([^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+)',
+                ),
+                message: 'Invalid email address',
+                status: 'error',
+              }}
             >
               <TextInput
                 placeholder="jane.smith@hpe.com"
@@ -103,7 +81,7 @@ const StepOne = () => {
               />
             </FormField>
           </>
-          {!error.isValid && (
+          {!validationResults.valid && (
             <Error>There is an error with one or more inputs.</Error>
           )}
         </Box>
@@ -213,13 +191,8 @@ export const TwoColumnWizardExample = () => {
   // controls state of cancel layer
   const [open, setOpen] = useState(false);
 
-  // controls error message for active step
-  const [error, setError] = useState(
-    validation[activeIndex] ? validation[activeIndex].error : undefined,
-  );
-
-  // tracks if user has attempted to advance to next step
-  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
+  // tracks validation results for the current step
+  const [validationResults, setValidationResults] = useState({ valid: true });
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
@@ -228,7 +201,6 @@ export const TwoColumnWizardExample = () => {
 
   useEffect(() => {
     setActiveStep(activeIndex + 1);
-    setAttemptedAdvance(false);
   }, [activeIndex]);
 
   const id = 'sticky-header-two-column';
@@ -249,24 +221,23 @@ export const TwoColumnWizardExample = () => {
         setActiveIndex,
         activeStep,
         setActiveStep,
-        attemptedAdvance,
-        setAttemptedAdvance,
         defaultFormValues,
-        error,
-        setError,
+        validationResults,
+        setValidationResults,
         formValues,
         setFormValues,
         id,
         ref: wizardRef,
         steps,
-        validation,
         wizardTitle: 'Wizard Title',
         width,
       }}
     >
       <Box fill>
         <WizardHeader setOpen={setOpen} />
-        <StepContent />
+        <StepContent 
+          onSubmit={({ value }) => console.log('onSubmit:', value)}
+        />
         <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
