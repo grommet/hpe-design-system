@@ -11,8 +11,8 @@ const { layer } = theme;
 /* Color Palette */
 const primaryColors = [
   {
-    name: 'green',
-    value: 'green!',
+    name: 'brand',
+    value: 'brand',
     hex: colors['green!'],
   },
 ];
