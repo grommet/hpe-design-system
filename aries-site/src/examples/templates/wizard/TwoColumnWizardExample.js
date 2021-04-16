@@ -32,7 +32,7 @@ const defaultFormValues = {
 };
 
 const StepOne = () => {
-  const { validationResults } = useContext(WizardContext);
+  const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -66,7 +66,7 @@ const StepOne = () => {
                 placeholder="jane.smith@hpe.com"
                 id="twocolumn-textinput"
                 name="twocolumn-textinput"
-                type="email"
+                onChange={() => setValid(true)}
               />
             </FormField>
             <FormField
@@ -81,7 +81,7 @@ const StepOne = () => {
               />
             </FormField>
           </>
-          {!validationResults.valid && (
+          {!valid && (
             <Error>There is an error with one or more inputs.</Error>
           )}
         </Box>
@@ -192,7 +192,7 @@ export const TwoColumnWizardExample = () => {
   const [open, setOpen] = useState(false);
 
   // tracks validation results for the current step
-  const [validationResults, setValidationResults] = useState({ valid: true });
+  const [valid, setValid] = useState(true);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
@@ -222,8 +222,8 @@ export const TwoColumnWizardExample = () => {
         activeStep,
         setActiveStep,
         defaultFormValues,
-        validationResults,
-        setValidationResults,
+        valid,
+        setValid,
         formValues,
         setFormValues,
         id,

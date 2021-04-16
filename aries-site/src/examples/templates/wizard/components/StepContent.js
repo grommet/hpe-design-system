@@ -12,13 +12,13 @@ export const StepContent = ({ onSubmit }) => {
     id,
     ref,
     setFormValues,
-    setValidationResults,
+    setValid,
     steps,
     width,
   } = useContext(WizardContext);
 
   const handleSubmit = (evt) => {
-    setValidationResults({ valid: true });
+    setValid(true);
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
     }
@@ -33,14 +33,14 @@ export const StepContent = ({ onSubmit }) => {
   const onValidate = validationResults => {
     const names  = [ ...Object.keys(validationResults.errors),
       ...Object.keys(validationResults.infos) ];
-      if (names.length > 0) {
-        const selector = names.map(name => `[name=${name}]`).join(',');
-        const firstInvalid = document.querySelectorAll(selector)[0];
-        if (firstInvalid) {
-          firstInvalid.focus();
-        }
+    if (names.length > 0) {
+      const selector = names.map(name => `[name=${name}]`).join(',');
+      const firstInvalid = document.querySelectorAll(selector)[0];
+      if (firstInvalid) {
+        setTimeout(() => firstInvalid.focus(), 0);
+      }
     }
-    setValidationResults(validationResults);
+    setTimeout(() => setValid(names.length === 0), 0);
   };
 
   return (
@@ -67,7 +67,6 @@ export const StepContent = ({ onSubmit }) => {
             onChange={nextValue => setFormValues(nextValue)}
             onSubmit={handleSubmit}
             onValidate={onValidate}
-            validate="blur"
             method="post"
           >
             {steps[activeIndex].inputs}

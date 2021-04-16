@@ -34,7 +34,7 @@ export const defaultFormValues = {
 };
 
 const stepOneInputs = [
-  () => (
+  (setValid) => (
     <>
       <FormField
         label="First Name"
@@ -46,6 +46,7 @@ const stepOneInputs = [
           placeholder="Jane"
           id="firstname-validation"
           name="firstname-validation"
+          onChange={() => setValid(true)}
         />
       </FormField>
       <FormField
@@ -70,12 +71,12 @@ const stepOneInputs = [
           message: 'Invalid email address',
           status: 'error',
         }}
-      >
+        >
         <TextInput
           placeholder="jane.smith@hpe.com"
           id="text-input-validation"
           name="text-input-validation"
-          type="email"
+          onChange={() => setValid(true)}
         />
       </FormField>
     </>
@@ -96,9 +97,7 @@ const stepOneInputs = [
 ];
 
 const StepOne = () => {
-  const { validationResults } = useContext(
-    WizardContext,
-  );
+  const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
 
   return (
@@ -110,11 +109,11 @@ const StepOne = () => {
       >
         {stepOneInputs.map((input, index) => (
           <Box width={{ max: 'medium' }} key={index}>
-            {input()}
+            {input(setValid)}
           </Box>
         ))}
       </Grid>
-      {!validationResults.valid && (
+      {!valid && (
         <Error>There is an error with one or more inputs.</Error>
       )}
     </>
@@ -215,7 +214,7 @@ export const WizardValidationExample = () => {
   const [open, setOpen] = useState(false);
 
   // tracks validation results for the current step
-  const [validationResults, setValidationResults] = useState({ valid: true });
+  const [valid, setValid] = useState(true);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
@@ -245,9 +244,9 @@ export const WizardValidationExample = () => {
         setActiveIndex,
         activeStep,
         setActiveStep,
-        validationResults,
+        valid,
         ref: wizardRef,
-        setValidationResults,
+        setValid,
         steps,
         formValues,
         setFormValues,
