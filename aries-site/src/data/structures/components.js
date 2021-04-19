@@ -110,8 +110,14 @@ export const components = [
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
-      component: () => <DateInputPreview />,
-      background: 'background-front',
+      image: {
+        src: {
+          light: '/componentImages/components-preview-fileinput.svg',
+          dark: '/componentImages/components-preview-fileinput-invert.svg',
+        },
+        alt: 'HPE Design System FileInput',
+        fit: 'contain',
+      },
     },
   },
   {
