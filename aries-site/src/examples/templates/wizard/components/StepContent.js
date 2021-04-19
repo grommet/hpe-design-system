@@ -17,13 +17,13 @@ export const StepContent = ({ onSubmit }) => {
     width,
   } = useContext(WizardContext);
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (event) => {
     setValid(true);
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
     }
     else if (onSubmit) {
-      onSubmit(evt);
+      onSubmit(event);
     }
   };
 
