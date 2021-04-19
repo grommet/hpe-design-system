@@ -101,6 +101,20 @@ export const components = [
     },
   },
   {
+    name: 'FileInput',
+    category: 'Inputs',
+    description:
+      'A widget which allows the user to select one or more files to upload.',
+    seoDescription:
+      'A widget which allows the user to select one or more files to upload.',
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      component: () => <DateInputPreview />,
+      background: 'background-front',
+    },
+  },
+  {
     name: 'TextArea',
     category: 'Inputs',
     description:

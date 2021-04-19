@@ -1,0 +1,46 @@
+import { Example } from '../../layouts';
+import {
+  FileInputSimpleExample,
+  FileInputSingleExample,
+  FileInputMultipeExample,
+} from '../../examples/components/fileinput';
+
+<Example
+  docs="https://v2.grommet.io/fileinput?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputSimpleExample.js"
+  figma="https://www.figma.com/file/8HwAiiSDloOTjUxqvCTypq/HPE-FileInput-Component"
+>
+  <FileInputSimpleExample />
+</Example>
+
+## Guidance
+
+FileInput is a specialized input that provides a clean interface for selecting files.
+FileInput can be used when a user needs to upload one or more files.
+
+### Usage
+
+1. Upload a file or files by click on the fileInput that prompts a file selection.
+2. Drag and Drop selected files directly into the fileInput.
+3. Label the fileInput so the user knows what file/files needs to be uploaded
+
+### Accessibility
+
+The FileInput can be used with both the `Space` and `Enter` button to achieve the action.
+FileInput should have clear label that describes the type of files that are needed.
+
+## Variants
+
+FileInputs can be used as a single file upload or multiple files.
+
+### FileInput with a single file
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputSingleExample.js">
+  <FileInputSingleExample />
+</Example>
+
+### FileInput with multiple files
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputMultipeExample.js">
+  <FileInputMultipeExample />
+</Example>
