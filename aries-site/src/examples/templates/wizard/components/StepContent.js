@@ -68,6 +68,9 @@ export const StepContent = ({ onSubmit }) => {
             onSubmit={handleSubmit}
             onValidate={onValidate}
             method="post"
+            messages={{
+              required: 'This is a required field.',
+            }}
           >
             {steps[activeIndex].inputs}
           </Form>
