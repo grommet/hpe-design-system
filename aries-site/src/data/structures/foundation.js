@@ -45,7 +45,7 @@ export const foundation = [
   {
     name: 'Developer Guidance',
     category: 'Philosophy',
-    cardOrder: 2,
+    cardOrder: 1,
     description: `Resources for setting up your application with the HPE
        Design System library and HPE theme.`,
     preview: {
@@ -110,7 +110,7 @@ export const foundation = [
   },
   {
     name: 'Human Centered',
-    cardOrder: 1,
+    cardOrder: 2,
     category: 'Philosophy',
     description: `The starting point of the design system is human 
     centered, generating experiences which are inclusive and vibrant.`,
