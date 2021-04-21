@@ -559,6 +559,7 @@ export const PaginationTableExample = () => {
             fill: 'horizontal',
             justify: size !== 'small' ? 'end' : 'center',
             pad: { top: 'xsmall' },
+            flex: false,
           }}
           step={10}
           sortable
