@@ -56,28 +56,6 @@ export const extend = [
     relatedContent: ['Components', 'Templates', 'Designer'],
   },
   {
-    name: 'Developer Guidance',
-    available: true,
-    description:
-      'Resources for setting up your application with the HPE Design System library and HPE theme.',
-    preview: {
-      image: {
-        src: '/extendImages/extend-preview-developer-guidance.svg',
-        alt: 'HPE Developer Guidance Preview',
-      },
-    },
-    seoDescription:
-      'Resources for setting up your application with the HPE Design System library and HPE theme.',
-    sections: [
-      'Getting started',
-      'Preferred environment',
-      'ReactJS and Grommet starter resources',
-      'Applying the HPE theme',
-      "What if our team doesn't use ReactJS?",
-    ],
-    relatedContent: ['Components', 'Templates', 'Designer'],
-  },
-  {
     name: 'Global Sidebar',
     available: false,
     description:
