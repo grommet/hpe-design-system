@@ -22,8 +22,6 @@ CheckBox can be used to present an individual option or group of options to the 
 
 ### Usage
 
-CheckBox can be used in the form of a [toggle](#toggle), a single option which can indicate something such as on or off. Toggle is prefered to quickly switch between two possible states. Toggles usually provide immediate results (i.e. no form submission is required) in which gives users the ability to control their preference.
-
 CheckBox should not be used if a user should only be allowed to select one option from a list of options. In the case that a user should only be able to select one option, refer to [RadioButtonGroup](/components/radiobuttongroup).
 
 There are three states which CheckBox provides:
@@ -33,6 +31,16 @@ There are three states which CheckBox provides:
 - Indeterminate - Used in situations where the CheckBox is a parent to a list of child options. Use the indeterminate state to indicate that only a subset of the child options have been checked.
 
 Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked.
+
+### Toggle
+
+[Toggle](#toggle) is a single option which prompts users to choose between two mutually exclusive options.
+Toggle is prefered to quickly switch between two possible states.
+Toggles usually provide immediate results (i.e. no form submission is required) in which gives users the ability to control their preference.
+When using toggles the order of text and toggle can be controlled using the [reverse prop](https://v2.grommet.io/checkbox?theme=hpe#reverse), if the toggles 
+are used in a group that contains only toggles then it is prefered to have to text on the left and the toggle on the right.
+
+
 
 ### Accessibility
 
