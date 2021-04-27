@@ -171,14 +171,6 @@ FilteringWithRangeSelector.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const Filters = ({
   data,
   filtering,
@@ -329,7 +321,8 @@ const Filters = ({
           previousValues={previousValues}
           setPreviousValues={setPreviousValues}
         />
-        <FilterButton
+        <DropButton
+          kind="tertiary"
           alignSelf="start"
           icon={<Filter />}
           open={open}
