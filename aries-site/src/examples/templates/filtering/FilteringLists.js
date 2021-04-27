@@ -203,14 +203,6 @@ FilteringLists.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const FilterButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const Filters = ({
   filters,
   setFilters,
@@ -296,8 +288,9 @@ const Filters = ({
   return (
     <>
       <Box align="center" direction="row" gap="small">
-        <FilterButton
+        <Button
           icon={<Filter />}
+          kind="tertiary"
           onClick={() => {
             setShowLayer(true);
             storePreviousFilterInfo();

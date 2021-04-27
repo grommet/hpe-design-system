@@ -169,14 +169,6 @@ export const FilteringWithDropButton = () => {
   );
 };
 
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const Filters = ({
   filters,
   filterData,
@@ -258,8 +250,9 @@ const Filters = ({
 
   return (
     <Box align="center" direction="row" gap="small">
-      <FilterButton
+      <DropButton
         icon={<Filter />}
+        kind="tertiary"
         onClick={() => {
           if (open) {
             filterData(allData, previousFilters);
