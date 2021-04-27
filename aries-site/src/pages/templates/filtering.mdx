@@ -5,17 +5,18 @@ import {
   FilteringWithRangeSelector,
   FilteringWithDropButton,
   FilteringWithSelect,
-  PersistentFiltering,
 } from '../../examples';
 
+### Filtering with DropButton
+
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/PersistentFiltering.js"
-  figma="https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=681%3A1430"
-  showResponsiveControls={['laptop', 'mobile']}
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithDropButton.js"
   template
+  showResponsiveControls={['laptop', 'mobile']}
 >
-  <PersistentFiltering />
+  <FilteringWithDropButton />
 </Example>
+
 
 ## What makes up filtering?
 
@@ -81,16 +82,6 @@ Use your best judgement around which input type is appropriate for the data you 
 - **Does your filter have a massive number of options (>100)?** First consider if you are able to break this filter into more manageable groupings. However, if you are unable to break up the filter options into smaller groups, consider using a [scrollable CheckBoxGroup](/components/checkboxgroup#scroll). This approach should be used as a last resort since research demonstrates that [this pattern is not ideal for user experience](https://baymard.com/blog/inline-scroll-areas).
 
 ## More examples of filtering
-
-### Filtering with DropButton
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithDropButton.js"
-  template
-  showResponsiveControls={['laptop', 'mobile']}
->
-  <FilteringWithDropButton />
-</Example>
 
 ### Filtering with RangeSelector
 
