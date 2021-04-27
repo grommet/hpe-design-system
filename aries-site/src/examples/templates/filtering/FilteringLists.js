@@ -85,14 +85,6 @@ const defaultservice = getValues('service');
 const defaultTenant = getValues('tenant');
 const defaultStatus = getValues('status');
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
@@ -177,7 +169,8 @@ export const FilteringLists = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="tertiary"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}

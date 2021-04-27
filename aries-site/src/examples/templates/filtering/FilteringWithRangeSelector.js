@@ -63,14 +63,6 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 export const FilteringWithRangeSelector = ({ containerRef }) => {
   // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
@@ -145,8 +137,9 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
                 id="search-button"
+                kind="tertiary"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
               />
@@ -235,7 +228,8 @@ const Filters = ({
     return (
       <>
         <Box align="center" direction="row" gap="xsmall">
-          <StyledButton
+          <Button
+            king="tertiary"
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
