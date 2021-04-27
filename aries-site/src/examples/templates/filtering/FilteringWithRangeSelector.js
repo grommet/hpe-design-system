@@ -221,7 +221,7 @@ const Filters = ({
       <>
         <Box align="center" direction="row" gap="xsmall">
           <Button
-            king="tertiary"
+            kind="tertiary"
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
