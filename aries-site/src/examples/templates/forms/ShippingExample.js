@@ -212,6 +212,7 @@ export const ShippingExample = () => {
             >
               Shipping Address *
             </Text>
+
             <FormField required htmlFor="firstName" name="firstName">
               <TextInput
                 id="firstName"
@@ -253,7 +254,7 @@ export const ShippingExample = () => {
               />
             </FormField>
             <FormField htmlFor="zipcode" name="zipcode">
-              <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
+              <TextInput id="zipcode" name="zipcode" placeholder="ZIP Code" />
             </FormField>
             <FormField htmlFor="isBusiness" name="isBusiness">
               <CheckBox name="isBusiness" label="This is a business" />

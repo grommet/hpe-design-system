@@ -25,6 +25,7 @@ import {
 import { getWidth } from './utils';
 
 export const defaultFormValues = {
+  'firstname-validation': '',
   'text-input-validation': '',
   'radio-button-group-validation': '',
   select: '',
@@ -32,57 +33,26 @@ export const defaultFormValues = {
   'text-area': '',
 };
 
-const stepOneValidate = values => {
-  const emailRegex = RegExp(
-    '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
-  );
-  const emailValid = emailRegex.test(values['text-input-validation']);
-
-  return {
-    email: emailValid ? '' : 'Invalid email address.',
-    isValid: !!emailValid,
-  };
-};
-
-const validation = [
-  {
-    validator: values => stepOneValidate(values),
-    error: {
-      firstname: '',
-      lastname: '',
-      email: '',
-      radiobuttongroup: '',
-      isValid: true,
-    },
-  },
-];
-
 const stepOneInputs = [
-  (attemptedAdvance, error, formValues, setError) => (
+  (setValid) => (
     <>
       <FormField
         label="First Name"
         htmlFor="firstname-validation"
         name="firstname-validation"
-        error={error.firstname}
-        onChange={() =>
-          attemptedAdvance && setError(stepOneValidate(formValues))
-        }
+        required
       >
         <TextInput
           placeholder="Jane"
           id="firstname-validation"
           name="firstname-validation"
+          onChange={() => setValid(true)}
         />
       </FormField>
       <FormField
         label="Last Name"
         htmlFor="lastname-validation"
         name="lastname-validation"
-        error={error.lastname}
-        onChange={() =>
-          attemptedAdvance && setError(stepOneValidate(formValues))
-        }
       >
         <TextInput
           placeholder="Smith"
@@ -94,16 +64,19 @@ const stepOneInputs = [
         label="Email"
         htmlFor="text-input-validation"
         name="text-input-validation"
-        error={error.email}
-        onChange={() =>
-          attemptedAdvance && setError(stepOneValidate(formValues))
-        }
-      >
+        validate={{
+          regexp: new RegExp(
+            '(^$)|([^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+)',
+          ),
+          message: 'Invalid email address',
+          status: 'error',
+        }}
+        >
         <TextInput
           placeholder="jane.smith@hpe.com"
           id="text-input-validation"
           name="text-input-validation"
-          type="email"
+          onChange={() => setValid(true)}
         />
       </FormField>
     </>
@@ -124,9 +97,7 @@ const stepOneInputs = [
 ];
 
 const StepOne = () => {
-  const { attemptedAdvance, formValues, error, setError } = useContext(
-    WizardContext,
-  );
+  const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
 
   return (
@@ -138,11 +109,11 @@ const StepOne = () => {
       >
         {stepOneInputs.map((input, index) => (
           <Box width={{ max: 'medium' }} key={index}>
-            {input(attemptedAdvance, error, formValues, setError)}
+            {input(setValid)}
           </Box>
         ))}
       </Grid>
-      {!error.isValid && (
+      {!valid && (
         <Error>There is an error with one or more inputs.</Error>
       )}
     </>
@@ -242,13 +213,8 @@ export const WizardValidationExample = () => {
   // controls state of cancel layer
   const [open, setOpen] = useState(false);
 
-  // controls error message for active step
-  const [error, setError] = useState(
-    validation[activeIndex] ? validation[activeIndex].error : undefined,
-  );
-
-  // tracks if user has attempted to advance to next step
-  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
+  // tracks validation results for the current step
+  const [valid, setValid] = useState(true);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
@@ -257,7 +223,6 @@ export const WizardValidationExample = () => {
 
   useEffect(() => {
     setActiveStep(activeIndex + 1);
-    setAttemptedAdvance(false);
   }, [activeIndex]);
 
   const id = 'simple-wizard';
@@ -279,22 +244,21 @@ export const WizardValidationExample = () => {
         setActiveIndex,
         activeStep,
         setActiveStep,
-        attemptedAdvance,
-        setAttemptedAdvance,
-        error,
+        valid,
         ref: wizardRef,
-        setError,
+        setValid,
         steps,
         formValues,
         setFormValues,
-        validation,
         wizardTitle: 'Wizard Title',
         width,
       }}
     >
       <Box fill>
         <WizardHeader setOpen={setOpen} />
-        <StepContent />
+        <StepContent
+          onSubmit={({ value }) => console.log('onSubmit:', value)}
+        />
         <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
