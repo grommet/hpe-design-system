@@ -5,17 +5,17 @@ import {
   FilteringWithRangeSelector,
   FilteringWithDropButton,
   FilteringWithSelect,
-  PersistentFiltering,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/PersistentFiltering.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
   figma="https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=681%3A1430"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <PersistentFiltering />
+  <FilteringCards />
 </Example>
+
 
 ## What makes up filtering?
 
@@ -55,18 +55,6 @@ When applying many filters at once, it is helpful to present them in a consolida
   <FilteringLists />
 </Example>
 
-### Filters in a right-anchored Layer
-
-When applying many filters at once, it is helpful to present them in a consolidated [Layer](/components/layer). In this example, the Layer is anchored to the right edge of the screen.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
-  showResponsiveControls={['laptop', 'mobile']}
-  template
->
-  <FilteringCards />
-</Example>
-
 ## Guidelines
 
 Filtering should help users quickly narrow down data sets by selecting certain parameters to define the relevant data bounds. Different types of inputs may better suited for filtering depending on the type of data.
@@ -81,16 +69,6 @@ Use your best judgement around which input type is appropriate for the data you 
 - **Does your filter have a massive number of options (>100)?** First consider if you are able to break this filter into more manageable groupings. However, if you are unable to break up the filter options into smaller groups, consider using a [scrollable CheckBoxGroup](/components/checkboxgroup#scroll). This approach should be used as a last resort since research demonstrates that [this pattern is not ideal for user experience](https://baymard.com/blog/inline-scroll-areas).
 
 ## More examples of filtering
-
-### Filtering with DropButton
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithDropButton.js"
-  template
-  showResponsiveControls={['laptop', 'mobile']}
->
-  <FilteringWithDropButton />
-</Example>
 
 ### Filtering with RangeSelector
 
