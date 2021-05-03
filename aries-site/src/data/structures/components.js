@@ -106,7 +106,7 @@ export const components = [
     description:
       'A file upload control that can be used to upload one or more files.',
     seoDescription:
-      'A widget which allows the user to select one or more files to upload.',
+      'A file upload control that can be used to upload one or more files.',
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
