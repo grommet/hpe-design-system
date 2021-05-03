@@ -5,6 +5,10 @@ import { Box, FileInput } from 'grommet';
 export const FileInputSimpleExample = () => (
   <Box align="center" pad="large">
     <FileInput
+      messages={{
+        dropPrompt: 'Drag and Drop',
+        browse: 'Select File',
+      }}
       onChange={event => {
         const fileList = event.target.files;
         for (let i = 0; i < fileList.length; i += 1) {

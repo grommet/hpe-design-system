@@ -8,6 +8,12 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   fileInput: {
+    hover: {
+      border: 'none',
+    },
+    dragOver: {
+      background: 'background-contrast',
+    },
     icons: {
       remove: Trash,
     },

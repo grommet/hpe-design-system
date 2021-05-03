@@ -87,7 +87,6 @@ const data = [
   },
 ];
 
-
 const columns = [
   {
     property: 'tenant',
@@ -181,7 +180,14 @@ const LayerForm = ({ setOpen }) => {
         >
           <TextArea id="Description" name="Description" />
         </FormField>
-        <FileInput id="fileInput" name="fileInput" />
+        <FileInput
+          messages={{
+            dropPrompt: 'Drag and Drop',
+            browse: 'Select File',
+          }}
+          id="fileInput"
+          name="fileInput"
+        />
         <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
           <Button label="Submit" primary type="submit" />
         </Box>
