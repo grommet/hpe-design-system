@@ -77,7 +77,6 @@ export const Layout = ({
               <>
                 <SkipLinks>
                   <SkipLink id="main" label="Main Content" />
-                  {/* <SkipLink id="footer" label="Main Content" /> */}
                 </SkipLinks>
                 <Header
                   fill="horizontal"
