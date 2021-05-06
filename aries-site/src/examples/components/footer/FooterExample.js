@@ -22,7 +22,7 @@ export const FooterExample = () => {
         gap="xsmall"
       >
         <Text size="small">
-          &copy; 2020 Hewlett Packard Enterprise Development LP
+          &copy; 2021 Hewlett Packard Enterprise Development LP
         </Text>
       </Box>
       <Box
