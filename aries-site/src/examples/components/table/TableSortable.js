@@ -85,14 +85,16 @@ const columns = [
     property: 'percent',
     header: '% Complete',
     render: datum => (
-      <Box gap="xxsmall" direction="row" pad={{ vertical: 'xsmall' }}>
-        <Meter
-          alignSelf="center"
-          values={[{ value: datum.percent, color: 'graph-2' }]}
-          thickness="small"
-          size="small"
-        />
-        <Text>{(datum.percent).toFixed(0)}%</Text>
+      <Box gap="xsmall" direction="row">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            alignSelf="center"
+            values={[{ value: datum.percent, color: 'graph-2' }]}
+            thickness="small"
+            size="small"
+          />
+        </Box>
+        <Text>{datum.percent.toFixed(0)}%</Text>
       </Box>
     ),
   },
