@@ -1,7 +1,3 @@
-const statuses = {
-  complete: 'Complete',
-  inProgress: 'In Progress',
-};
 
 export const foundation = [
   {
@@ -63,7 +59,7 @@ export const foundation = [
       'Applying the HPE theme',
       "What if our team doesn't use ReactJS?",
     ],
-    relatedContent: ['Components', 'Templates', 'Designer'],
+    relatedContent: ['Components', 'Templates'],
   },
   {
     name: 'Color',
@@ -145,11 +141,7 @@ export const foundation = [
         alt: 'Hpe Icon Preview',
       },
     },
-    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
-    },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search'],
   },
   {
     name: 'Typography',
