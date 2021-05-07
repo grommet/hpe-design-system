@@ -75,7 +75,7 @@ export const Layout = ({
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
-                <SkipLinks>
+                <SkipLinks id="skip-links">
                   <SkipLink id="main" label="Main Content" />
                 </SkipLinks>
                 <Header
