@@ -3,7 +3,6 @@ import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
 
 export const FooterExample = () => {
   const size = useContext(ResponsiveContext);
-  const d = new Date();
   const year = d.getFullYear();
 
   const footerLinks = [
