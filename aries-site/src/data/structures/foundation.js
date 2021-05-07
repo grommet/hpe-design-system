@@ -42,8 +42,8 @@ export const foundation = [
     name: 'Developer Guidance',
     category: 'Philosophy',
     cardOrder: 1,
-    description: `Resources for setting up your application with the HPE
-       Design System library and HPE theme.`,
+    description: `Resources for setting up your application
+     with the HPE Design System library and HPE theme.`,
     preview: {
       image: {
         src: '/extendImages/extend-preview-developer-guidance.svg',
@@ -58,6 +58,36 @@ export const foundation = [
       'ReactJS and Grommet starter resources',
       'Applying the HPE theme',
       "What if our team doesn't use ReactJS?",
+    ],
+    relatedContent: ['Components', 'Templates'],
+  },
+  {
+    name: 'Designer Guidance',
+    category: 'Philosophy',
+    cardOrder: 3,
+    description:
+      `Starter files, patterns, interactions, and workflows on
+       how to succeed using the design resources from HPE Design
+        System and the HPE Brand.`,
+    preview: {
+      image: {
+        src: {
+          dark: '/extendImages/extend-preview-designer-guidance-invert.svg',
+          light: '/extendImages/extend-preview-designer-guidance.svg',
+        },
+        alt: 'HPE Designer Guidance Preview',
+      },
+    },
+    seoDescription:
+      `View patterns, interactions, and other best practices for
+       how to succeed using resources included with the HPE
+       Design System.`,
+    sections: [
+      'Getting started',
+      'Setting up your Figma account',
+      'Joining the HPE Design System Figma team',
+      'Before you start desiging',
+      'HPE Design System Figma Library',
     ],
     relatedContent: ['Components', 'Templates'],
   },
