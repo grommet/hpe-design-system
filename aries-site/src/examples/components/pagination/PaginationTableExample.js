@@ -499,7 +499,7 @@ const columns = [
             size="small"
           />
         </Box>
-        <Text>{((datum.pinned / datum.pinnable) * 10).toFixed(0)}%</Text>
+        <Text>{((datum.pinned / datum.pinnable) * 100).toFixed(0)}%</Text>
       </Box>
     ),
     sortable: false,
