@@ -487,14 +487,18 @@ const columns = [
       </Box>
     ),
     render: datum => (
-      <Box direction="row" gap="xxsmall" pad={{ vertical: 'xsmall' }}>
-        <Meter
-          alignSelf="center"
-          values={[{ value: datum.pinned / datum.pinnable, color: 'graph-2' }]}
-          max={1}
-          thickness="small"
-          size="small"
-        />
+      <Box gap="xsmall" direction="row">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            alignSelf="center"
+            values={[
+              { value: datum.pinned / datum.pinnable, color: 'graph-2' },
+            ]}
+            max={1}
+            thickness="small"
+            size="small"
+          />
+        </Box>
         <Text>{((datum.pinned / datum.pinnable) * 10).toFixed(0)}%</Text>
       </Box>
     ),
