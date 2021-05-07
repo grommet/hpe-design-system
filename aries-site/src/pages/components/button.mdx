@@ -60,7 +60,7 @@ There are a couple "flavors" of button depending on use case.
 
 ### Primary Button
 
-Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).
+Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).  Consider that the 80% use case for some pages is visualization and not action.  In cases like these, a call to action is inappropriate and a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -120,7 +120,7 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
 
 ### Button States
 
-A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met.
+A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met.  However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users.  It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met.  Buttons that do not apply (for reasons of context or persmissions) should not be shown at all, rather than being shown as disabled.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
