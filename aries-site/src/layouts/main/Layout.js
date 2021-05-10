@@ -2,7 +2,15 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
-import { Box, Main, ResponsiveContext, Stack } from 'grommet';
+import {
+  Box,
+  Main,
+  ResponsiveContext,
+  SkipLinkTarget,
+  SkipLink,
+  SkipLinks,
+  Stack,
+} from 'grommet';
 import {
   ContentSection,
   DocsPageHeader,
@@ -67,12 +75,16 @@ export const Layout = ({
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
+                <SkipLinks id="skip-links">
+                  <SkipLink id="main" label="Main Content" />
+                </SkipLinks>
                 <Header
                   fill="horizontal"
                   alignSelf="center"
                   width={{ max: 'xxlarge' }}
                 />
                 <Main overflow="visible">
+                  <SkipLinkTarget id="main" />
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
                     pad={
