@@ -3,7 +3,7 @@ export const foundation = [
   {
     name: 'Accessibility',
     category: 'Philosophy',
-    cardOrder: 2,
+    cardOrder: 3,
     description: `Central to the HPE Design System, accessibility is 
     incorporated into all Design System facets, ensuring HPE applications 
     are usable by as many people as possible.`,
@@ -64,7 +64,7 @@ export const foundation = [
   {
     name: 'Designer Guidance',
     category: 'Philosophy',
-    cardOrder: 3,
+    cardOrder: 2,
     description:
       `Starter files, patterns, interactions, and workflows on
        how to succeed using the design resources from HPE Design
