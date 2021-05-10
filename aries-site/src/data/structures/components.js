@@ -22,11 +22,6 @@ import {
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
 
-const statuses = {
-  complete: 'Complete',
-  inProgress: 'In Progress',
-};
-
 export const components = [
   {
     name: 'Anchor',
@@ -84,7 +79,7 @@ export const components = [
       component: () => <TabsPreview />,
       background: 'background-front',
     },
-    relatedContent: ['Button', 'Menu', 'Global Sidebar'],
+    relatedContent: ['Button', 'Menu'],
   },
   {
     name: 'DateInput',
@@ -244,7 +239,6 @@ export const components = [
       'Menu',
       'TextInput',
       'Dashboards',
-      'Global Sidebar',
       'Search',
     ],
   },
@@ -275,10 +269,6 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'Box',
@@ -359,10 +349,6 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'RangeInput',
@@ -375,10 +361,6 @@ export const components = [
     preview: {
       component: () => <RangeInputPreview />,
       background: 'background-front',
-    },
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
     },
   },
   {
@@ -428,10 +410,6 @@ export const components = [
     relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'Pagination',
