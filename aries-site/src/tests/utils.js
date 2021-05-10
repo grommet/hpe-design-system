@@ -32,7 +32,6 @@ export const tabToHref = async (t, path, maxClicks = 100) => {
     activeElement = await getActiveElement();
     count += 1;
     href = activeElement.getAttribute('href');
-    // console.log('ACTIVE', href);
   } while (href !== path && count < maxClicks);
 };
 
