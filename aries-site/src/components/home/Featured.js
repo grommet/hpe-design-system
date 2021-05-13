@@ -16,11 +16,7 @@ const FeaturedLayout = ({ ...rest }) => {
       }}
       {...rest}
     >
-      <Grid
-        columns={{ count: 'fit', size: 'small' }}
-        gap="large"
-        justify="center"
-      >
+      <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
         {featured.map(({ name, description, icon, url }) => (
           <Link href={url || nameToPath(name)} passHref key={name}>
             <ContentPreviewCard
