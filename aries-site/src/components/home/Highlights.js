@@ -25,7 +25,6 @@ const HighlightsLayout = () => {
       pad={{ horizontal: size !== 'small' ? 'medium' : 'large' }}
       columns={size !== 'small' ? 'medium' : '100%'}
       gap="large"
-      justify="center"
     >
       {highlights.map(({ name, summary, image }) => {
         const href = nameToPath(name);
