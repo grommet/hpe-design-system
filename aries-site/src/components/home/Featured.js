@@ -10,7 +10,6 @@ const FeaturedLayout = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      fill
       pad={{
         horizontal: size !== 'small' ? 'xlarge' : 'large',
         bottom: 'small',
@@ -18,10 +17,8 @@ const FeaturedLayout = ({ ...rest }) => {
       {...rest}
     >
       <Grid
-        rows={[['auto', 'full']]}
-        columns={{ count: 'fit', size: 'medium' }}
+        columns={{ count: 'fit', size: 'small' }}
         gap="large"
-        fill
         justify="center"
       >
         {featured.map(({ name, description, icon, url }) => (
