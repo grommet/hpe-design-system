@@ -15,12 +15,11 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
   style-src 'self' *.hpe.com/hfws-static/5/css/ 'unsafe-inline';
   connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/;
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4;
-  img-src 'self' https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/;
-  ${
-    // in dev mode, use script-src-elem, otherwise we run into issues with
-    // react hot reloader
-    process.env.NODE_ENV !== 'production' ? 'script-src-elem' : 'script-src'
-  } 'self' *.hpe.com https://www.google-analytics.com/analytics.js;
+  img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/;
+  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js ${
+    // in dev mode, we allow unsafe-eval to work with react hot reloader
+    process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
+  };
   font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/;
   object-src 'none';`;
 
