@@ -6,9 +6,9 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => {
   return (
     <StyledCard
       align="start"
+      fill="horizontal"
       background="background-front"
       elevation={isFocused ? 'medium' : 'small'}
-      fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}
