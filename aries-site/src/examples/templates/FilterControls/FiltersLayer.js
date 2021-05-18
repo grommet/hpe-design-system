@@ -1,7 +1,6 @@
 // Copyright 2021 - Hewlett Packard Enterprise Company
 
 import { useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -15,13 +14,14 @@ import { FormClose } from 'grommet-icons';
 import { FilterContext } from '.';
 import { FilterCheckBoxGroup } from './FilterCheckBoxGroup';
 
-export const FiltersLayer = ({ setShowLayer }) => {
+export const FiltersLayer = () => {
   const size = useContext(ResponsiveContext);
   const {
     applyFilters,
     data,
     filters,
     setFilters,
+    setFiltersLayer,
     filterAttributes,
     previousFilters,
   } = useContext(FilterContext);
@@ -29,9 +29,10 @@ export const FiltersLayer = ({ setShowLayer }) => {
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */
     setFilters(previousFilters);
-    setShowLayer(false);
+    setFiltersLayer(false);
   };
 
+  // DEBUG
   useEffect(() => {
     console.log('filterAttributes', filterAttributes);
   }, [filterAttributes]);
@@ -75,7 +76,7 @@ export const FiltersLayer = ({ setShowLayer }) => {
             label="Apply Filters"
             onClick={() => {
               applyFilters(data, filters);
-              setShowLayer(false);
+              setFiltersLayer(false);
             }}
             primary
           />
@@ -93,8 +94,4 @@ export const FiltersLayer = ({ setShowLayer }) => {
       </Box>
     </Layer>
   );
-};
-
-FiltersLayer.propTypes = {
-  setShowLayer: PropTypes.func.isRequired,
 };

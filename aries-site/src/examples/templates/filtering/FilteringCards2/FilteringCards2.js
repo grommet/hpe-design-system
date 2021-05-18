@@ -41,12 +41,12 @@ export const FilteringCards2 = () => {
 const Users = () => {
   const size = useContext(ResponsiveContext);
   const {
-    applyFilters,
     data,
     filteredResults,
     setFilteredResults,
     setFilterAttributes,
     filters,
+    filtersLayer,
     getFilteredResults,
     searchValue,
   } = useContext(FilterContext);
@@ -61,18 +61,20 @@ const Users = () => {
       searchValue.length === 0
     )
       setFilteredResults(data);
-    // if data set changes, reapply filters
-    else {
+    // If data set changes, reapply filters. However, if the filters layer is
+    // open, don't automatically apply; instead, let user use the layer controls
+    // to set filtered results
+    else if (!filtersLayer) {
       const nextResults = getFilteredResults(data, filters, searchValue);
       if (JSON.stringify(nextResults) !== JSON.stringify(filteredResults))
         setFilteredResults(nextResults);
     }
   }, [
-    applyFilters,
     data,
     filteredResults,
     setFilteredResults,
     filters,
+    filtersLayer,
     getFilteredResults,
     searchValue,
   ]);
@@ -86,11 +88,11 @@ const Users = () => {
         header: 'Location',
         filterType: 'checkboxgroup',
       },
-      {
-        property: 'hoursAvailable',
-        header: 'Hours',
-        filterType: 'checkboxgroup',
-      },
+      // {
+      //   property: 'hoursAvailable',
+      //   header: 'Hours',
+      //   filterType: 'checkboxgroup',
+      // },
       { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
       { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
       { property: 'status', header: 'Status', filterType: 'checkboxgroup' },
@@ -114,9 +116,9 @@ const Users = () => {
             onClick={() => {
               // eslint-disable-next-line no-alert
               alert(`
-                      Typically a click would route to a view with 
-                      greater detail behind this summary information.
-                      `);
+                Typically a click would route to a view with 
+                greater detail behind this summary information.
+              `);
             }}
           >
             <CardBody gap="xsmall" justify="between">

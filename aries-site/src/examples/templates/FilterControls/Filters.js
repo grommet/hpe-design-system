@@ -38,23 +38,24 @@ export const Filters = () => {
     isFiltered,
     setIsFiltered,
     filters,
+    filtersLayer,
+    setFiltersLayer,
     setPreviousFilters,
     setSearchValue,
   } = useContext(FilterContext);
-  const [showLayer, setShowLayer] = useState(false);
-  const [numberFilters, setNumberFilters] = useState();
+  const [filterCount, setFilterCount] = useState();
 
   // Provide indication for the number of filters applied
   useEffect(() => {
     let count = 0;
 
-    if (!showLayer) {
+    if (!filtersLayer) {
       Object.entries(filters).forEach(filter => {
         if (filter[1].length > 0) count += 1;
       });
-      setNumberFilters(count);
+      setFilterCount(count);
     }
-  }, [filters, showLayer, setNumberFilters]);
+  }, [filters, filtersLayer, setFilterCount]);
 
   return (
     <>
@@ -65,7 +66,7 @@ export const Filters = () => {
               icon={<Filter />}
               onClick={() => {
                 setPreviousFilters(filters);
-                setShowLayer(true);
+                setFiltersLayer(true);
               }}
             />
           </Box>
@@ -79,7 +80,7 @@ export const Filters = () => {
               width={{ min: '24px' }}
             >
               <Text color="text-strong" size="small">
-                {numberFilters}
+                {filterCount}
               </Text>
             </Box>
           )}
@@ -98,9 +99,7 @@ export const Filters = () => {
           </Box>
         )}
       </Box>
-      {showLayer && (
-        <FiltersLayer showLayer={showLayer} setShowLayer={setShowLayer} />
-      )}
+      {filtersLayer && <FiltersLayer />}
     </>
   );
 };

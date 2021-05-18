@@ -9,6 +9,8 @@ const useFilter = () => {
   const [filterAttributes, setFilterAttributes] = useState([]);
   // filterAttributes and associated values for which the data is to be filtered
   const [filters, setFilters] = useState({});
+  // show/hide the layer presenting available filters
+  const [filtersLayer, setFiltersLayer] = useState(false);
   // filteredResults are the subset of data which meets the filters criteria
   const [filteredResults, setFilteredResults] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -101,6 +103,8 @@ const useFilter = () => {
     setFilteredResults,
     filters,
     setFilters,
+    filtersLayer,
+    setFiltersLayer,
     getFilteredResults,
     getFilterOptions,
     isFiltered,
