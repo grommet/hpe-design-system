@@ -8,9 +8,17 @@ export const FilterCheckBoxGroup = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useContext(
     FilterContext,
   );
-  const { property, header } = attr;
+  const { property, header, sort = true, toString } = attr;
   const [value, setValue] = useState(filters[property]);
-  const options = getFilterOptions(data, property);
+  let options = getFilterOptions(data, property);
+
+  if (sort)
+    options.sort((a, b) => {
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
+  if (toString) options = options.map(option => option.toString());
 
   useEffect(() => {
     setValue(filters[property] || []);
@@ -40,5 +48,7 @@ FilterCheckBoxGroup.propTypes = {
   attr: PropTypes.shape({
     property: PropTypes.string,
     header: PropTypes.string,
+    sort: PropTypes.bool,
+    toString: PropTypes.bool,
   }),
 };

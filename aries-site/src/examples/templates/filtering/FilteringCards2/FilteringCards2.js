@@ -94,6 +94,7 @@ const Users = () => {
         property: 'hoursAvailable',
         header: 'Hours',
         filterType: 'checkboxgroup',
+        toString: true,
       },
       { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
       { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
