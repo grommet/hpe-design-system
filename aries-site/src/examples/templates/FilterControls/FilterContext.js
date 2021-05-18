@@ -73,6 +73,8 @@ const useFilter = () => {
     setFilteredResults(filterResults);
   };
 
+  // Get available values for each field in the data set to
+  // use as potential filtering options
   const getFilterOptions = (dataSet, field) => {
     const options = [];
     const parts = field.split('.');

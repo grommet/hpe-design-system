@@ -31,6 +31,8 @@ export const FilteringCards2 = () => {
         Users
       </Heading>
       <FilterContext.Provider value={{ ...filterContext, data: users }}>
+        {/* FilterControls provides filtering mechanisms to affect our 
+        result set, in this case, Users. */}
         <FilterControls />
         <Users />
       </FilterContext.Provider>
@@ -79,8 +81,8 @@ const Users = () => {
     searchValue,
   ]);
 
-  /* Let FilterContext know which attributes should be made 
-     available to the user to filter upon */
+  /* Configure which attributes should be made available for the user 
+     to filter upon */
   useEffect(() => {
     const attributes = [
       {
@@ -88,11 +90,11 @@ const Users = () => {
         header: 'Location',
         filterType: 'checkboxgroup',
       },
-      // {
-      //   property: 'hoursAvailable',
-      //   header: 'Hours',
-      //   filterType: 'checkboxgroup',
-      // },
+      {
+        property: 'hoursAvailable',
+        header: 'Hours',
+        filterType: 'checkboxgroup',
+      },
       { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
       { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
       { property: 'status', header: 'Status', filterType: 'checkboxgroup' },
