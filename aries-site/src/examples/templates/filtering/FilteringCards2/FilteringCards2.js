@@ -53,6 +53,33 @@ const Users = () => {
     searchValue,
   } = useContext(FilterContext);
 
+  /* Configure which attributes should be made available for the user 
+     to filter upon */
+  useEffect(() => {
+    const attributes = [
+      { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
+      { property: 'status', header: 'Status', filterType: 'checkboxgroup' },
+      {
+        property: 'location',
+        header: 'Location',
+        filterType: 'checkboxgroup',
+      },
+      {
+        property: 'hoursAvailable',
+        header: 'Remaining Hours Available',
+        filterType: 'rangeselector',
+        inputProps: {
+          min: 0,
+          max: 40,
+          valueRange: '0 - 40 hours',
+        },
+      },
+      { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
+    ];
+
+    setFilterAttributes(attributes);
+  }, [data, setFilterAttributes]);
+
   /* keep filteredResults up to date as parent data set may change */
   useEffect(() => {
     // if there are no filters applied, filteredResults should be
@@ -80,33 +107,6 @@ const Users = () => {
     getFilteredResults,
     searchValue,
   ]);
-
-  /* Configure which attributes should be made available for the user 
-     to filter upon */
-  useEffect(() => {
-    const attributes = [
-      { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
-      { property: 'status', header: 'Status', filterType: 'checkboxgroup' },
-      {
-        property: 'location',
-        header: 'Location',
-        filterType: 'checkboxgroup',
-      },
-      {
-        property: 'hoursAvailable',
-        header: 'Remaining Hours Available',
-        filterType: 'rangeselector',
-        inputProps: {
-          min: 0,
-          max: 40,
-          valueRange: '0 - 40 hours',
-        },
-      },
-      { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
-    ];
-
-    setFilterAttributes(attributes);
-  }, [data, setFilterAttributes]);
 
   return (
     <Box overflow="auto" pad={{ bottom: 'medium' }} fill>
