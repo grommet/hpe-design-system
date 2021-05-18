@@ -1,6 +1,6 @@
 // Copyright 2021 - Hewlett Packard Enterprise Company
 
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import {
   Box,
   Button,
@@ -13,6 +13,7 @@ import { FormClose } from 'grommet-icons';
 
 import { FilterContext } from '.';
 import { FilterCheckBoxGroup } from './FilterCheckBoxGroup';
+import { FilterRangeSelector } from './FilterRangeSelector';
 
 export const FiltersLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -32,13 +33,9 @@ export const FiltersLayer = () => {
     setFiltersLayer(false);
   };
 
-  // DEBUG
-  useEffect(() => {
-    console.log('filterAttributes', filterAttributes);
-  }, [filterAttributes]);
-
   return (
     <Layer
+      as="section"
       position={size !== 'small' ? 'right' : undefined}
       full={size === 'small' ? true : 'vertical'}
       modal
@@ -52,9 +49,7 @@ export const FiltersLayer = () => {
         width={{ min: size !== 'small' ? 'medium' : undefined }}
       >
         <Header pad={{ horizontal: 'medium' }}>
-          <Heading as="p" color="text-strong" level={1} margin="none">
-            Filters
-          </Heading>
+          <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
         <Box pad="medium" overflow="auto" flex>
@@ -62,6 +57,9 @@ export const FiltersLayer = () => {
             filterAttributes.map(attr => {
               if (attr.filterType === 'checkboxgroup') {
                 return <FilterCheckBoxGroup key={attr.property} attr={attr} />;
+              }
+              if (attr.filterType === 'rangeselector') {
+                return <FilterRangeSelector key={attr.property} attr={attr} />;
               }
               return null;
             })}

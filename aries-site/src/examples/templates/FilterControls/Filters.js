@@ -51,7 +51,9 @@ export const Filters = () => {
 
     if (!filtersLayer) {
       Object.entries(filters).forEach(filter => {
-        if (filter[1].length > 0) count += 1;
+        // filter can either be an array or an object with a value property,
+        // check both
+        if (filter[1].length > 0 || filter[1].value.length) count += 1;
       });
       setFilterCount(count);
     }

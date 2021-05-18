@@ -41,6 +41,9 @@ const useFilter = () => {
     filterResults = array.filter(item =>
       filterKeys.every(key => {
         const value = getKeyValue(item, key);
+        if (criteria[key].func) {
+          return criteria[key].func(value);
+        }
         // also return items if the criteria key has no values selected
         if (criteria[key].length === 0) {
           return true;
