@@ -12,8 +12,7 @@ import {
 import { FormClose } from 'grommet-icons';
 
 import { FilterContext } from '.';
-import { FilterCheckBoxGroup } from './FilterCheckBoxGroup';
-import { FilterRangeSelector } from './FilterRangeSelector';
+import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
 export const FiltersLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -55,10 +54,10 @@ export const FiltersLayer = () => {
         <Box pad="medium" overflow="auto" flex>
           {filterAttributes &&
             filterAttributes.map(attr => {
-              if (attr.filterType === 'checkboxgroup') {
+              if (attr.filterType === 'CheckBoxGroup') {
                 return <FilterCheckBoxGroup key={attr.property} attr={attr} />;
               }
-              if (attr.filterType === 'rangeselector') {
+              if (attr.filterType === 'RangeSelector') {
                 return <FilterRangeSelector key={attr.property} attr={attr} />;
               }
               return null;

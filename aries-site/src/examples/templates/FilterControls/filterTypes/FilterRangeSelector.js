@@ -2,13 +2,13 @@ import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, FormField, RangeSelector, Stack, Text } from 'grommet';
 
-import { FilterContext } from '.';
+import { FilterContext } from '..';
 
 export const FilterRangeSelector = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useContext(
     FilterContext,
   );
-  const { property, header, inputProps } = attr;
+  const { property, label, inputProps } = attr;
   const options = getFilterOptions(data, property);
   const [range, setRange] = useState(
     (filters[property] && filters[property].value) || [
@@ -19,7 +19,7 @@ export const FilterRangeSelector = ({ attr }) => {
 
   return (
     <Box flex={false}>
-      <FormField htmlFor={property} name={property} label={header}>
+      <FormField htmlFor={property} name={property} label={label}>
         <Stack>
           <Box background="border" height="3px" direction="row" />
           <RangeSelector
@@ -37,6 +37,7 @@ export const FilterRangeSelector = ({ attr }) => {
               };
               setFilters(nextFilters);
             }}
+            {...inputProps}
           />
         </Stack>
       </FormField>
@@ -48,7 +49,7 @@ export const FilterRangeSelector = ({ attr }) => {
 FilterRangeSelector.propTypes = {
   attr: PropTypes.shape({
     property: PropTypes.string,
-    header: PropTypes.string,
+    label: PropTypes.string,
     inputProps: PropTypes.object,
   }),
 };

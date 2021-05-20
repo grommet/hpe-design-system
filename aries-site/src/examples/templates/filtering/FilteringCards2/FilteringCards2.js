@@ -57,24 +57,24 @@ const Users = () => {
      to filter upon */
   useEffect(() => {
     const attributes = [
-      { property: 'role', header: 'Role', filterType: 'checkboxgroup' },
-      { property: 'status', header: 'Status', filterType: 'checkboxgroup' },
+      { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
+      { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
       {
         property: 'location',
-        header: 'Location',
-        filterType: 'checkboxgroup',
+        label: 'Location',
+        filterType: 'CheckBoxGroup',
       },
       {
         property: 'hoursAvailable',
-        header: 'Remaining Hours Available',
-        filterType: 'rangeselector',
+        label: 'Remaining Hours Available',
+        filterType: 'RangeSelector',
         inputProps: {
           min: 0,
           max: 40,
           valueRange: '0 - 40 hours',
         },
       },
-      { property: 'name', header: 'Name', filterType: 'checkboxgroup' },
+      { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
     ];
 
     setFilterAttributes(attributes);

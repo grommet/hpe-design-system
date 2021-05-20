@@ -49,6 +49,7 @@ export const Filters = () => {
   useEffect(() => {
     let count = 0;
 
+    // wait to update count until user completes setting their desired filters
     if (!filtersLayer) {
       Object.entries(filters).forEach(filter => {
         // filter can either be an array or an object with a value property,

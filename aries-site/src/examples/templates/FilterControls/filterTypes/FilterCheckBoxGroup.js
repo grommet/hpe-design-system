@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CheckBoxGroup, FormField } from 'grommet';
 
-import { FilterContext } from '.';
+import { FilterContext } from '..';
 
 export const FilterCheckBoxGroup = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useContext(
     FilterContext,
   );
-  const { property, header, sort = true, convertToString } = attr;
+  const { property, label, inputProps, sort = true, convertToString } = attr;
   const [value, setValue] = useState(filters[property]);
   let options = getFilterOptions(data, property);
 
@@ -26,7 +26,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
 
   return (
     <Box flex={false}>
-      <FormField htmlFor={property} name={property} label={header}>
+      <FormField htmlFor={property} name={property} label={label}>
         <CheckBoxGroup
           id={property}
           name={property}
@@ -38,6 +38,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
             setFilters(nextFilters);
           }}
           options={options}
+          {...inputProps}
         />
       </FormField>
     </Box>
@@ -47,7 +48,8 @@ export const FilterCheckBoxGroup = ({ attr }) => {
 FilterCheckBoxGroup.propTypes = {
   attr: PropTypes.shape({
     property: PropTypes.string,
-    header: PropTypes.string,
+    label: PropTypes.string,
+    inputProps: PropTypes.object,
     sort: PropTypes.bool,
     convertToString: PropTypes.bool,
   }),
