@@ -12,6 +12,7 @@ export const aries = deepMerge(hpe, {
       color: 'text-weak',
     },
     button: {
+      color: 'text-strong',
       font: {
         weight: 'bold',
       },
