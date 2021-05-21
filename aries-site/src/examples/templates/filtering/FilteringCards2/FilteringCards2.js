@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import {
   Box,
@@ -26,85 +26,46 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export const FilteringCards2 = () => (
-  <>
-    <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-      Users
-    </Heading>
-    <FiltersProvider>
-      <FilterControls data={users} />
-      <Users />
-    </FiltersProvider>
-  </>
-);
+export const FilteringCards2 = () => {
+  // Define which attributes should be made available for the user
+  // to filter upon
+  const filtersConfig = [
+    { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
+    { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
+    {
+      property: 'location',
+      label: 'Location',
+      filterType: 'CheckBoxGroup',
+    },
+    {
+      property: 'hoursAvailable',
+      label: 'Remaining Hours Available',
+      filterType: 'RangeSelector',
+      inputProps: {
+        min: 0,
+        max: 40,
+        valueRange: '0 - 40 hours',
+      },
+    },
+    { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
+  ];
+
+  return (
+    <>
+      <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
+        Users
+      </Heading>
+      <FiltersProvider>
+        <FilterControls data={users} filters={filtersConfig} />
+        <Users />
+      </FiltersProvider>
+    </>
+  );
+};
 
 const Users = () => {
   const size = useContext(ResponsiveContext);
-  const {
-    data,
-    filteredResults,
-    setFilteredResults,
-    setFilterAttributes,
-    filters,
-    filtersLayer,
-    getFilteredResults,
-    searchValue,
-  } = useFilters();
-
-  /* Define which attributes should be made available for the user 
-     to filter upon */
-  useEffect(() => {
-    const attributes = [
-      { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
-      { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
-      {
-        property: 'location',
-        label: 'Location',
-        filterType: 'CheckBoxGroup',
-      },
-      {
-        property: 'hoursAvailable',
-        label: 'Remaining Hours Available',
-        filterType: 'RangeSelector',
-        inputProps: {
-          min: 0,
-          max: 40,
-          valueRange: '0 - 40 hours',
-        },
-      },
-      { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
-    ];
-
-    setFilterAttributes(attributes);
-  }, [data, setFilterAttributes]);
-
-  /* keep filteredResults up to date as parent data set may change */
-  useEffect(() => {
-    // if there are no filters applied, filteredResults should be
-    // the entire result set
-    if (
-      filteredResults.length === 0 &&
-      Object.keys(filters).length === 0 &&
-      searchValue.length === 0
-    )
-      setFilteredResults(data);
-    // If data set changes, reapply filters. However, if the filters layer is
-    // open, don't automatically apply; instead, let user use the layer controls
-    // to set filtered results
-    else if (!filtersLayer) {
-      const nextResults = getFilteredResults(data, filters, searchValue);
-      if (JSON.stringify(nextResults) !== JSON.stringify(filteredResults))
-        setFilteredResults(nextResults);
-    }
-  }, [
-    data,
-    filteredResults,
-    setFilteredResults,
-    filters,
-    filtersLayer,
-    getFilteredResults,
-    searchValue,
-  ]);
+  const { filteredResults } = useFilters();
 
   return (
     <Box overflow="auto" pad={{ bottom: 'medium' }} fill>

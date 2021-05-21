@@ -48,8 +48,12 @@ const FiltersProvider = ({ children }) => {
 const useFilters = () => {
   const context = useContext(FiltersContext);
   const {
-    setFilters,
+    data,
+    filteredResults,
     setFilteredResults,
+    filters,
+    setFilters,
+    filtersLayer,
     setIsFiltered,
     searchValue,
   } = context;
@@ -136,11 +140,30 @@ const useFilters = () => {
     return options;
   };
 
+  // keep filteredResults up to date as parent data set may change
+  const syncFilteredResults = () => {
+    if (
+      filteredResults.length === 0 &&
+      Object.keys(filters).length === 0 &&
+      searchValue.length === 0
+    )
+      setFilteredResults(data);
+    // If data set changes, reapply filters. However, if the filters layer is
+    // open, don't automatically apply; instead, let user use the layer controls
+    // to set filtered results
+    else if (!filtersLayer) {
+      const nextResults = getFilteredResults(data, filters, searchValue);
+      if (JSON.stringify(nextResults) !== JSON.stringify(filteredResults))
+        setFilteredResults(nextResults);
+    }
+  };
+
   return {
     ...context,
     applyFilters,
     getFilteredResults,
     getFilterOptions,
+    syncFilteredResults,
   };
 };
 
