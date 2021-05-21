@@ -10,7 +10,11 @@ import {
   Text,
 } from 'grommet';
 
-import { FilterControls, FilterContext } from '../../FilterControls';
+import {
+  FilterControls,
+  FiltersProvider,
+  useFilters,
+} from '../../FilterControls';
 import { users } from './mockData';
 
 const StyledCard = styled(Card)`
@@ -22,23 +26,17 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export const FilteringCards2 = () => {
-  const filterContext = useContext(FilterContext)();
-
-  return (
-    <>
-      <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-        Users
-      </Heading>
-      <FilterContext.Provider value={{ ...filterContext, data: users }}>
-        {/* FilterControls provides filtering mechanisms to affect our 
-        result set, in this case, Users. */}
-        <FilterControls />
-        <Users />
-      </FilterContext.Provider>
-    </>
-  );
-};
+export const FilteringCards2 = () => (
+  <>
+    <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
+      Users
+    </Heading>
+    <FiltersProvider>
+      <FilterControls data={users} />
+      <Users />
+    </FiltersProvider>
+  </>
+);
 
 const Users = () => {
   const size = useContext(ResponsiveContext);
@@ -51,9 +49,9 @@ const Users = () => {
     filtersLayer,
     getFilteredResults,
     searchValue,
-  } = useContext(FilterContext);
+  } = useFilters();
 
-  /* Configure which attributes should be made available for the user 
+  /* Define which attributes should be made available for the user 
      to filter upon */
   useEffect(() => {
     const attributes = [

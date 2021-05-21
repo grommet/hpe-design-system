@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CheckBoxGroup, FormField } from 'grommet';
 
-import { FilterContext } from '..';
+import { useFilters } from '..';
 
 export const FilterCheckBoxGroup = ({ attr }) => {
-  const { data, filters, setFilters, getFilterOptions } = useContext(
-    FilterContext,
-  );
+  const { data, filters, setFilters, getFilterOptions } = useFilters();
   const { property, label, inputProps, sort = true, convertToString } = attr;
   const [value, setValue] = useState(filters[property]);
   let options = getFilterOptions(data, property);

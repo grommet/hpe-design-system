@@ -1,12 +1,9 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
-
-import { useContext } from 'react';
 import { Box, Text } from 'grommet';
 
-import { FilterContext } from '.';
+import { useFilters } from '.';
 
 export const ResultsSummary = () => {
-  const { data, filteredResults, isFiltered } = useContext(FilterContext);
+  const { data, filteredResults, isFiltered } = useFilters();
 
   return (
     <Box direction="row" gap="xxsmall">

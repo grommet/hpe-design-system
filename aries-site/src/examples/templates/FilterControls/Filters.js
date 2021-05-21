@@ -1,11 +1,9 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
-
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Box, Button, Stack, Text } from 'grommet';
 import { Filter } from 'grommet-icons';
 
-import { FilterContext } from '.';
+import { useFilters } from '.';
 import { FiltersLayer } from './FiltersLayer';
 
 const FilterButton = styled(Button)`
@@ -42,7 +40,7 @@ export const Filters = () => {
     setFiltersLayer,
     setPreviousFilters,
     setSearchValue,
-  } = useContext(FilterContext);
+  } = useFilters();
   const [filterCount, setFilterCount] = useState();
 
   // Provide indication for the number of filters applied

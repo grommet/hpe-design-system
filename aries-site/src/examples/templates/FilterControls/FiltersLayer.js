@@ -1,5 +1,3 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
-
 import { useContext } from 'react';
 import {
   Box,
@@ -11,7 +9,7 @@ import {
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-import { FilterContext } from '.';
+import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
 export const FiltersLayer = () => {
@@ -24,7 +22,7 @@ export const FiltersLayer = () => {
     setFiltersLayer,
     filterAttributes,
     previousFilters,
-  } = useContext(FilterContext);
+  } = useFilters();
 
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */

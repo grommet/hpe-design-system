@@ -1,15 +1,27 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
-
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
-import { Filters, ResultsSummary, SearchFilter } from '.';
+import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
-export const FilterControls = () => (
-  <Box gap="xsmall">
-    <Box direction="row" align="end" gap="small">
-      <SearchFilter />
-      <Filters />
+export const FilterControls = ({ data }) => {
+  const { setData } = useFilters();
+
+  useEffect(() => {
+    setData(data);
+  }, [data, setData]);
+
+  return (
+    <Box gap="xsmall">
+      <Box direction="row" align="end" gap="small">
+        <SearchFilter />
+        <Filters />
+      </Box>
+      <ResultsSummary />
     </Box>
-    <ResultsSummary />
-  </Box>
-);
+  );
+};
+
+FilterControls.propTypes = {
+  data: PropTypes.array,
+};

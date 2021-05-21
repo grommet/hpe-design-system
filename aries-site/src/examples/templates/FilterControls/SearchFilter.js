@@ -1,10 +1,8 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
-
 import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Box, Button, ResponsiveContext, TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
-import { FilterContext } from '.';
+import { useFilters } from '.';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
@@ -20,7 +18,7 @@ const StyledButton = styled(Button)`
 
 export const SearchFilter = () => {
   const size = useContext(ResponsiveContext);
-  const filterContext = useContext(FilterContext);
+  const filterContext = useFilters();
   const {
     applyFilters,
     data,

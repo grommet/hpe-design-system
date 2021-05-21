@@ -1,8 +1,9 @@
-// Copyright 2021 - Hewlett Packard Enterprise Company
+import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { createContext, useState } from 'react';
+const FiltersContext = createContext();
 
-const useFilter = () => {
+const FiltersProvider = ({ children }) => {
   // data represents the entire result set
   const [data, setData] = useState([]);
   // fields or columns in the data set
@@ -19,6 +20,43 @@ const useFilter = () => {
   const [previousFilters, setPreviousFilters] = useState();
   // value entered into the search text input
   const [searchValue, setSearchValue] = useState('');
+
+  const value = {
+    data,
+    setData,
+    filterAttributes,
+    setFilterAttributes,
+    filters,
+    setFilters,
+    filtersLayer,
+    setFiltersLayer,
+    filteredResults,
+    setFilteredResults,
+    isFiltered,
+    setIsFiltered,
+    previousFilters,
+    setPreviousFilters,
+    searchValue,
+    setSearchValue,
+  };
+
+  return (
+    <FiltersContext.Provider value={value}>{children}</FiltersContext.Provider>
+  );
+};
+
+const useFilters = () => {
+  const context = useContext(FiltersContext);
+  const {
+    setFilters,
+    setFilteredResults,
+    setIsFiltered,
+    searchValue,
+  } = context;
+
+  if (context === undefined) {
+    throw new Error('useFilters must be used within a FiltersProvider');
+  }
 
   // Get value of multi-level key e.g "property.sub_property"
   const getKeyValue = (item, key) => {
@@ -99,26 +137,15 @@ const useFilter = () => {
   };
 
   return {
+    ...context,
     applyFilters,
-    data,
-    setData,
-    filterAttributes,
-    setFilterAttributes,
-    filteredResults,
-    setFilteredResults,
-    filters,
-    setFilters,
-    filtersLayer,
-    setFiltersLayer,
     getFilteredResults,
     getFilterOptions,
-    isFiltered,
-    setIsFiltered,
-    previousFilters,
-    setPreviousFilters,
-    searchValue,
-    setSearchValue,
   };
 };
 
-export const FilterContext = createContext(useFilter);
+FiltersProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+export { FiltersProvider, useFilters };
