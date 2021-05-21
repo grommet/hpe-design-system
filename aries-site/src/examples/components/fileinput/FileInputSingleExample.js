@@ -7,21 +7,18 @@ import {
   FormField,
   Header,
   Heading,
-  RadioButtonGroup,
   Select,
   Text,
   TextArea,
   TextInput,
 } from 'grommet';
-import { Close } from 'grommet-icons';
 
-const Category = ['Movie', 'Show', 'Cartoon',];
+const Category = ['Movie', 'Show', 'Cartoon'];
 
 export const FileInputSingleExample = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
-    setOpen(false);
   };
 
   return (
@@ -32,11 +29,8 @@ export const FileInputSingleExample = () => {
             <Heading level={3} margin="none">
               New File
             </Heading>
-            <Text>
-              Please add a new file
-            </Text>
+            <Text>Please add a new file</Text>
           </Box>
-          <Button icon={<Close />} onClick={() => setOpen(false)} />
         </Header>
       </Box>
       <Form
@@ -51,8 +45,17 @@ export const FileInputSingleExample = () => {
         >
           <TextInput value="Star Wars" id="file-name" name="fileName" />
         </FormField>
-        <FormField label="Category" htmlFor="categoory-select" name="categorySelect">
-          <Select value="Movie" options={Category} id="categoory" name="categoory" />
+        <FormField
+          label="Category"
+          htmlFor="categoory-select"
+          name="categorySelect"
+        >
+          <Select
+            value="Movie"
+            options={Category}
+            id="categoory"
+            name="categoory"
+          />
         </FormField>
         <FormField
           label="Description (Optional)"

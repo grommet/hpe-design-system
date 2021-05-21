@@ -10,7 +10,7 @@ export const aries = deepMerge(hpe, {
   fileInput: {
     button:{
       hover: {
-        background: 'background-contrast'
+        background: 'background-contrast',
       },
     },
     hover: {
