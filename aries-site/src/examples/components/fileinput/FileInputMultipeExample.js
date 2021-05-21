@@ -180,15 +180,17 @@ const LayerForm = ({ setOpen }) => {
         >
           <TextArea id="Description" name="Description" />
         </FormField>
-        <FileInput
-          messages={{
-            dropPromptMultiple: 'Drag and Drop',
-            browse: 'Select Files',
-          }}
-          multiple
-          id="fileInput"
-          name="fileInput"
-        />
+        <FormField id="FileInput" name="FileInput">
+          <FileInput
+            messages={{
+              dropPromptMultiple: 'Drag and Drop',
+              browse: 'Select Files',
+            }}
+            multiple
+            id="fileInput"
+            name="fileInput"
+          />
+        </FormField>
         <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
           <Button label="Submit" primary type="submit" />
         </Box>
