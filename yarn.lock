@@ -7327,9 +7327,9 @@ fault@^1.0.2:
     format "^0.2.0"
 
 faye-websocket@^0.11.3, faye-websocket@~0.11.1:
-  version "0.11.3"
-  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.3.tgz#5c0e9a8968e8912c286639fde977a8b209f2508e"
-  integrity sha512-D2y4bovYpzziGgbHYtGCMjlJM36vAl/y+xUyn1C+FVx8szd1E+86KwVw6XvYSzOP8iMpm1X0I4xJD+QtUb36OA==
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.4.tgz#7f0d9275cfdd86a1c963dc8b65fcc451edcbb1da"
+  integrity sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g==
   dependencies:
     websocket-driver ">=0.5.1"
 
@@ -8053,8 +8053,8 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.17.2"
-  uid "7cbf33981332871392fa8824ca3724ad93226a3c"
-  resolved "https://github.com/grommet/grommet/tarball/stable#7cbf33981332871392fa8824ca3724ad93226a3c"
+  uid b8c4b66880e8188cd465d0acd95de9398e9fed19
+  resolved "https://github.com/grommet/grommet/tarball/stable#b8c4b66880e8188cd465d0acd95de9398e9fed19"
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
