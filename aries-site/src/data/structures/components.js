@@ -99,9 +99,9 @@ export const components = [
     name: 'FileInput',
     category: 'Inputs',
     description:
-      'A file upload control that can be used to upload one or more files.',
+      'An input used to upload one or more files.',
     seoDescription:
-      'A file upload control that can be used to upload one or more files.',
+      'An input used to upload one or more files.',
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
