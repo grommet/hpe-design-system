@@ -102,7 +102,7 @@ export const components = [
       'An input used to upload one or more files.',
     seoDescription:
       'An input used to upload one or more files.',
-    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
       image: {
