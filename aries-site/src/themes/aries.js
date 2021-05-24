@@ -11,7 +11,17 @@ export const aries = deepMerge(hpe, {
     message: {
       color: 'text-weak',
     },
+    border: {
+      size: 'xsmall',
+    },
     button: {
+      border: {
+        radius: '4px',
+      },
+      pad: {
+        vertical: '6px',
+        horizontal: '12px',
+      },
       color: 'text-strong',
       font: {
         weight: 'bold',
@@ -21,14 +31,19 @@ export const aries = deepMerge(hpe, {
       },
     },
     hover: {
-      border: 'none',
+      border: {
+        color: 'border',
+      },
     },
     dragOver: {
       background: 'background-contrast',
+      border: 'none',
     },
     icons: {
       remove: Trash,
     },
+    pad: { horizontal: 'xsmall' },
+    extend: 'border-radius: 4px;',
   },
 });
 

@@ -104,14 +104,14 @@ export const RequiredFieldsExample = () => {
           <FormField htmlFor="comments" name="comments" label="Comments">
             <TextArea id="comments" name="comments" placeholder="Comments" />
           </FormField>
-          <FormField id="FileInput" name="FileInput">
+          <FormField htmlFor="fileinput" name="fileinput" required>
             <FileInput
               messages={{
-                dropPrompt: 'Drag and Drop',
+                dropPrompt: 'Drag and drop',
                 browse: 'Select File',
               }}
-              id="fileInput"
-              name="fileInput"
+              id="fileinput"
+              name="fileinput"
             />
           </FormField>
           {/* Show error if api call came back as an error  */}

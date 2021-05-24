@@ -1,12 +1,11 @@
 import React from 'react';
-
 import { Box, FileInput } from 'grommet';
 
 export const FileInputSimpleExample = () => (
-  <Box width="medium" align="center" pad="large">
+  <Box width="medium">
     <FileInput
       messages={{
-        dropPrompt: 'Drag and Drop',
+        dropPrompt: 'Drag and drop',
         browse: 'Select File',
       }}
       onChange={event => {

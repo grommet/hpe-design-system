@@ -2,7 +2,7 @@ import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   FileInputSimpleExample,
-  FileInputMultipeExample,
+  FileInputMultipleExample,
 } from '../../examples/components/fileinput';
 
 <Example
@@ -15,23 +15,35 @@ import {
 
 ## Guidance
 
-FileInput is a specialized input that provides a clean interface for selecting files.
-FileInput can be used when a user needs to upload one or more files.
+FileInput is a specialized input that provides the user with a means of selecting a file or files for upload.
 
 ### Usage
 
-1. Upload a file or files by click on the fileInput that prompts a file selection.
-2. Drag and Drop selected files directly into the fileInput.
-3. Label the fileInput so the user knows what file/files needs to be uploaded
+- User must be able to upload a file by clicking the "Select File" button, drag and dropping over the drop region, or tabbing to the FileInput and pressing Space/Enter.
+- When FileInput is in a Form, the file should not be uploaded/saved to a server until the user has submitted the form.
+- Once a file has been added to the input, a Trash button will appear next to the file name to allow removal of that file.
+- The "Select File" button should always be visible, allowing the user to add more files/replace a file after they have already selected one.
+
+For additional configurations, such as defining accepted file type, all instrinsic HTML properties are supported. For a comprehensive list of these options, you can read more about [HTML input type="file"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
 
 ### Accessibility
 
-The FileInput can be used with both the `Space` and `Enter` button to achieve the action.
-FileInput should have clear label that describes the type of files that are needed.
+When using FileInput within a Form, the FormField wrapping the FileInput should have `htmlFor` and `name` properties that match the `id` and `name` properties placed onto the FileInput. See the [FileInput within a Form example](/templates/forms#required-and-optional-fields) for reference on how to implement.
 
 ## Variants
 
 FileInputs can be used as a single file upload or multiple files.
+
+### FileInput with multiple files
+
+To allow multiple files to be uploaded, add the prop `multiple`.
+
+<Example
+  docs="https://v2.grommet.io/fileinput?theme=hpe#multiple"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputMultipleExample.js"
+>
+  <FileInputMultipleExample />
+</Example>
 
 ### FileInput within a Form
 
@@ -41,13 +53,3 @@ FileInputs can be used as a single file upload or multiple files.
   src="/fileinput-form-preview.png"
   alt="HPE Design System FileInput Form Example"
 />
-
-
-### FileInput with multiple files
-
-<Example
-  docs="https://v2.grommet.io/fileinput?theme=hpe#multiple"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputMultipeExample.js"
->
-  <FileInputMultipeExample />
-</Example>

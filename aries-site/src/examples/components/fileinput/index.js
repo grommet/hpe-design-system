@@ -1,2 +1,2 @@
 export * from './FileInputSimpleExample';
-export * from './FileInputMultipeExample';
+export * from './FileInputMultipleExample';
