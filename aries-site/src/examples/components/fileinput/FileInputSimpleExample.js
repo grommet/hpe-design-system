@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, FileInput } from 'grommet';
 
 export const FileInputSimpleExample = () => (
-  <Box align="center" pad="large">
+  <Box width="medium" align="center" pad="large">
     <FileInput
       messages={{
         dropPrompt: 'Drag and Drop',
