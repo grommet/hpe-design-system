@@ -123,7 +123,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
               </Box>
             ) : (
               <Button
-                kind="tertiary"
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -218,7 +218,7 @@ const Filters = ({
           content
         ) : (
           <Button
-            king="tertiary"
+            king="toolbar"
             icon={<Filter />}
             onClick={() => {
               setShowLayer(true);

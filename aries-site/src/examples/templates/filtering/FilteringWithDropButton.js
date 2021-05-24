@@ -142,7 +142,7 @@ export const FilteringWithDropButton = () => {
               </Box>
             ) : (
               <Button
-                kind="tertiary"
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -252,7 +252,7 @@ const Filters = ({
     <Box align="center" direction="row" gap="small">
       <DropButton
         icon={<Filter />}
-        kind="tertiary"
+        kind="toolbar"
         onClick={() => {
           if (open) {
             filterData(allData, previousFilters);

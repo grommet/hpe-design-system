@@ -5,11 +5,11 @@ export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   button: {
     hover: {
-      tertiary: {
+      toolbar: {
         background: 'transparent',
       },
     },
-    tertiary: {
+    toolbar: {
       border: {
         color: 'border',
         width: '1px',

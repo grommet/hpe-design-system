@@ -246,7 +246,7 @@ export const PersistentFiltering = ({ containerRef }) => {
               </Box>
             ) : (
               <Button
-                kind="tertiary"
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -479,7 +479,7 @@ const Filters = ({
     <>
       <Box align="center" direction="row" gap="small">
         <Button
-          kind="tertiary"
+          kind="toolbar"
           icon={<Filter />}
           onClick={() => {
             setShowLayer(true);
