@@ -38,10 +38,8 @@ export const templates = [
     sections: [],
     relatedContent: [
       'Header',
-      'Global Sidebar',
       'Hub and Spoke Navigation',
       'Persistent Navigation',
-      'React Router',
     ],
   },
   {
@@ -90,7 +88,6 @@ export const templates = [
       'Navigation',
       'Hub and Spoke Navigation',
       'Header',
-      'Global Sidebar',
     ],
     sections: [],
   },
@@ -114,7 +111,6 @@ export const templates = [
       'Dashboards',
       'Grid',
       'Lists',
-      'Global Sidebar',
       'Header',
       'Footer',
     ],
@@ -176,46 +172,6 @@ export const templates = [
       'CheckBoxGroup',
       'RadioButtonGroup',
     ],
-  },
-  {
-    name: 'Notifications',
-    available: false,
-    description: `Notifications are a helpful way to notify a user of changes 
-    to application state or to prompt action from a user.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-notifications.svg',
-          dark: '/templateImages/template-preview-notifications-invert.svg',
-        },
-        alt: 'HPE Notifications Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: 'HPE Design System notification examples and templates.',
-    sections: [],
-    relatedContent: [],
-  },
-  {
-    name: 'Data Visualization',
-    available: false,
-    description: `Data visualizations are an effective way to present 
-    quantitative data to a user.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-data-visualization.svg',
-          dark:
-            '/templateImages/template-preview-data-visualization-invert.svg',
-        },
-        alt: 'HPE Data Visualization Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription:
-      'HPE Design System data visualization examples and templates.',
-    sections: [],
-    relatedContent: [],
   },
   {
     name: 'Wizard',
