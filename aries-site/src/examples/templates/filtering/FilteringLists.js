@@ -170,7 +170,7 @@ export const FilteringLists = ({ containerRef }) => {
               </Box>
             ) : (
               <Button
-                kind="tertiary"
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -290,7 +290,7 @@ const Filters = ({
       <Box align="center" direction="row" gap="small">
         <Button
           icon={<Filter />}
-          kind="tertiary"
+          kind="toolbar"
           onClick={() => {
             setShowLayer(true);
             storePreviousFilterInfo();

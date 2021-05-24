@@ -139,7 +139,7 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
             ) : (
               <Button
                 id="search-button"
-                kind="tertiary"
+                kind="toolbar"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
               />
@@ -221,7 +221,7 @@ const Filters = ({
       <>
         <Box align="center" direction="row" gap="xsmall">
           <Button
-            kind="tertiary"
+            kind="toolbar"
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
@@ -322,7 +322,7 @@ const Filters = ({
           setPreviousValues={setPreviousValues}
         />
         <DropButton
-          kind="tertiary"
+          kind="toolbar"
           alignSelf="start"
           icon={<Filter />}
           open={open}
