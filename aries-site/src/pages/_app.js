@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 
@@ -14,6 +14,23 @@ const slugToText = str => str.split('-').join(' ');
  */
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
+
+  // necessary to ensure SkipLinks can receive first tab focus
+  // after a route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const skipLinks = document.querySelector('#skip-links');
+      skipLinks.focus();
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   // final array item from the route is the title of page we are on
   const title =
@@ -51,6 +68,10 @@ App.propTypes = {
   pageProps: PropTypes.shape({}),
   router: PropTypes.shape({
     route: PropTypes.string.isRequired,
+    events: PropTypes.shape({
+      on: PropTypes.func,
+      off: PropTypes.func,
+    }),
   }).isRequired,
 };
 
