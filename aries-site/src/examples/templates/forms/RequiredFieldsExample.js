@@ -104,7 +104,12 @@ export const RequiredFieldsExample = () => {
           <FormField htmlFor="comments" name="comments" label="Comments">
             <TextArea id="comments" name="comments" placeholder="Comments" />
           </FormField>
-          <FormField htmlFor="fileinput" name="fileinput" required>
+          <FormField
+            htmlFor="fileinput"
+            name="fileinput"
+            label="Upload a file"
+            required
+          >
             <FileInput
               messages={{
                 dropPrompt: 'Drag and drop',
