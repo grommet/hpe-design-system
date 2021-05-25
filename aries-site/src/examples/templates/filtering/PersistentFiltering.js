@@ -102,14 +102,6 @@ const StyledCard = styled(Card)`
   }
 `;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const defaultFilters = {};
 
 const allFilters = {
@@ -253,7 +245,8 @@ export const PersistentFiltering = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -485,7 +478,8 @@ const Filters = ({
   return size === 'small' ? (
     <>
       <Box align="center" direction="row" gap="small">
-        <StyledButton
+        <Button
+          kind="toolbar"
           icon={<Filter />}
           onClick={() => {
             setShowLayer(true);
