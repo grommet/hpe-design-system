@@ -1,6 +1,5 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { Trash } from 'grommet-icons/icons/Trash';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
