@@ -218,7 +218,7 @@ const Filters = ({
           content
         ) : (
           <Button
-            king="toolbar"
+            kind="toolbar"
             icon={<Filter />}
             onClick={() => {
               setShowLayer(true);
