@@ -231,4 +231,24 @@ export const templates = [
     sections: [],
     relatedContent: ['Page Layouts', 'Header', 'Navigation'],
   },
+  {
+    name: 'Table Customization',
+    available: false,
+    description: `Allows users to customize table column order and
+    visibility to best suit their needs.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-table-customize.svg',
+          dark: '/templateImages/template-preview-table-customize-invert.svg',
+        },
+        alt: 'HPE Table Customization Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to customize table column order and
+    visibility to best suit their needs.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists'],
+  },
 ];

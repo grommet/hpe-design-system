@@ -1,0 +1,67 @@
+import {
+  TableCustomizationExample,
+  ColumnSettingsExample,
+} from '../../examples';
+import { Example } from '../../layouts';
+import { Box } from 'grommet';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/TableCustomizationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/RecordSummary.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/table-customization/components"
+  figma="https://www.figma.com/file/TonE8uQ33e5QJRPknZx36q/Ordering-Of-Items?node-id=33%3A15"
+  screenContainer
+  width="100%"
+>
+  <TableCustomizationExample />
+</Example>
+
+## Guidelines
+
+Table customization is important for larger, more complex tables with many columns.
+Users can choose which columns to show in the table as well as the order in which they appear.
+
+## What makes up the customizable table?
+
+### An action to display column visibility and order controls.
+
+Place a button with an `Edit` icon next to the `Actions` menu for the table on the
+right side above the table. The `Actions` menu is mainly for actions which modify
+items in the table. Controls like the search and filter controls change what items
+are shown in the table or how they are presented rather than changing the items
+themselves. Since we want to customize the table itself, we have a separate controls
+for changing which columns are shown in the table and their order.
+
+### Column visibility
+
+Clicking on the `Edit` button opens a new drop down which has two tabs. The first tab 
+includes checkboxes for each column. By checking or unchecking the checkboxes you can
+make columns appear or disappear from the table.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
+  horizontalLayout
+  height="none"
+  width={{ min: 'medium' }}
+>
+  <ColumnSettingsExample />
+</Example>
+
+### Column order
+
+The second tab on the drop down contains the list of columns which allows ordering
+the columns by dragging the column names in the list or by using the move up and
+move down buttons to change the column order in the list. This will also change the
+order of the columns in the table.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
+  horizontalLayout
+  height="none"
+  width={{ min: 'medium' }}
+>
+  <ColumnSettingsExample activeIndex={1} />
+</Example>
