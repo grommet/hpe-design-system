@@ -60,14 +60,12 @@ export const ColumnSettings = ({
           </Box>
         </Tab>
         <Tab title="Order Columns">
-          <Box>
-            <List
-              data={columns}
-              onOrder={orderedData => setColumns(orderedData)}
-              pad="none"
-              primaryKey="header"
-            />
-          </Box>
+          <List
+            data={columns}
+            onOrder={orderedData => setColumns(orderedData)}
+            pad="none"
+            primaryKey="header"
+          />
         </Tab>
       </Tabs>
     </Box>

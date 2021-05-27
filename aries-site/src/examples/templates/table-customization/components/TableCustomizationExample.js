@@ -19,7 +19,7 @@ import { RecordSummary } from './RecordSummary';
 import { ColumnSettings } from './ColumnSettings';
 
 const COLUMNS = [
-  { property: 'name', header: 'Name', primary: true },
+  { property: 'name', header: 'Name', primary: true, pin: true },
   { property: 'status', header: 'Status' },
   { property: 'role', header: 'Role' },
   { property: 'location', header: 'Location' },
@@ -230,12 +230,16 @@ const Results = ({ data, columns }) => {
   const [select, setSelect] = useState([]);
 
   return (
-    <DataTable
-      data={data}
-      columns={columns}
-      select={select}
-      onSelect={setSelect}
-    />
+    <Box fill="vertical" overflow="auto">
+      <DataTable
+        data={data}
+        columns={columns}
+        select={select}
+        onSelect={setSelect}
+        fill
+        pin
+      />
+    </Box>
   );
 };
 

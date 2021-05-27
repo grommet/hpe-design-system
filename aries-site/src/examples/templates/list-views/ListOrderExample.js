@@ -19,7 +19,12 @@ export const ListOrderExample = () => {
   const [allowReorder, setAllowReorder] = useState(false);
 
   return (
-    <Box align="center" pad="large" role="application">
+    <Box
+      align="center"
+      background="background-front"
+      pad="large"
+      role="application"
+    >
       <Box gap="small" width="large">
         <Text weight="bold" size="large">
           Favorite Movies

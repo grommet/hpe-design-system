@@ -21,8 +21,11 @@ import { Box } from 'grommet';
 
 ## Guidelines
 
-Table customization is important for larger, more complex tables with many columns.
-Users can choose which columns to show in the table as well as the order in which they appear.
+For complex tables with many columns, is it important for the user to be able to 
+configure which columns they want to see and the order in which these columns appear.
+
+This functionality is handled by a dropdown that contains two tabs: one for selecting
+which columns should appear in the table and another for ordering the columns.
 
 ## What makes up the customizable table?
 
@@ -37,9 +40,15 @@ for changing which columns are shown in the table and their order.
 
 ### Column visibility
 
-Clicking on the `Edit` button opens a new drop down which has two tabs. The first tab 
-includes checkboxes for each column. By checking or unchecking the checkboxes you can
-make columns appear or disappear from the table.
+Clicking on the `Edit` button opens a dropdown which has two tabs. The first tab should
+be active and labeled "Select Columns". The tab content should consist of a Search input
+and a CheckBoxGroup that lists all possible table columns.
+
+When a column in the list is checked, it is visible in the table. When it is unchecked,
+it is removed from the table. Adjustments to the table data should occur immediately as
+the user checks or unchecks a column, as opposed to waiting until the dropdown closes.
+
+The user can also search for a specific column by typing in the Search input.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
@@ -52,10 +61,13 @@ make columns appear or disappear from the table.
 
 ### Column order
 
-The second tab on the drop down contains the list of columns which allows ordering
-the columns by dragging the column names in the list or by using the move up and
-move down buttons to change the column order in the list. This will also change the
-order of the columns in the table.
+The second tab of the dropdown should be labeled "Order Columns". It contains a
+list of the selected columns from the "Select Columns" tab. A user can reorder the
+columns either by dragging and dropping the column names in the list or by using
+the move up/move down buttons that are present next to each column name.
+
+Similar to column selection, the reordering of the table columns should take
+place immediately, as opposed to waiting until the dropdown closes.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"

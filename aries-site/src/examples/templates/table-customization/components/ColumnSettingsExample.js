@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ColumnSettings } from './ColumnSettings';
 
 const COLUMNS = [
@@ -8,12 +9,15 @@ const COLUMNS = [
   { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
 ];
 
-export const ColumnSettingsExample = props => (
-  <ColumnSettings
-    columns={COLUMNS}
-    setColumns={() => {}}
-    visible={COLUMNS.map(col => col.property)}
-    setVisible={() => {}}
-    {...props}
-  />
-);
+export const ColumnSettingsExample = props => {
+  const [columns, setColumns] = useState(COLUMNS);
+  return (
+    <ColumnSettings
+      columns={columns}
+      setColumns={setColumns}
+      visible={columns.map(col => col.property)}
+      setVisible={() => {}}
+      {...props}
+    />
+  );
+};
