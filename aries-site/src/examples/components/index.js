@@ -5,6 +5,7 @@ export * from './card';
 export * from './checkbox';
 export * from './checkboxgroup';
 export * from './header';
+export * from './fileinput';
 export * from './footer';
 export * from './layer';
 export * from './layouts';

@@ -63,14 +63,6 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 export const FilteringWithRangeSelector = ({ containerRef }) => {
   // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
@@ -145,8 +137,9 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
                 id="search-button"
+                kind="toolbar"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
               />
@@ -177,14 +170,6 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
 FilteringWithRangeSelector.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
-
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
 
 const Filters = ({
   data,
@@ -235,7 +220,8 @@ const Filters = ({
     return (
       <>
         <Box align="center" direction="row" gap="xsmall">
-          <StyledButton
+          <Button
+            kind="toolbar"
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
@@ -335,7 +321,8 @@ const Filters = ({
           previousValues={previousValues}
           setPreviousValues={setPreviousValues}
         />
-        <FilterButton
+        <DropButton
+          kind="toolbar"
           alignSelf="start"
           icon={<Filter />}
           open={open}

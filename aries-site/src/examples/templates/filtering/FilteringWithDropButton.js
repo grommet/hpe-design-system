@@ -64,14 +64,6 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const defaultFilters = {};
 const ramOptions = ['16', '32', '128'];
 const statuses = ['Online', 'Offline'];
@@ -149,7 +141,8 @@ export const FilteringWithDropButton = () => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -175,14 +168,6 @@ export const FilteringWithDropButton = () => {
     </Box>
   );
 };
-
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
 
 const Filters = ({
   filters,
@@ -265,8 +250,9 @@ const Filters = ({
 
   return (
     <Box align="center" direction="row" gap="small">
-      <FilterButton
+      <DropButton
         icon={<Filter />}
+        kind="toolbar"
         onClick={() => {
           if (open) {
             filterData(allData, previousFilters);
