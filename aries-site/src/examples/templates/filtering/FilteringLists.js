@@ -85,14 +85,6 @@ const defaultservice = getValues('service');
 const defaultTenant = getValues('tenant');
 const defaultStatus = getValues('status');
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
@@ -177,7 +169,8 @@ export const FilteringLists = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -209,14 +202,6 @@ export const FilteringLists = ({ containerRef }) => {
 FilteringLists.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
-
-const FilterButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
 
 const Filters = ({
   filters,
@@ -303,8 +288,9 @@ const Filters = ({
   return (
     <>
       <Box align="center" direction="row" gap="small">
-        <FilterButton
+        <Button
           icon={<Filter />}
+          kind="toolbar"
           onClick={() => {
             setShowLayer(true);
             storePreviousFilterInfo();

@@ -5,6 +5,7 @@ import {
   CheckBox,
   Form,
   FormField,
+  FileInput,
   Header,
   Select,
   ResponsiveContext,
@@ -102,6 +103,21 @@ export const RequiredFieldsExample = () => {
           </FormField>
           <FormField htmlFor="comments" name="comments" label="Comments">
             <TextArea id="comments" name="comments" placeholder="Comments" />
+          </FormField>
+          <FormField
+            htmlFor="fileinput"
+            name="fileinput"
+            label="Upload a file"
+            required
+          >
+            <FileInput
+              messages={{
+                dropPrompt: 'Drag and drop',
+                browse: 'Select File',
+              }}
+              id="fileinput"
+              name="fileinput"
+            />
           </FormField>
           {/* Show error if api call came back as an error  */}
           {showFormLevelError && (

@@ -96,6 +96,26 @@ export const components = [
     },
   },
   {
+    name: 'FileInput',
+    category: 'Inputs',
+    description:
+      'An input used to upload one or more files.',
+    seoDescription:
+      'An input used to upload one or more files.',
+    relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/components-preview-fileinput.svg',
+          dark: '/componentImages/components-preview-fileinput-invert.svg',
+        },
+        alt: 'HPE Design System FileInput',
+        fit: 'contain',
+      },
+    },
+  },
+  {
     name: 'TextArea',
     category: 'Inputs',
     description:
