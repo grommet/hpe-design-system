@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Box, Button, Stack, Text } from 'grommet';
+import { Box, Button, ThemeContext } from 'grommet';
 import { Filter } from 'grommet-icons';
 
 import { useFilters } from '.';
 import { FiltersLayer } from './FiltersLayer';
-
-const FilterButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
 
 const ClearFiltersButton = styled(Button)`
   margin: 0;
@@ -42,6 +34,8 @@ export const Filters = () => {
     setSearchValue,
   } = useFilters();
   const [filterCount, setFilterCount] = useState();
+  const theme = useContext(ThemeContext);
+  console.log(theme.global.colors.border.dark);
 
   // Provide indication for the number of filters applied
   useEffect(() => {
@@ -60,44 +54,34 @@ export const Filters = () => {
 
   return (
     <>
-      <Box direction="row" align="center" gap="xsmall">
-        <Stack anchor="top-right">
-          <Box pad={{ top: 'small', right: 'small' }}>
-            <FilterButton
-              icon={<Filter />}
-              onClick={() => {
-                setPreviousFilters(filters);
-                setFiltersLayer(true);
-              }}
-            />
-          </Box>
-          {isFiltered && (
-            <Box
-              align="center"
-              background="text"
-              border={{ color: 'background-front', size: 'small' }}
-              pad={{ horizontal: 'xsmall' }}
-              round
-              width={{ min: '24px' }}
-            >
-              <Text color="text-strong" size="small">
-                {filterCount}
-              </Text>
-            </Box>
-          )}
-        </Stack>
+      <Box direction="row" align="center" gap="small">
+        <Button
+          kind="toolbar"
+          badge={
+            filterCount > 0
+              ? {
+                  background: theme.global.colors.text,
+                  value: filterCount,
+                }
+              : null
+          }
+          icon={<Filter />}
+          tip={`open filters, ${filterCount} currently applied`}
+          onClick={() => {
+            setPreviousFilters(filters);
+            setFiltersLayer(true);
+          }}
+        />
         {isFiltered && (
-          <Box pad={{ top: 'small' }}>
-            <ClearFiltersButton
-              label="Clear Filters"
-              onClick={() => {
-                const nextFilters = {};
-                applyFilters(data, nextFilters);
-                setIsFiltered(false);
-                setSearchValue('');
-              }}
-            />
-          </Box>
+          <ClearFiltersButton
+            label="Clear Filters"
+            onClick={() => {
+              const nextFilters = {};
+              applyFilters(data, nextFilters);
+              setIsFiltered(false);
+              setSearchValue('');
+            }}
+          />
         )}
       </Box>
       {filtersLayer && <FiltersLayer />}
