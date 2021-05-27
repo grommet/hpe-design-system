@@ -8049,7 +8049,7 @@ grommet-styles@^0.2.0:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#7046e7c59e1e9d9ae2cc19141013f64c12365b30"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#ac0879d94d06fb18327291a7283f14f0f5372a24"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.17.2"
