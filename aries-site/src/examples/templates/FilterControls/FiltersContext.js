@@ -114,7 +114,11 @@ const useFilters = () => {
       .includes(true);
 
     setFilters(criteria);
-    setIsFiltered(!(array.length === filterResults.length) || filtersApplied);
+    setIsFiltered(
+      !(array.length === filterResults.length) ||
+        filtersApplied ||
+        searchTerm.length > 0,
+    );
     setFilteredResults(filterResults);
   };
 
