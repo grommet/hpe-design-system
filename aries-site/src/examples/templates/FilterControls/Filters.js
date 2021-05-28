@@ -45,7 +45,8 @@ export const Filters = () => {
       Object.entries(filters).forEach(filter => {
         // filter can either be an array or an object with a value property,
         // check both
-        if (filter[1].length > 0 || filter[1].value.length) count += 1;
+        if (filter[1].length > 0 || (filter[1].value && filter[1].value.length))
+          count += 1;
       });
       setFilterCount(count);
     }
@@ -65,7 +66,11 @@ export const Filters = () => {
               : null
           }
           icon={<Filter />}
-          tip={`open filters, ${filterCount} currently applied`}
+          tip={
+            isFiltered
+              ? `open filters, ${filterCount} filters applied`
+              : 'open filters'
+          }
           onClick={() => {
             setPreviousFilters(filters);
             setFiltersLayer(true);

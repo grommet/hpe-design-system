@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext, TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 import { useFilters } from '.';
@@ -16,7 +17,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const SearchFilter = () => {
+export const SearchFilter = ({ placeholder }) => {
   const size = useContext(ResponsiveContext);
   const filterContext = useFilters();
   const {
@@ -44,7 +45,7 @@ export const SearchFilter = () => {
             ref={inputRef}
             type="search"
             icon={<Search id="search-icon" />}
-            placeholder="Search by server attributes (e.g. location, etc.)"
+            placeholder={placeholder || 'Search...'}
             onBlur={() => setSearchFocused(false)}
             value={searchValue}
             onChange={event => {
@@ -62,4 +63,8 @@ export const SearchFilter = () => {
       )}
     </>
   );
+};
+
+SearchFilter.propTypes = {
+  placeholder: PropTypes.string,
 };

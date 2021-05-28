@@ -4,7 +4,7 @@ import { Box } from 'grommet';
 
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
-export const FilterControls = ({ data, filters }) => {
+export const FilterControls = ({ data, filters, searchFilter }) => {
   const { setData, setFilterAttributes, syncFilteredResults } = useFilters();
 
   useEffect(() => {
@@ -23,7 +23,9 @@ export const FilterControls = ({ data, filters }) => {
   return (
     <Box gap="xsmall">
       <Box direction="row" align="end" gap="small">
-        <SearchFilter />
+        {searchFilter && (
+          <SearchFilter placeholder={searchFilter.placeholder} />
+        )}
         <Filters />
       </Box>
       <ResultsSummary />
@@ -41,4 +43,10 @@ FilterControls.propTypes = {
       inputProps: PropTypes.object,
     }),
   ),
+  searchFilter: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      placeholder: PropTypes.string,
+    }),
+  ]),
 };

@@ -26,7 +26,7 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export const FilteringCards2 = () => {
+export const FilteringCards = () => {
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
@@ -51,13 +51,17 @@ export const FilteringCards2 = () => {
   ];
 
   return (
-    <Box pad="small">
-      <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
+    <Box pad="small" gap="medium">
+      <Heading level={2} margin="none">
         Users
       </Heading>
       <FiltersProvider>
         <Box gap="medium">
-          <FilterControls data={users} filters={filtersConfig} />
+          <FilterControls
+            data={users}
+            filters={filtersConfig}
+            searchFilter={{ placeholder: 'Search users...' }}
+          />
           <Users />
         </Box>
       </FiltersProvider>
