@@ -117,7 +117,7 @@ const useFilters = () => {
     setIsFiltered(
       !(array.length === filterResults.length) ||
         filtersApplied ||
-        searchTerm.length > 0,
+        (searchTerm && searchTerm.length > 0),
     );
     setFilteredResults(filterResults);
   };
