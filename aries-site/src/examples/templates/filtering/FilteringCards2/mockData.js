@@ -1,5 +1,6 @@
 export const users = [
   {
+    id: 1,
     location: 'San Jose, CA',
     hoursAvailable: 10,
     image:
@@ -9,6 +10,7 @@ export const users = [
     status: 'Online',
   },
   {
+    id: 2,
     location: 'San Jose, CA',
     hoursAvailable: 30,
     image:
@@ -18,6 +20,7 @@ export const users = [
     status: 'Online',
   },
   {
+    id: 3,
     location: 'Fort Collins, CO',
     hoursAvailable: 25,
     image:
@@ -27,6 +30,7 @@ export const users = [
     status: 'Offline',
   },
   {
+    id: 4,
     location: 'Fort Collins, CO',
     hoursAvailable: 5,
     image:
@@ -36,6 +40,7 @@ export const users = [
     status: 'Online',
   },
   {
+    id: 5,
     location: 'San Jose, CA',
     hoursAvailable: 25,
     image:
@@ -45,6 +50,7 @@ export const users = [
     status: 'Offline',
   },
   {
+    id: 6,
     location: 'Fort Collins, CO',
     hoursAvailable: 12,
     image:

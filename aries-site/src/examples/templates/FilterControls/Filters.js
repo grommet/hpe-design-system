@@ -35,7 +35,6 @@ export const Filters = () => {
   } = useFilters();
   const [filterCount, setFilterCount] = useState();
   const theme = useContext(ThemeContext);
-  console.log(theme.global.colors.border.dark);
 
   // Provide indication for the number of filters applied
   useEffect(() => {

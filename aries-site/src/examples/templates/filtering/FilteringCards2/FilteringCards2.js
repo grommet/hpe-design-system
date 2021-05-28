@@ -51,15 +51,17 @@ export const FilteringCards2 = () => {
   ];
 
   return (
-    <>
+    <Box pad="small">
       <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
         Users
       </Heading>
       <FiltersProvider>
-        <FilterControls data={users} filters={filtersConfig} />
-        <Users />
+        <Box gap="medium">
+          <FilterControls data={users} filters={filtersConfig} />
+          <Users />
+        </Box>
       </FiltersProvider>
-    </>
+    </Box>
   );
 };
 
@@ -68,17 +70,18 @@ const Users = () => {
   const { filteredResults } = useFilters();
 
   return (
-    <Box overflow="auto" pad={{ bottom: 'medium' }} fill>
+    <Box overflow="auto" fill>
       <Grid
         columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
         gap={size !== 'small' ? 'medium' : 'small'}
-        margin={{ top: 'small' }}
       >
-        {filteredResults.map((datum, index) => (
+        {filteredResults.map(datum => (
           <StyledCard
+            key={datum.id}
             background="background"
             elevation="medium"
-            key={index}
+            // margin ensures focus on cards is not cutoff
+            margin="xxsmall"
             onClick={() => {
               // eslint-disable-next-line no-alert
               alert(`
