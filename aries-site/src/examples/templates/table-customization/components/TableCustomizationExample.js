@@ -23,20 +23,13 @@ const COLUMNS = [
   { property: 'status', header: 'Status' },
   { property: 'role', header: 'Role' },
   { property: 'location', header: 'Location' },
-  {
-    property: 'hoursAvailable',
-    header: 'Hours Available',
-    align: 'end',
-    visible: true,
-  },
+  { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
 ];
 
 const allData = [
   {
     location: 'San Jose, CA',
     hoursAvailable: 10,
-    image:
-      'https://images.unsplash.com/photo-1584704135557-d8bf7ca50eae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     role: 'Engineer',
     name: 'Eric Soderberg',
     status: 'Online',
@@ -44,8 +37,6 @@ const allData = [
   {
     location: 'San Jose, CA',
     hoursAvailable: 30,
-    image:
-      'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     role: 'Engineer',
     name: 'Taylor Seamans',
     status: 'Online',
@@ -53,8 +44,6 @@ const allData = [
   {
     location: 'Fort Collins, CO',
     hoursAvailable: 25,
-    image:
-      'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
     role: 'Engineer',
     name: 'Matthew Glissmann',
     status: 'Offline',
@@ -62,8 +51,6 @@ const allData = [
   {
     location: 'Fort Collins, CO',
     hoursAvailable: 5,
-    image:
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80',
     role: 'Designer',
     name: 'Greg Furuiye',
     status: 'Online',
@@ -71,8 +58,6 @@ const allData = [
   {
     location: 'San Jose, CA',
     hoursAvailable: 25,
-    image:
-      'https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     role: 'Designer',
     name: 'Vicky Avalos',
     status: 'Offline',
@@ -80,8 +65,6 @@ const allData = [
   {
     location: 'Fort Collins, CO',
     hoursAvailable: 12,
-    image:
-      'https://images.unsplash.com/photo-1584450150050-4b9bdbd51f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     role: 'Engineer',
     name: 'Shimi Yacobi',
     status: 'Online',
@@ -98,10 +81,7 @@ export const TableCustomizationExample = () => {
   const [filters, setFilters] = useState({});
   const [searchFocused, setSearchFocused] = useState(false);
   const [search, setSearch] = useState('');
-  const [columns, setColumns] = useState(COLUMNS);
-  const [visible, setVisible] = useState(() =>
-    COLUMNS.map(col => col.property),
-  );
+  const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
   useEffect(() => {
@@ -206,10 +186,9 @@ export const TableCustomizationExample = () => {
                 dropAlign={{ top: 'bottom', right: 'right' }}
                 dropContent={
                   <ColumnSettings
-                    columns={columns}
-                    setColumns={setColumns}
-                    visible={visible}
-                    setVisible={setVisible}
+                    columns={COLUMNS}
+                    visibleColumns={visibleColumns}
+                    setVisibleColumns={setVisibleColumns}
                   />
                 }
               />
@@ -218,10 +197,7 @@ export const TableCustomizationExample = () => {
           </Box>
         </Box>
       </Header>
-      <Results
-        data={data}
-        columns={columns.filter(({ property }) => visible.includes(property))}
-      />
+      <Results data={data} columns={visibleColumns} />
     </Box>
   );
 };
@@ -246,9 +222,14 @@ const Results = ({ data, columns }) => {
 Results.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
+      hoursAvailable: PropTypes.number,
+      location: PropTypes.string,
+      name: PropTypes.string,
       role: PropTypes.string,
       status: PropTypes.string,
     }),
   ).isRequired,
-  columns: PropTypes.array,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({ property: PropTypes.string, header: PropTypes.string }),
+  ),
 };

@@ -10,13 +10,12 @@ const COLUMNS = [
 ];
 
 export const ColumnSettingsExample = props => {
-  const [columns, setColumns] = useState(COLUMNS);
+  const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
   return (
     <ColumnSettings
-      columns={columns}
-      setColumns={setColumns}
-      visible={columns.map(col => col.property)}
-      setVisible={() => {}}
+      columns={COLUMNS}
+      visibleColumns={visibleColumns}
+      setVisibleColumns={setVisibleColumns}
       {...props}
     />
   );

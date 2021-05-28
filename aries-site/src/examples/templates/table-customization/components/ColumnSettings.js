@@ -6,17 +6,14 @@ import { Search } from 'grommet-icons';
 
 export const ColumnSettings = ({
   columns,
-  setColumns,
-  visible,
-  setVisible,
+  visibleColumns,
+  setVisibleColumns,
   ...rest
 }) => {
-
   const [filteredColumns, setFilteredColumns] = useState(columns);
   const [search, setSearch] = useState('');
 
   const filterColumns = (array, searchValue = search) => {
-    
     let filterResults = array;
 
     if (searchValue) {
@@ -31,6 +28,9 @@ export const ColumnSettings = ({
     return filterResults;
   };
 
+  const getColumn = property =>
+    columns.find(column => column.property === property);
+
   return (
     <Box pad="small" elevation="medium">
       <Tabs {...rest}>
@@ -43,10 +43,7 @@ export const ColumnSettings = ({
               value={search}
               onChange={event => {
                 setSearch(event.target.value);
-                const nextColumns = filterColumns(
-                  columns,
-                  event.target.value,
-                );
+                const nextColumns = filterColumns(columns, event.target.value);
                 setFilteredColumns(nextColumns);
               }}
             />
@@ -54,15 +51,15 @@ export const ColumnSettings = ({
               options={filteredColumns}
               valueKey="property"
               labelKey="header"
-              value={visible}
-              onChange={({ value }) => setVisible(value)}
+              value={visibleColumns.map(column => column.property)}
+              onChange={({ value }) => setVisibleColumns(value.map(getColumn))}
             />
           </Box>
         </Tab>
         <Tab title="Order Columns">
           <List
-            data={columns}
-            onOrder={orderedData => setColumns(orderedData)}
+            data={visibleColumns}
+            onOrder={orderedData => setVisibleColumns(orderedData)}
             pad="none"
             primaryKey="header"
           />
@@ -72,9 +69,13 @@ export const ColumnSettings = ({
   );
 };
 
+const ColumnType = PropTypes.shape({
+  header: PropTypes.string,
+  property: PropTypes.string,
+});
+
 ColumnSettings.propTypes = {
-  columns: PropTypes.array.isRequired,
-  setColumns: PropTypes.func.isRequired,
-  visible: PropTypes.arrayOf(PropTypes.string).isRequired,
-  setVisible: PropTypes.func,
+  columns: PropTypes.arrayOf(ColumnType).isRequired,
+  visibleColumns: PropTypes.arrayOf(ColumnType).isRequired,
+  setVisibleColumns: PropTypes.func,
 };
