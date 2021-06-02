@@ -1,22 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  DataTable,
-  DropButton,
-  Header,
-  Heading,
-  Menu,
-  ResponsiveContext,
-  TextInput,
-} from 'grommet';
-import { Edit, Search } from 'grommet-icons';
+import { Box, DataTable, DropButton, Header, Heading, Menu } from 'grommet';
+import { Edit } from 'grommet-icons';
 
-import { Filters } from './Filters';
-import { StyledButton } from './StyledButton';
-import { RecordSummary } from './RecordSummary';
 import { ColumnSettings } from './ColumnSettings';
+import {
+  FilterControls,
+  FiltersProvider,
+  useFilters,
+} from '../../FilterControls';
 
 const COLUMNS = [
   { property: 'name', header: 'Name', primary: true, pin: true },
@@ -71,52 +63,31 @@ const allData = [
   },
 ];
 
-const StyledTextInput = styled(TextInput).attrs(() => ({
-  'aria-labelledby': 'search-icon',
-}))``;
+// Define which attributes should be made available for the user
+// to filter upon
+const filtersConfig = [
+  { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
+  { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
+  {
+    property: 'location',
+    label: 'Location',
+    filterType: 'CheckBoxGroup',
+  },
+  {
+    property: 'hoursAvailable',
+    label: 'Remaining Hours Available',
+    filterType: 'RangeSelector',
+    inputProps: {
+      min: 0,
+      max: 40,
+      valueRange: '0 - 40 hours',
+    },
+  },
+  { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
+];
 
 export const TableCustomizationExample = () => {
-  const [data, setData] = useState(allData);
-  const [filtering, setFiltering] = useState(false);
-  const [filters, setFilters] = useState({});
-  const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState('');
   const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
-  const inputRef = useRef();
-  const size = useContext(ResponsiveContext);
-  useEffect(() => {
-    if (searchFocused && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [searchFocused, setSearchFocused]);
-
-  const filterData = (array, criteria, searchValue = search) => {
-    if (Object.keys(criteria).length) setFiltering(true);
-    else setFiltering(false);
-    setFilters(criteria);
-
-    let filterResults;
-    const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item =>
-      // validates all filter criteria
-      filterKeys.every(key => {
-        // ignores non-function predicates
-        if (typeof criteria[key] !== 'function') return true;
-        return criteria[key](item[key]);
-      }),
-    );
-
-    if (searchValue) {
-      filterResults = filterResults.filter(o =>
-        Object.keys(o).some(
-          k =>
-            typeof o[k] === 'string' &&
-            o[k].toLowerCase().includes(searchValue.toLowerCase()),
-        ),
-      );
-    }
-    return filterResults;
-  };
 
   return (
     <Box
@@ -126,93 +97,52 @@ export const TableCustomizationExample = () => {
       pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
     >
-      <Header pad={{ top: 'medium' }}>
-        <Box gap="xsmall" fill="horizontal">
-          <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-            Users
-          </Heading>
-          <Box direction="row" justify="between">
-            <Box>
-              <Box align="center" direction="row" gap="small">
-                {size !== 'small' || searchFocused ? (
-                  <Box width="medium">
-                    <StyledTextInput
-                      ref={inputRef}
-                      type="search"
-                      icon={<Search id="search-icon" />}
-                      placeholder="Search placeholder"
-                      onBlur={() => setSearchFocused(false)}
-                      value={search}
-                      onChange={event => {
-                        setSearch(event.target.value);
-                        const nextData = filterData(
-                          allData,
-                          filters,
-                          event.target.value,
-                        );
-                        setData(nextData);
-                      }}
-                    />
-                  </Box>
-                ) : (
-                  <StyledButton
-                    id="search-button"
-                    icon={<Search />}
-                    onClick={() => setSearchFocused(true)}
-                  />
-                )}
-                {(size !== 'small' || !searchFocused) && (
-                  <Filters
-                    data={allData}
-                    filtering={filtering}
-                    setFiltering={setFiltering}
-                    setData={setData}
-                    filters={filters}
-                    setFilters={setFilters}
-                    filterData={filterData}
-                    setSearch={setSearch}
-                  />
-                )}
-              </Box>
-              <RecordSummary
+      <FiltersProvider>
+        <Header pad={{ top: 'medium' }}>
+          <Box gap="xsmall" fill="horizontal">
+            <Heading level={2} margin="none">
+              Users
+            </Heading>
+            <Box direction="row" justify="between">
+              <FilterControls
                 data={allData}
-                filteredData={data}
-                filtering={filtering}
+                filters={filtersConfig}
+                searchFilter={{ placeholder: 'Search users...' }}
               />
-            </Box>
-            <Box direction="row" height="fit-content">
-              <DropButton
-                icon={<Edit />}
-                dropAlign={{ top: 'bottom', right: 'right' }}
-                dropContent={
-                  <ColumnSettings
-                    columns={COLUMNS}
-                    visibleColumns={visibleColumns}
-                    setVisibleColumns={setVisibleColumns}
-                  />
-                }
-              />
-              <Menu label="Actions" items={[]} />
+              <Box direction="row" height="fit-content">
+                <DropButton
+                  icon={<Edit />}
+                  dropAlign={{ top: 'bottom', right: 'right' }}
+                  dropContent={
+                    <ColumnSettings
+                      columns={COLUMNS}
+                      visibleColumns={visibleColumns}
+                      setVisibleColumns={setVisibleColumns}
+                    />
+                  }
+                />
+                <Menu label="Actions" items={[]} />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Header>
-      <Results data={data} columns={visibleColumns} />
+        </Header>
+        <Results columns={visibleColumns} />
+      </FiltersProvider>
     </Box>
   );
 };
 
-const Results = ({ data, columns }) => {
+const Results = ({ columns }) => {
   const [select, setSelect] = useState([]);
+  const { filteredResults } = useFilters();
 
   return (
-    <Box fill="vertical" overflow="auto">
+    <Box fill overflow="auto">
       <DataTable
-        data={data}
+        data={filteredResults}
         columns={columns}
         select={select}
         onSelect={setSelect}
-        fill
         pin
       />
     </Box>
@@ -220,15 +150,6 @@ const Results = ({ data, columns }) => {
 };
 
 Results.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      hoursAvailable: PropTypes.number,
-      location: PropTypes.string,
-      name: PropTypes.string,
-      role: PropTypes.string,
-      status: PropTypes.string,
-    }),
-  ).isRequired,
   columns: PropTypes.arrayOf(
     PropTypes.shape({ property: PropTypes.string, header: PropTypes.string }),
   ),
