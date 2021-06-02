@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CheckBoxGroup, FormField } from 'grommet';
+import { CheckBoxGroup, FormField } from 'grommet';
 
 import { useFilters } from '..';
 
 export const FilterCheckBoxGroup = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useFilters();
-  const { property, label, inputProps, sort = true, convertToString } = attr;
+  const {
+    property,
+    label,
+    inputProps,
+    sort = true,
+    convertToString,
+    contentProps,
+  } = attr;
   const [value, setValue] = useState(filters[property]);
   let options = getFilterOptions(data, property);
 
@@ -23,23 +30,29 @@ export const FilterCheckBoxGroup = ({ attr }) => {
   }, [filters, property, setValue]);
 
   return (
-    <Box flex={false}>
-      <FormField htmlFor={property} name={property} label={label}>
-        <CheckBoxGroup
-          id={property}
-          name={property}
-          value={value}
-          onChange={({ value: nextValue }) => {
-            setValue(nextValue);
-            const nextFilters = { ...filters };
-            nextFilters[property] = nextValue;
-            setFilters(nextFilters);
-          }}
-          options={options}
-          {...inputProps}
-        />
-      </FormField>
-    </Box>
+    <FormField
+      htmlFor={property}
+      name={property}
+      label={label}
+      flex={false}
+      width={{ max: 'medium', min: 'small' }}
+      {...contentProps}
+    >
+      <CheckBoxGroup
+        id={property}
+        name={property}
+        value={value}
+        onChange={({ value: nextValue }) => {
+          setValue(nextValue);
+          const nextFilters = { ...filters };
+          nextFilters[property] = nextValue;
+          setFilters(nextFilters);
+        }}
+        options={options}
+        {...inputProps}
+      />
+    </FormField>
+    // </Box>
   );
 };
 
@@ -50,5 +63,8 @@ FilterCheckBoxGroup.propTypes = {
     inputProps: PropTypes.object,
     sort: PropTypes.bool,
     convertToString: PropTypes.bool,
+    // Any valid Grommet Box props
+    // https://v2.grommet.io/formfield#contentProps
+    contentProps: PropTypes.object,
   }),
 };

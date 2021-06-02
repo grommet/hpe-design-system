@@ -21,8 +21,11 @@ export const FiltersLayer = () => {
     setFilters,
     setFiltersLayer,
     filterAttributes,
+    layerProps,
     previousFilters,
   } = useFilters();
+
+  const { containerProps, contentProps } = { ...layerProps };
 
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */
@@ -35,21 +38,22 @@ export const FiltersLayer = () => {
       as="section"
       position={size !== 'small' ? 'right' : undefined}
       full={size === 'small' ? true : 'vertical'}
-      modal
       onClickOutside={() => closeLayer()}
       onEsc={() => closeLayer()}
+      {...layerProps}
     >
       <Box
         fill="vertical"
         gap="medium"
         pad={{ vertical: 'medium' }}
         width={{ min: size !== 'small' ? 'medium' : undefined }}
+        {...containerProps}
       >
         <Header pad={{ horizontal: 'medium' }}>
           <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
-        <Box pad="medium" overflow="auto" flex>
+        <Box pad="medium" overflow="auto" flex {...contentProps}>
           {filterAttributes &&
             filterAttributes.map(attr => {
               if (attr.filterType === 'CheckBoxGroup') {
@@ -65,7 +69,7 @@ export const FiltersLayer = () => {
           align="center"
           direction="row"
           gap="small"
-          pad={{ horizontal: 'medium', top: 'small', bottom: 'medium' }}
+          pad={{ horizontal: 'medium', bottom: 'small' }}
         >
           <Button
             label="Apply Filters"
