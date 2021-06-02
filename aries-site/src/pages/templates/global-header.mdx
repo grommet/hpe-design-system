@@ -22,8 +22,27 @@ that you can reference from your application. You can choose various features to
 shopping cart and HPE passport login, etc. You can also enable or disable the page footer with privacy statement
 link, terms of use, ad choices and cookies, and *Do Not Sell My Information* links.
 
+Each site or application will have different needs. Some header options may not make sense for some
+sites. The following sections will help you decide which options to include.
+
 ## What makes up the Global Header?
+
+The full global header with all options enabled looks like this:
+
 ![Full HPE Global Header](/templateImages/globalheader-full.png)
+
+To configure what parts are shown in the global header for your site, go to the
+[HPE Common HFWS test page](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php?version=latest.r&cc_ll=us%2Fen&header_logo=&slim_footer=true&hide_search=true&hide_cart=true&hide_country_selector=true&hide_sign_in=true).
+There you can choose various options and hit `Submit`. The global header at the top
+of that page will change to include those options, and the code sample on that page will 
+change to declare the chosen options as parameters in
+`<script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?...">` element that
+configures the header.
+
+You can then copy the URL from that `<script>` and use it in the code sample at the top of
+this page to configure the global header and footer for your site.
+
+Let's take a closer look at each part of the global header and footer.
 
 ### App Identity
 
@@ -38,31 +57,36 @@ needed.
 ### Header Main Navigation
 
 The main navigation in the center of the header provide marketing content. The links allow users to find
-HPE products, contact support and get more information about HPE.
+HPE products, contact support and get more information about HPE. These should also typically be enabled
+for most sites.
 
 ![Global Header Main Navigation example](/templateImages/globalheader-nav.png)
 
 ### Search
 
-The *Search* icon allows the user to search hpe.com.
+The *Search* icon allows the user to search hpe.com. 
 
 <Search />
 
 ### Shopping Cart
 
-The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com.
+The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com. This should only
+be enabled for sites which have products or solutions for sale.
 
 <Shop />
 
 ### Country Selector
 
-The country selector allows the user to go to a language-specific version of hpe.com.
+The country selector allows the user to go to a language-specific version of hpe.com. This
+should be disabled for most sites since the link really only takes you back to hpe.com
+instead of staying on your site.
 
 <Language />
 
 ### Sign in
 
-Sign in allows the user to sign in to their HPE Passport account for hpe.com.
+Sign in allows the user to sign in to their HPE Passport account for hpe.com. Enable this
+option if your site uses features that require a Passport login.
 
 ![Sign In button](/templateImages/globalheader-sign-in.png)
 
@@ -70,7 +94,8 @@ Sign in allows the user to sign in to their HPE Passport account for hpe.com.
 
 The *Cube Menu* allows access to HPE services available to the user such as GreenLake and
 other Cloud console applications as well as general HPE links for HPE content like
-developer.hpe.com, education.hpe.com, etc.
+developer.hpe.com, education.hpe.com, etc. This menu should be enabled to allow access
+to other HPE sites and applications.
 
 <AppsRounded />
 
