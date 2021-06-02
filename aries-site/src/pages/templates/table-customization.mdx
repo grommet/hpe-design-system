@@ -1,0 +1,79 @@
+import {
+  TableCustomizationExample,
+  ColumnSettingsExample,
+} from '../../examples';
+import { Example } from '../../layouts';
+import { Box } from 'grommet';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/TableCustomizationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/RecordSummary.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/table-customization/components"
+  figma="https://www.figma.com/file/TonE8uQ33e5QJRPknZx36q/Ordering-Of-Items?node-id=33%3A15"
+  screenContainer
+  width="100%"
+>
+  <TableCustomizationExample />
+</Example>
+
+## Guidelines
+
+For complex tables with many columns, is it important for the user to be able to 
+configure which columns they want to see and the order in which these columns appear.
+
+This functionality is handled by a dropdown that contains two tabs: one for selecting
+which columns should appear in the table and another for ordering the columns.
+
+## What makes up the customizable table?
+
+### An action to display column visibility and order controls.
+
+Place a button with an `Edit` icon next to the `Actions` menu for the table on the
+right side above the table. The `Actions` menu is mainly for actions which modify
+items in the table. Controls like the search and filter controls change what items
+are shown in the table or how they are presented rather than changing the items
+themselves. Since we want to customize the table itself, we have a separate controls
+for changing which columns are shown in the table and their order.
+
+### Column visibility
+
+Clicking on the `Edit` button opens a dropdown which has two tabs. The first tab should
+be active and labeled "Select Columns". The tab content should consist of a Search input
+and a CheckBoxGroup that lists all possible table columns.
+
+When a column in the list is checked, it is visible in the table. When it is unchecked,
+it is removed from the table. Adjustments to the table data should occur immediately as
+the user checks or unchecks a column, as opposed to waiting until the dropdown closes.
+
+The user can also search for a specific column by typing in the Search input.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
+  horizontalLayout
+  height="none"
+  width={{ min: 'medium' }}
+>
+  <ColumnSettingsExample activeIndex={0} />
+</Example>
+
+### Column order
+
+The second tab of the dropdown should be labeled "Order Columns". It contains a
+list of the selected columns from the "Select Columns" tab. A user can reorder the
+columns either by dragging and dropping the column names in the list or by using
+the move up/move down buttons that are present next to each column name.
+
+Similar to column selection, the reordering of the table columns should take
+place immediately, as opposed to waiting until the dropdown closes.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
+  horizontalLayout
+  height="none"
+  width={{ min: 'medium' }}
+>
+  <ColumnSettingsExample activeIndex={1} />
+</Example>
