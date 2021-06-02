@@ -3,6 +3,7 @@ import {
   FilteringCards,
   FilteringCards2,
   FilteringLists,
+  FilteringTable,
   FilteringWithRangeSelector,
   FilteringWithDropButton,
   FilteringWithSelect,
@@ -65,6 +66,18 @@ When applying many filters at once, it is helpful to present them in a consolida
   template
 >
   <FilteringLists />
+</Example>
+
+### Filtering with selectable results
+
+When the user can select a subset of the results, the summary displayed beneath the search input should reflect the user's actions. When no filtering or selections have been made, the summary should read "X items", where X is the total number of items. When filters have been applied but no results have been selected, the summary should read "X results of Y items". When selection has been made, the summary should read "X of Y items selected", where Y is the total number of results that meet the filter criteria or the total number of items if no filtering has been applied.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringLists.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <FilteringTable />
 </Example>
 
 ## Guidelines
