@@ -231,4 +231,24 @@ export const templates = [
     sections: [],
     relatedContent: ['Page Layouts', 'Header', 'Navigation'],
   },
+  {
+    name: 'Table Customization',
+    available: false,
+    description: `Allows users to customize which columns are visible in a table
+    and in what order they appear.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-table-customize.svg',
+          dark: '/templateImages/template-preview-table-customize-invert.svg',
+        },
+        alt: 'HPE Table Customization Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to customize table column order and
+    visibility to best suit their needs.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists'],
+  },
 ];
