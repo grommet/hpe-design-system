@@ -56,9 +56,9 @@ export const FilteringLists = ({ containerRef }) => {
       pad: { horizontal: 'medium', vertical: 'small' },
       width: 'large',
     },
-    // mainProps accept any Grommet Box props to customize the Box
+    // contentProps accept any Grommet Box props to customize the Box
     // containing the FormField filters.
-    mainProps: {
+    contentProps: {
       direction: 'row',
       justify: 'between',
       pad: { horizontal: 'medium' },

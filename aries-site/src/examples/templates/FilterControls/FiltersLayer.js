@@ -26,7 +26,7 @@ export const FiltersLayer = () => {
     previousFilters,
   } = useFilters();
 
-  const { containerProps, mainProps } = { ...layerProps };
+  const { containerProps, contentProps } = { ...layerProps };
 
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */
@@ -54,7 +54,7 @@ export const FiltersLayer = () => {
           <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
-        <Box pad="medium" overflow="auto" flex {...mainProps}>
+        <Box pad="medium" overflow="auto" flex {...contentProps}>
           {filterAttributes &&
             filterAttributes.map(attr => {
               if (attr.filterType === 'CheckBoxGroup') {
