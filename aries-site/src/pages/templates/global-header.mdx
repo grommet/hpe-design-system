@@ -2,8 +2,18 @@ import {
   GlobalHeaderExample,
 } from '../../examples';
 import { Example } from '../../layouts';
-import { Box, Image } from 'grommet';
+import { Box, Button, Image } from 'grommet';
 import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
+
+The Global Header, also known as the HPE Common Header and Footer Web Service,
+provides a tunable, yet consistent header and footer to be used across all HPE
+applications. The header is provided as a service and injected into your
+application at run-time.
+
+<Box direction="row" gap="medium" pad={{ bottom: 'large' }}>
+  <Button label="View Implementation Details" href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php" target="_blank" rel="noreferrer  noopener" secondary />
+  <Button label="Development Team Contact" href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service" secondary />
+</Box>
 
 <Example
   code={[
@@ -17,10 +27,9 @@ import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
 
 ## Guidelines
 
-The Global Header is a standardized header to be used across applications. HPE provides an implementation
-that you can reference from your application. You can choose various features to enable like country selector,
-shopping cart and HPE passport login, etc. You can also enable or disable the page footer with privacy statement
-link, terms of use, ad choices and cookies, and *Do Not Sell My Information* links.
+The Global Header is a standardized header to be used across applications. HPE [provides an implementation](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php)
+to be referenced from your application. Both the header and footer are customizable, allowing consumers to choose various features to enable such as country selector,
+shopping cart, HPE passport login, privacy statement links, theme mode, and more.
 
 Each site or application will have different needs. Some header options may not make sense for some
 sites. The following sections will help you decide which options to include.
@@ -64,42 +73,37 @@ for most sites.
 
 ### Search
 
-The *Search* icon allows the user to search hpe.com. 
-
-<Search />
+<Search /> The *Search* icon allows the user to search hpe.com. 
 
 ### Shopping Cart
 
-The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com. This should only
+<Shop /> The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com. This should only
 be enabled for sites which have products or solutions for sale.
 
-<Shop />
 
 ### Country Selector
 
-The country selector allows the user to go to a language-specific version of hpe.com. This
+<Language /> The country selector allows the user to go to a language-specific version of hpe.com. This
 should be disabled for most sites since the link really only takes you back to hpe.com
 instead of staying on your site.
 
-<Language />
 
 ### Sign in
 
+![Sign In button](/templateImages/globalheader-sign-in.png)
 Sign in allows the user to sign in to their HPE Passport account for hpe.com. Enable this
 option if your site uses features that require a Passport login.
 
-![Sign In button](/templateImages/globalheader-sign-in.png)
 
 ### Cube Menu
 
-The *Cube Menu* allows access to HPE services available to the user such as GreenLake and
+<AppsRounded /> The *Cube Menu* allows access to HPE services available to the user such as GreenLake and
 other Cloud console applications as well as general HPE links for HPE content like
 developer.hpe.com, education.hpe.com, etc. This menu should be enabled to allow access
 to other HPE sites and applications.
 
-<AppsRounded />
 
-## What makes up the Global footer
+## What makes up the Global footer?
 
 The global footer contains links for privacy information and various opt-out and choices required by
 European GDPR standards as well US and other privacy requirements. In general these links should
@@ -125,3 +129,8 @@ such as Google Analytics and Adobe Analytics.
 
 The *Do Not Sell My Personal Information* link goes to information on how to opt-out of any sale
 of personal collected by automatic data collection tools.
+
+<Box direction="row" gap="medium">
+  <Button label="View Implementation Details" href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php" target="_blank" rel="noreferrer  noopener" secondary />
+  <Button label="Development Team Contact" href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service" secondary />
+</Box>
