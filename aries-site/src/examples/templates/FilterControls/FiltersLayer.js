@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import {
   Box,
   Button,
+  Footer,
   Header,
   Heading,
   Layer,
@@ -25,7 +26,7 @@ export const FiltersLayer = () => {
     previousFilters,
   } = useFilters();
 
-  const { containerProps, contentProps } = { ...layerProps };
+  const { containerProps, mainProps } = { ...layerProps };
 
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */
@@ -53,7 +54,7 @@ export const FiltersLayer = () => {
           <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
-        <Box pad="medium" overflow="auto" flex {...contentProps}>
+        <Box pad="medium" overflow="auto" flex {...mainProps}>
           {filterAttributes &&
             filterAttributes.map(attr => {
               if (attr.filterType === 'CheckBoxGroup') {
@@ -65,9 +66,8 @@ export const FiltersLayer = () => {
               return null;
             })}
         </Box>
-        <Box
-          align="center"
-          direction="row"
+        <Footer
+          justify="start"
           gap="small"
           pad={{ horizontal: 'medium', bottom: 'small' }}
         >
@@ -89,7 +89,7 @@ export const FiltersLayer = () => {
             }}
             secondary
           />
-        </Box>
+        </Footer>
       </Box>
     </Layer>
   );

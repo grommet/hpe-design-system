@@ -28,8 +28,8 @@ export const FilteringLists = ({ containerRef }) => {
       property: 'service',
       label: 'Service',
       filterType: 'CheckBoxGroup',
-      // contentProps accept any Grommet Box props to customize the Box
-      // containing the FormField. https://v2.grommet.io/formfield#contentProps
+      // contentProps accept any Grommet Box props to customize the filter's
+      // FormField. https://v2.grommet.io/formfield#contentProps
       contentProps: { width: 'small' },
     },
     {
@@ -56,9 +56,9 @@ export const FilteringLists = ({ containerRef }) => {
       pad: { horizontal: 'medium', vertical: 'small' },
       width: 'large',
     },
-    // contentProps accept any Grommet Box props to customize the Box
+    // mainProps accept any Grommet Box props to customize the Box
     // containing the FormField filters.
-    contentProps: {
+    mainProps: {
       direction: 'row',
       justify: 'between',
       pad: { horizontal: 'medium' },
