@@ -31,9 +31,6 @@ test('should check Home page', async t => {
       rules: {
         'color-contrast': { enabled: false },
         region: { enabled: false },
-        // Layer in grommet is placing id on multiple DOM nodes,
-        // we need to ignore for SkipLinks to work
-        'duplicate-id-active': { enabled: false },
       },
     };
     const { violations } = await axeCheck(t, axeContext, axeOptions);
@@ -54,9 +51,6 @@ test.before(async t => {
       rules: {
         'color-contrast': { enabled: false },
         region: { enabled: false },
-        // Layer in grommet is placing id on multiple DOM nodes,
-        // we need to ignore for SkipLinks to work
-        'duplicate-id-active': { enabled: false },
       },
     };
     const { violations } = await axeCheck(t, axeContext, axeOptions);
@@ -77,9 +71,6 @@ test.before(async t => {
       rules: {
         'color-contrast': { enabled: false },
         region: { enabled: false },
-        // Layer in grommet is placing id on multiple DOM nodes,
-        // we need to ignore for SkipLinks to work
-        'duplicate-id-active': { enabled: false },
       },
     };
     const { violations } = await axeCheck(t, axeContext, axeOptions);
