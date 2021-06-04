@@ -96,6 +96,7 @@ export const TableCustomizationExample = () => {
       margin="auto"
       pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
+      background="background"
     >
       <FiltersProvider>
         <Header pad={{ top: 'medium' }}>
@@ -140,6 +141,7 @@ const Results = ({ columns }) => {
     <Box fill overflow="auto">
       <DataTable
         data={filteredResults}
+        background="background"
         columns={columns}
         select={select}
         onSelect={setSelect}
