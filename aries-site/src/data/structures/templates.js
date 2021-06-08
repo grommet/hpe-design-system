@@ -249,6 +249,6 @@ export const templates = [
     seoDescription: `Allows users to customize table column order and
     visibility to best suit their needs.`,
     sections: [],
-    relatedContent: ['Table', 'Lists'],
+    relatedContent: ['Table', 'Lists', 'Filtering'],
   },
 ];
