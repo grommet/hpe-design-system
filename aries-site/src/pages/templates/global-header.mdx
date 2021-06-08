@@ -1,73 +1,143 @@
 import {
-  AppIdentityExample,
   GlobalHeaderExample,
-  HeaderNavItems,
-  SidebarLayer,
 } from '../../examples';
 import { Example } from '../../layouts';
-import { Box } from 'grommet';
+import { Box, Button, Image } from 'grommet';
+import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
+
+The Global Header, also known as the HPE Common Header and Footer Web Service,
+provides a tunable, yet consistent header and footer to be used across all HPE
+applications. The header is provided as a service and injected into your
+application at run-time.
+
+<Box direction="row" gap="medium" pad={{ bottom: 'large' }}>
+  <Button label="View Implementation Details" href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php" target="_blank" rel="noreferrer  noopener" secondary />
+  <Button label="Development Team Contact" href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service" secondary />
+</Box>
 
 <Example
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/GlobalHeaderExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/GlobalHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/AppIdentity.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/HeaderNav.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/MenuLayer.js',
   ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-header/components"
-  figma="https://www.figma.com/file/LKiJepGfOY2NFh3YJLmEaE/HPE-Global-Header?node-id=0%3A1"
-  screenContainer
   width="100%"
+  screenContainer
 >
   <GlobalHeaderExample />
 </Example>
 
 ## Guidelines
 
-The Global Header is a standardized header to be used across applications.
+The Global Header is a standardized header to be used across applications. HPE [provides an implementation](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php)
+to be referenced from your application. Both the header and footer are customizable, allowing consumers to choose various features to enable such as country selector,
+shopping cart, HPE passport login, privacy statement links, theme mode, and more.
+
+Each site or application will have different needs. Some header options may not make sense for some
+sites. The following sections will help you decide which options to include.
 
 ## What makes up the Global Header?
 
-### Menu + App Identity
+The full global header with all options enabled looks like this:
 
-The Menu and App Identity are interactive elements whose presence and look are dependent on if the user is logged in. Follow the guidance below.
+![Full HPE Global Header](/templateImages/globalheader-full.png)
 
-**If user is logged in:**
+To configure what parts are shown in the global header for your site, go to the
+[HPE Common HFWS test page](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php?version=latest.r&cc_ll=us%2Fen&header_logo=&slim_footer=true&hide_search=true&hide_cart=true&hide_country_selector=true&hide_sign_in=true).
+There you can choose various options and hit `Submit`. The global header at the top
+of that page will change to include those options, and the code sample on that page will 
+change to declare the chosen options as parameters in
+`<script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?...">` element that
+configures the header.
 
-- Menu button is present and opens a Sidebar Layer containing additional navigation options. This Layer should have modal={false} applied to ensure users can continue to interact with the underlying page content.
-- App Identity has a text value of either "HPE Service Name" or "Aruba Service Name".
-- HPE/Aruba has weight="bold" and Service Name has default weight. When clicked, this should route to the home page of the application.
+You can then copy the URL from that `<script>` and use it in the code sample at the top of
+this page to configure the global header and footer for your site.
 
-**If user is not logged in:**
+Let's take a closer look at each part of the global header and footer.
 
-- Menu button is not present since in-app navigation is not an option.
-- App Identity has text value of "Hewlett Packward Enterprise" with weight="bold". When clicked, this should route to [https://www.hpe.com](https://www.hpe.com).
+### App Identity
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/AppIdentity.js"
-  horizontalLayout
-  height="none"
-  width={{ min: 'medium' }}
->
-  <AppIdentityExample />
-</Example>
+Most sites should choose the default which will be the HPE logo for regular mode or the GreenLake logo for
+`console` mode. You can force it to use one or the other by specifically choosing HPE versus GreenLake if
+needed.
 
-### Header Nav
+![HPE logo](/templateImages/globalheader-hpe.png)
 
-The header navigation items should only be present if a user is logged in. The content of this section is flexible but should follow the guidelines established by [Header](/components/header).
+![GreenLake logo](/templateImages/globalheader-greenlake.png)
 
-The **Avatar button** opens additional options regarding the active account.
+### Header Main Navigation
 
-- If a user has a profile picture, this should appear in the avatar. Otherwise, their first and last initials should appear.
-- On click, a drop should open containing the user's name and email. The footer of the drop contains a "My Profile" button which routes to the user's profile page and a "Sign Out" button which signs the user out and routes back to the Sign In page.
+The main navigation in the center of the header provide marketing content. The links allow users to find
+HPE products, contact support and get more information about HPE. These should also typically be enabled
+for most sites.
 
-On mobile, the Avatar should remain in the header, but the remaining nav items should be moved into the sidebar menu.
+![Global Header Main Navigation example](/templateImages/globalheader-nav.png)
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/extend/global-header/HeaderNav.js"
-  horizontalLayout
-  height="none"
->
-  <HeaderNavItems />
-</Example>
+### Search
+
+<Search /> The *Search* icon allows the user to search hpe.com. 
+
+### Shopping Cart
+
+<Shop /> The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com. This should only
+be enabled for sites which have products or solutions for sale.
+
+
+### Country Selector
+
+<Language /> The country selector allows the user to go to a language-specific version of hpe.com. This
+should be disabled for most sites since the link really only takes you back to hpe.com
+instead of staying on your site.
+
+
+### Sign in
+
+![Sign In button](/templateImages/globalheader-sign-in.png)
+Sign in allows the user to sign in to their HPE Passport account for hpe.com. Enable this
+option if your site uses features that require a Passport login.
+
+
+### Cube Menu
+
+<AppsRounded /> The *Cube Menu* allows access to HPE services available to the user such as GreenLake and
+other Cloud console applications as well as general HPE links for HPE content like
+developer.hpe.com, education.hpe.com, etc. This menu should be enabled to allow access
+to other HPE sites and applications.
+
+### Color Scheme
+
+**Color Scheme** allows implementors to choose either a light or dark variant of the header/footer.
+The color scheme you choose should be harmonious with the primary background of your application's
+header and avoid stark contrast which interrupts a user's visual flow. If your application supports
+light and dark modes, consider setting the `color_scheme` parameter with a value of either `light`
+or `dark` in alignment with the user's preference.
+
+## What makes up the Global footer?
+
+The global footer contains links for privacy information and various opt-out and choices required by
+European GDPR standards as well US and other privacy requirements. In general these links should
+be enabled for customer-facing sites.
+
+### Privacy Link
+
+The *Privacy* link goes to HPE's Privacy Statement which explains how HPE manages and protects a users
+information and respects the relevant privacy standards like GDPR, APEC, etc.
+
+### Terms of Use Link
+
+The *Terms of Use* link goes to the legal statement that governs the user's activity on HPE's websites.
+
+### Ad Choices and Cookies Link
+
+The *Ad Choices and Cookies* link goes to the section of the *Privacy Statement* that explains how
+cookies are used as well as how you can opt-out of targetted advertisements and analytics data
+such as Google Analytics and Adobe Analytics.
+
+
+### Do Not Sell My Personal Information Link
+
+The *Do Not Sell My Personal Information* link goes to information on how to opt-out of any sale
+of personal collected by automatic data collection tools.
+
+<Box direction="row" gap="medium">
+  <Button label="View Implementation Details" href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php" target="_blank" rel="noreferrer  noopener" secondary />
+  <Button label="Development Team Contact" href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service" secondary />
+</Box>

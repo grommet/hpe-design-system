@@ -6,7 +6,7 @@ export const FileInputMultipleExample = () => (
     <FileInput
       messages={{
         dropPrompt: 'Drag and drop',
-        browse: 'Select File',
+        browse: 'Select Files',
       }}
       onChange={event => {
         const fileList = event.target.files;
