@@ -18,7 +18,7 @@ export const FilteringTable = () => {
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
-    { property: 'displayName', label: 'Name', filterType: 'CheckBoxGroup' },
+    { property: 'id', label: 'Name', filterType: 'CheckBoxGroup' },
     {
       property: 'hardware.serialNumber',
       label: 'Serial',
@@ -52,6 +52,7 @@ export const FilteringTable = () => {
           <FilterControls
             data={servers}
             filters={filtersConfig}
+            primaryKey="id"
             searchFilter={{ placeholder: 'Search servers...' }}
           />
           <ServerResults />
@@ -90,7 +91,7 @@ const statusIcons = {
 
 const ServerResults = () => {
   const size = useContext(ResponsiveContext);
-  const { filteredResults } = useFilters();
+  const { filteredResults, selected, setSelected } = useFilters();
 
   return (
     <Box height="medium" overflow="auto">
@@ -105,7 +106,7 @@ const ServerResults = () => {
             sortable: false,
           },
           {
-            property: 'displayName',
+            property: 'id',
             header: 'Name',
             primary: true,
             pin: size === 'small',
@@ -114,7 +115,8 @@ const ServerResults = () => {
         ]}
         pin
         sortable
-        onSelect={() => {}}
+        onSelect={nextSelected => setSelected(nextSelected)}
+        select={selected}
       />
     </Box>
   );
