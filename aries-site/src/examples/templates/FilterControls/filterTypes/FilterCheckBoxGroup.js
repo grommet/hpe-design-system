@@ -1,22 +1,8 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Button, CheckBoxGroup, FormField } from 'grommet';
 
 import { useFilters } from '..';
-
-// Button that appears like an anchor
-// necessary for accessibility behavior because onClick is used instead of href
-// without href, anchor will not be accessible by keyboard
-const StyledButton = styled(Button)`
-  text-decoration: underline;
-  font-weight: 500;
-  padding: 0;
-
-  &:hover {
-    background-color: transparent;
-  }
-`;
 
 export const FilterCheckBoxGroup = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useFilters();
@@ -40,13 +26,8 @@ export const FilterCheckBoxGroup = ({ attr }) => {
       return 0;
     });
   if (convertToString) options = options.map(option => option.toString());
-  if (render) {
-    console.log(
-      options,
-      options.map(option => render(option)),
-    );
-    options = options.map(option => render(option));
-  }
+  if (render) options = options.map(option => render(option));
+
   useEffect(() => {
     setValue(filters[property] || []);
   }, [filters, property, setValue]);
@@ -72,7 +53,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
         />
       </FormField>
       {options.length > max && (
-        <StyledButton
+        <Button
           alignSelf="start"
           label={`Show ${showMore ? 'less' : 'more'}`}
           size="xsmall"

@@ -18,9 +18,12 @@ const FiltersProvider = ({ children }) => {
   // retains the previous filters values in case user does not want to apply
   // modified filters
   const [previousFilters, setPreviousFilters] = useState();
+  // attribute that uniquely identifies a record in the data
+  const [primaryKey, setPrimaryKey] = useState([]);
   // value entered into the search text input
   const [searchValue, setSearchValue] = useState('');
-
+  // array of primaryKeys for filteredResults that have been selected
+  const [selected, setSelected] = useState([]);
   const value = {
     data,
     setData,
@@ -36,8 +39,12 @@ const FiltersProvider = ({ children }) => {
     setIsFiltered,
     previousFilters,
     setPreviousFilters,
+    primaryKey,
+    setPrimaryKey,
     searchValue,
     setSearchValue,
+    selected,
+    setSelected,
   };
 
   return (
@@ -54,8 +61,11 @@ const useFilters = () => {
     filters,
     setFilters,
     filtersLayer,
+    primaryKey,
     setIsFiltered,
     searchValue,
+    selected,
+    setSelected,
   } = context;
 
   if (context === undefined) {
@@ -107,6 +117,18 @@ const useFilters = () => {
     return filterResults;
   };
 
+  const getSelected = (array1, array2) => {
+    const results = [];
+    array1.forEach(i => {
+      let inBoth;
+      array2.forEach(j => {
+        if (i === j[primaryKey]) inBoth = true;
+      });
+      if (inBoth) results.push(i);
+    });
+    return results;
+  };
+
   const applyFilters = (array, criteria, searchTerm) => {
     const filterResults = getFilteredResults(array, criteria, searchTerm);
     const filtersApplied = Object.keys(criteria)
@@ -120,6 +142,10 @@ const useFilters = () => {
         (searchTerm && searchTerm.length > 0),
     );
     setFilteredResults(filterResults);
+
+    // selected results should only include selections that still exist
+    // in the filterResults
+    setSelected(getSelected(selected, filterResults));
   };
 
   // Get available values for each field in the data set to
