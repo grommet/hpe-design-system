@@ -24,11 +24,8 @@ test('should check Home page', async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      // excluding the HPE Slim header that gets a complaint about link text
-      exclude: [
-        '.hpehf-close-btn',
-        '.hpehf-help-and-support > .hpehf-help-menu-dropdown-list',
-      ],
+      // excluding the HPE Global header since we don't maintain it
+      exclude: [['#hpehf-header']],
     };
     const axeOptions = {
       rules: {
@@ -47,11 +44,8 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      // excluding the HPE Slim header that gets a complaint about link text
-      exclude: [
-        '.hpehf-close-btn',
-        '.hpehf-help-and-support > .hpehf-help-menu-dropdown-list',
-      ],
+      // excluding the HPE Global header since we don't maintain it
+      exclude: [['#hpehf-header']],
     };
     const axeOptions = {
       rules: {
@@ -70,11 +64,8 @@ test.before(async t => {
   // Only need to run in one browser
   if (t.browser.name === 'Chrome') {
     const axeContext = {
-      // excluding the HPE Slim header that gets a complaint about link text
-      exclude: [
-        '.hpehf-close-btn',
-        '.hpehf-help-and-support > .hpehf-help-menu-dropdown-list',
-      ],
+      // excluding the HPE Global header since we don't maintain it
+      exclude: [['#hpehf-header']],
     };
     const axeOptions = {
       rules: {
