@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Box, DataTable, Heading, ResponsiveContext } from 'grommet';
+import { Box, DataTable, Heading, Menu, ResponsiveContext } from 'grommet';
 import {
   StatusWarningSmall,
   StatusCriticalSmall,
@@ -18,10 +18,9 @@ export const FilteringTable = () => {
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
-    { property: 'id', label: 'Name', filterType: 'CheckBoxGroup' },
     {
-      property: 'hardware.serialNumber',
-      label: 'Serial',
+      property: 'hardware.health.summary',
+      label: 'Status',
       filterType: 'CheckBoxGroup',
     },
     {
@@ -49,12 +48,19 @@ export const FilteringTable = () => {
       </Heading>
       <FiltersProvider>
         <Box gap="medium">
-          <FilterControls
-            data={servers}
-            filters={filtersConfig}
-            primaryKey="id"
-            searchFilter={{ placeholder: 'Search servers...' }}
-          />
+          <Box align="start" direction="row" justify="between" wrap>
+            <FilterControls
+              data={servers}
+              filters={filtersConfig}
+              primaryKey="id"
+              searchFilter={{ placeholder: 'Search servers...' }}
+            />
+            <Menu
+              kind="toolbar"
+              label="Actions"
+              items={[{ label: 'Power On' }, { label: 'Power Off' }]}
+            />
+          </Box>
           <ServerResults />
         </Box>
       </FiltersProvider>
@@ -70,7 +76,7 @@ const columns = [
   {
     property: 'state.connected',
     header: 'State',
-    render: datum => (datum ? 'Connected' : 'Not Connected'),
+    render: datum => (datum.state.connected ? 'Connected' : 'Not Connected'),
   },
   {
     property: 'hardware.powerState',
@@ -101,19 +107,22 @@ const ServerResults = () => {
           {
             property: 'hardware.health.summary',
             header: 'Status',
-            render: datum => statusIcons[datum.hardware.health.summary],
+            render: datum =>
+              datum.hardware.health.summary
+                ? statusIcons[datum.hardware.health.summary]
+                : '-',
             align: 'center',
             sortable: false,
           },
           {
-            property: 'id',
+            property: 'displayName',
             header: 'Name',
-            primary: true,
             pin: size === 'small',
           },
           ...columns,
         ]}
         pin
+        primaryKey="id"
         sortable
         onSelect={nextSelected => setSelected(nextSelected)}
         select={selected}

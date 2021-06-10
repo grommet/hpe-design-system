@@ -30,7 +30,7 @@ export const FilterControls = ({ data, filters, primaryKey, searchFilter }) => {
   }, [syncFilteredResults]);
 
   return (
-    <Box gap="xsmall">
+    <Box gap="xsmall" flex={false}>
       <Box direction="row" align="end" gap="small">
         {searchFilter && (
           <SearchFilter placeholder={searchFilter.placeholder} />

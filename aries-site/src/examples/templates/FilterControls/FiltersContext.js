@@ -157,7 +157,8 @@ const useFilters = () => {
     dataSet.forEach(datum => {
       const isFinalNode = parts.length === 1;
       if (!isFinalNode) {
-        const value = getFilterOptions([datum[parts[0]]], parts[1])[0];
+        const nextField = parts.slice(1, parts.length).join('.');
+        const value = getFilterOptions([datum[parts[0]]], nextField)[0];
         if (value && !options.includes(value)) options.push(value);
       }
       return (
