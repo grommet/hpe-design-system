@@ -8049,9 +8049,9 @@ grommet-styles@^0.2.0:
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#7046e7c59e1e9d9ae2cc19141013f64c12365b30"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.17.3"
-  uid "2789b71d014c9b65c5f844e5897f59f99644af60"
-  resolved "https://github.com/grommet/grommet/tarball/stable#2789b71d014c9b65c5f844e5897f59f99644af60"
+  version "2.17.2"
+  uid ed2b70d992fd6feab5653c20e1114f11605c0a61
+  resolved "https://github.com/grommet/grommet/tarball/stable#ed2b70d992fd6feab5653c20e1114f11605c0a61"
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
@@ -12653,7 +12653,7 @@ renderkid@^2.0.4:
     dom-converter "^0.2.0"
     htmlparser2 "^6.1.0"
     lodash "^4.17.21"
-    strip-ansi "^6.0.0"
+    strip-ansi "^3.0.1"
 
 repeat-element@^1.1.2:
   version "1.1.4"
