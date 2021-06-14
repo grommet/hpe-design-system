@@ -26,7 +26,22 @@ export const FilterCheckBoxGroup = ({ attr }) => {
       return 0;
     });
   if (convertToString) options = options.map(option => option.toString());
-  if (render) options = options.map(option => render(option));
+  if (render) {
+    options = options.map(option => {
+      const nextOption = {
+        label: render(option),
+        value: option,
+      };
+      return nextOption;
+    });
+    // sort after we have the labels from render
+    if (sort)
+      options.sort((a, b) => {
+        if (a.label < b.label) return -1;
+        if (a.label > b.label) return 1;
+        return 0;
+      });
+  }
 
   useEffect(() => {
     setValue(filters[property] || []);
@@ -42,6 +57,8 @@ export const FilterCheckBoxGroup = ({ attr }) => {
           id={property}
           name={property}
           value={value}
+          labelKey={render ? 'label' : undefined}
+          valueKey={render ? 'value' : undefined}
           onChange={({ value: nextValue }) => {
             setValue(nextValue);
             const nextFilters = { ...filters };
@@ -56,7 +73,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
         <Button
           alignSelf="start"
           label={`Show ${showMore ? 'less' : 'more'}`}
-          size="xsmall"
+          size="small"
           onClick={() => setShowMore(!showMore)}
         />
       )}
