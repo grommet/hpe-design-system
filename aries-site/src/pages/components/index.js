@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Button, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
 import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
@@ -38,6 +38,12 @@ const Components = () => (
           <Paragraph size="large" fill>
             {pageDetails.description}
           </Paragraph>
+          <Button
+            alignSelf="start"
+            label="See all components"
+            href="/components/all-components"
+            primary
+          />
         </Box>
       </PageIntro>
       <ContentSection>

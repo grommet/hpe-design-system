@@ -1,11 +1,11 @@
 import React from 'react';
 import { Accordion, AccordionPanel, Box } from 'grommet';
 
-export const AccordionExample = () => {
+export const AccordionExample = ({ ...rest }) => {
   const pad = 'small';
 
   return (
-    <Accordion>
+    <Accordion width="large" {...rest}>
       <AccordionPanel label="Our Company">
         <Box pad={pad}>We are HPE.</Box>
       </AccordionPanel>

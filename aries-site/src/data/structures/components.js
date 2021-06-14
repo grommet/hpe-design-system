@@ -98,10 +98,8 @@ export const components = [
   {
     name: 'FileInput',
     category: 'Inputs',
-    description:
-      'An input used to upload one or more files.',
-    seoDescription:
-      'An input used to upload one or more files.',
+    description: 'An input used to upload one or more files.',
+    seoDescription: 'An input used to upload one or more files.',
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
@@ -254,13 +252,7 @@ export const components = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
-    relatedContent: [
-      'Button',
-      'Menu',
-      'TextInput',
-      'Dashboards',
-      'Search',
-    ],
+    relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards', 'Search'],
   },
   {
     name: 'Footer',
@@ -451,5 +443,26 @@ export const components = [
     enhance navigation to specific items.`,
     sections: [],
     relatedContent: ['Table', 'Lists', 'Card'],
+  },
+  {
+    name: 'All Components',
+    available: true,
+    // category: 'Controls',
+    description:
+      'Grommet components are the building blocks of the HPE Design System.',
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-pagination.svg',
+          dark: '/componentImages/component-preview-pagination-invert.svg',
+        },
+        alt: 'HPE Design System Pagination',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    sections: [],
+    relatedContent: [],
   },
 ];
