@@ -42,7 +42,7 @@ const Components = () => (
             alignSelf="start"
             label="See all components"
             href="/components/all-components"
-            primary
+            secondary
           />
         </Box>
       </PageIntro>
