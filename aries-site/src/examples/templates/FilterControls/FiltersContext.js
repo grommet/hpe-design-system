@@ -159,10 +159,12 @@ const useFilters = () => {
       if (!isFinalNode) {
         const nextField = parts.slice(1, parts.length).join('.');
         const value = getFilterOptions([datum[parts[0]]], nextField)[0];
-        if (value && !options.includes(value)) options.push(value);
+        // in cases where data is boolean, we want false to be included
+        if ((value || value === false) && !options.includes(value))
+          options.push(value);
       }
       return (
-        datum[field] &&
+        (datum[field] || datum[field] === false) &&
         !options.includes(datum[field]) &&
         options.push(datum[field])
       );
