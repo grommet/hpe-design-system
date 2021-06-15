@@ -3,6 +3,7 @@ import {
   FilteringCards,
   FilteringCards2,
   FilteringLists,
+  FilteringTable,
   FilteringWithRangeSelector,
   FilteringWithDropButton,
   FilteringWithSelect,
@@ -65,6 +66,31 @@ When applying many filters at once, it is helpful to present them in a consolida
   template
 >
   <FilteringLists />
+</Example>
+
+### Filtering with selectable results
+
+The summary displayed beneath the search input should always reflect the user's actions. When filtering is combined with selection, the summary text should adjust for the following scenarios:
+- No filters, no selections &mdash; The summary should read "X items", where X is the total number of items.
+- Filters applied, no selections &mdash; The summary should read "X results of Y items".
+- Selections made &mdash; The summary should read "X of Y items selected", where Y is the total number of results that meet the filter criteria or the total number of items if no filtering has been applied.
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersLayer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/mockData.js",
+  ]}
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <FilteringTable />
 </Example>
 
 ## Guidelines

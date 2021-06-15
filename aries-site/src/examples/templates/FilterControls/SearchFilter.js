@@ -9,14 +9,6 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 export const SearchFilter = ({ placeholder }) => {
   const size = useContext(ResponsiveContext);
   const filterContext = useFilters();
@@ -55,8 +47,9 @@ export const SearchFilter = ({ placeholder }) => {
           />
         </Box>
       ) : (
-        <StyledButton
+        <Button
           id="search-button"
+          kind="toolbar"
           icon={<Search />}
           onClick={() => setSearchFocused(true)}
         />
