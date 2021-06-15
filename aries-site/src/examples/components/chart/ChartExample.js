@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Chart, Text } from 'grommet';
+import { Box, Chart } from 'grommet';
 
 const values = [{ value: [0, 20] }, { value: [10, 30] }, { value: [20, 15] }];
 
@@ -7,7 +7,6 @@ export const ChartExample = () => (
   <Box direction="row-responsive" gap="large" wrap>
     {['bar', 'line', 'area', 'point'].map(type => (
       <Box align="center" gap="medium" margin={{ bottom: 'medium' }}>
-        <Text weight="bold">{type}</Text>
         <Chart key={type} type={type} values={values} size="small" />
       </Box>
     ))}

@@ -14,7 +14,7 @@ export const PageIntro = ({ children, ...rest }) => {
         {/* Empty card allows vertical space for background image to 
         show on mobile */}
         <Card background="none" elevation="none" height="small" />
-        <Card background="none" elevation="none" overflow="visible">
+        <Card background="none" elevation="none" round="none">
           {children}
         </Card>
       </Grid>

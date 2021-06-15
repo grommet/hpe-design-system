@@ -71,7 +71,7 @@ export const structure = [
     name: 'Components',
     color: 'purple!',
     description:
-      'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
+      'Our component library provides a vetted set of interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
     preview: {
       image: {

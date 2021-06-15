@@ -1,10 +1,11 @@
-import { Button, WorldMap } from 'grommet';
 import {
   AccordionExample,
   AnchorExample,
   AvatarExample,
+  BoxExample,
   ButtonStatesExample,
   CalendarExample,
+  CarouselExample,
   ChartExample,
   CheckBoxSimpleExample,
   CheckBoxGroupSimpleExample,
@@ -12,29 +13,45 @@ import {
   DataChartExample,
   DateInputExample,
   DiagramExample,
+  DropExample,
+  DropButtonExample,
   FileInputSimpleExample,
   FooterExample,
+  GridExample,
   HeaderExample,
+  HeadingExample,
+  ImageExample,
   LayerSideDrawerExample,
   ListIconIdentifierExample,
+  MainExample,
+  MarkdownExample,
+  MaskedPhoneExample,
   MenuExample,
   MeterExample,
+  NavExample,
+  ParagraphExample,
   PaginationExample,
   RadioButtonGroupExample,
   RangeInputExample,
   RangeSelectorExample,
   SelectExample,
   SearchExample,
+  SidebarExample,
   SimpleCard,
   SimpleSignUpExample,
   SpinnerExample,
   StackExample,
   TableExample,
   TabStatesExample,
+  TextSizeExample,
   TextAreaExample,
   TextInputExample,
+  ToolTipSimpleExample,
+  VideoExample,
+  WorldMapExample,
 } from '../../examples';
 import { Example } from '../../layouts';
+import { DocsMessage } from '../../components';
 
 On this page, you will find a comprehensive list of all Grommet components. The HPE Design System currently provides guidance and theming for a large subset of these components, but some components still do not have HPE Design System specific guidance. In those cases, you can still reference the Grommet docs for information on the components and their properties.
 
@@ -42,204 +59,552 @@ On this page, you will find a comprehensive list of all Grommet components. The 
 
 ### Accordion
 
-<Example height="none" docs="/components/accordion">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/accordion/AccordionExample.js"
+  height="none"
+  docs="/components/accordion"
+>
   <AccordionExample background="background" />
 </Example>
 
 ### Anchor
 
-<Example height="none" docs="/components/anchor">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/anchor/AnchorExample.js"
+  height="none"
+  docs="/components/anchor"
+>
   <AnchorExample />
 </Example>
 
 ### Button
 
-<Example height="none" docs="/components/button">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonStatesExample.js"
+  height="none"
+  docs="/components/button"
+>
   <ButtonStatesExample />
+</Example>
+
+### Drop
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/drop/DropExample.js"
+  height="medium"
+  docs="https://v2.grommet.io/drop?theme=hpe"
+>
+  <DropExample />
+</Example>
+
+### DropButton
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/dropbutton/DropButtonExample.js"
+  height="none"
+  docs="https://v2.grommet.io/dropbutton?theme=hpe"
+>
+  <DropButtonExample />
 </Example>
 
 ### Menu
 
-<Example height="none" docs="/components/menu">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuExample.js"
+  height="none"
+  docs="/components/menu"
+>
   <MenuExample alignSelf="start" />
+</Example>
+
+### Nav
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/nav/NavExample.js"
+  height="none"
+  docs="/templates/navigation"
+>
+  <NavExample />
 </Example>
 
 ### Pagination
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationExample.js"
+  height="none"
+  docs="/components/pagination"
+>
   <PaginationExample />
 </Example>
 
 ### Tabs
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabStatesExample.js"
+  height="none"
+  docs="/components/tabs"
+>
   <TabStatesExample />
+</Example>
+
+### Tip
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tip/ToolTipSimpleExample.js"
+  height="none"
+  docs="/components/tip"
+>
+  <ToolTipSimpleExample />
 </Example>
 
 ## Inputs
 
 ### CheckBox
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/checkbox/CheckBoxSimpleExample.js"
+  height="none"
+  width="medium"
+  docs="/components/checkbox"
+>
   <CheckBoxSimpleExample />
 </Example>
 
 ### CheckBoxGroup
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupSimpleExample.js"
+  height="none"
+  width="medium"
+  docs="/components/checkboxgroup"
+>
   <CheckBoxGroupSimpleExample />
 </Example>
 
 ### DateInput
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/dateinput/DateInputExample.js"
+  height="none"
+  width="medium"
+  docs="/components/dateinput"
+>
   <DateInputExample />
 </Example>
 
 ### FileInput
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputSimpleExample.js"
+  height="none"
+  docs="/components/fileinput"
+>
   <FileInputSimpleExample />
 </Example>
 
 ### Form
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
+  height="none"
+  docs="/templates/forms"
+>
   <SimpleSignUpExample />
+</Example>
+
+### FormField
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textinput/TextInputExample.js"
+  height="none"
+  width="medium"
+  docs="/templates/forms"
+>
+  <TextInputExample />
+</Example>
+
+### MaskedInput
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/maskedinput/MaskedPhoneExample.js"
+  height="none"
+  docs="/components/maskedinput"
+>
+  <MaskedPhoneExample />
 </Example>
 
 ### RadioButtonGroup
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
+  height="none"
+  width="medium"
+  docs="/components/radiobuttongroup"
+>
   <RadioButtonGroupExample />
 </Example>
 
 ### RangeInput
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/rangeinput/RangeInputExample.js"
+  height="none"
+  docs="/components/rangeinput"
+>
   <RangeInputExample />
 </Example>
 
 ### RangeSelector
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/rangeselector/RangeSelectorExample.js"
+  height="none"
+  docs="/components/menu"
+  docs="https://v2.grommet.io/rangeselector?theme=hpe"
+>
   <RangeSelectorExample />
 </Example>
 
 ### Search
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/search/SearchExample.js"
+  height="none"
+  width="medium"
+  docs="/components/search"
+>
   <SearchExample />
 </Example>
 
 ### Select
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+  height="none"
+  docs="/components/select"
+>
   <SelectExample />
 </Example>
 
 ### TextArea
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textarea/TextAreaExample.js"
+  height="none"
+  width="medium"
+  docs="/components/textarea"
+>
   <TextAreaExample />
 </Example>
 
 ### TextInput
 
-<Example height="none" width="medium" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textinput/TextInputExample.js"
+  height="none"
+  width="medium"
+  docs="/components/textinput"
+>
   <TextInputExample />
 </Example>
 
 ## Layouts
 
+### Box
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layouts/BoxExample.js"
+  height="none"
+  docs="/components/box"
+>
+  <BoxExample />
+</Example>
+
 ### Card
 
-<SimpleCard />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/SimpleCard.js"
+  height="none"
+  docs="/components/card"
+>
+  <SimpleCard />
+</Example>
 
 ### Footer
 
-<FooterExample />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/footer/FooterExample.js"
+  height="none"
+  width="100%"
+  docs="/components/footer"
+>
+  <FooterExample />
+</Example>
+
+### Grid
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layouts/GridExample.js"
+  width="100%"
+  showResponsiveControls={[]}
+  template
+  docs="/components/grid"
+>
+  <GridExample />
+</Example>
 
 ### Header
 
-<HeaderExample />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/header/HeaderExample.js"
+  height="none"
+  width="100%"
+  docs="/components/header"
+>
+  <HeaderExample />
+</Example>
 
 ### Layer
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerSideDrawerExample.js"
+  height="none"
+  docs="/components/layer"
+>
   <LayerSideDrawerExample />
+</Example>
+
+### Main
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/main/MainExample.js"
+  width="100%"
+  showResponsiveControls={[]}
+  template
+  docs="/components/main"
+>
+  <MainExample />
+</Example>
+
+### Sidebar
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/sidebar/SidebarExample.js"
+  height="none"
+  docs="https://v2.grommet.io/sidebar?theme=hpe"
+>
+  <SidebarExample />
 </Example>
 
 ### Stack
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layouts/StackExample.js"
+  height="none"
+  docs="/components/stack"
+>
   <StackExample />
+</Example>
+
+## Media
+
+### Carousel
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/carousel/CarouselExample.js"
+  height="none"
+  docs="https://v2.grommet.io/carousel?theme=hpe"
+>
+  <CarouselExample />
+</Example>
+
+### Image
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/image/ImageExample.js"
+  height="none"
+  docs="https://v2.grommet.io/image?theme=hpe"
+>
+  <ImageExample />
+</Example>
+
+### Video
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/video/VideoExample.js"
+  height="none"
+  docs="https://v2.grommet.io/video?theme=hpe"
+>
+  <VideoExample />
+</Example>
+
+## Type
+
+### Heading
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/HeadingExample.js"
+  height="none"
+  docs="/foundation/typography#heading"
+>
+  <HeadingExample />
+</Example>
+
+### Markdown
+
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/markdown/MarkdownExample.js"
+  height="none"
+  docs="https://v2.grommet.io/markdown?theme=hpe"
+>
+  <MarkdownExample />
+</Example>
+
+### Paragraph
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/ParagraphExample.js"
+  height="none"
+  docs="/foundation/typography#paragraph"
+>
+  <ParagraphExample />
+</Example>
+
+### Text
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/TextSizeExample.js"
+  height="none"
+  docs="/foundation/typography#text"
+>
+  <TextSizeExample />
 </Example>
 
 ## Visualizations
 
 ### Avatar
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarExample.js"
+  height="none"
+  docs="https://v2.grommet.io/avatar?theme=hpe"
+>
   <AvatarExample />
 </Example>
 
 ### Calendar
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/calendar/CalendarExample.js"
+  height="none"
+  docs="https://v2.grommet.io/calendar?theme=hpe"
+>
   <CalendarExample />
 </Example>
 
 ### Chart
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/chart/ChartExample.js"
+  height="none"
+  docs="https://v2.grommet.io/chart?theme=hpe"
+>
   <ChartExample />
 </Example>
 
 ### Clock
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/clock/ClockExample.js"
+  height="none"
+  docs="https://v2.grommet.io/clock?theme=hpe"
+>
   <ClockExample />
 </Example>
 
 ### DataChart
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datachart/DataChartExample.js"
+  height="none"
+  docs="https://v2.grommet.io/datachart?theme=hpe"
+>
   <DataChartExample />
 </Example>
 
 ### Diagram
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/diagram/DiagramExample.js"
+  height="none"
+  docs="https://v2.grommet.io/diagram?theme=hpe"
+>
   <DiagramExample />
 </Example>
 
 ### List
 
-<Example height="none" width="large" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/list-views/ListIconIdentifierExample.js"
+  height="none"
+  width="large"
+  docs="/templates/lists"
+>
   <ListIconIdentifierExample />
 </Example>
 
 ### Meter
 
-<Example height="none" horizontalLayout>
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/meter/MeterExample.js"
+  height="none"
+  docs="https://v2.grommet.io/meter?theme=hpe"
+>
   <MeterExample />
 </Example>
 
 ### Spinner
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
+  height="none"
+  docs="/components/spinner"
+>
   <SpinnerExample />
 </Example>
 
 ### Table
 
-<Example height="none" horizontalLayout>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableExample.js"
+  height="none"
+  docs="/components/table"
+>
   <TableExample />
 </Example>
 
 ### WorldMap
 
-<Example height="none" horizontalLayout>
-  <WorldMap color="graph-1" />
+<DocsMessage />
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/worldmap/WorldMapExample.js"
+  height="none"
+  docs="https://v2.grommet.io/worldmap?theme=hpe"
+>
+  <WorldMapExample />
 </Example>

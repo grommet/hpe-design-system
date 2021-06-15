@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Text } from 'grommet';
 
-export const GridExample = () => (
+export const MainExample = () => (
   <Grid
     rows={['xxsmall', 'flex', 'xxsmall']}
     columns={['xsmall', 'auto']}
@@ -30,6 +30,7 @@ export const GridExample = () => (
     </Box>
 
     <Box
+      background="background-contrast"
       border={{ color: 'border', style: 'dashed' }}
       gridArea="main"
       pad="small"
