@@ -54,7 +54,7 @@ export const FiltersLayer = () => {
           <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
-        <Box pad="medium" overflow="auto" flex {...contentProps}>
+        <Box pad="medium" flex overflow="auto" {...contentProps}>
           {filterAttributes &&
             filterAttributes.map(attr => {
               if (attr.filterType === 'CheckBoxGroup') {

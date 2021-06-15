@@ -21,6 +21,10 @@ export const FilteringLists = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
 
+  const size = useContext(ResponsiveContext);
+  const formFieldProps = {
+    width: size !== 'small' ? 'small' : undefined,
+  };
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
@@ -30,19 +34,19 @@ export const FilteringLists = ({ containerRef }) => {
       filterType: 'CheckBoxGroup',
       // contentProps accept any Grommet Box props to customize the filter's
       // FormField. https://v2.grommet.io/formfield#contentProps
-      contentProps: { width: 'small' },
+      contentProps: formFieldProps,
     },
     {
       property: 'status',
       label: 'Status',
       filterType: 'CheckBoxGroup',
-      contentProps: { width: 'small' },
+      contentProps: formFieldProps,
     },
     {
       property: 'tenant',
       label: 'Tenant',
       filterType: 'CheckBoxGroup',
-      contentProps: { width: 'small' },
+      contentProps: formFieldProps,
     },
   ];
 
@@ -53,25 +57,32 @@ export const FilteringLists = ({ containerRef }) => {
     // containing the layer's header, main content, and footer
     containerProps: {
       fill: false,
-      pad: { horizontal: 'medium', vertical: 'small' },
-      width: 'large',
+      pad: {
+        horizontal: size === 'small' ? undefined : 'medium',
+        vertical: 'small',
+      },
+      width: { max: 'large' },
     },
     // contentProps accept any Grommet Box props to customize the Box
     // containing the FormField filters.
     contentProps: {
-      direction: 'row',
-      justify: 'between',
-      pad: { horizontal: 'medium' },
+      direction: size === 'small' ? 'column' : 'row',
+      gap: size === 'small' ? 'xsmall' : 'medium',
+      pad: { horizontal: 'medium', bottom: 'small' },
     },
-    full: false,
+    full: size === 'small',
     // containerRef is for demonstration purposes on this site. Most
     // implementations should likely remove.
     target: containerRef && containerRef.current,
-    position: 'center',
+    position: size === 'small' ? undefined : 'center',
   };
 
   return (
-    <Box background="background" pad="large" gap="medium">
+    <Box
+      background="background"
+      pad={size !== 'small' ? 'large' : 'medium'}
+      gap="medium"
+    >
       <Header gap="small">
         <Heading level={2} margin="none">
           Orders
@@ -104,7 +115,8 @@ const Orders = () => {
     <Box
       fill
       overflow="auto"
-      pad={{ horizontal: 'xxsmall', bottom: 'medium', top: 'xxsmall' }}
+      // xxsmall pad allows for List to receive focus properly
+      pad="xxsmall"
     >
       <List
         action={(item, index) => (

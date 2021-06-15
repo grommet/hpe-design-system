@@ -31,6 +31,8 @@ export const FilteringCards = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
 
+  const size = useContext(ResponsiveContext);
+
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
@@ -63,7 +65,11 @@ export const FilteringCards = ({ containerRef }) => {
   };
 
   return (
-    <Box background="background" pad="large" gap="medium">
+    <Box
+      background="background"
+      pad={size !== 'small' ? 'large' : 'medium'}
+      gap="medium"
+    >
       <Heading level={2} margin="none">
         Users
       </Heading>
