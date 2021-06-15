@@ -5,12 +5,7 @@ import { WizardContext } from '.';
 
 export const StepFooter = () => {
   const size = useContext(ResponsiveContext);
-  const {
-    activeIndex,
-    id,
-    steps,
-    width,
-  } = useContext(WizardContext);
+  const { activeIndex, id, steps, width } = useContext(WizardContext);
 
   return (
     <Box
@@ -29,7 +24,6 @@ export const StepFooter = () => {
         width={width}
       >
         <Button
-          fill={size === 'small' ? 'horizontal' : undefined}
           icon={<FormNextLink />}
           primary
           reverse

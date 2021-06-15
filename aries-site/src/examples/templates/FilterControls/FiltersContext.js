@@ -20,9 +20,12 @@ const FiltersProvider = ({ children }) => {
   // retains the previous filters values in case user does not want to apply
   // modified filters
   const [previousFilters, setPreviousFilters] = useState();
+  // attribute that uniquely identifies a record in the data
+  const [primaryKey, setPrimaryKey] = useState([]);
   // value entered into the search text input
   const [searchValue, setSearchValue] = useState('');
-
+  // array of primaryKeys for filteredResults that have been selected
+  const [selected, setSelected] = useState([]);
   const value = {
     data,
     setData,
@@ -40,8 +43,12 @@ const FiltersProvider = ({ children }) => {
     setLayerProps,
     previousFilters,
     setPreviousFilters,
+    primaryKey,
+    setPrimaryKey,
     searchValue,
     setSearchValue,
+    selected,
+    setSelected,
   };
 
   return (
@@ -58,8 +65,11 @@ const useFilters = () => {
     filters,
     setFilters,
     filtersLayer,
+    primaryKey,
     setIsFiltered,
     searchValue,
+    selected,
+    setSelected,
   } = context;
 
   if (context === undefined) {
@@ -78,6 +88,23 @@ const useFilters = () => {
       value = value ? value[k] : null;
     }
     return value;
+  };
+
+  // Recursively extract all text values from the json object and return
+  // a concatenated string.
+  const getTextFromJson = json => {
+    const obj = {};
+
+    if (json === null || json === undefined) {
+      return '';
+    }
+
+    if (typeof json === 'string') {
+      return json;
+    }
+
+    Object.keys(json).forEach(key => (obj[key] = getTextFromJson(json[key])));
+    return Object.values(obj).join(' ');
   };
 
   const getFilteredResults = (array, criteria, searchTerm) => {
@@ -99,16 +126,28 @@ const useFilters = () => {
     );
 
     if (searchTerm) {
-      filterResults = filterResults.filter(o =>
-        Object.keys(o).some(
-          k =>
-            typeof o[k] === 'string' &&
-            o[k].toLowerCase().includes(searchValue.toLowerCase()),
-        ),
+      const searchString = searchTerm.toLowerCase();
+      filterResults = filterResults.filter(
+        item =>
+          getTextFromJson(item)
+            .toLowerCase()
+            .indexOf(searchString) > -1,
       );
     }
 
     return filterResults;
+  };
+
+  const getIntersection = (array1, array2) => {
+    const results = [];
+    array1.forEach(i => {
+      let inBoth;
+      array2.forEach(j => {
+        if (i === j[primaryKey]) inBoth = true;
+      });
+      if (inBoth) results.push(i);
+    });
+    return results;
   };
 
   const applyFilters = (array, criteria, searchTerm) => {
@@ -124,6 +163,10 @@ const useFilters = () => {
         (searchTerm && searchTerm.length > 0),
     );
     setFilteredResults(filterResults);
+
+    // selected results should only include selections that still exist
+    // in the filterResults
+    setSelected(getIntersection(selected, filterResults));
   };
 
   // Get available values for each field in the data set to
@@ -135,11 +178,14 @@ const useFilters = () => {
     dataSet.forEach(datum => {
       const isFinalNode = parts.length === 1;
       if (!isFinalNode) {
-        const value = getFilterOptions([datum[parts[0]]], parts[1])[0];
-        if (value && !options.includes(value)) options.push(value);
+        const nextField = parts.slice(1, parts.length).join('.');
+        const value = getFilterOptions([datum[parts[0]]], nextField)[0];
+        // in cases where data is boolean, we want false to be included
+        if ((value || value === false) && !options.includes(value))
+          options.push(value);
       }
       return (
-        datum[field] &&
+        (datum[field] || datum[field] === false) &&
         !options.includes(datum[field]) &&
         options.push(datum[field])
       );

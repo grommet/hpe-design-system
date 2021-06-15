@@ -4,11 +4,18 @@ import { Box } from 'grommet';
 
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
-export const FilterControls = ({ data, filters, layerProps, searchFilter }) => {
+export const FilterControls = ({
+  data,
+  filters,
+  layerProps,
+  primaryKey,
+  searchFilter,
+}) => {
   const {
     setData,
     setFilterAttributes,
     setLayerProps,
+    setPrimaryKey,
     syncFilteredResults,
   } = useFilters();
 
@@ -24,13 +31,17 @@ export const FilterControls = ({ data, filters, layerProps, searchFilter }) => {
     setLayerProps(layerProps);
   }, [layerProps, setLayerProps]);
 
+  useEffect(() => {
+    setPrimaryKey(primaryKey);
+  }, [primaryKey, setPrimaryKey]);
+
   /* keep filteredResults up to date as parent data set may change */
   useEffect(() => {
     syncFilteredResults();
   }, [syncFilteredResults]);
 
   return (
-    <Box gap="xsmall">
+    <Box gap="xsmall" flex={false}>
       <Box direction="row" align="end" gap="small">
         {searchFilter && (
           <SearchFilter placeholder={searchFilter.placeholder} />
@@ -59,6 +70,7 @@ FilterControls.propTypes = {
     contentProps: PropTypes.object,
     // Grommet Layer props
   }),
+  primaryKey: PropTypes.string,
   searchFilter: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
