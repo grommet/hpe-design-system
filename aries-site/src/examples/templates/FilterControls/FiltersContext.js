@@ -86,6 +86,23 @@ const useFilters = () => {
     return value;
   };
 
+  // Recursively extract all text values from the json object and return
+  // a concatenated string.
+  const getTextFromJson = json => {
+    const obj = {};
+
+    if (json === null || json === undefined) {
+      return '';
+    }
+
+    if (typeof json === 'string') {
+      return json;
+    }
+
+    Object.keys(json).forEach(key => (obj[key] = getTextFromJson(json[key])));
+    return Object.values(obj).join(' ');
+  };
+
   const getFilteredResults = (array, criteria, searchTerm) => {
     let filterResults;
     const filterKeys = Object.keys(criteria);
@@ -105,19 +122,19 @@ const useFilters = () => {
     );
 
     if (searchTerm) {
-      filterResults = filterResults.filter(o =>
-        Object.keys(o).some(
-          k =>
-            typeof o[k] === 'string' &&
-            o[k].toLowerCase().includes(searchValue.toLowerCase()),
-        ),
+      const searchString = searchTerm.toLowerCase();
+      filterResults = filterResults.filter(
+        item =>
+          getTextFromJson(item)
+            .toLowerCase()
+            .indexOf(searchString) > -1,
       );
     }
 
     return filterResults;
   };
 
-  const getSelected = (array1, array2) => {
+  const getIntersection = (array1, array2) => {
     const results = [];
     array1.forEach(i => {
       let inBoth;
@@ -145,7 +162,7 @@ const useFilters = () => {
 
     // selected results should only include selections that still exist
     // in the filterResults
-    setSelected(getSelected(selected, filterResults));
+    setSelected(getIntersection(selected, filterResults));
   };
 
   // Get available values for each field in the data set to
