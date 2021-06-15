@@ -42,7 +42,7 @@ export const FilteringTable = () => {
   ];
 
   return (
-    <Box pad="small" gap="medium">
+    <Box background="background-front" pad="small" gap="medium" fill>
       <Heading level={2} margin="none">
         Servers
       </Heading>
@@ -115,9 +115,11 @@ const ServerResults = () => {
             sortable: false,
           },
           {
-            property: 'displayName',
+            property: 'id',
             header: 'Name',
             pin: size === 'small',
+            primary: true,
+            render: datum => datum.displayName,
           },
           ...columns,
         ]}
