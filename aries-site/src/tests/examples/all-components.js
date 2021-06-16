@@ -38,7 +38,7 @@ test('should render all components and theme properly on desktop', async t => {
     });
   }
 
-  takeRegionSnapshot();
+  takeRegionSnapshot(regions);
   await eyes.close();
   await eyes.waitForResults();
 });
