@@ -161,6 +161,20 @@ In this context, a Table should facilitate the assembly of the data set and make
 accessible in a tool specifically designed for analysis.
 -->
 
+## Guidelines
+
+### Setting the width of the table
+
+- Use the correct set of columns, prioritizing frequently used ones. Don't add more columns just because the data is there, as this will clutter the table.
+- To support readability, make tables only as wide as they need to be and no wider. If the content does not need a large width, prevent the table from stretching.
+- Limit the whitespace on individual columns by using size for table columns.
+- When the table has the potential to be wider than the screen:
+  - Use 'pin' to anchor the primary column to preserve row context.
+  - Use horizontal scrolling within the table, as opposed to scrolling at the level of the entire page
+- When the table has the potential to be narrower than its layout context:
+  - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
+  - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
+
 ## Table behaviors & actions
 
 ### Sorting
