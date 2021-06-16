@@ -15,8 +15,8 @@ test('should render all components and theme properly on desktop', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
-  const { height } = document.querySelector('body').getBoundingClientRect();
-  const numberRegions = Array(Math.ceil(height / 15000));
+  // const { height } = document.querySelector('body').getBoundingClientRect();
+  const numberRegions = Array(Math.ceil(33000 / 15000));
 
   const regions = [];
   numberRegions.forEach(region =>
