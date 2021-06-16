@@ -15,7 +15,30 @@ test('should render all components and theme properly on desktop', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
-  await eyes.checkWindow({ tag: 'Inline', fully: true, target: 'window' });
+  const { height } = document.querySelector('body').getBoundingClientRect();
+  const numberRegions = Math.ceil(height / 15000);
+
+  const regions = [];
+  numberRegions.forEach(region =>
+    regions.push({
+      top: region + 1 * 15000,
+      left: 0,
+      height: 15000,
+      width: 1280,
+    }),
+  );
+  async function takeRegionSnapshot(array) {
+    array.forEach(async item => {
+      await eyes.checkWindow({
+        tag: 'Inline',
+        fully: true,
+        target: 'window',
+        region: item,
+      });
+    });
+  }
+
+  takeRegionSnapshot();
   await eyes.close();
   await eyes.waitForResults();
 });
