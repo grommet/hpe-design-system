@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import {
   Box,
   Button,
+  Footer,
   Header,
   Heading,
   Layer,
@@ -21,8 +22,11 @@ export const FiltersLayer = () => {
     setFilters,
     setFiltersLayer,
     filterAttributes,
+    layerProps,
     previousFilters,
   } = useFilters();
+
+  const { containerProps, contentProps } = { ...layerProps };
 
   const closeLayer = () => {
     /* User has not applied new filter settings, restore to previous state. */
@@ -35,21 +39,22 @@ export const FiltersLayer = () => {
       as="section"
       position={size !== 'small' ? 'right' : undefined}
       full={size === 'small' ? true : 'vertical'}
-      modal
       onClickOutside={() => closeLayer()}
       onEsc={() => closeLayer()}
+      {...layerProps}
     >
       <Box
         fill="vertical"
         gap="medium"
         pad={{ vertical: 'medium' }}
         width={{ min: size !== 'small' ? 'medium' : undefined }}
+        {...containerProps}
       >
         <Header pad={{ horizontal: 'medium' }}>
           <Heading margin="none">Filters</Heading>
           <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
-        <Box pad="medium" overflow="auto" flex>
+        <Box pad="medium" flex overflow="auto" {...contentProps}>
           {filterAttributes &&
             filterAttributes.map(attr => {
               if (attr.filterType === 'CheckBoxGroup') {
@@ -61,11 +66,10 @@ export const FiltersLayer = () => {
               return null;
             })}
         </Box>
-        <Box
-          align="center"
-          direction="row"
+        <Footer
+          justify="start"
           gap="small"
-          pad={{ horizontal: 'medium', top: 'small', bottom: 'medium' }}
+          pad={{ horizontal: 'medium', bottom: 'small' }}
         >
           <Button
             label="Apply Filters"
@@ -85,7 +89,7 @@ export const FiltersLayer = () => {
             }}
             secondary
           />
-        </Box>
+        </Footer>
       </Box>
     </Layer>
   );
