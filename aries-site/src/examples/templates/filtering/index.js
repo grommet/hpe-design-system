@@ -1,5 +1,5 @@
 export * from './FilteringCards/index';
-export * from './FilteringLists';
+export * from './FilteringLists/index';
 export * from './FilteringTable/index';
 export * from './FilteringWithRangeSelector';
 export * from './FilteringWithDropButton';

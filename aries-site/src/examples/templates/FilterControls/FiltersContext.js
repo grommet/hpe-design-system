@@ -15,6 +15,8 @@ const FiltersProvider = ({ children }) => {
   // filteredResults are the subset of data which meets the filters criteria
   const [filteredResults, setFilteredResults] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  // any valid Layer props
+  const [layerProps, setLayerProps] = useState({ position: 'right' });
   // retains the previous filters values in case user does not want to apply
   // modified filters
   const [previousFilters, setPreviousFilters] = useState();
@@ -37,6 +39,8 @@ const FiltersProvider = ({ children }) => {
     setFilteredResults,
     isFiltered,
     setIsFiltered,
+    layerProps,
+    setLayerProps,
     previousFilters,
     setPreviousFilters,
     primaryKey,
