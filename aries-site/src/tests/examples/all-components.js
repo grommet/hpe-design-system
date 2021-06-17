@@ -15,28 +15,41 @@ test('should render all components and theme properly on desktop', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
-  // const { height } = document.querySelector('body').getBoundingClientRect();
-  const numberRegions = Array(Math.ceil(33000 / 15000));
 
-  const regions = [];
-  numberRegions.forEach(region =>
-    regions.push({
-      top: region + 1 * 15000,
+  // capture page regions, height is ~33000px
+  await eyes.checkWindow({
+    tag: 'Region 1',
+    fully: true,
+    target: 'window',
+    region: {
+      top: 0,
       left: 0,
       height: 15000,
       width: 1280,
-    }),
-  );
-  async function takeRegionSnapshot(array) {
-    array.forEach(async item => {
-      await eyes.checkWindow({
-        tag: 'Inline',
-        fully: true,
-        target: 'window',
-        region: item,
-      });
-    });
-  }
+    },
+  });
+  await eyes.checkWindow({
+    tag: 'Region 2',
+    fully: true,
+    target: 'window',
+    region: {
+      top: 15000,
+      left: 0,
+      height: 15000,
+      width: 1280,
+    },
+  });
+  await eyes.checkWindow({
+    tag: 'Region 3',
+    fully: true,
+    target: 'window',
+    region: {
+      top: 30000,
+      left: 0,
+      height: 15000,
+      width: 1280,
+    },
+  });
 
   takeRegionSnapshot(regions);
   await eyes.close();
@@ -47,7 +60,30 @@ test('should render all components and theme properly on mobile', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
-  await eyes.checkWindow({ tag: 'Inline', fully: true, target: 'window' });
+  // capture page regions, height is ~28000px
+  await eyes.checkWindow({
+    tag: 'Region 1',
+    fully: true,
+    target: 'window',
+    region: {
+      top: 0,
+      left: 0,
+      height: 15000,
+      width: 1280,
+    },
+  });
+  await eyes.checkWindow({
+    tag: 'Region 2',
+    fully: true,
+    target: 'window',
+    region: {
+      top: 15000,
+      left: 0,
+      height: 15000,
+      width: 1280,
+    },
+  });
+
   await eyes.close();
   await eyes.waitForResults();
 });
