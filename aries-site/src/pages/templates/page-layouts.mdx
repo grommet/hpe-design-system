@@ -2,15 +2,9 @@ import { useContext } from 'react';
 import { Box, Grid, ResponsiveContext, Text } from 'grommet';
 import { ContentPreviewCard } from '../../components';
 import {
-  HeaderOnlyExample,
-  HeaderFooterExample,
   HubCardsExample,
   HubListExample,
   HubTableExample,
-  SidebarHeaderExample,
-  SidebarHeaderFooterExample,
-  StickyHeaderExample,
-  SidebarHeaderFooterPreview,
   SpokeListExample,
   SpokeTwoColumnExample,
   SpokeThreeColumnExample,
@@ -37,10 +31,6 @@ Choosing a page layout is an important first step in designing an application or
 - Providing a dialog for viewing or updating something
 - Displaying a page in a website
 
-**Components used within a Page Layout:**
-
-Page Layouts are built using the [Header](/components/header) and [Main](/components/main) components, with optional [Sidebar](/extend/global-sidebar) and [Footer](/components/footer) components. For guidance on page layout content, refer to the HPE Design System website pages for the components that make up your Page Layout.
-
 ### Usage
 
 Page Layouts provide the basic structure for a variety of page types.
@@ -61,9 +51,11 @@ The screen reader reads page content in the order it is specified. Refer to the 
 
 Specify page layout content so that it is understandable by the screen reader too. This should make the page easier to visually read as well.
 
-## Variants
+## Hub Variants
 
-A "hub" cleanly presents multiple discreet application sections or "spokes." Each "spoke" keeps the user centered on a more focused task. A spoke should always provide navigation context back up the infomration hierarchy.
+A "hub" cleanly presents multiple discreet application sections or "spokes." Each "spoke" keeps the user centered on a more focused task.
+
+For page layouts specific to spokes, see [Spoke Variants](#spoke-variants). For more information about Hub and Spoke navigation, read [Hub and Spoke Guidance](/templates/hub-and-spoke-navigation).
 
 ### Hub Cards
 
@@ -107,6 +99,10 @@ A "hub" cleanly presents multiple discreet application sections or "spokes." Eac
 
 ### Hub Table
 
+In this layout, the Table serves as a hub that allows the user to drill down into specific data records. Clicking on a row of the table may navigate the user to a detail page about that record, allowing the user to review additional information or perform actions specific to that record.
+
+When there is not enough screen width for the entire table to fit, the table should scroll horizontally while the rest of the page content remains as is. For more details on responsive table behaviors, read [Table Guidance](/components/table#guidelines).
+
 <Example
   code={[
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/HubTableExample.js", 
@@ -122,6 +118,13 @@ A "hub" cleanly presents multiple discreet application sections or "spokes." Eac
 >
   <HubTableExample />
 </Example>
+
+## Spoke Variants
+
+
+When on a spoke, a button should be placed directly above the page heading that allows the user to navigate back up the navigation hierarchy.
+
+The button should be labeled "Back to X", where X is the title of the hub that led to this page. For example, if the user reached this spoke from a page called "Account Settings", then the button label should be "Back to Account Settings".
 
 ### Spoke List
 
