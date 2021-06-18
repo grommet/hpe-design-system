@@ -1,7 +1,12 @@
 /* eslint-disable no-undef */
 import { waitForReact } from 'testcafe-react-selectors';
 import Eyes from '@applitools/eyes-testcafe';
-import { baseUrl, startResponsiveSnapshots } from '../utils';
+import {
+  baseUrl,
+  startResponsiveSnapshots,
+  DESKTOP_WIDTH,
+  MOBILE_WIDTH,
+} from '../utils';
 
 const title = 'All Components';
 
@@ -24,7 +29,7 @@ test('should render all components and theme properly on desktop', async t => {
       top: 0,
       left: 0,
       height: 15000,
-      width: 1280,
+      width: DESKTOP_WIDTH,
     },
   });
   await eyes.checkWindow({
@@ -34,7 +39,7 @@ test('should render all components and theme properly on desktop', async t => {
       top: 15000,
       left: 0,
       height: 15000,
-      width: 1280,
+      width: DESKTOP_WIDTH,
     },
   });
   await eyes.checkWindow({
@@ -44,7 +49,7 @@ test('should render all components and theme properly on desktop', async t => {
       top: 30000,
       left: 0,
       height: 15000,
-      width: 1280,
+      width: DESKTOP_WIDTH,
     },
   });
 
@@ -64,7 +69,7 @@ test('should render all components and theme properly on mobile', async t => {
       top: 0,
       left: 0,
       height: 15000,
-      width: 1280,
+      width: MOBILE_WIDTH,
     },
   });
   await eyes.checkWindow({
@@ -74,7 +79,7 @@ test('should render all components and theme properly on mobile', async t => {
       top: 15000,
       left: 0,
       height: 15000,
-      width: 1280,
+      width: MOBILE_WIDTH,
     },
   });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Heading, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 
 import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
