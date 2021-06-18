@@ -19,7 +19,7 @@ test('should render all components and theme properly on desktop', async t => {
   // capture page regions, height is ~33000px
   await eyes.checkWindow({
     tag: 'Region 1',
-    target: 'window',
+    target: 'region',
     region: {
       top: 0,
       left: 0,
@@ -29,7 +29,7 @@ test('should render all components and theme properly on desktop', async t => {
   });
   await eyes.checkWindow({
     tag: 'Region 2',
-    target: 'window',
+    target: 'region',
     region: {
       top: 15000,
       left: 0,
@@ -39,7 +39,7 @@ test('should render all components and theme properly on desktop', async t => {
   });
   await eyes.checkWindow({
     tag: 'Region 3',
-    target: 'window',
+    target: 'region',
     region: {
       top: 30000,
       left: 0,
@@ -59,7 +59,7 @@ test('should render all components and theme properly on mobile', async t => {
   // capture page regions, height is ~28000px
   await eyes.checkWindow({
     tag: 'Region 1',
-    target: 'window',
+    target: 'region',
     region: {
       top: 0,
       left: 0,
@@ -69,7 +69,7 @@ test('should render all components and theme properly on mobile', async t => {
   });
   await eyes.checkWindow({
     tag: 'Region 2',
-    target: 'window',
+    target: 'region',
     region: {
       top: 15000,
       left: 0,
