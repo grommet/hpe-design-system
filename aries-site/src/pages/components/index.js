@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Heading, Paragraph } from 'grommet';
 
-import { CardGrid, Meta } from '../../components';
+import { CardGrid, Meta, SubsectionText } from '../../components';
 import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
@@ -38,12 +38,6 @@ const Components = () => (
           <Paragraph size="large" fill>
             {pageDetails.description}
           </Paragraph>
-          <Button
-            alignSelf="start"
-            label="See all components"
-            href="/components/all-components"
-            secondary
-          />
         </Box>
       </PageIntro>
       <ContentSection>
@@ -62,6 +56,13 @@ const Components = () => (
           <CardGrid
             cards={cards.filter(card => card.category === 'Visualizations')}
           />
+        </Subsection>
+        <Subsection name="All Components">
+          <SubsectionText>
+            If you haven't found what you're looking for yet, check out other
+            components that are available.
+          </SubsectionText>
+          <CardGrid cards={cards.filter(card => card.category === 'All')} />
         </Subsection>
       </ContentSection>
     </Box>

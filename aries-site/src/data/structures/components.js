@@ -447,16 +447,16 @@ export const components = [
   {
     name: 'All Components',
     available: true,
-    // category: 'Controls',
+    category: 'All',
     description:
       'Grommet components are the building blocks of the HPE Design System.',
     preview: {
       image: {
         src: {
-          light: '/componentImages/component-preview-pagination.svg',
-          dark: '/componentImages/component-preview-pagination-invert.svg',
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
         },
-        alt: 'HPE Design System Pagination',
+        alt: 'HPE Cards Preview',
         fit: 'contain',
       },
     },
