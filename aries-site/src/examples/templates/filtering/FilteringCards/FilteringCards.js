@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import {
   Box,
   Card,
@@ -26,7 +27,12 @@ const StyledCard = styled(Card)`
   }
 `;
 
-export const FilteringCards = () => {
+export const FilteringCards = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
+
+  const size = useContext(ResponsiveContext);
+
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
@@ -50,8 +56,20 @@ export const FilteringCards = () => {
     { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
   ];
 
+  // Customize layer properties. Any Grommet Layer props, plus Box props
+  // for the Layer's container and contents.
+  const layerProps = {
+    // containerRef is for demonstration purposes on this site. Most
+    // implementations should likely remove.
+    target: containerRef && containerRef.current,
+  };
+
   return (
-    <Box pad="small" gap="medium">
+    <Box
+      background="background"
+      pad={size !== 'small' ? 'large' : 'medium'}
+      gap="medium"
+    >
       <Heading level={2} margin="none">
         Users
       </Heading>
@@ -60,6 +78,7 @@ export const FilteringCards = () => {
           <FilterControls
             data={users}
             filters={filtersConfig}
+            layerProps={layerProps}
             searchFilter={{ placeholder: 'Search users...' }}
           />
           <Users />
@@ -121,4 +140,8 @@ const Users = () => {
       </Grid>
     </Box>
   );
+};
+
+FilteringCards.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };

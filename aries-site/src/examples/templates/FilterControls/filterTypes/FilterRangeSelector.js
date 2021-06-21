@@ -6,7 +6,7 @@ import { useFilters } from '..';
 
 export const FilterRangeSelector = ({ attr }) => {
   const { data, filters, setFilters, getFilterOptions } = useFilters();
-  const { property, label, inputProps } = attr;
+  const { property, label, contentProps, inputProps } = attr;
   const options = getFilterOptions(data, property);
   const [range, setRange] = useState(
     (filters[property] && filters[property].value) || [
@@ -16,8 +16,14 @@ export const FilterRangeSelector = ({ attr }) => {
   );
 
   return (
-    <Box flex={false}>
-      <FormField htmlFor={property} name={property} label={label}>
+    <>
+      <FormField
+        htmlFor={property}
+        name={property}
+        label={label}
+        flex={false}
+        {...contentProps}
+      >
         <Stack>
           <Box background="border" height="3px" direction="row" />
           <RangeSelector
@@ -40,7 +46,7 @@ export const FilterRangeSelector = ({ attr }) => {
         </Stack>
       </FormField>
       <Text size="small">{inputProps.valueRange}</Text>
-    </Box>
+    </>
   );
 };
 
@@ -49,5 +55,8 @@ FilterRangeSelector.propTypes = {
     property: PropTypes.string,
     label: PropTypes.string,
     inputProps: PropTypes.object,
+    // Any valid Grommet Box props
+    // https://v2.grommet.io/formfield#contentProps
+    contentProps: PropTypes.object,
   }),
 };

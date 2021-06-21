@@ -10,10 +10,11 @@ export const FilterCheckBoxGroup = ({ attr }) => {
     property,
     label,
     inputProps,
-    max = 10,
+    contentProps,
+    render,
     sort = true,
     convertToString,
-    render,
+    max = 10,
   } = attr;
   const [value, setValue] = useState(filters[property]);
   const [showMore, setShowMore] = useState(false);
@@ -52,7 +53,14 @@ export const FilterCheckBoxGroup = ({ attr }) => {
       flex={false}
       margin={options.length > max ? { bottom: 'small' } : undefined}
     >
-      <FormField htmlFor={property} name={property} label={label}>
+      <FormField
+        htmlFor={property}
+        name={property}
+        label={label}
+        flex={false}
+        width={{ max: 'medium', min: 'small' }}
+        {...contentProps}
+      >
         <CheckBoxGroup
           id={property}
           name={property}
@@ -90,5 +98,8 @@ FilterCheckBoxGroup.propTypes = {
     render: PropTypes.func,
     sort: PropTypes.bool,
     convertToString: PropTypes.bool,
+    // Any valid Grommet Box props
+    // https://v2.grommet.io/formfield#contentProps
+    contentProps: PropTypes.object,
   }),
 };
