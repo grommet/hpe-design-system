@@ -175,6 +175,49 @@ accessible in a tool specifically designed for analysis.
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
   - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
 
+### Wrapping and truncating
+
+When text exceeds the amount of space available within a table cell, [wrapping](#wrapping) or [truncation](#truncation) may be used depending on your use case. Below are some best practices to consider when implementing.
+- For readability, avoid truncating or wrapping text within the first column.
+- Keep each cell short and concise, limiting the amount of characters within a cell when possible.
+- Minimize the number of included columns by only showing those which are used most frequently.
+
+### Truncation
+
+**Truncation should not be used on headings, numeric values, or statuses.**
+
+Truncation may be applied at the beginning, middle, or end of a piece of data. When choosing where to apply truncation within a string, consider which section of the text is most likely to differentiate the item from others in the column. 
+
+Additional questions to keep in mind when using truncation:
+
+1. How much information loss is acceptable?
+2. What impact is caused by any amount of information loss?
+3. When creating the data, can it be structured so that a table can truncate it in such way that the information loss is kept to a minimum?
+
+#### Options for Positioning Truncation
+
+**Front-text**
+
+Front-text truncation is when an ellipsis is placed at the beginning of a long string. This is best used when the start of a string is similar to many other cells, such as text containing a common prefix.
+
+**Mid-text**
+
+For recognizability, it may be better to crop the middle of a string. Define the parts of the content which need to be preserved in order to keep recognition high and should not be truncated. This strategy can be used when both the beginning and ends are uniquely identifiable.
+
+**End-text**
+
+End-text truncation is when the ellipsis is placed at the end of the string.
+
+If truncating numerical values is absolutely necessary, use end-text truncation. Additionally, provide a [tooltip](/compontents/tip) to help users view the complete string.
+
+### Wrapping
+
+Wrapping allows long strings of text or words to break and wrap onto subsequent lines.
+
+Wrapping should be used when:
+- The entirety of the content must be available at all times.
+- Long numerical values need to be displayed.
+
 ## Table behaviors & actions
 
 ### Sorting

@@ -52,6 +52,7 @@ export const components = {
   h1: props => <Heading margin={{ vertical: 'small' }} level={1} {...props} />,
   h2: props => <SubsectionHeader level={2} {...props} />,
   h3: props => <SubsectionHeader level={3} {...props} />,
+  h4: props => <SubsectionHeader level={4} {...props} />,
   hr: () => (
     <Box
       as="hr"
