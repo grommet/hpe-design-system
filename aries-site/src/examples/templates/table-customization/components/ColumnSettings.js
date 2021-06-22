@@ -8,6 +8,7 @@ export const ColumnSettings = ({
   columns,
   visibleColumns,
   setVisibleColumns,
+  open,
   ...rest
 }) => {
   const [filteredColumns, setFilteredColumns] = useState(columns);
@@ -46,6 +47,8 @@ export const ColumnSettings = ({
                 const nextColumns = filterColumns(columns, event.target.value);
                 setFilteredColumns(nextColumns);
               }}
+              // once the Drop opens and TextInput renders, focus it
+              autoFocus={open}
             />
             <CheckBoxGroup
               options={filteredColumns}
@@ -78,4 +81,5 @@ ColumnSettings.propTypes = {
   columns: PropTypes.arrayOf(ColumnType).isRequired,
   visibleColumns: PropTypes.arrayOf(ColumnType).isRequired,
   setVisibleColumns: PropTypes.func,
+  open: PropTypes.bool,
 };
