@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import { Document, Expand, Grommet, Figma } from 'grommet-icons';
+import { Document, DocumentText, Expand, Grommet, Figma } from 'grommet-icons';
 
 export const ExampleControls = ({
   designer,
   docs,
   figma,
+  guidance,
   horizontalLayout,
   setShowLayer,
 }) => {
@@ -77,6 +78,18 @@ export const ExampleControls = ({
             />
           </Box>
         )}
+        {guidance && (
+          <Box flex={false}>
+            <Button
+              title="Read guidance"
+              a11yTitle="Read guidance"
+              href={guidance}
+              icon={<DocumentText />}
+              label={!horizontalLayout && 'Read guidance'}
+              size={buttonSize}
+            />
+          </Box>
+        )}
         {horizontalLayout && (
           <FullscreenButton
             buttonSize={buttonSize}
@@ -102,6 +115,7 @@ ExampleControls.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
   setShowLayer: PropTypes.func,
 };
