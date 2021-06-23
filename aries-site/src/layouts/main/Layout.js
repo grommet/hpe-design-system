@@ -73,6 +73,7 @@ export const Layout = ({
               <Head title={title} />
               <Meta
                 title={title}
+                render={render}
                 description={seoDescription}
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />

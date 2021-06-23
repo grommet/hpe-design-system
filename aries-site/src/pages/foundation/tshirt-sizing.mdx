@@ -1,10 +1,12 @@
 import { Box, Image } from 'grommet';
+import { Example } from '../../layouts';
+import { ButtonSizingExample } from '../../examples';
 
 ## What is t-shirt sizing?
 
-T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of components. Under the hood in Grommet, these t-shirt sizes get mapped to specific pixel values, which is explained more below.
+T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of components. Grommet maps these t-shirt sizes to specific pixel values. The derivation of these pixel values will be explained more below.
 
-T-shirt sizing controls two aspects of a UI: the width/height of components and the spacing of within and around components (margin, pad, border, etc.)
+T-shirt sizing controls two aspects of a UI: the width/height of components and the spacing within and around components (margin, pad, border, etc.)
 
 When designing and developing with the HPE Design System, you should always use t-shirt sizes. If you find yourself adding custom px values to any properties, this should be a warning that you need to consult with your designer about why a custom value is needed. In nearly every case, designs and developement should be using t-shirt sizes.
 
@@ -37,7 +39,7 @@ full: '100%',
 
 ## T-shirt sizing for component dimensions
 
-One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe) or [Table](/components/table), the dimensions are controlled by the `size` prop.
+One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe), [Table](/components/table), or [Text](/foundation/typography#text), the dimensions are controlled by the `size` prop.
 
 The [Grommet site](https://v2.grommet.io/) will provide documentation on the props available to any given component. If you're unsure if a component supports `width`, `height`, or `size`, that would be the right place to check.
 
@@ -56,7 +58,7 @@ Given the code snippet from the previous section and the explanation on t-shirt 
 
 In addition to overall component dimensions, t-shirt sizing can also be used to define spacing and other styling such as pad, gap, margin, and border.
 
-To create the pixel values for these styles, Grommet divides and/or multiples the base unit of `24px` by various integers.
+To create the pixel values for these styles, Grommet divides and/or multiplies the base unit of `24px` by various integers.
 
 Pad, gap, and margin are controlled by `edgeSize` and the corresponding pixel values also come from [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) in Grommet
 
@@ -123,3 +125,35 @@ Given this code snippet, if you were to implement the following code, you would 
     alt="Demonstration of t-shirt sizing for border on Box"
   />
 </Box>
+
+### Composability and scaling between t-shirt sizes
+
+Sizes are intended to help give a UI a unified, harmonious experience. Therefore, there is a relationship between the pixel values that each size value maps to.
+
+A given size (e.g., medium) is one half of the next size up (e.g., large).
+
+```
+small (192px) + small (192px) = medium (384px)
+medium (384px) + medium (384px) = large (768px)
+```
+
+### Default `size` of "medium"
+
+For components that support a `size` prop, the default size is `medium`. This means that if you do not specify your own `size`, the component will render with the styling that corresponds with "medium" size.
+
+Notice in this example of Button sizes how the "Default" button is the same size as the "Medium" button. In the code, you'll see:
+
+```
+<Button label="Default" primary />
+<Button size="medium" label="Medium" primary />
+```
+
+Because `medium` is the default size, you can simplify your code by implementing a component without the `size` prop when `medium` is the desired size.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonSizingExample />
+</Example>
