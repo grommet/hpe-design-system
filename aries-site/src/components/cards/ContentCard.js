@@ -15,7 +15,7 @@ export const StyledCard = styled(Card)`
 `;
 
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
-  const { description, name, parent, preview } = topic;
+  const { description, name, parent, preview, render } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
@@ -59,7 +59,12 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           </PreviewImageCard>
         )}
         <Box gap="small">
-          <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
+          <Identifier
+            title={render || name}
+            align="start"
+            gap="xsmall"
+            size="xxlarge"
+          >
             {parent && parent.icon && !minimal && (
               <Box direction="row" align="center" gap="xsmall">
                 {parent.icon('small', parent.color)}

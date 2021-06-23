@@ -18,6 +18,15 @@ export const components = {
       />
     </Box>
   ),
+  code: props => (
+    <Box
+      background="background-contrast"
+      width="large"
+      round="xsmall"
+      pad="medium"
+      {...props}
+    />
+  ),
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (

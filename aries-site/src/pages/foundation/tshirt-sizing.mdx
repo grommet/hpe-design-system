@@ -1,0 +1,125 @@
+import { Box, Image } from 'grommet';
+
+## What is t-shirt sizing?
+
+T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of components. Under the hood in Grommet, these t-shirt sizes get mapped to specific pixel values, which is explained more below.
+
+T-shirt sizing controls two aspects of a UI: the width/height of components and the spacing of within and around components (margin, pad, border, etc.)
+
+When designing and developing with the HPE Design System, you should always use t-shirt sizes. If you find yourself adding custom px values to any properties, this should be a warning that you need to consult with your designer about why a custom value is needed. In nearly every case, designs and developement should be using t-shirt sizes.
+
+## Why do we use t-shirt sizing?
+
+Using t-shirt sizes results in a UI that is more consistent across pages and across applications, creating a more unified experience for HPE customers.
+
+There are also benefits of t-shirt sizing for designers and developers!
+
+Using pixel values, percentages, or other common sizing methods to create layouts can result in applications that are less composable and less scalable. T-shirt sizing creates a common language between designers and developers and defined intervals of sizes that makes designing and developing more efficient. Instead, a container of content may just have of a width of "medium", for example, and Grommet will take care of the rest.
+
+## The base unit
+
+In order to create the range of sizes and their corresponding pixel values, a base unit of `24px` is used as a scalar.
+
+Below is a snippet from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file where the calculations and corresponding pixel values for the t-shirt sizes that drive the width/height of components such as Box are defined. The `base.js` theme establishes many of the defaults that are leveraged across Grommet applications.
+
+```
+// base.js in Grommet
+
+xxsmall: `${baseSpacing * 2}px`, // 48
+xsmall: `${baseSpacing * 4}px`, // 96
+small: `${baseSpacing * 8}px`, // 192
+medium: `${baseSpacing * 16}px`, // 384
+large: `${baseSpacing * 32}px`, // 768
+xlarge: `${baseSpacing * 48}px`, // 1152
+xxlarge: `${baseSpacing * 64}px`, // 1536
+full: '100%',
+```
+
+## T-shirt sizing for component dimensions
+
+One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe) or [Table](/components/table), the dimensions are controlled by the `size` prop.
+
+The [Grommet site](https://v2.grommet.io/) will provide documentation on the props available to any given component. If you're unsure if a component supports `width`, `height`, or `size`, that would be the right place to check.
+
+Given the code snippet from the previous section and the explanation on t-shirt sizing for dimensions, if you were to implement the following code, you would have a Box with width of "384px" and height of "192px".
+
+```
+<Box width="medium" height="small" />
+// width = 384px, height = 192px
+```
+
+<Box width="large">
+  <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
+</Box>
+
+## T-shirt sizing for spacing and other styles
+
+In addition to overall component dimensions, t-shirt sizing can also be used to define spacing and other styling such as pad, gap, margin, and border.
+
+To create the pixel values for these styles, Grommet divides and/or multiples the base unit of `24px` by various integers.
+
+Pad, gap, and margin are controlled by `edgeSize` and the corresponding pixel values also come from [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) in Grommet
+
+```
+// base.js in Grommet
+
+edgeSize: {
+    none: '0px',
+    hair: '1px', // for Chart
+    xxsmall: `${baseSpacing / 8}px`, // 3
+    xsmall: `${baseSpacing / 4}px`, // 6
+    small: `${baseSpacing / 2}px`, // 12
+    medium: `${baseSpacing}px`, // 24
+    large: `${baseSpacing * 2}px`, // 48
+    xlarge: `${baseSpacing * 4}px`, // 96
+
+}
+```
+
+Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and pad of 48px.
+
+```
+<Box
+    width="medium"
+    height="small"
+    pad="large"
+/>
+```
+
+<Box width="medium" margin={{bottom: 'large'}}>
+  <Image
+    src="/edge-sizing.png"
+    alt="Demonstration of t-shirt sizing for pad on Box"
+  />
+</Box>
+
+Border sizing is controlled by `borderSize`.
+
+```
+// base.js in Grommet
+
+borderSize: {
+    xsmall: '1px',
+    small: '2px',
+    medium: `${baseSpacing / 6}px`, // 4
+    large: `${baseSpacing / 2}px`, // 12
+    xlarge: `${baseSpacing}px`, // 24
+}
+```
+
+Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and a border with a width of 2px.
+
+```
+<Box 
+    border={{ color: 'border', size: 'small' }}
+    width="medium"
+    height="small" 
+/>
+```
+
+<Box width="medium" margin={{bottom: 'large'}}>
+  <Image
+    src="/border-sizing.png"
+    alt="Demonstration of t-shirt sizing for border on Box"
+  />
+</Box>
