@@ -21,7 +21,11 @@ test('should render all components and theme properly on desktop', async t => {
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
 
-  // capture page regions, height is ~33000px
+  // Applitools window capture has a max height of 15000px. 
+  // Need to take incremental snapshots. Current page height is ~33000px.
+  // TO DO: Investigate programmatically getting window height and
+  // implementing loop for captures. Async-await was causing issues in
+  // initial attempt.
   await eyes.checkWindow({
     tag: 'Region 1',
     target: 'region',
