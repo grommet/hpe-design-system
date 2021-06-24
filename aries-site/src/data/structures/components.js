@@ -456,7 +456,7 @@ export const components = [
           light: '/components-light.svg',
           dark: '/components-dark.svg',
         },
-        alt: 'HPE Cards Preview',
+        alt: 'Purple playing cards representing HPE Design System components',
         fit: 'contain',
       },
     },
