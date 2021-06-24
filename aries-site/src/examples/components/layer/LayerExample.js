@@ -1,5 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
+import {
+  Button,
+  Box,
+  Header,
+  Heading,
+  Layer,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const LayerExample = () => {
@@ -26,12 +34,12 @@ export const LayerExample = () => {
             width={size !== 'small' ? 'medium' : undefined}
             pad="medium"
           >
-            <Box flex={false} direction="row" justify="between">
-              <Heading level={1} size="small" margin="none">
+            <Header>
+              <Heading level={2} margin="none">
                 This is a Layer.
               </Heading>
               <Button icon={<FormClose />} onClick={onClose} />
-            </Box>
+            </Header>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
                 This layer is set to appear on the right and fill the screen

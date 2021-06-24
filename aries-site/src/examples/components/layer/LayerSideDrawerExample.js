@@ -28,7 +28,7 @@ const LayerForm = ({ setOpen }) => {
     <Box gap="medium">
       <Header align="start" pad={{ horizontal: 'xxsmall' }}>
         <Box gap="xxsmall">
-          <Heading level={1} margin="none" size="small">
+          <Heading level={2} margin="none">
             Form Header
           </Heading>
           <Text>a subtitle if needed</Text>

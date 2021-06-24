@@ -53,7 +53,7 @@ If heading levels are not implemented in the correct hierarchy, users of screen 
 - Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`
 - It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
 - Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
-- Treat Layers as if they were their own page. Therefore, the first heading in a Layer would be a Heading with level={1}.
+- Within Layers, the first Heading within the Layer should be a Heading with `level={2}`.
 
 Below is an example of how Heading levels should be implemented for a page called "Page title" with 3 topics called Topic A, Topic B, and Topic C. Each topic has 2 subtopics.
 
