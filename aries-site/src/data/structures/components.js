@@ -460,8 +460,7 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items.`,
+    seoDescription: `View all HPE Design System and Grommet components.`,
     sections: [],
     relatedContent: [],
   },
