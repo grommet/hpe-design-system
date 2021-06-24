@@ -59,8 +59,7 @@ const Components = () => (
         </Subsection>
         <Subsection name="All Components">
           <SubsectionText>
-            If you haven't found what you're looking for yet, check out other
-            components that are available.
+            View additional Grommet components which haven't been presented above. Some, like [DataChart](/components/all-components#datachart) and [Video](/components/all-components#video) have not yet been customized by the HPE Design System. Others, like [Image](/components/all-components#image), Keyboard, and ResponsiveContext provide tremendous utility, but may not require specific HPE styling or guidance.
           </SubsectionText>
           <CardGrid cards={cards.filter(card => card.category === 'All')} />
         </Subsection>
