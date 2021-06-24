@@ -27,7 +27,7 @@ export const Example = ({
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
-  guidance, // linkt to Design System site guidance
+  guidance, // link to Design System site guidance
   height,
   horizontalLayout,
   plain, // remove Container from around example
