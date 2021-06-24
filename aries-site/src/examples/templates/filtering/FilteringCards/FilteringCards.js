@@ -21,10 +21,6 @@ import { users } from './mockData';
 const StyledCard = styled(Card)`
   will-change: transform;
   transition: all 0.15s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
 `;
 
 export const FilteringCards = ({ containerRef }) => {

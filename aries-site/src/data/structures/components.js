@@ -460,7 +460,7 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `View all HPE Design System and Grommet components.`,
+    seoDescription: 'View all HPE Design System and Grommet components.',
     sections: [],
     relatedContent: [],
   },
