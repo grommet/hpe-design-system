@@ -88,6 +88,7 @@ const filtersConfig = [
 
 export const TableCustomizationExample = () => {
   const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
+  const [open, setOpen] = useState(false);
 
   return (
     <Box
@@ -114,11 +115,14 @@ export const TableCustomizationExample = () => {
                 <DropButton
                   icon={<Edit />}
                   dropAlign={{ top: 'bottom', right: 'right' }}
+                  onClose={() => setOpen(false)}
+                  onOpen={() => setOpen(true)}
                   dropContent={
                     <ColumnSettings
                       columns={COLUMNS}
                       visibleColumns={visibleColumns}
                       setVisibleColumns={setVisibleColumns}
+                      open={open}
                     />
                   }
                 />
