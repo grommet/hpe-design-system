@@ -21,7 +21,7 @@ test('should render all components and theme properly on desktop', async t => {
 
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
 
-  // Applitools window capture has a max height of 15000px. 
+  // Applitools window capture has a max height of 15000px.
   // Need to take incremental snapshots. Current page height is ~33000px.
   // TO DO: Investigate programmatically getting window height and
   // implementing loop for captures. Async-await was causing issues in
@@ -65,7 +65,7 @@ test('should render all components and theme properly on mobile', async t => {
   const eyes = new Eyes();
 
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
-  // capture page regions, height is ~28000px
+  // capture page regions, height is ~32000px
   await eyes.checkWindow({
     tag: 'Region 1',
     target: 'region',
@@ -81,6 +81,16 @@ test('should render all components and theme properly on mobile', async t => {
     target: 'region',
     region: {
       top: 15000,
+      left: 0,
+      height: 15000,
+      width: MOBILE_WIDTH,
+    },
+  });
+  await eyes.checkWindow({
+    tag: 'Region 2',
+    target: 'region',
+    region: {
+      top: 30000,
       left: 0,
       height: 15000,
       width: MOBILE_WIDTH,
