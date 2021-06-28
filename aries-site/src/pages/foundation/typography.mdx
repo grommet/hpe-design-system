@@ -50,7 +50,8 @@ If heading levels are not implemented in the correct hierarchy, users of screen 
 - Each web page should only have a single `h1`: `<Heading level={1} />`.
 - The main page sections following the page title should receive `level={2}`.
 - Any sub-topics of sections with `level={2}` should receive `level={3}`.
-- Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`
+- Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`.
+- Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading, then adjust the size by means of Heading's `size` prop.
 - It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
 - Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
 - Treat Layers as if they were their own page. Therefore, the first heading in a Layer would be a Heading with level={1}.
