@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  AnnounceContext,
   Button,
   Box,
   CheckBox,
@@ -125,22 +124,7 @@ export const LayerSideDrawerExample = () => {
   return (
     <>
       <Box align="start">
-        <AnnounceContext.Consumer>
-          {announce => (
-            <Button
-              label="Show me the side drawer"
-              onClick={() => {
-                onOpen();
-                //             announce(
-                //               `You are in a layer containing a form titled
-                // Form Header, a subtitle if needed.`,
-                //               'assertive',
-                //             );
-              }}
-              primary
-            />
-          )}
-        </AnnounceContext.Consumer>
+        <Button label="Show me the side drawer" onClick={onOpen} primary />
       </Box>
       {open && (
         <Layer
