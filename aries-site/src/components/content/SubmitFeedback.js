@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
-import { ChatOption, Contact, MailOption, Close, Github } from 'grommet-icons';
+import { ChatOption, Contact, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
 const Subscribe = () => (
@@ -20,27 +20,6 @@ const Subscribe = () => (
         href="https://announce.now.hpe.com/home/NewsLetter/OpenSubscription/254?u=1"
         target="_blank"
         rel="noreferrer noopener"
-        primary
-      />
-    </Box>
-  </Box>
-);
-
-const Email = () => (
-  <Box gap="small">
-    <MailOption size="large" />
-    <Text weight="bold" size="large">
-      Here to help
-    </Text>
-    <SubsectionText>
-      Your comments are important to us. Reach out, and we can discuss your
-      needs.
-    </SubsectionText>
-    <Box align="start">
-      <Button
-        label="Contact us"
-        // eslint-disable-next-line max-len
-        href="mailto:hpedesignsystem@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
         primary
       />
     </Box>
@@ -103,7 +82,6 @@ export const FeedbackOptions = () => {
         <JoinConversation />
         <Contribute />
         <Subscribe />
-        <Email />
       </Grid>
     </Box>
   );
