@@ -26,27 +26,6 @@ const Subscribe = () => (
   </Box>
 );
 
-const Email = () => (
-  <Box gap="small">
-    <MailOption size="large" />
-    <Text weight="bold" size="large">
-      Here to help
-    </Text>
-    <SubsectionText>
-      Your comments are important to us. Reach out, and we can discuss your
-      needs.
-    </SubsectionText>
-    <Box align="start">
-      <Button
-        label="Contact us"
-        // eslint-disable-next-line max-len
-        href="mailto:hpedesignsystem@hpe.com?subject=Keep%20me%20updated%20on%20the%20HPE%20Design%20System&body=Hi%20there,%0d%0dI%20would%20like%20to%20be%20added%20to%20the%20HPE%20Design%20System%20mailing%20list,%20so%20that%20I'll%20receive%20updates%20and%20announcements%20about%20the%20Design%20System. Thank you!"
-        primary
-      />
-    </Box>
-  </Box>
-);
-
 const JoinConversation = () => (
   <Box gap="small">
     <ChatOption size="large" />
@@ -103,7 +82,6 @@ export const FeedbackOptions = () => {
         <JoinConversation />
         <Contribute />
         <Subscribe />
-        <Email />
       </Grid>
     </Box>
   );
