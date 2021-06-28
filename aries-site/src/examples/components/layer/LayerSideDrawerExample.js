@@ -34,8 +34,9 @@ const LayerForm = ({ setOpen }) => {
           <Text>a subtitle if needed</Text>
         </Box>
         <Button
-          a11yTitle={`You are in a layer form. To close the layer, 
-            press enter`}
+          a11yTitle={`You are in a layer containing a form titled
+          "Form Header, a subtitle if needed". To close the layer 
+          and return to the primary content, press Enter.`}
           icon={<FormClose />}
           onClick={() => setOpen(false)}
           autoFocus

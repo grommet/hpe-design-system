@@ -34,7 +34,7 @@ Layer is used to define the properties and behaviors of an overlay for things li
 
 ### Using Headings in Layer
 
-Treat a Layer as a section of a page. Therefore, the first heading within a Layer should be a Heading with `level={2}`, and all subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+Layer headings should be semantically correct. Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`. All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
 
 ### Accessibility
 
@@ -44,8 +44,8 @@ For example, implementation of this "Close" button for a Layer would be:
 
 ```
 <Button 
-  a11yTitle={`You are in a layer with a form to add new hosts. 
-  To close this layer, press Enter`}
+  a11yTitle={`You are in a layer containing a form to add new hosts. 
+  To close this layer, press Enter.`}
   icon={<FormClose />} 
   onClick={() => setShowLayer(false)}
   autoFocus
