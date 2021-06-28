@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
-import { ChatOption, Contact, MailOption, Close, Github } from 'grommet-icons';
+import { ChatOption, Contact, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
 const Subscribe = () => (
