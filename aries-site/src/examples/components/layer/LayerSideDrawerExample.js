@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+  AnnounceContext,
   Button,
   Box,
   CheckBox,
@@ -28,14 +29,14 @@ const LayerForm = ({ setOpen }) => {
     <Box gap="medium">
       <Header align="start" pad={{ horizontal: 'xxsmall' }}>
         <Box gap="xxsmall">
-          <Heading level={2} margin="none">
+          <Heading level={2} margin="none" id="layer-title">
             Form Header
           </Heading>
-          <Text>a subtitle if needed</Text>
+          <Text id="layer-desc">a subtitle if needed</Text>
         </Box>
         <Button
-          a11yTitle={`You are in a layer containing a form titled
-          "Form Header, a subtitle if needed". To close the layer 
+          a11yTitle={`You are on a Close button in a layer containing a form 
+          titled Form Header, a subtitle if needed. To close the layer 
           and return to the primary content, press Enter.`}
           icon={<FormClose />}
           onClick={() => setOpen(false)}
@@ -120,10 +121,26 @@ export const LayerSideDrawerExample = () => {
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
+
   return (
     <>
       <Box align="start">
-        <Button label="Show me the side drawer" onClick={onOpen} primary />
+        <AnnounceContext.Consumer>
+          {announce => (
+            <Button
+              label="Show me the side drawer"
+              onClick={() => {
+                onOpen();
+                //             announce(
+                //               `You are in a layer containing a form titled
+                // Form Header, a subtitle if needed.`,
+                //               'assertive',
+                //             );
+              }}
+              primary
+            />
+          )}
+        </AnnounceContext.Consumer>
       </Box>
       {open && (
         <Layer
