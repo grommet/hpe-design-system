@@ -1,3 +1,4 @@
+import { Box } from 'grommet';
 import {
   AccordionExample,
   AnchorExample,
@@ -50,10 +51,31 @@ import {
 } from '../../examples';
 import { Example } from '../../layouts';
 import { DocsMessage } from '../../components';
+import {
+  Descend,
+  Desktop,
+  Grommet as GrommetIcon,
+  Keyboard,
+  Link,
+  Paint,
+  PhoneVertical,
+  Shift,
+  Sign,
+} from 'grommet-icons';
 
-The HPE Design System provides guidance and theming for a large subset of Grommet components, but is not exhaustive. Some, like [DataChart](#datachart) and [Video](#video) have not yet been customized by the HPE Design System. Others, like [Image](#image), Keyboard, and ResponsiveContext provide tremendous utility, but may not require specific HPE styling or guidance.
+The HPE Design System provides guidance and theming for a large subset of Grommet components, but is not exhaustive. Some, like [DataChart](#datachart) and [Video](#video) have not yet been customized by the HPE Design System. Others, like [Image](#image), [Keyboard](#keyboard), and [ResponsiveContext](#responsivecontext) provide tremendous utility, but may not require specific HPE styling or guidance.
 
 Below you will find a comprehensive list of all Grommet components, examples for each, and either a link to Design System usage guidance or Grommet documentation in cases where guidance is not yet available.
+
+Jump to a specific component type:
+
+- [Layout](#layout)
+- [Type](#type)
+- [Controls](#controls)
+- [Input](#input)
+- [Visualizations](#visualizations)
+- [Media](#media)
+- [Utilities](#utilities)
 
 ## Layout
 
@@ -585,4 +607,65 @@ Below you will find a comprehensive list of all Grommet components, examples for
   docs="https://v2.grommet.io/video?theme=hpe"
 >
   <VideoExample />
+</Example>
+
+## Utilities
+
+### AnnounceContext
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/announcecontext?theme=hpe">
+  <Sign size="xlarge" />
+</Example>
+
+### Collapsible
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/collapsible?theme=hpe">
+  <Shift size="xlarge" />
+</Example>
+
+### Grommet
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/grommet?theme=hpe">
+  <GrommetIcon size="xlarge" />
+</Example>
+
+### InfiniteScroll
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/infinitescroll?theme=hpe">
+  <Descend size="xlarge" />
+</Example>
+
+### Keyboard
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/keyboard?theme=hpe">
+  <Keyboard size="xlarge" />
+</Example>
+
+### ResponsiveContext
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/responsivecontext?theme=hpe">
+  <Box direction="row-responsive" align="center" gap="medium">
+    <Desktop size="xlarge" />
+    <PhoneVertical size="xlarge" />
+  </Box>
+</Example>
+
+### SkipLinks
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/skiplinks?theme=hpe">
+  <Link size="xlarge" />
+</Example>
+
+### ThemeContext
+
+<DocsMessage />
+<Example height="none" docs="https://v2.grommet.io/themecontext?theme=hpe">
+  <Paint size="xlarge" />
 </Example>
