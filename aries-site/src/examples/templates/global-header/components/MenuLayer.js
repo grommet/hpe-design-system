@@ -39,8 +39,11 @@ export const MenuLayer = () => {
           >
             <Header pad={pad}>
               <Button
+                a11yTitle={`You are in a navigation layer. To close this layer, 
+                press Enter`}
                 icon={<FormClose />}
                 onClick={() => setShowLayer(false)}
+                autoFocus
               />
             </Header>
             <Box pad={pad} flex gap="medium" overflow="auto">
