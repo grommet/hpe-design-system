@@ -5,20 +5,21 @@ export const CarouselExample = () => (
   <Carousel>
     <Box height="medium" width="large">
       <Image
-        alt="Golden Gate Bridge"
-        src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+        alt={`Photo of a woman sitting on a couch and using her laptop 
+        during the day`}
+        src="/woman-glc.jpeg"
       />
     </Box>
     <Box height="medium" width="large">
       <Image
-        alt="Ocean crashing on San Diego shore"
-        src="https://images.unsplash.com/photo-1505245208761-ba872912fac0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+        alt="Man working from home at a desk by a window with a baby on his lap"
+        src="/man-wfh.jpeg"
       />
     </Box>
     <Box height="medium" width="large">
       <Image
-        alt="Bird's eye view of New York City"
-        src="https://images.unsplash.com/photo-1513107358949-b21c1c3906eb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+        alt="Woman and man standing in a room of HPE servers"
+        src="/woman-man-server-room.jpeg"
       />
     </Box>
   </Carousel>
