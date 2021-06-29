@@ -250,7 +250,7 @@ export const foundation = [
     render: 'T-shirt Sizing',
     category: 'Philosophy',
     cardOrder: 4,
-    description: 'Create consistent, scalable interfaces with t-shirt sizing.',
+    description: 'Create consistent, composable interfaces with t-shirt sizing.',
     preview: {
       image: {
         src: {
