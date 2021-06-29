@@ -1,0 +1,97 @@
+
+## Overview
+
+Internationalizion (I18N) and Localization (L10N) are important for web content
+and applications which are intended to be used by global users. It's even important
+for users in a single location who simply speak different languages.
+
+Internationalization is the process of making your application tailor its
+content to different languages or even locations. Localization is the process of
+translating content and behavior for a particular language or location.
+
+Even if you don't localize the messages and content of your application or site in a
+different language, users can benefit from your site being internationalized. Part
+of internationalizating is making your site recognize the locale set in the browser
+and format things like dates and times, currency and numbers specifically
+for that locale. Browsers have great built-in support for formatting that content
+appropriately for the locale. For example, a user in Australia or the United Kingdom
+may be perfectly happy with your content being in English but would much prefer any
+dates or times be presented with the day of the month before the month
+(28/06/2021 versus 6/28/2021). This is easy to do with `Date.toLocalDateString()`.
+More information on browser and javsascript localization support is available from
+many sources such as ***TODO***
+
+## Guidelines
+
+Depending on how your site or application is implemented, you'll need to pick
+an appropriate mechanism for choosing a language and locale and then provide
+content for the language and locale the user chose. You can provide a way to pick
+a language or simply try to use the preference set by the browser. Browsers include
+the user's locale preferences (if set) in header in the page request. Your
+application or site can choose localized content that best matches a locale from
+this list. Even if you don't have content for one of the preferred languages or
+allowed the user to set the language another way, it's best to still format
+dates, numbers and such given their preferred locale whenever possible.
+
+Once the site has chosen a locale from the user's preferences your site needs to
+provide that content. If you used Grommet to implement the site, there are some
+messages used in Grommet components that you'll need to localize also.
+
+
+## Localizing Grommet
+
+Messages needed for Grommet components can be provided all up front through the
+`messages` property on the `Grommet` component itself.
+```jsx
+<Grommet messages={{
+  messages: {
+    textField: { required: 'This field is required' }
+    ...
+  }
+}}>
+```
+
+If you're using other packages for internationalization like
+[react-intl](https://www.npmjs.com/package/react-intl)
+or [react-i18next](https://www.npmjs.com/package/react-i18next),
+it's even easier to provide a function which accesses the messages on demand by id.
+
+For `react-intl`:
+```jsx
+import { useIntl } from 'react-intl';
+...
+const intl = useIntl();
+...
+<Grommet messages={{ format: options => intl.formatMessage(options) }}>
+```
+
+For `react-i18next`:
+```jsx
+import { useTranslation } from 'react-intl';
+...
+const { t } = useTranslation();
+...
+<Grommet messages={{ format: ({id}) => t(id) }}>
+```
+
+Then just provide the Grommet messages along with your other localized messages.
+See the [Grommet component documentation](https://v2.grommet.io/grommet)
+for details on what messages are needed.
+
+If needed you can also provide customized messages to the Grommet components
+which need them. The components which have localizable messages also support
+a `messages` property which accepts their specific messages. In most cases it
+easiest to provide the messages as above to the `Grommet` component instead.
+However if you want to specify customized messages for a component in a few
+specific use cases you can certainly do that via the `messages` property
+for those components.
+
+## Examples
+
+To see some example code and localization of a Grommet application take a look
+at the [Grommet I18N example](https://github.com/grommet/grommet-i18n). It shows
+how you can use either `react-intl` or `react-i18next` with Grommet and includes
+a few localized language examples.
+
+
+

@@ -251,4 +251,23 @@ export const templates = [
     sections: [],
     relatedContent: ['Table', 'Lists', 'Filtering'],
   },
+  {
+    name: 'Internationalization',
+    available: false,
+    description: 'Internationalizing a Design System site',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-i18n.svg',
+          dark: '/templateImages/template-preview-i18n-invert.svg',
+        },
+        alt: 'Internationalization',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `How to internationalize a site or application that uses
+    the HPE Design System`,
+    sections: [],
+    relatedContent: [],
+  },
 ];
