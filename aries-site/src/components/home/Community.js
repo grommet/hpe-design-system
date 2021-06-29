@@ -24,7 +24,7 @@ const SlackOption = () => (
   <Box gap="medium">
     <Slack size="large" color="text-strong" />
     <Box>
-      <Heading level={2} margin="none" size="xsmall">
+      <Heading level={3} margin="none" size="small">
         Slack
       </Heading>
       <Text>Specific questions? Want feedback or advice?</Text>
@@ -42,7 +42,7 @@ const Roadmap = () => (
   <Box gap="medium">
     <Map size="large" color="text-strong" />
     <Box>
-      <Heading level={2} margin="none" size="xsmall">
+      <Heading level={3} margin="none" size="small">
         Roadmap
       </Heading>
       <Text>Stay in the loop and checkout what's next!</Text>
@@ -59,7 +59,7 @@ const Backlog = () => (
   <Box gap="medium">
     <Github size="large" color="text-strong" />
     <Box>
-      <Heading level={2} margin="none" size="xsmall">
+      <Heading level={3} margin="none" size="small">
         Backlog
       </Heading>
       <Text>Eager to know what's marinating in the back?</Text>
@@ -76,16 +76,12 @@ const Feedback = () => (
   <Box gap="medium">
     <Info size="large" color="text-strong" />
     <Box>
-      <Heading level={2} margin="none" size="xsmall">
+      <Heading level={3} margin="none" size="small">
         Feedback
       </Heading>
       <Text>Let us know your feedback!</Text>
     </Box>
-    <LinkButton
-      label="Provide feedback"
-      href="/feedback"
-      secondary
-    />
+    <LinkButton label="Provide feedback" href="/feedback" secondary />
   </Box>
 );
 
@@ -100,7 +96,9 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xlarge">
-          <Heading margin="none">Community</Heading>
+          <Heading margin="none" level={2} size="large">
+            Community
+          </Heading>
           <Paragraph size="xlarge" fill>
             The HPE Design System is an open-source framework for designers and
             developers. We welcome feedback, ideas and appreciate your
