@@ -7,6 +7,7 @@ export const Container = ({
   designer, // link to grommet designer example
   docs, // link to grommet doc for component
   figma, // link to figma design
+  guidance, // link to Design System guidance
   height: heightProp,
   horizontalLayout,
   plain, // remove Container from around example
@@ -41,7 +42,7 @@ export const Container = ({
       }
       round={
         !horizontalLayout &&
-        (designer || docs || figma || screenContainer || template)
+        (designer || docs || figma || guidance || screenContainer || template)
           ? { corner: 'top', size: 'small' }
           : 'small'
       }
@@ -54,6 +55,7 @@ Container.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,
