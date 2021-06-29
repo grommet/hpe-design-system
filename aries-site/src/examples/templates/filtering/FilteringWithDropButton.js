@@ -54,10 +54,6 @@ const allData = [
 
 const StyledCard = styled(Card)`
   transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
 `;
 
 const StyledTextInput = styled(TextInput).attrs(() => ({

@@ -71,7 +71,7 @@ export const structure = [
     name: 'Components',
     color: 'purple!',
     description:
-      'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
+      'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
     preview: {
       image: {

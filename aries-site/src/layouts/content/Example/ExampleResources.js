@@ -55,7 +55,7 @@ export const ExampleResources = ({
   React.useEffect(() => {
     if (codeOpen && !codeText && activeCode) {
       fetchCode(activeCode);
-    } else if (codeOpen && codeText) {
+    } else if (codeOpen && codeText && codeRef.current) {
       // https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/
       // setTimeout runs this after the DOM has updated which ensures
       // ref is defined

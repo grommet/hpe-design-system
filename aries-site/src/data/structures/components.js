@@ -98,10 +98,8 @@ export const components = [
   {
     name: 'FileInput',
     category: 'Inputs',
-    description:
-      'An input used to upload one or more files.',
-    seoDescription:
-      'An input used to upload one or more files.',
+    description: 'An input used to upload one or more files.',
+    seoDescription: 'An input used to upload one or more files.',
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: [],
     preview: {
@@ -254,13 +252,7 @@ export const components = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
-    relatedContent: [
-      'Button',
-      'Menu',
-      'TextInput',
-      'Dashboards',
-      'Search',
-    ],
+    relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards', 'Search'],
   },
   {
     name: 'Footer',
@@ -451,5 +443,25 @@ export const components = [
     enhance navigation to specific items.`,
     sections: [],
     relatedContent: ['Table', 'Lists', 'Card'],
+  },
+  {
+    name: 'All Components',
+    available: true,
+    category: 'All',
+    description:
+      'Grommet components are the building blocks of the HPE Design System.',
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'Purple playing cards representing HPE Design System components',
+        fit: 'contain',
+      },
+    },
+    seoDescription: 'View all HPE Design System and Grommet components.',
+    sections: [],
+    relatedContent: [],
   },
 ];
