@@ -17,38 +17,6 @@ import {
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const LayerSideDrawerExample = () => {
-  const [open, setOpen] = useState(false);
-  const size = useContext(ResponsiveContext);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
-  return (
-    <>
-      <Box align="start">
-        <Button label="Show me the side drawer" onClick={onOpen} primary />
-      </Box>
-      {open && (
-        <Layer
-          position="right"
-          full={size !== 'small' ? 'vertical' : true}
-          modal
-          onClickOutside={onClose}
-          onEsc={onClose}
-        >
-          <Box
-            fill="vertical"
-            overflow="auto"
-            width={size !== 'small' ? 'medium' : undefined}
-            pad="medium"
-          >
-            <LayerForm setOpen={value => setOpen(value)} />
-          </Box>
-        </Layer>
-      )}
-    </>
-  );
-};
-
 const LayerForm = ({ setOpen }) => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -60,13 +28,21 @@ const LayerForm = ({ setOpen }) => {
     <Box gap="medium">
       <Header align="start" pad={{ horizontal: 'xxsmall' }}>
         <Box gap="xxsmall">
-          <Heading level={3} margin="none">
+          <Heading level={2} margin="none" id="layer-title">
             Form Header
           </Heading>
-          <Text>a subtitle if needed</Text>
+          <Text id="layer-desc">a subtitle if needed</Text>
         </Box>
-        <Button icon={<FormClose />} onClick={() => setOpen(false)} />
+        <Button
+          a11yTitle={`You are on a Close button in a layer containing a form 
+          titled Form Header, a subtitle if needed. To close the layer 
+          and return to the primary content, press Enter.`}
+          icon={<FormClose />}
+          onClick={() => setOpen(false)}
+          autoFocus
+        />
       </Header>
+
       <Form
         validate="blur"
         method="post"
@@ -137,4 +113,37 @@ const LayerForm = ({ setOpen }) => {
 
 LayerForm.propTypes = {
   setOpen: PropTypes.func.isRequired,
+};
+
+export const LayerSideDrawerExample = () => {
+  const [open, setOpen] = useState(false);
+  const size = useContext(ResponsiveContext);
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(undefined);
+
+  return (
+    <>
+      <Box align="start">
+        <Button label="Show me the side drawer" onClick={onOpen} primary />
+      </Box>
+      {open && (
+        <Layer
+          position="right"
+          full={size !== 'small' ? 'vertical' : true}
+          modal={false}
+          onClickOutside={onClose}
+          onEsc={onClose}
+        >
+          <Box
+            fill="vertical"
+            overflow="auto"
+            width={size !== 'small' ? 'medium' : undefined}
+            pad="medium"
+          >
+            <LayerForm setOpen={value => setOpen(value)} />
+          </Box>
+        </Layer>
+      )}
+    </>
+  );
 };

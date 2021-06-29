@@ -91,7 +91,7 @@ export const Example = ({
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   const content = !showLayer && (
-    <ExampleContainer {...containerProps}>
+    <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
           ExampleWrapper === ResponsiveContainer && background
