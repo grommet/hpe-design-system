@@ -24,6 +24,7 @@ export const DropExample = () => {
         <Drop
           align={{ top: 'bottom', left: 'left' }}
           target={targetRef.current}
+          trapFocus={false}
         >
           <Box pad="large">Drop Contents</Box>
         </Drop>
