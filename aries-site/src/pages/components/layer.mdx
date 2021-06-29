@@ -32,9 +32,25 @@ Layer is used to define the properties and behaviors of an overlay for things li
 - Use a close control to guide users to move out of the layer. Provide an alternative to move out of the layer by allowing use of the 'esc' key or clicking off the container of the layer.
 - Layer is not great for navigation as it 'hides' content. Maintain context for the user with layer.
 
+### Using Headings in Layer
+
+Layer headings should be semantically correct. Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`. All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+
 ### Accessibility
 
-Consider the use of ARIA role='dialog' to implement a modal for screen readers.
+When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. This close button should also be given an `a11yTitle` that provides the user with context that they are in a Layer.
+
+For example, implementation of this "Close" button for a Layer would be:
+
+```
+<Button 
+  a11yTitle={`You are in a layer containing a form to add new hosts. 
+  To close this layer, press Enter.`}
+  icon={<FormClose />} 
+  onClick={() => setShowLayer(false)}
+  autoFocus
+/>
+```
 
 ## Variants
 
@@ -62,16 +78,4 @@ A center modal is anchored at the center of the window and acts as a modal. This
   height={{ min: 'small' }}
 >
   <LayerCenterExample />
-</Example>
-
-### Notifications
-
-A notification should always be posititioned at either the top or bottom of the window. Assign the modal prop to false to allow the user to continue to interact with the UI even when the notification is open.
-
-<Example
-  docs="https://v2.grommet.io/layer?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerNotificationExample.js"
-  height={{ min: 'small' }}
->
-  <LayerNotificationExample />
 </Example>
