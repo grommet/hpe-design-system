@@ -1,4 +1,3 @@
-
 export const foundation = [
   {
     name: 'Accessibility',
@@ -65,8 +64,7 @@ export const foundation = [
     name: 'Designer Guidance',
     category: 'Philosophy',
     cardOrder: 2,
-    description:
-      `Starter files, patterns, interactions, and workflows on
+    description: `Starter files, patterns, interactions, and workflows on
        how to succeed using the design resources from HPE Design
         System and the HPE Brand.`,
     preview: {
@@ -78,8 +76,7 @@ export const foundation = [
         alt: 'HPE Designer Guidance Preview',
       },
     },
-    seoDescription:
-      `View patterns, interactions, and other best practices for
+    seoDescription: `View patterns, interactions, and other best practices for
        how to succeed using resources included with the HPE
        Design System.`,
     sections: [
@@ -247,5 +244,25 @@ export const foundation = [
     seamlessly style your layout.`,
     sections: [],
     relatedContent: ['Color', 'Typography', 'Icons'],
+  },
+  {
+    name: 'Tshirt Sizing',
+    render: 'T-shirt Sizing',
+    category: 'Philosophy',
+    cardOrder: 4,
+    description: 'Create consistent, composable interfaces with t-shirt sizing.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+        },
+        alt: 'HPE T-shirt Sizing Preview',
+      },
+    },
+    seoDescription:
+      'Create consistent, scalable interfaces with t-shirt sizing.',
+    sections: [],
+    relatedContent: ['Box', 'Typography', 'Grid'],
   },
 ];

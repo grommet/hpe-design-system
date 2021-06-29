@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
+export const Meta = ({
+  title,
+  description,
+  canonicalUrl,
+  render,
+  socialImageUrl,
+}) => {
   const siteName = 'HPE Design System';
   const defaultImage = '/static/images/aries-introduction.jp2';
   const previewImage = socialImageUrl || defaultImage;
@@ -39,7 +45,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
     <Head>
       <title>
         {title && title !== 'Home'
-          ? `${title} — HPE Design System`
+          ? `${render || title} — HPE Design System`
           : 'HPE Design System'}
       </title>
       <meta
@@ -108,6 +114,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
 Meta.propTypes = {
   canonicalUrl: PropTypes.string,
   description: PropTypes.string.isRequired,
+  render: PropTypes.string,
   socialImageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
