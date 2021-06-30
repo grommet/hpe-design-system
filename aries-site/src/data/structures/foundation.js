@@ -250,7 +250,8 @@ export const foundation = [
     render: 'T-shirt Sizing',
     category: 'Philosophy',
     cardOrder: 4,
-    description: 'Create consistent, composable interfaces with t-shirt sizing.',
+    description:
+      'Create consistent, composable interfaces with t-shirt sizing.',
     preview: {
       image: {
         src: {
@@ -264,5 +265,32 @@ export const foundation = [
       'Create consistent, scalable interfaces with t-shirt sizing.',
     sections: [],
     relatedContent: ['Box', 'Typography', 'Grid'],
+  },
+  {
+    name: 'Voice and Tone',
+    category: 'Philosophy',
+    cardOrder: 6,
+    description: `Deliver clear, consistent experiences to HPE customers by 
+    following guidelines for the voice and tone of text-based user interface 
+    elements.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: `Deliver clear, consistent experiences to HPE customers by 
+    following guidelines for the voice and tone of text-based user interface 
+    elements.`,
+    sections: [],
+    relatedContent: [
+      'Accessibility',
+      'Designer Guidance',
+      'Developer Guidance',
+    ],
   },
 ];
