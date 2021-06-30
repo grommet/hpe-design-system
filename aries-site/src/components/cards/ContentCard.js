@@ -95,5 +95,6 @@ ContentCard.propTypes = {
         src: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       }),
     }),
+    render: PropTypes.string,
   }),
 };
