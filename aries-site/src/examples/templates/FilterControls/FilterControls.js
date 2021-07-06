@@ -5,6 +5,7 @@ import { Box } from 'grommet';
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
 export const FilterControls = ({
+  actions,
   data,
   filters,
   layerProps,
@@ -17,6 +18,7 @@ export const FilterControls = ({
     setLayerProps,
     setPrimaryKey,
     syncFilteredResults,
+    selected,
   } = useFilters();
 
   useEffect(() => {
@@ -40,7 +42,7 @@ export const FilterControls = ({
     syncFilteredResults();
   }, [syncFilteredResults]);
 
-  return (
+  return !selected.length ? (
     <Box gap="xsmall" flex={false}>
       <Box direction="row" align="end" gap="small">
         {searchFilter && (
@@ -50,10 +52,24 @@ export const FilterControls = ({
       </Box>
       <ResultsSummary />
     </Box>
+  ) : (
+    <Box
+      direction="row"
+      background="background-back"
+      fill="horizontal"
+      flex={false}
+      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
+      justify="between"
+      wrap
+    >
+      <ResultsSummary />
+      {actions}
+    </Box>
   );
 };
 
 FilterControls.propTypes = {
+  actions: PropTypes.element,
   data: PropTypes.array,
   filters: PropTypes.arrayOf(
     PropTypes.shape({
