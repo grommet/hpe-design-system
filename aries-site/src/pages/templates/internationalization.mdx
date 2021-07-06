@@ -5,7 +5,7 @@ Internationalizion (I18N) and Localization (L10N) are important for web content
 and applications which are intended to be used by global users. It's even important
 for users in a single location who simply speak different languages.
 
-Internationalization is the process of making your application tailor its
+Internationalization is the process of tailoring application
 content to different languages or even locations. Localization is the process of
 translating content and behavior for a particular language or location.
 
@@ -18,14 +18,13 @@ appropriately for the locale. For example, a user in Australia or the United Kin
 may be perfectly happy with your content being in English but would much prefer any
 dates or times be presented with the day of the month before the month
 (28/06/2021 versus 6/28/2021). This is easy to do with `Date.toLocalDateString()`.
-More information on browser and javsascript localization support is available from
-many sources such as ***TODO***
 
 ## Guidelines
 
 Depending on how your site or application is implemented, you'll need to pick
 an appropriate mechanism for choosing a language and locale and then provide
-content for the language and locale the user chose. You can provide a way to pick
+content for the language and locale the user chose. You can provide a control in
+the application that allows the user to pick
 a language or simply try to use the preference set by the browser. Browsers include
 the user's locale preferences (if set) in header in the page request. Your
 application or site can choose localized content that best matches a locale from
@@ -34,13 +33,15 @@ allowed the user to set the language another way, it's best to still format
 dates, numbers and such given their preferred locale whenever possible.
 
 Once the site has chosen a locale from the user's preferences your site needs to
-provide that content. If you used Grommet to implement the site, there are some
-messages used in Grommet components that you'll need to localize also.
+provide the appropriate content given the selected locale. If you have implemented
+your application with Grommet, there are some default messages for components like
+Menu and FormField that will require localization, For example, the required message
+that accompanies a required FormField.
 
 
 ## Localizing Grommet
 
-Messages needed for Grommet components can be provided all up front through the
+Messages needed for Grommet components can be provided in a single place by using the
 `messages` property on the `Grommet` component itself.
 ```jsx
 <Grommet messages={{
