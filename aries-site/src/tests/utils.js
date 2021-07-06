@@ -55,9 +55,9 @@ export const tabToSearch = ClientFunction(() => {
   return tabCount + 1;
 });
 
-const DESKTOP_WIDTH = 1280;
+export const DESKTOP_WIDTH = 1280;
 const DESKTOP_HEIGHT = 720;
-const MOBILE_WIDTH = 375;
+export const MOBILE_WIDTH = 375;
 const MOBILE_HEIGHT = 667;
 
 export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {

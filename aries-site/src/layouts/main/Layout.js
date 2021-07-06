@@ -47,7 +47,9 @@ export const Layout = ({
   const router = useRouter();
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
-  const { name: title, seoDescription, pageLayout } = getPageDetails(titleProp);
+  const { name: title, seoDescription, pageLayout, render } = getPageDetails(
+    titleProp,
+  );
   const layout = isLanding ? 'plain' : pageLayout;
 
   return (
@@ -71,6 +73,7 @@ export const Layout = ({
               <Head title={title} />
               <Meta
                 title={title}
+                render={render}
                 description={seoDescription}
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
@@ -98,7 +101,11 @@ export const Layout = ({
                     {layout !== 'plain' ? (
                       <>
                         <ContentSection>
-                          <DocsPageHeader title={title} topic={topic} />
+                          <DocsPageHeader
+                            title={title}
+                            topic={topic}
+                            render={render}
+                          />
                           {children}
                         </ContentSection>
                         {relatedContent.length > 0 && (
