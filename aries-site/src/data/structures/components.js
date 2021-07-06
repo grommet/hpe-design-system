@@ -42,7 +42,12 @@ export const components = [
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
-    sections: [],
+    sections: [
+      'Default Button',
+      'Primary Button',
+      'Secondary Button',
+      'Toolbar Button',
+    ],
     preview: {
       component: () => <ButtonPreview />,
       background: 'background-front',
