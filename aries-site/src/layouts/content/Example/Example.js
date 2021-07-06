@@ -27,6 +27,7 @@ export const Example = ({
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
+  guidance, // link to Design System site guidance
   height,
   horizontalLayout,
   plain, // remove Container from around example
@@ -62,6 +63,7 @@ export const Example = ({
     designer,
     docs,
     figma,
+    guidance,
     height,
     horizontalLayout,
     plain,
@@ -112,12 +114,14 @@ export const Example = ({
   const controls = (designer ||
     docs ||
     figma ||
+    guidance ||
     screenContainer ||
     template) && (
     <ExampleControls
       designer={designer}
       docs={docs}
       figma={figma}
+      guidance={guidance}
       horizontalLayout={horizontalLayout}
       setShowLayer={value => setShowLayer(value)}
     />
@@ -263,6 +267,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   github: PropTypes.string,
+  guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,

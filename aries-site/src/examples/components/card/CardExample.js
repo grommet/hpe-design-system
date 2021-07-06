@@ -7,8 +7,8 @@ import { Wifi } from 'grommet-icons';
 const mockData = Array(30)
   .fill()
   .map((_, index) => ({
-      value: [index, Math.random() * 100],
-    }));
+    value: [index, Math.random() * 100],
+  }));
 
 const capacityWarnings = mockData.filter(datum => datum.value[1] >= 50).length;
 
@@ -21,10 +21,6 @@ const gradient = [
 
 const StyledCard = styled(Card)`
   transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
 `;
 
 export const CardExample = () => {
@@ -45,6 +41,7 @@ export const CardExample = () => {
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}
       onMouseOver={() => setIsFocused(true)}
+      width="medium"
     >
       <CardBody pad="none">
         <Identifier
@@ -117,11 +114,11 @@ KPIChart.propTypes = {
 };
 
 const KPISummary = ({ instances, statusColor }) => (
-    <Box direction="row" align="center" gap="small">
-      <Box background={statusColor} height="12px" width="12px" round />
-      <Text>{instances} instances above utilization target</Text>
-    </Box>
-  );
+  <Box direction="row" align="center" gap="small">
+    <Box background={statusColor} height="12px" width="12px" round />
+    <Text>{instances} instances above utilization target</Text>
+  </Box>
+);
 
 KPISummary.propTypes = {
   instances: PropTypes.number,

@@ -7,15 +7,11 @@ import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
 export const StyledCard = styled(Card)`
-  transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
+  transition: all 0.2s ease-in-out;
 `;
 
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
-  const { description, name, parent, preview } = topic;
+  const { description, name, parent, preview, render } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
@@ -59,7 +55,12 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           </PreviewImageCard>
         )}
         <Box gap="small">
-          <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
+          <Identifier
+            title={render || name}
+            align="start"
+            gap="xsmall"
+            size="xxlarge"
+          >
             {parent && parent.icon && !minimal && (
               <Box direction="row" align="center" gap="xsmall">
                 {parent.icon('small', parent.color)}
@@ -94,5 +95,6 @@ ContentCard.propTypes = {
         src: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       }),
     }),
+    render: PropTypes.string,
   }),
 };

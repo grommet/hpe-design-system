@@ -27,7 +27,11 @@ export const HeaderExample = () => {
   }, [focused, setFocused]);
 
   return (
-    <Header fill="horizontal" pad="none" background="background-front">
+    <Header
+      fill="horizontal"
+      pad={{ horizontal: 'medium', vertical: 'small' }}
+      background="background-front"
+    >
       <Button>
         <Box
           direction="row"
