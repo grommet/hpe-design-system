@@ -8,6 +8,7 @@ import {
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
+  ToolbarButtonExample,
 } from '../../examples';
 
 <Example
@@ -80,6 +81,27 @@ Secondary buttons are used to represent calls to action that are either in suppo
   height={{ min: 'small' }}
 >
   <SecondaryButtonExample />
+</Example>
+
+### Toolbar Button
+
+Toolbar buttons are used when buttons are placed in a row with other toolbar controls. 
+
+A common use case would be when creating a [filtering experience](/templates/filtering). In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
+
+To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-based components like [Menu](/components/menu).
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+  ]}
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <ToolbarButtonExample />
 </Example>
 
 ### Default Button
