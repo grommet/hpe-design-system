@@ -64,7 +64,7 @@ export const structure = [
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: templates
       .sortByName()
-      .sortByAvailability()
+      .sortByCardOrder()
       .map(page => page.name),
   },
   {
