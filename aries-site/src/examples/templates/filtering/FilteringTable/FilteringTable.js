@@ -43,7 +43,7 @@ export const FilteringTable = () => {
 
   return (
     <Box background="background-front" pad="small" gap="medium" fill>
-      <Heading level={2} margin="none">
+      <Heading id="servers-heading" level={2} margin="none">
         Servers
       </Heading>
       <FiltersProvider>
@@ -102,6 +102,7 @@ const ServerResults = () => {
   return (
     <Box height="medium" overflow="auto">
       <DataTable
+        aria-describedby="servers-heading"
         data={filteredResults}
         columns={[
           {

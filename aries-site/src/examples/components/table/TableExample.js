@@ -294,11 +294,16 @@ export const TableExample = () => {
 
   return (
     <>
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="storage-pools-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Storage Pools
       </Heading>
       <Box height="medium" overflow="auto">
         <DataTable
+          aria-describedby="storage-pools-heading"
           data={data}
           columns={[
             {
