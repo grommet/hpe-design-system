@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, DropButton, Header, Heading, Menu } from 'grommet';
-import { Edit } from 'grommet-icons';
+import { Columns } from 'grommet-icons';
 
 import { ColumnSettings } from './ColumnSettings';
 import {
@@ -100,38 +100,42 @@ export const TableCustomizationExample = () => {
       background="background"
     >
       <FiltersProvider>
-        <Header pad={{ top: 'medium' }}>
-          <Box gap="xsmall" fill="horizontal">
-            <Heading level={2} margin="none">
-              Users
-            </Heading>
-            <Box direction="row" justify="between">
-              <FilterControls
-                data={allData}
-                filters={filtersConfig}
-                searchFilter={{ placeholder: 'Search users...' }}
-              />
-              <Box direction="row" height="fit-content">
-                <DropButton
-                  icon={<Edit />}
-                  dropAlign={{ top: 'bottom', right: 'right' }}
-                  onClose={() => setOpen(false)}
-                  onOpen={() => setOpen(true)}
-                  dropContent={
-                    <ColumnSettings
-                      columns={COLUMNS}
-                      visibleColumns={visibleColumns}
-                      setVisibleColumns={setVisibleColumns}
-                      open={open}
-                    />
-                  }
-                />
-                <Menu label="Actions" items={[]} />
+        <Box gap="medium">
+          <Header pad={{ top: 'medium' }}>
+            <Box gap="xsmall" fill="horizontal">
+              <Heading level={2} margin="none">
+                Users
+              </Heading>
+              <Box direction="row" justify="between" align="start">
+                <Box direction="row" align="start" gap="small">
+                  <FilterControls
+                    data={allData}
+                    filters={filtersConfig}
+                    searchFilter={{ placeholder: 'Search users...' }}
+                  />
+                  <DropButton
+                    icon={<Columns />}
+                    kind="toolbar"
+                    dropAlign={{ top: 'bottom', right: 'right' }}
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    dropContent={
+                      <ColumnSettings
+                        columns={COLUMNS}
+                        visibleColumns={visibleColumns}
+                        setVisibleColumns={setVisibleColumns}
+                        open={open}
+                      />
+                    }
+                    tip="Customize columns"
+                  />
+                </Box>
+                <Menu kind="toolbar" label="Actions" items={[]} />
               </Box>
             </Box>
-          </Box>
-        </Header>
-        <Results columns={visibleColumns} />
+          </Header>
+          <Results columns={visibleColumns} />
+        </Box>
       </FiltersProvider>
     </Box>
   );

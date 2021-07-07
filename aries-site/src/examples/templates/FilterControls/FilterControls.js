@@ -42,7 +42,7 @@ export const FilterControls = ({
 
   return (
     <Box gap="xsmall" flex={false}>
-      <Box direction="row" align="end" gap="small">
+      <Box direction="row" align="start" gap="small">
         {searchFilter && (
           <SearchFilter placeholder={searchFilter.placeholder} />
         )}
