@@ -42,28 +42,32 @@ export const FilterControls = ({
     syncFilteredResults();
   }, [syncFilteredResults]);
 
-  return !selected.length ? (
-    <Box gap="xsmall" flex={false}>
-      <Box direction="row" align="end" gap="small">
-        {searchFilter && (
-          <SearchFilter placeholder={searchFilter.placeholder} />
-        )}
-        <Filters />
-      </Box>
-      <ResultsSummary />
-    </Box>
-  ) : (
-    <Box
-      direction="row"
-      background="background-back"
-      fill="horizontal"
-      flex={false}
-      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
-      justify="between"
-      wrap
-    >
-      <ResultsSummary />
-      {actions}
+  return (
+    <Box height={{ min: 'xsmall' }} fill="horizontal" flex={false}>
+      {!selected.length ? (
+        <Box gap="xsmall" flex={false}>
+          <Box direction="row" align="end" gap="small">
+            {searchFilter && (
+              <SearchFilter placeholder={searchFilter.placeholder} />
+            )}
+            <Filters />
+          </Box>
+          <ResultsSummary />
+        </Box>
+      ) : (
+        <Box
+          direction="row"
+          background="background-back"
+          fill="horizontal"
+          flex={false}
+          pad={{ horizontal: 'medium', vertical: 'xsmall' }}
+          justify="between"
+          wrap
+        >
+          <ResultsSummary />
+          {actions}
+        </Box>
+      )}
     </Box>
   );
 };

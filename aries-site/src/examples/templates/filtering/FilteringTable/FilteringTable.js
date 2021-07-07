@@ -47,23 +47,26 @@ export const FilteringTable = () => {
         Servers
       </Heading>
       <FiltersProvider>
-        <Box gap="medium">
-          <Box align="start" direction="row" justify="between" wrap>
-            <FilterControls
-              actions={
-                <Menu
-                  label="Actions"
-                  items={[{ label: 'Power On' }, { label: 'Power Off' }]}
-                />
-              }
-              data={servers}
-              filters={filtersConfig}
-              primaryKey="id"
-              searchFilter={{ placeholder: 'Search servers...' }}
-            />
-          </Box>
-          <ServerResults />
+        <Box align="start" direction="row" justify="between" wrap>
+          <FilterControls
+            actions={
+              <Menu
+                label="Actions"
+                items={[
+                  { label: 'Power On' },
+                  { label: 'Power Off' },
+                  { label: 'Upgrade' },
+                  { label: 'Delete' },
+                ]}
+              />
+            }
+            data={servers}
+            filters={filtersConfig}
+            primaryKey="id"
+            searchFilter={{ placeholder: 'Search servers...' }}
+          />
         </Box>
+        <ServerResults />
       </FiltersProvider>
     </Box>
   );
