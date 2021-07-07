@@ -222,11 +222,16 @@ export const TableSingleSelectExample = () => {
 
   return !pageDetails.id ? (
     <>
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="orders-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Orders
       </Heading>
       <Box overflow="auto">
         <DataTable
+          aria-describedby="orders-heading"
           data={data}
           columns={[
             { property: 'id', header: 'Id', pin: size === 'small' },

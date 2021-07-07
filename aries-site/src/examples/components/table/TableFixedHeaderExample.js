@@ -228,19 +228,28 @@ const columns = [
 ];
 
 export const TableFixedHeaderExample = () => (
-    <>
-      <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
-        Connected Devices
-      </Heading>
-      <Box
-        align="start"
-        // restricting height to demonstrate pinned header behavior
-        height="medium"
-        // restricting width to demonstrate pinned column behavior
-        width={{ min: 'medium', max: 'large' }}
-        overflow="auto"
-      >
-        <DataTable data={data} columns={columns} pin />
-      </Box>
-    </>
-  );
+  <>
+    <Heading
+      id="connected-heading"
+      level={3}
+      margin={{ bottom: 'medium', top: 'none' }}
+    >
+      Connected Devices
+    </Heading>
+    <Box
+      align="start"
+      // restricting height to demonstrate pinned header behavior
+      height="medium"
+      // restricting width to demonstrate pinned column behavior
+      width={{ min: 'medium', max: 'large' }}
+      overflow="auto"
+    >
+    <DataTable
+      aria-describedby="connected-heading"
+      data={data}
+      columns={columns}
+      pin
+    />
+    </Box>
+  </>
+);
