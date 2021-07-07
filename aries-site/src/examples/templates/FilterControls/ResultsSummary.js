@@ -23,7 +23,7 @@ export const ResultsSummary = () => {
           {isFiltered ? filteredResults.length : data.length}
         </Text>
         <Text size={textSize}>
-          result{selected.length > 1 ? 's' : ''} selected
+          result{filteredResults.length > 1 ? 's' : ''} selected
         </Text>
       </Box>
       <Button label="Clear Selection" onClick={() => setSelected([])} />
