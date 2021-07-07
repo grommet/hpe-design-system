@@ -267,7 +267,7 @@ export const templates = [
     name: 'Internationalization',
     available: true,
     description: `How to internationalize a site or application that uses the 
-    HPE Design System`,
+    HPE Design System.`,
     preview: {
       image: {
         src: {
