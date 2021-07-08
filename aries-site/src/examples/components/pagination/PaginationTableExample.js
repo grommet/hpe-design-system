@@ -541,11 +541,16 @@ export const PaginationTableExample = () => {
 
   return (
     <Box pad="small">
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="storage-pools-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Storage Pools
       </Heading>
       <Box>
         <DataTable
+          aria-describedby="storage-pools-heading"
           data={data}
           columns={[
             {

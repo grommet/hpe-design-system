@@ -103,7 +103,7 @@ export const TableCustomizationExample = () => {
         <Box gap="medium">
           <Header pad={{ top: 'medium' }}>
             <Box gap="xsmall" fill="horizontal">
-              <Heading level={2} margin="none">
+              <Heading id="users-heading" level={2} margin="none">
                 Users
               </Heading>
               <Box direction="row" justify="between" align="start">
@@ -148,6 +148,7 @@ const Results = ({ columns }) => {
   return (
     <Box fill overflow="auto">
       <DataTable
+        aria-describedby="users-heading"
         data={filteredResults}
         background="background"
         columns={columns}
