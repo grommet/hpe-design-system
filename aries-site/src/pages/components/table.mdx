@@ -218,6 +218,17 @@ Wrapping should be used when:
 - The entirety of the content must be available at all times.
 - Long numerical values need to be displayed.
 
+### Accessibility
+
+To ensure screen readers are able to associate a page heading with a given table, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the table, it will announce the Heading content which provides the user with better context about the table data and purpose.
+
+For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the table.
+
+```
+<Heading id="storage-pools-heading">Storage Pools</Heading>
+<DataTable aria-describedBy="storage-pools-heading" />
+```
+
 ## Table behaviors & actions
 
 ### Sorting
