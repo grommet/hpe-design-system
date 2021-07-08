@@ -174,18 +174,28 @@ const columns = [
 ];
 
 export const TableResizeColumnsExample = () => (
-    <>
-      <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
-        Contact Information
-      </Heading>
-      <Box
-        align="start"
-        // restricting height to demonstrate pinned header behavior
-        height="medium"
-        overflow="auto"
-        fill="horizontal"
-      >
-        <DataTable data={data} columns={columns} pin resizeable />
-      </Box>
-    </>
-  );
+         <>
+           <Heading
+             id="contact-info-heading"
+             level={3}
+             margin={{ bottom: 'medium', top: 'none' }}
+           >
+             Contact Information
+           </Heading>
+           <Box
+             align="start"
+             // restricting height to demonstrate pinned header behavior
+             height="medium"
+             overflow="auto"
+             fill="horizontal"
+           >
+             <DataTable
+               aria-describedby="contact-info-heading"
+               data={data}
+               columns={columns}
+               pin
+               resizeable
+             />
+           </Box>
+         </>
+       );

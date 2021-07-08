@@ -232,12 +232,13 @@ export const TableMultiSelectExample = () => {
 
   return (
     <>
-      <Heading level={3} margin="none">
+      <Heading id="orders-heading" level={3} margin="none">
         Manage Orders
       </Heading>
       <TableControls selected={selected} />
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
+          aria-describedby="orders-heading"
           data={data}
           primaryKey="id"
           columns={[
