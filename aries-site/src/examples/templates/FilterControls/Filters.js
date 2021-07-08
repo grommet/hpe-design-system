@@ -52,8 +52,8 @@ export const Filters = () => {
           icon={<Filter />}
           tip={
             isFiltered
-              ? `open filters, ${filterCount} filters applied`
-              : 'open filters'
+              ? `Open filters, ${filterCount} filters applied`
+              : 'Open filters'
           }
           onClick={() => {
             setPreviousFilters(filters);
