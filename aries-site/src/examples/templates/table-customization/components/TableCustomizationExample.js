@@ -106,31 +106,33 @@ export const TableCustomizationExample = () => {
               <Heading id="users-heading" level={2} margin="none">
                 Users
               </Heading>
-              <Box direction="row" justify="between" align="start">
-                <Box direction="row" align="start" gap="small">
-                  <FilterControls
-                    data={allData}
-                    filters={filtersConfig}
-                    searchFilter={{ placeholder: 'Search users...' }}
-                  />
-                  <DropButton
-                    icon={<Configure />}
-                    kind="toolbar"
-                    dropAlign={{ top: 'bottom', right: 'right' }}
-                    onClose={() => setOpen(false)}
-                    onOpen={() => setOpen(true)}
-                    dropContent={
-                      <ColumnSettings
-                        columns={COLUMNS}
-                        visibleColumns={visibleColumns}
-                        setVisibleColumns={setVisibleColumns}
-                        open={open}
+              <Box direction="row" justify="between" align="start" wrap>
+                <FilterControls
+                  actions={
+                    <Box direction="row" align="start" gap="small">
+                      <DropButton
+                        icon={<Configure />}
+                        kind="toolbar"
+                        dropAlign={{ top: 'bottom', right: 'right' }}
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        dropContent={
+                          <ColumnSettings
+                            columns={COLUMNS}
+                            visibleColumns={visibleColumns}
+                            setVisibleColumns={setVisibleColumns}
+                            open={open}
+                          />
+                        }
+                        tip="Configure columns"
                       />
-                    }
-                    tip="Configure columns"
-                  />
-                </Box>
-                <Menu kind="toolbar" label="Actions" items={[]} />
+                      <Menu kind="toolbar" label="Actions" items={[]} />
+                    </Box>
+                  }
+                  data={allData}
+                  filters={filtersConfig}
+                  searchFilter={{ placeholder: 'Search users...' }}
+                />
               </Box>
             </Box>
           </Header>
