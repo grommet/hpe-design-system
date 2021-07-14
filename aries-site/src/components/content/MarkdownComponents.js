@@ -85,21 +85,33 @@ export const components = {
   ),
   table: props => (
     <Box align="start" width={{ max: 'xlarge' }}>
-      <Box background="background-front" pad="medium" round="xxsmall">
+      <Box
+        background="background-front"
+        pad={{ horizontal: 'medium', top: 'medium', bottom: 'large' }}
+        round="xxsmall"
+      >
         <Table {...props} />
       </Box>
     </Box>
   ),
   tbody: props => <TableBody {...props} />,
   thead: props => <TableHeader {...props} />,
-  td: props => <TableCell verticalAlign="top" {...props} />,
+  td: props => (
+    <TableCell
+      border={{ side: 'bottom', color: 'border-weak' }}
+      verticalAlign="top"
+      {...props}
+    />
+  ),
   th: props => (
     <TableCell
       scope="col"
       pad={{ horizontal: 'small', vertical: 'xsmall' }}
       {...props}
     >
-      <Text weight="bold">{props.children}</Text>
+      <Text color="text-strong" weight="bold">
+        {props.children}
+      </Text>
     </TableCell>
   ),
   tr: props => <TableRow {...props} />,
