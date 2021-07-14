@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, Box, Heading, Paragraph } from 'grommet';
+import {
+  Anchor,
+  Box,
+  Heading,
+  Paragraph,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+  Text,
+} from 'grommet';
 
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
@@ -72,8 +83,44 @@ export const components = {
       fill="horizontal"
     />
   ),
+  table: props => (
+    <Box align="start" width={{ max: 'xlarge' }}>
+      <Box
+        background="background-front"
+        pad={{ horizontal: 'medium', top: 'medium', bottom: 'large' }}
+        round="xxsmall"
+      >
+        <Table {...props} />
+      </Box>
+    </Box>
+  ),
+  tbody: props => <TableBody {...props} />,
+  thead: props => <TableHeader {...props} />,
+  td: props => (
+    <TableCell
+      border={{ side: 'bottom', color: 'border-weak' }}
+      verticalAlign="top"
+      {...props}
+    />
+  ),
+  th: props => (
+    <TableCell
+      scope="col"
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      {...props}
+    >
+      <Text color="text-strong" weight="bold">
+        {props.children}
+      </Text>
+    </TableCell>
+  ),
+  tr: props => <TableRow {...props} />,
 };
 
 components.a.propTypes = {
   href: PropTypes.string.isRequired,
+};
+
+components.th.propTypes = {
+  children: PropTypes.node,
 };
