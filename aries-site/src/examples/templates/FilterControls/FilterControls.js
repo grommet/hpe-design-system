@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
@@ -19,6 +19,7 @@ export const FilterControls = ({
     setPrimaryKey,
     syncFilteredResults,
   } = useFilters();
+  const size = useContext(ResponsiveContext);
 
   useEffect(() => {
     setData(data);
@@ -43,7 +44,13 @@ export const FilterControls = ({
 
   return (
     <Box flex={false} fill="horizontal">
-      <Box direction="row" align="start" justify="between" wrap>
+      <Box
+        direction="row"
+        align="start"
+        justify="between"
+        gap="small"
+        wrap={size === 'small'} // so search input has room to grow on mobile
+      >
         <Box
           direction="row"
           align="start"

@@ -115,7 +115,7 @@ export const TableCustomizationExample = () => {
                   // do with regards to any column configurations that have
                   // been applied.
                   actions={
-                    <Box direction="row" align="start" gap="small">
+                    <Box direction="row" align="start" gap="small" flex={false}>
                       <DropButton
                         icon={<Configure />}
                         kind="toolbar"
