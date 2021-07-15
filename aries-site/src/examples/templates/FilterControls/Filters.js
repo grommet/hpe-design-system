@@ -38,7 +38,7 @@ export const Filters = () => {
 
   return (
     <>
-      <Box direction="row" align="center" gap="small">
+      <Box direction="row" align="center" gap="small" flex={false}>
         <Button
           kind="toolbar"
           badge={
