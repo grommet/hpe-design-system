@@ -108,6 +108,12 @@ export const TableCustomizationExample = () => {
               </Heading>
               <Box direction="row" justify="between" align="start" wrap>
                 <FilterControls
+                  // Table column configuration should be grouped on right
+                  // side with other actions to separate it from filtering.
+                  // If grouped to the left with the Filter control, it
+                  // becomes confusing what the "Clear filters" button will
+                  // do with regards to any column configurations that have
+                  // been applied.
                   actions={
                     <Box direction="row" align="start" gap="small">
                       <DropButton
