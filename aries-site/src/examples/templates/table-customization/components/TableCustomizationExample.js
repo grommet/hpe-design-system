@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, DropButton, Header, Heading, Menu } from 'grommet';
-import { Edit } from 'grommet-icons';
+import { Configure } from 'grommet-icons';
 
 import { ColumnSettings } from './ColumnSettings';
 import {
@@ -100,38 +100,50 @@ export const TableCustomizationExample = () => {
       background="background"
     >
       <FiltersProvider>
-        <Header pad={{ top: 'medium' }}>
-          <Box gap="xsmall" fill="horizontal">
-            <Heading id="users-heading" level={2} margin="none">
-              Users
-            </Heading>
-            <Box direction="row" justify="between">
-              <FilterControls
-                data={allData}
-                filters={filtersConfig}
-                searchFilter={{ placeholder: 'Search users...' }}
-              />
-              <Box direction="row" height="fit-content">
-                <DropButton
-                  icon={<Edit />}
-                  dropAlign={{ top: 'bottom', right: 'right' }}
-                  onClose={() => setOpen(false)}
-                  onOpen={() => setOpen(true)}
-                  dropContent={
-                    <ColumnSettings
-                      columns={COLUMNS}
-                      visibleColumns={visibleColumns}
-                      setVisibleColumns={setVisibleColumns}
-                      open={open}
-                    />
+        <Box gap="medium">
+          <Header pad={{ top: 'medium' }}>
+            <Box gap="xsmall" fill="horizontal">
+              <Heading id="users-heading" level={2} margin="none">
+                Users
+              </Heading>
+              <Box direction="row" justify="between" align="start" wrap>
+                <FilterControls
+                  // Table column configuration should be grouped on right
+                  // side with other actions to separate it from filtering.
+                  // If grouped to the left with the Filter control, it
+                  // becomes confusing what the "Clear filters" button will
+                  // do with regards to any column configurations that have
+                  // been applied.
+                  actions={
+                    <Box direction="row" align="start" gap="small" flex={false}>
+                      <DropButton
+                        icon={<Configure />}
+                        kind="toolbar"
+                        dropAlign={{ top: 'bottom', right: 'right' }}
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        dropContent={
+                          <ColumnSettings
+                            columns={COLUMNS}
+                            visibleColumns={visibleColumns}
+                            setVisibleColumns={setVisibleColumns}
+                            open={open}
+                          />
+                        }
+                        tip="Configure columns"
+                      />
+                      <Menu kind="toolbar" label="Actions" items={[]} />
+                    </Box>
                   }
+                  data={allData}
+                  filters={filtersConfig}
+                  searchFilter={{ placeholder: 'Search users...' }}
                 />
-                <Menu label="Actions" items={[]} />
               </Box>
             </Box>
-          </Box>
-        </Header>
-        <Results columns={visibleColumns} />
+          </Header>
+          <Results columns={visibleColumns} />
+        </Box>
       </FiltersProvider>
     </Box>
   );
