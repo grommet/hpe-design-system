@@ -7,8 +7,9 @@ export const TruncatedText = ({ value }) => {
   const [tip, setTip] = useState();
 
   useEffect(() => {
-    if (ref.current && ref.current.scrollWidth > ref.current.offsetWidth)
+    if (ref.current && ref.current.scrollWidth > ref.current.offsetWidth) {
       setTip(`${value}`);
+    } else setTip(undefined);
   }, [value]);
 
   return (
