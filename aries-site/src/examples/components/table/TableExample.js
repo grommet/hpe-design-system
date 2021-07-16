@@ -230,14 +230,12 @@ const columns = [
   {
     property: 'pinned',
     header: (
-      <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-        <Text color="text-strong" weight="bold">
-          Pinned{' '}
-          <Text size="xsmall" weight="normal" color="text">
-            %
-          </Text>
+      <Text color="text-strong" weight="bold">
+        Pinned{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          %
         </Text>
-      </Box>
+      </Text>
     ),
     render: datum => (
       <Box gap="xsmall" direction="row">
