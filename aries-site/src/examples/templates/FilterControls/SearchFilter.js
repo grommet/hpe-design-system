@@ -32,7 +32,7 @@ export const SearchFilter = ({ placeholder }) => {
   return (
     <>
       {size !== 'small' || searchFocused ? (
-        <Box width="medium">
+        <Box width="medium" flex="shrink">
           <StyledTextInput
             ref={inputRef}
             type="search"
