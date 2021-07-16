@@ -133,8 +133,13 @@ To aid in comprehension, do not use full brand/product names in messaging. Refer
 A best practice for developers is to use parameter substitution in messaging where 
 branded names occur.
 
-- Branding can change over time. E.g. GreenLake Central has recently been rebranded to Cloud Services. Implementing messages with `${prodname}` instead of hardcoded messages would make this an easy fix.
-- Use of parameter substitution ensures that brand names are spelled and capitalized consistently in all messages.
+A product's branding is likely to evolve over time. For example, GreenLake Central 
+recently rebranded as Cloud Services. Imagine the multitude of instances to which 
+the product name was referred. Use of parameter substitution limits the number changes to 
+be made while ensuring brand names are spelled and capitalized consistently in all 
+messages. Implementing messages with a parameterized `${prodname}` instead of 
+hardcoded messages allows for a product's branding to be changed easily, 
+confidently, and comprehensively.
 - Consider formal and informal substitution values that can be used in different contexts. For example:
 
 > formal = HPE Ezmeral Container Platform
