@@ -9,7 +9,6 @@ import {
   Button,
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
-import { TruncatedText } from './TruncatedText';
 
 const DetailsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
   <Box direction="row" align="start" {...rest}>
@@ -176,32 +175,32 @@ const columns = [
   {
     property: 'orderName',
     header: 'Name',
-    render: datum => <TruncatedText value={datum.orderName} />,
+    render: datum => <Text truncate="tip">{datum.orderName}</Text>,
     size: 'small',
   },
   {
     property: 'purchaseOrder',
     header: 'P.O. #',
-    render: datum => <TruncatedText value={datum.purchaseOrder} />,
+    render: datum => <Text truncate="tip">{datum.purchaseOrder}</Text>,
     size: 'xsmall',
     align: 'end',
   },
   {
     property: 'state',
     header: 'State',
-    render: datum => <TruncatedText value={datum.state} />,
+    render: datum => <Text truncate="tip">{datum.state}</Text>,
     size: 'xsmall',
   },
   {
     property: 'service',
     header: 'Service',
-    render: datum => <TruncatedText value={datum.service} />,
+    render: datum => <Text truncate="tip">{datum.service}</Text>,
     size: 'small',
   },
   {
     property: 'tenant',
     header: 'Tenant',
-    render: datum => <TruncatedText value={datum.tenant} />,
+    render: datum => <Text truncate="tip">{datum.tenant}</Text>,
     size: 'xsmall',
   },
   {

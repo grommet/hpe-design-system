@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, DataTable, Heading } from 'grommet';
-import { TruncatedText } from './TruncatedText';
+import { Box, DataTable, Heading, Text } from 'grommet';
 
 const data = [
   {
@@ -145,13 +144,13 @@ const columns = [
   {
     property: 'contact',
     header: 'Contact',
-    render: datum => <TruncatedText value={datum.contact} />,
+    render: datum => <Text truncate="tip">{datum.contact}</Text>,
     size: 'xsmall',
   },
   {
     property: 'title',
     header: 'Title',
-    render: datum => <TruncatedText value={datum.title} />,
+    render: datum => <Text truncate="tip">{datum.title}</Text>,
     size: 'xsmall',
   },
   {
@@ -165,7 +164,7 @@ const columns = [
   {
     property: 'deviceName',
     header: 'Device Name',
-    render: datum => <TruncatedText value={datum.deviceName} />,
+    render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
     size: 'xsmall',
   },
   {
