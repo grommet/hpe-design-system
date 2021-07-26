@@ -12,8 +12,8 @@ module.exports = {
               if (!alt)
                 context.report(
                   node,
-                  `Image requires alt text that is descriptive about what the 
-                  image contains.`,
+                  // eslint-disable-next-line max-len
+                  'Image requires alt text that is descriptive about what the image contains.',
                 );
             }
           },
