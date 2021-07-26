@@ -7,15 +7,27 @@ export const MockGlobalHeader = ({ children }) => {
 
   return size === 'small' ? (
     <Box fill>
-      <Image src="/templateImages/globalheader-small.png" />
-      { children }
-      <Image src="/templateImages/globalheader-footer-small.png" />
+      <Image
+        alt="HPE Global Header for mobile"
+        src="/templateImages/globalheader-small.png"
+      />
+      {children}
+      <Image
+        alt="HPE Global Footer for mobile"
+        src="/templateImages/globalheader-footer-small.png"
+      />
     </Box>
   ) : (
     <Box fill>
-      <Image src="/templateImages/globalheader.png" />
-      { children }
-      <Image src="/templateImages/globalheader-footer.png" />
+      <Image
+        alt="HPE Global Header for desktop"
+        src="/templateImages/globalheader.png"
+      />
+      {children}
+      <Image
+        alt="HPE Global Header for desktop"
+        src="/templateImages/globalheader-footer.png"
+      />
     </Box>
   );
 };

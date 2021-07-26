@@ -35,6 +35,8 @@ const allData = [
     employeeCount: 200,
     image:
       'https://images.unsplash.com/photo-1584704135557-d8bf7ca50eae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    alt: `Danish street featuring buildings with cars and bikes parked in 
+      front.`,
     locationType: 'Office',
     name: 'Allerod, Denmark (ALL)',
     status: 'Online',
@@ -45,6 +47,7 @@ const allData = [
     employeeCount: 700,
     image:
       'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    alt: 'Helicopter view of Gran Via in Madrid at sunset.',
     locationType: 'Office',
     name: 'Madrid, Spain (ESM)',
     status: 'Offline',
@@ -56,6 +59,8 @@ const allData = [
     employeeCount: 1100,
     image:
       'https://images.unsplash.com/photo-1503424886307-b090341d25d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
+    alt: `Wide angle photo of mountains with snow on top and yellow trees in 
+    Colorado.`,
     locationType: 'Office',
     name: 'Fort Collins, CO',
     status: 'Online',
@@ -67,6 +72,7 @@ const allData = [
     employeeCount: 1000,
     image:
       'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80',
+    alt: 'Wide angle photo of Golden Gate Bridge on a sunny day',
     locationType: 'Customer Center',
     name: 'WW Corporate Headquarters - San Jose, CA',
     status: 'Online',
@@ -77,6 +83,7 @@ const allData = [
     employeeCount: 300,
     image:
       'https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    alt: 'Helicopter view of NY skyline on a clear day',
     locationType: 'Customer Center',
     name: 'New York, NY',
     status: 'Offline',
@@ -88,6 +95,7 @@ const allData = [
     employeeCount: 500,
     image:
       'https://images.unsplash.com/photo-1584450150050-4b9bdbd51f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    alt: 'Photo looking up from street level at a brown building in Amsterdam.',
     locationType: 'Customer Center',
     name: 'Amstelveen HQ, NL',
     status: 'Online',
@@ -828,7 +836,7 @@ const Results = ({ data }) => {
             }}
           >
             <Box height="small" fill="horizontal">
-              <Image src={datum.image} fit="cover" />
+              <Image src={datum.image} alt={datum.alt} fit="cover" />
             </Box>
             <CardBody gap="xsmall" pad="medium" justify="between">
               <Box flex={false}>
