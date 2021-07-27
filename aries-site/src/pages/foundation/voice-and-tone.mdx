@@ -23,8 +23,8 @@ various definitions, a common picture emerges:
 Voice is who the reader "hears" delivering messaging; embedded within it is the
 worldview of the author. Voice can be spoken, witty, friendly, formal, etc.
 At HPE, the desire is for HPE's voice to be perceived as intelligent, experienced,
-objective, inclusive, and trustworthy supporting HPE's worldview which
-believes in accelerating what's next, making bold moves, the power of yes we can, and
+objective, inclusive, and trustworthy -- supporting HPE's worldview which
+believes in accelerating what's next, making bold moves, the power of _yes we can_, and
 being a force for good.
 
 A person's voice typically does not change once established. If HPE's voice is
@@ -126,7 +126,7 @@ However, for those who are less fluent or use the language infrequently,
 acronyms and initialisms are actually detrimental. Acronyms increase the cognitive load
 on the user, forcing them to "decode" the message before comprehension, and tend to
 be exclusionary rather than inclusive.
-If an acronym or initialism is needed, make sure to define it the first time it is used.
+If an acronym or initialism is needed, define it the first time it is used.
 Additionally, only use the acronym if it is used multiple times in the message.
 
 - Incorrect: _The UBC is meeting tomorrow._
@@ -138,7 +138,7 @@ Additionally, only use the acronym if it is used multiple times in the message.
 
 ## Branding
 
-To aid in comprehension, do not use full brand/product names in messaging. Refer to these with shortened names. For example, "_HPE GreenLake LightHouse_" is a mouthful and if needed several times in a sentence, set context and consider using a simpler "_Lighthouse_" the second, third, Nth time.
+To aid in comprehension, do not use full brand/product names in messaging. Refer to these with shortened names. For example, "_HPE GreenLake LightHouse_" is a mouthful and if needed several times in a sentence, set context and consider using a simpler "_LightHouse_" the second, third, Nth time.
 
 ### Maintainability
 
@@ -271,7 +271,7 @@ Here is a correct example: _the uplink set "{0}" has a problem_. Compare this to
 ### Referring to support
 
 - Do not tell the user to contact their administrator. The user is likely the administrator.
-- Do not tell the user to contact HPE. A 3rd party may be providing support to the customer.
+- Do not tell the user to contact HPE. A 3rd party may be providing support to the user.
 - Use something like: _Contact your authorized support representative._
 - Do not overuse this phrase. If the resolution to a problem is clear, just give the resolution and do not add that the user should contact support.
 - Contacting support costs everyone time and money, so do not turn every issue into a potential support issue. It makes our product seem unnecessarily fragile and can result in unnecessary support calls.
@@ -279,7 +279,7 @@ Here is a correct example: _the uplink set "{0}" has a problem_. Compare this to
 
 ### Localization
 
-A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, customers) will thank you.
+A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, users) will thank you.
 
 - Document all parameter substitution values. When the value is a resource, be specific. Is it a name? Is it a URI? Is it raw JSON that needs to be encapsulated in curly braces? Or is it pre-formatted JSON that includes curly braces?
 - For errors and alerts, document the severity associated with the message.
@@ -354,7 +354,7 @@ The following table contains a set of common mistakes found in messaging, along 
 | as the                                                                 | because the                                                             | Only when it can be substituted with "because the".  There are valid uses of "as the", e.g. X must be the same as the Y. In general, don't use "as" where you can use "because".                                                                                                                                                                                                                                                                                                               |
 | as it has                                                              | because it has                                                          | In general, do not use "as" where you can use "because"                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | make sure                                                              | ensure                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| check if                                                               | ensure that                                                             | Note: "check if" or "verify that" are never valid resolutions because they don't tell you what to do or how to do it. A resolution must be actionable. For example: "Check if the required CA certificates have been added and are valid" is not a good resolution. It does not tell you what to do if the certs have not been added or is the certs have been added but are not valid. Our messaging must lead the user to success -- not leave them guessing.                                |
+| check if                                                               | ensure that                                                             | Note: "check if" or "verify that" are never valid resolutions because they don't tell you what to do or how to do it. A resolution must be actionable. For example: "Check if the required CA certificates have been added and are valid" is not a good resolution. It does not tell you what to do if the certs have not been added or if the certs have been added but are not valid. Our messaging must lead the user to success -- not leave them guessing.                                |
 | provide / provided, supply / supplied, give / given                    | specify / specified                                                     | Be careful with blind replacements here. In many cases, it is possible, but our "contact support" message includes the word "provide" and must not be changed to say "...specify a support dump."                                                                                                                                                                                                                                                                                              |
 | try again / retry operation (when used as the sole recommended action) | Tell the user what they need to change and then tell them to try again. | At minimum, each instance needs to be evaluated more deeply to see what our code could do to prevent the user from doing something we could do ourselves.  If a retry is due to a timeout (proxy, etc), then first see if the code can be changed to use an exponential backoff algorithm to do its own retries.  Any time that retry will be used in messaging, the message itself needs more explanation for what actually went wrong.                                                       |
 | try again / retry operation (without understanding the larger context) | Understand the context and give the correct recommendation.             | E.g. in a sub-task of _add enclosure_, a try again resolution of any kind is inappropriate because the add enclosure will always result in an enclosure resource being created. The user cannot try the enclosure add a second time.                                                                                                                                                                                                                                                           |
@@ -385,7 +385,7 @@ The following table contains a set of common mistakes found in messaging, along 
 
 ## Conversational American English
 
-Variations of English are used throughout the world, however to maintain consistency
+Variations of English are used throughout the world. However, to maintain consistency
 in HPE's voice, the messaging standard is to use conversational American English.
 
 Below are common usage and spelling differences between American, Indian,
