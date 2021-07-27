@@ -6,6 +6,7 @@ import {
   Form,
   FormField,
   Header,
+  Heading,
   RadioButtonGroup,
   ResponsiveContext,
   Text,
@@ -28,9 +29,14 @@ export const CustomizeExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
           Customize
-        </Text>
+        </Heading>
         <Text>your HPE Edgeline Server </Text>
       </Header>
       <Box
