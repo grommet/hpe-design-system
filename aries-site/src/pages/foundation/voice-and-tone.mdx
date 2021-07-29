@@ -1,3 +1,6 @@
+import { Anchor, Box, Card, Text } from 'grommet';
+import { StatusCritical, StatusInfo } from 'grommet-icons';
+
 Messaging within HPE applications should be informative, concise, and trustworthy.
 It should be delivered in active, positive, objective, conversational
 American English and written from a third-person [point of view](#point-of-view).
@@ -23,8 +26,8 @@ various definitions, a common picture emerges:
 Voice is who the reader "hears" delivering messaging; embedded within it is the
 worldview of the author. Voice can be spoken, witty, friendly, formal, etc.
 At HPE, the desire is for HPE's voice to be perceived as intelligent, experienced,
-objective, inclusive, and trustworthy supporting HPE's worldview which
-believes in accelerating what's next, making bold moves, the power of yes we can, and
+objective, inclusive, and trustworthy @mdash; supporting HPE's worldview which
+believes in accelerating what's next, making bold moves, the power of _yes we can_, and
 being a force for good.
 
 A person's voice typically does not change once established. If HPE's voice is
@@ -126,7 +129,7 @@ However, for those who are less fluent or use the language infrequently,
 acronyms and initialisms are actually detrimental. Acronyms increase the cognitive load
 on the user, forcing them to "decode" the message before comprehension, and tend to
 be exclusionary rather than inclusive.
-If an acronym or initialism is needed, make sure to define it the first time it is used.
+If an acronym or initialism is needed, define it the first time it is used.
 Additionally, only use the acronym if it is used multiple times in the message.
 
 - Incorrect: _The UBC is meeting tomorrow._
@@ -138,7 +141,7 @@ Additionally, only use the acronym if it is used multiple times in the message.
 
 ## Branding
 
-To aid in comprehension, do not use full brand/product names in messaging. Refer to these with shortened names. For example, "_HPE GreenLake LightHouse_" is a mouthful and if needed several times in a sentence, set context and consider using a simpler "_Lighthouse_" the second, third, Nth time.
+To aid in comprehension, do not use full brand/product names in messaging. Refer to these with shortened names. For example, "_HPE GreenLake Lighthouse_" is a mouthful and if needed several times in a sentence, set context and consider using a simpler "_Lighthouse_" the second, third, Nth time.
 
 ### Maintainability
 
@@ -203,9 +206,11 @@ various contexts. For example:
 
 ## Case Study
 
-Here is an example of messaging related to a condition where a Kubernetes cluster is running low on available memory and different ways of handling it.
+Consider a case with messaging related to a condition where a Kubernetes cluster is running low on available memory. Versions 1-7 highlight bad practices and identify the respective problems within each version. Lastly, a [best practice](#best-practice) example is provided.
 
-**Image goes here**
+### Version 1
+
+<ClusterExample>Cluster out of Memory</ClusterExample>
 
 Problems:
 
@@ -215,7 +220,9 @@ Problems:
 - Robotic (robots don't use words like "a", "the", "is")
 - Incorrect capitalization of memory (it is not a proper noun)
 
-**Image goes here**
+### Version 2
+
+<ClusterExample>The ABC cluster is out of memory.</ClusterExample>
 
 Problems:
 
@@ -223,26 +230,59 @@ Problems:
 - Names are user-specified and can cause readability issues if not quoted or hyperlinks. See what happens if "ABC" is replaced with names like "the", "storage", "Joe's", "obsolete", or any random string containing spaces.
 - What does "out of memory" actually mean? We should be more specific.
 
-**Image goes here**
+### Version 3
+
+<ClusterExample>
+  The cluster "ABC" is using over 95% of its memory.
+</ClusterExample>
 
 Problems:
 
 - Strongly consider hyperlinking any named resource so that a user can directly navigate to it from a notification.
 - 95% of 10TB means that 500GB are still free. But, 95% of 16GB means only 800MB remain. Showing only percentages doesn't offer the user enough context to make a decision.
 
-**Image goes here**
+### Version 4
+
+<ClusterExample>
+  <Text weight="bold">
+    The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB of
+    free memory out of 1TB total).
+  </Text>
+</ClusterExample>
 
 Problems:
 
 - What is the user supposed to do about this? Never raise an issue without offering a solution.
 
-**Image goes here**
+### Version 5
+
+<ClusterExample>
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>Do the needful.</Text>
+  </Box>
+</ClusterExample>
 
 Problems:
 
 - What is the needful? This is a saying not used in conversational American English and does not give the user specific guidance.
 
-**Image goes here**
+### Version 6
+
+<ClusterExample>
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      Remove containers, reduce quotas, or increase the cluster capacity.
+    </Text>
+  </Box>
+</ClusterExample>
 
 Problems:
 
@@ -250,13 +290,47 @@ Problems:
 - Is this really a critical issue? Unused resources are often considered wasted resources. It is actually a good thing to be fully utilizing your hardware.
 - In an aaS world, additional capacity should be a simple add-on to an existing service. As such, this may not be a critical issue, but could be transformed to a lower priority marketing message.
 
-**Image goes here**
+### Version 7
+
+<ClusterExample status="info">
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      If you have plans to increase utilization in the near future, additional
+      capacity can be added by selecting the "Order Capacity" action from the
+      action menu.
+    </Text>
+  </Box>
+</ClusterExample>
 
 Problems:
 
 - If possible, give the user a way to directly perform a mentioned action.
 
-**Image goes here**
+### Best Practice
+
+<ClusterExample status="info">
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      If you have plans to increase utilization in the near future, additional
+      capacity can be added by selecting the <Anchor label="Order Capacity" />{' '}
+      action from the action menu.
+    </Text>
+  </Box>
+</ClusterExample>
+
+- Correct capitalization and punctuation is used.
+- The named resource is hyperlinked so that a user can directly navigation to it from a notification.
+- A solution to the issue is provided to the user.
+- Context on how much available memory is provided.
+- The user is given a way to directly perform a mentioned action.
 
 ## Miscellany
 
@@ -271,7 +345,7 @@ Here is a correct example: _the uplink set "{0}" has a problem_. Compare this to
 ### Referring to support
 
 - Do not tell the user to contact their administrator. The user is likely the administrator.
-- Do not tell the user to contact HPE. A 3rd party may be providing support to the customer.
+- Do not tell the user to contact HPE. A 3rd party may be providing support to the user.
 - Use something like: _Contact your authorized support representative._
 - Do not overuse this phrase. If the resolution to a problem is clear, just give the resolution and do not add that the user should contact support.
 - Contacting support costs everyone time and money, so do not turn every issue into a potential support issue. It makes our product seem unnecessarily fragile and can result in unnecessary support calls.
@@ -279,7 +353,7 @@ Here is a correct example: _the uplink set "{0}" has a problem_. Compare this to
 
 ### Localization
 
-A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, customers) will thank you.
+A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, users) will thank you.
 
 - Document all parameter substitution values. When the value is a resource, be specific. Is it a name? Is it a URI? Is it raw JSON that needs to be encapsulated in curly braces? Or is it pre-formatted JSON that includes curly braces?
 - For errors and alerts, document the severity associated with the message.
@@ -354,38 +428,38 @@ The following table contains a set of common mistakes found in messaging, along 
 | as the                                                                 | because the                                                             | Only when it can be substituted with "because the".  There are valid uses of "as the", e.g. X must be the same as the Y. In general, don't use "as" where you can use "because".                                                                                                                                                                                                                                                                                                               |
 | as it has                                                              | because it has                                                          | In general, do not use "as" where you can use "because"                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | make sure                                                              | ensure                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| check if                                                               | ensure that                                                             | Note: "check if" or "verify that" are never valid resolutions because they don't tell you what to do or how to do it. A resolution must be actionable. For example: "Check if the required CA certificates have been added and are valid" is not a good resolution. It does not tell you what to do if the certs have not been added or is the certs have been added but are not valid. Our messaging must lead the user to success -- not leave them guessing.                                |
+| check if                                                               | ensure that                                                             | Note: "check if" or "verify that" are never valid resolutions because they don't tell you what to do or how to do it. A resolution must be actionable. For example: "Check if the required CA certificates have been added and are valid" is not a good resolution. It does not tell you what to do if the certs have not been added or if the certs have been added but are not valid. Our messaging must lead the user to success &mdash; not leave them guessing.                                |
 | provide / provided, supply / supplied, give / given                    | specify / specified                                                     | Be careful with blind replacements here. In many cases, it is possible, but our "contact support" message includes the word "provide" and must not be changed to say "...specify a support dump."                                                                                                                                                                                                                                                                                              |
 | try again / retry operation (when used as the sole recommended action) | Tell the user what they need to change and then tell them to try again. | At minimum, each instance needs to be evaluated more deeply to see what our code could do to prevent the user from doing something we could do ourselves.  If a retry is due to a timeout (proxy, etc), then first see if the code can be changed to use an exponential backoff algorithm to do its own retries.  Any time that retry will be used in messaging, the message itself needs more explanation for what actually went wrong.                                                       |
-| try again / retry operation (without understanding the larger context) | Understand the context and give the correct recommendation.             | E.g. in a sub-task of _add enclosure_, a try again resolution of any kind is inappropriate because the add enclosure will always result in an enclosure resource being created. The user cannot try the enclosure add a second time.                                                                                                                                                                                                                                                           |
-| should                                                                 | must                                                                    | _Should_ does not mean _must_. If you say that a value should be 0, that is only a suggestion. If it is a requirement, use the word "must".                                                                                                                                                                                                                                                                                                                                                    |
+| try again / retry operation (without understanding the larger context) | Understand the context and give the correct recommendation.             | E.g. in a sub-task of "add enclosure", a try again resolution of any kind is inappropriate because the add enclosure will always result in an enclosure resource being created. The user cannot try the enclosure add a second time.                                                                                                                                                                                                                                                           |
+| should                                                                 | must                                                                    | "Should" does not mean "must". If you say that a value should be 0, that is only a suggestion. If it is a requirement, use the word "must".                                                                                                                                                                                                                                                                                                                                                    |
 | has to be                                                              | must be                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| were / was / had                                                       | are / is / has                                                          | Use "were"/"was"/"had" to refer to the past and "are"/"is"/"has" to refer to the present.  Notifications must typically refer to the present. Wrong: _there were no licenses_.  Right: _there are no licenses_. Acceptable: _Multiple occurrences of the same network were found…_                                                                                                                                                                                                             |
-| mark                                                                   | set / specify                                                           | Wrong: _There is more than one setting marked as Required_. Better: _More than one setting is specified as required._                                                                                                                                                                                                                                                                                                                                                                          |
+| were / was / had                                                       | are / is / has                                                          | Use "were"/"was"/"had" to refer to the past and "are"/"is"/"has" to refer to the present.  Notifications must typically refer to the present. Wrong: "there were no licenses".  Right: "there are no licenses". Acceptable: "Multiple occurrences of the same network were found…"                                                                                                                                                                                                             |
+| mark                                                                   | set / specify                                                           | Wrong: "There is more than one setting marked as Required". Better: "More than one setting is specified as required.""                                                                                                                                                                                                                                                                                                                                                                         |
 | you / your                                                             | TBD                                                                     | We strive to not use personal pronouns in error messaging. It is too easy to blame the user by using personal pronouns. In general, if the sentence can easily be changed to eliminate the use of these pronouns, do so.                                                                                                                                                                                                                                                                       |
 | as per the                                                             | per the                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | hit / hitting                                                          | press / pressing                                                        | Users do not hit the keyboard. They press keys.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | power down / turn off                                                  | power off                                                               | Also consider whether a shutdown is required.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ongoing                                                                | in progress                                                             | When referring to tasks, "ongoing" has the wrong connotation: long running perpetual tasks. This is OK: _ongoing server management_. Otherwise, use statements like: _the software upgrade is in progress_                                                                                                                                                                                                                                                                                     |
+| ongoing                                                                | in progress                                                             | When referring to tasks, "ongoing" has the wrong connotation: long running perpetual tasks. This is OK: "ongoing server management". Otherwise, use statements like: "the software upgrade is in progress"                                                                                                                                                                                                                                                                                     |
 | recreate                                                               | re-create                                                               | "Recreate" means to enjoy a leisurely activity. Re-create means to create again. Try to avoid using recreate/re-create, in general, and see if there is a way to rephrase the message without this term.                                                                                                                                                                                                                                                                                       |
 | getting                                                                | retrieving                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | updation                                                               | update                                                                  | "updation" is not a word.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| is belonging                                                           | belongs                                                                 | Bad example: _Server profile assigned to the hypervisor profile is belonging to enclosure group…_                                                                                                                                                                                                                                                                                                                                                                                              |
-| is having                                                              | has                                                                     | Bad example: _Server profile assigned to the host is having a different server hardware type…_                                                                                                                                                                                                                                                                                                                                                                                                 |
-| is not having                                                          | does not have                                                           | Bad example: _Hypervisor host XYZ is not having a server profile attached to it and so it is unsupported._                                                                                                                                                                                                                                                                                                                                                                                     |
+| is belonging                                                           | belongs                                                                 | Bad example: "Server profile assigned to the hypervisor profile is belonging to enclosure group…"                                                                                                                                                                                                                                                                                                                                                                                              |
+| is having                                                              | has                                                                     | Bad example: "Server profile assigned to the host is having a different server hardware type…"                                                                                                                                                                                                                                                                                                                                                                                                 |
+| is not having                                                          | does not have                                                           | Bad example: "Hypervisor host XYZ is not having a server profile attached to it and so it is unsupported."                                                                                                                                                                                                                                                                                                                                                                                     |
 | is matching                                                            | matches                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | is not matching with                                                   | does not match                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | there are not enough                                                   | there are insufficient                                                  | In general, try to avoid this entirely. It is odd to start with "there are" only to end with the fact that this isn't true. For example, instead of telling the user that there are insufficient licenses to perform an action, you might tell them that all licenses are in use and the action cannot be performed.                                                                                                                                                                           |
 | simply                                                                 |                                                                         | Don't use this word. Never presume something is simple for the user.                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | drop down                                                              | menu / selection list                                                   | Refer to either a menu (e.g. action menu) or a selection list.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | screen                                                                 | page / dialog                                                           | A page is commonly a linkable, top-level visualization page shown in a browser. A dialog is a pop-up (sidebar, central, full-page) that overlays a page and typically results from the user performing an action.                                                                                                                                                                                                                                                                              |
-| verify if / check if                                                   |                                                                         | Don't do it. Example: _Please verify if the input is bad_. Are we asking them to ensure it is bad or are we asking them to ensure it is good?                                                                                                                                                                                                                                                                                                                                                  |
+| verify if / check if                                                   |                                                                         | Don't do it. Example: "Please verify if the input is bad." Are we asking them to ensure it is bad or are we asking them to ensure it is good?                                                                                                                                                                                                                                                                                                                                                  |
 | invalid                                                                | not valid                                                               | Machine translation can incorrectly translate "invalid", so it is better to use "not valid". However, it is even better to use neither and instead be specific about what the problem is. For example, if an input is not valid because it is too long, then tell the user the input is too long instead of telling them it is not valid. See: https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/i/invalid-not-valid                                                 |
-| and if                                                                 | Split into two sentences                                                | Bad example: _Retry the operation and if the problem persists, contact your authorized support representative and provide a support dump_. Good example: _Retry the operation. If the problem persists, contact your authorized support representative and provide a support dump_. In general, each separate option in an error resolution should be either, its own sentence, or in a comma separated list. The last-resort action of contacting support must always be in its own sentence. |
+| and if                                                                 | Split into two sentences                                                | Bad example: "Retry the operation and if the problem persists, contact your authorized support representative and provide a support dump". Good example: "Retry the operation. If the problem persists, contact your authorized support representative and provide a support dump". In general, each separate option in an error resolution should be either, its own sentence, or in a comma separated list. The last-resort action of contacting support must always be in its own sentence. |
 
 ## Conversational American English
 
-Variations of English are used throughout the world, however to maintain consistency
+Variations of English are used throughout the world. However, to maintain consistency
 in HPE's voice, the messaging standard is to use conversational American English.
 
 Below are common usage and spelling differences between American, Indian,
@@ -427,3 +501,26 @@ This is a collection of common words or phrases used in India, that are not used
 | We will revert back              | I send an email saying "do it like this" and you reply, _Thanks, we will revert back._ | _We will get back to you._                                                                                                                                            | "Revert back" implies going back to a previous revision.       |
 | Strong all the more              | _makes the case strong all the more._                                                  | _makes the case stronger._                                                                                                                                            | Never used.                                                    |
 | I have a doubt                   | _I have a doubt about that._                                                           | _I have a question_                                                                                                                                                   | "I have a doubt about that" implies you think it is incorrect. |
+
+export const ClusterExample = ({ children, status, ...rest }) => (
+  <Card
+    direction="row"
+    border
+    round="small"
+    width={{ max: 'large' }}
+    pad="medium"
+    gap="medium"
+    margin={{ bottom: 'medium' }} // to create better spacing on page
+  >
+    {status === 'info' ? (
+      <StatusInfo color="status-unknown" />
+    ) : (
+      <StatusCritical color="status-critical" />
+    )}
+    {typeof children === 'string' ? (
+      <Text weight="bold">{children}</Text>
+    ) : (
+      children
+    )}
+  </Card>
+);
