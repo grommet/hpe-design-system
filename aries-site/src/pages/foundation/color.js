@@ -73,12 +73,6 @@ const Color = () => (
                 System color palette over Brand Central when identifying colors
                 for your app or web based experience.
               </SubsectionText>
-              <SubsectionText>
-                The HPE Design System team is working with HPE Brand to ensure
-                that the Brand Central color palettes (like ‘secondary colors’)
-                are updated to meet ADA accessibility and color contrast levels
-                in a large variety of user contexts.
-              </SubsectionText>
               <ButtonRow>
                 <Button
                   href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
