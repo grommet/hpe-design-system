@@ -94,8 +94,7 @@ const Index = () => {
               Design, develop and deliver
             </Heading>
             <Paragraph size="xlarge">
-              Created to empower designers, developers, and others to quickly
-              create accessible user experiences
+              Empower designers and developers to quickly create accessible enterprise app experiences
             </Paragraph>
           </Box>
         </Intro>
