@@ -22,6 +22,7 @@ import {
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
+import { StatusIndicatorPreview } from '../../examples/cardPreviews/status-indicator';
 
 export const components = [
   {
@@ -434,6 +435,18 @@ export const components = [
     sections: [],
   },
   {
+    name: 'Status Indicator',
+    category: 'Visualizations',
+    description: 'Utilized to highlight notification messages and alerts the users to anything that might require their attention.',
+    preview: {
+      component: () => <StatusIndicatorPreview />,
+      background: 'background-front',
+    },
+    seoDescription: 'Utilized to highlight notification messages and alerts the users to anything that might require their attention.',
+    relatedContent: ['Notifications', 'Toast Notifications'],
+    sections: [],
+  },
+  {
     name: 'Table',
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',
@@ -463,7 +476,7 @@ export const components = [
     seoDescription: `Toast notifications are used to communicate low severity level 
     information to users in an unobtrusive way.`,
     sections: [],
-    relatedContent: ['Notifications','Stack'],
+    relatedContent: ['Notifications', 'Status Indicator', 'Stack'],
   },
   {
     name: 'Pagination',
