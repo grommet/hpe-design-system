@@ -375,7 +375,7 @@ export const components = [
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
     sections: [],
-    relatedContent: ['Stack', 'Toast Notifications'],
+    relatedContent: ['Status Indicator', 'Toast Notifications', 'Stack'],
   },
   {
     name: 'RadioButtonGroup',
@@ -443,7 +443,7 @@ export const components = [
       background: 'background-front',
     },
     seoDescription: 'Utilized to highlight notification messages and alerts the users to anything that might require their attention.',
-    relatedContent: ['Notifications', 'Toast Notifications'],
+    relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
     sections: [],
   },
   {

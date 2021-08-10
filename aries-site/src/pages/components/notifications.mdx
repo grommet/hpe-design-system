@@ -95,9 +95,9 @@ To standardize our language on Notifications across platforms, be sure to famili
 
 A State is the current stage of a process.
 
-A Status is the condition of the State.
+A Status is the condition of the State. Status can also be thought of as a pointer to a State’s “health”. 
 
-Status can also be thought of as a pointer to a State’s “health.” Here is an example of a toast notification that illustrates their differences:
+Here is an example of a toast notification that illustrates their differences:
 
 Keep in mind that a Status DERIVES from a State.
 
@@ -112,15 +112,12 @@ The Design System is currently exploring and researching best practices and cons
 - Notification center
 - Badging & Bell
 
-## Notification systems
+## Notification Systems
 
 The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
 
-- [Status Indicators](www.google.com) are used within all types of notifications. They capture user’s attention based on the notification’s level of severity
-- For low priority and non action oriented notifications, [Toast Notifications](www.google.com) are a great way to inform users unobtrusively. 
-
-
-
+- [Status Indicators](/components/status-indicator) are used within all types of notifications. They capture user’s attention based on the notification’s level of severity
+- For low priority and non action oriented notifications, [Toast Notifications](/components/toast-notifications) are a great way to inform users unobtrusively. 
 
 ### Have more questions?
 

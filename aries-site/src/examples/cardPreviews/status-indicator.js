@@ -15,4 +15,4 @@ export const StatusIndicatorPreview = () => (
             <StatusUnknownSmall color="status-unknown" />
         </Box>
     </Box>
-  );
+);

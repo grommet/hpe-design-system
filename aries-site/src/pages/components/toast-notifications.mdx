@@ -5,6 +5,8 @@ import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
 import { Box } from 'grommet';
 
+import { ToastDiagram } from '../../examples/cardPreviews';
+
 <Example
   docs="https://v2.grommet.io/box?theme=hpe#props"
   code={[
@@ -40,10 +42,14 @@ Due to their limited use cases, toasts are advised to be used sparingly or even 
 
 ## Anatomy 
 
+<Box pad="small">
+  <ToastDiagram />
+</Box>
+
 Toasts are compromised of three main elements:
 
 1. Status Indicator
-2. Status Message (Status title + message)
+2. Content (Title + Message)
 3. Close button
 
 Aside from this, all toasts have a fixed width size at Medium (384px). While, the height scales based off the amount of content. 
@@ -52,21 +58,23 @@ Aside from this, all toasts have a fixed width size at Medium (384px). While, th
 
 Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid this case for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
 
-The Status indicators used for toasts are strictly for OK, Warning, and Unknown statuses.
+The status indicators used for toasts are strictly for OK, Warning, and Unknown statuses.
 
-<Box direction="row" gap="medium">
+<Box direction="row" gap="medium" pad={{bottom: 'medium'}}>
     <StatusGoodSmall color="status-ok" />
     <StatusWarningSmall color="status-warning" />
     <StatusUnknownSmall color="status-unknown" />
 </Box>
 
+You can read more guidance about status indicators [here on this page](/components/status-indicator).
+
 ### Status Message
 
-All toasts require a status message which is comprised of a status title and a related message of text. All toasts require a status title, however, they do not necessarily require a message. The status title and message should be distinguishable by the weight of the text.
+All toasts have content which is comprised of a title and a message. All toasts require a title, however, they do not necessarily require a message. The status title and message should be distinguishable by the weight of the text.
 
 1. Amount of Information
 
-Toast notifications should not have too much information inside of them, additionally each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
+Toast notifications should not have too much information inside of them. Additionally, each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
 
 For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the status title and the message or a three lined status title. If the information is heavy and long, consider using a different type of notification other than toast. NEVER truncate text within a toast. The main point is to keep the information concise and clear.
 
