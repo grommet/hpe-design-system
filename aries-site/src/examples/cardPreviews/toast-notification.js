@@ -51,7 +51,6 @@ const type = 'direct';
 const connections = [
     {
         anchor,
-        offset,
         type,
         color,
         thickness,
@@ -60,7 +59,6 @@ const connections = [
     },
     {
         anchor,
-        offset,
         type,
         color,
         thickness,
@@ -69,7 +67,6 @@ const connections = [
     },
     {
         anchor,
-        offset,
         type,
         color,
         thickness,
