@@ -19,13 +19,14 @@ const Notification = ({ toast, title, message, onClose }) => {
           <StatusGoodSmall color="status-ok" />
         </Box>
         <Box
+          id="content"
           gap="medium"
           align="start"
           direction="row"
           justify="between"
           fill
         >
-          <Box id="content">
+          <Box>
               <Text 
                   weight="bold" 
                   color={{ light: 'black', dark: 'white' }}
@@ -37,12 +38,14 @@ const Notification = ({ toast, title, message, onClose }) => {
             )}
           </Box>
           {onClose && (
-            <Button
-              id="close-button"
-              icon={<FormClose color={{ light: 'black', dark: 'white' }} />}
-              onClick={onClose}
-              plain
-            />
+            <Box>
+              <Button
+                id="close-button"
+                icon={<FormClose color={{ light: 'black', dark: 'white' }} />}
+                onClick={onClose}
+                plain
+              />
+            </Box>
           )}
         </Box>
       </Box>

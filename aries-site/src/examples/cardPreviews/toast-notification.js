@@ -44,9 +44,9 @@ export const ToastPreview = () => (
   );
 
 const color = 'black';
-const anchor = 'center';
+const anchor = 'vertical';
 const thickness = 'xxxsmall';
-const type = 'direct';
+const type = 'rectilinear';
 
 const connections = [
     {
@@ -77,11 +77,26 @@ const connections = [
 
 export const ToastDiagram = () => (
     <Stack>
-      <Box gap="medium">
-        <Box direction="row" gap="medium">
-          <Box id="1" border round="full" pad="xsmall">1</Box>
-          <Box id="2" border round="full" pad="xsmall">2</Box>
-          <Box id="3" border round="full" pad="xsmall">3</Box>
+      <Box gap="medium" pad={{bottom: 'medium'}}>
+        <Box direction="row" gap="xlarge">
+          <Box 
+            id="1" 
+            border 
+            round="full" 
+            pad={{horizontal: 'small', vertical: 'xsmall'}}
+          >1</Box>
+          <Box 
+            id="2" 
+            border 
+            round="full" 
+            pad={{horizontal: 'small', vertical: 'xsmall'}}
+          >2</Box>
+          <Box 
+            id="3" 
+            border 
+            round="full" 
+            pad={{horizontal: 'small', vertical: 'xsmall'}}
+          >3</Box>
         </Box>
         <Notification title="Status Title" message="This is a status message" onClose />
       </Box>
