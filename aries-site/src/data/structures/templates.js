@@ -171,30 +171,6 @@ export const templates = [
     ],
   },
   {
-    name: 'Notifications',
-    available: false,
-    cardOrder: 6,
-    description: `Provide users confidence and assurance that they 
-    are informed with timely, relevant status about their systems and tasks.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-notifications.svg',
-          dark: '/templateImages/template-preview-notifications-invert.svg',
-        },
-        alt: `Image displaying a representation for how a timely notification 
-        might be presented to a user within an application.`,
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Notifications in the HPE Design System provides patterns,
-    designs, and guidance for how HPE applications can deliver end users 
-    confidence and assurance by keeping them informed with timely, relevant 
-    status of their systems and tasks.`,
-    sections: [],
-    relatedContent: ['Forms', 'Wizard', 'Stack'],
-  },
-  {
     name: 'Page Layouts',
     available: true,
     cardOrder: 2,

@@ -17,3 +17,4 @@ export * from './SearchPreview';
 export * from './tabs';
 export * from './textarea';
 export * from './textinput';
+export * from './toast-notification';

@@ -1,0 +1,95 @@
+import { Example } from '../../layouts';
+import { ToastNotificationExample } from '../../examples';
+import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
+import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
+import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
+import { Box } from 'grommet';
+
+<Example
+  docs="https://v2.grommet.io/box?theme=hpe#props"
+  code={[
+      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/visualizations/ToastNotificationExample.js",
+      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/visualizations/ToastNotification.js",
+  ]}
+  figma="https://www.figma.com/file/cgTYs856lxE8LZpBpAdf1v/HPE-Box-Component?node-id=177%3A12"
+>
+  <ToastNotificationExample />
+</Example>
+
+## Guidance
+
+Everything that you need to know about toasts and more.
+
+### When should you use a toast notitication?
+
+Toasts should be considered when displaying these types of information to the user:
+
+- Low attention messages that do not require user action
+- Singlular status updates
+- Confirmations
+- Information that does not need to be followed up
+
+Do not use Toasts if the information contains the following:
+
+- High attention and crtitical information
+- Time-sensitive information
+- Requires user action or input
+- Batch updates
+
+Due to their limited use cases, toasts are advised to be used sparingly or even substituted entirely for a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
+
+## Anatomy 
+
+Toasts are compromised of three main elements:
+
+1. Status Indicator
+2. Status Message (Status title + message)
+3. Close button
+
+Aside from this, all toasts have a fixed width size at Medium (384px). While, the height scales based off the amount of content. 
+
+### Status Indicator
+
+Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid this case for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
+
+The Status indicators used for toasts are strictly for OK, Warning, and Unknown statuses.
+
+<Box direction="row" gap="medium">
+    <StatusGoodSmall color="status-ok" />
+    <StatusWarningSmall color="status-warning" />
+    <StatusUnknownSmall color="status-unknown" />
+</Box>
+
+### Status Message
+
+All toasts require a status message which is comprised of a status title and a related message of text. All toasts require a status title, however, they do not necessarily require a message. The status title and message should be distinguishable by the weight of the text.
+
+1. Amount of Information
+
+Toast notifications should not have too much information inside of them, additionally each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
+
+For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the status title and the message or a three lined status title. If the information is heavy and long, consider using a different type of notification other than toast. NEVER truncate text within a toast. The main point is to keep the information concise and clear.
+
+2. Interactive Content
+
+Avoid placing interactive elements as this violates WCAG 2.1 guidelines, like links and buttons, inside of a toast. These elements may be difficult to access with a screen reader and other assistive technology, so it is best to avoid complex toasts.
+
+### Close Button
+
+The close button within a toast should be the only interactable element and is used to dismiss the notification. To clarify, the toast itself is not dismissable on click rather only when the close button is specifically activated. This is to avoid any confusion the user may have on what the interactable elements are within a toast.
+
+## Placement 
+
+Toast notifications should: 
+
+- Be placed either top-center or top-right of the screen. If badging is being used, toasts should be placed underneath it. Note that top-right placements may negatively affect those using screen magnifiers.
+- For both placements, fade in on arrival and fade out when dismissed.
+- Toasts should not obscure critical information and any primary action elements. 
+- Be stacked when there are multiple with the latest toast being on top. Toasts should automatically be dismissed if it reaches a certain point on the user’s screen. 
+- Not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
+
+For multiple incoming toasts, consider incorporating a Notification Center where a user can access all the information at once.
+
+### Have more questions?
+
+Please be sure to send them over to the `#hpe-design-system` channel on [Slack](https://slack-invite.grommet.io/)!

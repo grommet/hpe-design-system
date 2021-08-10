@@ -18,6 +18,7 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  ToastPreview
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
@@ -352,7 +353,29 @@ export const components = [
     },
     relatedContent: ['TextInput', 'Forms', 'Select'],
   },
-
+  {
+    name: 'Notifications',
+    category: 'Visualizations',
+    description: `The entry point for for the expansive topic of Notifications 
+      and all related content.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-notifications.svg',
+          dark: '/templateImages/template-preview-notifications-invert.svg',
+        },
+        alt: `Image displaying a representation for how a timely notification 
+        might be presented to a user within an application.`,
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Notifications in the HPE Design System provides patterns,
+    designs, and guidance for how HPE applications can deliver end users 
+    confidence and assurance by keeping them informed with timely, relevant 
+    status of their systems and tasks.`,
+    sections: [],
+    relatedContent: ['Stack', 'Toast Notifications'],
+  },
   {
     name: 'RadioButtonGroup',
     category: 'Inputs',
@@ -427,6 +450,20 @@ export const components = [
     relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
+  },
+  {
+    name: 'Toast Notifications',
+    category: 'Visualizations',
+    description: `Toast notifications are used to communicate low severity level 
+    information to users in an unobtrusive way.`,
+    preview: {
+      component: () => <ToastPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Toast notifications are used to communicate low severity level 
+    information to users in an unobtrusive way.`,
+    sections: [],
+    relatedContent: ['Notifications','Stack'],
   },
   {
     name: 'Pagination',

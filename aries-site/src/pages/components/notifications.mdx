@@ -1,0 +1,127 @@
+import { Box, Text } from 'grommet';
+
+### What are they for?
+
+Notifications build trust by providing users confidence and assurance that they are informed with timely, relevant status about their systems and tasks.
+
+## Taxonomy 
+
+To standardize our language on Notifications across platforms, be sure to familiarize yourself with this taxonomy:
+
+- Type - In the broadest terms, what the notification is about
+- State - The current stage within a process
+- Status - The condition of a process
+- Attention Level - The priority and importance of a notification
+- Actions - Interactactions within a notification
+- Persistence - How the notification is dismissed
+- Placement - Where the notification can be found
+- Insight - The content of the notification
+
+<Box direction="row-responsive" gap="medium" pad="medium">
+    <Box direction="row" gap="medium">
+        <Box>
+            <Text weight="bold">Type</Text>
+            <Text>Information</Text>
+            <Text>Task</Text>
+            <Text>Event</Text>
+        </Box>
+        <Box>
+            <Text weight="bold">State</Text>
+            <Text>In-Progress</Text>
+            <Text>Starting</Text>
+            <Text>Stopped</Text>
+            <Text>Pending</Text>
+            <Text>Success</Text>
+            <Text>Failure</Text>
+        </Box>
+    </Box>
+    <Box direction="row" gap="medium">
+        <Box>
+            <Text weight="bold">Status</Text>
+            <Text>Critical</Text>
+            <Text>Normal</Text>
+            <Text>Warning</Text>
+            <Text>Unknown</Text>
+        </Box>
+        <Box>
+            <Text weight="bold">Attention Level</Text>
+            <Text>High</Text>
+            <Text>Medium</Text>
+            <Text>Low</Text>
+        </Box>
+    </Box>
+    <Box direction="row" gap="medium">
+        <Box>
+            <Text weight="bold">Actions</Text>
+            <Text>Dismiss</Text>
+            <Text>Read</Text>
+            <Text>Unread</Text>
+            <Text>Yes</Text>
+            <Text>No</Text>
+        </Box>
+        <Box>
+            <Text weight="bold">Persistence</Text>
+            <Text>Dismissable</Text>
+            <Text>Clearable</Text>
+            <Text>Action Required</Text>
+            <Text>Temporary</Text>
+        </Box>
+    </Box>
+    <Box direction="row" gap="medium">
+        <Box>
+            <Text weight="bold">Placement</Text>
+            <Text>Banner</Text>
+            <Text>Browser</Text>
+            <Text>Email</Text>
+            <Text>Toast</Text>
+            <Text>Bell</Text>
+            <Text>Badging</Text>
+            <Text>System</Text>
+            <Text>Global</Text>
+            <Text>Inline</Text>
+        </Box>
+        <Box>
+            <Text weight="bold">Insight</Text>
+            <Text>Support</Text>
+            <Text>Progress Update</Text>
+            <Text>Status/Task Tracking</Text>
+            <Text>Created</Text>
+            <Text>Request Received</Text>
+        </Box>
+    </Box>
+</Box>
+
+### State v.s. Status
+
+A State is the current stage of a process.
+
+A Status is the condition of the State.
+
+Status can also be thought of as a pointer to a State’s “health.” Here is an example of a toast notification that illustrates their differences:
+
+Keep in mind that a Status DERIVES from a State.
+
+## Roadmap
+
+The Design System is currently exploring and researching best practices and considerations for notification patterns. Here are some things we have lined out for the future:
+
+- Banner
+- Global
+- System
+- Inline
+- Notification center
+- Badging & Bell
+
+## Notification systems
+
+The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
+
+- [Status Indicators](www.google.com) are used within all types of notifications. They capture user’s attention based on the notification’s level of severity
+- For low priority and non action oriented notifications, [Toast Notifications](www.google.com) are a great way to inform users unobtrusively. 
+
+
+
+
+### Have more questions?
+
+Please be sure to send them over to the `#hpe-design-system` channel on [Slack](https://slack-invite.grommet.io/)!
