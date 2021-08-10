@@ -83,19 +83,19 @@ export const ToastDiagram = () => (
             id="1" 
             border 
             round="full" 
-            pad={{horizontal: 'small', vertical: 'xsmall'}}
+            pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >1</Box>
           <Box 
             id="2" 
             border 
             round="full" 
-            pad={{horizontal: 'small', vertical: 'xsmall'}}
+            pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >2</Box>
           <Box 
             id="3" 
             border 
             round="full" 
-            pad={{horizontal: 'small', vertical: 'xsmall'}}
+            pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >3</Box>
         </Box>
         <Notification title="Status Title" message="This is a status message" onClose />
