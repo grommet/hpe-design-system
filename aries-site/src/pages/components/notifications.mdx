@@ -1,3 +1,4 @@
+import { StateVsStatusDiagram } from '../../examples';
 import { Box, Text } from 'grommet';
 
 ### What are they for?
@@ -93,13 +94,17 @@ To standardize our language on Notifications across platforms, be sure to famili
 
 ### State v.s. Status
 
-A State is the current stage of a process.
+A state is the current stage of a process.
 
-A Status is the condition of the State. Status can also be thought of as a pointer to a State’s “health”. 
+A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health”. 
 
-Here is an example of a toast notification that illustrates their differences:
+Here is an example of a Toast Notification that illustrates their differences:
 
-Keep in mind that a Status DERIVES from a State.
+<Box>
+    <StateVsStatusDiagram />
+</Box>
+
+Keep in mind that a status DERIVES from a state.
 
 ## Roadmap
 

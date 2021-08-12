@@ -26,6 +26,7 @@ export * from './maskedinput';
 export * from './menu';
 export * from './meter';
 export * from './nav';
+export * from './notifications';
 export * from './pagination';
 export * from './radiobuttongroup';
 export * from './rangeinput';
