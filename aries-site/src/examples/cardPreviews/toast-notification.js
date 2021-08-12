@@ -9,7 +9,7 @@ export const ToastPreview = () => (
       <Box 
             elevation="medium" 
             round="xsmall" 
-            pad={{ horizontal: 'medium', vertical: 'xsmall' }} 
+            pad={{ horizontal: 'small', vertical: 'xsmall' }} 
             background={{ color: 'background-front' }}
       >
         <Box direction="row">
