@@ -22,7 +22,7 @@ import { ToastDiagram } from '../../examples/cardPreviews';
 
 Everything that you need to know about toasts and more.
 
-### When should you use a toast notitication?
+### When should you use a Toast Notitication?
 
 Toasts should be considered when displaying these types of information to the user:
 
@@ -68,15 +68,15 @@ The status indicators used for toasts are strictly for OK, Warning, and Unknown 
 
 You can read more guidance about status indicators [here on this page](/components/status-indicator).
 
-### Status Message
+### Content (Title + Message)
 
-All toasts have content which is comprised of a title and a message. All toasts require a title, however, they do not necessarily require a message. The status title and message should be distinguishable by the weight of the text.
+All toasts have content which is comprised of a title and a message. However, the content only requires a title, not necessarily a message. The title and message should be distinguishable from each other by the weight of the text. The status title and message should be distinguishable by the weight of the text.
 
 1. Amount of Information
 
 Toast notifications should not have too much information inside of them. Additionally, each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
 
-For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the status title and the message or a three lined status title. If the information is heavy and long, consider using a different type of notification other than toast. NEVER truncate text within a toast. The main point is to keep the information concise and clear.
+For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the title and the message or a three-lined title. If the information is heavy and long, consider using a different type of notification other than toast. NEVER truncate text within a toast. The main point is to keep the information concise and clear.
 
 2. Interactive Content
 
@@ -88,15 +88,14 @@ The close button within a toast should be the only interactable element and is u
 
 ## Placement 
 
-Toast notifications should: 
-
-- Be placed either top-center or top-right of the screen. If badging is being used, toasts should be placed underneath it. Note that top-right placements may negatively affect those using screen magnifiers.
-- For both placements, fade in on arrival and fade out when dismissed.
-- Toasts should not obscure critical information and any primary action elements. 
-- Be stacked when there are multiple with the latest toast being on top. Toasts should automatically be dismissed if it reaches a certain point on the user’s screen. 
-- Not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
-
-For multiple incoming toasts, consider incorporating a Notification Center where a user can access all the information at once.
+Make sure to follow these guidelines for Toast Notifications:
+- Place them either top-center or top-right of the screen. If badging is being used, toasts should be placed underneath it. Note that top-right placements may negatively affect those using screen magnifiers.
+- Fade in on arrival and fade out when dismissed.
+- Do not obscure critical information and any primary action elements.
+- Toasts are not focused on and do not appear when a user is within a Modal or Wizard since they do not carry high attention information. 
+- List them when there are multiple with the latest toast being on top. Toasts automatically dismiss if it reaches a certain point on the user’s screen. 
+- Reminder that toasts should not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
+- For multiple incoming toasts, consider incorporating a Notification Center where a user can access all the information at once.
 
 ### Have more questions?
 
