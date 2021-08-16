@@ -130,7 +130,7 @@ export const columns = [
   ];
 
 export const TaxonomyTable = () => (
-    <Box pad="small" background="background-front" round="small" >
+    <Box pad="small" background="background-front" round="small" overflow="auto" >
         <DataTable 
             columns={columns} 
             data={data} 
