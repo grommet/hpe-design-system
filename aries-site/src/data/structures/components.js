@@ -357,8 +357,8 @@ export const components = [
   {
     name: 'Notifications',
     category: 'Visualizations',
-    description: `The entry point for for the expansive topic of Notifications 
-      and all related content.`,
+    description: `Notifications deliver transparent clarity for statuses of task and
+      system statuses.`,
     preview: {
       image: {
         src: {
