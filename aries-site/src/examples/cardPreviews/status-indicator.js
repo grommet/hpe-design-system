@@ -19,21 +19,21 @@ export const StatusIndicatorPreview = () => (
 
 export const StatusBox = () => (
     <Box direction="row" gap="large" pad={{bottom: 'medium'}}>
-    <Box align="center">
-        <StatusGoodSmall color="status-ok" />
-        Good
+        <Box align="center">
+            <StatusGoodSmall color="status-ok" />
+            Good
+        </Box>
+        <Box align="center">
+            <StatusWarningSmall color="status-warning" />
+            Warning
+        </Box>
+        <Box align="center">
+            <StatusCriticalSmall color="status-critical" />
+            Critical
+        </Box>
+        <Box align="center">
+            <StatusUnknownSmall color="status-unknown" />
+            Unknown
+        </Box>
     </Box>
-    <Box align="center">
-        <StatusWarningSmall color="status-warning" />
-        Warning
-    </Box>
-    <Box align="center">
-        <StatusCriticalSmall color="status-critical" />
-        Critical
-    </Box>
-    <Box align="center">
-        <StatusUnknownSmall color="status-unknown" />
-        Unknown
-    </Box>
-</Box>
 );
