@@ -365,7 +365,7 @@ export const components = [
           light: '/templateImages/template-preview-notifications.svg',
           dark: '/templateImages/template-preview-notifications-invert.svg',
         },
-        alt: `Image displaying a representation for how a timely notification 
+        alt: `Image featuring a bell icon and indicator representing how a timely notification 
         might be presented to a user within an application.`,
         fit: 'contain',
       },
