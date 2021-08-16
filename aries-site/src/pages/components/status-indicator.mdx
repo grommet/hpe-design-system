@@ -2,6 +2,7 @@ import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { StatusCriticalSmall } from 'grommet-icons/icons/StatusCriticalSmall';
 import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
+import { StatusBox } from '../../examples';
 
 import { Box } from 'grommet';
 
@@ -31,16 +32,7 @@ These are some typical situations in which each color could be used:
 
 Icons and shapes are used to represent the notification’s level of severity to users. Here are two sets of icons and shapes created for Statuses found within the [HPE Design System Icons](https://design-system.hpe.design/foundation/icons) page.
 
-<Box direction="row" gap="small" pad={{bottom: 'medium'}}>
-    <StatusGoodSmall color="status-ok" />
-    Good
-    <StatusWarningSmall color="status-warning" />
-    Warning
-    <StatusCriticalSmall color="status-critical" />
-    Critical
-    <StatusUnknownSmall color="status-unknown" />
-    Unknown
-</Box>
+<StatusBox />
 
 *** Remember that WCAG 2.1 guidlines states that at least three out of four elements must be present, therefore, this sets will not pass accessibility requirements if it is not paired with another element such as well-written and relevant content. 
 
