@@ -442,7 +442,7 @@ export const components = [
       component: () => <StatusIndicatorPreview />,
       background: 'background-front',
     },
-    seoDescription: 'Utilized to highlight notification messages and alerts the users to anything that might require their attention.',
+    seoDescription: 'Highlight notification messages and alerts which require a user's attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
     relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
     sections: [],
   },
