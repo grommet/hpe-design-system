@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notification } from '../toast-notifications';
+import { Notification } from './Notification';
 import { Box, Text, Diagram, Stack } from 'grommet';
 
 const color = 'black';

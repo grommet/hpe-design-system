@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Diagram, Stack } from 'grommet';
-import { Notification } from './ToastNotification';
+import { Notification } from '../notifications';
 
 const color = 'black';
 const anchor = 'vertical';

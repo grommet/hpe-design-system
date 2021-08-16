@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Text } from 'grommet';
-import { Notification } from './ToastNotification';
+import { Notification } from '../notifications';
 
 export const ToastNotificationExample = () => {
 
