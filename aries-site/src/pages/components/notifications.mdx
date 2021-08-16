@@ -1,4 +1,4 @@
-import { StateVsStatusDiagram } from '../../examples';
+import { StateVsStatusDiagram, TaxonomyTable } from '../../examples';
 import { Box, Text } from 'grommet';
 
 ### What are they for?
@@ -18,17 +18,7 @@ To standardize language for Notifications across HPE projects, be sure to famili
 - **Placement** - Where the notification can be found
 - **Insight** - The content of the notification
 
-| Type        | State       | Status   | Attention Level | Actions | Persistence     | Placement | Insight              |
-| ------------| ------------|----------|-----------------|---------|-----------------|-----------|----------------------|
-| Information | In-Progress | Critical | High            | Dismiss | Dismissable     | Banner    | Support              |
-| Task        | Starting    | Normal   | Medium          | Read    | Clearable       | Browser   | Progress Update      |
-| Event       | Stopped     | Warning  | Low             | Unread  | Action Required | Email     | Status/Task Tracking |
-|             | Pending     | Unknown  |                 | Yes     |                 | Toast     | Created              |
-|             | Success     |          |                 | No      |                 | Bell      | Required Received    |
-|             | Failure     |          |                 |         |                 | Badging   |                      |
-|             |             |          |                 |         |                 | System    |                      |
-|             |             |          |                 |         |                 | Global    |                      |
-|             |             |          |                 |         |                 | Inline    |                      |
+<TaxonomyTable />
 
 ### State v.s. Status
 
