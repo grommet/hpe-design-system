@@ -437,12 +437,12 @@ export const components = [
   {
     name: 'Status Indicator',
     category: 'Visualizations',
-    description: 'Quickly provide peace-of-mind or call attention to items requiring a user's action.',
+    description: 'Quickly provide peace-of-mind or call attention to items requiring a user\'s action.',
     preview: {
       component: () => <StatusIndicatorPreview />,
       background: 'background-front',
     },
-    seoDescription: 'Highlight notification messages and alerts which require a user's attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
+    seoDescription: 'Highlight notification messages and alerts which require a user\'s attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
     relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
     sections: [],
   },
