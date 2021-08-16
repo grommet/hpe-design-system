@@ -26,7 +26,7 @@ const Notification = ({ toast, title, message, onClose }) => {
           justify="between"
           fill
         >
-          <Box>
+          <>
               <Text 
                   weight="bold" 
                   color={{ light: 'black', dark: 'white' }}
@@ -36,7 +36,7 @@ const Notification = ({ toast, title, message, onClose }) => {
                   color={{ light: 'black', dark: 'white' }}
               >{message}</Text>
             )}
-          </Box>
+          </>
           {onClose && (
             <Box>
               <Button
