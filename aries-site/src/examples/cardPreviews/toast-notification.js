@@ -23,7 +23,7 @@ export const ToastPreview = () => (
             justify="between"
             fill
           >
-            <Box>
+            <>
                 <Text 
                     weight="bold" 
                     color={{ light: 'black', dark: 'white' }}
@@ -31,7 +31,7 @@ export const ToastPreview = () => (
                 <Text 
                     color={{ light: 'black', dark: 'white' }}
                 >Your toast is done!</Text>
-            </Box>
+            </>
             <Button
               icon={<FormClose color={{ light: 'black', dark: 'white' }} />}
               plain
