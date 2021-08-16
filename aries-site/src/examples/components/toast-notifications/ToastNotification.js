@@ -5,12 +5,12 @@ import { FormClose } from 'grommet-icons/icons/FormClose';
 
 import { Box, Button, Layer, Text } from 'grommet';
 
-const Notification = ({ toast, title, message, onClose }) => {
+const Notification = ({ toast, title, message, onClose, preview }) => {
   let content = (
     <Box 
         elevation="medium" 
         round="xsmall" 
-        width="medium" 
+        width={preview ? null : "medium" }
         pad={{ horizontal: 'small', vertical: 'xsmall' }} 
         background={{ color: 'background-front' }}
     >

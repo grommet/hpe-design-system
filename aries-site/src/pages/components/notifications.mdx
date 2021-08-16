@@ -9,88 +9,26 @@ Notifications build trust by providing users confidence and assurance that they 
 
 To standardize language for Notifications across HPE projects, be sure to familiarize yourself with this taxonomy:
 
-- Type - In the broadest terms, what the notification is about
-- State - The current stage within a process
-- Status - The condition of a process
-- Attention Level - The priority and importance of a notification
-- Actions - Interactactions within a notification
-- Persistence - How the notification is dismissed
-- Placement - Where the notification can be found
-- Insight - The content of the notification
+- **Type** - In the broadest terms, what the notification is about
+- **State** - The current stage within a process
+- **Status** - The condition of a process
+- **Attention Level** - The priority and importance of a notification
+- **Actions** - Interactactions within a notification
+- **Persistence** - How the notification is dismissed
+- **Placement** - Where the notification can be found
+- **Insight** - The content of the notification
 
-<Box direction="row-responsive" gap="medium" pad={{ top: 'medium' }}>
-    <Box direction="row" gap="medium">
-        <Box>
-            <Text weight="bold">Type</Text>
-            <Text>Information</Text>
-            <Text>Task</Text>
-            <Text>Event</Text>
-        </Box>
-        <Box>
-            <Text weight="bold">State</Text>
-            <Text>In-Progress</Text>
-            <Text>Starting</Text>
-            <Text>Stopped</Text>
-            <Text>Pending</Text>
-            <Text>Success</Text>
-            <Text>Failure</Text>
-        </Box>
-    </Box>
-    <Box direction="row" gap="medium">
-        <Box>
-            <Text weight="bold">Status</Text>
-            <Text>Critical</Text>
-            <Text>Normal</Text>
-            <Text>Warning</Text>
-            <Text>Unknown</Text>
-        </Box>
-        <Box>
-            <Text weight="bold">Attention Level</Text>
-            <Text>High</Text>
-            <Text>Medium</Text>
-            <Text>Low</Text>
-        </Box>
-    </Box>
-    <Box direction="row" gap="medium">
-        <Box>
-            <Text weight="bold">Actions</Text>
-            <Text>Dismiss</Text>
-            <Text>Read</Text>
-            <Text>Unread</Text>
-            <Text>Yes</Text>
-            <Text>No</Text>
-        </Box>
-        <Box>
-            <Text weight="bold">Persistence</Text>
-            <Text>Dismissable</Text>
-            <Text>Clearable</Text>
-            <Text>Action Required</Text>
-            <Text>Temporary</Text>
-        </Box>
-    </Box>
-    <Box direction="row" gap="medium">
-        <Box>
-            <Text weight="bold">Placement</Text>
-            <Text>Banner</Text>
-            <Text>Browser</Text>
-            <Text>Email</Text>
-            <Text>Toast</Text>
-            <Text>Bell</Text>
-            <Text>Badging</Text>
-            <Text>System</Text>
-            <Text>Global</Text>
-            <Text>Inline</Text>
-        </Box>
-        <Box>
-            <Text weight="bold">Insight</Text>
-            <Text>Support</Text>
-            <Text>Progress Update</Text>
-            <Text>Status/Task Tracking</Text>
-            <Text>Created</Text>
-            <Text>Request Received</Text>
-        </Box>
-    </Box>
-</Box>
+| Type        | State       | Status   | Attention Level | Actions | Persistence     | Placement | Insight              |
+| ------------| ------------|----------|-----------------|---------|-----------------|-----------|----------------------|
+| Information | In-Progress | Critical | High            | Dismiss | Dismissable     | Banner    | Support              |
+| Task        | Starting    | Normal   | Medium          | Read    | Clearable       | Browser   | Progress Update      |
+| Event       | Stopped     | Warning  | Low             | Unread  | Action Required | Email     | Status/Task Tracking |
+|             | Pending     | Unknown  |                 | Yes     |                 | Toast     | Created              |
+|             | Success     |          |                 | No      |                 | Bell      | Required Received    |
+|             | Failure     |          |                 |         |                 | Badging   |                      |
+|             |             |          |                 |         |                 | System    |                      |
+|             |             |          |                 |         |                 | Global    |                      |
+|             |             |          |                 |         |                 | Inline    |                      |
 
 ### State v.s. Status
 

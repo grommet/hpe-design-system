@@ -14,7 +14,7 @@ To effectively capture the user’s attention, status indicators are compromised
 - Shapes
 - Content
 
-To meet WCAG 2.1 compliance, at least three out of four elements must always be present.
+To meet [WCAG 2.1 compliance](https://www.w3.org/WAI/WCAG21/quickref/#status-messages), at least three out of four elements must always be present.
 
 ### Colors
 
@@ -33,20 +33,24 @@ Icons and shapes are used to represent the notification’s level of severity to
 
 <Box direction="row" gap="small" pad={{bottom: 'medium'}}>
     <StatusGoodSmall color="status-ok" />
+    Good
     <StatusWarningSmall color="status-warning" />
+    Warning
     <StatusCriticalSmall color="status-critical" />
+    Critical
     <StatusUnknownSmall color="status-unknown" />
+    Unknown
 </Box>
 
 *** Remember that WCAG 2.1 guidlines states that at least three out of four elements must be present, therefore, this sets will not pass accessibility requirements if it is not paired with another element such as well-written and relevant content. 
 
 ### Content
 
-Do This:
+**Do This:**
 - When constructing content be sure to use words, phrases, and concepts familiar to the user, rather than internal jargon. 
 - Content should be natural and logical as if it were being used within a real-world setting.
 
-Don't Do This:
+**Don't Do This:**
 - Do not include overbearing or irrelevant information, especially important to note for low attention notifications. Try and keep status messages short and terse as to not overload the user with information.
 - Do not include run-on sentences.
 - Don't overuse the word "please".  While "please" is allowed, starting every action phrase with the word "please" is not appropriate.  In general, we should be limiting the use of "please".
