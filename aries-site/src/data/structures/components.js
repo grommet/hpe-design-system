@@ -437,7 +437,7 @@ export const components = [
   {
     name: 'Status Indicator',
     category: 'Visualizations',
-    description: 'Utilized to highlight notification messages and alerts the users to anything that might require their attention.',
+    description: 'Quickly provide peace-of-mind or call attention to items requiring a user's action.',
     preview: {
       component: () => <StatusIndicatorPreview />,
       background: 'background-front',
