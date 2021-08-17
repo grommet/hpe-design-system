@@ -17,20 +17,20 @@ export const StatusIndicatorPreview = () => (
     </Box>
 );
 
-export const StatusBox = () => (
+export const StatusBox = ({toast}) => (
     <Box direction="row" gap="large" pad={{bottom: 'medium'}}>
         <Box align="center">
             <StatusGoodSmall color="status-ok" />
-            Good
+            Normal
         </Box>
         <Box align="center">
             <StatusWarningSmall color="status-warning" />
             Warning
         </Box>
-        <Box align="center">
+        {!toast && <Box align="center">
             <StatusCriticalSmall color="status-critical" />
             Critical
-        </Box>
+        </Box>}
         <Box align="center">
             <StatusUnknownSmall color="status-unknown" />
             Unknown

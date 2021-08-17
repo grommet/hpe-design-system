@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { ToastNotificationExample, ToastDiagram } from '../../examples';
+import { StatusBox, ToastNotificationExample, ToastDiagram } from '../../examples';
 import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
@@ -54,13 +54,9 @@ Aside from this, all toasts have a fixed width size at Medium (384px) while the 
 
 Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid this case for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
 
-The status indicators used for toasts are strictly for OK, Warning, and Unknown statuses.
+The status indicators used for toasts are strictly for Normal, Warning, and Unknown statuses.
 
-<Box direction="row" gap="medium" pad={{bottom: 'medium'}}>
-    <StatusGoodSmall color="status-ok" />
-    <StatusWarningSmall color="status-warning" />
-    <StatusUnknownSmall color="status-unknown" />
-</Box>
+<StatusBox toast />
 
 You can read more guidance about [status indicators](/components/status-indicator).
 
