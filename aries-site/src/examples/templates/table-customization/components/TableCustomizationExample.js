@@ -97,7 +97,7 @@ export const TableCustomizationExample = () => {
       margin="auto"
       pad={{ horizontal: 'medium' }}
       width={{ max: 'xxlarge' }}
-      background="background"
+      background="background-front"
     >
       <FiltersProvider>
         <Box gap="medium">
@@ -158,7 +158,7 @@ const Results = ({ columns }) => {
       <DataTable
         aria-describedby="users-heading"
         data={filteredResults}
-        background="background"
+        background="background-front"
         columns={columns}
         select={select}
         onSelect={setSelect}
