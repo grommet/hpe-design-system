@@ -357,7 +357,7 @@ export const components = [
   {
     name: 'Notifications',
     category: 'Visualizations',
-    description: `Notifications deliver transparent clarity for statuses of task and
+    description: `Notifications deliver transparent clarity for task and
       system statuses.`,
     preview: {
       image: {
