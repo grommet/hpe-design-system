@@ -1,8 +1,10 @@
 import { Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
 import {
   ToolTipExitExample,
   ToolTipIconExample,
   ToolTipSimpleExample,
+  ToolTipSizeExample,
 } from '../../examples';
 
 <Example
@@ -44,6 +46,19 @@ Upon hovering, Tip presents additional information about a specific element in a
 
 There are a few different ways that you can use a Tip.
 
+### Truncation Example
+
+Tables are very common to have truncation for many of the content
+since the columns are set at a paticular size. In the example below many of the
+service names are to long so you will need to hover in order to view the full name.
+
+<ExampleImagePreview
+  label="See truncation example in Table"
+  href="/components/table#selecting-multiple-records-and-batch-actions"
+  src="/table-manage-orders-example.png"
+  alt="HPE Design System Tables Example"
+/>
+
 ### Tip with icons
 
 An icon without a label should be provided a tooltip to remove any ambiguity around an icon's meaning. An example can be found in a demonstration of [Persistent Navigation](/templates/persistent-navigation#minimal-sidebar), where a sidebar contains icon-only buttons.
@@ -58,4 +73,12 @@ A Tip can be used to reiterate traditional symbols.
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipExitExample.js">
   <ToolTipExitExample />
+</Example>
+
+### Tip Sizes
+
+Tooltip can be used for both small content as well as large. The size of the tip will be based off of the content given.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipSizeExample.js">
+  <ToolTipSizeExample />
 </Example>
