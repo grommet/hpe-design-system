@@ -38,6 +38,10 @@ Do not use Toasts if the information contains the following:
 
 Due to their limited use cases, toasts are advised to be used sparingly or even substituted entirely for a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
 
+### Dealing with multiple Toast Notifications
+
+Because there are limited use cases for toast notifications, there should be little to no instances of multiple toasts being visible at the same time. However, if there are multiple toast notifications, you should deal with them by having only one toast present at a time. Once the first toast is dismissed or timed out, the next one should appear.
+
 ## Anatomy 
 
 <ToastDiagram />
@@ -78,6 +82,10 @@ To remain compliant with WCAG 2.1 guidelines, avoid placing interactive elements
 
 The close button within a toast should be the only interactable element and is used to dismiss the notification. To clarify, the toast itself is not dismissable on click rather only when the close button is specifically activated. This is to avoid any confusion the user may have on what the interactable elements are within a toast.
 
+## Accessibility 
+
+Toast notifications should be read aloud when they appear on a user's screen. To accomplish this, toasts are given the role of "log" with default aria-live set to "polite". The "log" role is used for live regions where new information is presented to a user in a meaningful order, and the "polite" attribute allows for a non-obtrusive way to notify screen readers of a new toast in a timely manner. 
+
 ## Placement 
 
 Make sure to follow these guidelines for Toast Notifications:
@@ -85,9 +93,12 @@ Make sure to follow these guidelines for Toast Notifications:
 - Fade in on arrival and fade out when dismissed.
 - Do not obscure critical information and any primary action elements.
 - Toasts are not focused on and do not appear when a user is within a Modal or Wizard since they do not carry high attention information. 
-- List them when there are multiple with the latest toast being on top. Toasts automatically dismiss if it reaches a certain point on the user’s screen. 
 - Reminder that toasts should not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
-- For multiple incoming toasts, consider incorporating a Notification Center where a user can access all the information at once.
+- Consider incorporating a Notification Center where a user can access all toast notifications at once.
+
+## Persistence
+
+Toasts are automatically dismissed after 8 seconds. Because they contain low severity level information, they should not require user action other than the close button. Keep in mind of the three line limit for toasts since longer messages may not be read completely by screen readers before automatically dismissing.
 
 ### Have more questions?
 
