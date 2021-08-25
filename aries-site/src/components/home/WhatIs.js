@@ -74,9 +74,7 @@ export const WhatIs = ({ ...rest }) => {
             and others in contributing to an evolving design language that
             supports HPE's pursuit in making great customer app experiences.
             For other contexts check&nbsp;
-            <Anchor
-              href="https://h10014.www1.hpe.com/brand-central/main#our-brand"
-            >
+            <Anchor href="https://brandcentral.hpe.com/home">
               HPE Brand Central
             </Anchor>.
           </Paragraph>
