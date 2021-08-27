@@ -6,7 +6,7 @@ export const ToolTipSizeExample = () => (
     <Tip
       content={
         <Box width={{ max: 'small' }} round="xsmall">
-          <Text>This is a Tooltip</Text>
+          <Text>This is a tip</Text>
         </Box>
       }
     >
