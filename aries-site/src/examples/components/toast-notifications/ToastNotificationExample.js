@@ -24,7 +24,7 @@ export const ToastNotificationExample = () => {
             <Box align="center" gap="small">
                 {visible && <Notification 
                     toast
-                    status="good"
+                    status="normal"
                     title="Toast success!"
                     message="The operation was successful"
                     onClose={onClose}
