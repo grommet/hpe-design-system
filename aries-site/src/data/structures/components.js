@@ -470,8 +470,8 @@ export const components = [
     description: `Toast notifications are used to communicate low severity level 
     information to users in an unobtrusive way.`,
     preview: {
-      component: () => <ToastPreview />,
-      background: 'background-front',
+      component: () => <ToastPreview card title="Hooray" message="Your toast is done!" />,
+      background: 'background-back',
     },
     seoDescription: `Toast notifications are used to communicate low severity level 
     information to users in an unobtrusive way.`,

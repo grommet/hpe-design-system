@@ -1,32 +1,22 @@
 import React, { useState } from 'react';
-import { Box, Button, Text } from 'grommet';
-import { Notification } from '../notifications';
+import { Box, Button, Notification, Paragraph } from 'grommet';
 
 export const ToastNotificationExample = () => {
 
     const [visible, setVisible] = useState();
 
-    const onOpen = () => {
-        setVisible(true);
-        setTimeout(() => {
-        setVisible(undefined);
-        }, 8000);
-    };
-
+    const onOpen = () => setVisible(true);
     const onClose = () => setVisible(undefined);
 
     return (
         <>
             <Box align="center" gap="medium">
-                <Text textAlign="center">
-                    For example purposes, this Toast Notification
-                    will disappear after 8 seconds. This is the 
-                    recommended lifetime for a toast, as it allows
-                    screen readers to relay the content in a 
-                    notification. 
-                </Text>
+                <Paragraph textAlign="center">
+                    This notification will disappear after 8 seconds
+                    if not dismissed via the close button.
+                </Paragraph>
                 <Button 
-                    label="Show me the Notification" 
+                    label="Show the Toast Notification" 
                     onClick={onOpen} 
                     primary 
                 />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Diagram, Stack } from 'grommet';
-import { Notification } from '../notifications';
+import { ToastPreview } from '../../../examples/cardPreviews';
 
 const color = 'black';
 const anchor = 'vertical';
@@ -57,7 +57,7 @@ export const ToastDiagram = () => (
             pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >3</Box>
         </Box>
-        <Notification title="Status Title" message="This is a status message" onClose />
+        <ToastPreview title="Status Title" message="This is a status message" />
       </Box>
       <Diagram connections={connections} />
     </Stack>
