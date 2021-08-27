@@ -16,7 +16,8 @@ export const ToolTipSizeExample = () => (
       content={
         <Box width={{ max: 'small' }} round="xsmall">
           <Text>
-            This is a Popup that has more content and shows when hoverinng.
+            This is a larger tip which displays
+            more content upon hover or focus.
           </Text>
         </Box>
       }
