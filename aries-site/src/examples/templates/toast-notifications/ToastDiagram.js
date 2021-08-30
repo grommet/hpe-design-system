@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Diagram, Stack } from 'grommet';
-import { ToastPreview } from '../../../examples/cardPreviews';
+import { ToastPreview } from '../../cardPreviews';
 
 const color = 'black';
 const anchor = 'vertical';
