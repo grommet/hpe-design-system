@@ -36,7 +36,7 @@ const connections = [
 
 export const ToastDiagram = () => (
     <Stack>
-      <Box gap="medium" pad={{bottom: 'medium'}}>
+      <Box gap="medium" pad={{ bottom: 'medium' }}>
         <Box direction="row" gap="xlarge">
           <Box 
             id="1" 
