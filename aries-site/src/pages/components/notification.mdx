@@ -1,4 +1,5 @@
-import { StateVsStatusDiagram, TaxonomyTable } from '../../examples';
+import { StateVsStatusDiagram, TaxonomyTable, ToastNotificationExample } from '../../examples';
+import { Example } from '../../layouts';
 import { Box, Text } from 'grommet';
 
 ## What are they for?
@@ -32,7 +33,29 @@ Here is an example of a Toast Notification that illustrates their differences:
 
 Keep in mind that a status **derives** from a state.
 
-## Roadmap
+## Notification Systems
+
+The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
+
+- [Status Indicators](/components/status-indicator) are used within all types of notifications. They capture user’s attention based on the notification’s level of severity
+- For low priority and non action oriented notifications, [Toast Notifications](/components/toast-notifications) are a great way to inform users unobtrusively. 
+
+## Variants
+
+There are a couple "types" of the Notification component depending on use case.
+
+### Toast Notification
+
+Toast notifications are used for low attention status messages or updates that do not require user action. For more thorough guidance on how and when to properly make use of a toast, access the full page on [Toast Notifications](/templates/toast-notifications).
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/toast-notifications/ToastNotificationExample.js"
+  docs="https://v2.grommet.io/notification"
+>
+  <ToastNotificationExample />
+</Example>
+
+### Roadmap
 
 The Design System is currently exploring and researching best practices and considerations for notification patterns. Here are some things we have lined out for the future:
 
@@ -42,13 +65,6 @@ The Design System is currently exploring and researching best practices and cons
 - Inline
 - Notification center
 - Badging & Bell
-
-## Notification Systems
-
-The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
-
-- [Status Indicators](/components/status-indicator) are used within all types of notifications. They capture user’s attention based on the notification’s level of severity
-- For low priority and non action oriented notifications, [Toast Notifications](/components/toast-notifications) are a great way to inform users unobtrusively. 
 
 ### Have more questions?
 
