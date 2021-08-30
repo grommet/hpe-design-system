@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 
-export const ToolTipSizeExample = () => (
+export const TipSizeExample = () => (
   <Box gap="large">
     <Tip
       content={

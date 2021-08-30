@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 
-export const ToolTipSimpleExample = () => (
+export const TipSimpleExample = () => (
   <Tip
     content={
       <Box width={{ max: 'small' }} round="xsmall">
