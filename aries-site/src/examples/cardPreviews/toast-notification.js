@@ -1,17 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { FormClose } from 'grommet-icons/icons/FormClose';
 
 import { Box, Text } from 'grommet';
 
-export const ToastPreview = ({card, message, title}) => (
+export const ToastPreview = ({ card, message, title }) => (
   <Box background="background-back">
-    <Box 
-      elevation="medium" 
-      round="xsmall" 
+    <Box
+      elevation="medium"
+      round="xsmall"
       width={card ? null : 'medium'}
-      pad={{ horizontal: 'small', vertical: 'xsmall' }} 
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
       background={{ color: 'background-front' }}
     >
       <Box direction="row">
@@ -27,7 +28,7 @@ export const ToastPreview = ({card, message, title}) => (
           fill
         >
           <Box>
-            <Text weight="bold" >{title}</Text>
+            <Text weight="bold">{title}</Text>
             <Text>{message}</Text>
           </Box>
           <FormClose id="close-button" />
@@ -36,3 +37,9 @@ export const ToastPreview = ({card, message, title}) => (
     </Box>
   </Box>
 );
+
+ToastPreview.propTypes = {
+  card: PropTypes.boolean,
+  message: PropTypes.string,
+  title: PropTypes.string,
+};
