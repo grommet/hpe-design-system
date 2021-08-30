@@ -3028,9 +3028,9 @@
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
 "@types/node@*":
-  version "16.7.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.4.tgz#68a9384694af63ceab8848e95d76d9a3519e84b6"
-  integrity sha512-25QXpDsTiDnl2rZGUenagVMwO46way8dOUdvoC3R3p+6TrbpxeJBo/v87BEG1IHI31Jhaa8lPeSHcqwxsVBeYQ==
+  version "16.7.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.3.tgz#8eef3b12df245e6275f083dba37730f29700a75a"
+  integrity sha512-S6gm2sm9xIRWTxD7Ttj8N1ZrYfqdqZEU38Nwnrhd6krk7zf8vdgMgzz8hpAX9CfmXaJfP+Vqy2EhJpVavNEocg==
 
 "@types/node@^12.20.10":
   version "12.20.21"
@@ -6534,9 +6534,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.488, electron-to-chromium@^1.3.811:
-  version "1.3.821"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.821.tgz#fe2ba857345b0c51f5226af5f96d6a309f00435b"
-  integrity sha512-IadPc2Ep1RGFYfLYdp0FTOgdPUDg3lvH7vqwGGdAuHtbnVc8M2qldS+SGESzmUaXpaSqpzROozQcBKFiRSKpOg==
+  version "1.3.820"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.820.tgz#3b2672b59ed17847ed19f1281547f37bbfda87bb"
+  integrity sha512-5cFwDmo2yzEA9hn55KZ9+cX/b6DSFvpKz8Hb2fiDmriXWB+DBoXKXmncQwNRFBBTlUdsvPHCoy594OoMLAO0Tg==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -8072,7 +8072,6 @@ graphlib@^2.1.5:
 
 grommet-icons@^4.6.2, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.6.2"
-  uid "8198fe956dbfa8aa217a74844f7546e9576677a6"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#8198fe956dbfa8aa217a74844f7546e9576677a6"
   dependencies:
     grommet-styles "^0.2.0"
