@@ -1,3 +1,5 @@
+import { StatusIndicatorPreview, ToastPreview } from '../../examples/cardPreviews';
+
 export const templates = [
   {
     name: 'Forms',
@@ -126,6 +128,26 @@ export const templates = [
     sections: [],
   },
   {
+    name: 'Internationalization',
+    available: true,
+    description: `How to internationalize a site or application that uses the 
+    HPE Design System.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-i18n.svg',
+          dark: '/templateImages/template-preview-i18n-invert.svg',
+        },
+        alt: 'Internationalization',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `How to internationalize a site or application that uses
+    the HPE Design System`,
+    sections: [],
+    relatedContent: [],
+  },
+  {
     name: 'Lists',
     available: true,
     cardOrder: 100,
@@ -219,6 +241,18 @@ export const templates = [
     sections: [],
   },
   {
+    name: 'Status Indicator',
+    category: 'Visualizations',
+    description: 'Quickly provide peace-of-mind or call attention to items requiring a user\'s action.',
+    preview: {
+      component: () => <StatusIndicatorPreview />,
+      background: 'background-front',
+    },
+    seoDescription: 'Highlight notification messages and alerts which require a user\'s attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
+    relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
+    sections: [],
+  },
+  {
     name: 'Table Customization',
     available: true,
     cardOrder: 100,
@@ -240,24 +274,18 @@ export const templates = [
     relatedContent: ['Table', 'Lists', 'Filtering'],
   },
   {
-    name: 'Internationalization',
+    name: 'Toast Notifications',
     available: true,
-    description: `How to internationalize a site or application that uses the 
-    HPE Design System.`,
+    description: `Toast notifications are used to communicate low severity level 
+    information to users in an unobtrusive way.`,
     preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-i18n.svg',
-          dark: '/templateImages/template-preview-i18n-invert.svg',
-        },
-        alt: 'Internationalization',
-        fit: 'contain',
-      },
+      component: () => <ToastPreview card title="Hooray" message="Your toast is done!" />,
+      background: 'background-back',
     },
-    seoDescription: `How to internationalize a site or application that uses
-    the HPE Design System`,
+    seoDescription: `Toast notifications are used to communicate low severity level 
+    information to users in an unobtrusive way.`,
     sections: [],
-    relatedContent: [],
+    relatedContent: ['Notifications', 'Status Indicator', 'Stack'],
   },
   {
     name: 'Wizard',

@@ -18,11 +18,9 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
-  ToastPreview
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
-import { StatusIndicatorPreview } from '../../examples/cardPreviews/status-indicator';
 
 export const components = [
   {
@@ -355,10 +353,9 @@ export const components = [
     relatedContent: ['TextInput', 'Forms', 'Select'],
   },
   {
-    name: 'Notifications',
+    name: 'Notification',
     category: 'Visualizations',
-    description: `Notifications deliver transparent clarity for task and
-      system statuses.`,
+    description: `Deliver transparent clarity for task and system statuses.`,
     preview: {
       image: {
         src: {
@@ -435,18 +432,6 @@ export const components = [
     sections: [],
   },
   {
-    name: 'Status Indicator',
-    category: 'Visualizations',
-    description: 'Quickly provide peace-of-mind or call attention to items requiring a user\'s action.',
-    preview: {
-      component: () => <StatusIndicatorPreview />,
-      background: 'background-front',
-    },
-    seoDescription: 'Highlight notification messages and alerts which require a user\'s attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
-    relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
-    sections: [],
-  },
-  {
     name: 'Table',
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',
@@ -463,20 +448,6 @@ export const components = [
     relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
-  },
-  {
-    name: 'Toast Notifications',
-    category: 'Visualizations',
-    description: `Toast notifications are used to communicate low severity level 
-    information to users in an unobtrusive way.`,
-    preview: {
-      component: () => <ToastPreview card title="Hooray" message="Your toast is done!" />,
-      background: 'background-back',
-    },
-    seoDescription: `Toast notifications are used to communicate low severity level 
-    information to users in an unobtrusive way.`,
-    sections: [],
-    relatedContent: ['Notifications', 'Status Indicator', 'Stack'],
   },
   {
     name: 'Pagination',
