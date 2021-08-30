@@ -352,7 +352,28 @@ export const components = [
     },
     relatedContent: ['TextInput', 'Forms', 'Select'],
   },
-
+  {
+    name: 'Notification',
+    category: 'Visualizations',
+    description: `Notifications deliver transparent clarity for task and system statuses.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-notifications.svg',
+          dark: '/templateImages/template-preview-notifications-invert.svg',
+        },
+        alt: `Image featuring a bell icon and indicator representing how a timely notification 
+        might be presented to a user within an application.`,
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Notifications in the HPE Design System provides patterns,
+    designs, and guidance for how HPE applications can deliver end users 
+    confidence and assurance by keeping them informed with timely, relevant 
+    status of their systems and tasks.`,
+    sections: [],
+    relatedContent: ['Status Indicator', 'Toast Notifications', 'Stack'],
+  },
   {
     name: 'RadioButtonGroup',
     category: 'Inputs',
