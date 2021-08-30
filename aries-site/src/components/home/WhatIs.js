@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import {
+  Anchor,
   Box,
   Grid,
   Heading,
@@ -71,7 +72,11 @@ export const WhatIs = ({ ...rest }) => {
           <Paragraph size="xlarge" fill textAlign="center" margin="none">
             The HPE Design System was created to empower designers, developers,
             and others in contributing to an evolving design language that
-            supports HPE's pursuit in making great customer experiences.
+            supports HPE's pursuit in making great customer app experiences.
+            For other contexts check&nbsp;
+            <Anchor href="https://brandcentral.hpe.com/home">
+              HPE Brand Central
+            </Anchor>.
           </Paragraph>
         </Box>
         <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
