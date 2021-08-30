@@ -2,7 +2,7 @@ import React from 'react';
 import { ToastPreview } from '../../../examples/cardPreviews';
 import { Box, Text, Diagram, Stack } from 'grommet';
 
-const color = 'black';
+const color = 'text-strong';
 const anchor = 'vertical';
 const thickness = 'xxxsmall';
 const type = 'rectilinear';
