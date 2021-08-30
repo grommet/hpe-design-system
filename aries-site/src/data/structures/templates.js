@@ -1,4 +1,7 @@
-import { StatusIndicatorPreview, ToastPreview } from '../../examples/cardPreviews';
+import {
+  StatusIndicatorPreview,
+  ToastPreview,
+} from '../../examples/cardPreviews';
 
 export const templates = [
   {
@@ -243,12 +246,16 @@ export const templates = [
   {
     name: 'Status Indicator',
     available: true,
-    description: 'Quickly provide peace-of-mind or call attention to items requiring a user\'s action.',
+    description: `Quickly provide peace-of-mind or call attention to items 
+      requiring a user's action.`,
     preview: {
       component: () => <StatusIndicatorPreview />,
       background: 'background-front',
     },
-    seoDescription: 'Highlight notification messages and alerts which require a user\'s attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
+    seoDescription: `Highlight notification messages and alerts which 
+      require a user's attention. Status indicators provide peace-of-mind 
+      when all is well or call attention to items when a user needs to take 
+      action`,
     relatedContent: ['Notification', 'Toast Notifications', 'Stack'],
     sections: [],
   },
@@ -276,14 +283,16 @@ export const templates = [
   {
     name: 'Toast Notifications',
     available: true,
-    description: `Toast notifications are used to communicate low severity level 
-    information to users in an unobtrusive way.`,
+    description: `Toast notifications are used to communicate low severity 
+      level information to users in an unobtrusive way.`,
     preview: {
-      component: () => <ToastPreview card title="Hooray" message="Your toast is done!" />,
+      component: () => (
+        <ToastPreview card title="Hooray" message="Your toast is done!" />
+      ),
       background: 'background-back',
     },
-    seoDescription: `Toast notifications are used to communicate low severity level 
-    information to users in an unobtrusive way.`,
+    seoDescription: `Toast notifications are used to communicate low 
+    severity level information to users in an unobtrusive way.`,
     sections: [],
     relatedContent: ['Notification', 'Status Indicator', 'Stack'],
   },
