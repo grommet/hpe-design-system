@@ -1,0 +1,102 @@
+import { Example } from '../../layouts';
+import { StatusBox, ToastNotificationExample, ToastDiagram } from '../../examples';
+import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
+import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
+import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
+import { Box } from 'grommet';
+
+<Example
+  docs="https://v2.grommet.io/notification"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
+  figma="https://www.figma.com"
+>
+  <ToastNotificationExample />
+</Example>
+
+## Guidance
+
+Everything that you need to know about toasts and more.
+
+### When should you use a Toast Notification?
+
+**Toasts should be considered when displaying these types of information to the user:**
+
+- Low attention messages that do not require user action
+- Singular status updates
+- Confirmations
+- Information that does not need to be followed up
+
+**Do not use Toasts if the information contains the following:**
+
+- High attention and crtitical information
+- Time-sensitive information
+- Requires user action or input
+- Batch updates
+
+Due to their limited use cases, toasts are advised to be used sparingly or even substituted entirely for a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
+
+### Dealing with multiple Toast Notifications
+
+Because there are limited use cases for toast notifications, there should be little to no instances of multiple toasts being visible at the same time. However, if there are multiple toast notifications, you should deal with them by having only one toast present at a time. Once the first toast is dismissed or timed out, the next one should appear.
+
+## Anatomy 
+
+<ToastDiagram />
+
+Toasts are compromised of three main elements:
+
+1. Status Indicator
+2. Content (Title + Message)
+3. Close button
+
+Aside from this, all toasts have a fixed width size at Medium (384px) while the height changes based off the amount of content. 
+
+### Status Indicator
+
+Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid this case for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
+
+The status indicators used for toasts are strictly for Normal, Warning, and Unknown statuses.
+
+<StatusBox toast />
+
+You can read more guidance about [status indicators](/components/status-indicator).
+
+### Content (Title + Message)
+
+All toasts have content which is comprised of a title and a message. However, the content only requires a title, not necessarily a message. The title and message should be distinguishable from each other by the weight of the text. The status title and message should be distinguishable by the weight of the text.
+
+**1. Amount of Information**
+
+Toast notifications should not have too much information inside of them. Additionally, each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
+
+For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the title and the message or a three-lined title. If the information is heavy and long, consider using a different type of notification other than toast. Never truncate text within a toast. The main point is to keep the information concise and clear.
+
+**2. Interactive Content**
+
+To remain compliant with WCAG 2.1 guidelines, avoid placing interactive elements, like links and buttons, inside of a toast. These elements may be difficult to access with a screen reader and other assistive technology, so it is best to avoid complex toasts.
+
+### Close Button
+
+The close button within a toast should be the only interactable element and is used to dismiss the notification. To clarify, the toast itself is not dismissable on click rather only when the close button is specifically activated. This is to avoid any confusion the user may have on what the interactable elements are within a toast.
+
+## Accessibility 
+
+Toast notifications should be read aloud when they appear on a user's screen. To accomplish this, toasts are given the role of "log" with default aria-live set to "polite". The "log" role is used for live regions where new information is presented to a user in a meaningful order, and the "polite" attribute allows for a non-obtrusive way to notify screen readers of a new toast in a timely manner. 
+
+## Placement 
+
+Make sure to follow these guidelines for Toast Notifications:
+- Place them either top-center or top-right of the screen. If badging is being used, toasts should be placed underneath it. Note that top-right placements may negatively affect those using screen magnifiers.
+- Fade in on arrival and fade out when dismissed.
+- Do not obscure critical information and any primary action elements.
+- Toasts are not focused on and do not appear when a user is within a Modal or Wizard since they do not carry high attention information. 
+- Reminder that toasts should not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
+- Consider incorporating a Notification Center where a user can access all toast notifications at once.
+
+## Persistence
+
+Toasts are automatically dismissed after 8 seconds. Because they contain low severity level information, they should not require user action other than the close button. Keep in mind of the three line limit for toasts since longer messages may not be read completely by screen readers before automatically dismissing.
+
+### Have more questions?
+
+Please be sure to send them over to the `#hpe-design-system` channel on [Slack](https://slack-invite.grommet.io/)!
