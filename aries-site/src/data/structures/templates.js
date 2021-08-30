@@ -242,14 +242,14 @@ export const templates = [
   },
   {
     name: 'Status Indicator',
-    category: 'Visualizations',
+    available: true,
     description: 'Quickly provide peace-of-mind or call attention to items requiring a user\'s action.',
     preview: {
       component: () => <StatusIndicatorPreview />,
       background: 'background-front',
     },
     seoDescription: 'Highlight notification messages and alerts which require a user\'s attention. Status indicators provide peace-of-mind when all is well or call attention to items when a user needs to take action',
-    relatedContent: ['Notifications', 'Toast Notifications', 'Stack'],
+    relatedContent: ['Notification', 'Toast Notifications', 'Stack'],
     sections: [],
   },
   {
@@ -285,7 +285,7 @@ export const templates = [
     seoDescription: `Toast notifications are used to communicate low severity level 
     information to users in an unobtrusive way.`,
     sections: [],
-    relatedContent: ['Notifications', 'Status Indicator', 'Stack'],
+    relatedContent: ['Notification', 'Status Indicator', 'Stack'],
   },
   {
     name: 'Wizard',
