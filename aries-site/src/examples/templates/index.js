@@ -7,4 +7,5 @@ export * from './list-views';
 export * from './page-layouts';
 export * from './persistent-navigation';
 export * from './table-customization';
+export * from './toast-notifications';
 export * from './wizard';
