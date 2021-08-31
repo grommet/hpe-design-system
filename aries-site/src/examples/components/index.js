@@ -37,7 +37,7 @@ export * from './tabs';
 export * from './table';
 export * from './textarea';
 export * from './textinput';
-export * from './tooltip';
+export * from './tip';
 export * from './sidebar';
 export * from './spinner';
 export * from './video';

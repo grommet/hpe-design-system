@@ -1,16 +1,18 @@
 import { Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
 import {
-  ToolTipExitExample,
-  ToolTipIconExample,
-  ToolTipSimpleExample,
+  TipExitExample,
+  TipIconExample,
+  TipSimpleExample,
+  TipSizeExample,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipSimpleExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tip/TipSimpleExample.js"
   docs="https://v2.grommet.io/tip?theme=hpe#props"
   figma="https://www.figma.com/file/Jd34cI5yyZIPb5BIwkIPU2/HPE-Tooltip?node-id=0%3A1"
 >
-  <ToolTipSimpleExample />
+  <TipSimpleExample />
 </Example>
 
 ## Guidance
@@ -22,7 +24,7 @@ Tips provide messages that give the user more information about an element.
 ### Usage
 
 1. Don't use Tips for information that is vital to task completion.
-2. Provide a brief and helpful content inside the tooltip.
+2. Provide a brief and helpful content inside the Tip.
 3. Support both mouse and keyboard hover.
 4. Use Tip consistently throughout your site.
 5. Tip should never contain interactive components.
@@ -32,11 +34,11 @@ Make sure to test the Tip positioning to ensure that the content does not block 
 ### Accessibility
 
 Tips should support both mouse hover and keyboard focus.
-Do not use tooltips for information that is vital for the user to complete the task.
+Do not use Tips for information that is vital for the user to complete the task.
 
-### Truncation with tooltip
+### Truncation with Tip
 
-To display the full text when truncation occurs, hover over the truncated text and a tooltip will be shown with the full text.
+To display the full text when truncation occurs, hover over the truncated text and a Tip will be shown with the full text.
 
 Upon hovering, Tip presents additional information about a specific element in a small container. The Tip will remain visible as long as the user is hovering over the element.
 
@@ -44,18 +46,40 @@ Upon hovering, Tip presents additional information about a specific element in a
 
 There are a few different ways that you can use a Tip.
 
+### Truncated Table Cell Content
+
+Tips are useful to supplement truncated content within a table. In the example 
+below, many of the service names are lengthy. Truncation may be applied cell content 
+is constrained by column widths and supplemented with a tip upon hover to reveal the 
+entirety of the cell's content.
+
+<ExampleImagePreview
+  label="See truncation example in Table"
+  href="/components/table#selecting-multiple-records-and-batch-actions"
+  src="/table-manage-orders-example.png"
+  alt="Image depicting an example HPE Design System table implementation."
+/>
+
 ### Tip with icons
 
-An icon without a label should be provided a tooltip to remove any ambiguity around an icon's meaning. An example can be found in a demonstration of [Persistent Navigation](/templates/persistent-navigation#minimal-sidebar), where a sidebar contains icon-only buttons.
+An icon without a label should be provided a Tip to remove any ambiguity around an icon's meaning. An example can be found in a demonstration of [Persistent Navigation](/templates/persistent-navigation#minimal-sidebar), where a sidebar contains icon-only buttons.
 
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipIconExample.js">
-  <ToolTipIconExample />
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tip/TipIconExample.js">
+  <TipIconExample />
 </Example>
 
 ### Tip with exit
 
 A Tip can be used to reiterate traditional symbols.
 
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tooltip/ToolTipExitExample.js">
-  <ToolTipExitExample />
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tip/TipExitExample.js">
+  <TipExitExample />
+</Example>
+
+### Tip Content Length
+
+Tip may be used for content varying in length. The size of the Tip will scale according to the content provided.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tip/TipSizeExample.js">
+  <TipSizeExample />
 </Example>
