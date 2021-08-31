@@ -39,7 +39,7 @@ export const ToastPreview = ({ card, message, title }) => (
 );
 
 ToastPreview.propTypes = {
-  card: PropTypes.boolean,
+  card: PropTypes.bool,
   message: PropTypes.string,
   title: PropTypes.string,
 };
