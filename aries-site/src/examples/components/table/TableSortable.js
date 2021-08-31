@@ -108,7 +108,7 @@ const columns = [
     header: 'Status',
     render: datum => (
       <Box direction="row" align="center" gap="xsmall">
-        <datum.status.icon color={datum.status.color} />
+        <datum.status.icon color={datum.status.color} size="small" />
         <Text>{datum.status.label}</Text>
       </Box>
     ),
