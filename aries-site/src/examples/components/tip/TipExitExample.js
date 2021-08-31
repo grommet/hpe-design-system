@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const ToolTipExitExample = () => (
+export const TipExitExample = () => (
     <Box gap="small" direction="row">
       <Box width="small">
         <Text color="text-strong" size="large" weight="bold">
