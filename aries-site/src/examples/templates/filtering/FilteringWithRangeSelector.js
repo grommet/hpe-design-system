@@ -19,7 +19,13 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormClose, Filter, Search } from 'grommet-icons';
+import {
+  FormClose,
+  Filter,
+  Search,
+  StatusCriticalSmall,
+  StatusGoodSmall,
+} from 'grommet-icons';
 
 const allData = [
   {
@@ -565,13 +571,11 @@ const Results = ({ data }) => (
         <Box direction="row" align="center" gap="medium" key={index}>
           <Box direction="row" gap="small" align="center">
             <Text>Availability: {item.availability}%</Text>
-            <Box
-              pad="xsmall"
-              background={
-                item.availability <= 70 ? 'status-critical' : 'status-ok'
-              }
-              round
-            />
+            {item.availability <= 70 ? (
+              <StatusCriticalSmall color="status-critical" size="small" />
+            ) : (
+              <StatusGoodSmall color="status-ok" size="small" />
+            )}
           </Box>
         </Box>
       )}
