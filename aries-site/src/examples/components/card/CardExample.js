@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box, Card, CardBody, CardFooter, Chart, Text, Stack } from 'grommet';
-import { Wifi } from 'grommet-icons';
+import { Wifi, StatusWarningSmall } from 'grommet-icons';
 
 const mockData = Array(30)
   .fill()
@@ -115,7 +115,7 @@ KPIChart.propTypes = {
 
 const KPISummary = ({ instances, statusColor }) => (
   <Box direction="row" align="center" gap="small">
-    <Box background={statusColor} height="12px" width="12px" round />
+    <StatusWarningSmall color={statusColor} size="small" />
     <Text>{instances} instances above utilization target</Text>
   </Box>
 );

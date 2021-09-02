@@ -15,7 +15,14 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, FormClose, More, Search } from 'grommet-icons';
+import {
+  Filter,
+  FormClose,
+  More,
+  Search,
+  StatusGoodSmall,
+  StatusWarningSmall,
+} from 'grommet-icons';
 
 const allData = [
   { name: 'Apex-Server', status: 'Ready' },
@@ -353,13 +360,11 @@ const Results = ({ data }) => {
           >
             <Box direction="row" gap="small" align="center">
               {size !== 'small' && <Text>{item.status}</Text>}
-              <Box
-                pad="xsmall"
-                background={
-                  item.status === 'Ready' ? 'status-ok' : 'status-warning'
-                }
-                round
-              />
+              {item.status === 'Ready' ? (
+                <StatusGoodSmall color="status-ok" size="small" />
+              ) : (
+                <StatusWarningSmall color="status-warning" size="small" />
+              )}
             </Box>
             <Menu
               icon={<More />}
