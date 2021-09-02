@@ -7,6 +7,11 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import {
+  StatusGoodSmall,
+  StatusWarningSmall,
+  StatusCriticalSmall,
+} from 'grommet-icons';
 
 const data = [
   {
@@ -103,12 +108,7 @@ const columns = [
     header: 'Status',
     render: datum => (
       <Box direction="row" align="center" gap="xsmall">
-        <Box
-          height="12px"
-          width="12px"
-          background={datum.status.color}
-          round="100%"
-        />
+        <datum.status.icon color={datum.status.color} size="small" />
         <Text>{datum.status.label}</Text>
       </Box>
     ),
@@ -123,6 +123,7 @@ const formatData = dataSet =>
       case 'ok':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusGoodSmall,
           value: 0,
           color: 'status-ok',
         };
@@ -130,6 +131,7 @@ const formatData = dataSet =>
       case 'warning':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusWarningSmall,
           value: 1,
           color: 'status-warning',
         };
@@ -137,6 +139,7 @@ const formatData = dataSet =>
       case 'critical':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusCriticalSmall,
           value: 2,
           color: 'status-critical',
         };
