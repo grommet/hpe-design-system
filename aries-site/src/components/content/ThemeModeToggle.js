@@ -6,8 +6,8 @@ import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = ({ active }) => {
   const darkMode = useDarkMode();
-  const label = darkMode.value ? 'Light Mode' : 'Dark Mode';
-  const icon = darkMode.value ? <Sun /> : <Moon />;
+  const label = darkMode.value ? 'Switch Light Mode' : 'Switch Dark Mode';
+  const icon = darkMode.value ? <Moon /> : <Sun />;
   return (
     <Tip content={label}>
       <Button
@@ -15,6 +15,7 @@ export const ThemeModeToggle = ({ active }) => {
         active={active}
         onClick={() => darkMode.toggle()}
         icon={icon}
+        a11yTitle={label}
       />
     </Tip>
   );

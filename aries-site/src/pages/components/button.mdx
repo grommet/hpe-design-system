@@ -49,6 +49,35 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 - Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
 - An action almost always occurs on the same page
 
+### Toggle Buttons
+
+Toggle buttons are buttons with either two states: check and unchecked or used to trigger two actions like on or off.
+
+#### Toggle Buttons with Icons
+
+Icon buttons have an aria-label that will describe the action that the user will be performing when using screen readers.
+
+**Best Practices:**
+- Don’t use more than 2-3 words
+- Use verbs first to describe the action such as “Toggle” , “Favorite” or “Save”
+- Use sentece case capitalization
+- It is recommended that words such as “the”, “a” be avoided
+
+For Buttons with Icons ONLY, it is important that you show the two following elements:
+
+1. Show the current state of the button through the use of an icon that best represents the action
+
+2. Inform the user of what is going to happen next by including a11y text and or changing the label
+
+#### Where to use Toggle Buttons
+
+- Add checkboxes in forms
+- Play/pause a video
+- Like/dislike a comment
+- Favorite/unfavorite an image
+- To show the visibility of an asset or a collection such as that in an accordion
+- To select an option among many options like in a toggle button
+
 ### Accessibility
 
 If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab", that is a link `<a>`. Everything else is a `<button>`.
