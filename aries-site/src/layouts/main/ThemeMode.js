@@ -42,5 +42,5 @@ export const ThemeMode = ({ children, ...rest }) => {
 };
 
 ThemeMode.propTypes = {
-  children: PropTypes.bool,
+  children: PropTypes.element,
 };
