@@ -70,7 +70,15 @@ export const components = [
       },
     },
     relatedContent: ['Lists', 'Dashboards', 'Navigation'],
-    sections: [],
+    sections: [
+      'Dashboard Example',
+      'Navigation Example',
+      'Card as a Dashboard Element',
+      'Card with an Image',
+      'Card with a Footer',
+      'More Examples of a Card',
+    ],
+    tags: ['tile', 'widget', 'container', 'card'],
   },
   {
     name: 'Tabs',
@@ -153,7 +161,7 @@ export const components = [
       'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
     seoDescription:
       'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
-    sections: [],
+    sections: ['Tip with icons', 'Tip with exit', 'Tip Content Length'],
     preview: {
       image: {
         src: {
@@ -164,6 +172,7 @@ export const components = [
       },
     },
     relatedContent: ['Layer', 'Button', 'Header', 'Persistent Navigation'],
+    tags: ['tooltip', 'tool tip', 'hover', 'hover text', 'hint'],
   },
   {
     name: 'Search',
@@ -244,6 +253,7 @@ export const components = [
     seoDescription:
       'The accordion affords content to be delivered progressively.',
     sections: [],
+    tags: ['accordian', 'acordion', 'collapse', 'panel', 'expand'],
   },
   {
     name: 'Header',
@@ -355,7 +365,8 @@ export const components = [
   {
     name: 'Notification',
     category: 'Visualizations',
-    description: 'Notifications deliver transparent clarity for task and system statuses.',
+    description:
+      'Notifications deliver transparent clarity for task and system statuses.',
     preview: {
       image: {
         src: {
@@ -371,8 +382,24 @@ export const components = [
     designs, and guidance for how HPE applications can deliver end users 
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
-    sections: [],
+    sections: [
+      'State v.s. Status',
+      'Notification Systems',
+      'Toast Notification',
+    ],
     relatedContent: ['Status Indicator', 'Toast Notifications', 'Stack'],
+    tags: [
+      'banner',
+      'toast',
+      'alert',
+      'badge',
+      'system notification',
+      'global notification',
+      'inline notification',
+      'success message',
+      'status message',
+      'notification center',
+    ],
   },
   {
     name: 'RadioButtonGroup',

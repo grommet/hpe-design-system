@@ -1,21 +1,14 @@
 import React, { useContext, useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Button, TextInput, ResponsiveContext, Keyboard } from 'grommet';
+import { Box, Button, Layer, ResponsiveContext, Keyboard } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
+
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
+import { SearchInput, SearchResults } from '.';
 
 const allSuggestions = getSearchSuggestions;
-
-// Using Search icon as the arialabelledby for the text input. Documentation
-// on why this is a valid replacement for using label here:
-// https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby
-// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
-const StyledTextInput = styled(TextInput).attrs(() => ({
-  'aria-labelledby': 'search-icon',
-}))``;
 
 export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
@@ -23,6 +16,9 @@ export const Search = ({ focused, setFocused }) => {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(allSuggestions);
   const inputRef = useRef();
+  const searchResultsRef = useRef();
+
+  const [searchResults, setSearchResults] = useState(false);
 
   useEffect(() => {
     if (focused && inputRef.current) {
@@ -37,34 +33,36 @@ export const Search = ({ focused, setFocused }) => {
     let nextSuggestions;
     if (nextValue) {
       const regexp = new RegExp(nextValue, 'i');
-      nextSuggestions = allSuggestions.filter(c => regexp.test(c));
+      nextSuggestions = allSuggestions.filter(
+        c => regexp.test(c.label) || regexp.test(c.value.tags),
+      );
     } else {
       nextSuggestions = allSuggestions;
     }
-    // don't use newer value if nothing matches it
-    if (nextSuggestions.length > 0) {
-      setValue(nextValue);
-      setSuggestions(nextSuggestions);
-    }
+
+    setSuggestions(nextSuggestions);
+    setValue(nextValue);
   };
 
   const onEnter = () => {
     if (value) {
       if (suggestions.length === 1) {
-        router.push(nameToPath(suggestions[0]));
+        router.push(nameToPath(suggestions[0].label));
       } else {
         const matches = allSuggestions.filter(
-          c => c.toLowerCase() === value.toLowerCase(),
+          c => c.label.toLowerCase() === value.toLowerCase(),
         );
         if (matches.length === 1) {
-          router.push(nameToPath(matches[0]));
+          router.push(nameToPath(matches[0].label));
+        } else {
+          setSearchResults(true);
         }
       }
     }
   };
 
   const onSelect = event => {
-    const href = nameToPath(event.suggestion);
+    const href = nameToPath(event.suggestion.label);
     if (internalLink.test(href)) {
       router.push(href);
       setFocused(false);
@@ -74,6 +72,8 @@ export const Search = ({ focused, setFocused }) => {
     }
   };
 
+  const onClose = () => setSearchResults(false);
+
   return (
     <>
       {!focused && size === 'small' && (
@@ -82,17 +82,14 @@ export const Search = ({ focused, setFocused }) => {
       {(focused || size !== 'small') && (
         <Box background="background-contrast" round="xsmall" width="medium">
           <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
-            <StyledTextInput
+            <SearchInput
               ref={inputRef}
-              icon={<SearchIcon id="search-icon" />}
               dropHeight="small"
               placeholder="Search HPE Design System"
               onChange={onChange}
               onSuggestionSelect={onSelect}
               suggestions={suggestions}
               value={value}
-              plain
-              reverse
               onBlur={event => {
                 // Only treat it as a blur if the element receiving focus
                 // isn't in our drop. The relatedTarget will be our drop
@@ -103,6 +100,25 @@ export const Search = ({ focused, setFocused }) => {
             />
           </Keyboard>
         </Box>
+      )}
+      {searchResults && (
+        <Layer onClickOutside={onClose} onEsc={onClose}>
+          <SearchResults
+            ref={searchResultsRef}
+            onClose={onClose}
+            query={value}
+            results={suggestions.map(suggestion => ({
+              query: value,
+              page: suggestion,
+              title: suggestion.label,
+              matchedText: 'blach',
+              url: nameToPath(suggestion.value.name),
+              preview: suggestion.value.description,
+            }))}
+            allSuggestions={allSuggestions}
+            setSuggestions={setSuggestions}
+          />
+        </Layer>
       )}
     </>
   );
