@@ -187,11 +187,20 @@ With long sets of data, pagination can help to create a more efficient means of 
 
 ### Item order
 
+For **multi-line** list items, they should be set to top aligned for easy scanning across a row.
+In order to align start use the prop `defaultItemsProp`.
+
+```
+<List
+defaultItemsProp={{align: 'start'}}
+...any additional props
+<List/>
+```
+
+
 Allowing the user to re-order the list by dragging items or pressing move up and down controls.
-When using OnOrder if there is multi-line content then this should be top aligned for easy scanning
-across a row. In order to aliign start you can add the prop `defaultItemsProp` to `DataTable`
-to be set as `align: 'start'`. Choose `Actions->Re-Order Items` to
-enable drag and drop of list items and move up/down controls. Press `Done` when finished.
+Choose `Actions->Re-Order Items` to enable drag and drop of list items and move up/down controls.
+Press `Done` when finished.
 
 <Example
   background="background-back"
