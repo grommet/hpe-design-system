@@ -8,7 +8,7 @@ export const SearchResult = ({ query, result }) => (
     border="bottom"
     gap="xsmall"
     pad={{ horizontal: 'medium', vertical: 'medium' }}
-    width={{ max: 'large' }}
+    width="large"
   >
     <>
       {result.title && (
