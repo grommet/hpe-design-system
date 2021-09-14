@@ -2,7 +2,7 @@ import { structure } from '../data';
 
 const allPages = structure.map(page => ({
   label: page.name,
-  value: page,
+  value: { ...page, title: page.name },
 }));
 const allPageSections = structure
   .map(page => ({
@@ -11,7 +11,10 @@ const allPageSections = structure
   }))
   .filter(page => page.label && page.label.length)
   .flatMap(val =>
-    val.label.map(section => ({ label: section, value: val.value })),
+    val.label.map(section => ({
+      label: section,
+      value: { ...val.value, title: section },
+    })),
   );
 
 export const getSearchSuggestions = allPages

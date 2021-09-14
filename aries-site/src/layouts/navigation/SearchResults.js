@@ -1,12 +1,12 @@
-import { forwardRef, useContext, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { Box, Button, List, Paragraph, Text, ThemeContext } from 'grommet';
+import { Box, Button, List, Paragraph, Text } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 import { internalLink } from '../../components';
 import { nameToPath } from '../../utils';
-import { SearchInput } from '.';
+import { HighlightPhrase, SearchInput } from '.';
 
 export const SearchResults = forwardRef(
   (
@@ -156,42 +156,4 @@ SearchResults.propTypes = {
     }),
   ),
   setSuggestions: PropTypes.func,
-};
-
-const HighlightPhrase = ({ children, phrase, ...rest }) => {
-  const theme = useContext(ThemeContext);
-  const regexp = new RegExp(phrase, 'ig');
-  const matches = [...children.matchAll(regexp)];
-  const nextPhrase = [];
-  let nextIndex = 0;
-
-  if (matches.length) {
-    matches.forEach((match, index) => {
-      nextPhrase.push(match.input.slice(nextIndex, match.index));
-      nextIndex = match.index + match[0].length;
-      nextPhrase.push(
-        <Text
-          weight="bold"
-          {...rest}
-          color={
-            theme.dark
-              ? theme.global.colors.yellow.light
-              : theme.global.colors.blue
-          }
-        >
-          {match.input.slice(match.index, match.index + match[0].length)}
-        </Text>,
-      );
-      if (index + 1 === matches.length) {
-        nextPhrase.push(match.input.slice(match.index + match[0].length));
-      }
-    });
-  } else nextPhrase.push(children);
-
-  return nextPhrase;
-};
-
-HighlightPhrase.propTypes = {
-  children: PropTypes.string,
-  phrase: PropTypes.string,
 };

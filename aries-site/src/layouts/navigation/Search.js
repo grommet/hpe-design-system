@@ -1,24 +1,35 @@
 import React, { useContext, useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Layer, ResponsiveContext, Keyboard } from 'grommet';
+import { Box, Button, ResponsiveContext, Keyboard } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
-
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
-import { SearchInput, SearchResults } from '.';
+import { SearchInput, SearchResult } from '.';
 
 const allSuggestions = getSearchSuggestions;
+
+const formatResults = (query, results) =>
+  results.map(result => {
+    const nextValue = {
+      ...result.value,
+      url: nameToPath(result.value.title),
+    };
+
+    return {
+      label: <SearchResult query={query} result={nextValue} />,
+      value: nextValue,
+    };
+  });
 
 export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
   const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
-  const [suggestions, setSuggestions] = useState(allSuggestions);
+  const [suggestions, setSuggestions] = useState(
+    formatResults(null, allSuggestions),
+  );
   const inputRef = useRef();
-  const searchResultsRef = useRef();
-
-  const [searchResults, setSearchResults] = useState(false);
 
   useEffect(() => {
     if (focused && inputRef.current) {
@@ -31,38 +42,44 @@ export const Search = ({ focused, setFocused }) => {
       target: { value: nextValue },
     } = event;
     let nextSuggestions;
-    if (nextValue) {
+    if (nextValue.length) {
       const regexp = new RegExp(nextValue, 'i');
-      nextSuggestions = allSuggestions.filter(
-        c => regexp.test(c.label) || regexp.test(c.value.tags),
-      );
+      nextSuggestions = allSuggestions.filter(option => {
+        const { value: valueObj } = option;
+        const { tags, title } = valueObj;
+        return regexp.test(title) || regexp.test(tags);
+      });
     } else {
       nextSuggestions = allSuggestions;
     }
 
-    setSuggestions(nextSuggestions);
+    if (nextSuggestions.length === 0) {
+      nextSuggestions = [{ value: { title: 'No results found.' } }];
+    }
+
+    setSuggestions(
+      formatResults(nextValue.length > 0 ? nextValue : null, nextSuggestions),
+    );
     setValue(nextValue);
   };
 
   const onEnter = () => {
     if (value) {
       if (suggestions.length === 1) {
-        router.push(nameToPath(suggestions[0].label));
+        router.push(nameToPath(suggestions[0].value.title));
       } else {
         const matches = allSuggestions.filter(
           c => c.label.toLowerCase() === value.toLowerCase(),
         );
         if (matches.length === 1) {
-          router.push(nameToPath(matches[0].label));
-        } else {
-          setSearchResults(true);
+          router.push(nameToPath(matches[0].value.title));
         }
       }
     }
   };
 
   const onSelect = event => {
-    const href = nameToPath(event.suggestion.label);
+    const href = nameToPath(event.suggestion.value.title);
     if (internalLink.test(href)) {
       router.push(href);
       setFocused(false);
@@ -71,8 +88,6 @@ export const Search = ({ focused, setFocused }) => {
       window.open(href);
     }
   };
-
-  const onClose = () => setSearchResults(false);
 
   return (
     <>
@@ -84,7 +99,9 @@ export const Search = ({ focused, setFocused }) => {
           <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
             <SearchInput
               ref={inputRef}
-              dropHeight="small"
+              dropAlign={{ top: 'bottom', right: 'right' }}
+              dropHeight="medium"
+              dropProps={{}}
               placeholder="Search HPE Design System"
               onChange={onChange}
               onSuggestionSelect={onSelect}
@@ -100,25 +117,6 @@ export const Search = ({ focused, setFocused }) => {
             />
           </Keyboard>
         </Box>
-      )}
-      {searchResults && (
-        <Layer onClickOutside={onClose} onEsc={onClose}>
-          <SearchResults
-            ref={searchResultsRef}
-            onClose={onClose}
-            query={value}
-            results={suggestions.map(suggestion => ({
-              query: value,
-              page: suggestion,
-              title: suggestion.label,
-              matchedText: 'blach',
-              url: nameToPath(suggestion.value.name),
-              preview: suggestion.value.description,
-            }))}
-            allSuggestions={allSuggestions}
-            setSuggestions={setSuggestions}
-          />
-        </Layer>
       )}
     </>
   );
