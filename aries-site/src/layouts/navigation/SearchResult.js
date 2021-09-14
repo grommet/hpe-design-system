@@ -13,14 +13,14 @@ export const SearchResult = ({ query, result }) => (
     <>
       {result.title && (
         <Text size="large" color="text-strong">
-          <HighlightPhrase phrase={query} size="large" color="text-strong">
+          <HighlightPhrase phrase={query} size="large">
             {result.title}
           </HighlightPhrase>
         </Text>
       )}
       {result.url && (
         <Text size="small" weight={100}>
-          <HighlightPhrase phrase={query} size="small" weight={100}>
+          <HighlightPhrase phrase={query} size="small">
             {result.url}
           </HighlightPhrase>
         </Text>
@@ -35,7 +35,7 @@ export const SearchResult = ({ query, result }) => (
       <Paragraph margin="none" size="small" weight={100}>
         tags:{' '}
         {result.tags.map(tag => (
-          <HighlightPhrase key={tag} phrase={query} size="small" weight={100}>
+          <HighlightPhrase key={tag} phrase={query} size="small">
             {`${tag}, `}
           </HighlightPhrase>
         ))}

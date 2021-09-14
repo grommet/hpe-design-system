@@ -16,13 +16,13 @@ export const HighlightPhrase = ({ children, phrase, ...rest }) => {
       nextPhrase.push(
         <Text
           key={index}
-          weight="bold"
-          {...rest}
+          weight="bolder"
           color={
             theme.dark
               ? theme.global.colors.yellow.light
-              : theme.global.colors.blue
+              : theme.global.colors.blue.dark
           }
+          {...rest}
         >
           {match.input.slice(match.index, match.index + match[0].length)}
         </Text>,
