@@ -4,12 +4,7 @@ import { Box, Paragraph, Text } from 'grommet';
 import { HighlightPhrase } from '.';
 
 export const SearchResult = ({ query, result }) => (
-  <Box
-    border="bottom"
-    gap="xsmall"
-    pad={{ horizontal: 'medium', vertical: 'medium' }}
-    width="large"
-  >
+  <Box gap="xsmall" pad={{ vertical: 'small' }} width="large">
     <>
       {result.title && (
         <Text size="large" color="text-strong">

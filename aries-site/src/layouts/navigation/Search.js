@@ -1,11 +1,11 @@
-import React, { useContext, useRef, useEffect, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, ResponsiveContext, Keyboard } from 'grommet';
+import { Button, Layer, ResponsiveContext } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
-import { SearchInput, SearchResult } from '.';
+import { SearchResult, SearchResults } from '.';
 
 const allSuggestions = getSearchSuggestions;
 
@@ -25,17 +25,16 @@ const formatResults = (query, results) =>
 export const Search = ({ focused, setFocused }) => {
   const router = useRouter();
   const size = useContext(ResponsiveContext);
+  const [showLayer, setShowLayer] = useState(true);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(
     formatResults(null, allSuggestions),
   );
-  const inputRef = useRef();
 
-  useEffect(() => {
-    if (focused && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [focused, setFocused]);
+  const onClose = () => {
+    setShowLayer(false);
+    setFocused(false);
+  };
 
   const onChange = event => {
     const {
@@ -51,10 +50,6 @@ export const Search = ({ focused, setFocused }) => {
       });
     } else {
       nextSuggestions = allSuggestions;
-    }
-
-    if (nextSuggestions.length === 0) {
-      nextSuggestions = [{ value: { title: 'No results found.' } }];
     }
 
     setSuggestions(
@@ -79,7 +74,7 @@ export const Search = ({ focused, setFocused }) => {
   };
 
   const onSelect = event => {
-    const href = nameToPath(event.suggestion.value.title);
+    const href = nameToPath(event.item.value.title);
     if (internalLink.test(href)) {
       router.push(href);
       setFocused(false);
@@ -91,32 +86,20 @@ export const Search = ({ focused, setFocused }) => {
 
   return (
     <>
-      {!focused && size === 'small' && (
-        <Button icon={<SearchIcon />} onClick={() => setFocused(true)} />
-      )}
-      {(focused || size !== 'small') && (
-        <Box background="background-contrast" round="xsmall" width="medium">
-          <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
-            <SearchInput
-              ref={inputRef}
-              dropAlign={{ top: 'bottom', right: 'right' }}
-              dropHeight="medium"
-              dropProps={{}}
-              placeholder="Search HPE Design System"
-              onChange={onChange}
-              onSuggestionSelect={onSelect}
-              suggestions={suggestions}
-              value={value}
-              onBlur={event => {
-                // Only treat it as a blur if the element receiving focus
-                // isn't in our drop. The relatedTarget will be our drop
-                if (!event.relatedTarget) {
-                  setFocused(false);
-                }
-              }}
-            />
-          </Keyboard>
-        </Box>
+      <Button icon={<SearchIcon />} onClick={() => setFocused(true)} />
+      {((focused && showLayer) || size !== 'small') && (
+        <Layer onEsc={onClose} onClickOutside={onClose} position="top">
+          <SearchResults
+            allSuggestions={allSuggestions}
+            onChange={onChange}
+            onClose={onClose}
+            onEnter={onEnter}
+            onSelect={onSelect}
+            query={value}
+            results={suggestions}
+            setSuggestions={setSuggestions}
+          />
+        </Layer>
       )}
     </>
   );
