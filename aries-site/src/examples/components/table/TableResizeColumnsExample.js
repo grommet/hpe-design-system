@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, Text } from 'grommet';
 
 const data = [
@@ -173,7 +174,7 @@ const columns = [
   },
 ];
 
-export const TableResizeColumnsExample = () => (
+export const TableResizeColumnsExample = ({ designSystemDemo }) => (
   <>
     <Heading
       id="contact-info-heading"
@@ -185,7 +186,9 @@ export const TableResizeColumnsExample = () => (
     <Box
       align="start"
       // restricting height to demonstrate pinned header behavior
-      height="medium"
+      // Height is restricted to keep doc pages more compact.
+      // In production dataTable hight should follow height guidelines
+      height={designSystemDemo ? undefined : 'medium'}
       overflow="auto"
       fill="horizontal"
     >
@@ -199,3 +202,7 @@ export const TableResizeColumnsExample = () => (
     </Box>
   </>
 );
+
+TableResizeColumnsExample.propTypes = {
+  designSystemDemo: PropTypes.bool,
+};

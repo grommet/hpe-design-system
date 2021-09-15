@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   DataTable,
@@ -287,7 +288,8 @@ const handleClickRow = obj => {
   `);
 };
 
-export const TableExample = () => {
+// designSystemDemo is used for DS site can be removed in production.
+export const TableExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -299,7 +301,12 @@ export const TableExample = () => {
       >
         Storage Pools
       </Heading>
-      <Box height="medium" overflow="auto">
+      <Box
+        // Height is restricted to keep doc pages more compact.
+        // In production dataTable hight should follow height guidelines
+        height={designSystemDemo ? undefined : 'medium'}
+        overflow="auto"
+      >
         <DataTable
           aria-describedby="storage-pools-heading"
           data={data}
@@ -321,4 +328,8 @@ export const TableExample = () => {
       </Box>
     </>
   );
+};
+
+TableExample.propTypes = {
+  designSystemDemo: PropTypes.bool,
 };

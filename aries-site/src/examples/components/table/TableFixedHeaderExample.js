@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, DataTable, Text, Heading } from 'grommet';
 
 const data = [
@@ -227,7 +228,7 @@ const columns = [
   },
 ];
 
-export const TableFixedHeaderExample = () => (
+export const TableFixedHeaderExample = ({ designSystemDemo }) => (
   <>
     <Heading
       id="connected-heading"
@@ -239,9 +240,11 @@ export const TableFixedHeaderExample = () => (
     <Box
       align="start"
       // restricting height to demonstrate pinned header behavior
-      height="medium"
+      // Height is restricted to keep doc pages more compact.
+      // In production dataTable hight should follow height guidelines
+      height={designSystemDemo ? undefined : 'medium'}
       // restricting width to demonstrate pinned column behavior
-      width={{ min: 'medium', max: 'large' }}
+      width={designSystemDemo ? undefined : { min: 'medium', max: 'large' }}
       overflow="auto"
     >
       <DataTable
@@ -253,3 +256,7 @@ export const TableFixedHeaderExample = () => (
     </Box>
   </>
 );
+
+TableFixedHeaderExample.propTypes = {
+  designSystemDemo: PropTypes.bool,
+};
