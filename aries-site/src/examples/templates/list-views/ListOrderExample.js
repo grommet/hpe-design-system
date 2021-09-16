@@ -51,6 +51,9 @@ export const ListOrderExample = () => {
           )}
         </Box>
         <List
+          defaultItemProps={{
+            align: 'start',
+          }}
           data={ordered}
           onOrder={allowReorder ? setOrder : undefined}
           primaryKey="title"

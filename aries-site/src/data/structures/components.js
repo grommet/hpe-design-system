@@ -28,12 +28,21 @@ export const components = [
     category: 'Controls',
     description: 'Used with text based navigation, such as inline text.',
     seoDescription: 'Used with text based navigation, such as inline text.',
-    sections: [],
+    sections: [
+      'Usage of Anchor vs. Button',
+      'Anchor Labeling',
+      'Inline Anchor',
+      'Anchor to external site',
+      'Anchor in a form',
+      'Disabled Anchor',
+      'Anchor with weight',
+    ],
     preview: {
       component: () => <AnchorPreview />,
       background: 'background-front',
     },
     relatedContent: ['Button', 'Typography', 'Forms'],
+    tags: ['hyperlinks', 'links', 'linking', 'navigation'],
   },
   {
     name: 'Button',
@@ -43,15 +52,25 @@ export const components = [
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
     sections: [
+      'About Button',
+      'Button Labeling',
+      'Buttons vs. Anchors',
+      'Toggle Buttons',
+      'Toggle Buttons with Icons',
       'Default Button',
       'Primary Button',
       'Secondary Button',
       'Toolbar Button',
+      'Color Button',
+      'Button with Icon',
+      'Button States',
+      'Button Sizes',
     ],
     preview: {
       component: () => <ButtonPreview />,
       background: 'background-front',
     },
+    tags: ['buttons', 'actions', 'button style'],
   },
   {
     name: 'Card',
@@ -71,14 +90,16 @@ export const components = [
     },
     relatedContent: ['Lists', 'Dashboards', 'Navigation'],
     sections: [
+      'What makes up a Card',
       'Dashboard Example',
       'Navigation Example',
       'Card as a Dashboard Element',
       'Card with an Image',
       'Card with a Footer',
+      'Grid, List, or Table',
       'More Examples of a Card',
     ],
-    tags: ['tile', 'widget', 'container', 'card'],
+    tags: ['tiles', 'widgets', 'containers', 'cards'],
   },
   {
     name: 'Tabs',
@@ -87,12 +108,13 @@ export const components = [
       'Tabs allow a user to access content while maintaining the existing context.',
     seoDescription:
       'Tabs allow a user to access content while maintaining the existing context.',
-    sections: [],
+    sections: ['Tabs with icons', 'Tab states'],
     preview: {
       component: () => <TabsPreview />,
       background: 'background-front',
     },
     relatedContent: ['Button', 'Menu'],
+    tags: ['tabs', 'tab panels', 'navigation', 'containers'],
   },
   {
     name: 'DateInput',
@@ -102,11 +124,24 @@ export const components = [
     seoDescription:
       'A widget which allows the user to select a date or range of dates from a calendar.',
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
-    sections: [],
+    sections: [
+      'When using Date Input, you should',
+      'Single Date',
+      'Date Range',
+    ],
     preview: {
       component: () => <DateInputPreview />,
       background: 'background-front',
     },
+    tags: [
+      'date input',
+      'date picker',
+      'picker',
+      'calendar',
+      'calendar input',
+      'select date',
+      'select date range',
+    ],
   },
   {
     name: 'FileInput',
@@ -114,7 +149,7 @@ export const components = [
     description: 'An input used to upload one or more files.',
     seoDescription: 'An input used to upload one or more files.',
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
-    sections: [],
+    sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
       image: {
         src: {
@@ -125,6 +160,14 @@ export const components = [
         fit: 'contain',
       },
     },
+    tags: [
+      'input fields',
+      'input types',
+      'file input',
+      'upload files',
+      'file upload',
+      'files',
+    ],
   },
   {
     name: 'TextArea',
@@ -139,6 +182,13 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    tags: [
+      'input fields',
+      'input types',
+      'large text',
+      'text area',
+      'text input',
+    ],
   },
   {
     name: 'TextInput',
@@ -147,12 +197,24 @@ export const components = [
       'The TextInput component allows the user to input shorter forms of data and content.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
-    sections: [],
+    sections: [
+      'About TextInput',
+      'Password',
+      'With suggestions',
+      'Labeled by icon',
+    ],
     preview: {
       component: () => <TextInputPreview />,
       background: 'background-front',
     },
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
+    tags: [
+      'text input',
+      'input type text',
+      'text field',
+      'password',
+      'enter password',
+    ],
   },
   {
     name: 'Tip',
@@ -161,7 +223,13 @@ export const components = [
       'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
     seoDescription:
       'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
-    sections: ['Tip with icons', 'Tip with exit', 'Tip Content Length'],
+    sections: [
+      'Truncation with Tip',
+      'Truncated Table Cell Content',
+      'Tip with icons',
+      'Tip with exit',
+      'Tip Content Length',
+    ],
     preview: {
       image: {
         src: {
@@ -171,20 +239,41 @@ export const components = [
         alt: 'HPE Tip preview',
       },
     },
-    relatedContent: ['Layer', 'Button', 'Header', 'Persistent Navigation'],
-    tags: ['tooltip', 'tool tip', 'hover', 'hover text', 'hint'],
+    relatedContent: [
+      'Layer',
+      'Button',
+      'Header',
+      'Persistent Navigation',
+      'Table',
+    ],
+    tags: [
+      'tooltip',
+      'tool tip',
+      'hover',
+      'hover text',
+      'hint',
+      'truncation',
+      'truncate',
+    ],
   },
   {
     name: 'Search',
     category: 'Controls',
     description: 'Find content corresponding to keyword queries.',
     seoDescription: 'HPE Design System Search input design and code examples.',
-    sections: [],
+    sections: [
+      'Auto-suggestions',
+      'Returning search results',
+      'Search with Auto Suggestions',
+      'Simple Search',
+      'Icon Position',
+    ],
     preview: {
       component: () => <SearchPreview />,
       background: 'background-front',
     },
     relatedContent: ['TextInput', 'Header'],
+    tags: ['search input'],
   },
   {
     name: 'Select',
@@ -193,7 +282,7 @@ export const components = [
       'Flexible input allowing users to choose from a list of options.',
     seoDescription:
       'Select input component allows users to choose from a list of options.',
-    sections: [],
+    sections: ['When to use Select', 'Multi-Select', 'Select with Search'],
     preview: {
       component: () => <SelectPreview />,
       background: 'background-front',
@@ -206,6 +295,15 @@ export const components = [
       'TextInput',
       'MaskedInput',
     ],
+    tags: [
+      'select options',
+      'dropdown',
+      'drop-down',
+      'drop down',
+      'option list',
+      'multi select',
+      'multiple values',
+    ],
   },
   {
     name: 'CheckBox',
@@ -214,12 +312,13 @@ export const components = [
       'When the user needs to select one or more options, use a checkbox.',
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
-    sections: [],
+    sections: ['Toggle', 'CheckBox with Description'],
     relatedContent: ['CheckBoxGroup', 'Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
       background: 'background-front',
     },
+    tags: ['check box', 'toggle', 'input type', 'indeterminate'],
   },
   {
     name: 'CheckBoxGroup',
@@ -228,12 +327,13 @@ export const components = [
       'When the user needs to select one or more options from a set of options, use a CheckBoxGroup.',
     seoDescription:
       'CheckBoxGroup component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
-    sections: [],
+    sections: ['With options as array of objects', 'Scroll'],
     relatedContent: ['Forms', 'RadioButtonGroup', 'CheckBox', 'Select'],
     preview: {
       component: () => <CheckBoxGroupPreview />,
       background: 'background-front',
     },
+    tags: ['checkbox', 'checkbox group', 'check box group', 'grouped'],
   },
   {
     name: 'Accordion',
@@ -252,7 +352,7 @@ export const components = [
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
       'The accordion affords content to be delivered progressively.',
-    sections: [],
+    sections: ['About Accordion'],
     tags: ['accordian', 'acordion', 'collapse', 'panel', 'expand'],
   },
   {
@@ -262,12 +362,23 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
-    sections: [],
+    sections: [
+      'About Header',
+      'Application Header',
+      'Page Header',
+      'Header with navigation buttons',
+      'Header with main action',
+      'Header with search',
+      'Header with avatar',
+      'Header with search and actions',
+      'Header for a single page',
+    ],
     preview: {
       component: () => <HeaderPreview />,
       justify: 'start',
     },
     relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards', 'Search'],
+    tags: ['app headers', 'navigation', 'page sections', 'page layouts'],
   },
   {
     name: 'Footer',
@@ -276,12 +387,18 @@ export const components = [
       'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
     seoDescription:
       'Footer is a Box with a set of preset properties. Box properties allow you to customize the footer.',
-    sections: [],
+    sections: [
+      'Application Footer',
+      'Page Footer',
+      'Footer for a single page',
+      'App footer with page footer',
+    ],
     preview: {
       component: () => <FooterPreview />,
       justify: 'end',
     },
     relatedContent: ['Header', 'Button', 'Dashboards'],
+    tags: ['app footers', 'navigation', 'page sections', 'page layouts'],
   },
   {
     name: 'Menu',
@@ -296,6 +413,7 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
+    tags: ['dropdown', 'drop down', 'actions', 'navigation'],
   },
   {
     name: 'Box',
@@ -309,6 +427,7 @@ export const components = [
       component: () => <BoxPreview />,
       background: 'background-front',
     },
+    tags: ['sections', 'containers', 'content containers', 'layout', 'flexbox'],
   },
   {
     name: 'Grid',
@@ -322,6 +441,7 @@ export const components = [
     seoDescription:
       'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
     sections: [],
+    tags: ['layouts', 'page layouts', 'responsive layout', 'CSS grid'],
   },
   {
     name: 'Layer',
@@ -333,11 +453,21 @@ export const components = [
     },
     seoDescription:
       'The Layer component is flexible and can be used in multiple use cases such as modal, dialogs, or notifications.',
-    sections: [],
+    sections: ['Using Headings in Layer', 'Side Drawer Modal', 'Center Modal'],
     preview: {
       component: () => <LayerPreview />,
     },
     relatedContent: ['Forms', 'Button', 'Icons'],
+    tags: [
+      'slideout',
+      'panels',
+      'drawers',
+      'modals',
+      'side panel',
+      'side drawer',
+      'drop',
+      'z-index',
+    ],
   },
   {
     name: 'Main',
@@ -347,6 +477,8 @@ export const components = [
     seoDescription:
       'The Main component is where you define the location and layout of the primary context of your content.',
     sections: [],
+    relatedContent: ['Header', 'Footer', 'Grid', 'Box'],
+    tags: ['layouts', 'page sections', 'header', 'footer'],
   },
   {
     name: 'MaskedInput',
@@ -355,12 +487,31 @@ export const components = [
       'MaskedInput allows you to specify formalized text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formalized text within a form field.',
-    sections: [],
+    sections: [
+      'IP Address',
+      'IP Range',
+      'Size with units',
+      'Email',
+      'Time',
+      'Date',
+    ],
     preview: {
       component: () => <MaskedInputPreview />,
       background: 'background-front',
     },
-    relatedContent: ['TextInput', 'Forms', 'Select'],
+    relatedContent: ['TextInput', 'Forms', 'Select', 'DateInput'],
+    tags: [
+      'input mask',
+      'edit mask',
+      'formatted input',
+      'entry format',
+      'input format',
+      'format',
+      'data entry',
+      'validation',
+      'form validation',
+      'form inputs',
+    ],
   },
   {
     name: 'Notification',
@@ -399,6 +550,7 @@ export const components = [
       'success message',
       'status message',
       'notification center',
+      'taxonomy',
     ],
   },
   {
@@ -408,12 +560,13 @@ export const components = [
       'When one option of a set of options can be specified, use the RadioButtonGroup component.',
     seoDescription:
       'When one option of a set of options can be specified, use the RadioButtonGroup component.',
-    sections: [],
+    sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
       background: 'background-front',
     },
     relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
+    tags: ['grouped radio button', 'radio button group', 'radio button'],
   },
   {
     name: 'RangeInput',
@@ -427,6 +580,7 @@ export const components = [
       component: () => <RangeInputPreview />,
       background: 'background-front',
     },
+    tags: ['slider', 'slider input', 'volume control', 'range input'],
   },
   {
     name: 'Stack',
@@ -440,6 +594,7 @@ export const components = [
     seoDescription:
       'A Stack component is a container that stacks content on top of each other.',
     sections: [],
+    tags: ['containers', 'layers', 'z-index'],
   },
   {
     name: 'Spinner',
@@ -456,7 +611,24 @@ export const components = [
     },
     seoDescription: 'A loading state for quick asynchronous tasks.',
     relatedContent: ['Lists', 'Table', 'Forms'],
-    sections: [],
+    sections: [
+      'When to use Spinner',
+      'Spinner within a list',
+      'Spinner with announcement on screen reader',
+      'Spinner loading content',
+    ],
+    tags: [
+      'loading',
+      'loading indicator',
+      'transition',
+      'pinwheel',
+      'waiting',
+      'throbber',
+      'spinning wheel',
+      'progress indicator',
+      'progress bar',
+      'splash screen',
+    ],
   },
   {
     name: 'Table',
@@ -474,7 +646,38 @@ export const components = [
     },
     relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
-    sections: [],
+    sections: [
+      'What makes up a table',
+      'Finding a specific record',
+      'Narrowing a result set',
+      'Browsing a result set',
+      'Assembling a data set',
+      'Setting the width of the table',
+      'Wrapping and truncating',
+      'Truncation',
+      'Options for Positioning Truncation',
+      'Wrapping',
+      'Table behaviors and actions',
+      'Sorting',
+      'Resizeable columns',
+      'Searching and filtering tables',
+      'Navigation via table',
+      'Selecting multiple records & batch actions',
+      'Paginated',
+      'Fixing header row and/or columns',
+      'Column summaries & aggregation',
+      'Use pagination or infinite scroll with tables',
+    ],
+    tags: [
+      'data table',
+      'sorting columns',
+      'sort data',
+      'filtering',
+      'colums',
+      'rows',
+      'tables',
+      'truncation',
+    ],
   },
   {
     name: 'Pagination',
@@ -494,8 +697,17 @@ export const components = [
     },
     seoDescription: `Pagination divides content into separate pages in order to 
     enhance navigation to specific items.`,
-    sections: [],
+    sections: [
+      'When to use Pagination',
+      'Number of results per page',
+      'Placement of pagination component',
+      'Showing summary of results',
+      'Paginated Table',
+      'Paginated List',
+      'Paginated Cards',
+    ],
     relatedContent: ['Table', 'Lists', 'Card'],
+    tags: ['paginated results', 'paginated data'],
   },
   {
     name: 'All Components',
@@ -514,7 +726,32 @@ export const components = [
       },
     },
     seoDescription: 'View all HPE Design System and Grommet components.',
-    sections: [],
+    sections: [
+      'Sidebar',
+      'Markdown',
+      'Drop',
+      'RangeSelector',
+      'Avatar',
+      'Calendar',
+      'Clock',
+      'DataChart',
+      'Diagram',
+      'Meter',
+      'WorldMap',
+      'Media',
+      'Carousel',
+      'Image',
+      'Video',
+      'Utilities',
+      'AnnounceContext',
+      'Collapsible',
+      'Grommet',
+      'InfiniteScroll',
+      'Keyboard',
+      'ResponsiveContext',
+      'SkipLinks',
+      'ThemeContext',
+    ],
     relatedContent: [],
   },
 ];
