@@ -175,6 +175,16 @@ accessible in a tool specifically designed for analysis.
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
   - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
 
+  ### Setting the height of a table
+  
+- Tables should be placed within the main content of the page, it is reccommended to use
+a good amount of space to display the data.
+- It is recommended to let the data set the height of the Table. The Table will grow as the data is larger.
+- Avoid having to condense the space in which the datatable is placed so the information does not seem cramped.
+- If space for Table has a set height then an overflow to the parent Box will need to be able to scroll to see all of the data. 
+- For larger sets of data it is advise to use Pagination to allow the user to navigate through the data.
+
+
 ### Wrapping and truncating
 
 When text exceeds the amount of space available within a table cell, [wrapping](#wrapping) or [truncation](#truncation) may be used depending on your use case. Below are some best practices to consider when implementing.

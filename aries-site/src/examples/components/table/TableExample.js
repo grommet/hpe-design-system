@@ -304,7 +304,7 @@ export const TableExample = ({ designSystemDemo }) => {
       <Box
         // Height is restricted to keep doc pages more compact.
         // In production dataTable hight should follow height guidelines
-        height={designSystemDemo ? undefined : 'medium'}
+        height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
       >
         <DataTable
