@@ -228,6 +228,7 @@ const columns = [
   },
 ];
 
+// designSystemDemo is used for DS site only, can be removed in production.
 export const TableFixedHeaderExample = ({ designSystemDemo }) => (
   <>
     <Heading
