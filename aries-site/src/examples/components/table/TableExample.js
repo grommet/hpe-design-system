@@ -302,7 +302,7 @@ export const TableExample = ({ designSystemDemo }) => {
         Storage Pools
       </Heading>
       <Box
-        // Height is restricted to keep doc pages more compact.
+        // Height is restricted to keep inline doc page examples more compact.
         // In production, DataTable height should follow height guidelines.
         height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
