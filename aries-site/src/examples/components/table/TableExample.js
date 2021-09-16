@@ -288,7 +288,7 @@ const handleClickRow = obj => {
   `);
 };
 
-// designSystemDemo is used for DS site can be removed in production.
+// designSystemDemo is used for DS site only, can be removed in production.
 export const TableExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
