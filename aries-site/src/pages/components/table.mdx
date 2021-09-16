@@ -176,14 +176,11 @@ accessible in a tool specifically designed for analysis.
   - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
 
   ### Setting the height of a table
-  
-- Tables should be placed within the main content of the page, it is reccommended to use
-a good amount of space to display the data.
-- It is recommended to let the data set the height of the Table. The Table will grow as the data is larger.
-- Avoid having to condense the space in which the datatable is placed so the information does not seem cramped.
-- If space for Table has a set height then an overflow to the parent Box will need to be able to scroll to see all of the data. 
-- For larger sets of data it is advise to use Pagination to allow the user to navigate through the data.
 
+- Let the data set the height of the Table. The Table will grow in height as the length of data increases.
+- If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that a page has a step of 20 records. For more information on pagination, read [Pagination guidance.](https://design-system.hpe.design/components/pagination#when-to-use)
+- Do not restrict the height of a table if the page has available space. This may introduce unnecessary scrolling.
+- If the height of a Table needs to be restricted, set `overflow=“auto”` on its parent Box to allow the user to scroll through the data.
 
 ### Wrapping and truncating
 

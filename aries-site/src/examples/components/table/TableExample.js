@@ -304,6 +304,7 @@ export const TableExample = ({ designSystemDemo }) => {
       <Box
         // Height is restricted to keep inline doc page examples more compact.
         // In production, DataTable height should follow height guidelines.
+        // https://design-system.hpe.design/components/table#setting-the-height-of-a-table
         height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
       >
