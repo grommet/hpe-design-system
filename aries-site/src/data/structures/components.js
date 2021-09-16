@@ -318,7 +318,7 @@ export const components = [
       component: () => <CheckBoxPreview />,
       background: 'background-front',
     },
-    tags: ['check box', 'toggle', 'input type'],
+    tags: ['check box', 'toggle', 'input type', 'indeterminate'],
   },
   {
     name: 'CheckBoxGroup',
