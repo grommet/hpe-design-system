@@ -55,7 +55,7 @@ export const SearchResults = ({
         <List
           data={results}
           onClickItem={onSelect}
-          border="bottom"
+          border={{ side: 'bottom', color: 'border-weak' }}
           paginate
           step={4}
         >
@@ -66,7 +66,12 @@ export const SearchResults = ({
             query={query}
             result={{
               title: `No results found for "${query}".`,
-              description: 'Search tip: Helpful search tips could go here.',
+              description: `Our search capabalities are not yet where we 
+              would like them to be. Try using an alternate phrasing, synonym, 
+              or reducing your search term to its stem by removing extensions
+              such as "ing", "ed", "s", etc. Alternatively, reach out 
+              on Slack at #hpe-design-system channel and a team member will 
+              be happy to assist.`,
             }}
           />
         )}

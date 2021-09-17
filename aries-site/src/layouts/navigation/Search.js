@@ -1,15 +1,19 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Button, Layer, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Layer } from 'grommet';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
 import { SearchResult, SearchResults } from '.';
 
 const allSuggestions = getSearchSuggestions;
 
-const formatResults = (query, results) =>
+/*
+ * Construct an object where 'label' is the displayed element and
+ * 'value' contains all data related to the content/result.
+ */
+const formatSearchResults = (query, results) =>
+  results &&
   results.map(result => {
     const nextValue = {
       ...result.value,
@@ -22,18 +26,67 @@ const formatResults = (query, results) =>
     };
   });
 
-export const Search = ({ focused, setFocused }) => {
+/* Sort search results by relevancy and/or strength of match type */
+const sortSearch = matches => {
+  const results = matches.sort((a, b) => {
+    const ruleOrder = {
+      Title: 0,
+      Tags: 1,
+    };
+    return ruleOrder[a.value.matchLocation] - ruleOrder[b.value.matchLocation];
+  });
+  return results;
+};
+
+const exactMatch = (data, query) => {
+  const regexp = new RegExp(query, 'i');
+  const results = data.map(option => {
+    const { value: valueObj } = option;
+    const { tags, title } = valueObj;
+    const nextOption = {
+      ...option,
+      value: { ...valueObj, matchType: [], matchLocation: [] },
+    };
+
+    /* Title Match */
+    if (regexp.test(title)) {
+      nextOption.value.matchType.push('ExactMatch');
+      nextOption.value.matchLocation.push('Title');
+    }
+    /* Content Match */
+    // number of matches should affect weighting
+    // TODO
+
+    /* Metadata: Tag Match */
+    else if (regexp.test(tags)) {
+      nextOption.value.matchType.push('ExactMatch');
+      nextOption.value.matchLocation.push('Tags');
+    }
+
+    return nextOption;
+  });
+
+  return results;
+};
+
+const search = (data, query) => {
+  const results = exactMatch(data, query).filter(
+    option => option.value.matchType.length > 0,
+  );
+
+  return sortSearch(results);
+};
+
+export const Search = ({ setOpen }) => {
   const router = useRouter();
-  const size = useContext(ResponsiveContext);
-  const [showLayer, setShowLayer] = useState(true);
+  // const [showLayer, setShowLayer] = useState(focused);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(
-    formatResults(null, allSuggestions),
+    formatSearchResults(null, allSuggestions),
   );
 
   const onClose = () => {
-    setShowLayer(false);
-    setFocused(false);
+    setOpen(false);
   };
 
   const onChange = event => {
@@ -42,18 +95,16 @@ export const Search = ({ focused, setFocused }) => {
     } = event;
     let nextSuggestions;
     if (nextValue.length) {
-      const regexp = new RegExp(nextValue, 'i');
-      nextSuggestions = allSuggestions.filter(option => {
-        const { value: valueObj } = option;
-        const { tags, title } = valueObj;
-        return regexp.test(title) || regexp.test(tags);
-      });
+      nextSuggestions = search(allSuggestions, nextValue);
     } else {
       nextSuggestions = allSuggestions;
     }
 
     setSuggestions(
-      formatResults(nextValue.length > 0 ? nextValue : null, nextSuggestions),
+      formatSearchResults(
+        nextValue.length > 0 ? nextValue : null,
+        nextSuggestions,
+      ),
     );
     setValue(nextValue);
   };
@@ -77,7 +128,7 @@ export const Search = ({ focused, setFocused }) => {
     const href = nameToPath(event.item.value.title);
     if (internalLink.test(href)) {
       router.push(href);
-      setFocused(false);
+      setOpen(false);
     } else {
       // external links should open in a new tab
       window.open(href);
@@ -85,27 +136,21 @@ export const Search = ({ focused, setFocused }) => {
   };
 
   return (
-    <>
-      <Button icon={<SearchIcon />} onClick={() => setFocused(true)} />
-      {((focused && showLayer) || size !== 'small') && (
-        <Layer onEsc={onClose} onClickOutside={onClose} position="top">
-          <SearchResults
-            allSuggestions={allSuggestions}
-            onChange={onChange}
-            onClose={onClose}
-            onEnter={onEnter}
-            onSelect={onSelect}
-            query={value}
-            results={suggestions}
-            setSuggestions={setSuggestions}
-          />
-        </Layer>
-      )}
-    </>
+    <Layer onEsc={onClose} onClickOutside={onClose} position="top">
+      <SearchResults
+        allSuggestions={allSuggestions}
+        onChange={onChange}
+        onClose={onClose}
+        onEnter={onEnter}
+        onSelect={onSelect}
+        query={value}
+        results={suggestions}
+        setSuggestions={setSuggestions}
+      />
+    </Layer>
   );
 };
 
 Search.propTypes = {
-  focused: PropTypes.bool.isRequired,
-  setFocused: PropTypes.func.isRequired,
+  setOpen: PropTypes.func,
 };
