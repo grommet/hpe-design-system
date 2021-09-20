@@ -218,7 +218,7 @@ const columns = [
 
 export const TableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
-  const [pageDetails, setPageDetals] = React.useState({});
+  const [pageDetails, setPageDetails] = React.useState({});
 
   return !pageDetails.id ? (
     <>
@@ -237,7 +237,7 @@ export const TableSingleSelectExample = () => {
             { property: 'id', header: 'Id', pin: size === 'small' },
             ...columns,
           ]}
-          onClickRow={({ datum }) => setPageDetals(datum)}
+          onClickRow={({ datum }) => setPageDetails(datum)}
           pin={size === 'small'}
         />
       </Box>
@@ -246,7 +246,7 @@ export const TableSingleSelectExample = () => {
     <>
       <Button
         onClick={() => {
-          setPageDetals({});
+          setPageDetails({});
         }}
         alignSelf="start"
         icon={<FormPrevious />}
