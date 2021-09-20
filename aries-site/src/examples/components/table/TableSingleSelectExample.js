@@ -241,13 +241,12 @@ export const TableSingleSelectExample = () => {
       <Box margin={{ vertical: 'small', horizontal: 'large' }} gap="small">
         {pageDetails &&
           Object.entries(pageDetails).map(([key, value]) => (
-              <DetailsPage
-                key={key}
-                orderDetails={key}
-                orderPageDetails={value}
-               />
-            );
-         )}
+            <DetailsPage
+              key={key}
+              orderDetails={key}
+              orderPageDetails={value}
+            />
+          ))}
       </Box>
     </>
   );
