@@ -246,7 +246,7 @@ export const TableSingleSelectExample = () => {
               <DetailsPage
                 orderDetails={key}
                 orderPageDetails={value}
-              ></DetailsPage>
+               />
             );
           })}
       </Box>
