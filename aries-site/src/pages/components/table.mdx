@@ -175,6 +175,13 @@ accessible in a tool specifically designed for analysis.
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
   - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
 
+  ### Setting the height of a table
+
+- Let the data set the height of the Table. The Table will grow in height as the length of data increases.
+- If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that each page of table results be limited to 20 records. For more information on pagination, read [Pagination guidance].(/components/pagination#when-to-use)
+- Do not restrict the height of a table if the page has available space. This may introduce unnecessary scrolling.
+- If the height of a Table needs to be restricted, set `overflow=“auto”` on its parent Box to allow the user to scroll through the data.
+
 ### Wrapping and truncating
 
 When text exceeds the amount of space available within a table cell, [wrapping](#wrapping) or [truncation](#truncation) may be used depending on your use case. Below are some best practices to consider when implementing.
@@ -240,6 +247,7 @@ the directionality and to which column the sort is currently applied.
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSortable.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableSortable />
 </Example>
@@ -253,6 +261,7 @@ dragging the right side of its header to the left or to the right to expand the 
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableResizeColumnsExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableResizeColumnsExample />
 </Example>
@@ -277,6 +286,7 @@ This context could either be a page or a modal. In this example, clicking on a t
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableSingleSelectExample />
 </Example>
@@ -290,6 +300,7 @@ batch actions via action control buttons or menus.
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableMultiSelectExample />
 </Example>
@@ -317,6 +328,7 @@ maintain context across long and wide data sets.
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableFixedHeaderExample />
 </Example>
@@ -327,6 +339,7 @@ maintain context across long and wide data sets.
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSummaryExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
+  template
 >
   <TableSummaryExample />
 </Example>
