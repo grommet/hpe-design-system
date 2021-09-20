@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, ResponsiveContext, Text } from 'grommet';
 
 const data = [
@@ -116,7 +117,8 @@ const columns = [
   },
 ];
 
-export const TableSummaryExample = () => {
+// designSystemDemo is used for DS site only, can be removed in production.
+export const TableSummaryExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -130,7 +132,9 @@ export const TableSummaryExample = () => {
       </Heading>
       <Box
         align="start"
-        height="medium"
+      // Height is restricted to keep inline doc page examples more compact.
+      // In production, DataTable height should follow height guidelines.
+        height={designSystemDemo ? undefined : 'medium'}
         margin={{ right: 'auto' }}
         overflow="auto"
       >
@@ -151,4 +155,8 @@ export const TableSummaryExample = () => {
       </Box>
     </>
   );
+};
+
+TableSummaryExample.propTypes = {
+  designSystemDemo: PropTypes.bool,
 };
