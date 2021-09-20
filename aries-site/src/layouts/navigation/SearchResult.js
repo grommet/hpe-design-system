@@ -11,10 +11,12 @@ export const SearchResult = ({ query, result }) => {
   return (
     <Box gap="xsmall" pad={{ vertical: 'xxsmall' }} width="large">
       <>
-        <Box align="center" direction="row" gap="xsmall">
-          {parent.icon('8px', parent.color)}
-          <Text size="small">{result.name}</Text>
-        </Box>
+        {parent && (
+          <Box align="center" direction="row" gap="xsmall">
+            {parent.icon('8px', parent.color)}
+            <Text size="small">{result.name}</Text>
+          </Box>
+        )}
         {result.title && (
           <Text size="large" color="text-strong">
             <HighlightPhrase phrase={query} size="large">

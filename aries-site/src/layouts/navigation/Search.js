@@ -28,13 +28,27 @@ const formatSearchResults = (query, results) =>
 
 /* Sort search results by relevancy and/or strength of match type */
 const sortSearch = matches => {
-  const results = matches.sort((a, b) => {
-    const ruleOrder = {
-      Title: 0,
-      Tags: 1,
-    };
-    return ruleOrder[a.value.matchLocation] - ruleOrder[b.value.matchLocation];
-  });
+  const results = matches
+    .sort((a, b) => {
+      const ruleOrder = {
+        Title: 0,
+        Tags: 1,
+      };
+      return (
+        ruleOrder[a.value.matchLocation] - ruleOrder[b.value.matchLocation]
+      );
+    })
+    .reduce((acc, cur) => {
+      if (cur.value.matchLocation.includes('Title')) {
+        acc.push(cur);
+      }
+      if (cur.value.matchLocation.includes('Tags')) {
+        if (!acc.find(element => element.value.name === cur.value.name)) {
+          acc.push(cur);
+        }
+      }
+      return acc;
+    }, []);
   return results;
 };
 
