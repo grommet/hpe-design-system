@@ -29,6 +29,7 @@ const formatSearchResults = (query, results) =>
 /* Sort search results by relevancy and/or strength of match type */
 const sortSearch = matches => {
   const results = matches
+    /* Prioritize title matches over metadata matches */
     .sort((a, b) => {
       const ruleOrder = {
         Title: 0,
@@ -39,16 +40,20 @@ const sortSearch = matches => {
       );
     })
     .reduce((acc, cur) => {
+      /* Include all title matches */
       if (cur.value.matchLocation.includes('Title')) {
         acc.push(cur);
       }
-      if (cur.value.matchLocation.includes('Tags')) {
-        if (!acc.find(element => element.value.name === cur.value.name)) {
-          acc.push(cur);
-        }
+      /* Only add tag match if the page does not have a title match */
+      if (
+        cur.value.matchLocation.includes('Tags') &&
+        !acc.find(element => element.value.name === cur.value.name)
+      ) {
+        acc.push(cur);
       }
       return acc;
     }, []);
+
   return results;
 };
 
@@ -93,7 +98,6 @@ const search = (data, query) => {
 
 export const Search = ({ setOpen }) => {
   const router = useRouter();
-  // const [showLayer, setShowLayer] = useState(focused);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(
     formatSearchResults(null, allSuggestions),

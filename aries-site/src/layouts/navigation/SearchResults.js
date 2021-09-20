@@ -17,13 +17,19 @@ export const SearchResults = ({
   ...rest
 }) => {
   const searchRef = useRef();
-  const [focused, setFocused] = useState(true);
+  const step = 4;
+  const defaultPage = 1;
+  const [page, setPage] = useState(defaultPage);
 
   useEffect(() => {
-    if (focused && searchRef.current) {
+    if (searchRef.current) {
       searchRef.current.focus();
     }
-  }, [focused, searchRef]);
+  }, [searchRef]);
+
+  useEffect(() => {
+    setPage(defaultPage);
+  }, [query]);
 
   return (
     <Box
@@ -56,8 +62,9 @@ export const SearchResults = ({
           data={results}
           onClickItem={onSelect}
           border={{ side: 'bottom', color: 'border-weak' }}
-          paginate
-          step={4}
+          // paginate={results.length > step ? { page } : false}
+          paginate={{ page }}
+          step={step}
         >
           {datum => <SearchResult query={query} result={datum.value} />}
         </List>
