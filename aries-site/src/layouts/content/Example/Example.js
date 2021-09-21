@@ -105,6 +105,7 @@ export const Example = ({
         <ResponsiveContext.Provider value={viewPort}>
           {React.cloneElement(children, {
             containerRef: inlineRef,
+            designSystemDemo: showLayer,
           })}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
@@ -230,6 +231,7 @@ export const Example = ({
                     <ResponsiveContext.Provider value={viewPort}>
                       {React.cloneElement(children, {
                         containerRef: layerRef,
+                        designSystemDemo: showLayer,
                       })}
                     </ResponsiveContext.Provider>
                   </Box>
