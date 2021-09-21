@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Layer } from 'grommet';
+import { Layer, ResponsiveContext } from 'grommet';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
 import { SearchResult, SearchResults } from '.';
@@ -98,6 +98,7 @@ const search = (data, query) => {
 
 export const Search = ({ setOpen }) => {
   const router = useRouter();
+  const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState(
     formatSearchResults(null, allSuggestions),
@@ -154,7 +155,12 @@ export const Search = ({ setOpen }) => {
   };
 
   return (
-    <Layer onEsc={onClose} onClickOutside={onClose} position="top">
+    <Layer
+      margin={size !== 'small' ? { top: 'medium' } : 'none'}
+      onEsc={onClose}
+      onClickOutside={onClose}
+      position="top"
+    >
       <SearchResults
         allSuggestions={allSuggestions}
         onChange={onChange}

@@ -13,7 +13,7 @@ export const SearchResult = ({ query, result }) => {
       <>
         {parent && (
           <Box align="center" direction="row" gap="xsmall">
-            {parent.icon('8px', parent.color)}
+            {parent.icon && parent.icon('8px', parent.color)}
             <Text size="small">{result.name}</Text>
           </Box>
         )}
@@ -29,18 +29,6 @@ export const SearchResult = ({ query, result }) => {
         <Paragraph margin="none" fill>
           <HighlightPhrase phrase={query}>{result.description}</HighlightPhrase>
         </Paragraph>
-      )}
-      {result.tags && (
-        <Box direction="row" gap="xxsmall">
-          <Text weight={500}>tags:</Text>{' '}
-          <Paragraph margin="none" fill size="small" weight={100}>
-            {result.tags.map(tag => (
-              <HighlightPhrase key={tag} phrase={query} size="small">
-                {`${tag}, `}
-              </HighlightPhrase>
-            ))}
-          </Paragraph>
-        </Box>
       )}
     </Box>
   );
