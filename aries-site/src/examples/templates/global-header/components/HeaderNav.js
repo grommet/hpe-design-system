@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { HelpOption, Home } from 'grommet-icons';
+import { HelpOption, HomeRounded } from 'grommet-icons';
 import { UserContext } from '.';
 
 export const HeaderNav = () => {
@@ -21,7 +21,7 @@ export const HeaderNav = () => {
       {size !== 'small' && (
         <>
           <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
-          <Button icon={<Home />} a11yTitle="Home" title="Home" />
+          <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
         </>
       )}
       <DropButton
