@@ -98,6 +98,7 @@ export const RangeInputInFormExample = () => {
           </FormField>
           <FormField htmlFor="price" name="price" label="Price">
             <Box
+              align="center"
               pad={{ horizontal: '11px', vertical: '5px' }}
               direction="row"
               gap="medium"

@@ -7,6 +7,7 @@ export const RangeInputDescriptionExample = () => {
   return (
     <FormField label="Label" help="RangeInput Description">
       <Box
+        align="center"
         pad={{ horizontal: '11px', vertical: '5px' }}
         direction="row"
         gap="medium"
