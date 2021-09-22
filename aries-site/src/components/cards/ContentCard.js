@@ -16,7 +16,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const darkMode = useDarkMode();
   return (
     <StyledCard
-      elevation={isFocused ? 'medium' : 'small'}
+      elevation={isFocused ? 'large' : 'medium'}
       fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
