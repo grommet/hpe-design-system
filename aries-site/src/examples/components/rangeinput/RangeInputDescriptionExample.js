@@ -12,7 +12,7 @@ export const RangeInputDescriptionExample = () => {
         gap="medium"
         width="large"
       >
-        <Text weight={600}>0</Text>
+        <Text weight={500}>0</Text>
         <RangeInput
           max={100}
           min={0}
