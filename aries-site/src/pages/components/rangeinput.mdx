@@ -1,17 +1,56 @@
 import { Example } from '../../layouts';
-import { RangeInputExample } from '../../examples';
+import {
+  RangeInputExample,
+  RangeInputInFormExample,
+  RangeInputDescriptionExample,
+} from '../../examples';
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/rangeinput/RangeInputExample.js"
   docs="https://v2.grommet.io/rangeinput?theme=hpe#props"
-  details={[
-    `The RangeInput component is a slider control that 
-    provides a handle the user can move to make changes 
-    to values. It is important that the slider provides 
-    a value displayed to communicate with the user. This
-    help ensure conficence in the use of the control.`,
-  ]}
   figma="https://www.figma.com/file/BqCjvjc0rECQ4Ln2QhyjNi/HPE-Range-Input-Component?node-id=1%3A11"
 >
   <RangeInputExample />
+</Example>
+
+## Guidance
+
+A RangeInput allows a user to adjust the value by either decreasing or increasing the value.
+The user can adjust the value by moving the thumb across the track.
+
+- The RangeInput should be clear within the label for the user to know what value they are choosing.
+- There should be the min and the max on each side of the RangeInput so the user is aware of these values.
+- Do not use ranges that are to large i.e 1-10000 or ranges that are very small i.e 1-3
+
+### Usage
+
+RangeInput can be used when a user needs to choose a value within a fixed range of values.
+
+Changes made to RangeInput are immediate which allows the user to make adjustments when
+selecting their value.
+
+A RangeInput can be used when the value is less important to the user than the visual of seeing the difference between the min and the max.
+
+### Accessibility
+
+RangeInput should be used inside of a FormField to ensure that a label is properly associated with the input.
+
+If a RangeInput is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the RangeInput.
+
+## Variants
+
+### RangeInput with Description
+
+Adding a description provides the user additional information about the context or purpose of the RangeInput.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/rangeinput/RangeInputDescriptionExample">
+  <RangeInputDescriptionExample />
+</Example>
+
+### RangeInput within a form
+
+RangeInput can be used within a form and should not be something that is required.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/rangeinput/RangeInputInFormExample">
+  <RangeInputInFormExample />
 </Example>
