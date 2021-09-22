@@ -29,7 +29,7 @@ export const CardExample = () => {
   return (
     <StyledCard
       background="background-front"
-      elevation={isFocused ? 'medium' : 'small'}
+      elevation={isFocused ? 'large' : 'medium'}
       onClick={() => {
         // eslint-disable-next-line no-alert
         alert(`

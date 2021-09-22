@@ -54,7 +54,6 @@ export const BasicLayoutCardsExample = () => {
                   align="center"
                   justify="center"
                   background="background"
-                  elevation="medium"
                   key={index}
                   onClick={() => {
                     // eslint-disable-next-line no-alert

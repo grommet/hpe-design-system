@@ -97,7 +97,6 @@ const Users = () => {
           <StyledCard
             key={datum.id}
             background="background"
-            elevation="medium"
             // margin ensures focus on cards is not cutoff
             margin="xxsmall"
             onClick={() => {
