@@ -67,6 +67,21 @@ export const SearchResults = ({
     setPage(defaultPage);
   }, [query]);
 
+  // useEffect(() => {
+  //   console.log(paginatedResults);
+  // }, [paginatedResults]);
+
+  const matches = paginatedResults.filter(result =>
+    result.value.matchLocation
+      ? result.value.matchLocation.includes('Title')
+      : result,
+  );
+
+  const similarMatches = paginatedResults.filter(
+    result =>
+      result.value.matchLocation && result.value.matchLocation.includes('Tags'),
+  );
+
   return (
     <Box
       background="background-front"
@@ -95,32 +110,41 @@ export const SearchResults = ({
         </Keyboard>
       </Box>
       <Box overflow="auto" pad="xsmall">
-        <List
-          data={paginatedResults}
-          onClickItem={onSelect}
-          border={{ side: 'bottom', color: 'border-weak' }}
-          paginate
-        >
-          {(datum, index) => (
-            <>
-              {index === relatedBeginIndex && (
-                <Box gap="xsmall" pad={{ vertical: 'large' }}>
-                  <Text
-                    color="text-strong"
-                    size={size !== 'small' ? 'xlarge' : 'large'}
-                    weight="bold"
-                  >
-                    Similar to '{query}'
-                  </Text>
-                  <Text size={size !== 'small' ? 'large' : 'medium'}>
-                    You may also be interested in this related content:
-                  </Text>
-                </Box>
-              )}
-              <SearchResult query={query} result={datum.value} />
-            </>
-          )}
-        </List>
+        {matches.length > 0 && (
+          <List
+            data={matches}
+            onClickItem={onSelect}
+            border={{ side: 'bottom', color: 'border-weak' }}
+          >
+            {datum => <SearchResult query={query} result={datum.value} />}
+          </List>
+        )}
+        {similarMatches.length > 0 && (
+          <>
+            <Box
+              gap="xsmall"
+              pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
+            >
+              <Text
+                color="text-strong"
+                size={size !== 'small' ? 'xlarge' : 'large'}
+                weight="bold"
+              >
+                Similar to '{query}'
+              </Text>
+              <Text size={size !== 'small' ? 'large' : 'medium'}>
+                You may also be interested in this related content:
+              </Text>
+            </Box>
+            <List
+              data={similarMatches}
+              onClickItem={onSelect}
+              border={{ side: 'bottom', color: 'border-weak' }}
+            >
+              {datum => <SearchResult query={query} result={datum.value} />}
+            </List>{' '}
+          </>
+        )}
         {results.length === 0 && (
           <SearchResult
             query={query}
