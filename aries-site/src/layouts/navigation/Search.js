@@ -147,7 +147,7 @@ export const Search = ({ setOpen }) => {
     const href = nameToPath(event.item.value.title);
     if (internalLink.test(href)) {
       router.push(href);
-      setOpen(false);
+      onClose();
     } else {
       // external links should open in a new tab
       window.open(href);
