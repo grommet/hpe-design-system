@@ -8,7 +8,7 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => {
       align="start"
       fill="horizontal"
       background="background-front"
-      elevation={isFocused ? 'medium' : 'small'}
+      elevation={isFocused ? 'large' : 'medium'}
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
       onMouseOut={() => setIsFocused(false)}
