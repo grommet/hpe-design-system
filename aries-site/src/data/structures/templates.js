@@ -1,4 +1,5 @@
 import {
+  CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
 } from '../../examples/cardPreviews';
@@ -489,5 +490,19 @@ export const templates = [
       'multistep form',
       'stepped form',
     ],
+  },
+  {
+    name: 'Code Blocks',
+    available: true,
+    cardOrder: 100,
+    description: `A standardized style for displaying code.`,
+    preview: {
+      component: () => <CodeBlocksPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `A standardized style for displaying code.`,
+    sections: ['Section 1'],
+    // relatedContent: ['Markdown'],
+    // tags: ['code', 'syntax', 'highlighting'],
   },
 ];
