@@ -9,3 +9,4 @@ export * from './persistent-navigation';
 export * from './table-customization';
 export * from './toast-notifications';
 export * from './wizard';
+export * from './code-blocks';

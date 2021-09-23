@@ -1,0 +1,49 @@
+import { Example } from '../../layouts';
+import {
+  CodeBlockExample
+} from '../../examples';
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/code-blocks/CodeBlocks.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/code-blocks/DarkCodeTheme.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/code-blocks/LightCodeTheme.js",
+  ]}
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <CodeBlockExample />
+</Example>
+
+
+## Guidance
+
+Code blocks should be created using the react-syntax-highlighter tool.
+
+Prism or Highlighter.js can be used with react-syntax-highlighter with Highlighter.js being the default. Highlighter.js occasionally has trouble highlighting jsx so it is recommended to use Prism instead. 
+
+react-syntax-highlighter can be installed with the following command:
+
+`yarn add -D react-syntax-highlighter`
+
+Import the react-syntax-highlighter specifying Prism as the highlighter with the following:
+
+`import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';`
+
+### Theming
+
+The following themes should be used to style code blocks.
+
+[Light mode theme](https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/code-blocks/DarkCodeTheme.js)
+
+[Dark mode theme](https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/code-blocks/LightCodeTheme.js)
+
+### Scrolling
+
+Horizontal scrolling should be avoided where possible.
+
+Vertical scrolling within the code block container is encouraged when a code block is long.
+
+### Line Wrapping
+
+Long lines should wrap to avoid horizontal scrolling. This option can be specified with `wrapLongLines`.
