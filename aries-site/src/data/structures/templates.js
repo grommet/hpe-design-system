@@ -502,7 +502,5 @@ export const templates = [
     },
     seoDescription: `A standardized style for displaying code.`,
     sections: ['Section 1'],
-    // relatedContent: ['Markdown'],
-    // tags: ['code', 'syntax', 'highlighting'],
   },
 ];
