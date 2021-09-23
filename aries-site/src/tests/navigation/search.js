@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import { waitForReact } from 'testcafe-react-selectors';
-import { baseUrl, getLocation, getSuggestion } from '../utils';
+import { screen } from '@testing-library/testcafe';
+
+import { baseUrl, getLocation } from '../utils';
 import Navbar from '../../page-objects/components/Navbar';
 
 const navbar = new Navbar();
@@ -15,7 +17,7 @@ test(`should navigate to correct page after user types and clicks suggestion
 with mouse`, async t => {
   const page = 'Templates';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
-  const suggestion = getSuggestion(page);
+  const suggestion = screen.getAllByRole('option').withText(page);
 
   navbar.searchFor(page);
   await t
@@ -38,12 +40,14 @@ enter`, async t => {
 
 test(`should navigate to correct hash after user clicks a suggestion that leads 
 to a page subsection`, async t => {
+  const query = 'col';
   const expectedPath = `${baseUrl}/foundation/color#background-colors`;
   const page = 'Background Colors';
-  const suggestion = getSuggestion(page);
+  const suggestion = screen.getAllByRole('option').withText(page);
 
-  navbar.searchFor('col');
+  navbar.searchFor(query);
   await t
+    .setTestSpeed(0.1)
     .click(suggestion)
     .expect(getLocation())
     .eql(expectedPath);
