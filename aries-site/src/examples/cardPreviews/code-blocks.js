@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Box } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import DarkCodeTheme from '../templates/code-blocks/DarkCodeTheme';
-import LightCodeTheme from '../templates/code-blocks/LightCodeTheme';
+import { DarkCodeTheme } from '../templates/code-blocks/DarkCodeTheme';
+import { LightCodeTheme } from '../templates/code-blocks/LightCodeTheme';
 import { useDarkMode } from '../../utils';
 
 export const CodeBlocksPreview = () => {
