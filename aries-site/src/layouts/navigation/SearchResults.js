@@ -120,7 +120,7 @@ export const SearchResults = ({
           </List>
         )}
         {similarMatches.length > 0 && (
-          <>
+          <Box flex={false}>
             <Box
               gap="xsmall"
               pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
@@ -143,7 +143,7 @@ export const SearchResults = ({
             >
               {datum => <SearchResult query={query} result={datum.value} />}
             </List>{' '}
-          </>
+          </Box>
         )}
         {results.length === 0 && (
           <SearchResult
