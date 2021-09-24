@@ -495,12 +495,15 @@ export const templates = [
     name: 'Code Blocks',
     available: true,
     cardOrder: 100,
-    description: `A standardized style for displaying code.`,
+    description: 'A standardized style for displaying code.',
     preview: {
       component: () => <CodeBlocksPreview />,
       background: 'background-back',
     },
-    seoDescription: `A standardized style for displaying code.`,
-    sections: ['Section 1'],
+    seoDescription: 'A standardized style for displaying code.',
+    sections: ['Guidance', 'Theming', 'Scrolling', 'Line Wrapping'],
+    tags: [
+      'code',
+    ],
   },
 ];
