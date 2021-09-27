@@ -15,7 +15,7 @@ export const CodeBlocksPreview = () => {
     <Box>
       <SyntaxHighlighter
         style={themeMode === 'dark' ? DarkCodeTheme : LightCodeTheme}
-        wrapLongLines
+        wraplonglines
         language="javascript"
       >
         {codeString}
