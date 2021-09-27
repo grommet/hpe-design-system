@@ -33,7 +33,7 @@ export const CardMeterExample = () => (
               color: 'graph-1',
               highlight: false,
               label: 'availability',
-              onClick: '() => {}',
+              onClick: () => {},
             },
           ]}
           max={1}
