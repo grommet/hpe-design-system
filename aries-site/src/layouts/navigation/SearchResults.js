@@ -89,7 +89,7 @@ export const SearchResults = ({
       pad={{ horizontal: 'medium', top: 'small', bottom: 'large' }}
       gap="small"
       width="large"
-      fill
+      fill="vertical"
       {...rest}
     >
       <Button icon={<FormClose />} onClick={onClose} alignSelf="end" />
