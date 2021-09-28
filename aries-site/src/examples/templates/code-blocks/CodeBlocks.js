@@ -135,6 +135,7 @@ KPISummary.propTypes = {
   return (
     <Box>
       <SyntaxHighlighter
+        tabIndex="0"
         style={themeMode === 'dark' ? DarkCodeTheme : LightCodeTheme}
         wrapLongLines
         language="javascript"

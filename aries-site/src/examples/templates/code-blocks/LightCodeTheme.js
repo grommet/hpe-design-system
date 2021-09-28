@@ -18,7 +18,7 @@ export const LightCodeTheme = {
     },
     'pre[class*="language-"]': {
         'color': '#444444',
-        'background': '#33333310',
+        'background': '#0000000A',
         'textAlign': 'left',
         'whiteSpace': 'pre',
         'wordSpacing': 'normal',
@@ -38,13 +38,13 @@ export const LightCodeTheme = {
         'borderRadius': '0.3em',
     },
     ':not(pre) > code[class*="language-"]': {
-        'background': '#33333310',
+        'background': '#0000000A',
         'padding': '0.1em',
         'borderRadius': '0.3em',
         'whiteSpace': 'normal',
     },
     'class-name': {
-        'color': '#FC5A5A',
+        'color': '#A2423D',
     },
     'maybe-class-name': {
         'color': '#7630EA',
@@ -53,53 +53,53 @@ export const LightCodeTheme = {
         'color': '#555555',
     },
     'function': {
-        'color': '#FC5A5A',
+        'color': '#A2423D',
     },
     'operator': {
         'color': '#9B6310',
     },
     'string': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'boolean': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'number': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'keyword': {
-        'color': '#00739D',
+        'color': '#00567A',
     },
     'selector': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'attr-name': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'char': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'builtin': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'inserted': {
-        'color': '#008567',
+        'color': '#117B82',
     },
     'entity': {
-        'color': '#00739D',
+        'color': '#00567A',
         'cursor': 'help',
     },
     'url': {
-        'color': '#00739D',
+        'color': '#00567A',
     },
     '.language-css .token.string': {
-        'color': '#00739D',
+        'color': '#00567A',
     },
     '.style .token.string': {
-        'color': '#00739D',
+        'color': '#00567A',
     },
     'variable': {
-        'color': '#00739D',
+        'color': '#00567A',
     },
     'atrule': {
         'color': '#9B6310',
@@ -111,7 +111,7 @@ export const LightCodeTheme = {
         'color': '#9B6310',
     },
     'important': {
-        'color': '##9B6310',
+        'color': '#9B6310',
         'fontWeight': 'bold',
     },
     'bold': {
