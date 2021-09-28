@@ -36,6 +36,6 @@ export const SubsectionHeader = ({ children, level }) => {
 };
 
 SubsectionHeader.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   level: PropTypes.number,
 };
