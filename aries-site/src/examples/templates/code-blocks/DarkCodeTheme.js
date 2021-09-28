@@ -1,6 +1,6 @@
 export const DarkCodeTheme = {
     'code[class*="language-"]': {
-        'color': '#f8f8f8',
+        'color': '#C0CADC',
         'background': 'none',
         'textAlign': 'left',
         'whiteSpace': 'pre',
@@ -17,8 +17,8 @@ export const DarkCodeTheme = {
         'hyphens': 'none',
     },
     'pre[class*="language-"]': {
-        'color': '#f8f8f8',
-        'background': '#FFFFFF18',
+        'color': '#C0CADC',
+        'background': 'black',
         'textAlign': 'left',
         'whiteSpace': 'pre',
         'wordSpacing': 'normal',
@@ -38,7 +38,7 @@ export const DarkCodeTheme = {
         'borderRadius': '0.3em',
     },
     ':not(pre) > code[class*="language-"]': {
-        'background': '#FFFFFF18',
+        'background': 'black',
         'padding': '0.1em',
         'borderRadius': '0.3em',
         'whiteSpace': 'normal',
