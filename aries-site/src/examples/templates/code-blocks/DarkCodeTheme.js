@@ -1,6 +1,8 @@
+import { colors } from 'grommet-theme-hpe';
+
 export const DarkCodeTheme = {
     'code[class*="language-"]': {
-        'color': '#C0CADC',
+        'color': colors.text.dark,
         'background': 'none',
         'textAlign': 'left',
         'whiteSpace': 'pre',
@@ -17,7 +19,7 @@ export const DarkCodeTheme = {
         'hyphens': 'none',
     },
     'pre[class*="language-"]': {
-        'color': '#C0CADC',
+        'color': colors.text.dark,
         'background': 'black',
         'textAlign': 'left',
         'whiteSpace': 'pre',
@@ -44,76 +46,76 @@ export const DarkCodeTheme = {
         'whiteSpace': 'normal',
     },
     'class-name': {
-        'color': '#FC5A5A',
+        'color': colors['status-critical'].light,
     },
     'maybe-class-name': {
-        'color': '#F740FF',
+        'color': colors.purple.light,
     },
     'comment': {
-        'color': '#CCCCCC',
+        'color': colors['status-unknown'].light,
     },
     'function': {
-        'color': '#FC5A5A',
+        'color': colors['status-critical'].light,
     },
     'operator': {
-        'color': '#FFBC44',
+        'color': colors.orange.light,
     },
     'string': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'boolean': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'number': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'keyword': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
     },
 
     'selector': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'attr-name': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'char': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'builtin': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'inserted': {
-        'color': '#00E8CF',
+        'color': colors['teal!'],
     },
     'entity': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
         'cursor': 'help',
     },
     'url': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
     },
     '.language-css .token.string': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
     },
     '.style .token.string': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
     },
     'variable': {
-        'color': '#00C8FF',
+        'color': colors.blue.light,
     },
     'atrule': {
-        'color': '#FFBC44',
+        'color': colors.orange.light,
     },
     'attr-value': {
-        'color': '#FFBC44',
+        'color': colors.orange.light,
     },
     
     'regex': {
-        'color': '#FFBC44',
+        'color': colors.orange.light,
     },
     'important': {
-        'color': '#FFBC44',
+        'color': colors.orange.light,
         'fontWeight': 'bold',
     },
     'bold': {

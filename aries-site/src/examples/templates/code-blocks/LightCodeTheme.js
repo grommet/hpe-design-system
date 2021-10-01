@@ -1,6 +1,8 @@
+import { colors } from 'grommet-theme-hpe';
+
 export const LightCodeTheme = {
     'code[class*="language-"]': {
-        'color': '#444444',
+        'color': colors.text.light,
         'background': 'none',
         'textAlign': 'left',
         'whiteSpace': 'pre',
@@ -17,8 +19,8 @@ export const LightCodeTheme = {
         'hyphens': 'none',
     },
     'pre[class*="language-"]': {
-        'color': '#444444',
-        'background': '#0000000A',
+        'color': colors.text.light,
+        'background': colors['background-contrast'].light,
         'textAlign': 'left',
         'whiteSpace': 'pre',
         'wordSpacing': 'normal',
@@ -38,80 +40,80 @@ export const LightCodeTheme = {
         'borderRadius': '0.3em',
     },
     ':not(pre) > code[class*="language-"]': {
-        'background': '#0000000A',
+        'background': colors['background-contrast'].light,
         'padding': '0.1em',
         'borderRadius': '0.3em',
         'whiteSpace': 'normal',
     },
     'class-name': {
-        'color': '#A2423D',
+        'color': colors.red.dark,
     },
     'maybe-class-name': {
-        'color': '#7630EA',
+        'color': colors['purple!'],
     },
     'comment': {
-        'color': '#555555',
+        'color': colors['status-unknown'].dark,
     },
     'function': {
-        'color': '#A2423D',
+        'color': colors.red.dark,
     },
     'operator': {
-        'color': '#9B6310',
+        'color': colors.orange.dark,
     },
     'string': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'boolean': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'number': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'keyword': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
     },
     'selector': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'attr-name': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'char': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'builtin': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'inserted': {
-        'color': '#117B82',
+        'color': colors.teal.dark,
     },
     'entity': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
         'cursor': 'help',
     },
     'url': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
     },
     '.language-css .token.string': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
     },
     '.style .token.string': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
     },
     'variable': {
-        'color': '#00567A',
+        'color': colors.blue.dark,
     },
     'atrule': {
-        'color': '#9B6310',
+        'color': colors.orange.dark,
     },
     'attr-value': {
-        'color': '#9B6310',
+        'color': colors.orange.dark,
     },
     'regex': {
-        'color': '#9B6310',
+        'color': colors.orange.dark,
     },
     'important': {
-        'color': '#9B6310',
+        'color': colors.orange.dark,
         'fontWeight': 'bold',
     },
     'bold': {
