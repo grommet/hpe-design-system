@@ -504,6 +504,7 @@ export const templates = [
     sections: ['Guidance', 'Theming', 'Scrolling', 'Line Wrapping'],
     tags: [
       'code',
+      'syntax highlighting',
     ],
   },
 ];
