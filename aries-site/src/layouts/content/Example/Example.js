@@ -22,6 +22,7 @@ export const Example = ({
   background,
   children,
   code, // github code link used to display code inline
+  componentCode,
   designer, // link to grommet designer example
   details,
   docs, // link to grommet doc for component
@@ -119,6 +120,7 @@ export const Example = ({
     screenContainer ||
     template) && (
     <ExampleControls
+      componentCode={componentCode}
       designer={designer}
       docs={docs}
       figma={figma}
