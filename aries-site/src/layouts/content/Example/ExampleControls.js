@@ -2,19 +2,20 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
 import {
-  Code,
   Document,
   DocumentText,
   Expand,
+  Github,
   Grommet,
   Figma,
 } from 'grommet-icons';
 
 export const ExampleControls = ({
-  componentCode,
+  componentName,
   designer,
   docs,
   figma,
+  grommetSource,
   guidance,
   horizontalLayout,
   setShowLayer,
@@ -86,14 +87,14 @@ export const ExampleControls = ({
             />
           </Box>
         )}
-        {componentCode && (
+        {grommetSource && (
           <Box flex={false}>
             <Button
               title="View component code"
               a11yTitle="View component code"
-              href={componentCode}
-              icon={<Code />}
-              label={!horizontalLayout && 'View component code'}
+              href={grommetSource}
+              icon={<Github />}
+              label={!horizontalLayout && `View ${componentName} source`}
               target="_blank"
               size={buttonSize}
             />

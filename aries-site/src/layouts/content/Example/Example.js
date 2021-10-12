@@ -22,12 +22,13 @@ export const Example = ({
   background,
   children,
   code, // github code link used to display code inline
-  componentCode,
+  componentName,
   designer, // link to grommet designer example
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
+  grommetSource, // link to Grommet component source code
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
@@ -61,6 +62,7 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    componentName,
     designer,
     docs,
     figma,
@@ -120,10 +122,11 @@ export const Example = ({
     screenContainer ||
     template) && (
     <ExampleControls
-      componentCode={componentCode}
+      componentName={componentName}
       designer={designer}
       docs={docs}
       figma={figma}
+      grommetSource={grommetSource}
       guidance={guidance}
       horizontalLayout={horizontalLayout}
       setShowLayer={value => setShowLayer(value)}
