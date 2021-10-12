@@ -62,7 +62,6 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
-    componentName,
     designer,
     docs,
     figma,
