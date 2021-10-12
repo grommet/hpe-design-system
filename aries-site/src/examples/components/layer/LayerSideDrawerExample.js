@@ -119,7 +119,6 @@ export const LayerSideDrawerExample = () => {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
 
   return (
     <>
@@ -131,8 +130,6 @@ export const LayerSideDrawerExample = () => {
           position="right"
           full={size !== 'small' ? 'vertical' : true}
           modal={false}
-          onClickOutside={onClose}
-          onEsc={onClose}
         >
           <Box
             fill="vertical"
