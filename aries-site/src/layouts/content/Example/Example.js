@@ -260,6 +260,7 @@ Example.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
+  componentName: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -273,6 +274,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   github: PropTypes.string,
+  grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,

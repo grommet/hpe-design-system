@@ -90,8 +90,8 @@ export const ExampleControls = ({
         {grommetSource && (
           <Box flex={false}>
             <Button
-              title="View component code"
-              a11yTitle="View component code"
+              title="View ${componentName} source code"
+              a11yTitle="View ${componentName} source code"
               href={grommetSource}
               icon={<Github />}
               label={!horizontalLayout && `View ${componentName} source`}
@@ -134,9 +134,11 @@ export const ExampleControls = ({
 };
 
 ExampleControls.propTypes = {
+  componentName: PropTypes.string,
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
   setShowLayer: PropTypes.func,
