@@ -90,11 +90,10 @@ export const ExampleControls = ({
         {grommetSource && (
           <Box flex={false}>
             <Button
-              title={`View ${componentName} source code`}
               a11yTitle={`View ${componentName} source code`}
               href={grommetSource}
               icon={<Github />}
-              tip={`View ${componentName} source`}
+              tip={`View ${componentName} source code`}
               target="_blank"
               size={buttonSize}
             />
