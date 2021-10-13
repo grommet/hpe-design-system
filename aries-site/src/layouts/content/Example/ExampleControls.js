@@ -51,7 +51,6 @@ export const ExampleControls = ({
         {designer && (
           <Box flex={false}>
             <Button
-              title="Open in Grommet Designer"
               a11yTitle="Open in Grommet Designer"
               href={designer}
               icon={<Grommet color="plain" />}
@@ -64,7 +63,6 @@ export const ExampleControls = ({
         {figma && (
           <Box flex={false}>
             <Button
-              title="Open in Figma"
               a11yTitle="Open in Figma"
               href={figma}
               icon={<Figma color="plain" />}
@@ -77,8 +75,7 @@ export const ExampleControls = ({
         {docs && (
           <Box flex={false}>
             <Button
-              title="Open docs"
-              a11yTitle="Open docs"
+              a11yTitle={`Open ${componentName} docs`}
               href={docs}
               icon={<Document />}
               tip="Open docs"
@@ -102,11 +99,10 @@ export const ExampleControls = ({
         {guidance && (
           <Box flex={false}>
             <Button
-              title="Read guidance"
               a11yTitle="Read guidance"
               href={guidance}
               icon={<DocumentText />}
-              label={!horizontalLayout && 'Read guidance'}
+              tip="Read guidance"
               size={buttonSize}
             />
           </Box>
