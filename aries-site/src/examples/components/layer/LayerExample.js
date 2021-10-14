@@ -39,8 +39,9 @@ export const LayerExample = () => {
                 This is a Layer.
               </Heading>
               <Button
-                a11yTitle={`You are in a layer containing text to
-                   close this layer, press Enter.`}
+                a11yTitle={`You are on a Close button in a layer containing
+                a text description. To close the layer 
+                and return to the primary content, press Enter.`}
                 autoFocus
                 icon={<FormClose />}
                 onClick={onClose}
