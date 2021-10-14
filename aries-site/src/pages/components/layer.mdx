@@ -30,7 +30,7 @@ Layer is used to define the properties and behaviors of an overlay for things li
 - Position forms to the right (side-drawer).
 - Positioning of notification layers depends on the notification's context. Please refer to [notification guidance](/components/notification) for more detail.
 - Layer is not great for navigation as it 'hides' content. Maintain context for the user with layer.
-- Provide an alternative to move out of the layer by allowing use of the 'esc' key or clicking off the container of the Layer. This applies to all Layers, regardless of type (e.g. [informational](/components/layer#informational) or [actionable](/components/layer#actionable)).
+- Provide an alternative to move out of the layer by allowing use of the 'esc' key. This applies to all Layers, regardless of type (e.g. [informational](/components/layer#informational) or [actionable](/components/layer#actionable)).
 
 ### Using Headings in Layer
 
@@ -61,7 +61,7 @@ Used purely to inform users of status or state. These are text-only with no requ
 
 Informational Layers contain the following elements and interactions:
 - A sole ["X" icon](https://icons.grommet.io/?s=formclose) for the user to close out of the Layer. Additional elements, such as a close button, cause further clutter and confusion for the user.
-- For user generated layers such as directly opened dialog model, the Layer can be closed by clicking outside of it's content. 
+- For all layers that are opened as a result of a user clicking an element on a page, the layer can be closed by clicking outside of its content.
 - For system-generated layers such as [Toast Notifications](/templates/toast-notifications), the Layer cannot be closed by clicking outside of its content and instead must be dismissed by clicking the "X icon" in the Layer.
 
 ### Actionable
@@ -70,7 +70,7 @@ Provides users with any type of action, required or optional. These can be confi
 Actionable Layers contain the following elements and interactions: 
 - A cancel or close button will always be positioned within the footer of the Layer. Note that the "X" icon is omitted to avoid any confusion the user may have on which option they should use to close out the Layer. 
 - The Layer heading and action buttons should be sticky while the rest of the Layer content is scrollable.
-- The Layer cannot be closed by clicking outside of it's content. This is to prevent accidental misclicks.
+- To prevent the user from losing progress due to accidentally misclicking outside of a layer, a layer should not be closable by clicking outside of its content. Instead, users should be consciously clicking on a button to close out of the layer to abort any and all actions.
 
 **Keep in mind that all layers can be alternatively be closed out of at any time by hitting the "esc" key.** 
 
