@@ -38,7 +38,13 @@ export const LayerExample = () => {
               <Heading level={2} margin="none">
                 This is a Layer.
               </Heading>
-              <Button icon={<FormClose />} onClick={onClose} />
+              <Button
+                a11yTitle={`You are in a layer containing text to
+                   close this layer, press Enter.`}
+                autoFocus
+                icon={<FormClose />}
+                onClick={onClose}
+              />
             </Header>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
