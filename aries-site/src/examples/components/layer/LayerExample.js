@@ -47,9 +47,6 @@ export const LayerExample = () => {
                 Chart.
               </Text>
             </Box>
-            <Box flex={false} align="start">
-              <Button label="Close Layer" primary onClick={onClose} />
-            </Box>
           </Box>
         </Layer>
       )}
