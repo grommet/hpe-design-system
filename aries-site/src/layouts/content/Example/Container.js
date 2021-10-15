@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, defaultProps } from 'grommet';
+import { Box, defaultProps, Paragraph, Text } from 'grommet';
 
 // This creates the overall canvas/frame that the Example sits inside of
 export const Container = ({
+  bestPractice: bestPracticeProp,
   designer, // link to grommet designer example
   docs, // link to grommet doc for component
   figma, // link to figma design
@@ -27,31 +28,71 @@ export const Container = ({
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
 
+  let bestPractice;
+  let background;
+  let label;
+  if (bestPracticeProp) {
+    if (bestPracticeProp.type === 'do') {
+      background = 'brand';
+      label = 'Do';
+    } else if (bestPracticeProp.type === 'dont') {
+      background = 'red';
+      label = "Don't";
+    }
+
+    bestPractice = (
+      <Box gap="xsmall">
+        <Box
+          pad="xsmall"
+          background={background}
+          fill="horizontal"
+          margin={{ top: 'small' }}
+          round="xxsmall"
+        />
+        <Box>
+          <Text color="text-strong" weight="bold" size="large">
+            {label}
+          </Text>
+          <Paragraph size="small" margin="none">
+            {bestPracticeProp.message}
+          </Paragraph>
+        </Box>
+      </Box>
+    );
+  }
+
   return (
-    <Box
-      align={!template && !screenContainer ? 'center' : undefined}
-      background="background-front"
-      direction="row"
-      height={height}
-      justify="center"
-      margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
-      pad={
-        template || screenContainer
-          ? { horizontal: 'large', top: 'large' }
-          : 'large'
-      }
-      round={
-        !horizontalLayout &&
-        (designer || docs || figma || guidance || screenContainer || template)
-          ? { corner: 'top', size: 'small' }
-          : 'small'
-      }
-      {...rest}
-    />
+    <>
+      <Box
+        align={!template && !screenContainer ? 'center' : undefined}
+        background="background-front"
+        direction="row"
+        height={height}
+        justify="center"
+        margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
+        pad={
+          template || screenContainer
+            ? { horizontal: 'large', top: 'large' }
+            : 'large'
+        }
+        round={
+          !horizontalLayout &&
+          (designer || docs || figma || guidance || screenContainer || template)
+            ? { corner: 'top', size: 'small' }
+            : 'small'
+        }
+        {...rest}
+      />
+      {bestPractice}
+    </>
   );
 };
 
 Container.propTypes = {
+  bestPractice: PropTypes.shape({
+    type: PropTypes.oneOf(['do', 'dont']).isRequired,
+    message: PropTypes.string,
+  }),
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,

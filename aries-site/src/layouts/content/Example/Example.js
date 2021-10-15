@@ -20,6 +20,7 @@ export const screens = {
 
 export const Example = ({
   background,
+  bestPractice,
   children,
   code, // github code link used to display code inline
   designer, // link to grommet designer example
@@ -60,6 +61,7 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    bestPractice,
     designer,
     docs,
     figma,
@@ -251,6 +253,10 @@ export const Example = ({
 
 Example.propTypes = {
   background: PropTypes.string,
+  bestPractice: PropTypes.shape({
+    type: PropTypes.oneOf(['do', 'dont']).isRequired,
+    message: PropTypes.string,
+  }),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
