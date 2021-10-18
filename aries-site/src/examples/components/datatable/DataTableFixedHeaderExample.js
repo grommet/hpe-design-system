@@ -229,7 +229,7 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const TableFixedHeaderExample = ({ designSystemDemo }) => (
+export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
   <>
     <Heading
       id="connected-heading"
@@ -243,7 +243,7 @@ export const TableFixedHeaderExample = ({ designSystemDemo }) => (
       // restricting height to demonstrate pinned header behavior
       // Height is restricted to keep inline doc page examples more compact.
       // In production, DataTable height should follow height guidelines.
-      // https://design-system.hpe.design/components/table#setting-the-height-of-a-table
+      // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
       height={designSystemDemo ? undefined : 'medium'}
       // restricting width to demonstrate pinned column behavior
       width={designSystemDemo ? undefined : { min: 'medium', max: 'large' }}
@@ -259,6 +259,6 @@ export const TableFixedHeaderExample = ({ designSystemDemo }) => (
   </>
 );
 
-TableFixedHeaderExample.propTypes = {
+DataTableFixedHeaderExample.propTypes = {
   designSystemDemo: PropTypes.bool,
 };

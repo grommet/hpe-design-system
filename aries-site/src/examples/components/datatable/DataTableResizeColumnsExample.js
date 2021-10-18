@@ -175,7 +175,7 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const TableResizeColumnsExample = ({ designSystemDemo }) => (
+export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
   <>
     <Heading
       id="contact-info-heading"
@@ -189,7 +189,7 @@ export const TableResizeColumnsExample = ({ designSystemDemo }) => (
       // restricting height to demonstrate pinned header behavior
       // Height is restricted to keep inline doc page examples more compact.
       // In production, DataTable height should follow height guidelines.
-      // https://design-system.hpe.design/components/table#setting-the-height-of-a-table
+      // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
       height={designSystemDemo ? undefined : 'medium'}
       overflow="auto"
       fill="horizontal"
@@ -205,6 +205,6 @@ export const TableResizeColumnsExample = ({ designSystemDemo }) => (
   </>
 );
 
-TableResizeColumnsExample.propTypes = {
+DataTableResizeColumnsExample.propTypes = {
   designSystemDemo: PropTypes.bool,
 };
