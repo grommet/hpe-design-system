@@ -11,6 +11,7 @@ import {
   SignUpExample,
   SortExample,
 } from '../../examples';
+import { ExampleImagePreview } from '../../components';
 import { Example } from '../../layouts';
 
 <Example
@@ -40,9 +41,27 @@ Forms don't need to be a tedious task for users to complete, as they often come 
 
 ### Required vs. optional fields
 
-When possible, restrict Forms only to fields that are required. This ensures that the Form remains concise for the user. However, there may be cases where optional fields may be fitting.
+- When possible, restrict forms only to fields that are required in order to keep them concise.
+- There may be cases where optional fields may be appropriate. In these forms, clearly denote which fields are optional vs. required. This way, users won't be forced to infer anything - but can instead stay focused on completing their task.
+- Limit the number of optional fields to as much as possible. Remember that the more fields you have on your form, the more you risk overwhelming the users.
 
-When using a mixture of required and optional fields, apply the "required" prop to any given FormField restrict form submission until this field has been completed.
+<ExampleImagePreview
+  label="Required and Optional Fields Example"
+  src="/required&optional-Fields-example.png"
+  href="/forms#required-and-optional-fields"
+  alt="HPE Design System Form example where required and optional fields are used."
+/>
+
+**Forms where 'asterisk' and 'optional' can be skipped**
+
+A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the nescessity of completing the fields is relatively obvious.
+
+<ExampleImagePreview
+  label="Forms where 'asterisk' and 'optional' can be skipped"
+  src="/form-example-nonrequired.png"
+  href="/forms#sign-in"
+  alt="HPE Design System Form where required and optional can be skipped"
+/>
 
 ### Using help text
 
@@ -173,7 +192,6 @@ All Form input elements need to be contained within a FormField.
 ## Required and Optional Fields
 
 For standard forms, use an asterisk(\*) to indicate required field/controls.
-Optional fields receive no treatment.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/RequiredFieldsExample.js"

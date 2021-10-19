@@ -161,7 +161,6 @@ export const SignInExample = () => {
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
           <FormField
-            required
             label="Email"
             name="email"
             htmlFor="email-sign-in"
@@ -175,7 +174,6 @@ export const SignInExample = () => {
             />
           </FormField>
           <FormField
-            required
             label="Password"
             htmlFor="password-sign-in"
             name="password"
