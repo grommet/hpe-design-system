@@ -173,8 +173,13 @@ export const Search = ({ setOpen }) => {
   const onEnter = () => {
     if (value) {
       if (suggestions.length === 1) {
-        router.push(nameToPath(suggestions[0].value.title));
+        router.push({
+          pathname: nameToPath(suggestions[0].value.title),
+          query: `q=${value}`,
+        });
+        onClose();
       } else {
+        // TODO: Revisit this case and matching scenario
         const matches = allSuggestions.filter(
           c => c.label.toLowerCase() === value.toLowerCase(),
         );
@@ -187,8 +192,8 @@ export const Search = ({ setOpen }) => {
 
   const onSelect = event => {
     const { matches, title } = event.item.value;
-    const query = matches[0][0];
-    console.log(query);
+    const href = nameToPath(title);
+
     let id;
     if (matches) {
       const { index, input } = matches[0];
@@ -205,10 +210,8 @@ export const Search = ({ setOpen }) => {
       });
     }
 
-    const href = id ? `${nameToPath(title)}${id}` : nameToPath(title);
-
     if (internalLink.test(href)) {
-      router.push(href);
+      router.push({ pathname: href, hash: id, query: `q=${value}` });
       onClose();
     } else {
       // external links should open in a new tab
