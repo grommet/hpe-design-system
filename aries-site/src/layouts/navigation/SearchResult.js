@@ -14,7 +14,9 @@ export const SearchResult = ({ query, result }) => {
         {parent && (
           <Box align="center" direction="row" gap="xsmall">
             {parent.icon && parent.icon('8px', parent.color)}
-            <Text size="small">{result.name}</Text>
+            <Text size="small">
+              {result.name === result.title ? parent.name : result.name}
+            </Text>
           </Box>
         )}
         {result.title && (
@@ -25,10 +27,20 @@ export const SearchResult = ({ query, result }) => {
           </Text>
         )}
       </>
-      {result.description && (
+      {result.matches?.length > 0 ? (
         <Paragraph margin="none" fill>
-          <HighlightPhrase phrase={query}>{result.description}</HighlightPhrase>
+          <HighlightPhrase phrase={query}>
+            {result.matches[0].preview}
+          </HighlightPhrase>
         </Paragraph>
+      ) : (
+        result.description && (
+          <Paragraph margin="none" fill>
+            <HighlightPhrase phrase={query}>
+              {result.description}
+            </HighlightPhrase>
+          </Paragraph>
+        )
       )}
     </Box>
   );

@@ -32,7 +32,8 @@
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
-    "lint-fix": "eslint src --fix"
+    "lint-fix": "eslint src --fix",
+    "build-search": "node src/scripts/site-contents.mjs"
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.11.1",
