@@ -377,7 +377,7 @@ export const foundation = [
       
     ],
     relatedContent: [
-
+      'Our Brand',
     ],
     tags: [
 
