@@ -165,6 +165,7 @@ export const SignInExample = () => {
             name="email"
             htmlFor="email-sign-in"
             validate={emailValidation}
+            required={{ indicator: false }}
           >
             <TextInput
               id="email-sign-in"
@@ -177,6 +178,7 @@ export const SignInExample = () => {
             label="Password"
             htmlFor="password-sign-in"
             name="password"
+            required={{ indicator: false }}
           >
             <TextInput
               id="password-sign-in"
