@@ -361,7 +361,7 @@ export const foundation = [
     name: 'Content',
     category: 'Philosophy',
     cardOrder: 6,
-    description: ``,
+    description: '',
     preview: {
       image: {
         src: {
@@ -372,7 +372,7 @@ export const foundation = [
         alt: 'HPE Voice and Tone Preview with two speech bubbles',
       },
     },
-    seoDescription: ``,
+    seoDescription: '',
     sections: [
       
     ],
@@ -387,7 +387,7 @@ export const foundation = [
     name: 'Content Case Study',
     category: 'Philosophy',
     cardOrder: 6,
-    description: ``,
+    description: '',
     preview: {
       image: {
         src: {
@@ -398,7 +398,7 @@ export const foundation = [
         alt: 'HPE Voice and Tone Preview with two speech bubbles',
       },
     },
-    seoDescription: ``,
+    seoDescription: '',
     sections: [
       
     ],
