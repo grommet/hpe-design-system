@@ -1,0 +1,55 @@
+#Implementation
+
+Use these conventions during implementation to exercise good communication both for and with users. 
+
+## Localization
+
+A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, users) will thank you.
+
+- Document all parameter substitution values. When the value is a resource, be specific. Is it a name? Is it a URI? Is it raw JSON that needs to be encapsulated in curly braces? Or is it pre-formatted JSON that includes curly braces?
+- For errors and alerts, document the severity associated with the message.
+- Document the type of message (alert, task, etc).
+- If the message doesn't document (for the user) full details of how this problem occurs or what to do about it, add the details in comments.
+- Some context around the task being performed or the resource category involved is useful.
+- Is the message an API-only message (does not appear in the UI)? If yes, document it as such.
+
+View additional [localization and internationalization](/templates/internationalization) resources.
+
+## User Input
+
+Unless there is a compelling reason, do not limit the character set that a user can use to name things. Names commonly contain non-alphanumeric characters and we must handle them correctly on input and in re-display via messaging. For example:
+
+- _Joe’s system_ (apostrophe for a possessive)
+- _O’Reilly Auto Parts_ (apostrophe in name)
+- _Yahoo! Client_ (company name includes a symbol)
+- _Frank James-Martin_ (Hyphen in name)
+- _DC-NY-East_ (Dashes in internal company identifiers)
+- _Björk Guðmundsdóttir_ (Unicode characters)
+- _联想_ (Unicode characters)
+- _John Q. Public_ (punctuation for abbreviation)
+- _“”>_ (An actual company name in the UK that the UK Companies House had to ban because it broke their systems. See [article](https://idle.slashdot.org/story/20/11/08/2334254/uk-agency-demands-company-stop-using-name-which-includes-an-html-closing-tag).)
+
+Proper encoding/decoding of user-entered input must be performed to prevent SQL/XSS attacks. Input such as the following user input must not cause problems when the user-generated input is later incorporated in application messaging:
+
+- _Robert’); DROP TABLE Students;--_ (see: [https://xkcd.com/327/](https://xkcd.com/327/))
+
+User-generated input can be arbitrarily long. When confronted with displaying user-generated input, plan for the 80% case, but define which of truncation (with hover) or wrapping will be used.
+
+## Maintainability
+
+A best practice for developers is to use parameter substitution in messaging where
+branded names occur.
+
+A product's branding is likely to evolve over time. For example, GreenLake Central
+recently rebranded as Cloud Services. Imagine the multitude of instances to which
+the product name was referred. Use of parameter substitution limits the number changes to
+be made while ensuring brand names are spelled and capitalized consistently in all
+messages. Implementing messages with a parameterized `${prodname}` instead of
+hardcoded messages allows for a product's branding to be changed easily,
+confidently, and comprehensively.
+Lastly, consider formal and informal substitution values which can be used in
+various contexts. For example:
+
+- formal = HPE Ezmeral Container Platform
+- normal = Ezmeral Container Platform
+- short = Container Platform

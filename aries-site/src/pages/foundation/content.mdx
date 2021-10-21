@@ -1,0 +1,79 @@
+import { Anchor, Box, Card, Text } from 'grommet';
+import { StatusCritical, StatusInfo } from 'grommet-icons';
+
+Messaging within HPE applications should be informative, concise, and trustworthy.
+It should be delivered in active, positive, objective, conversational
+American English and written from a third-person [point of view](#point-of-view).
+Executed properly, messaging within HPE applications should leave users
+feeling and perceiving HPE and its products to be intelligent, experienced,
+inclusive, and trustworthy.
+
+## Messaging Voice, Tone, and Content
+
+Many definitions for tone and voice exist, however, reading through the
+various definitions, a common picture emerges:
+
+| Voice                         | Tone                                        |
+| ----------------------------- | ------------------------------------------- |
+| Who they hear                 | What they hear                              |
+| Personality                   | Attitude                                    |
+| How you are doing the writing | Who they hear                               |
+| Style                         | How your message comes across               |
+| What makes us uniquely us     | How we communicate to our specific audience |
+
+### Voice
+
+Voice is who the reader "hears" delivering messaging; embedded within it is the
+worldview of the author. Voice can be spoken, witty, friendly, formal, etc.
+At HPE, the desire is for HPE's voice to be perceived as intelligent, experienced,
+objective, inclusive, and trustworthy; supporting HPE's worldview which
+believes in accelerating what's next, making bold moves, the power of _yes we can_, and
+being a force for good.
+
+A person's voice typically does not change once established. If HPE's voice is
+inconsistent, people will notice. For example, people notice the difference
+between writing academically when compared to sounding like a 5-year old. This
+kind of inconsistency can result in lack of trust.
+
+### Tone
+
+Tone has to do with what is conveyed or how it comes across. It can express seriousness, urgency, playfulness, objectivity, intimacy, condescension, etc.
+
+Unlike voice, tone can change based on the target audience, context, and subject
+matter. It is situational. For example, tone is very different when giving
+directions during an emergency compared to when ordering a pizza.
+
+Because tone is situational, it may be tweaked to appropriately fit the context
+within an HPE application. While tone may change, the message should be consistently
+delivered in [HPE's voice](#voice) supporting the perception of intelligence,
+experience, objectivity, and inclusivity.
+
+## Content References
+//These are placeholder URLs
+- [Guidelines](https://design-system.hpe.design/foundation/content/guidelines): Our quick-reference for creating reliable content. 
+- [Best Practices](https://design-system.hpe.design/foundation/content/best-practices): High-level guidance for content creation.
+- [Implementation](https://design-system.hpe.design/foundation/content/implementation): Content conventions for the implementation process.
+- [Case Study](/foundation/content-case-study): A step-by-step exploration of how we build better content.
+
+export const ClusterExample = ({ children, status, ...rest }) => (
+  <Card
+    direction="row"
+    border
+    round="small"
+    width={{ max: 'large' }}
+    pad="medium"
+    gap="medium"
+    margin={{ bottom: 'medium' }} // to create better spacing on page
+  >
+    {status === 'info' ? (
+      <StatusInfo color="status-unknown" />
+    ) : (
+      <StatusCritical color="status-critical" />
+    )}
+    {typeof children === 'string' ? (
+      <Text weight="bold">{children}</Text>
+    ) : (
+      children
+    )}
+  </Card>
+);

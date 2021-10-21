@@ -1,0 +1,127 @@
+# Case Study
+
+Consider a case with messaging related to a condition where a Kubernetes cluster is running low on available memory. Versions 1-7 highlight bad practices and identify the respective problems within each version. Lastly, a [best practice](#best-practice) example is provided.
+
+## Version 1
+
+<ClusterExample>Cluster out of Memory</ClusterExample>
+
+Problems:
+
+- No punctuation
+- No verb
+- No context (what cluster?)
+- Robotic (robots don't use words like "a", "the", "is")
+- Incorrect capitalization of memory (it is not a proper noun)
+
+## Version 2
+
+<ClusterExample>The ABC cluster is out of memory.</ClusterExample>
+
+Problems:
+
+- It is better to have the resource type (cluster) precede the resource name (ABC).
+- Names are user-specified and can cause readability issues if not quoted or hyperlinks. See what happens if "ABC" is replaced with names like "the", "storage", "Joe's", "obsolete", or any random string containing spaces.
+- What does "out of memory" actually mean? We should be more specific.
+
+## Version 3
+
+<ClusterExample>
+  The cluster "ABC" is using over 95% of its memory.
+</ClusterExample>
+
+Problems:
+
+- Strongly consider hyperlinking any named resource so that a user can directly navigate to it from a notification.
+- 95% of 10TB means that 500GB are still free. But, 95% of 16GB means only 800MB remain. Showing only percentages doesn't offer the user enough context to make a decision.
+
+## Version 4
+
+<ClusterExample>
+  <Text weight="bold">
+    The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB of
+    free memory out of 1TB total).
+  </Text>
+</ClusterExample>
+
+Problems:
+
+- What is the user supposed to do about this? Never raise an issue without offering a solution.
+
+## Version 5
+
+<ClusterExample>
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>Do the needful.</Text>
+  </Box>
+</ClusterExample>
+
+Problems:
+
+- What is the needful? This is a saying not used in conversational American English and does not give the user specific guidance.
+
+## Version 6
+
+<ClusterExample>
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      Remove containers, reduce quotas, or increase the cluster capacity.
+    </Text>
+  </Box>
+</ClusterExample>
+
+Problems:
+
+- The user purchased the cluster to use it. Telling them to stop using it is not going to go over well.
+- Is this really a critical issue? Unused resources are often considered wasted resources. It is actually a good thing to be fully utilizing your hardware.
+- In an aaS world, additional capacity should be a simple add-on to an existing service. As such, this may not be a critical issue, but could be transformed to a lower priority marketing message.
+
+## Version 7
+
+<ClusterExample status="info">
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      If you have plans to increase utilization in the near future, additional
+      capacity can be added by selecting the "Order Capacity" action from the
+      action menu.
+    </Text>
+  </Box>
+</ClusterExample>
+
+Problems:
+
+- If possible, give the user a way to directly perform a mentioned action.
+
+## Best Practice
+
+<ClusterExample status="info">
+  <Box gap="small">
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+      of free memory out of 1TB total).
+    </Text>
+    <Text>
+      If you have plans to increase utilization in the near future, additional
+      capacity can be added by selecting the <Anchor label="Order Capacity" />{' '}
+      action from the action menu.
+    </Text>
+  </Box>
+</ClusterExample>
+
+- Correct capitalization and punctuation is used.
+- The named resource is hyperlinked so that a user can directly navigation to it from a notification.
+- A solution to the issue is provided to the user.
+- Context on how much available memory is provided.
+- The user is given a way to directly perform a mentioned action.

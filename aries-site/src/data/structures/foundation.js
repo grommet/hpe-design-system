@@ -358,12 +358,10 @@ export const foundation = [
     ],
   },
   {
-    name: 'Voice and Tone',
+    name: 'Content',
     category: 'Philosophy',
     cardOrder: 6,
-    description: `Deliver clear, consistent experiences to HPE customers by 
-    following guidelines for the voice and tone of text-based user interface 
-    elements.`,
+    description: ``,
     preview: {
       image: {
         src: {
@@ -374,42 +372,41 @@ export const foundation = [
         alt: 'HPE Voice and Tone Preview with two speech bubbles',
       },
     },
-    seoDescription: `Deliver clear, consistent experiences to HPE customers by 
-    following guidelines for the voice and tone of text-based user interface 
-    elements.`,
+    seoDescription: ``,
     sections: [
-      'Messaging Voice, Tone, and Content',
-      'Voice',
-      'Tone',
-      'Point of View',
-      'Guidelines for Constructing Good Messaging',
-      'Capitalization',
-      'Acronyms & Initialisms',
-      'Branding',
-      'Maintainability',
-      'Language Dos and Donts',
-      'Case Study',
-      'Quoting',
-      'Referring to support',
-      'Localization',
-      'User Input',
-      'Other Common Problems and How To Address Them',
-      'Conversational American English',
-      'British English',
-      'Indian English',
+      
     ],
     relatedContent: [
-      'Accessibility',
-      'Designer Guidance',
-      'Developer Guidance',
+
     ],
     tags: [
-      'message',
-      'voice',
-      'tone',
-      'sentence case',
-      'casing',
-      'capitilization',
+
+    ],
+  },
+  {
+    name: 'Content Case Study',
+    category: 'Philosophy',
+    cardOrder: 6,
+    description: ``,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: ``,
+    sections: [
+      
+    ],
+    relatedContent: [
+
+    ],
+    tags: [
+
     ],
   },
 ];
