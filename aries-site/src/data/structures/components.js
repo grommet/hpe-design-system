@@ -244,7 +244,7 @@ export const components = [
       'Button',
       'Header',
       'Persistent Navigation',
-      'Table',
+      'DataTable',
     ],
     tags: [
       'tooltip',
@@ -610,7 +610,7 @@ export const components = [
       },
     },
     seoDescription: 'A loading state for quick asynchronous tasks.',
-    relatedContent: ['Lists', 'Table', 'Forms'],
+    relatedContent: ['Lists', 'DataTable', 'Forms'],
     sections: [
       'When to use Spinner',
       'Spinner within a list',
@@ -631,9 +631,9 @@ export const components = [
     ],
   },
   {
-    name: 'Table',
+    name: 'DataTable',
     category: 'Visualizations',
-    description: 'Table presents data in a column and row format.',
+    description: 'DataTable presents data in a column and row format.',
     preview: {
       image: {
         src: {
@@ -647,26 +647,26 @@ export const components = [
     relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [
-      'What makes up a table',
+      'What makes up a DataTable',
       'Finding a specific record',
       'Narrowing a result set',
       'Browsing a result set',
       'Assembling a data set',
-      'Setting the width of the table',
+      'Setting the width of a DataTable',
       'Wrapping and truncating',
       'Truncation',
       'Options for Positioning Truncation',
       'Wrapping',
-      'Table behaviors and actions',
+      'DataTable behaviors and actions',
       'Sorting',
       'Resizeable columns',
-      'Searching and filtering tables',
-      'Navigation via table',
+      'Searching and filtering DataTables',
+      'Navigation via DataTable',
       'Selecting multiple records & batch actions',
       'Paginated',
       'Fixing header row and/or columns',
       'Column summaries & aggregation',
-      'Use pagination or infinite scroll with tables',
+      'Use pagination or infinite scroll with DataTables',
     ],
     tags: [
       'data table',
@@ -706,7 +706,7 @@ export const components = [
       'Paginated List',
       'Paginated Cards',
     ],
-    relatedContent: ['Table', 'Lists', 'Card'],
+    relatedContent: ['DataTable', 'Lists', 'Card'],
     tags: ['paginated results', 'paginated data'],
   },
   {
