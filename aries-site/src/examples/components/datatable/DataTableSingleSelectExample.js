@@ -192,7 +192,7 @@ const columns = [
   },
 ];
 
-export const TableSingleSelectExample = () => {
+export const DataTableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetails] = React.useState({});
 

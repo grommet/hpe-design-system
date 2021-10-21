@@ -118,7 +118,7 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const TableSummaryExample = ({ designSystemDemo }) => {
+export const DataTableSummaryExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -132,8 +132,8 @@ export const TableSummaryExample = ({ designSystemDemo }) => {
       </Heading>
       <Box
         align="start"
-      // Height is restricted to keep inline doc page examples more compact.
-      // In production, DataTable height should follow height guidelines.
+        // Height is restricted to keep inline doc page examples more compact.
+        // In production, DataTable height should follow height guidelines.
         height={designSystemDemo ? undefined : 'medium'}
         margin={{ right: 'auto' }}
         overflow="auto"
@@ -157,6 +157,6 @@ export const TableSummaryExample = ({ designSystemDemo }) => {
   );
 };
 
-TableSummaryExample.propTypes = {
+DataTableSummaryExample.propTypes = {
   designSystemDemo: PropTypes.bool,
 };
