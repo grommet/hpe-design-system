@@ -58,7 +58,7 @@ export const ExampleResources = ({
           style={theme.dark ? prism.dark : prism.light}
           codeTagProps={{
             style: {
-              fontSize: '14px',
+              fontSize: theme.text.small.size,
             },
           }}
           wrapLongLines
@@ -112,7 +112,7 @@ export const ExampleResources = ({
             style={theme.dark ? prism.dark : prism.light}
             codeTagProps={{
               style: {
-                fontSize: '14px',
+                fontSize: theme.text.small.size,
               },
             }}
             wrapLongLines
