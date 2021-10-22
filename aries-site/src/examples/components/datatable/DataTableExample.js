@@ -289,7 +289,7 @@ const handleClickRow = obj => {
 };
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const TableExample = ({ designSystemDemo }) => {
+export const DataTableExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -304,7 +304,7 @@ export const TableExample = ({ designSystemDemo }) => {
       <Box
         // Height is restricted to keep inline doc page examples more compact.
         // In production, DataTable height should follow height guidelines.
-        // https://design-system.hpe.design/components/table#setting-the-height-of-a-table
+        // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
         height={designSystemDemo ? undefined : 'medium'}
         overflow="auto"
       >
@@ -331,6 +331,6 @@ export const TableExample = ({ designSystemDemo }) => {
   );
 };
 
-TableExample.propTypes = {
+DataTableExample.propTypes = {
   designSystemDemo: PropTypes.bool,
 };

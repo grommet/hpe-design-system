@@ -22,11 +22,13 @@ export const Example = ({
   background,
   children,
   code, // github code link used to display code inline
+  componentName,
   designer, // link to grommet designer example
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
+  grommetSource, // link to Grommet component source code
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
@@ -118,15 +120,17 @@ export const Example = ({
     guidance ||
     screenContainer ||
     template) && (
-    <ExampleControls
-      designer={designer}
-      docs={docs}
-      figma={figma}
-      guidance={guidance}
-      horizontalLayout={horizontalLayout}
-      setShowLayer={value => setShowLayer(value)}
-    />
-  );
+      <ExampleControls
+        componentName={componentName}
+        designer={designer}
+        docs={docs}
+        figma={figma}
+        grommetSource={grommetSource}
+        guidance={guidance}
+        horizontalLayout={horizontalLayout}
+        setShowLayer={value => setShowLayer(value)}
+      />
+    );
 
   const resources = (
     <ExampleResources
@@ -256,6 +260,7 @@ Example.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
+  componentName: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -269,6 +274,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   github: PropTypes.string,
+  grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,

@@ -338,7 +338,7 @@ export const foundation = [
       'T-shirt sizing for spacing and other styles',
       'Composability and scaling between t-shirt sizes',
     ],
-    relatedContent: ['Box', 'Typography', 'Grid', 'Table'],
+    relatedContent: ['Box', 'Typography', 'Grid', 'DataTable'],
     tags: [
       'sizing',
       't-shirt sizes',
