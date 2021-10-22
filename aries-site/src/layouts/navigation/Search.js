@@ -175,7 +175,7 @@ export const Search = ({ setOpen }) => {
       if (suggestions.length === 1) {
         router.push({
           pathname: nameToPath(suggestions[0].value.title),
-          query: `q=${value}`,
+          query: value && `q=${value}`,
         });
         onClose();
       } else {
@@ -184,7 +184,11 @@ export const Search = ({ setOpen }) => {
           c => c.label.toLowerCase() === value.toLowerCase(),
         );
         if (matches.length === 1) {
-          router.push(nameToPath(matches[0].value.title));
+          router.push({
+            pathname: nameToPath(matches[0].value.title),
+            query: value && `q=${value}`,
+          });
+          onClose();
         }
       }
     }
@@ -195,7 +199,7 @@ export const Search = ({ setOpen }) => {
     const href = nameToPath(title);
 
     let id;
-    if (matches) {
+    if (matches && matches.length > 0) {
       const { index, input } = matches[0];
       const regexp = new RegExp(/#{1,} (...+?)(?<= \/{4})/, 'g');
       const headings = [...input.matchAll(regexp)];
@@ -211,7 +215,7 @@ export const Search = ({ setOpen }) => {
     }
 
     if (internalLink.test(href)) {
-      router.push({ pathname: href, hash: id, query: `q=${value}` });
+      router.push({ pathname: href, hash: id, query: value && `q=${value}` });
       onClose();
     } else {
       // external links should open in a new tab

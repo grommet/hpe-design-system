@@ -78,13 +78,13 @@ const StyledList = () => {
     <List
       data={data}
       pad="small"
-      action={item => (
-        <Box direction="row" align="center" gap="medium">
+      action={(item, index) => (
+        <Box key={index} direction="row" align="center" gap="medium">
           {size !== 'small' && (
             <Text
               weight="bold"
               size="xsmall"
-              color={!item.active && 'text-weak'}
+              color={!item.active ? 'text-weak' : null}
             >
               {item.active ? 'Active' : 'Inactive'}
             </Text>
@@ -99,16 +99,22 @@ const StyledList = () => {
       margin={size === 'small' ? { bottom: 'large' } : undefined}
     >
       {(datum, index) => (
-        <Box gap="medium" direction="row" align="center" justify="between">
+        <Box
+          key={index}
+          gap="medium"
+          direction="row"
+          align="center"
+          justify="between"
+        >
           <Box alignSelf="center">
-            {datum.icon(!datum.active && 'text-xweak')}
+            {datum.icon(!datum.active && 'text-weak')}
           </Box>
-          <Box align="center" gap="medium" key={index}>
+          <Box align="center" gap="medium">
             <Box>
-              <Text weight="bold" color={!datum.active && 'text-xweak'}>
+              <Text weight="bold" color={!datum.active ? 'text-weak' : null}>
                 {datum.user}
               </Text>
-              <Text color={!datum.active && 'text-xweak'}>{datum.ip}</Text>
+              <Text color={!datum.active ? 'text-weak' : null}>{datum.ip}</Text>
             </Box>
           </Box>
         </Box>
@@ -229,12 +235,12 @@ const ScreenContainer = ({ mobile, ...rest }) => {
 };
 
 export const ListScreenExample = ({ ...rest }) => (
-    <ScreenContainer {...rest}>
-      <AppHeaderExample />
-      <PageHeaderExample title="User Controls" />
-      <StyledList />
-    </ScreenContainer>
-  );
+  <ScreenContainer {...rest}>
+    <AppHeaderExample />
+    <PageHeaderExample title="User Controls" />
+    <StyledList />
+  </ScreenContainer>
+);
 
 PageHeaderExample.propTypes = {
   title: PropTypes.string,

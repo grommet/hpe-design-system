@@ -21,7 +21,7 @@ export const SearchResult = ({ query, result }) => {
         )}
         {result.title && (
           <Text size="large" color="text-strong">
-            <HighlightPhrase phrase={query} size="large">
+            <HighlightPhrase phrase={query} fade={false} size="large">
               {result.title}
             </HighlightPhrase>
           </Text>
@@ -29,14 +29,14 @@ export const SearchResult = ({ query, result }) => {
       </>
       {result.matches?.length > 0 ? (
         <Paragraph margin="none" fill>
-          <HighlightPhrase phrase={query}>
+          <HighlightPhrase phrase={query} fade={false}>
             {result.matches[0].preview}
           </HighlightPhrase>
         </Paragraph>
       ) : (
         result.description && (
           <Paragraph margin="none" fill>
-            <HighlightPhrase phrase={query}>
+            <HighlightPhrase phrase={query} fade={false}>
               {result.description}
             </HighlightPhrase>
           </Paragraph>
