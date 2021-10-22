@@ -161,11 +161,11 @@ export const SignInExample = () => {
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
           <FormField
-            required
             label="Email"
             name="email"
             htmlFor="email-sign-in"
             validate={emailValidation}
+            required={{ indicator: false }}
           >
             <TextInput
               id="email-sign-in"
@@ -175,10 +175,10 @@ export const SignInExample = () => {
             />
           </FormField>
           <FormField
-            required
             label="Password"
             htmlFor="password-sign-in"
             name="password"
+            required={{ indicator: false }}
           >
             <TextInput
               id="password-sign-in"
