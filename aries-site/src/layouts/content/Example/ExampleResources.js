@@ -56,6 +56,11 @@ export const ExampleResources = ({
         <SyntaxHighlighter
           tabIndex="0"
           style={theme.dark ? prism.dark : prism.light}
+          codeTagProps={{
+            style: {
+              fontSize: '14px',
+            },
+          }}
           wrapLongLines
           language="javascript"
         >
@@ -105,6 +110,11 @@ export const ExampleResources = ({
           <SyntaxHighlighter
             tabIndex="0"
             style={theme.dark ? prism.dark : prism.light}
+            codeTagProps={{
+              style: {
+                fontSize: '14px',
+              },
+            }}
             wrapLongLines
             language="javascript"
           >
