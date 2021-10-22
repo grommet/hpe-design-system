@@ -1,3 +1,6 @@
+import { Button, Box, Card, Text } from 'grommet';
+import { Link, CirclePlay } from 'grommet-icons';
+
 At HPE, we believe in being a force for good. We solve for humanity with humanity.
 We use technology to make the world better. We are unconditionally inclusive.
 **We believe that being accessible is a requirement, not an option**.
@@ -23,7 +26,22 @@ design and development tools for all teams to build accessible applications.
 Get started with these [resources and tools](#resources) to perform a
 baseline audit of the accessibility of your application.
 
-## Accessibility in design
+## Designer and Software Developer Guides
+
+The following accessibility guides are HPE internal links that offer relevant information to help designers and developers create accessibile products that meet the requirements of HPE’s clients.
+
+<GuideCards />
+<Button
+  alignSelf="start"
+  href="https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx"
+  label="View all guides"
+  size="large"
+  target="_blank"
+  rel="noreferrer noopener"
+  primary
+/>
+
+## Accessibility in Design
 
 Usability testing and best practice research build the foundation for all
 design decisions. Each HPE Design System Figma file contains a "Use Cases
@@ -38,7 +56,7 @@ standards. Notably, text colors are accessible on
 [background colors](/foundation/color#background-colors) and call-to-action
 colors, like [HPE Green](/foundation/color#green-color-accessibility).
 
-## Accessibility in development
+## Accessibility in Development
 
 We recommend you develop your apps using [Grommet](https://v2.grommet.io/)
 because it seamlessly integrates with [grommet-theme-hpe](https://github.com/grommet/grommet-theme-hpe)
@@ -75,3 +93,76 @@ As a designer or developer, we are morally responsible for creating accessible p
 - [ANDI Browser Tool](https://www.ssa.gov/accessibility/andi/help/install.html): Activate on a page to check the accessibility of images, headings, color contrast, data tables, links, and more.
 - [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/): Check color contrast ratios of specific color values to identify if they meet WCAG AA and/or AAA standards.
 - [Colorblind Web Page Filter](https://www.toptal.com/designers/colorfilter/): See what your application looks like to users with various types of colorblindness.
+
+export const guides = [
+  {
+    title: 'Complex Images in Software',
+    link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EYWU1LUDz8xLhVu-omWEYpwB9ZcpjszrA0hMC7vjSx5jiA?e=EctwhC',
+  },
+  {
+    title: 'Links and HyperLinks',
+    link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EXN7DvqsNvBEmfKD1ScESIMBBqFCSjtygi79PSQwJ_jWFQ?e=YnAjhe',
+  },
+  {
+    title: 'Evaluation Tools and Toolbars',
+    link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EbNhmRbHK6BCsiyLbRRNaE0BQZQlM3D2lVM60cL3nPR67g?e=dgfrFs',
+  },
+  {
+    title: 'Documentation to Inform and Enable ',
+    link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EbKbkBd8q2NLkmc2KKz5j_4BnuVCs6voFzhH2KwKuqFFIQ?e=ZcMBfn',
+  },
+];
+
+export const LinkCard = ({title, link}) => (
+  <Card
+    direction="row"
+    round="small"
+    width="medium"
+    pad="medium"
+    gap="medium"
+    margin={{ bottom: 'medium' }}
+    onClick={() => window.open(link, "_blank")}
+  >
+    <Box 
+      pad={{ vertical: "small", left: 'small', right: 'medium' }} 
+      round="small" 
+      background="background-back"
+    >
+      <Link size="large"/>
+    </Box>
+    <Text weight="bold" size="xlarge">{title}</Text>
+  </Card>
+);
+
+export const GuideCards = () => {
+  const guides = [
+    {
+      title: 'Complex Images in Software',
+      link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EYWU1LUDz8xLhVu-omWEYpwB9ZcpjszrA0hMC7vjSx5jiA?e=EctwhC',
+    },
+    {
+      title: 'Links and HyperLinks',
+      link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EXN7DvqsNvBEmfKD1ScESIMBBqFCSjtygi79PSQwJ_jWFQ?e=YnAjhe',
+    },
+    {
+      title: 'Evaluation Tools and Toolbars',
+      link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EbNhmRbHK6BCsiyLbRRNaE0BQZQlM3D2lVM60cL3nPR67g?e=dgfrFs',
+    },
+    {
+      title: 'Documentation to Inform and Enable ',
+      link: 'https://hpe.sharepoint.com/:b:/s/F5/CTO/Office/Accessibility/EbKbkBd8q2NLkmc2KKz5j_4BnuVCs6voFzhH2KwKuqFFIQ?e=ZcMBfn',
+    },
+  ];
+  return (
+    <>
+      <Box 
+        wrap
+        direction="row-responsive"
+        gap="medium" 
+        margin={{ bottom: 'medium' }}
+      >
+        {guides.map((item) => <LinkCard title={item.title} link={item.link}/>)}
+      </Box>
+    </>
+  );
+};
