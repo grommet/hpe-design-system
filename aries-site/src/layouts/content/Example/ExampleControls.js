@@ -139,12 +139,11 @@ ExampleControls.propTypes = {
   setShowLayer: PropTypes.func,
 };
 
-const FullscreenButton = ({ buttonSize, horizontalLayout, setShowLayer }) => (
+const FullscreenButton = ({ buttonSize, setShowLayer }) => (
   <Button
     icon={<Expand />}
     a11yTitle="See Fullscreen"
-    label={!horizontalLayout && 'See Fullscreen'}
-    title="See Fullscreen"
+    tip="See Fullscreen"
     onClick={() => setShowLayer(true)}
     size={buttonSize}
   />
@@ -152,6 +151,5 @@ const FullscreenButton = ({ buttonSize, horizontalLayout, setShowLayer }) => (
 
 FullscreenButton.propTypes = {
   buttonSize: PropTypes.string,
-  horizontalLayout: PropTypes.bool,
   setShowLayer: PropTypes.func,
 };
