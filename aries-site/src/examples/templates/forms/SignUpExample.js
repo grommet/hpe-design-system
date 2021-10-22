@@ -144,7 +144,7 @@ export const SignUpExample = () => {
             htmlFor="email-sign-up"
             name="email"
             validate={emailValidation}
-            required
+            required={{ indicator: false }}
           >
             <MaskedInput
               id="email-sign-up"
@@ -157,7 +157,7 @@ export const SignUpExample = () => {
             label="Full Name"
             htmlFor="fullName-sign-up"
             name="fullName"
-            required
+            required={{ indicator: false }}
           >
             <TextInput
               id="fullName-sign-up"
@@ -170,7 +170,7 @@ export const SignUpExample = () => {
             validate={passwordRequirements}
             htmlFor="password-sign-up"
             name="password"
-            required
+            required={{ indicator: false }}
             info={
               <List data={passwordRules} border={{ color: 'none' }} pad="none">
                 {rule => {
