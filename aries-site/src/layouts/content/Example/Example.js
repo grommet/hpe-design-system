@@ -120,17 +120,17 @@ export const Example = ({
     guidance ||
     screenContainer ||
     template) && (
-    <ExampleControls
-      componentName={componentName}
-      designer={designer}
-      docs={docs}
-      figma={figma}
-      grommetSource={grommetSource}
-      guidance={guidance}
-      horizontalLayout={horizontalLayout}
-      setShowLayer={value => setShowLayer(value)}
-    />
-  );
+      <ExampleControls
+        componentName={componentName}
+        designer={designer}
+        docs={docs}
+        figma={figma}
+        grommetSource={grommetSource}
+        guidance={guidance}
+        horizontalLayout={horizontalLayout}
+        setShowLayer={value => setShowLayer(value)}
+      />
+    );
 
   const resources = (
     <ExampleResources
