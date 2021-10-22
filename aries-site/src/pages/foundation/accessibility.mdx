@@ -31,15 +31,6 @@ baseline audit of the accessibility of your application.
 The following accessibility guides are HPE internal links that offer relevant information to help designers and developers create accessibile products that meet the requirements of HPE’s clients.
 
 <GuideCards />
-<Button
-  alignSelf="start"
-  href="https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx"
-  label="View all guides"
-  size="large"
-  target="_blank"
-  rel="noreferrer noopener"
-  primary
-/>
 
 ## Accessibility in Design
 
@@ -154,13 +145,24 @@ export const GuideCards = () => {
     },
   ];
   return (
-    <Box 
-      wrap
-      direction="row-responsive"
-      gap="medium" 
-      margin={{ bottom: 'medium' }}
-    >
-      {guides.map((item) => <LinkCard title={item.title} link={item.link}/>)}
-    </Box>
+    <>
+      <Box 
+        wrap
+        direction="row-responsive"
+        gap="medium" 
+        margin={{ bottom: 'medium' }}
+      >
+        {guides.map((item) => <LinkCard title={item.title} link={item.link}/>)}
+      </Box>
+      <Button
+        alignSelf="start"
+        href="https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx"
+        label="View all guides"
+        size="large"
+        target="_blank"
+        rel="noreferrer noopener"
+        primary
+      />
+    </>
   );
 };
