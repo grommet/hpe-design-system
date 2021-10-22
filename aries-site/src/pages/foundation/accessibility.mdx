@@ -154,15 +154,13 @@ export const GuideCards = () => {
     },
   ];
   return (
-    <>
-      <Box 
-        wrap
-        direction="row-responsive"
-        gap="medium" 
-        margin={{ bottom: 'medium' }}
-      >
-        {guides.map((item) => <LinkCard title={item.title} link={item.link}/>)}
-      </Box>
-    </>
+    <Box 
+      wrap
+      direction="row-responsive"
+      gap="medium" 
+      margin={{ bottom: 'medium' }}
+    >
+      {guides.map((item) => <LinkCard title={item.title} link={item.link}/>)}
+    </Box>
   );
 };
