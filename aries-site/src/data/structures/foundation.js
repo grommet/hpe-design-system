@@ -373,15 +373,9 @@ export const foundation = [
       },
     },
     seoDescription: '',
-    sections: [
-      
-    ],
-    relatedContent: [
-      'Our Brand',
-    ],
-    tags: [
-
-    ],
+    sections: [],
+    relatedContent: ['Our Brand'],
+    tags: [],
   },
   {
     name: 'Content Case Study',
@@ -399,14 +393,8 @@ export const foundation = [
       },
     },
     seoDescription: '',
-    sections: [
-      
-    ],
-    relatedContent: [
-'Our Brand'
-    ],
-    tags: [
-
-    ],
+    sections: [],
+    relatedContent: ['Our Brand'],
+    tags: [],
   },
 ];
