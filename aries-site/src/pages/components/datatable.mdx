@@ -3,50 +3,54 @@ import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   PaginationTableExample,
-  TableAnatomy,
-  TableExample,
-  TableFixedHeaderExample,
-  TableMultiSelectExample,
-  TableResizeColumnsExample,
-  TableSingleSelectExample,
-  TableSortable,
-  TableSummaryExample,
+  DataTableAnatomy,
+  DataTableExample,
+  DataTableFixedHeaderExample,
+  DataTableMultiSelectExample,
+  DataTableResizeColumnsExample,
+  DataTableSingleSelectExample,
+  DataTableSortable,
+  DataTableSummaryExample,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableExample.js"
+  componentName="DataTable"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/datatable//DataTable.js"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableExample />
+  <DataTableExample />
 </Example>
 
-## What makes up a table?
+## What makes up a DataTable?
 
-Tables enable users to accomplish a task by finding records of interest, then take action against them.
+DataTables enable users to accomplish a task by finding records of interest, then take action against them.
 They present structured data in a grid, with columns and rows to aid readability, scanability, and show
 the meaning of the data.
 
-<TableAnatomy />
+<DataTableAnatomy />
 
-**Controls**<br />
-Table controls should live above the table and facilitate a user's ability to locate and
+**Controls**
+
+DataTable controls should live above the table and facilitate a user's ability to locate and
 take actions against records of interest. A controls section may contain [search and filter
 controls](#searching-and-filtering-tables), as well as [action controls](#selecting-multiple-records-and-batch-actions)
 such as batch applying settings or data export.
 
-**Table header**<br />
+**DataTable header**
+
 Contain table header cells concisely labeling the column's contents.
 Column headers may be enhanced by enabling [sorting](#sorting).
 
-**Table body**<br />
+**DataTable body**<br />
 Consists of rows allowing users to scan, read and take action on the data.
 Rows may be enhanced by enabling actions such as [record selection](#selecting-single-records) and
 navigation to a record's detailed view.
 
-**Table footer**<br />
+**DataTable footer**<br />
 Optional. Used for presenting summary counts, sums, averages, and other [aggregations](#column-summaries-and-aggregation).
 
 <!--
@@ -58,9 +62,7 @@ status indicators, anchors, and buttons.
 
 ## When to use
 
-Users interacting with a Table are trying to accomplish one of the following types of tasks.
-They are not, however, trying to do all of these tasks at once.
-Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which
+Users interacting with a DataTable are trying to accomplish one of the following types of tasks. They are not, however, trying to do all of these tasks at once. Keeping "what is the user setting out to accompish?" at the center of our mindset helps guide which
 table features to include and, more importantly, exclude when we add a Table to our interfaces.
 
 ### Finding a specific record
@@ -85,7 +87,7 @@ quickly as possible.
 ### Narrowing a result set
 
 When a user is looking to focus on a group of records sharing similar characteristics,
-providing thoughtful filter controls allows for incremental reduction of the table's
+providing thoughtful filter controls allows for incremental reduction of the DataTable's
 result set.
 
 - Provide filter controls.
@@ -119,11 +121,11 @@ potential outliers or records which the user is unaware need attention or action
 
 ### Assembling a data set
 
-Distinct from the user objectives above, tables containing data for analytical
-purposes deserve distinct treatments as well. While tables are useful for
+Distinct from the user objectives above, data tables containing data for analytical
+purposes deserve distinct treatments as well. While data tables are useful for
 providing initial "discovery" type insights, such as identifying available attributes
 and ranges of values, purpose built tools are often a better choice for conducting
-in depth analysis. In this scenario, a table's design should be optimized for
+in depth analysis. In this scenario, a data table's design should be optimized for
 assembling the data set for analysis and easy portability of that data into the
 user's preferred analytical tool.
 
@@ -163,23 +165,23 @@ accessible in a tool specifically designed for analysis.
 
 ## Guidelines
 
-### Setting the width of the table
+### Setting the width of a DataTable
 
-- Use the correct set of columns, prioritizing frequently used ones. Don't add more columns just because the data is there, as this will clutter the table.
+- Use the correct set of columns, prioritizing frequently used ones. Don't add more columns just because the data is there, as this will clutter the data table.
 - To support readability, make tables only as wide as they need to be and no wider. If the content does not need a large width, prevent the table from stretching.
-- Limit the whitespace on individual columns by using size for table columns.
-- When the table has the potential to be wider than the screen:
+- Limit the whitespace on individual columns by using size for data table columns.
+- When the data table has the potential to be wider than the screen:
   - Use 'pin' to anchor the primary column to preserve row context.
-  - Use horizontal scrolling within the table, as opposed to scrolling at the level of the entire page
-- When the table has the potential to be narrower than its layout context:
+  - Use horizontal scrolling within the data table, as opposed to scrolling at the level of the entire page
+- When the data table has the potential to be narrower than its layout context:
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
-  - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
+  - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the data table and prevents them from being orphaned. However, don't force the header above the data table to align its width to the data table, as that might compress the contents of the header too much.
 
-  ### Setting the height of a table
+  ### Setting the height of a DataTable
 
-- Let the data set the height of the Table. The Table will grow in height as the length of data increases.
-- If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that each page of table results be limited to 20 records. For more information on pagination, read [Pagination guidance].(/components/pagination#when-to-use)
-- Do not restrict the height of a table if the page has available space. This may introduce unnecessary scrolling.
+- Let the data set the height of the data table. The data table will grow in height as the length of data increases.
+- If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that each page of data table results be limited to 20 records. For more information on pagination, read [Pagination guidance].(/components/pagination#when-to-use)
+- Do not restrict the height of a data table if the page has available space. This may introduce unnecessary scrolling.
 - If the height of a Table needs to be restricted, set `overflow=“auto”` on its parent Box to allow the user to scroll through the data.
 
 ### Wrapping and truncating
@@ -227,16 +229,16 @@ Wrapping should be used when:
 
 ### Accessibility
 
-To ensure screen readers are able to associate a page heading with a given table, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the table, it will announce the Heading content which provides the user with better context about the table data and purpose.
+To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
 
-For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the table.
+For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
 
 ```
 <Heading id="storage-pools-heading">Storage Pools</Heading>
 <DataTable aria-describedBy="storage-pools-heading" />
 ```
 
-## Table behaviors & actions
+## DataTable behaviors & actions
 
 ### Sorting
 
@@ -244,12 +246,12 @@ Column headers behave as a button and perform the sort action. A caret icon indi
 the directionality and to which column the sort is currently applied.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSortable.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableSortable.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableSortable />
+  <DataTableSortable />
 </Example>
 
 ### Resizeable columns
@@ -258,15 +260,15 @@ Columns can be resized if a DataTable has the `resizeable` prop applied. Column 
 dragging the right side of its header to the left or to the right to expand the column.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableResizeColumnsExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableResizeColumnsExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableResizeColumnsExample />
+  <DataTableResizeColumnsExample />
 </Example>
 
-### Searching and filtering tables
+### Searching and filtering DataTables
 
 Complimenatary elements such as search or filters should be guided by the task the user
 is setting out to accomplish.
@@ -277,18 +279,18 @@ is setting out to accomplish.
 
 See [Filtering](/templates/filtering) for greater detail.
 
-### Navigation via table
+### Navigation via DataTable
 
-Clicking on a table row takes the user to a context where the most prominent heading matches the primary column text.
+Clicking on a data table row takes the user to a context where the most prominent heading matches the primary column text.
 This context could either be a page or a modal. In this example, clicking on a table row navigates to a detail page.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableSingleSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableSingleSelectExample />
+  <DataTableSingleSelectExample />
 </Example>
 
 ### Selecting multiple records & batch actions
@@ -297,12 +299,12 @@ Checkboxes allow for selection of multiple records, which then may apply
 batch actions via action control buttons or menus.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableMultiSelectExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableMultiSelectExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableMultiSelectExample />
+  <DataTableMultiSelectExample />
 </Example>
 
 ### Paginated
@@ -325,26 +327,26 @@ Fixing or pinning header rows, columns, or footers allow users to track and
 maintain context across long and wide data sets.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableFixedHeaderExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableFixedHeaderExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableFixedHeaderExample />
+  <DataTableFixedHeaderExample />
 </Example>
 
 ### Column summaries & aggregation
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSummaryExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableSummaryExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <TableSummaryExample />
+  <DataTableSummaryExample />
 </Example>
 
-### Use pagination or infinite scroll with tables
+### Use pagination or infinite scroll with DataTables
 
 Should be guided by the task the user is setting out to accomplish.
 

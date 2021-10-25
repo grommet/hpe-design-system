@@ -38,7 +38,14 @@ export const LayerExample = () => {
               <Heading level={2} margin="none">
                 This is a Layer.
               </Heading>
-              <Button icon={<FormClose />} onClick={onClose} />
+              <Button
+                a11yTitle={`You are on a Close button in a layer containing
+                a text description. To close the layer 
+                and return to the primary content, press Enter.`}
+                autoFocus
+                icon={<FormClose />}
+                onClick={onClose}
+              />
             </Header>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
@@ -46,9 +53,6 @@ export const LayerExample = () => {
                 vertically. You can add content in here such as a Form or a
                 Chart.
               </Text>
-            </Box>
-            <Box flex={false} align="start">
-              <Button label="Close Layer" primary onClick={onClose} />
             </Box>
           </Box>
         </Layer>
