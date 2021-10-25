@@ -5,7 +5,10 @@ import Eyes from '@applitools/eyes-testcafe';
 import { baseUrl, startResponsiveSnapshots } from '../utils';
 
 const testAllDisplays = async (eyes, t) => {
-  const fullScreenButton = Selector('button').withText('See Fullscreen');
+  const fullScreenButton = Selector('button').withAttribute(
+    'aria-label',
+    'See Fullscreen',
+  );
   const laptopButton = Selector('button').withText('Laptop');
   const mobileButton = Selector('button').withText('Mobile');
 
