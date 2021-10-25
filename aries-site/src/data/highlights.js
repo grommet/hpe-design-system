@@ -56,8 +56,8 @@ export const highlights = [
     },
   },
   {
-    name: 'Table',
-    summary: 'A table is a structured of data made up of rows and columns',
+    name: 'DataTable',
+    summary: 'A DataTable is a structure of data made up of rows and columns',
     image: {
       src: {
         light: '/highlightImages/table.svg',
