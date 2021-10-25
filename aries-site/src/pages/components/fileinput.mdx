@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  FileInputConfirmRemoveExample,
   FileInputSimpleExample,
   FileInputMultipleExample,
 } from '../../examples/components/fileinput';
@@ -45,6 +46,19 @@ To allow multiple files to be uploaded, add the prop `multiple`.
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputMultipleExample.js"
 >
   <FileInputMultipleExample />
+</Example>
+
+### FileInput with file removal confirmation
+
+In some cases, it may be appropriate to display a confirmation modal when a user attempts to remove a file. For example, if any time consuming file scanning processes have occurred, a confirmation modal should be used to avoid accidental file removal which results in the user needing to go through the file scanning processes again.
+
+To see this behavior, add a file then click the "Trash" button to see the confirmation.
+
+<Example
+  docs="https://v2.grommet.io/fileinput?theme=hpe#multiple"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputConfirmRemoveExample.js"
+>
+  <FileInputConfirmRemoveExample />
 </Example>
 
 ### FileInput within a Form
