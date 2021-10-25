@@ -2,24 +2,14 @@ import { Anchor as GrommetAnchor, Box, Text } from 'grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   AnchorExample,
+  AnchorBadExample,
   AnchorDisabledExample,
   AnchorExternalExample,
+  AnchorGoodExample,
   AnchorInlineExample,
   AnchorWeightExample,
   SignUpExample,
 } from '../../examples';
-
-<BestPracticeGroup>
-  <Example  height="none" bestPractice={{type: 'do', message: 'Use label text that is descriptive about where the anchor will lead the user.'}}>
-    <AnchorExample />
-  </Example>
-  <Example
-    height="none"
-    bestPractice={{type: 'dont', message: `Don't use vague text like "Click here".`}}
-  >
-    <AnchorExample />
-  </Example>
-</BestPracticeGroup>
 
 <Example
   componentName="Anchor"
@@ -52,6 +42,21 @@ If a clickable element is intended to appear with a background color, border, of
 ### Anchor Labeling
 
 It is important that your anchor clearly states to what content the anchor leads. For example, labels such as "Account Information" or "How to change account credentials" are both effective labels that allow the user to have confidence in where the anchor will lead them.
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{type: 'do', message: 'Use label text that is descriptive about where the anchor will lead the user.'}}
+  >
+    <AnchorGoodExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{type: 'dont', message: `Use vague text like "Click here" because it doesn't provide meaning to users that rely on screen readers.`}}
+  >
+    <AnchorBadExample />
+  </Example>
+</BestPracticeGroup>
 
 ### Accessibility
 

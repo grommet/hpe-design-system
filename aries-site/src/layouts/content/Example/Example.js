@@ -5,6 +5,7 @@ import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
   Container,
+  DoDontContainer,
   ExampleControls,
   ExampleResources,
   HorizontalExample,
@@ -58,7 +59,10 @@ export const Example = ({
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
-  const ExampleContainer = plain ? Box : Container;
+  let ExampleContainer;
+  if (plain) ExampleContainer = Box;
+  else if (bestPractice) ExampleContainer = DoDontContainer;
+  else ExampleContainer = Container;
 
   // These props control the styling of the example within the overall example
   // container
@@ -122,17 +126,17 @@ export const Example = ({
     guidance ||
     screenContainer ||
     template) && (
-      <ExampleControls
-        componentName={componentName}
-        designer={designer}
-        docs={docs}
-        figma={figma}
-        grommetSource={grommetSource}
-        guidance={guidance}
-        horizontalLayout={horizontalLayout}
-        setShowLayer={value => setShowLayer(value)}
-      />
-    );
+    <ExampleControls
+      componentName={componentName}
+      designer={designer}
+      docs={docs}
+      figma={figma}
+      grommetSource={grommetSource}
+      guidance={guidance}
+      horizontalLayout={horizontalLayout}
+      setShowLayer={value => setShowLayer(value)}
+    />
+  );
 
   const resources = (
     <ExampleResources
