@@ -33,7 +33,11 @@ export const GuideCards = () => {
         >
             {
                 guides.map((item) => 
-                    <LinkCard key={item.title} title={item.title} link={item.link}/>
+                    <LinkCard 
+                        key={item.title} 
+                        title={item.title} 
+                        link={item.link}
+                    />,
                 )
             }
         </Grid>
@@ -49,4 +53,3 @@ export const GuideCards = () => {
       </>
     );
   };
-  

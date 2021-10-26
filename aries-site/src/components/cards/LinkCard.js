@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Link as LinkIcon } from 'grommet-icons';
 
-export const LinkCard = ({title, link}) => {
+export const LinkCard = ({ title, link }) => {
     const Wrapper = Link;
     const wrapperProps = {
         href: link,
