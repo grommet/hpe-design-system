@@ -5,6 +5,7 @@ import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
   Container,
+  DoDontContainer,
   ExampleControls,
   ExampleResources,
   HorizontalExample,
@@ -20,6 +21,7 @@ export const screens = {
 
 export const Example = ({
   background,
+  bestPractice,
   children,
   code, // github code link used to display code inline
   componentName,
@@ -57,11 +59,15 @@ export const Example = ({
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
-  const ExampleContainer = plain ? Box : Container;
+  let ExampleContainer;
+  if (plain) ExampleContainer = Box;
+  else if (bestPractice) ExampleContainer = DoDontContainer;
+  else ExampleContainer = Container;
 
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    bestPractice,
     designer,
     docs,
     figma,
@@ -120,17 +126,17 @@ export const Example = ({
     guidance ||
     screenContainer ||
     template) && (
-      <ExampleControls
-        componentName={componentName}
-        designer={designer}
-        docs={docs}
-        figma={figma}
-        grommetSource={grommetSource}
-        guidance={guidance}
-        horizontalLayout={horizontalLayout}
-        setShowLayer={value => setShowLayer(value)}
-      />
-    );
+    <ExampleControls
+      componentName={componentName}
+      designer={designer}
+      docs={docs}
+      figma={figma}
+      grommetSource={grommetSource}
+      guidance={guidance}
+      horizontalLayout={horizontalLayout}
+      setShowLayer={value => setShowLayer(value)}
+    />
+  );
 
   const resources = (
     <ExampleResources
@@ -255,6 +261,10 @@ export const Example = ({
 
 Example.propTypes = {
   background: PropTypes.string,
+  bestPractice: PropTypes.shape({
+    type: PropTypes.oneOf(['do', 'dont']).isRequired,
+    message: PropTypes.string,
+  }),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,

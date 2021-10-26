@@ -1,5 +1,7 @@
+export * from './BestPracticeGroup';
 export * from './BrowserWrapper';
 export * from './Container';
+export * from './DoDontContainer';
 export * from './Example';
 export * from './ExampleControls';
 export * from './ExampleResources';
