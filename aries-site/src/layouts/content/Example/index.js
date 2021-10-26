@@ -8,4 +8,3 @@ export * from './ExampleResources';
 export * from './HorizontalExample';
 export * from './ResponsiveControls';
 export * from './ResponsiveContainer';
-export * from './syntax';
