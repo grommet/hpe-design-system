@@ -6,6 +6,14 @@
 
 #### What testing has been done on this PR?
 
+In addition to the feature you are implementing, have you checked the following:
+- [ ] Console is free of warnings and errors
+- [ ] Light & dark modes
+- [ ] Small, medium, and large screen sizes
+- [ ] Cross-browsers (FireFox, Chrome, and Safari)
+- [ ] Keyboard interactions
+- [ ] Screen reader experience
+
 #### How should this be manually tested?
 
 #### Any background context you want to provide?
