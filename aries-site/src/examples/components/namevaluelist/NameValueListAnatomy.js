@@ -58,9 +58,8 @@ const CircleBox = ({ id, target }) => (
   <Box
     id={id}
     align="center"
-    pad="xsmall"
-    round="large"
-    width="xxsmall"
+    pad={{ horizontal: 'small', vertical: 'xxsmall' }}
+    round
     background="background-front"
   >
     <Text weight="bold">{target}</Text>
