@@ -42,21 +42,21 @@ const connections = [
   },
 ];
 
-const AnatomyBox = ({ background, id, visualBackground, visualId }) => (
+const AnatomyBox = ({ background, id, visualId }) => (
   <Box direction="row" gap="medium">
     <Box
       id={visualId}
       height="xxsmall"
       width="xxsmall"
-      background={visualBackground}
+      background={background}
       round="xxsmall"
     />
-    <Box 
-        id={id} 
-        height="xxsmall" 
-        width="small" 
-        background={background} 
-        round="xxsmall"
+    <Box
+      id={id}
+      height="xxsmall"
+      width="small"
+      background={background}
+      round="xxsmall"
     />
   </Box>
 );
@@ -85,15 +85,9 @@ export const NameValueListAnatomy = () => (
           <AnatomyBox
             id="name"
             background="status-warning"
-            visualBackground="status-warning"
             visualId="nameVisual"
           />
-          <AnatomyBox
-            id="value"
-            background="purple!"
-            visualBackground="purple!"
-            visualId="valueVisual"
-          />
+          <AnatomyBox id="value" background="purple!" visualId="valueVisual" />
         </Box>
       </Box>
       <Box justify="end" width="medium" gap="large" direction="row">
@@ -108,7 +102,6 @@ export const NameValueListAnatomy = () => (
 AnatomyBox.propTypes = {
   background: PropTypes.string,
   id: PropTypes.string,
-  visualBackground: PropTypes.string,
   visualId: PropTypes.string,
 };
 
