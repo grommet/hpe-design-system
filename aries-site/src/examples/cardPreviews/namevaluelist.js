@@ -3,7 +3,7 @@ import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 
 export const NameValueListPreview = () => (
   <Box width="medium" round="xsmall">
-    <NameValueList nameProps={{ width: 'xsmall' }}>
+    <NameValueList>
       <NameValuePair name="Created On">
         13/02/2021 at 14:23:32
       </NameValuePair>
