@@ -525,7 +525,7 @@ export const components = [
       background: 'background-front',
     },
     sections: [
-      'Anatomy of a Name-Value Pair',
+      'Anatomy of a NameValuePair',
       'name',
       'value',
       'Supporting icons',
