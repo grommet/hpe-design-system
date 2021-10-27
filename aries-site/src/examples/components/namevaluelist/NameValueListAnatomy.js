@@ -50,7 +50,13 @@ const AnatomyBox = ({ background, id, visualBackground, visualId }) => (
       width="xxsmall"
       background={visualBackground}
     />
-    <Box id={id} height="xxsmall" width="small" background={background} />
+    <Box 
+        id={id} 
+        height="xxsmall" 
+        width="small" 
+        background={background} 
+        round="xxsmall"
+    />
   </Box>
 );
 
