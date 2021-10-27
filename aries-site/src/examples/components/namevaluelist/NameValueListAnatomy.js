@@ -49,6 +49,7 @@ const AnatomyBox = ({ background, id, visualBackground, visualId }) => (
       height="xxsmall"
       width="xxsmall"
       background={visualBackground}
+      round="xxsmall"
     />
     <Box 
         id={id} 
