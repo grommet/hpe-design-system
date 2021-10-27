@@ -16,7 +16,6 @@ export const LinkCard = ({ title, link }) => {
         as="a"
         target="_blank"
         style={{ textDecoration: 'none' }}
-        width="medium"
       >
         <CardBody direction="row" gap="small">
           <Box

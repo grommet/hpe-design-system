@@ -30,7 +30,7 @@ export const GuideCards = () => {
   return (
     <Box gap="large">
       <Grid
-        columns={size !== 'small' ? ['medium', 'auto'] : '100%'}
+        columns={size !== 'small' ? 'medium' : '100%'}
         rows="auto"
         gap="medium"
       >
