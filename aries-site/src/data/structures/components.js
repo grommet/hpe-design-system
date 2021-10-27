@@ -538,7 +538,10 @@ export const components = [
       'Controlling Name-Value Width',
     ],
     relatedContent: ['Grid', 'DataTable', 'Lists'],
-    tags: ['name', 'value', 'scale', 'pairings'],
+    tags: ['name', 'value', 'scale', 'pairings', 'key-value', 'key-value pairs', 
+        'description list', 'dl', 'description term', 'dt', 'description detail', 'dd', 
+        'read-only input', 'readonly', 'read only', 'key', 'property list',
+    ],
   },
   {
     name: 'Notification',
