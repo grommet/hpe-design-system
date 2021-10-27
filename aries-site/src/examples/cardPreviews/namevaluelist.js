@@ -8,7 +8,7 @@ export const NameValueListPreview = () => (
         13/02/2021 at 14:23:32
       </NameValuePair>
       <NameValuePair name="Description">
-          Privilege escalation, such as via set-user-ID or set-group-ID file
+          Privilege escalation, via set-user-ID or set-group-ID file
           mode, should not be allowed.
       </NameValuePair>
     </NameValueList>
