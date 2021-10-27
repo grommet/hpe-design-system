@@ -2,6 +2,7 @@ export * from './NameValueListAnatomy';
 export * from './NameValueListDefaultExample';
 export * from './NameValueListGridExample';
 export * from './NameValueListPairPropsExample';
+export * from './NameValueListScaleTable';
 export * from './NameValueListSimpleExample';
 export * from './NameValueListTextBadExample';
 export * from './NameValueListTextGoodExample';

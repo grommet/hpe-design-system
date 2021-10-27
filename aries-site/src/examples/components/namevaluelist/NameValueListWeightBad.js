@@ -1,8 +1,14 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { StatusGoodSmall } from 'grommet-icons';
 
 const data = {
-  Health: 'Healthy',
+  Health: (
+    <Box gap="small" direction="row">
+      <StatusGoodSmall color="status-ok" />
+      Healthy
+    </Box>
+  ),
   State: 'Active',
   ID: 'b3894722-adscb29308478-8032j',
   'API EndPoint': 'democluster1.dev.cloud.net',
