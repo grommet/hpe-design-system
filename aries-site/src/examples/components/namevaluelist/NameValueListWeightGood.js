@@ -4,7 +4,7 @@ import { StatusGoodSmall } from 'grommet-icons';
 
 const data = {
   Health: (
-    <Box gap="small" direction="row">
+    <Box gap="xsmall" direction="row">
       <StatusGoodSmall color="status-ok" />
       Healthy
     </Box>

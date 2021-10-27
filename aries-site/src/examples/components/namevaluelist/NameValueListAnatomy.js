@@ -58,8 +58,7 @@ const CircleBox = ({ id, target }) => (
   <Box
     id={id}
     align="center"
-    pad="small"
-    height="xxsmall"
+    pad="xsmall"
     round="large"
     width="xxsmall"
     background="background-front"
