@@ -518,17 +518,14 @@ export const components = [
     name: 'NameValueList',
     category: 'Visualizations',
     description: 'A name-value list displays a group of name-value pairings.',
+    seoDescription: 'A name-value list displays a group of name-value pairings.',
     preview: {
       component: () => <NameValueListPreview />,
       background: 'background-front',
     },
-    seoDescription: `Notifications in the HPE Design System provides patterns,
-    designs, and guidance for how HPE applications can deliver end users 
-    confidence and assurance by keeping them informed with timely, relevant 
-    status of their systems and tasks.`,
     sections: ['Anatomy of a Name-Value Pair', 'Hierarchy', 'Heading'],
     relatedContent: ['Grid', 'DataTable'],
-    tags: ['name', 'value', 'scale'],
+    tags: ['name', 'value', 'scale', 'pairings'],
   },
   {
     name: 'Notification',
