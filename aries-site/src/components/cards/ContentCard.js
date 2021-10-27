@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Card, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
