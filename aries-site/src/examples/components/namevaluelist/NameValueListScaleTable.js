@@ -90,7 +90,7 @@ export const NameValueListScaleTable = () => (
           <TableRow key={datum.id}>
             {columns.map(c => (
               <TableCell align="center" border key={c.property}>
-                <Text>{datum[c.property]}</Text>
+                <Text color="text-strong">{datum[c.property]}</Text>
               </TableCell>
             ))}
           </TableRow>
