@@ -1,6 +1,7 @@
 export * from './NameValueListAnatomy';
 export * from './NameValueListDefaultExample';
 export * from './NameValueListGridExample';
+export * from './NameValueListHeadingExample';
 export * from './NameValueListPairPropsExample';
 export * from './NameValueListScaleTable';
 export * from './NameValueListSimpleExample';

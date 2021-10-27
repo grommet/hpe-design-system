@@ -66,7 +66,7 @@ const columns = [
 ];
 
 export const NameValueListScaleTable = () => (
-  <Box align="start">
+  <Box pad="small" align="start">
     <Table>
       <TableHeader>
         <TableRow>
