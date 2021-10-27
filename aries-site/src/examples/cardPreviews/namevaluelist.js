@@ -5,7 +5,7 @@ export const NameValueListPreview = () => (
   <Box width="medium" round="xsmall">
     <NameValueList nameProps={{ width: 'xsmall' }}>
       <NameValuePair name="Created On">
-        <Text color="text-strong">13/02/2021 at 14:23:32</Text>
+        13/02/2021 at 14:23:32
       </NameValuePair>
       <NameValuePair name="Description">
         <Text color="text-strong">
