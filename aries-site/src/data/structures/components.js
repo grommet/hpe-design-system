@@ -526,9 +526,6 @@ export const components = [
     },
     sections: [
       'Anatomy of a NameValuePair',
-      'name',
-      'value',
-      'Supporting icons',
       'Hierarchy',
       'Order',
       'Heading',
