@@ -10,7 +10,6 @@ export const NameValueListPreview = () => (
       <NameValuePair name="Description">
           Privilege escalation, such as via set-user-ID or set-group-ID file
           mode, should not be allowed.
-        </Text>
       </NameValuePair>
     </NameValueList>
   </Box>
