@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair } from 'grommet';
+import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 
 const data = {
   name: 'FirstName LastName',
@@ -9,9 +9,9 @@ const data = {
 
 export const NameValueListTextGoodExample = () => (
   <Box pad="small">
-    <NameValueList>
+    <NameValueList nameProps={{ width: 'xxsmall' }}>
       {Object.entries(data).map(([name, value]) => (
-        <NameValuePair key={name} name={name}>
+        <NameValuePair key={name} name={<Text size="xsmall">{name}</Text>}>
           {value}
         </NameValuePair>
       ))}

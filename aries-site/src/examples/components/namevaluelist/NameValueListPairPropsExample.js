@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair } from 'grommet';
+import { Anchor, Box, NameValueList, NameValuePair } from 'grommet';
 
 const data = {
-  'Created by': 'name@hpe.com',
+  'Created by': (
+    <Anchor label="jane.doe@email.com" href="mailto:jane.doe@email.com" />
+  ),
   'Created on': '13/02/2021 at 14:23:32',
   Description: `Privilege escalation, such as via set-user-ID or
      set-group-ID file mode, should not be allowed.`,
