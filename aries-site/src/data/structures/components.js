@@ -537,7 +537,7 @@ export const components = [
       'Name-Value Aligment',
       'Controlling Name-Value Width',
     ],
-    relatedContent: ['Grid', 'DataTable'],
+    relatedContent: ['Grid', 'DataTable', 'Lists'],
     tags: ['name', 'value', 'scale', 'pairings'],
   },
   {
