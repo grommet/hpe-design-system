@@ -16,6 +16,7 @@ import {
 
 <Example
   componentName="NameValueList"
+  height={{ min: 'small' }}
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListDefaultExample.js"
   docs="https://v2.grommet.io/namevaluelist?theme=hpe"
   figma="https://www.figma.com/file/Ny7rYK5gI5VO4PtZsq6vGC/HPE-Name-Value-Pair?node-id=318%3A536"
@@ -116,10 +117,10 @@ Making the font bolder or thinner is another way to create hierarchy that’s ea
 All types of Name-Value lists will change to a single columnName-Value List on smaller viewports.
 
 ### Name-Value Alignment
-By default, all name-value pairs are left aligned. This can be changed through `nameProps` and `valueProps` by setting the alignment.
+By default, all name-value pairs are left aligned. This can be changed through `nameProps` and `valueProps` by setting the [alignment](https://v2.grommet.io/namevaluelist?theme=hpe#nameProps).
 
 ### Controlling Name-Value Width
-The width of Name is set to "small" by default, however this can easily be changed by changing the width. For example `nameProps={{width: 'xsmall'}}`
+The width of Name is set to "small" by default, however this can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`. The width of Value is set to medium by default which can also be adjusted with `valueProps`
 
 ## Varients
 
@@ -129,7 +130,6 @@ The width of Name is set to "small" by default, however this can easily be chang
   docs="https://v2.grommet.io/namevaluelist?theme=hpe"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListSimpleExample.js"
   height={{ min: 'small' }}
-  width="medium"
 >
   <NameValueListSimpleExample />
 </Example>
@@ -142,7 +142,6 @@ The pairProps direction determines how the name and value are aligned. If you wa
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListPairPropsExample.js"
   height={{ min: 'small' }}
-  width="medium"
 >
   <NameValueListPairPropsExample />
 </Example>
