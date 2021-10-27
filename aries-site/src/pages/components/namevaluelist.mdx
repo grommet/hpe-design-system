@@ -121,7 +121,9 @@ By default, both the name and the value are left aligned. This can be changed th
 No matter what alignment is chosen, always opt for a consistent presentation across a single NameValueList or NameValueLists on a single page.
 
 ### Controlling the width of the name and value
-The width of Name is set to "small" by default, however this can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`. The width of Value is set to medium by default which can also be adjusted with `valueProps`
+The width of name is set to "small" by default to accommodate a reasonable width for common data names. However, if all names are short, it may be appropriate to adjust the name width to something smaller. This can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`. 
+
+The width of value is set to medium by default to aid readability of content. However, if necessary, the width of value can also be adjusted with `valueProps`. For example, `valueProps={{width: 'large'}}`
 
 ## Varients
 
