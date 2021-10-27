@@ -1,10 +1,10 @@
 import React, { forwardRef, useState } from 'react';
-import { StyledCard } from './ContentCard';
+import { Card } from 'grommet';
 
 export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <StyledCard
+    <Card
       align="start"
       fill="horizontal"
       background="background-front"
