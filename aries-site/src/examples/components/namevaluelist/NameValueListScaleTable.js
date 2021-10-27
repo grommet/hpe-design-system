@@ -78,7 +78,7 @@ export const NameValueListScaleTable = () => (
               key={c.property}
               scope="col"
             >
-              <Text weight="bold" size="xlarge">
+              <Text color="text-strong" weight="bold" size="xlarge">
                 {c.label}
               </Text>
             </TableCell>
