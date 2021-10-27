@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { Box, NameValueList, NameValuePair } from 'grommet';
 
 export const NameValueListPreview = () => (
   <Box width="medium" round="xsmall">
