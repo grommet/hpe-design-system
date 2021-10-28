@@ -392,86 +392,86 @@ export const foundation = [
       'guidelines',
     ],
   },
-  // {
-  //   name: 'Content Guidelines',
-  //   category: 'Philosophy',
-  //   cardOrder: 7,
-  //   description: 'Reference these guidelines for content practices that structure our communications.',
-  //   preview: {
-  //     image: {
-  //       src: {
-  //         light: '/foundationImages/foundation-preview-voice-and-tone.svg',
-  //         dark:
-  //           '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
-  //       },
-  //       alt: 'HPE Voice and Tone Preview with two speech bubbles',
-  //     },
-  //   },
-  //   seoDescription: '',
-  //   sections: [
-  //     'Capitalization',
-  //     'Acronyms & Initialisms',
-  //     'Branding',
-  //     'Language Dos and Don\'ts',
-  //     'Do this:',
-  //     'Don\'t do this',
-  //     'Miscellany',
-  //     'Quoting',
-  //     'Other Common Problems and How To Address Them',
+  {
+    name: 'Content Guidelines',
+    category: 'Philosophy',
+    cardOrder: 7,
+    description: 'Reference these guidelines for content practices that structure our communications.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: '',
+    sections: [
+      'Capitalization',
+      'Acronyms & Initialisms',
+      'Branding',
+      'Language Dos and Don\'ts',
+      'Do this:',
+      'Don\'t do this',
+      'Miscellany',
+      'Quoting',
+      'Other Common Problems and How To Address Them',
 
-  //   ],
-  //   relatedContent: [
-  //     'Content',
-  //     'Conent Case Study',
-  //     'Content Best Practices',
-  //     'Content Implementation',
-  //   ],
-  //   tags: [
-  //     'grammar',
-  //     'spelling',
-  //     'rules',
-  //     'problems',
-  //   ],
-  // },
-  // {
-  //   name: 'Content Best Practices',
-  //   category: 'Philosophy',
-  //   cardOrder: 8,
-  //   description: 'Use these best practices to help guide your decisions in creating clear and consistent content.',
-  //   preview: {
-  //     image: {
-  //       src: {
-  //         light: '/foundationImages/foundation-preview-voice-and-tone.svg',
-  //         dark:
-  //           '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
-  //       },
-  //       alt: 'HPE Voice and Tone Preview with two speech bubbles',
-  //     },
-  //   },
-  //   seoDescription: '',
-  //   sections: [
-  //     'Guidelines for Constructing Good Messaging',
-  //     'Conversational American English',
-  //     'British English',
-  //     'Indian English',
-  //     'Point of View',
-  //     'Referring to Support',
-  //     'Scale',
-  //   ],
-  //   relatedContent: [
-  //     'Content',
-  //     'Content Guidelines',
-  //     'Conent Case Study',
-  //     'Content Implementation',
-  //   ],
-  //   tags: [
-  //     'English',
-  //     'pov',
-  //     'point of view',
-  //     'perspective',
-  //     'support',
-  //   ],
-  // },
+    ],
+    relatedContent: [
+      'Content',
+      'Content Case Study',
+      'Content Best Practices',
+      'Content Implementation',
+    ],
+    tags: [
+      'grammar',
+      'spelling',
+      'rules',
+      'problems',
+    ],
+  },
+  {
+    name: 'Content Best Practices',
+    category: 'Philosophy',
+    cardOrder: 8,
+    description: 'Use these best practices to help guide your decisions in creating clear and consistent content.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: '',
+    sections: [
+      'Guidelines for Constructing Good Messaging',
+      'Conversational American English',
+      'British English',
+      'Indian English',
+      'Point of View',
+      'Referring to Support',
+      'Scale',
+    ],
+    relatedContent: [
+      'Content',
+      'Content Guidelines',
+      'Content Case Study',
+      'Content Implementation',
+    ],
+    tags: [
+      'English',
+      'pov',
+      'point of view',
+      'perspective',
+      'support',
+    ],
+  },
   {
     name: 'Content Implementation',
     category: 'Philosophy',
@@ -493,12 +493,11 @@ export const foundation = [
     //   'User Input',
     //   'Maintainability',
     // ],
-    // relatedContent: [
-    //   'Content',
-    //   'Conent Case Study',
-    //   'Content Guidelines',
-    //   'Content Best Practices',
-    // ],
+    relatedContent: [
+      'Content',
+      'Content Guidelines',
+      // 'Content Best Practices',
+    ],
     // tags: [
     //   'content',
     //   'implementation',
