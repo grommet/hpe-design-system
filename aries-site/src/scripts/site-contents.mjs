@@ -57,7 +57,9 @@ const contents = await getFiles(SOURCE_DIRECTORY).then(files =>
 try {
   await access(OUT_DIRECTORY);
 } catch {
-  console.log('Directory does not exist. Making it now.');
+  console.log(
+    `Directory named ${OUT_DIRECTORY} does not exist. Making it now.`,
+  );
   mkdir(OUT_DIRECTORY);
 }
 
