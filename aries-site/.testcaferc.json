@@ -1,0 +1,3 @@
+{
+    "src": ["src/tests/**/*.js", "!src/tests/examples/*.js"]
+}

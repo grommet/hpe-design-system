@@ -180,35 +180,36 @@ const columns = [
     property: 'orderName',
     header: 'Order Name',
     render: datum => (
-      <Button onClick={() => onClickHandler(datum)} plain>
-        <Text truncate weight="bold">
-          {datum.orderName}
-        </Text>
+      <Button onClick={() => onClickHandler(datum)}>
+        <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+          <Text truncate="tip" weight="bold">{datum.orderName}</Text>
+        </Box>
       </Button>
     ),
+    plain: true,
   },
   {
     property: 'purchaseOrder',
     header: 'P.O. #',
-    render: datum => <Text truncate>{datum.purchaseOrder}</Text>,
+    render: datum => <Text truncate="tip">{datum.purchaseOrder}</Text>,
     size: 'xsmall',
     align: 'end',
   },
   {
     property: 'state',
     header: 'State',
-    render: datum => <Text truncate>{datum.state}</Text>,
+    render: datum => <Text truncate="tip">{datum.state}</Text>,
   },
   {
     property: 'service',
     header: 'Service',
-    render: datum => <Text truncate>{datum.service}</Text>,
+    render: datum => <Text truncate="tip">{datum.service}</Text>,
     size: 'xsmall',
   },
   {
     property: 'tenant',
     header: 'Tenant',
-    render: datum => <Text truncate>{datum.tenant}</Text>,
+    render: datum => <Text truncate="tip">{datum.tenant}</Text>,
   },
   {
     property: 'contact.email',
@@ -229,12 +230,13 @@ export const TableMultiSelectExample = () => {
 
   return (
     <>
-      <Heading level={3} margin="none">
+      <Heading id="orders-heading" level={3} margin="none">
         Manage Orders
       </Heading>
       <TableControls selected={selected} />
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
+          aria-describedby="orders-heading"
           data={data}
           primaryKey="id"
           columns={[
@@ -313,35 +315,33 @@ TableControls.propTypes = {
   selected: PropTypes.array,
 };
 
-const SelectionSummary = ({ selected }) => {
-  return (
-    <>
-      {selected && (
-        <>
-          {selected.length > 0 ? (
-            <Box direction="row" gap="xxsmall">
-              <Text size="small" weight="bold">
-                {selected.length}
-              </Text>
-              <Text size="small">of</Text>
-              <Text size="small" weight="bold">
-                {data.length}
-              </Text>
-              <Text size="small">items selected</Text>
-            </Box>
-          ) : (
-            <Box direction="row" gap="xxsmall">
-              <Text size="small" weight="bold">
-                {data.length}
-              </Text>
-              <Text size="small">items</Text>
-            </Box>
-          )}
-        </>
-      )}
-    </>
-  );
-};
+const SelectionSummary = ({ selected }) => (
+  <>
+    {selected && (
+      <>
+        {selected.length > 0 ? (
+          <Box direction="row" gap="xxsmall">
+            <Text size="small" weight="bold">
+              {selected.length}
+            </Text>
+            <Text size="small">of</Text>
+            <Text size="small" weight="bold">
+              {data.length}
+            </Text>
+            <Text size="small">items selected</Text>
+          </Box>
+        ) : (
+          <Box direction="row" gap="xxsmall">
+            <Text size="small" weight="bold">
+              {data.length}
+            </Text>
+            <Text size="small">items</Text>
+          </Box>
+        )}
+      </>
+    )}
+  </>
+);
 
 SelectionSummary.propTypes = {
   selected: PropTypes.array,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
@@ -26,6 +26,8 @@ export const Example = ({
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
+  github, // link to github directory
+  guidance, // link to Design System site guidance
   height,
   horizontalLayout,
   plain, // remove Container from around example
@@ -39,6 +41,17 @@ export const Example = ({
 }) => {
   const [screen, setScreen] = React.useState(screens.laptop);
   const [showLayer, setShowLayer] = React.useState(false);
+  const size = useContext(ResponsiveContext);
+  const inlineRef = useRef();
+  const layerRef = useRef();
+
+  // ensure that when page loads or layer opens/closes that the ref value
+  // is not null
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+  React.useEffect(() => {
+    forceUpdate();
+  }, [showLayer, forceUpdate]);
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
@@ -50,6 +63,7 @@ export const Example = ({
     designer,
     docs,
     figma,
+    guidance,
     height,
     horizontalLayout,
     plain,
@@ -69,10 +83,15 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
+  let viewPort;
+  if (screen === screens.mobile) viewPort = 'small';
+  else if (!screenContainer && !showResponsiveControls) viewPort = size;
+  else viewPort = undefined;
+
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   const content = !showLayer && (
-    <ExampleContainer {...containerProps}>
+    <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
           ExampleWrapper === ResponsiveContainer && background
@@ -81,11 +100,12 @@ export const Example = ({
         }
         screen={screen}
         width={width}
+        ref={inlineRef}
       >
-        <ResponsiveContext.Provider
-          value={screen === screens.mobile && 'small'}
-        >
-          {children}
+        <ResponsiveContext.Provider value={viewPort}>
+          {React.cloneElement(children, {
+            containerRef: inlineRef,
+          })}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
     </ExampleContainer>
@@ -94,12 +114,14 @@ export const Example = ({
   const controls = (designer ||
     docs ||
     figma ||
+    guidance ||
     screenContainer ||
     template) && (
     <ExampleControls
       designer={designer}
       docs={docs}
       figma={figma}
+      guidance={guidance}
       horizontalLayout={horizontalLayout}
       setShowLayer={value => setShowLayer(value)}
     />
@@ -108,6 +130,7 @@ export const Example = ({
   const resources = (
     <ExampleResources
       code={code}
+      github={github}
       details={details}
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       horizontalLayout={horizontalLayout}
@@ -138,6 +161,7 @@ export const Example = ({
             <HorizontalExample
               content={content}
               controls={controls}
+              height={height}
               plain={plain}
               resources={resources}
               showResponsiveControls={showResponsiveControls}
@@ -154,7 +178,7 @@ export const Example = ({
           }}
         >
           <Layer full animation="fadeIn">
-            <Box fill background="background-front">
+            <Box fill background="background">
               <Box
                 direction="row"
                 justify={
@@ -201,17 +225,16 @@ export const Example = ({
                     // this id is needed to reference the scroll parent
                     id="layer-wrapper"
                     width={screen === screens.mobile ? 'medium' : '100%'}
+                    ref={layerRef}
                   >
-                    <ResponsiveContext.Provider
-                      value={screen === screens.mobile && 'small'}
-                    >
-                      {children}
+                    <ResponsiveContext.Provider value={viewPort}>
+                      {React.cloneElement(children, {
+                        containerRef: layerRef,
+                      })}
                     </ResponsiveContext.Provider>
                   </Box>
                 ) : (
-                  <ResponsiveContext.Provider
-                    value={screen === screens.mobile && 'small'}
-                  >
+                  <ResponsiveContext.Provider value={viewPort}>
                     {children}
                   </ResponsiveContext.Provider>
                 )}
@@ -227,7 +250,10 @@ export const Example = ({
 Example.propTypes = {
   background: PropTypes.string,
   children: PropTypes.element,
-  code: PropTypes.string,
+  code: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -240,12 +266,17 @@ Example.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  github: PropTypes.string,
+  guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
   plain: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
-  showResponsiveControls: PropTypes.bool,
+  showResponsiveControls: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.bool,
+  ]),
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

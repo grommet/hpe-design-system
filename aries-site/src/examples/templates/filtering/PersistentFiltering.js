@@ -96,18 +96,6 @@ const allData = [
 
 const StyledCard = styled(Card)`
   transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
-`;
-
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
 `;
 
 const defaultFilters = {};
@@ -139,7 +127,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const PersistentFiltering = () => {
+export const PersistentFiltering = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -150,7 +139,7 @@ export const PersistentFiltering = () => {
     status: allFilters.status.defaultValue,
   });
   const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const size = useContext(ResponsiveContext);
   const inputRef = useRef();
 
@@ -168,14 +157,14 @@ export const PersistentFiltering = () => {
 
       let filterResults;
       const filterKeys = Object.keys(criteria);
-      filterResults = array.filter(item => {
+      filterResults = array.filter(item =>
         // validates all filter criteria
-        return filterKeys.every(key => {
+        filterKeys.every(key => {
           // ignores non-function predicates
           if (typeof criteria[key] !== 'function') return true;
           return criteria[key](item[key]);
-        });
-      });
+        }),
+      );
 
       if (searchValue) {
         filterResults = filterResults.filter(o =>
@@ -206,15 +195,19 @@ export const PersistentFiltering = () => {
     setFiltering,
     filterValues,
     setFilterValues,
+    setSearch,
+    // target is for demo purposes only, remove in production
+    target: containerRef && containerRef.current,
   };
 
   return (
     <Box
+      background="background"
       gap="large"
       width={{ max: 'xxlarge' }}
       margin="auto"
       overflow="auto"
-      pad={{ horizontal: 'small', top: 'small' }}
+      pad={{ horizontal: 'medium', top: 'small' }}
       fill
     >
       <Header>
@@ -248,7 +241,8 @@ export const PersistentFiltering = () => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -277,6 +271,10 @@ export const PersistentFiltering = () => {
       </Box>
     </Box>
   );
+};
+
+PersistentFiltering.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 const ActiveFilters = ({
@@ -406,6 +404,8 @@ const Filters = ({
   setFiltering,
   filterValues,
   setFilterValues,
+  setSearch,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const { country, employeeCount, locationType, status } = filterValues;
   const [previousValues, setPreviousValues] = useState({});
@@ -424,6 +424,7 @@ const Filters = ({
     });
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -473,7 +474,8 @@ const Filters = ({
   return size === 'small' ? (
     <>
       <Box align="center" direction="row" gap="small">
-        <StyledButton
+        <Button
+          kind="toolbar"
           icon={<Filter />}
           onClick={() => {
             setShowLayer(true);
@@ -497,6 +499,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             alignSelf="center"
@@ -588,6 +592,8 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  target: PropTypes.object,
 };
 
 const LocationTypeFilter = ({
@@ -595,33 +601,31 @@ const LocationTypeFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
-    <FormField
-      label="Location Type"
-      htmlFor="location-type-b"
+}) => (
+  <FormField
+    label="Location Type"
+    htmlFor="location-type-b"
+    name="location-type-b"
+  >
+    <CheckBoxGroup
+      id="location-type-b"
       name="location-type-b"
-    >
-      <CheckBoxGroup
-        id="location-type-b"
-        name="location-type-b"
-        options={allFilters.locationType.options}
-        value={filters.locationType ? filterValues.locationType : []}
-        onChange={({ value }) => {
-          setFilterValues({ ...filterValues, locationType: value });
-          const nextFilters = {
-            ...filters,
-            locationType:
-              value.length &&
-              (nextLocationType => value.includes(nextLocationType)),
-          };
-          if (!value.length) delete nextFilters.locationType;
-          setFilters(nextFilters);
-        }}
-      />
-    </FormField>
-  );
-};
+      options={allFilters.locationType.options}
+      value={filters.locationType ? filterValues.locationType : []}
+      onChange={({ value }) => {
+        setFilterValues({ ...filterValues, locationType: value });
+        const nextFilters = {
+          ...filters,
+          locationType:
+            value.length &&
+            (nextLocationType => value.includes(nextLocationType)),
+        };
+        if (!value.length) delete nextFilters.locationType;
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
+);
 
 LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
@@ -642,27 +646,25 @@ const StatusFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
-    <FormField label="Status" htmlFor="status-b" name="status-b">
-      <CheckBoxGroup
-        id="status-b"
-        name="status-b"
-        options={allFilters.status.options}
-        value={filters.status ? filterValues.status : []}
-        onChange={({ value }) => {
-          setFilterValues({ ...filterValues, status: value });
-          const nextFilters = {
-            ...filters,
-            status: value.length && (nextStatus => value.includes(nextStatus)),
-          };
-          if (!value.length) delete nextFilters.status;
-          setFilters(nextFilters);
-        }}
-      />
-    </FormField>
-  );
-};
+}) => (
+  <FormField label="Status" htmlFor="status-b" name="status-b">
+    <CheckBoxGroup
+      id="status-b"
+      name="status-b"
+      options={allFilters.status.options}
+      value={filters.status ? filterValues.status : []}
+      onChange={({ value }) => {
+        setFilterValues({ ...filterValues, status: value });
+        const nextFilters = {
+          ...filters,
+          status: value.length && (nextStatus => value.includes(nextStatus)),
+        };
+        if (!value.length) delete nextFilters.status;
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
+);
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
@@ -683,28 +685,25 @@ const CountryFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
-    <FormField label="Country" htmlFor="country-b" name="country-b">
-      <CheckBoxGroup
-        id="country-b"
-        name="country-b"
-        options={allFilters.country.options}
-        value={filters.country ? filterValues.country : []}
-        onChange={({ value }) => {
-          setFilterValues({ ...filterValues, country: value });
-          const nextFilters = {
-            ...filters,
-            country:
-              value.length && (nextCountry => value.includes(nextCountry)),
-          };
-          if (!value.length) delete nextFilters.country;
-          setFilters(nextFilters);
-        }}
-      />
-    </FormField>
-  );
-};
+}) => (
+  <FormField label="Country" htmlFor="country-b" name="country-b">
+    <CheckBoxGroup
+      id="country-b"
+      name="country-b"
+      options={allFilters.country.options}
+      value={filters.country ? filterValues.country : []}
+      onChange={({ value }) => {
+        setFilterValues({ ...filterValues, country: value });
+        const nextFilters = {
+          ...filters,
+          country: value.length && (nextCountry => value.includes(nextCountry)),
+        };
+        if (!value.length) delete nextFilters.country;
+        setFilters(nextFilters);
+      }}
+    />
+  </FormField>
+);
 
 CountryFilter.propTypes = {
   filters: PropTypes.shape({
@@ -725,52 +724,50 @@ const EmployeeCountFilter = ({
   setFilters,
   filterValues,
   setFilterValues,
-}) => {
-  return (
-    <Box flex={false}>
-      <FormField
-        label="Employee Count"
-        htmlFor="employee-count-b"
-        name="employee-count-b"
-      >
-        <Stack>
-          <Box background="border" height="3px" direction="row" />
-          <RangeSelector
-            id="employee-count-b"
-            name="employee-count-b"
-            min={0}
-            max={2000}
-            values={
-              filters.employeeCount
-                ? filterValues.employeeCount
-                : allFilters.employeeCount.defaultValue
+}) => (
+  <Box flex={false}>
+    <FormField
+      label="Employee Count"
+      htmlFor="employee-count-b"
+      name="employee-count-b"
+    >
+      <Stack>
+        <Box background="border" height="3px" direction="row" />
+        <RangeSelector
+          id="employee-count-b"
+          name="employee-count-b"
+          min={0}
+          max={2000}
+          values={
+            filters.employeeCount
+              ? filterValues.employeeCount
+              : allFilters.employeeCount.defaultValue
+          }
+          onChange={nextRange => {
+            setFilterValues({ ...filterValues, employeeCount: nextRange });
+            const nextFilters = {
+              ...filters,
+              employeeCount: nextEmployeeCount =>
+                nextEmployeeCount >= filterValues.employeeCount[0] &&
+                nextEmployeeCount <= filterValues.employeeCount[1],
+            };
+            if (
+              nextRange[0] === allFilters.employeeCount.defaultValue[0] &&
+              nextRange[1] === allFilters.employeeCount.defaultValue[1]
+            ) {
+              delete nextFilters.employeeCount;
             }
-            onChange={nextRange => {
-              setFilterValues({ ...filterValues, employeeCount: nextRange });
-              const nextFilters = {
-                ...filters,
-                employeeCount: nextEmployeeCount =>
-                  nextEmployeeCount >= filterValues.employeeCount[0] &&
-                  nextEmployeeCount <= filterValues.employeeCount[1],
-              };
-              if (
-                nextRange[0] === allFilters.employeeCount.defaultValue[0] &&
-                nextRange[1] === allFilters.employeeCount.defaultValue[1]
-              ) {
-                delete nextFilters.employeeCount;
-              }
-              setFilters(nextFilters);
-            }}
-          />
-        </Stack>
-      </FormField>
-      <Text size="small">
-        {`${filterValues.employeeCount[0]} - 
+            setFilters(nextFilters);
+          }}
+        />
+      </Stack>
+    </FormField>
+    <Text size="small">
+      {`${filterValues.employeeCount[0]} - 
         ${filterValues.employeeCount[1]} people`}
-      </Text>
-    </Box>
-  );
-};
+    </Text>
+  </Box>
+);
 
 EmployeeCountFilter.propTypes = {
   filters: PropTypes.shape({
@@ -788,13 +785,15 @@ const RecordSummary = ({ data, filtering }) => (
     <Text size="small" weight="bold">
       {data.length}
     </Text>
-    <Text size="small">{filtering ? 'results of ' : 'items'}</Text>
+    <Text size="small">
+      {filtering ? `result${data.length > 1 ? 's' : ''} of ` : 'items'}
+    </Text>
     {filtering && (
       <Box direction="row" gap="xxsmall">
         <Text size="small" weight="bold">
           {allData.length}
         </Text>
-        <Text size="small">items</Text>
+        <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
   </Box>
@@ -817,6 +816,8 @@ const Results = ({ data }) => {
       >
         {data.map((datum, index) => (
           <StyledCard
+            background="background"
+            elevation="medium"
             key={index}
             onClick={() => {
               // eslint-disable-next-line no-alert

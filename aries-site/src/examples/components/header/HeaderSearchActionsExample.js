@@ -55,15 +55,24 @@ const Search = () => {
   );
 };
 
-export const HeaderSearchActionsExample = () => {
-  return (
+export const HeaderSearchActionsExample = () => (
     <Header fill="horizontal">
-      <Button plain>
-        <Box direction="row" align="center" gap="medium">
+      <Button>
+        <Box
+          direction="row"
+          align="start"
+          gap="medium"
+          // pad maintains accessible hit target
+          // non-responsive maintains same dimensions for mobile
+          pad={{ vertical: 'small' }}
+          responsive={false}
+        >
           <Hpe color="brand" />
-          <Box direction="row" gap="xsmall">
-            <Text weight="bold">HPE</Text>
-            <Text>App Name</Text>
+          <Box direction="row" gap="xsmall" wrap>
+            <Text color="text-strong" weight="bold">
+              HPE
+            </Text>
+            <Text color="text-strong">App Name</Text>
           </Box>
         </Box>
       </Button>
@@ -75,4 +84,3 @@ export const HeaderSearchActionsExample = () => {
       </Box>
     </Header>
   );
-};

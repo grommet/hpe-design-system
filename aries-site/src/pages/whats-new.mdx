@@ -1,0 +1,473 @@
+import { Box, ThemeContext } from 'grommet';
+
+import { ColorSwatch } from '../components';  
+import { whatsNew } from '../themes/whatsNew';
+
+<!-- NOTES for content editors modifying this file
+  - See [editing markdown instructions](https://github.com/grommet/hpe-design-system/blob/master/aries-site/README.md#editing-whats-new-page).
+  - Helpful markdown syntax reminders with this [markdown cheatsheet](https://www.markdownguide.org/basic-syntax/).
+  - Reference the "New Entry Template" provided below for the markdown used to 
+    create new "What's New" entries.
+-->
+
+<ThemeContext.Extend value={whatsNew}>
+
+# What's New
+
+Track Design System announcements, new template patterns, guidance, and released components.
+
+Our [roadmap](https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com) provides 
+an idea for what is on the horizon. Our [backlog](https://github.com/orgs/grommet/projects/10) 
+provides greater detail about what is being worked on. Please share any feedback you may have 
+regarding either via [Slack](https://hpe.slack.com/archives/C04LMJWQT).
+
+
+<!-- BEGIN: New Entry Template -- Markdown syntax and layout for creating new entries
+
+## Week of entry in Month Days, Year format
+
+### Feature 1
+
+- Item 1
+- Item 2
+- ...
+- Item n
+
+### Feature 2
+
+- Item 1
+- ...
+- Item n
+
+...
+
+### Feature n
+
+- Item 1
+- ...
+- Item n
+
+
+--><!-- END: New Entry Template -->
+
+<!-- BEGIN: What's New Entries -->
+
+## August 30 - September 3, 2021
+- Published [Notifications page](/components/notification).
+- Published [Toast Notifications](/templates/toast-notifications).
+- Published [Status Indicators](https://design-system.hpe.design/templates/status-indicator) template page.
+- Updated all examples referencing "status" to apply the new [Status Indicators guidance](/templates/status-indicator#what-makes-up-a-status-indicator).
+
+
+## August 23 - August 27, 2021 
+- Published the [Notification](/components/notification) and [Toast Notifications](/templates/toast-notifications) & [Status Indicator](/templates/status-indicator) content with examples. 
+- Updated [Toolbar Button](https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=3156%3A5073) to include an icon-only variant and changed stroke from 2px to 1px.
+- Updated [Default Button](https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=690%3A823) in Figma to align with the Design System site by removing the background color.
+- Updated name for "Tooltip" component in Figma library to ["Tip"](https://www.figma.com/file/Jd34cI5yyZIPb5BIwkIPU2/HPE-Tip?node-id=538%3A803) to align with the Design System site. 
+- Added [numerical values](https://www.figma.com/file/BqCjvjc0rECQ4Ln2QhyjNi/HPE-Range-Input-Component?node-id=9%3A73) labeling each end of RangeInput.
+- The [actions menu](https://www.figma.com/file/TonE8uQ33e5QJRPknZx36q/Ordering-Of-Items?node-id=868%3A16581) is now styled to match the new Toolbar Button.
+
+
+## July 19-23, 2021
+- Iterated on Notifications taxonomy based on research results.
+- Continued [ideating on written guidance for Navigation](https://www.figma.com/file/b6hiokanRCwNnc93PpHdgQ/HPE-Design-System-Navigation?node-id=1%3A20).
+- Audited all of Figma files to ensure correct use of MetricHPEXS font.
+
+## July 12-16, 2021
+
+- Began Notifications Taxonomy Survey.
+- Updated [Header colors on DateInput component in Figma](https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=0%3A1).
+- Removed [Selected state from Menu on Figma file](https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component?node-id=0%3A1) to align with Design System site.
+- Updated [DataTable with Search value](https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A242) to match Filtering examples on Figma and Design System site.
+- [Updated Select dropdown items on Figma file to use regular text weight rather than form value weight](https://www.figma.com/file/fZJdRcNrvZ1JjdPRYHpFFU/HPE-Select-Component?node-id=0%3A1).
+- [Updated TextInput dropdown items on Figma file to use regular text weight rather than form value weight](https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component?node-id=0%3A1).
+- Enhanced the way Menu is built on Figma by making it [one component rather than a button with a list drop.](https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component?node-id=0%3A1).
+- Updated Wizard Figma file to match the Design System site. [Changes include: wizard header background color, spacing and text styling](https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=0%3A1)
+
+## July 5-9, 2021
+
+- Began ideation for Navigation guidance and examples.
+- Added guidance on [how to determine the width of columns on a Table](https://design-system.hpe.design/components/table#setting-the-width-of-the-table).
+
+## June 28 - July 2, 2021
+
+- Added [new Toolbar Button to Figma and its variants] ( https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=0%3A1).
+- Updated [Form Figma file to include correct text styling.](https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=2668%3A3582) TextInput values were changed from text-strong to default text color.
+- Completed r{esearch for Navigation}(https://www.figma.com/file/b6hiokanRCwNnc93PpHdgQ/HPE-Design-System-Navigation?node-id=1%3A18).
+
+## June 21-25, 2021
+
+- Began research explorations for Navigation.
+
+## July 26-30, 2021
+
+- Updated Form examples on Design System site [to use semantically correct headings and font color](/templates/forms).
+
+## August 23-27, 2021
+- Added examples to Tip to display the different sizes and how it can be used within a Table.
+
+
+## June 14-18, 2021
+
+- Released grommet-icons v4.6.0! Check out the [Release Notes](https://github.com/grommet/grommet-icons/releases/tag/v4.6.0).
+- Added [download links for MetricHPEXS](/foundation/typography#fonts-for-offline-usage) for offline usage.
+- Enhanced filtering examples to demonstrate [Filtering with a table containing selectable rows](/templates/filtering#filtering-with-selectable-results).
+- Added guidance for [setting the width of a table](/components/table#setting-the-width-of-the-table).
+- Added a [CheckBox variant of "checked" to Figma for Table headers]( https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A13994).
+- Aligned the [CheckBox component in Figma](https://www.figma.com/file/7Mm1xDBTOtPHqggEVpaD2N/HPE-Checkbox-Component?node-id=1315%3A1) with the Design System site to include a border on hover.
+
+## June 7-11, 2021
+
+- Released Grommet v2.17.3! Read the [Release Notes](https://github.com/grommet/grommet/releases/tag/v2.17.3).
+- [Updated Wizard "Next" button mobile layout](/templates/wizard) to match desktop layout
+- Added examples for how the **order of items** may be customized in a [Table](/templates/table-customization) and [List](/templates/lists#item-order).
+- Provided instructions and guidance for [implementing the latest HPE Global Header](/templates/global-header).
+
+## May 31 - June 4, 2021
+
+- Added guiance and examples for [FileInput](/components/fileinput)
+- Added `kind="toolbar"` to button in grommet-theme-hpe for use in Filter contexts. See how this button is used in [Filtering examples](/templates/filtering).
+- Updated filtering pattern to use default Button instead of Anchor for "Clear Filters" control. View the [Filtering examples on Design System site](https://design-system.hpe.design/templates/filtering) and [Figma](https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=1%3A3738).
+
+## May 24-28, 2021
+
+- Began a "Getting Started with HPE Design System" starter application providing a step-by-step introduction to Grommet, grommet-theme-hpe, and developing with the Design System. Check out the repository: https://github.com/grommet/hpe-design-system-starter.
+
+## May 17-21, 2021
+
+- Added guidance for [Spinner](/components/spinner)
+- Improved accessibility for Select by [allowing callers to specify an `a11yTitle`](https://github.com/grommet/grommet/pull/5234).
+- Improved the Design System site experience for keyboard navigators and screen reader users by [adding SkipLinks](https://github.com/grommet/hpe-design-system/pull/1606). 
+- Completed gathering research and screen shots of the different types of [Page Layouts](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=881%3A3952).
+- Completed [Page Layout](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=0%3A1) designs in Figma.
+
+## May 10-14, 2021
+
+- Released grommet-theme-hpe v2.1.0! Read the [Release Notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v2.1.0).
+- Created slides on why [Principles](https://www.figma.com/file/8jLGXR0nBgFeuy9cdQUxWH/Principles-and-Values?node-id=146%3A1) are important for a Design System.
+
+## May 3-7, 2021
+
+- Improved accessibility of grouped form inputs in Grommet: https://github.com/grommet/grommet/pull/5209
+
+## April 26-30, 2021
+
+- Released Grommet v2.17.2! Read the [Release Notes](https://github.com/grommet/grommet/releases/tag/v2.17.2).
+- Provided example of [CheckBox validation when not contained in a FormField](https://github.com/grommet/hpe-design-system/issues/1592).
+- Enhanced grommet-theme-hpe z-index for Layer and Drop to work with HPE Global Header: https://github.com/grommet/grommet-theme-hpe/pull/185
+
+## April 19-23, 2021
+
+- Added [examples of text sizes 3xl, 4xl, 5xl, 6xl](/foundation/typography#text)
+- Added [text sizes of 3xl, 4xl, 5xl, and 6xl to Figma](https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2).
+- Updated [Form examples](/templates/forms#shipping): when referring to ZIP codes, the acronym should always be written as ZIP instead of Zip
+- Added guidance for [CheckBox as a toggle](https://design-system.hpe.design/components/checkbox#toggle).
+- Updated Figma to provide an example for a [RadioButtonGroup without a FormField description](https://www.figma.com/file/aZyY606ENQedz4FXugdzgS/HPE-Radio-Button-Group-Component?node-id=105%3A643).
+- Completed design ideations for [Ordering of Items](https://www.figma.com/file/TonE8uQ33e5QJRPknZx36q/Ordering-Of-Items?node-id=343%3A6850)
+
+## April 12-16, 2021
+
+- Added guidance and examples for [Tip](/components/tip)
+
+## April 5-9, 2021
+
+- Updated [Wizard guidance](/templates/wizard) and patterns to demonstrate recommended behavior for width of the inputs and footer
+- Demonstrated [how to use `plain: true` in DataTable columns](/components/table#selecting-multiple-records-and-batch-actions) to create clickable cells
+
+## March 29 - April 2, 2021
+
+- Updated guidance for [user-entered input in Forms](/templates/forms#user-entered-input).
+- Updated guidance for [considerations to make dashboards easier to consume](/templates/dashboards#guidance).
+- Added guidance and an example for [navigation from within a Table](/components/table#navigation-via-table).
+
+## March 22-26, 2021
+
+- Added theming for [Pagination](https://github.com/grommet/grommet-theme-hpe/pull/174) and [Spinner](https://github.com/grommet/grommet-theme-hpe/pull/176) to grommet-theme-hpe
+- Completed ideation on [FileInput](https://www.figma.com/file/8HwAiiSDloOTjUxqvCTypq/HPE-FileInput-Component?node-id=0%3A1).
+
+## March 15-19, 2021
+- Added a [RadioButton Group with no description variant to Figma](https://www.figma.com/file/aZyY606ENQedz4FXugdzgS/HPE-Radio-Button-Group-Component?node-id=78%3A0).
+
+### Published Pagination page and Figma designs
+
+- Added guidance and usage examples for when to use [pagination](https://design-system.hpe.design/components/pagination).
+- Published [Figma designs for Pagination](https://www.figma.com/file/slRqNvhJub0QlgN46zSXoY/HPE-Pagination-Component?node-id=1%3A2)
+
+### Published Spinner page
+
+- Spinner Page was added onto the site. Read more about [spinner guidance](https://design-system.hpe.design/components/spinner)
+
+## March 8-9, 2021
+
+### Conducted a design-sprint to discuss Page-Layouts 
+
+## March 1-5, 2021
+
+### Ran OWASP security scan on the design-system site
+
+- The OWASP Security Scan was run to identify any security vulnerabilities in the Design System site. This is required to ensure full compliance with HPE standards.
+
+## Febuary 22-26, 2021
+
+### New Spinner Component on Grommet.
+
+The new Spinner component has been released on grommet stable [branch](https://github.com/grommet/grommet/pull/4981).
+
+### Add new validation colors
+
+- Add validation-ok and validation-warning to theme.
+
+### Added Tooltip to theme and site examples
+
+- Default Tip styling available on grommet-theme-hpe stable [branch](https://github.com/grommet/grommet-theme-hpe/pull/167)
+- Guidance and code examples available on the [Tooltip page](https://design-system.hpe.design/components/tooltip)
+
+## Febuary 15-19, 2021
+
+### New FileInput Component
+- Check out the new [FileInput](https://v2.grommet.io/fileinput) Component on the grommet stable branch.
+
+### New Pagination Component 
+- Check out the new [Pagination Component](https://v2.grommet.io/pagination) on the grommet stable branch.
+
+### Layer 
+
+- Aligned [layer component](https://github.com/grommet/hpe-design-system/pull/1434) to match the figma files. 
+
+## Febuary 8-12, 2021
+- [Ordering of Items research](https://www.figma.com/file/TonE8uQ33e5QJRPknZx36q/Ordering-Of-Items?node-id=33%3A12) was completed.
+
+### Homepage 
+
+- Completed a fresh new look for our new HPE Design System [home page](https://github.com/grommet/hpe-design-system/pull/1408).
+- [Figma](https://www.figma.com/file/CWB0xMmfVx6cT0ugzluySl/home-page?node-id=87%3A379) is updated as well 
+
+### Updated Wizard template 
+
+- Adds Wizard Title to WizardContext. Allows for step header description to be custom element
+
+
+## Febuary 1-5, 2021
+
+- Updated [Search Figma file to include drop suggestion examples](https://www.figma.com/file/KKHWJN4GAI0Mq5yh0snDT6/HPE-Search-Component?node-id=43%3A26) to align with Design System site.
+- Updated [TextInput Figma file to include drop suggestion examples](https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component?node-id=2231%3A145) to align with Design System site.
+
+### Provided some content on our accessibility page. 
+
+- Find out how to incorporate accessibility into design and development. Check out the [page](https://design-system.hpe.design/foundation/accessibility)
+
+###  Updated multiiselect example 
+
+- Previously multiiselect was immediately closing after a user made a single selection this changed to add a close prop. Find details about this change [here](https://github.com/grommet/hpe-design-system/pull/1400)
+
+### Grommet 2.16.3 release
+
+### Update theme to handle formfield labels with required
+
+- Updated the HPE theme to provide required label.
+
+## January 24-30, 2021
+
+### Background colors
+
+- Audited Design System site examples and [updated background color usage](https://github.com/grommet/hpe-design-system/pull/1384) 
+aligning with [background colors guidance](/foundation/background-colors-guidance).
+
+### Button
+
+- Enhanced ability to [support button sizes](https://github.com/grommet/grommet/pull/4886) 
+in the HPE theme. 
+- Next steps are to incorporate button sizes into the HPE theme.
+
+### Cards
+
+- Modified [default elevation](https://github.com/grommet/grommet-theme-hpe/pull/157) applied to Cards.
+
+### DateInput
+
+- [Added example](https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=287%3A910) 
+of a DateInput without a label to Figma. 
+
+### Headings
+
+- Headings now use `text-strong` by default in the HPE Theme. [Completes work](/whats-new#headings-1162021) 
+begun week ending January 16.
+
+### Form
+
+- Resolved issue related to [updating form input values](https://github.com/grommet/grommet/issues/4882) 
+when name prop not present. Contribution from the Grommet community!
+- Fixed issue regarding [onBlur form validation](https://github.com/grommet/grommet/issues/4863).
+
+### Layer
+
+- Implement [Layer border-radii in HPE Theme](https://github.com/grommet/hpe-design-system/issues/1341) 
+to match Figma designs. [Completes Layer theming work](#miscellaneous-12192020) begun in December.
+
+### Table
+
+- Resolved [column alignment bug](https://github.com/grommet/grommet/issues/4887). 
+Contribution from the Grommet community!
+- Resolved lag in hover styling https://github.com/grommet/grommet/issues/4881.
+
+### Tabs
+
+- Resolved [spacing issue between icons within Tabs in Figma](https://www.figma.com/file/Kp4dWyhUTnKIJ1Cg5CoL9o/HPE-Tabs-Component?node-id=0%3A1).
+
+### Wizard
+
+- Incorporated [updated Wizard designs](https://design-system.hpe.design/templates/wizard) based on feedback. Notable changes include:
+ - Wizard header now has a background of `background-contrast`.
+ - Step titles are now using h1, size="small".
+ - Tightened up spacing between step number, step title, and step description.
+
+### Miscellaneous
+
+- Cleaned up [Figma component thumbnails](https://github.com/grommet/hpe-design-system/issues/1356).
+- Provided [proof of concept for custom Select](https://github.com/grommet/grommet/issues/4855) implementation meeting requirement use case.
+
+
+## January 17-23, 2021
+
+### Background colors
+
+- Incorporated feedback and addressed clarifying questions:
+  - Provided additional guidance on what to consider when [selecting a basic or layered approach](https://design-system.hpe.design/foundation/background-colors-guidance#basic-or-layered-approach).
+  - Added an example and guidance for using the [basic layout with cards](https://design-system.hpe.design/foundation/background-colors-guidance#basic-layout-with-cards).
+  - Added examples clarifying how an application header should appear and behave when it is a [fixed header](https://design-system.hpe.design/foundation/background-colors-guidance#with-fixed-header) and another for when the [header scrolls with the content](https://design-system.hpe.design/foundation/background-colors-guidance#header-scrolls-with-content).
+ 
+### DateInput
+
+- Added a [DateInput with no label to Figma](https://www.figma.com/file/Mf9if6zyGETTWW5b9PsYNQ/HPE-Date-Input-Component?node-id=1%3A567) to align with Design System site.
+ 
+### InfiniteScroll
+
+- Completed [InfiniteScroll design direction](https://www.figma.com/file/XOEwUOqtfLAowprV2psWHM/HPE-Infinite-Scroll?node-id=1%3A35).
+  
+### Pagination
+
+- Advanced the work-in-progress by incorporating review feedback and t-shirt sizing. [Play with Pagination behavior](https://deploy-preview-4646--sad-tereshkova-173d07.netlify.app/?path=/story/controls-pagination--custom) 
+and/or [follow the pull request progress](https://github.com/grommet/grommet/pull/4646).
+
+### ToolTip
+
+- Completed ideation phase and finalized [design direction for ToolTip](https://www.figma.com/file/Jd34cI5yyZIPb5BIwkIPU2/HPE-Tooltip?node-id=119%3A375). 
+A special thanks to **@Maggie Silva** for her contributions to ToolTip.
+
+### Miscellaneous
+
+- Completed ideation for a [refreshed home page](https://www.figma.com/file/CWB0xMmfVx6cT0ugzluySl/home-page?node-id=0%3A1) experience. The live version is coming soon.
+- Published the [What's New page](https://design-system.hpe.design/whats-new).
+
+
+
+## January 10-16, 2021
+
+### Headings - 1.16.2021
+
+- Headings in the Figma library have been updated to use `text-strong`.
+- TODO: Apply `text-strong` as default in HPE Theme.
+
+### Background colors
+
+- Published a new page providing guidance for 
+[how to apply background colors](https://design-system.hpe.design/foundation/background-colors-guidance) 
+in your application layout. We've already received great feedback and identified areas which need 
+to be addressed.
+
+### Anchor
+
+- Added an example for an [Anchor with weight](/components/anchor#anchor-with-weight) to the Anchor page.
+
+### Pagination
+
+- Added custom theming capabilities for the proposed Pagination Grommet component. [Play with Pagination behavior](https://deploy-preview-4646--sad-tereshkova-173d07.netlify.app/?path=/story/controls-pagination--custom) 
+and/or [follow the pull request progress](https://github.com/grommet/grommet/pull/4646).
+
+### Miscellaneous
+
+- Began implementation of the "What's New" page.
+- Fixed error preventing Grommet Docs site to deploy properly.
+
+
+
+## January 3-9, 2021
+
+### Headings
+
+- Decision has been made to make `text-strong` <ColorSwatch background="text-strong" /> the 
+default font color for Headings. Previously, Headings defaulted to color `text` 
+<ColorSwatch background="text" />.
+
+### Pagination
+
+- Made pagination controls respect a uniform width for the proposed Pagination Grommet component.
+- Added abillity to control the sizing of pagination controls via "t-shirt sizing."
+- Explored approaches for allowing custom theming capabilities.
+- [Play with Pagination behavior](https://deploy-preview-4646--sad-tereshkova-173d07.netlify.app/?path=/story/controls-pagination--custom) 
+and/or [follow the pull request progress](https://github.com/grommet/grommet/pull/4646).
+
+### Searching & Filtering
+
+- Additional guidance was requested for how the text should read in a situation after 
+a user has filtered a set of table results and selected rows from the filtered table. 
+That work is represented in [this issue](https://github.com/grommet/hpe-design-system/issues/1343).
+
+### Miscellaneous
+
+- [Fixed order of plot points](https://github.com/grommet/grommet/issues/4854) in Chart.
+- Enhanced Layer to allow elevation to be [controlled via theme](https://github.com/grommet/grommet/pull/4851), 
+and [set default elevation](https://github.com/grommet/grommet-theme-hpe/pull/150) of 'large' in HPE Theme.
+- Made casing of form validation errors consistent across [Form examples](https://design-system.hpe.design/templates/forms).
+
+
+
+## December 20, 2020 - January 2, 2021
+
+Happy holidays to all. See you in 2021!
+
+
+
+## December 13-19, 2020
+
+### Colors
+
+- Added background context and criteria for how the ["green" colors in the HPE Theme](https://design-system.hpe.design/foundation/color#green-color-accessibility) were determined.
+
+### Miscellaneous - 12.19.2020
+
+- Fixed issue [formatting disabled Calendar dates](https://github.com/grommet/hpe-design-system/issues/1328).
+- Fixed issue with [Select with search](https://github.com/grommet/grommet/issues/4829)
+- Enhance Layer theming to [allow styling border radii](https://github.com/grommet/grommet/issues/4805).
+- Completed [Ideation phase for What's New page](https://github.com/grommet/hpe-design-system/issues/822) with recommended design for implementation.
+- Completed research on [Principles and Values](https://www.figma.com/file/8jLGXR0nBgFeuy9cdQUxWH/Principles-and-Values?node-id=0%3A1) to enhancements to our own.
+
+
+## December 6-12, 2020
+
+### Tables
+
+- Hover effect on tables has been fixed. [Check it out!]()
+- Table now has guidance on using [unique identifiers](https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A13974) in your table.
+- Table also has guidance for how [interactive table cells](https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table?node-id=2390%3A13974) look and behave.
+
+### Select
+
+- Validation icon added to Select component within Figma. [Check it out!]()
+
+### Icons
+
+- Work to provide guidance for how and when to use icons in your designs has 
+begun. We are in the **Exploration** phase of this work where we gather research, 
+assemble use cases, etc. Check back soon.
+
+### Miscellaneous
+
+- Aligned of Wizard examples in Figma and Design System site.
+
+
+
+
+
+<!-- END: What's New Entries -->
+</ThemeContext.Extend>

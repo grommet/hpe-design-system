@@ -5,7 +5,9 @@ import {
   ListNameOptionActionExample,
   ListNameExample,
   ListNameDescriptionOptionExample,
+  ListOrderExample,
   ListScreenExample,
+  PaginationListExample
 } from '../../examples';
 
 <Example
@@ -168,4 +170,32 @@ Two-line list with an image, primary title, and a description.
   width="100%"
 >
   <ListImageIdentifierExample />
+</Example>
+
+### Paginated
+
+With long sets of data, pagination can help to create a more efficient means of navigating to a specific item or range of items.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationListExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <PaginationListExample />
+</Example>
+
+### Item order
+
+Allowing the user to re-order the list by dragging items or pressing move up and down controls. Choose `Actions->Re-Order Items` to
+enable drag and drop of list items and move up/down controls. Press `Done` when finished.
+
+<Example
+  background="background-back"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/list-views/ListOrderExample.js"
+  docs="https://v2.grommet.io/list?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  width="100%"
+>
+  <ListOrderExample />
 </Example>

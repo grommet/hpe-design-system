@@ -9,8 +9,6 @@ import { Example } from '../../layouts';
 
 Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
 
-Based on the Metric font from the renouned [Kilm Type Foundry](https://klim.co.nz/), MetricHPE speaks to our courageous, open and inspired personality.
-
 <Button
   alignSelf="start"
   label="See in Figma"
@@ -26,8 +24,6 @@ The weights and styles shown are part of the HPE Design System theme. MetricHPE 
 
 ## Heading
 
-For accessibility reasons, always ensure [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes) are applied. Begin with the correct heading level, then apply size adjustments to fit your styling needs. This allows for flexibility in design while maintaining well structured HTML documents needed by assistive technologies.
-
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/HeadingExample.js"
   docs="https://v2.grommet.io/heading?theme=hpe#props"
@@ -36,7 +32,54 @@ For accessibility reasons, always ensure [semantically correct heading levels](h
   <HeadingExample />
 </Example>
 
+### Semantic usage of Heading levels
+
+For accessibility reasons, always ensure [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes) are applied.
+
+Heading levels create a scaffold of a web page's content structure by defining the main page title, page sections, and subsections of those sections.
+
+Correctly implementing heading levels:
+
+- establishes a more scannable visual hierarchy
+- creates a clear HTML structure which is critical for use by assistive technologies
+
+If heading levels are not implemented in the correct hierarchy, users of screen readers and other assistive technologies will have a more effortful and difficult experience using the application.
+
+### Best practices for Heading
+
+- Each web page should only have a single `h1`: `<Heading level={1} />`.
+- The main page sections following the page title should receive `level={2}`.
+- Any sub-topics of sections with `level={2}` should receive `level={3}`.
+- Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`.
+- Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading, then adjust the size by means of Heading's `size` prop.
+- It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
+- Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
+- Treat Layers as if they were their own page with the exceptions that the first heading in a Layer would be a Heading with `level={2}`.
+
+Below is an example of how Heading levels should be implemented for a page called "Page title" with 3 topics called Topic A, Topic B, and Topic C. Each topic has 2 subtopics.
+
+```
+<Heading level={1}>Page title</Heading>
+
+  <Heading level={2}>Topic A</Heading>
+    <Heading level={3}>Subtopic 1a</Heading>
+    <Heading level={3}>Subtopic 2a</Heading>
+
+  <Heading level={2}>Topic B</Heading>
+    <Heading level={3}>Subtopic 1b</Heading>
+    <Heading level={3}>Subtopic 2b</Heading>
+
+  <Heading level={2}>Topic C</Heading>
+    <Heading level={3}>Subtopic 1c</Heading>
+    <Heading level={3}>Subtopic 2c</Heading>
+
+```
+
+When implementing heading levels, always begin with the correct heading level, then apply `size` adjustments to fit your styling needs. This allows for flexibility in design while maintaining well structured HTML documents needed by assistive technologies.
+
 ### Heading Sizes
+
+If Heading `size` is adjusted, it should be adjusted for all levels. For example, if `size="small"` is desired for a Heading level 1, then "small" should be used for the size of all levels.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/HeadingSizingExample.js"
@@ -65,3 +108,12 @@ For accessibility reasons, always ensure [semantically correct heading levels](h
 >
   <TextSizeExample />
 </Example>
+
+## Fonts for offline usage
+
+In rare cases where a product needs to reference the MetricHPEXS fonts but users
+don't have internet access from their browser or maybe a designer needs the fonts
+locally, you can download the fonts for local use.
+
+Download MetricHPEXS fonts: [OTF/Vector](https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-OTF.zip),
+[Web](https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Web.zip)

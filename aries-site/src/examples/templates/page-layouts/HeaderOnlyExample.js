@@ -1,30 +1,31 @@
 import React from 'react';
 import { Header, Box, Main, ResponsiveContext, Text } from 'grommet';
 
-export const HeaderOnlyExample = () => {
-  return (
+export const HeaderOnlyExample = () => (
     <AppContainer>
       <Box flex overflow="auto">
-        <Box height={{ min: '100%' }} gap="small">
+        <Box height={{ min: '100%' }}>
           <Header
+            background="background-front"
             fill="horizontal"
-            height="xxsmall"
-            background="green!"
             pad="small"
-            round="xsmall"
+            // remove dashed border in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
             </Text>
           </Header>
           <Main
-            // height is for demonstration of scroll
-            height="xlarge"
             fill={undefined}
             flex={false}
-            background="orange"
             pad="small"
-            round="xsmall"
+            // remove dashed border in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
           >
             <Text weight="bold" color="text-strong">
               Main
@@ -34,7 +35,6 @@ export const HeaderOnlyExample = () => {
       </Box>
     </AppContainer>
   );
-};
 
 const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
@@ -42,7 +42,6 @@ const AppContainer = ({ ...rest }) => {
     <Box
       direction={size === 'small' ? 'column-reverse' : 'row'}
       fill
-      gap={size !== 'small' ? 'small' : undefined}
       margin="auto"
       width={{ max: 'xxlarge' }}
       {...rest}

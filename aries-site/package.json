@@ -17,7 +17,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.2.3"
   },
   "scripts": {
     "build": "next build",
@@ -26,12 +26,15 @@
     "start": "next",
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3030 'testcafe all src/tests/'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe all'",
+    "test:fork": "start-server-and-test start-server 3030 'testcafe chrome:headless'",
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
+    "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix"
   },
   "devDependencies": {
+    "@applitools/eyes-testcafe": "1.11.1",
     "axe-core": "^3.4.2",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-prismjs": "^2.0.1",

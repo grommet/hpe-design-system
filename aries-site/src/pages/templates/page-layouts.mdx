@@ -14,7 +14,7 @@ import {
   HeaderOnlyPreview,
 } from '../../examples';
 import { Example } from '../../layouts';
-import { formatName } from '../../utils';
+import { nameToSlug } from '../../utils';
 
 Here are some common layouts to get you started:
 
@@ -66,6 +66,8 @@ Examples of common page layouts.
 
 On desktop, the sidebar is fixed to the left side while header, main, and footer are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
 
+The border around page sections is for demonstration purposes only. Remove border in production.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
   figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
@@ -79,6 +81,8 @@ On desktop, the sidebar is fixed to the left side while header, main, and footer
 ### Sidebar and header
 
 On desktop, the sidebar is fixed to the left side while header and main are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
+
+The border around page sections is for demonstration purposes only. Remove border in production.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
@@ -94,6 +98,8 @@ On desktop, the sidebar is fixed to the left side while header and main are a sc
 
 On both desktop and mobile, all content scrolls.
 
+The border around page sections is for demonstration purposes only. Remove border in production.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
   figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
@@ -108,6 +114,8 @@ On both desktop and mobile, all content scrolls.
 
 On both desktop and mobile, header is fixed to the top of the screen while main and footer are a scrollable region.
 
+The border around page sections is for demonstration purposes only. Remove border in production.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/StickyHeaderExample.js"
   figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
@@ -121,6 +129,8 @@ On both desktop and mobile, header is fixed to the top of the screen while main 
 ### Header only
 
 On both desktop and mobile, all content scrolls.
+
+The border around page sections is for demonstration purposes only. Remove border in production.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
@@ -169,7 +179,7 @@ export const LayoutPreviewGrid = () => {
         <ContentPreviewCard
           forwardedAs="a"
           style={{ textDecoration: 'none' }}
-          href={`#${formatName(layout.name)}`}
+          href={`#${nameToSlug(layout.name)}`}
         >
           <Box height="small" width="100%" round="xsmall">
             {layout.preview}

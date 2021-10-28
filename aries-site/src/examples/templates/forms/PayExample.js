@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import {
   Box,
   Button,
@@ -7,8 +6,10 @@ import {
   FormField,
   MaskedInput,
   Header,
+  Heading,
   Text,
   TextInput,
+  ResponsiveContext,
 } from 'grommet';
 import { Apple, CreditCard } from 'grommet-icons';
 
@@ -81,143 +82,124 @@ const creditCardMask = [
   },
 ];
 
-const RequiredFormField = props => {
-  const { required, label, ...rest } = props;
-  return (
-    <FormField
-      label={required ? `${label}*` : label}
-      required={required}
-      {...rest}
-    />
-  );
-};
-
-RequiredFormField.propTypes = {
-  required: PropTypes.bool,
-  label: PropTypes.string,
-};
-
-const FormContainer = ({ ...rest }) => {
-  return (
-    <Box background="background-front" border round="small" overflow="hidden">
-      <Box flex pad={{ horizontal: 'medium', vertical: 'medium' }} {...rest} />
-    </Box>
-  );
-};
-
 export const PayExample = () => {
-  const [formValues, setFormValues] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    cardName: '',
+    cardNumber: '',
+    expiration: '',
+    cvv: '',
+  });
+  const size = useContext(ResponsiveContext);
+
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
   };
   return (
-    <FormContainer width="medium">
-      <Box gap="medium">
-        <Header
-          direction="column"
-          align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
+    <Box gap="medium" width="medium">
+      <Header
+        direction="column"
+        align="start"
+        gap="xxsmall"
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
+          Pay
+        </Heading>
+        <Text>for your HPE products</Text>
+      </Header>
+      <Box
+        // Padding used to prevent focus from being cutoff
+        pad={{ horizontal: 'xxsmall' }}
+      >
+        <Form
+          messages={{
+            required: 'This is a required field.',
+          }}
+          value={formValues}
+          onChange={setFormValues}
+          onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          method="post"
         >
-          <Text size="xxlarge" weight="bold">
-            Pay
+          <Box>
+            <Button
+              label="Pay"
+              type="button"
+              primary
+              color="border"
+              icon={<Apple />}
+              gap="xxsmall"
+              size="large"
+            />
+          </Box>
+          <Box margin="small" align="center">
+            <Text>or</Text>
+          </Box>
+          <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
+            Credit Card Information
           </Text>
-          <Text>for your HPE products</Text>
-        </Header>
-        <Box
-          // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
-        >
-          <Form
-            messages={{
-              required: 'This is a required field.',
-            }}
-            value={formValues}
-            onChange={setFormValues}
-            onSubmit={({ value, touched }) => onSubmit({ value, touched })}
+          <FormField
+            name="cardName"
+            required
+            htmlFor="cardName"
+            label="Name on Card"
           >
-            <Box>
-              <Button
-                label="Pay"
-                type="button"
-                primary
-                color="border"
-                icon={<Apple />}
-                gap="xxsmall"
-                size="large"
-              />
-            </Box>
-            <Box margin="small" align="center">
-              <Text color="text-xweak">or</Text>
-            </Box>
-            <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
-              Credit Card Information
-            </Text>
-            <RequiredFormField
-              name="cardName"
-              required
-              htmlFor="cardName"
-              label="Name on Card"
-            >
-              <TextInput
-                id="cardName"
-                name="cardName"
-                placeholder="Jane Smith"
-              />
-            </RequiredFormField>
-            <RequiredFormField
-              htmlFor="cardNumber"
-              required
+            <TextInput id="cardName" name="cardName" placeholder="Jane Smith" />
+          </FormField>
+          <FormField
+            htmlFor="cardNumber"
+            required
+            name="cardNumber"
+            label="Credit Card Number"
+          >
+            <MaskedInput
+              id="cardNumber"
               name="cardNumber"
-              label="Credit Card Number"
-            >
-              <MaskedInput
-                id="cardNumber"
-                name="cardNumber"
-                reverse
-                mask={creditCardMask}
-                icon={<CreditCard color="placeholder" />}
-              />
-            </RequiredFormField>
-            <Box direction="row" gap="medium">
-              <Box flex={false}>
-                <RequiredFormField
-                  required
-                  htmlFor="expiration"
+              reverse
+              mask={creditCardMask}
+              icon={<CreditCard color="placeholder" />}
+            />
+          </FormField>
+          <Box direction="row" gap="medium">
+            <Box flex={false}>
+              <FormField
+                required
+                htmlFor="expiration"
+                name="expiration"
+                label="Expires on"
+                validate={dateValidation}
+              >
+                <MaskedInput
+                  id="expiration"
                   name="expiration"
-                  label="Expires on"
-                  validate={dateValidation}
-                >
-                  <MaskedInput
-                    id="expiration"
-                    name="expiration"
-                    mask={dateMask}
-                  />
-                </RequiredFormField>
-              </Box>
-              <Box fill>
-                <RequiredFormField
-                  required
-                  htmlFor="cvv"
+                  mask={dateMask}
+                />
+              </FormField>
+            </Box>
+            <Box fill>
+              <FormField required htmlFor="cvv" name="cvv" label="CVV">
+                <MaskedInput
+                  mask={cvvMask}
+                  id="cvv"
                   name="cvv"
-                  label="CVV"
-                >
-                  <MaskedInput
-                    mask={cvvMask}
-                    id="cvv"
-                    name="cvv"
-                    placeholder="123"
-                  />
-                </RequiredFormField>
-              </Box>
+                  placeholder="123"
+                />
+              </FormField>
             </Box>
-            <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-              <Button label="Checkout" primary type="submit" />
-            </Box>
-          </Form>
-        </Box>
+          </Box>
+          <Box
+            align={size !== 'small' ? 'start' : undefined}
+            margin={{ top: 'small', bottom: 'small' }}
+          >
+            <Button label="Checkout" primary type="submit" />
+          </Box>
+        </Form>
       </Box>
-    </FormContainer>
+    </Box>
   );
 };

@@ -9,7 +9,9 @@ import {
   Heading,
   Menu,
   ResponsiveContext,
+  Sidebar,
   Text,
+  ThemeContext,
 } from 'grommet';
 import {
   Apps,
@@ -82,7 +84,7 @@ const StyledList = () => {
             <Text
               weight="bold"
               size="xsmall"
-              color={!item.active && 'text-xweak'}
+              color={!item.active && 'text-weak'}
             >
               {item.active ? 'Active' : 'Inactive'}
             </Text>
@@ -94,6 +96,7 @@ const StyledList = () => {
           />
         </Box>
       )}
+      margin={size === 'small' ? { bottom: 'large' } : undefined}
     >
       {(datum, index) => (
         <Box gap="medium" direction="row" align="center" justify="between">
@@ -102,10 +105,10 @@ const StyledList = () => {
           </Box>
           <Box align="center" gap="medium" key={index}>
             <Box>
-              <Text size="medium" weight="bold">
+              <Text weight="bold" color={!datum.active && 'text-xweak'}>
                 {datum.user}
               </Text>
-              <Text size="medium">{datum.ip}</Text>
+              <Text color={!datum.active && 'text-xweak'}>{datum.ip}</Text>
             </Box>
           </Box>
         </Box>
@@ -116,9 +119,10 @@ const StyledList = () => {
 
 const SidebarExample = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   return (
-    <Box
-      background="blue"
+    <Sidebar
+      background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
       direction={size !== 'small' ? 'column' : 'row'}
       pad={{
         horizontal: size !== 'small' ? 'small' : 'medium',
@@ -126,6 +130,7 @@ const SidebarExample = ({ ...rest }) => {
       }}
       fill={size === 'small' ? 'horizontal' : undefined}
       flex={false}
+      height={size === 'small' ? undefined : { min: '100%' }}
       {...rest}
     >
       {size !== 'small' && (
@@ -139,21 +144,18 @@ const SidebarExample = ({ ...rest }) => {
         direction={size !== 'small' ? 'column' : 'row'}
         justify={size === 'small' ? 'between' : undefined}
       >
-        <Button a11yTitle="Clock" icon={<Clock color="text-xweak" />} />
-        <Button a11yTitle="Apps" icon={<Apps color="text-xweak" />} />
-        <Button a11yTitle="Terminal" icon={<Terminal color="text-xweak" />} />
+        <Button a11yTitle="Clock" icon={<Clock />} />
+        <Button a11yTitle="Apps" icon={<Apps />} />
+        <Button a11yTitle="Terminal" icon={<Terminal />} />
       </Box>
 
       {size !== 'small' && (
         <Box direction={size !== 'small' ? 'column' : 'row'}>
-          <Button a11yTitle="Chat" icon={<Chat color="text-xweak" />} />
-          <Button
-            a11yTitle="Help"
-            icon={<StatusUnknown color="text-xweak" />}
-          />
+          <Button a11yTitle="Chat" icon={<Chat />} />
+          <Button a11yTitle="Help" icon={<StatusUnknown />} />
         </Box>
       )}
-    </Box>
+    </Sidebar>
   );
 };
 
@@ -168,20 +170,20 @@ const PageHeaderExample = ({ title }) => (
 
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
-    <Button plain>
+    <Button>
       <Box
         direction="row"
-        align="center"
+        align="start"
         gap="medium"
         pad={{ vertical: 'small' }}
         responsive={false}
       >
         <Hpe color="plain" />
-        <Box direction="row" gap="xsmall">
-          <Text weight="bold" size="medium" color="text">
+        <Box direction="row" gap="xsmall" wrap>
+          <Text weight="bold" size="medium" color="text-strong">
             HPE
           </Text>
-          <Text size="medium" color="text">
+          <Text size="medium" color="text-strong">
             Server
           </Text>
         </Box>
@@ -204,19 +206,13 @@ const ScreenContainer = ({ mobile, ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      background="background-back"
+      background="background"
       width={size === 'small' ? 'medium' : '100%'}
       height={size === 'small' ? { max: 'large' } : undefined}
       style={{ position: 'relative' }}
       fill
     >
-      <Box
-        background="background-contrast"
-        direction="row"
-        width={{ max: 'xxlarge' }}
-        margin="auto"
-        fill
-      >
+      <Box direction="row" width={{ max: 'xxlarge' }} margin="auto" fill>
         {size !== 'small' && <SidebarExample />}
         <Box
           overflow="auto"
@@ -232,15 +228,13 @@ const ScreenContainer = ({ mobile, ...rest }) => {
   );
 };
 
-export const ListScreenExample = ({ ...rest }) => {
-  return (
+export const ListScreenExample = ({ ...rest }) => (
     <ScreenContainer {...rest}>
       <AppHeaderExample />
       <PageHeaderExample title="User Controls" />
       <StyledList />
     </ScreenContainer>
   );
-};
 
 PageHeaderExample.propTypes = {
   title: PropTypes.string,

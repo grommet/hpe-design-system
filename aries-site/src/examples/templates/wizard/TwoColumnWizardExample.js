@@ -1,14 +1,9 @@
-import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
-  Button,
   CheckBoxGroup,
-  Form,
   FormField,
-  Header,
-  Heading,
-  Layer,
   List,
   RadioButtonGroup,
   ResponsiveContext,
@@ -17,46 +12,88 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
+import { Checkmark, ContactInfo, Stakeholder, UserAdd } from 'grommet-icons';
 import {
-  Checkmark,
-  ContactInfo,
-  FormClose,
-  FormNextLink,
-  FormPreviousLink,
-  Stakeholder,
-  UserAdd,
-} from 'grommet-icons';
+  CancellationLayer,
+  Error,
+  WizardContext,
+  WizardHeader,
+  StepContent,
+  StepFooter,
+} from './components';
+import { getWidth } from './utils';
 
-const StepOne = () => (
-  <Box margin={{ bottom: 'large' }}>
-    <FormField
-      label="Text Input"
-      htmlFor="twocolumn-textinput"
-      name="twocolumn-textinput"
+const defaultFormValues = {
+  'twocolumn-textinput': '',
+  'twocolumn-radiobuttongroup': '',
+  'twocolumn-select': '',
+  'twocolumn-checkboxgroup': '',
+  'twocolumn-text-area': '',
+};
+
+const StepOne = () => {
+  const { valid, setValid } = useContext(WizardContext);
+  const size = useContext(ResponsiveContext);
+  return (
+    <Box
+      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      margin={{ bottom: 'medium' }}
+      gap={size === 'small' ? 'small' : undefined}
+      justify="between"
+      wrap
     >
-      <TextInput
-        placeholder="Placeholder text"
-        id="twocolumn-textinput"
-        name="twocolumn-textinput"
-      />
-    </FormField>
-    <FormField
-      help="Click on the ‘eye’ icon for the description text field to hide."
-      htmlFor="twocolumn-radiobuttongroup"
-      label="RadioButtonGroup"
-      name="twocolumn-radiobuttongroup"
-    >
-      <RadioButtonGroup
-        id="twocolumn-radiobuttongroup"
-        name="twocolumn-radiobuttongroup"
-        options={['Radio button 1', 'Radio button 2']}
-      />
-    </FormField>
-  </Box>
-);
+      <Box
+        width={size !== 'small' ? 'medium' : '100%'}
+        margin={{ bottom: 'medium' }}
+        gap="medium"
+        flex={false}
+      >
+        <Box gap="medium">
+          <>
+            <FormField
+              label="Email"
+              htmlFor="twocolumn-textinput"
+              name="twocolumn-textinput"
+              validate={{
+                regexp: new RegExp(
+                  '(^$)|([^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+)',
+                ),
+                message: 'Invalid email address',
+                status: 'error',
+              }}
+            >
+              <TextInput
+                placeholder="jane.smith@hpe.com"
+                id="twocolumn-textinput"
+                name="twocolumn-textinput"
+                onChange={() => setValid(true)}
+              />
+            </FormField>
+            <FormField
+              htmlFor="twocolumn-radiobuttongroup"
+              label="RadioButtonGroup"
+              name="twocolumn-radiobuttongroup"
+            >
+              <RadioButtonGroup
+                id="twocolumn-radiobuttongroup"
+                name="twocolumn-radiobuttongroup"
+                options={['Radio button 1', 'Radio button 2']}
+              />
+            </FormField>
+          </>
+          {!valid && (
+            <Error>There is an error with one or more inputs.</Error>
+          )}
+        </Box>
+      </Box>
+      <Box flex width={{ max: 'xxsmall' }} />
+      <Guidance />
+    </Box>
+  );
+};
 
 const StepTwo = () => (
-  <Box margin={{ bottom: 'large' }}>
+  <Box width="medium">
     <FormField
       label="Select"
       htmlFor="twocolumn-select"
@@ -103,30 +140,35 @@ const data = [
   'More summary values from step 2',
 ];
 
-const StepThree = () => {
-  return (
-    <Box gap="small" margin={{ bottom: 'large' }}>
-      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-        {(datum, index) => (
-          <Box key={index} direction="row" gap="medium" align="center">
-            <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong">{datum}</Text>
-          </Box>
-        )}
-      </List>
-      <Text color="text-strong">
-        Include guidance to what will occur when “Finish Setup” is clicked.
-      </Text>
-    </Box>
-  );
-};
+const StepThree = () => (
+  <Box gap="small">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+      {(datum, index) => (
+        <Box key={index} direction="row" gap="small" align="center">
+          <Checkmark color="text-strong" size="small" />
+          <Text color="text-strong" weight={500}>
+            {datum}
+          </Text>
+        </Box>
+      )}
+    </List>
+    <Text color="text-strong">
+      Include guidance to what will occur when “Finish Wizard" is clicked.
+    </Text>
+  </Box>
+);
 
 const steps = [
   {
-    description: 'Two column configuration for wizard. ',
+    description: 'Two column configuration for wizard.',
     inputs: <StepOne />,
+    title: 'Step 1 Title',
   },
-  { description: 'Step 2 description.', inputs: <StepTwo /> },
+  {
+    description: 'Step 2 description.',
+    inputs: <StepTwo />,
+    title: 'Step 2 Title',
+  },
   {
     description: 'Provide a summary of what was accomplished or configured. ',
     inputs: <StepThree />,
@@ -135,229 +177,104 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = () => {
-  const [active, setActive] = useState(1);
+  const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
+  const [activeIndex, setActiveIndex] = useState(0);
+  // for readability, this is used to display numeric value of step on screen,
+  // such as step 1 of 3. it will always be one more than the active array index
+  const [activeStep, setActiveStep] = useState(activeIndex + 1);
 
   // store form values in state so they persist
   // when user goes back a step
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState(defaultFormValues);
 
+  // controls state of cancel layer
   const [open, setOpen] = useState(false);
-  const size = useContext(ResponsiveContext);
+
+  // tracks validation results for the current step
+  const [valid, setValid] = useState(true);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
   // when the active step changes.
-  const wizardRef = React.useRef();
+  const wizardRef = useRef();
 
+  useEffect(() => {
+    setActiveStep(activeIndex + 1);
+  }, [activeIndex]);
+
+  const id = 'sticky-header-two-column';
+
+  // scroll to top of step when step changes
   React.useEffect(() => {
-    // FOR SCROLL USE IN APPLICATION: Uncomment line below.
-    // wizardRef.current.scrollIntoView();
+    const container = wizardRef.current;
+    const header = document.querySelector(`#${id}`);
+    container.scrollTop = -header.getBoundingClientRect().bottom;
+  }, [activeIndex, open]);
 
-    // MODIFIED SCROLL FOR USE IN DEMO:
-    // This block is purely to ensure proper scrolling for the inline
-    // site demo. Use line above and remove this block for your app.
-    const layerContainer = document.querySelector('#layer-wrapper');
-    if (layerContainer) {
-      wizardRef.current.scrollIntoView();
-    } else {
-      const container = wizardRef.current.parentNode;
-      container.scrollTop = -container.getBoundingClientRect().top;
-    }
-  }, [active, open]);
-
+  const numberColumns = 2;
+  const width = getWidth(numberColumns, theme, size);
   return (
-    <>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill ref={wizardRef}>
-        <WizardHeader active={active} setActive={setActive} setOpen={setOpen} />
-        <Box
-          pad={size === 'small' ? 'medium' : 'small'}
-          gap={size !== 'small' ? 'large' : 'medium'}
-          flex={false}
-        >
-          <Box flex={false} gap="medium">
-            <Box align={size !== 'small' ? 'center' : 'start'}>
-              <Heading color="text-strong" margin="none">
-                {steps[active - 1].title || `Step ${active} Title`}
-              </Heading>
-              <Text
-                color="text-strong"
-                size="small"
-              >{`Step ${active} of ${steps.length}`}</Text>
-            </Box>
-
-            {size === 'small' && (
-              <Text color="text-strong" size="large">
-                {steps[active - 1].description}
-              </Text>
-            )}
-          </Box>
-          <Form
-            value={formValues}
-            onChange={setFormValues}
-            onSubmit={({ value }) => console.log(value)}
-          >
-            <Box
-              align="start"
-              direction={size !== 'small' ? 'row' : 'column-reverse'}
-              justify="center"
-              gap={size !== 'small' ? 'xlarge' : 'small'}
-            >
-              <Box width={size !== 'small' ? 'medium' : '100%'} gap="medium">
-                {/* Index an array starts at 0 */}
-                {size !== 'small' && (
-                  <Text color="text-strong" size="large">
-                    {steps[active - 1].description}
-                  </Text>
-                )}
-                {/* Index an array starts at 0 */}
-                {steps[active - 1].inputs}
-              </Box>
-              <Box
-                background="background-back"
-                gap="medium"
-                pad="medium"
-                round="small"
-                width={size !== 'small' ? 'medium' : '100%'}
-              >
-                <Text color="text-strong" size="large">
-                  When guidance is required for the form or content of the
-                  wizard, you might consider a two-column format.
-                </Text>
-                <Box direction="row" gap="small">
-                  <Stakeholder color="text-strong" />
-                  <Text color="text-strong">
-                    Instruction for the first field.
-                  </Text>
-                </Box>
-                <Box direction="row" gap="small">
-                  <ContactInfo color="text-strong" />
-                  <Text color="text-strong">
-                    Instruction for the next field.
-                  </Text>
-                </Box>
-                <Box direction="row" gap="small">
-                  <UserAdd color="text-strong" />
-                  <Text color="text-strong">
-                    Some information that helps to complete the next field.
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
-            <Box align="center" fill="horizontal">
-              <Box width="medium">
-                {active < steps.length && (
-                  <Button
-                    fill="horizontal"
-                    label="Next"
-                    icon={<FormNextLink />}
-                    primary
-                    reverse
-                    onClick={() => {
-                      setActive(active + 1);
-                    }}
-                  />
-                )}
-                {active === steps.length && (
-                  <Button
-                    fill="horizontal"
-                    label="Finish Setup"
-                    primary
-                    type="submit"
-                  />
-                )}
-              </Box>
-            </Box>
-          </Form>
-        </Box>
+    <WizardContext.Provider
+      value={{
+        activeIndex,
+        setActiveIndex,
+        activeStep,
+        setActiveStep,
+        defaultFormValues,
+        valid,
+        setValid,
+        formValues,
+        setFormValues,
+        id,
+        ref: wizardRef,
+        steps,
+        wizardTitle: 'Wizard Title',
+        width,
+      }}
+    >
+      <Box fill>
+        <WizardHeader setOpen={setOpen} />
+        <StepContent 
+          onSubmit={({ value }) => console.log('onSubmit:', value)}
+        />
+        <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
-    </>
+    </WizardContext.Provider>
   );
 };
 
-const WizardHeader = ({ active, setActive, setOpen }) => {
+const Guidance = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Header
-      border={{ side: 'bottom', color: 'border-weak' }}
-      pad="small"
-      fill="horizontal"
-      justify="center"
+    <Box
+      alignSelf="start"
+      background="background-contrast"
+      gap="medium"
+      pad="medium"
+      round="small"
+      flex
+      width={size !== 'small' ? { min: 'small', max: 'medium' } : '100%'}
     >
-      <Box direction="row" flex>
-        {active > 1 && (
-          <Button
-            label={size !== 'small' ? `Step ${active - 1}` : undefined}
-            icon={<FormPreviousLink color="text-strong" />}
-            onClick={() => setActive(active - 1)}
-          />
-        )}
+      <Text color="text-strong" size="large">
+        When guidance is required for the form or content of the wizard, you
+        might consider a two-column format.
+      </Text>
+      <Box direction="row" gap="small">
+        <Stakeholder color="text-strong" />
+        <Text color="text-strong">Instruction for the first field.</Text>
       </Box>
-      <Box>
-        <Text color="text-strong" weight="bold">
-          Action Title
-        </Text>
+      <Box direction="row" gap="small">
+        <ContactInfo color="text-strong" />
+        <Text color="text-strong">Instruction for the next field.</Text>
       </Box>
-      <Box direction="row" flex justify="end">
-        <Button
-          label={size !== 'small' ? 'Cancel' : undefined}
-          icon={<FormClose color="text-strong" />}
-          reverse
-          onClick={() => setOpen(true)}
-        />
-      </Box>
-    </Header>
-  );
-};
-
-WizardHeader.propTypes = {
-  active: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired,
-  setOpen: PropTypes.func.isRequired,
-};
-
-const CancellationLayer = ({ onSetOpen }) => {
-  return (
-    <Layer
-      position="center"
-      onClickOutside={() => onSetOpen(false)}
-      onEsc={() => onSetOpen(false)}
-    >
-      <Box pad="large" gap="small" width="large">
-        <Box>
-          <Heading color="text-strong" margin="none">
-            Cancel
-          </Heading>
-          <Text color="text-strong">Action Title</Text>
-        </Box>
+      <Box direction="row" gap="small">
+        <UserAdd color="text-strong" />
         <Text color="text-strong">
-          Cancelling setup will lose all of your progress. Are you sure you want
-          to exit the setup?
+          Some information that helps to complete the next field.
         </Text>
-        <Box
-          as="footer"
-          gap="small"
-          direction="row"
-          align="center"
-          justify="end"
-          pad={{ top: 'medium', bottom: 'small' }}
-        >
-          <Button
-            label="No, continue setup"
-            onClick={() => onSetOpen(false)}
-            secondary
-          />
-          <Button
-            label="Yes, cancel setup"
-            onClick={() => onSetOpen(false)}
-            primary
-          />
-        </Box>
       </Box>
-    </Layer>
+    </Box>
   );
-};
-
-CancellationLayer.propTypes = {
-  onSetOpen: PropTypes.func.isRequired,
 };

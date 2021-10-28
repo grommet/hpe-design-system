@@ -4,7 +4,7 @@ import {
   Avatar,
   Box,
   Button,
-  Drop,
+  Card,
   Grid,
   Header,
   Heading,
@@ -13,6 +13,8 @@ import {
   ResponsiveContext,
   Sidebar,
   Text,
+  ThemeContext,
+  Tip,
 } from 'grommet';
 import {
   Cli,
@@ -66,7 +68,7 @@ const pages = [
 export const MinimalSidebarExample = () => {
   const [activeItem, setActiveItem] = React.useState(1);
   const size = React.useContext(ResponsiveContext);
-
+  const theme = React.useContext(ThemeContext);
   return (
     <AppContainer activeItem={activeItem}>
       <Sidebar
@@ -79,7 +81,7 @@ export const MinimalSidebarExample = () => {
         /* Min height is not needed in mobile contexts */
         height={size !== 'small' ? { min: '100%' } : undefined}
         align="center"
-        background="blue!"
+        background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
         pad={{
           top: size !== 'small' ? 'medium' : 'small',
           bottom: 'medium',
@@ -114,19 +116,30 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   return (
     <Nav direction={size !== 'small' ? 'column' : 'row'}>
       {pages &&
-        pages
-          .slice(0, maxItems)
-          .map((item, index) => (
-            <NavButton
-              key={item.name}
-              a11yTitle={item.name}
-              active={index === activeItem}
-              icon={item.icon}
-              name={item.name}
-              onClick={() => setActiveItem(index)}
-              round="xsmall"
-            />
-          ))}
+        pages.slice(0, maxItems).map((item, index) => (
+          <Box fill="horizontal">
+            <Tip
+              dropProps={{
+                align: size !== 'small' ? { left: 'right' } : { top: 'bottom' },
+              }}
+              content={
+                <Text size="small" color="text-strong">
+                  {item.name}
+                </Text>
+              }
+            >
+              <Button
+                key={item.name}
+                a11yTitle={item.name}
+                active={index === activeItem}
+                icon={item.icon}
+                name={item.name}
+                onClick={() => setActiveItem(index)}
+                round="xsmall"
+              />
+            </Tip>
+          </Box>
+        ))}
     </Nav>
   );
 };
@@ -134,57 +147,6 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
 MainNavigation.propTypes = {
   activeItem: PropTypes.number,
   setActiveItem: PropTypes.func,
-};
-
-const NavButton = ({ active, icon, name, ...rest }) => {
-  const [hover, setHover] = React.useState();
-  const ref = React.useRef();
-  const size = React.useContext(ResponsiveContext);
-
-  return (
-    <Box fill="horizontal">
-      <Button
-        ref={ref}
-        color="text-strong"
-        icon={icon}
-        onMouseOver={() => setHover(true)}
-        onFocus={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onBlur={() => setHover(false)}
-        {...rest}
-      />
-      {
-        /* Show tooltip on hover and focus states as a supplemental
-      reminder to icon's meaning */
-        ref.current && hover && (
-          <Drop
-            align={size !== 'small' ? { left: 'right' } : { top: 'bottom' }}
-            target={ref.current}
-            plain
-          >
-            <Box
-              animation={{ type: ['fadeIn', 'slideRight'] }}
-              elevation="small"
-              margin={{ left: 'xsmall', vertical: 'xxsmall' }}
-              pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-              background="blue"
-              round="xsmall"
-            >
-              <Text size="small" color="text-strong">
-                {name}
-              </Text>
-            </Box>
-          </Drop>
-        )
-      }
-    </Box>
-  );
-};
-
-NavButton.propTypes = {
-  active: PropTypes.bool,
-  icon: PropTypes.element,
-  name: PropTypes.string,
 };
 
 const PageContent = ({ activeItem }) => {
@@ -221,14 +183,22 @@ PageContent.propTypes = {
 const SidebarHeader = () => <Avatar background="background-front">DS</Avatar>;
 
 const AppIdentity = ({ name }) => (
-  <Button plain>
-    <Box direction="row" align="center" gap="small">
+  <Button>
+    <Box
+      direction="row"
+      align="start"
+      gap="medium"
+      // pad maintains accessible hit target
+      // non-responsive maintains same dimensions for mobile
+      pad={{ vertical: 'small' }}
+      responsive={false}
+    >
       <Hpe color="brand" />
-      <Box direction="row" gap="xsmall">
-        <Text color="text" weight="bold">
+      <Box direction="row" gap="xsmall" wrap>
+        <Text color="text-strong" weight="bold">
           HPE
         </Text>
-        <Text color="text">{name}</Text>
+        <Text color="text-strong">{name}</Text>
       </Box>
     </Box>
   </Button>
@@ -238,15 +208,13 @@ AppIdentity.propTypes = {
   name: PropTypes.string,
 };
 
-const GridLayout = ({ items }) => {
-  return (
+const GridLayout = ({ items }) => (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
-        <Box key={index} background="background-front" fill round="small" />
+        <Card key={index} background="background-front" />
       ))}
     </Grid>
   );
-};
 
 GridLayout.propTypes = {
   items: PropTypes.array,
@@ -268,8 +236,7 @@ ListLayout.propTypes = {
   items: PropTypes.array,
 };
 
-const PanesLayout = ({ items }) => {
-  return items.map((item, index) => (
+const PanesLayout = ({ items }) => items.map((item, index) => (
     <Box
       key={index}
       background="background-front"
@@ -278,7 +245,6 @@ const PanesLayout = ({ items }) => {
       round="xsmall"
     />
   ));
-};
 
 PanesLayout.propTypes = {
   items: PropTypes.array,

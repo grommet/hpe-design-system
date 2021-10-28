@@ -11,8 +11,8 @@ const { layer } = theme;
 /* Color Palette */
 const primaryColors = [
   {
-    name: 'green',
-    value: 'green!',
+    name: 'brand',
+    value: 'brand',
     hex: colors['green!'],
   },
 ];
@@ -221,13 +221,19 @@ const borderDark = [
 
 const inputLight = [
   {
-    name: 'enabled-border',
+    name: 'enabled inputs have a border of "border"',
     value: colors.border.light,
     hex: colors.border.light,
     type: 'border',
   },
   {
-    name: 'value-border',
+    name: 'disabled inputs have a border of "border-weak"',
+    value: colors['border-weak'].light,
+    hex: colors['border-weak'].light,
+    type: 'border',
+  },
+  {
+    name: 'inputs containing a value have a border of "border-strong"',
     value: colors['border-strong'].light,
     hex: colors['border-strong'].light,
     type: 'border',
@@ -238,21 +244,32 @@ const inputLight = [
     hex: colors['validation-critical'].light,
   },
   {
-    name: 'disabled',
-    value: colors['text-weak'].light,
-    hex: colors['text-weak'].light,
+    name: 'validation-ok',
+    value: colors['validation-ok'].light,
+    hex: colors['validation-ok'].light,
+  },
+  {
+    name: 'validation-warning',
+    value: colors['validation-warning'].light,
+    hex: colors['validation-warning'].light,
   },
 ];
 
 const inputDark = [
   {
-    name: 'enabled-border',
+    name: 'enabled inputs have a border of "border"',
     value: colors.border.dark,
     hex: colors.border.dark,
     type: 'border',
   },
   {
-    name: 'value-border',
+    name: 'disabled inputs have a border of "border-weak"',
+    value: colors['border-weak'].dark,
+    hex: colors['border-weak'].dark,
+    type: 'border',
+  },
+  {
+    name: 'inputs containing a value have a border of "border-strong"',
     value: colors['border-strong'].dark,
     hex: colors['border-strong'].dark,
     type: 'border',
@@ -263,9 +280,14 @@ const inputDark = [
     hex: colors['validation-critical'].dark,
   },
   {
-    name: 'disabled',
-    value: colors['text-weak'].dark,
-    hex: colors['text-weak'].dark,
+    name: 'validation-ok',
+    value: colors['validation-ok'].dark,
+    hex: colors['validation-ok'].dark,
+  },
+  {
+    name: 'validation-warning',
+    value: colors['validation-warning'].dark,
+    hex: colors['validation-warning'].dark,
   },
 ];
 
@@ -386,6 +408,34 @@ const layerColor = [
   },
 ];
 
+const graphColor = [
+  {
+    name: 'graph-0',
+    value: colors['orange!'],
+    hex: colors['orange!'],
+  },
+  {
+    name: 'graph-1',
+    value: colors['blue!'],
+    hex: colors['blue!'],
+  },
+  {
+    name: 'graph-2',
+    value: colors['purple!'],
+    hex: colors['purple!'],
+  },
+  {
+    name: 'graph-3',
+    value: colors['yellow!'],
+    hex: colors['yellow!'],
+  },
+  {
+    name: 'graph-4',
+    value: colors['teal!'],
+    hex: colors['teal!'],
+  },
+];
+
 export const colorExamples = {
   palettes: {
     primaryColors,
@@ -418,4 +468,71 @@ export const colorExamples = {
     elevationColorsDark,
     elevationColorsLight,
   },
+  graphColor,
 };
+
+export const columns = [
+  {
+    property: 'name',
+    label: 'Name',
+    dataScope: 'row',
+  },
+  {
+    property: 'value',
+    label: 'Value',
+  },
+];
+
+export const greenLight = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '13.42:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Pass',
+  },
+];
+
+export const greenDark = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '4.61:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Fail',
+  },
+];
+
+export const greenDarkLarge = [
+  {
+    id: 1,
+    name: 'Contrast Ratio',
+    value: '4.61:1',
+  },
+  {
+    id: 2,
+    name: 'WCAG AA',
+    value: 'Pass',
+  },
+  {
+    id: 3,
+    name: 'WCAG AAA',
+    value: 'Pass',
+  },
+];

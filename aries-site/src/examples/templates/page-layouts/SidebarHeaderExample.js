@@ -1,31 +1,32 @@
 import React, { useContext } from 'react';
 import { Header, Box, Main, ResponsiveContext, Sidebar, Text } from 'grommet';
 
-export const SidebarHeaderExample = () => {
-  return (
+export const SidebarHeaderExample = () => (
     <AppContainer>
       <AppSidebar />
       <Box flex overflow="auto">
-        <Box height={{ min: '100%' }} gap="small">
+        <Box height={{ min: '100%' }}>
           <Header
+            background="background-front"
             fill="horizontal"
-            height="xxsmall"
-            background="green!"
             pad="small"
-            round="xsmall"
+            // remove dashed border in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
+            // remove height="xxsmall" in prod, for demo purposes only
+            height="xxsmall"
           >
             <Text weight="bold" color="text-strong">
               Header
             </Text>
           </Header>
           <Main
-            // height is for demonstration of scroll
-            height="xlarge"
             fill={undefined}
             flex={false}
-            background="orange"
             pad="small"
-            round="xsmall"
+            // remove dashed border in prod, for demo purposes only
+            border={{ color: 'border', style: 'dashed' }}
+            // remove height="xlarge" in prod, for demo purposes only
+            height="xlarge"
           >
             <Text weight="bold" color="text-strong">
               Main
@@ -35,7 +36,6 @@ export const SidebarHeaderExample = () => {
       </Box>
     </AppContainer>
   );
-};
 
 const AppSidebar = () => {
   const size = useContext(ResponsiveContext);
@@ -47,9 +47,9 @@ const AppSidebar = () => {
       flex={false}
       /* Min height is not needed in mobile contexts */
       height={size !== 'small' ? { min: '100%' } : undefined}
-      background={{ color: { light: 'purple', dark: 'purple!' }, dark: true }}
       pad="small"
-      round="xsmall"
+      // remove dashed border in prod, for demo purposes only
+      border={{ color: 'border', style: 'dashed' }}
     >
       <Text weight="bold" color="text-strong">
         Sidebar
@@ -64,7 +64,6 @@ const AppContainer = ({ ...rest }) => {
     <Box
       direction={size === 'small' ? 'column-reverse' : 'row'}
       fill
-      gap={size !== 'small' ? 'small' : undefined}
       margin="auto"
       width={{ max: 'xxlarge' }}
       {...rest}

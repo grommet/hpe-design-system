@@ -121,7 +121,11 @@ export const TableSummaryExample = () => {
 
   return (
     <>
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="service-adoption-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Service Adoption
       </Heading>
       <Box
@@ -131,6 +135,7 @@ export const TableSummaryExample = () => {
         overflow="auto"
       >
         <DataTable
+          aria-describedby="service-adoption-heading"
           data={enhancedData}
           columns={[
             {

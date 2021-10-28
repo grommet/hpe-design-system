@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Box, CheckBox, Form, FormField } from 'grommet';
 
 export const CheckBoxValidationExample = () => {
-  const [togglemessage, setToggleMessage] = useState(
-    'Check toggle to resolve error',
-  );
-  const [message, setMessage] = useState('Check checkbox to resolve error');
+  const demoCheckboxError = 'Check checkbox to resolve error.';
+  const demoToggleError = 'Check toggle to resolve error.';
+  const [message, setMessage] = useState(demoCheckboxError);
+  const [toggleMessage, setToggleMessage] = useState(demoToggleError);
 
   return (
     <Box gap="large" direction="row-responsive">
@@ -16,17 +16,14 @@ export const CheckBoxValidationExample = () => {
             label="Label"
             htmlFor="required-field"
             error={message}
+            required
           >
             <CheckBox
               name="checkbox"
               id="required-field"
               onChange={event => {
-                if (event.target.checked) {
-                  setMessage('');
-                }
-                if (!event.target.checked) {
-                  setMessage('Check checkbox to resolve error');
-                }
+                // Demonstrating error message state
+                setMessage(event.target.checked ? '' : demoCheckboxError);
               }}
               label="Validation"
             />
@@ -39,19 +36,15 @@ export const CheckBoxValidationExample = () => {
             name="required-field"
             label="Label"
             htmlFor="validation-example-2"
-            error={togglemessage}
+            error={toggleMessage}
           >
             <CheckBox
               name="required-field"
               id="validation-example-2"
               label="Validation-toggle"
               onChange={event => {
-                if (event.target.checked) {
-                  setToggleMessage('');
-                }
-                if (!event.target.checked) {
-                  setToggleMessage('Check toggle to resolve error');
-                }
+                // Demonstrating error message state
+                setToggleMessage(event.target.checked ? '' : demoToggleError);
               }}
               toggle
             />

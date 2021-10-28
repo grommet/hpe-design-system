@@ -8,6 +8,7 @@ import {
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
+  ToolbarButtonExample,
 } from '../../examples';
 
 <Example
@@ -46,7 +47,27 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 
 - Use a link when you’re navigating to another place, such as: a "view all" page, "Jane Chen" profile, a page "skip link" etc.
 - Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
-- An action is almost always occurs on the same page
+- An action almost always occurs on the same page
+
+### Toggle Buttons
+
+Toggle buttons are used either to switch between two states, such as checked and unchecked, or to trigger two actions like on or off.
+
+#### Toggle Buttons with Icons
+
+Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes the action that the user will be performing when using screen readers.
+
+**Best Practices:**
+- Limit to 2-3 descriptive words.
+- Use verbs first to describe the action such as “Hide/View”, "Switch/Unswitch", “Favorite/Unfavorite”, "Light/Dark" or “Like/Dislike".
+- Use sentence case capitalization.
+- Words such as “the” and “a” should be avoided.
+
+For Buttons with Icons ONLY, it is important that you show the two following elements:
+
+1. Show the current state of the button through the use of an icon.
+
+2. Inform the user of what will happen when the button is clicked by including `a11yTitle` or `aria-label`.
 
 ### Accessibility
 
@@ -60,7 +81,7 @@ There are a couple "flavors" of button depending on use case.
 
 ### Primary Button
 
-Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).
+Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).  Consider that the 80% use case for some pages is visualization and not action.  In cases like these, a call to action is inappropriate and a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -82,6 +103,27 @@ Secondary buttons are used to represent calls to action that are either in suppo
   <SecondaryButtonExample />
 </Example>
 
+### Toolbar Button
+
+Toolbar buttons are used when buttons are placed in a row with other toolbar controls. 
+
+A common use case would be when creating a [filtering experience](/templates/filtering). In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
+
+To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-based components like [Menu](/components/menu).
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+  ]}
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <ToolbarButtonExample />
+</Example>
+
 ### Default Button
 
 This is the default appreance and behavior of button. The majority of buttons on your page should use this form of button. If you are designating a primary call to action, use a [primary button](#primary-button). If you are designating a secondary call to action, use a [secondary button](#secondary-button).
@@ -96,7 +138,7 @@ This is the default appreance and behavior of button. The majority of buttons on
 
 ### Color Button
 
-When looking to accent an interaction or for special use cases that require more importance than a [default button](#default-button), the Color Button can be used to support an HPE sub-brand when appropriate or a serious action (ie. using red for a destructive task).
+When looking to accent an interaction or for special use cases that require more importance than a [default button](#default-button), the Color Button can be used to support an HPE sub-brand when appropriate or a serious action (i.e. using red for a destructive task).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ColorButtonExample.js"
@@ -120,7 +162,7 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
 
 ### Button States
 
-A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met.
+A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met. However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users. It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met. Buttons that do not apply (for reasons of context or permissions) should not be shown at all, rather than being shown as disabled.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"

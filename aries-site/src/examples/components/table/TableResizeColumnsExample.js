@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, DataTable, Text, Heading } from 'grommet';
+import { Box, DataTable, Heading, Text } from 'grommet';
 
 const data = [
   {
@@ -144,13 +144,13 @@ const columns = [
   {
     property: 'contact',
     header: 'Contact',
-    render: datum => <Text truncate>{datum.contact}</Text>,
+    render: datum => <Text truncate="tip">{datum.contact}</Text>,
     size: 'xsmall',
   },
   {
     property: 'title',
     header: 'Title',
-    render: datum => <Text truncate>{datum.title}</Text>,
+    render: datum => <Text truncate="tip">{datum.title}</Text>,
     size: 'xsmall',
   },
   {
@@ -164,7 +164,7 @@ const columns = [
   {
     property: 'deviceName',
     header: 'Device Name',
-    render: datum => <Text truncate>{datum.deviceName}</Text>,
+    render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
     size: 'xsmall',
   },
   {
@@ -173,21 +173,29 @@ const columns = [
   },
 ];
 
-export const TableResizeColumnsExample = () => {
-  return (
-    <>
-      <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
-        Contact Information
-      </Heading>
-      <Box
-        align="start"
-        // restricting height to demonstrate pinned header behavior
-        height="medium"
-        overflow="auto"
-        fill="horizontal"
-      >
-        <DataTable data={data} columns={columns} pin resizeable />
-      </Box>
-    </>
-  );
-};
+export const TableResizeColumnsExample = () => (
+  <>
+    <Heading
+      id="contact-info-heading"
+      level={3}
+      margin={{ bottom: 'medium', top: 'none' }}
+    >
+      Contact Information
+    </Heading>
+    <Box
+      align="start"
+      // restricting height to demonstrate pinned header behavior
+      height="medium"
+      overflow="auto"
+      fill="horizontal"
+    >
+      <DataTable
+        aria-describedby="contact-info-heading"
+        data={data}
+        columns={columns}
+        pin
+        resizeable
+      />
+    </Box>
+  </>
+);

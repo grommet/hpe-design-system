@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  Card,
   Grid,
   Header,
   Heading,
@@ -93,7 +94,7 @@ const MainNavigation = ({ activeItem, setActiveItem }) => {
   const size = React.useContext(ResponsiveContext);
 
   return size !== 'small' ? (
-    <Nav direction="row" gap="xsmall">
+    <Nav align="center" direction="row" gap="xsmall">
       <NavItems activeItem={activeItem} setActiveItem={setActiveItem} />
     </Nav>
   ) : (
@@ -114,8 +115,7 @@ MainNavigation.propTypes = {
   setActiveItem: PropTypes.func,
 };
 
-const NavItems = ({ activeItem, setActiveItem }) => {
-  return (
+const NavItems = ({ activeItem, setActiveItem }) => (
     pages &&
     pages.map((item, index) => (
       <Button
@@ -123,11 +123,9 @@ const NavItems = ({ activeItem, setActiveItem }) => {
         label={item.name}
         active={index === activeItem}
         onClick={() => setActiveItem(index)}
-        round="xsmall"
       />
     ))
   );
-};
 
 const PageContent = ({ activeItem }) => {
   const { content, name } = pages[activeItem];
@@ -152,14 +150,22 @@ PageContent.propTypes = {
 };
 
 const AppIdentity = ({ name }) => (
-  <Button plain>
-    <Box direction="row" align="center" gap="small">
+  <Button>
+    <Box
+      direction="row"
+      align="start"
+      gap="medium"
+      // pad maintains accessible hit target
+      // non-responsive maintains same dimensions for mobile
+      pad={{ vertical: 'small' }}
+      responsive={false}
+    >
       <Hpe color="brand" />
-      <Box direction="row" gap="xsmall">
-        <Text color="text" weight="bold">
+      <Box direction="row" gap="xsmall" wrap>
+        <Text color="text-strong" weight="bold">
           HPE
         </Text>
-        <Text color="text">{name}</Text>
+        <Text color="text-strong">{name}</Text>
       </Box>
     </Box>
   </Button>
@@ -169,15 +175,13 @@ AppIdentity.propTypes = {
   name: PropTypes.string,
 };
 
-const GridLayout = ({ items }) => {
-  return (
+const GridLayout = ({ items }) => (
     <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
       {items.map((item, index) => (
-        <Box key={index} background="background-front" fill round="small" />
+        <Card key={index} background="background-front" />
       ))}
     </Grid>
   );
-};
 
 GridLayout.propTypes = {
   items: PropTypes.array,
@@ -199,8 +203,7 @@ ListLayout.propTypes = {
   items: PropTypes.array,
 };
 
-const PanesLayout = ({ items }) => {
-  return items.map((item, index) => (
+const PanesLayout = ({ items }) => items.map((item, index) => (
     <Box
       key={index}
       background="background-front"
@@ -209,7 +212,6 @@ const PanesLayout = ({ items }) => {
       round="xsmall"
     />
   ));
-};
 
 PanesLayout.propTypes = {
   items: PropTypes.array,

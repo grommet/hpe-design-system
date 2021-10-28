@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
-import { Alert, MailOption } from 'grommet-icons';
+import { Button, Box, Layer, Heading, ResponsiveContext, Text } from 'grommet';
+import { Alert, MailOption, FormClose } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);
@@ -18,35 +18,43 @@ export const LayerCenterExample = () => {
             fill="vertical"
             overflow="auto"
             width={size !== 'small' ? 'medium' : undefined}
+            pad="medium"
           >
-            <Box
-              flex="grow"
-              direction="row"
-              gap="medium"
-              pad="medium"
-              height="small"
-            >
-              <Box pad={{ top: 'xsmall' }}>
-                <MailOption />
-              </Box>
-              <Box gap="medium">
-                <Heading margin="none" size="small">
+            <Box justify="between" direction="row">
+              <Box flex={false} gap="small" direction="row">
+                <Box justify="center">
+                  <MailOption />
+                </Box>
+                <Heading margin="none" level={2}>
                   Modal Dialog
                 </Heading>
-                <Text>
-                  For modal dialogs, the use case will determine the design and
-                  size of the box for your content
-                </Text>
+              </Box>
+              <Box justify="center">
+                <Button icon={<FormClose />} onClick={onClose} />
               </Box>
             </Box>
+            <Box overflow="auto" pad={{ vertical: 'medium' }}>
+              <Text>
+                For modal dialogs, the use case will determine the design and
+                size of the box for your content
+              </Text>
+            </Box>
+          </Box>
+          <Box
+            fill="vertical"
+            overflow="auto"
+            width={size !== 'small' ? 'medium' : undefined}
+          >
             <Box
               direction="row"
               gap="small"
-              pad="medium"
+              pad={{ vertical: 'small', horizontal: 'medium' }}
               background="background-contrast"
             >
               <Alert color="status-critical" />
-              <Text weight="bold">Footer if you need it</Text>
+              <Text color="text-strong" weight="bold">
+                Footer if you need it
+              </Text>
             </Box>
           </Box>
         </Layer>

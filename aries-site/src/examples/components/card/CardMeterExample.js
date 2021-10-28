@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Card, CardBody, CardFooter, Meter, Stack, Text } from 'grommet';
-import { Wifi } from 'grommet-icons';
+import { Wifi, StatusCriticalSmall } from 'grommet-icons';
 
 const mockAvailability = 0.872;
 
@@ -94,14 +94,12 @@ KPIMeter.propTypes = {
   values: PropTypes.arrayOf(PropTypes.object),
 };
 
-const KPISummary = ({ message, statusColor }) => {
-  return (
-    <Box direction="row" align="center" gap="small">
-      <Box background={statusColor} height="12px" width="12px" round />
-      <Text>{message}</Text>
-    </Box>
-  );
-};
+const KPISummary = ({ message, statusColor }) => (
+  <Box direction="row" align="center" gap="small">
+    <StatusCriticalSmall color={statusColor} size="small" />
+    <Text>{message}</Text>
+  </Box>
+);
 
 KPISummary.propTypes = {
   message: PropTypes.string,

@@ -15,7 +15,14 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, FormClose, More, Search } from 'grommet-icons';
+import {
+  Filter,
+  FormClose,
+  More,
+  Search,
+  StatusGoodSmall,
+  StatusWarningSmall,
+} from 'grommet-icons';
 
 const allData = [
   { name: 'Apex-Server', status: 'Ready' },
@@ -30,24 +37,17 @@ const allData = [
 const defaultSelectValue = 'All';
 const defaultFilters = {};
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const FilteringWithSelect = () => {
+export const FilteringWithSelect = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
 
@@ -64,14 +64,14 @@ export const FilteringWithSelect = () => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
+    filterResults = array.filter(item =>
       // validates all filter criteria
-      return filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
 
     if (searchValue) {
       filterResults = filterResults.filter(o =>
@@ -95,6 +95,7 @@ export const FilteringWithSelect = () => {
 
   return (
     <Box
+      background="background"
       gap="medium"
       width={{ max: 'xxlarge' }}
       pad={{ horizontal: 'medium' }}
@@ -128,7 +129,8 @@ export const FilteringWithSelect = () => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -143,6 +145,9 @@ export const FilteringWithSelect = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -155,6 +160,10 @@ export const FilteringWithSelect = () => {
   );
 };
 
+FilteringWithSelect.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
 const Filters = ({
   filtering,
   filters,
@@ -162,6 +171,8 @@ const Filters = ({
   filterData,
   setFilters,
   setFiltering,
+  setSearch,
+  target, // target is for demo purposes only, remove in production
 }) => {
   const [selectValue, setSelectValue] = useState(defaultSelectValue);
   const [previousValues, setPreviousValues] = useState({});
@@ -174,6 +185,7 @@ const Filters = ({
     setSelectValue(defaultSelectValue);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -212,7 +224,8 @@ const Filters = ({
         {size !== 'small' ? (
           content
         ) : (
-          <StyledButton
+          <Button
+            kind="toolbar"
             icon={<Filter />}
             onClick={() => {
               setShowLayer(true);
@@ -237,6 +250,8 @@ const Filters = ({
             restoreValues(previousValues);
             setShowLayer(!showLayer);
           }}
+          // target is for demo purposes only, remove in production
+          target={target}
         >
           <Box
             width={{ min: 'medium' }}
@@ -293,6 +308,9 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  // target is for demo purposes only, remove in production
+  target: PropTypes.object,
 };
 
 const RecordSummary = ({ data, filtering }) => (
@@ -300,13 +318,15 @@ const RecordSummary = ({ data, filtering }) => (
     <Text size="small" weight="bold">
       {data.length}
     </Text>
-    <Text size="small">{filtering ? 'results of ' : 'items'}</Text>
+    <Text size="small">
+      {filtering ? `result${data.length > 1 ? 's' : ''} of ` : 'items'}
+    </Text>
     {filtering && (
       <Box direction="row" gap="xxsmall">
         <Text size="small" weight="bold">
           {allData.length}
         </Text>
-        <Text size="small">items</Text>
+        <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
   </Box>
@@ -328,7 +348,6 @@ const Results = ({ data }) => {
   return (
     <Box pad={{ bottom: 'medium' }} overflow="auto" fill>
       <List
-        background="background-front"
         border="horizontal"
         data={data}
         action={(item, index) => (
@@ -341,13 +360,11 @@ const Results = ({ data }) => {
           >
             <Box direction="row" gap="small" align="center">
               {size !== 'small' && <Text>{item.status}</Text>}
-              <Box
-                pad="xsmall"
-                background={
-                  item.status === 'Ready' ? 'status-ok' : 'status-warning'
-                }
-                round
-              />
+              {item.status === 'Ready' ? (
+                <StatusGoodSmall color="status-ok" size="small" />
+              ) : (
+                <StatusWarningSmall color="status-warning" size="small" />
+              )}
             </Box>
             <Menu
               icon={<More />}
