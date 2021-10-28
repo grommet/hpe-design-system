@@ -10,6 +10,7 @@ export const Container = ({
   guidance, // link to Design System guidance
   height: heightProp,
   horizontalLayout,
+  pad,
   plain, // remove Container from around example
   screenContainer, // show example in mock browser
   showResponsiveControls,
@@ -36,9 +37,10 @@ export const Container = ({
       justify="center"
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       pad={
-        template || screenContainer
+        pad ||
+        (template || screenContainer
           ? { horizontal: 'large', top: 'large' }
-          : 'large'
+          : 'large')
       }
       round={
         !horizontalLayout &&
@@ -58,6 +60,7 @@ Container.propTypes = {
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.oneOfType([
