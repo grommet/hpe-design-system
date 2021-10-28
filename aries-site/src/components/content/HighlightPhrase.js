@@ -7,7 +7,7 @@ import { Text } from 'grommet';
 const HighlightedText = styled(Text)`
   ${({ fade, theme }) =>
     fade
-      ? 'animation: fadeOut ease-out 3.5s;'
+      ? 'animation: fadeOut ease-out 4s;'
       : `color: ${
           theme.dark
             ? theme.global.colors.yellow.light
@@ -17,6 +17,15 @@ const HighlightedText = styled(Text)`
 
   @keyframes fadeOut {
     0% {
+      color: inherit;
+    }
+    10% {
+      color: ${({ theme }) =>
+        theme.dark
+          ? theme.global.colors['yellow!']
+          : theme.global.colors.blue.light};
+    }
+    40% {
       color: ${({ theme }) =>
         theme.dark
           ? theme.global.colors.yellow.light
