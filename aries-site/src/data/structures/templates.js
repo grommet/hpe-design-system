@@ -1,4 +1,5 @@
 import {
+  CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
 } from '../../examples/cardPreviews';
@@ -22,6 +23,12 @@ export const templates = [
     },
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
+      'Required vs. optional fields',
+      'Using help text',
+      'Capitalization in forms',
+      'Button placement and labeling',
+      'User-Entered Input',
+      'Form submission',
       'Sign In',
       'Sign Up',
       'Change Password',
@@ -31,6 +38,7 @@ export const templates = [
       'Sort',
       'Shipping',
       'Customize',
+      'Required and Optional Fields',
     ],
     relatedContent: [
       'TextInput',
@@ -40,6 +48,7 @@ export const templates = [
       'CheckBoxGroup',
       'RadioButtonGroup',
     ],
+    tags: ['forms', 'validation', 'messaging', 'form examples'],
   },
   {
     name: 'Dashboards',
@@ -60,6 +69,7 @@ export const templates = [
     featuring content within cards.`,
     sections: [],
     relatedContent: ['Card', 'Lists', 'Grid'],
+    tags: [],
   },
   {
     name: 'Filtering',
@@ -79,8 +89,29 @@ export const templates = [
     },
     seoDescription: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
-    sections: [],
-    relatedContent: ['Table', 'Lists', 'Card'],
+    sections: [
+      'What makes up filtering',
+      'Filters',
+      'Filters in a center Layer',
+      'Filtering with selectable results',
+      'More examples of filtering',
+      'Filtering with RangeSelector',
+      'Filtering with Select',
+    ],
+    relatedContent: ['DataTable', 'Lists', 'Card'],
+    tags: [
+      'filter controls',
+      'table filter',
+      'list filter',
+      'card filter',
+      'search table',
+      'filters layer',
+      'filter guidelines',
+      'filtered results',
+      'pagination',
+      'results',
+      'filters',
+    ],
   },
   {
     name: 'Global Header',
@@ -100,8 +131,30 @@ export const templates = [
     },
     seoDescription: `A standardized header for use when building applications 
     and services that live in the HPE ecosystem.`,
-    sections: [],
+    sections: [
+      'What makes up the Global Header',
+      'App Identity',
+      'Header Main Navigation',
+      'Shopping Cart',
+      'Country Selector',
+      'Cube Menu',
+      'Color Scheme',
+      'What makes up the Global footer',
+      'Privacy Link',
+      'Terms of Use Link',
+      'Ad Choices and Cookies Link',
+      'Do Not Sell My Personal Information Link',
+    ],
     relatedContent: ['Page Layouts', 'Header', 'Navigation'],
+    tags: [
+      'common header',
+      'CHFWS',
+      'HPE Common Header and Footer Web Service',
+      'HFWS test page',
+      'global header',
+      'global footer',
+      'header service',
+    ],
   },
   {
     name: 'Hub and Spoke Navigation',
@@ -128,7 +181,14 @@ export const templates = [
       'Grid',
       'Lists',
     ],
-    sections: [],
+    sections: ['When to Use Hub & Spoke'],
+    tags: [
+      'navigation',
+      'app navigation',
+      'navigation patterns',
+      'hub and spoke',
+      'hub & spoke',
+    ],
   },
   {
     name: 'Internationalization',
@@ -147,8 +207,21 @@ export const templates = [
     },
     seoDescription: `How to internationalize a site or application that uses
     the HPE Design System`,
-    sections: [],
+    sections: ['Localizing Grommet'],
     relatedContent: [],
+    tags: [
+      'localization',
+      'internationalization',
+      'localisation',
+      'internationalisation',
+      'localize',
+      'localise',
+      'I18N',
+      'react-intl',
+      'react-i18next',
+      'messages',
+      'global users',
+    ],
   },
   {
     name: 'Lists',
@@ -169,7 +242,30 @@ export const templates = [
     relatedContent: ['Dashboards', 'Card', 'Page Layouts', 'Pagination'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
-    sections: [],
+    sections: [
+      'About Lists',
+      'Types of Lists',
+      'Selection',
+      'Action Menu in List Item',
+      'Long Lists',
+      'Wrapping vs Truncation:',
+      'List vs Table',
+      'Icon + Name + Option',
+      'Name + Description + Option',
+      'Name + Option + Action',
+      'Image + Name + Description',
+      'Paginated',
+      'Item order',
+    ],
+    tags: [
+      'ul',
+      'ol',
+      'li',
+      'styled lists',
+      'infinitescroll',
+      'infinite scroll',
+      'paginated lists',
+    ],
   },
   {
     name: 'Navigation',
@@ -188,12 +284,13 @@ export const templates = [
     },
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
-    sections: [],
+    sections: ['Navigation Within an Application'],
     relatedContent: [
       'Header',
       'Hub and Spoke Navigation',
       'Persistent Navigation',
     ],
+    tags: ['navigation patterns'],
   },
   {
     name: 'Page Layouts',
@@ -221,7 +318,23 @@ export const templates = [
     ],
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
-    sections: [],
+    sections: [
+      'About Page Layouts',
+      'Responsiveness',
+      'Sidebar, header, and footer',
+      'Sidebar and header',
+      'Header and footer',
+      'Sticky header',
+      'Header only',
+    ],
+    tags: [
+      'common layouts',
+      'responsive',
+      'responsive layouts',
+      'shells',
+      'application layouts',
+      'app layouts',
+    ],
   },
   {
     name: 'Persistent Navigation',
@@ -241,7 +354,18 @@ export const templates = [
     seoDescription: `Persistent navigation pattern. What, why, and when to use 
     persistent navigation.`,
     relatedContent: ['Navigation', 'Hub and Spoke Navigation', 'Header'],
-    sections: [],
+    sections: [
+      'When to Use Persistent Navigation',
+      'Header as Persistent Navigation',
+      'Minimal Sidebar',
+    ],
+    tags: [
+      'navigation',
+      'navigation patterns',
+      'app level navigation',
+      'application navigation',
+      'sidebar',
+    ],
   },
   {
     name: 'Status Indicator',
@@ -257,14 +381,21 @@ export const templates = [
       when all is well or call attention to items when a user needs to take 
       action`,
     relatedContent: ['Notification', 'Toast Notifications', 'Stack'],
-    sections: [],
+    sections: ['What makes up a status indicator', 'Icons and Shapes'],
+    tags: [
+      'displaying status',
+      'display status',
+      'status colors',
+      'status icons',
+      'status WCAG',
+    ],
   },
   {
-    name: 'Table Customization',
+    name: 'DataTable Customization',
     available: true,
     cardOrder: 100,
-    description: `Allows users to customize which columns are visible in a table
-    and in what order they appear.`,
+    description: `Allows users to customize which columns are visible in a data 
+    table and in what order they appear.`,
     preview: {
       image: {
         src: {
@@ -277,8 +408,20 @@ export const templates = [
     },
     seoDescription: `Allows users to customize table column order and
     visibility to best suit their needs.`,
-    sections: [],
-    relatedContent: ['Table', 'Lists', 'Filtering'],
+    sections: [
+      'What makes up the customizable table',
+      'An action to display column visibility and order controls.',
+      'Column visibility',
+      'Column order',
+    ],
+    relatedContent: ['DataTable', 'Lists', 'Filtering'],
+    tags: [
+      'ordering columns',
+      'order columns',
+      'reorder',
+      're-order',
+      'column order',
+    ],
   },
   {
     name: 'Toast Notifications',
@@ -293,8 +436,26 @@ export const templates = [
     },
     seoDescription: `Toast notifications are used to communicate low 
     severity level information to users in an unobtrusive way.`,
-    sections: [],
+    sections: [
+      'When should you use a Toast Notification',
+      'Dealing with multiple Toast Notifications',
+      'Status Indicator',
+      'Content (Title + Message)',
+      'Close Button',
+      'Placement',
+      'Persistence',
+    ],
     relatedContent: ['Notification', 'Status Indicator', 'Stack'],
+    tags: [
+      'feedback',
+      'messages',
+      'messaging',
+      'toast',
+      'pop up',
+      'popup',
+      'status',
+      'confirmation',
+    ],
   },
   {
     name: 'Wizard',
@@ -312,7 +473,35 @@ export const templates = [
       },
     },
     seoDescription: 'Wizards are an effective way to handle multi-step forms.',
-    sections: [],
+    sections: [
+      'Header and Footer behavior',
+      'Providing guidance for a form step',
+      'Indicating progress',
+      'Validation',
+      'Summarizing what was accomplished or configured',
+      'Cancellation',
+      'Single Column vs Two Column Wizards',
+      'Two-column Wizard',
+    ],
     relatedContent: ['Forms'],
+    tags: [
+      'multi-step form',
+      'mutliple steps',
+      'multistep form',
+      'stepped form',
+    ],
+  },
+  {
+    name: 'Code Blocks',
+    available: true,
+    cardOrder: 100,
+    description: 'A standardized style for displaying code.',
+    preview: {
+      component: () => <CodeBlocksPreview />,
+      background: 'background-back',
+    },
+    seoDescription: 'A standardized style for displaying code.',
+    sections: ['Guidance', 'Theming', 'Scrolling', 'Line Wrapping'],
+    tags: ['code', 'syntax highlighting'],
   },
 ];

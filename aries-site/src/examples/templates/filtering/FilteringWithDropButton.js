@@ -370,7 +370,6 @@ const Results = ({ data }) => {
         {data.map((datum, index) => (
           <StyledCard
             background="background"
-            elevation="medium"
             key={index}
             onClick={() => {
               // eslint-disable-next-line no-alert

@@ -4,7 +4,7 @@ import { ToastPreview } from '../../cardPreviews';
 
 const color = 'text-strong';
 const anchor = 'vertical';
-const thickness = 'xxxsmall';
+const thickness = 'hair';
 const type = 'rectilinear';
 
 const connections = [

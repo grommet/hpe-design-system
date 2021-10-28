@@ -3,6 +3,7 @@ export * from './box';
 export * from './button';
 export * from './checkbox';
 export * from './checkboxgroup';
+export * from './code-blocks';
 export * from './dateinput';
 export * from './footer';
 export * from './grid';

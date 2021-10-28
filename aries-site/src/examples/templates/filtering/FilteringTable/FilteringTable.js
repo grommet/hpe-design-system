@@ -48,19 +48,20 @@ export const FilteringTable = () => {
       </Heading>
       <FiltersProvider>
         <Box gap="medium">
-          <Box align="start" direction="row" justify="between" wrap>
-            <FilterControls
-              data={servers}
-              filters={filtersConfig}
-              primaryKey="id"
-              searchFilter={{ placeholder: 'Search servers...' }}
-            />
-            <Menu
-              kind="toolbar"
-              label="Actions"
-              items={[{ label: 'Power On' }, { label: 'Power Off' }]}
-            />
-          </Box>
+          <FilterControls
+            data={servers}
+            filters={filtersConfig}
+            primaryKey="id"
+            searchFilter={{ placeholder: 'Search servers...' }}
+            actions={
+              <Menu
+                kind="toolbar"
+                label="Actions"
+                items={[{ label: 'Power On' }, { label: 'Power Off' }]}
+              />
+            }
+          />
+
           <ServerResults />
         </Box>
       </FiltersProvider>
