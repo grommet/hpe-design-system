@@ -34,6 +34,7 @@ export const Example = ({
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
+  pad,
   plain, // remove Container from around example
   relevantComponents,
   screenContainer, // show example in mock browser
@@ -74,6 +75,7 @@ export const Example = ({
     guidance,
     height,
     horizontalLayout,
+    pad,
     plain,
     screenContainer,
     showResponsiveControls,
@@ -288,6 +290,7 @@ Example.propTypes = {
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
