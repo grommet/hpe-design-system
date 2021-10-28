@@ -20,10 +20,10 @@
     "styled-components": "^5.2.3"
   },
   "scripts": {
-    "build": "next build",
+    "build": "yarn build-search && next build",
     "export": "yarn build && next export",
     "postexport": "node next.postexport.js",
-    "start": "next",
+    "start": "yarn build-search && next",
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
