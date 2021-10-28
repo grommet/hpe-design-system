@@ -5,11 +5,11 @@ import { getPageDetails } from '../../utils';
 import { Status, SubsectionText } from '../../components';
 import { Subsection } from '.';
 
-export const DocsPageHeader = ({ title, topic }) => {
+export const DocsPageHeader = ({ title, topic, render }) => {
   const page = getPageDetails(title);
 
   return (
-    <Subsection name={title} topic={topic} level={1}>
+    <Subsection name={render || title} topic={topic} level={1}>
       <Box>
         <SubsectionText>{page.description}</SubsectionText>
         {page.status && <Status status={page.status} />}
@@ -19,6 +19,7 @@ export const DocsPageHeader = ({ title, topic }) => {
 };
 
 DocsPageHeader.propTypes = {
+  render: PropTypes.string,
   title: PropTypes.string.isRequired,
   topic: PropTypes.string.isRequired,
 };

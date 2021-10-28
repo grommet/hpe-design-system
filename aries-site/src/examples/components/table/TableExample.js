@@ -230,23 +230,27 @@ const columns = [
   {
     property: 'pinned',
     header: (
-      <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-        <Text color="text-strong" weight="bold">
-          Pinned{' '}
-          <Text size="xsmall" weight="normal" color="text">
-            %
-          </Text>
+      <Text color="text-strong" weight="bold">
+        Pinned{' '}
+        <Text size="xsmall" weight="normal" color="text">
+          %
         </Text>
-      </Box>
+      </Text>
     ),
     render: datum => (
-      <Box pad={{ vertical: 'xsmall' }}>
-        <Meter
-          values={[{ value: datum.pinned / datum.pinnable, color: 'graph-2' }]}
-          max={1}
-          thickness="small"
-          size="small"
-        />
+      <Box gap="xsmall" direction="row">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            alignSelf="center"
+            values={[
+              { value: datum.pinned / datum.pinnable, color: 'graph-2' },
+            ]}
+            max={1}
+            thickness="small"
+            size="small"
+          />
+        </Box>
+        <Text>{((datum.pinned / datum.pinnable) * 10).toFixed(0)}%</Text>
       </Box>
     ),
     sortable: false,
@@ -288,11 +292,16 @@ export const TableExample = () => {
 
   return (
     <>
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="storage-pools-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Storage Pools
       </Heading>
       <Box height="medium" overflow="auto">
         <DataTable
+          aria-describedby="storage-pools-heading"
           data={data}
           columns={[
             {

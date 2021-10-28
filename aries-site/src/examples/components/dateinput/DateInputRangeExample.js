@@ -21,7 +21,6 @@ export const DateInputRangeExample = () => {
           name="dateinput-range"
           htmlFor="dateinput-range"
           label="DateInput Range"
-          required
         >
           <DateInput
             value={value}

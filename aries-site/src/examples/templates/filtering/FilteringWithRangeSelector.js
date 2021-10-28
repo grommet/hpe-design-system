@@ -19,7 +19,13 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormClose, Filter, Search } from 'grommet-icons';
+import {
+  FormClose,
+  Filter,
+  Search,
+  StatusCriticalSmall,
+  StatusGoodSmall,
+} from 'grommet-icons';
 
 const allData = [
   {
@@ -63,20 +69,13 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
-export const FilteringWithRangeSelector = () => {
+export const FilteringWithRangeSelector = ({ containerRef }) => {
+  // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const size = useContext(ResponsiveContext);
   const inputRef = useRef();
 
@@ -87,14 +86,14 @@ export const FilteringWithRangeSelector = () => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => {
+    filterResults = array.filter(item =>
       // validates all filter criteria
-      return filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
 
     if (searchValue) {
       filterResults = filterResults.filter(o =>
@@ -110,6 +109,7 @@ export const FilteringWithRangeSelector = () => {
 
   return (
     <Box
+      background="background"
       gap="medium"
       width={{ max: 'xxlarge' }}
       margin="auto"
@@ -143,8 +143,9 @@ export const FilteringWithRangeSelector = () => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
                 id="search-button"
+                kind="toolbar"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
               />
@@ -158,6 +159,9 @@ export const FilteringWithRangeSelector = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
+                // target is for demo purposes only, remove in production
+                target={containerRef && containerRef.current}
               />
             )}
           </Box>
@@ -169,15 +173,18 @@ export const FilteringWithRangeSelector = () => {
   );
 };
 
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
+FilteringWithRangeSelector.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
 
-const Filters = ({ data, filtering, setData, setFiltering }) => {
+const Filters = ({
+  data,
+  filtering,
+  setData,
+  setFiltering,
+  setSearch,
+  target, // target is for demo purposes only, remove in production
+}) => {
   const [availability, setAvailability] = useState(defaultAvailability);
   const [filters, setFilters] = useState(defaultFilters);
   const [location, setLocation] = useState(defaultLocation);
@@ -199,26 +206,28 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
     setData(allData);
     setFilters(defaultFilters);
     setLocation(defaultLocation);
+    setSearch('');
   };
 
   const filterData = (array, criteria) => {
     setFilters(criteria);
     const filterKeys = Object.keys(criteria);
-    return array.filter(item => {
+    return array.filter(item =>
       // validates all filter criteria
-      return filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
-      });
-    });
+      }),
+    );
   };
 
   if (size === 'small') {
     return (
       <>
         <Box align="center" direction="row" gap="xsmall">
-          <StyledButton
+          <Button
+            kind="toolbar"
             icon={<Filter />}
             alignSelf="start"
             onClick={() => setShowLayer(true)}
@@ -230,6 +239,9 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
               setShowLayer(!showLayer);
               setLocation(previousValues.location);
             }}
+            full
+            // target is for demo purposes only, remove in production
+            target={target}
           >
             <Box width="large" pad="large" gap="medium">
               <Header>
@@ -315,7 +327,8 @@ const Filters = ({ data, filtering, setData, setFiltering }) => {
           previousValues={previousValues}
           setPreviousValues={setPreviousValues}
         />
-        <FilterButton
+        <DropButton
+          kind="toolbar"
           alignSelf="start"
           icon={<Filter />}
           open={open}
@@ -394,6 +407,9 @@ Filters.propTypes = {
   filtering: PropTypes.bool.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  // target is for demo purposes only, remove in production
+  target: PropTypes.object,
 };
 
 const LocationFilter = ({
@@ -404,37 +420,35 @@ const LocationFilter = ({
   setLocation,
   previousValues,
   setPreviousValues,
-}) => {
-  return (
-    <Select
-      options={[
-        'All Locations',
-        'Fort Collins, CO',
-        'Houston, TX',
-        'New York, NY',
-        'San Jose, CA',
-      ]}
-      value={location}
-      onChange={({ option }) => {
-        const nextFilters = {
-          ...filters,
-          location:
-            option !== defaultLocation &&
-            (nextLocation => nextLocation === option),
-        };
-        const nextData = filterData(allData, nextFilters);
-        // save previous value in case user
-        // clicks 'x'
-        setPreviousValues({
-          ...previousValues,
-          location,
-        });
-        setLocation(option);
-        setData(nextData);
-      }}
-    />
-  );
-};
+}) => (
+  <Select
+    options={[
+      'All Locations',
+      'Fort Collins, CO',
+      'Houston, TX',
+      'New York, NY',
+      'San Jose, CA',
+    ]}
+    value={location}
+    onChange={({ option }) => {
+      const nextFilters = {
+        ...filters,
+        location:
+          option !== defaultLocation &&
+          (nextLocation => nextLocation === option),
+      };
+      const nextData = filterData(allData, nextFilters);
+      // save previous value in case user
+      // clicks 'x'
+      setPreviousValues({
+        ...previousValues,
+        location,
+      });
+      setLocation(option);
+      setData(nextData);
+    }}
+  />
+);
 
 LocationFilter.propTypes = {
   filters: PropTypes.shape({
@@ -519,13 +533,15 @@ const RecordSummary = ({ data, filtering }) => (
     <Text size="small" weight="bold">
       {data.length}
     </Text>
-    <Text size="small">{filtering ? 'results of ' : 'items'}</Text>
+    <Text size="small">
+      {filtering ? `result${data.length > 1 ? 's' : ''} of ` : 'items'}
+    </Text>
     {filtering && (
       <Box direction="row" gap="xxsmall">
         <Text size="small" weight="bold">
           {allData.length}
         </Text>
-        <Text size="small">items</Text>
+        <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
   </Box>
@@ -549,20 +565,17 @@ const Results = ({ data }) => (
     fill
   >
     <List
-      background="background-front"
       border="horizontal"
       data={data}
       action={(item, index) => (
         <Box direction="row" align="center" gap="medium" key={index}>
           <Box direction="row" gap="small" align="center">
             <Text>Availability: {item.availability}%</Text>
-            <Box
-              pad="xsmall"
-              background={
-                item.availability <= 70 ? 'status-critical' : 'status-ok'
-              }
-              round
-            />
+            {item.availability <= 70 ? (
+              <StatusCriticalSmall color="status-critical" size="small" />
+            ) : (
+              <StatusGoodSmall color="status-ok" size="small" />
+            )}
           </Box>
         </Box>
       )}

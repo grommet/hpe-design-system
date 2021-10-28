@@ -15,7 +15,7 @@ import {
   TextInput,
   Text,
 } from 'grommet';
-import { Close } from 'grommet-icons';
+import { FormClose } from 'grommet-icons';
 
 const LayerForm = ({ setOpen }) => {
   // eslint-disable-next-line no-unused-vars
@@ -26,19 +26,26 @@ const LayerForm = ({ setOpen }) => {
 
   return (
     <Box gap="medium">
-      <Box>
-        <Header align="start" pad={{ horizontal: 'xxsmall' }}>
-          <Box gap="xxsmall">
-            <Heading level={3} margin="none">
-              Form Header
-            </Heading>
-            <Text>a subtitle if needed</Text>
-          </Box>
-          <Button icon={<Close />} onClick={() => setOpen(false)} />
-        </Header>
-      </Box>
+      <Header align="start" pad={{ horizontal: 'xxsmall' }}>
+        <Box gap="xxsmall">
+          <Heading level={2} margin="none" id="layer-title">
+            Form Header
+          </Heading>
+          <Text id="layer-desc">a subtitle if needed</Text>
+        </Box>
+        <Button
+          a11yTitle={`You are on a Close button in a layer containing a form 
+          titled Form Header, a subtitle if needed. To close the layer 
+          and return to the primary content, press Enter.`}
+          icon={<FormClose />}
+          onClick={() => setOpen(false)}
+          autoFocus
+        />
+      </Header>
+
       <Form
         validate="blur"
+        method="post"
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
       >
         <FormField
@@ -113,6 +120,7 @@ export const LayerSideDrawerExample = () => {
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
+
   return (
     <>
       <Box align="start">
@@ -122,7 +130,7 @@ export const LayerSideDrawerExample = () => {
         <Layer
           position="right"
           full={size !== 'small' ? 'vertical' : true}
-          modal
+          modal={false}
           onClickOutside={onClose}
           onEsc={onClose}
         >

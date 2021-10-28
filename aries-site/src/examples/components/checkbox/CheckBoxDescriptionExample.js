@@ -5,21 +5,21 @@ export const CheckBoxDescriptionExample = () => {
   const [checked, setChecked] = useState();
 
   return (
-      <Form>
-        <FormField
+    <Form>
+      <FormField
+        name="checkbox-with-desc"
+        htmlFor="checkbox-desc"
+        label="Checkbox Heading"
+        help="Checkbox Description"
+      >
+        <CheckBox
           name="checkbox-with-desc"
-          htmlFor="checkbox-desc"
-          label="Checkbox Heading"
-          help="Checkbox Description"
-        >
-          <CheckBox
-            name="checkbox-with-desc"
-            id="checkbox-desc"
-            label="Checkbox Label"
-            checked={checked}
-            onChange={event => setChecked(event.target.checked)}
-          />
-        </FormField>
-      </Form>
+          id="checkbox-desc"
+          label="Checkbox Label"
+          checked={checked}
+          onChange={event => setChecked(event.target.checked)}
+        />
+      </FormField>
+    </Form>
   );
 };

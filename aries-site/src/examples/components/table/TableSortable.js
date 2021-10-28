@@ -7,6 +7,11 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import {
+  StatusGoodSmall,
+  StatusWarningSmall,
+  StatusCriticalSmall,
+} from 'grommet-icons';
 
 const data = [
   {
@@ -85,12 +90,16 @@ const columns = [
     property: 'percent',
     header: '% Complete',
     render: datum => (
-      <Box pad={{ vertical: 'xsmall' }}>
-        <Meter
-          values={[{ value: datum.percent, color: 'graph-2' }]}
-          thickness="small"
-          size="small"
-        />
+      <Box gap="xsmall" direction="row">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            alignSelf="center"
+            values={[{ value: datum.percent, color: 'graph-2' }]}
+            thickness="small"
+            size="small"
+          />
+        </Box>
+        <Text>{datum.percent.toFixed(0)}%</Text>
       </Box>
     ),
   },
@@ -99,12 +108,7 @@ const columns = [
     header: 'Status',
     render: datum => (
       <Box direction="row" align="center" gap="xsmall">
-        <Box
-          height="12px"
-          width="12px"
-          background={datum.status.color}
-          round="100%"
-        />
+        <datum.status.icon color={datum.status.color} size="small" />
         <Text>{datum.status.label}</Text>
       </Box>
     ),
@@ -119,6 +123,7 @@ const formatData = dataSet =>
       case 'ok':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusGoodSmall,
           value: 0,
           color: 'status-ok',
         };
@@ -126,6 +131,7 @@ const formatData = dataSet =>
       case 'warning':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusWarningSmall,
           value: 1,
           color: 'status-warning',
         };
@@ -133,6 +139,7 @@ const formatData = dataSet =>
       case 'critical':
         adjustedDatum.status = {
           label: datum.status,
+          icon: StatusCriticalSmall,
           value: 2,
           color: 'status-critical',
         };
@@ -150,11 +157,16 @@ export const TableSortable = () => {
 
   return (
     <>
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="sortable-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Sortable Items
       </Heading>
       <Box align="start" margin={{ right: 'auto' }} overflow="auto">
         <DataTable
+          aria-describedby="sortable-heading"
           data={formatData(data)}
           columns={[
             {

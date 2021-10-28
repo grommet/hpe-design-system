@@ -6,3 +6,4 @@ export * from './ColorButtonExample';
 export * from './DefaultButtonExample';
 export * from './PrimaryButtonExample';
 export * from './SecondaryButtonExample';
+export * from './ToolbarButtonExample';

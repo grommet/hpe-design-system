@@ -2,14 +2,21 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
-import { Box, Main, ResponsiveContext, Stack } from 'grommet';
+import {
+  Box,
+  Main,
+  ResponsiveContext,
+  SkipLinkTarget,
+  SkipLink,
+  SkipLinks,
+  Stack,
+} from 'grommet';
 import {
   ContentSection,
   DocsPageHeader,
   Header,
   Head,
   FeedbackSection,
-  Footer,
   RelatedContent,
 } from '..';
 import { Meta, PageBackground } from '../../components';
@@ -27,6 +34,8 @@ export const Layout = ({
   title: titleProp,
   topic,
   isLanding,
+  pad,
+  width,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -38,7 +47,10 @@ export const Layout = ({
   const router = useRouter();
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
-  const { name: title, seoDescription } = getPageDetails(titleProp);
+  const { name: title, seoDescription, pageLayout, render } = getPageDetails(
+    titleProp,
+  );
+  const layout = isLanding ? 'plain' : pageLayout;
 
   return (
     <>
@@ -54,31 +66,46 @@ export const Layout = ({
             <Box
               height={{ min: '100vh' }}
               margin="auto"
-              width={{ max: 'xxlarge' }}
+              width={width || { max: 'xxlarge' }}
             >
               {/* I think Head is redundant at this point, 
               but left it as is for now */}
               <Head title={title} />
               <Meta
                 title={title}
+                render={render}
                 description={seoDescription}
                 canonicalUrl={`https://design-system.hpe.design${router.route}`}
               />
               <>
-                <Header />
+                <SkipLinks id="skip-links">
+                  <SkipLink id="main" label="Main Content" />
+                </SkipLinks>
+                <Header
+                  fill="horizontal"
+                  alignSelf="center"
+                  width={{ max: 'xxlarge' }}
+                />
                 <Main overflow="visible">
+                  <SkipLinkTarget id="main" />
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
-                    pad={{
-                      horizontal: calcPad(size),
-                      bottom: calcPad(size),
-                      top: 'medium',
-                    }}
+                    pad={
+                      pad || {
+                        horizontal: calcPad(size),
+                        bottom: calcPad(size),
+                        top: 'medium',
+                      }
+                    }
                   >
-                    {!isLanding ? (
+                    {layout !== 'plain' ? (
                       <>
                         <ContentSection>
-                          <DocsPageHeader title={title} topic={topic} />
+                          <DocsPageHeader
+                            title={title}
+                            topic={topic}
+                            render={render}
+                          />
                           {children}
                         </ContentSection>
                         {relatedContent.length > 0 && (
@@ -94,7 +121,6 @@ export const Layout = ({
                     )}
                   </Box>
                 </Main>
-                <Footer />
               </>
             </Box>
           </Stack>
@@ -110,6 +136,8 @@ Layout.propTypes = {
   isLanding: PropTypes.bool,
   title: PropTypes.string,
   topic: PropTypes.string,
+  pad: PropTypes.object,
+  width: PropTypes.object,
 };
 
 Layout.defaultProps = {

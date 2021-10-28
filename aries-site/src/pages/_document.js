@@ -36,7 +36,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
+          <div id="header" className="header" />
           <Main />
+          <div id="footer" className="footer" />
+          <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
+          <script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?contentType=js&switchToCHF=true&hide_country_selector=true&hide_search=true&hide_cart=true&hide_sign_in=true&header_logo=hpe&slim_footer=true" />
           <NextScript />
         </body>
       </Html>

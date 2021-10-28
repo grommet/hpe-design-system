@@ -9,10 +9,10 @@ export const TextInputLabeledByExample = () => {
   }))``;
 
   return (
-      <StyledTextInput
-        placeholder="Search..."
-        icon={<Search id="search-icon" />}
-        reverse
-      />
+    <StyledTextInput
+      placeholder="Search..."
+      icon={<Search id="search-icon" />}
+      reverse
+    />
   );
 };

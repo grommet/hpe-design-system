@@ -2,20 +2,32 @@ import { Example } from '../../layouts';
 import {
   FilteringCards,
   FilteringLists,
+  FilteringTable,
   FilteringWithRangeSelector,
   FilteringWithDropButton,
   FilteringWithSelect,
-  PersistentFiltering,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/PersistentFiltering.js"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards/FilteringCards.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersLayer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterRangeSelector.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards/mockData.js",
+  ]}
   figma="https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=681%3A1430"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <PersistentFiltering />
+  <FilteringCards />
 </Example>
+
 
 ## What makes up filtering?
 
@@ -48,23 +60,47 @@ If the number of records displayed per page is limited, pagination should be pla
 When applying many filters at once, it is helpful to present them in a consolidated [Layer](/components/layer). In this example, the Layer is positioned at the center of the screen.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringLists.js"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringLists/FilteringLists.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersLayer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterRangeSelector.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards/mockData.js",
+  ]}
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
   <FilteringLists />
 </Example>
 
-### Filters in a right-anchored Layer
+### Filtering with selectable results
 
-When applying many filters at once, it is helpful to present them in a consolidated [Layer](/components/layer). In this example, the Layer is anchored to the right edge of the screen.
+The summary displayed beneath the search input should always reflect the user's actions. When filtering is combined with selection, the summary text should adjust for the following scenarios:
+- No filters, no selections &mdash; The summary should read "X items", where X is the total number of items.
+- Filters applied, no selections &mdash; The summary should read "X results of Y items".
+- Selections made &mdash; The summary should read "X of Y items selected", where Y is the total number of results that meet the filter criteria or the total number of items if no filtering has been applied.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards.js"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersLayer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/mockData.js",
+  ]}
   showResponsiveControls={['laptop', 'mobile']}
   template
 >
-  <FilteringCards />
+  <FilteringTable />
 </Example>
 
 ## Guidelines
@@ -81,16 +117,6 @@ Use your best judgement around which input type is appropriate for the data you 
 - **Does your filter have a massive number of options (>100)?** First consider if you are able to break this filter into more manageable groupings. However, if you are unable to break up the filter options into smaller groups, consider using a [scrollable CheckBoxGroup](/components/checkboxgroup#scroll). This approach should be used as a last resort since research demonstrates that [this pattern is not ideal for user experience](https://baymard.com/blog/inline-scroll-areas).
 
 ## More examples of filtering
-
-### Filtering with DropButton
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithDropButton.js"
-  template
-  showResponsiveControls={['laptop', 'mobile']}
->
-  <FilteringWithDropButton />
-</Example>
 
 ### Filtering with RangeSelector
 

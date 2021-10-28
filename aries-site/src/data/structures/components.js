@@ -22,11 +22,6 @@ import {
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
 
-const statuses = {
-  complete: 'Complete',
-  inProgress: 'In Progress',
-};
-
 export const components = [
   {
     name: 'Anchor',
@@ -47,7 +42,12 @@ export const components = [
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
-    sections: [],
+    sections: [
+      'Default Button',
+      'Primary Button',
+      'Secondary Button',
+      'Toolbar Button',
+    ],
     preview: {
       component: () => <ButtonPreview />,
       background: 'background-front',
@@ -84,7 +84,7 @@ export const components = [
       component: () => <TabsPreview />,
       background: 'background-front',
     },
-    relatedContent: ['Button', 'Menu', 'Global Sidebar'],
+    relatedContent: ['Button', 'Menu'],
   },
   {
     name: 'DateInput',
@@ -98,6 +98,24 @@ export const components = [
     preview: {
       component: () => <DateInputPreview />,
       background: 'background-front',
+    },
+  },
+  {
+    name: 'FileInput',
+    category: 'Inputs',
+    description: 'An input used to upload one or more files.',
+    seoDescription: 'An input used to upload one or more files.',
+    relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/components-preview-fileinput.svg',
+          dark: '/componentImages/components-preview-fileinput-invert.svg',
+        },
+        alt: 'HPE Design System FileInput',
+        fit: 'contain',
+      },
     },
   },
   {
@@ -127,6 +145,25 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
+  },
+  {
+    name: 'Tip',
+    category: 'Controls',
+    description:
+      'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
+    seoDescription:
+      'A Tip is used to specify extra information when the user moves the mouse pointer over the element.',
+    sections: [],
+    preview: {
+      image: {
+        src: {
+          dark: '/components-preview-tooltip-invert.svg',
+          light: '/components-preview-tooltip.svg',
+        },
+        alt: 'HPE Tip preview',
+      },
+    },
+    relatedContent: ['Layer', 'Button', 'Header', 'Persistent Navigation'],
   },
   {
     name: 'Search',
@@ -220,14 +257,7 @@ export const components = [
       component: () => <HeaderPreview />,
       justify: 'start',
     },
-    relatedContent: [
-      'Button',
-      'Menu',
-      'TextInput',
-      'Dashboards',
-      'Global Sidebar',
-      'Search',
-    ],
+    relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards', 'Search'],
   },
   {
     name: 'Footer',
@@ -256,10 +286,6 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'Box',
@@ -316,9 +342,9 @@ export const components = [
     name: 'MaskedInput',
     category: 'Inputs',
     description:
-      'MaskedInput allows you to specify formailzed text within a form field.',
+      'MaskedInput allows you to specify formalized text within a form field.',
     seoDescription:
-      'MaskedInput allows you to specify formailzed text within a form field.',
+      'MaskedInput allows you to specify formalized text within a form field.',
     sections: [],
     preview: {
       component: () => <MaskedInputPreview />,
@@ -326,7 +352,28 @@ export const components = [
     },
     relatedContent: ['TextInput', 'Forms', 'Select'],
   },
-
+  {
+    name: 'Notification',
+    category: 'Visualizations',
+    description: 'Notifications deliver transparent clarity for task and system statuses.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-notifications.svg',
+          dark: '/templateImages/template-preview-notifications-invert.svg',
+        },
+        alt: `Image featuring a bell icon and indicator representing how a timely notification 
+        might be presented to a user within an application.`,
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Notifications in the HPE Design System provides patterns,
+    designs, and guidance for how HPE applications can deliver end users 
+    confidence and assurance by keeping them informed with timely, relevant 
+    status of their systems and tasks.`,
+    sections: [],
+    relatedContent: ['Status Indicator', 'Toast Notifications', 'Stack'],
+  },
   {
     name: 'RadioButtonGroup',
     category: 'Inputs',
@@ -340,10 +387,6 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
-    },
   },
   {
     name: 'RangeInput',
@@ -356,10 +399,6 @@ export const components = [
     preview: {
       component: () => <RangeInputPreview />,
       background: 'background-front',
-    },
-    status: {
-      figma: statuses.complete,
-      grommet: statuses.inProgress,
     },
   },
   {
@@ -376,6 +415,23 @@ export const components = [
     sections: [],
   },
   {
+    name: 'Spinner',
+    category: 'Visualizations',
+    description: 'A loading state for quick asynchronous tasks.',
+    preview: {
+      image: {
+        src: {
+          light: '/components-preview-spinner.svg',
+          dark: '/components-preview-spinner-invert.svg',
+        },
+        alt: 'HPE Spinner preview',
+      },
+    },
+    seoDescription: 'A loading state for quick asynchronous tasks.',
+    relatedContent: ['Lists', 'Table', 'Forms'],
+    sections: [],
+  },
+  {
     name: 'Table',
     category: 'Visualizations',
     description: 'Table presents data in a column and row format.',
@@ -389,12 +445,49 @@ export const components = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Filtering', 'Lists', 'Card'],
+    relatedContent: ['Filtering', 'Lists', 'Card', 'Pagination'],
     seoDescription: 'Data presentation in column and row format.',
     sections: [],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
+  },
+  {
+    name: 'Pagination',
+    available: true,
+    category: 'Controls',
+    description: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-pagination.svg',
+          dark: '/componentImages/component-preview-pagination-invert.svg',
+        },
+        alt: 'HPE Design System Pagination',
+        fit: 'contain',
+      },
     },
+    seoDescription: `Pagination divides content into separate pages in order to 
+    enhance navigation to specific items.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists', 'Card'],
+  },
+  {
+    name: 'All Components',
+    available: true,
+    category: 'All',
+    description:
+      'Grommet components are the building blocks of the HPE Design System.',
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'Purple playing cards representing HPE Design System components',
+        fit: 'contain',
+      },
+    },
+    seoDescription: 'View all HPE Design System and Grommet components.',
+    sections: [],
+    relatedContent: [],
   },
 ];

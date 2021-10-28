@@ -1,15 +1,11 @@
-const statuses = {
-  complete: 'Complete',
-  inProgress: 'In Progress',
-};
-
 export const foundation = [
   {
     name: 'Accessibility',
     category: 'Philosophy',
-    cardOrder: 2,
-    description: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    cardOrder: 3,
+    description: `Central to the HPE Design System, accessibility is 
+    incorporated into all Design System facets, ensuring HPE applications 
+    are usable by as many people as possible.`,
     preview: {
       image: {
         src: {
@@ -19,8 +15,8 @@ export const foundation = [
         alt: 'HPE Accessibility Preview',
       },
     },
-    seoDescription: `Accessibility will be an important part of guidance 
-    in using our components.`,
+    seoDescription: `Accessibility is central to the HPE Design System and 
+    ensures that HPE applications are usable by as many people as possible.`,
     sections: [],
   },
   {
@@ -40,6 +36,57 @@ export const foundation = [
     who we are. Learn how to access and apply HPE and Aruba Networks 
     logos in the experiences you create.`,
     sections: ['HPE Logo', 'HPE Element', 'Aruba Logo', 'Aruba Icon'],
+  },
+  {
+    name: 'Developer Guidance',
+    category: 'Philosophy',
+    cardOrder: 1,
+    description: `Resources for setting up your application
+     with the HPE Design System library and HPE theme.`,
+    preview: {
+      image: {
+        src: '/extendImages/extend-preview-developer-guidance.svg',
+        alt: 'HPE Developer Guidance Preview',
+      },
+    },
+    seoDescription: `Resources for setting up your application with
+     the HPE Design System library and HPE theme.`,
+    sections: [
+      'Getting started',
+      'Preferred environment',
+      'ReactJS and Grommet starter resources',
+      'Applying the HPE theme',
+      "What if our team doesn't use ReactJS?",
+    ],
+    relatedContent: ['Components', 'Templates'],
+  },
+  {
+    name: 'Designer Guidance',
+    category: 'Philosophy',
+    cardOrder: 2,
+    description: `Starter files, patterns, interactions, and workflows on
+       how to succeed using the design resources from HPE Design
+        System and the HPE Brand.`,
+    preview: {
+      image: {
+        src: {
+          dark: '/extendImages/extend-preview-designer-guidance-invert.svg',
+          light: '/extendImages/extend-preview-designer-guidance.svg',
+        },
+        alt: 'HPE Designer Guidance Preview',
+      },
+    },
+    seoDescription: `View patterns, interactions, and other best practices for
+       how to succeed using resources included with the HPE
+       Design System.`,
+    sections: [
+      'Getting started',
+      'Setting up your Figma account',
+      'Joining the HPE Design System Figma team',
+      'Before you start desiging',
+      'HPE Design System Figma Library',
+    ],
+    relatedContent: ['Components', 'Templates'],
   },
   {
     name: 'Color',
@@ -66,6 +113,7 @@ export const foundation = [
       'Core Palette',
       'Light Palette',
       'Dark Palette',
+      'Green Color Accessibility',
       'Background Colors',
       'Background Palette',
       'Border Colors',
@@ -79,11 +127,13 @@ export const foundation = [
       'Status Colors',
       'Focus Color',
       'Elevation',
+      'Graph Colors',
     ],
+    relatedContent: ['Background Colors Guidance', 'Typography', 'Icons'],
   },
   {
     name: 'Human Centered',
-    cardOrder: 1,
+    cardOrder: 2,
     category: 'Philosophy',
     description: `The starting point of the design system is human 
     centered, generating experiences which are inclusive and vibrant.`,
@@ -103,7 +153,7 @@ export const foundation = [
   },
   {
     name: 'Icons',
-    cardOrder: 7,
+    cardOrder: 8,
     category: 'Assets',
     description: `Icons are an integral part of our visual storytelling style 
     to represent objects, actions, programs and other communicative symbols. 
@@ -118,15 +168,11 @@ export const foundation = [
         alt: 'Hpe Icon Preview',
       },
     },
-    relatedContent: ['Button', 'Header', 'Menu', 'Search', 'Global Sidebar'],
-    status: {
-      figma: statuses.inProgress,
-      grommet: statuses.inProgress,
-    },
+    relatedContent: ['Button', 'Header', 'Menu', 'Search'],
   },
   {
     name: 'Typography',
-    cardOrder: 6,
+    cardOrder: 7,
     category: 'Assets',
     description: `The MetricHPE font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
@@ -177,6 +223,74 @@ export const foundation = [
       'Simplify',
       'Be Intuitive',
       'Lead people to success',
+    ],
+  },
+  {
+    name: 'Background Colors Guidance',
+    category: 'Assets',
+    cardOrder: 6,
+    description: `Leverage HPE background colors to seamlessly style 
+    your layout.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Background Colors Preview',
+      },
+    },
+    seoDescription: `Learn about how to leverage HPE background colors to 
+    seamlessly style your layout.`,
+    sections: [],
+    relatedContent: ['Color', 'Typography', 'Icons'],
+  },
+  {
+    name: 'Tshirt Sizing',
+    render: 'T-shirt Sizing',
+    category: 'Philosophy',
+    cardOrder: 4,
+    description:
+      'Create consistent, composable interfaces with t-shirt sizing.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+        },
+        alt: 'HPE T-shirt Sizing Preview',
+      },
+    },
+    seoDescription:
+      'Create consistent, scalable interfaces with t-shirt sizing.',
+    sections: [],
+    relatedContent: ['Box', 'Typography', 'Grid'],
+  },
+  {
+    name: 'Voice and Tone',
+    category: 'Philosophy',
+    cardOrder: 6,
+    description: `Deliver clear, consistent experiences to HPE customers by 
+    following guidelines for the voice and tone of text-based user interface 
+    elements.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: `Deliver clear, consistent experiences to HPE customers by 
+    following guidelines for the voice and tone of text-based user interface 
+    elements.`,
+    sections: [],
+    relatedContent: [
+      'Accessibility',
+      'Designer Guidance',
+      'Developer Guidance',
     ],
   },
 ];

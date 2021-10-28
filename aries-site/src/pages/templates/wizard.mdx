@@ -1,23 +1,36 @@
 import { Example } from '../../layouts';
 import {
-  SimpleWizardExample,
-  StickyHeaderFooterExample,
   TwoColumnWizardExample,
   WizardValidationExample,
 } from '../../examples';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/SimpleWizardExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=1%3A2"
+  showResponsiveControls={['laptop', 'mobile']}
   screenContainer
   width="100%"
 >
-  <SimpleWizardExample />
+  <WizardValidationExample />
 </Example>
 
 ## Guidance
 
 Use a wizard when your form involves multiple steps. This makes the experience more manageable for the user and helps to eliminate error by validating inputs as the user progresses.
+
+A wizard should always appear as a fullscreen modal.
+
+### Header and Footer behavior
+
+The Wizard header should always be sticky so that user has persistent access to previous step and cancel actions. The footer, when there is sufficient height on desktop, should be placed directly below the inputs. On mobile, or when there is not sufficient height to show all inputs, the footer should be sticky on the bottom of the window.
 
 ### Providing guidance for a form step
 
@@ -29,7 +42,7 @@ It is important to give the user an indication of where they are within the form
 
 ### Validation
 
-Validation should occur within each step of the wizard. If there are any errors with the inputs in the current step, the user should not be able to advance and errors should be displayed. Error display should follow conventions established by [Form](/templates/forms). See this behavior demonstrated in the [wizard with validation example](#with-validation).
+Validation should occur within each step of the wizard. If there are any errors with the inputs in the current step, the user should not be able to advance and errors should be displayed. Error display should follow conventions established by [Form](/templates/forms).
 
 ### Summarizing what was accomplished or configured
 
@@ -61,39 +74,24 @@ If guidance can be provided in a short description, use a single column wizard. 
 
 Common wizard variants.
 
-### Sticky Header Wizard
-
-Using a sticky header allows the user to easily access the buttons that allow them to move back to a previous step or cancel.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/StickyHeaderFooterExample.js"
-  screenContainer
-  width="100%"
->
-  <StickyHeaderFooterExample />
-</Example>
-
 ### Two-column Wizard
 
 When additional guidance is necessary, use a two-column wizard. Click "See Fullscreen" for a more realistic experience.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=71%3A406"
   screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
   width="100%"
 >
   <TwoColumnWizardExample />
-</Example>
-
-### With validation
-
-Validation should occur on each step. If a user has not properly completed a given step, they should not be able to advance to subsequent steps.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js"
-  screenContainer
-  width="100%"
->
-  <WizardValidationExample />
 </Example>

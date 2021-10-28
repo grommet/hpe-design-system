@@ -9,7 +9,7 @@ const allPageSections = structure
 export const getSearchSuggestions = allPages.concat(allPageSections).sort();
 
 // String to slug from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1#file-slugify-js
-export const formatName = name => {
+export const nameToSlug = name => {
   const a = `àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűų
   ẃẍÿýžźż·/_,:;`;
   const b = `aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuu
@@ -59,21 +59,21 @@ export const nameToPath = name => {
     if (page.name === 'Home') {
       return '/';
     }
-    return `/${formatName(page.name)}`;
+    return `/${nameToSlug(page.name)}`;
   }
 
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
   const parent = getParentPage(name);
   if (typeof parent !== 'undefined') {
-    return `/${formatName(parent.name)}/${formatName(name)}`;
+    return `/${nameToSlug(parent.name)}/${nameToSlug(name)}`;
   }
 
   // Item selected is a deeplink section, so need to get parent page
   // and parent page's path
   const sectionParent = getSectionParent(name);
   if (typeof sectionParent !== 'undefined') {
-    return `${nameToPath(sectionParent.name)}#${formatName(name)}`;
+    return `${nameToPath(sectionParent.name)}#${nameToSlug(name)}`;
   }
 
   return undefined;
@@ -83,8 +83,7 @@ export const nameToPath = name => {
  * Returns an array of page objects which are decendents of the
  * provided cardCategory. Where cardCategory is a string.
  */
-export const getCards = cardCategory => {
-  return structure
+export const getCards = cardCategory => structure
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);
@@ -97,7 +96,6 @@ export const getCards = cardCategory => {
         ? page.parent.name !== 'Home'
         : page.parent.name === cardCategory,
     );
-};
 
 /*
  * Returns an array of page objects which are members of the

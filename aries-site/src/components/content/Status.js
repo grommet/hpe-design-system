@@ -24,8 +24,7 @@ const statuses = {
   },
 };
 
-const StatusBadge = ({ status, type }) => {
-  return (
+const StatusBadge = ({ status, type }) => (
     <Box direction="row">
       <Box
         background="background-front"
@@ -51,7 +50,6 @@ const StatusBadge = ({ status, type }) => {
       </Box>
     </Box>
   );
-};
 
 StatusBadge.propTypes = {
   status: PropTypes.shape({
@@ -61,14 +59,12 @@ StatusBadge.propTypes = {
   type: PropTypes.oneOf(['figma', 'grommet']),
 };
 
-export const Status = ({ status }) => {
-  return (
+export const Status = ({ status }) => (
     <Box direction="row-responsive" gap="medium">
       {status.figma && <StatusBadge type="figma" status={status} />}
       {status.grommet && <StatusBadge type="grommet" status={status} />}
     </Box>
   );
-};
 
 Status.propTypes = {
   status: PropTypes.shape({

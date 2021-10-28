@@ -2,8 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor as GrommetAnchor, Box, Text } from 'grommet';
 
-export const Anchor = forwardRef(({ label, size, weight, ...rest }, ref) => {
-  return (
+export const Anchor = forwardRef(({ label, size, weight, ...rest }, ref) => (
     // Bottom border allows for anchor underline without having
     // the underline intercept with descenders (portion of text
     // that extends below baseline)
@@ -17,8 +16,7 @@ export const Anchor = forwardRef(({ label, size, weight, ...rest }, ref) => {
         {...rest}
       />
     </Box>
-  );
-});
+  ));
 
 Anchor.propTypes = {
   label: PropTypes.string,

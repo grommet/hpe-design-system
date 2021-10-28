@@ -1,22 +1,24 @@
 import React from 'react';
 import { Box, defaultProps } from 'grommet';
 
-export const SidebarHeaderPreview = () => {
-  return (
-    <Box fill direction="row" gap="xsmall">
+export const SidebarHeaderPreview = () => (
+    <Box fill direction="row">
       <Box
         basis={defaultProps.theme.global.edgeSize.medium}
-        background={{ color: { light: 'purple', dark: 'purple!' }, dark: true }}
-        round="xsmall"
+        // remove dashed border in prod, for demo purposes only
+        border={{ color: 'border', style: 'dashed' }}
       />
-      <Box fill gap="xsmall">
+      <Box fill>
         <Box
           height={defaultProps.theme.global.edgeSize.medium}
-          background="green!"
-          round="xsmall"
+          // remove dashed border in prod, for demo purposes only
+          border={{ color: 'border', style: 'dashed' }}
         />
-        <Box background="orange" round="xsmall" flex />
+        <Box
+          // remove dashed border in prod, for demo purposes only
+          border={{ color: 'border', style: 'dashed' }}
+          flex
+        />
       </Box>
     </Box>
   );
-};

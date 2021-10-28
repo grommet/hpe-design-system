@@ -171,14 +171,14 @@ const columns = [
   {
     property: 'ipAddress',
     header: 'IP V4',
-    render: datum => <Text truncate>{datum.ipAddress}</Text>,
+    render: datum => <Text truncate="tip">{datum.ipAddress}</Text>,
     size: 'xsmall',
     align: 'end',
   },
   {
     property: 'hostname',
     header: 'Hostname',
-    render: datum => <Text truncate>{datum.hostname}</Text>,
+    render: datum => <Text truncate="tip">{datum.hostname}</Text>,
     size: 'xsmall',
   },
   {
@@ -192,7 +192,7 @@ const columns = [
   {
     property: 'deviceName',
     header: 'Device Name',
-    render: datum => <Text truncate>{datum.deviceName}</Text>,
+    render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
     size: 'xsmall',
   },
   {
@@ -227,22 +227,29 @@ const columns = [
   },
 ];
 
-export const TableFixedHeaderExample = () => {
-  return (
-    <>
-      <Heading level={3} margin={{ bottom: 'medium', top: 'none' }}>
-        Connected Devices
-      </Heading>
-      <Box
-        align="start"
-        // restricting height to demonstrate pinned header behavior
-        height="medium"
-        // restricting width to demonstrate pinned column behavior
-        width={{ min: 'medium', max: 'large' }}
-        overflow="auto"
-      >
-        <DataTable data={data} columns={columns} pin />
-      </Box>
-    </>
-  );
-};
+export const TableFixedHeaderExample = () => (
+  <>
+    <Heading
+      id="connected-heading"
+      level={3}
+      margin={{ bottom: 'medium', top: 'none' }}
+    >
+      Connected Devices
+    </Heading>
+    <Box
+      align="start"
+      // restricting height to demonstrate pinned header behavior
+      height="medium"
+      // restricting width to demonstrate pinned column behavior
+      width={{ min: 'medium', max: 'large' }}
+      overflow="auto"
+    >
+      <DataTable
+        aria-describedby="connected-heading"
+        data={data}
+        columns={columns}
+        pin
+      />
+    </Box>
+  </>
+);

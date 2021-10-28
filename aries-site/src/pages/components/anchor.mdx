@@ -5,6 +5,7 @@ import {
   AnchorDisabledExample,
   AnchorExternalExample,
   AnchorInlineExample,
+  AnchorWeightExample,
   SignUpExample,
 } from '../../examples';
 
@@ -42,7 +43,7 @@ It is important that your anchor clearly states to what content the anchor leads
 
 **Use 'target' and 'rel' props when linking externally:**
 
-If clicking an Anchor leads to an external URL, apply the these props to the anchor:
+If clicking an Anchor leads to an external URL, apply these props to the anchor:
 
 - target="\_blank"
 - rel="noopener"
@@ -51,17 +52,17 @@ The distinction is important to screen reader users to know what's going to happ
 
 The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
 
-Use clear Anchor labels:
+**Use clear Anchor labels:**
 
 It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
 
-**Unhelpful Anchor label:**
+Unhelpful Anchor label:
 
 - Read more <GrommetAnchor label="here" />
 
 The word "here" is vague. A screen reader user may not know the context of "here".
 
-**Helpful Anchor label:**
+Helpful Anchor label:
 
 - Read more <GrommetAnchor label="Anchor documentation" />
 
@@ -114,4 +115,15 @@ Used to indicate that an anchor cannot be interacted with.
   docs="https://v2.grommet.io/anchor?theme=hpe#props"
 >
   <AnchorDisabledExample />
+</Example>
+
+### Anchor with weight
+
+A weight can be applied to Anchor in cases where extra emphasis is needed. This example demonstrates an Anchor with `weight="bold"`.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/anchor/AnchorWeightExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <AnchorWeightExample />
 </Example>

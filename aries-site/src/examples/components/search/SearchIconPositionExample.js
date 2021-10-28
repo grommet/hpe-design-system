@@ -18,7 +18,7 @@ export const SearchIconPositionExample = () => {
   return (
     <StyledTextInput
       icon={<SearchIcon id="search-icon" />}
-      placeholder="Search placeholder"
+      placeholder="Search"
       value={value}
       onChange={event => setValue(event.target.value)}
     />

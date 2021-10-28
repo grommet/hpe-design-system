@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Heading } from 'grommet';
 
-export const HeadingExample = () => {
-  return (
+export const HeadingExample = () => (
     <Box direction="column" gap="medium">
       <Heading level={1} margin="none">
         h1 Heading
@@ -18,4 +17,3 @@ export const HeadingExample = () => {
       </Heading>
     </Box>
   );
-};

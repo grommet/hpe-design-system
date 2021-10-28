@@ -27,6 +27,12 @@ export const structure = [
     pages: [],
   },
   {
+    name: 'Show More',
+    seoDescription:
+      "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and its partners share a single language for application, web, and digital experiences.",
+    pages: ['Foundation', 'Components', 'Templates', 'Extend'],
+  },
+  {
     name: 'Foundation',
     color: 'green!',
     description:
@@ -58,14 +64,14 @@ export const structure = [
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: templates
       .sortByName()
-      .sortByAvailability()
+      .sortByCardOrder()
       .map(page => page.name),
   },
   {
     name: 'Components',
     color: 'purple!',
     description:
-      'Our component library provides a vetted set interface elements for use in your applications and websites. Using the latest web technology to keep you compliant and performant.',
+      'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
     icon: (size, color) => <IconSquare size={size} color={color} />,
     preview: {
       image: {
@@ -92,6 +98,15 @@ export const structure = [
       .sortByName()
       .sortByAvailability()
       .map(page => page.name),
+  },
+  {
+    name: 'Whats New',
+    description:
+      'Track Design System announcements, new template patterns, guidance, and released components.',
+    seoDescription:
+      'Track HPE Design System announcements, new template patterns, guidance, and released components.',
+    pages: [],
+    pageLayout: 'plain',
   },
   components,
   foundation,

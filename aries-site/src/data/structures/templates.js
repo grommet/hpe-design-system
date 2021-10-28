@@ -1,149 +1,13 @@
+import {
+  StatusIndicatorPreview,
+  ToastPreview,
+} from '../../examples/cardPreviews';
+
 export const templates = [
-  {
-    name: 'Lists',
-    available: true,
-    description:
-      'Go-to patterns for displaying many services, devices, users, and more.',
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-list.svg',
-          dark: '/templateImages/template-preview-list-invert.svg',
-        },
-        alt: 'HPE Lists Preview',
-        fit: 'contain',
-      },
-    },
-    relatedContent: ['Dashboards', 'Card', 'Page Layouts'],
-    seoDescription:
-      'HPE Design System template for providing a list of information.',
-    sections: [],
-  },
-  {
-    name: 'Navigation',
-    available: true,
-    description: 'The entry point for the expansive topic of Navigation.',
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-navigation.svg',
-          dark: '/templateImages/template-preview-navigation-invert.svg',
-        },
-        alt: 'HPE Navigation Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Navigation pattern guidance and recommendations for a 
-      variety of UI use cases.`,
-    sections: [],
-    relatedContent: [
-      'Header',
-      'Global Sidebar',
-      'Hub and Spoke Navigation',
-      'Persistent Navigation',
-      'React Router',
-    ],
-  },
-  {
-    name: 'Hub and Spoke Navigation',
-    available: true,
-    description: `A navigation pattern promoting focused execution through 
-    a central "hub" from which all activities begin and "spokes" on which 
-    more focused tasks are accomplished.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-hubnspoke.svg',
-          dark: '/templateImages/template-preview-hubnspoke-invert.svg',
-        },
-        alt: 'HPE Hub and Spoke Navigation Preview',
-      },
-    },
-    seoDescription: `Hub and spoke navigation pattern. What, why, and when 
-    to use the Hub & Spoke pattern for navigation.`,
-    relatedContent: [
-      'Navigation',
-      'Persistent Navigation',
-      'Header',
-      'Grid',
-      'Lists',
-    ],
-    sections: [],
-  },
-  {
-    name: 'Persistent Navigation',
-    available: true,
-    description: `Navigation choices which persist throughout the application
-    structure, presenting consistent, easy to click-through choices.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-persistent.svg',
-          dark: '/templateImages/template-preview-persistent-invert.svg',
-        },
-        alt: 'HPE Peristent Navigation Preview',
-      },
-    },
-    seoDescription: `Persistent navigation pattern. What, why, and when to use 
-    persistent navigation.`,
-    relatedContent: [
-      'Navigation',
-      'Hub and Spoke Navigation',
-      'Header',
-      'Global Sidebar',
-    ],
-    sections: [],
-  },
-  {
-    name: 'Page Layouts',
-    available: true,
-    description: `Page layout options, anatomies, and behaviors serving a wide 
-    variety of enterprise application, workflow, and marketing contexts.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-pagelayout.svg',
-          dark: '/templateImages/template-preview-pagelayout-invert.svg',
-        },
-        alt: 'HPE Page Layouts Preview',
-        fit: 'contain',
-      },
-    },
-    relatedContent: [
-      'Navigation',
-      'Dashboards',
-      'Grid',
-      'Lists',
-      'Global Sidebar',
-      'Header',
-      'Footer',
-    ],
-    seoDescription:
-      'HPE Design System page layout options, anatomies, and behaviors.',
-    sections: [],
-  },
-  {
-    name: 'Dashboards',
-    available: true,
-    description: `At-a-glance preview for operation critical information 
-    with easy access to areas requiring attention.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-dashboard.svg',
-          dark: '/templateImages/template-preview-dashboard-invert.svg',
-        },
-        alt: 'HPE Dashboards Preview',
-      },
-    },
-    seoDescription: `HPE Design System dashboard template for screens 
-    featuring content within cards.`,
-    sections: [],
-    relatedContent: ['Card', 'Lists', 'Grid'],
-  },
   {
     name: 'Forms',
     available: true,
+    cardOrder: 1,
     description: `Common form use cases from application configuration 
     to payment acceptance.`,
     preview: {
@@ -178,66 +42,29 @@ export const templates = [
     ],
   },
   {
-    name: 'Notifications',
-    available: false,
-    description: `Notifications are a helpful way to notify a user of changes 
-    to application state or to prompt action from a user.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-notifications.svg',
-          dark: '/templateImages/template-preview-notifications-invert.svg',
-        },
-        alt: 'HPE Notifications Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: 'HPE Design System notification examples and templates.',
-    sections: [],
-    relatedContent: [],
-  },
-  {
-    name: 'Data Visualization',
-    available: false,
-    description: `Data visualizations are an effective way to present 
-    quantitative data to a user.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-data-visualization.svg',
-          dark:
-            '/templateImages/template-preview-data-visualization-invert.svg',
-        },
-        alt: 'HPE Data Visualization Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription:
-      'HPE Design System data visualization examples and templates.',
-    sections: [],
-    relatedContent: [],
-  },
-  {
-    name: 'Wizard',
+    name: 'Dashboards',
     available: true,
-    description: 'Wizards are an effective way to handle multi-step forms.',
+    cardOrder: 100,
+    description: `At-a-glance preview for operation critical information 
+    with easy access to areas requiring attention.`,
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-wizard.svg',
-          dark: '/templateImages/template-preview-wizard-invert.svg',
+          light: '/templateImages/template-preview-dashboard.svg',
+          dark: '/templateImages/template-preview-dashboard-invert.svg',
         },
-        alt: 'HPE Wizard Preview',
-        fit: 'contain',
+        alt: 'HPE Dashboards Preview',
       },
     },
-    seoDescription: 'Wizards are an effective way to handle multi-step forms.',
+    seoDescription: `HPE Design System dashboard template for screens 
+    featuring content within cards.`,
     sections: [],
-    relatedContent: ['Forms'],
+    relatedContent: ['Card', 'Lists', 'Grid'],
   },
   {
     name: 'Filtering',
-    available: false,
+    available: true,
+    cardOrder: 3,
     description: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     preview: {
@@ -254,5 +81,238 @@ export const templates = [
     data attributes and values of interest.`,
     sections: [],
     relatedContent: ['Table', 'Lists', 'Card'],
+  },
+  {
+    name: 'Global Header',
+    available: true,
+    cardOrder: 7,
+    description: `A standardized header for use when building applications and 
+    services that live in the HPE ecosystem.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Design System Global Header',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `A standardized header for use when building applications 
+    and services that live in the HPE ecosystem.`,
+    sections: [],
+    relatedContent: ['Page Layouts', 'Header', 'Navigation'],
+  },
+  {
+    name: 'Hub and Spoke Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `A navigation pattern promoting focused execution through 
+    a central "hub" from which all activities begin and "spokes" on which 
+    more focused tasks are accomplished.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-hubnspoke.svg',
+          dark: '/templateImages/template-preview-hubnspoke-invert.svg',
+        },
+        alt: 'HPE Hub and Spoke Navigation Preview',
+      },
+    },
+    seoDescription: `Hub and spoke navigation pattern. What, why, and when 
+    to use the Hub & Spoke pattern for navigation.`,
+    relatedContent: [
+      'Navigation',
+      'Persistent Navigation',
+      'Header',
+      'Grid',
+      'Lists',
+    ],
+    sections: [],
+  },
+  {
+    name: 'Internationalization',
+    available: true,
+    description: `How to internationalize a site or application that uses the 
+    HPE Design System.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-i18n.svg',
+          dark: '/templateImages/template-preview-i18n-invert.svg',
+        },
+        alt: 'Internationalization',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `How to internationalize a site or application that uses
+    the HPE Design System`,
+    sections: [],
+    relatedContent: [],
+  },
+  {
+    name: 'Lists',
+    available: true,
+    cardOrder: 100,
+    description:
+      'Go-to patterns for displaying many services, devices, users, and more.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-list.svg',
+          dark: '/templateImages/template-preview-list-invert.svg',
+        },
+        alt: 'HPE Lists Preview',
+        fit: 'contain',
+      },
+    },
+    relatedContent: ['Dashboards', 'Card', 'Page Layouts', 'Pagination'],
+    seoDescription:
+      'HPE Design System template for providing a list of information.',
+    sections: [],
+  },
+  {
+    name: 'Navigation',
+    available: true,
+    cardOrder: 4,
+    description: 'The entry point for the expansive topic of Navigation.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-navigation.svg',
+          dark: '/templateImages/template-preview-navigation-invert.svg',
+        },
+        alt: 'HPE Navigation Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Navigation pattern guidance and recommendations for a 
+      variety of UI use cases.`,
+    sections: [],
+    relatedContent: [
+      'Header',
+      'Hub and Spoke Navigation',
+      'Persistent Navigation',
+    ],
+  },
+  {
+    name: 'Page Layouts',
+    available: true,
+    cardOrder: 2,
+    description: `Page layout options, anatomies, and behaviors serving a wide 
+    variety of enterprise application, workflow, and marketing contexts.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-pagelayout.svg',
+          dark: '/templateImages/template-preview-pagelayout-invert.svg',
+        },
+        alt: 'HPE Page Layouts Preview',
+        fit: 'contain',
+      },
+    },
+    relatedContent: [
+      'Navigation',
+      'Dashboards',
+      'Grid',
+      'Lists',
+      'Header',
+      'Footer',
+    ],
+    seoDescription:
+      'HPE Design System page layout options, anatomies, and behaviors.',
+    sections: [],
+  },
+  {
+    name: 'Persistent Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `Navigation choices which persist throughout the application
+    structure, presenting consistent, easy to click-through choices.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-persistent.svg',
+          dark: '/templateImages/template-preview-persistent-invert.svg',
+        },
+        alt: 'HPE Peristent Navigation Preview',
+      },
+    },
+    seoDescription: `Persistent navigation pattern. What, why, and when to use 
+    persistent navigation.`,
+    relatedContent: ['Navigation', 'Hub and Spoke Navigation', 'Header'],
+    sections: [],
+  },
+  {
+    name: 'Status Indicator',
+    available: true,
+    description: `Quickly provide peace-of-mind or call attention to items 
+      requiring a user's action.`,
+    preview: {
+      component: () => <StatusIndicatorPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Highlight notification messages and alerts which 
+      require a user's attention. Status indicators provide peace-of-mind 
+      when all is well or call attention to items when a user needs to take 
+      action`,
+    relatedContent: ['Notification', 'Toast Notifications', 'Stack'],
+    sections: [],
+  },
+  {
+    name: 'Table Customization',
+    available: true,
+    cardOrder: 100,
+    description: `Allows users to customize which columns are visible in a table
+    and in what order they appear.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-table-customize.svg',
+          dark: '/templateImages/template-preview-table-customize-invert.svg',
+        },
+        alt: 'HPE Table Customization Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to customize table column order and
+    visibility to best suit their needs.`,
+    sections: [],
+    relatedContent: ['Table', 'Lists', 'Filtering'],
+  },
+  {
+    name: 'Toast Notifications',
+    available: true,
+    description: `Toast notifications are used to communicate low severity 
+      level information to users in an unobtrusive way.`,
+    preview: {
+      component: () => (
+        <ToastPreview card title="Hooray" message="Your toast is done!" />
+      ),
+      background: 'background-back',
+    },
+    seoDescription: `Toast notifications are used to communicate low 
+    severity level information to users in an unobtrusive way.`,
+    sections: [],
+    relatedContent: ['Notification', 'Status Indicator', 'Stack'],
+  },
+  {
+    name: 'Wizard',
+    available: true,
+    cardOrder: 5,
+    description: 'Wizards are an effective way to handle multi-step forms.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-wizard.svg',
+          dark: '/templateImages/template-preview-wizard-invert.svg',
+        },
+        alt: 'HPE Wizard Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: 'Wizards are an effective way to handle multi-step forms.',
+    sections: [],
+    relatedContent: ['Forms'],
   },
 ];

@@ -2,6 +2,7 @@ import { Anchor, Box, Image } from 'grommet';
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  PaginationTableExample,
   TableAnatomy,
   TableExample,
   TableFixedHeaderExample,
@@ -131,6 +132,7 @@ user's preferred analytical tool.
 - Provide export capability for users to consume the data in their analytical
   tool of choice.
 - Provide aggregate measures in the [table footer](#column-summaries-and-aggregation).
+- Organize table columns to group like elements and to keep most important elements to the left.
 
 <!--
 ## Guidelines
@@ -158,6 +160,74 @@ within it, a larger number of columns may be neccessary.
 In this context, a Table should facilitate the assembly of the data set and make the set
 accessible in a tool specifically designed for analysis.
 -->
+
+## Guidelines
+
+### Setting the width of the table
+
+- Use the correct set of columns, prioritizing frequently used ones. Don't add more columns just because the data is there, as this will clutter the table.
+- To support readability, make tables only as wide as they need to be and no wider. If the content does not need a large width, prevent the table from stretching.
+- Limit the whitespace on individual columns by using size for table columns.
+- When the table has the potential to be wider than the screen:
+  - Use 'pin' to anchor the primary column to preserve row context.
+  - Use horizontal scrolling within the table, as opposed to scrolling at the level of the entire page
+- When the table has the potential to be narrower than its layout context:
+  - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
+  - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the table and prevents them from being orphaned. However, don't force the header above the table to align its width to the table, as that might compress the contents of the header too much.
+
+### Wrapping and truncating
+
+When text exceeds the amount of space available within a table cell, [wrapping](#wrapping) or [truncation](#truncation) may be used depending on your use case. Below are some best practices to consider when implementing.
+- For readability, avoid truncating or wrapping text within the first column.
+- Keep each cell short and concise, limiting the amount of characters within a cell when possible.
+- Minimize the number of included columns by only showing those which are used most frequently.
+
+### Truncation
+
+**Truncation should not be used on headings, numeric values, or statuses.**
+
+Truncation may be applied at the beginning, middle, or end of a piece of data. When choosing where to apply truncation within a string, consider which section of the text is most likely to differentiate the item from others in the column. 
+
+Additional questions to keep in mind when using truncation:
+
+1. How much information loss is acceptable?
+2. What impact is caused by any amount of information loss?
+3. When creating the data, can it be structured so that a table can truncate it in such way that the information loss is kept to a minimum?
+
+#### Options for Positioning Truncation
+
+**Front-text**
+
+Front-text truncation is when an ellipsis is placed at the beginning of a long string. This is best used when the start of a string is similar to many other cells, such as text containing a common prefix.
+
+**Mid-text**
+
+For recognizability, it may be better to crop the middle of a string. Define the parts of the content which need to be preserved in order to keep recognition high and should not be truncated. This strategy can be used when both the beginning and ends are uniquely identifiable.
+
+**End-text**
+
+End-text truncation is when the ellipsis is placed at the end of the string.
+
+If truncating numerical values is absolutely necessary, use end-text truncation. Additionally, provide a [tooltip](/compontents/tip) to help users view the complete string.
+
+### Wrapping
+
+Wrapping allows long strings of text or words to break and wrap onto subsequent lines.
+
+Wrapping should be used when:
+- The entirety of the content must be available at all times.
+- Long numerical values need to be displayed.
+
+### Accessibility
+
+To ensure screen readers are able to associate a page heading with a given table, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the table, it will announce the Heading content which provides the user with better context about the table data and purpose.
+
+For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the table.
+
+```
+<Heading id="storage-pools-heading">Storage Pools</Heading>
+<DataTable aria-describedBy="storage-pools-heading" />
+```
 
 ## Table behaviors & actions
 
@@ -198,7 +268,10 @@ is setting out to accomplish.
 
 See [Filtering](/templates/filtering) for greater detail.
 
-### Selecting single records
+### Navigation via table
+
+Clicking on a table row takes the user to a context where the most prominent heading matches the primary column text.
+This context could either be a page or a modal. In this example, clicking on a table row navigates to a detail page.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/table/TableSingleSelectExample.js"
@@ -219,6 +292,20 @@ batch actions via action control buttons or menus.
   showResponsiveControls={['laptop', 'mobile']}
 >
   <TableMultiSelectExample />
+</Example>
+
+### Paginated
+
+With long sets of data, pagination can help to create a more efficient means of navigating to a specific item or range of items.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationTableExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+  height="auto"
+>
+  <PaginationTableExample />
 </Example>
 
 ### Fixing header row and/or columns

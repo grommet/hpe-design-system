@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Figma } from 'grommet-icons';
-import { Anchor, Box, Button, ResponsiveContext } from 'grommet';
+import { Anchor, Box, Button, ResponsiveContext, Text } from 'grommet';
 
 import {
   ButtonRow,
@@ -11,9 +11,14 @@ import {
   Subsection,
   UsageExample,
 } from '../../layouts';
-import { Meta, SubsectionText } from '../../components';
+import { ColorCompliance, Meta, SubsectionText } from '../../components';
 import { ElevationExample, TextExample } from '../../examples';
-import { colorExamples } from '../../data';
+import {
+  colorExamples,
+  greenDark,
+  greenDarkLarge,
+  greenLight,
+} from '../../data';
 import { getPageDetails, nameToPath } from '../../utils';
 
 const {
@@ -33,21 +38,17 @@ const {
 const { borderDark, borderLight } = colorExamples.borders;
 const { inputDark, inputLight } = colorExamples.input;
 const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
-const { focusColor, layerColor } = colorExamples;
+const { focusColor, layerColor, graphColor } = colorExamples;
 
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
-const generateColorExamples = (colors, textColor) => {
-  return (
-    <Box fill>
-      {colors.map(color => {
-        return (
-          <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
-        );
-      })}
-    </Box>
-  );
-};
+const generateColorExamples = (colors, textColor) => (
+  <Box fill>
+    {colors.map(color => (
+      <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
+    ))}
+  </Box>
+);
 
 const title = 'Color';
 const page = getPageDetails(title);
@@ -68,15 +69,9 @@ const Color = () => (
             <Subsection level={1} name={title} topic={topic}>
               <SubsectionText>
                 You will notice that the HPE Design System Color guidance is
-                different from Brand Central. Prioritize this HPE Design System
-                color palette over Brand Central when identifying colors for
-                your digital experience.
-              </SubsectionText>
-              <SubsectionText size="medium">
-                The HPE Design System team is working with HPE Brand to ensure
-                that the Brand Central color palettes (like 'secondary colors')
-                are updated to meet ADA complicance levels in a large variety of
-                user contexts.
+                different from Brand Central. Prioritize the below HPE Design
+                System color palette over Brand Central when identifying colors
+                for your app or web based experience.
               </SubsectionText>
               <ButtonRow>
                 <Button
@@ -95,7 +90,8 @@ const Color = () => (
                 Color is a key way we express our brand. Using color on
                 interface elements, how typography is presented, displaying data
                 visualizations, and adjusting context of the experience to light
-                and dark are just some of the ways we illustrate our brand.
+                and dark are just some of the ways we illustrate inclusive
+                design for our app and web based experiences.
               </SubsectionText>
             </Subsection>
             <Subsection name="Brand Color" level={3}>
@@ -153,12 +149,100 @@ const Color = () => (
                 </UsageExample>
               )}
             </Subsection>
+            <Subsection name="Green Color Accessibility">
+              <SubsectionText>
+                The HPE Design System green ensures compliance with WCAG 2.1
+                standards for distinguishable text and color (
+                <Anchor
+                  label="see success criterion 1.4.1 and 1.4.3"
+                  href="https://www.w3.org/TR/WCAG21/#distinguishable"
+                  target="_blank"
+                  rel="noopener"
+                />
+                ). With accessibility as one of its core principles, the HPE
+                Design System focused on keeping accessibilty research and
+                guidelines at the center of its color selection process.
+              </SubsectionText>
+
+              <SubsectionText>
+                See details below on how to remain compliant in both light and
+                dark theme modes.
+              </SubsectionText>
+            </Subsection>
+            <Subsection level={3} name="Light Mode">
+              <SubsectionText>
+                AAA compliance is met for text on a light mode green background
+                when using `text-strong` color. This is ensured for text of size
+                18px and above.
+              </SubsectionText>
+              <SubsectionText>
+                If a font size is below 18px, AAA compliance will fail with
+                default font weight on an HPE green background. In this case,
+                apply weight="bold" to meet AAA compliance.
+              </SubsectionText>
+              <Box direction="row-responsive" gap="medium">
+                <ColorCompliance
+                  color={{ color: 'green', dark: false }}
+                  data={greenLight}
+                >
+                  <Text color="text-strong">
+                    This text is default size, default weight, and color
+                    text-strong.
+                  </Text>
+                </ColorCompliance>
+                <ColorCompliance
+                  color={{ color: 'green', dark: false }}
+                  data={greenLight}
+                >
+                  <Text color="text-strong" size="small" weight="bold">
+                    This text is size small, bold weight, and color text-strong.
+                  </Text>
+                </ColorCompliance>
+              </Box>
+            </Subsection>
+            <Subsection level={3} name="Dark Mode">
+              <SubsectionText>
+                AA compliance is met for text on a dark mode green background
+                when using `text-strong` color. To meet AAA compliance, use text
+                size="large" and weight="bold".
+              </SubsectionText>
+
+              <Box direction="row-responsive" gap="medium">
+                <ColorCompliance
+                  color={{ color: 'green', dark: true }}
+                  data={greenDark}
+                >
+                  <Text color="text-strong" size="small" weight="bold">
+                    This text is default size, default weight, and color
+                    text-strong.
+                  </Text>
+                </ColorCompliance>
+                <ColorCompliance
+                  color={{ color: 'green', dark: true }}
+                  data={greenDarkLarge}
+                >
+                  <Text color="text-strong" size="large" weight="bold">
+                    This text is size large, bold weight, and color text-strong.
+                  </Text>
+                </ColorCompliance>
+              </Box>
+            </Subsection>
             <Subsection name="Background Colors">
               <SubsectionText>
                 Our color palette is only impactful when used in the correct
                 context. Accommodating both light and dark modes of a user
                 experience with the appropriate color palette creates a
                 successful customer experience.
+              </SubsectionText>
+
+              <SubsectionText>
+                For more direction on how to use background colors within your
+                layout, see{' '}
+                <Anchor
+                  label="Background Colors Guidance"
+                  href="/foundation/background-colors-guidance"
+                />
+                .
               </SubsectionText>
             </Subsection>
             <Subsection name="Background Palette" level={3}>
@@ -274,15 +358,13 @@ const Color = () => (
                 }}
               >
                 {textColors &&
-                  textColors.map(color => {
-                    return (
-                      <TextExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex.light}
-                      />
-                    );
-                  })}
+                  textColors.map(color => (
+                    <TextExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex.light}
+                    />
+                  ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -300,15 +382,13 @@ const Color = () => (
                 }}
               >
                 {textColors &&
-                  textColors.map(color => {
-                    return (
-                      <TextExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex.dark}
-                      />
-                    );
-                  })}
+                  textColors.map(color => (
+                    <TextExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex.dark}
+                    />
+                  ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Status Colors" level={3}>
@@ -354,15 +434,13 @@ const Color = () => (
                 }}
               >
                 {elevationColorsLight &&
-                  elevationColorsLight.map(color => {
-                    return (
-                      <ElevationExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex}
-                      />
-                    );
-                  })}
+                  elevationColorsLight.map(color => (
+                    <ElevationExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex}
+                    />
+                  ))}
               </UsageExample>
               <UsageExample
                 themeMode="dark"
@@ -377,15 +455,13 @@ const Color = () => (
                 }}
               >
                 {elevationColorsDark &&
-                  elevationColorsDark.map(color => {
-                    return (
-                      <ElevationExample
-                        key={color.name}
-                        color={color.name}
-                        hex={color.hex}
-                      />
-                    );
-                  })}
+                  elevationColorsDark.map(color => (
+                    <ElevationExample
+                      key={color.name}
+                      color={color.name}
+                      hex={color.hex}
+                    />
+                  ))}
               </UsageExample>
             </Subsection>
             <Subsection name="Overlay Color">
@@ -397,6 +473,15 @@ const Color = () => (
                 controlled by `layer.overlay.background` in the theme.
               </SubsectionText>
               {layerColor && generateColorExamples(layerColor)}
+            </Subsection>
+            <Subsection name="Graph Colors">
+              <SubsectionText>
+                Graph colors should be applied in order, starting with graph-0.
+                This color order was selected to provide clear distinction
+                between adjacent data. When using Grommet DataChart, graph
+                colors will be applied in order by default.
+              </SubsectionText>
+              {graphColor && generateColorExamples(graphColor)}
             </Subsection>
           </ContentSection>
         </>
