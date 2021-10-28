@@ -1,12 +1,21 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import { Document, DocumentText, Expand, Grommet, Figma } from 'grommet-icons';
+import {
+  Document,
+  DocumentText,
+  Expand,
+  Github,
+  Grommet,
+  Figma,
+} from 'grommet-icons';
 
 export const ExampleControls = ({
+  componentName,
   designer,
   docs,
   figma,
+  grommetSource,
   guidance,
   horizontalLayout,
   setShowLayer,
@@ -42,11 +51,10 @@ export const ExampleControls = ({
         {designer && (
           <Box flex={false}>
             <Button
-              title="Open in Grommet Designer"
               a11yTitle="Open in Grommet Designer"
               href={designer}
               icon={<Grommet color="plain" />}
-              label={!horizontalLayout && 'Open in Grommet Designer'}
+              tip="Open in Grommet Designer"
               target="_blank"
               size={buttonSize}
             />
@@ -55,11 +63,10 @@ export const ExampleControls = ({
         {figma && (
           <Box flex={false}>
             <Button
-              title="Open in Figma"
               a11yTitle="Open in Figma"
               href={figma}
               icon={<Figma color="plain" />}
-              label={!horizontalLayout && 'Open in Figma'}
+              tip="Open in Figma"
               target="_blank"
               size={buttonSize}
             />
@@ -68,11 +75,22 @@ export const ExampleControls = ({
         {docs && (
           <Box flex={false}>
             <Button
-              title="Open docs"
-              a11yTitle="Open docs"
+              a11yTitle={`Open ${componentName} docs`}
               href={docs}
               icon={<Document />}
-              label={!horizontalLayout && 'Open docs'}
+              tip="Open docs"
+              target="_blank"
+              size={buttonSize}
+            />
+          </Box>
+        )}
+        {grommetSource && (
+          <Box flex={false}>
+            <Button
+              a11yTitle={`View ${componentName} source code`}
+              href={grommetSource}
+              icon={<Github />}
+              tip={`View ${componentName} source code`}
               target="_blank"
               size={buttonSize}
             />
@@ -81,11 +99,10 @@ export const ExampleControls = ({
         {guidance && (
           <Box flex={false}>
             <Button
-              title="Read guidance"
               a11yTitle="Read guidance"
               href={guidance}
               icon={<DocumentText />}
-              label={!horizontalLayout && 'Read guidance'}
+              tip="Read guidance"
               size={buttonSize}
             />
           </Box>
@@ -112,9 +129,11 @@ export const ExampleControls = ({
 };
 
 ExampleControls.propTypes = {
+  componentName: PropTypes.string,
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
   setShowLayer: PropTypes.func,

@@ -5,51 +5,60 @@ import { Wifi, StatusCriticalSmall } from 'grommet-icons';
 
 const mockAvailability = 0.872;
 
-export const CardMeterExample = () => (
-  <Card
-    background="background-front"
-    onClick={() => {
-      // eslint-disable-next-line no-alert
-      alert(`
+export const CardMeterExample = () => {
+  const [isFocused, setIsFocused] = React.useState(false);
+
+  return (
+    <Card
+      background="background-front"
+      elevation={isFocused ? 'large' : 'medium'}
+      onClick={() => {
+        // eslint-disable-next-line no-alert
+        alert(`
         Typically a click would route to a view with 
         greater detail behind this summary information.
         `);
-    }}
-    width="medium"
-  >
-    <CardBody gap="medium">
-      <Identifier
-        title="Availability"
-        subtitle="Uptime - Last 30 Days"
-        icon={<Wifi color="text-strong" size="large" />}
-      />
-      <Box flex align="center" justify="center">
-        <KPIMeter
-          id="metric-11"
-          background="background-back"
-          values={[
-            {
-              value: mockAvailability,
-              color: 'graph-1',
-              highlight: false,
-              label: 'availability',
-              onClick: () => {},
-            },
-          ]}
-          max={1}
-          type="bar"
-          thickness="large"
+      }}
+      onBlur={() => setIsFocused(false)}
+      onFocus={() => setIsFocused(true)}
+      onMouseOut={() => setIsFocused(false)}
+      onMouseOver={() => setIsFocused(true)}
+      width="medium"
+    >
+      <CardBody gap="medium">
+        <Identifier
+          title="Availability"
+          subtitle="Uptime - Last 30 Days"
+          icon={<Wifi color="text-strong" size="large" />}
         />
-      </Box>
-    </CardBody>
-    <CardFooter>
-      <KPISummary
-        message={`${mockAvailability * 100}% vs. SLA 99.5%`}
-        statusColor="status-critical"
-      />
-    </CardFooter>
-  </Card>
-);
+        <Box flex align="center" justify="center">
+          <KPIMeter
+            id="metric-11"
+            background="background-back"
+            values={[
+              {
+                value: mockAvailability,
+                color: 'graph-1',
+                highlight: false,
+                label: 'availability',
+                onClick: () => { },
+              },
+            ]}
+            max={1}
+            type="bar"
+            thickness="large"
+          />
+        </Box>
+      </CardBody>
+      <CardFooter>
+        <KPISummary
+          message={`${mockAvailability * 100}% vs. SLA 99.5%`}
+          statusColor="status-critical"
+        />
+      </CardFooter>
+    </Card>
+  );
+};
 
 const Identifier = ({ title, subtitle, icon }) => (
   <Box direction="row" gap="small">

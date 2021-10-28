@@ -144,7 +144,7 @@ export const SimpleSignUpExample = () => {
             htmlFor="email-sign-up-simple"
             name="email"
             validate={emailValidation}
-            required
+            required={{ indicator: false }}
           >
             <MaskedInput
               id="email-sign-up-simple"
@@ -157,7 +157,7 @@ export const SimpleSignUpExample = () => {
             label="Full Name"
             htmlFor="fullName-sign-up-simple"
             name="fullName"
-            required
+            required={{ indicator: false }}
           >
             <TextInput
               id="fullName-sign-up-simple"
@@ -166,6 +166,7 @@ export const SimpleSignUpExample = () => {
             />
           </FormField>
           <FormField
+            required={{ indicator: false }}
             label="Password"
             validate={passwordRequirements}
             htmlFor="password-sign-up-simple"
@@ -196,7 +197,6 @@ export const SimpleSignUpExample = () => {
                 }}
               </List>
             }
-            required
           >
             <TextInput
               id="password-sign-up-simple"

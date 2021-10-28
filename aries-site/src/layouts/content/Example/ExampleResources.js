@@ -107,7 +107,7 @@ export const ExampleResources = ({
       )}
       {code && (
         <CollapsibleSection
-          label={{ closed: 'Show Code', open: 'Hide Code' }}
+          label={{ closed: 'Show Example Code', open: 'Hide Example Code' }}
           onClick={() => setCodeOpen(!codeOpen)}
         >
           {Array.isArray(code) && (
