@@ -361,7 +361,7 @@ export const foundation = [
     name: 'Content',
     category: 'Philosophy',
     cardOrder: 6,
-    description: '',
+    description: 'Deliver clear, consistent experiences to HPE customers by following guidelines for the voice and tone of text-based user interface elements.',
     preview: {
       image: {
         src: {
@@ -374,20 +374,142 @@ export const foundation = [
     },
     seoDescription: '',
     sections: [
-      
+      'Messaging Voice, Tone, and Content',
+      'Voice',
+      'Tone',
+      'Content References',
     ],
     relatedContent: [
       'Our Brand',
+      'Accessibility',
+      'Human Centered',
     ],
     tags: [
-
+      'content',
+      'voice',
+      'tone',
+      'messaging',
+      'guidelines',
     ],
+  },
+  // {
+  //   name: 'Content Guidelines',
+  //   category: 'Philosophy',
+  //   cardOrder: 7,
+  //   description: 'Reference these guidelines for content practices that structure our communications.',
+  //   preview: {
+  //     image: {
+  //       src: {
+  //         light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+  //         dark:
+  //           '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+  //       },
+  //       alt: 'HPE Voice and Tone Preview with two speech bubbles',
+  //     },
+  //   },
+  //   seoDescription: '',
+  //   sections: [
+  //     'Capitalization',
+  //     'Acronyms & Initialisms',
+  //     'Branding',
+  //     'Language Dos and Don\'ts',
+  //     'Do this:',
+  //     'Don\'t do this',
+  //     'Miscellany',
+  //     'Quoting',
+  //     'Other Common Problems and How To Address Them',
+
+  //   ],
+  //   relatedContent: [
+  //     'Content',
+  //     'Conent Case Study',
+  //     'Content Best Practices',
+  //     'Content Implementation',
+  //   ],
+  //   tags: [
+  //     'grammar',
+  //     'spelling',
+  //     'rules',
+  //     'problems',
+  //   ],
+  // },
+  // {
+  //   name: 'Content Best Practices',
+  //   category: 'Philosophy',
+  //   cardOrder: 8,
+  //   description: 'Use these best practices to help guide your decisions in creating clear and consistent content.',
+  //   preview: {
+  //     image: {
+  //       src: {
+  //         light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+  //         dark:
+  //           '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+  //       },
+  //       alt: 'HPE Voice and Tone Preview with two speech bubbles',
+  //     },
+  //   },
+  //   seoDescription: '',
+  //   sections: [
+  //     'Guidelines for Constructing Good Messaging',
+  //     'Conversational American English',
+  //     'British English',
+  //     'Indian English',
+  //     'Point of View',
+  //     'Referring to Support',
+  //     'Scale',
+  //   ],
+  //   relatedContent: [
+  //     'Content',
+  //     'Content Guidelines',
+  //     'Conent Case Study',
+  //     'Content Implementation',
+  //   ],
+  //   tags: [
+  //     'English',
+  //     'pov',
+  //     'point of view',
+  //     'perspective',
+  //     'support',
+  //   ],
+  // },
+  {
+    name: 'Content Implementation',
+    category: 'Philosophy',
+    cardOrder: 9,
+    description: 'Use these conventions during implementation to exercise good communication both for and with users.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+        },
+        alt: 'HPE Voice and Tone Preview with two speech bubbles',
+      },
+    },
+    seoDescription: '',
+    // sections: [
+    //   'Localization',
+    //   'User Input',
+    //   'Maintainability',
+    // ],
+    // relatedContent: [
+    //   'Content',
+    //   'Conent Case Study',
+    //   'Content Guidelines',
+    //   'Content Best Practices',
+    // ],
+    // tags: [
+    //   'content',
+    //   'implementation',
+    //   'develop',
+    // ],
   },
   {
     name: 'Content Case Study',
     category: 'Philosophy',
-    cardOrder: 6,
-    description: '',
+    cardOrder: 10,
+    description: 'This case study is a step-by-step exploration of how we build better content.',
     preview: {
       image: {
         src: {
@@ -400,13 +522,24 @@ export const foundation = [
     },
     seoDescription: '',
     sections: [
-      
+      'Version 1',
+      'Version 2',
+      'Version 3',
+      'Version 4',
+      'Version 5',
+      'Version 6',
+      'Version 7',
+      'Best Practice',
     ],
     relatedContent: [
-'Our Brand'
+      'Content',
+      'Content Guidelines',
+      'Content Best Practices',
+      'Content Implementation',
     ],
     tags: [
-
+      'case',
+      'study',
     ],
   },
 ];
