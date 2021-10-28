@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-export const TableAnatomy = () => (
+export const DataTableAnatomy = () => (
   <Box width="medium" margin={{ bottom: 'medium' }}>
     <AnatomySection
       background="green!"

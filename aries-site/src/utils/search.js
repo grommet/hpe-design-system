@@ -1,12 +1,31 @@
 import { structure } from '../data';
 
-const allPages = structure.map(p => p.name);
+const allPages = structure.map(page => ({
+  label: page.name,
+  value: { ...page, title: page.name },
+}));
 const allPageSections = structure
-  .map(p => p.sections)
-  .filter(Boolean)
-  .reduce((acc, val) => acc.concat(val), []);
+  .map(page => ({
+    label: page.sections,
+    value: page,
+  }))
+  .filter(page => page.label && page.label.length)
+  .flatMap(val =>
+    val.label.map(section => ({
+      label: section,
+      value: { ...val.value, title: section },
+    })),
+  );
 
-export const getSearchSuggestions = allPages.concat(allPageSections).sort();
+export const getSearchSuggestions = allPages
+  .concat(allPageSections)
+  .sort((a, b) => {
+    const aLabel = a.label.toLowerCase();
+    const bLabel = b.label.toLowerCase();
+    if (aLabel < bLabel) return -1;
+    if (aLabel > bLabel) return 1;
+    return 0;
+  });
 
 // String to slug from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1#file-slugify-js
 export const nameToSlug = name => {
@@ -83,7 +102,8 @@ export const nameToPath = name => {
  * Returns an array of page objects which are decendents of the
  * provided cardCategory. Where cardCategory is a string.
  */
-export const getCards = cardCategory => structure
+export const getCards = cardCategory =>
+  structure
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);

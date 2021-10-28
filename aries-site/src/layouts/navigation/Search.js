@@ -1,73 +1,153 @@
-import React, { useContext, useRef, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Button, TextInput, ResponsiveContext, Keyboard } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Layer, ResponsiveContext } from 'grommet';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
+import { SearchResult, SearchResults } from '.';
 
 const allSuggestions = getSearchSuggestions;
 
-// Using Search icon as the arialabelledby for the text input. Documentation
-// on why this is a valid replacement for using label here:
-// https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby
-// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
-const StyledTextInput = styled(TextInput).attrs(() => ({
-  'aria-labelledby': 'search-icon',
-}))``;
+/*
+ * Construct an object where 'label' is the displayed element and
+ * 'value' contains all data related to the content/result.
+ */
+const formatSearchResults = (query, results) =>
+  results &&
+  results.map(result => {
+    const nextValue = {
+      ...result.value,
+      url: nameToPath(result.value.title),
+    };
 
-export const Search = ({ focused, setFocused }) => {
+    return {
+      label: <SearchResult query={query} result={nextValue} />,
+      value: nextValue,
+    };
+  });
+
+/* Sort search results by relevancy and/or strength of match type */
+const sortSearch = matches => {
+  const results = matches
+    /* Prioritize title matches over metadata matches */
+    .sort((a, b) => {
+      const ruleOrder = {
+        Title: 0,
+        Tags: 1,
+      };
+      return (
+        ruleOrder[a.value.matchLocation] - ruleOrder[b.value.matchLocation]
+      );
+    })
+    .reduce((acc, cur) => {
+      /* Include all title matches */
+      if (cur.value.matchLocation.includes('Title')) {
+        acc.push(cur);
+      }
+      /* Only add tag match if the page does not have a title match */
+      if (
+        cur.value.matchLocation.includes('Tags') &&
+        !acc.find(element => element.value.name === cur.value.name)
+      ) {
+        acc.push(cur);
+      }
+      return acc;
+    }, []);
+
+  return results;
+};
+
+const exactMatch = (data, query) => {
+  const regexp = new RegExp(query, 'i');
+  const results = data.map(option => {
+    const { value: valueObj } = option;
+    const { tags, title } = valueObj;
+    const nextOption = {
+      ...option,
+      value: { ...valueObj, matchType: [], matchLocation: [] },
+    };
+
+    /* Title Match */
+    if (regexp.test(title)) {
+      nextOption.value.matchType.push('ExactMatch');
+      nextOption.value.matchLocation.push('Title');
+    }
+    /* Content Match */
+    // number of matches should affect weighting
+    // TODO
+
+    /* Metadata: Tag Match */
+    else if (regexp.test(tags)) {
+      nextOption.value.matchType.push('ExactMatch');
+      nextOption.value.matchLocation.push('Tags');
+    }
+
+    return nextOption;
+  });
+
+  return results;
+};
+
+const search = (data, query) => {
+  const results = exactMatch(data, query).filter(
+    option => option.value.matchType.length > 0,
+  );
+
+  return sortSearch(results);
+};
+
+export const Search = ({ setOpen }) => {
   const router = useRouter();
   const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
-  const [suggestions, setSuggestions] = useState(allSuggestions);
-  const inputRef = useRef();
+  const [suggestions, setSuggestions] = useState(
+    formatSearchResults(null, allSuggestions),
+  );
 
-  useEffect(() => {
-    if (focused && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [focused, setFocused]);
+  const onClose = () => {
+    setOpen(false);
+  };
 
   const onChange = event => {
     const {
       target: { value: nextValue },
     } = event;
     let nextSuggestions;
-    if (nextValue) {
-      const regexp = new RegExp(nextValue, 'i');
-      nextSuggestions = allSuggestions.filter(c => regexp.test(c));
+    if (nextValue.length) {
+      nextSuggestions = search(allSuggestions, nextValue);
     } else {
       nextSuggestions = allSuggestions;
     }
-    // don't use newer value if nothing matches it
-    if (nextSuggestions.length > 0) {
-      setValue(nextValue);
-      setSuggestions(nextSuggestions);
-    }
+
+    setSuggestions(
+      formatSearchResults(
+        nextValue.length > 0 ? nextValue : null,
+        nextSuggestions,
+      ),
+    );
+    setValue(nextValue);
   };
 
   const onEnter = () => {
     if (value) {
       if (suggestions.length === 1) {
-        router.push(nameToPath(suggestions[0]));
+        router.push(nameToPath(suggestions[0].value.title));
       } else {
         const matches = allSuggestions.filter(
-          c => c.toLowerCase() === value.toLowerCase(),
+          c => c.label.toLowerCase() === value.toLowerCase(),
         );
         if (matches.length === 1) {
-          router.push(nameToPath(matches[0]));
+          router.push(nameToPath(matches[0].value.title));
         }
       }
     }
   };
 
   const onSelect = event => {
-    const href = nameToPath(event.suggestion);
+    const href = nameToPath(event.item.value.title);
     if (internalLink.test(href)) {
       router.push(href);
-      setFocused(false);
+      onClose();
     } else {
       // external links should open in a new tab
       window.open(href);
@@ -75,40 +155,26 @@ export const Search = ({ focused, setFocused }) => {
   };
 
   return (
-    <>
-      {!focused && size === 'small' && (
-        <Button icon={<SearchIcon />} onClick={() => setFocused(true)} />
-      )}
-      {(focused || size !== 'small') && (
-        <Box background="background-contrast" round="xsmall" width="medium">
-          <Keyboard onEsc={() => setFocused(false)} onEnter={onEnter}>
-            <StyledTextInput
-              ref={inputRef}
-              icon={<SearchIcon id="search-icon" />}
-              dropHeight="small"
-              placeholder="Search HPE Design System"
-              onChange={onChange}
-              onSuggestionSelect={onSelect}
-              suggestions={suggestions}
-              value={value}
-              plain
-              reverse
-              onBlur={event => {
-                // Only treat it as a blur if the element receiving focus
-                // isn't in our drop. The relatedTarget will be our drop
-                if (!event.relatedTarget) {
-                  setFocused(false);
-                }
-              }}
-            />
-          </Keyboard>
-        </Box>
-      )}
-    </>
+    <Layer
+      margin={size !== 'small' ? { top: 'medium' } : 'none'}
+      onEsc={onClose}
+      onClickOutside={onClose}
+      position="top"
+    >
+      <SearchResults
+        allSuggestions={allSuggestions}
+        onChange={onChange}
+        onClose={onClose}
+        onEnter={onEnter}
+        onSelect={onSelect}
+        query={value}
+        results={suggestions}
+        setSuggestions={setSuggestions}
+      />
+    </Layer>
   );
 };
 
 Search.propTypes = {
-  focused: PropTypes.bool.isRequired,
-  setFocused: PropTypes.func.isRequired,
+  setOpen: PropTypes.func,
 };

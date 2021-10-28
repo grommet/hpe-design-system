@@ -6,17 +6,13 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
-export const StyledCard = styled(Card)`
-  transition: all 0.2s ease-in-out;
-`;
-
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const { description, name, parent, preview, render } = topic;
   const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
-    <StyledCard
-      elevation={isFocused ? 'medium' : 'small'}
+    <Card
+      elevation={isFocused ? 'large' : 'medium'}
       fill
       onBlur={() => setIsFocused(false)}
       onFocus={() => setIsFocused(true)}
@@ -71,7 +67,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           <Text size="small">{description}</Text>
         </Box>
       </CardBody>
-    </StyledCard>
+    </Card>
   );
 });
 

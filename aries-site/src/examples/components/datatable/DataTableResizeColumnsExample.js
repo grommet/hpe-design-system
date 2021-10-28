@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, Text } from 'grommet';
 
 const data = [
@@ -173,7 +174,8 @@ const columns = [
   },
 ];
 
-export const TableResizeColumnsExample = () => (
+// designSystemDemo is used for DS site only, can be removed in production.
+export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
   <>
     <Heading
       id="contact-info-heading"
@@ -185,7 +187,10 @@ export const TableResizeColumnsExample = () => (
     <Box
       align="start"
       // restricting height to demonstrate pinned header behavior
-      height="medium"
+      // Height is restricted to keep inline doc page examples more compact.
+      // In production, DataTable height should follow height guidelines.
+      // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
+      height={designSystemDemo ? undefined : 'medium'}
       overflow="auto"
       fill="horizontal"
     >
@@ -199,3 +204,7 @@ export const TableResizeColumnsExample = () => (
     </Box>
   </>
 );
+
+DataTableResizeColumnsExample.propTypes = {
+  designSystemDemo: PropTypes.bool,
+};

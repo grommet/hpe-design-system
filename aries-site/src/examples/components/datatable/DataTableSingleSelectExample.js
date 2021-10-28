@@ -32,9 +32,7 @@ const data = [
     state: 'Created',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Suncor Energy',
-    contact: {
-      email: 'melinda@suncor.co',
-    },
+    email: 'melinda@suncor.co',
     orderDate: '04/30/2020',
   },
   {
@@ -44,9 +42,7 @@ const data = [
     state: 'Build Prep',
     service: 'HPE Goats as a Service',
     tenant: 'Nestle',
-    contact: {
-      email: 'wan@nestle.com',
-    },
+    email: 'wan@nestle.com',
     orderDate: '04/05/2020',
   },
   {
@@ -56,9 +52,7 @@ const data = [
     state: 'Processing',
     service: 'VMaaS for R&D',
     tenant: 'Coke',
-    contact: {
-      email: 'muhtar@coke.com',
-    },
+    email: 'muhtar@coke.com',
     orderDate: '03/04/2020',
   },
   {
@@ -68,9 +62,7 @@ const data = [
     state: 'Factory Express',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Domain',
-    contact: {
-      email: 'priyanka@domain.com',
-    },
+    email: 'priyanka@domain.com',
     orderDate: '02/28/2020',
   },
   {
@@ -80,9 +72,7 @@ const data = [
     state: 'Provisioning',
     service: 'VMaaS for R&D',
     tenant: 'Nestle',
-    contact: {
-      email: 'wan@nestle.com',
-    },
+    email: 'wan@nestle.com',
     orderDate: '02/15/2020',
   },
   {
@@ -92,9 +82,7 @@ const data = [
     state: 'In Transit',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Suncor Energy',
-    contact: {
-      email: 'melinda@suncor.co',
-    },
+    email: 'melinda@suncor.co',
     orderDate: '01/30/2020',
   },
   {
@@ -104,9 +92,7 @@ const data = [
     state: 'Cancelled',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Boeing',
-    contact: {
-      email: 'susan@boeing.com',
-    },
+    email: 'susan@boeing.com',
     orderDate: '01/15/2020',
   },
   {
@@ -116,9 +102,7 @@ const data = [
     state: 'Ready to Ship',
     service: 'HPE Goats as a Service',
     tenant: 'Coke',
-    contact: {
-      email: 'muhtar@coke.com',
-    },
+    email: 'muhtar@coke.com',
     orderDate: '12/29/2019',
   },
   {
@@ -128,9 +112,7 @@ const data = [
     state: 'Created',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Domain',
-    contact: {
-      email: 'priyanka@domain.com',
-    },
+    email: 'priyanka@domain.com',
     orderDate: '12/15/2019',
   },
   {
@@ -140,9 +122,7 @@ const data = [
     state: 'Accepted',
     service: 'VMaaS for R&D',
     tenant: 'Suncor Energy',
-    contact: {
-      email: 'melinda@suncor.co',
-    },
+    email: 'melinda@suncor.co',
     orderDate: '11/01/2019',
   },
   {
@@ -152,9 +132,7 @@ const data = [
     state: 'Processing',
     service: 'VMaaS for R&D',
     tenant: 'Coke',
-    contact: {
-      email: 'muhtar@coke.com',
-    },
+    email: 'muhtar@coke.com',
     orderDate: '11/01/2019',
   },
   {
@@ -164,9 +142,7 @@ const data = [
     state: 'Delivered',
     service: 'Mercury',
     tenant: 'Nestle',
-    contact: {
-      email: 'wan@nestle.com',
-    },
+    email: 'wan@nestle.com',
     orderDate: '11/01/2019',
   },
 ];
@@ -216,9 +192,9 @@ const columns = [
   },
 ];
 
-export const TableSingleSelectExample = () => {
+export const DataTableSingleSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
-  const [pageDetails, setPageDetals] = React.useState({});
+  const [pageDetails, setPageDetails] = React.useState({});
 
   return !pageDetails.id ? (
     <>
@@ -237,7 +213,7 @@ export const TableSingleSelectExample = () => {
             { property: 'id', header: 'Id', pin: size === 'small' },
             ...columns,
           ]}
-          onClickRow={({ datum }) => setPageDetals(datum)}
+          onClickRow={({ datum }) => setPageDetails(datum)}
           pin={size === 'small'}
         />
       </Box>
@@ -246,7 +222,7 @@ export const TableSingleSelectExample = () => {
     <>
       <Button
         onClick={() => {
-          setPageDetals({});
+          setPageDetails({});
         }}
         alignSelf="start"
         icon={<FormPrevious />}
@@ -262,35 +238,15 @@ export const TableSingleSelectExample = () => {
       >
         Details
       </Heading>
-      <Box margin={{ horizontal: 'large' }} gap="small">
-        <DetailsPage
-          orderDetails="Order Name"
-          orderPageDetails={pageDetails.orderName}
-        />
-        <DetailsPage
-          orderDetails="Purchase Order"
-          orderPageDetails={pageDetails.purchaseOrder}
-        />
-        <DetailsPage
-          orderDetails="State"
-          orderPageDetails={pageDetails.state}
-        />
-        <DetailsPage
-          orderDetails="Services"
-          orderPageDetails={pageDetails.service}
-        />
-        <DetailsPage
-          orderDetails="Tenant"
-          orderPageDetails={pageDetails.tenant}
-        />
-        <DetailsPage
-          orderDetails="Order Date"
-          orderPageDetails={pageDetails.orderDate}
-        />
-        <DetailsPage
-          orderDetails="Contact"
-          orderPageDetails={pageDetails.contact.email}
-        />
+      <Box margin={{ vertical: 'small', horizontal: 'large' }} gap="small">
+        {pageDetails &&
+          Object.entries(pageDetails).map(([key, value]) => (
+            <DetailsPage
+              key={key}
+              orderDetails={key}
+              orderPageDetails={value}
+            />
+          ))}
       </Box>
     </>
   );

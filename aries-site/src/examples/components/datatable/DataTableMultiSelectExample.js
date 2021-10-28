@@ -182,7 +182,9 @@ const columns = [
     render: datum => (
       <Button onClick={() => onClickHandler(datum)}>
         <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-          <Text truncate="tip" weight="bold">{datum.orderName}</Text>
+          <Text truncate="tip" weight="bold">
+            {datum.orderName}
+          </Text>
         </Box>
       </Button>
     ),
@@ -224,7 +226,7 @@ const columns = [
   },
 ];
 
-export const TableMultiSelectExample = () => {
+export const DataTableMultiSelectExample = () => {
   const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 

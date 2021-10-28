@@ -185,10 +185,22 @@ With long sets of data, pagination can help to create a more efficient means of 
   <PaginationListExample />
 </Example>
 
-### Item order
+### Item Order
 
-Allowing the user to re-order the list by dragging items or pressing move up and down controls. Choose `Actions->Re-Order Items` to
-enable drag and drop of list items and move up/down controls. Press `Done` when finished.
+List supports `onOrder` property which allows the user to reorder the items in a list by dragging items or pressing up and down controls.
+
+Choose `Actions -> Re-Order Items` to enable drag and drop of list items and move up/down controls. While in reordering mode,
+take note of how the row content is top-aligned. For **multi-line** list items like this use case, list items should be top-aligned
+for easy scanning across a row.
+
+To implement top-alignment for multi-line lists, use the prop `defaultItemsProp` on List:
+
+```
+<List
+defaultItemsProp={{align: 'start'}}
+...any additional props
+<List/>
+```
 
 <Example
   background="background-back"
