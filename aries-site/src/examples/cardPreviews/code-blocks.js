@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Box } from 'grommet';
+import { Box, ThemeContext } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { useDarkMode } from '../../utils';
 import { prism } from 'grommet-theme-hpe';
 
 export const CodeBlocksPreview = () => {
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
+  const theme = useContext(ThemeContext);
   const codeString = `console.log(
   "Hello World"
 );`;
   return (
     <Box>
       <SyntaxHighlighter
-        style={themeMode === 'dark' ? prism.dark : prism.light}
+        style={theme.dark ? prism.dark : prism.light}
         wrapLongLines
         language="javascript"
       >

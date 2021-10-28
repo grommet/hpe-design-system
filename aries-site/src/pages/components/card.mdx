@@ -13,9 +13,11 @@ import {
 Elements of a card can include titles, subheadings, charts, media, metadata, and notifications. They are flexible and customizable to organize your content.
 
 <Example
+  componentName="Card"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
   figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
   horizontalLayout
   plain
 >
@@ -26,24 +28,24 @@ Elements of a card can include titles, subheadings, charts, media, metadata, and
 
 ### Purpose
 
-- Allows the user to quickly scan and determine if they should engage further
-- Focused and concise information of a single subject
-- Primarily limited to a singular action (like a large button)
-- Secondary actions (e.g. clickable icons, anchors, buttons) should be clearly
+- Allows the user to quickly scan and determine if they should engage further.
+- Focused and concise information of a single subject.
+- Primarily limited to a singular action (like a large button).
+- Secondary actions (e.g. clickable icons, anchors, buttons) should be clearly.
   distiguishable. When applying these use cases, the card no longer should behave as a primary action.
 
 ### Form
 
-- Aligns to the grid and global edge size for gap, margin, and pad
-- Shape and direction may be horizontal or vertical
-- Can include a footer for additional information
-- Customizable background, border, and elevation
+- Aligns to the grid and global edge size for gap, margin, and pad.
+- Shape and direction may be horizontal or vertical.
+- Can include a footer for additional information.
+- Customizable background, border, and elevation.
 
 ### Content
 
-- Provides a summary preview of information to scan and process
-- Visually group content or distinguish various types of information
-- Organize in a responsive grid or list
+- Provides a summary preview of information to scan and process.
+- Visually group content or distinguish various types of information.
+- Organize in a responsive grid or list.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardAnatomy.js"
@@ -56,9 +58,9 @@ Elements of a card can include titles, subheadings, charts, media, metadata, and
 
 ## When to Use
 
-- When presenting a collection of high-level pieces of information (e.g. dashboard)
-- When presenting a menu of options (e.g. a catalog of available services)
-- Best for sets of items which can best be consumed visually
+- When presenting a collection of high-level pieces of information (e.g. dashboard).
+- When presenting a menu of options (e.g. a catalog of available services).
+- Best for sets of items which can best be consumed visually.
 
 ### Dashboard Example
 
@@ -95,25 +97,31 @@ to explore further.
 
 ### General
 
-- Limit content to under 100 characters or no more than two short sentences
-- Provide a visual hierchy to content
-- Only one idea or subject in one card
-- Differentiate the card from its background using color, border, shadow, or contrast
+- Limit content to under 100 characters or no more than two short sentences.
+- Provide a visual hierchy to content.
+- Only one idea or subject in one card.
+- Differentiate the card from its background using color, border, shadow, or contrast.
 
 ### Actions
 
-- The card typically behaves as a singular action item (like a big button)
-- Secondary actions should be differentiated visually and behaviorally
+- The card typically behaves as a singular action item (like a big button).
+- Secondary actions should be differentiated visually and behaviorally.
 - Do not include inline links/anchors.
+
+### Interactions
+
+- If a card does not contain an action behavior, do not provide hover feedback.
+- If a card contains a secondary action behavior, provide the documented hover feedback on that secondary action only.
+- If a card has a singular action behavior, the entire card should be clickable. Provide a hand cursor change and large elevation on hover.
 
 ### Grid, List, or Table?
 
 - Grid is great for dashboards or when the use case for the cards lend themselves
-  to larger sizes and simple scanning (e.g. service catalog)
+  to larger sizes and simple scanning (e.g. service catalog).
 - A list of cards is great when you need to display more cards that have simple
   content but have serveral items (a list of users).
 - Consider using list alone, without the card component, when actions required for
-  items are more complex (like multi-select)
+  items are more complex (like multi-select).
 - When content needs to be analyzed, sorted, compared and filtered, a table may
   be more appropriate.
 

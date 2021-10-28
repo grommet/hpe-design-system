@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Box } from 'grommet';
+import { Box, ThemeContext } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { useDarkMode } from '../../../utils';
 import { prism } from 'grommet-theme-hpe';
 
 export const CodeBlockExample = () => {
-  const themeMode = useDarkMode().value ? 'dark' : 'light';
+  const theme = useContext(ThemeContext);
   const codeString = `import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -135,7 +134,7 @@ KPISummary.propTypes = {
     <Box>
       <SyntaxHighlighter
         tabIndex="0"
-        style={themeMode === 'dark' ? prism.dark : prism.light}
+        style={theme.dark ? prism.dark : prism.light}
         wrapLongLines
         language="javascript"
       >

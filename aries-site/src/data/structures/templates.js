@@ -98,7 +98,7 @@ export const templates = [
       'Filtering with RangeSelector',
       'Filtering with Select',
     ],
-    relatedContent: ['Table', 'Lists', 'Card'],
+    relatedContent: ['DataTable', 'Lists', 'Card'],
     tags: [
       'filter controls',
       'table filter',
@@ -391,11 +391,11 @@ export const templates = [
     ],
   },
   {
-    name: 'Table Customization',
+    name: 'DataTable Customization',
     available: true,
     cardOrder: 100,
-    description: `Allows users to customize which columns are visible in a table
-    and in what order they appear.`,
+    description: `Allows users to customize which columns are visible in a data 
+    table and in what order they appear.`,
     preview: {
       image: {
         src: {
@@ -414,7 +414,7 @@ export const templates = [
       'Column visibility',
       'Column order',
     ],
-    relatedContent: ['Table', 'Lists', 'Filtering'],
+    relatedContent: ['DataTable', 'Lists', 'Filtering'],
     tags: [
       'ordering columns',
       'order columns',
@@ -502,9 +502,6 @@ export const templates = [
     },
     seoDescription: 'A standardized style for displaying code.',
     sections: ['Guidance', 'Theming', 'Scrolling', 'Line Wrapping'],
-    tags: [
-      'code',
-      'syntax highlighting',
-    ],
+    tags: ['code', 'syntax highlighting'],
   },
 ];

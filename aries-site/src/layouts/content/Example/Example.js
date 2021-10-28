@@ -5,6 +5,7 @@ import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
   Container,
+  DoDontContainer,
   ExampleControls,
   ExampleResources,
   HorizontalExample,
@@ -20,13 +21,16 @@ export const screens = {
 
 export const Example = ({
   background,
+  bestPractice,
   children,
   code, // github code link used to display code inline
+  componentName,
   designer, // link to grommet designer example
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
+  grommetSource, // link to Grommet component source code
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
@@ -55,11 +59,15 @@ export const Example = ({
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
-  const ExampleContainer = plain ? Box : Container;
+  let ExampleContainer;
+  if (plain) ExampleContainer = Box;
+  else if (bestPractice) ExampleContainer = DoDontContainer;
+  else ExampleContainer = Container;
 
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    bestPractice,
     designer,
     docs,
     figma,
@@ -119,9 +127,11 @@ export const Example = ({
     screenContainer ||
     template) && (
     <ExampleControls
+      componentName={componentName}
       designer={designer}
       docs={docs}
       figma={figma}
+      grommetSource={grommetSource}
       guidance={guidance}
       horizontalLayout={horizontalLayout}
       setShowLayer={value => setShowLayer(value)}
@@ -251,11 +261,16 @@ export const Example = ({
 
 Example.propTypes = {
   background: PropTypes.string,
+  bestPractice: PropTypes.shape({
+    type: PropTypes.oneOf(['do', 'dont']).isRequired,
+    message: PropTypes.string,
+  }),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
+  componentName: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -269,6 +284,7 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   github: PropTypes.string,
+  grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
