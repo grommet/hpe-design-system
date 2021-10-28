@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 
-import { HighlightPhrase } from '../navigation/HighlightPhrase';
+import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
 export const SubsectionHeader = ({ children, level }) => {

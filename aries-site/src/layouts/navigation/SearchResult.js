@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Box, Paragraph, Text } from 'grommet';
 
 import { getPageDetails } from '../../utils';
-import { HighlightPhrase } from '.';
+import { HighlightPhrase } from '../../components';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];

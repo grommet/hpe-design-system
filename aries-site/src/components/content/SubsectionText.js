@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Paragraph } from 'grommet';
 
 import { TEXT_SIZE } from '../../layouts';
-import { HighlightPhrase } from '../../layouts/navigation/HighlightPhrase';
+import { HighlightPhrase } from './HighlightPhrase';
 
 const StyledBox = styled(Box)`
   code {
