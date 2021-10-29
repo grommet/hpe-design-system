@@ -361,7 +361,7 @@ export const foundation = [
     name: 'Content',
     category: 'Philosophy',
     cardOrder: 6,
-    description: 'Deliver clear, consistent experiences to HPE customers by following guidelines for the voice and tone of text-based user interface elements.',
+    description: 'Write content for clear and consistent user experiences.',
     preview: {
       image: {
         src: {
@@ -393,10 +393,10 @@ export const foundation = [
     ],
   },
   {
-    name: 'Content Guidelines',
+    name: 'Guidelines',
     category: 'Philosophy',
     cardOrder: 7,
-    description: 'Reference these guidelines for content practices that structure our communications.',
+    description: 'These concrete rules structure our communications.',
     preview: {
       image: {
         src: {
@@ -418,13 +418,12 @@ export const foundation = [
       'Miscellany',
       'Quoting',
       'Other Common Problems and How To Address Them',
-
     ],
     relatedContent: [
       'Content',
-      'Content Case Study',
-      'Content Best Practices',
-      'Content Implementation',
+      'Case Study',
+      'Best Practices',
+      'Implementation',
     ],
     tags: [
       'grammar',
@@ -434,10 +433,10 @@ export const foundation = [
     ],
   },
   {
-    name: 'Content Best Practices',
+    name: 'Best Practices',
     category: 'Philosophy',
     cardOrder: 8,
-    description: 'Use these best practices to help guide your decisions in creating clear and consistent content.',
+    description: 'Navigate decision points in creating effective content.',
     preview: {
       image: {
         src: {
@@ -460,9 +459,9 @@ export const foundation = [
     ],
     relatedContent: [
       'Content',
-      'Content Guidelines',
-      'Content Case Study',
-      'Content Implementation',
+      'Guidelines',
+      'Case Study',
+      'Implementation',
     ],
     tags: [
       'English',
@@ -473,10 +472,10 @@ export const foundation = [
     ],
   },
   {
-    name: 'Content Implementation',
+    name: 'Implementation',
     category: 'Philosophy',
     cardOrder: 9,
-    description: 'Use these conventions during implementation to exercise good communication both for and with users.',
+    description: 'Implement effective communications with these conventions.',
     preview: {
       image: {
         src: {
@@ -488,27 +487,27 @@ export const foundation = [
       },
     },
     seoDescription: '',
-    // sections: [
-    //   'Localization',
-    //   'User Input',
-    //   'Maintainability',
-    // ],
+    sections: [
+      'Localization',
+      'User Input',
+      'Maintainability',
+    ],
     relatedContent: [
       'Content',
-      'Content Guidelines',
-      // 'Content Best Practices',
+      'Guidelines',
+      'Best Practices',
     ],
-    // tags: [
-    //   'content',
-    //   'implementation',
-    //   'develop',
-    // ],
+    tags: [
+      'content',
+      'implementation',
+      'development',
+    ],
   },
   {
-    name: 'Content Case Study',
+    name: 'Case Study',
     category: 'Philosophy',
     cardOrder: 10,
-    description: 'This case study is a step-by-step exploration of how we build better content.',
+    description: 'A step-by-step exploration of how we build better content.',
     preview: {
       image: {
         src: {
@@ -532,13 +531,14 @@ export const foundation = [
     ],
     relatedContent: [
       'Content',
-      'Content Guidelines',
-      'Content Best Practices',
-      'Content Implementation',
+      'Guidelines',
+      'Best Practices',
+      'Implementation',
     ],
     tags: [
       'case',
       'study',
+      'example',
     ],
   },
 ];
