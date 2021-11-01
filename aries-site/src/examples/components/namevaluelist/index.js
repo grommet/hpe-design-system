@@ -9,6 +9,7 @@ export * from './NameValueListFontWeightSecondExample';
 export * from './NameValueListGridExample';
 export * from './NameValueListHeadingExample';
 export * from './NameValueListPairPropsExample';
+export * from './NameValueListReadMoreExample';
 export * from './NameValueListSecondHeadingExample';
 export * from './NameValueListScaleTable';
 export * from './NameValueListSimpleExample';
