@@ -22,6 +22,7 @@ export const screens = {
 export const Example = ({
   background,
   bestPractice,
+  caption,
   children,
   code, // github code link used to display code inline
   componentName,
@@ -69,6 +70,7 @@ export const Example = ({
   // container
   const containerProps = {
     bestPractice,
+    caption,
     designer,
     docs,
     figma,
@@ -142,6 +144,7 @@ export const Example = ({
 
   const resources = (
     <ExampleResources
+      caption={caption}
       code={code}
       github={github}
       details={details}
@@ -267,6 +270,7 @@ Example.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
+  caption: PropTypes.string,
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,

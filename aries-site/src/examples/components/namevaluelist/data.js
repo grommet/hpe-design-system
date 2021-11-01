@@ -1,6 +1,14 @@
 import { Anchor, Box } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 
+export const alignmentData = {
+  'Created by': (
+    <Anchor label="jane.doe@email.com" href="mailto:jane.doe@email.com" />
+  ),
+  'Created on': '13/02/2021 at 14:23:32',
+  Policies: '13',
+};
+
 export const anatomyData = {
   'Single Line Description': 'This is an example of a single-line description',
   'Multi-line Description': `This is an example of a multi-line description like
@@ -47,7 +55,7 @@ export const gridData = {
 export const languageData = {
   Languages: `English, Spanish, French, Chinese, Japanese, German,
    Korean, Italian, Arabic, Portugese, Russian`,
-  'Operating System':  `VMware ESXi 6.7.0 Build-14320388 Update
+  'Operating System': `VMware ESXi 6.7.0 Build-14320388 Update
    3 Patch 73 6.7.0 Build-14320388 Update 3 Patch 73 ESXi 6.7.0
    Build-14320388 Update 3 Patch 73 6.7.0 ESXi 6.7.0 Build-14320388
    Update 3 Patch 73 6.7.0 `,
