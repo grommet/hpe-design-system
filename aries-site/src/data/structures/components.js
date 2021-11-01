@@ -517,9 +517,9 @@ export const components = [
   {
     name: 'NameValueList',
     category: 'Visualizations',
-    description: 'A name-value list displays a group of name-value pairings.',
+    description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription:
-      'A name-value list displays a group of name-value pairings.',
+      'A NameValueList displays a group of NameValuePairs.',
     preview: {
       component: () => <NameValueListPreview />,
       background: 'background-front',
