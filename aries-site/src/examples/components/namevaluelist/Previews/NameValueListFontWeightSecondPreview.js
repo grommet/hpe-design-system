@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair } from 'grommet';
-import { fontWeightData } from './data';
+import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { fontWeightData } from '../data';
 
-export const NameValueListFontWeightSecondExample = () => (
+export const NameValueListFontWeightSecondPreview = () => (
   <Box pad="small">
     <NameValueList
       valueProps={{ width: 'xsmall' }}
@@ -10,8 +10,8 @@ export const NameValueListFontWeightSecondExample = () => (
       layout="grid"
     >
       {Object.entries(fontWeightData).map(([name, value]) => (
-        <NameValuePair key={name} name={name}>
-          {value}
+        <NameValuePair key={name} name={<Text>{name}</Text>}>
+          <Text weight="bold" size="xxlarge">{value}</Text>
         </NameValuePair>
       ))}
     </NameValueList>

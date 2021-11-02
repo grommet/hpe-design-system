@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { defaultData } from './data';
+import { defaultData } from '../data';
 
 export const NameValueListDefaultExample = () => (
   <Box pad="small">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
-import { alignmentData } from './data';
+import { alignmentData } from '../data';
 
 export const NameValueListAlignmentPreview = () => (
   <Box pad="small">
