@@ -1,1 +1,1 @@
-export * from './GuideCards';
+export * from './SectionCards';
