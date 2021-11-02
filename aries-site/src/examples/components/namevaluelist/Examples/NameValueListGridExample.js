@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
-import { gridData } from './data';
+import { gridData } from '../data';
 
 export const NameValueListGridExample = () => (
   <Box pad="small">

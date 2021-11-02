@@ -14,39 +14,39 @@ import { Checkmark } from 'grommet-icons';
 const data = [
   {
     id: 1,
-    textStyles: <Text size="large">Text / XSmall</Text>,
-    name: <Checkmark />,
-    value: <Checkmark />,
+    textStyles: <Text>Text / XSmall</Text>,
+    name: <Checkmark size="small"  />,
+    value: <Checkmark size="small"  />,
   },
   {
     id: 2,
-    textStyles: <Text size="large">Text / Small</Text>,
-    name: <Checkmark />,
-    value: <Checkmark />,
+    textStyles: <Text>Text / Small</Text>,
+    name: <Checkmark size="small"  />,
+    value: <Checkmark size="small"  />,
   },
   {
     id: 3,
-    textStyles: <Text size="large">Text / Default</Text>,
-    name: <Checkmark />,
-    value: <Checkmark />,
+    textStyles: <Text>Text / Default</Text>,
+    name: <Checkmark size="small"  />,
+    value: <Checkmark size="small"  />,
   },
   {
     id: 4,
-    textStyles: <Text size="large">Text / Large</Text>,
-    name: <Checkmark />,
-    value: <Checkmark />,
+    textStyles: <Text>Text / Large</Text>,
+    name: <Checkmark size="small"  />,
+    value: <Checkmark size="small"  />,
   },
   {
     id: 5,
-    textStyles: <Text size="large">Text / XL</Text>,
-    name: <Text size="large">n/a</Text>,
-    value: <Checkmark />,
+    textStyles: <Text>Text / XL</Text>,
+    name: <Text>n/a</Text>,
+    value: <Checkmark size="small"  />,
   },
   {
     id: 6,
-    textStyles: <Text size="large">Text / XXL</Text>,
-    name: <Text size="large">n/a</Text>,
-    value: <Checkmark />,
+    textStyles: <Text>Text / XXL</Text>,
+    name: <Text>n/a</Text>,
+    value: <Checkmark size="small" />,
   },
 ];
 
@@ -78,7 +78,7 @@ export const NameValueListScaleTable = () => (
               key={c.property}
               scope="col"
             >
-              <Text color="text-strong" weight="bold" size="xlarge">
+              <Text color="text-strong" weight="bold">
                 {c.label}
               </Text>
             </TableCell>

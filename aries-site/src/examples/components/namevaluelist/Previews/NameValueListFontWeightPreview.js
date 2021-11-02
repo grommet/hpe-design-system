@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
-import { anatomyData } from './data';
+import { fontData } from '../data';
 
-export const NameValueListAnatomyExample = () => (
+export const NameValueListFontWeightPreview = () => (
   <Box pad="small">
     <NameValueList>
-      {Object.entries(anatomyData).map(([name, value]) => (
+      {Object.entries(fontData).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
           {value}
         </NameValuePair>

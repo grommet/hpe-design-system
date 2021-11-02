@@ -1,11 +1,9 @@
-import { Anchor, Box } from 'grommet';
+import { Box } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 
 export const alignmentData = {
-  'Created by': (
-    <Anchor label="jane.doe@email.com" href="mailto:jane.doe@email.com" />
-  ),
-  'Created on': '13/02/2021 at 14:23:32',
+  'Created by': 'jane.doe@email.com',
+  'Created on': '2021-10-05T14:48:00.000Z',
   Policies: '13',
 };
 
@@ -14,22 +12,24 @@ export const anatomyData = {
   'Multi-line Description': `This is an example of a multi-line description like
    full-service AI insights, security and unified infrastructure management for
    campus, branch, remote, and data center networks`,
-  Anchors: (
-    <Anchor label="jane.doe@email.com" href="mailto:jane.doe@email.com" />
-  ),
+  'Created by': 'jane.doe@email.com',
   'List of Items': 'Item 1, Item 2, Item 3, Item 4, Item 5',
 };
 
 export const defaultData = {
-  'Created On': '02/13/2021 at 14:23:32',
+  'Created on': '2021-10-05T14:48:00.000Z',
   Description: 'Full-service AI insights and data center networks',
   'IP Address': '172.98.09182.98.00.1.2567',
 };
 
-export const iconData = {
-  Power: 'Ok',
-  Health: 'Critical',
-  'Last Serviced': '7/14/2021',
+export const iconNameData = {
+  Active: '90',
+  'In Progress': '24',
+};
+
+export const iconValueData = {
+  Temperature: 'Ok',
+  Storage: 'Warning',
 };
 
 export const data = {
@@ -55,7 +55,7 @@ export const gridData = {
   'Ephemeral Storage': '54.7%  (3000 GB of 5489 GB)',
   'Kubernetes Verison': '19.7',
   'IP Address': '172.98.09182.98.00.1.2567',
-  'Created On': '13/02/2021 at 14:23:32',
+  'Created on': '13/02/2021 at 14:23:32',
 };
 
 export const languageData = {
@@ -68,10 +68,8 @@ export const languageData = {
 };
 
 export const simpleData = {
-  'Created On': '13/02/2021 at 14:23:32',
-  'Created by': (
-    <Anchor label="jane.doe@email.com" href="mailto:jane.doe@email.com" />
-  ),
+  'Created on': '2021-10-05T14:48:00.000Z',
+  'Created by': 'jane.doe@email.com',
   'Default Storage Class': 'Block Storage Cost',
   Description: `Full-service AI insights, security and unified infrastructure 
     management for campus, branch, remote, and data center networks`,
