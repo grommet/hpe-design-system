@@ -18,7 +18,7 @@ export const NameValueListEditExample = () => {
   const [edit, setEdit] = useState(false);
 
   return (
-    <Box gap="medium" direction="row" pad="small">
+    <Box direction={edit ? 'column' : 'row'} pad="small">
       <NameValueList pairProps={{ direction: 'column' }}>
         {Object.entries(data).map(([name]) => (
           <>
@@ -50,16 +50,16 @@ export const NameValueListEditExample = () => {
       ) : (
         <Box gap="medium" direction="row">
           <Button
+            label="Save"
             onClick={() => {
               setEdit(false);
             }}
-            label="Save"
           />
           <Button
+            label="Cancel"
             onClick={() => {
               setEdit(false);
             }}
-            label="Cancel"
           />
         </Box>
       )}
