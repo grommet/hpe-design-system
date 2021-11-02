@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { StatusGood, InProgress } from 'grommet-icons';
-import { iconNameData } from './data';
+import { iconNameData } from '../data';
 
 export const NameValueListIconNamePreview = () => (
   <Box pad="small">

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Heading, NameValueList, NameValuePair } from 'grommet';
-import { simpleData } from './data';
+import { simpleData } from '../data';
 
-export const NameValueListSecondHeadingExample = () => (
+export const NameValueListHeadingPreview = () => (
   <Box pad="small">
     <Heading level={2} size="small">Name Value List Heading</Heading>
     <NameValueList>
