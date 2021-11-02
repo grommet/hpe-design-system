@@ -50,10 +50,11 @@ const videos = [
 
 const SectionCards = ({ items, type }) => {
   const size = useContext(ResponsiveContext);
-  const href = type === 'guides' ? 
-    'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx' :
-    'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-design-training.aspx';
-  
+  const href =
+    type === 'guides'
+      ? 'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx'
+      : 'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-design-training.aspx';
+
   return (
     <Box gap="large">
       <Grid
@@ -62,7 +63,12 @@ const SectionCards = ({ items, type }) => {
         gap="medium"
       >
         {items.map(item => (
-          <LinkCard type={type} key={item.title} title={item.title} link={item.link} />
+          <LinkCard
+            type={type}
+            key={item.title}
+            title={item.title}
+            link={item.link}
+          />
         ))}
       </Grid>
       <Button
@@ -78,5 +84,5 @@ const SectionCards = ({ items, type }) => {
   );
 };
 
-export const GuideSection = () => <SectionCards type="guides" items={guides} />
-export const VideoSection = () => <SectionCards type="videos" items={videos} />
+export const GuideSection = () => <SectionCards type="guides" items={guides} />;
+export const VideoSection = () => <SectionCards type="videos" items={videos} />;
