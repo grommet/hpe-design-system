@@ -4,6 +4,7 @@ export * from './NameValueListAnatomyExample';
 export * from './NameValueListBoldExampleBad';
 export * from './NameValueListBoldExampleGood';
 export * from './NameValueListDefaultExample';
+export * from './NameValueListEditExample';
 export * from './NameValueListFontWeightExample';
 export * from './NameValueListFontWeightSecondExample';
 export * from './NameValueListGridExample';

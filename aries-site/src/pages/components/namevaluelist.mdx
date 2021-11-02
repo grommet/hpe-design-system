@@ -7,6 +7,7 @@ import {
   NameValueListBoldExampleBad,
   NameValueListBoldExampleGood,
   NameValueListDefaultExample,
+  NameValueListEditExample,
   NameValueListFontWeightExample,
   NameValueListFontWeightSecondExample,
   NameValueListGridExample,
@@ -225,4 +226,18 @@ The pairProps direction determines how the name and value are aligned. If you wa
   template
 >
   <NameValueListGridExample />
+</Example>
+
+### Name-Value Pair as a read-only display for Text Inputs
+In some cases, Name-Value Pairs may be used as read-only display for text inputs that are editable inline. Here, the name and value text styling should match the Text Input component (sans border). 
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+    code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListGridExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+]}
+  height={{ min: 'small' }}
+  template
+>
+  <NameValueListEditExample />
 </Example>
