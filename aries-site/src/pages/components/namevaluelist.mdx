@@ -11,7 +11,8 @@ import {
   NameValueListFontWeightSecondExample,
   NameValueListGridExample,
   NameValueListHeadingExample,
-  NameValueListIconPreview,
+  NameValueListIconNamePreview,
+  NameValueListIconValuePreview,
   NameValueListPairPropsExample,
   NameValueListSecondHeadingExample,
   NameValueListScaleTable,
@@ -64,9 +65,13 @@ A NameValuePair is a set of two related elements: a name, which identifies a dat
 3. **Supporting icons/visuals (optional)**
    Icons may be included to visually support the name or value. It is recommended not to use icons for both name and value at the same time. This can cause unnecessary visual noise and distract from vital information.
 
-<Example pad="none" height={{ min: 'small' }}>
-  <NameValueListIconPreview />
-</Example>
+  <Example caption="Example showing supporting icons for value"  pad="none" height={{ min: 'small' }}>
+   <NameValueListIconValuePreview />
+  </Example>
+
+  <Example caption="Example showing supporting icons for name" pad="none" height={{ min: 'small' }}>
+   <NameValueListIconNamePreview />
+  </Example>
 
 ## Variants
 
