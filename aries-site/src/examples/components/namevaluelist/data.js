@@ -31,9 +31,19 @@ export const contentTruncationData = {
 };
 
 export const defaultData = {
-  Power: 'Ok',
-  Health: 'Critical',
-  'Last Serviced': '7/14/2021',
+  'Created On': '02/13/2021 at 14:23:32',
+  Description: 'Full-service AI insights and data center networks',
+  'IP Address': '172.98.09182.98.00.1.2567',
+};
+
+export const iconNameData = {
+  Active: '90',
+  'In Progress': '24',
+};
+
+export const iconValueData = {
+  Temperature: 'Ok',
+  Storage: 'Warning',
 };
 
 export const data = {
