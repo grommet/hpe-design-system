@@ -8,15 +8,22 @@ export const NameValueListHeadingPreview = () => (
       Name Value List Heading
     </Heading>
     <NameValueList>
-      {Object.entries(simpleData).map(([name, value]) => (
-        <NameValuePair key={name} name={name}>
-          {name === 'Created by' ? (
-            <Anchor label={value} href={`mailto:${value}`} />
-          ) : (
-            <>{value}</>
-          )}
-        </NameValuePair>
-      ))}
+      {Object.entries(simpleData).map(([name, value]) => {
+        let date;
+        if (name === 'Created on') {
+          const event = new Date(value);
+          date = event.toLocaleDateString();
+        }
+        return (
+          <NameValuePair key={name} name={name}>
+            {name === 'Created by' && (
+              <Anchor label={value} href={`mailto:${value}`} />
+            )}
+            {name === 'Created on' && <>{date}</>}
+            {name !== 'Created on' && name !== 'Created by' && <>{value}</>}
+          </NameValuePair>
+        );
+      })}
     </NameValueList>
   </Box>
 );

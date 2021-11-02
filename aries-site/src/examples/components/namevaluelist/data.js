@@ -17,7 +17,7 @@ export const anatomyData = {
 };
 
 export const defaultData = {
-  'Created On': '2021-10-05T14:48:00.000Z',
+  'Created on': '2021-10-05T14:48:00.000Z',
   Description: 'Full-service AI insights and data center networks',
   'IP Address': '172.98.09182.98.00.1.2567',
 };
@@ -55,7 +55,7 @@ export const gridData = {
   'Ephemeral Storage': '54.7%  (3000 GB of 5489 GB)',
   'Kubernetes Verison': '19.7',
   'IP Address': '172.98.09182.98.00.1.2567',
-  'Created On': '13/02/2021 at 14:23:32',
+  'Created on': '13/02/2021 at 14:23:32',
 };
 
 export const languageData = {
@@ -68,7 +68,7 @@ export const languageData = {
 };
 
 export const simpleData = {
-  'Created On': '2021-10-05T14:48:00.000Z',
+  'Created on': '2021-10-05T14:48:00.000Z',
   'Created by': 'jane.doe@email.com',
   'Default Storage Class': 'Block Storage Cost',
   Description: `Full-service AI insights, security and unified infrastructure 
