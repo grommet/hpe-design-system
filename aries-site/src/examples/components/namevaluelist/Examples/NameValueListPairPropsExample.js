@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair } from 'grommet';
+import { Anchor, Box, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
 
 export const NameValueListPairPropsExample = () => (
@@ -7,7 +7,11 @@ export const NameValueListPairPropsExample = () => (
     <NameValueList pairProps={{ direction: 'column' }}>
       {Object.entries(simpleData).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
-          {value}
+          {name === 'Created by' ? (
+            <Anchor label={value} href={`mailto:${value}`} />
+          ) : (
+            <>{value}</>
+          )}
         </NameValuePair>
       ))}
     </NameValueList>
