@@ -6,7 +6,7 @@ export const NameValueListMultipleDefaultExample = () => {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
-    <Box pad="small">
+    <>
       <Heading level={1} size="small">
         Demo_Cluster_5
       </Heading>
@@ -50,6 +50,6 @@ export const NameValueListMultipleDefaultExample = () => {
           <Box margin="small">Services Information</Box>
         </Tab>
       </Tabs>
-    </Box>
+    </>
   );
 };
