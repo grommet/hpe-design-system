@@ -20,6 +20,16 @@ export const anatomyData = {
   'List of Items': 'Item 1, Item 2, Item 3, Item 4, Item 5',
 };
 
+export const contentTruncationData = {
+  State: 'Enabled',
+  'Data Sources': `Azure EA, Azure IN - 003, HPE GreenLake (DEV)-00469,
+     Azure EA-001, HPE Aruba (Dev)-03464, HPE GreenLake
+     (Test)-004681, Azure EA-003, HPE Aruba (Stage)-03464,
+     HPE GreenLake (DEV)-00468, Azure H-004, HPE Aruba
+     (Dev)-03464, HPE GreenLake (Test)-004681, Azure EA-003,
+     HPE Aruba (Stage)-03464, HPE GreenLake (DEV)-00468, Azure H-004`,
+};
+
 export const defaultData = {
   Power: 'Ok',
   Health: 'Critical',
