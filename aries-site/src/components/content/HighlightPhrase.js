@@ -41,54 +41,85 @@ const findMatches = (content, regexp) => {
   let matches = [];
   if (typeof content === 'string') {
     matches = [...content.matchAll(regexp)];
-  } else if (Array.isArray(content)) {
-    content.forEach(item => {
-      const temp = findMatches(item, regexp);
-      if (temp.length) {
-        matches = [...temp];
-      }
-    });
-  } else {
-    console.log(typeof content);
   }
   return matches;
 };
 
+const formatMatchedPhrase = (matchObj, highlightProps) => {
+  const { fade, ...rest } = highlightProps;
+  const nextPhrase = [];
+  let nextIndex = 0;
+
+  if (Array.isArray(matchObj)) {
+    matchObj.forEach((match, index) => {
+      nextPhrase.push(match.input.slice(nextIndex, match.index));
+      nextIndex = match.index + match[0].length;
+      nextPhrase.push(
+        <HighlightedText key={index} fade={fade} {...rest}>
+          {match.input.slice(match.index, match.index + match[0].length)}
+        </HighlightedText>,
+      );
+      if (index + 1 === matchObj.length) {
+        nextPhrase.push(match.input.slice(match.index + match[0].length));
+      }
+    });
+  } else {
+    console.warn(
+      `Expecting matchObj to be an array, received ${typeof matchObj} instead.`,
+    );
+  }
+  return nextPhrase;
+};
+
+const highlight = (children, regexp, highlightProps) => {
+  let nextPhrase;
+
+  if (typeof children === 'string') {
+    const matches = findMatches(children, regexp);
+    nextPhrase =
+      matches.length > 0
+        ? formatMatchedPhrase(matches, highlightProps)
+        : children;
+  }
+
+  if (Array.isArray(children)) {
+    nextPhrase = children.map(child =>
+      highlight(child, regexp, highlightProps),
+    );
+  }
+
+  if (children.props?.children) {
+    nextPhrase = {
+      ...children,
+      props: {
+        ...children.props,
+        children: highlight(children.props.children, regexp, highlightProps),
+      },
+    };
+  }
+
+  return nextPhrase;
+};
+
 export const HighlightPhrase = ({ children, fade = true, phrase, ...rest }) => {
   const { query } = useRouter();
-  const nextPhrase = [];
+  let nextPhrase;
+  const highlightProps = { fade, ...rest };
 
-  console.log(phrase, query.q);
-  console.log(fade);
   if (phrase || query.q) {
     const regexp = new RegExp(phrase || query.q, 'ig');
-    const matches = findMatches(children, regexp);
-    console.log(matches);
-
-    let nextIndex = 0;
-
-    if (matches.length > 0) {
-      matches.forEach((match, index) => {
-        nextPhrase.push(match.input.slice(nextIndex, match.index));
-        nextIndex = match.index + match[0].length;
-        nextPhrase.push(
-          <HighlightedText key={index} fade={fade} {...rest}>
-            {match.input.slice(match.index, match.index + match[0].length)}
-          </HighlightedText>,
-        );
-        if (index + 1 === matches.length) {
-          nextPhrase.push(match.input.slice(match.index + match[0].length));
-        }
-      });
-    }
+    nextPhrase = highlight(children, regexp, highlightProps);
   }
-  // else nextPhrase.push(children);
 
-  return nextPhrase.length > 0 ? nextPhrase : children;
+  return nextPhrase || children;
 };
 
 HighlightPhrase.propTypes = {
   children: PropTypes.any,
   fade: PropTypes.bool,
   phrase: PropTypes.string,
+};
+
+findMatches.propTypes = {
+  content: PropTypes.string,
 };
