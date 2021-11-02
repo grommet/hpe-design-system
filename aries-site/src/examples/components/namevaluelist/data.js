@@ -26,10 +26,14 @@ export const defaultData = {
   'IP Address': '172.98.09182.98.00.1.2567',
 };
 
-export const iconData = {
-  Power: 'Ok',
-  Health: 'Critical',
-  'Last Serviced': '7/14/2021',
+export const iconNameData = {
+  Active: '90',
+  'In Progress': '24',
+};
+
+export const iconValueData = {
+  Temperature: 'Ok',
+  Storage: 'Warning',
 };
 
 export const data = {
