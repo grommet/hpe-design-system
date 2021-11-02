@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
-import { alignmentData } from './data';
+import { languageData } from '../data';
 
-export const NameValueListAlignmentPreview = () => (
+export const NameValueListBoldExampleGood = () => (
   <Box pad="small">
     <NameValueList>
-      {Object.entries(alignmentData).map(([name, value]) => (
+      {Object.entries(languageData).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
           {value}
         </NameValuePair>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading, NameValueList, NameValuePair, Tab, Tabs } from 'grommet';
-import { kubernetesData, serverData, tagsData } from './data';
+import { kubernetesData, serverData, tagsData } from '../data';
 
 export const NameValueListMultipleDefaultExample = () => {
   const [index, setIndex] = React.useState();
