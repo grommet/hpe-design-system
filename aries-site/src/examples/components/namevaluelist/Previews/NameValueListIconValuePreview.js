@@ -1,17 +1,17 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
-import { defaultData } from './data';
+import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { iconValueData } from '../data';
 
-export const NameValueListDefaultExample = () => (
+export const NameValueListIconValuePreview = () => (
   <Box pad="small">
     <NameValueList nameProps={{ width: 'xsmall' }}>
-      {Object.entries(defaultData).map(([name, value]) => {
+      {Object.entries(iconValueData).map(([name, value]) => {
         let icon;
         if (value === 'Ok')
           icon = <StatusGoodSmall color="green" size="small" />;
-        else if (value === 'Critical')
-          icon = <StatusCriticalSmall color="red" size="small" />;
+        else if (value === 'Warning')
+          icon = <StatusWarningSmall color="status-warning" size="small" />;
         return (
           <NameValuePair key={name} name={name}>
             <Box align="center" direction="row" gap="xsmall">

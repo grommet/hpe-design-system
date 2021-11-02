@@ -124,9 +124,11 @@ export const ExampleResources = ({
         </CollapsibleSection>
       )}
       {caption && (
-        <Paragraph size="small" margin="none">
-          {caption}
-        </Paragraph>
+        <Box margin={{ bottom: 'medium' }}>
+          <Paragraph size="small" margin="none">
+            {caption}
+          </Paragraph>
+        </Box>
       )}
       {relevantComponents && (
         <CollapsibleSection
