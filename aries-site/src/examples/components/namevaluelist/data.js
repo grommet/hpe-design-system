@@ -61,6 +61,11 @@ export const languageData = {
    Update 3 Patch 73 6.7.0 `,
 };
 
+export const kubernetesData = {
+  Version: '1.6(HA)',
+  Nodes: '3 Control Plane, 3 workers',
+};
+
 export const simpleData = {
   'Created On': '13/02/2021 at 14:23:32',
   'Created by': (
@@ -86,4 +91,9 @@ export const serverData = {
   Description: 'This is a short description of the cluster.',
   Version: '1.18',
   Nodes: '3 Control Plane, 5 workers',
+};
+
+export const tagsData = {
+  Usage: '300',
+  MachineInfor1: 'Standard',
 };
