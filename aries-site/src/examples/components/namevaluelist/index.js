@@ -8,6 +8,7 @@ export * from './NameValueListFontWeightExample';
 export * from './NameValueListFontWeightSecondExample';
 export * from './NameValueListGridExample';
 export * from './NameValueListHeadingExample';
+export * from './NameValueListMultipleDefaultExample';
 export * from './NameValueListPairPropsExample';
 export * from './NameValueListSecondHeadingExample';
 export * from './NameValueListScaleTable';
