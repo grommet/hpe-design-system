@@ -13,6 +13,7 @@ import {
   NameValueListHeadingExample,
   NameValueListMultipleDefaultExample,
   NameValueListPairPropsExample,
+  NameValueListReadMoreExample,
   NameValueListSecondHeadingExample,
   NameValueListScaleTable,
   NameValueListSimpleExample,
@@ -238,4 +239,18 @@ The pairProps direction determines how the name and value are aligned. If you wa
   template
 >
   <NameValueListGridExample />
+</Example>
+
+## Content Truncation
+When a value content exceeds 3 lines of text, truncate content and include an Inline Button to expand to see more.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+    code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListReadMoreExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+]}
+  height={{ min: 'small' }}
+  template
+>
+  <NameValueListReadMoreExample />
 </Example>

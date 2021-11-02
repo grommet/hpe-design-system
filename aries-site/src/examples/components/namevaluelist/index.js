@@ -10,6 +10,7 @@ export * from './NameValueListGridExample';
 export * from './NameValueListHeadingExample';
 export * from './NameValueListMultipleDefaultExample';
 export * from './NameValueListPairPropsExample';
+export * from './NameValueListReadMoreExample';
 export * from './NameValueListSecondHeadingExample';
 export * from './NameValueListScaleTable';
 export * from './NameValueListSimpleExample';
