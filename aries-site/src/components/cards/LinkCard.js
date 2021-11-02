@@ -1,9 +1,9 @@
 import { Box, Card, CardBody, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon, CirclePlay } from 'grommet-icons';
 
-export const LinkCard = ({ title, link }) => {
+export const LinkCard = ({ link, title, type }) => {
   const Wrapper = Link;
   const wrapperProps = {
     href: link,
@@ -21,7 +21,11 @@ export const LinkCard = ({ title, link }) => {
             background="background-back"
             flex={false}
           >
-            <LinkIcon size="large" />
+            {type === 'guides' ? (
+              <LinkIcon size="large" />
+            ) : (
+              <CirclePlay size="large" />
+            )}
           </Box>
           <Text color="text-strong" weight="bold" size="xlarge">
             {title}
