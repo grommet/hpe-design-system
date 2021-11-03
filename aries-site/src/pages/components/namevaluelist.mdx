@@ -56,18 +56,18 @@ A NameValuePair is a set of two related elements: a name, which identifies a dat
 2. **Value**
    Value is the description of data or a pointer to the location of that data. The format of the value can vary, depending on the data set. Content can include: single line description, multi line description, anchors, array or list of items.
 
-<Example caption="Example: Value can include different types of content." pad="none" height={{ min: 'small' }}>
+<Example caption="Example: Value can include different types of content." pad="none" previewWidth="large" height={{ min: 'small' }}>
   <NameValueListAnatomyPreview />
 </Example>
 
 3. **Supporting icons/visuals (optional)**
    Icons may be included to visually support the name or value. It is recommended not to use icons for both name and value at the same time. This can cause unnecessary visual noise and distract from vital information.
 
-<Example caption="Example showing supporting icons for value"  pad="none" height={{ min: 'small' }}>
+<Example caption="Example showing supporting icons for value" previewWidth="medium"  pad="small" height={{ min: 'small' }}>
   <NameValueListIconValuePreview />
 </Example>
 
-<Example caption="Example showing supporting icons for name" pad="none" height={{ min: 'small' }}>
+<Example caption="Example showing supporting icons for name" previewWidth="medium" pad="small" height={{ min: 'small' }}>
   <NameValueListIconNamePreview />
 </Example>
 
@@ -130,7 +130,7 @@ to imply hierarchy: [order](#order), [headings](#headings), [scale](#scale),
 - Use headings to define a Name-Value List and/or for grouping multiple name-value lists within a single screen.
 - For accessibility reasons, always ensure semantically correct heading levels are applied. See [best practices for applying headings](/foundation/typography#semantic-usage-of-heading-levels).
 
-<Example content="Example: An h2 small heading is applied to a vertical name-value list" pad="none" height={{ min: 'small' }}>
+<Example content="Example: An h2 small heading is applied to a vertical name-value list" pad="none" previewWidth="large" height={{ min: 'small' }}>
  <NameValueListHeadingPreview />
 </Example>
 
@@ -168,10 +168,10 @@ Making the font bolder or thinner is another way to create hierarchy that’s ea
 - Don’t use bold text for both name and value at the same time.
 - Don’t use a bold font-weight for any long format content as this can be very hard to read and overwhelm the user.
 
-<Example caption="Example: A two column Name-Value List where the names are in a bold font-weight" pad="none" height="none">
+<Example caption="Example: A two column Name-Value List where the names are in a bold font-weight" previewWidth="medium" pad="none" height="none">
   <NameValueListFontWeightPreview />
 </Example>
-<Example caption="Example: A multi column Name-Value List where the values are in a bold font-weight." pad="small" height="none" width="large">
+<Example caption="Example: A multi column Name-Value List where the values are in a bold font-weight." previewWidth="large" pad="small" height="none" width="large">
   <NameValueListFontWeightSecondPreview />
 </Example>  
 
@@ -221,7 +221,7 @@ All types of NameValueLists will change to a single column NameValueList on smal
 By default, both the name and the value are left aligned. This can be changed through `nameProps` and `valueProps` by setting [align](https://v2.grommet.io/namevaluelist?theme=hpe#nameProps) to the desired value, such as `end`.
 No matter what alignment is chosen, always opt for a consistent presentation across a single NameValueList or NameValueLists on a single page.
 
-<Example caption="Left aligned example of a vertical name-value list:" pad="small" height="none">
+<Example caption="Left aligned example of a vertical name-value list:" pad="small" previewWidth="large" height="none">
   <NameValueListAlignmentPreview />
 </Example>  
 
