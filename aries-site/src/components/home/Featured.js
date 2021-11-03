@@ -20,7 +20,7 @@ const FeaturedLayout = ({ ...rest }) => {
         {featured.map(({ name, description, icon, url }) => (
           <Link href={url || nameToPath(name)} passHref key={name}>
             <ContentPreviewCard
-              forwardedAs="a"
+              as="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
             >
