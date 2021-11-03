@@ -8,7 +8,6 @@ export const CodeBlockExample = () => {
   const theme = useContext(ThemeContext);
   const codeString = `import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Box, Card, CardBody, CardFooter, Chart, Text, Stack } from 'grommet';
 import { Wifi, StatusWarningSmall } from 'grommet-icons';
 
@@ -27,38 +26,29 @@ const gradient = [
   { value: 85, color: 'status-critical' },
 ];
 
-export const CardExample = () => {
-  const [isFocused, setIsFocused] = React.useState(false);
-
-  return (
-    <StyledCard
-      background="background-front"
-      elevation={isFocused ? 'medium' : 'small'}
-      onClick={() => {
-        // eslint-disable-next-line no-alert
-      }}
-      onBlur={() => setIsFocused(false)}
-      onFocus={() => setIsFocused(true)}
-      onMouseOut={() => setIsFocused(false)}
-      onMouseOver={() => setIsFocused(true)}
-      width="medium"
-    >
-      <CardBody pad="none">
-        <Identifier
-          title="Network Traffic"
-          subtitle="Bandwidth Utilization - Last 30 Days"
-          icon={<Wifi size="large" color="text-strong" />}
-        />
-        <Box margin={{ top: 'medium' }}>
-          <KPIChart id="metric-0" data={mockData} />
-        </Box>
-      </CardBody>
-      <CardFooter background="background-back">
-        <KPISummary instances={capacityWarnings} statusColor="status-warning" />
-      </CardFooter>
-    </StyledCard>
-  );
-};
+export const CardExample = () => (
+  <Card
+    background="background-front"
+    onClick={() => {
+      // eslint-disable-next-line no-alert
+    }}
+    width="medium"
+  >
+    <CardBody pad="none">
+      <Identifier
+        title="Network Traffic"
+        subtitle="Bandwidth Utilization - Last 30 Days"
+        icon={<Wifi size="large" color="text-strong" />}
+      />
+      <Box margin={{ top: 'medium' }}>
+        <KPIChart id="metric-0" data={mockData} />
+      </Box>
+    </CardBody>
+    <CardFooter background="background-back">
+      <KPISummary instances={capacityWarnings} statusColor="status-warning" />
+    </CardFooter>
+  </Card>
+);
 
 const Identifier = ({ title, subtitle, icon }) => (
   <Box
