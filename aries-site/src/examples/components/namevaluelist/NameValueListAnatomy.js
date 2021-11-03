@@ -43,7 +43,7 @@ const connections = [
 ];
 
 const AnatomyBox = ({ background, id, visualId }) => (
-  <Box direction="row" gap="medium">
+  <Box direction="row" gap="small">
     <Box
       id={visualId}
       height="xxsmall"
