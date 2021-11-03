@@ -38,7 +38,7 @@ const HighlightsLayout = () => {
         return (
           <Wrapper key={name} {...wrapperProps}>
             <ContentPreviewCard
-              forwardedAs="a"
+              as="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
             >
