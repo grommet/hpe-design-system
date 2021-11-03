@@ -94,10 +94,6 @@ const allData = [
   },
 ];
 
-const StyledCard = styled(Card)`
-  transition: all 0.3s ease-in-out;
-`;
-
 const defaultFilters = {};
 
 const allFilters = {
@@ -815,7 +811,7 @@ const Results = ({ data }) => {
         pad={size !== 'small' ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
-          <StyledCard
+          <Card
             background="background"
             key={index}
             onClick={() => {
@@ -851,7 +847,7 @@ const Results = ({ data }) => {
                 <Text color="text-strong">{datum.locationType}</Text>
               </Box>
             </CardBody>
-          </StyledCard>
+          </Card>
         ))}
       </Grid>
     </Box>

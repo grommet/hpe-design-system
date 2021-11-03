@@ -52,10 +52,6 @@ const allData = [
   },
 ];
 
-const StyledCard = styled(Card)`
-  transition: all 0.3s ease-in-out;
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
@@ -368,7 +364,7 @@ const Results = ({ data }) => {
         gap={size !== 'small' ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
-          <StyledCard
+          <Card
             background="background"
             key={index}
             onClick={() => {
@@ -402,7 +398,7 @@ const Results = ({ data }) => {
                 <Text color="text-strong">{`${datum.ram} GiB`}</Text>
               </Box>
             </Box>
-          </StyledCard>
+          </Card>
         ))}
       </Grid>
     </Box>
