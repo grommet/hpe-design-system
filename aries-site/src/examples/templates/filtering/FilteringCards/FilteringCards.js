@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -17,10 +16,6 @@ import {
   useFilters,
 } from '../../FilterControls';
 import { users } from './mockData';
-
-const StyledCard = styled(Card)`
-  transition: all 0.15s ease-in-out;
-`;
 
 export const FilteringCards = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
@@ -94,7 +89,7 @@ const Users = () => {
         gap={size !== 'small' ? 'medium' : 'small'}
       >
         {filteredResults.map(datum => (
-          <StyledCard
+          <Card
             key={datum.id}
             background="background"
             // margin ensures focus on cards is not cutoff
@@ -129,7 +124,7 @@ const Users = () => {
                 <Text color="text-strong">{datum.role}</Text>
               </Box>
             </CardBody>
-          </StyledCard>
+          </Card>
         ))}
       </Grid>
     </Box>
