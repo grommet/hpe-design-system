@@ -12,7 +12,7 @@ export const LinkCard = ({ title, link }) => {
 
   return (
     <Wrapper {...wrapperProps}>
-      <Card forwardedAs="a" target="_blank" style={{ textDecoration: 'none' }}>
+      <Card as="a" target="_blank" style={{ textDecoration: 'none' }}>
         <CardBody direction="row" gap="small">
           <Box
             pad="small"
