@@ -4,7 +4,7 @@ import { languageData } from '../data';
 
 export const NameValueListBoldExampleGood = () => (
   <Box pad="small">
-    <NameValueList>
+    <NameValueList nameProps={{ width: 'xsmall' }}>
       {Object.entries(languageData).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
           {value}

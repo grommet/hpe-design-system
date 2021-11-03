@@ -37,6 +37,7 @@ export const Example = ({
   horizontalLayout,
   pad,
   plain, // remove Container from around example
+  previewWidth,
   relevantComponents,
   screenContainer, // show example in mock browser
   template, // showing as template causes appropriate aspect ratio
@@ -156,7 +157,11 @@ export const Example = ({
 
   return (
     <>
-      <Box margin={{ vertical: 'small' }} gap="large">
+      <Box
+        width={previewWidth || undefined}
+        margin={{ vertical: 'small' }}
+        gap="large"
+      >
         <>
           {/* For use with templates or page layouts to toggle between laptop,
            ** desktop, and mobile views */}
@@ -296,6 +301,7 @@ Example.propTypes = {
   horizontalLayout: PropTypes.bool,
   pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
+  previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.oneOfType([
