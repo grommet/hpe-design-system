@@ -1,48 +1,36 @@
 import React, { useState } from 'react';
 import {
+  Anchor,
   Box,
   Button,
   Form,
   FormField,
+  Heading,
   NameValueList,
   NameValuePair,
   TextInput,
   Text,
 } from 'grommet';
-
-const data = {
-  Country: 'United States',
-};
+import { profileData } from '../data';
 
 export const NameValueListEditExample = () => {
-  const [currentData, setCurrentData] = useState(data);
+  const [currentData, setCurrentData] = useState(profileData);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
 
   return (
     <Box>
-      <Box direction="row" gap="small">
-        {/* placeholder to align with NameValueList -- 
-        bad practice, should think on this */}
-        <Box width="medium" />
-        {!edit ? (
-          <Button label="Edit" onClick={() => setEdit(true)} />
-        ) : (
-          <Box direction="row" gap="small" align="center">
+      <Box justify="between" width="large" direction="row">
+        <Heading level={2} size="small">
+          Profile Details
+        </Heading>
+        {!edit && (
+          <Box justify="center">
             <Button
-              label="Save"
-              primary
-              onClick={() => {
-                setCurrentData(tempData);
-                setEdit(false);
-              }}
-            />
-            <Button
-              label="Cancel"
-              onClick={() => {
-                setEdit(false);
-                setTempData(currentData);
-              }}
+              alignSelf="center"
+              secondary
+              label="Edit Profile"
+              onClick={() => setEdit(true)}
             />
           </Box>
         )}
@@ -60,7 +48,11 @@ export const NameValueListEditExample = () => {
                 }
               >
                 <Box pad={{ vertical: 'small' }}>
-                  <Text weight={500}>{value}</Text>
+                  {name === 'Email' ? (
+                    <Anchor label={value} href={`mailto:${value}`} />
+                  ) : (
+                    <Text weight={500}>{value}</Text>
+                  )}
                 </Box>
               </NameValuePair>
             ))}
@@ -91,6 +83,28 @@ export const NameValueListEditExample = () => {
               </FormField>
             </Box>
           ))}
+          <Box
+            margin={{ top: 'medium', bottom: 'small' }}
+            direction="row"
+            gap="small"
+            align="center"
+          >
+            <Button
+              label="Save"
+              primary
+              onClick={() => {
+                setCurrentData(tempData);
+                setEdit(false);
+              }}
+            />
+            <Button
+              label="Cancel"
+              onClick={() => {
+                setEdit(false);
+                setTempData(currentData);
+              }}
+            />
+          </Box>
         </Form>
       )}
     </Box>

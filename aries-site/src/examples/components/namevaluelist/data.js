@@ -67,6 +67,14 @@ export const languageData = {
    Update 3 Patch 73 6.7.0 `,
 };
 
+export const profileData = {
+  'First Name': 'Jane',
+  'Middle Name': '',
+  Country: 'United States',
+  'Phone Number': '',
+  Email: 'jane.smith@hpe.com',
+};
+
 export const simpleData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   'Created by': 'jane.doe@email.com',
