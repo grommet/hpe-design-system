@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Anchor,
   Box,
@@ -6,6 +7,7 @@ import {
   Form,
   FormField,
   Heading,
+  MaskedInput,
   NameValueList,
   NameValuePair,
   TextInput,
@@ -14,14 +16,15 @@ import {
 import { profileData } from '../data';
 
 export const NameValueListEditExample = () => {
+  const theme = useContext(ThemeContext);
   const [currentData, setCurrentData] = useState(profileData);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
 
   return (
-    <Box alignSelf="center">
+    <Box gap="medium">
       <Box justify="between" width="large" direction="row">
-        <Heading level={2} size="small">
+        <Heading level={2} size="small" margin="none">
           Profile Details
         </Heading>
         {!edit && (
@@ -36,38 +39,29 @@ export const NameValueListEditExample = () => {
         )}
       </Box>
       {!edit ? (
-        <Box direction="row" align="center" gap="small">
-          <NameValueList pairProps={{ direction: 'column' }} margin="none">
-            {Object.entries(currentData).map(([name, value]) => (
-              // style name and value to align with formfield styling
-              <NameValuePair
-                name={
-                  <Text size="xsmall" weight={500} margin={{ top: 'xsmall' }}>
-                    {name}
-                  </Text>
-                }
-              >
-                <Box pad={{ vertical: 'small' }}>
-                  {name === 'Email' ? (
-                    <Anchor label={value} href={`mailto:${value}`} />
-                  ) : (
-                    <Text weight={500}>{value}</Text>
-                  )}
-                </Box>
-              </NameValuePair>
-            ))}
-          </NameValueList>
-        </Box>
+        <NameValueList pairProps={{ direction: 'column' }} margin="none">
+          {Object.entries(currentData).map(([name, value]) => (
+            <NameValuePair
+              name={<Text {...theme.formField.label}>{name}</Text>}
+            >
+              {name === 'Email' ? (
+                <Anchor label={value} href={`mailto:${value}`} />
+              ) : (
+                <Text {...theme.global.input.font}>{value || '--'}</Text>
+              )}
+            </NameValuePair>
+          ))}
+        </NameValueList>
       ) : (
         <Form>
           {Object.entries(currentData).map(([name]) => (
-            <Box direction="row" align="center" gap="small">
-              <FormField
-                label={name}
-                htmlFor={name}
-                name={name}
-                contentProps={{ width: 'medium' }}
-              >
+            <FormField
+              label={name}
+              htmlFor={name}
+              name={name}
+              contentProps={{ width: 'medium' }}
+            >
+              {name !== 'Phone Number' ? (
                 <TextInput
                   id={name}
                   name={name}
@@ -80,14 +74,48 @@ export const NameValueListEditExample = () => {
                     setTempData(nextValue);
                   }}
                 />
-              </FormField>
-            </Box>
+              ) : (
+                <MaskedInput
+                  mask={[
+                    { fixed: '(' },
+                    {
+                      length: 3,
+                      regexp: /^[0-9]{1,3}$/,
+                      placeholder: 'xxx',
+                    },
+                    { fixed: ')' },
+                    { fixed: ' ' },
+                    {
+                      length: 3,
+                      regexp: /^[0-9]{1,3}$/,
+                      placeholder: 'xxx',
+                    },
+                    { fixed: '-' },
+                    {
+                      length: 4,
+                      regexp: /^[0-9]{1,4}$/,
+                      placeholder: 'xxxx',
+                    },
+                  ]}
+                  id={name}
+                  name={name}
+                  value={tempData[name]}
+                  onChange={event => {
+                    const nextValue = {
+                      ...tempData,
+                      [name]: event.target.value,
+                    };
+                    setTempData(nextValue);
+                  }}
+                />
+              )}
+            </FormField>
           ))}
           <Box
-            margin={{ top: 'medium', bottom: 'small' }}
             direction="row"
             gap="small"
             align="center"
+            margin={{ top: 'medium' }}
           >
             <Button
               label="Save"
