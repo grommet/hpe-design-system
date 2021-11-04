@@ -1,18 +1,18 @@
 import { Box, Card, CardBody, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Link as LinkIcon } from 'grommet-icons';
 
-export const LinkCard = ({ title, link }) => {
+export const LinkCard = ({ link, title, icon }) => {
   const Wrapper = Link;
   const wrapperProps = {
     href: link,
     passHref: true,
   };
+  const Icon = icon;
 
   return (
     <Wrapper {...wrapperProps}>
-      <Card forwardedAs="a" target="_blank" style={{ textDecoration: 'none' }}>
+      <Card as="a" target="_blank" style={{ textDecoration: 'none' }}>
         <CardBody direction="row" gap="small">
           <Box
             pad="small"
@@ -21,7 +21,7 @@ export const LinkCard = ({ title, link }) => {
             background="background-back"
             flex={false}
           >
-            <LinkIcon size="large" />
+            <Icon size="large" />
           </Box>
           <Text color="text-strong" weight="bold" size="xlarge">
             {title}

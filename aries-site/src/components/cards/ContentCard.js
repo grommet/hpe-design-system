@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Card, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
@@ -8,20 +7,9 @@ import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const { description, name, parent, preview, render } = topic;
-  const [isFocused, setIsFocused] = React.useState(false);
   const darkMode = useDarkMode();
   return (
-    <Card
-      elevation={isFocused ? 'large' : 'medium'}
-      fill
-      onBlur={() => setIsFocused(false)}
-      onFocus={() => setIsFocused(true)}
-      onMouseOut={() => setIsFocused(false)}
-      onMouseOver={() => setIsFocused(true)}
-      pad="medium"
-      ref={ref}
-      {...rest}
-    >
+    <Card fill pad="medium" ref={ref} {...rest}>
       <CardBody gap="large">
         {!minimal && (
           <PreviewImageCard background={preview && preview.background}>
