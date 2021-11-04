@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, NameValueList, NameValuePair } from 'grommet';
+import { FormDown } from 'grommet-icons';
 import { contentTruncationData } from '../data';
 
 export const NameValueListReadMoreExample = () => {
@@ -21,6 +22,7 @@ export const NameValueListReadMoreExample = () => {
                   size="small"
                   label={`See ${!showAll ? 'more' : 'less'}`}
                   onClick={() => setShowAll(!showAll)}
+                  icon={<FormDown />}
                 />
               </>
             )}
