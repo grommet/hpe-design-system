@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useContext, useRef } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
