@@ -4,3 +4,4 @@ export * from './ContentPreviewCard';
 export * from './ExampleImagePreview';
 export * from './LinkCard';
 export * from './PreviewCard';
+export * from './SectionCards';
