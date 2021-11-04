@@ -11,12 +11,22 @@
 #### What testing has been done on this PR?
 
 In addition to the feature you are implementing, have you checked the following:
-- [ ] Console is free of warnings and errors
-- [ ] Light & dark modes
+
+**General UX Checks**
 - [ ] Small, medium, and large screen sizes
 - [ ] Cross-browsers (FireFox, Chrome, and Safari)
+- [ ] Light & dark modes
+- [ ] All hyperlinks route properly
+
+**Accessibility Checks**
 - [ ] Keyboard interactions
 - [ ] Screen reader experience
+- [ ] Run WAVE accessibility plugin (Chrome)
+
+**Code Quality Checks**
+- [ ] Console is free of warnings and errors
+- [ ] Passes E2E commit checks
+- [ ] Visual snapshots are reasonable
 
 #### How should this be manually tested?
 

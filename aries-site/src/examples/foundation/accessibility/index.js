@@ -1,1 +1,2 @@
-export * from './GuideCards';
+export * from './GuideSection';
+export * from './VideoSection';
