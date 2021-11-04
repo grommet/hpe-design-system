@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useRef } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
 import { Contract } from 'grommet-icons';
@@ -12,6 +13,10 @@ import {
   ResponsiveControls,
   ResponsiveContainer,
 } from '.';
+
+const StyledFigure = styled.figure`
+  margin: 0;
+`;
 
 export const screens = {
   desktop: 'desktop',
@@ -60,11 +65,25 @@ export const Example = ({
     forceUpdate();
   }, [showLayer, forceUpdate]);
 
+  const FigurePreview = () => (
+    <StyledFigure>
+      <Box
+        margin={{ bottom: 'small' }}
+        round="small"
+        background="background-front"
+      >
+        {children}
+      </Box>
+      <figcaption>{caption}</figcaption>
+    </StyledFigure>
+  );
+
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
   let ExampleContainer;
   if (plain) ExampleContainer = Box;
   else if (bestPractice) ExampleContainer = DoDontContainer;
+  else if (caption) ExampleContainer = FigurePreview;
   else ExampleContainer = Container;
 
   // These props control the styling of the example within the overall example
