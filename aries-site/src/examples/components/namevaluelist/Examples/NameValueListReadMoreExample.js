@@ -20,7 +20,7 @@ export const NameValueListReadMoreExample = () => {
                 <Button
                   alignSelf="start"
                   size="small"
-                  label={`See ${!showAll ? 'more' : 'less'}`}
+                  label={`Show ${!showAll ? 'more' : 'less'}`}
                   onClick={() => setShowAll(!showAll)}
                   icon={<FormDown />}
                 />
