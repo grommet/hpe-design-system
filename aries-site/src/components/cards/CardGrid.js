@@ -31,11 +31,7 @@ export const CardGrid = ({ cards, minimal, ...rest }) => {
           return (
             <Wrapper key={topic.name} {...wrapperProps}>
               <ContentCard
-                /* forwardedAs maintains styling provided by Higher Order
-              Components. Styled-Components 4.3.0 docs: https://styled-components.com/docs/api#forwardedas-prop
-              https://github.com/styled-components/styled-components/issues/1981#issuecomment-548860710
-              */
-                forwardedAs="a"
+                as="a"
                 style={{ textDecoration: 'none' }}
                 topic={topic}
                 minimal={minimal}
