@@ -36,13 +36,16 @@ const mapContent = async files => {
       const parent = pathParts.pop();
       const filePath = file;
       let content = await readFile(file, 'utf-8');
-      // Tag headings with '////' markup to indicate end of heading
+      // Tag headings with '|' markup to indicate end of heading
       // Remove line breaks symbols
-      // Remove import statements and Examples markup
+      // Remove import statements, Examples markup, and other markup
       content = content
-        .replace(/#{1,} (...+?)(\n){2}/g, p1 => `${p1}////`)
+        .replace(/#{1,} (...+?)(\n){2}/g, p1 => `${p1}~~ `)
         .replace(/(\n){1,}/g, ' ')
-        .replace(/import(...+?)(?<=;)|<Example(...+?)(?<=Example>)/g, '');
+        .replace(
+          /import(...+?)(?<=;)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\(([^)]+)\)|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
+          '',
+        );
 
       return { name, parent, path: filePath, content };
     }),
