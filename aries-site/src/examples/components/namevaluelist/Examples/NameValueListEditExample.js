@@ -19,7 +19,7 @@ export const NameValueListEditExample = () => {
   const [edit, setEdit] = useState(false);
 
   return (
-    <Box>
+    <Box alignSelf="center">
       <Box justify="between" width="large" direction="row">
         <Heading level={2} size="small">
           Profile Details
