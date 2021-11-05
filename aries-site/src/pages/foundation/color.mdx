@@ -16,10 +16,15 @@ import {
   CorePalette, 
   DarkModeContrast,
   DarkPalette,
+  ElevationDark,
+  ElevationLight,
+  FocusColor,
   InputsDark,
   InputsLight,
   LightPalette,
-  LightModeContrast ,
+  LightModeContrast,
+  StatusDark,
+  StatusLight,
   TextDark,
   TextLight
 } from '../../examples';
@@ -205,3 +210,30 @@ hyperlinks and anchors.
 <TextLight />
 <br />
 <TextDark />
+
+## Status Colors
+
+<StatusLight />
+<br />
+<StatusDark />
+
+## Focus Color
+
+Focus is critical to accessibility. When a user is navigating
+with keyboard, focus indicates which element on the page is
+active. Do not remove focus outline in your application, as this
+will compromise the accessibility of the application.
+
+<FocusColor />
+
+## Elevation
+            
+Elevation creates depth between a foreground and background
+element. Depending on the desired contrast, varying strengths of
+elevation can be used. Elevation is implemented by default on
+certain elements such as 
+[Menu](/components/menu) and [Select](/components/select).
+
+<ElevationLight />
+<br />
+<ElevationDark />

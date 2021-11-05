@@ -1,4 +1,5 @@
-import { Box } from 'grommet';
+import { useContext } from 'react';
+import { Box, ResponsiveContext } from 'grommet';
 import { ColorRow, UsageExample } from '../../../layouts';
 
 import { colorExamples } from '../../../data';
@@ -31,11 +32,7 @@ const generateColorExamples = (colors, textColor) => (
 );
 
 export const BrandColor = () =>
-  primaryColors && (
-    <UsageExample pad="none">
-      {generateColorExamples(primaryColors)}
-    </UsageExample>
-  );
+  primaryColors && generateColorExamples(primaryColors);
 
 export const CorePalette = () =>
   coreColors && (
@@ -148,3 +145,73 @@ export const TextDark = () => (
       ))}
   </UsageExample>
 );
+
+export const StatusLight = () => (
+  <UsageExample themeMode="light" label="Light Background" pad="none">
+    {statusColorsLight && generateColorExamples(statusColorsLight)}
+  </UsageExample>
+);
+
+export const StatusDark = () => (
+  <UsageExample themeMode="dark" label="Dark Background" pad="none">
+    {statusColorsDark && generateColorExamples(statusColorsDark)}
+  </UsageExample>
+);
+
+export const FocusColor = () => focusColor && generateColorExamples(focusColor);
+
+export const ElevationLight = () => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <UsageExample
+      themeMode="light"
+      label="Light Background"
+      justify="between"
+      direction="row-responsive"
+      gap={size === 'small' ? 'medium' : undefined}
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'medium', vertical: 'large' },
+      }}
+    >
+      {elevationColorsLight &&
+        elevationColorsLight.map(color => (
+          <ElevationExample
+            key={color.name}
+            color={color.name}
+            hex={color.hex}
+          />
+        ))}
+    </UsageExample>
+  );
+};
+
+export const ElevationDark = () => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <UsageExample
+      themeMode="dark"
+      label="Dark Background"
+      justify="between"
+      direction="row-responsive"
+      gap={size === 'small' ? 'medium' : undefined}
+      pad={{
+        horizontal: 'large',
+        vertical: 'large',
+        small: { horizontal: 'medium', vertical: 'large' },
+      }}
+    >
+      {elevationColorsDark &&
+        elevationColorsDark.map(color => (
+          <ElevationExample
+            key={color.name}
+            color={color.name}
+            hex={color.hex}
+          />
+        ))}
+    </UsageExample>
+  );
+};
