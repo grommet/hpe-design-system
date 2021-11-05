@@ -7,6 +7,7 @@ import {
   NameValueListBoldExampleBad,
   NameValueListBoldExampleGood,
   NameValueListDefaultExample,
+  NameValueListEditExample,
   NameValueListFontWeightPreview,
   NameValueListFontWeightSecondPreview,
   NameValueListGridExample,
@@ -99,6 +100,21 @@ The pairProps direction determines how the name and value are aligned. If you wa
   <NameValueListPairPropsExample />
 </Example>
 
+### Name-Value Pair as a read-only display for Text Inputs
+In some cases, NameValuePairs may be used as read-only display for text inputs that are editable inline. Here, the name and value text styling should match the Text Input component (sans border). 
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListGridExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  height={{ min: 'small' }}
+  pad="large"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListEditExample />
+</Example>
 
 ### Grid
 
@@ -112,6 +128,8 @@ The pairProps direction determines how the name and value are aligned. If you wa
 >
   <NameValueListGridExample />
 </Example>
+
+ops direction determines how the name and value are aligned. If you want the name to be on top of the value, apply `pairProps={{direction: 'column'}}`.
 
 ## Hierarchy
 
@@ -227,5 +245,4 @@ No matter what alignment is chosen, always opt for a consistent presentation acr
 
 ### Controlling the width of the name and value
 The width of name is set to "small" by default to accommodate a reasonable width for common data names. However, if all names are short, it may be appropriate to adjust the name width to something smaller. This can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`. 
-
 The width of value is set to medium by default to aid readability of content. However, if necessary, the width of value can also be adjusted with `valueProps`. For example, `valueProps={{width: 'large'}}`
