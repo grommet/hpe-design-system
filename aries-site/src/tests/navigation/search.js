@@ -23,7 +23,7 @@ with mouse`, async t => {
   await t
     .click(suggestion)
     .expect(getLocation())
-    .eql(expectedPath);
+    .contains(expectedPath);
 });
 
 test(`should navigate to correct page after user types page name and hits 
@@ -35,7 +35,7 @@ enter`, async t => {
   await t
     .pressKey('enter')
     .expect(getLocation())
-    .eql(expectedPath);
+    .contains(expectedPath);
 });
 
 test(`should navigate to correct hash after user clicks a suggestion that leads 
