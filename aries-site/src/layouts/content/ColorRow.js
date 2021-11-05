@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-export const ColorRow = ({ colorSpec, textColor }) => {
+export const ColorRow = ({ colorSpec, textColor, textSize = 'small' }) => {
   const { value, name, hex } = colorSpec;
-  const textSize = 'small';
 
   return (
     <Box
@@ -36,6 +35,7 @@ ColorRow.propTypes = {
     type: PropTypes.oneOf(['background', 'border']),
   }).isRequired,
   textColor: PropTypes.string,
+  textSize: PropTypes.string,
 };
 
 ColorRow.defaultProps = {
