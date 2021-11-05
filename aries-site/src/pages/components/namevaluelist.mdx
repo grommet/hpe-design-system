@@ -14,7 +14,9 @@ import {
   NameValueListHeadingPreview,
   NameValueListIconNamePreview,
   NameValueListIconValuePreview,
+  NameValueListMultipleDefaultExample,
   NameValueListPairPropsExample,
+  NameValueListReadMoreExample,
   NameValueListScaleTable,
   NameValueListSimpleExample,
   NameValueListTextBadExample,
@@ -86,9 +88,22 @@ A NameValuePair is a set of two related elements: a name, which identifies a dat
   <NameValueListSimpleExample />
 </Example>
 
-### Vertical
-The pairProps direction determines how the name and value are aligned. If you want the name to be on top of the value, apply `pairProps={{direction: 'column'}}`.
+### Multiple NameValuelists on a single page 
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  height={{ min: 'small' }}
+  code={[
+  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListMultipleDefaultExample.js",
+  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+]}
+template
+>
+  <NameValueListMultipleDefaultExample />
+</Example>
 
+### Vertical
+
+The pairProps direction determines how the name and value are aligned. If you want the name to be on top of the value, apply `pairProps={{direction: 'column'}}`.
 
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
@@ -101,6 +116,7 @@ The pairProps direction determines how the name and value are aligned. If you wa
 </Example>
 
 ### Name-Value Pair as a read-only display for Text Inputs
+
 In some cases, NameValuePairs may be used as read-only display for text inputs that are editable inline. Here, the name and value text styling should match the Text Input component (sans border). 
 
 <Example
@@ -129,7 +145,19 @@ In some cases, NameValuePairs may be used as read-only display for text inputs t
   <NameValueListGridExample />
 </Example>
 
-ops direction determines how the name and value are aligned. If you want the name to be on top of the value, apply `pairProps={{direction: 'column'}}`.
+### Content Truncation
+
+When a value content exceeds 192 characters, truncate content and include a Button to expand to see more.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListReadMoreExample.js",
+      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+]}
+  height={{ min: 'small' }}
+>
+  <NameValueListReadMoreExample />
+</Example>
 
 ## Hierarchy
 
@@ -236,6 +264,7 @@ Options for text color include the default `text` <ColorSwatch background="text"
 All types of NameValueLists will change to a single column NameValueList on smaller viewports. View this behavior by reducing your window screen until the layout of an example shifts to single column.
 
 ### Name-Value Alignment
+
 By default, both the name and the value are left aligned. This can be changed through `nameProps` and `valueProps` by setting [align](https://v2.grommet.io/namevaluelist?theme=hpe#nameProps) to the desired value, such as `end`.
 No matter what alignment is chosen, always opt for a consistent presentation across a single NameValueList or NameValueLists on a single page.
 
@@ -244,5 +273,6 @@ No matter what alignment is chosen, always opt for a consistent presentation acr
 </Example>  
 
 ### Controlling the width of the name and value
+
 The width of name is set to "small" by default to accommodate a reasonable width for common data names. However, if all names are short, it may be appropriate to adjust the name width to something smaller. This can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`. 
 The width of value is set to medium by default to aid readability of content. However, if necessary, the width of value can also be adjusted with `valueProps`. For example, `valueProps={{width: 'large'}}`
