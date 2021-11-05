@@ -9,15 +9,17 @@ const {
   lightColors,
   primaryColors,
 } = colorExamples.palettes;
-
 const {
   contrastDark,
   contrastLight,
   darkBackgrounds,
   lightBackgrounds,
 } = colorExamples.backgrounds;
-
 const { borderDark, borderLight } = colorExamples.borders;
+const { inputDark, inputLight } = colorExamples.input;
+const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
+const { focusColor, layerColor, graphColor } = colorExamples;
+const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor) => (
   <Box fill>
@@ -81,5 +83,17 @@ export const BordersLight = () => (
 export const BordersDark = () => (
   <UsageExample themeMode="dark" label="Dark Border" pad="none">
     {borderDark && generateColorExamples(borderDark)}
+  </UsageExample>
+);
+
+export const InputsLight = () => (
+  <UsageExample themeMode="light" label="Light Input" pad="none">
+    {inputLight && generateColorExamples(inputLight)}
+  </UsageExample>
+);
+
+export const InputsDark = () => (
+  <UsageExample themeMode="dark" label="Dark Input" pad="none">
+    {inputDark && generateColorExamples(inputDark)}
   </UsageExample>
 );
