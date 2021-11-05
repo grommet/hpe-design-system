@@ -19,10 +19,12 @@ import {
   ElevationDark,
   ElevationLight,
   FocusColor,
+  GraphColors,
   InputsDark,
   InputsLight,
   LightPalette,
   LightModeContrast,
+  Overlay,
   StatusDark,
   StatusLight,
   TextDark,
@@ -237,3 +239,22 @@ certain elements such as
 <ElevationLight />
 <br />
 <ElevationDark />
+
+## Overlay Color
+
+When a [Layer](/components/layer) is
+open, this overlay extends over the rest of the application
+content. It creates a visual distinction between the active
+foreground Layer and the inactive background content. This is
+controlled by `layer.overlay.background` in the theme.
+
+<Overlay />
+
+## Graph Colors
+              
+Graph colors should be applied in order, starting with `graph-0` <ColorSwatch background="graph-0" />.
+This color order was selected to provide clear distinction
+between adjacent data. When using Grommet DataChart, graph
+colors will be applied in order by default.
+
+<GraphColors />

@@ -215,3 +215,8 @@ export const ElevationDark = () => {
     </UsageExample>
   );
 };
+
+export const Overlay = () => layerColor && generateColorExamples(layerColor);
+
+export const GraphColors = () =>
+  graphColor && generateColorExamples(graphColor);
