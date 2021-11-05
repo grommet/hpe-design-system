@@ -2,6 +2,7 @@ import { Box } from 'grommet';
 import { ColorRow, UsageExample } from '../../../layouts';
 
 import { colorExamples } from '../../../data';
+import { ElevationExample, TextExample } from '../..';
 
 const {
   coreColors,
@@ -95,5 +96,55 @@ export const InputsLight = () => (
 export const InputsDark = () => (
   <UsageExample themeMode="dark" label="Dark Input" pad="none">
     {inputDark && generateColorExamples(inputDark)}
+  </UsageExample>
+);
+
+export const TextLight = () => (
+  <UsageExample
+    themeMode="light"
+    label="Light Background"
+    justify="between"
+    pad={{
+      horizontal: 'large',
+      bottom: 'large',
+      top: 'medium',
+      small: {
+        horizontal: 'medium',
+        bottom: 'large',
+        top: 'small',
+      },
+    }}
+  >
+    {textColors &&
+      textColors.map(color => (
+        <TextExample
+          key={color.name}
+          color={color.name}
+          hex={color.hex.light}
+        />
+      ))}
+  </UsageExample>
+);
+
+export const TextDark = () => (
+  <UsageExample
+    themeMode="dark"
+    label="Dark Background"
+    justify="between"
+    pad={{
+      horizontal: 'large',
+      bottom: 'large',
+      top: 'medium',
+      small: {
+        horizontal: 'medium',
+        bottom: 'large',
+        top: 'small',
+      },
+    }}
+  >
+    {textColors &&
+      textColors.map(color => (
+        <TextExample key={color.name} color={color.name} hex={color.hex.dark} />
+      ))}
   </UsageExample>
 );

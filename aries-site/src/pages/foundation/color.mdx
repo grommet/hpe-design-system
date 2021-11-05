@@ -19,7 +19,9 @@ import {
   InputsDark,
   InputsLight,
   LightPalette,
-  LightModeContrast 
+  LightModeContrast ,
+  TextDark,
+  TextLight
 } from '../../examples';
 
 You will notice that the HPE Design System Color guidance is
@@ -184,3 +186,22 @@ user with guidance on how they can interact with an input.
 <InputsLight />
 <br />
 <InputsDark />
+
+## Text Colors
+              
+Text needs to be legible in all contexts. Ensuring high contrast
+is met for accessibility and readability is important to
+delivering users a consistent reading experience throughout HPE.
+
+
+### Text Color Palette
+  
+Text colors have two states when working on different background
+contexts; depending on background the text can invert to
+accomodate a dark mode. To ensure text maintains readability, we
+avoid color use with the exception of call to actions such as
+hyperlinks and anchors.
+
+<TextLight />
+<br />
+<TextDark />
