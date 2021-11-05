@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Paragraph, ThemeContext } from 'grommet';
+import { Box, Button, ThemeContext } from 'grommet';
 import { Github } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
@@ -20,7 +20,6 @@ const getFileName = file => {
 };
 
 export const ExampleResources = ({
-  caption,
   code,
   details,
   github,
@@ -71,7 +70,7 @@ export const ExampleResources = ({
     );
   }
   return (
-    <Box gap="medium" margin={caption ? { top: 'small' } : { top: 'large' }}>
+    <Box gap="medium" margin={{ top: 'large' }}>
       {details && (
         <CollapsibleSection
           label={{ closed: 'Show Details', open: 'Hide Details' }}
@@ -123,13 +122,6 @@ export const ExampleResources = ({
           </SyntaxHighlighter>
         </CollapsibleSection>
       )}
-      {caption && (
-        <Box margin={{ bottom: 'medium' }}>
-          <Paragraph size="small" margin="none">
-            {caption}
-          </Paragraph>
-        </Box>
-      )}
       {relevantComponents && (
         <CollapsibleSection
           label={{
@@ -145,7 +137,6 @@ export const ExampleResources = ({
 };
 
 ExampleResources.propTypes = {
-  caption: PropTypes.string,
   code: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
