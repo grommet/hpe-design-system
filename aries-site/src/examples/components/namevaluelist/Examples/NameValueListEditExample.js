@@ -42,6 +42,7 @@ export const NameValueListEditExample = () => {
         <NameValueList pairProps={{ direction: 'column' }}>
           {Object.entries(currentData).map(([name, value]) => (
             <NameValuePair
+              key={name}
               name={<Text {...theme.formField.label}>{name}</Text>}
             >
               {name === 'Email' ? (
