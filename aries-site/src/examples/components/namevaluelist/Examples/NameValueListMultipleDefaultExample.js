@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Heading, NameValueList, NameValuePair, Tab, Tabs } from 'grommet';
+import { StatusGoodSmall } from 'grommet-icons';
 import { kubernetesData, serverData, tagsData } from '../data';
 
 export const NameValueListMultipleDefaultExample = () => {
@@ -18,7 +19,14 @@ export const NameValueListMultipleDefaultExample = () => {
           <NameValueList>
             {Object.entries(serverData).map(([name, value]) => (
               <NameValuePair key={name} name={name}>
-                {value}
+                {name === 'Health' ? (
+                  <Box align="center" gap="xsmall" direction="row">
+                    <StatusGoodSmall size="small" color="status-ok" />
+                    {value}
+                  </Box>
+                ) : (
+                  <> {value}</>
+                )}
               </NameValuePair>
             ))}
           </NameValueList>

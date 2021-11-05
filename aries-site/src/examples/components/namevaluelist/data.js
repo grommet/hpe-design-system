@@ -1,6 +1,3 @@
-import { Box } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
-
 export const alignmentData = {
   'Created by': 'jane.doe@email.com',
   'Created on': '2021-10-05T14:48:00.000Z',
@@ -100,12 +97,7 @@ export const simpleData = {
 };
 
 export const serverData = {
-  Health: (
-    <Box gap="xsmall" direction="row">
-      <StatusGoodSmall color="status-ok" />
-      Healthy
-    </Box>
-  ),
+  Health: 'Healthy',
   State: 'Active',
   ID: 'b3894722-adscb29308478-8032j',
   'API EndPoint': 'democluster1.dev.cloud.net',
