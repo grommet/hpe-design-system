@@ -3,8 +3,8 @@ import { Anchor, Box, Heading, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
 
 export const NameValueListHeadingPreview = () => (
-  <Box pad="small">
-    <Heading level={2} size="small">
+  <Box pad="small" gap="medium">
+    <Heading level={2} margin="none">
       Name Value List Heading
     </Heading>
     <NameValueList>

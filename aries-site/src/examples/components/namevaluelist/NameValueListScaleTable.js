@@ -11,42 +11,44 @@ import {
 } from 'grommet';
 import { Checkmark } from 'grommet-icons';
 
+const CheckmarkIcon = () => <Checkmark size="small" color="text-strong" />;
+
 const data = [
   {
     id: 1,
     textStyles: <Text>Text / XSmall</Text>,
-    name: <Checkmark size="small"  />,
-    value: <Checkmark size="small"  />,
+    name: <CheckmarkIcon />,
+    value: <CheckmarkIcon />,
   },
   {
     id: 2,
     textStyles: <Text>Text / Small</Text>,
-    name: <Checkmark size="small"  />,
-    value: <Checkmark size="small"  />,
+    name: <CheckmarkIcon />,
+    value: <CheckmarkIcon />,
   },
   {
     id: 3,
     textStyles: <Text>Text / Default</Text>,
-    name: <Checkmark size="small"  />,
-    value: <Checkmark size="small"  />,
+    name: <CheckmarkIcon />,
+    value: <CheckmarkIcon />,
   },
   {
     id: 4,
     textStyles: <Text>Text / Large</Text>,
-    name: <Checkmark size="small"  />,
-    value: <Checkmark size="small"  />,
+    name: <CheckmarkIcon />,
+    value: <CheckmarkIcon />,
   },
   {
     id: 5,
     textStyles: <Text>Text / XL</Text>,
     name: <Text>n/a</Text>,
-    value: <Checkmark size="small"  />,
+    value: <CheckmarkIcon />,
   },
   {
     id: 6,
     textStyles: <Text>Text / XXL</Text>,
     name: <Text>n/a</Text>,
-    value: <Checkmark size="small" />,
+    value: <CheckmarkIcon />,
   },
 ];
 
@@ -77,6 +79,7 @@ export const NameValueListScaleTable = () => (
               border
               key={c.property}
               scope="col"
+              pad={{ vertical: 'small' }}
             >
               <Text color="text-strong" weight="bold">
                 {c.label}
@@ -89,7 +92,12 @@ export const NameValueListScaleTable = () => (
         {data.map(datum => (
           <TableRow key={datum.id}>
             {columns.map(c => (
-              <TableCell align="center" border key={c.property}>
+              <TableCell
+                align="center"
+                border
+                key={c.property}
+                pad={{ vertical: 'small' }}
+              >
                 <Text color="text-strong">{datum[c.property]}</Text>
               </TableCell>
             ))}
