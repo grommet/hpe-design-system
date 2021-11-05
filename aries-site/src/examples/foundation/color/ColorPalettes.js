@@ -17,6 +17,8 @@ const {
   lightBackgrounds,
 } = colorExamples.backgrounds;
 
+const { borderDark, borderLight } = colorExamples.borders;
+
 const generateColorExamples = (colors, textColor) => (
   <Box fill>
     {colors.map(color => (
@@ -68,5 +70,16 @@ export const ContrastLight = () => (
 export const ContrastDark = () => (
   <UsageExample themeMode="dark" label="Dark Background" pad="none">
     {contrastDark && generateColorExamples(contrastDark)}
+  </UsageExample>
+);
+
+export const BordersLight = () => (
+  <UsageExample themeMode="light" label="Light Border" pad="none">
+    {borderLight && generateColorExamples(borderLight)}
+  </UsageExample>
+);
+export const BordersDark = () => (
+  <UsageExample themeMode="dark" label="Dark Border" pad="none">
+    {borderDark && generateColorExamples(borderDark)}
   </UsageExample>
 );
