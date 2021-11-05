@@ -40,7 +40,7 @@ export const iconValueData = {
 };
 
 export const data = {
-  name: 'FirstName LastName',
+  Name: 'FirstName LastName',
   Username: 'firstname',
   Country: 'United States',
 };
