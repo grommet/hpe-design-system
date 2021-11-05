@@ -1,6 +1,3 @@
-import { Box } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
-
 export const alignmentData = {
   'Created by': 'jane.doe@email.com',
   'Created on': '2021-10-05T14:48:00.000Z',
@@ -14,6 +11,16 @@ export const anatomyData = {
    campus, branch, remote, and data center networks`,
   'Created by': 'jane.doe@email.com',
   'List of Items': 'Item 1, Item 2, Item 3, Item 4, Item 5',
+};
+
+export const contentTruncationData = {
+  State: 'Enabled',
+  'Data Sources': `Azure EA, Azure IN - 003, HPE GreenLake (DEV)-00469,
+     Azure EA-001, HPE Aruba (Dev)-03464, HPE GreenLake
+     (Test)-004681, Azure EA-003, HPE Aruba (Stage)-03464,
+     HPE GreenLake (DEV)-00468, Azure H-004, HPE Aruba
+     (Dev)-03464, HPE GreenLake (Test)-004681, Azure EA-003,
+     HPE Aruba (Stage)-03464, HPE GreenLake (DEV)-00468, Azure H-004`,
 };
 
 export const defaultData = {
@@ -67,6 +74,11 @@ export const languageData = {
    Update 3 Patch 73 6.7.0 `,
 };
 
+export const kubernetesData = {
+  Version: '1.6(HA)',
+  Nodes: '3 Control Plane, 3 workers',
+};
+
 export const profileData = {
   'First Name': 'Jane',
   'Middle Name': '',
@@ -85,12 +97,7 @@ export const simpleData = {
 };
 
 export const serverData = {
-  Health: (
-    <Box gap="xsmall" direction="row">
-      <StatusGoodSmall color="status-ok" />
-      Healthy
-    </Box>
-  ),
+  Health: 'Healthy',
   State: 'Active',
   ID: 'b3894722-adscb29308478-8032j',
   'API EndPoint': 'democluster1.dev.cloud.net',
@@ -98,4 +105,9 @@ export const serverData = {
   Description: 'This is a short description of the cluster.',
   Version: '1.18',
   Nodes: '3 Control Plane, 5 workers',
+};
+
+export const tagsData = {
+  Usage: '300',
+  MachineInfor1: 'Standard',
 };
