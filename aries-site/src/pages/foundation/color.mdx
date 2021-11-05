@@ -1,11 +1,16 @@
 import { Button } from 'grommet';
 import { Figma } from 'grommet-icons';
 
+import { ColorSwatch } from '../../components';
 import {
   ButtonRow
 } from '../../layouts';
 import { 
+  BackgroundDark,
+  BackgroundLight,
   BrandColor, 
+  ContrastDark,
+  ContrastLight,
   CorePalette, 
   DarkModeContrast,
   DarkPalette,
@@ -77,7 +82,7 @@ these colors only when implementing a dark theme.
 
 ## Green Color Accessibility
               
-The HPE Design System green ensures compliance with WCAG 2.1
+The HPE Design System green <ColorSwatch background="green" /> ensures compliance with WCAG 2.1
 standards for distinguishable text and color ([see success criterion 1.4.1 and 1.4.3](https://www.w3.org/TR/WCAG21/#distinguishable)). 
 With accessibility as one of its core principles, the HPE
 Design System focused on keeping accessibilty research and
@@ -89,19 +94,54 @@ dark theme modes.
 ### Light Mode
               
 AAA compliance is met for text on a light mode green background
-when using `text-strong` color. This is ensured for text of size
+when using `text-strong` <ColorSwatch background={{color: "text-strong", dark: false}} /> color. This is ensured for text of size
 18px and above.
 
 If a font size is below 18px, AAA compliance will fail with
-default font weight on an HPE green background. In this case,
+default font weight on an HPE `green` <ColorSwatch background={{color: "green", dark: false}} /> background. In this case,
 apply `weight="bold"` to meet AAA compliance.
 
 <LightModeContrast />
 
 ### Dark Mode
 
-AA compliance is met for text on a dark mode green background
-when using `text-strong` color. To meet AAA compliance, use text
-size="large" and weight="bold".
+AA compliance is met for text on a dark mode `green` <ColorSwatch background={{color: "green", dark: true}} /> background
+when using `text-strong` <ColorSwatch background={{color: "text-strong", dark: true}} /> color. To meet AAA compliance, use text
+`size="large"` and `weight="bold"`.
 
 <DarkModeContrast />
+
+## Background Colors
+              
+Our color palette is only impactful when used in the correct
+context. Accommodating both light and dark modes of a user
+experience with the appropriate color palette creates a
+successful customer experience.
+
+For more direction on how to use background colors within your
+layout, see [Background Colors Guidance](/foundation/background-colors-guidance).
+
+### Background Palette
+      
+In light and dark modes, building depth with interface elements,
+and the background is key in making readability or text and key
+interactions key to driving users' success. The swatches below
+illustrate how to use color for your experiences.
+
+<BackgroundLight />  
+<br />
+<BackgroundDark />
+
+### Contrast
+
+For times when you have more than two layers of content (e.g. a
+background and a styled UI element on top of it), you can use
+contrast to help add more layers of depth to your design,
+illustrate a visual separation, or show how stacked interface
+elements will look. By default, contrast will bump your
+background to a lighter or darker tint based on the theme and
+background.
+
+<ContrastLight />
+<br />
+<ContrastDark />
