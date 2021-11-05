@@ -7,8 +7,10 @@ import {
 import { 
   BrandColor, 
   CorePalette, 
+  DarkModeContrast,
   DarkPalette,
-  LightPalette 
+  LightPalette,
+  LightModeContrast 
 } from '../../examples';
 
 You will notice that the HPE Design System Color guidance is
@@ -72,3 +74,34 @@ text to maintain color accessibility in your experience. Use
 these colors only when implementing a dark theme.
 
 <DarkPalette />
+
+## Green Color Accessibility
+              
+The HPE Design System green ensures compliance with WCAG 2.1
+standards for distinguishable text and color ([see success criterion 1.4.1 and 1.4.3](https://www.w3.org/TR/WCAG21/#distinguishable)). 
+With accessibility as one of its core principles, the HPE
+Design System focused on keeping accessibilty research and
+guidelines at the center of its color selection process.
+
+See details below on how to remain compliant in both light and
+dark theme modes.
+              
+### Light Mode
+              
+AAA compliance is met for text on a light mode green background
+when using `text-strong` color. This is ensured for text of size
+18px and above.
+
+If a font size is below 18px, AAA compliance will fail with
+default font weight on an HPE green background. In this case,
+apply `weight="bold"` to meet AAA compliance.
+
+<LightModeContrast />
+
+### Dark Mode
+
+AA compliance is met for text on a dark mode green background
+when using `text-strong` color. To meet AAA compliance, use text
+size="large" and weight="bold".
+
+<DarkModeContrast />
