@@ -1,0 +1,74 @@
+import { Button } from 'grommet';
+import { Figma } from 'grommet-icons';
+
+import {
+  ButtonRow
+} from '../../layouts';
+import { 
+  BrandColor, 
+  CorePalette, 
+  DarkPalette,
+  LightPalette 
+} from '../../examples';
+
+You will notice that the HPE Design System Color guidance is
+different from Brand Central. Prioritize the below HPE Design
+System color palette over Brand Central when identifying colors
+for your app or web based experience.
+
+<ButtonRow>
+  <Button
+    href="https://www.figma.com/file/eZYR3dtWdb9U90QvJ7p3T9/hpe-design-system-library-color"
+    icon={<Figma color="plain" />}
+    label="Open in Figma"
+    target="_blank"
+    secondary
+  />
+</ButtonRow>
+
+## Color Palettes
+
+Color is a key way we express our brand. Using color on
+interface elements, how typography is presented, displaying data
+visualizations, and adjusting context of the experience to light
+and dark are just some of the ways we illustrate inclusive
+design for our app and web based experiences.
+
+### Brand Color
+            
+HPE green symbolizes growth and vitality, commands attention and
+inspires action. Our green is an essential part of our brand
+identity and should be evident in every communication wherever
+possible. Always use the custom color specifications seen here
+to maintain consistency across channels and media.
+
+<BrandColor />
+
+### Core Palette
+
+HPE Core colors provide a set of swatches that compliment HPE
+Green and help establish the vibrant experience HPE embraces. We
+use "emphasis" as a way to show the importance and use the most
+vibrant hue on light or dark contexts. To maintain accessibility
+requirements, it's important to be mindful of how the aspects of
+the color library are used in conjunction with the Core colors.
+
+<CorePalette />
+
+### Light Palette
+              
+The light color palette provides a set of swatches which
+compliment HPE Core colors for use in combination with dark text
+to maintain color accessibility in your experience. Use these
+colors only when implementing a light theme.
+
+<LightPalette />
+
+### Dark Palette
+
+The dark color palette provides a set of swatches which
+compliment HPE Core colors for use in combination with light
+text to maintain color accessibility in your experience. Use
+these colors only when implementing a dark theme.
+
+<DarkPalette />
