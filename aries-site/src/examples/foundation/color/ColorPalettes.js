@@ -23,16 +23,21 @@ const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
 const { focusColor, layerColor, graphColor } = colorExamples;
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
-const generateColorExamples = (colors, textColor) => (
+const generateColorExamples = (colors, textColor, textSize) => (
   <Box fill>
     {colors.map(color => (
-      <ColorRow colorSpec={color} key={color.name} textColor={textColor} />
+      <ColorRow
+        colorSpec={color}
+        key={color.name}
+        textColor={textColor}
+        textSize={textSize}
+      />
     ))}
   </Box>
 );
 
 export const BrandColor = () =>
-  primaryColors && generateColorExamples(primaryColors);
+  primaryColors && generateColorExamples(primaryColors, 'text-strong', 'large');
 
 export const CorePalette = () =>
   coreColors && (
