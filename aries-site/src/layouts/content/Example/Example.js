@@ -8,6 +8,7 @@ import {
   DoDontContainer,
   ExampleControls,
   ExampleResources,
+  FigureWrapper,
   HorizontalExample,
   ResponsiveControls,
   ResponsiveContainer,
@@ -103,7 +104,7 @@ export const Example = ({
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
-  const content = !showLayer && (
+  let content = !showLayer && (
     <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
@@ -124,6 +125,9 @@ export const Example = ({
       </ExampleWrapper>
     </ExampleContainer>
   );
+
+  if (caption)
+    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
 
   const controls = (designer ||
     docs ||

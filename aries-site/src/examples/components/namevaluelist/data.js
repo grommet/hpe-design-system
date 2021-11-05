@@ -82,6 +82,14 @@ export const kubernetesData = {
   Nodes: '3 Control Plane, 3 workers',
 };
 
+export const profileData = {
+  'First Name': 'Jane',
+  'Middle Name': '',
+  Country: 'United States',
+  'Phone Number': '',
+  Email: 'jane.smith@hpe.com',
+};
+
 export const simpleData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   'Created by': 'jane.doe@email.com',
