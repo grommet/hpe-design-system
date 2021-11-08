@@ -87,7 +87,7 @@ const Annotation = ({ id, target }) => {
 };
 
 export const NameValueListAnatomy = () => (
-  <Stack margin={{ bottom: 'large' }}>
+  <Stack margin={{ bottom: 'medium' }}>
     <Box direction="row-responsive" gap="medium">
       <AnatomyGrid>
         {/* Empty Box occupies first cell of grid. Alternatively 
