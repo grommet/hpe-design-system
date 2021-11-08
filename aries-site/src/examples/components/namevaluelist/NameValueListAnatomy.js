@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Text, Diagram, Stack } from 'grommet';
+import { Box, Grid, Text, Diagram, Stack, ThemeContext } from 'grommet';
 
-const color = 'text-strong';
+const color = 'border';
 const anchor = 'vertical';
 const thickness = 'hair';
-const type = 'rectilinear';
+const type = 'direct';
 
 const connections = [
   {
@@ -13,16 +13,16 @@ const connections = [
     type,
     color,
     thickness,
-    fromTarget: 'name',
-    toTarget: '1',
+    fromTarget: '1',
+    toTarget: 'name',
   },
   {
     anchor,
     type,
     color,
     thickness,
-    fromTarget: 'nameVisual',
-    toTarget: '3',
+    fromTarget: '3',
+    toTarget: 'nameVisual',
   },
   {
     anchor,
@@ -42,55 +42,71 @@ const connections = [
   },
 ];
 
-const AnatomyBox = ({ background, id, visualId }) => (
-  <Box direction="row" gap="small">
-    <Box
-      id={visualId}
-      height="xxsmall"
-      width="xsmall"
-      background={background}
-      round="xxsmall"
-    />
+const AnatomyGrid = ({ ...rest }) => (
+  <Grid
+    columns={['xxsmall', ['small', 'medium']]}
+    gap={{ column: 'small', row: 'medium' }}
+    justify="center"
+    {...rest}
+  />
+);
+
+const AnatomyBox = ({ background, id }) => {
+  const theme = useContext(ThemeContext);
+
+  return (
     <Box
       id={id}
-      height="xxsmall"
-      width="medium"
+      fill="horizontal"
       background={background}
+      height={theme.global.edgeSize.medium}
       round="xxsmall"
     />
-  </Box>
-);
+  );
+};
 
-const CircleBox = ({ id, target }) => (
-  <Box
-    id={id}
-    alignSelf="center"
-    align="center"
-    justify="center"
-    round
-    height="xxsmall"
-    width="xxsmall"
-    background="background-front"
-  >
-    <Text weight="bold">{target}</Text>
-  </Box>
-);
+const Annotation = ({ id, target }) => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box
+      id={id}
+      align="center"
+      background="background-front"
+      border={{ color: 'border-weak' }}
+      height={theme.global.edgeSize.medium}
+      justify="center"
+      round
+      width={theme.global.edgeSize.medium}
+    >
+      <Text size="small" weight="bold">
+        {target}
+      </Text>
+    </Box>
+  );
+};
 
 export const NameValueListAnatomy = () => (
-  <Stack alignSelf="start" margin="small">
-    <Box alignSelf="start" gap="medium">
-      <Grid gap="medium" justify="center" columns={{ count: 2, size: 'auto' }}>
-        <CircleBox id={1} target="1" />
-        <CircleBox id={2} target="2" />
-        <AnatomyBox
-          id="name"
-          background="status-warning"
-          visualId="nameVisual"
-        />
-        <AnatomyBox id="value" background="purple!" visualId="valueVisual" />
-        <CircleBox id={3} target="3" />
-        <CircleBox id={4} target="3" />
-      </Grid>
+  <Stack margin={{ bottom: 'large' }}>
+    <Box direction="row-responsive" gap="medium">
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={1} target="1" />
+        <AnatomyBox id="nameVisual" background="orange" />
+        <AnatomyBox id="name" background="orange" />
+        <Annotation id={3} target="3" />
+      </AnatomyGrid>
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={2} target="2" />
+        <AnatomyBox id="valueVisual" background="purple!" />
+        <AnatomyBox id="value" background="purple!" />
+        <Annotation id={4} target="3" />
+      </AnatomyGrid>
     </Box>
     <Diagram connections={connections} />
   </Stack>
@@ -99,32 +115,9 @@ export const NameValueListAnatomy = () => (
 AnatomyBox.propTypes = {
   background: PropTypes.string,
   id: PropTypes.string,
-  visualId: PropTypes.string,
 };
 
-CircleBox.propTypes = {
+Annotation.propTypes = {
   id: PropTypes.number,
   target: PropTypes.string,
 };
-
-/* <Stack alignSelf="start" margin="small">
-<Box alignSelf="start" gap="medium">
-  <Grid gap="medium" justify="center" columns={{ count: 2, size: 'auto' }}>
-    <CircleBox id={1} target="1" />
-    <CircleBox id={2} target="2" />
-  </Grid>
-  <Grid gap="medium" justify="center" columns={{ count: 2, size: 'auto' }}>
-    <AnatomyBox
-      id="name"
-      background="status-warning"
-      visualId="nameVisual"
-    />
-    <AnatomyBox id="value" background="purple!" visualId="valueVisual" />
-  </Grid>
-  <Grid justify="start" columns={{ count: 2, size: 'auto' }}>
-    <CircleBox id={3} target="3" />
-    <CircleBox id={4} target="3" />
-  </Grid>
-</Box>
-<Diagram connections={connections} />
-</Stack> */
