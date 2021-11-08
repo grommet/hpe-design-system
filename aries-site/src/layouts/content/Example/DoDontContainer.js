@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Paragraph, Text } from 'grommet';
+import { Box, Paragraph, Text, ResponsiveContext } from 'grommet';
 import { Container } from '.';
 
 export const DoDontContainer = ({
   bestPractice: bestPracticeProp,
+  height,
   ...rest
 }) => {
   let bestPractice;
   let background;
   let label;
+  const size = useContext(ResponsiveContext);
   if (bestPracticeProp) {
     if (bestPracticeProp.type === 'do') {
       background = 'green!';
@@ -42,7 +44,7 @@ export const DoDontContainer = ({
 
   return (
     <>
-      <Container {...rest} />
+      <Container height={size !== 'small' ? height : undefined} {...rest} />
       {bestPractice}
     </>
   );
@@ -53,4 +55,5 @@ DoDontContainer.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
