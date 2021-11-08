@@ -9,7 +9,10 @@ export const NameValueListPairPropsExample = () => (
         let date;
         if (name === 'Created on') {
           const event = new Date(value);
-          date = event.toLocaleDateString();
+          date = event.toLocaleString('en-US', {
+            dateStyle: 'short',
+            timeStyle: 'short',
+          });
         }
         return (
           <NameValuePair key={name} name={name}>
