@@ -5,7 +5,7 @@ import { Container } from '.';
 
 export const DoDontContainer = ({
   bestPractice: bestPracticeProp,
-  height: heightProp,
+  height,
   ...rest
 }) => {
   let bestPractice;
@@ -44,7 +44,7 @@ export const DoDontContainer = ({
 
   return (
     <>
-      <Container height={size !== 'small' ? heightProp : undefined} {...rest} />
+      <Container height={size !== 'small' ? height : undefined} {...rest} />
       {bestPractice}
     </>
   );
