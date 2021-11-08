@@ -25,8 +25,8 @@ export const contentTruncationData = {
 
 export const defaultData = {
   'Created on': '2021-10-05T14:48:00.000Z',
-  Description: 'Full-service AI insights and data center networks',
-  'IP Address': '172.98.09182.98.00.1.2567',
+  Description: 'Full-service A.I. insights and data center networks',
+  'IP Address': '172.98.091.0',
 };
 
 export const iconNameData = {
@@ -48,7 +48,7 @@ export const data = {
 export const fontData = {
   'Serial Number': 'MXQ83700F3',
   'Product ID': 'JL258A',
-  'IP Address': '172.16.255.321.8',
+  'IP Address': '172.98.091.0',
 };
 
 export const fontWeightData = {
@@ -61,7 +61,7 @@ export const gridData = {
   Description: 'Whether to enable email link user authentication',
   'Ephemeral Storage': '54.7%  (3000 GB of 5489 GB)',
   'Kubernetes Verison': '19.7',
-  'IP Address': '172.98.09182.98.00.1.2567',
+  'IP Address': '172.98.091.0',
   'Created on': '13/02/2021 at 14:23:32',
 };
 
@@ -91,9 +91,10 @@ export const simpleData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   'Created by': 'jane.doe@email.com',
   'Default Storage Class': 'Block Storage Cost',
-  Description: `Full-service AI insights, security and unified infrastructure 
-    management for campus, branch, remote, and data center networks`,
-  'IP Address': '172.98.09182.98.00.1.2567',
+  Description: `Full-service A.I. insights, security
+   and unified infrastructure management for campus,
+  branch, remote, and data center networks.`,
+  'IP Address': '172.98.091.0',
 };
 
 export const serverData = {
