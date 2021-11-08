@@ -5,30 +5,15 @@ const allPages = structure.map(page => ({
   value: { ...page, title: page.name },
 }));
 
-// const allPageSections = structure
-//   .map(page => ({
-//     label: page.sections,
-//     value: page,
-//   }))
-//   .filter(page => page.label && page.label.length)
-//   .flatMap(val =>
-//     val.label.map(section => ({
-//       label: section,
-//       value: { ...val.value, title: section },
-//     })),
-//   );
-
 // With content search, sections are already included,
 // so we don't need to double search them.
-export const getSearchSuggestions = allPages
-  // .concat(allPageSections)
-  .sort((a, b) => {
-    const aLabel = a.label.toLowerCase();
-    const bLabel = b.label.toLowerCase();
-    if (aLabel < bLabel) return -1;
-    if (aLabel > bLabel) return 1;
-    return 0;
-  });
+export const getSearchSuggestions = allPages.sort((a, b) => {
+  const aLabel = a.label.toLowerCase();
+  const bLabel = b.label.toLowerCase();
+  if (aLabel < bLabel) return -1;
+  if (aLabel > bLabel) return 1;
+  return 0;
+});
 
 // String to slug from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1#file-slugify-js
 export const nameToSlug = name => {
