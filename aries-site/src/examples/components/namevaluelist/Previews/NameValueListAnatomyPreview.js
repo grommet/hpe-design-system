@@ -13,7 +13,9 @@ export const NameValueListAnatomyPreview = () => {
   return (
     <Box pad="small">
       <NameValueList
-        valueProps={size === 'medium' ? { width: 'small' } : undefined}
+        pairProps={{
+          direction: size === 'medium' || size === 'small' ? 'column' : 'row',
+        }}
       >
         {Object.entries(anatomyData).map(([name, value]) => (
           <NameValuePair key={name} name={name}>
