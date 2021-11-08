@@ -175,7 +175,7 @@ export const Search = ({ setOpen }) => {
       if (suggestions.length === 1) {
         router.push({
           pathname: nameToPath(suggestions[0].value.title),
-          query: value && `q=${value}`,
+          query: `q=${value}`,
         });
         onClose();
       } else {
@@ -186,7 +186,7 @@ export const Search = ({ setOpen }) => {
         if (matches.length === 1) {
           router.push({
             pathname: nameToPath(matches[0].value.title),
-            query: value && `q=${value}`,
+            query: `q=${value}`,
           });
           onClose();
         }
