@@ -9,9 +9,17 @@ export const NameValueListIconValuePreview = () => (
       {Object.entries(iconValueData).map(([name, value]) => {
         let icon;
         if (value === 'Ok')
-          icon = <StatusGoodSmall color="green" size="small" />;
+          icon = (
+            <StatusGoodSmall aria-hidden="true" color="green" size="small" />
+          );
         else if (value === 'Warning')
-          icon = <StatusWarningSmall color="status-warning" size="small" />;
+          icon = (
+            <StatusWarningSmall
+              aria-hidden="true"
+              color="status-warning"
+              size="small"
+            />
+          );
         return (
           <NameValuePair key={name} name={name}>
             <Box align="center" direction="row" gap="xsmall">

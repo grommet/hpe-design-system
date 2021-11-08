@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, Diagram, Stack } from 'grommet';
+import { Box, Grid, Text, Diagram, Stack, ThemeContext } from 'grommet';
 
-const color = 'text-strong';
+const color = 'border';
 const anchor = 'vertical';
 const thickness = 'hair';
-const type = 'rectilinear';
+const type = 'direct';
 
 const connections = [
   {
@@ -13,16 +13,16 @@ const connections = [
     type,
     color,
     thickness,
-    fromTarget: 'name',
-    toTarget: '1',
+    fromTarget: '1',
+    toTarget: 'name',
   },
   {
     anchor,
     type,
     color,
     thickness,
-    fromTarget: 'nameVisual',
-    toTarget: '3',
+    fromTarget: '3',
+    toTarget: 'nameVisual',
   },
   {
     anchor,
@@ -42,66 +42,71 @@ const connections = [
   },
 ];
 
-const AnatomyBox = ({ background, id, visualId }) => (
-  <Box direction="row" gap="small">
-    <Box
-      id={visualId}
-      height="xxsmall"
-      width="xxsmall"
-      background={background}
-      round="xxsmall"
-    />
+const AnatomyGrid = ({ ...rest }) => (
+  <Grid
+    columns={['xxsmall', ['small', 'medium']]}
+    gap={{ column: 'small', row: 'medium' }}
+    justify="center"
+    {...rest}
+  />
+);
+
+const AnatomyBox = ({ background, id }) => {
+  const theme = useContext(ThemeContext);
+
+  return (
     <Box
       id={id}
-      height="xxsmall"
-      width="small"
+      fill="horizontal"
       background={background}
+      height={theme.global.edgeSize.medium}
       round="xxsmall"
     />
-  </Box>
-);
+  );
+};
 
-const CircleBox = ({ id, target }) => (
-  <Box
-    id={id}
-    align="center"
-    pad={{ horizontal: 'small', vertical: 'xxsmall' }}
-    round
-    background="background-front"
-  >
-    <Text weight="bold">{target}</Text>
-  </Box>
-);
+const Annotation = ({ id, target }) => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box
+      id={id}
+      align="center"
+      background="background-front"
+      border={{ color: 'border-weak' }}
+      height={theme.global.edgeSize.medium}
+      justify="center"
+      round
+      width={theme.global.edgeSize.medium}
+    >
+      <Text size="small" weight="bold">
+        {target}
+      </Text>
+    </Box>
+  );
+};
 
 export const NameValueListAnatomy = () => (
-  <Stack>
-    <Box gap="medium" pad={{ bottom: 'medium' }}>
-      <Box
-        margin={{ left: 'xlarge' }}
-        justify="between"
-        gap="large"
-        direction="row"
-        width="medium"
-      >
-        <CircleBox id={1} target="1" />
-        <CircleBox id={2} target="2" />
-      </Box>
-      <Box gap="medium" direction="row">
-        <AnatomyBox
-          id="name"
-          background="status-warning"
-          visualId="nameVisual"
-        />
-        <AnatomyBox id="value" background="purple!" visualId="valueVisual" />
-      </Box>
-      <Box
-        justify="between"
-        width="medium"
-        direction="row"
-      >
-        <CircleBox id={3} target="3" />
-        <CircleBox id={4} target="3" />
-      </Box>
+  <Stack margin={{ bottom: 'medium' }}>
+    <Box direction="row-responsive" gap="medium">
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={1} target="1" />
+        <AnatomyBox id="nameVisual" background="orange" />
+        <AnatomyBox id="name" background="orange" />
+        <Annotation id={3} target="3" />
+      </AnatomyGrid>
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={2} target="2" />
+        <AnatomyBox id="valueVisual" background="purple!" />
+        <AnatomyBox id="value" background="purple!" />
+        <Annotation id={4} target="3" />
+      </AnatomyGrid>
     </Box>
     <Diagram connections={connections} />
   </Stack>
@@ -110,10 +115,9 @@ export const NameValueListAnatomy = () => (
 AnatomyBox.propTypes = {
   background: PropTypes.string,
   id: PropTypes.string,
-  visualId: PropTypes.string,
 };
 
-CircleBox.propTypes = {
+Annotation.propTypes = {
   id: PropTypes.number,
   target: PropTypes.string,
 };
