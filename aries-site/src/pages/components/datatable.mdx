@@ -245,11 +245,15 @@ Statuses within a DataTable should always have these accompanying elements:
 - Color
 - Content (***This is not restricted to just normal, warning, unknown, and critical)
 
-More detailed information can be found on the [Status Indicator Design System Page](/templates/status-indicator).
+More detailed information can be found on the [Status Indicator Design System Page](/templates/status-indicator#what-makes-up-a-status-indicator).
 
-A State is the current stage of a process. A Status is the condition of the State. Status can also be thought of as a pointer to a State’s “health”.
+A State is the current stage of a process. A Status is the condition of the State. Status can also be thought of as a pointer to a State’s “health”. More detailed information can be found on the [Notification Design System Page](/components/notification#state-vs-status).
 
 There are three separate scenarios in how Status and State can be displayed within a DataTable:
+
+- [Separate columns for Status and State](#1-separate-columns-for-status-and-state)
+- [Combined column for Status and State](#2-combined-column-for-status-and-state)
+- [Only Status column](#3-only-status-column)
 
 #### 1. Separate columns for Status and State
 
@@ -257,12 +261,9 @@ There are three separate scenarios in how Status and State can be displayed with
 - Allows columns to be sorted independently from each other.
 - Clearly visually separates and labels Status and State to avoid false associations.
 
-<ExampleImagePreview
-  label="DataTable with separate columns for Status and State"
-  href="#datatable-with-separate-columns-for-status-and-state"
-  src="/static/images/datatable-separate-columns-status-state.svg"
-  alt="Example of a data table showing separate columns for status and state"
-/>
+<Box width="large">
+  <Image src="/static/images/datatable-separate-columns-status-state.svg" alt="Example of a data table showing separate columns for status and state" />
+</Box>
 
 #### 2. Combined column for Status and State
 
@@ -271,12 +272,9 @@ There are three separate scenarios in how Status and State can be displayed with
 - Status and State are sorted together rather than individually.
 - (Note) These are rarely used, be sure not to create false associations when Status and State are not coupled.
 
-<ExampleImagePreview
-  label="DataTable with combined column for Status and State"
-  href="#datatable-with-combined-column-for-status-and-state"
-  src="/static/images/datatable-combined-column-status-state.svg"
-  alt="Example of a data table showing combined column for status and state"
-/>
+<Box width="large">
+  <Image src="/static/images/datatable-combined-column-status-state.svg" alt="Example of a data table showing combined column for status and state" />
+</Box>
 
 #### 3. Only Status column
 
@@ -284,12 +282,9 @@ There are three separate scenarios in how Status and State can be displayed with
 - Used in situations where horizontal screen real-estate is an issue.
 - If showing state is required, with this option State can be displayed once the user expands the cell for more information. (Ask yourself, “Does the user need to be able to see the State in the DataTable?”)
 
-<ExampleImagePreview
-  label="DataTable with only a Status column"
-  href="#datatable-with-only-a-status-column"
-  src="/static/images/datatable-only-status-column.svg"
-  alt="Example showing a status column in the data table and an arrow pointing to the state within the expanded details"
-/>
+<Box width="large">
+  <Image src="/static/images/datatable-only-status-column.svg" alt="Example showing a status column in the data table and an arrow pointing to the state within the expanded details" />
+</Box>
 
 ## DataTable behaviors & actions
 
