@@ -88,7 +88,7 @@ const highlight = (children, regexp, highlightProps) => {
     );
   }
 
-  if (children.props?.children) {
+  if (children?.props?.children) {
     nextPhrase = {
       ...children,
       props: {
