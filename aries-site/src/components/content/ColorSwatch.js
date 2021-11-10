@@ -12,6 +12,7 @@ export const ColorSwatch = ({ background }) => {
 
   return (
     <Box
+      as="span"
       background={backgroundColor}
       border
       round="xsmall"

@@ -40,8 +40,8 @@ export const ListNameOptionActionExample = () => (
     <List
       background="background-front"
       data={data}
-      action={item => (
-        <Box direction="row" align="center" gap="medium">
+      action={(item, index) => (
+        <Box key={index} direction="row" align="center" gap="medium">
           <Box direction="row" gap="small" align="center">
             <Text>{item.option}</Text>
             <item.icon color={item.color} size="small" />

@@ -23,7 +23,7 @@ with mouse`, async t => {
   await t
     .click(suggestion)
     .expect(getLocation())
-    .eql(expectedPath);
+    .contains(expectedPath);
 });
 
 test(`should navigate to correct page after user types page name and hits 
@@ -35,14 +35,14 @@ enter`, async t => {
   await t
     .pressKey('enter')
     .expect(getLocation())
-    .eql(expectedPath);
+    .contains(expectedPath);
 });
 
 test(`should navigate to correct hash after user clicks a suggestion that leads 
 to a page subsection`, async t => {
-  const query = 'col';
-  const expectedPath = `${baseUrl}/foundation/color#background-colors`;
-  const page = 'Background Colors';
+  const query = 'elevat';
+  const expectedPath = `${baseUrl}/foundation/color?q=${query}#elevation`;
+  const page = 'Color';
   const suggestion = screen.getAllByRole('option').withText(page);
 
   navbar.searchFor(query);
