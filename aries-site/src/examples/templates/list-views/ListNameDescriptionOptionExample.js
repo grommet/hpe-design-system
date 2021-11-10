@@ -30,20 +30,20 @@ const data = [
 ];
 
 export const ListNameDescriptionOptionExample = () => (
-    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-      <List
-        background="background-front"
-        data={data}
-        action={item => <Text>{item.option}</Text>}
-      >
-        {(datum, index) => (
-          <Box key={index}>
-            <Text weight="bold" size="small">
-              {datum.name}
-            </Text>
-            <Text size="small">{datum.description}</Text>
-          </Box>
-        )}
-      </List>
-    </Box>
-  );
+  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+    <List
+      background="background-front"
+      data={data}
+      action={(item, index) => <Text key={index}>{item.option}</Text>}
+    >
+      {(datum, index) => (
+        <Box key={index}>
+          <Text weight="bold" size="small">
+            {datum.name}
+          </Text>
+          <Text size="small">{datum.description}</Text>
+        </Box>
+      )}
+    </List>
+  </Box>
+);

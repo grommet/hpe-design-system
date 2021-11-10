@@ -67,13 +67,11 @@ export const SearchResults = ({
     setPage(defaultPage);
   }, [query]);
 
-  // useEffect(() => {
-  //   console.log(paginatedResults);
-  // }, [paginatedResults]);
-
   const matches = paginatedResults.filter(result =>
     result.value.matchLocation
-      ? result.value.matchLocation.includes('Title')
+      ? ['Title', 'Content'].some(item =>
+          result.value.matchLocation.includes(item),
+        )
       : result,
   );
 
