@@ -17,7 +17,13 @@ export const foundation = [
     },
     seoDescription: `Accessibility is central to the HPE Design System and 
     ensures that HPE applications are usable by as many people as possible.`,
-    sections: ['Accessibility in design', 'Accessibility in development'],
+    sections: [
+      'Accessibility in Design', 
+      'Accessibility in Development',
+      'Designer and Software Developer Guides',
+      'Accessibile Product Design Videos',
+      'Government Standards and Regulations',
+    ],
     tags: [
       'accessibility',
       'accessibility resources',

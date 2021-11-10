@@ -1,3 +1,5 @@
+import { GuideSection, VideoSection } from '../../examples/foundation';
+
 At HPE, we believe in being a force for good. We solve for humanity with humanity.
 We use technology to make the world better. We are unconditionally inclusive.
 **We believe that being accessible is a requirement, not an option**.
@@ -7,7 +9,9 @@ We use technology to make the world better. We are unconditionally inclusive.
   of disability, is an essential aspect."
 </blockquote>
 
-> &mdash; Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+<blockquote fill size="large">
+  &mdash; Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+</blockquote>
 
 ## Built into all Design System tools
 
@@ -23,7 +27,21 @@ design and development tools for all teams to build accessible applications.
 Get started with these [resources and tools](#resources) to perform a
 baseline audit of the accessibility of your application.
 
-## Accessibility in design
+## Designer and Software Developer Guides
+
+The following collection of guides from the [HPE Product Accessibility Program Office](https://hpe.sharepoint.com/sites/F5/CTO/Office/Accessibility/Pages/index.aspx) help designers and developers create accessible products which meet the needs of HPE’s clients.
+
+<GuideSection />
+
+## Accessible Product Design Videos
+
+A collection of short educational videos from HPE explaining basic accessible design principles in software and web technologies.
+
+Each video is less than 10 minutes and is accompanied by a “Pocket Guide” with key takeaways that can be found under HPE [Accessible Design Training](https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-design-training.aspx).
+
+<VideoSection />
+
+## Accessibility in Design
 
 Usability testing and best practice research build the foundation for all
 design decisions. Each HPE Design System Figma file contains a "Use Cases
@@ -38,38 +56,30 @@ standards. Notably, text colors are accessible on
 [background colors](/foundation/color#background-colors) and call-to-action
 colors, like [HPE Green](/foundation/color#green-color-accessibility).
 
-## Accessibility in development
+## Accessibility in Development
 
 We recommend you develop your apps using [Grommet](https://v2.grommet.io/)
-because it seamlessly integrates with [grommet-theme-hpe](https://github.com/grommet/grommet-theme-hpe)
-and is built to support keyboard navigation, HTML landmarks, and many ARIA attributes
-out of the box.
+because it seamlessly integrates with [grommet-theme-hpe](https://github.com/grommet/grommet-theme-hpe)and is built to support keyboard navigation, HTML landmarks, and many ARIA attributes out of the box.
 
-While supplemental attributes may need to be implemented and accessibility testing
-should still be performed, Grommet handles many of the general DOM requirements for you.
+While supplemental attributes may need to be implemented and accessibility testing should still be performed, Grommet handles many of the general DOM requirements for you.
 
 For guidance on setting up your development environment, see [Developer Guidance](/foundation/developer-guidance).
 
 ## Government Standards and Regulations
 
-To help enforce the World Wide Web's accessibility, policies and laws have been put in place which require certain standards to be met for all web, software and non-web documents. 
+To help enforce the World Wide Web's accessibility, policies and laws have been put in place which require certain standards to be met for all web, software and non-web documents.
 
 As a designer or developer, we are morally responsible for creating accessible products, and it is necessary that we are aware of the mandated standards established across the world. The following links provide insight into how governments and policy makers have come to include accessibility into laws, emphasizing the importance of making the web inclusive for all. In general, it is helpful to understand some of these policies and how they may affect your work product.
 
 - [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/): A robust set of international accessibility design guidelines. The guidelines identified as level A and AA are the required design elements for all applications and are incorporated in the US Section 508 standard and HPE's Design System.
-- [U.S. Section 508](https://www.section508.gov/): This site provides guidance for IT accessibility, covering program management, procurement, tools, training, and policy compliance. 
+- [U.S. Section 508](https://www.section508.gov/): This site provides guidance for IT accessibility, covering program management, procurement, tools, training, and policy compliance.
 - [Americans with Disabilities Act (ADA)](https://www.ada.gov/ada_intro.htm): An equal opportunity law that prohibits discrimination against people with disabilities where public services are offered — now including the public web domain.
 - [European Accessibility Act (EAA)](https://ec.europa.eu/social/main.jsp?catId=1202): A directive that aims to improve the market for accessible products and services that have been identified as most important for individuals with disabilities.
-
-## Internal Resources
-
-- [HPE Video Guides on Accessibility (HPE internal link)](https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-design-training.aspx): A collection of educational videos from HPE Product Accessibility Program Office to assist all stakeholders in understanding and implementing accessible design.
-- [HPE Accessible Web, Software & Hardware Design Guides (HPE internal link)](https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx): Text-based guides from HPE Product Accessibility Program Office on designing and implementing accessible products.
 
 ## External Resources
 
 - [WebAIM Introduction to Web Accessibility](https://webaim.org/intro/): An introduction on how accessibility improves the Web for all users.
-- [The A11y Project Checklist](https://www.a11yproject.com/checklist/): A checklist using WCAG 2.1 as a reference for developers and designers to ensure their product's accessibility. 
+- [The A11y Project Checklist](https://www.a11yproject.com/checklist/): A checklist using WCAG 2.1 as a reference for developers and designers to ensure their product's accessibility.
 - [U.S. Web Design System Principles](https://designsystem.digital.gov/design-principles/#embrace-accessibility): These principles and key guidelines outline how you should approach accessibility from a design system perspective.
 - [WAVE (Web Accessibility Evaluation Tool) Browser Plugin](https://wave.webaim.org/extension/): Scans webpages to identify missing HTML requirements and color contrast standards.
 - [ANDI Browser Tool](https://www.ssa.gov/accessibility/andi/help/install.html): Activate on a page to check the accessibility of images, headings, color contrast, data tables, links, and more.

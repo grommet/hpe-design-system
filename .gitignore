@@ -12,6 +12,7 @@
 */out
 *.next
 *storybook-static
+*/src/data/search
 
 #logs
 npm-debug.log*

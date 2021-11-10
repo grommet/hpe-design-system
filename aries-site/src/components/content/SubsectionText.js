@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Paragraph } from 'grommet';
 
 import { TEXT_SIZE } from '../../layouts';
+import { HighlightPhrase } from './HighlightPhrase';
 
 const StyledBox = styled(Box)`
   code {
@@ -20,11 +21,15 @@ const StyledBox = styled(Box)`
   }
 `;
 
-export const SubsectionText = ({ level, size, ...rest }) => (
-    <StyledBox width="large" margin={{ bottom: 'medium' }}>
-      <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest} />
-    </StyledBox>
-  );
+export const SubsectionText = ({ children, level, size, ...rest }) => (
+  <StyledBox width="large" margin={{ bottom: 'medium' }}>
+    <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
+      <HighlightPhrase size={size || TEXT_SIZE[level]}>
+        {children}
+      </HighlightPhrase>
+    </Paragraph>
+  </StyledBox>
+);
 
 SubsectionText.propTypes = {
   children: PropTypes.oneOfType([
