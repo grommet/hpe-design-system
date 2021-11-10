@@ -245,29 +245,30 @@ Statuses within a DataTable should always have these accompanying elements:
 - Color
 - Content (***This is not restricted to just normal, warning, unknown, and critical***)
 
-Greater detail, including accessibility considerations, is included on the [Status Indicator](/templates/status-indicator#what-makes-up-a-status-indicator) page.
+Greater detail, including accessibility considerations, is included on the [status indicator](/templates/status-indicator#what-makes-up-a-status-indicator) page.
 
-A State is the current stage of a process. A Status is the condition of the State. Status can also be thought of as a pointer to a State’s “health”. Read more about the distinctions between [state and status](/components/notification#state-vs-status).
+A state is the current stage of a process. A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health”. Read more about the distinctions between [state and status](/components/notification#state-vs-status).
 
-Depending on the scenario, Status and State may be displayed within a DataTable in one of three ways:
+Depending on the scenario, status and state may be displayed within a DataTable in one of three ways:
 
-1. [Separate columns for Status and State](#1-separate-columns-for-status-and-state)
-2. [Status only column](#2-only-status-column)
-3. [Combined column](#3-combined-column-for-status-and-state)
+1. [Separate columns for status and state](#1-separate-columns-for-status-and-state)
+2. [Status only column](#2-status-only-column)
+3. [Combined column](#3-combined-column)
 
-#### 1. Separate columns for Status and State
+#### 1. Separate columns for status and state
 
-- Used when the Status column is not coupled with the displayed State column. (Ex. An equipment can have a “Running” State displayed within the DataTable, but have a “Normal” Status since it’s health is dependent on a State not shown within the DataTable.)
+When status and state are distinct and independent from each other, display them in separate columns. This is the most common use case.
+- Used when the status column is not coupled with the displayed state column. (Ex. An equipment can have a “Normal” status but have a “Running” state shown within the DataTable.)
 - Allows columns to be sorted independently from each other.
-- Clearly visually separates and labels Status and State to avoid false associations.
+- Clearly visually separates and labels status and state to avoid false associations.
 
 <Box width="large">
   <Image src="/static/images/datatable-separate-columns-status-state.svg" alt="Example of a data table showing separate columns for status and state" />
 </Box>
 
-#### 2. Only Status column
+#### 2. Status only column
 
-- In some use cases, displaying Status on a DataTable is more important to users than State. If this is true for your use case, feel free to display only the Status in the DataTable.
+- In some use cases, displaying status on a DataTable is more important to users than state. If this is true for your use case, feel free to display only the status in the DataTable.
 - Used in situations where horizontal screen real-estate is an issue.
 - If displaying state is required, provide the user the ability to view the record's detail. State may be displayed once the user selects the row for more information.
 
@@ -275,13 +276,13 @@ Depending on the scenario, Status and State may be displayed within a DataTable 
   <Image src="/static/images/datatable-only-status-column.svg" alt="Example showing a status column in the data table pointing to the state within the details" />
 </Box>
 
-#### 3. Combined column for Status and State
+#### 3. Combined column
 
 When the status and state are coupled, they may be displayed as a single element.
 - Coupled statuses have a 1:1 relationship with specific states.
-- A single column presents both status and state. Status represented by a [Status Indicator](/templates/status-indicator) and state as the accompanying label.
-- Status and state are sorted together rather than individually.
-- **Note**: A single column is rarely used. Ensure false associations are not created when status and state are not coupled.
+- A single column presents both status and state. Status represented by a [status indicator](/templates/status-indicator) and state as the accompanying label.
+- Status and State are sorted together rather than individually.
+- ***Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled.***
 
 <Box width="large">
   <Image src="/static/images/datatable-combined-column-status-state.svg" alt="Example of a data table showing combined column for status and state" />
