@@ -13,43 +13,59 @@ export const NameValueListMultipleDefaultExample = () => {
       </Heading>
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
-          <Heading level={2} size="small">
-            Details
-          </Heading>
-          <NameValueList>
-            {Object.entries(serverData).map(([name, value]) => (
-              <NameValuePair key={name} name={name}>
-                {name === 'Health' ? (
-                  <Box align="center" gap="xsmall" direction="row">
-                    <StatusGoodSmall size="small" color="status-ok" />
+          <Box gap="large">
+            <>
+              <Heading margin={{ bottom: 'small' }} level={2} size="small">
+                Details
+              </Heading>
+              <NameValueList>
+                {Object.entries(serverData).map(([name, value]) => (
+                  <NameValuePair key={name} name={name}>
+                    {name === 'Health' ? (
+                      <Box align="center" gap="xsmall" direction="row">
+                        <StatusGoodSmall size="small" color="status-ok" />
+                        {value}
+                      </Box>
+                    ) : (
+                      <> {value}</>
+                    )}
+                  </NameValuePair>
+                ))}
+              </NameValueList>
+            </>
+            <>
+              <Heading
+                margin={{ bottom: 'small', top: 'none' }}
+                level={2}
+                size="small"
+              >
+                Kubernetes
+              </Heading>
+              <NameValueList>
+                {Object.entries(kubernetesData).map(([name, value]) => (
+                  <NameValuePair key={name} name={name}>
                     {value}
-                  </Box>
-                ) : (
-                  <> {value}</>
-                )}
-              </NameValuePair>
-            ))}
-          </NameValueList>
-          <Heading level={2} size="small">
-            Kubernetes
-          </Heading>
-          <NameValueList>
-            {Object.entries(kubernetesData).map(([name, value]) => (
-              <NameValuePair key={name} name={name}>
-                {value}
-              </NameValuePair>
-            ))}
-          </NameValueList>
-          <Heading level={2} size="small">
-            Tags
-          </Heading>
-          <NameValueList>
-            {Object.entries(tagsData).map(([name, value]) => (
-              <NameValuePair key={name} name={name}>
-                {value}
-              </NameValuePair>
-            ))}
-          </NameValueList>
+                  </NameValuePair>
+                ))}
+              </NameValueList>
+            </>
+            <>
+              <Heading
+                margin={{ bottom: 'small', top: 'none' }}
+                level={2}
+                size="small"
+              >
+                Tags
+              </Heading>
+              <NameValueList>
+                {Object.entries(tagsData).map(([name, value]) => (
+                  <NameValuePair key={name} name={name}>
+                    {value}
+                  </NameValuePair>
+                ))}
+              </NameValueList>
+            </>
+          </Box>
         </Tab>
         <Tab title="Policies">
           <Box margin="small">Policies Information</Box>
