@@ -8,6 +8,7 @@ import {
   DoDontContainer,
   ExampleControls,
   ExampleResources,
+  FigureWrapper,
   HorizontalExample,
   ResponsiveControls,
   ResponsiveContainer,
@@ -22,6 +23,7 @@ export const screens = {
 export const Example = ({
   background,
   bestPractice,
+  caption,
   children,
   code, // github code link used to display code inline
   componentName,
@@ -34,7 +36,9 @@ export const Example = ({
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
+  pad,
   plain, // remove Container from around example
+  previewWidth,
   relevantComponents,
   screenContainer, // show example in mock browser
   template, // showing as template causes appropriate aspect ratio
@@ -68,12 +72,14 @@ export const Example = ({
   // container
   const containerProps = {
     bestPractice,
+    caption,
     designer,
     docs,
     figma,
     guidance,
     height,
     horizontalLayout,
+    pad,
     plain,
     screenContainer,
     showResponsiveControls,
@@ -98,7 +104,7 @@ export const Example = ({
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
-  const content = !showLayer && (
+  let content = !showLayer && (
     <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
@@ -120,6 +126,9 @@ export const Example = ({
     </ExampleContainer>
   );
 
+  if (caption)
+    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
+
   const controls = (designer ||
     docs ||
     figma ||
@@ -140,6 +149,7 @@ export const Example = ({
 
   const resources = (
     <ExampleResources
+      caption={caption}
       code={code}
       github={github}
       details={details}
@@ -151,7 +161,11 @@ export const Example = ({
 
   return (
     <>
-      <Box margin={{ vertical: 'small' }} gap="large">
+      <Box
+        width={previewWidth || undefined}
+        margin={{ vertical: 'small' }}
+        gap="large"
+      >
         <>
           {/* For use with templates or page layouts to toggle between laptop,
            ** desktop, and mobile views */}
@@ -265,6 +279,7 @@ Example.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
+  caption: PropTypes.string,
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
@@ -288,7 +303,9 @@ Example.propTypes = {
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
+  previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.oneOfType([
