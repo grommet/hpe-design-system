@@ -11,6 +11,7 @@ export * from './header';
 export * from './layer';
 export * from './maskedinput';
 export * from './menu';
+export * from './namevaluelist';
 export * from './page-layouts';
 export * from './radiobuttonGroup';
 export * from './rangeinput';

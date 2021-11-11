@@ -26,6 +26,7 @@ export * from './markdown';
 export * from './maskedinput';
 export * from './menu';
 export * from './meter';
+export * from './namevaluelist';
 export * from './nav';
 export * from './notifications';
 export * from './pagination';
