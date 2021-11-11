@@ -13,9 +13,9 @@ export const NameValueListMultipleDefaultExample = () => {
       </Heading>
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
-          <Box gap="large">
+          <Box gap="medium">
             <>
-              <Heading margin={{ bottom: 'small' }} level={2} size="small">
+              <Heading level={2} size="small">
                 Details
               </Heading>
               <NameValueList>
@@ -35,7 +35,6 @@ export const NameValueListMultipleDefaultExample = () => {
             </>
             <>
               <Heading
-                margin={{ bottom: 'small', top: 'none' }}
                 level={2}
                 size="small"
               >
@@ -51,7 +50,6 @@ export const NameValueListMultipleDefaultExample = () => {
             </>
             <>
               <Heading
-                margin={{ bottom: 'small', top: 'none' }}
                 level={2}
                 size="small"
               >
