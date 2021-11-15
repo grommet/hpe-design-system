@@ -205,7 +205,6 @@ export const Search = ({ setOpen }) => {
       const headings = [...input.matchAll(regexp)];
       // Find nearest preceding heading to query match
       headings.forEach(heading => {
-        console.log(heading);
         if (heading.index < index) {
           id = `#${heading[1]
             .replace(/ ~{2}/, '')
