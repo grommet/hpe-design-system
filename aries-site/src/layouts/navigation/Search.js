@@ -201,10 +201,11 @@ export const Search = ({ setOpen }) => {
     let id;
     if (matches && matches.length > 0) {
       const { index, input } = matches[0];
-      const regexp = new RegExp(/#{1,} (...+?)(?<= ~{2})/, 'g');
+      const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
       const headings = [...input.matchAll(regexp)];
       // Find nearest preceding heading to query match
       headings.forEach(heading => {
+        console.log(heading);
         if (heading.index < index) {
           id = `#${heading[1]
             .replace(/ ~{2}/, '')
