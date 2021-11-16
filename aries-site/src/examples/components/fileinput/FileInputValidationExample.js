@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 const exampleFiles = [
   { name: 'file-size-okay.csv', size: 15000 },
-  { name: 'file-size-too-large.zip', size: 2550000 },
+  { name: 'file-size-too-large.zip', size: 2650000 },
 ];
 
 export const FileInputValidationExample = () => {
-  const maxSize = 2500000; // 2.5 MB
+  const maxSize = 2621440; // 2.5 MB
   // Initializing value state to demonstrate FileInput Validation state.
   const [value, setValue] = useState({
     fileInput: [exampleFiles[1]],
@@ -43,7 +43,7 @@ export const FileInputValidationExample = () => {
             maxSize={maxSize}
             messages={{
               dropPrompt: 'Drag and drop',
-              browse: 'Select File',
+              browse: 'Select Files',
             }}
             multiple
           />
