@@ -35,5 +35,5 @@ export const LinkCard = ({ link, title, icon }) => {
 LinkCard.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-  icon: PropTypes.element,
+  icon: PropTypes.object,
 };
