@@ -244,7 +244,7 @@ export const components = [
       'Layer',
       'Button',
       'Header',
-      'Persistent Navigation',
+      'Side to Side Navigation',
       'DataTable',
     ],
     tags: [
