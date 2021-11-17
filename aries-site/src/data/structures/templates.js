@@ -78,18 +78,20 @@ export const templates = [
     description: `Allows users to descend 'down' branches of a hierarchical
      tree into a child screen to drill down into details.`,
     preview: {
+      background: 'background-front',
       image: {
         src: {
           light: '/templateImages/DrillDown.svg',
-          dark: '/templateImages/DrillDown.svg',
+          dark: '/templateImages/DrillDown-invert.svg',
         },
         alt: 'HPE Dashboards Preview',
+        fit: 'contain',
       },
     },
     seoDescription: `Allows users to descend 'down' branches of a
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
-    relatedContent: ['Card', 'Lists', 'Grid'],
+    relatedContent: [],
     tags: [],
   },
   {
@@ -100,12 +102,12 @@ export const templates = [
     data attributes and values of interest.`,
     preview: {
       image: {
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
         src: {
           light: '/templateImages/template-preview-filtering.svg',
           dark: '/templateImages/template-preview-filtering-invert.svg',
         },
-        alt: 'HPE Filtering Preview',
-        fit: 'contain',
       },
     },
     seoDescription: `Allows users to create a focused data set by specifying 
@@ -175,34 +177,6 @@ export const templates = [
       'global header',
       'global footer',
       'header service',
-    ],
-  },
-  {
-    name: 'Hub and Spoke Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `A navigation pattern promoting focused execution through 
-    a central "hub" from which all activities begin and "spokes" on which 
-    more focused tasks are accomplished.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-hubnspoke.svg',
-          dark: '/templateImages/template-preview-hubnspoke-invert.svg',
-        },
-        alt: 'HPE Hub and Spoke Navigation Preview',
-      },
-    },
-    seoDescription: `Hub and spoke navigation pattern. What, why, and when 
-    to use the Hub & Spoke pattern for navigation.`,
-    relatedContent: ['Header', 'Grid', 'Lists'],
-    sections: ['When to Use Hub & Spoke'],
-    tags: [
-      'navigation',
-      'app navigation',
-      'navigation patterns',
-      'hub and spoke',
-      'hub & spoke',
     ],
   },
   {
@@ -289,16 +263,17 @@ export const templates = [
     available: true,
     cardOrder: 100,
     preview: {
+      background: 'background-front',
       image: {
         src: {
           light: '/templateImages/MatrixNavigation.svg',
-          dark: '/templateImages/MatrixNavigation.svg',
+          dark: '/templateImages/MatrixNavigation-invert.svg',
         },
         alt: 'HPE Lists Preview',
         fit: 'contain',
       },
     },
-    relatedContent: ['Dashboards', 'Card', 'Page Layouts', 'Pagination'],
+    relatedContent: [],
     seoDescription: 'Matrix Navigation',
   },
   {
@@ -321,7 +296,6 @@ export const templates = [
     sections: ['Navigation Within an Application'],
     relatedContent: [
       'Header',
-      'Hub and Spoke Navigation',
     ],
     tags: ['navigation patterns'],
   },
@@ -377,10 +351,11 @@ export const templates = [
     chronologically as you would on a browser hierarchically within
     an application or website.`,
     preview: {
+      background: 'background-front',
       image: {
         src: {
           light: '/templateImages/ReverseNavigation.svg',
-          dark: '/templateImages/ReverseNavigation.svg',
+          dark: '/templateImages/ReverseNavigation-invert.svg',
         },
         alt: 'Reverse Navigation Navigation Preview',
         fit: 'contain',
@@ -389,9 +364,9 @@ export const templates = [
     seoDescription: `Allows user to move back through previous screens
     chronologically as you would on a browser hierarchically within
     an application or website.`,
-    relatedContent: ['Navigation', 'Button'],
-    sections: ['When to Use', 'Back Button Example'],
-    tags: ['navigation', 'navigation patterns'],
+    relatedContent: [],
+    sections: [],
+    tags: [],
   },
   {
     name: 'Side to Side Navigation',
@@ -400,10 +375,11 @@ export const templates = [
     description: `Allows users to access sibling screens sequentially from
      the same level of the hierarchy.`,
     preview: {
+      background: 'background-front',
       image: {
         src: {
           light: '/templateImages/Side-to-Side.svg',
-          dark: '/templateImages/Side-to-Side.svg',
+          dark: '/templateImages/SideToSide-invert.svg',
         },
         alt: 'Side-to-Side Navigation Preview',
         fit: 'contain',
@@ -411,15 +387,9 @@ export const templates = [
     },
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
-    relatedContent: ['Navigation', 'Header'],
-    sections: ['Where to use', 'HPE Local Header Example', 'Tabs Navigation'],
-    tags: [
-      'navigation',
-      'navigation patterns',
-      'app level navigation',
-      'application navigation',
-      'sidebar',
-    ],
+    relatedContent: [],
+    sections: [],
+    tags: [],
   },
   {
     name: 'Status Indicator',
