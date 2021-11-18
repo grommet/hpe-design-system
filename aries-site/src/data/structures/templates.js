@@ -259,7 +259,7 @@ export const templates = [
   {
     name: 'Matrix Navigation',
     description:
-    'Matrix Navigation Guidence.',
+    'Matrix Navigation Guidance.',
     available: true,
     cardOrder: 100,
     preview: {
