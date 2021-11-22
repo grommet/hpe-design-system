@@ -528,4 +528,15 @@ export const templates = [
     sections: ['Guidance', 'Theming', 'Scrolling', 'Line Wrapping'],
     tags: ['code', 'syntax highlighting'],
   },
+  {
+    name: 'Scrolling and Pagination',
+    available: false,
+    cardOrder: 100,
+    description: `When and how to apply techniques such as scrollable regions 
+    and pagination.`,
+    seoDescription: `When and how to apply techniques such as scrollable 
+    regions or pagination.`,
+    sections: [],
+    tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
+  },
 ];
