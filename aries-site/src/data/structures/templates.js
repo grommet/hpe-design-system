@@ -258,8 +258,9 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description:
-    'Matrix Navigation Guidance.',
+    description: `Allows user to move back through previous
+    screens chronologically as you would on a browser
+    hierarchically within an application or website.`,
     available: true,
     cardOrder: 100,
     preview: {
@@ -274,7 +275,9 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: 'Matrix Navigation',
+    seoDescription: `Allows user to move back through previous
+    screens chronologically as you would on a browser
+    hierarchically within an application or website.`,
   },
   {
     name: 'Navigation',
@@ -294,9 +297,7 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: [
-      'Header',
-    ],
+    relatedContent: ['Header'],
     tags: ['navigation patterns'],
   },
   {
