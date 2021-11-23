@@ -90,7 +90,12 @@ export const templates = [
     seoDescription: `Allows users to descend 'down' branches of a
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+        'Navigation',
+        'Side to Side Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
     tags: [],
   },
   {
@@ -364,7 +369,12 @@ export const templates = [
     seoDescription: `Allows user to move back through previous screens
     chronologically as you would on a browser hierarchically within
     an application or website.`,
-    relatedContent: [],
+    relatedContent: [
+        'Navigation',
+        'Drill Down Navigation',
+        'Side to Side Navigation',
+        'Matrix Navigation',
+],
     sections: [],
     tags: [],
   },
@@ -387,7 +397,12 @@ export const templates = [
     },
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
-    relatedContent: [],
+    relatedContent: [
+        'Navigation',
+        'Drill Down Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
     sections: [],
     tags: [],
   },
