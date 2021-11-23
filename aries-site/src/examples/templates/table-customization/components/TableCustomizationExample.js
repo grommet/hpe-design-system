@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, DropButton, Header, Heading, Menu } from 'grommet';
-import { SettingsOption } from 'grommet-icons';
+import { Splits } from 'grommet-icons';
 
 import { ColumnSettings } from './ColumnSettings';
 import {
@@ -117,7 +117,7 @@ export const TableCustomizationExample = () => {
                   actions={
                     <Box direction="row" align="start" gap="small" flex={false}>
                       <DropButton
-                        icon={<SettingsOption />}
+                        icon={<Splits />}
                         kind="toolbar"
                         dropAlign={{ top: 'bottom', right: 'right' }}
                         onClose={() => setOpen(false)}

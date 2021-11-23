@@ -6599,9 +6599,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.488, electron-to-chromium@^1.3.896:
-  version "1.3.904"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.904.tgz#52a353994faeb0f2a9fab3606b4e0614d1af7b58"
-  integrity sha512-x5uZWXcVNYkTh4JubD7KSC1VMKz0vZwJUqVwY3ihsW0bst1BXDe494Uqbg3Y0fDGVjJqA8vEeGuvO5foyH2+qw==
+  version "1.3.906"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.906.tgz#144e212691e35fa8c294431e2ecb51e4b03f7577"
+  integrity sha512-UjoECdcOYIVzWmrbtNnYpPrDuu+RtiO5W08Vdbid9ydGQMSdnqtJUtvOqQEAVQqpoXN9kSW9YnQufvzLQMYQOw==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -8144,9 +8144,15 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.6.2, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.6.2:
   version "4.7.0"
-  uid "0f118e6882f1b2870c980abdd388ef6a8e6d01fd"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.7.0.tgz#1d537b2bdc507be07d5643309d433bbe1464c5b6"
+  integrity sha512-ptw8x86Age/Yz6SplCLtJ8q1z/4ZLktMruCOnE6oTgc7hcIV/8ieOucTrLbu+PDi7rKxoP321O3OG3Zo/3qXjw==
+  dependencies:
+    grommet-styles "^0.2.0"
+
+"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+  version "4.7.0"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#0f118e6882f1b2870c980abdd388ef6a8e6d01fd"
   dependencies:
     grommet-styles "^0.2.0"
@@ -8161,9 +8167,8 @@ grommet-styles@^0.2.0:
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#3bb497dd91772e8bf5657fe0fcaa5840a33d5355"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.19.1"
-  uid b276a37bccd0c802fa99f132564bf93a5b2eb1f2
-  resolved "https://github.com/grommet/grommet/tarball/stable#b276a37bccd0c802fa99f132564bf93a5b2eb1f2"
+  version "2.18.0"
+  resolved "https://github.com/grommet/grommet/tarball/stable#7b26b29828e613d384eb0297313d72de770cd6ff"
   dependencies:
     grommet-icons "^4.6.2"
     hoist-non-react-statics "^3.2.0"
