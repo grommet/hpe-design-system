@@ -34,10 +34,10 @@ const testAllDisplays = async (eyes, t) => {
   });
 };
 
-const title = 'Template Page (Persistent Nav)';
+const title = 'Template Page (Dashboards)';
 
 fixture(title)
-  .page(`${baseUrl}/templates/persistent-navigation`)
+  .page(`${baseUrl}/templates/dashboards`)
   .beforeEach(async () => {
     await waitForReact();
   });

@@ -1,4 +1,4 @@
-import { Box, Button, FileInput, Form, FormField } from 'grommet';
+import { Box, FileInput, Form, FormField } from 'grommet';
 import { useState } from 'react';
 
 const exampleFiles = [

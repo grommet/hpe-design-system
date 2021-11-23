@@ -72,6 +72,33 @@ export const templates = [
     tags: [],
   },
   {
+    name: 'Drill Down Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `Allows users to descend 'down' branches of a hierarchical
+     tree into a child screen to drill down into details.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/DrillDown.svg',
+          dark: '/templateImages/DrillDown-invert.svg',
+        },
+        alt: 'HPE Dashboards Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to descend 'down' branches of a
+     hierarchical tree into a child screen to drill down into details.`,
+    sections: [],
+    relatedContent: [
+        'Navigation',
+        'Side to Side Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
+    tags: [],
+  },
+  {
     name: 'Filtering',
     available: true,
     cardOrder: 3,
@@ -79,12 +106,12 @@ export const templates = [
     data attributes and values of interest.`,
     preview: {
       image: {
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
         src: {
           light: '/templateImages/template-preview-filtering.svg',
           dark: '/templateImages/template-preview-filtering-invert.svg',
         },
-        alt: 'HPE Filtering Preview',
-        fit: 'contain',
       },
     },
     seoDescription: `Allows users to create a focused data set by specifying 
@@ -154,40 +181,6 @@ export const templates = [
       'global header',
       'global footer',
       'header service',
-    ],
-  },
-  {
-    name: 'Hub and Spoke Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `A navigation pattern promoting focused execution through 
-    a central "hub" from which all activities begin and "spokes" on which 
-    more focused tasks are accomplished.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-hubnspoke.svg',
-          dark: '/templateImages/template-preview-hubnspoke-invert.svg',
-        },
-        alt: 'HPE Hub and Spoke Navigation Preview',
-      },
-    },
-    seoDescription: `Hub and spoke navigation pattern. What, why, and when 
-    to use the Hub & Spoke pattern for navigation.`,
-    relatedContent: [
-      'Navigation',
-      'Persistent Navigation',
-      'Header',
-      'Grid',
-      'Lists',
-    ],
-    sections: ['When to Use Hub & Spoke'],
-    tags: [
-      'navigation',
-      'app navigation',
-      'navigation patterns',
-      'hub and spoke',
-      'hub & spoke',
     ],
   },
   {
@@ -268,6 +261,29 @@ export const templates = [
     ],
   },
   {
+    name: 'Matrix Navigation',
+    description: `Allows user to move back through previous
+    screens chronologically as you would on a browser
+    hierarchically within an application or website.`,
+    available: true,
+    cardOrder: 100,
+    preview: {
+      pad: { horizontal: 'small' },
+      image: {
+        src: {
+          light: '/templateImages/MatrixNavigation.svg',
+          dark: '/templateImages/MatrixNavigation-invert.svg',
+        },
+        alt: 'HPE Lists Preview',
+        fit: 'contain',
+      },
+    },
+    relatedContent: [],
+    seoDescription: `Allows user to move back through previous
+    screens chronologically as you would on a browser
+    hierarchically within an application or website.`,
+  },
+  {
     name: 'Navigation',
     available: true,
     cardOrder: 4,
@@ -285,11 +301,7 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: [
-      'Header',
-      'Hub and Spoke Navigation',
-      'Persistent Navigation',
-    ],
+    relatedContent: ['Header'],
     tags: ['navigation patterns'],
   },
   {
@@ -337,35 +349,62 @@ export const templates = [
     ],
   },
   {
-    name: 'Persistent Navigation',
+    name: 'Reverse Navigation',
     available: true,
     cardOrder: 100,
-    description: `Navigation choices which persist throughout the application
-    structure, presenting consistent, easy to click-through choices.`,
+    description: `Allows user to move back through previous screens
+    chronologically as you would on a browser hierarchically within
+    an application or website.`,
     preview: {
+      pad: { horizontal: 'small' },
       image: {
         src: {
-          light: '/templateImages/template-preview-persistent.svg',
-          dark: '/templateImages/template-preview-persistent-invert.svg',
+          light: '/templateImages/ReverseNavigation.svg',
+          dark: '/templateImages/ReverseNavigation-invert.svg',
         },
-        alt: 'HPE Peristent Navigation Preview',
+        alt: 'Reverse Navigation Navigation Preview',
+        fit: 'contain',
       },
     },
-    seoDescription: `Persistent navigation pattern. What, why, and when to use 
-    persistent navigation.`,
-    relatedContent: ['Navigation', 'Hub and Spoke Navigation', 'Header'],
-    sections: [
-      'When to Use Persistent Navigation',
-      'Header as Persistent Navigation',
-      'Minimal Sidebar',
-    ],
-    tags: [
-      'navigation',
-      'navigation patterns',
-      'app level navigation',
-      'application navigation',
-      'sidebar',
-    ],
+    seoDescription: `Allows user to move back through previous screens
+    chronologically as you would on a browser hierarchically within
+    an application or website.`,
+    relatedContent: [
+        'Navigation',
+        'Drill Down Navigation',
+        'Side to Side Navigation',
+        'Matrix Navigation',
+],
+    sections: [],
+    tags: [],
+  },
+  {
+    name: 'Side to Side Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `Allows users to access sibling screens sequentially from
+     the same level of the hierarchy.`,
+    preview: {
+      pad: { horizontal: 'small' },
+      image: {
+        src: {
+          light: '/templateImages/Side-to-Side.svg',
+          dark: '/templateImages/SideToSide-invert.svg',
+        },
+        alt: 'Side-to-Side Navigation Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to access sibling screens sequentially from
+    the same level of the hierarchy.`,
+    relatedContent: [
+        'Navigation',
+        'Drill Down Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
+    sections: [],
+    tags: [],
   },
   {
     name: 'Status Indicator',
