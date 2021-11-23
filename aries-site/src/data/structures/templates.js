@@ -91,7 +91,12 @@ export const templates = [
     seoDescription: `Allows users to descend 'down' branches of a
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+        'Navigation',
+        'Side to Side Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
     tags: [],
   },
   {
