@@ -12,7 +12,10 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
     <Card fill pad="medium" ref={ref} {...rest}>
       <CardBody gap="large">
         {!minimal && (
-          <PreviewImageCard background={preview && preview.background}>
+          <PreviewImageCard
+            pad={preview?.pad || 'none'}
+            background={preview?.background}
+          >
             {preview &&
               (preview.image && preview.image.src ? (
                 <Image
@@ -59,6 +62,8 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   );
 });
 
+const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
+
 ContentCard.propTypes = {
   minimal: PropTypes.bool,
   topic: PropTypes.shape({
@@ -78,6 +83,44 @@ ContentCard.propTypes = {
         fit: PropTypes.string,
         src: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       }),
+      pad: PropTypes.oneOfType([
+        PropTypes.oneOf(['none', ...PAD_SIZES]),
+        PropTypes.shape({
+          bottom: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          end: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          horizontal: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          left: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          right: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          start: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          top: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          vertical: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+        }),
+        PropTypes.string,
+      ]),
     }),
     render: PropTypes.string,
   }),
