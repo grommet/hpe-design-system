@@ -78,7 +78,6 @@ export const templates = [
     description: `Allows users to descend 'down' branches of a hierarchical
      tree into a child screen to drill down into details.`,
     preview: {
-      background: 'background-front',
       image: {
         src: {
           light: '/templateImages/DrillDown.svg',
@@ -264,7 +263,7 @@ export const templates = [
     available: true,
     cardOrder: 100,
     preview: {
-      background: 'background-front',
+      pad: { horizontal: 'small' },
       image: {
         src: {
           light: '/templateImages/MatrixNavigation.svg',
@@ -352,7 +351,7 @@ export const templates = [
     chronologically as you would on a browser hierarchically within
     an application or website.`,
     preview: {
-      background: 'background-front',
+      pad: { horizontal: 'small' },
       image: {
         src: {
           light: '/templateImages/ReverseNavigation.svg',
@@ -376,7 +375,7 @@ export const templates = [
     description: `Allows users to access sibling screens sequentially from
      the same level of the hierarchy.`,
     preview: {
-      background: 'background-front',
+      pad: { horizontal: 'small' },
       image: {
         src: {
           light: '/templateImages/Side-to-Side.svg',
