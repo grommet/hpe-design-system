@@ -13,8 +13,8 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
       <CardBody gap="large">
         {!minimal && (
           <PreviewImageCard
-            pad={preview && preview.pad || 'none'}
-            background={preview && preview.background}
+            pad={preview?.pad || 'none'}
+            background={preview?.background}
           >
             {preview &&
               (preview.image && preview.image.src ? (
