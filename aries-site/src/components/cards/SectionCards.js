@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Grid, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
 export const SectionCards = ({ items, seeAllContent }) => {
@@ -33,4 +34,13 @@ export const SectionCards = ({ items, seeAllContent }) => {
       />
     </Box>
   );
+};
+SectionCards.propTypes = {
+  items: PropTypes.array,
+  seeAllContent: PropTypes.oneOfType([
+    PropTypes.shape({
+      buttonLabel: PropTypes.string,
+      href: PropTypes.string,
+    }),
+  ]),
 };
