@@ -74,6 +74,7 @@ export const ChangePasswordExample = () => {
             htmlFor="currentPassword"
             name="currentPassword"
             label="Current Password"
+            required={{ indicator: false }}
           >
             <TextInput
               id="currentPassword"
@@ -87,6 +88,7 @@ export const ChangePasswordExample = () => {
             name="newPassword"
             label="New Password"
             validate={passwordRulesWeak}
+            required={{ indicator: false }}
           >
             <TextInput
               id="newPassword"
@@ -99,6 +101,7 @@ export const ChangePasswordExample = () => {
             htmlFor="confirmPassword"
             name="confirmPassword"
             label="Confirm Password"
+            required={{ indicator: false }}
             validate={confirmPassword}
           >
             <TextInput
