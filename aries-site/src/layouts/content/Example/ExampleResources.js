@@ -45,9 +45,14 @@ export const ExampleResources = ({
   };
 
   React.useEffect(() => {
-    if (codeOpen) {
-      fetchCode(activeCode);
-    }
+    const timer = setTimeout(() => {
+      if (codeOpen) {
+        fetchCode(activeCode);
+      }
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [activeCode, codeOpen]);
 
   if (horizontalLayout && code) {

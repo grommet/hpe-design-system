@@ -117,6 +117,7 @@ export const TableCustomizationExample = () => {
                   actions={
                     <Box direction="row" align="start" gap="small" flex={false}>
                       <DropButton
+                        a11yTitle="Configure columns button"
                         icon={<Splits />}
                         kind="toolbar"
                         dropAlign={{ top: 'bottom', right: 'right' }}

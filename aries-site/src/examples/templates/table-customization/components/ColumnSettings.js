@@ -40,6 +40,7 @@ export const ColumnSettings = ({
             <TextInput
               type="search"
               icon={<Search id="search-cols-icon" />}
+              aria-labelledby="search-cols-icon"
               placeholder="Search columns"
               value={search}
               onChange={event => {
