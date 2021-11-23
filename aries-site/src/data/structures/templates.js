@@ -388,7 +388,12 @@ export const templates = [
     },
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
-    relatedContent: [],
+    relatedContent: [
+        'Navigation',
+        'Drill Down Navigation',
+        'Reverse Navigation',
+        'Matrix Navigation',
+],
     sections: [],
     tags: [],
   },
