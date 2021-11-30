@@ -34,7 +34,7 @@ export const defaultFormValues = {
 };
 
 const stepOneInputs = [
-  (setValid) => (
+  setValid => (
     <>
       <FormField
         label="First Name"
@@ -71,7 +71,7 @@ const stepOneInputs = [
           message: 'Invalid email address',
           status: 'error',
         }}
-        >
+      >
         <TextInput
           placeholder="jane.smith@hpe.com"
           id="text-input-validation"
@@ -113,9 +113,7 @@ const StepOne = () => {
           </Box>
         ))}
       </Grid>
-      {!valid && (
-        <Error>There is an error with one or more inputs.</Error>
-      )}
+      {!valid && <Error>There is an error with one or more inputs.</Error>}
     </>
   );
 };
@@ -148,6 +146,7 @@ const StepTwo = () => (
         name="text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
+        resize="vertical"
       />
     </FormField>
   </Box>
