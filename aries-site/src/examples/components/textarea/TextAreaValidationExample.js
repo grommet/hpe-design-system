@@ -27,7 +27,6 @@ export const TextAreaValidationExample = () => {
             }
             setValue(event.target.value);
           }}
-          resize="vertical"
           value={value}
         />
       </FormField>
