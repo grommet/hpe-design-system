@@ -112,7 +112,12 @@ export const RequiredFieldsExample = () => {
             name="comments"
             label="Comments (optional)"
           >
-            <TextArea id="comments" name="comments" placeholder="Comments" />
+            <TextArea
+              id="comments"
+              name="comments"
+              placeholder="Comments"
+              resize="vertical"
+            />
           </FormField>
           <FormField
             htmlFor="fileinput"
