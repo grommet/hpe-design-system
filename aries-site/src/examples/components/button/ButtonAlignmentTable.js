@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import {
   Anchor,
@@ -97,7 +97,7 @@ export const ButtonAlignmentTable = () => (
                 ) : (
                   <Box direction="row" gap="xsmall" wrap>
                     {datum[c.property].map((item, index) => (
-                      <>
+                      <Fragment key={c.property}>
                         {item.href ? (
                           <Anchor
                             label={item.label}
@@ -112,7 +112,7 @@ export const ButtonAlignmentTable = () => (
                         {index < datum[c.property].length - 1 && (
                           <Text size="large">, </Text>
                         )}
-                      </>
+                      </Fragment>
                     ))}
                   </Box>
                 )}
