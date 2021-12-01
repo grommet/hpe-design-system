@@ -97,11 +97,10 @@ const LayerForm = ({ setOpen }) => {
         <Box
           direction="row"
           gap="large"
-          justify="end"
           margin={{ top: 'medium', bottom: 'small' }}
         >
+          <Button label="Submit Form" primary type="submit" />
           <Button label="Cancel" onClick={() => setOpen(false)} />
-          <Button label="submit form" primary type="submit" />
         </Box>
       </Form>
     </Box>
