@@ -1,6 +1,14 @@
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
 import {
+  ButtonCtaCardExampleBad,
+  ButtonCtaCardExampleGood,
+  ButtonCtaFormExampleBad,
+  ButtonCtaFormExampleGood,
   ButtonExample,
+  ButtonGroupColumnExampleGood,
+  ButtonGroupRowExampleGood,
+  ButtonGroupTruncatedExampleBad,
+  ButtonGroupWrappedExampleBad,
   ButtonIconExample,
   ButtonStatesExample,
   ButtonSizingExample,
@@ -199,9 +207,67 @@ Ensure you are always being mindful of our responsive page layouts when designin
 
 When buttons are “Brand” or “CTA (Call to Action)”, it is best to have them fill the full width of the container for browser widths of 576px (S) or smaller. Because press target size and an unclear visual hierarchy are key concerns here, this utilizes available space to ensure users can easily identify and interact with important buttons.
 
+<BestPracticeGroup>
+  <Example
+    height="large"
+    bestPractice={{type: 'do', message: 'Full width CTAs help users identify & interact with buttons easier on smaller browser widths and when using the press gesture.'}}
+  >
+    <ButtonCtaFormExampleGood />
+  </Example>
+  <Example
+    height="large"
+    bestPractice={{type: 'dont', message: `Making the CTA smaller here lessens it’s visual impact and makes it more difficult for the user to interact with it on smaller browser widths.`}}
+  >
+    <ButtonCtaFormExampleBad />
+  </Example>
+</BestPracticeGroup>
 
+<BestPracticeGroup>
+  <Example
+    height="medium"
+    bestPractice={{type: 'do', message: 'This secondary button is not a CTA more subtly presents itself on the page.'}}
+  >
+    <ButtonCtaCardExampleGood />
+  </Example>
+  <Example
+    height="medium"
+    bestPractice={{type: 'dont', message: `This secondary button draws unnecessary attention to itself and confuses the visual heirarchy of the page.`}}
+  >
+    <ButtonCtaCardExampleBad />
+  </Example>
+</BestPracticeGroup>
 
 ### Button Groups
 
 When buttons are grouped in a single row, follow the best practices to ensure enough space is provided for the full content of each button. If this cannot be accomplished in a single row, realign the button group to a vertical arrangement.
+
+<BestPracticeGroup>
+  <Example
+    height="medium"
+    bestPractice={{type: 'do', message: 'These buttons are appropriately displayed in-line as the full button content is clearly visible.'}}
+  >
+    <ButtonGroupRowExampleGood />
+  </Example>
+  <Example
+    height="medium"
+    bestPractice={{type: 'dont', message: `The label text is truncated, making these buttons unreadable.`}}
+  >
+    <ButtonGroupTruncatedExampleBad />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height="medium"
+    bestPractice={{type: 'do', message: 'Because of the long labels, these buttons have switched to a vertical arrangement.'}}
+  >
+    <ButtonGroupColumnExampleGood />
+  </Example>
+  <Example
+    height="medium"
+    bestPractice={{type: 'dont', message: `The labels required a line-break and negatively impact the readability of the buttons.`}}
+  >
+    <ButtonGroupWrappedExampleBad />
+  </Example>
+</BestPracticeGroup>
 
