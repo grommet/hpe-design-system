@@ -26,6 +26,7 @@ import { getWidth } from './utils';
 
 export const defaultFormValues = {
   'firstname-validation': '',
+  'lastname-validation': '',
   'text-input-validation': '',
   'radio-button-group-validation': '',
   select: '',
