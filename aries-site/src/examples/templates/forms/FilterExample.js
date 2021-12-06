@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Button,
   CheckBoxGroup,
   Form,
   FormField,
@@ -105,6 +106,11 @@ export const FilterExample = () => {
               <CheckBoxGroup options={sellers} id="sellers" name="sellers" />
             </FormField>
           )}
+          <Box direction="row-responsive" gap="medium" pad={{ top: 'medium' }}>
+            <Button label="Apply Filters" primary />
+            <Button label="Reset Filters" secondary />
+            <Button label="Cancel" />
+          </Box>
         </Form>
       </Box>
     </Box>
