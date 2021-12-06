@@ -81,9 +81,7 @@ const StepOne = () => {
               />
             </FormField>
           </>
-          {!valid && (
-            <Error>There is an error with one or more inputs.</Error>
-          )}
+          {!valid && <Error>There is an error with one or more inputs.</Error>}
         </Box>
       </Box>
       <Box flex width={{ max: 'xxsmall' }} />
@@ -128,6 +126,7 @@ const StepTwo = () => (
         name="twocolumn-text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
+        resize="vertical"
       />
     </FormField>
   </Box>
@@ -235,7 +234,7 @@ export const TwoColumnWizardExample = () => {
     >
       <Box fill>
         <WizardHeader setOpen={setOpen} />
-        <StepContent 
+        <StepContent
           onSubmit={({ value }) => console.log('onSubmit:', value)}
         />
         <StepFooter />
