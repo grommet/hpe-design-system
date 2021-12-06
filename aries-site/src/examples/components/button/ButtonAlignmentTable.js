@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-
+import Link from 'next/link';
 import {
   Anchor,
   Box,
@@ -65,7 +65,13 @@ const columns = [
 ];
 
 export const ButtonAlignmentTable = () => (
-  <Card alignSelf="start" elevation="none" pad="medium" width="large">
+  <Card
+    alignSelf="start"
+    elevation="none"
+    pad="medium"
+    width="large"
+    round="xsmall"
+  >
     {/* style tag is necessary in order for table not 
     to exceed container width */}
     <Table style={{ tableLayout: 'fixed', width: '100%' }}>
@@ -78,7 +84,7 @@ export const ButtonAlignmentTable = () => (
               scope="col"
               pad={{ vertical: 'small' }}
             >
-              <Text color="text-strong" weight="bold" size="large">
+              <Text color="text-strong" weight="bold">
                 {c.label}
               </Text>
             </TableCell>
@@ -89,28 +95,26 @@ export const ButtonAlignmentTable = () => (
         {data.map(datum => (
           <TableRow key={datum.id}>
             {columns.map(c => (
-              <TableCell key={c.property} pad={{ vertical: 'small' }}>
+              <TableCell
+                key={c.property}
+                border={{ side: 'bottom', color: 'border-weak' }}
+                pad={{ vertical: 'small' }}
+              >
                 {c.property === 'alignment' ? (
-                  <Text color="text-strong" size="large" weight="bold">
-                    {datum[c.property]}
-                  </Text>
+                  datum[c.property]
                 ) : (
                   <Box direction="row" gap="xsmall" wrap>
                     {datum[c.property].map((item, index) => (
                       <Fragment key={c.property}>
                         {item.href ? (
-                          <Anchor
-                            label={item.label}
-                            href={item.href}
-                            size="large"
-                          />
+                          <Link href={item.href} passHref>
+                            <Anchor label={item.label} href={item.href} />
+                          </Link>
                         ) : (
-                          <Text size="large" weight={500}>
-                            {item.label}
-                          </Text>
+                          <Text>{item.label}</Text>
                         )}
                         {index < datum[c.property].length - 1 && (
-                          <Text size="large">, </Text>
+                          <Text>, </Text>
                         )}
                       </Fragment>
                     ))}
