@@ -1,3 +1,4 @@
+export * from './ButtonAlignmentTable';
 export * from './ButtonExample';
 export * from './ButtonIconExample';
 export * from './ButtonSizingExample';
