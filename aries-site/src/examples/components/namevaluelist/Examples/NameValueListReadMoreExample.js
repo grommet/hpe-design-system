@@ -1,35 +1,104 @@
 import React, { useState } from 'react';
-import { Box, Button, NameValueList, NameValuePair } from 'grommet';
+import {
+  Anchor,
+  Box,
+  Button,
+  NameValueList,
+  NameValuePair,
+  Paragraph,
+} from 'grommet';
 import { FormDown, FormUp } from 'grommet-icons';
 import { contentTruncationData } from '../data';
 
 export const NameValueListReadMoreExample = () => {
-  const MAX_LENGTH = 192;
-  const [showAll, setShowAll] = useState(false);
+  // HPE Design System guidance for string length prior to truncation.
+  const MAX_STRING_LENGTH = 192;
+  const MAX_LIST_LENGTH = 6;
+  const TRUNC_LIST_LENGTH = 3;
+  const [showAllServices, setShowAllServices] = useState(false);
+  const [showAllSources, setShowAllSources] = useState(false);
+
+  const dataSources = contentTruncationData.services
+    .map(service => ` ${service.name}`)
+    .toString();
 
   return (
     <Box pad="small">
-      <NameValueList>
-        {Object.entries(contentTruncationData).map(([name, value]) => (
-          <NameValuePair key={name} name={name}>
-            {value.length <= MAX_LENGTH ? (
-              value
-            ) : (
-              <>
-                {!showAll ? `${value.substring(0, MAX_LENGTH)}...` : value}
-                <Button
-                  alignSelf="start"
-                  size="small"
-                  label={`See ${!showAll ? 'more' : 'less'}`}
-                  onClick={() => setShowAll(!showAll)}
-                  icon={!showAll ? <FormDown /> : <FormUp />}
-                  reverse
-                />
-              </>
+      <NameValueList
+        nameProps={{ width: ['xsmall', 'small'] }}
+        valueProps={{ width: ['auto', 'medium'] }}
+      >
+        <NameValuePair name="State">
+          {contentTruncationData.state}
+        </NameValuePair>
+        <NameValuePair name="Data Sources">
+          {dataSources.length <= MAX_STRING_LENGTH ? (
+            dataSources
+          ) : (
+            <>
+              {!showAllSources
+                ? `${dataSources.substring(0, MAX_STRING_LENGTH)} ...`
+                : dataSources}
+              <TruncateButton
+                showAll={showAllSources}
+                setShowAll={setShowAllSources}
+              />
+            </>
+          )}
+        </NameValuePair>
+        <NameValuePair name="Services">
+          <>
+            {contentTruncationData.services
+              .sort((a, b) => {
+                let result = 0;
+                if (a.name > b.name) {
+                  result = 1;
+                } else if (a.name < b.name) {
+                  result = -1;
+                }
+                return result;
+              })
+              .slice(
+                0,
+                showAllServices ||
+                  contentTruncationData.services.length < MAX_LIST_LENGTH
+                  ? contentTruncationData.services.length
+                  : TRUNC_LIST_LENGTH,
+              )
+              .map(service => (
+                <Anchor
+                  key={service.name}
+                  onClick={() => {
+                    // eslint-disable-next-line no-alert
+                    alert(
+                      `Alert for demonstration purposes. Typically this would 
+route the user to a detailed view of the service.`,
+                    );
+                  }}
+                >
+                  {service.name}
+                </Anchor>
+              ))}
+            {contentTruncationData.services.length >= MAX_LIST_LENGTH && (
+              <TruncateButton
+                showAll={showAllServices}
+                setShowAll={setShowAllServices}
+              />
             )}
-          </NameValuePair>
-        ))}
+          </>
+        </NameValuePair>
       </NameValueList>
     </Box>
   );
 };
+
+const TruncateButton = ({ showAll, setShowAll }) => (
+  <Button
+    alignSelf="start"
+    size="small"
+    label={`Show ${!showAll ? 'all' : 'less'}`}
+    onClick={() => setShowAll(!showAll)}
+    icon={!showAll ? <FormDown /> : <FormUp />}
+    reverse
+  />
+);
