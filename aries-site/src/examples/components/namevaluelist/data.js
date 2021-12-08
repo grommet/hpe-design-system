@@ -14,13 +14,25 @@ export const anatomyData = {
 };
 
 export const contentTruncationData = {
-  State: 'Enabled',
-  'Data Sources': `Azure EA, Azure IN - 003, HPE GreenLake (DEV)-00469,
-     Azure EA-001, HPE Aruba (Dev)-03464, HPE GreenLake
-     (Test)-004681, Azure EA-003, HPE Aruba (Stage)-03464,
-     HPE GreenLake (DEV)-00468, Azure H-004, HPE Aruba
-     (Dev)-03464, HPE GreenLake (Test)-004681, Azure EA-003,
-     HPE Aruba (Stage)-03464, HPE GreenLake (DEV)-00468, Azure H-004`,
+  state: 'Enabled',
+  services: [
+    { name: 'Azure EA', url: '' },
+    { name: 'Azure IN - 003', url: '' },
+    { name: 'HPE GreenLake (DEV)-00469', url: '' },
+    { name: 'Azure EA-001', url: '' },
+    { name: 'HPE Aruba (Dev)-03464', url: '' },
+    { name: 'HPE GreenLake (Test)-004681', url: '' },
+    { name: 'Azure EA-003', url: '' },
+    { name: 'HPE Aruba (Stage)-03464', url: '' },
+    { name: 'HPE GreenLake (DEV)-00468', url: '' },
+    { name: 'Azure H-004', url: '' },
+    { name: 'HPE Aruba (Dev)-03464', url: '' },
+    { name: 'HPE GreenLake (Test)-004681', url: '' },
+    { name: 'Azure EA-003', url: '' },
+    { name: 'HPE Aruba (Stage)-03464', url: '' },
+    { name: 'HPE GreenLake (DEV)-00468', url: '' },
+    { name: 'Azure H-004', url: '' },
+  ],
 };
 
 export const defaultData = {
