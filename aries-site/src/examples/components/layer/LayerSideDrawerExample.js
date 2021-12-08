@@ -15,7 +15,6 @@ import {
   TextInput,
   Text,
 } from 'grommet';
-import { Close } from 'grommet-icons';
 
 const LayerForm = ({ setOpen }) => {
   // eslint-disable-next-line no-unused-vars
@@ -26,17 +25,15 @@ const LayerForm = ({ setOpen }) => {
 
   return (
     <Box gap="medium">
-      <Box>
-        <Header align="start" pad={{ horizontal: 'xxsmall' }}>
-          <Box gap="xxsmall">
-            <Heading level={3} margin="none">
-              Form Header
-            </Heading>
-            <Text>a subtitle if needed</Text>
-          </Box>
-          <Button icon={<Close />} onClick={() => setOpen(false)} />
-        </Header>
-      </Box>
+      <Header align="start" pad={{ horizontal: 'xxsmall' }}>
+        <Box gap="xxsmall">
+          <Heading level={2} margin="none" id="layer-title">
+            Form Header
+          </Heading>
+          <Text id="layer-desc">a subtitle if needed</Text>
+        </Box>
+      </Header>
+
       <Form
         validate="blur"
         method="post"
@@ -97,8 +94,13 @@ const LayerForm = ({ setOpen }) => {
             toggle
           />
         </FormField>
-        <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
-          <Button label="Close the layer" primary type="submit" />
+        <Box
+          direction="row"
+          gap="small"
+          margin={{ top: 'medium', bottom: 'small' }}
+        >
+          <Button label="Submit Form" primary type="submit" />
+          <Button label="Cancel" onClick={() => setOpen(false)} />
         </Box>
       </Form>
     </Box>
@@ -114,6 +116,7 @@ export const LayerSideDrawerExample = () => {
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
+
   return (
     <>
       <Box align="start">
@@ -123,9 +126,8 @@ export const LayerSideDrawerExample = () => {
         <Layer
           position="right"
           full={size !== 'small' ? 'vertical' : true}
-          modal
-          onClickOutside={onClose}
           onEsc={onClose}
+          modal={false}
         >
           <Box
             fill="vertical"

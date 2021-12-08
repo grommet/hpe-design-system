@@ -1,6 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Heading, Layer, ResponsiveContext, Text } from 'grommet';
-import { Close } from 'grommet-icons';
+import {
+  Button,
+  Box,
+  Header,
+  Heading,
+  Layer,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
+import { FormClose } from 'grommet-icons';
 
 export const LayerExample = () => {
   const [open, setOpen] = useState(false);
@@ -26,21 +34,25 @@ export const LayerExample = () => {
             width={size !== 'small' ? 'medium' : undefined}
             pad="medium"
           >
-            <Box flex={false} direction="row" justify="between">
+            <Header>
               <Heading level={2} margin="none">
                 This is a Layer.
               </Heading>
-              <Button icon={<Close />} onClick={onClose} />
-            </Box>
+              <Button
+                a11yTitle={`You are on a Close button in a layer containing
+                a text description. To close the layer 
+                and return to the primary content, press Enter.`}
+                autoFocus
+                icon={<FormClose />}
+                onClick={onClose}
+              />
+            </Header>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
                 This layer is set to appear on the right and fill the screen
                 vertically. You can add content in here such as a Form or a
                 Chart.
               </Text>
-            </Box>
-            <Box flex={false} align="start">
-              <Button label="Close Layer" primary onClick={onClose} />
             </Box>
           </Box>
         </Layer>

@@ -7,8 +7,10 @@ export const Container = ({
   designer, // link to grommet designer example
   docs, // link to grommet doc for component
   figma, // link to figma design
+  guidance, // link to Design System guidance
   height: heightProp,
   horizontalLayout,
+  pad,
   plain, // remove Container from around example
   screenContainer, // show example in mock browser
   showResponsiveControls,
@@ -35,13 +37,14 @@ export const Container = ({
       justify="center"
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       pad={
-        template || screenContainer
+        pad ||
+        (template || screenContainer
           ? { horizontal: 'large', top: 'large' }
-          : 'large'
+          : 'large')
       }
       round={
         !horizontalLayout &&
-        (designer || docs || figma || screenContainer || template)
+        (designer || docs || figma || guidance || screenContainer || template)
           ? { corner: 'top', size: 'small' }
           : 'small'
       }
@@ -54,8 +57,10 @@ Container.propTypes = {
   designer: PropTypes.string,
   docs: PropTypes.string,
   figma: PropTypes.string,
+  guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.oneOfType([

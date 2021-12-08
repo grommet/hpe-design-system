@@ -4,7 +4,7 @@ import { FormPrevious, FormNext } from 'grommet-icons';
 
 export const FooterComboExample = () => {
   const size = useContext(ResponsiveContext);
-
+  const year = new Date().getFullYear();
   const footerLinks = [
     { label: 'Terms' },
     { label: 'Privacy' },
@@ -29,7 +29,7 @@ export const FooterComboExample = () => {
           gap="xsmall"
         >
           <Text size="small">
-            &copy; 2020 Hewlett Packard Enterprise Development LP
+            &copy; {year} Hewlett Packard Enterprise Development LP
           </Text>
         </Box>
         <Box

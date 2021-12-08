@@ -19,18 +19,27 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Install latest dependencies
         run: yarn upgrade
         working-directory: aries-site
+      - name: Log Git Repository
+        run: echo "$GITHUB_REPOSITORY"
       # Tests are only run on headless Chrome
       - name: Build and run e2e tests on Chrome
+        if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
         run: yarn test:ci
+        working-directory: aries-site
+      # Forked repo does not have access to APPLITOOLS_API_KEY
+      # Just run e2e tests but not snapshots
+      - name: Build and run e2e tests on Chrome, forked repo
+        if: ${{ github.event.pull_request.head.repo.full_name != 'grommet/hpe-design-system' }}
+        run: yarn test:fork
         working-directory: aries-site
 
   batch-completion-notification:
     needs: build-and-test
-    if: always()
+    if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
     runs-on: ubuntu-latest
     steps:
       - name: Update Applitools batch status

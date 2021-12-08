@@ -1,3 +1,4 @@
+export * from './ButtonAlignmentTable';
 export * from './ButtonExample';
 export * from './ButtonIconExample';
 export * from './ButtonSizingExample';
@@ -6,3 +7,4 @@ export * from './ColorButtonExample';
 export * from './DefaultButtonExample';
 export * from './PrimaryButtonExample';
 export * from './SecondaryButtonExample';
+export * from './ToolbarButtonExample';

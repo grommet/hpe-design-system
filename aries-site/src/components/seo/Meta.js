@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
+export const Meta = ({
+  title,
+  description,
+  canonicalUrl,
+  render,
+  socialImageUrl,
+}) => {
   const siteName = 'HPE Design System';
   const defaultImage = '/static/images/aries-introduction.jp2';
   const previewImage = socialImageUrl || defaultImage;
@@ -11,6 +17,17 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
   const segment = 'corporate';
   const lifecycle = 'support';
   const pageContent = 'products';
+  const csp = `default-src 'self' 'unsafe-eval'; 
+  style-src 'self' *.hpe.com/hfws-static/5/css/ 'unsafe-inline';
+  connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/;
+  media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4;
+  img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/;
+  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js ${
+    // in dev mode, we allow unsafe-eval to work with react hot reloader
+    process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
+  };
+  font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/;
+  object-src 'none';`;
 
   /*
    * IMPORTANT: `<meta>` tags need to be contained as **direct** children of
@@ -28,7 +45,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
     <Head>
       <title>
         {title && title !== 'Home'
-          ? `${title} — HPE Design System`
+          ? `${render || title} — HPE Design System`
           : 'HPE Design System'}
       </title>
       <meta
@@ -89,17 +106,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
       <meta key="segment" name="segment" content={segment} />
       <meta key="lifecycle" name="lifecycle" content={lifecycle} />
       <meta key="page_content" name="page_content" content={pageContent} />
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="default-src 'self' 'unsafe-eval'; 
-        style-src 'self' *.hpe.com/hfws-static/slim/css/ 'unsafe-inline';
-        connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com https://eyes.applitools.com;
-        media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/HPE+Design+System-v3.mp4;
-        img-src 'self' https://www.google-analytics.com;
-        script-src-elem 'self' *.hpe.com https://www.google-analytics.com/analytics.js;
-        font-src *.hpe.com hpefonts.s3.amazonaws.com *.cloudfront.net/fonts/;
-        object-src 'none';"
-      />
+      <meta httpEquiv="Content-Security-Policy" content={csp} />
     </Head>
   );
 };
@@ -107,6 +114,7 @@ export const Meta = ({ title, description, canonicalUrl, socialImageUrl }) => {
 Meta.propTypes = {
   canonicalUrl: PropTypes.string,
   description: PropTypes.string.isRequired,
+  render: PropTypes.string,
   socialImageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
 };

@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
   Header,
+  Heading,
   MaskedInput,
   Text,
   TextInput,
@@ -114,9 +115,14 @@ export const SignUpExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
           Sign Up
-        </Text>
+        </Heading>
         <Text>for a Hewlett Packard Enterprise account</Text>
       </Header>
       <Box
@@ -138,7 +144,7 @@ export const SignUpExample = () => {
             htmlFor="email-sign-up"
             name="email"
             validate={emailValidation}
-            required
+            required={{ indicator: false }}
           >
             <MaskedInput
               id="email-sign-up"
@@ -151,7 +157,7 @@ export const SignUpExample = () => {
             label="Full Name"
             htmlFor="fullName-sign-up"
             name="fullName"
-            required
+            required={{ indicator: false }}
           >
             <TextInput
               id="fullName-sign-up"
@@ -164,7 +170,7 @@ export const SignUpExample = () => {
             validate={passwordRequirements}
             htmlFor="password-sign-up"
             name="password"
-            required
+            required={{ indicator: false }}
             info={
               <List data={passwordRules} border={{ color: 'none' }} pad="none">
                 {rule => {

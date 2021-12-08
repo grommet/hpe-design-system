@@ -37,22 +37,22 @@ const data = [
 ];
 
 export const ListIconIdentifierExample = () => (
-    <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-      <List
-        background="background-front"
-        data={data}
-        action={item => <Text>{item.option}</Text>}
-        onClickItem={e => {
-          // eslint-disable-next-line no-alert
-          alert(`You clicked on ${e.item.name}`);
-        }}
-      >
-        {(datum, index) => (
-          <Box direction="row" gap="small" align="center" key={index}>
-            {datum.icon}
-            <Text weight="bold">{datum.name}</Text>
-          </Box>
-        )}
-      </List>
-    </Box>
-  );
+  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+    <List
+      background="background-front"
+      data={data}
+      action={item => <Text key={item.name}>{item.option}</Text>}
+      onClickItem={e => {
+        // eslint-disable-next-line no-alert
+        alert(`You clicked on ${e.item.name}`);
+      }}
+    >
+      {datum => (
+        <Box key={datum.name} direction="row" gap="small" align="center">
+          {datum.icon}
+          <Text weight="bold">{datum.name}</Text>
+        </Box>
+      )}
+    </List>
+  </Box>
+);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
+import PropTypes from 'prop-types';
 import { aries } from '../../themes/aries';
 import { useDarkMode } from '../../utils';
 
@@ -16,6 +17,11 @@ export const ThemeMode = ({ children, ...rest }) => {
   const body = (
     <Grommet
       background="background-back"
+      options={{
+        layer: {
+          singleId: true,
+        },
+      }}
       theme={aries}
       themeMode={themeMode}
       full
@@ -33,4 +39,8 @@ export const ThemeMode = ({ children, ...rest }) => {
   }
 
   return body;
+};
+
+ThemeMode.propTypes = {
+  children: PropTypes.element,
 };

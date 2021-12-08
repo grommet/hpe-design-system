@@ -1,12 +1,19 @@
 import { structure } from '../data';
 
-const allPages = structure.map(p => p.name);
-const allPageSections = structure
-  .map(p => p.sections)
-  .filter(Boolean)
-  .reduce((acc, val) => acc.concat(val), []);
+const allPages = structure.map(page => ({
+  label: page.name,
+  value: { ...page, title: page.name },
+}));
 
-export const getSearchSuggestions = allPages.concat(allPageSections).sort();
+// With content search, sections are already included,
+// so we don't need to double search them.
+export const getSearchSuggestions = allPages.sort((a, b) => {
+  const aLabel = a.label.toLowerCase();
+  const bLabel = b.label.toLowerCase();
+  if (aLabel < bLabel) return -1;
+  if (aLabel > bLabel) return 1;
+  return 0;
+});
 
 // String to slug from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1#file-slugify-js
 export const nameToSlug = name => {
@@ -48,13 +55,17 @@ export const getSectionParent = section =>
 
 export const nameToPath = name => {
   // if a page defines its own url, then it is an external link
-  const external = structure.filter(e => e.name === name && e.url)[0];
+  const external = structure.filter(
+    e => e.name.toLowerCase() === name.toLowerCase() && e.url,
+  )[0];
   if (external) {
     return external.url;
   }
 
   // Item selected is a main topic
-  const [page] = structure.filter(p => p.name === name);
+  const [page] = structure.filter(
+    p => p.name.toLowerCase() === name.toLowerCase(),
+  );
   if (typeof page !== 'undefined' && page.pages) {
     if (page.name === 'Home') {
       return '/';
@@ -83,7 +94,8 @@ export const nameToPath = name => {
  * Returns an array of page objects which are decendents of the
  * provided cardCategory. Where cardCategory is a string.
  */
-export const getCards = cardCategory => structure
+export const getCards = cardCategory =>
+  structure
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);

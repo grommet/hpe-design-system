@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
   Header,
+  Heading,
   MaskedInput,
   Text,
   TextInput,
@@ -114,9 +115,14 @@ export const SimpleSignUpExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
           Sign Up
-        </Text>
+        </Heading>
         <Text>for a Hewlett Packard Enterprise account</Text>
       </Header>
       <Box
@@ -138,7 +144,7 @@ export const SimpleSignUpExample = () => {
             htmlFor="email-sign-up-simple"
             name="email"
             validate={emailValidation}
-            required
+            required={{ indicator: false }}
           >
             <MaskedInput
               id="email-sign-up-simple"
@@ -151,7 +157,7 @@ export const SimpleSignUpExample = () => {
             label="Full Name"
             htmlFor="fullName-sign-up-simple"
             name="fullName"
-            required
+            required={{ indicator: false }}
           >
             <TextInput
               id="fullName-sign-up-simple"
@@ -160,6 +166,7 @@ export const SimpleSignUpExample = () => {
             />
           </FormField>
           <FormField
+            required={{ indicator: false }}
             label="Password"
             validate={passwordRequirements}
             htmlFor="password-sign-up-simple"
@@ -190,7 +197,6 @@ export const SimpleSignUpExample = () => {
                 }}
               </List>
             }
-            required
           >
             <TextInput
               id="password-sign-up-simple"

@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
   Header,
+  Heading,
   Layer,
   ResponsiveContext,
   Text,
@@ -136,9 +137,14 @@ export const SignInExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
           Sign In
-        </Text>
+        </Heading>
         <Text>to Hewlett Packard Enterprise</Text>
       </Header>
       <Box
@@ -155,11 +161,11 @@ export const SignInExample = () => {
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         >
           <FormField
-            required
             label="Email"
             name="email"
             htmlFor="email-sign-in"
             validate={emailValidation}
+            required={{ indicator: false }}
           >
             <TextInput
               id="email-sign-in"
@@ -169,10 +175,10 @@ export const SignInExample = () => {
             />
           </FormField>
           <FormField
-            required
             label="Password"
             htmlFor="password-sign-in"
             name="password"
+            required={{ indicator: false }}
           >
             <TextInput
               id="password-sign-in"

@@ -1,38 +1,21 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Card, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { useDarkMode } from '../../utils';
 
-export const StyledCard = styled(Card)`
-  transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
-`;
-
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
-  const { description, name, parent, preview } = topic;
-  const [isFocused, setIsFocused] = React.useState(false);
+  const { description, name, parent, preview, render } = topic;
   const darkMode = useDarkMode();
   return (
-    <StyledCard
-      elevation={isFocused ? 'medium' : 'small'}
-      fill
-      onBlur={() => setIsFocused(false)}
-      onFocus={() => setIsFocused(true)}
-      onMouseOut={() => setIsFocused(false)}
-      onMouseOver={() => setIsFocused(true)}
-      pad="medium"
-      ref={ref}
-      {...rest}
-    >
+    <Card fill pad="medium" ref={ref} {...rest}>
       <CardBody gap="large">
         {!minimal && (
-          <PreviewImageCard background={preview && preview.background}>
+          <PreviewImageCard
+            pad={preview?.pad || 'none'}
+            background={preview?.background}
+          >
             {preview &&
               (preview.image && preview.image.src ? (
                 <Image
@@ -59,7 +42,12 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           </PreviewImageCard>
         )}
         <Box gap="small">
-          <Identifier title={name} align="start" gap="xsmall" size="xxlarge">
+          <Identifier
+            title={render || name}
+            align="start"
+            gap="xsmall"
+            size="xxlarge"
+          >
             {parent && parent.icon && !minimal && (
               <Box direction="row" align="center" gap="xsmall">
                 {parent.icon('small', parent.color)}
@@ -70,9 +58,11 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           <Text size="small">{description}</Text>
         </Box>
       </CardBody>
-    </StyledCard>
+    </Card>
   );
 });
+
+const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 ContentCard.propTypes = {
   minimal: PropTypes.bool,
@@ -93,6 +83,45 @@ ContentCard.propTypes = {
         fit: PropTypes.string,
         src: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       }),
+      pad: PropTypes.oneOfType([
+        PropTypes.oneOf(['none', ...PAD_SIZES]),
+        PropTypes.shape({
+          bottom: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          end: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          horizontal: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          left: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          right: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          start: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          top: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+          vertical: PropTypes.oneOfType([
+            PropTypes.oneOf(PAD_SIZES),
+            PropTypes.string,
+          ]),
+        }),
+        PropTypes.string,
+      ]),
     }),
+    render: PropTypes.string,
   }),
 };

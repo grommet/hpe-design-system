@@ -5,7 +5,9 @@ import {
   CheckBox,
   Form,
   FormField,
+  FileInput,
   Header,
+  Heading,
   Select,
   ResponsiveContext,
   Text,
@@ -47,9 +49,14 @@ export const RequiredFieldsExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
-          Form Header
-        </Text>
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
+          Form Heading
+        </Heading>
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
@@ -96,12 +103,36 @@ export const RequiredFieldsExample = () => {
             help="Would you like to apply nemesis character?"
             htmlFor="nemesis__input"
             name="nemesis"
-            label="Nemesis"
+            label="Nemesis (optional)"
           >
             <CheckBox name="nemesis" label="Bring it on" toggle reverse />
           </FormField>
-          <FormField htmlFor="comments" name="comments" label="Comments">
-            <TextArea id="comments" name="comments" placeholder="Comments" />
+          <FormField
+            htmlFor="comments"
+            name="comments"
+            label="Comments (optional)"
+          >
+            <TextArea
+              id="comments"
+              name="comments"
+              placeholder="Comments"
+              resize="vertical"
+            />
+          </FormField>
+          <FormField
+            htmlFor="fileinput"
+            name="fileinput"
+            label="Upload a file"
+            required
+          >
+            <FileInput
+              messages={{
+                dropPrompt: 'Drag and drop',
+                browse: 'Select File',
+              }}
+              id="fileinput"
+              name="fileinput"
+            />
           </FormField>
           {/* Show error if api call came back as an error  */}
           {showFormLevelError && (

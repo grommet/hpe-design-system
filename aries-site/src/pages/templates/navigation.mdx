@@ -1,44 +1,30 @@
-import Link from 'next/link';
-import { Anchor, Text } from 'grommet';
+import { ExampleImagePreview } from '../../components';
+import { Box } from 'grommet';
 import { CardGrid } from '../../components';
 import { getPageDetails, getRelatedContent } from '../../utils';
 
-export const title = 'Navigation';
-export const topic = 'Templates';
-export const page = getPageDetails(title);
-export const relatedContent = getRelatedContent(title);
-
 export const navPatterns = [
-  'Hub and Spoke Navigation',
-  'Persistent Navigation',
+  'Drill Down Navigation',
+  'Side to Side Navigation',
+  'Reverse Navigation',
+  'Matrix Navigation',
 ];
 export const navCards = navPatterns.map(pattern => getPageDetails(pattern));
-export const globalSidebar = getPageDetails('Global Sidebar');
-export const routerExample = getPageDetails('React Router');
 
-View navigation patterns and templates for HPE applications, learn how to incorporate Global Sidebar into applications living in the HPE as-a-service ecosystem, and see how to implement leading React routing packages with navigation templates.
+Navigation is the overall structure providing users screen direction to complete a task logically and easily through a website or an application. 
 
-## Patterns
+Part of creating a seamless application or interface is creating an obvious flow from one view or interaction to the next. Think of navigation as a story map where you help guide your user through each process. 
 
-Recommended patterns, templates, and examples for use within the context of a single application, website, or subsection within an application. Plus, demonstration for how local navigation patterns, such as [Hub & Spoke](/templates/hub-and-spoke-navigation) and [Persistent Navigation](/templates/persistent-navigation), may be combined with the [Global Sidebar](/extend/global-sidebar) for easy maneuverability across applications within the HPE ecosystem.
+## Types of Navigation
 
-### Navigation Within an Application
-
-Flexible in nature, the following patterns can be applied to present contextual, supplemental, and hierachical needs within an application or subsection of a larger application.
-
-- [Hub & Spoke patterns](/templates/hub-and-spoke-navigation) lend themselves well to applications primarily concerned with task execution.
-- Reach for [Persistent Navigation](/templates/persistent-navigation) when a user needs orientation or easy access to application sections.
+There are 4 different types of navigational directions a user can maneuver in:
 
 <CardGrid cards={navCards} />
 
-### HPE Global Navigation
+## What makes navigation successful
 
-In the context of HPE's expanding as-a-service portfolio, HPE global navigation demonstrates how local app navigation patterns may be combined with the HPE Global Sidebar.
+Users should always be able to tell where they are on a page, application or product and should be predictable as to how they can get to the next step or destination. A task has a start and an end point so it is important to keep the functionality or task(s) in mind when creating products with common user experiences and expectations.
 
-<CardGrid cards={[globalSidebar]} />
-
-## Routing
-
-How to use leading React routing packages alongside HPE Carte Design System navigation templates.
-
-<CardGrid cards={[routerExample]} />
+**Follow the points below for successful navigation:**
+- Identify the problem.
+- Understand what the user’s role is and common processes followed.

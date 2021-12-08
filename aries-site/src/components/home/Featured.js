@@ -10,24 +10,17 @@ const FeaturedLayout = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      fill
       pad={{
         horizontal: size !== 'small' ? 'xlarge' : 'large',
         bottom: 'small',
       }}
       {...rest}
     >
-      <Grid
-        rows={[['auto', 'full']]}
-        columns={{ count: 'fit', size: 'medium' }}
-        gap="large"
-        fill
-        justify="center"
-      >
+      <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
         {featured.map(({ name, description, icon, url }) => (
           <Link href={url || nameToPath(name)} passHref key={name}>
             <ContentPreviewCard
-              forwardedAs="a"
+              as="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
             >
@@ -52,8 +45,8 @@ const FeaturedLayout = ({ ...rest }) => {
 };
 
 export const Featured = ({ ...rest }) => (
-    <Stack guidingChild="last">
-      <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-      <FeaturedLayout {...rest} />
-    </Stack>
-  );
+  <Stack guidingChild="last">
+    <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+    <FeaturedLayout {...rest} />
+  </Stack>
+);

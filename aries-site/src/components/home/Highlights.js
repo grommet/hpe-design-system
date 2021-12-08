@@ -24,10 +24,7 @@ const HighlightsLayout = () => {
     <Grid
       pad={{ horizontal: size !== 'small' ? 'medium' : 'large' }}
       columns={size !== 'small' ? 'medium' : '100%'}
-      rows={[['auto', 'full']]}
       gap="large"
-      fill
-      justify="center"
     >
       {highlights.map(({ name, summary, image }) => {
         const href = nameToPath(name);
@@ -41,7 +38,7 @@ const HighlightsLayout = () => {
         return (
           <Wrapper key={name} {...wrapperProps}>
             <ContentPreviewCard
-              forwardedAs="a"
+              as="a"
               style={{ textDecoration: 'none' }}
               pad="medium"
             >

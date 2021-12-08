@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
   CheckBoxGroup,
@@ -20,6 +21,7 @@ import {
   StepContent,
   StepFooter,
 } from './components';
+import { getWidth } from './utils';
 
 const defaultFormValues = {
   'twocolumn-textinput': '',
@@ -29,40 +31,14 @@ const defaultFormValues = {
   'twocolumn-text-area': '',
 };
 
-const stepOneValidate = values => {
-  const emailRegex = RegExp(
-    '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
-  );
-  const emailValid = emailRegex.test(values['twocolumn-textinput']);
-
-  return {
-    email: emailValid ? '' : 'Invalid email address.',
-    isValid: !!emailValid,
-  };
-};
-
-const validation = [
-  {
-    validator: values => stepOneValidate(values),
-    error: {
-      email: '',
-      radiobuttongroup: '',
-      isValid: true,
-    },
-  },
-];
-
 const StepOne = () => {
-  const { attemptedAdvance, formValues, error, setError } = useContext(
-    WizardContext,
-  );
+  const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
   return (
     <Box
       direction={size !== 'small' ? 'row' : 'column-reverse'}
       margin={{ bottom: 'medium' }}
       gap={size === 'small' ? 'small' : undefined}
-      width={{ max: 'large' }}
       justify="between"
       wrap
     >
@@ -72,22 +48,25 @@ const StepOne = () => {
         gap="medium"
         flex={false}
       >
-        <>
-          <Box>
+        <Box gap="medium">
+          <>
             <FormField
               label="Email"
               htmlFor="twocolumn-textinput"
               name="twocolumn-textinput"
-              error={error.email}
-              onChange={() =>
-                attemptedAdvance && setError(stepOneValidate(formValues))
-              }
+              validate={{
+                regexp: new RegExp(
+                  '(^$)|([^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+)',
+                ),
+                message: 'Invalid email address',
+                status: 'error',
+              }}
             >
               <TextInput
                 placeholder="jane.smith@hpe.com"
                 id="twocolumn-textinput"
                 name="twocolumn-textinput"
-                type="email"
+                onChange={() => setValid(true)}
               />
             </FormField>
             <FormField
@@ -101,13 +80,11 @@ const StepOne = () => {
                 options={['Radio button 1', 'Radio button 2']}
               />
             </FormField>
-          </Box>
-          {!error.isValid && (
-            <Error>There is an error with one or more inputs.</Error>
-          )}
-        </>
+          </>
+          {!valid && <Error>There is an error with one or more inputs.</Error>}
+        </Box>
       </Box>
-      <Box flex width={{ max: 'xsmall' }} />
+      <Box flex width={{ max: 'xxsmall' }} />
       <Guidance />
     </Box>
   );
@@ -149,6 +126,7 @@ const StepTwo = () => (
         name="twocolumn-text-area"
         options={['CheckBox 1', 'CheckBox 2']}
         placeholder="Placeholder text"
+        resize="vertical"
       />
     </FormField>
   </Box>
@@ -162,22 +140,22 @@ const data = [
 ];
 
 const StepThree = () => (
-    <Box gap="small">
-      <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
-        {(datum, index) => (
-          <Box key={index} direction="row" gap="small" align="center">
-            <Checkmark color="text-strong" size="small" />
-            <Text color="text-strong" weight={500}>
-              {datum}
-            </Text>
-          </Box>
-        )}
-      </List>
-      <Text color="text-strong">
-        Include guidance to what will occur when “Finish Wizard" is clicked.
-      </Text>
-    </Box>
-  );
+  <Box gap="small">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+      {(datum, index) => (
+        <Box key={index} direction="row" gap="small" align="center">
+          <Checkmark color="text-strong" size="small" />
+          <Text color="text-strong" weight={500}>
+            {datum}
+          </Text>
+        </Box>
+      )}
+    </List>
+    <Text color="text-strong">
+      Include guidance to what will occur when “Finish Wizard" is clicked.
+    </Text>
+  </Box>
+);
 
 const steps = [
   {
@@ -198,6 +176,8 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = () => {
+  const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
   // for readability, this is used to display numeric value of step on screen,
   // such as step 1 of 3. it will always be one more than the active array index
@@ -210,13 +190,8 @@ export const TwoColumnWizardExample = () => {
   // controls state of cancel layer
   const [open, setOpen] = useState(false);
 
-  // controls error message for active step
-  const [error, setError] = useState(
-    validation[activeIndex] ? validation[activeIndex].error : undefined,
-  );
-
-  // tracks if user has attempted to advance to next step
-  const [attemptedAdvance, setAttemptedAdvance] = useState(false);
+  // tracks validation results for the current step
+  const [valid, setValid] = useState(true);
 
   // ref allows us to access the wizard container and ensure scroll position
   // is at the top as user advances between steps. useEffect is triggered
@@ -225,7 +200,6 @@ export const TwoColumnWizardExample = () => {
 
   useEffect(() => {
     setActiveStep(activeIndex + 1);
-    setAttemptedAdvance(false);
   }, [activeIndex]);
 
   const id = 'sticky-header-two-column';
@@ -237,6 +211,8 @@ export const TwoColumnWizardExample = () => {
     container.scrollTop = -header.getBoundingClientRect().bottom;
   }, [activeIndex, open]);
 
+  const numberColumns = 2;
+  const width = getWidth(numberColumns, theme, size);
   return (
     <WizardContext.Provider
       value={{
@@ -244,23 +220,23 @@ export const TwoColumnWizardExample = () => {
         setActiveIndex,
         activeStep,
         setActiveStep,
-        attemptedAdvance,
-        setAttemptedAdvance,
         defaultFormValues,
-        error,
-        setError,
+        valid,
+        setValid,
         formValues,
         setFormValues,
         id,
         ref: wizardRef,
         steps,
-        validation,
         wizardTitle: 'Wizard Title',
+        width,
       }}
     >
       <Box fill>
         <WizardHeader setOpen={setOpen} />
-        <StepContent />
+        <StepContent
+          onSubmit={({ value }) => console.log('onSubmit:', value)}
+        />
         <StepFooter />
       </Box>
       {open && <CancellationLayer onSetOpen={setOpen} />}
@@ -278,7 +254,7 @@ const Guidance = () => {
       pad="medium"
       round="small"
       flex
-      width={size !== 'small' ? { min: 'small' } : '100%'}
+      width={size !== 'small' ? { min: 'small', max: 'medium' } : '100%'}
     >
       <Text color="text-strong" size="large">
         When guidance is required for the form or content of the wizard, you

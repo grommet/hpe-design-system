@@ -1,12 +1,16 @@
-import { ClientFunction } from 'testcafe';
+/* eslint-disable no-await-in-loop */
+import { ClientFunction, Selector } from 'testcafe';
 import { ReactSelector } from 'testcafe-react-selectors';
 
 export const baseUrl = 'http://localhost:3030';
 
 // Selector name found using Chrome React dev tools on prod mode of website
 export const Search = 'Search__StyledTextInput';
+export const SearchInput = 'SearchInput__StyledTextInput';
 
 export const getLocation = ClientFunction(() => document.location.href);
+
+export const getActiveElement = Selector(() => document.activeElement);
 
 export const formatForTyping = ClientFunction(text => text.split('').join(' '));
 
@@ -19,29 +23,18 @@ export const repeatKeyPress = ClientFunction((key, number) =>
   Array(number + 1).join(`${key} `),
 );
 
-// find how many tabs it takes to reach desired element
-export const getTabCount = ClientFunction(expectedPath => {
-  const tabbableElements = document.querySelectorAll(`
-    button[tabindex]:not([tabindex="-1"]), button[id="search-button"], 
-    button[id="theme-button"],
-    input[tabindex]:not([tabindex="-1"]), 
-    body [href]:not([class~="hpeslh_nav-link"]), 
-    input[tabindex]:not([tabindex="-1"]), 
-    select[tabindex]:not([tabindex="-1"]), 
-    textarea[tabindex]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])
-    video:not([tabindex="-1"])`);
+export const tabToHref = async (t, path, maxClicks = 100) => {
+  let count = 0;
+  let activeElement;
+  let href;
 
-  let hrefIndex;
-  for (let i = 0; i < tabbableElements.length; i += 1) {
-    if (tabbableElements[i].getAttribute('href') === expectedPath) {
-      hrefIndex = i;
-    }
-  }
-  // Need to add one for correct tab count because array indexes start at 0.
-  // If item we are aiming to tab to is at index = 3, that means we have to tab
-  // 4 times to get there.
-  return hrefIndex + 1;
-});
+  do {
+    await t.pressKey('tab');
+    activeElement = await getActiveElement();
+    count += 1;
+    href = activeElement.getAttribute('href');
+  } while (href !== path && count < maxClicks);
+};
 
 export const tabToSearch = ClientFunction(() => {
   const tabbableElements = document.querySelectorAll(`
@@ -63,9 +56,9 @@ export const tabToSearch = ClientFunction(() => {
   return tabCount + 1;
 });
 
-const DESKTOP_WIDTH = 1280;
+export const DESKTOP_WIDTH = 1280;
 const DESKTOP_HEIGHT = 720;
-const MOBILE_WIDTH = 375;
+export const MOBILE_WIDTH = 375;
 const MOBILE_HEIGHT = 667;
 
 export const startResponsiveSnapshots = async (title, viewport, eyes, t) => {

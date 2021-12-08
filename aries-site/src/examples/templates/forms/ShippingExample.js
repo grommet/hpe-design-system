@@ -6,6 +6,7 @@ import {
   Form,
   FormField,
   Header,
+  Heading,
   MaskedInput,
   ResponsiveContext,
   Select,
@@ -182,9 +183,14 @@ export const ShippingExample = () => {
         gap="xxsmall"
         pad={{ horizontal: 'xxsmall' }}
       >
-        <Text size="xxlarge" weight="bold">
+        {/* Use semantically correct heading level and adjust size as 
+        needed. In this instance, this example is presented within an 
+        HTML section element and this is the first heading within the 
+        section, therefor h2 is the semantically correct heading. For 
+        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+        <Heading level={2} margin="none">
           Shipping
-        </Text>
+        </Heading>
         <Text>for your HPE products</Text>
       </Header>
       <Box
@@ -212,6 +218,7 @@ export const ShippingExample = () => {
             >
               Shipping Address *
             </Text>
+
             <FormField required htmlFor="firstName" name="firstName">
               <TextInput
                 id="firstName"
@@ -253,7 +260,7 @@ export const ShippingExample = () => {
               />
             </FormField>
             <FormField htmlFor="zipcode" name="zipcode">
-              <TextInput id="zipcode" name="zipcode" placeholder="Zipcode" />
+              <TextInput id="zipcode" name="zipcode" placeholder="ZIP Code" />
             </FormField>
             <FormField htmlFor="isBusiness" name="isBusiness">
               <CheckBox name="isBusiness" label="This is a business" />

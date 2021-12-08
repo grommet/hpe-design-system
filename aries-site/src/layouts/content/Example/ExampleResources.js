@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Prism from 'prismjs';
-import { Box, Button, Text, ThemeContext } from 'grommet';
+import { Box, Button, ThemeContext } from 'grommet';
 import { Github } from 'grommet-icons';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'grommet-theme-hpe';
 import {
   CardGrid,
   CollapsibleSection,
   SubsectionText,
 } from '../../../components';
 import { getPageDetails } from '../../../utils';
-import { syntax } from '.';
 
 const getRelatedCards = names =>
   names.sort().map(pattern => getPageDetails(pattern));
@@ -36,59 +36,41 @@ export const ExampleResources = ({
     Array.isArray(code) ? code[0] : code,
   );
   const [codeText, setCodeText] = React.useState();
-  const [Syntax, setSyntax] = React.useState(syntax.dark);
-  const codeRef = React.useRef();
 
   const fetchCode = file => {
-    setCodeText('loading');
+    setCodeText('loading...');
     fetch(file)
       .then(response => response.text())
       .then(text => setCodeText(text));
   };
 
   React.useEffect(() => {
-    if (codeOpen) {
-      fetchCode(activeCode);
-    }
+    const timer = setTimeout(() => {
+      if (codeOpen) {
+        fetchCode(activeCode);
+      }
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [activeCode, codeOpen]);
-
-  React.useEffect(() => {
-    if (codeOpen && !codeText && activeCode) {
-      fetchCode(activeCode);
-    } else if (codeOpen && codeText) {
-      // https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/
-      // setTimeout runs this after the DOM has updated which ensures
-      // ref is defined
-      setTimeout(() => {
-        Prism.highlightElement(codeRef.current);
-      }, 0);
-    }
-  }, [activeCode, codeText, codeOpen, Syntax]);
-
-  // Set the Syntax component after highlightElement. This will cause
-  // highlightElement to be re-run when Sytanx changes. This is needed
-  // so the styling change is rendered.
-  React.useEffect(() => setSyntax(syntax[theme.dark ? 'dark' : 'light']), [
-    theme.dark,
-  ]);
 
   if (horizontalLayout && code) {
     return (
-      <Box
-        background="background-contrast"
-        height={{ max: 'medium' }}
-        overflow="auto"
-        pad="medium"
-        round="small"
-        {...rest}
-      >
-        <Text size="xsmall" color="text">
-          <Syntax>
-            <code ref={codeRef} className="language-jsx">
-              {codeText}
-            </code>
-          </Syntax>
-        </Text>
+      <Box margin="0px" height={{ max: 'medium' }} round="small" {...rest}>
+        <SyntaxHighlighter
+          tabIndex="0"
+          style={theme.dark ? prism.dark : prism.light}
+          codeTagProps={{
+            style: {
+              fontSize: theme.text.small.size,
+            },
+          }}
+          wrapLongLines
+          language="javascript"
+        >
+          {codeText || 'loading...'}
+        </SyntaxHighlighter>
       </Box>
     );
   }
@@ -107,7 +89,7 @@ export const ExampleResources = ({
       )}
       {code && (
         <CollapsibleSection
-          label={{ closed: 'Show Code', open: 'Hide Code' }}
+          label={{ closed: 'Show Example Code', open: 'Hide Example Code' }}
           onClick={() => setCodeOpen(!codeOpen)}
         >
           {Array.isArray(code) && (
@@ -130,15 +112,19 @@ export const ExampleResources = ({
               )}
             </Box>
           )}
-          <Box overflow="auto">
-            <Text size="xsmall" color="text">
-              <Syntax>
-                <code ref={codeRef} className="language-jsx">
-                  {codeText}
-                </code>
-              </Syntax>
-            </Text>
-          </Box>
+          <SyntaxHighlighter
+            tabIndex="0"
+            style={theme.dark ? prism.dark : prism.light}
+            codeTagProps={{
+              style: {
+                fontSize: theme.text.small.size,
+              },
+            }}
+            wrapLongLines
+            language="javascript"
+          >
+            {codeText || 'loading...'}
+          </SyntaxHighlighter>
         </CollapsibleSection>
       )}
       {relevantComponents && (

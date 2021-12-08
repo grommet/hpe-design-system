@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
+
+import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
 export const SubsectionHeader = ({ children, level }) => {
@@ -24,7 +26,7 @@ export const SubsectionHeader = ({ children, level }) => {
         level={level}
         size={level === 3 ? 'small' : undefined}
       >
-        {children}
+        <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
         a11yTitle={`Jump to section titled ${children}`}
@@ -36,6 +38,6 @@ export const SubsectionHeader = ({ children, level }) => {
 };
 
 SubsectionHeader.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   level: PropTypes.number,
 };

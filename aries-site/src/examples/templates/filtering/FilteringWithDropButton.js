@@ -52,25 +52,9 @@ const allData = [
   },
 ];
 
-const StyledCard = styled(Card)`
-  transition: all 0.3s ease-in-out;
-  :focus,
-  :hover {
-    transform: scale(1.01, 1.01);
-  }
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
-
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
 
 const defaultFilters = {};
 const ramOptions = ['16', '32', '128'];
@@ -81,7 +65,7 @@ export const FilteringWithDropButton = () => {
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const size = useContext(ResponsiveContext);
   const inputRef = useRef();
 
@@ -149,7 +133,8 @@ export const FilteringWithDropButton = () => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -164,6 +149,7 @@ export const FilteringWithDropButton = () => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
               />
             )}
           </Box>
@@ -175,14 +161,6 @@ export const FilteringWithDropButton = () => {
   );
 };
 
-const FilterButton = styled(DropButton)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const Filters = ({
   filters,
   filterData,
@@ -190,6 +168,7 @@ const Filters = ({
   filtering,
   setData,
   setFiltering,
+  setSearch,
 }) => {
   const [ram, setRam] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
@@ -203,6 +182,7 @@ const Filters = ({
     setRam([]);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -262,8 +242,9 @@ const Filters = ({
 
   return (
     <Box align="center" direction="row" gap="small">
-      <FilterButton
+      <DropButton
         icon={<Filter />}
+        kind="toolbar"
         onClick={() => {
           if (open) {
             filterData(allData, previousFilters);
@@ -289,6 +270,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 const RamFilter = ({ filters, setFilters, ram, setRam }) => (
@@ -382,9 +364,8 @@ const Results = ({ data }) => {
         gap={size !== 'small' ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
-          <StyledCard
+          <Card
             background="background"
-            elevation="medium"
             key={index}
             onClick={() => {
               // eslint-disable-next-line no-alert
@@ -417,7 +398,7 @@ const Results = ({ data }) => {
                 <Text color="text-strong">{`${datum.ram} GiB`}</Text>
               </Box>
             </Box>
-          </StyledCard>
+          </Card>
         ))}
       </Grid>
     </Box>

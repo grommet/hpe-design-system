@@ -1,5 +1,6 @@
 import { Example } from '../../layouts';
 import {
+  ButtonAlignmentTable,
   ButtonExample,
   ButtonIconExample,
   ButtonStatesExample,
@@ -8,13 +9,16 @@ import {
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
+  ToolbarButtonExample,
 } from '../../examples';
 
 <Example
+  componentName="Button"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/DefaultButtonExample.js"
   designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/button?theme=hpe#props"
   figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js"
 >
   <ButtonExample />
 </Example>
@@ -40,6 +44,12 @@ Using the design system Button Component will ensure you’re button looks like 
 - Avoid contractions or colloquialisms. Keep the language approachable but not personal.
 - Ensure your button label matches the route destination.
 
+### Button Alignment
+
+Buttons are unique components since their alignment depends on where they appear (drawers, modals, etc.). Buttons should always be where the user most expects it. In general, follow this guide on how to align buttons in most use cases.
+
+<ButtonAlignmentTable />
+
 ### Buttons vs. Anchors
 
 The HTML elements for buttons and links (a.k.a. anchors) describe a very specific type of action that is going to be taken when they are used. It is important you know when to use which, as the distinction matters:
@@ -47,6 +57,26 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 - Use a link when you’re navigating to another place, such as: a "view all" page, "Jane Chen" profile, a page "skip link" etc.
 - Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
 - An action almost always occurs on the same page
+
+### Toggle Buttons
+
+Toggle buttons are used either to switch between two states, such as checked and unchecked, or to trigger two actions like on or off.
+
+#### Toggle Buttons with Icons
+
+Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes the action that the user will be performing when using screen readers.
+
+**Best Practices:**
+- Limit to 2-3 descriptive words.
+- Use verbs first to describe the action such as “Hide/View”, "Switch/Unswitch", “Favorite/Unfavorite”, "Light/Dark" or “Like/Dislike".
+- Use sentence case capitalization.
+- Words such as “the” and “a” should be avoided.
+
+For Buttons with Icons ONLY, it is important that you show the two following elements:
+
+1. Show the current state of the button through the use of an icon.
+
+2. Inform the user of what will happen when the button is clicked by including `a11yTitle` or `aria-label`.
 
 ### Accessibility
 
@@ -60,7 +90,7 @@ There are a couple "flavors" of button depending on use case.
 
 ### Primary Button
 
-Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).
+Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).  Consider that the 80% use case for some pages is visualization and not action.  In cases like these, a call to action is inappropriate and a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -80,6 +110,27 @@ Secondary buttons are used to represent calls to action that are either in suppo
   height={{ min: 'small' }}
 >
   <SecondaryButtonExample />
+</Example>
+
+### Toolbar Button
+
+Toolbar buttons are used when buttons are placed in a row with other toolbar controls. 
+
+A common use case would be when creating a [filtering experience](/templates/filtering). In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
+
+To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-based components like [Menu](/components/menu).
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+  ]}
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <ToolbarButtonExample />
 </Example>
 
 ### Default Button
@@ -120,7 +171,7 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
 
 ### Button States
 
-A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met.
+A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met. However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users. It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met. Buttons that do not apply (for reasons of context or permissions) should not be shown at all, rather than being shown as disabled.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"

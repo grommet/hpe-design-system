@@ -1,10 +1,6 @@
 {
     "presets": ["next/babel"],
     "plugins": [
-        ["styled-components", { "ssr": true }],
-        ["prismjs", {
-            "languages": ["javascript", "css", "html", "jsx"],
-            "css": false
-        }]
+        ["styled-components", { "ssr": true }]
     ]
 }

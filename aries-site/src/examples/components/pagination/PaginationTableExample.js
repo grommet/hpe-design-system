@@ -487,13 +487,19 @@ const columns = [
       </Box>
     ),
     render: datum => (
-      <Box pad={{ vertical: 'xsmall' }}>
-        <Meter
-          values={[{ value: datum.pinned / datum.pinnable, color: 'graph-2' }]}
-          max={1}
-          thickness="small"
-          size="small"
-        />
+      <Box gap="xsmall" direction="row">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            alignSelf="center"
+            values={[
+              { value: datum.pinned / datum.pinnable, color: 'graph-2' },
+            ]}
+            max={1}
+            thickness="small"
+            size="small"
+          />
+        </Box>
+        <Text>{((datum.pinned / datum.pinnable) * 100).toFixed(0)}%</Text>
       </Box>
     ),
     sortable: false,
@@ -535,11 +541,16 @@ export const PaginationTableExample = () => {
 
   return (
     <Box pad="small">
-      <Heading level={3} margin={{ bottom: 'small', top: 'none' }}>
+      <Heading
+        id="storage-pools-heading"
+        level={3}
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Storage Pools
       </Heading>
       <Box>
         <DataTable
+          aria-describedby="storage-pools-heading"
           data={data}
           columns={[
             {
@@ -557,6 +568,7 @@ export const PaginationTableExample = () => {
             border: 'top',
             direction: 'row',
             fill: 'horizontal',
+            flex: false,
             justify: size !== 'small' ? 'end' : 'center',
             pad: { top: 'xsmall' },
           }}

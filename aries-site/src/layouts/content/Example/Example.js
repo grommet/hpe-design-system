@@ -5,8 +5,10 @@ import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
   Container,
+  DoDontContainer,
   ExampleControls,
   ExampleResources,
+  FigureWrapper,
   HorizontalExample,
   ResponsiveControls,
   ResponsiveContainer,
@@ -20,16 +22,23 @@ export const screens = {
 
 export const Example = ({
   background,
+  bestPractice,
+  caption,
   children,
   code, // github code link used to display code inline
+  componentName,
   designer, // link to grommet designer example
   details,
   docs, // link to grommet doc for component
   figma, // link to figma design
   github, // link to github directory
+  grommetSource, // link to Grommet component source code
+  guidance, // link to Design System site guidance
   height,
   horizontalLayout,
+  pad,
   plain, // remove Container from around example
+  previewWidth,
   relevantComponents,
   screenContainer, // show example in mock browser
   template, // showing as template causes appropriate aspect ratio
@@ -54,16 +63,23 @@ export const Example = ({
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
-  const ExampleContainer = plain ? Box : Container;
+  let ExampleContainer;
+  if (plain) ExampleContainer = Box;
+  else if (bestPractice) ExampleContainer = DoDontContainer;
+  else ExampleContainer = Container;
 
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    bestPractice,
+    caption,
     designer,
     docs,
     figma,
+    guidance,
     height,
     horizontalLayout,
+    pad,
     plain,
     screenContainer,
     showResponsiveControls,
@@ -88,8 +104,8 @@ export const Example = ({
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
-  const content = !showLayer && (
-    <ExampleContainer {...containerProps}>
+  let content = !showLayer && (
+    <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
           ExampleWrapper === ResponsiveContainer && background
@@ -103,21 +119,29 @@ export const Example = ({
         <ResponsiveContext.Provider value={viewPort}>
           {React.cloneElement(children, {
             containerRef: inlineRef,
+            designSystemDemo: showLayer,
           })}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
     </ExampleContainer>
   );
 
+  if (caption)
+    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
+
   const controls = (designer ||
     docs ||
     figma ||
+    guidance ||
     screenContainer ||
     template) && (
     <ExampleControls
+      componentName={componentName}
       designer={designer}
       docs={docs}
       figma={figma}
+      grommetSource={grommetSource}
+      guidance={guidance}
       horizontalLayout={horizontalLayout}
       setShowLayer={value => setShowLayer(value)}
     />
@@ -125,6 +149,7 @@ export const Example = ({
 
   const resources = (
     <ExampleResources
+      caption={caption}
       code={code}
       github={github}
       details={details}
@@ -136,7 +161,11 @@ export const Example = ({
 
   return (
     <>
-      <Box margin={{ vertical: 'small' }} gap="large">
+      <Box
+        width={previewWidth || undefined}
+        margin={{ vertical: 'small' }}
+        gap="large"
+      >
         <>
           {/* For use with templates or page layouts to toggle between laptop,
            ** desktop, and mobile views */}
@@ -226,6 +255,7 @@ export const Example = ({
                     <ResponsiveContext.Provider value={viewPort}>
                       {React.cloneElement(children, {
                         containerRef: layerRef,
+                        designSystemDemo: showLayer,
                       })}
                     </ResponsiveContext.Provider>
                   </Box>
@@ -245,11 +275,17 @@ export const Example = ({
 
 Example.propTypes = {
   background: PropTypes.string,
+  bestPractice: PropTypes.shape({
+    type: PropTypes.oneOf(['do', 'dont']).isRequired,
+    message: PropTypes.string,
+  }),
+  caption: PropTypes.string,
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
+  componentName: PropTypes.string,
   components: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
@@ -263,9 +299,13 @@ Example.propTypes = {
   docs: PropTypes.string,
   figma: PropTypes.string,
   github: PropTypes.string,
+  grommetSource: PropTypes.string,
+  guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
+  previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
   screenContainer: PropTypes.bool,
   showResponsiveControls: PropTypes.oneOfType([

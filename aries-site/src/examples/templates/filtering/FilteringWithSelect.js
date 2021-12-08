@@ -15,7 +15,14 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, FormClose, More, Search } from 'grommet-icons';
+import {
+  Filter,
+  FormClose,
+  More,
+  Search,
+  StatusGoodSmall,
+  StatusWarningSmall,
+} from 'grommet-icons';
 
 const allData = [
   { name: 'Apex-Server', status: 'Ready' },
@@ -30,14 +37,6 @@ const allData = [
 const defaultSelectValue = 'All';
 const defaultFilters = {};
 
-const StyledButton = styled(Button)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-  &:hover {
-    background: transparent;
-  }
-`;
-
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
@@ -48,7 +47,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
   const [filtering, setFiltering] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [searchFocused, setSearchFocused] = useState(false);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
 
@@ -65,9 +64,9 @@ export const FilteringWithSelect = ({ containerRef }) => {
 
     let filterResults;
     const filterKeys = Object.keys(criteria);
-    filterResults = array.filter(item => 
+    filterResults = array.filter(item =>
       // validates all filter criteria
-       filterKeys.every(key => {
+      filterKeys.every(key => {
         // ignores non-function predicates
         if (typeof criteria[key] !== 'function') return true;
         return criteria[key](item[key]);
@@ -130,7 +129,8 @@ export const FilteringWithSelect = ({ containerRef }) => {
                 />
               </Box>
             ) : (
-              <StyledButton
+              <Button
+                kind="toolbar"
                 id="search-button"
                 icon={<Search />}
                 onClick={() => setSearchFocused(true)}
@@ -145,6 +145,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
                 filters={filters}
                 setFilters={setFilters}
                 filterData={filterData}
+                setSearch={setSearch}
                 // target is for demo purposes only, remove in production
                 target={containerRef && containerRef.current}
               />
@@ -170,6 +171,7 @@ const Filters = ({
   filterData,
   setFilters,
   setFiltering,
+  setSearch,
   target, // target is for demo purposes only, remove in production
 }) => {
   const [selectValue, setSelectValue] = useState(defaultSelectValue);
@@ -183,6 +185,7 @@ const Filters = ({
     setSelectValue(defaultSelectValue);
     setFilters(defaultFilters);
     setFiltering(false);
+    setSearch('');
   };
 
   // everytime the Filters layer opens, save a temp
@@ -221,7 +224,8 @@ const Filters = ({
         {size !== 'small' ? (
           content
         ) : (
-          <StyledButton
+          <Button
+            kind="toolbar"
             icon={<Filter />}
             onClick={() => {
               setShowLayer(true);
@@ -304,6 +308,7 @@ Filters.propTypes = {
   filterData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   setFiltering: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
   // target is for demo purposes only, remove in production
   target: PropTypes.object,
 };
@@ -355,13 +360,11 @@ const Results = ({ data }) => {
           >
             <Box direction="row" gap="small" align="center">
               {size !== 'small' && <Text>{item.status}</Text>}
-              <Box
-                pad="xsmall"
-                background={
-                  item.status === 'Ready' ? 'status-ok' : 'status-warning'
-                }
-                round
-              />
+              {item.status === 'Ready' ? (
+                <StatusGoodSmall color="status-ok" size="small" />
+              ) : (
+                <StatusWarningSmall color="status-warning" size="small" />
+              )}
             </Box>
             <Menu
               icon={<More />}

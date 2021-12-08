@@ -12,6 +12,7 @@
 */out
 *.next
 *storybook-static
+*/src/data/search
 
 #logs
 npm-debug.log*
@@ -22,3 +23,4 @@ yarn-error.log*
 .env
 .tmp
 report*
+.DS_Store
