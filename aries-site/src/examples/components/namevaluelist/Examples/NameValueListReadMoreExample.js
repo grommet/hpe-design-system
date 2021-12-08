@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import {
-  Anchor,
-  Box,
-  Button,
-  NameValueList,
-  NameValuePair,
-  Paragraph,
-} from 'grommet';
+import PropTypes from 'prop-types';
+import { Anchor, Box, Button, NameValueList, NameValuePair } from 'grommet';
 import { FormDown, FormUp } from 'grommet-icons';
 import { contentTruncationData } from '../data';
 
 export const NameValueListReadMoreExample = () => {
   // HPE Design System guidance for string length prior to truncation.
   const MAX_STRING_LENGTH = 192;
+  // HPE Design System guidance for list length prior to truncation.
   const MAX_LIST_LENGTH = 6;
+  // HPE Design System guidance for list display length when truncated.
   const TRUNC_LIST_LENGTH = 3;
   const [showAllServices, setShowAllServices] = useState(false);
   const [showAllSources, setShowAllSources] = useState(false);
@@ -102,3 +98,8 @@ const TruncateButton = ({ showAll, setShowAll }) => (
     reverse
   />
 );
+
+TruncateButton.propTypes = {
+  showAll: PropTypes.bool,
+  setShowAll: PropTypes.func,
+};
