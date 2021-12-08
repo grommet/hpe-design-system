@@ -15,7 +15,13 @@ import { Box } from 'grommet';
 
 ## Guidance
 
-Everything that you need to know about toasts and more.
+Toasts are a low-attention notification mechanism primarily for use in confirming task receipt and completion.  
+
+Toasts are intended to be non-intrusive and brief.  A user must be able to read and comprehend a toast message in ~8 seconds before the toast automatically closes itself.  
+
+Toasts are not a guaranteed delivery mechanism.  They can easily be missed and are never shown while the user is focused on performing a task.  
+
+Because there is no guarantee that a user will see a toast and because of the auto-close nature of toasts, they must never be used as a primary means of notification.  A separate means (E.g., a notification center) to view active and historical task and alert information is needed. 
 
 ### When should you use a Toast Notification?
 
@@ -33,11 +39,23 @@ Everything that you need to know about toasts and more.
 - Requires user action or input
 - Batch updates
 
-Due to their limited use cases, toasts are advised to be used sparingly or even substituted entirely for a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
+The main use case for toasts is messaging related to actions or tasks that the user has initiated.  For example, confirmation that an action is being performed or notification that an action has completed.
 
-### Dealing with multiple Toast Notifications
+Outside of this limited use case, toasts should be used sparingly or replaced entirely by a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
 
-Because there are limited use cases for toast notifications, there should be little to no instances of multiple toasts being visible at the same time. However, if there are multiple toast notifications, you should deal with them by having only one toast present at a time. Once the first toast is dismissed or timed out, the next one should appear.
+**Do not use Toasts when the user is performing an action**
+
+Toasts are only appropriate when the user is in a visualization page in the UI, but not when the user is interacting with a form or modal dialog to perform an action.  Toasts that arrive while the UI is displaying a modal are not shown; they are dropped.
+
+### Handling multiple Toast Notifications
+
+When there are multiple toast notifications (E.g., when two tasks finish at the same time), you should handle them by having only one toast present at a time. Once the first toast is dismissed or timed out, the next one should appear.  
+
+Because toasts are never intended to be a primary notification mechanism, if a large number of toasts are queued (E.g., 100 tasks finish within a short timeframe), it is not necessary to show all of the toasts.  One method to handle this might be to allow toasts to time out even if not being shown: show the first toast, but start timing all toasts.  Once the first toast times out, show the next toast that has not timed out.
+
+### Persistence
+
+Toasts are automatically dismissed after 8 seconds. Because they contain low-attention level information, they must not require user action other than the close button. Keep in mind the three line (8 second) limit for toasts because longer messages may not be read completely before automatically dismissing.
 
 ## Anatomy 
 
@@ -49,13 +67,13 @@ Toasts are compromised of three main elements:
 2. Content (Title + Message)
 3. Close button
 
-Aside from this, all toasts have a fixed width size at Medium (384px) while the height changes based off the amount of content. 
+All toasts have a fixed width size at Medium (384px) but the height can change based on the amount of content. 
 
 ### Status Indicator
 
-Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid this case for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
+Avoid using toasts for very critical information or alerts. Users may accidentally dismiss or entirely miss a toast, so it is best to avoid using toasts for important information. Additionally, avoid using toasts, critical or not, if it requires a user action. 
 
-The status indicators used for toasts are strictly for Normal, Warning, and Unknown statuses.
+The status indicators used for toasts are restricted to Normal, Warning, Critical and Unknown statuses.  The crtical status should only be used to indicate a task completion that ended in an error and not for conveying critical or time-sensitive information to the user -- remember that a toast can be missed.
 
 <StatusBox toast />
 
@@ -63,21 +81,32 @@ You can read more guidance about [status indicators](/templates/status-indicator
 
 ### Content (Title + Message)
 
-All toasts have content which is comprised of a title and a message. However, the content only requires a title, not necessarily a message. The title and message should be distinguishable from each other by the weight of the text. The status title and message should be distinguishable by the weight of the text.
+All toasts have content comprised of a title and an optional message. The title and message must be distinguishable from each other by the weight of the text.
 
 **1. Amount of Information**
 
 Toast notifications should not have too much information inside of them. Additionally, each notification should only revolve around one idea or subject. Because a toast notification is only present on the screen for a short amount of time, a user using assistive technology needs to have an understanding of what information is in the notification. Therefore, the content should be minimal and direct.
 
-For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the title and the message or a three-lined title. If the information is heavy and long, consider using a different type of notification other than toast. Never truncate text within a toast. The main point is to keep the information concise and clear.
+Because toasts are primarily used to convey information about tasks, the content must include enough context to be clearly understood.  For example, what task is being performed, what resource is it being performed against, and what is the state of the task (E.g., starting, completed, failed, etc.).
+
+For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the title and the message or a three-line title. If the information is heavy and long, consider using a different type of notification other than toast. Never truncate text within a toast. The main point is to keep the information concise and clear.
+
+Do not add a message that is redundant with the title.  If you can explain everything in a title, there is no need for a message.  
+
+Examples of title-only toasts:
+
+- Deleted cluster "Joe's cluster"
+- Update of "Rule set 5" completed
+- Starting deployment of application "XYZ"
+- Created Kubernetes cluster "New York State Tax Authority"
 
 **2. Interactive Content**
 
-To remain compliant with WCAG 2.1 guidelines, avoid placing interactive elements, like links and buttons, inside of a toast. These elements may be difficult to access with a screen reader and other assistive technology, so it is best to avoid complex toasts.
+To remain compliant with WCAG 2.1 guidelines, avouid interactive elements, like links and buttons, inside of a toast. These elements may be difficult to access with a screen reader and other assistive technology.
 
 ### Close Button
 
-The close button within a toast should be the only interactable element and is used to dismiss the notification. To clarify, the toast itself is not dismissable on click rather only when the close button is specifically activated. This is to avoid any confusion the user may have on what the interactable elements are within a toast.
+The close button within a toast should be the only interactive element and is used if the user chooses to dismiss the toast before it automatically dismisses itself. To clarify, the toast itself is not dismissable on any click; rather it is dismissed when the close button is activated. This is to avoid any confusion over what is interactive within a toast.
 
 ## Accessibility 
 
@@ -85,17 +114,13 @@ Toast notifications should be read aloud when they appear on a user's screen. To
 
 ## Placement 
 
-Make sure to follow these guidelines for Toast Notifications:
+Follow these placement guidelines for Toast Notifications:
 - Place them either top-center or top-right of the screen. If badging is being used, toasts should be placed underneath it. Note that top-right placements may negatively affect those using screen magnifiers.
-- Fade in on arrival and fade out when dismissed.
-- Do not obscure critical information and any primary action elements.
+- Quickly fade in on arrival and fade out when dismissed.
+- Do not obscure critical information or any primary action elements.
 - Toasts are not focused on and do not appear when a user is within a Modal or Wizard since they do not carry high attention information. 
 - Reminder that toasts should not be used to convey a batch of information as this would quickly hinder their visibility and cause notification fatigue.
-- Consider incorporating a Notification Center where a user can access all toast notifications at once.
-
-## Persistence
-
-Toasts are automatically dismissed after 8 seconds. Because they contain low severity level information, they should not require user action other than the close button. Keep in mind of the three line limit for toasts since longer messages may not be read completely by screen readers before automatically dismissing.
+- Consider incorporating a Notification Center where a user can access full information about tasks and asynchronous events/alerts.
 
 ### Have more questions?
 
