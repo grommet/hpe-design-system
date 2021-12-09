@@ -35,6 +35,17 @@ export const contentTruncationData = {
   ],
 };
 
+export const companyInfomation = {
+  'Company Name': 'AT&T',
+  'Product Name': 'Connect',
+  'Mailing Address': '',
+  Copyright: '',
+  'Terms and Conditions': '',
+  'Privacy Policy': '',
+  Security: '',
+  'Contact Us': '',
+};
+
 export const defaultData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   Description: 'Full-service A.I. insights and data center networks',
