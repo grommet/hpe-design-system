@@ -1,41 +1,45 @@
-import React, { useContext, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   Anchor,
   Box,
   Button,
   Form,
-  FormField,
   Heading,
   MaskedInput,
   NameValueList,
   NameValuePair,
   TextInput,
   Text,
+  ResponsiveContext,
 } from 'grommet';
+import {
+  FormGrid,
+  NameValueListFormField,
+  NameValueListFormLabel,
+} from './components';
 import { companyInfomation } from '../data';
 
 export const NameValueListEditHorizontalExample = () => {
   const theme = useContext(ThemeContext);
+  const size = useContext(ResponsiveContext);
   const [currentData, setCurrentData] = useState(companyInfomation);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
 
+  const Wrapper = size !== 'small' ? Fragment : Box;
+
   return (
     <Box gap="medium">
-      <Box justify="between" width="large" direction="row">
-        <Heading level={2} size="small" margin="none">
-          Profile Details
-        </Heading>
+      <Box justify="between" width="large" direction="row" align="start">
+        <Box gap="xsmall">
+          <Heading level={2} size="small" margin="none">
+            Company Information
+          </Heading>
+          <Text size="large">Add your company information.</Text>
+        </Box>
         {!edit && (
-          <Box justify="center">
-            <Button
-              alignSelf="center"
-              secondary
-              label="Edit Profile"
-              onClick={() => setEdit(true)}
-            />
-          </Box>
+          <Button secondary label="Edit" onClick={() => setEdit(true)} />
         )}
       </Box>
       {!edit ? (
@@ -43,36 +47,42 @@ export const NameValueListEditHorizontalExample = () => {
           {Object.entries(currentData).map(([name, value]) => (
             <NameValuePair key={name} name={<Text weight="bold">{name}</Text>}>
               {name === 'Email' ? (
-                <Anchor label={value} href={`mailto:${value}`} />
+                <Anchor label={value.value} href={`mailto:${value.value}`} />
               ) : (
-                <Text {...theme.global.input.font}>{value || '--'}</Text>
+                <Text {...theme.global.input.font}>{value.value || '--'}</Text>
               )}
             </NameValuePair>
           ))}
         </NameValueList>
       ) : (
-        <Form>
-          {Object.entries(currentData).map(([name]) => (
-            <Box gap="xlarge" direction="row-responsive">
-              <Box width="small" alignSelf="center">
-                <Text as="label" htmlFor={name} name={name}>
-                  {name}
-                </Text>
-              </Box>
-              <Box width="medium">
-                <FormField htmlFor={name} name={name}>
+        <Form
+          messages={{ required: 'This is a required field.' }}
+          onSubmit={() => {
+            setCurrentData(tempData);
+            setEdit(false);
+          }}
+        >
+          <FormGrid>
+            {Object.entries(currentData).map(([name]) => (
+              <Wrapper key={name}>
+                <NameValueListFormLabel name={name} data={currentData[name]} />
+                <NameValueListFormField name={name} data={currentData[name]}>
                   {name !== 'Phone Number' ? (
                     <TextInput
                       id={name}
                       name={name}
-                      value={tempData[name]}
+                      value={tempData[name].value}
                       onChange={event => {
                         const nextValue = {
                           ...tempData,
-                          [name]: event.target.value,
+                          [name]: {
+                            ...tempData[name],
+                            value: event.target.value,
+                          },
                         };
                         setTempData(nextValue);
                       }}
+                      placeholder={tempData[name].placeholder}
                     />
                   ) : (
                     <MaskedInput
@@ -99,7 +109,7 @@ export const NameValueListEditHorizontalExample = () => {
                       ]}
                       id={name}
                       name={name}
-                      value={tempData[name]}
+                      value={tempData[name].value}
                       onChange={event => {
                         const nextValue = {
                           ...tempData,
@@ -107,26 +117,20 @@ export const NameValueListEditHorizontalExample = () => {
                         };
                         setTempData(nextValue);
                       }}
+                      placeholder={tempData[name].placeholder}
                     />
                   )}
-                </FormField>
-              </Box>
-            </Box>
-          ))}
+                </NameValueListFormField>
+              </Wrapper>
+            ))}
+          </FormGrid>
           <Box
             direction="row"
-            gap="small"
+            gap="medium"
             align="center"
             margin={{ top: 'medium' }}
           >
-            <Button
-              label="Save"
-              primary
-              onClick={() => {
-                setCurrentData(tempData);
-                setEdit(false);
-              }}
-            />
+            <Button label="Save Changes" primary type="submit" />
             <Button
               label="Cancel"
               onClick={() => {

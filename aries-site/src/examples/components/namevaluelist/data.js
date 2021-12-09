@@ -36,14 +36,32 @@ export const contentTruncationData = {
 };
 
 export const companyInfomation = {
-  'Company Name': 'AT&T',
-  'Product Name': 'Connect',
-  'Mailing Address': '',
-  Copyright: '',
-  'Terms and Conditions': '',
-  'Privacy Policy': '',
-  Security: '',
-  'Contact Us': '',
+  'Company Name': { value: 'AT&T', required: true },
+  'Product Name': { value: 'Connect', required: true },
+  Copyright: {
+    value: '',
+    help: 'Replaces company name in the footer of the application.',
+  },
+  'Terms and Conditions': {
+    value: '',
+    help: 'Provide link to your  terms and conditions.',
+    placeholder: 'www.yourcompany.com/terms',
+  },
+  'Privacy Policy': {
+    value: '',
+    help: 'Provide link to your  privacy policy.',
+    placeholder: 'www.yourcompany.com/privacy',
+  },
+  Security: {
+    value: '',
+    help: 'Provide link to your security disclosure.',
+    placeholder: 'www.yourcompany.com/security',
+  },
+  'Contact Us': {
+    value: '',
+    help: 'Provide link to your companies contact us page.',
+    placeholder: 'www.yourcompany.com/contact',
+  },
 };
 
 export const defaultData = {
