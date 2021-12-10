@@ -5,6 +5,7 @@ export * from './DocsPageHeader';
 export * from './Example';
 export * from './FeedbackSection';
 export * from './Head';
+export * from './InPageNavigation';
 export * from './PageIntro';
 export * from './RelatedContent';
 export * from './Subsection';

@@ -17,6 +17,7 @@ import {
   Header,
   Head,
   FeedbackSection,
+  InPageNavigation,
   RelatedContent,
 } from '..';
 import { Meta, PageBackground } from '../../components';
@@ -90,6 +91,7 @@ export const Layout = ({
                   <SkipLinkTarget id="main" />
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
+                    direction="row"
                     pad={
                       pad || {
                         horizontal: calcPad(size),
@@ -100,21 +102,32 @@ export const Layout = ({
                   >
                     {layout !== 'plain' ? (
                       <>
-                        <ContentSection>
-                          <DocsPageHeader
-                            title={title}
-                            topic={topic}
-                            render={render}
-                          />
-                          {children}
-                        </ContentSection>
-                        {relatedContent.length > 0 && (
-                          <RelatedContent
-                            relatedContent={relatedContent}
-                            title={title}
-                          />
+                        <Box
+                          width="calc(100% - 192px)"
+                          pad={{ right: 'medium' }}
+                          margin={{ right: 'large' }}
+                        >
+                          <ContentSection>
+                            <DocsPageHeader
+                              title={title}
+                              topic={topic}
+                              render={render}
+                            />
+                            {children}
+                          </ContentSection>
+                          {relatedContent.length > 0 && (
+                            <RelatedContent
+                              relatedContent={relatedContent}
+                              title={title}
+                            />
+                          )}
+                          <FeedbackSection />
+                        </Box>
+                        {size !== 'small' ? (
+                          <InPageNavigation title={title} />
+                        ) : (
+                          undefined
                         )}
-                        <FeedbackSection />
                       </>
                     ) : (
                       children
