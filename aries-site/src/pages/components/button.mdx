@@ -208,16 +208,16 @@ Ensure you are always being mindful of our responsive page layouts when designin
 
 ### Single Buttons
 
-By default, it is best to have buttons fill the full width of the container for browser widths of 576px (S) or smaller. Because press target size and an unclear visual hierarchy are key concerns at smaller resolutions, this utilizes available space to ensure users can easily identify and interact with the buttons.
+On screen widths of less than or equal to 576px (Grommet "small"), it is best to have buttons fill the full width of the container. Because press target size and an unclear visual hierarchy are key concerns at smaller resolutions, this utilizes available space to ensure users can easily identify and interact with the buttons.
 
 <BestPracticeGroup>
   <Example
-    bestPractice={{type: 'do', message: 'Full-width buttons help users more easily identify & interact with actions on smaller browser widths and when using the press gesture.'}}
+    bestPractice={{type: 'do', message: 'On small resolutions, full-width buttons help users more easily identify & interact with actions on smaller browser widths and when using the press gesture.'}}
   >
     <ButtonGoodSignUpCTAPreview />
   </Example>
   <Example
-    bestPractice={{type: 'dont', message: 'Keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.'}}
+    bestPractice={{type: 'dont', message: 'On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.'}}
   >
     <ButtonBadSignUpCTAsPreview />
   </Example>
@@ -225,7 +225,7 @@ By default, it is best to have buttons fill the full width of the container for 
 
 ### Button Groups
 
-For button groups on 576px (S) or smaller browser widths, ensure each button within the group follows the established guidance for single buttons. If a button group is presented in-line horizontally, rearrange the buttons vertically on smaller browser widths to ensure the proper full button widths can be achieved.
+For button groups on screen widths less than or equal to 576px (Grommet "small"), ensure each button within the group follows the established guidance for single buttons. If a button group is presented inline horizontally, rearrange the buttons vertically on smaller browser widths to ensure the proper full button widths can be achieved.
 
 <BestPracticeGroup>
   <Example
@@ -234,7 +234,7 @@ For button groups on 576px (S) or smaller browser widths, ensure each button wit
     <ButtonGoodLongTitlePreview />
   </Example>
   <Example
-    bestPractice={{type: 'dont', message: 'Horizontal, in-line button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.'}}
+    bestPractice={{type: 'dont', message: 'Horizontal, inline button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.'}}
   >
     <ButtonBadGroupPreview />
   </Example>
