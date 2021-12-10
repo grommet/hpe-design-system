@@ -44,7 +44,7 @@ const data = [
         href: '/components/fileinput#fileinput-with-file-removal-confirmation',
       },
       {
-        label: 'Dialogs',
+        label: 'Dialog Modals',
       },
       {
         label: 'Notifications',
