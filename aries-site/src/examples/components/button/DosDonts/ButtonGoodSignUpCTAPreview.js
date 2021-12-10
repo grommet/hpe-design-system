@@ -47,25 +47,25 @@ export const ButtonGoodSignUpCTAPreview = () => {
         >
           <FormField
             label="Full Name"
-            htmlFor="fullName-sign-up-simple"
+            htmlFor="fullName-sign-up-good"
             name="fullName"
             required={{ indicator: false }}
           >
             <TextInput
-              id="fullName-sign-up-simple"
+              id="fullName-sign-up-good"
               name="fullName"
               value="Jane Doe"
             />
           </FormField>
           <FormField
             label="Email"
-            htmlFor="email-sign-up-simple"
+            htmlFor="email-sign-up-good"
             name="email"
             required={{ indicator: false }}
           >
             <MaskedInput
               value="johndoe@hpe.com"
-              id="email-sign-up-simple"
+              id="email-sign-up-good"
               name="email"
               type="email"
             />
@@ -73,20 +73,20 @@ export const ButtonGoodSignUpCTAPreview = () => {
           <FormField
             required={{ indicator: false }}
             label="Password"
-            htmlFor="password-sign-up-simple"
+            htmlFor="password-sign-up-good"
             name="password"
           >
             <TextInput
-              id="password-sign-up-simple"
+              id="password-sign-up-good"
               name="password"
               placeholder="Enter your password"
               type="password"
               value="password"
             />
           </FormField>
-          <FormField htmlFor="terms-and-privacy-simple">
+          <FormField htmlFor="terms-and-privacy-good">
             <CheckBox
-              id="terms-and-privacy-simple"
+              id="terms-and-privacy-good"
               name="termsAndPrivacy"
               checked
               label={
