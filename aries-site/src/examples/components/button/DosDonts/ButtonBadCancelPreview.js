@@ -17,14 +17,17 @@ export const ButtonBadCancelPreview = () => (
         products. Also changing units to add chargeback information
       </Text>
     </Header>
-    <Box align="center" justify="center" height={{ min: 'small' }}>
-      <Spinner message="Loading rules..." size="medium" />
+    <Box gap="small" align="center" justify="center">
+      <Spinner size="medium" />
+      <Text> Loading rules...</Text>
     </Box>
     <Box direction="row" gap="small">
-      <Button secondary label="Redo" onClick={() => {}} />
-      <Button primary label="Save" onClick={() => {}} />
-      <Box fill justify="end">
-        <Button label="Cancel" secondary onClick={() => {}} />
+      <Box direction="row" justify="end" gap="small">
+        <Button label="Cancel" onClick={() => {}} />
+        <Button secondary label="Redo" onClick={() => {}} />
+      </Box>
+      <Box align="end" fill>
+        <Button primary label="Save" onClick={() => {}} />
       </Box>
     </Box>
   </Box>

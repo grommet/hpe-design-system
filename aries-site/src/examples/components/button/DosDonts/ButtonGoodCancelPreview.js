@@ -17,8 +17,9 @@ export const ButtonGoodCancelPreview = () => (
         products. Also changing units to add chargeback information
       </Text>
     </Header>
-    <Box align="center" justify="center" height={{ min: 'small' }}>
-      <Spinner message="Loading rules..." size="medium" />
+    <Box gap="small" align="center" justify="center">
+      <Spinner size="medium" />
+      <Text> Loading rules...</Text>
     </Box>
     <Box direction="row" justify="end" gap="small">
       <Button label="Cancel" onClick={() => {}} />
