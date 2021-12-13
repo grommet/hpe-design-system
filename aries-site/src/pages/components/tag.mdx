@@ -1,0 +1,72 @@
+import { Example } from '../../layouts';
+import { TagAnatomy, TagBasicAnatomy } from '../../examples';
+
+## Guidance
+
+Tags are simple attributes containing metadata:
+
+- Simple, brief and concise metadata to describe a resource or content
+- Included in search, filter, and in the details of a resource
+- Organize and group resources by common characteristics or attibutes
+- Assisst batch actions and selection of multiple resources
+
+## Anatomy
+
+The most basic tags consist of two primary elements:
+
+<Example plain>
+  <TagBasicAnatomy />
+</Example>
+
+1. Border
+1. Name
+
+Tags can have additional elements depending on the tags’ intended use and context:
+
+<Example plain>
+  <TagAnatomy />
+</Example>
+
+1. Border
+1. Name
+1. Value
+1. Close icon
+
+Character requirements:
+
+- Name : 1-128 characters
+- Value : 1-256 characters
+- Unlimited unique names for an account
+
+### The Close Icon
+
+Applying the close icon is dependent upon the use case and not a requirement.
+
+When to use the close icon:
+
+1. Removing a tag in an editor
+1. Removing a tag as filtering criteria
+1. Use cases that require the clearing or removal of a tag from a resource
+
+When the close icon should not be used:
+
+1. Displaying tags for a resource in a detail view
+1. Displaying tags where removal of the tag is not within an edit experience for the resource
+
+## Name/Value Pairs
+
+Name/Value pairing with tags allow further organization and identification of resources. While this feature is not a requirement, name/value pairs can help users more clearly group resources.
+
+### Creating Name/Value Pair Tags
+
+The experience for creating a Name/Value pair tag occurs in 2 steps: Create the name and then create the value. Alternatively, select an existing name and create a new value.
+
+## Assigning Tags
+
+Currently, assigning tags occurs within an editor experience in a modal or wizard. This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+
+## Filtering with Tags
+
+Filtering tags allows the user to search, select and remove tags. Tags do not appear in the UI to allow for a clean, task-based UI, as well as to not confuse the experience with other filtering criteria.
+
+One example in which a tag can be used to facilitate quick associations amongst resources is to use the tag as a clickable filter from the detail of resource.
