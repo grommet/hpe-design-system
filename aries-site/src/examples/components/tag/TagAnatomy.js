@@ -57,7 +57,14 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Box direction="row" gap="xxsmall" id={id} {...theme.tag}>
+    <Box
+      direction="row"
+      gap="xxsmall"
+      id={id}
+      border={theme.tag.border}
+      pad={theme.tag.pad}
+      round={theme.tag.round}
+    >
       <Box id={nameId}>Location</Box>
       {valueId && closeId && (
         <>
