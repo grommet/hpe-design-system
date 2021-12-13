@@ -752,6 +752,36 @@ export const components = [
     tags: ['paginated results', 'paginated data'],
   },
   {
+    name: 'Tag',
+    available: true,
+    category: 'Text',
+    description: `Tags are metadata attributes to facilitate identification, 
+    organization, searching and filtering resources.`,
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-pagination.svg',
+          dark: '/componentImages/component-preview-pagination-invert.svg',
+        },
+        alt: 'HPE Design System Pagination',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Tags are metadata attributes to facilitate identification, 
+    organization, searching and filtering resources.`,
+    sections: [
+      'Guidance',
+      'Anatomy',
+      'The Close Icon',
+      'Name/Value Pairs',
+      'Creating Name/Value Pair Tags',
+      'Assigning Tags',
+      'Filtering with Tags',
+    ],
+    relatedContent: ['NameValueList', 'Lists'],
+    tags: ['tags', 'name value pair'],
+  },
+  {
     name: 'All Components',
     available: true,
     category: 'All',

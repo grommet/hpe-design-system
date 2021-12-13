@@ -65,7 +65,7 @@ const AnatomyBox = ({ background, id }) => {
   );
 };
 
-const Annotation = ({ id, target }) => {
+export const Annotation = ({ id, target }) => {
   const theme = useContext(ThemeContext);
 
   return (
@@ -118,6 +118,6 @@ AnatomyBox.propTypes = {
 };
 
 Annotation.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   target: PropTypes.string,
 };
