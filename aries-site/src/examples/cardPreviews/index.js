@@ -1,3 +1,4 @@
+export * from './accessibility';
 export * from './anchor';
 export * from './box';
 export * from './button';
