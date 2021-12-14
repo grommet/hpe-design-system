@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Text } from 'grommet';
 import { WizardContext } from '.';
 
-export const CancellationLayer = ({ onSetOpen }) => {
+export const CancellationLayer = ({ onSetOpen, boxRef }) => {
   const { defaultFormValues, setFormValues } = useContext(WizardContext);
   return (
     <Layer
       position="center"
+      target={boxRef.current}
       onClickOutside={() => onSetOpen(false)}
       onEsc={() => onSetOpen(false)}
     >
@@ -50,4 +51,5 @@ export const CancellationLayer = ({ onSetOpen }) => {
 
 CancellationLayer.propTypes = {
   onSetOpen: PropTypes.func.isRequired,
+  boxRef: PropTypes.object,
 };

@@ -176,6 +176,7 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = () => {
+  const ref = React.useRef();
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -235,11 +236,12 @@ export const TwoColumnWizardExample = () => {
       <Box fill>
         <WizardHeader setOpen={setOpen} />
         <StepContent
+          ref={ref}
           onSubmit={({ value }) => console.log('onSubmit:', value)}
         />
         <StepFooter />
       </Box>
-      {open && <CancellationLayer onSetOpen={setOpen} />}
+      {open && <CancellationLayer boxRef={ref} onSetOpen={setOpen} />}
     </WizardContext.Provider>
   );
 };
