@@ -36,9 +36,11 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
             label="No, Continue Wizarding"
             onClick={() => onSetOpen(false)}
             secondary
+            fill={size !== 'small' ? false : 'horizontal'}
           />
           <Button
             label="Yes, Cancel Wizarding"
+            fill={size !== 'small' ? false : 'horizontal'}
             onClick={() => {
               onSetOpen(false);
               setFormValues(defaultFormValues);

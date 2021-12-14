@@ -177,6 +177,8 @@ const steps = [
 ];
 
 export const TwoColumnWizardExample = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -287,4 +289,3 @@ const Guidance = () => {
 TwoColumnWizardExample.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
-
