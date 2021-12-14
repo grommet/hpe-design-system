@@ -200,6 +200,8 @@ export const steps = [
 ];
 
 export const WizardValidationExample = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
