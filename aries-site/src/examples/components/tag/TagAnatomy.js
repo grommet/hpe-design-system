@@ -4,10 +4,10 @@ import { Box, Grid, Diagram, Stack, Text, ThemeContext } from 'grommet';
 import { FormClose } from 'grommet-icons';
 import { Annotation } from '../namevaluelist/NameValueListAnatomy';
 
-export const color = 'border';
-export const anchor = 'vertical';
-export const thickness = 'hair';
-export const type = 'direct';
+const color = 'border';
+const anchor = 'vertical';
+const thickness = 'hair';
+const type = 'direct';
 
 const connections = [
   {
@@ -81,35 +81,46 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
   );
 };
 
-export const TagAnatomy = () => (
-  <Stack>
-    <AnatomyGrid>
-      {/* Empty Box occupies first cell of grid. Alternatively 
+export const TagAnatomy = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Stack>
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
         could use gridAreas, but felt heavy for this need. */}
-      <Box />
-      <Annotation id="border-annotation" target="1" />
-      <Box />
-      <Box alignSelf="center">
-        <Annotation id="name-annotation" target="2" />
-      </Box>
-      <AnatomyBox
-        id="border"
-        nameId="tagName-2"
-        valueId="value"
-        closeId="close"
-      />
-      <Box alignSelf="center">
-        <Annotation id="close-annotation" target="4" />
-      </Box>
-      <Box />
-      <Box margin={{ left: 'large' }}>
-        <Annotation id="value-annotation" target="3" />
-      </Box>
-      <Box />
-    </AnatomyGrid>
-    <Diagram connections={connections} />
-  </Stack>
-);
+        <Box />
+        <Annotation id="border-annotation" target="1" />
+        <Box />
+        <Box alignSelf="center">
+          <Annotation id="name-annotation" target="2" />
+        </Box>
+        <AnatomyBox
+          id="border"
+          nameId="tagName-2"
+          valueId="value"
+          closeId="close"
+        />
+        <Box alignSelf="center">
+          <Annotation id="close-annotation" target="4" />
+        </Box>
+        <Box />
+        {/* non t-shirt size necessary for diagram usecase for annotation
+          to vertically align with item */}
+        <Box
+          margin={{
+            left: `${parseInt(theme.global.edgeSize.large, 10) -
+              parseInt(theme.global.edgeSize.xsmall, 10)}px`,
+          }}
+        >
+          <Annotation id="value-annotation" target="3" />
+        </Box>
+        <Box />
+      </AnatomyGrid>
+      <Diagram connections={connections} />
+    </Stack>
+  );
+};
 
 AnatomyBox.propTypes = {
   id: PropTypes.string,

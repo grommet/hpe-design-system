@@ -1,7 +1,12 @@
 import React from 'react';
 import { Box, Diagram, Stack } from 'grommet';
 import { Annotation } from '../namevaluelist/NameValueListAnatomy';
-import { AnatomyBox, AnatomyGrid, anchor, color, thickness, type } from '.';
+import { AnatomyBox, AnatomyGrid } from '.';
+
+const color = 'border';
+const anchor = 'vertical';
+const thickness = 'hair';
+const type = 'direct';
 
 const connections = [
   {

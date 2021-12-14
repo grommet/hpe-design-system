@@ -22,6 +22,7 @@ import {
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
+import { TagPreview } from '../../examples/cardPreviews/tag';
 
 export const components = [
   {
@@ -754,18 +755,12 @@ export const components = [
   {
     name: 'Tag',
     available: true,
-    category: 'Text',
+    category: 'Visualizations',
     description: `Tags are metadata attributes to facilitate identification, 
     organization, searching and filtering resources.`,
     preview: {
-      image: {
-        src: {
-          light: '/componentImages/component-preview-pagination.svg',
-          dark: '/componentImages/component-preview-pagination-invert.svg',
-        },
-        alt: 'HPE Design System Pagination',
-        fit: 'contain',
-      },
+      component: () => <TagPreview />,
+      background: 'background-front',
     },
     seoDescription: `Tags are metadata attributes to facilitate identification, 
     organization, searching and filtering resources.`,
