@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import {
   Box,
@@ -175,8 +176,7 @@ const steps = [
   },
 ];
 
-export const TwoColumnWizardExample = () => {
-  const ref = React.useRef();
+export const TwoColumnWizardExample = ({ containerRef }) => {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -236,12 +236,16 @@ export const TwoColumnWizardExample = () => {
       <Box fill>
         <WizardHeader setOpen={setOpen} />
         <StepContent
-          ref={ref}
           onSubmit={({ value }) => console.log('onSubmit:', value)}
         />
         <StepFooter />
       </Box>
-      {open && <CancellationLayer boxRef={ref} onSetOpen={setOpen} />}
+      {open && (
+        <CancellationLayer
+          target={containerRef && containerRef.current}
+          onSetOpen={setOpen}
+        />
+      )}
     </WizardContext.Provider>
   );
 };
@@ -279,3 +283,8 @@ const Guidance = () => {
     </Box>
   );
 };
+
+TwoColumnWizardExample.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+};
+
