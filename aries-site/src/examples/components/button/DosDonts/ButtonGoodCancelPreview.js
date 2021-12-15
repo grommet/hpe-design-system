@@ -9,7 +9,7 @@ export const ButtonGoodCancelPreview = () => (
       gap="xxsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Heading level={2} margin="none">
+      <Heading level={2} margin="none" size="small">
         Delete
       </Heading>
       <Text size="xlarge">
