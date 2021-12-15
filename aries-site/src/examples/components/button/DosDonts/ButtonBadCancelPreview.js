@@ -13,14 +13,14 @@ export const ButtonBadCancelPreview = () => (
         Delete item?
       </Heading>
       <Text size="large">
-        Deleting this item? Consider previewing results to see the effects of
-        deleting the iteam.
+        Deleting this item cannot be undone. Consider previewing results to see
+        the effects of deleting the item.
       </Text>
     </Header>
     <Box direction="row" gap="small">
-      <Box width="medium" direction="row" s gap="small">
+      <Box width="large" direction="row" s gap="small">
         <Button secondary label="Preview Results" onClick={() => {}} />
-        <Button primary label="Save" onClick={() => {}} />
+        <Button primary label="Delete Item" onClick={() => {}} />
       </Box>
       <Box align="end" fill>
         <Button secondary label="Cancel" onClick={() => {}} />
