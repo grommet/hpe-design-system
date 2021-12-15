@@ -10,7 +10,7 @@ export const ButtonGoodCancelPreview = () => (
       pad={{ horizontal: 'xxsmall' }}
     >
       <Heading level={2} margin="none" size="small">
-        Delete
+        Delete item?
       </Heading>
       <Text size="xlarge">
         Deleting this item cannot be undone. Consider previewing results to see the effects of 
