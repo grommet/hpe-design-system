@@ -6,7 +6,7 @@ export const ButtonGoodCancelPreview = () => (
     <Header
       direction="column"
       align="start"
-      gap="xxsmall"
+      gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
       <Heading level={2} margin="none" size="small">
