@@ -10,7 +10,7 @@ export const ButtonBadCancelPreview = () => (
       pad={{ horizontal: 'xxsmall' }}
     >
       <Heading level={2} margin="none" size="small">
-        Delete
+        Delete item?
       </Heading>
       <Text size="large">
         Deleting this item? Consider previewing results to see the effects of
