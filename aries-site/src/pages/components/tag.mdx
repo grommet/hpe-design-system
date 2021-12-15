@@ -1,5 +1,6 @@
 import { Example } from '../../layouts';
 import { TagAnatomy, TagBasicAnatomy } from '../../examples';
+import { Button } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 ## Guidance
@@ -15,7 +16,7 @@ Tags are simple attributes containing metadata. Tags:
 
 The most basic tags consist of two primary elements:
 
-<Example plain caption="Diagram illustrating the primary elements of a tag." >
+<Example caption="Diagram illustrating the primary elements of a tag." plain>
   <TagBasicAnatomy />
 </Example>
 
@@ -24,39 +25,57 @@ The most basic tags consist of two primary elements:
 
 Tags can have additional elements depending on the tags’ intended use and context:
 
-<Example plain>
+<Example
+  caption="Diagram illustrating the primary and additional elements of a tag."
+  plain
+>
   <TagAnatomy />
 </Example>
 
 1. Border
 1. Name
 1. Value
-1. Close icon
+1. Remove button
 
 Character requirements:
 
-- Name : 1-128 characters
-- Value : 1-256 characters
-- Unlimited unique names for an account
+- Name : up to 128 characters
+- Value : up to 256 characters
 
-### The Close Icon
+### Remove button
 
-Applying the close icon is dependent upon the use case and not a requirement.
+Applying the remove button is dependent upon the use case and not a requirement.
 
-<Example height="xsmall" horizontalLayout>
-  <FormClose />
+<Example
+  caption="Button that appears when a tag can be removed."
+  height="xsmall"
+  horizontalLayout
+>
+  <Button
+    hoverIndicator
+    focusIndicator
+    plain
+    icon={<FormClose />}
+    style={{ borderRadius: '100%' }} // necessary for rounded button
+  />
 </Example>
 
-When to use the close icon:
+The remove tag button may be used when:
 
-1. Removing a tag in an editor
-1. Removing a tag as filtering criteria
-1. Use cases that require the clearing or removal of a tag from a resource
+1. Removing a tag in an editor.
+1. Removing a tag as filtering criteria.
+1. Clearing or removing a tag from a resource
 
-When the close icon should not be used:
+The remove tag button should not be used when:
 
-1. Displaying tags for a resource in a detail view
-1. Displaying tags where removal of the tag is not within an edit experience for the resource
+1. Displaying tags for a resource in a detail view. Use a [NameValueList](/components/namevaluelist) instead.
+1. Displaying tags where removal of the tag is not within an edit experience for the resource.
+
+To implement a Tag with a remove button, provide a function to the `onRemove` Tag property.
+
+### Background Color
+
+Tags do not receive a background color. Instead, tags inherit the background of their container.
 
 ## Name-Value Pairs
 
@@ -68,7 +87,7 @@ The experience for creating a Name-Value pair tag occurs in 2 steps: Create the 
 
 ## Assigning Tags
 
-Currently, assigning tags occurs within an editor experience in a modal or wizard. This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
 
 ## Filtering with Tags
 

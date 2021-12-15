@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Diagram, Stack } from 'grommet';
-import { Annotation } from '../namevaluelist/NameValueListAnatomy';
+import { Annotation } from '../../../layouts';
 import { AnatomyBox, AnatomyGrid } from '.';
 
 const color = 'border';
@@ -32,9 +32,7 @@ export const TagBasicAnatomy = () => (
     <AnatomyGrid columns={['xxsmall', 'small']}>
       <Box />
       <Annotation id={1} target="1" />
-      <Box alignSelf="center">
-        <Annotation id={2} target="2" />
-      </Box>
+      <Annotation alignSelf="center" id={2} target="2" />
       <AnatomyBox id="border-basic" nameId="name-basic" />
     </AnatomyGrid>
     <Diagram connections={connections} />
