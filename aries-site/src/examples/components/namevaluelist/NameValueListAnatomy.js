@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Text, Diagram, Stack, ThemeContext } from 'grommet';
+import { Box, Grid, Diagram, Stack, ThemeContext } from 'grommet';
+import { Annotation } from '../../../layouts';
 
 const color = 'border';
 const anchor = 'vertical';
@@ -65,27 +66,6 @@ const AnatomyBox = ({ background, id }) => {
   );
 };
 
-export const Annotation = ({ id, target }) => {
-  const theme = useContext(ThemeContext);
-
-  return (
-    <Box
-      id={id}
-      align="center"
-      background="background-front"
-      border={{ color: 'border-weak' }}
-      height={theme.global.edgeSize.medium}
-      justify="center"
-      round
-      width={theme.global.edgeSize.medium}
-    >
-      <Text size="small" weight="bold">
-        {target}
-      </Text>
-    </Box>
-  );
-};
-
 export const NameValueListAnatomy = () => (
   <Stack margin={{ bottom: 'medium' }}>
     <Box direction="row-responsive" gap="medium">
@@ -115,9 +95,4 @@ export const NameValueListAnatomy = () => (
 AnatomyBox.propTypes = {
   background: PropTypes.string,
   id: PropTypes.string,
-};
-
-Annotation.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  target: PropTypes.string,
 };
