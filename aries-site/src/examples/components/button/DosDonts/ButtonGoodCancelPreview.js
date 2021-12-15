@@ -12,9 +12,9 @@ export const ButtonGoodCancelPreview = () => (
       <Heading level={2} margin="none" size="small">
         Delete item?
       </Heading>
-      <Text size="xlarge">
-        Deleting this item cannot be undone. Consider previewing results to see the effects of 
-        deleting the item.
+      <Text size="large">
+        Deleting this item cannot be undone. Consider previewing results to see
+        the effects of deleting the item.
       </Text>
     </Header>
     <Box direction="row" justify="end" gap="small">

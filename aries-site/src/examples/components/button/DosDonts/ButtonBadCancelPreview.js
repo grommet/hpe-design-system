@@ -6,13 +6,13 @@ export const ButtonBadCancelPreview = () => (
     <Header
       direction="column"
       align="start"
-      gap="xxsmall"
+      gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Heading level={2} margin="none">
+      <Heading level={2} margin="none" size="small">
         Delete
       </Heading>
-      <Text size="xlarge">
+      <Text size="large">
         Deleting this item? Consider previewing results to see the effects of
         deleting the iteam.
       </Text>
