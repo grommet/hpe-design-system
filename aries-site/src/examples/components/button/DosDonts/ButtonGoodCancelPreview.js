@@ -13,7 +13,7 @@ export const ButtonGoodCancelPreview = () => (
         Delete
       </Heading>
       <Text size="xlarge">
-        Deleting this item? Consider previewing results to see the effects of
+        Deleting this item cannot be undone. Consider previewing results to see the effects of 
         deleting the iteam.
       </Text>
     </Header>
