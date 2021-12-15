@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Heading, Header, Text, Spinner } from 'grommet';
+import { Box, Button, Heading, Header, Text } from 'grommet';
 
 export const ButtonBadCancelPreview = () => (
   <Box width="large" gap="medium" pad="small">
@@ -10,24 +10,20 @@ export const ButtonBadCancelPreview = () => (
       pad={{ horizontal: 'xxsmall' }}
     >
       <Heading level={2} margin="none">
-        Rule Ordering
+        Delete
       </Heading>
-      <Text>
-        This rule set is for manipulating ASM/ARM field in departments and
-        products. Also changing units to add chargeback information
+      <Text size="xlarge">
+        Deleting this item? Consider previewing results to see the effects of
+        deleting the iteam.
       </Text>
     </Header>
-    <Box gap="small" align="center" justify="center">
-      <Spinner size="medium" />
-      <Text> Loading rules...</Text>
-    </Box>
     <Box direction="row" gap="small">
-      <Box direction="row" justify="end" gap="small">
-        <Button label="Cancel" onClick={() => {}} />
-        <Button secondary label="Redo" onClick={() => {}} />
+      <Box width="medium" direction="row" s gap="small">
+        <Button secondary label="Preview Results" onClick={() => {}} />
+        <Button primary label="Save" onClick={() => {}} />
       </Box>
       <Box align="end" fill>
-        <Button primary label="Save" onClick={() => {}} />
+        <Button secondary label="Cancel" onClick={() => {}} />
       </Box>
     </Box>
   </Box>
