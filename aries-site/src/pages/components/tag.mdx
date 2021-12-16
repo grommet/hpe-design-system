@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { TagAnatomy, TagBasicAnatomy, TagResource } from '../../examples';
+import { TagAnatomy, TagBasicAnatomy, TagResource, TagResourcePreview } from '../../examples';
 import { Button } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -94,6 +94,14 @@ Currently, assigning tags occurs within an editor experience in a [modal](/compo
 Filtering tags allows the user to search, select and remove tags. Tags do not appear in the UI to allow for a clean, task-based UI, as well as to not confuse the experience with other filtering criteria.
 
 One example in which a tag can be used to facilitate quick associations amongst resources is to use the tag as a clickable filter from the detail of resource.
+
+### Tags on a Detail Page
+
+<Example caption="Example showing a set of tags that might appear in a detail page."  horizontalLayout>
+  <TagResourcePreview />
+</Example>
+
+**Scroll to the bottom of the below example to see the tag section within the context of a page.**
 
 <Example showResponsiveControls={['laptop', 'mobile']} template>
   <TagResource />

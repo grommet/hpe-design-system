@@ -118,7 +118,7 @@ const SectionHeader = ({ heading }) => (
 );
 
 const SectionDetails = ({ data }) => (
-  <NameValueList>
+  <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
     {Object.entries(data).map(([name, value]) => (
       <NameValuePair key={name} name={value.displayName}>
         {value.value}
@@ -127,12 +127,27 @@ const SectionDetails = ({ data }) => (
   </NameValueList>
 );
 
+export const TagSection = () => (
+  <Section>
+    <SectionHeader heading="Tags" />
+    <Box direction="row" gap="small" wrap>
+      {Object.entries(tags).map(([, value]) => (
+        <Tag
+          name={value.displayName}
+          value={value.value}
+          margin={{ bottom: 'small' }}
+        />
+      ))}
+    </Box>
+  </Section>
+);
+
 export const TagResource = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" overflow="auto" fill>
     <Box align="start" pad="medium">
       <Button label="Devices" icon={<FormPrevious />} />
     </Box>
-    <Box alignSelf="center" width="large" gap="large" pad="medium" flex={false}>
+    <Box alignSelf="center" gap="large" pad="medium" flex={false}>
       <Box
         border="bottom"
         align="start"
@@ -161,18 +176,7 @@ export const TagResource = () => (
         <SectionHeader heading="Subscription" />
         <SectionDetails data={subscription} />
       </Section>
-      <Section>
-        <SectionHeader heading="Tags" />
-        <Box direction="row" gap="small" wrap>
-          {Object.entries(tags).map(([, value]) => (
-            <Tag
-              name={value.displayName}
-              value={value.value}
-              margin={{ bottom: 'small' }}
-            />
-          ))}
-        </Box>
-      </Section>
+      <TagSection />
     </Box>
   </Box>
 );
