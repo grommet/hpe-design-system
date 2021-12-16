@@ -71,10 +71,10 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
       <Box id={nameId}>Location</Box>
       {valueId && closeId && (
         <Box {...boxProps}>
-          <Box>: </Box>
-          <Box id={valueId}>
-            <Text {...theme.tag.value}>NY_USA</Text>
-          </Box>
+          <Text>:</Text>
+          <Text id={valueId} {...theme.tag.value}>
+            NY_USA
+          </Text>
           <Button
             id={closeId}
             icon={<FormClose />}
