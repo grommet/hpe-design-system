@@ -1,2 +1,3 @@
 export * from './TagBasicAnatomy';
 export * from './TagAnatomy';
+export * from './TagResource';
