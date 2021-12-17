@@ -12,7 +12,7 @@ export const NameValueListFormLabel = ({ data, name }) => {
     <Box margin={theme.formField.label.margin}>
       <Text as="label" {...theme.nameValuePair.name} htmlFor={name} name={name}>
         {data.displayName}
-        {data.required ? <Text aria-label="required">*</Text> : undefined}
+        {data.required ? <Text aria-label="required" weight="normal">*</Text> : undefined}
       </Text>
       {data.help && <Text size="xsmall">{data.help}</Text>}
     </Box>
