@@ -9,12 +9,14 @@ import {
   NameValuePair,
   TextInput,
   Text,
+  ResponsiveContext,
 } from 'grommet';
 import { NameValueListFormField, NameValueListFormLabel } from './components';
 import { formattedData } from '../data';
 
 export const NameValueListEditHorizontalExample = () => {
   const theme = useContext(ThemeContext);
+  const size = useContext(ResponsiveContext);
   const [currentData, setCurrentData] = useState(formattedData);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
@@ -44,7 +46,13 @@ export const NameValueListEditHorizontalExample = () => {
 
   return (
     <Box gap="medium">
-      <Box justify="between" width="large" direction="row" align="start">
+      <Box
+        justify="between"
+        width="large"
+        direction="row-responsive"
+        align="start"
+        gap="medium"
+      >
         <Box gap="xsmall">
           <Heading level={2} size="small" margin="none">
             Company Information
@@ -52,7 +60,12 @@ export const NameValueListEditHorizontalExample = () => {
           <Text size="large">Add your company information.</Text>
         </Box>
         {!edit && (
-          <Button secondary label="Edit" onClick={() => setEdit(true)} />
+          <Button
+            secondary
+            label="Edit"
+            onClick={() => setEdit(true)}
+            fill={size === 'small' ? 'horizontal' : undefined}
+          />
         )}
       </Box>
       <Wrapper {...wrapperProps}>
@@ -99,18 +112,24 @@ export const NameValueListEditHorizontalExample = () => {
         </NameValueList>
         {edit ? (
           <Box
-            direction="row"
+            direction="row-responsive"
             gap="medium"
             align="center"
             margin={{ top: 'medium' }}
           >
-            <Button label="Save Changes" primary type="submit" />
+            <Button
+              label="Save Changes"
+              primary
+              type="submit"
+              fill={size === 'small' ? 'horizontal' : undefined}
+            />
             <Button
               label="Cancel"
               onClick={() => {
                 setEdit(false);
                 setTempData(currentData);
               }}
+              fill={size === 'small' ? 'horizontal' : undefined}
             />
           </Box>
         ) : (
