@@ -1,5 +1,9 @@
 import { Example } from '../../layouts';
-import { TagAnatomy, TagBasicAnatomy } from '../../examples';
+import {
+  CreateNameValuePair,
+  TagAnatomy,
+  TagBasicAnatomy,
+} from '../../examples';
 import { Button } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -88,6 +92,10 @@ The experience for creating a Name-Value pair tag occurs in 2 steps: Create the 
 ## Assigning Tags
 
 Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+
+<Example template>
+  <CreateNameValuePair />
+</Example>
 
 ## Filtering with Tags
 
