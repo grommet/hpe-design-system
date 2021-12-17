@@ -756,8 +756,8 @@ export const components = [
     name: 'Tag',
     available: true,
     category: 'Visualizations',
-    description: `Tags are metadata attributes to facilitate identification, 
-    organization, searching and filtering resources.`,
+    description: `Tags are metadata attributes facilitating the identification, 
+    organization, searching, and filtering of resources.`,
     preview: {
       component: () => <TagPreview />,
       background: 'background-front',
