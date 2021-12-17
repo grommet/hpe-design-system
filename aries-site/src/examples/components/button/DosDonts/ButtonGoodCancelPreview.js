@@ -13,8 +13,8 @@ export const ButtonGoodCancelPreview = () => (
         Delete item?
       </Heading>
       <Text size="large">
-        Deleting this item cannot be undone. Consider previewing results to see
-        the effects of deleting the item.
+        Deleting this role assignment will revoke access to the underlying
+        resources.
       </Text>
     </Header>
     <Box direction="row" justify="end" gap="small">
