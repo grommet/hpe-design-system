@@ -17,14 +17,9 @@ export const ButtonBadCancelPreview = () => (
         the effects of deleting the item.
       </Text>
     </Header>
-    <Box direction="row" gap="small">
-      <Box width="large" direction="row" s gap="small">
-        <Button secondary label="Preview Results" onClick={() => {}} />
-        <Button primary label="Delete Item" onClick={() => {}} />
-      </Box>
-      <Box align="end" fill>
-        <Button secondary label="Cancel" onClick={() => {}} />
-      </Box>
+    <Box direction="row" justify="end" gap="small">
+      <Button secondary label="Cancel" onClick={() => {}} />
+      <Button primary label="Delete Role Assignment" onClick={() => {}} />
     </Box>
   </Box>
 );
