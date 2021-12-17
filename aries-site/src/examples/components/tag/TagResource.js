@@ -10,7 +10,7 @@ import {
   Text,
 } from 'grommet';
 import { FormPrevious, More } from 'grommet-icons';
-import { assignment, details, tags, subscription } from '.';
+import { details, tags } from '.';
 
 const Section = ({ ...rest }) => <Box gap="medium" flex={false} {...rest} />;
 
@@ -30,21 +30,6 @@ const SectionDetails = ({ data }) => (
       </NameValuePair>
     ))}
   </NameValueList>
-);
-
-export const TagSection = () => (
-  <Section>
-    <SectionHeader heading="Tags" />
-    <Box direction="row" gap="small" wrap>
-      {Object.entries(tags).map(([, value]) => (
-        <Tag
-          name={value.displayName}
-          value={value.value}
-          margin={{ bottom: 'small' }}
-        />
-      ))}
-    </Box>
-  </Section>
 );
 
 export const TagResource = () => (
@@ -74,14 +59,17 @@ export const TagResource = () => (
         <SectionDetails data={details} />
       </Section>
       <Section>
-        <SectionHeader heading="Assignment" />
-        <SectionDetails data={assignment} />
+        <SectionHeader heading="Tags" />
+        <Box direction="row" gap="small" wrap>
+          {Object.entries(tags).map(([, value]) => (
+            <Tag
+              name={value.displayName}
+              value={value.value}
+              margin={{ bottom: 'small' }}
+            />
+          ))}
+        </Box>
       </Section>
-      <Section>
-        <SectionHeader heading="Subscription" />
-        <SectionDetails data={subscription} />
-      </Section>
-      <TagSection />
     </Box>
   </Box>
 );

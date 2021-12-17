@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { TagAnatomy, TagBasicAnatomy, TagResource, TagResourcePreview } from '../../examples';
+import { TagAnatomy, TagBasicAnatomy, TagResource } from '../../examples';
 import { Button } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -97,18 +97,13 @@ One example in which a tag can be used to facilitate quick associations amongst 
 
 ### Tags on a Detail Page
 
-<Example caption="Example showing a set of tags that might appear in a detail page." horizontalLayout>
-  <TagResourcePreview />
-</Example>
-
-**Scroll to the bottom of the below example to see the tag section within the context of a page.**
-
 <Example 
   code={[
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/TagResource.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/data.js",
   ]}
   showResponsiveControls={['laptop', 'mobile']}
+  height="large"
   template
 >
   <TagResource />
