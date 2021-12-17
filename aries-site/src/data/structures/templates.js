@@ -6,6 +6,37 @@ import {
 
 export const templates = [
   {
+    name: 'App Layouts',
+    available: false,
+    cardOrder: 2,
+    description: `Choosing a layout is an important first step in designing a 
+    user interface. These guidelines will help create a consistent 
+    user experience across HPE applications and services.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-pagelayout.svg',
+          dark: '/templateImages/template-preview-pagelayout-invert.svg',
+        },
+        alt: `HPE Application Layouts preview featuring brightly colored,
+        overlapping rectangles.`,
+        fit: 'contain',
+      },
+    },
+    relatedContent: [
+      'Page Layouts',
+      'Global Header',
+      'Navigation',
+      'Dashboards',
+      'Header',
+      'Footer',
+    ],
+    seoDescription:
+      'HPE Design System application layout options, anatomies, and behaviors.',
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'Forms',
     available: true,
     cardOrder: 1,
@@ -91,11 +122,11 @@ export const templates = [
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
     relatedContent: [
-        'Navigation',
-        'Side to Side Navigation',
-        'Reverse Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Side to Side Navigation',
+      'Reverse Navigation',
+      'Matrix Navigation',
+    ],
     tags: [],
   },
   {
@@ -370,11 +401,11 @@ export const templates = [
     chronologically as you would on a browser hierarchically within
     an application or website.`,
     relatedContent: [
-        'Navigation',
-        'Drill Down Navigation',
-        'Side to Side Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Drill Down Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+    ],
     sections: [],
     tags: [],
   },
@@ -398,11 +429,11 @@ export const templates = [
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
     relatedContent: [
-        'Navigation',
-        'Drill Down Navigation',
-        'Reverse Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Drill Down Navigation',
+      'Reverse Navigation',
+      'Matrix Navigation',
+    ],
     sections: [],
     tags: [],
   },
