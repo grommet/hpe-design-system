@@ -31,7 +31,6 @@ Object.entries(tagData).forEach(([, value]) => {
 
 const updateCreateOption = (text, dataVal) => {
   const len = dataVal.length;
-  console.log(dataVal);
   const d =
     dataVal[len - 1] && typeof dataVal[len - 1] === 'object'
       ? dataVal[len - 1].label
@@ -184,7 +183,6 @@ export const CreateNameValuePair = () => {
                 )
               }
               onSearch={text => {
-                console.log(defaultNameOptions, name);
                 const nextValueOptions = defaultNameOptions.filter(
                   n => n.label === name,
                 )[0].values;
