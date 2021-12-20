@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import {
   Box,
   Button,
-  Heading,
   Grid,
   Form,
   FormField,
@@ -11,10 +10,15 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { tagData } from './data';
-
-// the prefix name of the Create option entry
-const prefix = 'Create';
+import { tagData } from '../data';
+import {
+  AppContainer,
+  getRegExp,
+  TagPageHeader,
+  prefix,
+  TagResults,
+  updateCreateOption,
+} from '.';
 
 const defaultNameOptions = [];
 const defaultValueOptions = [];
@@ -29,39 +33,7 @@ Object.entries(tagData).forEach(([, value]) => {
   });
 });
 
-const updateCreateOption = (text, dataVal) => {
-  const len = dataVal.length;
-  const d =
-    dataVal[len - 1] && typeof dataVal[len - 1] === 'object'
-      ? dataVal[len - 1].label
-      : dataVal[len - 1];
-
-  if (d && d.includes(prefix)) {
-    // remove Create option before adding an updated one
-    dataVal.pop();
-  }
-  const res = `${prefix} '${text}'`;
-  dataVal.push(
-    dataVal[dataVal.length - 1] &&
-      typeof dataVal[dataVal.length - 1] === 'object'
-      ? { label: res, values: [] }
-      : res,
-  );
-};
-
-// improving Search support of special characters
-const getRegExp = text => {
-  // The line below escapes regular expression special characters:
-  // [ \ ^ $ . | ? * + ( )
-  const escapedText = text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
-
-  // Create the regular expression with modified value which
-  // handles escaping special characters. Without escaping special
-  // characters, errors will appear in the console
-  return new RegExp(escapedText, 'i');
-};
-
-export const CreateNameValuePair = () => {
+export const CreateTag = () => {
   const size = useContext(ResponsiveContext);
   // name
   const [nameOptions, setNameOptions] = useState(defaultNameOptions);
@@ -84,20 +56,8 @@ export const CreateNameValuePair = () => {
   }, [name]);
 
   return (
-    <Box gap="large" overflow="auto">
-      <Box gap="large" flex={false}>
-        <Box gap="xsmall" flex={false}>
-          <Heading level={2} margin="none">
-            Create and Assign Tags
-          </Heading>
-          <Text size="large">
-            Tags are name-value pairs that can be assigned to resources.
-          </Text>
-        </Box>
-        <Text size="large">
-          Tags will be assigned to <Text weight="bold">1</Text> device.
-        </Text>
-      </Box>
+    <AppContainer>
+      <TagPageHeader />
       <Form
         messages={{ required: 'This is a required field.' }}
         onSubmit={() => {
@@ -183,9 +143,9 @@ export const CreateNameValuePair = () => {
                 )
               }
               onSearch={text => {
-                const nextValueOptions = defaultNameOptions.filter(
-                  n => n.label === name,
-                )[0].values;
+                const nextValueOptions =
+                  defaultNameOptions.filter(n => n.label === name)[0]?.values ||
+                  defaultValueOptions;
                 updateCreateOption(text, nextValueOptions);
                 const exp = getRegExp(text);
                 setValueOptions(nextValueOptions.filter(o => exp.test(o)));
@@ -204,38 +164,27 @@ export const CreateNameValuePair = () => {
           </Box>
         </Grid>
       </Form>
-      <Box flex={false}>
-        <Box border="bottom" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-          <Text color="text-strong" weight="bold">
-            Tags to be assigned
-          </Text>
-        </Box>
-        <Box
-          direction="row"
-          gap="small"
-          pad={{ horizontal: 'small', vertical: 'small' }}
-        >
-          {currentTags.length === 0 ? (
-            <Text>No tags have been assigned.</Text>
-          ) : (
-            currentTags.map((t, index) => (
-              <Tag
-                key={index}
-                alignSelf="start"
-                name={t.name}
-                value={t.value}
-                onRemove={() => {
-                  setCurrentTags(
-                    currentTags.filter(
-                      s => !(t.name === s.name && t.value === s.value),
-                    ),
-                  );
-                }}
-              />
-            ))
-          )}
-        </Box>
-      </Box>
-    </Box>
+      <TagResults>
+        {currentTags.length === 0 ? (
+          <Text>No tags have been assigned.</Text>
+        ) : (
+          currentTags.map((t, index) => (
+            <Tag
+              key={index}
+              alignSelf="start"
+              name={t.name}
+              value={t.value}
+              onRemove={() => {
+                setCurrentTags(
+                  currentTags.filter(
+                    s => !(t.name === s.name && t.value === s.value),
+                  ),
+                );
+              }}
+            />
+          ))
+        )}
+      </TagResults>
+    </AppContainer>
   );
 };
