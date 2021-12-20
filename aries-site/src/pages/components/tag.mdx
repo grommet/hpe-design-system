@@ -1,6 +1,6 @@
 import { Example } from '../../layouts';
 import {
-  CreateNameValuePair,
+  CreateTag,
   TagAnatomy,
   TagBasicAnatomy,
 } from '../../examples';
@@ -93,8 +93,19 @@ The experience for creating a Name-Value pair tag occurs in 2 steps: Create the 
 
 Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
 
-<Example template>
-  <CreateNameValuePair />
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/CreateTag.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js",
+  ]}
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <CreateTag />
 </Example>
 
 ## Filtering with Tags
