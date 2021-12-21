@@ -8,6 +8,7 @@ import {
   NameValueListBoldExampleGood,
   NameValueListDefaultExample,
   NameValueListEditExample,
+  NameValueListEditHorizontalExample,
   NameValueListFontWeightPreview,
   NameValueListFontWeightSecondPreview,
   NameValueListGridExample,
@@ -27,14 +28,15 @@ import {
 
 <Example
   componentName="NameValueList"
-  height={{ min: 'small' }}
-    code={[
-      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDefaultExample.js",
-      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDefaultExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
   docs="https://v2.grommet.io/namevaluelist?theme=hpe"
   figma="https://www.figma.com/file/Ny7rYK5gI5VO4PtZsq6vGC/HPE-Name-Value-Pair?node-id=2%3A87"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDefaultExample.js"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/NameValueList/NameValueList.js"
+  height={{ min: 'small' }}
 >
   <NameValueListDefaultExample />
 </Example>
@@ -81,11 +83,12 @@ A NameValuePair is a set of two related elements: a name, which identifies a dat
 ### Horizontal (default) 
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe"
-  height={{ min: 'small' }}
   code={[
-  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSimpleExample.js",
-  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSimpleExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSimpleExample.js"
+  height={{ min: 'small' }}
 >
   <NameValueListSimpleExample />
 </Example>
@@ -98,7 +101,8 @@ The pairProps direction determines how the name and value are aligned. If you wa
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
   code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListPairPropsExample.js",
       "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListPairPropsExample.js"
   height={{ min: 'small' }}
 >
   <NameValueListPairPropsExample />
@@ -108,9 +112,11 @@ The pairProps direction determines how the name and value are aligned. If you wa
 
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
-    code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js",
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js"
   height={{ min: 'small' }}
   showResponsiveControls={false}
   pad="large"
@@ -127,11 +133,12 @@ The pairProps direction determines how the name and value are aligned. If you wa
   code={[
   "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListMultipleDefaultExample.js",
   "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
-template
-showResponsiveControls={false}
-width="xlarge"
-pad="large"
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListMultipleDefaultExample.js"
+  template
+  showResponsiveControls={false}
+  width="xlarge"
+  pad="large"
 >
   <NameValueListMultipleDefaultExample />
 </Example>
@@ -142,9 +149,10 @@ In some cases, NameValuePairs may be used as read-only display for text inputs t
 
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js",
+  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
   ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js"
   height={{ min: 'small' }}
   pad="large"
   showResponsiveControls={false}
@@ -153,15 +161,42 @@ In some cases, NameValuePairs may be used as read-only display for text inputs t
   <NameValueListEditExample />
 </Example>
 
+### Name-Value Pair as a read-only display in horizontal
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditHorizontalExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/components/NameValueListFormField.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/components/NameValueListFormLabel.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditHorizontalExample.js"
+  height={{ min: 'small' }}
+  pad="large"
+  showResponsiveControls={false}
+  template
+>
+<NameValueListEditHorizontalExample />
+</Example>
+
 ### Content Truncation
 
-When a value content exceeds 192 characters, truncate content and include a Button to expand to see more.
+When presenting a value as a list of items, the list may be truncated and 
+accompanied by a Button to expand it, displaying all items.
+
+When delimited, content exceeding 192 characters should be truncated. 
+
+For vertical lists:
+- 7+ items should be truncated, displaying the first 3 items with a "Show all" button.
+- For 6 or fewer items, show all items and do not truncate.
 
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js",
-      "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-]}
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js"
   height={{ min: 'small' }}
 >
   <NameValueListReadMoreExample />
