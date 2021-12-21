@@ -1,3 +1,5 @@
+export * from './app-layouts';
+export * from './code-blocks';
 export * from './dashboards';
 export * from './filtering';
 export * from './forms';
@@ -9,4 +11,3 @@ export * from './persistent-navigation';
 export * from './table-customization';
 export * from './toast-notifications';
 export * from './wizard';
-export * from './code-blocks';
