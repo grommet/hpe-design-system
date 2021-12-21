@@ -47,9 +47,15 @@ The main use case for toasts is messaging related to actions or tasks that the u
 
 Outside of this limited use case, toasts should be used sparingly or replaced entirely by a different type of notification. In no way are toasts mandatory elements for a platform’s notification system.
 
-**Do not use Toasts when the user is performing an action**
+**Do not use Toasts when the user is performing an action.**
 
 Toasts are only appropriate when the user is in a visualization page in the UI, but not when the user is interacting with a form or modal dialog to perform an action. Toasts that arrive while the UI is displaying a modal are not shown; they are dropped.
+
+**Do not use Toasts to indicate a process is "In Progress". Toasts should indicate initiation/completion of a process.**
+
+Toast notifications are brief reassurances to a user that an action has begun or ended. They should indicate a process has successfully been initiated (status-good), or a process has ended with the appropriate status icon (good, warning, critical).
+
+Toasts should not be used to communicate that a process is "in progress," rather it should assure the user the process has been initiated successfully, failed to initiate successfully, or has ended.
 
 ### Handling multiple Toast Notifications
 
