@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from 'grommet';
 
 export const TagPageHeader = () => (
-  <Box gap="large" flex={false}>
+  <Box gap="medium" flex={false}>
     <Box gap="xsmall" flex={false}>
       <Heading level={2} margin="none">
         Create and Assign Tags
