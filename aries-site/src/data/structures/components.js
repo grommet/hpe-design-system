@@ -767,9 +767,10 @@ export const components = [
     sections: [
       'Guidance',
       'Anatomy',
-      'The Close Icon',
-      'Name/Value Pairs',
-      'Creating Name/Value Pair Tags',
+      'Remove Button',
+      'Background Color',
+      'Name-Value Pair Tags',
+      'Creating Name-Value Pair Tags',
       'Assigning Tags',
       'Filtering with Tags',
     ],

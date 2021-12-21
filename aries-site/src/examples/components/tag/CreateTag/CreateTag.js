@@ -42,12 +42,20 @@ export const CreateTag = () => {
   const theme = useContext(ThemeContext);
 
   // name
-  const [nameOptions, setNameOptions] = useState(defaultNameOptions);
+  const [nameOptions, setNameOptions] = useState(
+    alphabetize(defaultNameOptions, 'label'),
+  );
   const [name, setName] = useState(defaultName);
   const [nameSearch, setNameSearch] = useState('');
 
   // value
-  const [valueOptions, setValueOptions] = useState(defaultValueOptions);
+  const [valueOptions, setValueOptions] = useState(
+    alphabetize(
+      name
+        ? defaultNameOptions.filter(n => n.label === name)[0].values
+        : defaultValueOptions,
+    ),
+  );
   const [value, setValue] = useState(defaultValue);
   const [valueSearch, setValueSearch] = useState('');
 
@@ -163,19 +171,23 @@ export const CreateTag = () => {
           <Box
             justify="start"
             // use theme style values to align Button with FormField input
-            pad={{
-              top: `${parseInt(theme.text.xsmall.height, 10) +
-                parseInt(
-                  theme.global.edgeSize[theme.formField.label.margin.top],
-                  10,
-                ) +
-                parseInt(
-                  theme.global.edgeSize[
-                    theme.formField.content.margin.vertical
-                  ],
-                  10,
-                )}px`,
-            }}
+            pad={
+              size !== 'small'
+                ? {
+                    top: `${parseInt(theme.text.xsmall.height, 10) +
+                      parseInt(
+                        theme.global.edgeSize[theme.formField.label.margin.top],
+                        10,
+                      ) +
+                      parseInt(
+                        theme.global.edgeSize[
+                          theme.formField.content.margin.vertical
+                        ],
+                        10,
+                      )}px`,
+                  }
+                : undefined
+            }
           >
             <Button
               alignSelf="start"
@@ -189,7 +201,7 @@ export const CreateTag = () => {
       </Form>
       <TagResults>
         {currentTags.length === 0 ? (
-          <Text>No tags have been assigned.</Text>
+          <Text margin="xsmall">No tags have been assigned.</Text>
         ) : (
           currentTags.map((t, index) => (
             <Tag
