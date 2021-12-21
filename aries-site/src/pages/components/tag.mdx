@@ -1,5 +1,10 @@
 import { Example } from '../../layouts';
-import { TagAnatomy, TagBasicAnatomy, TagResource } from '../../examples';
+import {
+  CreateTag,
+  TagAnatomy,
+  TagBasicAnatomy,
+  TagResource
+} from '../../examples';
 import { Button } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -42,7 +47,7 @@ Character requirements:
 - Name : up to 128 characters
 - Value : up to 256 characters
 
-### Remove button
+### Remove Button
 
 Applying the remove button is dependent upon the use case and not a requirement.
 
@@ -77,7 +82,7 @@ To implement a Tag with a remove button, provide a function to the `onRemove` Ta
 
 Tags do not receive a background color. Instead, tags inherit the background of their container.
 
-## Name-Value Pairs
+## Name-Value Pair Tags
 
 Name-value pairing with tags allow further organization and identification of resources. While this feature is not a requirement, name-value pairs can help users more clearly group resources.
 
@@ -88,6 +93,22 @@ The experience for creating a Name-Value pair tag occurs in 2 steps: Create the 
 ## Assigning Tags
 
 Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/CreateTag.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTag"
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <CreateTag />
+</Example>
 
 ## Filtering with Tags
 
