@@ -68,21 +68,27 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
       pad={theme.tag.pad}
       round={theme.tag.round}
     >
-      <Box id={nameId}>Location</Box>
-      {valueId && closeId && (
+      {nameId && <Box id={nameId}>Location</Box>}
+      {(valueId || closeId) && (
         <Box {...boxProps}>
-          <Text>:</Text>
-          <Text id={valueId} {...theme.tag.value}>
-            NY_USA
-          </Text>
-          <Button
-            id={closeId}
-            icon={<FormClose />}
-            hoverIndicator
-            focusIndicator
-            plain
-            style={{ borderRadius: '50%' }}
-          />
+          {valueId && (
+            <Box {...boxProps}>
+              {nameId && <Text>:</Text>}
+              <Text id={valueId} {...theme.tag.value}>
+                NY_USA
+              </Text>
+            </Box>
+          )}
+          {closeId && (
+            <Button
+              id={closeId}
+              icon={<FormClose />}
+              hoverIndicator
+              focusIndicator
+              plain
+              style={{ borderRadius: '50%' }}
+            />
+          )}
         </Box>
       )}
     </Box>
@@ -100,7 +106,7 @@ export const TagAnatomy = () => {
         <Box />
         <Annotation id="border-annotation" target="1" />
         <Box />
-        <Annotation alignSelf="center" id="name-annotation" target="2" />
+        <Annotation alignSelf="center" id="name-annotation" target="3" />
         <AnatomyBox
           id="border"
           nameId="tagName-2"
@@ -117,7 +123,7 @@ export const TagAnatomy = () => {
               parseInt(theme.global.edgeSize.xsmall, 10)}px`,
           }}
         >
-          <Annotation id="value-annotation" target="3" />
+          <Annotation id="value-annotation" target="2" />
         </Box>
         <Box />
       </AnatomyGrid>

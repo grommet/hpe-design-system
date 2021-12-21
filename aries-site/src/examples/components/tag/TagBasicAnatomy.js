@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Diagram, Stack } from 'grommet';
+import { Diagram, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { AnatomyBox, AnatomyGrid } from '.';
 
@@ -18,22 +18,21 @@ const connections = [
     toTarget: 'border-basic',
   },
   {
-    anchor: 'horizontal',
+    anchor,
     type,
     color,
     thickness,
     fromTarget: '2',
-    toTarget: 'name-basic',
+    toTarget: 'value-basic',
   },
 ];
 
 export const TagBasicAnatomy = () => (
   <Stack>
-    <AnatomyGrid columns={['xxsmall', 'small']}>
-      <Box />
+    <AnatomyGrid columns={['xsmall']}>
       <Annotation id={1} target="1" />
+      <AnatomyBox id="border-basic" valueId="value-basic" />
       <Annotation alignSelf="center" id={2} target="2" />
-      <AnatomyBox id="border-basic" nameId="name-basic" />
     </AnatomyGrid>
     <Diagram connections={connections} />
   </Stack>

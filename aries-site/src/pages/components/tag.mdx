@@ -5,8 +5,6 @@ import {
   TagBasicAnatomy,
   TagResource
 } from '../../examples';
-import { Button } from 'grommet';
-import { FormClose } from 'grommet-icons';
 
 ## Guidance
 
@@ -26,7 +24,7 @@ The most basic tags consist of two primary elements:
 </Example>
 
 1. Border
-1. Name
+1. Value
 
 Tags can have additional elements depending on the tags’ intended use and context:
 
@@ -38,32 +36,18 @@ Tags can have additional elements depending on the tags’ intended use and cont
 </Example>
 
 1. Border
-1. Name
 1. Value
+1. Name
 1. Remove button
 
 Character requirements:
 
-- Name : up to 128 characters
-- Value : up to 256 characters
+- Name: up to 128 characters
+- Value: up to 256 characters
 
 ### Remove Button
 
-Applying the remove button is dependent upon the use case and not a requirement.
-
-<Example
-  caption="Button that appears when a tag can be removed."
-  height="xsmall"
-  horizontalLayout
->
-  <Button
-    hoverIndicator
-    focusIndicator
-    plain
-    icon={<FormClose />}
-    style={{ borderRadius: '100%' }} // necessary for rounded button
-  />
-</Example>
+Applying the remove button (see element #4 in the [anatomy figure](#anatomy)) is dependent upon the use case and not a requirement.
 
 The remove tag button may be used when:
 
@@ -112,9 +96,9 @@ Currently, assigning tags occurs within an editor experience in a [modal](/compo
 
 ## Filtering with Tags
 
-Filtering tags allows the user to search, select and remove tags. Tags do not appear in the UI to allow for a clean, task-based UI, as well as to not confuse the experience with other filtering criteria.
+Filtering with tags allows the user to search, select, and remove tags from a set of filter criteria in order to find relevant data.
 
-### Tags on a Detail Page
+### Filtering with Tags on a Detail Page
 
 One example in which a tag can be used to facilitate quick associations amongst resources is to use the tag as a clickable filter from the detail of resource.
 
@@ -130,3 +114,7 @@ One example in which a tag can be used to facilitate quick associations amongst 
 >
   <TagResource />
 </Example>
+
+### Filtering with Tags on a Summary Page
+
+Example coming soon.
