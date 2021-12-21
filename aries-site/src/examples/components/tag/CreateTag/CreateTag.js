@@ -10,6 +10,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { tagData } from '../data';
 import {
   AppContainer,
@@ -26,15 +27,19 @@ const defaultName = '';
 const defaultValue = '';
 const defaultTags = [];
 
-Object.entries(tagData).forEach(([, value]) => {
+tagData.forEach(datum => {
+  const [name] = Object.keys(datum);
+  const [values] = Object.values(datum);
   defaultNameOptions.push({
-    label: value.displayName,
-    values: value.options,
+    label: name,
+    values,
   });
 });
 
 export const CreateTag = () => {
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
+
   // name
   const [nameOptions, setNameOptions] = useState(defaultNameOptions);
   const [name, setName] = useState(defaultName);
@@ -153,7 +158,14 @@ export const CreateTag = () => {
               }}
             />
           </FormField>
-          <Box justify="end" pad={{ bottom: 'xsmall' }}>
+          <Box
+            justify="start"
+            pad={{
+              top: `${parseInt(theme.global.edgeSize.medium, 10) +
+                parseInt(theme.global.edgeSize.xsmall, 10) +
+                2 * parseInt(theme.global.edgeSize.hair, 10)}px`,
+            }}
+          >
             <Button
               alignSelf="start"
               label="Assign"
