@@ -197,6 +197,7 @@ export const CreateTag = () => {
               alignSelf="start"
               name={t.name}
               value={t.value}
+              margin="xsmall"
               onRemove={() => {
                 setCurrentTags(
                   currentTags.filter(
