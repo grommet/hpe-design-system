@@ -9,8 +9,8 @@ export const TagResults = ({ ...rest }) => (
     </Box>
     <Box
       direction="row"
-      gap="small"
-      pad={{ horizontal: 'small', vertical: 'small' }}
+      pad={{ horizontal: 'xsmall', vertical: 'xsmall' }}
+      wrap
       {...rest}
     />
   </Box>
