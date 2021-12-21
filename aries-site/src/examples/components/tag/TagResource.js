@@ -15,7 +15,11 @@ import { details, tags } from '.';
 const Section = ({ ...rest }) => <Box gap="medium" flex={false} {...rest} />;
 
 const SectionHeader = ({ heading }) => (
-  <Box border="bottom" pad={{ bottom: 'small' }} flex={false}>
+  <Box
+    border={{ color: 'border-weak', side: 'bottom' }}
+    pad={{ bottom: 'small' }}
+    flex={false}
+  >
     <Heading level={2} margin="none" size="small">
       {heading}
     </Heading>
@@ -39,11 +43,11 @@ export const TagResource = () => (
     </Box>
     <Box alignSelf="center" gap="large" pad="medium" flex={false}>
       <Box
-        border="bottom"
+        border={{ color: 'border-weak', side: 'bottom' }}
         align="start"
         direction="row"
         justify="between"
-        pad={{ bottom: 'large' }}
+        pad={{ bottom: 'medium' }}
         flex={false}
       >
         <Box>
@@ -58,16 +62,27 @@ export const TagResource = () => (
         <SectionHeader heading="Details" />
         <SectionDetails data={details} />
       </Section>
-      <Section>
+      <Section gap="none">
         <SectionHeader heading="Tags" />
-        <Box direction="row" gap="small" wrap>
-          {Object.entries(tags).map(([, value]) => (
-            <Tag
-              name={value.displayName}
-              value={value.value}
-              margin={{ bottom: 'small' }}
-            />
-          ))}
+        <Box direction="row" pad={{ vertical: 'small' }} wrap>
+          {tags.map(t => {
+            const [name] = Object.keys(t);
+            const [value] = Object.values(t);
+            return (
+              <Tag
+                name={name}
+                value={value}
+                margin={{ right: 'small' }}
+                onClick={() =>
+                  // eslint-disable-next-line no-alert
+                  alert(
+                    // eslint-disable-next-line max-len
+                    `Clicking on '${name}: ${value}' tag could take a user to a filtered view displaying all devices with '${name}: ${value}' applied.`,
+                  )
+                }
+              />
+            );
+          })}
         </Box>
       </Section>
     </Box>

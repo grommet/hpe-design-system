@@ -1,7 +1,7 @@
 export const details = {
   name: {
     displayName: 'Name',
-    value: 'store-C-3PO',
+    value: 'Store C-3PO',
   },
   model: {
     displayName: 'Model',
@@ -13,28 +13,13 @@ export const details = {
   },
 };
 
-export const tags = {
-  department: {
-    displayName: 'Department',
-    value: 'Finance',
-  },
-  timezone: {
-    displayName: 'Timezone',
-    value: 'MT',
-  },
-  location: {
-    displayName: 'Location',
-    value: 'FTC_DC',
-  },
-  environment: {
-    displayName: 'Environment',
-    value: 'Test',
-  },
-  application: {
-    displayName: 'Application',
-    value: 'MyApp',
-  },
-};
+export const tags = [
+  { Department: 'Finance' },
+  { Timezone: 'MT' },
+  { Location: 'FTC_DC' },
+  { Environment: 'Test' },
+  { Application: 'MyApp' },
+];
 
 export const tagData = [
   {
