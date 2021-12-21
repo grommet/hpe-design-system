@@ -11,7 +11,7 @@ export const TagPageHeader = () => (
       </Text>
     </Box>
     <Text size="large">
-      Tags will be assigned to <Text weight="bold">1</Text> device.
+      Tags will be assigned to <Text weight="bold">1</Text> selected device.
     </Text>
   </Box>
 );
