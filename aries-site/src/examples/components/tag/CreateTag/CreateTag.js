@@ -162,10 +162,19 @@ export const CreateTag = () => {
           </FormField>
           <Box
             justify="start"
+            // use theme style values to align Button with FormField input
             pad={{
-              top: `${parseInt(theme.global.edgeSize.medium, 10) +
-                parseInt(theme.global.edgeSize.xsmall, 10) +
-                2 * parseInt(theme.global.edgeSize.hair, 10)}px`,
+              top: `${parseInt(theme.text.xsmall.height, 10) +
+                parseInt(
+                  theme.global.edgeSize[theme.formField.label.margin.top],
+                  10,
+                ) +
+                parseInt(
+                  theme.global.edgeSize[
+                    theme.formField.content.margin.vertical
+                  ],
+                  10,
+                )}px`,
             }}
           >
             <Button
