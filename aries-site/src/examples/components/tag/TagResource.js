@@ -65,14 +65,15 @@ export const TagResource = () => (
       <Section gap="none">
         <SectionHeader heading="Tags" />
         <Box direction="row" pad={{ vertical: 'small' }} wrap>
-          {tags.map(t => {
+          {tags.map((t, index) => {
             const [name] = Object.keys(t);
             const [value] = Object.values(t);
             return (
               <Tag
+                key={index}
                 name={name}
                 value={value}
-                margin={{ right: 'small' }}
+                margin={{ right: 'small', vertical: 'xsmall' }}
                 onClick={() =>
                   // eslint-disable-next-line no-alert
                   alert(
