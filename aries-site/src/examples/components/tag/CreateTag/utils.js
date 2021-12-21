@@ -1,5 +1,27 @@
-export // the prefix name of the Create option entry
-const prefix = 'Create';
+// the prefix name of the Create option entry
+export const prefix = 'Create';
+
+export const alphabetize = (val, property) =>
+  val.sort((a, b) => {
+    if (property) {
+      if (a[property].includes(prefix)) return 1;
+      if (a[property].toLowerCase() < b[property].toLowerCase()) {
+        return -1;
+      }
+      if (a[property].toLowerCase() > b[property].toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    }
+    if (a.includes(prefix)) return 1;
+    if (a.toLowerCase() < b.toLowerCase()) {
+      return -1;
+    }
+    if (a.toLowerCase() > b.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  });
 
 export const updateCreateOption = (text, dataVal) => {
   const len = dataVal.length;

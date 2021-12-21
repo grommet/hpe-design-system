@@ -13,6 +13,7 @@ import {
 import { ThemeContext } from 'styled-components';
 import { tagData } from '../data';
 import {
+  alphabetize,
   AppContainer,
   getRegExp,
   TagPageHeader,
@@ -98,12 +99,12 @@ export const CreateTag = () => {
                 if (option.label.includes(prefix)) {
                   defaultNameOptions.pop(); // remove Create option
                   defaultNameOptions.push({ label: nameSearch, values: [] });
+                  setNameOptions(alphabetize(defaultNameOptions, 'label'));
                   setName(nameSearch);
                 } else {
                   setName(val);
                 }
               }}
-              onClose={() => setNameOptions(defaultNameOptions)}
               onSearch={text => {
                 updateCreateOption(text, defaultNameOptions);
                 const exp = getRegExp(text);
@@ -135,18 +136,19 @@ export const CreateTag = () => {
                   )[0];
                   values.pop(); // remove Create option
                   values.push(valueSearch);
+                  setValueOptions(
+                    alphabetize(
+                      name
+                        ? defaultNameOptions.filter(n => n.label === name)[0]
+                            .values
+                        : defaultValueOptions,
+                    ),
+                  );
                   setValue(valueSearch);
                 } else {
                   setValue(option);
                 }
               }}
-              onClose={() =>
-                setValueOptions(
-                  name
-                    ? defaultNameOptions.filter(n => n.label === name)[0].values
-                    : defaultValueOptions,
-                )
-              }
               onSearch={text => {
                 const nextValueOptions =
                   defaultNameOptions.filter(n => n.label === name)[0]?.values ||
