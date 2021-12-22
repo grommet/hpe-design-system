@@ -11,7 +11,7 @@ export const PageAnatomy = () => {
   return (
     <ContentArea
       title="Page Container"
-      border={{ color: 'border-weak' }}
+      border
       gap="small"
       round="xsmall"
       height={height}

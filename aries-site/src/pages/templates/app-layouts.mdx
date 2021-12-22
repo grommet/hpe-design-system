@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { AppAnatomy, PageAnatomy } from '../../examples';
+import { AppAnatomy, PageAnatomy, PageContainerWide } from '../../examples';
 
 ## Elements of an App UI
 The User Interface (UI) for an HPE application consists of three 
@@ -75,7 +75,15 @@ scales the Page Container until a maximum width of `1608px`. If the screen is
 larger than `1608px`, the Page Container will be center aligned and white space 
 will be displayed around the perimeter of the content. 
 
---INSERT-EXAMPLE-HERE--
+<Example
+  caption='Diagram displaying how a "wide" Page Container scales horizontally relative to 
+    the App Container. The App Container fills the viewport while the "wide" 
+    Page Container reaches a maximum width.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerWide />
+</Example>
 
 Use cases include:
 - Dashboards 
