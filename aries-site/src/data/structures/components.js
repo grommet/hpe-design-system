@@ -773,6 +773,8 @@ export const components = [
       'Creating Name-Value Pair Tags',
       'Assigning Tags',
       'Filtering with Tags',
+      'Filtering with Tags on a Detail Page',
+      'Filtering with Tags on a Summary Page',
     ],
     relatedContent: ['NameValueList', 'Lists'],
     tags: ['tags', 'name value pair'],
