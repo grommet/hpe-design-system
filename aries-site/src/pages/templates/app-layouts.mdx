@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { AppAnatomy, PageAnatomy, PageContainerWide } from '../../examples';
+import { AppAnatomy, PageAnatomy, PageContainerNarrow, PageContainerWide } from '../../examples';
 
 ## Elements of an App UI
 The User Interface (UI) for an HPE application consists of three 
@@ -100,7 +100,15 @@ The "narrow" option scales the content width until a maximum width of `768px`.
 If the screen is larger than 768, the Page Container will be center aligned 
 and white space will be displayed around the perimeter of the content. 
 
---INSERT-EXAMPLE-HERE--
+<Example
+  caption='Diagram displaying how a "narrow" Page Container scales horizontally relative to 
+    the App Container. The App Container fills the viewport while the "narrow" 
+    Page Container reaches a maximum width.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerNarrow />
+</Example>
 
 Use cases include:
 - Wizards 

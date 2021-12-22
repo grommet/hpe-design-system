@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { Box, Diagram, Stack, Text, ThemeContext } from 'grommet';
 import { LinkPrevious, LinkNext } from 'grommet-icons';
 
@@ -6,23 +6,23 @@ import { ContentArea } from './components';
 
 const connections = [
   {
-    fromTarget: 'left-edge',
-    toTarget: 'label',
+    fromTarget: 'narrow-left-edge',
+    toTarget: 'narrow-container',
     anchor: 'horizontal',
     color: 'text-strong',
   },
   {
-    fromTarget: 'right-edge',
-    toTarget: 'label',
+    fromTarget: 'narrow-right-edge',
+    toTarget: 'narrow-container',
     anchor: 'horizontal',
     color: 'text-strong',
   },
 ];
 
-const PAGE_CONTAINER_WIDTH = '1608px';
-const PAGE_CONTAINER_SCALE = '80%';
+const PAGE_CONTAINER_WIDTH = '768px';
+const PAGE_CONTAINER_SCALE = '50%';
 
-export const PageContainerWide = () => {
+export const PageContainerNarrow = () => {
   const theme = useContext(ThemeContext);
   const diagramHeight = theme.global.size.medium;
   const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
@@ -38,13 +38,17 @@ export const PageContainerWide = () => {
       margin={{ horizontal: annotationMargin }}
       pad={{ top: 'xlarge' }}
     >
-      <LinkPrevious id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
+      <LinkPrevious id="narrow-left-edge" color="text-strong" />
+      <Box
+        id="narrow-container"
+        pad={{ horizontal: 'xsmall' }}
+        background="orange"
+      >
         <Text color="text-strong" weight="bold">
           {PAGE_CONTAINER_WIDTH}
         </Text>
       </Box>
-      <LinkNext id="right-edge" color="text-strong" />
+      <LinkNext id="narrow-right-edge" color="text-strong" />
     </Box>
   );
 
