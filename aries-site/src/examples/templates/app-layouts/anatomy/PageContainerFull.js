@@ -6,23 +6,23 @@ import { ContentArea } from './components';
 
 const connections = [
   {
-    fromTarget: 'left-edge',
-    toTarget: 'label',
+    fromTarget: 'full-left-edge',
+    toTarget: 'full-container',
     anchor: 'horizontal',
     color: 'text-strong',
   },
   {
-    fromTarget: 'right-edge',
-    toTarget: 'label',
+    fromTarget: 'full-right-edge',
+    toTarget: 'full-container',
     anchor: 'horizontal',
     color: 'text-strong',
   },
 ];
 
-const PAGE_CONTAINER_WIDTH = '1608px';
-const PAGE_CONTAINER_SCALE = '80%';
+const PAGE_CONTAINER_WIDTH = '100%';
+const PAGE_CONTAINER_SCALE = '100%';
 
-export const PageContainerWide = () => {
+export const PageContainerFull = () => {
   const theme = useContext(ThemeContext);
   const diagramHeight = theme.global.size.medium;
   const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
@@ -38,13 +38,17 @@ export const PageContainerWide = () => {
       margin={{ horizontal: annotationMargin }}
       pad={{ top: 'xlarge' }}
     >
-      <LinkPrevious id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
+      <LinkPrevious id="full-left-edge" color="text-strong" />
+      <Box
+        id="full-container"
+        pad={{ horizontal: 'xsmall' }}
+        background="orange"
+      >
         <Text color="text-strong" weight="bold">
           {PAGE_CONTAINER_WIDTH}
         </Text>
       </Box>
-      <LinkNext id="right-edge" color="text-strong" />
+      <LinkNext id="full-right-edge" color="text-strong" />
     </Box>
   );
 

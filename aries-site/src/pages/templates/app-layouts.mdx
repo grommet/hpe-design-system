@@ -1,5 +1,11 @@
 import { Example } from '../../layouts';
-import { AppAnatomy, PageAnatomy, PageContainerNarrow, PageContainerWide } from '../../examples';
+import { 
+  AppAnatomy, 
+  PageAnatomy, 
+  PageContainerFull, 
+  PageContainerNarrow, 
+  PageContainerWide 
+} from '../../examples';
 
 ## Elements of an App UI
 The User Interface (UI) for an HPE application consists of three 
@@ -123,10 +129,17 @@ Use cases include:
 #### Full
 This option will automatically resize the container to fill the 
 screen displaying it. With the "full" option, if the screen grows wider 
-than the available content, the Page Container will be left aligned to 
+than the available content, the Page Content will be left aligned to 
 the edge of the screen.
 
---INSERT-EXAMPLE-HERE--
+<Example
+  caption='Diagram displaying how a "full" Page Container scales horizontally relative to 
+    the App Container. Both the App Container and "full" Page Container fill the viewport.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerFull />
+</Example>
 
 Use cases include:
 - Charts 
