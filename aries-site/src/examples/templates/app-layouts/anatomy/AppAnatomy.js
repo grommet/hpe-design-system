@@ -17,9 +17,9 @@ export const AppAnatomy = () => {
       height={height}
       width={width}
     >
-      <ContentArea title="Global Header" background="green!" flex={false} />
+      <ContentArea title="Global Header" background="green" flex={false} />
       <ContentArea title="Page Container" border fill />
-      <ContentArea title="Global Footer" background="green!" flex={false} />
+      <ContentArea title="Global Footer" background="green" flex={false} />
     </ContentArea>
   );
 };

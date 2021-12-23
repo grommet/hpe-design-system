@@ -58,7 +58,7 @@ export const PageContainerWide = () => {
         round="xsmall"
         width={diagramWidth}
       >
-        <ContentArea title="Global Header" background="green!" flex={false} />
+        <ContentArea title="Global Header" background="green" flex={false} />
         <Stack>
           <Box>
             <ContentArea
@@ -83,7 +83,7 @@ export const PageContainerWide = () => {
           </Box>
           {widthAnnnotation}
         </Stack>
-        <ContentArea title="Global Footer" background="green!" flex={false} />
+        <ContentArea title="Global Footer" background="green" flex={false} />
       </ContentArea>
       <Diagram connections={connections} />
     </Stack>
