@@ -1,3 +1,11 @@
+import {
+  AccessibilityTestingPreview,
+  AccessibilityProductVideoPreview,
+  AccessibilityDesignAndDevelopmentPreview,
+  AccessibilityGovernmentPreview,
+  AccessibilityGuidePreview,
+} from '../../examples/cardPreviews';
+
 export const foundation = [
   {
     name: 'Accessibility',
@@ -18,11 +26,12 @@ export const foundation = [
     seoDescription: `Accessibility is central to the HPE Design System and 
     ensures that HPE applications are usable by as many people as possible.`,
     sections: [
-      'Accessibility in Design', 
-      'Accessibility in Development',
+      'Accessibility in Design and Development',
       'Designer and Software Developer Guides',
-      'Accessibile Product Design Videos',
+      'Accessible Product Design Videos',
+      'Testing for Accessibility',
       'Government Standards and Regulations',
+      'External Resources',
     ],
     tags: [
       'accessibility',
@@ -39,6 +48,119 @@ export const foundation = [
       'ANDI',
       'colorblind',
       'testing tools',
+    ],
+  },
+  {
+    name: 'Accessibility in Design and Development',
+    category: 'Philosophy',
+    cardOrder: 4,
+    description: `More information regarding accessibility specifically with
+    regards to HPE's design and development process and lifecycle.`,
+    preview: {
+      component: () => <AccessibilityDesignAndDevelopmentPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `More information regarding accessibility specifically with
+    regards to HPE's design and development process and lifecycle.`,
+    sections: [
+      'Accessibility in Design', 
+      'Accessibility in Development',
+    ],
+    tags: [
+      'accessibility',
+      'product accessibility',
+      'accessible design',
+      'accessible products',
+    ],
+  },
+  {
+    name: 'Designer and Software Developer Guides',
+    category: 'Philosophy',
+    cardOrder: 5,
+    description: `Guides written by the Product and Accessibility Office to help
+    HPE designers and developers build more inclusive products.`,
+    preview: {
+      component: () => <AccessibilityGuidePreview />,
+      background: 'background-back',
+    },
+    seoDescription: `Guides written by the Product and Accessibility Office to help
+    HPE designers and developers build more inclusive products.`,
+    tags: [
+      'accessibility',
+      'accessibility resources',
+      'product accessibility',
+      'accessible design',
+      'accessible products',
+    ],
+  },
+  {
+    name: 'Accessible Product Design Videos',
+    category: 'Philosophy',
+    cardOrder: 6,
+    description: `Short educational videos from HPE explaining basic accessible 
+    design principles in software and web technologies.`,
+    preview: {
+      component: () => <AccessibilityProductVideoPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `A collection of short educational videos from HPE explaining 
+    basic accessible design principles in software and web technologies.`,
+    tags: [
+      'accessibility',
+      'accessibility resources',
+      'product accessibility',
+      'accessible design',
+      'accessible products',
+    ],
+  },
+  {
+    name: 'Testing for Accessibility',
+    category: 'Philosophy',
+    cardOrder: 7,
+    description: `Testing tools and resources to help ensure full coverage
+    for accessibility on HPE products for a range of disabilities.`,
+    preview: {
+      component: () => <AccessibilityTestingPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `Testing tools and resources to help ensure full coverage
+    for accessibility on HPE products for a range of disabilities.`,
+    tags: [
+      'accessibility',
+      'product accessibility',
+      'WCAG',
+      'WAVE',
+      'Web Accessibility Evaluation Tool',
+      'plugins',
+      'color contrast',
+      'accessibility tools',
+      'ANDI',
+      'colorblind',
+      'testing tools',
+      'simulator',
+    ],
+  },
+  {
+    name: 'Government Standards and Regulations',
+    category: 'Philosophy',
+    cardOrder: 8,
+    description: `A list of national and international accessibility laws and 
+    regulations that relate to HPE's accessibility guidance and principles.`,
+    preview: {
+      component: () => <AccessibilityGovernmentPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `A list of national and international accessibility laws and 
+    regulations that relate to HPE's accessibility guidance and principles.`,
+    tags: [
+      'accessibility',
+      'accessibility resources',
+      'product accessibility',
+      'accessible design',
+      'accessible products',
+      'accessiblility laws',
+      'government standards and regulations',
+      'WCAG',
     ],
   },
   {

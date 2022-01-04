@@ -1,0 +1,32 @@
+## Accessibility in Practice
+
+The following are steps you should look to incorporate into your workflow to better test and ensure accessibility across the board:
+
+1. **Think of accessibility first.** If accessibility is incorporated into the design process and development lifecycle as early as possible, many violations could be avoided in the future. More research, dialogue, testing and empathy will increase the accessibility of HPE products.
+2. **Conduct thorough research.** It is important to understand the limitations and pain points of the audience you are trying to engage with and build for. Read about the current best practices and standards for the interface you are building. Understand how users with disabilities will interact with your product.
+3. **Put empathy into practice and try it yourself.** When testing your products manually by yourself, it is important to simulate the experience of a person with a disability to the best of your capabilities. For example:
+  - Turn your monitor off when using a screen reader. 
+  - Avoid any reliance on your mouse. 
+  - Use [technologies to aid in simulating disabilities](#disability-simulator-tools) such as color blindness, dyslexia and tunnel vision. 
+4. **Observe through real people.** The best way to understand the problems that users with disabilities face is to see how they navigate in their daily lives. Break down assumptions by learning about disabilities outside of the context of the web, too.
+5. **Conduct testing with real users.** Automated testing tools only catch approximately 30-50% of accessibility violations. Manual testing is essential to thoroughly conducting an accessibility test on a product. Test with a variety of users with disabilities to ensure full coverage. [Bill Tipton](https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/bill-tipton-biography.aspx), from the Product Accessibility Office, is an excellent internal resource for usability testing. Bill has used a screen reader in his daily life since 1999 when he lost his eyesight. Please email him or [Bill Bettega](https://hpe.sharepoint.com/sites/F5/CTO/Office/Accessibility/Pages/bill-bettega-biography.aspx) with any of your product testing requests and they will respond when they are able to assist.
+6. **Be an active advocate.** Testing does not end at the final report of accessibility violations of a product. To further advance accessibility, after testing, you should remain an ally and advocate for the disabled community. Amplifying all voices will lend a hand to making the internet more inclusive.
+
+## Automated Testing Tools
+
+### CI/CD Tools
+- [Lighthouse Github Action](https://github.com/jakejarvis/lighthouse-action): [Built into the Design System repo](https://github.com/grommet/hpe-design-system/blob/master/.github/workflows/main.yml), this Github action performs a Lighthouse audit on open pull requests to ensure no accessibility violations, among other checks.
+- [axe-core](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react): An accessibility testing engine built to integrate with existing functional testing to help automate accessibility checks.
+- [axe-testcafe](https://www.npmjs.com/package/axe-testcafe): A TestCafe module that allows you to use the aXe accessibility engine in TestCafe tests. Some use of these tests has been [incorporated into the Design System testing](https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/tests/accessibility/axe.js).
+
+### Browser Extension Tools
+- [AxeDev Tools](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US): Identifies violations and pinpoints them so you are able to easily see and fix them.
+- [Access Assistant](https://chrome.google.com/webstore/detail/access-assistant/ojiighldhdmahfdnhfdebnpmlbiemdfm/related): Offered by [Level Access](https://www.levelaccess.com/), this tool identifies the most common, highest risk accessibility violations on a product. Reports can be saved to monitor compliance over time.
+- [WAVE (Web Accessibility Evaluation Tool) Browser Plugin](https://wave.webaim.org/extension/): Scans webpages to recognize missing HTML requirements and color contrast standards.
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse): Integrated into Chrome, this tools is available as a tab after clicking 'Inspect' on a webpage and will generate an accessibility report for the page.
+- [ANDI Browser Tool](https://www.ssa.gov/accessibility/andi/help/install.html): Activate on a page to check the accessibility of images, headings, color contrast, data tables, links, and more.
+
+### Disability Simulator Tools
+- [Silktide](https://silktide.com/resources/toolbar/): An extension tool that helps simulate disabilities on the web including color blindness, dyslexia, tunnel vision, cataracts and blindness.
+- [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/): Check color contrast ratios of specific color values to identify if they meet WCAG AA and/or AAA standards.
+- [Colorblind Web Page Filter](https://www.toptal.com/designers/colorfilter/): See what your application looks like to users with various types of colorblindness.
