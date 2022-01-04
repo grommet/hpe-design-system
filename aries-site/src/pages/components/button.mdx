@@ -1,9 +1,11 @@
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
+  ButtonBadCancelPreview,
   ButtonBadGroupPreview,
   ButtonBadSignUpCTAsPreview,
   ButtonAlignmentTable,
   ButtonExample,
+  ButtonGoodCancelPreview,
   ButtonGoodLongTitlePreview,
   ButtonGoodSignUpCTAPreview,
   ButtonIconExample,
@@ -61,6 +63,27 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 - Use a link when you’re navigating to another place, such as: a "view all" page, "Jane Chen" profile, a page "skip link" etc.
 - Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
 - An action almost always occurs on the same page
+
+### Cancel Buttons
+
+Cancel buttons enable users to exit out of or dismiss the current screen in order to go back to the previous one. Having an explicit way to cancel provides a fallback to safety as it helps discard any unwanted changes. 
+
+#### Styling
+
+Cancel buttons should be presented in the default button styling. The neutral appearance signifies the non-committal action. Visually emphasizing the cancel button should be avoided to minimize user confusion.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{type: 'do', message: 'Always use default button styling for cancel button, and keep it aligned in accordance with use case, following the hierarchy.'}}
+  >
+    <ButtonGoodCancelPreview />
+  </Example>
+  <Example
+    bestPractice={{type: 'dont', message: `Don't use Secondary Button styling for Cancel button.`}}
+  >
+    <ButtonBadCancelPreview />
+  </Example>
+</BestPracticeGroup>
 
 ### Toggle Buttons
 
