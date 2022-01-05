@@ -5,6 +5,7 @@ export * from './ColorSwatch';
 export * from './ComingSoon';
 export * from './DocsMessage';
 export * from './HighlightPhrase';
+export * from './LayoutContainer';
 export * from './PageBackground';
 export * from './SubsectionText';
 export * from './Status';

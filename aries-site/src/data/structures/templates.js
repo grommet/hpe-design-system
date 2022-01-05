@@ -6,6 +6,37 @@ import {
 
 export const templates = [
   {
+    name: 'PageLayoutGrid',
+    available: false,
+    cardOrder: 2,
+    description: `Choosing a layout is an important first step in designing a 
+    user interface. These guidelines will help create a consistent 
+    user experience across HPE applications and services.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-pagelayout.svg',
+          dark: '/templateImages/template-preview-pagelayout-invert.svg',
+        },
+        alt: `HPE Application Layouts preview featuring brightly colored,
+        overlapping rectangles.`,
+        fit: 'contain',
+      },
+    },
+    relatedContent: [
+      'Page Layouts',
+      'Global Header',
+      'Navigation',
+      'Dashboards',
+      'Header',
+      'Footer',
+    ],
+    seoDescription:
+      'HPE Design System application layout options, anatomies, and behaviors.',
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'App Layouts',
     available: false,
     cardOrder: 2,
