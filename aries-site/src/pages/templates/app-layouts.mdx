@@ -1,5 +1,5 @@
 import { Button } from 'grommet';
-import { FormNext } from 'grommet-icons';
+import { Figma, FormNext } from 'grommet-icons';
 import Link from 'next/link';
 
 import { Example } from '../../layouts';
@@ -10,6 +10,15 @@ import {
   PageContainerNarrow, 
   PageContainerWide 
 } from '../../examples';
+
+<Button
+    icon={<Figma color="plain" />}
+    label="Open in Figma"
+    secondary
+    alignSelf="start"
+    href="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Layouts?node-id=1876%3A16251"
+    target="_blank"
+  />
 
 ## Elements of an App UI
 The User Interface (UI) for an HPE application consists of three 
@@ -141,12 +150,12 @@ Page Content will be left aligned to the edge of the screen.
 For guidelines and templates for Page Content, see [Content Layout](/templates/content-layout).
 
 <Link href="/templates/content-layout" passHref>
-<Button 
-  primary 
-  label="See Content Layout Next" 
-  icon={<FormNext />} 
-  alignSelf="start" 
-  reverse 
-  size="large"
-/>
+  <Button 
+    primary 
+    label="See Content Layout Next" 
+    icon={<FormNext />} 
+    alignSelf="start" 
+    reverse 
+    size="large"
+  />
 </Link>
