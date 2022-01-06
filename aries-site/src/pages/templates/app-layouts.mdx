@@ -22,22 +22,39 @@ Page Container.
   <AppAnatomy />
 </Example>
 
-1. **App Container**  
-The container serves as the outer shell of a page UI. This is the 
-parent component containing all HTML elements within a grid. It's 
-responsibility is to organize each of the page components, how they 
-relate to each other, the spacing between each, and how they respond 
-at various screen widths.
+1. **App Container**
+- The container serves as the outer shell of a page UI.
+- This is the parent component containing all HTML elements within a grid.
+- It's responsibility is to organize each of the page components, how they 
+relate to eachother, the spacing between each, and how they respond at 
+various screen widths.
 
 2. **Global Header & Footer**  
-The Global Header, also known as the HPE Common Header and Footer 
-Web Service, provides a tunable, yet consistent header and footer 
-to be used across all HPE applications. For more information, see 
-[Global Header](/templates/global-header).
+- The Global Header, also known as the [HPE Common Header and Footer 
+Web Service](/templates/global-header), provides a tunable, yet consistent 
+header and footer to be used across all HPE applications.
+- No matter the screen size, the Global Header & Footer will always be full 
+width, occupying as much space as available.
 
 3. **Page Container**  
-The Page Container contains the Page Content and the Page Header. 
-It is responsible for the layout for the main content of a page. 
+- The Page Container contains the Page Content and the Page Header.
+- It is responsible for the layout for the main content of a page. 
+- Page container width may be [Wide](#wide-default), [Narrow](#narrow), of [Full](#full).
+
+🏗️ **Coming soon:**
+- Page Content Layout Templates for Dashboards, Wizards, Lists and Tables.
+- Updated guidance on [Page Headers](/components/header#page-header).
+
+## Responsive Layouts
+App layouts should be designed to be adaptable to different screen sizes 
+depending on the user input. Our goal, as designers and developers at HPE, 
+should be to create optimal and accessible user experiences regardless of 
+screen size or resolution.
+
+## Page Container
+The Page Container is responsible for the layout for the main content of a page.
+It contains a page's [Page Header](/components/header#header-for-a-single-page) 
+and its Page Content.
 
 <Example
   caption='Diagram of a Page Container which contains a Page Header 
@@ -52,21 +69,6 @@ Jump to:
 - [Container Width](#page-container-widths)
 - [Grid](#grid)
 - [Breakpoints](#breakpoints)
-
-Coming soon:
-- Page Content layout templates for Dashboards, Wizards, Lists and Tables.
-- Updated guidance on [Page Headers](/components/header#page-header).
-
-## Responsive Layouts
-App layouts should be designed to be adaptable to different screen sizes 
-depending on the user input. Our goal, as designers and developers at HPE, 
-should be to create optimal and accessible user experiences regardless of 
-screen size or resolution.
-
-## Page Container
-The Page Container is responsible for the layout for the main content of a page.
-It contains a page's [Page Header](/components/header#header-for-a-single-page) 
-and its Page Content.
 
 ### Page Container Widths
 There are 3 Page Container widths from which to choose, depending on 
