@@ -7,7 +7,7 @@ import { Box, Grid } from 'grommet';
 
 export const LayoutContainer = ({ columns, ...rest }) => {
   const type =
-    columns.length >= 2 ? (
+    columns && columns.length > 1 ? (
       <Grid columns={columns} {...rest} />
     ) : (
       <Box {...rest} />
