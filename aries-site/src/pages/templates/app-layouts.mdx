@@ -53,8 +53,7 @@ screen size or resolution.
 
 ## Page Container
 The Page Container is responsible for the layout for the main content of a page.
-It contains a page's [Page Header](/components/header#header-for-a-single-page) 
-and its Page Content.
+It contains the Page Header and its Page Content.
 
 <Example
   caption='Diagram of a Page Container which contains a Page Header 
@@ -65,22 +64,17 @@ and its Page Content.
   <PageAnatomy />
 </Example>
 
-Jump to:
-- [Container Width](#page-container-widths)
-- [Grid](#grid)
-- [Breakpoints](#breakpoints)
-
 ### Page Container Widths
-There are 3 Page Container widths from which to choose, depending on 
+There are 3 page container widths from which to choose, depending on 
 the layout use case: [Wide](#wide-default), [Narrow](#narrow) and [Full](#full). 
 
 In all cases, the minimum width of content is `336px`, after which horizontal 
 scrolling is enabled.
 
 #### Wide (default)
-This is the default width for the Page Container. Using the "wide" content width 
-scales the Page Container until a maximum width of `1608px`. If the screen is 
-larger than `1608px`, the Page Container will be center aligned and white space 
+- This is the default width for the Page Container. 
+- Using the "wide" content width scales the Page Container until a maximum width of `1608px`. 
+- If the screen is larger than `1608px`, the Page Container will be center aligned and white space 
 will be displayed around the perimeter of the content. 
 
 <Example
@@ -93,19 +87,15 @@ will be displayed around the perimeter of the content.
   <PageContainerWide />
 </Example>
 
-Use cases include:
+**Use cases include:**
 - Dashboards 
 - Tables 
 - Lists
 - Charts
 
---INSERT-EXAMPLE-HERE-?????-TBD--
-
---INSERT-EXAMPLE-HERE-?????-TBD--
-
 #### Narrow
-The "narrow" option scales the content width until a maximum width of `768px`. 
-If the screen is larger than 768, the Page Container will be center aligned 
+- The "narrow" option scales the content width until a maximum width of `768px`. 
+- If the screen is larger than 768, the Page Container will be center aligned 
 and white space will be displayed around the perimeter of the content. 
 
 <Example
@@ -118,21 +108,17 @@ and white space will be displayed around the perimeter of the content.
   <PageContainerNarrow />
 </Example>
 
-Use cases include:
+**Use cases include:**
 - Wizards 
 - Articles 
 - Single task flows, such as forms
 - Admin and user settings
 
---INSERT-EXAMPLE-HERE-?????-TBD--
-
---INSERT-EXAMPLE-HERE-?????-TBD--
-
 #### Full
-This option will automatically resize the container to fill the 
-screen displaying it. With the "full" option, if the screen grows wider 
-than the available content, the Page Content will be left aligned to 
-the edge of the screen.
+- This option will automatically resize the container to fill the 
+screen displaying it.
+- With the "full" option, if the screen grows wider than the available content, the 
+Page Content will be left aligned to the edge of the screen.
 
 <Example
   caption='Diagram displaying how a "full" Page Container scales horizontally relative to 
@@ -143,81 +129,9 @@ the edge of the screen.
   <PageContainerFull />
 </Example>
 
-Use cases include:
+**Use cases may include:**
 - Charts 
 - Maps 
 - Tables
 
---INSERT-EXAMPLE-HERE-?????-TBD--
-
---INSERT-EXAMPLE-HERE-?????-TBD--
-
-### Grid
-Grommet uses a combination of CSS Grid and Flexbox. CSS Grid 
-allows for the creation of custom grids depending on specific 
-content needs. Items on smaller screens no longer have to stack 
-in the order they are arranged on desktop (unless that is the 
-desired output). 
-
-#### Ordering items based on content needs
-Focusing on content needs can help us create better optimal user 
-experiences &mdash; think about which piece of content a user is likely 
-to interact with first and order items on the page accordingly. 
-
-Specifying layout content in this way will also ensure that it 
-is interepreted appropriately by screen readers for visually 
-impaired users.
-
---INSERT-EXAMPLE-HERE--
-
-#### Grid Spacing
-Grid allows you to specify row and columns sizes, as well as define 
-margin and gap sizing. The HPE Design System components and templates 
-have grid sizing built in, but when you need them to craft your digital 
-experience, use these values as a reference:
-
-**Row and Column Sizes**  
-
-| T-shirt Size | Dimension (pixels) |
-| ------------ | -----------------: |
-| xxsmall      | 48   |
-| xsmall       | 96   |  
-| small        | 192  |  
-| medium       | 384  |  
-| large        | 768  |  
-| xlarge       | 1152 |  
-| xxlarge      | 1536 |  
-| full         | 100% |  
-
-<br />
-<br />
-
-**Margin, Pad and Gap Sizes**  
-
-| T-shirt Size | Dimension (pixels) |
-| ------------ | -----------------: |
-| none         | 0  |   
-| hair         | 1  |   
-| xxsmall      | 3  |   
-| xsmall       | 6  |   
-| small        | 12 |   
-| medium       | 24 |   
-| large        | 48 |   
-| xlarge       | 96 | 
-
-### Breakpoints
-A breakpoint is a specified width at which the content and page 
-design adapt, providing the best user experience for that viewport 
-dimension. For designers, breakpoints help stress test and 
-validate UX decisions around page layouts.
-
---INSERT-TABLE-HERE--
-
-Margin is the left and right space between the main content of a 
-page and the screen's edge.
-
-Based on the screen size, the page margin differs at each 
-breakpoint. Wider margins are better for larger screens, as they 
-create more whitespace around the perimeter of the content. Similarly, 
-smaller margins are appropriate for smaller screens, as they  
-maximize the screen real estate available.
+For guidelines and templates for Page Content, see [Content Layout]().
