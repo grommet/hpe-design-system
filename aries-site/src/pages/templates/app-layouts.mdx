@@ -1,3 +1,7 @@
+import { Button } from 'grommet';
+import { FormNext } from 'grommet-icons';
+import Link from 'next/link';
+
 import { Example } from '../../layouts';
 import { 
   AppAnatomy, 
@@ -134,4 +138,15 @@ Page Content will be left aligned to the edge of the screen.
 - Maps 
 - Tables
 
-For guidelines and templates for Page Content, see [Content Layout]().
+For guidelines and templates for Page Content, see [Content Layout](/templates/content-layout).
+
+<Link href="/templates/content-layout" passHref>
+<Button 
+  primary 
+  label="See Content Layout Next" 
+  icon={<FormNext />} 
+  alignSelf="start" 
+  reverse 
+  size="large"
+/>
+</Link>
