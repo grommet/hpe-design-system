@@ -17,7 +17,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
       <Box pad="large" gap="medium" width="large">
         <>
           <Heading color="text-strong" margin="none">
-            Are you sure you want to exit the wizard?
+            Cancel
           </Heading>
           <Text color="text-strong">Wizard Title</Text>
         </>
