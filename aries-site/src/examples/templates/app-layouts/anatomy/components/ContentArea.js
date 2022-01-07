@@ -12,7 +12,9 @@ export const ContentArea = ({
 }) => (
   <Box
     background={background}
-    border={border === true ? { color: 'border-weak' } : border}
+    border={
+      border === true ? { color: 'border-strong', style: 'dashed' } : border
+    }
     pad={pad}
     round={round}
     {...rest}

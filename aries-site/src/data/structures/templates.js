@@ -37,6 +37,36 @@ export const templates = [
     tags: [],
   },
   {
+    name: 'Content Layout',
+    available: false,
+    cardOrder: 100,
+    description: `Content layouts create optimal and accessible user 
+    experiences regardless of screen size or resolution.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-pagelayout.svg',
+          dark: '/templateImages/template-preview-pagelayout-invert.svg',
+        },
+        alt: `HPE Content Layouts preview featuring brightly colored,
+        overlapping rectangles.`,
+        fit: 'contain',
+      },
+    },
+    relatedContent: [
+      'Page Layouts',
+      'Global Header',
+      'Navigation',
+      'Dashboards',
+      'Header',
+      'Footer',
+    ],
+    seoDescription: `Content layouts create optimal and accessible user 
+    experiences regardless of screen size or resolution.`,
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'Forms',
     available: true,
     cardOrder: 1,
