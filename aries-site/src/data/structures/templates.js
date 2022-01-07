@@ -93,7 +93,6 @@ export const templates = [
     relatedContent: [
         'Navigation',
         'Side to Side Navigation',
-        'Reverse Navigation',
         'Matrix Navigation',
 ],
     tags: [],
@@ -370,7 +369,6 @@ export const templates = [
     relatedContent: [
         'Navigation',
         'Drill Down Navigation',
-        'Reverse Navigation',
         'Matrix Navigation',
 ],
     sections: [],
