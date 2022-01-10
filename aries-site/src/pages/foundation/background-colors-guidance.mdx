@@ -33,14 +33,8 @@ clutter-free. The background color is held consistent throughout the page and co
 separation is accomplished primarily through the use of typography and spacing (via margins
 and padding).
 
-In the basic approach, visual distinction for a header or an app-wide sidebar from the
-page's primary background is created by applying a second color with significant contrast
-to `background`. For instance, a dark blue, [persistent navigation sidebar](/templates/persistent-navigation) creates the desired contrast,
-achieving visual separation of the sidebar from the primary content.
-
 - **background** <ColorSwatch background="background" /> - The default background color when no other background color is specified.
 - **background-contrast** <ColorSwatch background="background-contrast" /> - Used to indicate secondary content.
-- **background (dark) or another color (dark)** <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> - Used to indicate a [primary navigation sidebar](/templates/persistent-navigation) or [header](/components/header).
 
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
@@ -49,7 +43,7 @@ of each background color namespace and value.
 
 `background` <ColorSwatch background="background" /> should be used for the application background as well as foreground elements, like Cards.
 
-The header, main content, and cards all use `background` <ColorSwatch background="background" /> for the background color. The sidebar uses a different color <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> to differentiate it from the rest of the content.
+The header, main content, and cards all use `background` <ColorSwatch background="background" /> for the background color.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/background-colors/BasicLayoutCardsExample.js"
@@ -88,7 +82,6 @@ above a main content section that uses `background-back`.
 - **background-back** <ColorSwatch background="background-back" /> - The overall background color.
 - **background-front** <ColorSwatch background="background-front" /> - The background color for content which should be the primary focus.
 - **background-contrast** <ColorSwatch background="background-contrast" /> - Could be used to indicate a secondary content area within a large content section.
-- **background (dark) or another color (dark)** <ColorSwatch background={{color: "background", dark: true, sidebar: true}} /> - Could be used to indicate a primary navigation sidebar or header.
 
 Refer to the [background palette](/foundation/color#background-palette) for definition
 of each background color namespace and value.
