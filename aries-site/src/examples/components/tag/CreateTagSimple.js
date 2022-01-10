@@ -67,14 +67,14 @@ export const CreateTagSimple = () => {
           gap={{ column: 'medium', row: 'small' }}
         >
           <FormField
-            name="tag-value"
-            htmlFor="tag-value"
+            name="tag-value-simple"
+            htmlFor="tag-value-simple"
             label="Value"
             required={{ indicator: false }}
           >
             <Select
-              name="tag-value"
-              htmlFor="tag-value"
+              name="tag-value-simple"
+              id="tag-value-simple"
               placeholder="Select or create a value"
               value={value}
               options={valueOptions}
