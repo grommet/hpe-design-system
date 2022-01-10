@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
 import {
   Button,
   Card,
@@ -10,7 +9,6 @@ import {
   Main,
   Paragraph,
   ResponsiveContext,
-  Sidebar,
   Text,
 } from 'grommet';
 import { AppIdentity } from '../../../components/content/AppIdentity';
@@ -20,7 +18,6 @@ export const BasicLayoutCardsExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
-      <AppSidebar />
       <Box flex overflow="auto">
         <Header
           border={{ color: 'border-weak', side: 'bottom' }}
@@ -72,27 +69,6 @@ export const BasicLayoutCardsExample = () => {
         </Main>
       </Box>
     </AppContainer>
-  );
-};
-
-const AppSidebar = () => {
-  const size = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
-  return (
-    <Sidebar
-      /* Sidebar should switch from column to row orientation
-       * when on smaller screens */
-      direction={size !== 'small' ? 'column' : 'row'}
-      flex={false}
-      /* Min height is not needed in mobile contexts */
-      height={size !== 'small' ? { min: '100%' } : undefined}
-      pad="small"
-      background={!theme.dark ? { color: 'background', dark: true } : 'blue'}
-    >
-      <Text weight="bold" color="text-strong">
-        Sidebar
-      </Text>
-    </Sidebar>
   );
 };
 
