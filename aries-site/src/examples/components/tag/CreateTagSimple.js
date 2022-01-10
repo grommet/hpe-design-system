@@ -61,7 +61,7 @@ export const CreateTagSimple = () => {
         <Grid
           columns={
             size !== 'small'
-              ? [['auto', 'medium'], ['auto', 'medium'], 'auto']
+              ? [['auto', 'medium'], 'auto']
               : '100%'
           }
           gap={{ column: 'medium', row: 'small' }}
