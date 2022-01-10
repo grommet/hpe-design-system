@@ -22,6 +22,7 @@ import {
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
+import { TagPreview } from '../../examples/cardPreviews/tag';
 
 export const components = [
   {
@@ -750,6 +751,33 @@ export const components = [
     ],
     relatedContent: ['DataTable', 'Lists', 'Card'],
     tags: ['paginated results', 'paginated data'],
+  },
+  {
+    name: 'Tag',
+    available: true,
+    category: 'Visualizations',
+    description: `Tags are metadata attributes facilitating the identification, 
+    organization, searching, and filtering of resources.`,
+    preview: {
+      component: () => <TagPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Tags are metadata attributes to facilitate identification, 
+    organization, searching and filtering resources.`,
+    sections: [
+      'Guidance',
+      'Anatomy',
+      'Remove Button',
+      'Background Color',
+      'Name-Value Pair Tags',
+      'Creating Name-Value Pair Tags',
+      'Assigning Tags',
+      'Filtering with Tags',
+      'Filtering with Tags on a Detail Page',
+      'Filtering with Tags on a Summary Page',
+    ],
+    relatedContent: ['NameValueList', 'Lists'],
+    tags: ['tags', 'name value pair'],
   },
   {
     name: 'All Components',
