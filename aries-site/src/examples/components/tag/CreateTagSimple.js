@@ -69,13 +69,13 @@ export const CreateTagSimple = () => {
           <FormField
             name="tag-value-simple"
             htmlFor="tag-value-simple"
-            label="Value"
+            label="Tags"
             required={{ indicator: false }}
           >
             <Select
               name="tag-value-simple"
               id="tag-value-simple"
-              placeholder="Select or create a value"
+              placeholder="Select or create a tag"
               value={value}
               options={valueOptions}
               onChange={({ option }) => {
@@ -97,6 +97,7 @@ export const CreateTagSimple = () => {
                 );
                 setValueSearch(text);
               }}
+              searchPlaceholder="Search tags"
             />
           </FormField>
           <Box
