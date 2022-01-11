@@ -394,8 +394,6 @@ export const templates = [
     sections: [
       'About Page Layouts',
       'Responsiveness',
-      'Sidebar, header, and footer',
-      'Sidebar and header',
       'Header and footer',
       'Sticky header',
       'Header only',

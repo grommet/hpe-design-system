@@ -36,6 +36,7 @@ export * from './rangeselector';
 export * from './search';
 export * from './select';
 export * from './tabs';
+export * from './tag';
 export * from './textarea';
 export * from './textinput';
 export * from './tip';

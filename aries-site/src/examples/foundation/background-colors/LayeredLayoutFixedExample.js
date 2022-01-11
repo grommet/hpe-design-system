@@ -7,11 +7,8 @@ import {
   Grid,
   Main,
   ResponsiveContext,
-  Sidebar,
-  Text,
   Paragraph,
 } from 'grommet';
-import { ThemeContext } from 'styled-components';
 import { AppIdentity } from '../../../components/content/AppIdentity';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -20,7 +17,6 @@ export const LayeredLayoutFixedExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
-      <AppSidebar />
       <Box flex overflow="auto">
         <Box height={{ min: '100%' }}>
           <Header
@@ -63,28 +59,6 @@ export const LayeredLayoutFixedExample = () => {
         </Box>
       </Box>
     </AppContainer>
-  );
-};
-
-const AppSidebar = () => {
-  const size = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
-
-  return (
-    <Sidebar
-      /* Sidebar should switch from column to row orientation
-       * when on smaller screens */
-      direction={size !== 'small' ? 'column' : 'row'}
-      flex={false}
-      /* Min height is not needed in mobile contexts */
-      height={size !== 'small' ? { min: '100%' } : undefined}
-      pad="small"
-      background={!theme.dark ? { color: 'background', dark: true } : 'blue'}
-    >
-      <Text weight="bold" color="text-strong">
-        Sidebar
-      </Text>
-    </Sidebar>
   );
 };
 

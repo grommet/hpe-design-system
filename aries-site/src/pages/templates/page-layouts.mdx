@@ -4,11 +4,7 @@ import { ContentPreviewCard } from '../../components';
 import {
   HeaderOnlyExample,
   HeaderFooterExample,
-  SidebarHeaderExample,
-  SidebarHeaderFooterExample,
   StickyHeaderExample,
-  SidebarHeaderFooterPreview,
-  SidebarHeaderPreview,
   HeaderFooterPreview,
   StickyHeaderPreview,
   HeaderOnlyPreview,
@@ -36,7 +32,7 @@ Choosing a page layout is an important first step in designing an application or
 
 **Components used within a Page Layout:**
 
-Page Layouts are built using the [Header](/components/header) and [Main](/components/main) components, with optional [Sidebar](/extend/global-sidebar) and [Footer](/components/footer) components. For guidance on page layout content, refer to the HPE Design System website pages for the components that make up your Page Layout.
+Page Layouts are built using the [Header](/components/header) and [Main](/components/main) components, with optional [Footer](/components/footer) components. For guidance on page layout content, refer to the HPE Design System website pages for the components that make up your Page Layout.
 
 ### Usage
 
@@ -50,49 +46,17 @@ Page Layouts provide the basic structure for a variety of page types.
 
 Examples are included for different screen sizes – Desktop, Laptop and Mobile.
 
-Page content can expand to a max-width of 1440px and after that it stays centered. Specifically, the sidebar, main, footer, and header are constrained to stay centered, with equal margins on both sides. This behavior is demonstrated visually when a user clicks on a Desktop example.
+Page content can expand to a max-width of 1440px and after that it stays centered. Specifically, the main, footer, and header are constrained to stay centered, with equal margins on both sides. This behavior is demonstrated visually when a user clicks on a Desktop example.
 
 ### Accessibility
 
-The screen reader reads page content in the order it is specified. Refer to the code examples to see the order in which Page Layout components are specified. Since Sidebar is typically used for global navigation, it is always specified first in Page Layout, when it is included.
+The screen reader reads page content in the order it is specified. Refer to the code examples to see the order in which Page Layout components are specified.
 
 Specify page layout content so that it is understandable by the screen reader too. This should make the page easier to visually read as well.
 
 ## Variants
 
 Examples of common page layouts.
-
-### Sidebar, header, and footer
-
-On desktop, the sidebar is fixed to the left side while header, main, and footer are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
-
-The border around page sections is for demonstration purposes only. Remove border in production.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderFooterExample.js"
-  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6535"
-  relevantComponents={['Footer', 'Global Sidebar', 'Header', 'Main']}
-  width="100%"
-  screenContainer
->
-  <SidebarHeaderFooterExample />
-</Example>
-
-### Sidebar and header
-
-On desktop, the sidebar is fixed to the left side while header and main are a scrollable region. On mobile, the sidebar is fixed to the bottom of the screen.
-
-The border around page sections is for demonstration purposes only. Remove border in production.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/SidebarHeaderExample.js"
-  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6568"
-  relevantComponents={['Global Sidebar', 'Header', 'Main']}
-  width="100%"
-  screenContainer
->
-  <SidebarHeaderExample />
-</Example>
 
 ### Header and footer
 
@@ -144,20 +108,12 @@ The border around page sections is for demonstration purposes only. Remove borde
 
 export const layouts = [
   {
-    name: 'Sidebar, header, and footer',
-    preview: <SidebarHeaderFooterPreview />,
-  },
-  {
-    name: 'Sidebar and header',
-    preview: <SidebarHeaderPreview />,
-  },
-  {
     name: 'Header and footer',
     preview: <HeaderFooterPreview />,
   },
   {
     name: 'Sticky Header',
-    preview: <StickyHeaderPreview />,
+    preview: <HeaderFooterPreview />,
   },
   {
     name: 'Header only',
@@ -177,7 +133,7 @@ export const LayoutPreviewGrid = () => {
     >
       {layouts.map(layout => (
         <ContentPreviewCard
-          forwardedAs="a"
+          as="a"
           style={{ textDecoration: 'none' }}
           href={`#${nameToSlug(layout.name)}`}
         >

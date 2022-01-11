@@ -22,8 +22,8 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
           <Text color="text-strong">Wizard Title</Text>
         </>
         <Text>
-          Cancelling setup will lose all of your progress. Are you sure you want
-          to exit the setup?
+          You have unsaved changes. Leaving this page will cause you to lose all
+          of your progress.
         </Text>
         <Box
           as="footer"
@@ -33,13 +33,13 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
           justify="end"
         >
           <Button
-            label="No, Continue Wizarding"
+            label="No, Stay"
             onClick={() => onSetOpen(false)}
             secondary
             fill={size !== 'small' ? false : 'horizontal'}
           />
           <Button
-            label="Yes, Cancel Wizarding"
+            label="Yes, Exit"
             fill={size !== 'small' ? false : 'horizontal'}
             onClick={() => {
               onSetOpen(false);
