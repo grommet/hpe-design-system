@@ -1,3 +1,19 @@
-import { ComingSoon } from '../../components';
+import { DiagramPreview, Example } from '../../layouts';
 
-<ComingSoon />
+## When a User would Use:
+- Pages where the hierarchy isn't crucial to the user experience, and where browsing is encouraged. For ex: HPE.com
+- User flows where a global nav bar is visible at all times.
+
+### Matrix within Global Header Example
+Global Header can provide easy access points to allow a user to jump from one section to another at all times. 
+
+<Example caption="Diagram illustrating the matrix navigation within a global header." plain pad="small" previewWidth="large" height={{ min: 'small' }}>
+<DiagramPreview src={{dark: "/templateImages/Matrix-Global-Header.svg", light: '/templateImages/Matrix-Global-Header-Invert.svg'}} alt="something" />
+</Example>
+
+### Matrix within App Example
+Users can search for information within a set of cards to select or navigate to different access points in no particualr order.
+
+<Example caption="Diagram illustrating the matrix navigation within an application." plain pad="small" previewWidth="large" height={{ min: 'small' }}>
+<DiagramPreview src={{dark: "/templateImages/matrix-app-example.svg", light: '/templateImages/matrix-app-example-invert.svg'}} alt="something" />
+</Example>
