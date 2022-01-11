@@ -51,6 +51,34 @@ export const aries = deepMerge(hpe, {
       xlarge: {}, // anything larger than 1440,
     },
   },
+  // This pageContainer could/would/should be an object in a theme file.
+  pageContainer: {
+    wide: {
+      align: 'center',
+      width: {
+        max: 'xxlarge', // 1536 --> needs to adjust to 1536 + 72
+      },
+    },
+    narrow: {
+      align: 'center',
+      width: {
+        max: 'large', // 768
+      },
+    },
+    full: {
+      align: 'start',
+      width: {
+        max: '100%',
+      },
+    },
+    pad: {
+      xsmall: { horizontal: 'medium', vertical: 'medium' },
+      small: { horizontal: 'large', vertical: 'medium' },
+      medium: { horizontal: 'medium', vertical: 'medium' },
+      large: { horizontal: 'large', vertical: 'medium' },
+      xlarge: { horizontal: 'large', vertical: 'medium' },
+    },
+  },
 });
 
 export const { colors } = aries.global;
