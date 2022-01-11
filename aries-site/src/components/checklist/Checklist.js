@@ -75,5 +75,5 @@ export const Checklist = ({ optionsObjects }) => (
 );
 
 Checklist.propTypes = {
-  optionsOjects: PropTypes.object.isRequired,
+  optionsOjects: PropTypes.array,
 };
