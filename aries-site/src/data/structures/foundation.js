@@ -42,6 +42,7 @@ export const foundation = [
       'colorblind',
       'testing tools',
     ],
+    relatedContent: ['WCAG Checklist'],
   },
   {
     name: 'WCAG Checklist',
@@ -59,6 +60,7 @@ export const foundation = [
       'accessibility resources',
       'WCAG',
     ],
+    relatedContent: ['Accessibility'],
   },
   {
     name: 'Our Brand',
