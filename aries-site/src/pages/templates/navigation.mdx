@@ -6,7 +6,6 @@ import { getPageDetails, getRelatedContent } from '../../utils';
 export const navPatterns = [
   'Drill Down Navigation',
   'Side to Side Navigation',
-  'Reverse Navigation',
   'Matrix Navigation',
 ];
 export const navCards = navPatterns.map(pattern => getPageDetails(pattern));
@@ -17,7 +16,7 @@ Part of creating a seamless application or interface is creating an obvious flow
 
 ## Types of Navigation
 
-There are 4 different types of navigational directions a user can maneuver in:
+There are 3 different types of navigational directions a user can maneuver in:
 
 <CardGrid cards={navCards} />
 

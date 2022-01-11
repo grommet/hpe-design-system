@@ -91,11 +91,10 @@ export const templates = [
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
     relatedContent: [
-      'Navigation',
-      'Side to Side Navigation',
-      'Reverse Navigation',
-      'Matrix Navigation',
-    ],
+        'Navigation',
+        'Side to Side Navigation',
+        'Matrix Navigation',
+],
     tags: [],
   },
   {
@@ -347,36 +346,6 @@ export const templates = [
     ],
   },
   {
-    name: 'Reverse Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    preview: {
-      pad: { horizontal: 'small' },
-      image: {
-        src: {
-          light: '/templateImages/ReverseNavigation.svg',
-          dark: '/templateImages/ReverseNavigation-invert.svg',
-        },
-        alt: 'Reverse Navigation Navigation Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    relatedContent: [
-      'Navigation',
-      'Drill Down Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
-    ],
-    sections: [],
-    tags: [],
-  },
-  {
     name: 'Side to Side Navigation',
     available: true,
     cardOrder: 100,
@@ -396,11 +365,10 @@ export const templates = [
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
     relatedContent: [
-      'Navigation',
-      'Drill Down Navigation',
-      'Reverse Navigation',
-      'Matrix Navigation',
-    ],
+        'Navigation',
+        'Drill Down Navigation',
+        'Matrix Navigation',
+],
     sections: [],
     tags: [],
   },
