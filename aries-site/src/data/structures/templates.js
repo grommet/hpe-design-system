@@ -91,10 +91,10 @@ export const templates = [
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
     relatedContent: [
-        'Navigation',
-        'Side to Side Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+    ],
     tags: [],
   },
   {
@@ -261,9 +261,12 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    description: `Lets the user determine their own path by
+    jumping into particular areas of the screen, in no specific order. 
+    This allows them to directly access content of their choosing,
+    without having to go up and back down to get there.
+    Martix Navigation is not a path that you can define for the user
+    rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
     preview: {
@@ -278,9 +281,12 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    seoDescription: `Lets the user determine their own path by
+    jumping into particular areas of the screen, in no specific order. 
+    This allows them to directly access content of their choosing,
+    without having to go up and back down to get there.
+    Martix Navigation is not a path that you can define for the user
+    rather the user defines it themselves.`,
   },
   {
     name: 'Navigation',
@@ -365,10 +371,10 @@ export const templates = [
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
     relatedContent: [
-        'Navigation',
-        'Drill Down Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Drill Down Navigation',
+      'Matrix Navigation',
+    ],
     sections: [],
     tags: [],
   },
