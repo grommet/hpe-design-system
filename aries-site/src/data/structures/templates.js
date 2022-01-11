@@ -6,40 +6,9 @@ import {
 
 export const templates = [
   {
-    name: 'App Layouts',
-    available: false,
-    cardOrder: 2,
-    description: `Choosing a layout is an important first step in designing a 
-    user interface. These guidelines will help create a consistent 
-    user experience across HPE applications and services.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-pagelayout.svg',
-          dark: '/templateImages/template-preview-pagelayout-invert.svg',
-        },
-        alt: `HPE Application Layouts preview featuring brightly colored,
-        overlapping rectangles.`,
-        fit: 'contain',
-      },
-    },
-    relatedContent: [
-      'Page Layouts',
-      'Global Header',
-      'Navigation',
-      'Dashboards',
-      'Header',
-      'Footer',
-    ],
-    seoDescription:
-      'HPE Design System application layout options, anatomies, and behaviors.',
-    sections: [],
-    tags: [],
-  },
-  {
     name: 'Content Layout',
     available: false,
-    cardOrder: 100,
+    cardOrder: 3,
     description: `Content layouts create optimal and accessible user 
     experiences regardless of screen size or resolution.`,
     preview: {
@@ -162,7 +131,7 @@ export const templates = [
   {
     name: 'Filtering',
     available: true,
-    cardOrder: 3,
+    cardOrder: 4,
     description: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     preview: {
@@ -204,7 +173,7 @@ export const templates = [
   {
     name: 'Global Header',
     available: true,
-    cardOrder: 7,
+    cardOrder: 8,
     description: `A standardized header for use when building applications and 
     services that live in the HPE ecosystem.`,
     preview: {
@@ -347,7 +316,7 @@ export const templates = [
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 4,
+    cardOrder: 5,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {
@@ -369,8 +338,9 @@ export const templates = [
     name: 'Page Layouts',
     available: true,
     cardOrder: 2,
-    description: `Page layout options, anatomies, and behaviors serving a wide 
-    variety of enterprise application, workflow, and marketing contexts.`,
+    description: `Choosing a layout is an important first step in designing 
+    a user interface. These guidelines will help create a consistent user 
+    experience across HPE applications and services.`,
     preview: {
       image: {
         src: {
@@ -392,11 +362,12 @@ export const templates = [
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [
-      'About Page Layouts',
-      'Responsiveness',
-      'Header and footer',
-      'Sticky header',
-      'Header only',
+      'Elements of an App UI',
+      'Page Container',
+      'Page Container Widths',
+      'Wide (default)',
+      'Narrow',
+      'Full',
     ],
     tags: [
       'common layouts',
@@ -405,6 +376,7 @@ export const templates = [
       'shells',
       'application layouts',
       'app layouts',
+      'page layouts',
     ],
   },
   {
@@ -558,7 +530,7 @@ export const templates = [
   {
     name: 'Wizard',
     available: true,
-    cardOrder: 5,
+    cardOrder: 6,
     description: 'Wizards are an effective way to handle multi-step forms.',
     preview: {
       image: {
