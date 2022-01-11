@@ -7,7 +7,7 @@ export const MainExample = () => (
     columns={['xsmall', 'auto']}
     areas={[
       ['header', 'header'],
-      ['sidebar', 'main'],
+      ['main', 'main'],
       ['footer', 'footer'],
     ]}
     fill
@@ -20,15 +20,6 @@ export const MainExample = () => (
     >
       <Text weight="bold">Header</Text>
     </Box>
-
-    <Box
-      border={{ color: 'border', style: 'dashed' }}
-      gridArea="sidebar"
-      pad="small"
-    >
-      <Text weight="bold">Sidebar</Text>
-    </Box>
-
     <Box
       background="background-contrast"
       border={{ color: 'border', style: 'dashed' }}
@@ -37,7 +28,6 @@ export const MainExample = () => (
     >
       <Text weight="bold">Main</Text>
     </Box>
-
     <Box
       border={{ color: 'border', style: 'dashed' }}
       gridArea="footer"
