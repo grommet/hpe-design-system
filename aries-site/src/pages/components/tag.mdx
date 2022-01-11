@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import {
   CreateTag,
+  CreateTagSimple,
   TagAnatomy,
   TagBasicAnatomy,
   TagResource
@@ -77,6 +78,26 @@ The experience for creating a Name-Value pair tag occurs in 2 steps: Create the 
 ## Assigning Tags
 
 Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+
+### Assigning Value-only Tags
+
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTagSimple.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTagSimple.js"
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <CreateTagSimple />
+</Example>
+
+### Assigning Name-Value Tags
 
 <Example 
   code={[
