@@ -1,3 +1,50 @@
-import { ComingSoon } from '../../components';
+import { DiagramPreview, Example } from '../../layouts';
+import { DrillDownCardExample, DrillDownDataTableExample, DrillDownListExample } from '../../examples';
 
-<ComingSoon />
+## When to Use:
+- When users need to focus on one task at a time.
+- To give information overview with the ability to drill down into specific information.
+- When screen real estate is limited.
+- When designing for many levels of functionality.
+- To divide meaningful content into sections.
+
+## Guidelines:
+- When the user is moving forward step-by-step to access further information.
+- When going from your Account > Dashboard > Service.
+- To allow users to dive deeper into related content.
+- Can be used as an individual element or in groups of related content.
+- Each element should have it’s own single content.
+
+## Drill Down Navigation Examples:
+
+### Card Example
+A visual representation of interactive and organized content.
+
+<Example caption="A diagram illustrating drill down navigation within Cards." plain pad="small" previewWidth="large" height={{ min: 'small' }}>
+<DiagramPreview src={{dark: "/templateImages/drill-down-card-example.svg", light: '/templateImages/drill-down-card-example-invert.svg'}} alt="A diagram illustrating drill down navigation within cards." />
+</Example>
+
+<Example plain>
+<DrillDownCardExample />
+</Example>
+
+### List Example
+Lists provide access points that present a collection of organized and related content.
+<Example caption="A diagram illustrating drill down navigation within Lists" plain pad="small" previewWidth="large" height={{ min: 'small' }}>
+<DiagramPreview src={{dark: "/templateImages/drill-down-list-example.svg", light: '/templateImages/drill-down-list-example-invert.svg'}} alt="A diagram illustrating drill down navigation within lists." />
+</Example>
+
+<Example plain>
+<DrillDownListExample />
+</Example>
+
+### DataTable Example
+Datatables present data in a column and row format. A user can be taken to a spoke when an entire table row is clickable or if an individual cell is clickable to drill down into more information.
+
+<Example caption="A diagram illustrating drill down navigation within a DataTable." plain pad="small" previewWidth="large" height={{ min: 'small' }}>
+<DiagramPreview src={{dark: "/templateImages/drill-down-datatable-example.svg", light: '/templateImages/drill-down-datatable-example-invert.svg'}} alt="A diagram illustrating drill down navigation within a DataTable." />
+</Example>
+
+<Example plain>
+<DrillDownDataTableExample />
+</Example>
