@@ -4,7 +4,7 @@ import { Image, ThemeContext } from 'grommet';
 
 export const DiagramPreview = ({ alt, src }) => {
   const theme = useContext(ThemeContext);
-  return <Image src={theme.dark ? src.light : src.dark} alt={alt} />;
+  return <Image src={theme.dark ? src.dark : src.light} alt={alt} />;
 };
 
 DiagramPreview.propTypes = {
