@@ -1,5 +1,15 @@
-import { useContext } from 'react';
-import { Box, Grid, Header, ResponsiveContext, ThemeContext } from 'grommet';
+import { useContext, useState } from 'react';
+import {
+  Box,
+  Grid,
+  Header,
+  NameValueList,
+  NameValuePair,
+  RadioButtonGroup,
+  ResponsiveContext,
+  Text,
+  ThemeContext,
+} from 'grommet';
 
 import {
   ContentArea,
@@ -11,16 +21,36 @@ const PageLayoutGrid = () => {
   const size = useContext(ResponsiveContext);
   const usePageContainer = useContext(PageContainerContext);
   const { pad } = usePageContainer;
+  const [pageContainerWidth, setPageContainerWidth] = useState('wide');
 
   const columns = {
-    xsmall: 'auto',
-    small: 'auto',
-    medium: [['auto', 'flex'], 'medium'],
-    large: [['medium', 'flex'], 'medium'],
-    xlarge: [
-      ['large', 'flex'],
-      ['medium', 'flex'],
-    ],
+    full: {
+      xsmall: 'auto',
+      small: 'auto',
+      medium: [['auto', 'flex'], 'medium'],
+      large: [['medium', 'flex'], 'medium'],
+      xlarge: [
+        ['large', 'flex'],
+        ['medium', 'flex'],
+      ],
+    },
+    wide: {
+      xsmall: 'auto',
+      small: 'auto',
+      medium: [['auto', 'flex'], 'medium'],
+      large: [['medium', 'flex'], 'medium'],
+      xlarge: [
+        ['large', 'flex'],
+        ['medium', 'flex'],
+      ],
+    },
+    narrow: {
+      xsmall: 'auto',
+      small: 'auto',
+      medium: 'auto',
+      large: 'auto',
+      xlarge: 'auto',
+    },
   };
 
   const gap = {
@@ -32,14 +62,18 @@ const PageLayoutGrid = () => {
   };
 
   return (
-    <PageContainer kind="wide" gap="medium" border={{ style: 'dashed' }}>
+    <PageContainer
+      kind={pageContainerWidth}
+      gap="medium"
+      border={{ style: 'dashed' }}
+    >
       <Header pad={usePageContainer && pad} border={{ style: 'dashed' }}>
         <ContentArea title="Page Header" fill />
       </Header>
       <Grid
         border={{ style: 'dashed' }}
         gap={gap[size]}
-        columns={columns[size]}
+        columns={columns[pageContainerWidth][size]}
         pad={usePageContainer && pad}
       >
         {['xsmall', 'small'].includes(size) && (
@@ -57,6 +91,33 @@ const PageLayoutGrid = () => {
           <ContentArea title="5" />
         </Box>
       </Grid>
+      <Box
+        pad={usePageContainer && { ...pad, vertical: 'medium' }}
+        gap="medium"
+      >
+        <Text weight="bold" size="large">
+          Demo Controls
+        </Text>
+        <NameValueList gap="small" nameProps={{ width: ['xsmall', 'small'] }}>
+          <NameValuePair name="Page Container Width">
+            <RadioButtonGroup
+              options={[
+                { label: 'Wide', value: 'wide' },
+                { label: 'Full', value: 'full' },
+                { label: 'Narrow', value: 'narrow' },
+              ]}
+              value={pageContainerWidth}
+              onChange={event => setPageContainerWidth(event.target.value)}
+            />
+          </NameValuePair>
+          <NameValuePair name="Current Breakpoint">
+            {size.replace(
+              /\w\S*/g,
+              txt => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase(),
+            )}
+          </NameValuePair>
+        </NameValueList>
+      </Box>
     </PageContainer>
   );
 };
