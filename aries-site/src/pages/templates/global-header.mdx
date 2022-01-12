@@ -1,7 +1,7 @@
 import {
   GlobalHeaderExample,
 } from '../../examples';
-import { Example } from '../../layouts';
+import { DiagramPreview, Example } from '../../layouts';
 import { Box, Button, Image } from 'grommet';
 import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
 
@@ -38,7 +38,19 @@ sites. The following sections will help you decide which options to include.
 
 The full global header with all options enabled looks like this:
 
-![Full HPE Global Header](/templateImages/globalheader-full.png)
+<Example 
+  previewWidth="xlarge"
+  height="xsmall"
+  plain
+>
+  <DiagramPreview
+    src={{
+      dark: "/templateImages/globalheader-full.svg", 
+      light: "/templateImages/globalheader-full.svg"
+    }}
+    alt="HPE Global Header"
+  />
+</Example>
 
 To configure what parts are shown in the global header for your site, go to the
 [HPE Common HFWS test page](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php?version=latest.r&cc_ll=us%2Fen&header_logo=&slim_footer=true&hide_search=true&hide_cart=true&hide_country_selector=true&hide_sign_in=true).
