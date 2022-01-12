@@ -83,7 +83,7 @@ export const TabCaption = () => (
     columns={['medium', 'medium']}
   >
     {Object.entries(data).map(([name, value]) => (
-      <NameValuePair name={name}>{value}</NameValuePair>
+      <NameValuePair key={name} name={name}>{value}</NameValuePair>
     ))}
   </NameValueList>
 );
