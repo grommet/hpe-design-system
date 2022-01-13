@@ -78,8 +78,6 @@ export const templates = [
     description: ` Allows users to progressively descend 'down'
      branches of a hierarchical tree into a child 
     screen to drill down into more granular details.
-    Drill Down Navigation allows for a consistent
-    and focused experience that helps eliminate cognitive overload.
     `,
     preview: {
       image: {
@@ -94,8 +92,6 @@ export const templates = [
     seoDescription: ` Allows users to progressively descend 'down'
     branches of a hierarchical tree into a child 
    screen to drill down into more granular details.
-   Drill Down Navigation allows for a consistent
-   and focused experience that helps eliminate cognitive overload.
    `,
     sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
     relatedContent: [
