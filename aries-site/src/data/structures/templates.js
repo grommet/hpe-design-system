@@ -91,7 +91,7 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: ` Allows users to progressively descend 'down'
+    seoDescription: `Allows users to progressively descend 'down'
     branches of a hierarchical tree into a child 
    screen to drill down into more granular details.
    Drill Down Navigation allows for a consistent
