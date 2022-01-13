@@ -91,7 +91,7 @@ export const Layout = ({
                   <SkipLinkTarget id="main" />
                   {/* aligns with responsive padding for aries-core Nav */}
                   <Box
-                    direction="row"
+                    direction={layout !== 'plain' ? 'row' : 'column'}
                     pad={
                       pad || {
                         horizontal: calcPad(size),
@@ -103,9 +103,15 @@ export const Layout = ({
                     {layout !== 'plain' ? (
                       <>
                         <Box
-                          width="calc(100% - 192px)"
-                          pad={{ right: 'medium' }}
-                          margin={{ right: 'large' }}
+                          width={
+                            size !== 'small' ? 'calc(100% - 192px)' : undefined
+                          }
+                          pad={
+                            size !== 'small' ? { right: 'medium' } : undefined
+                          }
+                          margin={
+                            size !== 'small' ? { right: 'large' } : undefined
+                          }
                         >
                           <ContentSection>
                             <DocsPageHeader

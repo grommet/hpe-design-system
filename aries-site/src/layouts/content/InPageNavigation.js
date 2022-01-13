@@ -10,10 +10,12 @@ export const InPageNavigation = ({ title }) => {
   );
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
+  console.log(siteContents, match, headings);
 
   return headings ? (
     <Box
       gap="xsmall"
+      pad={{ left: 'xxsmall' }} // account for focus indicator space
       style={{
         height: 'calc(100vh - 50px)',
         overflowY: 'auto',
@@ -25,8 +27,8 @@ export const InPageNavigation = ({ title }) => {
       width="small"
       flex={false}
     >
-      <Text color="text-strong" size="small" weight="bold">
-        Contents
+      <Text color="text-strong" size="xsmall" weight="bold">
+        CONTENTS
       </Text>
       <Nav gap="xsmall">
         {headings.map((heading, index) => {
@@ -35,6 +37,8 @@ export const InPageNavigation = ({ title }) => {
           return (
             <Link key={index} href={`#${nameToSlug(heading[1])}`} passHref>
               <Anchor
+                alignSelf="start"
+                // style={{ textAlign: 'start' }}
                 size="small"
                 label={heading[1]}
                 margin={{ left: level.length > 2 ? 'small' : undefined }}

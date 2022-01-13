@@ -31,7 +31,7 @@ const mapContent = async files => {
         pathParts
           .pop()
           .replace(/.mdx|.js/, '')
-          .replace('-', ' '),
+          .replace(/-/g, ' '),
       );
       const parent = pathParts.pop();
       const filePath = file;
@@ -42,8 +42,10 @@ const mapContent = async files => {
       content = content
         .replace(/#{1,} (...+?)(\n){2}/g, p1 => `${p1}~~ `)
         .replace(/(\n){1,}/g, ' ')
+        // having "import" is causing errors where words like "important" are
+        // being flagged and content is being removed
         .replace(
-          /import(...+?)(?<=;)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\(([^)]+)\)|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
+          /<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\(([^)]+)\)|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
           '',
         );
 
