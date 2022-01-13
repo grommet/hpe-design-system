@@ -1,3 +1,4 @@
+export * from './Annotation';
 export * from './ButtonRow';
 export * from './ColorRow';
 export * from './ContentSection';

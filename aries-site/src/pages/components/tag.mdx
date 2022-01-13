@@ -1,0 +1,141 @@
+import { Example } from '../../layouts';
+import {
+  CreateTag,
+  CreateTagSimple,
+  TagAnatomy,
+  TagBasicAnatomy,
+  TagResource
+} from '../../examples';
+
+## Guidance
+
+Tags are simple attributes containing metadata. Tags:
+
+- Are simple, brief and concise metadata describing a resource or content.
+- Organize and group resources by common characteristics or attributes.
+- May be included as an attribute in search, filter, or details of a resource.
+- Assist batch actions and selection of multiple resources.
+
+## Anatomy
+
+The most basic tags consist of two primary elements:
+
+<Example caption="Diagram illustrating the primary elements of a tag." plain>
+  <TagBasicAnatomy />
+</Example>
+
+1. Border
+1. Value
+
+Tags can have additional elements depending on the tags’ intended use and context:
+
+<Example
+  caption="Diagram illustrating the primary and additional elements of a tag."
+  plain
+>
+  <TagAnatomy />
+</Example>
+
+1. Border
+1. Value
+1. Name
+1. Remove button
+
+Character requirements:
+
+- Name: up to 128 characters
+- Value: up to 256 characters
+
+### Remove Button
+
+Applying the remove button (see element #4 in the [anatomy figure](#anatomy)) is dependent upon the use case and not a requirement.
+
+The remove tag button may be used when:
+
+1. Removing a tag in an editor.
+1. Removing a tag as filtering criteria.
+1. Clearing or removing a tag from a resource
+
+The remove tag button should not be used when:
+
+1. Displaying tags for a resource in a detail view. Use a [NameValueList](/components/namevaluelist) instead.
+1. Displaying tags where removal of the tag is not within an edit experience for the resource.
+
+To implement a Tag with a remove button, provide a function to the `onRemove` Tag property.
+
+### Background Color
+
+Tags do not receive a background color. Instead, tags inherit the background of their container.
+
+## Name-Value Pair Tags
+
+Name-value pairing with tags allow further organization and identification of resources. While this feature is not a requirement, name-value pairs can help users more clearly group resources.
+
+### Creating Name-Value Pair Tags
+
+The experience for creating a Name-Value pair tag occurs in 2 steps: Create the name and then create the value. Alternatively, select an existing name and create a new value.
+
+## Assigning Tags
+
+Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
+
+### Assigning Value-only Tags
+
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTagSimple.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTagSimple.js"
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <CreateTagSimple />
+</Example>
+
+### Assigning Name-Value Tags
+
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/CreateTag.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTag"
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <CreateTag />
+</Example>
+
+## Filtering with Tags
+
+Filtering with tags allows the user to search, select, and remove tags from a set of filter criteria in order to find relevant data.
+
+### Filtering with Tags on a Detail Page
+
+One example in which a tag can be used to facilitate quick associations amongst resources is to use the tag as a clickable filter from the detail of resource.
+
+<Example 
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/TagResource.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/data.js",
+  ]}
+  docs="https://v2.grommet.io/tag?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  height="large"
+  template
+>
+  <TagResource />
+</Example>
+
+### Filtering with Tags on a Summary Page
+
+Example coming soon.
