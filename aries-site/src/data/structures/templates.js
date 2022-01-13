@@ -75,7 +75,7 @@ export const templates = [
     name: 'Drill Down Navigation',
     available: true,
     cardOrder: 100,
-    description: ` Allows users to progressively descend 'down'
+    description: `Allows users to progressively descend 'down'
      branches of a hierarchical tree into a child 
     screen to drill down into more granular details.
     Drill Down Navigation allows for a consistent
