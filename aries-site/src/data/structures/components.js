@@ -772,6 +772,8 @@ export const components = [
       'Name-Value Pair Tags',
       'Creating Name-Value Pair Tags',
       'Assigning Tags',
+      'Assigning Value-only Tags',
+      'Assigning Name-Value Tags',
       'Filtering with Tags',
       'Filtering with Tags on a Detail Page',
       'Filtering with Tags on a Summary Page',
