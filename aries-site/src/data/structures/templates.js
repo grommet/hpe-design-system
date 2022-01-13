@@ -75,7 +75,7 @@ export const templates = [
     name: 'Drill Down Navigation',
     available: true,
     cardOrder: 100,
-    description: ` Allows users to progressively descend 'down'
+    description: `Allows users to progressively descend 'down'
      branches of a hierarchical tree into a child 
     screen to drill down into more granular details.
     `,
@@ -89,7 +89,7 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: ` Allows users to progressively descend 'down'
+    seoDescription: `Allows users to progressively descend 'down'
     branches of a hierarchical tree into a child 
    screen to drill down into more granular details.
    `,
@@ -372,9 +372,18 @@ export const templates = [
       'Navigation',
       'Drill Down Navigation',
       'Matrix Navigation',
+      'Tabs',
     ],
-    sections: [],
-    tags: [],
+    sections: [
+      'When to use',
+      'HPE Local Header Example',
+      'HPE Global Header Example',
+      'Header Guidelines',
+      'Persistent Sidebar',
+      'Tabs Example',
+      'Tabs Guidelines',
+    ],
+    tags: ['navigation', 'lateral', 'peer', 'peer to peer', 'sibling'],
   },
   {
     name: 'Status Indicator',
