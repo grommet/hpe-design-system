@@ -261,11 +261,8 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description: `Lets the user determine their own path by
-    jumping into particular areas of the screen, in no specific order. 
-    This allows them to directly access content of their choosing,
-    without having to go up and back down to get there.
-    Martix Navigation is not a path that you can define for the user
+    description: `Matrix Navigation is not a path 
+    that you can define for the user
     rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
@@ -281,11 +278,8 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: `Lets the user determine their own path by
-    jumping into particular areas of the screen, in no specific order. 
-    This allows them to directly access content of their choosing,
-    without having to go up and back down to get there.
-    Martix Navigation is not a path that you can define for the user
+    seoDescription: `Martix Navigation is not a path that
+    you can define for the user
     rather the user defines it themselves.`,
     sections: [
       'When a User would Use',
