@@ -10,7 +10,6 @@ export const InPageNavigation = ({ title }) => {
   );
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
-  console.log(siteContents, match, headings);
 
   return headings ? (
     <Box
