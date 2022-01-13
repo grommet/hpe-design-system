@@ -91,10 +91,10 @@ export const templates = [
      hierarchical tree into a child screen to drill down into details.`,
     sections: [],
     relatedContent: [
-        'Navigation',
-        'Side to Side Navigation',
-        'Matrix Navigation',
-],
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+    ],
     tags: [],
   },
   {
@@ -365,12 +365,21 @@ export const templates = [
     seoDescription: `Allows users to access sibling screens sequentially from
     the same level of the hierarchy.`,
     relatedContent: [
-        'Navigation',
-        'Drill Down Navigation',
-        'Matrix Navigation',
-],
-    sections: [],
-    tags: [],
+      'Navigation',
+      'Drill Down Navigation',
+      'Matrix Navigation',
+      'Tabs',
+    ],
+    sections: [
+      'When to use',
+      'HPE Local Header Example',
+      'HPE Global Header Example',
+      'Header Guidelines',
+      'Persistent Sidebar',
+      'Tabs Example',
+      'Tabs Guidelines',
+    ],
+    tags: ['navigation', 'lateral', 'peer', 'peer to peer', 'sibling'],
   },
   {
     name: 'Status Indicator',
