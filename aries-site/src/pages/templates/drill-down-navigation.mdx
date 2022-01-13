@@ -1,3 +1,88 @@
-import { ComingSoon } from '../../components';
+import { DiagramPreview, Example } from '../../layouts';
+import { DrillDownCardExample, DrillDownDataTableExample, DrillDownListExample } from '../../examples';
 
-<ComingSoon />
+Drill Down Navigation allows for a consistent
+and focused experience that helps eliminate cognitive overload.
+
+## When to Use
+- When users need to focus on one task at a time.
+- To provide summary information with the ability to drill down into specifics.
+- When screen real estate is limited.
+- When designing for many levels of functionality.
+- To divide content into meaningful, focussed sections.
+- When the user is moving forward step-by-step to access further information.
+- When going from your Account > Services > Service.
+- To allow users to dive deeper into related content.
+
+## Guidelines
+- Can be used as an individual element or in groups of related content.
+- Each element should have its own single content.
+
+## Drill Down Navigation Examples
+
+### Card Example
+A visual representation of interactive and organized content.
+
+<Example 
+  caption="Illustration showing how Cards may be used to navigate from a central hub page to spoke pages of related content and/or more granular detail." 
+  plain 
+  pad="small" 
+  previewWidth="large" 
+  height={{ min: 'small' }}
+>
+  <DiagramPreview 
+    src={{
+      dark: "/templateImages/drill-down-card-example-invert.svg", 
+      light: '/templateImages/drill-down-card-example.svg'
+    }} 
+    alt="A diagram illustrating drill down navigation within cards." 
+  />
+</Example>
+
+<Example plain>
+  <DrillDownCardExample />
+</Example>
+
+### List Example
+Lists provide access points that present a collection of organized and related content.
+
+<Example 
+  caption="Illustration showing how a user can navigate within a List by clicking an item and be navigated to a page of related content." 
+  plain 
+  pad="small" 
+  previewWidth="large" 
+  height={{ min: 'small' }}
+>
+  <DiagramPreview 
+    src={{
+      dark: "/templateImages/drill-down-list-example-invert.svg", 
+      light: '/templateImages/drill-down-list-example.svg'
+    }} 
+    alt="A diagram illustrating drill down navigation within lists." />
+</Example>
+
+<Example plain>
+  <DrillDownListExample />
+</Example>
+
+### DataTable Example
+Datatables present data in a column and row format. A user can be taken to a spoke when an entire table row is clickable or if an individual cell is clickable to drill down into more information.
+
+<Example 
+  caption="Illustration showing how a user may click a DataTable row which navigates to another page with related content, such as a record's detail (spoke) or related hub." 
+  plain 
+  pad="small" 
+  previewWidth="large" 
+  height={{ min: 'small' }}
+>
+  <DiagramPreview 
+    src={{
+      dark: "/templateImages/drill-down-datatable-example-invert.svg",
+      light: '/templateImages/drill-down-datatable-example.svg'
+      }} 
+      alt="A diagram illustrating drill down navigation within a DataTable." />
+</Example>
+
+<Example plain>
+  <DrillDownDataTableExample />
+</Example>
