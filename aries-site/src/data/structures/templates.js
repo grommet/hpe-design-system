@@ -287,6 +287,11 @@ export const templates = [
     without having to go up and back down to get there.
     Martix Navigation is not a path that you can define for the user
     rather the user defines it themselves.`,
+    sections: [
+      'When a User would Use',
+      'Matrix within a Music App Example',
+      'Matrix within App Example',
+    ],
   },
   {
     name: 'Navigation',
