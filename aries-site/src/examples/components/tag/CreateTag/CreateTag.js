@@ -133,7 +133,7 @@ export const CreateTag = () => {
           >
             <Select
               name="tag-value"
-              htmlFor="tag-value"
+              id="tag-value"
               placeholder="Select or create a value"
               value={value}
               options={valueOptions}
