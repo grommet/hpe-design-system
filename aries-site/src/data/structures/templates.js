@@ -97,7 +97,7 @@ export const templates = [
    Drill Down Navigation allows for a consistent
    and focused experience that helps eliminate cognitive overload.
    `,
-    sections: [],
+    sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
     relatedContent: [
       'Navigation',
       'Side to Side Navigation',
