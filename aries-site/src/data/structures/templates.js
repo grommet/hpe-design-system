@@ -262,7 +262,7 @@ export const templates = [
   {
     name: 'Matrix Navigation',
     description: `Matrix Navigation is not a path 
-    that you can define for the user
+    that you can define for the user,
     rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
