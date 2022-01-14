@@ -279,7 +279,7 @@ export const templates = [
     },
     relatedContent: [],
     seoDescription: `Martix Navigation is not a path that
-    you can define for the user
+    you can define for the user,
     rather the user defines it themselves.`,
     sections: [
       'When a User would Use',
