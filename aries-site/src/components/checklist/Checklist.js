@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FormDown, FormUp, Checkbox, CheckboxSelected } from 'grommet-icons';
+import { FormDown, FormUp } from 'grommet-icons';
 import {
   AnnounceContext,
   Anchor,
   Box,
+  CheckBox,
   CheckBoxGroup,
   Paragraph,
   ResponsiveContext,
@@ -15,23 +16,17 @@ export const Checklist = ({ optionsObjects }) => (
   <CheckBoxGroup options={optionsObjects}>
     {(option, { checked }) => {
       const [expanded, setExpanded] = useState(false);
-      const [isChecked, setChecked] = useState(checked);
 
+      const setChecked = (value) => checked === value;
       const announce = useContext(AnnounceContext);
       const size = useContext(ResponsiveContext);
 
       const Icon = expanded ? FormUp : FormDown;
-      const Check = isChecked ? CheckboxSelected : Checkbox;
 
       return (
         <Box direction="row">
           <Box direction="row" gap="medium" pad="xsmall">
-            <Check
-              onClick={() => {
-                announce('Checked box');
-                setChecked(!isChecked);
-              }}
-            />
+            <CheckBox checked={checked} onChange={() => setChecked(false)} />
             <Icon
               onClick={() => {
                 announce('Expanded content');
