@@ -100,7 +100,9 @@ export const Example = ({
   let viewPort;
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else viewPort = undefined;
+  // Temporary for debugging
+  else viewPort = size;
+  // else viewPort = undefined;
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs

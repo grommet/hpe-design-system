@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Box, Diagram, Stack, Text, ThemeContext } from 'grommet';
 import { LinkPrevious, LinkNext } from 'grommet-icons';
 
-import { ContentArea } from './components';
+import { ContentArea } from '../../../../components';
 
 const connections = [
   {

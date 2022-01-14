@@ -3,6 +3,7 @@ export * from './CollapsibleSection';
 export * from './ColorCompliance';
 export * from './ColorSwatch';
 export * from './ComingSoon';
+export * from './ContentArea';
 export * from './DocsMessage';
 export * from './HighlightPhrase';
 export * from './PageBackground';

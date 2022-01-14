@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'grommet';
 
-import { ContentArea } from './components';
+import { ContentArea } from '../../../../components';
 
 export const PageAnatomy = () => {
   const theme = useContext(ThemeContext);
