@@ -126,10 +126,7 @@ export const Example = ({
     </ExampleContainer>
   );
 
-  if (caption)
-    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
-
-  const controls = (designer ||
+  const exampleControls = (designer ||
     docs ||
     figma ||
     guidance ||
@@ -146,6 +143,17 @@ export const Example = ({
       setShowLayer={value => setShowLayer(value)}
     />
   );
+
+  if (!horizontalLayout)
+    content = (
+      <>
+        {content}
+        {exampleControls}
+      </>
+    );
+
+  if (caption)
+    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
 
   const resources = (
     <ExampleResources
@@ -176,22 +184,21 @@ export const Example = ({
               screen={screen}
             />
           )}
-          {!horizontalLayout ? (
-            <>
-              {content}
-              {controls}
-              {resources}
-            </>
-          ) : (
+          {horizontalLayout ? (
             <HorizontalExample
               content={content}
-              controls={controls}
+              controls={exampleControls}
               height={height}
               plain={plain}
               resources={resources}
               showResponsiveControls={showResponsiveControls}
               width={width}
             />
+          ) : (
+            <>
+              {content}
+              {resources}
+            </>
           )}
         </>
       </Box>
