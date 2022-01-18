@@ -1,5 +1,6 @@
 export * from './code-blocks';
 export * from './dashboards';
+export * from './drill-down-navigation';
 export * from './filtering';
 export * from './forms';
 export * from './global-header';

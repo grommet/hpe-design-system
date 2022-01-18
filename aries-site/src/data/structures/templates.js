@@ -105,8 +105,10 @@ export const templates = [
     name: 'Drill Down Navigation',
     available: true,
     cardOrder: 100,
-    description: `Allows users to descend 'down' branches of a hierarchical
-     tree into a child screen to drill down into details.`,
+    description: `Allows users to progressively descend 'down'
+     branches of a hierarchical tree into a child 
+    screen to drill down into more granular details.
+    `,
     preview: {
       image: {
         src: {
@@ -117,13 +119,14 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: `Allows users to descend 'down' branches of a
-     hierarchical tree into a child screen to drill down into details.`,
-    sections: [],
+    seoDescription: `Allows users to progressively descend 'down'
+    branches of a hierarchical tree into a child 
+   screen to drill down into more granular details.
+   `,
+    sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
     relatedContent: [
       'Navigation',
       'Side to Side Navigation',
-      'Reverse Navigation',
       'Matrix Navigation',
     ],
     tags: [],
@@ -292,9 +295,9 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    description: `Matrix Navigation is not a path 
+    that you can define for the user,
+    rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
     preview: {
@@ -309,9 +312,14 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    seoDescription: `Martix Navigation is not a path that
+    you can define for the user,
+    rather the user defines it themselves.`,
+    sections: [
+      'When a User would Use',
+      'Matrix within a Music App Example',
+      'Matrix within App Example',
+    ],
   },
   {
     name: 'Navigation',
@@ -380,36 +388,6 @@ export const templates = [
     ],
   },
   {
-    name: 'Reverse Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    preview: {
-      pad: { horizontal: 'small' },
-      image: {
-        src: {
-          light: '/templateImages/ReverseNavigation.svg',
-          dark: '/templateImages/ReverseNavigation-invert.svg',
-        },
-        alt: 'Reverse Navigation Navigation Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    relatedContent: [
-      'Navigation',
-      'Drill Down Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
-    ],
-    sections: [],
-    tags: [],
-  },
-  {
     name: 'Side to Side Navigation',
     available: true,
     cardOrder: 100,
@@ -431,11 +409,19 @@ export const templates = [
     relatedContent: [
       'Navigation',
       'Drill Down Navigation',
-      'Reverse Navigation',
       'Matrix Navigation',
+      'Tabs',
     ],
-    sections: [],
-    tags: [],
+    sections: [
+      'When to use',
+      'HPE Local Header Example',
+      'HPE Global Header Example',
+      'Header Guidelines',
+      'Persistent Sidebar',
+      'Tabs Example',
+      'Tabs Guidelines',
+    ],
+    tags: ['navigation', 'lateral', 'peer', 'peer to peer', 'sibling'],
   },
   {
     name: 'Status Indicator',
