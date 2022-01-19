@@ -4,7 +4,7 @@ import { simpleData } from '../data';
 
 export const NameValueListSimpleExample = () => (
   <Box pad="small">
-    <NameValueList>
+    <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
       {Object.entries(simpleData).map(([name, value]) => {
         let date;
         if (name === 'Created on') {

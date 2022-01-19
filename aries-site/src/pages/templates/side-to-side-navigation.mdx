@@ -1,3 +1,101 @@
-import { ComingSoon } from '../../components';
+import { Box, Image, NameValueList, NameValuePair } from 'grommet';
+import { DiagramPreview, Example } from '../../layouts';
 
-<ComingSoon />
+## When to use
+
+- Tabs to maneuver between relevant information within the same view.
+- Hamburger menus, sidebars, nav bars, wizards.
+- Switching from one service to another service.
+- Sidebar to navigate between pages.
+- Accordions to open a single panel to navigating between content within the same page.
+
+## HPE Local Header Example
+
+The HPE product’s local header which contains grouped, frequently used and top-level information.
+
+**Example coming soon.**
+
+## HPE Global Header Example
+
+The Global Header, also known as the HPE Common Header and Footer Web Service, provides a tunable, yet consistent header to be used across all HPE applications.
+
+For more information, reference the [Global Header page](/templates/global-header).
+
+### Header Guidelines
+
+- Global Header should be on all applications and websites
+- Allows users to move between top-level important destinations
+- Located at the top of all application and websites
+
+<Example 
+  previewWidth="xlarge"
+  height="xsmall"
+  plain
+>
+  <DiagramPreview
+    src={{
+      dark: "/templateImages/globalheader-full.svg", 
+      light: "/templateImages/globalheader-full.svg"
+    }}
+    alt="HPE Global Header"
+  />
+</Example>
+
+## Persistent Sidebar
+
+**Important note: The Sidebar component will likely be deprecated from the HPE Design System by end of 2022.**
+
+- Provides navigation to top level pages.
+- Always placed below the [Global Header](/templates/global-header).
+- Determined in a [September 2021 user study](https://hpe.sharepoint.com/teams/hpe-design/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2Fhpe%2Ddesign%2FShared%20Documents%2FHPExs%20Research%2FProjects%2FTransformation%20Office%2FUnlimited%20Studies%20%2D%20CCP%20UCEP%2FUnlimited%20Study%20%233%20%20HFS%20Navigation%20Study%2FHPE%20%2D%20HFS%20Vision%20Test%201%20Study%2Epdf&parent=%2Fteams%2Fhpe%2Ddesign%2FShared%20Documents%2FHPExs%20Research%2FProjects%2FTransformation%20Office%2FUnlimited%20Studies%20%2D%20CCP%20UCEP%2FUnlimited%20Study%20%233%20%20HFS%20Navigation%20Study&p=true&originalPath=aHR0cHM6Ly9ocGUuc2hhcmVwb2ludC5jb20vOmI6L3QvaHBlLWRlc2lnbi9FV2E3SnppQjRLSklsRW1Nc04xMjNhZ0JRWlhxMFZvTTc0VDlGLVpOUThEdzNRP3J0aW1lPTdOOS00eHlUMlVn) that navigating between services using a Sidebar was not as seamless or clear when compared to other navigation models.
+
+## Tabs Example
+
+Tabs are a persistent horizontal bar that is used to navigate between related content without leaving the current page. See the [Tabs page](/components/tabs) for more guidance and examples.
+
+### Tabs Guidelines
+
+- Use only nouns or verbs for labels.
+- Use concise 1-2 word labels.
+- Use Title Case.
+- Avoid nested Tabs.
+- Organize information by priority and reading direction (e.g., right to left) of the user.
+- Ensure first tab is active when arriving at the page.
+- Keep users on same page when navigating between Tabs.
+- Use 5-7 Tabs max.
+
+<Example 
+  caption="Diagram illustrating how Tabs can provide side-to-side navigation between various sets of related content."
+  previewWidth="medium"
+  height={{ min: 'small' }}
+  plain
+>
+  <DiagramPreview
+    src={{
+      dark: "/templateImages/tab-nav-invert.svg", 
+      light: "/templateImages/tab-nav.svg"
+    }}
+    alt="Diagram illustrating how Tabs can provide side-to-side navigation between various sets of related content."
+  />
+</Example>
+
+<TabCaption />
+
+export const data = {
+  Tabs: 'Tabs are lateral sections that control which content you see.',
+  Interaction: 'Click and reveal content.',
+  Content:
+    'Related content that can be divided into sections to present information within the same page.',
+};
+
+export const TabCaption = () => (
+  <NameValueList
+    layout="grid"
+    pairProps={{ direction: 'column' }}
+    columns={['medium', 'medium']}
+  >
+    {Object.entries(data).map(([name, value]) => (
+      <NameValuePair key={name} name={name}>{value}</NameValuePair>
+    ))}
+  </NameValueList>
+);

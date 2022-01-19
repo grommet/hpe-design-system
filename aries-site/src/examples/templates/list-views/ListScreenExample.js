@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Avatar,
   Box,
   Button,
   List,
@@ -9,22 +8,9 @@ import {
   Heading,
   Menu,
   ResponsiveContext,
-  Sidebar,
   Text,
-  ThemeContext,
 } from 'grommet';
-import {
-  Apps,
-  Chat,
-  Clock,
-  Terminal,
-  Monitor,
-  More,
-  User,
-  StatusUnknown,
-  System,
-  Hpe,
-} from 'grommet-icons';
+import { Monitor, More, User, System, Hpe } from 'grommet-icons';
 
 const data = [
   {
@@ -123,48 +109,6 @@ const StyledList = () => {
   );
 };
 
-const SidebarExample = ({ ...rest }) => {
-  const size = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
-  return (
-    <Sidebar
-      background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
-      direction={size !== 'small' ? 'column' : 'row'}
-      pad={{
-        horizontal: size !== 'small' ? 'small' : 'medium',
-        vertical: size !== 'small' ? 'medium' : 'small',
-      }}
-      fill={size === 'small' ? 'horizontal' : undefined}
-      flex={false}
-      height={size === 'small' ? undefined : { min: '100%' }}
-      {...rest}
-    >
-      {size !== 'small' && (
-        <Avatar
-          margin={{ bottom: 'medium' }}
-          src="//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80"
-        />
-      )}
-      <Box
-        flex="grow"
-        direction={size !== 'small' ? 'column' : 'row'}
-        justify={size === 'small' ? 'between' : undefined}
-      >
-        <Button a11yTitle="Clock" icon={<Clock />} />
-        <Button a11yTitle="Apps" icon={<Apps />} />
-        <Button a11yTitle="Terminal" icon={<Terminal />} />
-      </Box>
-
-      {size !== 'small' && (
-        <Box direction={size !== 'small' ? 'column' : 'row'}>
-          <Button a11yTitle="Chat" icon={<Chat />} />
-          <Button a11yTitle="Help" icon={<StatusUnknown />} />
-        </Box>
-      )}
-    </Sidebar>
-  );
-};
-
 const PageHeaderExample = ({ title }) => (
   <Header>
     <Heading margin={{ vertical: 'medium' }} size="small">
@@ -219,7 +163,6 @@ const ScreenContainer = ({ mobile, ...rest }) => {
       fill
     >
       <Box direction="row" width={{ max: 'xxlarge' }} margin="auto" fill>
-        {size !== 'small' && <SidebarExample />}
         <Box
           overflow="auto"
           pad={{ horizontal: 'medium', bottom: 'medium' }}
@@ -227,9 +170,6 @@ const ScreenContainer = ({ mobile, ...rest }) => {
           {...rest}
         />
       </Box>
-      {size === 'small' && (
-        <SidebarExample style={{ position: 'absolute', bottom: 0, left: 0 }} />
-      )}
     </Box>
   );
 };

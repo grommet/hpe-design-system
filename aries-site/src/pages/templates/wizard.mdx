@@ -7,11 +7,13 @@ import {
 <Example
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/WizardValidationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardContext.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/Error.js',
   ]}
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=1%3A2"
@@ -50,10 +52,11 @@ The final step of a wizard should summarize what has been accomplished or config
 
 ### Cancellation
 
-It is important to provide the user with an option to "Cancel" or leave the wizard. Place this button on the upper right hand corner of the wizard. When clicked, the "Cancel" button should:
+It is important to provide the user with an option to "Cancel" or exit the wizard. Place this button on the upper right hand corner of the wizard. When clicked, the "Cancel" button should:
 
 - Open a layer that allows the user to confirm they want to cancel.
-- Provide two buttons: the primary button confirming cancellation (i.e. "Yes, cancel setup") and a secondary button allowing them to return back to completing the wizard (i.e. "No, continue setup").
+- Provide two buttons with a clear binary choice (Example: yes or no) and a secondary term that reaffirms the action (Example: stay or exit)
+- The Primary Button should be used to confirm cancellation (Example: "Yes, Exit") and a Secondary Button should give the option to return back to completing the wizard (Example: "No, Stay").
 
 ### Single Column vs Two Column Wizards
 
@@ -81,11 +84,12 @@ When additional guidance is necessary, use a two-column wizard. Click "See Fulls
 <Example
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/TwoColumnWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardContext.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/Error.js',
   ]}
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/wizard/components"
   figma="https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizarding?node-id=71%3A406"

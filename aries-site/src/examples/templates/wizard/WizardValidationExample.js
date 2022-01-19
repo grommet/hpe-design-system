@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import {
   Box,
@@ -26,6 +27,7 @@ import { getWidth } from './utils';
 
 export const defaultFormValues = {
   'firstname-validation': '',
+  'lastname-validation': '',
   'text-input-validation': '',
   'radio-button-group-validation': '',
   select: '',
@@ -197,7 +199,9 @@ export const steps = [
   },
 ];
 
-export const WizardValidationExample = () => {
+export const WizardValidationExample = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -260,7 +264,16 @@ export const WizardValidationExample = () => {
         />
         <StepFooter />
       </Box>
-      {open && <CancellationLayer onSetOpen={setOpen} />}
+      {open && (
+        <CancellationLayer
+          target={containerRef && containerRef.current}
+          onSetOpen={setOpen}
+        />
+      )}
     </WizardContext.Provider>
   );
+};
+
+WizardValidationExample.propTypes = {
+  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
