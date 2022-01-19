@@ -7,6 +7,7 @@ export const navPatterns = [
   'Drill Down Navigation',
   'Side to Side Navigation',
   'Matrix Navigation',
+  'Ascending Navigation',
 ];
 export const navCards = navPatterns.map(pattern => getPageDetails(pattern));
 
@@ -16,7 +17,18 @@ Part of creating a seamless application or interface is creating an obvious flow
 
 ## Types of Navigation
 
-There are 3 different types of navigational directions a user can maneuver in:
+Pages and content of a site or service are typically organized in an information hierarchy. Different types of navigation provide for traversing this hierarchy according to diverse user tasks. 
+There are 5 different types of navigational directions a user can maneuver in.
+
+**Drill Down**: used when the user wants to get more content for something or the user wants to see a higher level of content for the site/app than the current page shows.
+
+**Side-to-Side**: used to go to the next or previous sibling of the current page, typically when the user is scanning across similar items.
+
+**Reverse Navigation** (built in the web browser): used to go back to the previous visited page utilizing the browsers built-in back button
+
+**Matrix**: used to go to a different place in the content hierarchy that isn't a direct parent or child of the current page in the content hierarchy.
+
+**Ascending Navigation**: used to direct the user up the hierarchy to the parent page when on a child page.
 
 <CardGrid cards={navCards} />
 
@@ -27,3 +39,6 @@ Users should always be able to tell where they are on a page, application or pro
 **Follow the points below for successful navigation:**
 - Identify the problem.
 - Understand what the user’s role is and common processes followed.
+- Who is this being intended for and determine thee most common tasks.
+
+To learn more on what makes a successful Navigation, [check out the Figma file.](https://www.figma.com/file/b6hiokanRCwNnc93PpHdgQ/HPE-Design-System-Navigation?node-id=0%3A1)
