@@ -265,9 +265,9 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    description: `Matrix Navigation is not a path 
+    that you can define for the user,
+    rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
     preview: {
@@ -282,9 +282,14 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    seoDescription: `Martix Navigation is not a path that
+    you can define for the user,
+    rather the user defines it themselves.`,
+    sections: [
+      'When a User would Use',
+      'Matrix within a Music App Example',
+      'Matrix within App Example',
+    ],
   },
   {
     name: 'Navigation',
