@@ -3,21 +3,17 @@ import Link from 'next/link';
 import { ThemeContext } from 'styled-components';
 import {
   Box,
-  Card,
   Button,
   Grid,
   Heading,
   Image,
   Paragraph,
   ResponsiveContext,
-  Stack,
 } from 'grommet';
 import { Layout } from '../layouts';
 import { Meta } from '../components';
-import { getPageDetails } from '../utils';
 
 const title = 'Page Not Found';
-const page = getPageDetails(title);
 
 const Visual = () => {
   const theme = useContext(ThemeContext);
@@ -52,11 +48,7 @@ const Custom404 = () => {
 
   return (
     <Layout title={title} isLanding>
-      <Meta
-        title={title}
-        description={page.seoDescription}
-        canonicalUrl="https://design-system.hpe.design/feedback"
-      />
+      <Meta title={title} />
       <Grid
         columns={size !== 'small' ? ['medium', 'auto'] : '100%'}
         gap="large"
