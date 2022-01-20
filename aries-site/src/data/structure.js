@@ -108,6 +108,12 @@ export const structure = [
     pages: [],
     pageLayout: 'plain',
   },
+  {
+    name: 'Page Not Found',
+    description: 'This page could not be found.',
+    seoDescription: 'This page could not be found.',
+    pages: [],
+  },
   components,
   foundation,
   templates,
