@@ -31,8 +31,11 @@ const Visual = () => {
 const Message = () => (
   <Box align="start" gap="small">
     <Heading margin="none">Oops, there’s nothing here.</Heading>
+    <Paragraph margin="none" size="large">
+      The page you’re looking for could not be found.
+    </Paragraph>
     <Paragraph margin={{ bottom: 'medium', top: 'none' }} size="large">
-      The page you’re looking for could not be found. Error Type: 404.
+      Error Type: 404.
     </Paragraph>
     <Link href="/" passHref>
       <Button label="Back to Home" primary />
