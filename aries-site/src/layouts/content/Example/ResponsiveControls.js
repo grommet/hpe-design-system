@@ -71,6 +71,13 @@ export const ResponsiveControls = ({
           onClick={() => setFullscreen(true)}
         />
       )}
+      {!fullScreen && !displayingFullscreen && (
+        <Button
+          tip="See Fullscreen"
+          icon={<Expand />}
+          onClick={() => setFullscreen(true)}
+        />
+      )}
     </Box>
   );
 };

@@ -141,6 +141,7 @@ export const Example = ({
       guidance={guidance}
       horizontalLayout={horizontalLayout}
       setFullscreen={value => setFullscreen(value)}
+      showResponsiveControls={showResponsiveControls}
     />
   );
 
@@ -211,7 +212,7 @@ export const Example = ({
             setScreen(screens.laptop);
           }}
         >
-          <Layer full animation="fadeIn">
+          <Layer full>
             <Box fill background="background">
               <Box
                 direction="row"
@@ -233,7 +234,7 @@ export const Example = ({
                   />
                 )}
                 <Button
-                  title="Leave fullscreen"
+                  tip="Leave Fullscreen"
                   icon={<Contract />}
                   onClick={() => {
                     setFullscreen(false);
@@ -243,6 +244,11 @@ export const Example = ({
                 />
               </Box>
               <Box
+                animation={{
+                  type: 'fadeIn',
+                  delay: 200,
+                  duration: 1500,
+                }}
                 background={
                   ExampleWrapper === ResponsiveContainer && background
                     ? background

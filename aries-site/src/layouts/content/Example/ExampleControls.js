@@ -19,10 +19,12 @@ export const ExampleControls = ({
   guidance,
   horizontalLayout,
   setFullscreen,
+  showResponsiveControls,
 }) => {
   const size = useContext(ResponsiveContext);
   const isSmall = size === 'small';
   const buttonSize = isSmall ? 'small' : undefined;
+  const fullscreenControl = !(horizontalLayout || showResponsiveControls);
 
   const boxProps = !horizontalLayout
     ? {
@@ -115,7 +117,7 @@ export const ExampleControls = ({
           />
         )}
       </Box>
-      {!horizontalLayout && (
+      {fullscreenControl && (
         <Box flex={false} alignSelf={isSmall ? 'end' : 'start'}>
           <FullscreenButton
             buttonSize={buttonSize}
@@ -137,6 +139,10 @@ ExampleControls.propTypes = {
   guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
   setFullscreen: PropTypes.func,
+  showResponsiveControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.array,
+  ]),
 };
 
 const FullscreenButton = ({ buttonSize, setFullscreen }) => (
