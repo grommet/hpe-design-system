@@ -1,24 +1,39 @@
-import React from 'react';
 import { Box, Button } from 'grommet';
 import PropTypes from 'prop-types';
-import { Desktop, PhoneVertical, PersonalComputer } from 'grommet-icons';
+import {
+  Desktop,
+  Expand,
+  PhoneVertical,
+  PersonalComputer,
+} from 'grommet-icons';
+
 import { screens } from '..';
 
-export const ResponsiveControls = ({ controls, onSetScreen, screen }) => {
-  // If controls is a boolean, we want all screen options to show by default
-  let desktop = true;
-  let laptop = true;
-  let mobile = true;
+export const ResponsiveControls = ({
+  controls: controlsProp,
+  onSetScreen,
+  screen,
+  fullscreen: displayingFullscreen,
+  setFullscreen,
+}) => {
+  // default controls to display
+  const controls = {
+    desktop: true,
+    laptop: true,
+    mobile: true,
+    fullScreen: false,
+  };
 
-  // Only show controls that are specified by the Example
-  if (Array.isArray(controls)) {
-    if (!controls.includes(screens.desktop)) desktop = false;
-    if (!controls.includes(screens.laptop)) laptop = false;
-    if (!controls.includes(screens.mobile)) mobile = false;
-  }
+  Object.entries(controls).forEach(([key]) => {
+    if (controlsProp === false) controls[key] = false;
+    else if (Array.isArray(controlsProp))
+      controls[key] = controlsProp.includes(key);
+  });
+
+  const { desktop, laptop, mobile, fullScreen } = controls;
 
   return (
-    <Box direction="row" gap="xsmall">
+    <Box direction="row" gap="xsmall" wrap>
       {desktop && (
         <Button
           label="Desktop"
@@ -49,6 +64,20 @@ export const ResponsiveControls = ({ controls, onSetScreen, screen }) => {
           }}
         />
       )}
+      {fullScreen && !displayingFullscreen && (
+        <Button
+          label="Interact in Fullscreen"
+          icon={<Expand />}
+          onClick={() => setFullscreen(true)}
+        />
+      )}
+      {!fullScreen && !displayingFullscreen && (
+        <Button
+          tip="See Fullscreen"
+          icon={<Expand />}
+          onClick={() => setFullscreen(true)}
+        />
+      )}
     </Box>
   );
 };
@@ -60,4 +89,6 @@ ResponsiveControls.propTypes = {
   ]).isRequired,
   onSetScreen: PropTypes.func.isRequired,
   screen: PropTypes.string.isRequired,
+  fullscreen: PropTypes.bool,
+  setFullscreen: PropTypes.func,
 };
