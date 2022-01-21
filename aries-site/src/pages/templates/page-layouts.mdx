@@ -133,6 +133,7 @@ export const LayoutPreviewGrid = () => {
     >
       {layouts.map(layout => (
         <ContentPreviewCard
+          key={layout.name}
           as="a"
           style={{ textDecoration: 'none' }}
           href={`#${nameToSlug(layout.name)}`}

@@ -18,7 +18,7 @@ export const ExampleControls = ({
   grommetSource,
   guidance,
   horizontalLayout,
-  setShowLayer,
+  setFullscreen,
 }) => {
   const size = useContext(ResponsiveContext);
   const isSmall = size === 'small';
@@ -111,7 +111,7 @@ export const ExampleControls = ({
           <FullscreenButton
             buttonSize={buttonSize}
             horizontalLayout={horizontalLayout}
-            setShowLayer={setShowLayer}
+            setFullscreen={setFullscreen}
           />
         )}
       </Box>
@@ -120,7 +120,7 @@ export const ExampleControls = ({
           <FullscreenButton
             buttonSize={buttonSize}
             horizontalLayout={horizontalLayout}
-            setShowLayer={setShowLayer}
+            setFullscreen={setFullscreen}
           />
         </Box>
       )}
@@ -136,20 +136,20 @@ ExampleControls.propTypes = {
   grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
-  setShowLayer: PropTypes.func,
+  setFullscreen: PropTypes.func,
 };
 
-const FullscreenButton = ({ buttonSize, setShowLayer }) => (
+const FullscreenButton = ({ buttonSize, setFullscreen }) => (
   <Button
     icon={<Expand />}
     a11yTitle="See Fullscreen"
     tip="See Fullscreen"
-    onClick={() => setShowLayer(true)}
+    onClick={() => setFullscreen(true)}
     size={buttonSize}
   />
 );
 
 FullscreenButton.propTypes = {
   buttonSize: PropTypes.string,
-  setShowLayer: PropTypes.func,
+  setFullscreen: PropTypes.func,
 };
