@@ -247,7 +247,7 @@ export const Example = ({
                 animation={{
                   type: 'fadeIn',
                   delay: 200,
-                  duration: 1500,
+                  duration: 800,
                 }}
                 background={
                   ExampleWrapper === ResponsiveContainer && background
