@@ -33,7 +33,7 @@ export const ResponsiveControls = ({
   const { desktop, laptop, mobile, fullScreen } = controls;
 
   return (
-    <Box direction="row" gap="xsmall">
+    <Box direction="row" gap="xsmall" wrap>
       {desktop && (
         <Button
           label="Desktop"
