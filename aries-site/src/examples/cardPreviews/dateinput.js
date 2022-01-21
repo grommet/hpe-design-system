@@ -1,6 +1,8 @@
 import React from 'react';
-import { DateInput } from 'grommet';
+import { Box, DateInput } from 'grommet';
 
 export const DateInputPreview = () => (
-  <DateInput aria-label="preview" format="mm/dd/yyyy" tabIndex={-1} />
+  <Box>
+    <DateInput aria-label="preview" format="mm/dd/yyyy" tabIndex={-1} />
+  </Box>
 );

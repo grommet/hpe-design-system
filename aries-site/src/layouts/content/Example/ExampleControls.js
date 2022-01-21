@@ -18,11 +18,13 @@ export const ExampleControls = ({
   grommetSource,
   guidance,
   horizontalLayout,
-  setShowLayer,
+  setFullscreen,
+  showResponsiveControls,
 }) => {
   const size = useContext(ResponsiveContext);
   const isSmall = size === 'small';
   const buttonSize = isSmall ? 'small' : undefined;
+  const fullscreenControl = !(horizontalLayout || showResponsiveControls);
 
   const boxProps = !horizontalLayout
     ? {
@@ -111,16 +113,16 @@ export const ExampleControls = ({
           <FullscreenButton
             buttonSize={buttonSize}
             horizontalLayout={horizontalLayout}
-            setShowLayer={setShowLayer}
+            setFullscreen={setFullscreen}
           />
         )}
       </Box>
-      {!horizontalLayout && (
+      {fullscreenControl && (
         <Box flex={false} alignSelf={isSmall ? 'end' : 'start'}>
           <FullscreenButton
             buttonSize={buttonSize}
             horizontalLayout={horizontalLayout}
-            setShowLayer={setShowLayer}
+            setFullscreen={setFullscreen}
           />
         </Box>
       )}
@@ -136,20 +138,24 @@ ExampleControls.propTypes = {
   grommetSource: PropTypes.string,
   guidance: PropTypes.string,
   horizontalLayout: PropTypes.bool,
-  setShowLayer: PropTypes.func,
+  setFullscreen: PropTypes.func,
+  showResponsiveControls: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.array,
+  ]),
 };
 
-const FullscreenButton = ({ buttonSize, setShowLayer }) => (
+const FullscreenButton = ({ buttonSize, setFullscreen }) => (
   <Button
     icon={<Expand />}
     a11yTitle="See Fullscreen"
     tip="See Fullscreen"
-    onClick={() => setShowLayer(true)}
+    onClick={() => setFullscreen(true)}
     size={buttonSize}
   />
 );
 
 FullscreenButton.propTypes = {
   buttonSize: PropTypes.string,
-  setShowLayer: PropTypes.func,
+  setFullscreen: PropTypes.func,
 };

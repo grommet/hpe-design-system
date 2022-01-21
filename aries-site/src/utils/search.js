@@ -41,7 +41,9 @@ export const getPageDetails = pageName =>
       page.name &&
       pageName &&
       page.name.toLowerCase() === pageName.toLowerCase(),
-  );
+  ) || {
+    name: 'Page Not Found', // necessary for 404
+  };
 
 export const getParentPage = currentPage =>
   structure.find(page =>
@@ -115,9 +117,10 @@ export const getCards = cardCategory =>
  * pageName is a string.
  */
 export const getRelatedContent = pageName => {
-  let { relatedContent } = structure.find(
+  const relatedContent = structure.find(
     page => page.name.toLowerCase() === pageName.toLowerCase(),
-  );
-  relatedContent = typeof relatedContent !== 'undefined' ? relatedContent : [];
-  return relatedContent.map(page => structure.find(obj => obj.name === page));
+  )?.relatedContent;
+  return typeof relatedContent !== 'undefined'
+    ? relatedContent.map(page => structure.find(obj => obj.name === page))
+    : [];
 };
