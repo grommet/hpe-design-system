@@ -11,7 +11,7 @@ export const BrowserWrapper = forwardRef(({ screen, ...rest }, ref) => {
 
   return (
     <Box
-      margin={{ bottom: 'medium' }}
+      // margin={{ bottom: 'medium' }}
       elevation="medium"
       round="xsmall"
       overflow="hidden"

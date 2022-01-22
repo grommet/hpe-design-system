@@ -92,8 +92,9 @@ will be displayed around the perimeter of the content.
   caption='Diagram displaying how a "wide" Page Container scales horizontally relative to 
     the App Container. The App Container fills the viewport while the "wide" 
     Page Container reaches a maximum width.'
-  pad="none"
-  previewWidth="min-content"
+    screenContainer
+    showResponsiveControls={['desktop', 'laptop', 'mobile', 'fullScreen']}
+    height={{min: '625px'}}
 >
   <PageContainerWide />
 </Example>

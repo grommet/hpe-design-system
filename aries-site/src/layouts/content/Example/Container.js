@@ -24,7 +24,8 @@ export const Container = ({
 
   let height;
   if (heightProp) height = heightProp;
-  else if (template || screenContainer) height = aspectHeight;
+  else if (template) height = aspectHeight;
+  else if (screenContainer) height = heightProp || aspectHeight;
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
 
@@ -38,8 +39,9 @@ export const Container = ({
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
       pad={
         pad ||
-        (template || screenContainer
-          ? { horizontal: 'large', top: 'large' }
+        (template
+          ? // || screenContainer
+            { horizontal: 'large', top: 'large' }
           : 'large')
       }
       round={
