@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Header, Main, ResponsiveContext } from 'grommet';
 
-import { PageContainer } from '../components';
+import { AppContainer, PageContainer } from '../components';
 import { ContentArea } from './components';
 
 // `demoStyle` is specific for the Design System site and is used
@@ -9,6 +9,7 @@ import { ContentArea } from './components';
 // your implementation.
 const demoStyle = {
   border: { style: 'dashed' },
+  gap: 'small',
   pad: 'small',
   round: { size: 'xsmall' },
 };
@@ -16,7 +17,7 @@ const demoStyle = {
 export const PageContainerWide = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <ContentArea title="App Container" gap="small" fill {...demoStyle}>
+    <AppContainer {...demoStyle}>
       <ContentArea title="Global Header" background="status-unknown" />
       <PageContainer {...demoStyle}>
         <Header>
@@ -34,6 +35,6 @@ export const PageContainerWide = () => {
         </Main>
       </PageContainer>
       <ContentArea title="Global Footer" background="status-unknown" />
-    </ContentArea>
+    </AppContainer>
   );
 };
