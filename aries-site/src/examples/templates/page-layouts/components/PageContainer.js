@@ -4,7 +4,7 @@ import { Box, ResponsiveContext } from 'grommet';
 
 // Theme-like object specifying alignment, width, and spacing for
 // a PageContainer.
-const pageContainer = {
+export const pageContainer = {
   wide: {
     align: 'center',
     width: {
@@ -31,11 +31,11 @@ const pageContainer = {
     xlarge: 'medium',
   },
   pad: {
-    xsmall: { horizontal: 'medium', vertical: 'medium' },
-    small: { horizontal: 'large', vertical: 'medium' },
-    medium: { horizontal: 'medium', vertical: 'medium' },
-    large: { horizontal: 'large', vertical: 'medium' },
-    xlarge: { horizontal: 'large', vertical: 'medium' },
+    xsmall: { horizontal: 'medium' },
+    small: { horizontal: 'large' },
+    medium: { horizontal: 'medium' },
+    large: { horizontal: 'large' },
+    xlarge: { horizontal: 'large' },
   },
 };
 
@@ -48,7 +48,6 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
       fill
       gap={pageContainer.gap[size]}
       margin="auto"
-      pad={{ vertical: pageContainer.pad[size].vertical }}
       width={pageContainer[kind].width}
       {...rest}
     />

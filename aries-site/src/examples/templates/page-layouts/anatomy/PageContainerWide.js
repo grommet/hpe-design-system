@@ -1,7 +1,7 @@
 import { useContext, useRef } from 'react';
 import { Header, Main, ResponsiveContext, ThemeContext } from 'grommet';
 
-import { AppContainer, PageContainer } from '../components';
+import { AppContainer, PageContainer, pageContainer } from '../components';
 import { ContentArea } from './components';
 
 // `demoStyle` is specific for the Design System site and is used
@@ -17,23 +17,37 @@ const demoStyle = {
 export const PageContainerWide = () => {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
+  // Debugging - remove ref
   const appContainerRef = useRef();
+  /* Children of PageContainer should maintain horizontal whitespace on
+   * each side of the child so that the content has room to breathe and
+   * is not tightly condensed against the browser window's edge.
+   *
+   * Spacing is executed as the padding on each child to allow background
+   * colors and scroll regions to behave properly.
+   */
+  const containerPad = { horizontal: pageContainer.pad[size].horizontal };
 
   return (
-    <AppContainer ref={appContainerRef} {...demoStyle}>
+    <AppContainer
+      // Debugging - remove ref
+      ref={appContainerRef}
+      {...demoStyle}
+    >
+      {/* ContentArea is specific for the Design System site and is used
+       * as a visual aid to help present layout concepts. Remove from your
+       * implementation.
+       */}
       <ContentArea title="Global Header" background="status-unknown" />
       <PageContainer {...demoStyle}>
-        <Header>
-          {/* ContentArea is specific for the Design System site and is used
-           * as a visual aid to help present layout concepts. Remove from your
-           * implementation.
-           * Typically, the Header will contain elements such as the page's
-           * h1, any "ascending / back to parent" navigation, and/or page-level
-           * menu, action buttons, etc.
+        <Header pad={containerPad}>
+          {/* Typically, the Header will contain elements such as the page's
+           * h1, any "ascending a.k.a. back to parent" navigation, and/or
+           * page-level menu, action buttons, etc.
            */}
           <ContentArea title="Page Header" background="purple!" fill />
         </Header>
-        <Main flex>
+        <Main flex pad={containerPad}>
           <ContentArea title="Page Content" background="orange" border fill>
             {size} - {JSON.stringify(theme.global.breakpoints[size].value)}
             <br />
