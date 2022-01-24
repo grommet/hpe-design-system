@@ -540,7 +540,7 @@ export const templates = [
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {
-    name: 'Content Layout',
+    name: 'Content Layouts',
     available: true,
     cardOrder: 6,
     description: `Creating responsive, adaptable content layouts is central to 
