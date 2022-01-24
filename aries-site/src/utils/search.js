@@ -41,9 +41,7 @@ export const getPageDetails = pageName =>
       page.name &&
       pageName &&
       page.name.toLowerCase() === pageName.toLowerCase(),
-  ) || {
-    name: 'Page Not Found', // necessary for 404
-  };
+  ) || {};
 
 export const getParentPage = currentPage =>
   structure.find(page =>
