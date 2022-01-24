@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Box } from 'grommet';
 
 // Theme-like object specifying alignment, width, and spacing for
@@ -6,6 +7,6 @@ const appContainer = {
   gap: 'large',
 };
 
-export const AppContainer = ({ ...rest }) => (
-  <Box fill gap={appContainer.gap} {...rest} />
-);
+export const AppContainer = forwardRef(({ ...rest }, ref) => (
+  <Box ref={ref} fill gap={appContainer.gap} {...rest} />
+));

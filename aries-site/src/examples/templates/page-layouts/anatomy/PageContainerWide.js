@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Header, Main, ResponsiveContext } from 'grommet';
+import { useContext, useRef } from 'react';
+import { Header, Main, ResponsiveContext, ThemeContext } from 'grommet';
 
 import { AppContainer, PageContainer } from '../components';
 import { ContentArea } from './components';
@@ -16,8 +16,11 @@ const demoStyle = {
 
 export const PageContainerWide = () => {
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
+  const appContainerRef = useRef();
+
   return (
-    <AppContainer {...demoStyle}>
+    <AppContainer ref={appContainerRef} {...demoStyle}>
       <ContentArea title="Global Header" background="status-unknown" />
       <PageContainer {...demoStyle}>
         <Header>
@@ -31,7 +34,14 @@ export const PageContainerWide = () => {
           <ContentArea title="Page Header" background="purple!" fill />
         </Header>
         <Main flex>
-          <ContentArea title="Page Content" background="orange" border fill />
+          <ContentArea title="Page Content" background="orange" border fill>
+            {size} - {JSON.stringify(theme.global.breakpoints[size].value)}
+            <br />
+            {appContainerRef.current &&
+              JSON.stringify(
+                appContainerRef.current.getBoundingClientRect().width,
+              )}
+          </ContentArea>
         </Main>
       </PageContainer>
       <ContentArea title="Global Footer" background="status-unknown" />

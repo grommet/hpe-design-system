@@ -115,15 +115,21 @@ export const Example = ({
         inlineRef.current && inlineRef.current.getBoundingClientRect().width;
       const { breakpoints } = theme.global;
       let breakpoint;
-      Object.entries(breakpoints).forEach(obj => {
-        if (!breakpoint) [breakpoint] = obj;
-        else if (
-          containerWidth > breakpoints[breakpoint].value &&
-          containerWidth < obj[1].value
-        ) {
-          [breakpoint] = obj;
-        }
-      });
+      Object.entries(breakpoints)
+        .sort((a, b) => {
+          if (a[1].value < b[1].value) return -1;
+          if (a[1].value > b[1].value) return 1;
+          return 0;
+        })
+        .forEach(obj => {
+          if (!breakpoint) [breakpoint] = obj;
+          if (
+            containerWidth > breakpoints[breakpoint].value &&
+            containerWidth < obj[1].value
+          ) {
+            [breakpoint] = obj;
+          }
+        });
       viewPort = breakpoint;
     }
   } else viewPort = undefined;
