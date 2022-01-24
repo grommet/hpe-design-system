@@ -1,4 +1,5 @@
 import {
+  ContentLayoutPreview,
   CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
@@ -537,5 +538,30 @@ export const templates = [
     regions or pagination.`,
     sections: [],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
+  },
+  {
+    name: 'Content Layout',
+    available: true,
+    cardOrder: 6,
+    description: `Creating responsive, adaptable content layouts is central to 
+    the user experience.`,
+    seoDescription: `Creating responsive, adaptable content layouts is central 
+    to the user experience.`,
+    preview: {
+      component: () => <ContentLayoutPreview />,
+      background: 'background-front',
+    },
+    sections: [
+      'Designing for Responsiveness',
+      'Prioritizing Content Needs',
+      'Breakpoints',
+      'Page Margin',
+      'Content Layout Templates',
+      'Single Column Layouts',
+      '2 Column Layouts',
+      '3 Column Layouts',
+      'Multi-column Layout',
+    ],
+    tags: ['content', 'layout', 'page layouts', 'responsiveness', 'responsive'],
   },
 ];
