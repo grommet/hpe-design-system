@@ -24,8 +24,7 @@ export const Container = ({
 
   let height;
   if (heightProp) height = heightProp;
-  else if (template) height = aspectHeight;
-  else if (screenContainer) height = heightProp || aspectHeight;
+  else if (template || screenContainer) height = heightProp || aspectHeight;
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
 
