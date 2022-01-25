@@ -55,7 +55,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
               </Box>
             )}
           </Identifier>
-          <Text size="small">{description}</Text>
+          {description && <Text size="small">{description}</Text>}
         </Box>
       </CardBody>
     </Card>
