@@ -55,9 +55,7 @@ export const PageContainerWide = () => {
           <ContentArea title="Page Header" background="purple!" fill />
         </Header>
         <Main flex pad={containerPad}>
-          <ContentArea title="Page Content" background="orange" border fill>
-            {size}
-          </ContentArea>
+          <ContentArea title="Page Content" background="orange" border fill />
         </Main>
       </PageContainer>
       <ContentArea title="Global Footer" background="status-unknown" />
