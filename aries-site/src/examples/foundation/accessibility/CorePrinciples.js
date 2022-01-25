@@ -50,15 +50,12 @@ export const CorePrinciples = () => {
             count: size === 'small' ? 1 : 2, 
             size: 'auto'
         }} 
-        gap={{ 
-            column: 'small', 
-            row: 'large' 
-        }} 
+        gap="large"
         pad="large"
     >
         {
             object.map(item => (
-                <Box key={item.name} width="280px">
+                <Box key={item.name}>
                     <Image 
                         src={theme.dark ? item.imageSrc.dark : item.imageSrc.light} 
                         alt={item.imageAlt} 
