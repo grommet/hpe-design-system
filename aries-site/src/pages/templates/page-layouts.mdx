@@ -7,6 +7,7 @@ import {
   AppAnatomy, 
   PageAnatomy, 
   PageContainerFull, 
+  PageContainerInteractive, 
   PageContainerNarrow, 
   PageContainerWide 
 } from '../../examples';
@@ -144,6 +145,22 @@ Page Content will be left aligned to the edge of the screen.
 - Charts 
 - Maps 
 - Tables
+
+### Page Container Widths Demonstration
+
+Open the following example in "fullscreen mode" and resize your browser window to see how 
+each [page container width's](/templates/page-layouts#page-container-widths) maximum width, 
+contents padding, and alignment gracefully adjust across screens ranging from very narrow 
+to very wide. 
+
+<Example
+  screenContainer
+  showResponsiveControls={['fullScreen']}
+  // height value chosen to best visually represent the page layout diagram concept
+  height={{min: '625px'}}
+>
+  <PageContainerInteractive />
+</Example>
 
 For specific guidelines and templates regarding Page Content, see [Content Layout](/templates/content-layout).
 

@@ -1,6 +1,13 @@
 import React, { useCallback, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  ResponsiveContext,
+  ThemeContext,
+} from 'grommet';
 import { Contract } from 'grommet-icons';
 import {
   BrowserWrapper,
@@ -50,6 +57,7 @@ export const Example = ({
   const [screen, setScreen] = React.useState(screens.laptop);
   const [fullscreen, setFullscreen] = React.useState(false);
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const inlineRef = useRef();
   const layerRef = useRef();
 
@@ -100,7 +108,31 @@ export const Example = ({
   let viewPort;
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else viewPort = undefined;
+  else if (screenContainer) {
+    if (fullscreen) viewPort = size;
+    else if (!fullscreen) {
+      const containerWidth =
+        inlineRef.current && inlineRef.current.getBoundingClientRect().width;
+      const { breakpoints } = theme.global;
+      let breakpoint;
+      Object.entries(breakpoints)
+        .sort((a, b) => {
+          if (a[1].value < b[1].value) return -1;
+          if (a[1].value > b[1].value) return 1;
+          return 0;
+        })
+        .forEach(obj => {
+          if (!breakpoint) [breakpoint] = obj;
+          if (
+            containerWidth > breakpoints[breakpoint].value &&
+            containerWidth < obj[1].value
+          ) {
+            [breakpoint] = obj;
+          }
+        });
+      viewPort = breakpoint;
+    }
+  } else viewPort = undefined;
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs

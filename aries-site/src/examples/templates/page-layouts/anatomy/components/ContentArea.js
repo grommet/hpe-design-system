@@ -15,6 +15,7 @@ export const ContentArea = ({
     border={
       border === true ? { color: 'border-strong', style: 'dashed' } : border
     }
+    flex={false}
     pad={pad}
     round={round}
     {...rest}
