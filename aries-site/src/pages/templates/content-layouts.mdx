@@ -1,3 +1,28 @@
-import { ComingSoon } from '../../components';
+import { useContext } from 'react';
+import { Grid, ResponsiveContext } from 'grommet';
+import { CardGrid, ContentCard } from '../../components';
+import { contentLayouts } from '../../data/structures';
 
-<ComingSoon />
+## Templates
+
+This work is in progress. More templates coming soon.
+
+### Single Column Layouts
+
+<CardGrid
+  cards={contentLayouts.filter(card => card.category === 'Single Column')}
+/>
+
+### 2 Column Layouts
+
+<CardGrid cards={contentLayouts.filter(card => card.category === '2 Column')} />
+
+### 3 Column Layouts
+
+<CardGrid cards={contentLayouts.filter(card => card.category === '3 Column')} />
+
+### Multi-column Layouts
+
+<CardGrid
+  cards={contentLayouts.filter(card => card.category === 'Multi-column')}
+/>

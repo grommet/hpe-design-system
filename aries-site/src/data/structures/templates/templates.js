@@ -3,7 +3,7 @@ import {
   CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
-} from '../../examples/cardPreviews';
+} from '../../../examples/cardPreviews';
 
 export const templates = [
   {
@@ -589,7 +589,7 @@ export const templates = [
       'Prioritizing Content Needs',
       'Breakpoints',
       'Page Margin',
-      'Content Layout Templates',
+      'Templates',
       'Single Column Layouts',
       '2 Column Layouts',
       '3 Column Layouts',
