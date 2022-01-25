@@ -1,6 +1,8 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext } from 'grommet';
+
+export const PageContainerContext = createContext({});
 
 // Theme-like object specifying alignment, width, and spacing for
 // a PageContainer.
@@ -30,27 +32,32 @@ export const pageContainer = {
     large: 'medium',
     xlarge: 'medium',
   },
-  pad: {
-    xsmall: { horizontal: 'medium' },
-    small: { horizontal: 'large' },
-    medium: { horizontal: 'medium' },
-    large: { horizontal: 'large' },
-    xlarge: { horizontal: 'large' },
+  children: {
+    pad: {
+      xsmall: { horizontal: 'medium' },
+      small: { horizontal: 'large' },
+      medium: { horizontal: 'medium' },
+      large: { horizontal: 'large' },
+      xlarge: { horizontal: 'large' },
+    },
   },
 };
 
 export const PageContainer = ({ kind = 'wide', ...rest }) => {
   const size = useContext(ResponsiveContext);
+  const pad = pageContainer.children.pad[size];
 
   return (
-    <Box
-      alignSelf={pageContainer[kind].align}
-      fill
-      gap={pageContainer.gap[size]}
-      margin="auto"
-      width={pageContainer[kind].width}
-      {...rest}
-    />
+    <PageContainerContext.Provider value={{ pad }}>
+      <Box
+        alignSelf={pageContainer[kind].align}
+        fill
+        gap={pageContainer.gap[size]}
+        margin="auto"
+        width={pageContainer[kind].width}
+        {...rest}
+      />
+    </PageContainerContext.Provider>
   );
 };
 

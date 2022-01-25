@@ -1,7 +1,11 @@
 import { useContext } from 'react';
-import { Header, Main, ResponsiveContext } from 'grommet';
+import { Header, Main } from 'grommet';
 
-import { AppContainer, PageContainer, pageContainer } from './components';
+import {
+  AppContainer,
+  PageContainer,
+  PageContainerContext,
+} from './components';
 import { ContentArea } from './anatomy/components';
 
 // `demoStyle` is specific for the Design System site and is used
@@ -16,7 +20,6 @@ const demoStyle = {
 };
 
 export const PageContainerInteractive = () => {
-  const size = useContext(ResponsiveContext);
   /* Children of PageContainer should maintain horizontal whitespace on
    * each side of the child so that the content has room to breathe and
    * is not tightly condensed against the browser window's edge.
@@ -24,7 +27,8 @@ export const PageContainerInteractive = () => {
    * Spacing is executed as the padding on each child to allow background
    * colors and scroll regions to behave properly.
    */
-  const containerPad = pageContainer.pad[size];
+  // const containerPad = pageContainer.pad[size];
+  const { pad: containerPad } = useContext(PageContainerContext);
 
   return (
     <AppContainer
