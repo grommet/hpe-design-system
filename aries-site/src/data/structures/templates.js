@@ -605,7 +605,6 @@ export const contentLayouts = [
   {
     name: 'Single Column - Wizard',
     category: 'Single Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -613,8 +612,8 @@ export const contentLayouts = [
           light: '/templateImages/1col-wizard.svg',
           dark: '/templateImages/1col-wizard-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of single column 
-        wizard.`,
+        alt: `"Coming Soon" text atop low-fidelity wireframe depicting a single 
+        column wizard.`,
         fit: 'contain',
       },
     },
@@ -622,7 +621,6 @@ export const contentLayouts = [
   {
     name: 'Single Column - Chart + Table',
     category: 'Single Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -630,8 +628,8 @@ export const contentLayouts = [
           light: '/templateImages/1col-chart-table.svg',
           dark: '/templateImages/1col-chart-table-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of single column 
-        layout.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a single 
+        column layout.`,
         fit: 'contain',
       },
     },
@@ -639,7 +637,6 @@ export const contentLayouts = [
   {
     name: '2 Column - Dashboard',
     category: '2 Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -647,8 +644,8 @@ export const contentLayouts = [
           light: '/templateImages/2col-dashboard.svg',
           dark: '/templateImages/2col-dashboard-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of 2 column 
-        dashboard.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a two 
+        column dashboard.`,
         fit: 'contain',
       },
     },
@@ -657,7 +654,6 @@ export const contentLayouts = [
   {
     name: '2 Column - Wizard',
     category: '2 Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -665,8 +661,8 @@ export const contentLayouts = [
           light: '/templateImages/2col-wizard.svg',
           dark: '/templateImages/2col-wizard-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of two column 
-        wizard.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a two 
+        column wizard.`,
         fit: 'contain',
       },
     },
@@ -674,7 +670,6 @@ export const contentLayouts = [
   {
     name: '2 Column - Table + NameValueList',
     category: '2 Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -682,8 +677,8 @@ export const contentLayouts = [
           light: '/templateImages/2col-nvl.svg',
           dark: '/templateImages/2col-nvl-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of 2 column 
-        layout.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a two 
+        column layout.`,
         fit: 'contain',
       },
     },
@@ -691,7 +686,6 @@ export const contentLayouts = [
   {
     name: '3 Column - Dashboard',
     category: '3 Column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -699,8 +693,8 @@ export const contentLayouts = [
           light: '/templateImages/3col-dashboard.svg',
           dark: '/templateImages/3col-dashboard-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of 3 column 
-        dashboard.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a three 
+        column dashboard.`,
         fit: 'contain',
       },
     },
@@ -708,7 +702,6 @@ export const contentLayouts = [
   {
     name: 'Multi-column - Dashboard',
     category: 'Multi-column',
-    description: '',
     preview: {
       background: 'background-front',
       image: {
@@ -716,8 +709,8 @@ export const contentLayouts = [
           light: '/templateImages/multicol-dashboard.svg',
           dark: '/templateImages/multicol-dashboard-invert.svg',
         },
-        alt: `Coming soon placeholder with lo-fi wireframe of multi-column 
-        wizard.`,
+        alt: `"Coming soon" text atop a lo-fi wireframe decpicting a multi 
+        column dashboard.`,
         fit: 'contain',
       },
     },
