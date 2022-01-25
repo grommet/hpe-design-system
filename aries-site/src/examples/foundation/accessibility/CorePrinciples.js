@@ -58,7 +58,7 @@ export const CorePrinciples = () => {
     >
         {
             object.map(item => (
-                <Box width="280px">
+                <Box key={item.name} width="280px">
                     <Image 
                         src={theme.dark ? item.imageSrc.dark : item.imageSrc.light} 
                         alt={item.imageAlt} 
