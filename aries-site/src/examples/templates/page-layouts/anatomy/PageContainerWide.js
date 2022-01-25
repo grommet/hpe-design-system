@@ -1,64 +1,100 @@
 import { useContext } from 'react';
-import { Header, Main, ResponsiveContext } from 'grommet';
+import { Box, Diagram, Stack, Text, ThemeContext } from 'grommet';
+import { LinkPrevious, LinkNext } from 'grommet-icons';
 
-import { AppContainer, PageContainer, pageContainer } from '../components';
 import { ContentArea } from './components';
 
-// `demoStyle` is specific for the Design System site and is used
-// as a visual aid to help present layout concepts. Remove from
-// your implementation.
-const demoStyle = {
-  border: { style: 'dashed' },
-  flex: true,
-  gap: 'small',
-  pad: 'small',
-  round: { size: 'xsmall' },
-};
+const connections = [
+  {
+    fromTarget: 'left-edge',
+    toTarget: 'label',
+    anchor: 'horizontal',
+    color: 'text-strong',
+  },
+  {
+    fromTarget: 'right-edge',
+    toTarget: 'label',
+    anchor: 'horizontal',
+    color: 'text-strong',
+  },
+];
+
+const PAGE_CONTAINER_WIDTH = '1608px';
+const PAGE_CONTAINER_SCALE = '80%';
 
 export const PageContainerWide = () => {
-  const size = useContext(ResponsiveContext);
-  /* Children of PageContainer should maintain horizontal whitespace on
-   * each side of the child so that the content has room to breathe and
-   * is not tightly condensed against the browser window's edge.
-   *
-   * Spacing is executed as the padding on each child to allow background
-   * colors and scroll regions to behave properly.
-   */
-  const containerPad = { horizontal: pageContainer.pad[size].horizontal };
+  const theme = useContext(ThemeContext);
+  const diagramHeight = theme.global.size.medium;
+  const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
+  const annotationMargin = `${(100 - PAGE_CONTAINER_SCALE.replace('%', '')) /
+    2}%`;
+
+  const widthAnnnotation = (
+    <Box
+      direction="row"
+      align="center"
+      justify="between"
+      fill="vertical"
+      margin={{ horizontal: annotationMargin }}
+      pad={{ top: 'xlarge' }}
+    >
+      <LinkPrevious id="left-edge" color="text-strong" />
+      <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
+        <Text color="text-strong" weight="bold">
+          {PAGE_CONTAINER_WIDTH}
+        </Text>
+      </Box>
+      <LinkNext id="right-edge" color="text-strong" />
+    </Box>
+  );
 
   return (
-    <AppContainer
-      /* `as`, `title`, and `demoStyle` for Design System site demonstration.
-         Remove from your implementation */
-      as={ContentArea}
-      title="AppContainer"
-      {...demoStyle}
-    >
-      {/* ContentArea is specific for the Design System site and is used
-       * as a visual aid to help present layout concepts. Remove from your
-       * implementation.
-       */}
-      <ContentArea title="Global Header" background="status-unknown" />
-      <PageContainer
-        kind="wide"
-        /* `as`, `title`, and `demoStyle` for Design System site demonstration.
-           Remove from your implementation */
-        as={ContentArea}
-        title="PageContainer"
-        {...demoStyle}
+    <Stack>
+      <ContentArea
+        title="App Container"
+        border
+        flex={false}
+        gap="small"
+        round="xsmall"
+        width={diagramWidth}
       >
-        <Header pad={containerPad}>
-          {/* Typically, the Header will contain elements such as the page's
-           * h1, any "ascending a.k.a. back to parent" navigation, and/or
-           * page-level menu, action buttons, etc.
-           */}
-          <ContentArea title="Page Header" background="purple!" fill />
-        </Header>
-        <Main flex pad={containerPad}>
-          <ContentArea title="Page Content" background="orange" border fill />
-        </Main>
-      </PageContainer>
-      <ContentArea title="Global Footer" background="status-unknown" />
-    </AppContainer>
+        <ContentArea
+          title="Global Header"
+          background="status-unknown"
+          flex={false}
+        />
+        <Stack>
+          <Box>
+            <ContentArea
+              title="Page Container"
+              alignSelf="center"
+              border
+              flex={false}
+              gap="small"
+              width={PAGE_CONTAINER_SCALE}
+            >
+              <ContentArea
+                title="Page Header"
+                background="purple!"
+                flex={false}
+              />
+              <ContentArea
+                title="Page Content"
+                background="orange"
+                border
+                height="small"
+              />
+            </ContentArea>
+          </Box>
+          {widthAnnnotation}
+        </Stack>
+        <ContentArea
+          title="Global Footer"
+          background="status-unknown"
+          flex={false}
+        />
+      </ContentArea>
+      <Diagram connections={connections} />
+    </Stack>
   );
 };
