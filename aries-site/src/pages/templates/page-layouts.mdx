@@ -70,6 +70,7 @@ The border around page sections is for demonstration purposes only. Remove borde
   relevantComponents={['Header', 'Footer', 'Main']}
   width="100%"
   screenContainer
+  showResponsiveControls={['fullScreen']}
 >
   <HeaderFooterExample />
 </Example>
@@ -133,6 +134,7 @@ export const LayoutPreviewGrid = () => {
     >
       {layouts.map(layout => (
         <ContentPreviewCard
+          key={layout.name}
           as="a"
           style={{ textDecoration: 'none' }}
           href={`#${nameToSlug(layout.name)}`}

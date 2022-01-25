@@ -48,7 +48,7 @@ export const Example = ({
   ...rest
 }) => {
   const [screen, setScreen] = React.useState(screens.laptop);
-  const [showLayer, setShowLayer] = React.useState(false);
+  const [fullscreen, setFullscreen] = React.useState(false);
   const size = useContext(ResponsiveContext);
   const inlineRef = useRef();
   const layerRef = useRef();
@@ -59,7 +59,7 @@ export const Example = ({
   const forceUpdate = useCallback(() => updateState({}), []);
   React.useEffect(() => {
     forceUpdate();
-  }, [showLayer, forceUpdate]);
+  }, [fullscreen, forceUpdate]);
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
@@ -104,7 +104,7 @@ export const Example = ({
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
-  let content = !showLayer && (
+  let content = !fullscreen && (
     <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
@@ -119,7 +119,7 @@ export const Example = ({
         <ResponsiveContext.Provider value={viewPort}>
           {React.cloneElement(children, {
             containerRef: inlineRef,
-            designSystemDemo: showLayer,
+            designSystemDemo: fullscreen,
           })}
         </ResponsiveContext.Provider>
       </ExampleWrapper>
@@ -140,7 +140,8 @@ export const Example = ({
       grommetSource={grommetSource}
       guidance={guidance}
       horizontalLayout={horizontalLayout}
-      setShowLayer={value => setShowLayer(value)}
+      setFullscreen={value => setFullscreen(value)}
+      showResponsiveControls={showResponsiveControls}
     />
   );
 
@@ -182,6 +183,8 @@ export const Example = ({
               controls={showResponsiveControls}
               onSetScreen={setScreen}
               screen={screen}
+              fullscreen={fullscreen}
+              setFullscreen={setFullscreen}
             />
           )}
           {horizontalLayout ? (
@@ -202,14 +205,14 @@ export const Example = ({
           )}
         </>
       </Box>
-      {showLayer && (
+      {fullscreen && (
         <Keyboard
           onEsc={() => {
-            setShowLayer(false);
+            setFullscreen(false);
             setScreen(screens.laptop);
           }}
         >
-          <Layer full animation="fadeIn">
+          <Layer full>
             <Box fill background="background">
               <Box
                 direction="row"
@@ -226,19 +229,26 @@ export const Example = ({
                     controls={showResponsiveControls}
                     onSetScreen={setScreen}
                     screen={screen}
+                    fullscreen={fullscreen}
+                    setFullscreen={setFullscreen}
                   />
                 )}
                 <Button
-                  title="Leave full screen"
+                  tip="Leave Fullscreen"
                   icon={<Contract />}
                   onClick={() => {
-                    setShowLayer(false);
+                    setFullscreen(false);
                     setScreen(screens.laptop);
                   }}
                   hoverIndicator
                 />
               </Box>
               <Box
+                animation={{
+                  type: 'fadeIn',
+                  delay: 200,
+                  duration: 800,
+                }}
                 background={
                   ExampleWrapper === ResponsiveContainer && background
                     ? background
@@ -262,7 +272,7 @@ export const Example = ({
                     <ResponsiveContext.Provider value={viewPort}>
                       {React.cloneElement(children, {
                         containerRef: layerRef,
-                        designSystemDemo: showLayer,
+                        designSystemDemo: fullscreen,
                       })}
                     </ResponsiveContext.Provider>
                   </Box>
