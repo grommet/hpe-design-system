@@ -15,7 +15,7 @@ const data = [
     id: 1,
     size: (
       <Text color="text-strong" weight="bold">
-        XSmall
+       xsmall
       </Text>
     ),
     range: <Text>576 and below</Text>,
