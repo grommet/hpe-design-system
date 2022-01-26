@@ -26,7 +26,7 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
       rows={['20px', 'small', '20px']}
       areas={[
         ['left-margin', 'top-gap', 'right-margin'],
-        ['left-margin', 'viewpoint', 'right-margin'],
+        ['left-margin', 'viewport', 'right-margin'],
         ['left-margin', 'bottom-gap', 'right-margin'],
       ]}
       border={{ style: 'dashed' }}
