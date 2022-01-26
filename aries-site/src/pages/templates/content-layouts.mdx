@@ -1,7 +1,36 @@
 import { useContext } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
+import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
+import { BreakPointsTable, PageMarginAnatomy } from '../../examples';
+
+### Breakpoints
+
+A breakpoint is a point at which some change in the page design is likely to occur.
+
+For designers, breakpoints can help stress test and validate UX decisions around page layouts.
+
+See the table below for breakpoints defined by the HPE Design System. Keep in mind that these breakpoints are not meant to target every single existing device–we understand that technology is ever evolving. Instead, the ranges defined here help build a strong foundation to account for diverse use cases when creating responsive designs.
+
+<BreakPointsTable />
+
+#### Page Margin
+
+Page margin is the left and right space between the main content of a page and the screen edge.
+Based on the screen size, the page margin differs at each breakpoint.
+
+<Example 
+  caption="A diagram showing the margin area on a large and small screen." 
+  plain 
+  pad="small"
+  previewWidth="large"
+  height={{ min: 'small' }}
+>
+  < PageMarginAnatomy />
+</Example>
+
+Wider margins are better for larger screens, as they create more whitespace around the perimeter of the content. Similarly, smaller margins are appropriate for smaller screens, in order to maximize the available screen real estate.
 
 ## Templates
 
