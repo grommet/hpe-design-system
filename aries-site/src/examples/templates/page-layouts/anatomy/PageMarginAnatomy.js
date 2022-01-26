@@ -45,7 +45,7 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
         background="validation-critical"
       />
       <Box
-        gridArea="viewpoint"
+        gridArea="viewport"
         align="center"
         justify="center"
         round="xsmall"
