@@ -14,71 +14,67 @@ const MarginText = ({ label }) => (
   </Stack>
 );
 
-const GridViewPort = ({ columns, label }) => (
-  <Grid
-    columns={columns}
-    // values chosen to best visually represent the margin area in diagram
-    rows={['20px', 'small', '20px']}
-    areas={[
-      ['left-margin', 'top-gap', 'right-margin'],
-      ['left-margin', 'viewpoint', 'right-margin'],
-      ['left-margin', 'bottom-gap', 'right-margin'],
-    ]}
-    border={{ style: 'dashed' }}
-    // border radius needed to match figma had to use in style
-    style={{ borderRadius: '4px' }}
-  >
-    <Box gridArea="top-gap" background="background-front" />
-    <Box
-      id="leftMargin"
-      gridArea="left-margin"
-      background="validation-critical"
-    />
-    <Box
-      id="rightMargin"
-      gridArea="right-margin"
-      background="validation-critical"
-    />
-    <Box
-      gridArea="viewpoint"
-      align="center"
-      justify="center"
-      round="xsmall"
-      background="status-unknown"
+const GridViewPort = ({ columns, label, marginLabel, width }) => (
+  <Box gap="small" width={width}>
+    <Box direction="row" justify="between">
+      <MarginText label={marginLabel} />
+      <MarginText label={marginLabel} />
+    </Box>
+    <Grid
+      columns={columns}
+      // values chosen to best visually represent the margin area in diagram
+      rows={['20px', 'small', '20px']}
+      areas={[
+        ['left-margin', 'top-gap', 'right-margin'],
+        ['left-margin', 'viewpoint', 'right-margin'],
+        ['left-margin', 'bottom-gap', 'right-margin'],
+      ]}
       border={{ style: 'dashed' }}
+      // border radius needed to match figma had to use in style
+      style={{ borderRadius: '4px' }}
     >
-      <Text color="text-strong" weight="bold">
-        {label}
-      </Text>
-    </Box>
-    <Box gridArea="bottom-gap" background="background-front" />
-  </Grid>
-);
-
-const LargeViewPoint = () => (
-  <Box gap="small" width="medium">
-    <Box direction="row" justify="between">
-      <MarginText label="48" />
-      <MarginText label="48" />
-    </Box>
-    <GridViewPort columns={largeColumns} label="Large viewport" />
-  </Box>
-);
-
-const SmallViewPoint = () => (
-  <Box gap="small" width="small">
-    <Box direction="row" justify="between">
-      <MarginText label="24" />
-      <MarginText label="24" />
-    </Box>
-    <GridViewPort columns={smallColumns} label="Small viewport" />
+      <Box gridArea="top-gap" background="background-front" />
+      <Box
+        id="leftMargin"
+        gridArea="left-margin"
+        background="validation-critical"
+      />
+      <Box
+        id="rightMargin"
+        gridArea="right-margin"
+        background="validation-critical"
+      />
+      <Box
+        gridArea="viewpoint"
+        align="center"
+        justify="center"
+        round="xsmall"
+        background="status-unknown"
+        border={{ style: 'dashed' }}
+      >
+        <Text color="text-strong" weight="bold">
+          {label}
+        </Text>
+      </Box>
+      <Box gridArea="bottom-gap" background="background-front" />
+    </Grid>
   </Box>
 );
 
 export const PageMarginAnatomy = () => (
   <Box gap="large" direction="row">
-    <LargeViewPoint />
-    <SmallViewPoint />
+    <GridViewPort
+      columns={largeColumns}
+      label="Large viewport"
+      marginLabel="48"
+      width="medium"
+    />
+    <GridViewPort
+      columns={smallColumns}
+      label="Small viewport"
+      marginLabel="24"
+      width="small"
+    />
   </Box>
 );
 
@@ -89,4 +85,6 @@ MarginText.propTypes = {
 GridViewPort.propTypes = {
   label: PropTypes.string,
   columns: PropTypes.array,
+  marginLabel: PropTypes.string,
+  width: PropTypes.string,
 };
