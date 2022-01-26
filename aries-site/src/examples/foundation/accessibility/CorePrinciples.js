@@ -9,7 +9,7 @@ import {
   ThemeContext,
 } from 'grommet';
 
-const object = [
+const corePrinciplesObjects = [
   {
     name: 'Perceivable',
     description:
@@ -21,7 +21,7 @@ const object = [
         '/foundationImages/accessibilityImages/Perceivable-visual-element-invert.svg',
     },
     imageAlt:
-      'Two eye icons layered over one another on a split light and dark background to display contrast',
+      'Two illustrated eyes, layered atop one another, displayed on a split light and dark background to represent contrast.',
   },
   {
     name: 'Operable',
@@ -34,7 +34,7 @@ const object = [
         '/foundationImages/accessibilityImages/Operable-visual-element-invert.svg',
     },
     imageAlt:
-      'A computer icon on a solid background with an up, left, right and down arrow icon displayed on the screen',
+      'An illustrated computer on a solid background with up, left, right, and down arrows displayed on the screen.',
   },
   {
     name: 'Understandable',
@@ -47,7 +47,7 @@ const object = [
         '/foundationImages/accessibilityImages/Understandable-visual-element-invert.svg',
     },
     imageAlt:
-      'A square, circle, rounded square, and pentagon connected with a green dotted line',
+      'A square, circle, rounded square, and pentagon connected with a green dotted line.',
   },
   {
     name: 'Robust',
@@ -59,7 +59,7 @@ const object = [
         '/foundationImages/accessibilityImages/Robust-visual-element-invert.svg',
     },
     imageAlt:
-      'A desktop screen UI icon and a mobile screen UI icon connected with a dotted line',
+      'A desktop computer screen connected to a mobile screen with a dotted line.',
   },
 ];
 
@@ -69,14 +69,11 @@ export const CorePrinciples = () => {
 
   return (
     <Grid
-      columns={{
-        count: size === 'small' ? 1 : 2,
-        size: 'auto',
-      }}
+      columns="small"
       gap="large"
-      pad="large"
+      pad={{ vertical: 'medium' }}
     >
-      {object.map(item => (
+      {corePrinciplesObjects.map(item => (
         <Box key={item.name}>
           <Image
             src={theme.dark ? item.imageSrc.dark : item.imageSrc.light}
@@ -85,8 +82,8 @@ export const CorePrinciples = () => {
           <Box pad={{ top: 'medium' }}>
             <Text size="xlarge" weight="bold">
               {item.name}
-            </Text>
-            <Paragraph margin="none">{item.description}</Paragraph>
+            </Text> 
+            <Paragraph margin={{ top: 'xsmall' }}>{item.description}</Paragraph>
           </Box>
         </Box>
       ))}
