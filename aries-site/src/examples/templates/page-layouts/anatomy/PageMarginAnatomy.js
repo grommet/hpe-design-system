@@ -1,17 +1,11 @@
-import React from 'react';
-import { Box, Grid, Stack, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Grid, Text, ThemeContext } from 'grommet';
 import PropTypes from 'prop-types';
 
-// values chosen to best visually represent the margin area in diagram
-const largeColumns = ['13px', 'auto', '13px'];
-const smallColumns = ['8px', 'auto', '8px'];
-
 const MarginText = ({ label }) => (
-  <Stack anchor="bottom">
+  <Box border="bottom">
     <Text alignSelf="center">{label}</Text>
-    {/* values chosen to best visually represent horizontal line in diagram. */}
-    <Box width="12px" height="1px" background="black" />
-  </Stack>
+  </Box>
 );
 
 const GridViewPort = ({ columns, label, marginLabel, width }) => (
@@ -31,19 +25,11 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
       ]}
       border={{ style: 'dashed' }}
       // border radius needed to match figma had to use in style
-      style={{ borderRadius: '4px' }}
+      style={{ borderRadius: 'small' }}
     >
       <Box gridArea="top-gap" background="background-front" />
-      <Box
-        id="leftMargin"
-        gridArea="left-margin"
-        background="validation-critical"
-      />
-      <Box
-        id="rightMargin"
-        gridArea="right-margin"
-        background="validation-critical"
-      />
+      <Box gridArea="left-margin" background="validation-critical" />
+      <Box gridArea="right-margin" background="validation-critical" />
       <Box
         gridArea="viewport"
         align="center"
@@ -61,22 +47,28 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
   </Box>
 );
 
-export const PageMarginAnatomy = () => (
-  <Box gap="large" direction="row-responsive">
-    <GridViewPort
-      columns={largeColumns}
-      label="Large viewport"
-      marginLabel="48"
-      width="medium"
-    />
-    <GridViewPort
-      columns={smallColumns}
-      label="Small viewport"
-      marginLabel="24"
-      width="small"
-    />
-  </Box>
-);
+export const PageMarginAnatomy = () => {
+  const theme = useContext(ThemeContext);
+  // values chosen to best visually represent the margin area in diagram
+  const largeColumns = [theme.edgeSize.medium, 'auto', theme.edgeSize.medium];
+  const smallColumns = [theme.edgeSize.small, 'auto', theme.edgeSize.small];
+  return (
+    <Box gap="large" direction="row-responsive">
+      <GridViewPort
+        columns={largeColumns}
+        label="Large viewport"
+        marginLabel="48"
+        width="medium"
+      />
+      <GridViewPort
+        columns={smallColumns}
+        label="Small viewport"
+        marginLabel="24"
+        width="small"
+      />
+    </Box>
+  );
+};
 
 MarginText.propTypes = {
   label: PropTypes.string,
