@@ -62,7 +62,7 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
 );
 
 export const PageMarginAnatomy = () => (
-  <Box gap="large" direction="row">
+  <Box gap="large" direction="row-responsive">
     <GridViewPort
       columns={largeColumns}
       label="Large viewport"
