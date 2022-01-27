@@ -50,8 +50,16 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
 export const PageMarginAnatomy = () => {
   const theme = useContext(ThemeContext);
   // values chosen to best visually represent the margin area in diagram
-  const largeColumns = [theme.edgeSize.medium, 'auto', theme.edgeSize.medium];
-  const smallColumns = [theme.edgeSize.small, 'auto', theme.edgeSize.small];
+  const largeColumns = [
+    theme.global.edgeSize.medium,
+    'auto',
+    theme.global.edgeSize.medium,
+  ];
+  const smallColumns = [
+    theme.global.edgeSize.small,
+    'auto',
+    theme.global.edgeSize.small,
+  ];
   return (
     <Box gap="large" direction="row-responsive">
       <GridViewPort
