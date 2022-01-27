@@ -8,7 +8,7 @@ const MarginText = ({ label }) => (
   </Box>
 );
 
-const GridViewPort = ({ columns, label, marginLabel, width }) => (
+const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
   <Box gap="small" width={width}>
     <Box direction="row" justify="between">
       <MarginText label={marginLabel} />
@@ -17,7 +17,7 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
     <Grid
       columns={columns}
       // values chosen to best visually represent the margin area in diagram
-      rows={['20px', 'small', '20px']}
+      rows={rows}
       areas={[
         ['left-margin', 'top-gap', 'right-margin'],
         ['left-margin', 'viewport', 'right-margin'],
@@ -50,6 +50,11 @@ const GridViewPort = ({ columns, label, marginLabel, width }) => (
 export const PageMarginAnatomy = () => {
   const theme = useContext(ThemeContext);
   // values chosen to best visually represent the margin area in diagram
+  const RowSizes = [
+    theme.global.edgeSize.medium,
+    'small',
+    theme.global.edgeSize.medium,
+  ];
   const largeColumns = [
     theme.global.edgeSize.medium,
     'auto',
@@ -64,12 +69,14 @@ export const PageMarginAnatomy = () => {
     <Box gap="large" direction="row-responsive">
       <GridViewPort
         columns={largeColumns}
+        rows={RowSizes}
         label="Large viewport"
         marginLabel="48"
         width="medium"
       />
       <GridViewPort
         columns={smallColumns}
+        rows={RowSizes}
         label="Small viewport"
         marginLabel="24"
         width="small"
@@ -86,5 +93,6 @@ GridViewPort.propTypes = {
   label: PropTypes.string,
   columns: PropTypes.array,
   marginLabel: PropTypes.string,
+  rows: PropTypes.array,
   width: PropTypes.string,
 };
