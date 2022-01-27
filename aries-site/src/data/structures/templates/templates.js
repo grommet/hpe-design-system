@@ -7,36 +7,6 @@ import {
 
 export const templates = [
   {
-    name: 'Content Layout',
-    available: false,
-    cardOrder: 3,
-    description: `Content layouts create optimal and accessible user 
-    experiences regardless of screen size or resolution.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-pagelayout.svg',
-          dark: '/templateImages/template-preview-pagelayout-invert.svg',
-        },
-        alt: `HPE Content Layouts preview featuring brightly colored,
-        overlapping rectangles.`,
-        fit: 'contain',
-      },
-    },
-    relatedContent: [
-      'Page Layouts',
-      'Global Header',
-      'Navigation',
-      'Dashboards',
-      'Header',
-      'Footer',
-    ],
-    seoDescription: `Content layouts create optimal and accessible user 
-    experiences regardless of screen size or resolution.`,
-    sections: [],
-    tags: [],
-  },
-  {
     name: 'Forms',
     available: true,
     cardOrder: 1,
@@ -576,10 +546,10 @@ export const templates = [
     name: 'Content Layouts',
     available: true,
     cardOrder: 6,
-    description: `Creating responsive, adaptable content layouts is central to 
-    the user experience.`,
-    seoDescription: `Creating responsive, adaptable content layouts is central 
-    to the user experience.`,
+    description: `Content layouts create optimal and accessible user 
+    experiences regardless of screen size or resolution.`,
+    seoDescription: `Content layouts create optimal and accessible user 
+    experiences regardless of screen size or resolution.`,
     preview: {
       component: () => <ContentLayoutPreview />,
       background: 'background-front',

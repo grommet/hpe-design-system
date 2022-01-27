@@ -1,7 +1,29 @@
 import { useContext } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
+import { Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
+import { ResponsiveContentLayoutExample } from '../../examples';
+
+## Designing for Responsiveness
+
+App layouts should be adaptable to different screen sizes depending on the user input. Our goal as designers and developers at HPE should be to create optimal and accessible user experiences regardless of screen size or resolution.
+
+### Prioritizing Content Needs
+
+Focusing on content needs can help us create better optimal user experiences–think about which piece of content a user is likely to interact with first and order items on the page accordingly.
+
+Specifying layout content in this way will also ensure that it is interepreted appropriately by screen readers for visually impaired users.
+
+<Example 
+  showResponsiveControls={['fullScreen']}
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ResponsiveContentLayoutExample />
+</Example>
 
 ## Templates
 

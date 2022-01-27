@@ -7,5 +7,5 @@ export const appContainer = {
 };
 
 export const AppContainer = ({ ...rest }) => (
-  <Box fill="vertical" gap={appContainer.gap} {...rest} />
+  <Box fill="vertical" overflow="auto" gap={appContainer.gap} {...rest} />
 );
