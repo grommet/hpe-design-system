@@ -60,7 +60,7 @@ const PageContent = () => {
   return (
     <Grid gap={gap} columns={parentGridColumns[size]} pad={pad}>
       {(size === 'small' || size === 'xsmall') && (
-        <ContentBlock title="1" elevation="medium" />
+        <ContentBlock title="1" />
       )}
       <Grid gap={gap}>
         <Grid columns={firstChildGridColumns[size]} gap={gap}>
