@@ -6,17 +6,17 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
-    "@mdx-js/loader": "^1.6.1",
+    "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
-    "next-compose-plugins": "^2.2.0",
+    "next-compose-plugins": "^2.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
-    "react-syntax-highlighter": "^15.4.4",
+    "react-syntax-highlighter": "^15.4.5",
     "styled-components": "^5.2.3"
   },
   "scripts": {
