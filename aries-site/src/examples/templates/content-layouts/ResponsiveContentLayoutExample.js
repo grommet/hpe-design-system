@@ -72,7 +72,7 @@ const PageContent = () => {
             <ContentBlock title="4" />
             <ContentBlock title="5" height="medium" />
           </Box>
-          <ContentBlock title="6" />
+          <ContentBlock title="6" height="100%" />
         </Grid>
       </Grid>
       {size !== 'small' && size !== 'xsmall' && (
