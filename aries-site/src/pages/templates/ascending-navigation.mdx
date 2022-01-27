@@ -1,4 +1,5 @@
 import { DiagramPreview, Example } from '../../layouts';
+import { Text } from 'grommet';
 
 When an application’s hierarchy is well designed, the ascending button will typically take the user 
 back to the previous page they came from.
@@ -30,8 +31,7 @@ back to the previous page they came from.
 Ascending Navigation provides an easy way for a user to move from a child page up to a parent page.
 
 <Example 
-  caption="A diagram of a user experience using multiple types of navigation such as Drill Down to look at a details view of a row
-  on a table, Matrix Navigation to jump to another page, and Ascending Navigation to navigate to the parent page." 
+  caption={<><Text margin={{ top: 'xsmall' }} size="small"> 1. A preview of Users detail view (child page).</Text><br></br><Text margin={{ top: 'xsmall' }} size="small"> 2. A preview of Ascending Navigation to the parent page utilizing the ascending button.</Text></>}
   plain 
   pad="small"
   previewWidth="large"
