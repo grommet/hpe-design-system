@@ -70,7 +70,7 @@ const PageContent = () => {
         <Grid columns={secondChildGridColumns[size]} gap={gap}>
           <Box gap={gap}>
             <ContentBlock title="4" />
-            <ContentBlock title="5" />
+            <ContentBlock title="5" height="medium" />
           </Box>
           <ContentBlock title="6" />
         </Grid>
