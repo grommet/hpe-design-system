@@ -57,7 +57,7 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
         fill="horizontal"
         flex
         gap={pageContainer.gap[size]}
-        margin="0 auto" // only horizontally center
+        margin={{ horizontal: 'auto' }}
         width={pageContainer[kind].width}
         {...rest}
       />
