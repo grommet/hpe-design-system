@@ -2,7 +2,7 @@ import { base } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 import { aries } from './aries';
 
-export const scaled = (theme = aries, scale = 0.5) => {
+export const scaled = (theme = aries, scale = 1) => {
   const source = deepMerge(base, theme);
   const scaledTheme = { ...source };
   const scaleAttributes = [

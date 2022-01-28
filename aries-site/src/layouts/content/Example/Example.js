@@ -111,7 +111,7 @@ export const Example = ({
   // 0.5 selected to reduce breakpoints and spacing by half. This can be
   // enhanced in the future by changing to a state variable which can be
   // manipulated by a control presented to the user.
-  const scale = 0.5;
+
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
   else if (screenContainer) {
@@ -119,7 +119,10 @@ export const Example = ({
     else if (!fullscreen) {
       const containerWidth =
         inlineRef.current && inlineRef.current.getBoundingClientRect().width;
-      scaledTheme = scaled(theme, scale);
+      scaledTheme = screenContainer.scale
+        ? scaled(theme, screenContainer.scale)
+        : theme;
+
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
@@ -365,7 +368,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({ scale: PropTypes.number }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,
