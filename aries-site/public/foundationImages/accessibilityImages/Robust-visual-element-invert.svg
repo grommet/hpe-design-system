@@ -1,0 +1,15 @@
+<svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="280" rx="10" fill="#404B5C"/>
+<path d="M121 83H199" stroke="white" stroke-width="5" stroke-linecap="round"/>
+<rect x="65" y="127" width="137" height="16" rx="4" fill="#263040"/>
+<path d="M121 111H199" stroke="white" stroke-width="5" stroke-linecap="round"/>
+<path d="M121 97H199" stroke="white" stroke-width="5" stroke-linecap="round"/>
+<rect x="41.5" y="57.5" width="193" height="100" rx="3.5" stroke="white" stroke-width="5"/>
+<rect x="150.5" y="252.5" width="116" height="69" rx="3.5" transform="rotate(-90 150.5 252.5)" fill="#01A982" stroke="white" stroke-width="5"/>
+<rect x="67" y="76" width="36" height="39" rx="4" fill="#01A982" stroke="white" stroke-width="4"/>
+<rect x="167" y="160" width="36" height="39" rx="4" fill="#01A982" stroke="white" stroke-width="4"/>
+<path d="M171 215H199" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M171 231H199" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M171 223H199" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M92 202H89.5C89.5 203.381 90.6193 204.5 92 204.5V202ZM89.5 165.25C89.5 166.631 90.6193 167.75 92 167.75C93.3807 167.75 94.5 166.631 94.5 165.25H89.5ZM94.5 175.75C94.5 174.369 93.3807 173.25 92 173.25C90.6193 173.25 89.5 174.369 89.5 175.75H94.5ZM89.5 186.25C89.5 187.631 90.6193 188.75 92 188.75C93.3807 188.75 94.5 187.631 94.5 186.25H89.5ZM94.5 196.75C94.5 195.369 93.3807 194.25 92 194.25C90.6193 194.25 89.5 195.369 89.5 196.75H94.5ZM99 204.5C100.381 204.5 101.5 203.381 101.5 202C101.5 200.619 100.381 199.5 99 199.5V204.5ZM113 199.5C111.619 199.5 110.5 200.619 110.5 202C110.5 203.381 111.619 204.5 113 204.5V199.5ZM127 204.5C128.381 204.5 129.5 203.381 129.5 202C129.5 200.619 128.381 199.5 127 199.5V204.5ZM141 199.5C139.619 199.5 138.5 200.619 138.5 202C138.5 203.381 139.619 204.5 141 204.5V199.5ZM89.5 160V165.25H94.5V160H89.5ZM89.5 175.75V186.25H94.5V175.75H89.5ZM89.5 196.75V202H94.5V196.75H89.5ZM92 204.5H99V199.5H92V204.5ZM113 204.5H127V199.5H113V204.5ZM141 204.5H148V199.5H141V204.5Z" fill="white"/>
+</svg>
