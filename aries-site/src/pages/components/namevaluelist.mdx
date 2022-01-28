@@ -211,6 +211,8 @@ For vertical lists:
 
 If the value of a name-value pair is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values without increasing cognitive load.
 
+Add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
+
 Depending on the use case, it may or may not be necessary to render a name-value pair with an empty value to the user.
 
 ### When To Display “Empty value” Name-Value Pairs
@@ -290,11 +292,6 @@ In certain scenarios, it is not necessary to display name-value pairs that don�
 >
   <NameValueListSummaryExample />
 </Example>
-
-### Accessibility for Name-Value Pairs with Empty Value
-
-Add an `a11yTitle="No data"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
-
 
 ## Hierarchy
 
