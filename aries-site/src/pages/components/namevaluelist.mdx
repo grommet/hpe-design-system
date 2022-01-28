@@ -81,82 +81,6 @@ A NameValuePair is a set of two related elements: a name, which identifies a dat
   <NameValueListIconNamePreview />
 </Example>
 
-## Name-Value Pair with Empty Value
-
-If the value of a name-value pair is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values without increasing cognitive load.
-
-Depending on the use case, it may or may not be necessary to render a name-value pair with an empty value to the user.
-
-### When To Display “Empty value” Name-Value Pairs
-
-In certain scenarios, it is important to display to a user that a certain name-value pair does not have a value. These scenarios include:
-- **Review/Edit Pages** - when a user has made configuration selections (such as in a [Wizard](/templates/wizard)) or is editing configurations (such as settings), all name-value pairs should be visible so the user knows which options they have and have not configured.
-
-<Example
-  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
-  showResponsiveControls={['laptop', 'mobile']} 
-  template
->
-  <NameValueListWizard />
-</Example>
-
-- **Detail Pages** - these kinds of pages provide the most granular level of information about a device, server, etc. and should display all name-value pairs.
-
-<Example
-  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
-  height={{ min: 'small' }}
-  code={[
-  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js",
-  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js"
-  template
-  showResponsiveControls={false}
-  width="xlarge"
-  pad="large"
->
-  <NameValueListDetailPage />
-</Example>
-
-### When To Omit “Empty value” Name-Value Pairs
-
-In certain scenarios, it is not necessary to display name-value pairs that don’t have a value. These scenarios include:
-- **Public-facing Profiles** - For instances where a profile is outwardly facing, only name-value pairs with values should be displayed. The complete list of possible entries should only be viewable when a user goes to edit their profile.
-
-<Example
-  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js"
-  height={{ min: 'small' }}
-  pad="large"
-  showResponsiveControls={false}
-  template
->
-  <NameValueListEditExample />
-</Example>
-
-- **Summaries (such as Dashboard Cards)** - Summaries are intended to display information-salient content, often in areas with restricted screen real estate. Given this, name-value pairs without a value should be omitted.
-
-<Example
-  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js"
-  height={{ min: 'small' }}
-  pad="large"
-  showResponsiveControls={false}
-  template
->
-  <NameValueListSummaryExample />
-</Example>
-
-### Accessibility for Name-Value Pairs with Empty Value
-
-Add an `a11yTitle="No data"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
-
 ## Variants
 
 ### Horizontal (default) 
@@ -242,6 +166,7 @@ In some cases, NameValuePairs may be used as read-only display for text inputs t
 </Example>
 
 ### Name-Value Pair as a read-only display in horizontal
+
 <Example
   docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
   code={[
@@ -259,7 +184,7 @@ In some cases, NameValuePairs may be used as read-only display for text inputs t
 <NameValueListEditHorizontalExample />
 </Example>
 
-### Content Truncation
+## Content Truncation
 
 When presenting a value as a list of items, the list may be truncated and 
 accompanied by a Button to expand it, displaying all items.
@@ -281,6 +206,95 @@ For vertical lists:
 >
   <NameValueListReadMoreExample />
 </Example>
+
+## Name-Value Pair with Empty Value
+
+If the value of a name-value pair is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values without increasing cognitive load.
+
+Depending on the use case, it may or may not be necessary to render a name-value pair with an empty value to the user.
+
+### When To Display “Empty value” Name-Value Pairs
+
+In certain scenarios, it is important to display to a user that a certain name-value pair does not have a value. These scenarios include:
+
+**Review/Edit Pages** - when a user has made configuration selections (such as in a [Wizard](/templates/wizard)) or is editing configurations (such as settings), all name-value pairs should be visible so the user knows which options they have and have not configured.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/NameValueListWizard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/NameValuelistWizard"
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  showResponsiveControls={['laptop', 'mobile']} 
+  template
+>
+  <NameValueListWizard />
+</Example>
+
+**Detail Pages** - these kinds of pages provide the most granular level of information about a device, server, etc. and should display all name-value pairs.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  height={{ min: 'small' }}
+  code={[
+  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js",
+  "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js"
+  template
+  showResponsiveControls={false}
+  width="xlarge"
+  pad="large"
+>
+  <NameValueListDetailPage />
+</Example>
+
+### When To Omit “Empty value” Name-Value Pairs
+
+In certain scenarios, it is not necessary to display name-value pairs that don’t have a value. These scenarios include:
+
+**Public-facing Profiles** - For instances where a profile is outwardly facing, only name-value pairs with values should be displayed. The complete list of possible entries should only be viewable when a user goes to edit their profile.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js"
+  height={{ min: 'small' }}
+  pad="large"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListEditExample />
+</Example>
+
+**Summaries (such as Dashboard Cards)** - Summaries are intended to display information-salient content, often in areas with restricted screen real estate. Given this, name-value pairs without a value should be omitted.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/data.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js"
+  height={{ min: 'small' }}
+  pad="large"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListSummaryExample />
+</Example>
+
+### Accessibility for Name-Value Pairs with Empty Value
+
+Add an `a11yTitle="No data"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
+
 
 ## Hierarchy
 
