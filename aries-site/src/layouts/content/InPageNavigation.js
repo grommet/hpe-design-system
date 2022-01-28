@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Nav, Text } from 'grommet';
+import { Box, Button, Nav, Text } from 'grommet';
 import { siteContents } from '../../data/search/contentForSearch';
 import { nameToSlug } from '../../utils';
 
@@ -29,18 +29,26 @@ export const InPageNavigation = ({ title }) => {
       <Text color="text-strong" size="xsmall" weight="bold">
         CONTENTS
       </Text>
-      <Nav gap="xsmall">
+      <Nav gap="none">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
           const [level] = heading[0].match(levelRegexp);
+          let margin;
+          if (level.length > 3) margin = 'medium';
+          else if (level.length === 3) margin = 'small';
           return (
             <Link key={index} href={`#${nameToSlug(heading[1])}`} passHref>
-              <Anchor
+              <Button
                 alignSelf="start"
-                // style={{ textAlign: 'start' }}
+                style={{ textAlign: 'start', borderRadius: '3px' }}
                 size="small"
-                label={heading[1]}
-                margin={{ left: level.length > 2 ? 'small' : undefined }}
+                kind="option"
+                label={
+                  <Text color="text-strong" size="small">
+                    {heading[1]}
+                  </Text>
+                }
+                margin={{ left: margin }}
               />
             </Link>
           );

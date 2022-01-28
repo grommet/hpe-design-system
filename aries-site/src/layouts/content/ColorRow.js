@@ -7,6 +7,7 @@ export const ColorRow = ({ colorSpec, textColor, textSize = 'small' }) => {
 
   return (
     <Box
+      flex={false}
       direction="row"
       border={
         colorSpec.type === 'border'

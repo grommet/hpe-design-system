@@ -24,7 +24,7 @@ const { focusColor, layerColor, graphColor } = colorExamples;
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor, textSize) => (
-  <Box fill>
+  <Box fill="horizontal" flex={false}>
     {colors.map(color => (
       <ColorRow
         colorSpec={color}
