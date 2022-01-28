@@ -7,6 +7,7 @@ import {
   NameValuePair,
   Text,
 } from 'grommet';
+import { cardSummaryData } from '../data';
 
 export const NameValueListSummaryExample = () => (
   <Card width="medium">
@@ -18,9 +19,11 @@ export const NameValueListSummaryExample = () => (
     </CardHeader>
     <CardBody>
       <NameValueList>
-        <NameValuePair name="Total Orders">114</NameValuePair>
-        <NameValuePair name="Active">90</NameValuePair>
-        <NameValuePair name="In Progress">24</NameValuePair>
+        {Object.entries(cardSummaryData).map(([name, value]) => (
+          <NameValuePair key={name} name={name}>
+            {value}
+          </NameValuePair>
+        ))}
       </NameValueList>
     </CardBody>
   </Card>

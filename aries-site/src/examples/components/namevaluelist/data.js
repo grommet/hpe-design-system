@@ -215,3 +215,9 @@ export const tagsData = {
   Usage: '300',
   MachineInfor1: 'Standard',
 };
+
+export const cardSummaryData = {
+  'Total Orders': 114,
+  Active: 90,
+  'In Progress': 24,
+};
