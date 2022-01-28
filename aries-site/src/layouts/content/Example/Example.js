@@ -9,6 +9,7 @@ import {
   ThemeContext,
 } from 'grommet';
 import { Contract } from 'grommet-icons';
+import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -106,6 +107,11 @@ export const Example = ({
   else ExampleWrapper = Box;
 
   let viewPort;
+  let scaledTheme;
+  // 0.5 selected to reduce breakpoints and spacing by half. This can be
+  // enhanced in the future by changing to a state variable which can be
+  // manipulated by a control presented to the user.
+
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
   else if (screenContainer) {
@@ -113,7 +119,11 @@ export const Example = ({
     else if (!fullscreen) {
       const containerWidth =
         inlineRef.current && inlineRef.current.getBoundingClientRect().width;
-      const { breakpoints } = theme.global;
+      scaledTheme = screenContainer.scale
+        ? scaled(theme, screenContainer.scale)
+        : theme;
+
+      const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
         .sort((a, b) => {
@@ -125,7 +135,7 @@ export const Example = ({
           if (!breakpoint) [breakpoint] = obj;
           if (
             containerWidth > breakpoints[breakpoint].value &&
-            containerWidth < obj[1].value
+            (containerWidth < obj[1].value || !obj[1].value)
           ) {
             [breakpoint] = obj;
           }
@@ -148,12 +158,14 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
-        <ResponsiveContext.Provider value={viewPort}>
-          {React.cloneElement(children, {
-            containerRef: inlineRef,
-            designSystemDemo: fullscreen,
-          })}
-        </ResponsiveContext.Provider>
+        <ThemeContext.Extend value={scaledTheme || theme}>
+          <ResponsiveContext.Provider value={viewPort}>
+            {React.cloneElement(children, {
+              containerRef: inlineRef,
+              designSystemDemo: fullscreen,
+            })}
+          </ResponsiveContext.Provider>
+        </ThemeContext.Extend>
       </ExampleWrapper>
     </ExampleContainer>
   );
@@ -356,7 +368,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({ scale: PropTypes.number }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,
