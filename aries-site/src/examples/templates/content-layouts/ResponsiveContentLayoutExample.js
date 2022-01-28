@@ -14,6 +14,7 @@ export const ResponsiveContentLayoutExample = () => (
       <PageHeader />
       <PageContent />
     </PageContainer>
+    <ContentArea title="Global Footer" />
   </AppContainer>
 );
 
@@ -61,8 +62,8 @@ const secondChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: { count: 'fit', size: ['small', 'auto'] },
-    xlarge: { count: 'fit', size: ['small', 'auto'] },
+    large: { count: 'fit', size: ['medium', 'auto'] },
+    xlarge: { count: 'fit', size: ['medium', 'auto'] },
   },
   gap: 'medium',
 };
@@ -94,9 +95,9 @@ const PageContent = () => {
         <Grid columns={secondChildGrid.columns[size]} gap={secondChildGrid.gap}>
           <Box gap={secondChildGrid.gap}>
             <ContentBlock title="4" />
-            <ContentBlock title="5" height="medium" />
+            <ContentBlock title="5" />
           </Box>
-          <ContentBlock title="6" height="100%" />
+          <ContentBlock title="6" fill="vertical" />
         </Grid>
       </Grid>
       {size !== 'small' && size !== 'xsmall' && (
