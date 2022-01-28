@@ -54,9 +54,10 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
     <PageContainerContext.Provider value={{ pad }}>
       <Box
         alignSelf={pageContainer[kind].align}
-        fill
+        fill="horizontal"
+        flex
         gap={pageContainer.gap[size]}
-        margin="auto"
+        margin={{ horizontal: 'auto' }}
         width={pageContainer[kind].width}
         {...rest}
       />

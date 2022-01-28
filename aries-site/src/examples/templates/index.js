@@ -1,4 +1,5 @@
 export * from './code-blocks';
+export * from './content-layouts';
 export * from './dashboards';
 export * from './drill-down-navigation';
 export * from './filtering';
