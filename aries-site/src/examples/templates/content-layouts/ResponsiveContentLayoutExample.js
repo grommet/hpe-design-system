@@ -94,9 +94,9 @@ const PageContent = () => {
         <Grid columns={secondChildGrid.columns[size]} gap={secondChildGrid.gap}>
           <Box gap={secondChildGrid.gap}>
             <ContentBlock title="4" />
-            <ContentBlock title="5" />
+            <ContentBlock title="5" height="medium" />
           </Box>
-          <ContentBlock title="6" />
+          <ContentBlock title="6" height="100%" />
         </Grid>
       </Grid>
       {size !== 'small' && size !== 'xsmall' && (
