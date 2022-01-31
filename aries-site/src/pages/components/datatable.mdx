@@ -5,6 +5,7 @@ import {
   PaginationTableExample,
   DataTableAnatomy,
   DataTableExample,
+  DataTableEmptyCellExample,
   DataTableFixedHeaderExample,
   DataTableMultiSelectExample,
   DataTableResizeColumnsExample,
@@ -177,7 +178,7 @@ accessible in a tool specifically designed for analysis.
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
   - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the data table and prevents them from being orphaned. However, don't force the header above the data table to align its width to the data table, as that might compress the contents of the header too much.
 
-  ### Setting the height of a DataTable
+### Setting the height of a DataTable
 
 - Let the data set the height of the data table. The data table will grow in height as the length of data increases.
 - If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that each page of data table results be limited to 20 records. For more information on pagination, read [Pagination guidance].(/components/pagination#when-to-use)
@@ -226,6 +227,26 @@ Wrapping allows long strings of text or words to break and wrap onto subsequent 
 Wrapping should be used when:
 - The entirety of the content must be available at all times.
 - Long numerical values need to be displayed.
+
+### Handling Empty Cells
+
+If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaing the scanablility across rows and columns.
+
+Because the HPE theme does not have borders or background color differences to differentiate between rows and columns, a visual indicator in empty cells is necessary to maintain readability and scanability.
+
+For empty cells, add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
+
+<Example
+  componentName="DataTable"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableEmptyCellExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/DataTable/DataTable.js"
+  showResponsiveControls={false}
+  template
+>
+  <DataTableEmptyCellExample />
+</Example>
 
 ### Accessibility
 

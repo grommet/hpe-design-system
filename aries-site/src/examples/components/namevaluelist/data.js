@@ -173,7 +173,7 @@ export const kubernetesData = {
 
 export const profileData = {
   'First Name': 'Jane',
-  'Middle Name': '',
+  'Last Name': '',
   Country: 'United States',
   'Phone Number': '',
   Email: 'jane.smith@hpe.com',
@@ -200,7 +200,24 @@ export const serverData = {
   Nodes: '3 Control Plane, 5 workers',
 };
 
+export const emptyServerData = {
+  Health: 'Healthy',
+  State: 'Active',
+  ID: 'b3894722-adscb29308478-8032j',
+  'API EndPoint': 'democluster1.dev.cloud.net',
+  'Default Storage Class': '',
+  Description: '',
+  Version: '1.18',
+  Nodes: '',
+};
+
 export const tagsData = {
   Usage: '300',
   MachineInfor1: 'Standard',
+};
+
+export const cardSummaryData = {
+  'Total Orders': 114,
+  Active: 90,
+  'In Progress': 24,
 };
