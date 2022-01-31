@@ -40,18 +40,21 @@ export const NameValueListEditExample = () => {
       </Box>
       {!edit ? (
         <NameValueList pairProps={{ direction: 'column' }}>
-          {Object.entries(currentData).map(([name, value]) => (
-            <NameValuePair
-              key={name}
-              name={<Text {...theme.formField.label}>{name}</Text>}
-            >
-              {name === 'Email' ? (
-                <Anchor label={value} href={`mailto:${value}`} />
-              ) : (
-                <Text {...theme.global.input.font}>{value || '--'}</Text>
-              )}
-            </NameValuePair>
-          ))}
+          {Object.entries(currentData).map(
+            ([name, value]) =>
+              value && (
+                <NameValuePair
+                  key={name}
+                  name={<Text {...theme.formField.label}>{name}</Text>}
+                >
+                  {name === 'Email' ? (
+                    <Anchor label={value} href={`mailto:${value}`} />
+                  ) : (
+                    <Text {...theme.global.input.font}>{value || '--'}</Text>
+                  )}
+                </NameValuePair>
+              ),
+          )}
         </NameValueList>
       ) : (
         <Form>
