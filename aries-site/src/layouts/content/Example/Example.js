@@ -340,7 +340,7 @@ Example.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
-  caption: PropTypes.string,
+  caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,

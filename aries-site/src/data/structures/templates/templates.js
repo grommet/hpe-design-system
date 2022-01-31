@@ -7,6 +7,35 @@ import {
 
 export const templates = [
   {
+    name: 'Ascending Navigation',
+    available: true,
+    cardOrder: 101,
+    description: `The Ascending Button for Navigation allows
+    the user to navigate to a parent page from a child page
+    by moving upward in the application or website hierarchy.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/ascending-navigation.svg',
+          dark: '/templateImages/ascending-navigation-invert.svg',
+        },
+        alt: 'Ascending navigation diagram',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows the user to navigate to a parent 
+     page from a child page by moving upward in the application
+     or website hierarchy.`,
+    sections: ['Guidance', 'When to use', 'Ascending Navigation Example'],
+    relatedContent: [
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+      'Drill Down Navigation',
+    ],
+    tags: [],
+  },
+  {
     name: 'Content Layouts',
     available: true,
     cardOrder: 3,
@@ -336,7 +365,7 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: ['Header'],
+    relatedContent: [],
     tags: ['navigation patterns'],
   },
   {
