@@ -40,15 +40,20 @@ export const contentLayouts = [
       background: 'background-front',
       image: {
         src: {
-          light: '/templateImages/2col-dashboard.svg',
-          dark: '/templateImages/2col-dashboard-invert.svg',
+          /* Temporarily disabling until the 2-col dashboard is 
+             available. */
+          // light: '/templateImages/2col-dashboard.svg',
+          // dark: '/templateImages/2col-dashboard-invert.svg',
+          light: '/templateImages/2col-nvl.svg',
+          dark: '/templateImages/2col-nvl-invert.svg',
         },
         alt: `"Coming soon" text atop a lo-fi wireframe decpicting a two 
             column dashboard.`,
         fit: 'contain',
       },
     },
-    href: '/templates/dashboards',
+    /* Temporarily disabling until the 2-col dashboard is available. */
+    // href: '/templates/dashboards',
   },
   {
     name: '2 Column - Wizard',
