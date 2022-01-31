@@ -57,7 +57,12 @@ Container.propTypes = {
   horizontalLayout: PropTypes.bool,
   pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      scale: PropTypes.number,
+    }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,
