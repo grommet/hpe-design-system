@@ -1,7 +1,15 @@
 import React, { useCallback, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  ResponsiveContext,
+  ThemeContext,
+} from 'grommet';
 import { Contract } from 'grommet-icons';
+import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -50,6 +58,7 @@ export const Example = ({
   const [screen, setScreen] = React.useState(screens.laptop);
   const [fullscreen, setFullscreen] = React.useState(false);
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const inlineRef = useRef();
   const layerRef = useRef();
 
@@ -98,9 +107,42 @@ export const Example = ({
   else ExampleWrapper = Box;
 
   let viewPort;
+  let scaledTheme;
+  // 0.5 selected to reduce breakpoints and spacing by half. This can be
+  // enhanced in the future by changing to a state variable which can be
+  // manipulated by a control presented to the user.
+
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else viewPort = undefined;
+  else if (screenContainer) {
+    if (fullscreen) viewPort = size;
+    else if (!fullscreen) {
+      const containerWidth =
+        inlineRef.current && inlineRef.current.getBoundingClientRect().width;
+      scaledTheme = screenContainer.scale
+        ? scaled(theme, screenContainer.scale)
+        : theme;
+
+      const { breakpoints } = scaledTheme.global;
+      let breakpoint;
+      Object.entries(breakpoints)
+        .sort((a, b) => {
+          if (a[1].value < b[1].value) return -1;
+          if (a[1].value > b[1].value) return 1;
+          return 0;
+        })
+        .forEach(obj => {
+          if (!breakpoint) [breakpoint] = obj;
+          if (
+            containerWidth > breakpoints[breakpoint].value &&
+            (containerWidth < obj[1].value || !obj[1].value)
+          ) {
+            [breakpoint] = obj;
+          }
+        });
+      viewPort = breakpoint;
+    }
+  } else viewPort = undefined;
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
@@ -116,12 +158,14 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
-        <ResponsiveContext.Provider value={viewPort}>
-          {React.cloneElement(children, {
-            containerRef: inlineRef,
-            designSystemDemo: fullscreen,
-          })}
-        </ResponsiveContext.Provider>
+        <ThemeContext.Extend value={scaledTheme || theme}>
+          <ResponsiveContext.Provider value={viewPort}>
+            {React.cloneElement(children, {
+              containerRef: inlineRef,
+              designSystemDemo: fullscreen,
+            })}
+          </ResponsiveContext.Provider>
+        </ThemeContext.Extend>
       </ExampleWrapper>
     </ExampleContainer>
   );
@@ -324,7 +368,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({ scale: PropTypes.number }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,

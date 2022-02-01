@@ -55,7 +55,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
               </Box>
             )}
           </Identifier>
-          <Text size="small">{description}</Text>
+          {description && <Text size="small">{description}</Text>}
         </Box>
       </CardBody>
     </Card>
@@ -67,7 +67,7 @@ const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 ContentCard.propTypes = {
   minimal: PropTypes.bool,
   topic: PropTypes.shape({
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     name: PropTypes.string.isRequired,
     parent: PropTypes.shape({
       color: PropTypes.string.isRequired,
