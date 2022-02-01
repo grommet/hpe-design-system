@@ -14,9 +14,9 @@ export const ButtonRightAlignExample = () => (
       </Text>
     </Header>
     <Box direction="row" justify="end" gap="medium">
-      <Button primary label="Primary" onClick={() => {}} />
-      <Button secondary label="Secondary" onClick={() => {}} />
       <Button label="Default" onClick={() => {}} />
+      <Button secondary label="Secondary" onClick={() => {}} />
+      <Button primary label="Primary" onClick={() => {}} />
     </Box>
   </Box>
 );
