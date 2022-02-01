@@ -1,4 +1,12 @@
-import React, { useCallback, useContext, useRef } from 'react';
+import {
+  cloneElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -55,18 +63,22 @@ export const Example = ({
   width,
   ...rest
 }) => {
-  const [screen, setScreen] = React.useState(screens.laptop);
-  const [fullscreen, setFullscreen] = React.useState(false);
+  const [screen, setScreen] = useState(screens.laptop);
+  const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const inlineRef = useRef();
   const layerRef = useRef();
+  const [mockBrowserRect, setMockBrowserRect] = useState({
+    height: null,
+    width: null,
+  });
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
-  const [, updateState] = React.useState();
+  const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  React.useEffect(() => {
+  useEffect(() => {
     forceUpdate();
   }, [fullscreen, forceUpdate]);
 
@@ -106,19 +118,29 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
+  // Keep track of mock browser dimensions to calculate current breakpoint
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setMockBrowserRect({
+        height: inlineRef.current?.getBoundingClientRect().height,
+        width: inlineRef.current?.getBoundingClientRect().width,
+      });
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   let viewPort;
   let scaledTheme;
-  // 0.5 selected to reduce breakpoints and spacing by half. This can be
-  // enhanced in the future by changing to a state variable which can be
-  // manipulated by a control presented to the user.
 
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
   else if (screenContainer) {
     if (fullscreen) viewPort = size;
     else if (!fullscreen) {
-      const containerWidth =
-        inlineRef.current && inlineRef.current.getBoundingClientRect().width;
+      const containerWidth = mockBrowserRect.width;
       scaledTheme = screenContainer.scale
         ? scaled(theme, screenContainer.scale)
         : theme;
@@ -160,7 +182,7 @@ export const Example = ({
       >
         <ThemeContext.Extend value={scaledTheme || theme}>
           <ResponsiveContext.Provider value={viewPort}>
-            {React.cloneElement(children, {
+            {cloneElement(children, {
               containerRef: inlineRef,
               designSystemDemo: fullscreen,
             })}
@@ -314,7 +336,7 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {React.cloneElement(children, {
+                      {cloneElement(children, {
                         containerRef: layerRef,
                         designSystemDemo: fullscreen,
                       })}
