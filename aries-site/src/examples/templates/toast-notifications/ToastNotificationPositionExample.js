@@ -21,7 +21,7 @@ export const ToastNotificationPositionExample = () => {
           <Notification
             toast={{ position: 'top-right' }}
             status="normal"
-            title="This toast notification is aligned to be top-right"
+            title="This toast notification is aligned to be top-right."
             onClose={onClose}
           />
         )}
