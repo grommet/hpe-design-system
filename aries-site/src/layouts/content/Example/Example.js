@@ -142,9 +142,8 @@ export const Example = ({
     else if (!fullscreen) {
       const containerWidth = mockBrowserRect.width;
       scaledTheme = screenContainer.scale
-        ? scaled(theme, screenContainer.scale)
+        ? scaled(undefined, screenContainer.scale)
         : theme;
-
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
