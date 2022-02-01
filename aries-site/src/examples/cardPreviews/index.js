@@ -4,6 +4,7 @@ export * from './button';
 export * from './checkbox';
 export * from './checkboxgroup';
 export * from './code-blocks';
+export * from './content-layouts';
 export * from './dateinput';
 export * from './footer';
 export * from './grid';

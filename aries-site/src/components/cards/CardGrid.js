@@ -20,7 +20,7 @@ export const CardGrid = ({ cards, minimal, ...rest }) => {
     >
       {cards &&
         cards.map(topic => {
-          const href = nameToPath(topic.name);
+          const href = topic.href || nameToPath(topic.name);
           const isInternalLink = internalLink.test(href);
           const Wrapper = isInternalLink ? Link : Fragment;
           const wrapperProps = isInternalLink && {
