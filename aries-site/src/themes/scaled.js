@@ -2,11 +2,11 @@ import { generate } from 'grommet/themes/base';
 import { deepMerge } from 'grommet/utils';
 import { aries } from './aries';
 
-export const scaled = (theme = aries, scale = 1, baseSpacing = 24) => {
+export const scaled = (scale = 1, baseSpacing = 24) => {
   // scales everything in base
   const scaledBase = generate(baseSpacing * scale);
   // merges theme, but overwrites scale for particular attributes
-  const source = deepMerge(scaledBase, theme);
+  const source = deepMerge(scaledBase, aries);
   const scaledTheme = { ...source };
   // define attributes which need to be re-scaled; essentially any
   // size which is staticly set in hpe/aries theme
