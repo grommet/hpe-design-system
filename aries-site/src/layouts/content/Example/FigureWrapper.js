@@ -19,6 +19,6 @@ export const FigureWrapper = ({ caption, children }) => (
 );
 
 FigureWrapper.propTypes = {
-  caption: PropTypes.string.isRequired,
+  caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   children: PropTypes.element,
 };

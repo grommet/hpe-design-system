@@ -1,7 +1,23 @@
-import React, { useCallback, useContext, useRef } from 'react';
+import {
+  cloneElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  ResponsiveContext,
+  ThemeContext,
+} from 'grommet';
 import { Contract } from 'grommet-icons';
+import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -47,19 +63,24 @@ export const Example = ({
   width,
   ...rest
 }) => {
-  const [screen, setScreen] = React.useState(screens.laptop);
-  const [showLayer, setShowLayer] = React.useState(false);
+  const [screen, setScreen] = useState(screens.laptop);
+  const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const inlineRef = useRef();
   const layerRef = useRef();
+  const [mockBrowserRect, setMockBrowserRect] = useState({
+    height: null,
+    width: null,
+  });
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
-  const [, updateState] = React.useState();
+  const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  React.useEffect(() => {
+  useEffect(() => {
     forceUpdate();
-  }, [showLayer, forceUpdate]);
+  }, [fullscreen, forceUpdate]);
 
   // If plain, we remove the Container that creates a padded
   // box with rounded corners around Example content
@@ -97,14 +118,57 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
+  // Keep track of mock browser dimensions to calculate current breakpoint
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setMockBrowserRect({
+        height: inlineRef.current?.getBoundingClientRect().height,
+        width: inlineRef.current?.getBoundingClientRect().width,
+      });
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   let viewPort;
+  let scaledTheme;
+
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else viewPort = undefined;
+  else if (screenContainer) {
+    if (fullscreen) viewPort = size;
+    else if (!fullscreen) {
+      const containerWidth = mockBrowserRect.width;
+      scaledTheme = screenContainer.scale
+        ? scaled(theme, screenContainer.scale)
+        : theme;
+
+      const { breakpoints } = scaledTheme.global;
+      let breakpoint;
+      Object.entries(breakpoints)
+        .sort((a, b) => {
+          if (a[1].value < b[1].value) return -1;
+          if (a[1].value > b[1].value) return 1;
+          return 0;
+        })
+        .forEach(obj => {
+          if (!breakpoint) [breakpoint] = obj;
+          if (
+            containerWidth > breakpoints[breakpoint].value &&
+            (containerWidth < obj[1].value || !obj[1].value)
+          ) {
+            [breakpoint] = obj;
+          }
+        });
+      viewPort = breakpoint;
+    }
+  } else viewPort = undefined;
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
-  let content = !showLayer && (
+  let content = !fullscreen && (
     <ExampleContainer as="section" {...containerProps}>
       <ExampleWrapper
         background={
@@ -116,20 +180,19 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
-        <ResponsiveContext.Provider value={viewPort}>
-          {React.cloneElement(children, {
-            containerRef: inlineRef,
-            designSystemDemo: showLayer,
-          })}
-        </ResponsiveContext.Provider>
+        <ThemeContext.Extend value={scaledTheme || theme}>
+          <ResponsiveContext.Provider value={viewPort}>
+            {cloneElement(children, {
+              containerRef: inlineRef,
+              designSystemDemo: fullscreen,
+            })}
+          </ResponsiveContext.Provider>
+        </ThemeContext.Extend>
       </ExampleWrapper>
     </ExampleContainer>
   );
 
-  if (caption)
-    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
-
-  const controls = (designer ||
+  const exampleControls = (designer ||
     docs ||
     figma ||
     guidance ||
@@ -143,9 +206,21 @@ export const Example = ({
       grommetSource={grommetSource}
       guidance={guidance}
       horizontalLayout={horizontalLayout}
-      setShowLayer={value => setShowLayer(value)}
+      setFullscreen={value => setFullscreen(value)}
+      showResponsiveControls={showResponsiveControls}
     />
   );
+
+  if (!horizontalLayout)
+    content = (
+      <>
+        {content}
+        {exampleControls}
+      </>
+    );
+
+  if (caption)
+    content = <FigureWrapper caption={caption}>{content}</FigureWrapper>;
 
   const resources = (
     <ExampleResources
@@ -174,35 +249,36 @@ export const Example = ({
               controls={showResponsiveControls}
               onSetScreen={setScreen}
               screen={screen}
+              fullscreen={fullscreen}
+              setFullscreen={setFullscreen}
             />
           )}
-          {!horizontalLayout ? (
-            <>
-              {content}
-              {controls}
-              {resources}
-            </>
-          ) : (
+          {horizontalLayout ? (
             <HorizontalExample
               content={content}
-              controls={controls}
+              controls={exampleControls}
               height={height}
               plain={plain}
               resources={resources}
               showResponsiveControls={showResponsiveControls}
               width={width}
             />
+          ) : (
+            <>
+              {content}
+              {resources}
+            </>
           )}
         </>
       </Box>
-      {showLayer && (
+      {fullscreen && (
         <Keyboard
           onEsc={() => {
-            setShowLayer(false);
+            setFullscreen(false);
             setScreen(screens.laptop);
           }}
         >
-          <Layer full animation="fadeIn">
+          <Layer full>
             <Box fill background="background">
               <Box
                 direction="row"
@@ -219,19 +295,26 @@ export const Example = ({
                     controls={showResponsiveControls}
                     onSetScreen={setScreen}
                     screen={screen}
+                    fullscreen={fullscreen}
+                    setFullscreen={setFullscreen}
                   />
                 )}
                 <Button
-                  title="Leave full screen"
+                  tip="Leave Fullscreen"
                   icon={<Contract />}
                   onClick={() => {
-                    setShowLayer(false);
+                    setFullscreen(false);
                     setScreen(screens.laptop);
                   }}
                   hoverIndicator
                 />
               </Box>
               <Box
+                animation={{
+                  type: 'fadeIn',
+                  delay: 200,
+                  duration: 800,
+                }}
                 background={
                   ExampleWrapper === ResponsiveContainer && background
                     ? background
@@ -253,9 +336,9 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {React.cloneElement(children, {
+                      {cloneElement(children, {
                         containerRef: layerRef,
-                        designSystemDemo: showLayer,
+                        designSystemDemo: fullscreen,
                       })}
                     </ResponsiveContext.Provider>
                   </Box>
@@ -279,7 +362,7 @@ Example.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
-  caption: PropTypes.string,
+  caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
@@ -307,7 +390,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({ scale: PropTypes.number }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,

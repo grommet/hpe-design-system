@@ -1,150 +1,179 @@
-import { useContext } from 'react';
-import { Box, Grid, ResponsiveContext, Text } from 'grommet';
-import { ContentPreviewCard } from '../../components';
-import {
-  HeaderOnlyExample,
-  HeaderFooterExample,
-  StickyHeaderExample,
-  HeaderFooterPreview,
-  StickyHeaderPreview,
-  HeaderOnlyPreview,
-} from '../../examples';
+import { Box, Button, Text } from 'grommet';
+import { Clock, Figma, FormNext } from 'grommet-icons';
+import Link from 'next/link';
+
 import { Example } from '../../layouts';
-import { nameToSlug } from '../../utils';
+import { 
+  AppAnatomy, 
+  PageAnatomy, 
+  PageContainerFull, 
+  PageContainerInteractive, 
+  PageContainerNarrow, 
+  PageContainerWide 
+} from '../../examples';
 
-Here are some common layouts to get you started:
+<Button
+    icon={<Figma color="plain" />}
+    label="Open in Figma"
+    secondary
+    alignSelf="start"
+    href="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Layouts?node-id=1876%3A16251"
+    target="_blank"
+  />
 
-<LayoutPreviewGrid />
-
-## Guidance
-
-The when, how, and why to use page layouts.
-
-### About Page Layouts
-
-Choosing a page layout is an important first step in designing an application or website. Use of these layouts will help to maintain consistency across your design. They also provide visual guidance for how your design behaves at different screen sizes.
-
-**Common use cases include:**
-
-- Creating a dashboard with global navigation
-- Providing a dialog for viewing or updating something
-- Displaying a page in a website
-
-**Components used within a Page Layout:**
-
-Page Layouts are built using the [Header](/components/header) and [Main](/components/main) components, with optional [Footer](/components/footer) components. For guidance on page layout content, refer to the HPE Design System website pages for the components that make up your Page Layout.
-
-### Usage
-
-Page Layouts provide the basic structure for a variety of page types.
-
-- Page-level vertical scrolling is supported, but horizontal scrolling is not (and should be avoided, when possible).
-- Can be used with various [Navigation](/templates/navigation) patterns.
-- Are designed to be responsive, and thus behave well, regardless of the screen size they are displayed on.
-
-### Responsiveness
-
-Examples are included for different screen sizes – Desktop, Laptop and Mobile.
-
-Page content can expand to a max-width of 1440px and after that it stays centered. Specifically, the main, footer, and header are constrained to stay centered, with equal margins on both sides. This behavior is demonstrated visually when a user clicks on a Desktop example.
-
-### Accessibility
-
-The screen reader reads page content in the order it is specified. Refer to the code examples to see the order in which Page Layout components are specified.
-
-Specify page layout content so that it is understandable by the screen reader too. This should make the page easier to visually read as well.
-
-## Variants
-
-Examples of common page layouts.
-
-### Header and footer
-
-On both desktop and mobile, all content scrolls.
-
-The border around page sections is for demonstration purposes only. Remove border in production.
+## Elements of an App UI
+The User Interface (UI) for an HPE application consists of three 
+building blocks: App Container, Global Header and Footer, and 
+Page Container.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/HeaderFooterExample.js"
-  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6545"
-  relevantComponents={['Header', 'Footer', 'Main']}
-  width="100%"
-  screenContainer
+  caption='Diagram of the "building blocks" composing an application 
+    user interface: an App Container which contains the Global Header & Footer, and 
+    a Page Container.'
+  pad="none"
+  previewWidth="min-content"
 >
-  <HeaderFooterExample />
+  <AppAnatomy />
 </Example>
 
-### Sticky header
+1. **App Container**
+- The container serves as the outer shell of a page UI.
+- This is the parent component containing all HTML elements within a grid.
+- Its responsibility is to organize each of the page components, how they 
+relate to eachother, the spacing between each, and how they respond at 
+various screen widths.
 
-On both desktop and mobile, header is fixed to the top of the screen while main and footer are a scrollable region.
+2. **Global Header & Footer**  
+- The Global Header, also known as the [HPE Common Header and Footer 
+Web Service](/templates/global-header), provides a tunable, yet consistent 
+header and footer to be used across all HPE applications.
+- No matter the screen size, the Global Header & Footer will always be full 
+width, occupying as much space as available.
 
-The border around page sections is for demonstration purposes only. Remove border in production.
+3. **Page Container**  
+- The Page Container contains the Page Content and the Page Header.
+- It is responsible for the layout for the main content of a page. 
+- Page container width may be [Wide](#wide-default), [Narrow](#narrow), of [Full](#full).
+
+<Box direction="row" align="center" gap="xsmall">
+  <Clock />
+  <Text weight="bold" size="large">Coming soon:</Text>
+</Box>
+
+- Page Content Layout Templates for Dashboards, Wizards, Lists and Tables.
+- Updated guidance on [Page Headers](/components/header#page-header).
+
+## Page Container
+The Page Container is responsible for the layout for the main content of a page.
+It contains the Page Header and its Page Content.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/StickyHeaderExample.js"
-  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6540"
-  relevantComponents={['Header', 'Footer', 'Main']}
-  width="100%"
-  screenContainer
+  caption='Diagram of a Page Container which contains a Page Header 
+    and the Page Content.'
+  pad="none"
+  previewWidth="min-content"
 >
-  <StickyHeaderExample />
+  <PageAnatomy />
 </Example>
 
-### Header only
+### Page Container Widths
+There are 3 page container widths from which to choose, depending on 
+the layout use case: [Wide](#wide-default), [Narrow](#narrow) and [Full](#full). 
 
-On both desktop and mobile, all content scrolls.
+In all cases, the minimum width of content is `336px`, after which horizontal 
+scrolling is enabled.
 
-The border around page sections is for demonstration purposes only. Remove border in production.
+#### Wide (default)
+- This is the default width for the Page Container. 
+- Using the "wide" content width scales the Page Container until a maximum width of `1608px`. 
+- If the screen is larger than `1608px`, the Page Container will be center aligned and white space 
+will be displayed around the perimeter of the content. 
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/HeaderOnlyExample.js"
-  figma="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/App-Page-Layouts?node-id=90%3A6572"
-  relevantComponents={['Header', 'Main']}
-  width="100%"
-  screenContainer
+  caption='Diagram displaying how a "wide" Page Container scales horizontally relative to 
+    the App Container. The App Container fills the viewport while the "wide" 
+    Page Container reaches a maximum width.'
+  pad="none"
+  previewWidth="min-content"
 >
-  <HeaderOnlyExample />
+  <PageContainerWide />
 </Example>
 
-export const layouts = [
-  {
-    name: 'Header and footer',
-    preview: <HeaderFooterPreview />,
-  },
-  {
-    name: 'Sticky Header',
-    preview: <HeaderFooterPreview />,
-  },
-  {
-    name: 'Header only',
-    preview: <HeaderOnlyPreview />,
-  },
-];
+**Use cases include:**
+- Dashboards 
+- Tables 
+- Lists
+- Charts
 
-export const LayoutPreviewGrid = () => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Grid
-      columns={size !== 'small' ? 'medium' : '100%'}
-      rows={[['auto', 'full']]}
-      gap="medium"
-      justify="center"
-      fill
-    >
-      {layouts.map(layout => (
-        <ContentPreviewCard
-          as="a"
-          style={{ textDecoration: 'none' }}
-          href={`#${nameToSlug(layout.name)}`}
-        >
-          <Box height="small" width="100%" round="xsmall">
-            {layout.preview}
-          </Box>
-          <Text weight="bold" size="large" margin={{ top: 'small' }}>
-            {layout.name}
-          </Text>
-        </ContentPreviewCard>
-      ))}
-    </Grid>
-  );
-};
+#### Narrow
+- The "narrow" option scales the content width until a maximum width of `768px`. 
+- If the screen is wider than 768px, the Page Container will be center aligned 
+and white space will be displayed around the perimeter of the content. 
+
+<Example
+  caption='Diagram displaying how a "narrow" Page Container scales horizontally relative to 
+    the App Container. The App Container fills the viewport while the "narrow" 
+    Page Container reaches a maximum width.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerNarrow />
+</Example>
+
+**Use cases include:**
+- Wizards 
+- Articles 
+- Single task flows, such as forms
+- Admin and user settings
+
+#### Full
+- This option will automatically resize the container to fill the 
+screen displaying it.
+- With the "full" option, if the screen grows wider than the available content, the 
+Page Content will be left aligned to the edge of the screen.
+
+<Example
+  caption='Diagram displaying how a "full" Page Container scales horizontally relative to 
+    the App Container. Both the App Container and "full" Page Container fill the viewport.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerFull />
+</Example>
+
+**Use cases may include:**
+- Charts 
+- Maps 
+- Tables
+
+### Page Container Widths Demonstration
+
+Open the following example in "fullscreen mode" and resize your browser window to see how 
+each [page container width's](/templates/page-layouts#page-container-widths) maximum width, 
+contents padding, and alignment gracefully adjust across screens ranging from very narrow 
+to very wide. 
+
+<Example
+  screenContainer={{ scale: 0.5 }}
+  showResponsiveControls={['fullScreen']}
+  // height value chosen to best visually represent the page layout diagram concept
+  height={{min: '625px'}}
+  width="100%"
+>
+  <PageContainerInteractive />
+</Example>
+
+## Layouts for Page Content
+
+For specific guidelines and templates regarding Page Content, see [Content Layouts](/templates/content-layouts).
+
+<Link href="/templates/content-layouts" passHref>
+  <Button 
+    primary 
+    label="See Content Layouts" 
+    icon={<FormNext />} 
+    alignSelf="start" 
+    reverse 
+    size="large"
+  />
+</Link>

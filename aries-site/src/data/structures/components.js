@@ -534,6 +534,10 @@ export const components = [
       'Font weight',
       'Name-Value Aligment',
       'Controlling Name-Value Width',
+      'Name-Value Pair with Empty Value',
+      'When To Display “Empty value” Name-Value Pairs',
+      'When To Omit “Empty value” Name-Value Pairs',
+      'Accessibility for Name-Value Pairs with Empty Value',
     ],
     relatedContent: ['Grid', 'DataTable', 'Lists'],
     tags: [
@@ -710,6 +714,7 @@ export const components = [
       'Fixing header row and/or columns',
       'Column summaries & aggregation',
       'Use pagination or infinite scroll with DataTables',
+      'Handling Empty Cells',
     ],
     tags: [
       'data table',
@@ -772,6 +777,8 @@ export const components = [
       'Name-Value Pair Tags',
       'Creating Name-Value Pair Tags',
       'Assigning Tags',
+      'Assigning Value-only Tags',
+      'Assigning Name-Value Tags',
       'Filtering with Tags',
       'Filtering with Tags on a Detail Page',
       'Filtering with Tags on a Summary Page',

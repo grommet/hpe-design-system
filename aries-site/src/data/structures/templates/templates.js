@@ -1,10 +1,159 @@
 import {
+  ContentLayoutPreview,
   CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
-} from '../../examples/cardPreviews';
+} from '../../../examples/cardPreviews';
 
 export const templates = [
+  {
+    name: 'Ascending Navigation',
+    available: true,
+    cardOrder: 101,
+    description: `The Ascending Button for Navigation allows
+    the user to navigate to a parent page from a child page
+    by moving upward in the application or website hierarchy.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/ascending-navigation.svg',
+          dark: '/templateImages/ascending-navigation-invert.svg',
+        },
+        alt: 'Ascending navigation diagram',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows the user to navigate to a parent 
+     page from a child page by moving upward in the application
+     or website hierarchy.`,
+    sections: ['Guidance', 'When to use', 'Ascending Navigation Example'],
+    relatedContent: [
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+      'Drill Down Navigation',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Content Layouts',
+    available: true,
+    cardOrder: 3,
+    description: `Creating responsive, adaptable content layouts is central to 
+    the user experience.`,
+    seoDescription: `Creating responsive, adaptable content layouts is central 
+    to the user experience.`,
+    preview: {
+      component: () => <ContentLayoutPreview />,
+      background: 'background-front',
+    },
+    sections: [
+      'Designing for Responsiveness',
+      'Prioritizing Content Needs',
+      'Breakpoints',
+      'Page Margin',
+      'Templates',
+      'Single Column Layouts',
+      '2 Column Layouts',
+      '3 Column Layouts',
+      'Multi-column Layout',
+    ],
+    tags: ['content', 'layout', 'page layouts', 'responsiveness', 'responsive'],
+    relatedContent: ['Page Layouts'],
+  },
+  {
+    name: 'Dashboards',
+    available: true,
+    cardOrder: 100,
+    description: `At-a-glance preview for operation critical information 
+    with easy access to areas requiring attention.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-dashboard.svg',
+          dark: '/templateImages/template-preview-dashboard-invert.svg',
+        },
+        alt: 'HPE Dashboards Preview',
+      },
+    },
+    seoDescription: `HPE Design System dashboard template for screens 
+    featuring content within cards.`,
+    sections: [],
+    relatedContent: ['Card', 'Lists', 'Grid'],
+    tags: [],
+  },
+  {
+    name: 'Drill Down Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `Allows users to progressively descend 'down'
+     branches of a hierarchical tree into a child 
+    screen to drill down into more granular details.
+    `,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/DrillDown.svg',
+          dark: '/templateImages/DrillDown-invert.svg',
+        },
+        alt: 'HPE Dashboards Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to progressively descend 'down'
+    branches of a hierarchical tree into a child 
+   screen to drill down into more granular details.
+   `,
+    sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
+    relatedContent: [
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Filtering',
+    available: true,
+    cardOrder: 4,
+    description: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    preview: {
+      image: {
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
+        src: {
+          light: '/templateImages/template-preview-filtering.svg',
+          dark: '/templateImages/template-preview-filtering-invert.svg',
+        },
+      },
+    },
+    seoDescription: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    sections: [
+      'What makes up filtering',
+      'Filters',
+      'Filters in a center Layer',
+      'Filtering with selectable results',
+      'More examples of filtering',
+      'Filtering with RangeSelector',
+      'Filtering with Select',
+    ],
+    relatedContent: ['DataTable', 'Lists', 'Card'],
+    tags: [
+      'filter controls',
+      'table filter',
+      'list filter',
+      'card filter',
+      'search table',
+      'filters layer',
+      'filter guidelines',
+      'filtered results',
+      'pagination',
+      'results',
+      'filters',
+    ],
+  },
   {
     name: 'Forms',
     available: true,
@@ -51,99 +200,9 @@ export const templates = [
     tags: ['forms', 'validation', 'messaging', 'form examples'],
   },
   {
-    name: 'Dashboards',
-    available: true,
-    cardOrder: 100,
-    description: `At-a-glance preview for operation critical information 
-    with easy access to areas requiring attention.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-dashboard.svg',
-          dark: '/templateImages/template-preview-dashboard-invert.svg',
-        },
-        alt: 'HPE Dashboards Preview',
-      },
-    },
-    seoDescription: `HPE Design System dashboard template for screens 
-    featuring content within cards.`,
-    sections: [],
-    relatedContent: ['Card', 'Lists', 'Grid'],
-    tags: [],
-  },
-  {
-    name: 'Drill Down Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `Allows users to descend 'down' branches of a hierarchical
-     tree into a child screen to drill down into details.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/DrillDown.svg',
-          dark: '/templateImages/DrillDown-invert.svg',
-        },
-        alt: 'HPE Dashboards Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Allows users to descend 'down' branches of a
-     hierarchical tree into a child screen to drill down into details.`,
-    sections: [],
-    relatedContent: [
-      'Navigation',
-      'Side to Side Navigation',
-      'Reverse Navigation',
-      'Matrix Navigation',
-    ],
-    tags: [],
-  },
-  {
-    name: 'Filtering',
-    available: true,
-    cardOrder: 3,
-    description: `Allows users to create a focused data set by specifying 
-    data attributes and values of interest.`,
-    preview: {
-      image: {
-        alt: 'HPE Filtering Preview',
-        fit: 'contain',
-        src: {
-          light: '/templateImages/template-preview-filtering.svg',
-          dark: '/templateImages/template-preview-filtering-invert.svg',
-        },
-      },
-    },
-    seoDescription: `Allows users to create a focused data set by specifying 
-    data attributes and values of interest.`,
-    sections: [
-      'What makes up filtering',
-      'Filters',
-      'Filters in a center Layer',
-      'Filtering with selectable results',
-      'More examples of filtering',
-      'Filtering with RangeSelector',
-      'Filtering with Select',
-    ],
-    relatedContent: ['DataTable', 'Lists', 'Card'],
-    tags: [
-      'filter controls',
-      'table filter',
-      'list filter',
-      'card filter',
-      'search table',
-      'filters layer',
-      'filter guidelines',
-      'filtered results',
-      'pagination',
-      'results',
-      'filters',
-    ],
-  },
-  {
     name: 'Global Header',
     available: true,
-    cardOrder: 7,
+    cardOrder: 8,
     description: `A standardized header for use when building applications and 
     services that live in the HPE ecosystem.`,
     preview: {
@@ -262,9 +321,9 @@ export const templates = [
   },
   {
     name: 'Matrix Navigation',
-    description: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    description: `Matrix Navigation is not a path 
+    that you can define for the user,
+    rather the user defines it themselves.`,
     available: true,
     cardOrder: 100,
     preview: {
@@ -279,14 +338,19 @@ export const templates = [
       },
     },
     relatedContent: [],
-    seoDescription: `Allows user to move back through previous
-    screens chronologically as you would on a browser
-    hierarchically within an application or website.`,
+    seoDescription: `Martix Navigation is not a path that
+    you can define for the user,
+    rather the user defines it themselves.`,
+    sections: [
+      'When a User would Use',
+      'Matrix within a Music App Example',
+      'Matrix within App Example',
+    ],
   },
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 4,
+    cardOrder: 5,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {
@@ -301,15 +365,16 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: ['Header'],
+    relatedContent: [],
     tags: ['navigation patterns'],
   },
   {
     name: 'Page Layouts',
     available: true,
     cardOrder: 2,
-    description: `Page layout options, anatomies, and behaviors serving a wide 
-    variety of enterprise application, workflow, and marketing contexts.`,
+    description: `Choosing a layout is an important first step in designing 
+    a user interface. These guidelines will help create a consistent user 
+    experience across HPE applications and services.`,
     preview: {
       image: {
         src: {
@@ -331,11 +396,12 @@ export const templates = [
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [
-      'About Page Layouts',
-      'Responsiveness',
-      'Header and footer',
-      'Sticky header',
-      'Header only',
+      'Elements of an App UI',
+      'Page Container',
+      'Page Container Widths',
+      'Wide (default)',
+      'Narrow',
+      'Full',
     ],
     tags: [
       'common layouts',
@@ -344,37 +410,8 @@ export const templates = [
       'shells',
       'application layouts',
       'app layouts',
+      'page layouts',
     ],
-  },
-  {
-    name: 'Reverse Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    preview: {
-      pad: { horizontal: 'small' },
-      image: {
-        src: {
-          light: '/templateImages/ReverseNavigation.svg',
-          dark: '/templateImages/ReverseNavigation-invert.svg',
-        },
-        alt: 'Reverse Navigation Navigation Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Allows user to move back through previous screens
-    chronologically as you would on a browser hierarchically within
-    an application or website.`,
-    relatedContent: [
-      'Navigation',
-      'Drill Down Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
-    ],
-    sections: [],
-    tags: [],
   },
   {
     name: 'Side to Side Navigation',
@@ -398,11 +435,19 @@ export const templates = [
     relatedContent: [
       'Navigation',
       'Drill Down Navigation',
-      'Reverse Navigation',
       'Matrix Navigation',
+      'Tabs',
     ],
-    sections: [],
-    tags: [],
+    sections: [
+      'When to use',
+      'HPE Local Header Example',
+      'HPE Global Header Example',
+      'Header Guidelines',
+      'Persistent Sidebar',
+      'Tabs Example',
+      'Tabs Guidelines',
+    ],
+    tags: ['navigation', 'lateral', 'peer', 'peer to peer', 'sibling'],
   },
   {
     name: 'Status Indicator',
@@ -497,7 +542,7 @@ export const templates = [
   {
     name: 'Wizard',
     available: true,
-    cardOrder: 5,
+    cardOrder: 6,
     description: 'Wizards are an effective way to handle multi-step forms.',
     preview: {
       image: {
