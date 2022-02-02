@@ -1,10 +1,12 @@
-import { DashboardExample } from '../../examples';
+import { DashboardExample, TwoColumnDashboard } from '../../examples';
 import { Example } from '../../layouts';
 
 <Example
   code={[
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/DashboardExample.js",  
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/components/DashboardGrid.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/components/DashboardFooter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/components/Greeting.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/components/DashboardCard.js", 
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/components/data.js", 
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-header/components/GlobalHeader.js",
@@ -39,3 +41,15 @@ Consider:
 - less detail
 - fewer colors (ex: show 4 pie chart sections and a 5th for other)
 - larger items and fewer items
+
+## Dashboard Templates
+
+### Two Column Dashboard
+
+<Example
+  screenContainer={{ scale: 0.5 }}
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+>
+  <TwoColumnDashboard />
+</Example>
