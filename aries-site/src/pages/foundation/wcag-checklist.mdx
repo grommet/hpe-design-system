@@ -1,0 +1,85 @@
+import { Checklist } from '../../components';
+
+There are three levels of compliance in the Web Content Accessibility Guidelines (WCAG) which reflect the priority of support:
+
+1. **A: Essential**
+   - If this is not met, assistive technologies will not be able to aid in reading, understanding or operating the page or product.
+2. **AA: Ideal Support**
+   - Required for multiple government and public websites. HPE strives for Level A and AA coverage on all products.
+3. **AAA: Specialized Support**
+   - Usually reserved for websites and applications that serve a specialized audience.
+
+### Success Criteria
+
+Each item on the checklist refers to a specific, testable success criterion within the WCAG 2.1 described by a reference number and title. Some accessibility issues align with multiple rules. In these cases, the most relevant criterion is identified for the checklist item.
+
+### Does this checklist guarantee a product is fully accessible?
+
+No. There is no such thing as a "100%" accessible product. However, this checklist prompts designers and developers to check for coverage of a wide range of disability conditions. Addressing these issues will improve experiences for all users who access your product and increase overall accessibility.
+
+## Global Code
+
+Global code affects an entire website or product application.
+
+export const globalCodeOptionsObjects = [
+  {
+    value: 'Validate your HTML by avoiding significant parsing errors.',
+    description:
+      'Validating your HTML helps to provide a consistent, expected experience across all browsers and assistive technologies.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/parsing',
+    number: '4.1.1: Parsing',
+  },
+  {
+    value: 'Use a lang attribute on the <html> element.',
+    description:
+      'This allows assistive technologies such as screen readers to pronounce content correctly.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/language-of-page',
+    number: '3.1.1: Language of Page',
+  },
+  {
+    value:
+      'Provide a descriptive and informative <title> element for each page.',
+    description:
+      "The <title> element, found in the document's head element, is most often the first information announced by assistive technologies. A specific and helpful <title> element will help users find content and orient themselves within it to begin navigating on the page.",
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/page-titled',
+    number: '2.4.2: Page Title',
+  },
+  {
+    value: 'Ensure that viewport zoom is not disabled.',
+    description:
+      'Visually rendered text, including text-based controls, should be scalable by the user, so that they can best see and read content.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/resize-text',
+    number: '1.4.4: Resize Text',
+  },
+  {
+    value:
+      'Use landmark elements to help identify significant content regions of a page.',
+    description:
+      "Landmark regions help communicate the layout and important areas of a page. Identifying them correctly can help users quickly access these regions. For example, use the <nav> element to wrap a page's navigation and the <main> element for the page's primary content.",
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/name-role-value',
+    number: '4.1.2: Name, Role, Value',
+  },
+  {
+    value: 'Ensure content can be navigated in a linear flow.',
+    description:
+      'When users navigate sequentially through content, they should encounter information in an order that is consistent with the meaning of the page. Remove tabindex attribute values that are not either 0 or -1. Elements that are inherently focusable, such as links or button elements, do not require a tabindex. Elements that are not inherently focusable should not have a tabindex.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/focus-order',
+    number: '2.4.3: Focus Order',
+  },
+  {
+    value: 'Avoid use of the autofocus attribute.',
+    description:
+      'People who use assistive technologies may be confused or disoriented when focus is moved without action on their end. Using autofocus may also cause extra work for users to navigate out of the focused area and to other parts of the page.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/focus-order',
+    number: '2.4.3: Focus Order',
+  },
+  {
+    value: 'Allow users to extend session timeouts.',
+    description:
+      'Users need to be given an adequate amount of time to interact with the content of a page. If web functions are time-dependent, users will be unable to perform certain actions. If you cannot remove session timeouts altogether, then allow for users to easily adjust or turn off their session before it ends.',
+    link: 'https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable',
+    number: '2.2.1',
+  },
+];
+
+<Checklist optionsObjects={globalCodeOptionsObjects} />

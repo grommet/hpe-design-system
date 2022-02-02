@@ -1,3 +1,5 @@
+import { Sort } from 'grommet-icons';
+
 export const foundation = [
   {
     name: 'Accessibility',
@@ -40,6 +42,25 @@ export const foundation = [
       'colorblind',
       'testing tools',
     ],
+    relatedContent: ['WCAG Checklist'],
+  },
+  {
+    name: 'WCAG Checklist',
+    category: 'Philosophy',
+    cardOrder: 3,
+    description: `A checklist for ensuring a product's accessibility is up
+    to WCAG 2.1 standards.`,
+    preview: {
+      component: () => <Sort size='xlarge' color='text-strong' />,
+    },
+    seoDescription: `A checklist for ensuring a product's accessibility is up
+    to WCAG 2.1 standards.`,
+    tags: [
+      'accessibility',
+      'accessibility resources',
+      'WCAG',
+    ],
+    relatedContent: ['Accessibility'],
   },
   {
     name: 'Our Brand',
