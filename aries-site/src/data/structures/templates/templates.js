@@ -336,7 +336,7 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: ['Header'],
+    relatedContent: [],
     tags: ['navigation patterns'],
   },
   {
