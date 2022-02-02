@@ -1,17 +1,17 @@
 import { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { Box, NameValuePair, Text } from 'grommet';
+import { Box, Button, NameValuePair, Text } from 'grommet';
 
 export const Measure = ({ name, value, onClick }) => {
-  const { icon, label } = name;
-  const adjIcon = cloneElement(icon, { size: 'small' });
+  const { icon: iconProp, label } = name;
+  const icon = cloneElement(iconProp, { size: 'small' });
 
   return (
-    <Box onClick={onClick}>
+    <Button onClick={onClick}>
       <NameValuePair
         name={
           <Box direction="row" align="center" gap="small">
-            {adjIcon}
+            {icon}
             {label}
           </Box>
         }
@@ -20,7 +20,7 @@ export const Measure = ({ name, value, onClick }) => {
           {value}
         </Text>
       </NameValuePair>
-    </Box>
+    </Button>
   );
 };
 

@@ -10,7 +10,7 @@ export const Greeting = () => {
         <Heading color="text-strong" margin="none">
           Hello, {user.firstName}!
         </Heading>
-        <Text size="large">Welcome to the HPE Common Cloud Console</Text>
+        <Text size="large">Welcome to the HPE Common Cloud Console.</Text>
       </Box>
     </Header>
   );
