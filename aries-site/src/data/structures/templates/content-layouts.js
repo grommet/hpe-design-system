@@ -48,7 +48,7 @@ export const contentLayouts = [
         fit: 'contain',
       },
     },
-    href: '/templates/dashboards',
+    href: '/templates/dashboards#two-column-dashboard',
   },
   {
     name: '2 Column - Wizard',
