@@ -1,5 +1,15 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Header, Heading, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Grid,
+  Header,
+  Heading,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
 import {
   AppContainer,
   PageContainer,
@@ -19,11 +29,13 @@ export const ResponsiveContentLayoutExample = () => (
 );
 
 const PageHeader = () => {
+  const size = useContext(ResponsiveContext);
   const { pad } = useContext(PageContainerContext);
   return (
     <Header pad={pad}>
       <Heading level={1} margin="none" size="small">
-        Dashboard
+        {/* for dev purposes, will be replaced with dashboard content */}
+        Dashboard @ '{size}' Breakpoint
       </Heading>
     </Header>
   );
@@ -83,10 +95,19 @@ const PageContent = () => {
       {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
       <Grid gap={firstChildGrid.gap}>
         <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-          <ContentBlock
-            title="2"
-            height={size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'}
-          />
+          {/* Card is for demonstrating scaled heading and text.
+          Will be replaced with dashboard content in subsequent pull request.
+           */}
+          <Card>
+            <CardHeader>
+              <Heading level={2} size="small" margin="none">
+                Scaled H2, size 'small'
+              </Heading>
+            </CardHeader>
+            <CardBody>
+              <Text>Scaled Text</Text>
+            </CardBody>
+          </Card>
           <ContentBlock
             title="3"
             height={size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'}

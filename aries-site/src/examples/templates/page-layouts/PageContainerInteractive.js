@@ -27,7 +27,6 @@ export const PageContainerInteractive = () => {
    * Spacing is executed as the padding on each child to allow background
    * colors and scroll regions to behave properly.
    */
-  // const containerPad = pageContainer.pad[size];
   const { pad: containerPad } = useContext(PageContainerContext);
 
   return (
