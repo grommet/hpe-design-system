@@ -7,6 +7,7 @@ import {
   Grid,
   Header,
   Heading,
+  Main,
   ResponsiveContext,
   Text,
 } from 'grommet';
@@ -30,9 +31,9 @@ export const ResponsiveContentLayoutExample = () => (
 
 const PageHeader = () => {
   const size = useContext(ResponsiveContext);
-  const { pad } = useContext(PageContainerContext);
+  const { ...pageContainer } = useContext(PageContainerContext);
   return (
-    <Header pad={pad}>
+    <Header {...pageContainer}>
       <Heading level={1} margin="none" size="small">
         {/* for dev purposes, will be replaced with dashboard content */}
         Dashboard @ '{size}' Breakpoint
@@ -82,49 +83,51 @@ const secondChildGrid = {
 
 const PageContent = () => {
   const size = useContext(ResponsiveContext);
-  const { pad } = useContext(PageContainerContext);
+  const { ...pageContainer } = useContext(PageContainerContext);
 
   return (
-    <Grid
-      gap={parentGrid.gap[size]}
-      columns={parentGrid.columns[size]}
-      pad={pad}
-    >
-      {/* Content Block 1 is top priority content. At narrow breakpoints, place 
-      as first content element. Otherwise, place in second column. */}
-      {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
-      <Grid gap={firstChildGrid.gap}>
-        <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-          {/* Card is for demonstrating scaled heading and text.
-          Will be replaced with dashboard content in subsequent pull request.
-           */}
-          <Card>
-            <CardHeader>
-              <Heading level={2} size="small" margin="none">
-                Scaled H2, size 'small'
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              <Text>Scaled Text</Text>
-            </CardBody>
-          </Card>
-          <ContentBlock
-            title="3"
-            height={size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'}
-          />
+    <Main {...pageContainer}>
+      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+        {/* Content Block 1 is top priority content. At narrow breakpoints, 
+        place as first content element. Otherwise, place in second column. */}
+        {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
+        <Grid gap={firstChildGrid.gap}>
+          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
+            {/* Card is for demonstrating scaled heading and text. Will be 
+            replaced with dashboard content in subsequent pull request. */}
+            <Card>
+              <CardHeader>
+                <Heading level={2} size="small" margin="none">
+                  Scaled H2, size 'small'
+                </Heading>
+              </CardHeader>
+              <CardBody>
+                <Text>Scaled Text</Text>
+              </CardBody>
+            </Card>
+            <ContentBlock
+              title="3"
+              height={
+                size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'
+              }
+            />
+          </Grid>
+          <Grid
+            columns={secondChildGrid.columns[size]}
+            gap={secondChildGrid.gap}
+          >
+            <Box gap={secondChildGrid.gap}>
+              <ContentBlock title="4" />
+              <ContentBlock title="5" />
+            </Box>
+            <ContentBlock title="6" fill="vertical" />
+          </Grid>
         </Grid>
-        <Grid columns={secondChildGrid.columns[size]} gap={secondChildGrid.gap}>
-          <Box gap={secondChildGrid.gap}>
-            <ContentBlock title="4" />
-            <ContentBlock title="5" />
-          </Box>
-          <ContentBlock title="6" fill="vertical" />
-        </Grid>
+        {size !== 'small' && size !== 'xsmall' && (
+          <ContentBlock title="1" fill="vertical" />
+        )}
       </Grid>
-      {size !== 'small' && size !== 'xsmall' && (
-        <ContentBlock title="1" fill="vertical" />
-      )}
-    </Grid>
+    </Main>
   );
 };
 

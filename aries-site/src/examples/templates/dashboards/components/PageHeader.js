@@ -5,9 +5,9 @@ import { Header, Heading } from 'grommet';
 import { PageContainerContext } from '../../page-layouts';
 
 export const PageHeader = ({ title }) => {
-  const { pad } = useContext(PageContainerContext);
+  const { ...pageContainer } = useContext(PageContainerContext);
   return (
-    <Header pad={pad}>
+    <Header {...pageContainer}>
       <Heading level={1} margin="none" size="small">
         {title}
       </Heading>

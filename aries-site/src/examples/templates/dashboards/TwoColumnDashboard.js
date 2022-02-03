@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid, Main, ResponsiveContext } from 'grommet';
 import {
   AppContainer,
   PageContainer,
@@ -61,37 +61,40 @@ const secondChildGrid = {
 
 const PageContent = () => {
   const size = useContext(ResponsiveContext);
-  const { pad } = useContext(PageContainerContext);
+  const { ...pageContainer } = useContext(PageContainerContext);
 
   return (
-    <Grid
-      gap={parentGrid.gap[size]}
-      columns={parentGrid.columns[size]}
-      pad={pad}
-    >
-      {/* Content Block 1 is top priority content. At narrow breakpoints, place 
-      as first content element. Otherwise, place in second column. */}
-      {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
-      <Grid gap={firstChildGrid.gap}>
-        <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-          <ServerHealth />
-          <ContentBlock
-            title="3"
-            height={size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'}
-          />
+    <Main {...pageContainer}>
+      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+        {/* Content Block 1 is top priority content. At narrow breakpoints, 
+        place as first content element. Otherwise, place in second column. */}
+        {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
+        <Grid gap={firstChildGrid.gap}>
+          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
+            <ServerHealth />
+            <ContentBlock
+              title="3"
+              height={
+                size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'
+              }
+            />
+          </Grid>
+          <Grid
+            columns={secondChildGrid.columns[size]}
+            gap={secondChildGrid.gap}
+          >
+            <Box gap={secondChildGrid.gap}>
+              <ContentBlock title="4" />
+              <ContentBlock title="5" />
+            </Box>
+            <ContentBlock title="6" fill="vertical" />
+          </Grid>
         </Grid>
-        <Grid columns={secondChildGrid.columns[size]} gap={secondChildGrid.gap}>
-          <Box gap={secondChildGrid.gap}>
-            <ContentBlock title="4" />
-            <ContentBlock title="5" />
-          </Box>
-          <ContentBlock title="6" fill="vertical" />
-        </Grid>
+        {size !== 'small' && size !== 'xsmall' && (
+          <ContentBlock title="1" fill="vertical" />
+        )}
       </Grid>
-      {size !== 'small' && size !== 'xsmall' && (
-        <ContentBlock title="1" fill="vertical" />
-      )}
-    </Grid>
+    </Main>
   );
 };
 
