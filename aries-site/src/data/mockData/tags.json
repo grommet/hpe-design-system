@@ -1,0 +1,78 @@
+{
+  "tags": {
+    "next": null,
+    "count": 14,
+    "items": [
+      {
+        "key": "location",
+        "value": "cupertino",
+        "resourceType": "group"
+      },
+      {
+        "key": "location",
+        "value": "san jose",
+        "resourceType": "group"
+      },
+      {
+        "key": "deployment",
+        "value": "production",
+        "resourceType": "group"
+      },
+      {
+        "key": "deployment",
+        "value": "staging",
+        "resourceType": "group"
+      },
+      {
+        "key": "deployment",
+        "value": "qa",
+        "resourceType": "group"
+      },
+      {
+        "key": "department",
+        "value": "finance",
+        "resourceType": "group"
+      },
+      {
+        "key": "department",
+        "value": "sales",
+        "resourceType": "group"
+      },
+      {
+        "key": "application",
+        "value": "crm",
+        "resourceType": "group"
+      },
+      {
+        "key": "application",
+        "value": "point of sale",
+        "resourceType": "group"
+      },
+      {
+        "key": "application",
+        "value": "erp",
+        "resourceType": "group"
+      },
+      {
+        "key": "application",
+        "value": "inventory management",
+        "resourceType": "group"
+      },
+      {
+        "key": "application",
+        "value": "fleet scheduling",
+        "resourceType": "group"
+      },
+      {
+        "key": "timezone",
+        "value": "pacific",
+        "resourceType": "device"
+      },
+      {
+        "key": "timezone",
+        "value": "mountain",
+        "resourceType": "device"
+      }
+    ]
+  }
+}

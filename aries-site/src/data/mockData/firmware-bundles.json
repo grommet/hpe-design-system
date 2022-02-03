@@ -1,0 +1,158 @@
+{
+  "firmwareDisplayName-counts": {
+    "field": "firmwareDisplayName",
+    "counts": {
+      "2020.03.2(18 Sept 2020)": 3,
+      "": 47
+    }
+  },
+  "firmware-bundles": {
+    "start": 0,
+    "count": 5,
+    "total": 5,
+    "items": [
+      {
+        "id": "00e9b372691ced279d92b5827d360997",
+        "selfUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
+        "name": "Service Pack for ProLiant",
+        "displayName": "2021.04.0(10 Apr 2021)",
+        "description": "The Service Pack for ProLiant (SPP) is a comprehensive systems software and firmware update solution, which is delivered as a single ISO image. This Solution uses Smart Update Manager (SUM) as the deployment tool and is tested on all HPE ProLiant Gen9 and Gen10 servers as defined in the Service Pack for ProLiant Server Support Guide found at www.hpe.com/servers/spp/documentation.",
+        "releaseDate": "2021-04-10T00:00:00",
+        "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
+        "type": "base",
+        "hotfixBaseUri": null,
+        "releaseVersion": "2021.04.0",
+        "releaseNotes": "<p>Recommended to upgrade to 2020.09.1 version. For more details&nbsp;please refer to below Custom Bulletin and Customer Advisory section.</p><ul> <li>Customer Bulletin &amp; Customer Advisory <ul>  <li>2020.09.1 SPP addresses:  <ul>   <li>Critical Firmware Upgrade Required for Certain HPE NVMe Solid State Drive Models to Prevent Drive Failure After 4700 Hours of Operation. For additional information, please refer&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00111900en_us\">Customer Bulletin a00111900en_us</a></li>   <li>UEFI Secure Boot Evasion Vulnerability (aka BootHole Vulnerability) CVE-2020-10713, CVE-2020-15705 and CVE-2020-7205.&nbsp;&nbsp;For additional information, please refer <a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00102358en_us\">Customer Bulletin a00102358en_us</a></li>  </ul>  </li>  <li>2020.03.2 SPP and later contains all&nbsp;updates pertaining to&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00097789en_us\" target=\"_blank\">Customer Bulletin&nbsp;a00097789en_us</a>&nbsp;with the exception of the HPE Smart Array S100i SR Gen10 SW RAID Driver for Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 v106.12.6.0.&nbsp; This driver can be found on HPE.com and on Custom Download.</li>  <li>When using HPE OneView prior to version 5.00.00 and&nbsp;2020.03.2 SPP and later, an error may be seen during FW update of iLO5. For additional information, please&nbsp;refer&nbsp;<a href=\"https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00094676en_us\">Customer Advisory a00094676en_us</a>.</li> </ul> </li> <li>HPE StoreOnce Customers &ndash; Installation of the SPP can cause problems on StoreOnce systems.&nbsp; Please go to the HPE Support Center at <a href=\"https://support.hpe.com/hpesc/public/home/result?qt=storeonce\">https://support.hpe.com/hpesc/public/home/result?qt=storeonce</a> to find the appropriate StoreOnce update.&nbsp;</li> <li>Components for the&nbsp;G7 and Gen8 server platforms&nbsp;are available in the Post-Production SPPs and can be downloaded from <a href=\"https://www.hpe.com/servers/SPP/download\">www.hpe.com/servers/SPP/download</a>.&nbsp;For additional information, please refer to <a href=\"https://downloads.hpe.com/pub/softlib2/software1/doc/p35024129/v143014/SPP_Reducing_Server_Updates.pdf\">Reducing Server Updates</a>.&nbsp;</li></ul><p style=\"margin-left:0in; margin-right:0in\"><u><strong>Note</strong></u>: Products sold prior to the separation of Hewlett-Packard Company into Hewlett Packard Enterprise Company and HP Inc. on November 1, 2015 may have a product name and model number that differ from current models.</p>",
+        "supportUrl": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/",
+        "enhancements": "",
+        "advisories": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/index.aspx?version=2021.05.0#tab=TAB2",
+        "supportedOsList": [
+          "Microsoft Windows Server 2012 R2",
+          "Microsoft Windows Server 2016",
+          "Microsoft Windows Server 2019",
+          "Red Hat Enterprise Linux 7 Server",
+          "Red Hat Enterprise Linux 8 Server",
+          "SUSE Linux Enterprise Server 12",
+          "SUSE Linux Enterprise Server 15",
+          "VMware vSphere 6.5",
+          "VMware vSphere 6.7",
+          "VMware ESXi 7.0"
+        ],
+        "isActive": true
+      },
+      {
+        "id": "1949ad1a5cc488fbdbe751863b6b8376",
+        "selfUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
+        "name": "Service Pack for ProLiant",
+        "displayName": "2020.09.1(22 Apr 2021)",
+        "description": "The Service Pack for ProLiant (SPP) is a comprehensive systems software and firmware update solution, which is delivered as a single ISO image. This Solution uses Smart Update Manager (SUM) as the deployment tool and is tested on all HPE ProLiant Gen9 and Gen10 servers as defined in the Service Pack for ProLiant Server Support Guide found at www.hpe.com/servers/spp/documentation.",
+        "releaseDate": "2021-04-22T11:16:43",
+        "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
+        "type": "base",
+        "hotfixBaseUri": null,
+        "releaseVersion": "2020.09.1",
+        "releaseNotes": "<p>Recommended to upgrade to 2020.09.1 version. For more details&nbsp;please refer to below Custom Bulletin and Customer Advisory section.</p><ul> <li>Customer Bulletin &amp; Customer Advisory <ul>  <li>2020.09.1 SPP addresses:  <ul>   <li>Critical Firmware Upgrade Required for Certain HPE NVMe Solid State Drive Models to Prevent Drive Failure After 4700 Hours of Operation. For additional information, please refer&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00111900en_us\">Customer Bulletin a00111900en_us</a></li>   <li>UEFI Secure Boot Evasion Vulnerability (aka BootHole Vulnerability) CVE-2020-10713, CVE-2020-15705 and CVE-2020-7205.&nbsp;&nbsp;For additional information, please refer <a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00102358en_us\">Customer Bulletin a00102358en_us</a></li>  </ul>  </li>  <li>2020.03.2 SPP and later contains all&nbsp;updates pertaining to&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00097789en_us\" target=\"_blank\">Customer Bulletin&nbsp;a00097789en_us</a>&nbsp;with the exception of the HPE Smart Array S100i SR Gen10 SW RAID Driver for Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 v106.12.6.0.&nbsp; This driver can be found on HPE.com and on Custom Download.</li>  <li>When using HPE OneView prior to version 5.00.00 and&nbsp;2020.03.2 SPP and later, an error may be seen during FW update of iLO5. For additional information, please&nbsp;refer&nbsp;<a href=\"https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00094676en_us\">Customer Advisory a00094676en_us</a>.</li> </ul> </li> <li>HPE StoreOnce Customers &ndash; Installation of the SPP can cause problems on StoreOnce systems.&nbsp; Please go to the HPE Support Center at <a href=\"https://support.hpe.com/hpesc/public/home/result?qt=storeonce\">https://support.hpe.com/hpesc/public/home/result?qt=storeonce</a> to find the appropriate StoreOnce update.&nbsp;</li> <li>Components for the&nbsp;G7 and Gen8 server platforms&nbsp;are available in the Post-Production SPPs and can be downloaded from <a href=\"https://www.hpe.com/servers/SPP/download\">www.hpe.com/servers/SPP/download</a>.&nbsp;For additional information, please refer to <a href=\"https://downloads.hpe.com/pub/softlib2/software1/doc/p35024129/v143014/SPP_Reducing_Server_Updates.pdf\">Reducing Server Updates</a>.&nbsp;</li></ul><p style=\"margin-left:0in; margin-right:0in\"><u><strong>Note</strong></u>: Products sold prior to the separation of Hewlett-Packard Company into Hewlett Packard Enterprise Company and HP Inc. on November 1, 2015 may have a product name and model number that differ from current models.</p>",
+        "supportUrl": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/",
+        "enhancements": "",
+        "advisories": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/index.aspx?version=2020.09.1#tab=TAB2",
+        "supportedOsList": [
+          "Microsoft Windows Server 2012 R2",
+          "Microsoft Windows Server 2016",
+          "Microsoft Windows Server 2019",
+          "Red Hat Enterprise Linux 7 Server",
+          "Red Hat Enterprise Linux 8 Server",
+          "SUSE Linux Enterprise Server 12",
+          "SUSE Linux Enterprise Server 15",
+          "VMware vSphere 6.5",
+          "VMware vSphere 6.7",
+          "VMware ESXi 7.0"
+        ],
+        "isActive": true
+      },
+      {
+        "id": "dc7d55d03a624a6876174c9e2e79c8fe",
+        "selfUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
+        "name": "Hot Fix Supplement for SPP 2020.09.1",
+        "displayName": "2020.09.1(09 Dec 2020)",
+        "description": "Nov 2020 Hotfix Supplement for SPP 2020.09.0",
+        "releaseDate": "2020-12-09T04:15:51",
+        "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
+        "type": "hotfix",
+        "hotfixBaseUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
+        "releaseVersion": "2020.09.1",
+        "releaseNotes": "<p>Recommended to upgrade to 2020.09.1 version. For more details&nbsp;please refer to below Custom Bulletin and Customer Advisory section.</p><ul> <li>Customer Bulletin &amp; Customer Advisory <ul>  <li>2020.09.1 SPP addresses:  <ul>   <li>Critical Firmware Upgrade Required for Certain HPE NVMe Solid State Drive Models to Prevent Drive Failure After 4700 Hours of Operation. For additional information, please refer&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00111900en_us\">Customer Bulletin a00111900en_us</a></li>   <li>UEFI Secure Boot Evasion Vulnerability (aka BootHole Vulnerability) CVE-2020-10713, CVE-2020-15705 and CVE-2020-7205.&nbsp;&nbsp;For additional information, please refer <a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00102358en_us\">Customer Bulletin a00102358en_us</a></li>  </ul>  </li>  <li>2020.03.2 SPP and later contains all&nbsp;updates pertaining to&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00097789en_us\" target=\"_blank\">Customer Bulletin&nbsp;a00097789en_us</a>&nbsp;with the exception of the HPE Smart Array S100i SR Gen10 SW RAID Driver for Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 v106.12.6.0.&nbsp; This driver can be found on HPE.com and on Custom Download.</li>  <li>When using HPE OneView prior to version 5.00.00 and&nbsp;2020.03.2 SPP and later, an error may be seen during FW update of iLO5. For additional information, please&nbsp;refer&nbsp;<a href=\"https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00094676en_us\">Customer Advisory a00094676en_us</a>.</li> </ul> </li> <li>HPE StoreOnce Customers &ndash; Installation of the SPP can cause problems on StoreOnce systems.&nbsp; Please go to the HPE Support Center at <a href=\"https://support.hpe.com/hpesc/public/home/result?qt=storeonce\">https://support.hpe.com/hpesc/public/home/result?qt=storeonce</a> to find the appropriate StoreOnce update.&nbsp;</li> <li>Components for the&nbsp;G7 and Gen8 server platforms&nbsp;are available in the Post-Production SPPs and can be downloaded from <a href=\"https://www.hpe.com/servers/SPP/download\">www.hpe.com/servers/SPP/download</a>.&nbsp;For additional information, please refer to <a href=\"https://downloads.hpe.com/pub/softlib2/software1/doc/p35024129/v143014/SPP_Reducing_Server_Updates.pdf\">Reducing Server Updates</a>.&nbsp;</li></ul><p style=\"margin-left:0in; margin-right:0in\"><u><strong>Note</strong></u>: Products sold prior to the separation of Hewlett-Packard Company into Hewlett Packard Enterprise Company and HP Inc. on November 1, 2015 may have a product name and model number that differ from current models.</p>",
+        "supportUrl": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/",
+        "enhancements": "Nov 2020 Hotfix Supplement for SPP 2020.09.0",
+        "advisories": "",
+        "supportedOsList": [
+          "Microsoft Windows Server 2012 R2",
+          "Red Hat Enterprise Linux 7 Server",
+          "SUSE Linux Enterprise Server 12",
+          "Microsoft Windows Server 2016",
+          "VMware vSphere 6.5",
+          "Microsoft Windows Server 2019",
+          "SUSE Linux Enterprise Server 15",
+          "VMware vSphere 6.7",
+          "Red Hat Enterprise Linux 8 Server"
+        ],
+        "isActive": true
+      },
+      {
+        "id": "76da697008674d29a30179aef6b937ec",
+        "selfUri": "/v1/firmware-bundles/76da697008674d29a30179aef6b937ec",
+        "name": "Service Pack for ProLiant",
+        "displayName": "2020.03.2(18 Sept 2020)",
+        "description": "The Service Pack for ProLiant (SPP) is a comprehensive systems software and firmware update solution, which is delivered as a single ISO image. This Solution uses Smart Update Manager (SUM) as the deployment tool and is tested on all HPE ProLiant Gen9 and Gen10 servers as defined in the Service Pack for ProLiant Server Support Guide found at www.hpe.com/servers/spp/documentation.",
+        "releaseDate": "2020-09-18T12:00:36",
+        "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
+        "type": "base",
+        "hotfixBaseUri": null,
+        "releaseVersion": "2020.03.2",
+        "releaseNotes": "<p>Recommended to upgrade to 2020.09.1 version. For more details&nbsp;please refer to below Custom Bulletin and Customer Advisory section.</p><ul> <li>Customer Bulletin &amp; Customer Advisory <ul>  <li>2020.09.1 SPP addresses:  <ul>   <li>Critical Firmware Upgrade Required for Certain HPE NVMe Solid State Drive Models to Prevent Drive Failure After 4700 Hours of Operation. For additional information, please refer&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00111900en_us\">Customer Bulletin a00111900en_us</a></li>   <li>UEFI Secure Boot Evasion Vulnerability (aka BootHole Vulnerability) CVE-2020-10713, CVE-2020-15705 and CVE-2020-7205.&nbsp;&nbsp;For additional information, please refer <a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00102358en_us\">Customer Bulletin a00102358en_us</a></li>  </ul>  </li>  <li>2020.03.2 SPP and later contains all&nbsp;updates pertaining to&nbsp;<a href=\"https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00097789en_us\" target=\"_blank\">Customer Bulletin&nbsp;a00097789en_us</a>&nbsp;with the exception of the HPE Smart Array S100i SR Gen10 SW RAID Driver for Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 v106.12.6.0.&nbsp; This driver can be found on HPE.com and on Custom Download.</li>  <li>When using HPE OneView prior to version 5.00.00 and&nbsp;2020.03.2 SPP and later, an error may be seen during FW update of iLO5. For additional information, please&nbsp;refer&nbsp;<a href=\"https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00094676en_us\">Customer Advisory a00094676en_us</a>.</li> </ul> </li> <li>HPE StoreOnce Customers &ndash; Installation of the SPP can cause problems on StoreOnce systems.&nbsp; Please go to the HPE Support Center at <a href=\"https://support.hpe.com/hpesc/public/home/result?qt=storeonce\">https://support.hpe.com/hpesc/public/home/result?qt=storeonce</a> to find the appropriate StoreOnce update.&nbsp;</li> <li>Components for the&nbsp;G7 and Gen8 server platforms&nbsp;are available in the Post-Production SPPs and can be downloaded from <a href=\"https://www.hpe.com/servers/SPP/download\">www.hpe.com/servers/SPP/download</a>.&nbsp;For additional information, please refer to <a href=\"https://downloads.hpe.com/pub/softlib2/software1/doc/p35024129/v143014/SPP_Reducing_Server_Updates.pdf\">Reducing Server Updates</a>.&nbsp;</li></ul><p style=\"margin-left:0in; margin-right:0in\"><u><strong>Note</strong></u>: Products sold prior to the separation of Hewlett-Packard Company into Hewlett Packard Enterprise Company and HP Inc. on November 1, 2015 may have a product name and model number that differ from current models.</p>",
+        "supportUrl": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/",
+        "enhancements": "",
+        "advisories": "https://techlibrary.hpe.com/us/en/enterprise/servers/products/service_pack/spp/index.aspx?version=2020.03.2#tab=TAB2",
+        "supportedOsList": [
+          "Microsoft Windows Server 2012 R2",
+          "SUSE Linux Enterprise Server 12",
+          "Red Hat Enterprise Linux 7 Server",
+          "Microsoft Windows Server 2016",
+          "VMware vSphere 6.5",
+          "SUSE Linux Enterprise Server 15",
+          "VMware vSphere 6.7",
+          "Microsoft Windows Server 2019",
+          "Red Hat Enterprise Linux 8 Server"
+        ],
+        "isActive": true
+      },
+      {
+        "id": "663706857547a92993f9984555cb5782",
+        "selfUri": "/v1/firmware-bundles/663706857547a92993f9984555cb5782",
+        "name": "Hot Fix Supplement for SPP 2020.03.2",
+        "displayName": "2020.03.3(10 Dec 2020)",
+        "description": "Nov 2020 Hotfix Supplement for SPP 2020.03.2",
+        "releaseDate": "2020-12-10T14:35:53",
+        "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
+        "type": "hotfix",
+        "hotfixBaseUri": "/v1/firmware-bundles/76da697008674d29a30179aef6b937ec",
+        "releaseVersion": "2020.03.3",
+        "releaseNotes": "",
+        "supportUrl": "",
+        "enhancements": "Nov 2020 Hotfix Supplement for SPP 2020.03.2",
+        "advisories": "",
+        "supportedOsList": [
+          "Microsoft Windows Server 2012 R2",
+          "Red Hat Enterprise Linux 7 Server",
+          "SUSE Linux Enterprise Server 12",
+          "Microsoft Windows Server 2016",
+          "VMware vSphere 6.5",
+          "Microsoft Windows Server 2019",
+          "SUSE Linux Enterprise Server 15",
+          "VMware vSphere 6.7",
+          "Red Hat Enterprise Linux 8 Server"
+        ],
+        "isActive": true
+      }
+    ]
+  }
+}
