@@ -1,8 +1,9 @@
-import { cloneElement, useContext } from 'react';
+import { cloneElement, useContext, useState } from 'react';
 import {
   Accordion,
   AccordionPanel,
   Box,
+  Button,
   Card,
   CardBody,
   CardFooter,
@@ -15,8 +16,10 @@ import {
   Tag,
   Paragraph,
   ResponsiveContext,
+  Collapsible,
+  CheckBoxGroup,
 } from 'grommet';
-import { Cloudlinux } from 'grommet-icons';
+import { Cloudlinux, Filter, FormDown, FormNext, Search } from 'grommet-icons';
 import {
   AppContainer,
   PageContainer,
@@ -98,10 +101,15 @@ const PageContent = () => {
   return (
     <Main {...pageContainer}>
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-        <FilterPanel />
+        {!['xsmall', 'small'].includes(size) && <FilterPanel />}
         <Box>
-          <Box width={{ max: 'medium' }}>
-            <TextInput placeholder="Search all products" />
+          <Box direction="row" gap="small">
+            <Box width="medium">
+              <TextInput placeholder="Search all products" icon={<Search />} />
+            </Box>
+            {['xsmall', 'small'].includes(size) && (
+              <Button kind="toolbar" icon={<Filter />} onClick={() => {}} />
+            )}
           </Box>
           <Heading level={2} size="small">
             All Products - @{size} breakpoint
@@ -117,14 +125,37 @@ const PageContent = () => {
   );
 };
 
-const FilterPanel = () => (
-  <Accordion>
-    <AccordionPanel label="Categories">fddf</AccordionPanel>
-    <AccordionPanel label="Publishers">fddf</AccordionPanel>
-    <AccordionPanel label="Delivery Methods">fddf</AccordionPanel>
-    <AccordionPanel label="Pricing Models">fddf</AccordionPanel>
-  </Accordion>
-);
+const FilterPanel = () => {
+  const [expand, setExpand] = useState(false);
+
+  return (
+    <>
+      <Box align="start" gap="medium">
+        <>
+          <Button
+            label="Categories"
+            icon={expand ? <FormDown /> : <FormNext />}
+            onClick={() => setExpand(!expand)}
+          />
+          <Collapsible open={expand}>
+            <Box>
+              <CheckBoxGroup
+                options={['AI/ML & Analytics', 'Big Data', 'Data Protection']}
+              />
+            </Box>
+          </Collapsible>
+        </>
+        <Button label="Publishers" icon={<FormNext />} onClick={() => {}} />
+        <Button
+          label="Delivery Methods"
+          icon={<FormNext />}
+          onClick={() => {}}
+        />
+        <Button label="Pricing Models" icon={<FormNext />} onClick={() => {}} />
+      </Box>
+    </>
+  );
+};
 
 const ProductCard = ({ ...product }) => {
   const { name, publisher, logo, description, tags } = { ...product };
