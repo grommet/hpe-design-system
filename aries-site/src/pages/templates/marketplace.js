@@ -130,7 +130,7 @@ const FilterPanel = () => {
 
   return (
     <>
-      <Box align="start" gap="medium">
+      <Box align="start" gap="medium" margin={{ horizontal: '-18px' }}>
         <>
           <Button
             label="Categories"
@@ -140,7 +140,14 @@ const FilterPanel = () => {
           <Collapsible open={expand}>
             <Box>
               <CheckBoxGroup
-                options={['AI/ML & Analytics', 'Big Data', 'Data Protection']}
+                options={[
+                  'AI/ML & Analytics',
+                  'Big Data',
+                  'Data Protection',
+                  'Database',
+                  'Developer Tools',
+                  'Monitoring',
+                ]}
               />
             </Box>
           </Collapsible>
