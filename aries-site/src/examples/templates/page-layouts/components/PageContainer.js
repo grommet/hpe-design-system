@@ -48,19 +48,19 @@ export const pageContainer = {
 
 export const PageContainer = ({ kind = 'wide', ...rest }) => {
   const size = useContext(ResponsiveContext);
-  const pad = pageContainer.children.pad[size];
 
   return (
-    <PageContainerContext.Provider value={{ pad }}>
-      <Box
-        alignSelf={pageContainer[kind].align}
-        fill="horizontal"
-        flex
-        gap={pageContainer.gap[size]}
-        margin={{ horizontal: 'auto' }}
-        width={pageContainer[kind].width}
-        {...rest}
-      />
+    <PageContainerContext.Provider
+      value={{
+        alignSelf: pageContainer[kind].align,
+        fill: 'horizontal',
+        flex: true,
+        margin: { horizontal: 'auto' },
+        width: pageContainer[kind].width,
+        pad: pageContainer.children.pad[size],
+      }}
+    >
+      <Box gap={pageContainer.gap[size]} {...rest} />
     </PageContainerContext.Provider>
   );
 };
