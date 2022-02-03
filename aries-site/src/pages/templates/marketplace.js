@@ -47,7 +47,7 @@ const PageHeader = () => {
   return (
     <Header background="blue" pad={{ vertical: 'large' }}>
       <Box {...pageContainer}>
-        <Heading margin="none">HPE GreenLake Marketplace</Heading>
+        <Heading margin="none">HPE Product Catalog</Heading>
         <Text>
           Explore solutions to optimize, develop, monitor, and deploy your
           containerized applicaitons.
