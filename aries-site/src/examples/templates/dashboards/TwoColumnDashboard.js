@@ -7,7 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
-import { ServerHealth } from './content';
+import { ServerAttention, ServerHealth } from './content';
 
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -72,12 +72,13 @@ const PageContent = () => {
         <Grid gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ServerHealth />
-            <ContentBlock
+            <ServerAttention />
+            {/* <ContentBlock
               title="3"
               height={
                 size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'
               }
-            />
+            /> */}
           </Grid>
           <Grid
             columns={secondChildGrid.columns[size]}
