@@ -73,12 +73,6 @@ const PageContent = () => {
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ServerHealth />
             <ServerAttention />
-            {/* <ContentBlock
-              title="3"
-              height={
-                size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'
-              }
-            /> */}
           </Grid>
           <Grid
             columns={secondChildGrid.columns[size]}
