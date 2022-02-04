@@ -7,7 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
-import { ServerHealth } from './content';
+import { RecentActivity, ServerHealth } from './content';
 
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -66,9 +66,9 @@ const PageContent = () => {
   return (
     <Main {...pageContainer}>
       <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
-        {/* Content Block 1 is top priority content. At narrow breakpoints, 
+        {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
+        {(size === 'small' || size === 'xsmall') && <RecentActivity />}
         <Grid gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ServerHealth />
@@ -90,9 +90,7 @@ const PageContent = () => {
             <ContentBlock title="6" fill="vertical" />
           </Grid>
         </Grid>
-        {size !== 'small' && size !== 'xsmall' && (
-          <ContentBlock title="1" fill="vertical" />
-        )}
+        {size !== 'small' && size !== 'xsmall' && <RecentActivity />}
       </Grid>
     </Main>
   );

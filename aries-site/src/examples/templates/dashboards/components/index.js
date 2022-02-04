@@ -1,4 +1,6 @@
 export * from './data';
+export * from './Activity';
+export * from './ActivityFeed';
 export * from './DashboardCard';
 export * from './DashboardFooter';
 export * from './DashboardGrid';
