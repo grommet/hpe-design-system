@@ -12,7 +12,7 @@ export const Measure = ({ name, value, onClick }) => {
         name={
           <Box direction="row" align="center" gap="small">
             {icon}
-            {label}
+            <Text size="small">{label}</Text>
           </Box>
         }
       >
