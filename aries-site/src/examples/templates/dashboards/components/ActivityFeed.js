@@ -25,7 +25,7 @@ export const ActivityFeed = ({ children, title, footer: footerContent }) => {
       <CardBody gap="medium" pad={{ horizontal: body.pad, vertical: 'none' }}>
         {children}
       </CardBody>
-      <CardFooter pad={{ ...footer.pad, vertical: 'medium' }}>
+      <CardFooter justify="end" pad={{ ...footer.pad, vertical: 'medium' }}>
         {footerContent}
       </CardFooter>
     </Card>

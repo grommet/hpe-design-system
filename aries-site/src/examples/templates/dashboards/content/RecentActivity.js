@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button } from 'grommet';
+import { Button } from 'grommet';
 import { CircleInformation, FormNext } from 'grommet-icons';
 import { Activity, ActivityFeed } from '../components';
 
@@ -125,18 +125,15 @@ export const RecentActivity = () => {
 };
 
 const FeedFooter = () => (
-  <>
-    <Box />
-    <Button
-      label="View All"
-      icon={<FormNext />}
-      onClick={() => {
-        // eslint-disable-next-line no-alert
-        alert(`
+  <Button
+    label="View All"
+    icon={<FormNext />}
+    onClick={() => {
+      // eslint-disable-next-line no-alert
+      alert(`
 Typically this would route to a view displaying all activities.
           `);
-      }}
-      reverse
-    />
-  </>
+    }}
+    reverse
+  />
 );

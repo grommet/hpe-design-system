@@ -7,7 +7,12 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
-import { FirmWareStatus, RecentActivity, ServerAttention, ServerHealth } from './content';
+import {
+  FirmWareStatus,
+  RecentActivity,
+  ServerAttention,
+  ServerHealth,
+} from './content';
 
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
