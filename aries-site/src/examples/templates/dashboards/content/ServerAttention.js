@@ -30,7 +30,13 @@ export const ServerAttention = () => {
   }, [data]);
 
   return (
-    <StatusBar title="Needs Attention">
+    <StatusBar
+      title="Needs Attention"
+      menuItems={[
+        { label: 'Move', onClick: () => {} },
+        { label: 'Share', onClick: () => {} },
+      ]}
+    >
       {connectionStatus &&
         Object.keys(connectionStatus).map(key => {
           const status = connectionStatus[key];

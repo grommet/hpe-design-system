@@ -2,6 +2,7 @@ export * from './data';
 export * from './Activity';
 export * from './ActivityFeed';
 export * from './DashboardCard';
+export * from './DashboardCardHeader';
 export * from './DashboardFooter';
 export * from './DashboardGrid';
 export * from './Measure';
