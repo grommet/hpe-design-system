@@ -1,0 +1,5786 @@
+{
+  "healthSummary-counts": {
+    "field": "healthSummary",
+    "counts": {
+      "Critical": 5,
+      "Warning": 4,
+      "OK": 42,
+      "Unknown": 5
+    }
+  },
+  "serverState-counts": {
+    "field": "serverState",
+    "counts": {
+      "Connected": 37,
+      "Not activated": 6,
+      "Not connected": 13
+    }
+  },
+  "hardwarePowerState-counts": {
+    "field": "hardwarePowerState",
+    "counts": {
+      "On": 39,
+      "Off": 12,
+      "Unknown": 5
+    }
+  },
+  "hardwareModel-counts": {
+    "field": "hardwareModel",
+    "counts": {
+      "Proliant SY 480 Gen10": 1,
+      "Proliant SY 990 Gen9": 2,
+      "Proliant SY 660 Gen10": 2,
+      "Proliant DL380 Gen10": 13,
+      "Proliant DL385 Gen10 Plus": 2,
+      "Proliant DL360 Gen10": 11,
+      "Proliant DL325 Gen10 Plus": 2,
+      "Proliant DL380 Gen10 Plus": 1,
+      "Proliant DL180 Gen10": 2,
+      "Proliant ML350 Gen10": 1,
+      "Proliant DL365 Gen10": 1,
+      "Proliant DL365 Gen10 Plus": 1
+    }
+  },
+  "servers": {
+    "items": [
+      {
+        "id": "id-1",
+        "customerId": "aci1",
+        "selfUri": "/api/v1/servers/569448-808+8899569448808967",
+        "displayName": "Server 1",
+        "createdAt": "2021-05-05T20:56:39.389431+00:00",
+        "modifiedAt": "2021-05-05T20:56:39.833653+00:00",
+        "hardware": {
+          "serialNumber": "8899569448808967",
+          "model": "Proliant SY 480 Gen10",
+          "uuid": "36383150-3430-584D-5130-3338304A3346",
+          "productId": "569448-808",
+          "powerState": "On",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "Critical",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "Critical",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "172.18.6.4",
+            "hostname": "bmc-hostname-1"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-05T20:56:39.833653+00:00",
+          "subscriptionState": "Required",
+          "subscriptionTier": "Standard"
+        },
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": "hostname-1"
+        },
+        "firmwareInventory": [
+          {
+            "name": "Drive",
+            "version": "HPG5",
+            "deviceContext": "Embedded controller Port 1 Bay 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1GB 4-port 331i Adapter - NIC",
+            "version": "HPG5",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": ".70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "iLO 5",
+            "version": "2.40 Feb 24 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.07",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.0",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.36(07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          }
+        ],
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "id-2",
+        "customerId": "aci1",
+        "selfUri": "/api/v1/servers/569448-808+8899569448808968",
+        "displayName": "Server 2",
+        "createdAt": "2021-05-04T20:56:39.389431+00:00",
+        "modifiedAt": "2021-05-05T20:56:39.833653+00:00",
+        "hardware": {
+          "serialNumber": "8899569448808968",
+          "model": "Proliant SY 990 Gen9",
+          "uuid": "36383150-3430-584D-5130-2228304A3346",
+          "productId": "569448-808",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Warning",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "Warning",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "172.18.6.5",
+            "hostname": "bmc-hostname-2"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-05T20:56:39.833653+00:00",
+          "subscriptionState": "Subscribed",
+          "subscriptionTier": "Enhanced"
+        },
+        "host": {
+          "osName": "VMware ESXi 6.7.0",
+          "osVersion": "Build-14723 Update 3 Patch 73 6.70",
+          "hostname": "hostname-2"
+        },
+        "firmwareInventory": [
+          {
+            "name": "Drive",
+            "version": "HPG5",
+            "deviceContext": "Embedded controller Port 1 Bay 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1GB 4-port 331i Adapter - NIC",
+            "version": "HPG5",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": ".70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "iLO 5",
+            "version": "2.40 Feb 24 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.07",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.0",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.36(07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          }
+        ],
+        "firmwareBundleUri": "/v1/firmware-bundles/76da697008674d29a30179aef6b937ec",
+        "labels": {}
+      },
+      {
+        "id": "id-3",
+        "customerId": "aci1",
+        "selfUri": "/api/v1/servers/569448-808+8899569448808963",
+        "displayName": "Server 3",
+        "createdAt": "2021-05-04T30:56:39.389431+00:00",
+        "modifiedAt": "2021-05-05T30:56:39.833653+00:00",
+        "hardware": {
+          "serialNumber": "8899569448808963",
+          "model": "Proliant SY 990 Gen9",
+          "uuid": "36383150-3430-584D-5130-3338304A3333",
+          "productId": "569448-808",
+          "powerState": "Off",
+          "indicatorLed": "Blinking",
+          "health": {
+            "summary": "Warning",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "Warning",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "172.18.6.6",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-05T20:56:39.833653+00:00",
+          "subscriptionState": "Expired",
+          "subscriptionTier": "Standard"
+        },
+        "host": {
+          "osName": "CentOS 8.3",
+          "osVersion": "8.3.2011 (7 December 2020)",
+          "hostname": null
+        },
+        "firmwareInventory": [
+          {
+            "name": "Drive",
+            "version": "HPG5",
+            "deviceContext": "Embedded controller Port 1 Bay 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1GB 4-port 331i Adapter - NIC",
+            "version": "HPG5",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": ".70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "iLO 5",
+            "version": "2.40 Feb 24 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.07",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.0",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.36(07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          }
+        ],
+        "firmwareBundleUri": "/v1/firmware-bundles/76da697008674d29a30179aef6b937ec",
+        "labels": {}
+      },
+      {
+        "id": "id-4",
+        "customerId": "aci1",
+        "selfUri": "/api/v1/servers/569448-808+4499569448808967",
+        "displayName": "Server 4",
+        "createdAt": "2021-05-05T20:56:39.389441+00:00",
+        "modifiedAt": "2021-05-05T20:56:39.833654+00:00",
+        "hardware": {
+          "serialNumber": "8899569448808964",
+          "model": "Proliant SY 660 Gen10",
+          "uuid": "36383150-3430-584D-5130-4448304A4446",
+          "productId": "569448-608",
+          "powerState": "On",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "172.18.6.7",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-05T20:56:39.833654+00:00"
+        },
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": null
+        },
+        "firmwareInventory": [
+          {
+            "name": "Drive",
+            "version": "HPG5",
+            "deviceContext": "Embedded controller Port 1 Bay 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1GB 4-port 331i Adapter - NIC",
+            "version": "HPG5",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": ".70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "iLO 5",
+            "version": "2.40 Feb 24 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.07",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.0",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.36(07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          }
+        ],
+        "firmwareBundleUri": "/v1/firmware-bundles/76da697008674d29a30179aef6b937ec",
+        "labels": {}
+      },
+      {
+        "id": "id-5",
+        "customerId": "aci1",
+        "selfUri": "/api/v1/servers/569448-808+4499569448808567",
+        "displayName": "Server 5",
+        "createdAt": "2021-05-05T20:56:39.389441+00:00",
+        "modifiedAt": "2021-05-05T20:56:39.833654+00:00",
+        "hardware": {
+          "serialNumber": "8899569448808965",
+          "model": "Proliant SY 660 Gen10",
+          "uuid": "36383150-3430-584D-5130-5558304A5546",
+          "productId": "569448-608",
+          "powerState": "On",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "172.18.6.8",
+            "hostname": "bmc-hostname-5"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-05T20:56:39.833654+00:00"
+        },
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": "hostname-5"
+        },
+        "firmwareInventory": [
+          {
+            "name": "Drive",
+            "version": "HPG5",
+            "deviceContext": "Embedded controller Port 1 Bay 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1GB 4-port 331i Adapter - NIC",
+            "version": "HPG5",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": ".70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "iLO 5",
+            "version": "2.40 Feb 24 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.07",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.0",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.36(07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          }
+        ],
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501WV",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501WV",
+        "displayName": "2M282501WV",
+        "createdAt": "2021-05-13T19:18:23.443814+00:00",
+        "modifiedAt": "2021-05-21T03:57:29.883490+00:00",
+        "hardware": {
+          "serialNumber": "2M282501WV",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530315756",
+          "productId": "875765-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Critical",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "Critical",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-20T00:19:28.462462+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 10 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "9.11.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.224000",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.57",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18603-B21+CN703712GP",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18603-B21+CN703712GP",
+        "displayName": "CN703712GP",
+        "createdAt": "2021-05-19T05:39:22.256593+00:00",
+        "modifiedAt": "2021-05-20T06:01:44.964185+00:00",
+        "hardware": {
+          "serialNumber": "CN703712GP",
+          "model": null,
+          "uuid": "36383150-3330-4E43-3730-333731324750",
+          "productId": "P18603-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-20T06:01:44.969036+00:00",
+          "subscriptionState": "Required",
+          "subscriptionTier": "Standard"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045X",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045X",
+        "displayName": "MXQ824045X",
+        "createdAt": "2021-05-17T07:32:50.452906+00:00",
+        "modifiedAt": "2021-05-17T07:58:53.158396+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045X",
+          "model": null,
+          "uuid": "34343738-3036-584D-5138-323430343558",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-17T07:58:53.161561+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045C",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045C",
+        "displayName": "MXQ824045C",
+        "createdAt": "2021-05-17T19:01:23.384330+00:00",
+        "modifiedAt": "2021-05-17T22:54:25.478504+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045C",
+          "model": null,
+          "uuid": "34343738-3036-584D-5138-323430343543",
+          "productId": "874460-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-17T22:54:25.483930+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501KR",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501KR",
+        "displayName": "ILO2M282501KR.lr.eml.lab",
+        "createdAt": "2021-05-13T18:15:48.876920+00:00",
+        "modifiedAt": "2021-05-21T10:08:26.123518+00:00",
+        "hardware": {
+          "serialNumber": "2M282501KR",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530314b52",
+          "productId": "875765-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.100",
+            "hostname": "BMC-ILO2M282501KR.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-20T20:36:35.861005+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.21.35",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "VMware ESXi 6.7.0 Build-11675023 Update 1 Patch 39",
+          "osVersion": "6.7.0 Build-11675023 Update 1 Patch 39",
+          "hostname": "ILO2M282501KR.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P07595-B21+CN70170008",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P07595-B21+CN70170008",
+        "displayName": "CN70170008",
+        "createdAt": "2021-05-21T11:59:21.484700+00:00",
+        "modifiedAt": "2021-05-21T12:09:09.135482+00:00",
+        "hardware": {
+          "serialNumber": "CN70170008",
+          "model": "ProLiant DL385 Gen10 Plus",
+          "uuid": "35373050-3539-4e43-3730-313730303038",
+          "productId": "P07595-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.47.241",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:09:05.342106+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A42 v2.40 (02/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "7.14.0 Build 40",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.04",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A42 v1.20 (02/28/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.40.192",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "PCIe Riser 1 Programmable Logic Device",
+            "version": "0x08",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intel Eth Adptr I350T4 OCPv3",
+            "version": "1.2839.0",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "HPE Smart Array E208i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Storage Slot 12"
+          },
+          {
+            "name": "HPE SN1100Q 16Gb 1P FC HBA",
+            "version": "1.75.07",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "Solarflare Adapter 04:00.0",
+            "version": "2.7.8.5",
+            "deviceContext": "PCI-E Slot 3"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD3",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Datacenter",
+          "osVersion": "10.0.17763",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "DL380GEN10+SGH850T8LK",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/DL380GEN10+SGH850T8LK",
+        "displayName": "SGH850T8LK",
+        "createdAt": "2021-05-21T12:03:16.073470+00:00",
+        "modifiedAt": "2021-05-21T12:03:16.073470+00:00",
+        "hardware": {
+          "serialNumber": "SGH850T8LK",
+          "model": null,
+          "uuid": null,
+          "productId": "DL380GEN10",
+          "powerState": "Unknown",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "Unknown",
+            "fans": "Unknown",
+            "memory": "Unknown",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "Unknown",
+            "storage": "Unknown",
+            "temperature": "Unknown",
+            "bios": "Unknown",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18603-B21+MXQ1150TXV",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18603-B21+MXQ1150TXV",
+        "displayName": "MXQ1150TXV",
+        "createdAt": "2021-05-17T17:41:56.044454+00:00",
+        "modifiedAt": "2021-05-17T17:41:56.044454+00:00",
+        "hardware": {
+          "serialNumber": "MXQ1150TXV",
+          "model": null,
+          "uuid": null,
+          "productId": "P18603-B21",
+          "powerState": "Unknown",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "Unknown",
+            "fans": "Unknown",
+            "memory": "Unknown",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "Unknown",
+            "storage": "Unknown",
+            "temperature": "Unknown",
+            "bios": "Unknown",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501WR",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501WR",
+        "displayName": "ILO2M282501WR.lr.eml.lab",
+        "createdAt": "2021-05-13T21:54:42.918401+00:00",
+        "modifiedAt": "2021-05-21T12:18:02.231368+00:00",
+        "hardware": {
+          "serialNumber": "2M282501WR",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530315752",
+          "productId": "875765-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.101",
+            "hostname": "BMC-ILO2M282501WR.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:00.886365+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILO2M282501WR.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045Q",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045Q",
+        "displayName": "MXQ824045Q",
+        "createdAt": "2021-05-13T22:13:49.823459+00:00",
+        "modifiedAt": "2021-05-21T03:57:17.863153+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045Q",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343551",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T02:54:04.223185+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 10 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P19774-B21+SGH9321GF3",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P19774-B21+SGH9321GF3",
+        "displayName": "server162.iloqa.com",
+        "createdAt": "2021-05-18T06:47:19.926337+00:00",
+        "modifiedAt": "2021-05-21T14:15:58.118513+00:00",
+        "hardware": {
+          "serialNumber": "SGH9321GF3",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "37393150-3437-4753-4839-333231474633",
+          "productId": "P19774-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.46.162",
+            "hostname": "bmc-server162.iloqa.com"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T13:35:33.258879+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.1.0 Build 18",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x31",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.03",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Language Pack",
+            "version": "2.30.34",
+            "deviceContext": "Japanese Language Pack"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.3.0.5",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.20.154",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.18.31",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "server162.iloqa.com"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "WC2759-003+CN79320146",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/WC2759-003+CN79320146",
+        "displayName": "CN79320146",
+        "createdAt": "2021-05-17T11:23:37.093554+00:00",
+        "modifiedAt": "2021-05-19T10:51:55.567041+00:00",
+        "hardware": {
+          "serialNumber": "CN79320146",
+          "model": null,
+          "uuid": "37324357-3935-4E43-3739-333230313436",
+          "productId": "WC2759-003",
+          "powerState": "On",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-19T10:51:55.571277+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+2M273300ZX",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+2M273300ZX",
+        "displayName": "2M273300ZX",
+        "createdAt": "2021-05-17T08:09:20.752421+00:00",
+        "modifiedAt": "2021-05-17T08:09:20.752421+00:00",
+        "hardware": {
+          "serialNumber": "2M273300ZX",
+          "model": null,
+          "uuid": null,
+          "productId": "874460-S01",
+          "powerState": "Unknown",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "Unknown",
+            "fans": "Unknown",
+            "memory": "Unknown",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "Unknown",
+            "storage": "Unknown",
+            "temperature": "Unknown",
+            "bios": "Unknown",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8240458",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8240458",
+        "displayName": "MXQ8240458",
+        "createdAt": "2021-05-17T11:36:25.981877+00:00",
+        "modifiedAt": "2021-05-21T05:16:27.480954+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8240458",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343538",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T05:38:02.524357+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18603-B21+CN702708SP",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18603-B21+CN702708SP",
+        "displayName": "CN702708SP",
+        "createdAt": "2021-05-14T10:09:58.699393+00:00",
+        "modifiedAt": "2021-05-21T13:48:29.983167+00:00",
+        "hardware": {
+          "serialNumber": "CN702708SP",
+          "model": "ProLiant DL325 Gen10 Plus",
+          "uuid": "36383150-3330-4E43-3730-323730385350",
+          "productId": "P18603-B21",
+          "powerState": "On",
+          "indicatorLed": "Blinking",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.47.244",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-21T13:48:29.985217+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A43 v2.42 (04/15/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "8.1.0 Build 36",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x0D",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A43 v2.42 (04/15/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.40.192",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HP Ethernet 10Gb 2-port 560SFP+ Adapter",
+            "version": "1.1752.0",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "HPE Smart Array P408e-p SR Gen10",
+            "version": "1.04",
+            "deviceContext": "PCI-E Slot 2"
+          },
+          {
+            "name": "HPE Smart Array E208i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Storage Slot 12"
+          },
+          {
+            "name": "Intel Eth Adptr I350T4 OCPv3",
+            "version": "1.2529.0",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD2",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501X5",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501X5",
+        "displayName": "ILO2M282501X5.lr.eml.lab",
+        "createdAt": "2021-05-13T21:17:57.449572+00:00",
+        "modifiedAt": "2021-05-21T12:18:05.183418+00:00",
+        "hardware": {
+          "serialNumber": "2M282501X5",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530315835",
+          "productId": "875765-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.104",
+            "hostname": "BMC-ILO2M282501X5.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:04.535387+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.62",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILO2M282501X5.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18603-B21+MXQ1150TYL",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18603-B21+MXQ1150TYL",
+        "displayName": "MXQ1150TYL",
+        "createdAt": "2021-05-20T07:47:30.135197+00:00",
+        "modifiedAt": "2021-05-20T12:35:09.590420+00:00",
+        "hardware": {
+          "serialNumber": "MXQ1150TYL",
+          "model": null,
+          "uuid": "36383150-3330-584D-5131-31353054594C",
+          "productId": "P18603-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-20T12:35:09.593278+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045N",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045N",
+        "displayName": "MXQ824045N",
+        "createdAt": "2021-05-18T13:59:49.460068+00:00",
+        "modifiedAt": "2021-05-20T18:00:13.805474+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045N",
+          "model": null,
+          "uuid": "34343738-3036-584D-5138-32343034354E",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Warning",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-20T18:00:13.808125+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Red Hat Enterprise Linux Server",
+          "osVersion": "7.7",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8370278",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8370278",
+        "displayName": "MXQ8370278",
+        "createdAt": "2021-05-17T07:56:48.168210+00:00",
+        "modifiedAt": "2021-05-21T03:57:29.765568+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8370278",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-333730323738",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T05:45:05.891720+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Microsoft Windows Server 2016 Standard",
+          "osVersion": "10.0.14393",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18603-B21+MXQ1150TXT",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18603-B21+MXQ1150TXT",
+        "displayName": "MXQ1150TXT",
+        "createdAt": "2021-05-17T19:17:56.018003+00:00",
+        "modifiedAt": "2021-05-17T19:17:56.018003+00:00",
+        "hardware": {
+          "serialNumber": "MXQ1150TXT",
+          "model": null,
+          "uuid": null,
+          "productId": "P18603-B21",
+          "powerState": "Unknown",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "Unknown",
+            "fans": "Unknown",
+            "memory": "Unknown",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "Unknown",
+            "storage": "Unknown",
+            "temperature": "Unknown",
+            "bios": "Unknown",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P07596-B21+CN70370YPQ",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P07596-B21+CN70370YPQ",
+        "displayName": "CN70370YPQ",
+        "createdAt": "2021-05-17T17:03:53.186738+00:00",
+        "modifiedAt": "2021-05-17T17:04:44.925718+00:00",
+        "hardware": {
+          "serialNumber": "CN70370YPQ",
+          "model": null,
+          "uuid": null,
+          "productId": "P07596-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "868703-B21+SGH934WDY3",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/868703-B21+SGH934WDY3",
+        "displayName": "ilo5-46-237.iloamp.com",
+        "createdAt": "2021-05-18T17:22:41.456571+00:00",
+        "modifiedAt": "2021-05-21T12:11:35.416097+00:00",
+        "hardware": {
+          "serialNumber": "SGH934WDY3",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37383638-3330-4753-4839-333457445933",
+          "productId": "868703-B21",
+          "powerState": "On",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.46.237",
+            "hostname": "bmc-ilo5-46-237.iloamp.com"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-20T17:15:40.324380+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 05 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.42 (01/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "14.3.0 Build 50",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.40 (10/26/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.213",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.18.31",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD3",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "VMware ESXi",
+          "osVersion": "6.7.0 Build-17700523 Update 3 Patch 143",
+          "hostname": "ilo5-46-237.iloamp.com"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875763-S01+2M2732010Z",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875763-S01+2M2732010Z",
+        "displayName": "2M2732010Z",
+        "createdAt": "2021-05-17T11:27:00.381310+00:00",
+        "modifiedAt": "2021-05-21T03:57:29.709383+00:00",
+        "hardware": {
+          "serialNumber": "2M2732010Z",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3336-4d32-3237-33323031305a",
+          "productId": "875763-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T05:32:11.905805+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045S",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045S",
+        "displayName": "MXQ824045S",
+        "createdAt": "2021-05-20T15:44:01.973937+00:00",
+        "modifiedAt": "2021-05-20T18:00:25.705996+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045S",
+          "model": null,
+          "uuid": "34343738-3036-584D-5138-323430343553",
+          "productId": "874460-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-20T18:00:25.708612+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "WC3276-008+CN70421867",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/WC3276-008+CN70421867",
+        "displayName": "CN70421867",
+        "createdAt": "2021-05-14T10:11:57.519173+00:00",
+        "modifiedAt": "2021-05-14T10:11:57.519173+00:00",
+        "hardware": {
+          "serialNumber": "CN70421867",
+          "model": null,
+          "uuid": null,
+          "productId": "WC3276-008",
+          "powerState": "Unknown",
+          "indicatorLed": "Unknown",
+          "health": {
+            "summary": "Unknown",
+            "fans": "Unknown",
+            "memory": "Unknown",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "Unknown",
+            "storage": "Unknown",
+            "temperature": "Unknown",
+            "bios": "Unknown",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": null
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501KH",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501KH",
+        "displayName": "ILO2M282501KH.lr.eml.lab",
+        "createdAt": "2021-05-13T18:44:35.733204+00:00",
+        "modifiedAt": "2021-05-21T13:12:26.884236+00:00",
+        "hardware": {
+          "serialNumber": "2M282501KH",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4D32-3238-323530314B48",
+          "productId": "875765-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.39",
+            "hostname": "BMC-ILO2M282501KH.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-21T13:12:26.886989+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "VMware ESXi",
+          "osVersion": "6.7.0 Build-14320388 Update 3 Patch 73",
+          "hostname": "ILO2M282501KH.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8240461",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8240461",
+        "displayName": "ILOMXQ8240461.lr.eml.lab",
+        "createdAt": "2021-05-17T19:38:39.735915+00:00",
+        "modifiedAt": "2021-05-21T12:18:00.937338+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8240461",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343631",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.85",
+            "hostname": "BMC-ILOMXQ8240461.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:17:54.588362+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPG4",
+            "deviceContext": "Port=1I:Box=1:Bay=3"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=4"
+          }
+        ],
+        "host": {
+          "osName": "VMware ESXi 6.5.0 Build-10884925 Update 2 Patch 75",
+          "osVersion": "6.5.0 Build-10884925 Update 2 Patch 75",
+          "hostname": "ILOMXQ8240461.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "iLOPID4CE046OD0G+SGH850T9LK",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/iLOPID4CE046OD0G+SGH850T9LK",
+        "displayName": "SGH850T9LK",
+        "createdAt": "2021-05-14T16:38:43.713275+00:00",
+        "modifiedAt": "2021-05-15T19:39:36.142494+00:00",
+        "hardware": {
+          "serialNumber": "SGH850T9LK",
+          "model": null,
+          "uuid": "504F4C69-4449-4753-4838-353054384C4B",
+          "productId": "iLOPID4CE046OD0G",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "Warning",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-15T19:39:36.144466+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501KL",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501KL",
+        "displayName": "ILO2M282501KL.lr.eml.lab",
+        "createdAt": "2021-05-18T14:05:24.926024+00:00",
+        "modifiedAt": "2021-05-21T03:57:17.816920+00:00",
+        "hardware": {
+          "serialNumber": "2M282501KL",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530314b4c",
+          "productId": "875765-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.102",
+            "hostname": "BMC-ILO2M282501KL.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T02:53:51.995210+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2012 R2 Standard",
+          "osVersion": "6.3.9600",
+          "hostname": "ILO2M282501KL.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8240465",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8240465",
+        "displayName": "ILOMXQ8240465.lr.eml.lab",
+        "createdAt": "2021-05-17T11:41:48.023948+00:00",
+        "modifiedAt": "2021-05-21T03:57:29.575911+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8240465",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343635",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.121",
+            "hostname": "BMC-ILOMXQ8240465.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T02:53:59.629523+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 640FLR-SFP28 Adptr",
+            "version": "14.26.1040",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": "ILOMXQ8240465.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "868703-B21+2M284503Y7",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/868703-B21+2M284503Y7",
+        "displayName": "ILO2M284503Y7.lr.eml.lab",
+        "createdAt": "2021-05-17T08:15:26.248256+00:00",
+        "modifiedAt": "2021-05-21T12:18:00.065774+00:00",
+        "hardware": {
+          "serialNumber": "2M284503Y7",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37383638-3330-4d32-3238-343530335937",
+          "productId": "868703-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Critical",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "Critical",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.134",
+            "hostname": "BMC-ILO2M284503Y7.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:17:55.788110+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.12 (07/03/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "9.7.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.4",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.323",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v1.46 (10/02/2018)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.20.154",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.278000",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.54",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.62",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD8",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD8",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILO2M284503Y7.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8370274",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8370274",
+        "displayName": "ILOMXQ8370274.lr.eml.lab",
+        "createdAt": "2021-05-17T16:00:43.047948+00:00",
+        "modifiedAt": "2021-05-21T12:18:03.651532+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8370274",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-333730323734",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.125",
+            "hostname": "BMC-ILOMXQ8370274.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:03.118265+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 05+ May 19 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.30 (02/11/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.30 (02/11/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.30.192",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 640SFP28 Adptr",
+            "version": "14.27.0396",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.19-14",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD4",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Standard",
+          "osVersion": "10.0.17763",
+          "hostname": "ILOMXQ8370274.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P07596-B21+CN70411GBW",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P07596-B21+CN70411GBW",
+        "displayName": "CN70411GBW",
+        "createdAt": "2021-05-14T10:11:12.382595+00:00",
+        "modifiedAt": "2021-05-21T12:18:14.157076+00:00",
+        "hardware": {
+          "serialNumber": "CN70411GBW",
+          "model": "ProLiant DL385 Gen10 Plus",
+          "uuid": "35373050-3639-4e43-3730-343131474257",
+          "productId": "P07596-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.46.139",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:13.551449+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A42 v2.40 (02/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "7.14.0 Build 40",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A42 v2.40 (02/23/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.46.4",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "PCIe Riser 1 Programmable Logic Device",
+            "version": "0x11",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Marvell 2P 10GbE 10GBASE-T QL41132HQRJ-HC OCP3 Adapter",
+            "version": "8.55.12",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.53",
+            "deviceContext": "Storage Slot 12"
+          },
+          {
+            "name": "Marvell FastLinQ 41000 Series - 2P 10GbE 10GBASE-T QL41132HLRJ-HC MD2 Adapter - NIC",
+            "version": "8.55.12",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "Intel(R) Ethernet Server Adapter I350-T4",
+            "version": "1.2839.0",
+            "deviceContext": "PCI-E Slot 3"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD3",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045W",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045W",
+        "displayName": "ILOMXQ824045W.lr.eml.lab",
+        "createdAt": "2021-05-18T20:39:43.779036+00:00",
+        "modifiedAt": "2021-05-21T12:18:15.535312+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045W",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343557",
+          "productId": "874460-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.106",
+            "hostname": "BMC-ILOMXQ824045W.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:10.265799+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILOMXQ824045W.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875765-S01+2M282501WT",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875765-S01+2M282501WT",
+        "displayName": "ILO2M282501WT.lr.eml.lab",
+        "createdAt": "2021-05-13T17:54:47.086563+00:00",
+        "modifiedAt": "2021-05-21T03:57:17.751884+00:00",
+        "hardware": {
+          "serialNumber": "2M282501WT",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3536-4d32-3238-323530315754",
+          "productId": "875765-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.105",
+            "hostname": "BMC-ILO2M282501WT.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-20T18:25:22.315007+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILO2M282501WT.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875763-S01+2M27320110",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875763-S01+2M27320110",
+        "displayName": "2M27320110",
+        "createdAt": "2021-05-17T11:29:41.169949+00:00",
+        "modifiedAt": "2021-05-21T05:15:16.799025+00:00",
+        "hardware": {
+          "serialNumber": "2M27320110",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3336-4d32-3237-333230313130",
+          "productId": "875763-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T05:37:32.139934+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "DL325GEN10PLUS+J20APP0065",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/DL325GEN10PLUS+J20APP0065",
+        "displayName": "J20APP0065",
+        "createdAt": "2021-05-14T16:29:16.977416+00:00",
+        "modifiedAt": "2021-05-17T12:23:39.904943+00:00",
+        "hardware": {
+          "serialNumber": "J20APP0065",
+          "model": null,
+          "uuid": "32334C44-4735-324A-3041-505030303635",
+          "productId": "DL325GEN10PLUS",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Warning",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-17T12:23:39.906323+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 06 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A43 v2.42 (03/11/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "7.12.0 Build 16",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x19",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Universal Backplane Manager",
+            "version": "1.14",
+            "deviceContext": "UBM2"
+          },
+          {
+            "name": "Universal Backplane Manager",
+            "version": "1.14",
+            "deviceContext": "UBM3"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A43 v2.42 (03/11/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.64",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HP Ethernet 1Gb 4-port 366T Adapter",
+            "version": "1.2028.0",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Standard IDE Controller",
+            "version": "N/A",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPGC",
+            "deviceContext": "SATA Drive Box 3 Bay 8"
+          },
+          {
+            "name": "NVMe Drive",
+            "version": "HPK5",
+            "deviceContext": "NVMe Drive Port 2A Box 1 Bay 1"
+          }
+        ],
+        "host": {
+          "osName": null,
+          "osVersion": null,
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P19561-B21+7CE701P22R",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P19561-B21+7CE701P22R",
+        "displayName": "7CE701P22R",
+        "createdAt": "2021-05-18T07:25:45.218203+00:00",
+        "modifiedAt": "2021-05-20T11:51:03.777731+00:00",
+        "hardware": {
+          "serialNumber": "7CE701P22R",
+          "model": null,
+          "uuid": "35393150-3136-4337-4537-303150323252",
+          "productId": "P19561-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-20T11:51:03.782211+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ8240463",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ8240463",
+        "displayName": "MXQ8240463",
+        "createdAt": "2021-05-18T19:01:20.983827+00:00",
+        "modifiedAt": "2021-05-21T03:57:25.523027+00:00",
+        "hardware": {
+          "serialNumber": "MXQ8240463",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343633",
+          "productId": "874460-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-18T19:14:05.061811+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "868703-B21+2M29100352",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/868703-B21+2M29100352",
+        "displayName": "2M29100352",
+        "createdAt": "2021-05-17T08:05:30.188796+00:00",
+        "modifiedAt": "2021-05-21T03:57:29.656448+00:00",
+        "hardware": {
+          "serialNumber": "2M29100352",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37383638-3330-4d32-3239-313030333532",
+          "productId": "868703-B21",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T10:45:44.735653+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "VMware ESXi 6.7.0 Build-14320388 Update 3 Patch 73",
+          "osVersion": "6.7.0 Build-14320388 Update 3 Patch 73",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824046C",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824046C",
+        "displayName": "MXQ824046C",
+        "createdAt": "2021-05-13T22:13:49.789917+00:00",
+        "modifiedAt": "2021-05-21T03:57:25.842793+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824046C",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343643",
+          "productId": "874460-S01",
+          "powerState": "Off",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "Critical",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "Critical",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-19T19:44:39.658845+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 10 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD1",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD6",
+            "deviceContext": "Port=1I:Box=1:Bay=3"
+          },
+          {
+            "name": "Drive",
+            "version": "",
+            "deviceContext": "Port=1I:Box=1:Bay=4"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "VP-SKU005+7CE936P17U",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/VP-SKU005+7CE936P17U",
+        "displayName": "7CE936P17U",
+        "createdAt": "2021-05-18T10:30:14.646070+00:00",
+        "modifiedAt": "2021-05-19T11:44:02.795567+00:00",
+        "hardware": {
+          "serialNumber": "7CE936P17U",
+          "model": null,
+          "uuid": "532D5056-554B-4337-4539-333650313755",
+          "productId": "VP-SKU005",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": null,
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": false,
+          "connectedModifiedAt": "2021-05-19T11:44:02.798899+00:00"
+        },
+        "firmwareInventory": [],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "WC2861-006+CN70521CMC",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/WC2861-006+CN70521CMC",
+        "displayName": "iLOQABangalore.Gowthami",
+        "createdAt": "2021-05-14T17:29:51.790261+00:00",
+        "modifiedAt": "2021-05-21T12:17:56.758955+00:00",
+        "hardware": {
+          "serialNumber": "CN70521CMC",
+          "model": "ProLiant DL380 Gen10 Plus",
+          "uuid": "38324357-3136-4e43-3730-353231434d43",
+          "productId": "WC2861-006",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Warning",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.119.209.76",
+            "hostname": "BMC-iLOQABangalore.Gowthami"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:17:54.144891+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U46 v1.40 (04/28/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "7.20.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x14",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Language Pack",
+            "version": "2.44.04",
+            "deviceContext": "Japanese Language Pack"
+          },
+          {
+            "name": "Language Pack",
+            "version": "2.30.15",
+            "deviceContext": "Simplified Chinese Language Pack"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "1.0.0.20",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.4.4.53",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Universal Backplane Manager",
+            "version": "1.16",
+            "deviceContext": "UBM2"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U46 v1.40 (04/28/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.50.82",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "PCIe Riser 1 Programmable Logic Device",
+            "version": "0x0E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Array P408i-p SR Gen10",
+            "version": "3.53",
+            "deviceContext": "PCI-E Slot 3"
+          },
+          {
+            "name": "Intel Eth Adptr I350T4 OCPv3",
+            "version": "N/A",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Standard IDE Controller",
+            "version": "N/A",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "4IDVHPG1",
+            "deviceContext": "Port=1I:Box=2:Bay=4"
+          },
+          {
+            "name": "Drive",
+            "version": "4IDVHPG1",
+            "deviceContext": "Port=2I:Box=2:Bay=5"
+          },
+          {
+            "name": "UBM2",
+            "version": "1.16",
+            "deviceContext": "PCI-E Slot 3 Port 1I Box 2"
+          },
+          {
+            "name": "UBM2",
+            "version": "1.16",
+            "deviceContext": "PCI-E Slot 3 Port 2I Box 2"
+          },
+          {
+            "name": "Drive",
+            "version": "HPGC",
+            "deviceContext": "SATA Drive Box 3 Bay 1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPGC",
+            "deviceContext": "SATA Drive Box 3 Bay 2"
+          },
+          {
+            "name": "Drive",
+            "version": " D1MU004",
+            "deviceContext": "Bay 3"
+          },
+          {
+            "name": "Drive",
+            "version": "HPGC",
+            "deviceContext": "SATA Drive Box 3 Bay 4"
+          }
+        ],
+        "host": {
+          "osName": "Red Hat Enterprise Linux",
+          "osVersion": "8.1",
+          "hostname": "iLOQABangalore.Gowthami"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "875763-S01+2M273002R8",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/875763-S01+2M273002R8",
+        "displayName": "ILO2M273002R8.lr.eml.lab",
+        "createdAt": "2021-05-17T11:24:11.683308+00:00",
+        "modifiedAt": "2021-05-21T03:57:24.947301+00:00",
+        "hardware": {
+          "serialNumber": "2M273002R8",
+          "model": "ProLiant DL380 Gen10",
+          "uuid": "37353738-3336-4d32-3237-333030325238",
+          "productId": "875763-S01",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Critical",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "Critical",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.130",
+            "hostname": "BMC-ILO2M273002R8.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T02:54:04.589232+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U30 v2.16 (09/12/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "9.9.0 Build 39",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.1 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U30 v2.16 (09/12/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.00.382",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "2.1",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 640FLR-SFP28 Adptr",
+            "version": "14.26.1040",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.57",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.62",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631SFP28 Adptr",
+            "version": "214.0.224000",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631SFP28 Adptr",
+            "version": "216.0.317000",
+            "deviceContext": "PCI-E Slot 2"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD4",
+            "deviceContext": "Port=1I:Box=3:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILO2M273002R8.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "874460-S01+MXQ824045F",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/874460-S01+MXQ824045F",
+        "displayName": "ILOMXQ824045F.lr.eml.lab",
+        "createdAt": "2021-05-13T20:11:07.351061+00:00",
+        "modifiedAt": "2021-05-21T12:20:30.867404+00:00",
+        "hardware": {
+          "serialNumber": "MXQ824045F",
+          "model": "ProLiant DL360 Gen10",
+          "uuid": "34343738-3036-584d-5138-323430343546",
+          "productId": "874460-S01",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.83.11.98",
+            "hostname": "BMC-ILOMXQ824045F.lr.eml.lab"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:17:57.352957+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U32 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "11.0.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2A",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 2"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.2.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.423",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U32 v2.22 (11/13/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE SN1100Q 16Gb 2P FC HBA",
+            "version": "1.73.08",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 331i Adapter - NIC",
+            "version": "20.14.62",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "HPE Eth 10/25Gb 2p 631FLR-SFP28 Adptr",
+            "version": "214.0.286015",
+            "deviceContext": "Embedded ALOM"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD4",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD4",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILOMXQ824045F.lr.eml.lab"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "879517-B21+7CE720P1JW",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/879517-B21+7CE720P1JW",
+        "displayName": "7CE720P1JW",
+        "createdAt": "2021-05-19T07:32:29.990750+00:00",
+        "modifiedAt": "2021-05-21T03:57:32.243069+00:00",
+        "hardware": {
+          "serialNumber": "7CE720P1JW",
+          "model": "ProLiant DL180 Gen10",
+          "uuid": "35393738-3731-4337-4537-323050314a57",
+          "productId": "879517-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Warning",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "Warning",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.46.136",
+            "hostname": null
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T02:54:15.577183+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 05 May 17 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U31 v2.34 (04/08/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "12.2.0 Build 51",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x10",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "0.11",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U31 v2.34 (04/08/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "TPM Firmware",
+            "version": "73.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Array P408i-p SR Gen10",
+            "version": "1.65",
+            "deviceContext": "PCI-E Slot 3"
+          },
+          {
+            "name": "HPE Eth 1G 2p 368i/1G 2p 368FLR-MMT Adptr",
+            "version": "1.2688.0",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD2",
+            "deviceContext": "Port=1I:Box=1:Bay=16"
+          },
+          {
+            "name": "Drive Enclosure",
+            "version": "4.22",
+            "deviceContext": "PCI-E Slot 3 Port 1I Box 1"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": null
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "877622-001+MXQ82104WH",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/877622-001+MXQ82104WH",
+        "displayName": "ILOMXQ82104WH.hpe.vmware",
+        "createdAt": "2021-05-17T04:53:30.020686+00:00",
+        "modifiedAt": "2021-05-21T14:01:26.116789+00:00",
+        "hardware": {
+          "serialNumber": "MXQ82104WH",
+          "model": "ProLiant ML350 Gen10",
+          "uuid": "36373738-3232-584d-5138-323130345748",
+          "productId": "877622-001",
+          "powerState": "Off",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Warning",
+            "fans": "Unknown",
+            "memory": "Warning",
+            "network": "Unknown",
+            "powerSupplies": "Unknown",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "Unknown",
+            "bios": "Warning",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.118.15.27",
+            "hostname": "BMC-ILOMXQ82104WH.hpe.vmware"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T14:01:25.255553+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 04 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U41 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "10.2.0 Build 28",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x10",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.1.2",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.339",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U41 v2.32 (03/09/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.10.222",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.60",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "2.65",
+            "deviceContext": "Embedded RAID"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 4-port 369i Adapter",
+            "version": "1.2529.0",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILOMXQ82104WH.hpe.vmware"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "WC3276-009+CN70421864",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/WC3276-009+CN70421864",
+        "displayName": "ILOCN70421864.americas.hpqcorp.net",
+        "createdAt": "2021-05-19T14:38:23.455620+00:00",
+        "modifiedAt": "2021-05-21T12:18:09.663306+00:00",
+        "hardware": {
+          "serialNumber": "CN70421864",
+          "model": "ProLiant DL365 Gen10 Plus",
+          "uuid": "32334357-3637-4e43-3730-343231383634",
+          "productId": "WC3276-009",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.171.42.142",
+            "hostname": "BMC-ILOCN70421864.americas.hpqcorp.net"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:09.045256+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A42 v2.42 (03/25/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "8.1.0 Build 15",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x2E",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.05",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Universal Backplane Manager",
+            "version": "1.20",
+            "deviceContext": "UBM3"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A42 v2.42 (03/25/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intel(R) Eth Adptr X710-T2L for OCP 3",
+            "version": "1.2527.0",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "HPE MR216i-a Gen10+",
+            "version": "52.14.3-3279",
+            "deviceContext": "Storage Slot 12"
+          },
+          {
+            "name": "Intel(R) Eth E810-2CQDA2",
+            "version": "2.40 (N:04A05DABO:010B1700T:00020002)",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "NVM Express Controller",
+            "version": "EPK71H3Q",
+            "deviceContext": "PCI-E Slot 2"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "NVMe Drive",
+            "version": "HPK5",
+            "deviceContext": ""
+          },
+          {
+            "name": "NVMe Drive",
+            "version": "HPK5",
+            "deviceContext": ""
+          },
+          {
+            "name": "NVMe Drive",
+            "version": "EPK71H3Q",
+            "deviceContext": "Slot 2"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILOCN70421864.americas.hpqcorp.net"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "WC2497-001+CN7008078T",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/WC2497-001+CN7008078T",
+        "displayName": "ILOVL9CNP0144.asiapacific.hpqcorp.net",
+        "createdAt": "2021-05-18T02:27:36.726462+00:00",
+        "modifiedAt": "2021-05-21T14:15:20.770000+00:00",
+        "hardware": {
+          "serialNumber": "CN7008078T",
+          "model": "ProLiant DL360 Gen10 Plus",
+          "uuid": "34324357-3739-4e43-3730-303830373854",
+          "productId": "WC2497-001",
+          "powerState": "On",
+          "indicatorLed": "Lit",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "OK",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "16.171.41.13",
+            "hostname": "BMC-ILOVL9CNP0144.asiapacific.hpqcorp.net"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T12:18:08.375247+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 06 May 20 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U46 v1.40 (03/24/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "7.20.0 Build 33",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x14",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "1.0.0.20",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.4.4.53",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U46 v1.40 (03/24/2021)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.60.66",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE MR416i-p Gen10+",
+            "version": "52.16.3-3913",
+            "deviceContext": "PCI-E Slot 2"
+          },
+          {
+            "name": "HPE NS204i-p Gen10+ Boot Controller",
+            "version": "1.0.14.1052",
+            "deviceContext": "PCI-E Slot 3"
+          },
+          {
+            "name": "Intel Eth Adptr I350T4 OCPv3",
+            "version": "1.2839.0",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE SR932i-p Gen10+",
+            "version": "03.01.00.006",
+            "deviceContext": "PCI-E Slot 1"
+          },
+          {
+            "name": "UBM3",
+            "version": "1.20",
+            "deviceContext": "PCI-E Slot 1 Port 2I Box 1"
+          },
+          {
+            "name": "UBM3",
+            "version": "1.20",
+            "deviceContext": "PCI-E Slot 1 Port 2I Box 1"
+          },
+          {
+            "name": "447GB 16G NVMe SSD",
+            "version": "85030G00",
+            "deviceContext": "Slot=3:Bay=1"
+          },
+          {
+            "name": "447GB 16G NVMe SSD",
+            "version": "85030G00",
+            "deviceContext": "Slot=3:Bay=2"
+          },
+          {
+            "name": "960GB 6G SATA SSD",
+            "version": "D1MU008",
+            "deviceContext": "Port=2I:Box=1:Bay=7"
+          },
+          {
+            "name": "960GB 6G SATA SSD",
+            "version": "D1MU004",
+            "deviceContext": "Port=2I:Box=1:Bay=8"
+          },
+          {
+            "name": "1.60TB 32G NVMe SSD",
+            "version": "HPK5",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          },
+          {
+            "name": "1.60TB 32G NVMe SSD",
+            "version": "HPK5",
+            "deviceContext": "Port=1I:Box=1:Bay=2"
+          },
+          {
+            "name": "1.60TB 64G NVMe SSD",
+            "version": "HPK5",
+            "deviceContext": "Port=2I:Box=8:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Datacenter",
+          "osVersion": "10.0.17763",
+          "hostname": "ILOVL9CNP0144.asiapacific.hpqcorp.net"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P18606-B21+SGH025XTLS",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P18606-B21+SGH025XTLS",
+        "displayName": "DL325G10P-N246.vmware.local",
+        "createdAt": "2021-05-17T05:40:49.479337+00:00",
+        "modifiedAt": "2021-05-21T13:26:39.425837+00:00",
+        "hardware": {
+          "serialNumber": "SGH025XTLS",
+          "model": "ProLiant DL325 Gen10 Plus",
+          "uuid": "36383150-3630-4753-4830-323558544c53",
+          "productId": "P18606-B21",
+          "powerState": "On",
+          "indicatorLed": "Blinking",
+          "health": {
+            "summary": "OK",
+            "fans": "OK",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "OK",
+            "smartStorage": "OK"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.118.51.220",
+            "hostname": "BMC-DL325G10P-N246.vmware.local"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T13:26:38.755104+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 May 10 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "A43 v1.30 (07/18/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "5.5.0 Build 28",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x0D",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.7",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "1.00",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "A43 v1.30 (07/18/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Provisioning",
+            "version": "3.40.192",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller FW Bootloader",
+            "version": "1.1",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Smart Storage Energy Pack 1 Firmware",
+            "version": "0.70",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "HPE Smart Array P408i-a SR Gen10",
+            "version": "3.00",
+            "deviceContext": "Storage Slot 12"
+          },
+          {
+            "name": "Marvell 2P 25GbE SFP28 QL41232HQCU-HC OCP3 Adapter",
+            "version": "08.52.21",
+            "deviceContext": "OCP 3.0 Slot 10"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          },
+          {
+            "name": "Drive",
+            "version": "HPD2",
+            "deviceContext": "Port=1I:Box=1:Bay=1"
+          }
+        ],
+        "host": {
+          "osName": "Microsoft Windows Server 2019 Datacenter",
+          "osVersion": "10.0.17763",
+          "hostname": "DL325G10P-N246.vmware.local"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      },
+      {
+        "id": "P19563-B21+SGH5690WDF",
+        "customerId": "9ef04188ae7911ebbe8016a3d91ed18b",
+        "selfUri": "/api/compute/v1/servers/P19563-B21+SGH5690WDF",
+        "displayName": "ILOac000000ac.CESBG.FOXCONN",
+        "createdAt": "2021-05-17T11:42:20.629585+00:00",
+        "modifiedAt": "2021-05-21T13:28:51.247235+00:00",
+        "hardware": {
+          "serialNumber": "SGH5690WDF",
+          "model": "ProLiant DL180 Gen10",
+          "uuid": "35393150-3336-4753-4835-363930574446",
+          "productId": "P19563-B21",
+          "powerState": "On",
+          "indicatorLed": "Off",
+          "health": {
+            "summary": "Critical",
+            "fans": "Critical",
+            "memory": "OK",
+            "network": "Unknown",
+            "powerSupplies": "OK",
+            "processor": "OK",
+            "storage": "OK",
+            "temperature": "OK",
+            "bios": "Critical",
+            "smartStorage": "Unknown"
+          },
+          "bmc": {
+            "mac": null,
+            "ip": "15.146.47.13",
+            "hostname": "BMC-ILOac000000ac.CESBG.FOXCONN"
+          }
+        },
+        "state": {
+          "managed": true,
+          "connected": true,
+          "connectedModifiedAt": "2021-05-21T13:28:51.249335+00:00"
+        },
+        "firmwareInventory": [
+          {
+            "name": "iLO 5",
+            "version": "2.47 pass 04 May 10 2021",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System ROM",
+            "version": "U31 v2.36 (07/16/2020)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Intelligent Platform Abstraction Data",
+            "version": "13.1.0 Build 51",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "System Programmable Logic Device",
+            "version": "0x10",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Management Controller Firmware",
+            "version": "1.0.0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Power Supply Firmware",
+            "version": "0.09",
+            "deviceContext": "Bay 1"
+          },
+          {
+            "name": "Innovation Engine (IE) Firmware",
+            "version": "0.2.0.11",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Firmware",
+            "version": "4.1.4.251",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Server Platform Services (SPS) Descriptor",
+            "version": "1.2 0",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "Redundant System ROM",
+            "version": "U31 v2.10 (04/19/2019)",
+            "deviceContext": "System Board"
+          },
+          {
+            "name": "HPE Ethernet 1Gb 2-port 368i Adapter",
+            "version": "1.1752.0",
+            "deviceContext": "Embedded LOM"
+          },
+          {
+            "name": "Embedded Video Controller",
+            "version": "2.5",
+            "deviceContext": "Embedded Device"
+          }
+        ],
+        "host": {
+          "osName": "Unknown",
+          "osVersion": "Unknown",
+          "hostname": "ILOac000000ac.CESBG.FOXCONN"
+        },
+        "firmwareBundleUri": null,
+        "labels": {}
+      }
+    ]
+  }
+}
