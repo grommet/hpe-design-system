@@ -7,16 +7,18 @@ export const DashboardCardHeader = ({ title, menuItems }) => (
     <Text size="xlarge" color="text-strong" weight="bold">
       {title}
     </Text>
-    <Menu
-      icon={<MoreVertical />}
-      items={menuItems}
-      dropAlign={{ top: 'bottom', right: 'right' }}
-    />
+    {menuItems && (
+      <Menu
+        icon={<MoreVertical />}
+        items={menuItems}
+        dropAlign={{ top: 'bottom', right: 'right' }}
+      />
+    )}
   </>
 );
 
 DashboardCardHeader.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
