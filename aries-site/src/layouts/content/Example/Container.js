@@ -24,7 +24,7 @@ export const Container = ({
 
   let height;
   if (heightProp) height = heightProp;
-  else if (template || screenContainer) height = aspectHeight;
+  else if (template || screenContainer) height = heightProp || aspectHeight;
   else if (!plain) height = { min: 'medium' };
   else height = undefined;
 
@@ -36,12 +36,7 @@ export const Container = ({
       height={height}
       justify="center"
       margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
-      pad={
-        pad ||
-        (template || screenContainer
-          ? { horizontal: 'large', top: 'large' }
-          : 'large')
-      }
+      pad={pad || (template ? { horizontal: 'large', top: 'large' } : 'large')}
       round={
         !horizontalLayout &&
         (designer || docs || figma || guidance || screenContainer || template)
@@ -62,7 +57,12 @@ Container.propTypes = {
   horizontalLayout: PropTypes.bool,
   pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      scale: PropTypes.number,
+    }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,

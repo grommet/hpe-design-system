@@ -1,54 +1,65 @@
 import {
+  ContentLayoutPreview,
   CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
-} from '../../examples/cardPreviews';
+} from '../../../examples/cardPreviews';
 
 export const templates = [
   {
-    name: 'Forms',
+    name: 'Ascending Navigation',
     available: true,
-    cardOrder: 1,
-    description: `Common form use cases from application configuration 
-    to payment acceptance.`,
+    cardOrder: 101,
+    description: `The Ascending Button for Navigation allows
+    the user to navigate to a parent page from a child page
+    by moving upward in the application or website hierarchy.`,
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-form.svg',
-          dark: '/templateImages/template-preview-form-invert.svg',
+          light: '/templateImages/ascending-navigation.svg',
+          dark: '/templateImages/ascending-navigation-invert.svg',
         },
-        alt: 'HPE Forms Preview',
+        alt: 'Ascending navigation diagram',
         fit: 'contain',
       },
     },
-    seoDescription: 'HPE Design System form examples and templates.',
-    sections: [
-      'Required vs. optional fields',
-      'Using help text',
-      'Capitalization in forms',
-      'Button placement and labeling',
-      'User-Entered Input',
-      'Form submission',
-      'Sign In',
-      'Sign Up',
-      'Change Password',
-      'Pay',
-      'Settings',
-      'Filter',
-      'Sort',
-      'Shipping',
-      'Customize',
-      'Required and Optional Fields',
-    ],
+    seoDescription: `Allows the user to navigate to a parent 
+     page from a child page by moving upward in the application
+     or website hierarchy.`,
+    sections: ['Guidance', 'When to use', 'Ascending Navigation Example'],
     relatedContent: [
-      'TextInput',
-      'Button',
-      'MaskedInput',
-      'CheckBox',
-      'CheckBoxGroup',
-      'RadioButtonGroup',
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+      'Drill Down Navigation',
     ],
-    tags: ['forms', 'validation', 'messaging', 'form examples'],
+    tags: [],
+  },
+  {
+    name: 'Content Layouts',
+    available: true,
+    cardOrder: 3,
+    description: `Creating responsive, adaptable content layouts is central to 
+    the user experience.`,
+    seoDescription: `Creating responsive, adaptable content layouts is central 
+    to the user experience.`,
+    preview: {
+      component: () => <ContentLayoutPreview />,
+      background: 'background-front',
+    },
+    sections: [
+      'Designing for Responsiveness',
+      'Prioritizing Content Needs',
+      'Breakpoints',
+      'Page Margin',
+      'Templates',
+      'Single Column Layouts',
+      '2 Column Layouts',
+      '3 Column Layouts',
+      'Multi-column Layout',
+    ],
+    tags: ['content', 'layout', 'page layouts', 'responsiveness', 'responsive'],
+    relatedContent: ['Page Layouts'],
   },
   {
     name: 'Dashboards',
@@ -104,7 +115,7 @@ export const templates = [
   {
     name: 'Filtering',
     available: true,
-    cardOrder: 3,
+    cardOrder: 4,
     description: `Allows users to create a focused data set by specifying 
     data attributes and values of interest.`,
     preview: {
@@ -144,9 +155,54 @@ export const templates = [
     ],
   },
   {
+    name: 'Forms',
+    available: true,
+    cardOrder: 1,
+    description: `Common form use cases from application configuration 
+    to payment acceptance.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-form.svg',
+          dark: '/templateImages/template-preview-form-invert.svg',
+        },
+        alt: 'HPE Forms Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: 'HPE Design System form examples and templates.',
+    sections: [
+      'Required vs. optional fields',
+      'Using help text',
+      'Capitalization in forms',
+      'Button placement and labeling',
+      'User-Entered Input',
+      'Form submission',
+      'Sign In',
+      'Sign Up',
+      'Change Password',
+      'Pay',
+      'Settings',
+      'Filter',
+      'Sort',
+      'Shipping',
+      'Customize',
+      'Required and Optional Fields',
+    ],
+    relatedContent: [
+      'TextInput',
+      'Button',
+      'MaskedInput',
+      'CheckBox',
+      'CheckBoxGroup',
+      'RadioButtonGroup',
+    ],
+    tags: ['forms', 'validation', 'messaging', 'form examples'],
+  },
+  {
     name: 'Global Header',
     available: true,
-    cardOrder: 7,
+    cardOrder: 8,
     description: `A standardized header for use when building applications and 
     services that live in the HPE ecosystem.`,
     preview: {
@@ -294,7 +350,7 @@ export const templates = [
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 4,
+    cardOrder: 5,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {
@@ -309,15 +365,16 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: ['Header'],
+    relatedContent: [],
     tags: ['navigation patterns'],
   },
   {
     name: 'Page Layouts',
     available: true,
     cardOrder: 2,
-    description: `Page layout options, anatomies, and behaviors serving a wide 
-    variety of enterprise application, workflow, and marketing contexts.`,
+    description: `Choosing a layout is an important first step in designing 
+    a user interface. These guidelines will help create a consistent user 
+    experience across HPE applications and services.`,
     preview: {
       image: {
         src: {
@@ -339,11 +396,12 @@ export const templates = [
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [
-      'About Page Layouts',
-      'Responsiveness',
-      'Header and footer',
-      'Sticky header',
-      'Header only',
+      'Elements of an App UI',
+      'Page Container',
+      'Page Container Widths',
+      'Wide (default)',
+      'Narrow',
+      'Full',
     ],
     tags: [
       'common layouts',
@@ -352,6 +410,7 @@ export const templates = [
       'shells',
       'application layouts',
       'app layouts',
+      'page layouts',
     ],
   },
   {
@@ -483,7 +542,7 @@ export const templates = [
   {
     name: 'Wizard',
     available: true,
-    cardOrder: 5,
+    cardOrder: 6,
     description: 'Wizards are an effective way to handle multi-step forms.',
     preview: {
       image: {

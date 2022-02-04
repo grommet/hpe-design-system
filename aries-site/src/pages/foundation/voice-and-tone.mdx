@@ -288,6 +288,7 @@ The following table contains a set of common mistakes found in messaging, along 
 
 | Don't                                                                  | Do                                                                      | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app | application | 
 | internal error                                                         | unexpected problem                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |   |
 | coding error                                                           | unexpected problem                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | issue/error                                                            | problem                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -335,18 +336,18 @@ The following table contains a set of common mistakes found in messaging, along 
 
 Implement effective communications with these conventions.
 
-## Localization
+## Documenting Messages
 
 A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, users) will thank you.
 
 - Document all parameter substitution values. When the value is a resource, be specific. Is it a name? Is it a URI? Is it raw JSON that needs to be encapsulated in curly braces? Or is it pre-formatted JSON that includes curly braces?
 - For errors and alerts, document the severity associated with the message.
 - Document the type of message (alert, task, etc).
-- If the message doesn't document (for the user) full details of how this problem occurs or what to do about it, add the details in comments.
-- Some context around the task being performed or the resource category involved is useful.
-- Is the message an API-only message (does not appear in the UI)? If yes, document it as such.
+- If a message to users doesn't state how its associated problem occurrs or what to do about it, document those details. 
+- Add context for the task being performed or the resource category involved.
+- Document if and when API-only messages don't display in the UI. 
 
-View additional [localization and internationalization](/templates/internationalization) resources.
+To localize content for international audiences, reference our [internationalization](/templates/internationalization) resources.
 
 ## User Input
 
