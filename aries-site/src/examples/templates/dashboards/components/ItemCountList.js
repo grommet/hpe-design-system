@@ -44,7 +44,7 @@ export const ItemCountList = ({
 };
 
 const ItemCount = ({ title, description, count, ...rest }) => (
-  <Box direction="row" justify="between" {...rest}>
+  <Box direction="row" justify="between" gap="medium" {...rest}>
     <Box>
       <Text weight="bold">{title}</Text>
       <Paragraph size="small" margin="none">
