@@ -8,6 +8,7 @@ import {
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
 import {
+  FirmwareBaselines,
   FirmwareStatus,
   RecentActivity,
   ServerAttention,
@@ -87,7 +88,7 @@ const PageContent = () => {
               <FirmwareStatus />
               <ContentBlock title="5" />
             </Box>
-            <ContentBlock title="6" fill="vertical" />
+            <FirmwareBaselines />
           </Grid>
         </Grid>
         {size !== 'small' && size !== 'xsmall' && <RecentActivity />}
