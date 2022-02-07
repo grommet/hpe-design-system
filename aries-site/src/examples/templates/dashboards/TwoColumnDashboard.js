@@ -30,8 +30,8 @@ const parentGrid = {
   columns: {
     xsmall: '100%',
     small: '100%',
-    medium: ['auto', 'auto'],
-    large: ['auto', 'medium'],
+    medium: ['auto', ['small', 'medium']],
+    large: ['auto', ['small', 'medium']],
     xlarge: ['auto', 'medium'],
   },
   gap: {
@@ -48,7 +48,10 @@ const firstChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: ['auto', ['small', 'medium']],
+    large: [
+      ['medium', 'auto'],
+      ['small', 'medium'],
+    ],
     xlarge: ['auto', ['small', 'medium']],
   },
   gap: 'medium',
@@ -71,11 +74,12 @@ const PageContent = () => {
 
   return (
     <Main {...pageContainer}>
-      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+      {size}
+      <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
         {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
         {(size === 'small' || size === 'xsmall') && <RecentActivity />}
-        <Grid gap={firstChildGrid.gap}>
+        <Box gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ServerHealth />
             <ServerAttention />
@@ -90,7 +94,7 @@ const PageContent = () => {
             </Box>
             <FirmwareBaselines />
           </Grid>
-        </Grid>
+        </Box>
         {size !== 'small' && size !== 'xsmall' && <RecentActivity />}
       </Grid>
     </Main>
