@@ -113,6 +113,7 @@ export const RecentActivity = () => {
           .slice(0, 5)
           .map(([, activity]) => (
             <Activity
+              key={activity.title}
               title={activity.title}
               icon={<CircleInformation size="small" />}
               message={activity.message}

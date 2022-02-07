@@ -54,7 +54,13 @@ export const ServerHealth = () => {
   }, [data]);
 
   return (
-    <StatusBar title="Server Health">
+    <StatusBar
+      title="Server Health"
+      menuItems={[
+        { label: 'Move', onClick: () => {} },
+        { label: 'Share', onClick: () => {} },
+      ]}
+    >
       {measures &&
         Object.keys(measures).map(key => {
           const measure = measures[key];

@@ -1,21 +1,11 @@
 import PropTypes from 'prop-types';
-import { Card, CardBody, CardHeader, Menu, NameValueList, Text } from 'grommet';
-import { MoreVertical } from 'grommet-icons';
+import { Card, CardBody, CardHeader, NameValueList } from 'grommet';
+import { DashboardCardHeader } from '.';
 
-export const StatusBar = ({ children, title, ...rest }) => (
+export const StatusBar = ({ children, title, menuItems, ...rest }) => (
   <Card {...rest}>
     <CardHeader>
-      <Text size="xlarge" color="text-strong" weight="bold">
-        {title}
-      </Text>
-      <Menu
-        icon={<MoreVertical />}
-        items={[
-          { label: 'Move', onClick: () => {} },
-          { label: 'Share', onClick: () => {} },
-        ]}
-        dropAlign={{ top: 'bottom', right: 'right' }}
-      />
+      <DashboardCardHeader title={title} menuItems={menuItems} />
     </CardHeader>
     <CardBody>
       <NameValueList
@@ -32,4 +22,10 @@ export const StatusBar = ({ children, title, ...rest }) => (
 StatusBar.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),
   title: PropTypes.string,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+      onClick: PropTypes.func,
+    }),
+  ),
 };

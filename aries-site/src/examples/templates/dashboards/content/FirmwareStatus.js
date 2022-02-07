@@ -19,9 +19,9 @@ const FIRMWARE_MAP = {
   },
 };
 
-export const FirmWareStatus = () => {
+export const FirmwareStatus = () => {
   const data = MOCK_DATA['firmware-counts'].counts;
-  const [firmwareStatus, setfirmwareStatus] = useState(undefined);
+  const [firmwareStatus, setFirmwareStatus] = useState(undefined);
 
   useEffect(() => {
     if (data) {
@@ -29,12 +29,18 @@ export const FirmWareStatus = () => {
       Object.keys(nextStatus).forEach(key => {
         nextStatus[key].count = data[key];
       });
-      setfirmwareStatus(nextStatus);
+      setFirmwareStatus(nextStatus);
     }
   }, [data]);
 
   return (
-    <StatusBar title="Firmware Status">
+    <StatusBar
+      title="Firmware Status"
+      menuItems={[
+        { label: 'Move', onClick: () => {} },
+        { label: 'Share', onClick: () => {} },
+      ]}
+    >
       {firmwareStatus &&
         Object.keys(firmwareStatus).map(key => {
           const status = firmwareStatus[key];
