@@ -731,7 +731,7 @@
             "deviceContext": "System Board"
           }
         ],
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -878,7 +878,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -926,7 +926,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "labels": {}
       },
       {
@@ -972,7 +972,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1018,7 +1018,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/663706857547a92993f9984555cb5782",
         "labels": {}
       },
       {
@@ -1155,7 +1155,7 @@
           "osVersion": "6.7.0 Build-11675023 Update 1 Patch 39",
           "hostname": "ILO2M282501KR.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1282,7 +1282,7 @@
           "osVersion": "10.0.17763",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "labels": {}
       },
       {
@@ -1328,7 +1328,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1374,7 +1374,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1658,7 +1658,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "labels": {}
       },
       {
@@ -1780,7 +1780,7 @@
           "osVersion": "Unknown",
           "hostname": "server162.iloqa.com"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1872,7 +1872,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -1918,7 +1918,7 @@
           "osVersion": "10.0.17763",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "labels": {}
       },
       {
@@ -2035,7 +2035,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "labels": {}
       },
       {
@@ -2182,7 +2182,7 @@
           "osVersion": "Unknown",
           "hostname": "ILO2M282501X5.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -2228,7 +2228,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2274,7 +2274,7 @@
           "osVersion": "7.7",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -2320,7 +2320,7 @@
           "osVersion": "10.0.14393",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -2366,7 +2366,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2412,7 +2412,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2544,7 +2544,7 @@
           "osVersion": "6.7.0 Build-17700523 Update 3 Patch 143",
           "hostname": "ilo5-46-237.iloamp.com"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -2590,7 +2590,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2636,7 +2636,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2682,7 +2682,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2829,7 +2829,7 @@
           "osVersion": "6.7.0 Build-14320388 Update 3 Patch 73",
           "hostname": "ILO2M282501KH.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -2986,7 +2986,7 @@
           "osVersion": "6.5.0 Build-10884925 Update 2 Patch 75",
           "hostname": "ILOMXQ8240461.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -3032,7 +3032,7 @@
           "osVersion": null,
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -3169,7 +3169,7 @@
           "osVersion": "6.3.9600",
           "hostname": "ILO2M282501KL.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -3316,7 +3316,7 @@
           "osVersion": "10.0.17763",
           "hostname": "ILOMXQ8240465.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -3463,7 +3463,7 @@
           "osVersion": "Unknown",
           "hostname": "ILO2M284503Y7.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -3610,7 +3610,7 @@
           "osVersion": "10.0.17763",
           "hostname": "ILOMXQ8370274.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -3869,7 +3869,7 @@
           "osVersion": "Unknown",
           "hostname": "ILOMXQ824045W.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/00e9b372691ced279d92b5827d360997",
         "labels": {}
       },
       {
@@ -4016,7 +4016,7 @@
           "osVersion": "Unknown",
           "hostname": "ILO2M282501WT.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4230,7 +4230,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4276,7 +4276,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4469,7 +4469,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4702,7 +4702,7 @@
           "osVersion": "8.1",
           "hostname": "iLOQABangalore.Gowthami"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4844,7 +4844,7 @@
           "osVersion": "Unknown",
           "hostname": "ILO2M273002R8.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -4996,7 +4996,7 @@
           "osVersion": "Unknown",
           "hostname": "ILOMXQ824045F.lr.eml.lab"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/dc7d55d03a624a6876174c9e2e79c8fe",
         "labels": {}
       },
       {
@@ -5123,7 +5123,7 @@
           "osVersion": "Unknown",
           "hostname": null
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/663706857547a92993f9984555cb5782",
         "labels": {}
       },
       {
@@ -5377,7 +5377,7 @@
           "osVersion": "Unknown",
           "hostname": "ILOCN70421864.americas.hpqcorp.net"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/663706857547a92993f9984555cb5782",
         "labels": {}
       },
       {
@@ -5778,7 +5778,7 @@
           "osVersion": "Unknown",
           "hostname": "ILOac000000ac.CESBG.FOXCONN"
         },
-        "firmwareBundleUri": null,
+        "firmwareBundleUri": "/v1/firmware-bundles/663706857547a92993f9984555cb5782",
         "labels": {}
       }
     ]

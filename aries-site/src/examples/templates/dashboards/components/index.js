@@ -5,6 +5,7 @@ export * from './DashboardCard';
 export * from './DashboardCardHeader';
 export * from './DashboardFooter';
 export * from './DashboardGrid';
+export * from './ItemCountList';
 export * from './Measure';
 export * from './Greeting';
 export * from './PageHeader';
