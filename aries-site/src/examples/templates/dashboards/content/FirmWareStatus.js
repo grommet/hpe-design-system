@@ -21,7 +21,7 @@ const FIRMWARE_MAP = {
 
 export const FirmwareStatus = () => {
   const data = MOCK_DATA['firmware-counts'].counts;
-  const [firmwareStatus, setfirmwareStatus] = useState(undefined);
+  const [firmwareStatus, setFirmwareStatus] = useState(undefined);
 
   useEffect(() => {
     if (data) {
@@ -29,7 +29,7 @@ export const FirmwareStatus = () => {
       Object.keys(nextStatus).forEach(key => {
         nextStatus[key].count = data[key];
       });
-      setfirmwareStatus(nextStatus);
+      setFirmwareStatus(nextStatus);
     }
   }, [data]);
 
