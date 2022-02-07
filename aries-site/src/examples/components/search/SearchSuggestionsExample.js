@@ -69,11 +69,10 @@ export const SearchSuggestionsExample = () => {
       const regexp = new RegExp(query, 'i');
       resultSet = searchSuggestions
         .filter(option => regexp.test(option))
-        .slice(0, 5);
     } else {
       resultSet = searchSuggestions;
     }
-    return resultSet;
+    return resultSet.slice(0, 5);
   };
 
   const onChange = event => {
