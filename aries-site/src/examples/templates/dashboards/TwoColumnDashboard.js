@@ -8,7 +8,7 @@ import {
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
 import {
-  FirmwareProgress,
+  FirmwareStatus,
   RecentActivity,
   ServerAttention,
   ServerHealth,
@@ -84,7 +84,7 @@ const PageContent = () => {
             gap={secondChildGrid.gap}
           >
             <Box gap={secondChildGrid.gap}>
-              <FirmwareProgress />
+              <FirmwareStatus />
               <ContentBlock title="5" />
             </Box>
             <ContentBlock title="6" fill="vertical" />
