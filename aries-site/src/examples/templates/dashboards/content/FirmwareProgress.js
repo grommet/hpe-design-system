@@ -19,7 +19,7 @@ const FIRMWARE_MAP = {
   },
 };
 
-export const FirmwareStatus = () => {
+export const FirmwareProgress = () => {
   const data = MOCK_DATA['firmware-counts'].counts;
   const [firmwareStatus, setFirmwareStatus] = useState(undefined);
 
