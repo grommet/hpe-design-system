@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Card, CardBody, CardHeader, ThemeContext } from 'grommet';
+import { Box, Card, CardBody, CardHeader, ThemeContext } from 'grommet';
 import { useContext } from 'react';
 import { DashboardCardHeader } from '.';
 
@@ -8,18 +8,20 @@ export const UpdatesFeed = ({ background, children, menuItems, title }) => {
   const { body, header } = theme.card;
 
   return (
-    <Card background={background || 'background'}>
-      <CardHeader
-        pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
-      >
-        <DashboardCardHeader menuItems={menuItems} title={title} />
-      </CardHeader>
-      <CardBody
-        gap="medium"
-        pad={{ horizontal: body.pad, top: 'none', bottom: 'medium' }}
-      >
-        {children}
-      </CardBody>
+    <Card>
+      <Box background={background || 'background-front'}>
+        <CardHeader
+          pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
+        >
+          <DashboardCardHeader menuItems={menuItems} title={title} />
+        </CardHeader>
+        <CardBody
+          gap="medium"
+          pad={{ horizontal: body.pad, top: 'none', bottom: 'medium' }}
+        >
+          {children}
+        </CardBody>
+      </Box>
     </Card>
   );
 };
