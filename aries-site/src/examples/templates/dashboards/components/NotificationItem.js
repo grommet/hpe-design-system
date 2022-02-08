@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Anchor, Box, Grid, List, Text } from 'grommet';
+import { Anchor, Box, List, Text } from 'grommet';
 
 export const NotificationItem = ({ defaultItemProps, items, itemProps }) => (
-  <Grid columns={['auto', 'flex']} rows={['auto', 'auto']}>
+  <Box>
     <List
       data={items}
       itemProps={itemProps}
@@ -12,10 +12,10 @@ export const NotificationItem = ({ defaultItemProps, items, itemProps }) => (
         <ItemList title={datum.displayName} description={datum.description} />
       )}
     </List>
-  </Grid>
+  </Box>
 );
 
-const ItemList = ({ title, description, ...rest }) => (
+const ItemList = ({ title, description }) => (
   <Box>
     <Text weight="bold">{`${title} is available.`}</Text>
     <Box gap="xsmall">
