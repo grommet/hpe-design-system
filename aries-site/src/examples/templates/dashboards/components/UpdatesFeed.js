@@ -32,6 +32,6 @@ export const UpdatesFeed = ({ background, children, title }) => {
 
 UpdatesFeed.propTypes = {
   background: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.node),
+  children: PropTypes.object,
   title: PropTypes.string,
 };
