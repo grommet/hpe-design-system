@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Main, ResponsiveContext } from 'grommet';
+import { Box, Grid, Heading, Main, ResponsiveContext } from 'grommet';
 import {
   AppContainer,
   PageContainer,
@@ -30,8 +30,8 @@ const parentGrid = {
   columns: {
     xsmall: '100%',
     small: '100%',
-    medium: ['auto', 'auto'],
-    large: ['auto', 'medium'],
+    medium: ['auto', ['small', 'medium']],
+    large: ['auto', ['small', 'medium']],
     xlarge: ['auto', 'medium'],
   },
   gap: {
@@ -48,7 +48,10 @@ const firstChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: ['auto', ['small', 'medium']],
+    large: [
+      ['medium', 'auto'],
+      ['small', 'medium'],
+    ],
     xlarge: ['auto', ['small', 'medium']],
   },
   gap: 'medium',
@@ -59,8 +62,21 @@ const secondChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: { count: 'fit', size: ['medium', 'auto'] },
-    xlarge: { count: 'fit', size: ['medium', 'auto'] },
+    large: [['auto', 'auto']],
+    xlarge: [['auto', 'auto']],
+  },
+  areas: {
+    xsmall: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    small: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    medium: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    large: [
+      ['firmwareStatus', 'firmwareUpdates'],
+      ['firmwareBaselines', 'firmwareBaselines'],
+    ],
+    xlarge: [
+      ['firmwareStatus', 'firmwareBaselines'],
+      ['firmwareUpdates', 'firmwareBaselines'],
+    ],
   },
   gap: 'medium',
 };
@@ -71,27 +87,47 @@ const PageContent = () => {
 
   return (
     <Main {...pageContainer}>
-      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+      <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
         {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
         {(size === 'small' || size === 'xsmall') && <RecentActivity />}
-        <Grid gap={firstChildGrid.gap}>
-          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-            <ServerHealth />
-            <ServerAttention />
-          </Grid>
-          <Grid
-            columns={secondChildGrid.columns[size]}
-            gap={secondChildGrid.gap}
-          >
-            <Box gap={secondChildGrid.gap}>
-              <FirmwareStatus />
-              <ContentBlock title="5" />
-            </Box>
-            <FirmwareBaselines />
-          </Grid>
-        </Grid>
-        {size !== 'small' && size !== 'xsmall' && <RecentActivity />}
+        <Box gap="large">
+          <Box gap="small">
+            <Heading level={2} size="small" margin="none">
+              Servers
+            </Heading>
+            <Grid
+              columns={firstChildGrid.columns[size]}
+              gap={firstChildGrid.gap}
+            >
+              <ServerHealth />
+              <ServerAttention />
+            </Grid>
+          </Box>
+          <Box gap="small">
+            <Heading level={2} size="small" margin="none">
+              Firmware
+            </Heading>
+            <Grid
+              columns={secondChildGrid.columns[size]}
+              // rows={secondChildGrid.rows[size]}
+              areas={secondChildGrid.areas[size]}
+              gap={secondChildGrid.gap}
+            >
+              <FirmwareStatus gridArea="firmwareStatus" />
+              <ContentBlock gridArea="firmwareUpdates" title="5" />
+              <FirmwareBaselines gridArea="firmwareBaselines" />
+            </Grid>
+          </Box>
+        </Box>
+        {size !== 'small' && size !== 'xsmall' && (
+          <Box gap="large">
+            {/* fragment is used to create a gap spacing element 
+            for alignment to column 1 */}
+            <></>
+            <RecentActivity />
+          </Box>
+        )}
       </Grid>
     </Main>
   );
