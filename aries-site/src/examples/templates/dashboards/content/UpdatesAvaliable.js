@@ -5,7 +5,7 @@ const MOCK_DATA = require('../../../../data/mockData/firmware-bundles.json');
 
 export const UpdatesAvaliable = () => {
   const data = MOCK_DATA['firmware-bundles'].items;
-  const [update, setUpdate] = useState([]);
+  const [updates, setUpdates] = useState([]);
 
   useEffect(() => {
     if (data) {
