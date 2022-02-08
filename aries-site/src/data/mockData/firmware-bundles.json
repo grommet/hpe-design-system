@@ -53,7 +53,7 @@
         "selfUri": "/v1/firmware-bundles/1949ad1a5cc488fbdbe751863b6b8376",
         "name": "Service Pack for ProLiant",
         "displayName": "2020.09.1(22 Apr 2021)",
-        "description": "The Service Pack for ProLiant (SPP) is a comprehensive systems software and firmware update solution, which is delivered as a single ISO image.",
+        "description": "The Service Pack for ProLiant (SPP) is a comprehensive systems software and firmware update solution, which is delivered as a single ISO image. This Solution uses Smart Update Manager (SUM) as the deployment tool and is tested on all HPE ProLiant Gen9 and Gen10 servers as defined in the Service Pack for ProLiant Server Support Guide found at www.hpe.com/servers/spp/documentation.",
         "releaseDate": "2021-04-22T11:16:43",
         "summary": "HPE Smart RAID controllers and HPE Smart Array controllers  support on Windows and Linux platforms. ",
         "type": "base",
