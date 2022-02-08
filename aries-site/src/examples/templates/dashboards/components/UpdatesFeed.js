@@ -3,7 +3,7 @@ import { Card, CardBody, CardHeader, ThemeContext } from 'grommet';
 import { useContext } from 'react';
 import { DashboardCardHeader } from '.';
 
-export const UpdatesFeed = ({ background, children, title }) => {
+export const UpdatesFeed = ({ background, children, menuItems, title }) => {
   const theme = useContext(ThemeContext);
   const { body, header } = theme.card;
 
@@ -12,10 +12,7 @@ export const UpdatesFeed = ({ background, children, title }) => {
       <CardHeader
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
       >
-        <DashboardCardHeader
-          menuItems={menuItems}
-          title={title}
-        />
+        <DashboardCardHeader menuItems={menuItems} title={title} />
       </CardHeader>
       <CardBody
         gap="medium"
@@ -30,5 +27,11 @@ export const UpdatesFeed = ({ background, children, title }) => {
 UpdatesFeed.propTypes = {
   background: PropTypes.string,
   children: PropTypes.object,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+      onClick: PropTypes.func,
+    }),
+  ),
   title: PropTypes.string,
 };

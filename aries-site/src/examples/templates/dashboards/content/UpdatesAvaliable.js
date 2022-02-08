@@ -15,18 +15,25 @@ export const UpdatesAvaliable = () => {
         const d = new Date(b.releaseDate);
         return d - c;
       });
-      const base = sortedDates.filter(updates => updates.type === 'base');
-      const hotfix = sortedDates.filter(updates => updates.type === 'hotfix');
+      const base = sortedDates.filter(update => update.type === 'base');
+      const hotfix = sortedDates.filter(update => update.type === 'hotfix');
       updateArray.push(hotfix[0], base[0]);
-      setUpdate(updateArray);
+      setUpdates(updateArray);
     }
   }, [data]);
 
   return (
-    <UpdatesFeed background="validation-warning" title="Updates Available!">
-      {update && (
+    <UpdatesFeed
+      menuItems={[
+        { label: 'Move', onClick: () => {} },
+        { label: 'Share', onClick: () => {} },
+      ]}
+      background="validation-warning"
+      title="Updates Available!"
+    >
+      {updates && (
         <NotificationItem
-          items={update}
+          items={updates}
           defaultItemProps={{
             pad: { vertical: 'medium' },
           }}
