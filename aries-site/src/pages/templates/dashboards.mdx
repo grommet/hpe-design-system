@@ -1,5 +1,6 @@
-import { DashboardExample, TwoColumnDashboard } from '../../examples';
+
 import { Example } from '../../layouts';
+import { DashboardExample, ThreeColumnDashboard, TwoColumnDashboard } from '../../examples';
 
 <Example
   code={[
@@ -52,4 +53,14 @@ Consider:
   showResponsiveControls={['fullScreen']}
 >
   <TwoColumnDashboard />
+</Example>
+
+### Three Column Dashboard
+
+<Example
+  screenContainer={{ scale: 0.5 }}
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+>
+  <ThreeColumnDashboard />
 </Example>
