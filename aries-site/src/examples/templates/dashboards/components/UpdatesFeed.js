@@ -13,10 +13,7 @@ export const UpdatesFeed = ({ background, children, title }) => {
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
       >
         <DashboardCardHeader
-          menuItems={[
-            { label: 'Move', onClick: () => {} },
-            { label: 'Share', onClick: () => {} },
-          ]}
+          menuItems={menuItems}
           title={title}
         />
       </CardHeader>
