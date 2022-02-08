@@ -60,12 +60,13 @@ const firstChildGrid = {
 
 const secondChildGrid = {
   columns: {
-    xsmall: '100%',
-    small: '100%',
-    medium: '100%',
+    xsmall: ['100%'],
+    small: ['100%'],
+    medium: ['100%'],
     large: [['auto', 'auto']],
     xlarge: [['auto', 'auto']],
   },
+  rows: ['auto'],
   areas: {
     xsmall: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
     small: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
@@ -111,7 +112,7 @@ const PageContent = () => {
             </Heading>
             <Grid
               columns={secondChildGrid.columns[size]}
-              // rows={secondChildGrid.rows[size]}
+              rows={secondChildGrid.rows}
               areas={secondChildGrid.areas[size]}
               gap={secondChildGrid.gap}
             >
