@@ -1,4 +1,5 @@
 export * from './data';
+export * from './NotificationItem';
 export * from './Activity';
 export * from './ActivityFeed';
 export * from './DashboardCard';
@@ -10,3 +11,4 @@ export * from './Measure';
 export * from './Greeting';
 export * from './PageHeader';
 export * from './StatusBar';
+export * from './UpdatesFeed';

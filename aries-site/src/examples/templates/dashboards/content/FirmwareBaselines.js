@@ -41,6 +41,8 @@ export const FirmwareBaselines = () => {
     }
   }, [firmware, servers]);
 
+  console.log(baselineCounts);
+
   return (
     <ItemCountList
       title="Firmware Baselines"

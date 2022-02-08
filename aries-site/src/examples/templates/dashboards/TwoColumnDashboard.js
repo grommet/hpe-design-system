@@ -13,6 +13,7 @@ import {
   RecentActivity,
   ServerAttention,
   ServerHealth,
+  UpdatesAvaliable,
 } from './content';
 
 export const TwoColumnDashboard = () => (
@@ -86,7 +87,7 @@ const PageContent = () => {
           >
             <Box gap={secondChildGrid.gap}>
               <FirmwareStatus />
-              <ContentBlock title="5" />
+              <UpdatesAvaliable />
             </Box>
             <FirmwareBaselines />
           </Grid>
