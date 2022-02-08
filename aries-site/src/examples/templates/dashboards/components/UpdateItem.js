@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Anchor, Box, Text } from 'grommet';
 
-export const UpdateItemList = ({ title, description }) => (
+export const UpdateItem = ({ title, description }) => (
   <Box>
     <Text weight="bold">{`${title} is available.`}</Text>
     <Box gap="xsmall">
@@ -23,7 +23,7 @@ export const UpdateItemList = ({ title, description }) => (
     </Box>
   </Box>
 );
-UpdateItemList.propTypes = {
+UpdateItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
 };

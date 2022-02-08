@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Box, List } from 'grommet';
-import { UpdateItemList } from './UpdateItemList';
+import { UpdateItem } from './UpdateItem';
 
-export const UpdateNotifications = ({
+export const UpdateNotificationsList = ({
   defaultItemProps,
   items,
   itemProps,
@@ -14,16 +14,13 @@ export const UpdateNotifications = ({
       defaultItemProps={defaultItemProps}
     >
       {datum => (
-        <UpdateItemList
-          title={datum.displayName}
-          description={datum.description}
-        />
+        <UpdateItem title={datum.displayName} description={datum.description} />
       )}
     </List>
   </Box>
 );
 
-UpdateNotifications.propTypes = {
+UpdateNotificationsList.propTypes = {
   defaultItemProps: PropTypes.object,
   items: PropTypes.arrayOf(PropTypes.object),
   itemProps: PropTypes.object,

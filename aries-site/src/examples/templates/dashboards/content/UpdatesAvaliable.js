@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { UpdatesFeed, UpdateNotifications } from '../components';
+import { UpdatesFeed, UpdateNotificationsList } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/firmware-bundles.json');
 
@@ -32,7 +32,7 @@ export const UpdatesAvaliable = () => {
       title="Updates Available!"
     >
       {updates && (
-        <UpdateNotifications
+        <UpdateNotificationsList
           items={updates}
           defaultItemProps={{
             pad: { vertical: 'medium' },
