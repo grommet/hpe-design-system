@@ -62,8 +62,21 @@ const secondChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: { count: 'fit', size: ['medium', 'auto'] },
-    xlarge: { count: 'fit', size: ['medium', 'auto'] },
+    large: [['auto', 'auto']],
+    xlarge: [['auto', 'auto']],
+  },
+  areas: {
+    xsmall: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    small: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    medium: [['firmwareStatus'], ['firmwareUpdates'], ['firmwareBaselines']],
+    large: [
+      ['firmwareStatus', 'firmwareUpdates'],
+      ['firmwareBaselines', 'firmwareBaselines'],
+    ],
+    xlarge: [
+      ['firmwareStatus', 'firmwareBaselines'],
+      ['firmwareUpdates', 'firmwareBaselines'],
+    ],
   },
   gap: 'medium',
 };
@@ -97,13 +110,13 @@ const PageContent = () => {
             </Heading>
             <Grid
               columns={secondChildGrid.columns[size]}
+              // rows={secondChildGrid.rows[size]}
+              areas={secondChildGrid.areas[size]}
               gap={secondChildGrid.gap}
             >
-              <Box gap={secondChildGrid.gap}>
-                <FirmwareStatus />
-                <ContentBlock title="5" />
-              </Box>
-              <FirmwareBaselines />
+              <FirmwareStatus gridArea="firmwareStatus" />
+              <ContentBlock gridArea="firmwareUpdates" title="5" />
+              <FirmwareBaselines gridArea="firmwareBaselines" />
             </Grid>
           </Box>
         </Box>

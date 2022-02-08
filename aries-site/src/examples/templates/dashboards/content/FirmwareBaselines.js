@@ -5,7 +5,7 @@ import { ItemCountList } from '../components';
 const MOCK_FIRMWARE = require('../../../../data/mockData/firmware-bundles.json');
 const MOCK_SERVERS = require('../../../../data/mockData/servers.json');
 
-export const FirmwareBaselines = () => {
+export const FirmwareBaselines = ({ ...rest }) => {
   const firmware = MOCK_FIRMWARE['firmware-bundles'].items;
   const servers = MOCK_SERVERS.servers.items;
   const [baselineCounts, setBaselineCounts] = useState();
@@ -52,6 +52,7 @@ export const FirmwareBaselines = () => {
       defaultItemProps={{
         pad: { vertical: 'small', right: 'small' },
       }}
+      {...rest}
     />
   );
 };

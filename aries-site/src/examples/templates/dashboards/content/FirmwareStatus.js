@@ -19,7 +19,7 @@ const FIRMWARE_MAP = {
   },
 };
 
-export const FirmwareStatus = () => {
+export const FirmwareStatus = ({ ...rest }) => {
   const data = MOCK_DATA['firmware-counts'].counts;
   const [firmwareStatus, setFirmwareStatus] = useState(undefined);
 
@@ -40,6 +40,7 @@ export const FirmwareStatus = () => {
         { label: 'Move', onClick: () => {} },
         { label: 'Share', onClick: () => {} },
       ]}
+      {...rest}
     >
       {firmwareStatus &&
         Object.keys(firmwareStatus).map(key => {
