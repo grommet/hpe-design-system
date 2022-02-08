@@ -12,16 +12,17 @@ import { DashboardCardHeader } from '.';
 export const StatusBar = ({ children, title, menuItems, ...rest }) => {
   const theme = useContext(ThemeContext);
   const { header } = theme.card;
+
   return (
     <Card {...rest}>
       <CardHeader
-        pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
+        pad={{ horizontal: header.pad, top: header.pad, bottom: 'small' }}
       >
         <DashboardCardHeader title={title} menuItems={menuItems} />
       </CardHeader>
       <CardBody>
         <NameValueList
-          valueProps={{ width: 'xsmall' }}
+          valueProps={{ width: ['xsmall', 'auto'] }}
           pairProps={{ direction: 'column' }}
           layout="grid"
         >

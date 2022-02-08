@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { Menu, Text } from 'grommet';
+import { Box, Menu, Text } from 'grommet';
 import { MoreVertical } from 'grommet-icons';
 
 export const DashboardCardHeader = ({ title, menuItems }) => (
-  <>
+  <Box direction="row" align="start" justify="between" fill>
     <Text size="xlarge" color="text-strong" weight="bold">
       {title}
     </Text>
@@ -14,7 +14,7 @@ export const DashboardCardHeader = ({ title, menuItems }) => (
         dropAlign={{ top: 'bottom', right: 'right' }}
       />
     )}
-  </>
+  </Box>
 );
 
 DashboardCardHeader.propTypes = {

@@ -7,7 +7,7 @@ export const Measure = ({ name, value, onClick }) => {
   const icon = cloneElement(iconProp, { size: 'small' });
 
   return (
-    <Button onClick={onClick}>
+    <Button alignSelf="start" onClick={onClick}>
       <NameValuePair
         name={
           <Box direction="row" align="center" gap="small">

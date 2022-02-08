@@ -17,27 +17,30 @@ export const ItemCountList = ({
   items,
   menuItems,
   title,
+  ...rest
 }) => {
   const theme = useContext(ThemeContext);
   const { body, header } = theme.card;
 
   return (
-    <Card>
+    <Card {...rest}>
       <CardHeader
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
       >
         <DashboardCardHeader title={title} menuItems={menuItems} />
       </CardHeader>
       <CardBody pad={{ horizontal: body.pad, vertical: 'small' }}>
-        <List data={items} defaultItemProps={defaultItemProps}>
-          {datum => (
-            <ItemCount
-              title={datum.title}
-              description={datum.description}
-              count={datum.count}
-            />
-          )}
-        </List>
+        <Box width={{ max: 'medium' }}>
+          <List data={items} defaultItemProps={defaultItemProps}>
+            {datum => (
+              <ItemCount
+                title={datum.title}
+                description={datum.description}
+                count={datum.count}
+              />
+            )}
+          </List>
+        </Box>
       </CardBody>
     </Card>
   );
