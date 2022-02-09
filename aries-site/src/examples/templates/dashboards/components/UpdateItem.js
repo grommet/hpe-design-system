@@ -17,7 +17,7 @@ export const UpdateItem = ({ title, description }) => {
         ) : (
           <>
             {!showAllDescription ? (
-              <Text>{`${description.substring(
+              <Paragraph>{`${description.substring(
                 0,
                 MAX_STRING_LENGTH,
               )} ...`}</Text>
