@@ -7,7 +7,6 @@ export const UpdatesAvaliable = () => {
   const data = MOCK_DATA['firmware-bundles'].items;
   const [updates, setUpdates] = useState([]);
 
-  console.log(updates);
   useEffect(() => {
     if (data) {
       const updateArray = [];
