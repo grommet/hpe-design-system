@@ -10,9 +10,6 @@ export const pageContainer = {
   wide: {
     align: 'center',
     width: {
-      // 1536 --> Figma shows 1608 (1536 + 72). I think this should
-      // stay at 1536 where the margins are 48 (1440 + 48 + 48) or
-      // be modified to be 1536 + 48 + 48
       max: 'xxlarge',
     },
   },
