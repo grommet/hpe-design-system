@@ -35,14 +35,12 @@ export const pageContainer = {
     large: 'medium',
     xlarge: 'medium',
   },
-  children: {
-    pad: {
-      xsmall: { horizontal: 'medium' },
-      small: { horizontal: 'large' },
-      medium: { horizontal: 'medium' },
-      large: { horizontal: 'large' },
-      xlarge: { horizontal: 'large' },
-    },
+  pad: {
+    xsmall: { horizontal: 'medium', bottom: 'small' },
+    small: { horizontal: 'large', bottom: 'small' },
+    medium: { horizontal: 'medium', bottom: 'small' },
+    large: { horizontal: 'large', bottom: 'small' },
+    xlarge: { horizontal: 'large', bottom: 'small' },
   },
 };
 
@@ -56,7 +54,7 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
         fill: 'horizontal',
         margin: { horizontal: 'auto' },
         width: pageContainer[kind].width,
-        pad: pageContainer.children.pad[size],
+        pad: pageContainer.pad[size],
       }}
     >
       <Box gap={pageContainer.gap[size]} {...rest} />
