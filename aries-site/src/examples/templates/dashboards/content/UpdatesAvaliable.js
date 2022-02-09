@@ -18,7 +18,7 @@ export const UpdatesAvaliable = () => {
       });
       const base = sortedDate.filter(update => update.type === 'base');
       const hotfix = sortedDate.filter(update => update.type === 'hotfix');
-      updateArray.push(base[0], hotfix[0]);
+      updateArray.push(hotfix[0], base[0]);
       setUpdates(updateArray);
     }
   }, [data]);
