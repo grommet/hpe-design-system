@@ -10,9 +10,6 @@ export const pageContainer = {
   wide: {
     align: 'center',
     width: {
-      // 1536 --> Figma shows 1608 (1536 + 72). I think this should
-      // stay at 1536 where the margins are 48 (1440 + 48 + 48) or
-      // be modified to be 1536 + 48 + 48
       max: 'xxlarge',
     },
   },
@@ -35,14 +32,12 @@ export const pageContainer = {
     large: 'small',
     xlarge: 'small',
   },
-  children: {
-    pad: {
-      xsmall: { horizontal: 'medium', bottom: 'small' },
-      small: { horizontal: 'large', bottom: 'small' },
-      medium: { horizontal: 'medium', bottom: 'small' },
-      large: { horizontal: 'large', bottom: 'small' },
-      xlarge: { horizontal: 'large', bottom: 'small' },
-    },
+  pad: {
+    xsmall: { horizontal: 'medium', bottom: 'small' },
+    small: { horizontal: 'large', bottom: 'small' },
+    medium: { horizontal: 'medium', bottom: 'small' },
+    large: { horizontal: 'large', bottom: 'small' },
+    xlarge: { horizontal: 'large', bottom: 'small' },
   },
 };
 
@@ -56,7 +51,7 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
         fill: 'horizontal',
         margin: { horizontal: 'auto' },
         width: pageContainer[kind].width,
-        pad: pageContainer.children.pad[size],
+        pad: pageContainer.pad[size],
       }}
     >
       <Box gap={pageContainer.gap[size]} {...rest} />

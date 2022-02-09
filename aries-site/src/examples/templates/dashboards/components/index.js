@@ -10,3 +10,6 @@ export * from './Measure';
 export * from './Greeting';
 export * from './PageHeader';
 export * from './StatusBar';
+export * from './UpdateItem';
+export * from './UpdateNotificationsList';
+export * from './UpdatesFeed';
