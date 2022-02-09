@@ -7,17 +7,18 @@ export const UpdatesAvaliable = () => {
   const data = MOCK_DATA['firmware-bundles'].items;
   const [updates, setUpdates] = useState([]);
 
+  console.log(updates);
   useEffect(() => {
     if (data) {
       const updateArray = [];
-      const sortedDates = data.sort((a, b) => {
-        const c = new Date(a.releaseDate);
-        const d = new Date(b.releaseDate);
-        return d - c;
+      const sortedDate = data.sort((a, b) => {
+        if (a.displayName > b.displayName) return -1;
+        if (a.displayName < b.displayName) return 1;
+        return 0;
       });
-      const base = sortedDates.filter(update => update.type === 'base');
-      const hotfix = sortedDates.filter(update => update.type === 'hotfix');
-      updateArray.push(hotfix[0], base[0]);
+      const base = sortedDate.filter(update => update.type === 'base');
+      const hotfix = sortedDate.filter(update => update.type === 'hotfix');
+      updateArray.push(base[0], hotfix[0]);
       setUpdates(updateArray);
     }
   }, [data]);
