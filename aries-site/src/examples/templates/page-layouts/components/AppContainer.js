@@ -4,8 +4,17 @@ import { Box } from 'grommet';
 // an AppContainer.
 export const appContainer = {
   gap: 'large',
+  width: {
+    min: 'medium',
+  },
 };
 
 export const AppContainer = ({ ...rest }) => (
-  <Box gap={appContainer.gap} height={{ min: '100%' }} flex={false} {...rest} />
+  <Box
+    gap={appContainer.gap}
+    height={{ min: '100%' }}
+    width={appContainer.width}
+    flex={false}
+    {...rest}
+  />
 );
