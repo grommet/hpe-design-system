@@ -50,7 +50,7 @@ const firstChildGrid = {
     small: '100%',
     medium: '100%',
     large: [
-      ['medium', 'auto'],
+      ['small', 'auto'],
       ['small', 'medium'],
     ],
     xlarge: ['auto', ['small', 'medium']],

@@ -36,11 +36,11 @@ export const pageContainer = {
     xlarge: 'medium',
   },
   pad: {
-    xsmall: { horizontal: 'medium', bottom: 'small' },
-    small: { horizontal: 'large', bottom: 'small' },
-    medium: { horizontal: 'medium', bottom: 'small' },
-    large: { horizontal: 'large', bottom: 'small' },
-    xlarge: { horizontal: 'large', bottom: 'small' },
+    xsmall: { horizontal: 'medium', bottom: 'medium' },
+    small: { horizontal: 'large', bottom: 'medium' },
+    medium: { horizontal: 'medium', bottom: 'medium' },
+    large: { horizontal: 'large', bottom: 'medium' },
+    xlarge: { horizontal: 'large', bottom: 'medium' },
   },
 };
 

@@ -9,7 +9,7 @@ export const UpdatesFeed = ({ background, children, menuItems, title }) => {
 
   return (
     <Card>
-      <Box background={background}>
+      <Box background={background} fill>
         <CardHeader
           pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
         >
