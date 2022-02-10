@@ -10,18 +10,21 @@ export const pageContainer = {
   wide: {
     align: 'center',
     width: {
-      max: 'xxlarge',
+      min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
+      max: 'xxlarge', // 1536
     },
   },
   narrow: {
     align: 'center',
     width: {
+      min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
       max: 'large', // 768
     },
   },
   full: {
     align: 'start',
     width: {
+      min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
       max: '100%',
     },
   },
@@ -54,7 +57,7 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
         pad: pageContainer.pad[size],
       }}
     >
-      <Box gap={pageContainer.gap[size]} {...rest} />
+      <Box gap={pageContainer.gap[size]} overflow="horizontal" {...rest} />
     </PageContainerContext.Provider>
   );
 };
