@@ -1,16 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  Box,
-  Card,
-  CardBody,
-  CardHeader,
-  Grid,
-  Header,
-  Heading,
-  Main,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
+import { Box, Grid, Header, Heading, Main, ResponsiveContext } from 'grommet';
 import {
   AppContainer,
   PageContainer,
@@ -93,24 +82,8 @@ const PageContent = () => {
         {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
         <Grid gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-            {/* Card is for demonstrating scaled heading and text. Will be 
-            replaced with dashboard content in subsequent pull request. */}
-            <Card>
-              <CardHeader>
-                <Heading level={2} size="small" margin="none">
-                  Scaled H2, size 'small'
-                </Heading>
-              </CardHeader>
-              <CardBody>
-                <Text>Scaled Text</Text>
-              </CardBody>
-            </Card>
-            <ContentBlock
-              title="3"
-              height={
-                size !== 'xsmall' && size !== 'small' ? 'xsmall' : 'small'
-              }
-            />
+            <ContentBlock title="2" />
+            <ContentBlock title="3" />
           </Grid>
           <Grid
             columns={secondChildGrid.columns[size]}

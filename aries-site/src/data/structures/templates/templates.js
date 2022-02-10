@@ -59,7 +59,7 @@ export const templates = [
       'Multi-column Layout',
     ],
     tags: ['content', 'layout', 'page layouts', 'responsiveness', 'responsive'],
-    relatedContent: ['Page Layouts'],
+    relatedContent: ['Page Layouts', 'Grid'],
   },
   {
     name: 'Dashboards',
@@ -79,7 +79,13 @@ export const templates = [
     seoDescription: `HPE Design System dashboard template for screens 
     featuring content within cards.`,
     sections: [],
-    relatedContent: ['Card', 'Lists', 'Grid'],
+    relatedContent: [
+      'Grid',
+      'Page Layouts',
+      'Content Layouts',
+      'Card',
+      'Lists',
+    ],
     tags: [],
   },
   {
@@ -386,10 +392,10 @@ export const templates = [
       },
     },
     relatedContent: [
+      'Content Layouts',
       'Navigation',
       'Dashboards',
-      'Grid',
-      'Lists',
+      'Global Header',
       'Header',
       'Footer',
     ],
