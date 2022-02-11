@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Grid, Main, ResponsiveContext } from 'grommet';
 import {
   AppContainer,
@@ -7,6 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
+import { CostByService } from './content';
 
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -23,9 +24,20 @@ const parentGrid = {
   columns: {
     xsmall: ['100%'],
     small: ['100%'],
-    medium: ['auto', 'auto'],
-    large: ['auto', 'auto', 'auto'],
-    xlarge: ['auto', 'auto', 'auto'],
+    medium: [
+      ['small', 'large'],
+      ['small', 'large'],
+    ],
+    large: [
+      ['small', 'medium'],
+      ['small', 'medium'],
+      ['small', 'medium'],
+    ],
+    xlarge: [
+      ['medium', 'large'],
+      ['medium', 'large'],
+      ['medium', 'large'],
+    ],
   },
   gap: {
     xsmall: 'large',
@@ -36,14 +48,17 @@ const parentGrid = {
   },
 };
 
+const defaultPeriod = 'Last 30 Days';
+
 const PageContent = () => {
   const size = useContext(ResponsiveContext);
   const { ...pageContainer } = useContext(PageContainerContext);
+  const [period] = useState(defaultPeriod);
 
   return (
     <Main {...pageContainer}>
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-        <ContentArea title={1} height="medium" />
+        <CostByService period={period} />
         <ContentArea title={2} height="medium" />
         <ContentArea title={3} height="medium" />
         <ContentArea title={4} height="medium" />
