@@ -29,11 +29,11 @@ export const pageContainer = {
     },
   },
   gap: {
-    xsmall: 'small',
-    small: 'small',
-    medium: 'small',
-    large: 'small',
-    xlarge: 'small',
+    xsmall: 'medium',
+    small: 'medium',
+    medium: 'medium',
+    large: 'medium',
+    xlarge: 'medium',
   },
   pad: {
     xsmall: { horizontal: 'medium', bottom: 'medium' },
