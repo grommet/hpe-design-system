@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, Meter, ResponsiveContext, ThemeContext } from 'grommet';
+import { parseMetricToNum } from 'grommet/utils';
 import { ChartCard, Legend, Measure } from '../../components';
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
@@ -127,7 +128,14 @@ export const CostByService = ({ period }) => {
           areas={grid.areas[size]}
           gap={grid.gap[size]}
         >
-          <Box gridArea="chart" alignSelf="start">
+          <Box
+            gridArea="chart"
+            alignSelf="start"
+            height={{
+              max: `${parseMetricToNum(theme.global.size.small) +
+                parseMetricToNum(theme.global.size.xsmall)}px`,
+            }}
+          >
             <Meter
               values={values.map(value => ({
                 label: value.label,
