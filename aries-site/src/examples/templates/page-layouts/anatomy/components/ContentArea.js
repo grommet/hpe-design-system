@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box, Text, ThemeContext } from 'grommet';
+import { aries } from '../../../../../themes/aries';
 
 export const ContentArea = ({
   background = 'background-front',
@@ -10,21 +11,26 @@ export const ContentArea = ({
   title,
   ...rest
 }) => (
-  <Box
-    background={background}
-    border={
-      border === true ? { color: 'border-strong', style: 'dashed' } : border
-    }
-    flex={false}
-    pad={pad}
-    round={round}
-    {...rest}
-  >
-    <Text color="text-strong" size="small" weight="bold">
-      {title}
-    </Text>
-    {children}
-  </Box>
+  // If the ThemeContext is scaled, as it can be in the mock browser, we do
+  // not want the scaled theme to be applied to ContentArea. This resets
+  // to scale = 1.
+  <ThemeContext.Extend value={aries}>
+    <Box
+      background={background}
+      border={
+        border === true ? { color: 'border-strong', style: 'dashed' } : border
+      }
+      flex={false}
+      pad={pad}
+      round={round}
+      {...rest}
+    >
+      <Text color="text-strong" size="small" weight="bold">
+        {title}
+      </Text>
+      {children}
+    </Box>
+  </ThemeContext.Extend>
 );
 
 ContentArea.propTypes = {

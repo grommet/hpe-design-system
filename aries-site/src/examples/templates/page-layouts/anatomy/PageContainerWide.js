@@ -19,7 +19,7 @@ const connections = [
   },
 ];
 
-const PAGE_CONTAINER_WIDTH = '1608px';
+const PAGE_CONTAINER_WIDTH = '1536px';
 const PAGE_CONTAINER_SCALE = '80%';
 
 export const PageContainerWide = () => {

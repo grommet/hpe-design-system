@@ -1,0 +1,178 @@
+{
+  "activities": {
+    "start": 0,
+    "count": 13,
+    "total": 13,
+    "items": [
+      {
+        "id": "activity-id-1",
+        "selfUri": "activity-uri-1",
+        "title": "Device added",
+        "createdAt": "2021-04-12T05:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was added.",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-1-uri",
+          "type": "System",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-2",
+        "selfUri": "activity-uri-2",
+        "title": "Firmware update",
+        "createdAt": "2021-04-04T06:20:50.52Z",
+        "message": "Firmware update in progress\n\nNote: The server firmware update to the specified baseline does not require a reboot. The firmware update is in progress.",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-2-uri",
+          "type": "Firmware",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-3",
+        "selfUri": "activity-uri-3",
+        "title": "Firmware update failed",
+        "createdAt": "2021-04-13T07:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 update to 03.24.1 (2021 March) failed\n\nNote: Example of note along with recommendation.",
+        "recommendedAction": "Upon the reading of this message, I made sure my colleague was insane; but till that was proved beyond the possibility of doubt, I felt bound to do as he requested. The less I understood of this farrago, the less I was in a position to judge of its importance; and tan appeal so worded could not be set aside without grave responsibility",
+        "source": {
+          "resourceUri": "server-2-uri",
+          "type": "Firmware",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-4",
+        "selfUri": "activity-uri-4",
+        "title": "Power on",
+        "createdAt": "2021-04-21T08:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was powered on.",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-4-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-5",
+        "selfUri": "activity-uri-5",
+        "title": "Reset",
+        "createdAt": "2021-04-07T09:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 update to 03.24.1 (2021 March) failed",
+        "recommendedAction": "Upon the reading of this message, I made sure my colleague was insane; but till that was proved beyond the possibility of doubt, I felt bound to do as he requested. The less I understood of this farrago, the less I was in a position to judge of its importance; and tan appeal so worded could not be set aside without grave responsibility",
+        "source": {
+          "resourceUri": "server-5-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-6",
+        "selfUri": "activity-uri-6",
+        "title": "Activate",
+        "createdAt": "2021-05-19T10:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was activated",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-6-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-7",
+        "selfUri": "activity-uri-7",
+        "title": "Device added",
+        "createdAt": "2021-05-02T05:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was added.",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-7-uri",
+          "type": "System",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-8",
+        "selfUri": "activity-uri-8",
+        "title": "Firmware update",
+        "createdAt": "2021-05-03T06:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was updated to 03.24.1 (2021 March)",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-8-uri",
+          "type": "Firmware",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-9",
+        "selfUri": "activity-uri-9",
+        "title": "Firmware update failed",
+        "createdAt": "2021-05-17T07:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 update to 03.24.1 (2021 March) failed",
+        "recommendedAction": "Upon the reading of this message, I made sure my colleague was insane; but till that was proved beyond the possibility of doubt, I felt bound to do as he requested. The less I understood of this farrago, the less I was in a position to judge of its importance; and tan appeal so worded could not be set aside without grave responsibility",
+        "source": {
+          "resourceUri": "server-2-uri",
+          "type": "Firmware",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-10",
+        "selfUri": "activity-uri-10",
+        "title": "Power on",
+        "createdAt": "2021-05-05T08:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was powered on.",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-10-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-11",
+        "selfUri": "activity-uri-11",
+        "title": "Reset",
+        "createdAt": "2021-05-22T09:20:50.52Z",
+        "message": "FTCUSA_DC001_DL380 update to 03.24.1 (2021 March) failed",
+        "recommendedAction": "Upon the reading of this message, I made sure my colleague was insane; but till that was proved beyond the possibility of doubt, I felt bound to do as he requested. The less I understood of this farrago, the less I was in a position to judge of its importance; and tan appeal so worded could not be set aside without grave responsibility",
+        "source": {
+          "resourceUri": "server-11-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-12",
+        "selfUri": "activity-uri-12",
+        "title": "Activate",
+        "createdAt": "2021-05-04T10:10:50.52Z",
+        "message": "FTCUSA_DC001_DL380 was activated",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-6-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      },
+      {
+        "id": "activity-id-x",
+        "selfUri": "activity-uri-x",
+        "title": "Power off",
+        "createdAt": "2021-05-14T11:20:50.52Z",
+        "message": "The operation succeed",
+        "recommendedAction": "",
+        "source": {
+          "resourceUri": "server-x-uri",
+          "type": "Server",
+          "displayName": "FTCUSA_DC001_DL380"
+        }
+      }
+    ]
+  }
+}
