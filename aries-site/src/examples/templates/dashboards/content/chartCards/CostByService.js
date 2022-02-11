@@ -3,19 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Grid, Meter, ResponsiveContext, ThemeContext } from 'grommet';
 import { parseMetricToNum } from 'grommet/utils';
 import { ChartCard, Legend, Measure } from '../../components';
+import { defaultWindow, formatCurrency, REPORT_WINDOW_MAP } from './utils';
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
-
-const current = new Date();
-const endDate = current;
-const beginDate = new Date(new Date().setDate(current.getDate() - 365));
-
-const defaultWindow = { begin: beginDate, end: endDate };
-
-const REPORT_WINDOW_MAP = {
-  'Last 30 Days': 30,
-  'Last Year': 365,
-};
 
 export const CostByService = ({ period }) => {
   const [values, setValues] = useState(null);
@@ -54,14 +44,25 @@ export const CostByService = ({ period }) => {
           dataPointDate > reportWindow.begin &&
           dataPointDate < reportWindow.end
         ) {
-          nextValues.push({
-            label: `${datum.service[0].toLocaleUpperCase()}${datum.service
-              .slice(1)
-              .toLocaleLowerCase()}`,
-            value: parseFloat(datum.cost.replace(/[$,]/gm, '')),
-            displayValue: datum.cost,
-            color: undefined,
-          });
+          const key = datum.service;
+          const value = parseFloat(datum.cost.replace(/[$,]/gm, ''));
+          const index = nextValues.findIndex(el => el.key === key);
+
+          if (index >= 0) {
+            const nextValue = nextValues[index].value + value;
+            nextValues[index].value = nextValue;
+            nextValues[index].displayValue = formatCurrency(nextValue);
+          } else {
+            nextValues.push({
+              key,
+              label: `${datum.service[0].toLocaleUpperCase()}${datum.service
+                .slice(1)
+                .toLocaleLowerCase()}`,
+              value,
+              displayValue: formatCurrency(value),
+              color: undefined,
+            });
+          }
         }
       });
       nextValues
@@ -150,10 +151,7 @@ export const CostByService = ({ period }) => {
             alignSelf="center"
             name={{ label: { label: 'Total Cost', size: 'medium' } }}
             value={{
-              value: Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              }).format(totalCost),
+              value: formatCurrency(totalCost),
               size: 'xlarge',
             }}
           />
@@ -165,5 +163,5 @@ export const CostByService = ({ period }) => {
 };
 
 CostByService.propTypes = {
-  period: PropTypes.oneOf(['Last 30 Days']),
+  period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),
 };
