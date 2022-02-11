@@ -180,6 +180,7 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
+        {/* need to overrid theme background so its not resetting */}
         <ThemeContext.Extend
           value={{ ...(scaledTheme || theme), background: 'background' }}
         >
