@@ -179,7 +179,10 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
-        <ThemeContext.Extend value={scaledTheme || theme}>
+        {/* prevent theme from overriding the desired background color */}
+        <ThemeContext.Extend
+          value={{ ...(scaledTheme || theme), background: 'background-front' }}
+        >
           <ResponsiveContext.Provider value={viewPort}>
             {cloneElement(children, {
               containerRef: inlineRef,
