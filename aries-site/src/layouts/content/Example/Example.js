@@ -182,7 +182,7 @@ export const Example = ({
       >
         {/* prevent theme from overriding the desired background color */}
         <ThemeContext.Extend
-          value={{ ...(scaledTheme || theme), background: 'background' }}
+          value={{ ...(scaledTheme || theme), background: 'background-front' }}
         >
           <ResponsiveContext.Provider value={viewPort}>
             {cloneElement(children, {
