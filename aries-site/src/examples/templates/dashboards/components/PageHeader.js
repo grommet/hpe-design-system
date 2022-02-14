@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
-import { Box, Heading, Header, Text } from 'grommet';
-import { UserContext } from '../../global-header';
+import { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Header, Heading } from 'grommet';
 
-export const PageHeader = () => {
-  const { user } = useContext(UserContext);
+import { PageContainerContext } from '../../page-layouts';
+
+export const PageHeader = ({ title }) => {
+  const { ...pageContainer } = useContext(PageContainerContext);
   return (
-    <Header>
-      <Box gap="xsmall">
-        <Heading color="text-strong" margin="none">
-          Hello, {user.firstName}!
-        </Heading>
-        <Text size="large">Welcome to the HPE Common Cloud Console</Text>
-      </Box>
+    <Header {...pageContainer}>
+      <Heading level={1} margin="none" size="small">
+        {title}
+      </Heading>
     </Header>
   );
+};
+
+PageHeader.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };

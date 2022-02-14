@@ -142,9 +142,8 @@ export const Example = ({
     else if (!fullscreen) {
       const containerWidth = mockBrowserRect.width;
       scaledTheme = screenContainer.scale
-        ? scaled(theme, screenContainer.scale)
+        ? scaled(screenContainer.scale)
         : theme;
-
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
@@ -180,7 +179,10 @@ export const Example = ({
         width={width}
         ref={inlineRef}
       >
-        <ThemeContext.Extend value={scaledTheme || theme}>
+        {/* prevent theme from overriding the desired background color */}
+        <ThemeContext.Extend
+          value={{ ...(scaledTheme || theme), background: 'background-front' }}
+        >
           <ResponsiveContext.Provider value={viewPort}>
             {cloneElement(children, {
               containerRef: inlineRef,
