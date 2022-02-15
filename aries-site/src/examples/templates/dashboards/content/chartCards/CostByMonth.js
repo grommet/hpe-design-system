@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ThemeContext, DataChart } from 'grommet';
+import { Grid, ThemeContext, DataChart, Text } from 'grommet';
 import { ChartCard, Measure } from '../../components';
 import {
   convertDatesToFeatures,
@@ -179,7 +179,6 @@ CostByMonth.propTypes = {
 
 const MonthlySpend = ({ data: dataProp, ...rest }) => {
   const data = dataProp.map(datum => ({ date: datum.key, cost: datum.value }));
-  console.log(data);
 
   return (
     <DataChart
@@ -188,17 +187,20 @@ const MonthlySpend = ({ data: dataProp, ...rest }) => {
         {
           property: 'date',
           label: 'Month',
-          render: value =>
-            new Date(value).toLocaleDateString(Navigator.language, {
-              month: 'short',
-              year: 'numeric',
-            }),
+          render: value => (
+            <Text>
+              {new Date(value).toLocaleDateString(Navigator.language, {
+                month: 'short',
+                year: 'numeric',
+              })}
+            </Text>
+          ),
         },
         {
           property: 'cost',
           label: 'Spend',
           prefix: '$',
-          render: value => formatCurrency(value),
+          render: value => <Text>{formatCurrency(value)}</Text>,
         },
       ]}
       axis={{
