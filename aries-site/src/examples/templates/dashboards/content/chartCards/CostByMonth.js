@@ -1,15 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Grid,
-  Chart,
-  ResponsiveContext,
-  Stack,
-  Text,
-  ThemeContext,
-} from 'grommet';
-import { parseMetricToNum } from 'grommet/utils';
+import { Grid, ThemeContext, DataChart } from 'grommet';
 import { ChartCard, Measure } from '../../components';
 import {
   convertDatesToFeatures,
@@ -27,9 +18,8 @@ export const CostByMonth = ({ period }) => {
   const [meanCost, setMeanCost] = useState(null);
   const [projectedCost, setProjectedCost] = useState(null);
   const [reportWindow, setReportWindow] = useState(defaultWindow);
-  const [activeDataPoint, setActiveDataPoint] = useState(null);
+
   const consumptionData = MOCK_DATA.consumption;
-  const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const chartColors = useMemo(
     () =>
@@ -144,13 +134,7 @@ export const CostByMonth = ({ period }) => {
       ['measure', 'projection'],
       ['chart', 'chart'],
     ],
-    gap: {
-      xsmall: 'medium',
-      small: 'medium',
-      medium: 'small',
-      large: 'medium',
-      xlarge: 'medium',
-    },
+    gap: 'medium',
   };
 
   return (
@@ -160,59 +144,13 @@ export const CostByMonth = ({ period }) => {
           columns={grid.columns}
           rows={grid.rows}
           areas={grid.areas}
-          gap={grid.gap[size]}
+          gap={grid.gap}
         >
-          <Box
+          <MonthlySpend
             gridArea="chart"
-            alignSelf="start"
-            height={{
-              max: `${parseMetricToNum(theme.global.size.small) +
-                parseMetricToNum(theme.global.size.xsmall)}px`,
-            }}
-          >
-            <Stack guidingChild="first" interactiveChild="first">
-              <Chart
-                bounds={[
-                  [new Date(reportWindow.begin), new Date(reportWindow.end)],
-                  [0, 32000],
-                ]}
-                values={values.map(v => ({
-                  label: formatCurrency(v.value),
-                  value: [new Date(v.key), v.value],
-                  onHover: over => {
-                    setActiveDataPoint(
-                      over
-                        ? {
-                            label: new Date(v.key).toLocaleDateString(
-                              Navigator.language,
-                              {
-                                month: 'short',
-                                year: 'numeric',
-                              },
-                            ),
-                            value: formatCurrency(v.value),
-                          }
-                        : null,
-                    );
-                  },
-                }))}
-                type="bar"
-              />
-              {activeDataPoint && (
-                <Box align="center" justify="center">
-                  <Box
-                    background="background-front"
-                    border
-                    round="xsmall"
-                    pad={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-                  >
-                    <Text weight="bold">{activeDataPoint.value}</Text>
-                    <Text size="small">{activeDataPoint.label}</Text>
-                  </Box>
-                </Box>
-              )}
-            </Stack>
-          </Box>
+            reportWindow={reportWindow}
+            data={values}
+          />
           <Measure
             gridArea="measure"
             name={{ label: { label: 'Monthly Average', size: 'medium' } }}
@@ -237,4 +175,45 @@ export const CostByMonth = ({ period }) => {
 
 CostByMonth.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),
+};
+
+const MonthlySpend = ({ data: dataProp, ...rest }) => {
+  const data = dataProp.map(datum => ({ date: datum.key, cost: datum.value }));
+  console.log(data);
+
+  return (
+    <DataChart
+      data={data}
+      series={[
+        {
+          property: 'date',
+          label: 'Month',
+          render: value =>
+            new Date(value).toLocaleDateString(Navigator.language, {
+              month: 'short',
+              year: 'numeric',
+            }),
+        },
+        {
+          property: 'cost',
+          label: 'Spend',
+          prefix: '$',
+          render: value => formatCurrency(value),
+        },
+      ]}
+      axis={{
+        x: { property: 'date', granularity: 'medium' },
+        y: { property: 'cost', granularity: 'medium' },
+      }}
+      chart={{ property: 'cost', thickness: 'medium' }}
+      detail
+      guide={{ y: { granularity: 'fine' } }}
+      size={{ width: 'fill' }}
+      {...rest}
+    />
+  );
+};
+
+MonthlySpend.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
 };
