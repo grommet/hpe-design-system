@@ -99,6 +99,16 @@ export const CostByMonth = ({ period }) => {
 
       setMeanCost(mean(datapoints.map(point => point.y)));
 
+      const lastMonth = new Date(datapoints[datapoints.length - 1].x);
+      // Want last month +1, but also need to compensate for 0-based index,
+      // therefor +2.
+      const nextMonth = new Date(
+        lastMonth.getMonth() === 11
+          ? lastMonth.getFullYear() + 1
+          : lastMonth.getFullYear(),
+        (lastMonth.getMonth() + 2) % 12,
+        0,
+      );
       /* Project next month's cost by fitting a regression line to our
        * data. Dates are converted to numerical representations so that
        * least-squares regression can interpret dates as the dependent
@@ -116,19 +126,6 @@ export const CostByMonth = ({ period }) => {
           y: point.y,
         })),
       );
-
-      const lastMonth = new Date(datapoints[datapoints.length - 1].x);
-      // Want last month +1, but also need to compensate for 0-based index,
-      // therefor +2.
-      const nextMonth = new Date(
-        lastMonth.getMonth() === 11
-          ? lastMonth.getFullYear() + 1
-          : lastMonth.getFullYear(),
-        (lastMonth.getMonth() + 2) % 12,
-        0,
-      );
-      console.log(dateMap);
-
       const costNextMonth =
         m *
           dateMap.get(
@@ -143,28 +140,10 @@ export const CostByMonth = ({ period }) => {
   const grid = {
     columns: ['auto', 'auto'],
     rows: ['auto', 'auto'],
-    areas: {
-      xsmall: [
-        ['chart', 'measure'],
-        ['chart', 'legend'],
-      ],
-      small: [
-        ['chart', 'measure'],
-        ['chart', 'legend'],
-      ],
-      medium: [
-        ['chart', 'measure'],
-        ['chart', 'legend'],
-      ],
-      large: [
-        ['measure', 'projection'],
-        ['chart', 'chart'],
-      ],
-      xlarge: [
-        ['chart', 'measure'],
-        ['chart', 'legend'],
-      ],
-    },
+    areas: [
+      ['measure', 'projection'],
+      ['chart', 'chart'],
+    ],
     gap: {
       xsmall: 'medium',
       small: 'medium',
@@ -180,7 +159,7 @@ export const CostByMonth = ({ period }) => {
         <Grid
           columns={grid.columns}
           rows={grid.rows}
-          areas={grid.areas[size]}
+          areas={grid.areas}
           gap={grid.gap[size]}
         >
           <Box
@@ -236,7 +215,6 @@ export const CostByMonth = ({ period }) => {
           </Box>
           <Measure
             gridArea="measure"
-            alignSelf="center"
             name={{ label: { label: 'Monthly Average', size: 'medium' } }}
             value={{
               value: formatCurrency(meanCost, Navigator.language),
@@ -245,7 +223,6 @@ export const CostByMonth = ({ period }) => {
           />
           <Measure
             gridArea="projection"
-            alignSelf="center"
             name={{ label: { label: 'Projected, Next Month', size: 'medium' } }}
             value={{
               value: formatCurrency(projectedCost, Navigator.language),
