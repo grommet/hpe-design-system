@@ -10,14 +10,22 @@ import {
   ThemeContext,
 } from 'grommet';
 import { parseMetricToNum } from 'grommet/utils';
-import { ChartCard, Legend, Measure } from '../../components';
-import { defaultWindow, formatCurrency, REPORT_WINDOW_MAP } from './utils';
+import { ChartCard, Measure } from '../../components';
+import {
+  convertDatesToFeatures,
+  defaultWindow,
+  formatCurrency,
+  linearRegression,
+  mean,
+  REPORT_WINDOW_MAP,
+} from './utils';
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
 export const CostByMonth = ({ period }) => {
   const [values, setValues] = useState(null);
-  const [totalCost, setTotalCost] = useState(null);
+  const [meanCost, setMeanCost] = useState(null);
+  const [projectedCost, setProjectedCost] = useState(null);
   const [reportWindow, setReportWindow] = useState(defaultWindow);
   const [activeDataPoint, setActiveDataPoint] = useState(null);
   const consumptionData = MOCK_DATA.consumption;
@@ -57,22 +65,22 @@ export const CostByMonth = ({ period }) => {
           const value = parseFloat(datum.cost.replace(/[$,]/gm, ''));
           const index = nextValues.findIndex(el => el.key === key);
 
-          if (index >= 0) {
-            const nextValue = nextValues[index].value + value;
-            nextValues[index].value = nextValue;
-            nextValues[index].displayValue = formatCurrency(nextValue);
-          } else {
+          if (index === -1) {
             nextValues.push({
               key,
               value,
-              displayValue: formatCurrency(value),
               color: undefined,
             });
+          } else {
+            const nextValue = (
+              parseFloat(nextValues[index].value) + parseFloat(value)
+            ).toFixed(2);
+            nextValues[index].value = Number(nextValue);
           }
         }
       });
       nextValues
-        .sort((a, b) => b.value - a.value)
+        .sort((a, b) => b.key - a.key)
         .forEach((value, index) => {
           // eslint-disable-next-line no-param-reassign
           value.color = chartColors[index % chartColors.length];
@@ -81,14 +89,54 @@ export const CostByMonth = ({ period }) => {
     }
   }, [chartColors, consumptionData, reportWindow.begin, reportWindow.end]);
 
-  // Calculate total cost
+  // Calculate cost stats
   useEffect(() => {
-    let nextTotalCost = 0;
+    const datapoints = [];
     if (values) {
       Object.keys(values).forEach(key => {
-        nextTotalCost += values[key].value;
+        datapoints.push({ x: values[key].key, y: values[key].value });
       });
-      setTotalCost(nextTotalCost);
+
+      setMeanCost(mean(datapoints.map(point => point.y)));
+
+      /* Project next month's cost by fitting a regression line to our
+       * data. Dates are converted to numerical representations so that
+       * least-squares regression can interpret dates as the dependent
+       * variable. */
+      const dateMap = convertDatesToFeatures(
+        datapoints.map(point => point.x),
+        'month',
+        3,
+      );
+      /* y = mx + b, where y = projected cost, x = month, m = slope,
+       * and b = intercept. */
+      const { m, b } = linearRegression(
+        datapoints.map(point => ({
+          x: dateMap.get(point.x),
+          y: point.y,
+        })),
+      );
+
+      const lastMonth = new Date(datapoints[datapoints.length - 1].x);
+      // Want last month +1, but also need to compensate for 0-based index,
+      // therefor +2.
+      const nextMonth = new Date(
+        lastMonth.getMonth() === 11
+          ? lastMonth.getFullYear() + 1
+          : lastMonth.getFullYear(),
+        (lastMonth.getMonth() + 2) % 12,
+        0,
+      );
+      console.log(dateMap);
+
+      const costNextMonth =
+        m *
+          dateMap.get(
+            `${nextMonth.getMonth() +
+              1}/${nextMonth.getDate()}/${nextMonth.getFullYear()}`,
+          ) +
+        b;
+      setProjectedCost(costNextMonth.toFixed(2));
     }
   }, [values]);
 
@@ -150,17 +198,20 @@ export const CostByMonth = ({ period }) => {
                   [0, 32000],
                 ]}
                 values={values.map(v => ({
-                  label: v.displayValue,
+                  label: formatCurrency(v.value),
                   value: [new Date(v.key), v.value],
                   onHover: over => {
                     setActiveDataPoint(
                       over
                         ? {
-                            label: new Date(v.key).toLocaleDateString('en-US', {
-                              month: 'short',
-                              year: 'numeric',
-                            }),
-                            value: v.displayValue,
+                            label: new Date(v.key).toLocaleDateString(
+                              Navigator.language,
+                              {
+                                month: 'short',
+                                year: 'numeric',
+                              },
+                            ),
+                            value: formatCurrency(v.value),
                           }
                         : null,
                     );
@@ -188,7 +239,7 @@ export const CostByMonth = ({ period }) => {
             alignSelf="center"
             name={{ label: { label: 'Monthly Average', size: 'medium' } }}
             value={{
-              value: formatCurrency(totalCost),
+              value: formatCurrency(meanCost, Navigator.language),
               size: 'xlarge',
             }}
           />
@@ -197,7 +248,7 @@ export const CostByMonth = ({ period }) => {
             alignSelf="center"
             name={{ label: { label: 'Projected, Next Month', size: 'medium' } }}
             value={{
-              value: formatCurrency(totalCost),
+              value: formatCurrency(projectedCost, Navigator.language),
               size: 'xlarge',
             }}
           />
