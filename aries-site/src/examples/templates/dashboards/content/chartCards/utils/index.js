@@ -1,3 +1,3 @@
 export * from './formatValues';
-export * from './reportsWindow';
+export * from './window';
 export * from './statistics';
