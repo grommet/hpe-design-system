@@ -85,7 +85,8 @@ export const contentLayouts = [
           light: '/templateImages/3col-dashboard.svg',
           dark: '/templateImages/3col-dashboard-invert.svg',
         },
-        alt: comingSoon,
+        alt: `Dashboard content represented by equal-sized boxes 
+        organized in a three column by two row grid.`,
         fit: 'contain',
       },
     },

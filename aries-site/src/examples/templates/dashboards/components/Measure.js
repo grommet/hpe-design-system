@@ -12,7 +12,15 @@ export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
   let contents = (
     <NameValuePair
       name={
-        <Box direction="row" align="center" gap="small">
+        <Box
+          direction="row"
+          align="center"
+          gap="small"
+          // margin is needed to keep consistent with the spacing
+          // delivered by the theme when name is typeof 'string'
+          // https://github.com/grommet/grommet/blob/db5be926eb7c2f791534f02dd55b0f9997e959db/src/js/themes/base.js#L1072
+          margin={{ bottom: 'xxsmall' }}
+        >
           {icon}
           <Text size={name.label?.size || 'small'}>{label.label || label}</Text>
         </Box>
