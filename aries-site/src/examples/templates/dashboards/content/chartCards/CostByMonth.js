@@ -69,12 +69,7 @@ export const CostByMonth = ({ period }) => {
           }
         }
       });
-      nextValues
-        .sort((a, b) => b.key - a.key)
-        .forEach((value, index) => {
-          // eslint-disable-next-line no-param-reassign
-          value.color = chartColors[index % chartColors.length];
-        });
+      nextValues.sort((a, b) => b.key - a.key);
       setValues(nextValues);
     }
   }, [chartColors, consumptionData, reportWindow.begin, reportWindow.end]);

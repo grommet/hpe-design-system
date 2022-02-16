@@ -35,7 +35,6 @@ representations.`,
   const sumXX = independents.reduce((acc, cur) => acc + cur * cur, 0);
   const sumXY = pairs.reduce((acc, cur) => acc + cur.x * cur.y, 0);
   const sumYY = dependendents.reduce((acc, cur) => acc + cur * cur, 0);
-  // console.log(sumX, sumY, sumXX, sumXY, sumYY);
 
   /* y = mx + b */
   const m = (n * sumXY - sumX * sumY) / (n * sumXX - sumX ** 2);
