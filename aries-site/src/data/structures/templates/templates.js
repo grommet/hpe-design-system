@@ -603,4 +603,49 @@ export const templates = [
     sections: [],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
+  {
+    name: 'Banner Notifications',
+    available: false,
+    cardOrder: 10,
+    description: `Banner notifications are alerts that attract users attention 
+    about system conditions or updates and may be dismissed by the user.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-banner-notification.svg',
+          dark:
+            '/templateImages/template-preview-banner-notification-invert.svg',
+        },
+        alt: 'Banner notification under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Banner notifications are alerts that attract users 
+    attention about system conditions or updates and may be dismissed by the 
+    user.`,
+    sections: [
+      'Anatomy',
+      'When To Use',
+      'When Not To Use',
+      'Guidelines',
+      'Placement',
+      'Variants',
+      'Informational',
+      'Critical',
+      'Warning',
+      "Do's and Don'ts",
+    ],
+    tags: [
+      'notifications',
+      'global',
+      'banner notification',
+      'system alerts',
+      'alert',
+      'maintenance',
+      'subscription',
+      'expiration',
+      'feature release',
+      'updates',
+    ],
+  },
 ];
