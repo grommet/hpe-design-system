@@ -27,8 +27,8 @@ export const ChartCard = ({
       <CardHeader
         pad={
           ['xsmall', 'small'].includes(size)
-            ? { horizontal: 'large', top: 'large', bottom: body.pad }
-            : header.pad
+            ? { horizontal: 'large', top: 'large', bottom: header.pad }
+            : { horizontal: header.pad, top: header.pad, bottom: 'small' }
         }
       >
         <DashboardCardHeader title={title} subtitle={subtitle} />
@@ -37,7 +37,7 @@ export const ChartCard = ({
         pad={
           ['xsmall', 'small'].includes(size)
             ? { horizontal: 'large', top: body.pad, bottom: 'large' }
-            : body.pad
+            : { horizontal: body.pad, top: 'small', bottom: body.pad }
         }
       >
         {children}
