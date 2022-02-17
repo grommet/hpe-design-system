@@ -1,6 +1,6 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ThemeContext, DataChart, Text } from 'grommet';
+import { Grid, DataChart, Text } from 'grommet';
 import { ChartCard, Measure } from '../../components';
 import {
   convertDatesToFeatures,
@@ -20,14 +20,6 @@ export const CostByMonth = ({ period }) => {
   const [reportWindow, setReportWindow] = useState(defaultWindow);
 
   const consumptionData = MOCK_DATA.consumption;
-  const theme = useContext(ThemeContext);
-  const chartColors = useMemo(
-    () =>
-      Object.entries(theme.global.colors)
-        .filter(([key]) => key.includes('graph'))
-        .map(([, value]) => value),
-    [theme.global.colors],
-  );
 
   // Set reporting window
   useEffect(() => {
@@ -59,7 +51,6 @@ export const CostByMonth = ({ period }) => {
             nextValues.push({
               key,
               value,
-              color: undefined,
             });
           } else {
             const nextValue = (
@@ -72,7 +63,7 @@ export const CostByMonth = ({ period }) => {
       nextValues.sort((a, b) => b.key - a.key);
       setValues(nextValues);
     }
-  }, [chartColors, consumptionData, reportWindow.begin, reportWindow.end]);
+  }, [consumptionData, reportWindow.begin, reportWindow.end]);
 
   // Calculate cost stats
   useEffect(() => {
@@ -156,7 +147,9 @@ export const CostByMonth = ({ period }) => {
           />
           <Measure
             gridArea="projection"
-            name={{ label: { label: 'Projected, Next Month', size: 'medium' } }}
+            name={{
+              label: { label: 'Projected, Next Month', size: 'medium' },
+            }}
             value={{
               value: formatCurrency(projectedCost, Navigator.language),
               size: 'xlarge',
@@ -169,7 +162,7 @@ export const CostByMonth = ({ period }) => {
 };
 
 CostByMonth.propTypes = {
-  period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),
+  period: PropTypes.oneOf(['Last 30 Days', 'Last Year', 'Lifetime']),
 };
 
 const MonthlySpend = ({ data: dataProp, ...rest }) => {
@@ -202,7 +195,7 @@ const MonthlySpend = ({ data: dataProp, ...rest }) => {
         x: { property: 'date', granularity: 'medium' },
         y: { property: 'cost', granularity: 'medium' },
       }}
-      chart={{ property: 'cost', thickness: 'medium' }}
+      chart={{ property: 'cost', thickness: 'small' }}
       detail
       guide={{ y: { granularity: 'fine' } }}
       size={{ width: 'fill' }}
