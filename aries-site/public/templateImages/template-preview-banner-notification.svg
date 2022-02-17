@@ -1,0 +1,26 @@
+<svg width="336" height="192" viewBox="0 0 336 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_113_130)">
+<rect width="336" height="72" fill="white"/>
+<path d="M112.89 29.948H109.992V34.142H105.726V29.948H102.828V41H105.726V36.626H109.992V41H112.89V29.948ZM117.397 37.562H119.377C121.771 37.562 123.391 36.212 123.391 33.764C123.391 31.298 121.771 29.948 119.377 29.948H114.535V41H117.397V37.562ZM120.583 33.764C120.583 34.592 120.115 35.15 119.071 35.15H117.397V32.378H119.071C120.115 32.378 120.583 32.918 120.583 33.764ZM132.527 29.948H124.625V41H132.527V38.498H127.469V36.59H132.095V34.16H127.469V32.432H132.527V29.948Z" fill="#444444"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 27H90V45H24V27ZM28 31L86 31V41H28L28 31Z" fill="#00C781"/>
+<path d="M292 30H308" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 42H308" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M292 36H308" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 72H336" stroke="#CCCCCC"/>
+<rect opacity="0.5" x="24" y="136" width="89" height="72" rx="4" fill="white"/>
+<g opacity="0.5">
+<rect x="24" y="72" width="284" height="39" rx="4" fill="white"/>
+<rect x="24" y="72" width="284" height="39" rx="4" fill="#FC6161" fill-opacity="0.24"/>
+</g>
+<rect opacity="0.5" x="124" y="136" width="88" height="72" rx="4" fill="white"/>
+<rect opacity="0.5" x="223" y="136" width="89" height="72" rx="4" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M48.4155 82.5881C47.6337 81.8064 46.3711 81.8016 45.5845 82.5881L37.5881 90.5845C36.8064 91.3663 36.8016 92.6289 37.5881 93.4155L45.5845 101.412C46.3663 102.194 47.6289 102.198 48.4155 101.412L56.4119 93.4155C57.1936 92.6337 57.1984 91.3711 56.4119 90.5845L48.4155 82.5881Z" fill="#FC5A5A" stroke="#FC5A5A"/>
+<path d="M291.707 93.1213L297 98.4142L298.414 97L293.121 91.7071L298.414 86.4142L297 85L291.707 90.2929L286.414 85L285 86.4142L290.293 91.7071L285 97L286.414 98.4142L291.707 93.1213Z" fill="#444444"/>
+<rect opacity="0.5" x="66" y="87" width="192" height="9" rx="4" fill="#CCCCCC"/>
+</g>
+<defs>
+<clipPath id="clip0_113_130">
+<rect width="336" height="192" fill="white"/>
+</clipPath>
+</defs>
+</svg>
