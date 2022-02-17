@@ -7,4 +7,5 @@ export const defaultWindow = { begin: beginDate, end: endDate };
 export const REPORT_WINDOW_MAP = {
   'Last 30 Days': 30,
   'Last Year': 365,
+  Lifetime: 365 * 20,
 };
