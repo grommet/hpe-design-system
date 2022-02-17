@@ -124,7 +124,6 @@ export const CostByMonth = ({ period }) => {
   };
 
   return (
-    // <Box>
     <ChartCard title="Cost by Month" subtitle={period}>
       {values && (
         <Grid
@@ -159,7 +158,6 @@ export const CostByMonth = ({ period }) => {
         </Grid>
       )}
     </ChartCard>
-    // </Box>
   );
 };
 
