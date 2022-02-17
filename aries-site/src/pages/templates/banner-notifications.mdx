@@ -1,65 +1,71 @@
-# Banner Notifications
-
-Banner Notifications are alerts that attract users attention about system conditions, updates and may be dismissed by the user. 
-
 Banner Notifications are comprised of the following elements:
-1. [**Status Indicator**](https://design-system.hpe.design/templates/status-indicator?q=statu) an icon made of a shape, color and content to capture the user’s attention
+
+1. [**Status Indicator**](n/templates/status-indicator) an icon made of a shape, color and content to capture the user’s attention
 2. **Message** is a short description explaining the issue
 3. **Close Button** (optional) is used to dismiss the notification
 
 ## When to use
+
 Consider using Banner Notifications in the following use cases:
 
 - Scheduled maintenance within the system or platform
 - Subscription expiration
 - Feature releases
 
-
-
 ## When not to use
+
 Don’t use Banner Notifications in the following use cases:
 
 - Device component failures
 - Task related alerts
-- To show if task is successful. Instead, use [Toast Notifications](https://design-system.hpe.design/templates/toast-notifications?q=toas)
+- To show if task is successful. Instead, use [Toast Notifications](/templates/toast-notifications).
 
+## Guidelines
 
-## Guidelines:
 ### Format
-- Place below global header
-- Show one banner at a time
-- Implemented inline with the page content to ensure no other content is obscured
-- Keep within the 192 character limit to avoid truncation
-- Utilize guide to stay within character count
+
+- Place below global header.
+- Show one banner at a time.
+- Implement inline with the page content to ensure no other content is obscured.
+- Limit to 192 characters to avoid truncation. Content will be restricted to a single line. If there is insufficient width for the whole message, it will be truncated.
 
 ### Things to Avoid
-- Do not use use close icon when information is important and needs to remain persistent
-- Do not stack banners on top of one another
- 
+
+- Do not allow dismissal of the banner (`onClose`) when information is critical (such as potential access loss).
+- Do not stack banners on top of one another; use a single banner at a time.
+
 ### Behavior
-- Never sticky and should scroll when there is other content
-- Clicking notification would direct user to notification center
-- Dismissing notification would remove message and appear in notification center
+
+- Never sticky, should scroll when there is other content
+- When clicked, should direct user to notification center when clicked.
+- When dismissed, should remove the banner from the screen but the notification will still exist in the notification center.
 
 ### Placement
-- Banner Notifications should always be located below the Global Header, above the Page Header.
-- All Banner Notifications width should align to page content. For more information, visit Page Layout.
+
+- Banner notifications should always be located directly below the Global Header, above the Page Header.
+- All Banner notification widths should align to the page content. For more information, visit [Page Layouts](/templates/page-layouts).
 
 ## Variants
 
 ### Informational
+
 Used when there is a:
-- new feature 
-- new release coming
+
+- New feature
+- Upcoming release
 
 ### Critical
-Used to warn the user about: 
-- unavailable access to the platform due to the system
-- scheduled maintenances (good for persistent) 
+
+Used to warn the user about:
+
+- Unavailable access to the platform due to the system
+- Scheduled maintenances (good for persistent)
 
 ### Warning
-Used to warn the user about: 
-- subscriptions about to expire (can be dismissed)
-- session timeout
+
+Used to warn the user about:
+
+- Subscriptions about to expire (can be dismissed)
+- Session timeout
 
 ## Do’s and Don’ts
