@@ -48,8 +48,9 @@ export const BannerNotificationDiagram = () => (
           pad={{ vertical: 'small', horizontal: 'small' }}
           direction="row"
         >
-          <Annotation margin={{ left: '2px' }} id={1} target="1" />
-          <Annotation id={2} target="2" />
+          {/* pointers were off by 1px so needed this to have straight line */}
+          <Annotation margin={{ left: '-1px' }} id={1} target="1" />
+          <Annotation margin={{ left: '-1px' }} id={2} target="2" />
           <Annotation id={3} target="3" />
         </Box>
         <Box
@@ -59,16 +60,14 @@ export const BannerNotificationDiagram = () => (
           background={{ color: 'validation-critical' }}
           pad={{ vertical: 'xsmall', horizontal: 'small' }}
         >
-          <Box align="center" width="xxsmall" id="status-indicator">
+          <Box id="status-indicator">
             <StatusCriticalSmall color="red" />
           </Box>
           <Box id="content" align="start" direction="row" fill>
-            <Text>
+            <Text truncate>
               System maintenance scheduled to begin February 12 at 12:00 UTC.
-              Access to platform will be unavailable.
             </Text>
           </Box>
-          <Box width="medium" />
           <FormClose id="close-button" />
         </Box>
       </AnatomyGrid>
