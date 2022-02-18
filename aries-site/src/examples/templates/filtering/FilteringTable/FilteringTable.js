@@ -119,7 +119,7 @@ const ServerResults = () => {
           {
             property: 'id',
             header: 'Name',
-            pin: size === 'small',
+            pin: ['xsmall', 'small'].includes(size),
             primary: true,
             render: datum => datum.displayName,
           },

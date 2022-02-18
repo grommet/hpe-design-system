@@ -103,7 +103,7 @@ export const SearchResults = ({
             placeholder="Search the HPE Design System"
             value={query}
             onChange={onChange}
-            size={size !== 'small' ? 'xlarge' : 'medium'}
+            size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'medium'}
           />
         </Keyboard>
       </Box>
@@ -125,12 +125,14 @@ export const SearchResults = ({
             >
               <Text
                 color="text-strong"
-                size={size !== 'small' ? 'xlarge' : 'large'}
+                size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
                 weight="bold"
               >
                 Similar to '{query}'
               </Text>
-              <Text size={size !== 'small' ? 'large' : 'medium'}>
+              <Text
+                size={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
+              >
                 You may also be interested in this related content:
               </Text>
             </Box>
@@ -158,7 +160,7 @@ export const SearchResults = ({
         )}
       </Box>
       <Pagination
-        alignSelf={size === 'small' ? 'center' : 'end'}
+        alignSelf={['xsmall', 'small'].includes(size) ? 'center' : 'end'}
         numberItems={results.length}
         page={Math.floor(page.end / step)}
         onChange={({ startIndex, endIndex }) => {

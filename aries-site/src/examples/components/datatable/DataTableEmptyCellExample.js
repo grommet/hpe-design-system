@@ -322,7 +322,7 @@ export const DataTableEmptyCellExample = ({ designSystemDemo }) => {
               header: 'Id',
               primary: true,
               render: datum => datum.id.slice(datum.id.length - 5),
-              pin: size === 'small',
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}

@@ -7,8 +7,11 @@ export const PageIntro = ({ children, ...rest }) => {
   return (
     <Box height={{ min: 'medium' }} justify="center">
       <Grid
-        gap={size !== 'small' ? 'large' : 'medium'}
-        columns={{ count: 'fit', size: size !== 'small' ? 'medium' : 'fill' }}
+        gap={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
+        columns={{
+          count: 'fit',
+          size: !['xsmall', 'small'].includes(size) ? 'medium' : 'fill',
+        }}
         {...rest}
       >
         {/* Empty card allows vertical space for background image to 
