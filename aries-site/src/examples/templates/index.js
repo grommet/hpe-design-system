@@ -1,4 +1,5 @@
 export * from './ascending-navigation';
+export * from './banner-notifications';
 export * from './code-blocks';
 export * from './content-layouts';
 export * from './dashboards';
