@@ -52,8 +52,6 @@ export const BannerNotificationDiagram = () => (
           <Annotation id={2} target="2" />
           <Annotation id={3} target="3" />
         </Box>
-      </AnatomyGrid>
-      <AnatomyGrid>
         <Box
           direction="row"
           round="xsmall"
