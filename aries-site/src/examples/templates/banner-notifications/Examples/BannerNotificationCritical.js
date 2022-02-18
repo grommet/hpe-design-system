@@ -6,5 +6,6 @@ export const BannerNotificationCritical = () => (
     status="critical"
     message={`Scheduled Maintenance
        on 02/21/2022 at 12:00UTC. system unavailable for 2 hours.`}
+    // onClose={() => {}}
   />
 );
