@@ -1,4 +1,21 @@
+import {  BestPracticeGroup, Example } from '../../layouts';
+import {
+  BannerNotificationCritical,
+  BannerNotificationDoExample,
+  BannerNotificationDontExample,
+  BannerNotificationInfo,
+  BannerNotificationWarning,
+  BannerNotificationDiagram,
+} from '../../examples';
+
 Banner Notifications are comprised of the following elements:
+
+<Example
+  caption="Diagram illustrating the three parts composing of a Banner Notification."
+  plain
+>
+  <BannerNotificationDiagram />
+</Example>
 
 1. [**Status Indicator**](n/templates/status-indicator) an icon made of a shape, color and content to capture the user’s attention
 2. **Message** is a short description explaining the issue
@@ -43,7 +60,6 @@ Don’t use Banner Notifications in the following use cases:
 ### Placement
 
 - Banner notifications should always be located directly below the Global Header, above the Page Header.
-- All Banner notification widths should align to the page content. For more information, visit [Page Layouts](/templates/page-layouts).
 
 ## Variants
 
@@ -54,12 +70,34 @@ Used when there is a:
 - New feature
 - Upcoming release
 
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js"
+  height={{ min: 'small' }}
+>
+  <BannerNotificationInfo />
+</Example>
+
 ### Critical
 
 Used to warn the user about:
 
 - Unavailable access to the platform due to the system
 - Scheduled maintenances (good for persistent)
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js"
+  height={{ min: 'small' }}
+>
+  <BannerNotificationCritical />
+</Example>
 
 ### Warning
 
@@ -68,4 +106,30 @@ Used to warn the user about:
 - Subscriptions about to expire (can be dismissed)
 - Session timeout
 
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js"
+  height={{ min: 'small' }}
+>
+  <BannerNotificationWarning />
+</Example>
+
 ## Do’s and Don’ts
+
+<BestPracticeGroup>
+  <Example
+    height="small"
+    bestPractice={{type: 'do', message: 'In this example, names are listed in xsmall size with values displayed in default font-size.'}}
+  >
+    <BannerNotificationDoExample />
+  </Example>
+  <Example
+    height="small"
+    bestPractice={{type: 'dont', message: `Don’t scale names bigger than their value.`}}
+  >
+    <BannerNotificationDontExample />
+  </Example>
+</BestPracticeGroup>
