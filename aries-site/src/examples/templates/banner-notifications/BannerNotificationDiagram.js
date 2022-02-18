@@ -63,7 +63,10 @@ export const BannerNotificationDiagram = () => (
             <StatusCriticalSmall color="red" />
           </Box>
           <Box id="content" align="start" direction="row" fill>
-            <Text>This is an example of content text</Text>
+            <Text>
+              System maintenance scheduled to begin February 12 at 12:00 UTC.
+              Access to platform will be unavailable.
+            </Text>
           </Box>
           <Box width="medium" />
           <FormClose id="close-button" />
