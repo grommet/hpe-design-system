@@ -53,7 +53,7 @@ const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
-      direction={size === 'small' ? 'column-reverse' : 'row'}
+      direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
       width={{ max: 'xxlarge' }}

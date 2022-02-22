@@ -21,9 +21,18 @@ export const HorizontalExample = ({
         // responsiveControls to align with code block to its right
         margin={
           plain && showResponsiveControls
-            ? { top: 'xsmall', bottom: size !== 'small' ? 'medium' : undefined }
+            ? {
+                top: 'xsmall',
+                bottom: !['xsmall', 'small'].includes(size)
+                  ? 'medium'
+                  : undefined,
+              }
             : // on small screens, gap from outer box handles spacing
-              { bottom: size !== 'small' ? 'medium' : undefined }
+              {
+                bottom: !['xsmall', 'small'].includes(size)
+                  ? 'medium'
+                  : undefined,
+              }
         }
         width={width}
       >

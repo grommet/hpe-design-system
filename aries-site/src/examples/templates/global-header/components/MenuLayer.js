@@ -26,15 +26,15 @@ export const MenuLayer = () => {
       <Button icon={<Menu />} onClick={() => setShowLayer(true)} />
       {showLayer && (
         <Layer
-          full={size !== 'small' ? 'vertical' : true}
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           modal={false}
           onClickOutside={() => setShowLayer(false)}
           onEsc={() => setShowLayer(false)}
-          position={size !== 'small' ? 'left' : undefined}
+          position={!['xsmall', 'small'].includes(size) ? 'left' : undefined}
         >
           <Box
             fill="vertical"
-            width={size !== 'small' ? 'medium' : undefined}
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
             elevation="large"
           >
             <Header pad={pad}>

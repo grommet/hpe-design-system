@@ -60,7 +60,7 @@ export const CreateTagSimple = () => {
       >
         <Grid
           columns={
-            size !== 'small'
+            !['xsmall', 'small'].includes(size)
               ? [['auto', 'medium'], 'auto']
               : '100%'
           }
@@ -104,7 +104,7 @@ export const CreateTagSimple = () => {
             justify="start"
             // use theme style values to align Button with FormField input
             pad={
-              size !== 'small'
+              !['xsmall', 'small'].includes(size)
                 ? {
                     top: `${parseInt(theme.text.xsmall.height, 10) +
                       parseInt(
@@ -125,7 +125,9 @@ export const CreateTagSimple = () => {
               alignSelf="start"
               label="Assign"
               type="submit"
-              fill={size === 'small' ? 'horizontal' : undefined}
+              fill={
+                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+              }
               secondary
             />
           </Box>

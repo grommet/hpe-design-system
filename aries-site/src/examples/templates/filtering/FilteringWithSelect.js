@@ -108,7 +108,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
             Hosts
           </Heading>
           <Box align="center" direction="row" gap="small">
-            {size !== 'small' || searchFocused ? (
+            {!['xsmall', 'small'].includes(size) || searchFocused ? (
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
@@ -136,7 +136,7 @@ export const FilteringWithSelect = ({ containerRef }) => {
                 onClick={() => setSearchFocused(true)}
               />
             )}
-            {(size !== 'small' || !searchFocused) && (
+            {(!['xsmall', 'small'].includes(size) || !searchFocused) && (
               <Filters
                 data={data}
                 filtering={filtering}
@@ -221,7 +221,7 @@ const Filters = ({
   return (
     <>
       <Box align="center" direction="row" gap="small">
-        {size !== 'small' ? (
+        {!['xsmall', 'small'].includes(size) ? (
           content
         ) : (
           <Button
@@ -237,8 +237,8 @@ const Filters = ({
       </Box>
       {showLayer && (
         <Layer
-          position={size !== 'small' ? 'right' : undefined}
-          full={size !== 'small' ? 'vertical' : true}
+          position={!['xsmall', 'small'].includes(size) ? 'right' : undefined}
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           modal
           onClickOutside={() => {
             filterData(allData, previousFilters);
@@ -359,7 +359,9 @@ const Results = ({ data }) => {
             flex={false}
           >
             <Box direction="row" gap="small" align="center">
-              {size !== 'small' && <Text>{item.status}</Text>}
+              {!['xsmall', 'small'].includes(size) && (
+                <Text>{item.status}</Text>
+              )}
               {item.status === 'Ready' ? (
                 <StatusGoodSmall color="status-ok" size="small" />
               ) : (

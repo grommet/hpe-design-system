@@ -19,7 +19,7 @@ const StyledHeader = ({ ...rest }) => {
     <Header
       pad={{
         vertical: 'medium',
-        horizontal: size !== 'small' ? 'xlarge' : 'large',
+        horizontal: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
       }}
       {...rest}
     >
@@ -27,7 +27,7 @@ const StyledHeader = ({ ...rest }) => {
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
       <Box direction="row" align="center" gap="xsmall">
-        {size !== 'small' &&
+        {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
             <Link key={item.name} href={nameToPath(item.name)} passHref>
               <Button

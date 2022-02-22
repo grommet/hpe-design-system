@@ -39,7 +39,7 @@ export const HeaderNavigationExample = () => {
           </Box>
         </Box>
       </Button>
-      {size !== 'small' ? (
+      {!['xsmall', 'small'].includes(size) ? (
         <Nav direction="row">
           {items.map(item => (
             <Button label={item.label} key={item.label} />

@@ -44,7 +44,10 @@ export const DoDontContainer = ({
 
   return (
     <>
-      <Container height={size !== 'small' ? height : undefined} {...rest} />
+      <Container
+        height={!['xsmall', 'small'].includes(size) ? height : undefined}
+        {...rest}
+      />
       {bestPractice}
     </>
   );

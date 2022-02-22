@@ -158,7 +158,7 @@ export const RequiredFieldsExample = () => {
             </Box>
           )}
           <Box
-            align={size !== 'small' ? 'start' : undefined}
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'small' }}
           >
             <Button label="Create" primary type="submit" />

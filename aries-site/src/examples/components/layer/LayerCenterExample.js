@@ -17,7 +17,7 @@ export const LayerCenterExample = () => {
           <Box
             fill="vertical"
             overflow="auto"
-            width={size !== 'small' ? 'medium' : undefined}
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
             pad="medium"
           >
             <Box justify="between" direction="row">
@@ -43,7 +43,7 @@ export const LayerCenterExample = () => {
           <Box
             fill="vertical"
             overflow="auto"
-            width={size !== 'small' ? 'medium' : undefined}
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
           >
             <Box
               direction="row"

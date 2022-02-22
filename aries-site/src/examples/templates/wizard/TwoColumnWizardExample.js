@@ -37,14 +37,14 @@ const StepOne = () => {
   const size = useContext(ResponsiveContext);
   return (
     <Box
-      direction={size !== 'small' ? 'row' : 'column-reverse'}
+      direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column-reverse'}
       margin={{ bottom: 'medium' }}
-      gap={size === 'small' ? 'small' : undefined}
+      gap={['xsmall', 'small'].includes(size) ? 'small' : undefined}
       justify="between"
       wrap
     >
       <Box
-        width={size !== 'small' ? 'medium' : '100%'}
+        width={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
         margin={{ bottom: 'medium' }}
         gap="medium"
         flex={false}
@@ -262,7 +262,11 @@ const Guidance = () => {
       pad="medium"
       round="small"
       flex
-      width={size !== 'small' ? { min: 'small', max: 'medium' } : '100%'}
+      width={
+        !['xsmall', 'small'].includes(size)
+          ? { min: 'small', max: 'medium' }
+          : '100%'
+      }
     >
       <Text color="text-strong" size="large">
         When guidance is required for the form or content of the wizard, you
