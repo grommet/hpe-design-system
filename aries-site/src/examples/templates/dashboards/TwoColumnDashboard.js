@@ -124,7 +124,7 @@ const PageContent = () => {
             </Grid>
           </Box>
         </Box>
-        {!['xsmall', 'small'].includes(size) && size !== 'xsmall' && (
+        {!['xsmall', 'small'].includes(size) && (
           <Box gap="large">
             {/* fragment is used to create a gap spacing element 
             for alignment to column 1 */}
