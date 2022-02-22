@@ -79,7 +79,7 @@ const PageContent = () => {
       <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
         {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {(['xsmall', 'small'].includes(size) || size === 'xsmall') && (
+        {['xsmall', 'small'].includes(size) && (
           <ContentBlock title="1" />
         )}
         <Grid gap={firstChildGrid.gap}>
