@@ -30,7 +30,7 @@ export const PaginationListExample = () => {
           border: 'top',
           direction: 'row',
           fill: 'horizontal',
-          justify: size !== 'small' ? 'end' : 'center',
+          justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
           pad: { top: 'xsmall' },
         }}
       />

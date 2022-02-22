@@ -22,7 +22,7 @@ export const ExampleControls = ({
   showResponsiveControls,
 }) => {
   const size = useContext(ResponsiveContext);
-  const isSmall = size === 'small';
+  const isSmall = ['xsmall', 'small'].includes(size);
   const buttonSize = isSmall ? 'small' : undefined;
   const fullscreenControl = !(horizontalLayout || showResponsiveControls);
 

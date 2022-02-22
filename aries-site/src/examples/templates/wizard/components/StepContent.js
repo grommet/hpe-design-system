@@ -17,12 +17,11 @@ export const StepContent = ({ onSubmit }) => {
     width,
   } = useContext(WizardContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     setValid(true);
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
-    }
-    else if (onSubmit) {
+    } else if (onSubmit) {
       onSubmit(event);
     }
   };
@@ -31,8 +30,10 @@ export const StepContent = ({ onSubmit }) => {
   // return an error or info message. This removes the need for the
   // user to scroll to find which field blocked form submission.
   const onValidate = validationResults => {
-    const names  = [ ...Object.keys(validationResults.errors),
-      ...Object.keys(validationResults.infos) ];
+    const names = [
+      ...Object.keys(validationResults.errors),
+      ...Object.keys(validationResults.infos),
+    ];
     if (names.length > 0) {
       const selector = names.map(name => `[name=${name}]`).join(',');
       const firstInvalid = document.querySelectorAll(selector)[0];
@@ -46,16 +47,28 @@ export const StepContent = ({ onSubmit }) => {
   return (
     <Box
       align="center"
-      pad={size !== 'small' ? { vertical: 'large' } : { vertical: 'medium' }}
+      pad={
+        !['xsmall', 'small'].includes(size)
+          ? { vertical: 'large' }
+          : { vertical: 'medium' }
+      }
       overflow="auto"
       ref={ref}
-      flex={size === 'small' ? true : undefined}
-      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
+      flex={['xsmall', 'small'].includes(size) ? true : undefined}
+      margin={
+        !['xsmall', 'small'].includes(size)
+          ? { horizontal: 'medium' }
+          : undefined
+      }
     >
       <Box
         width={width}
         gap="medium"
-        pad={size === 'small' ? { horizontal: 'medium' } : 'xxsmall'}
+        pad={
+          ['xsmall', 'small'].includes(size)
+            ? { horizontal: 'medium' }
+            : 'xxsmall'
+        }
       >
         <StepHeader />
         <Box margin={{ top: 'small' }}>

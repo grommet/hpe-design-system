@@ -5,14 +5,14 @@ export const BestPracticeGroup = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   let column;
   // on small and medium layout we want to use auto
-  if (size !== 'medium' && size !== 'small') {
+  if (size !== 'medium' && !['xsmall', 'small'].includes(size)) {
     column = ['1/2', '1/2'];
   } else column = 'auto';
 
   return (
     <Grid
       columns={column}
-      gap={size !== 'small' ? 'large' : 'none'}
+      gap={!['xsmall', 'small'].includes(size) ? 'large' : 'none'}
       {...rest}
     />
   );

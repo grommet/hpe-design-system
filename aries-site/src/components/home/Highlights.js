@@ -22,8 +22,10 @@ const HighlightsLayout = () => {
 
   return (
     <Grid
-      pad={{ horizontal: size !== 'small' ? 'medium' : 'large' }}
-      columns={size !== 'small' ? 'medium' : '100%'}
+      pad={{
+        horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'large',
+      }}
+      columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
       gap="large"
     >
       {highlights.map(({ name, summary, image }) => {
@@ -84,7 +86,11 @@ export const Highlights = ({ ...rest }) => {
         <Box
           justify="center"
           align="center"
-          pad={{ horizontal: size !== 'small' ? 'xlarge' : 'large' }}
+          pad={{
+            horizontal: !['xsmall', 'small'].includes(size)
+              ? 'xlarge'
+              : 'large',
+          }}
           gap="large"
         >
           <Heading margin="none" level={2} size="large">

@@ -5,7 +5,7 @@ import { Box, Text, ResponsiveContext } from 'grommet';
 export const TextExample = ({ color, hex }) => {
   const size = React.useContext(ResponsiveContext);
   const textSize = 'small';
-  const exampleTextSize = size === 'small' ? '60px' : '84px';
+  const exampleTextSize = ['xsmall', 'small'].includes(size) ? '60px' : '84px';
 
   return (
     <Box align="center" margin={{ horizontal: 'small' }}>

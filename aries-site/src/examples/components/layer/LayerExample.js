@@ -23,7 +23,7 @@ export const LayerExample = () => {
       {open && (
         <Layer
           position="right"
-          full={size !== 'small' ? 'vertical' : true}
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           modal
           onClickOutside={onClose}
           onEsc={onClose}
@@ -31,7 +31,7 @@ export const LayerExample = () => {
           <Box
             fill="vertical"
             overflow="auto"
-            width={size !== 'small' ? 'medium' : undefined}
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
             pad="medium"
           >
             <Header>

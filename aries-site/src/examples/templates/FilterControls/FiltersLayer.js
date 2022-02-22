@@ -37,8 +37,8 @@ export const FiltersLayer = () => {
   return (
     <Layer
       as="section"
-      position={size !== 'small' ? 'right' : undefined}
-      full={size === 'small' ? true : 'vertical'}
+      position={!['xsmall', 'small'].includes(size) ? 'right' : undefined}
+      full={['xsmall', 'small'].includes(size) ? true : 'vertical'}
       onClickOutside={() => closeLayer()}
       onEsc={() => closeLayer()}
       {...layerProps}
@@ -47,7 +47,9 @@ export const FiltersLayer = () => {
         fill="vertical"
         gap="medium"
         pad={{ vertical: 'medium' }}
-        width={{ min: size !== 'small' ? 'medium' : undefined }}
+        width={{
+          min: !['xsmall', 'small'].includes(size) ? 'medium' : undefined,
+        }}
         {...containerProps}
       >
         <Header pad={{ horizontal: 'medium' }}>
