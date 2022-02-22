@@ -22,7 +22,9 @@ export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
           margin={{ bottom: 'xxsmall' }}
         >
           {icon}
-          <Text size={name.label?.size || 'small'}>{label.label || label}</Text>
+          <Text size={name.label?.size || 'small'}>
+            {label?.label || label}
+          </Text>
         </Box>
       }
     >
