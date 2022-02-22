@@ -32,7 +32,12 @@ const parentGrid = {
       ['small', 'medium'],
       ['small', 'medium'],
     ],
-    xlarge: { count: 4, size: ['small', 'auto'] },
+    xlarge: [
+      ['small', 'large'],
+      ['small', 'large'],
+      ['small', 'large'],
+      ['small', 'large'],
+    ],
   },
   gap: {
     xsmall: 'large',
