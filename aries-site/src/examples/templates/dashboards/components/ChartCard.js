@@ -49,6 +49,7 @@ export const ChartCard = ({
               ? { horizontal: 'large', top: body.pad, bottom: 'large' }
               : footerTheme.pad
           }
+          border={{ side: 'top', color: 'border-weak' }}
         >
           {footer}
         </CardFooter>

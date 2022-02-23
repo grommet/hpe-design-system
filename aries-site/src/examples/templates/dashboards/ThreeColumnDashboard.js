@@ -7,7 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
-import { CostByMonth, CostByService, CostByYear } from './content';
+import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -61,8 +61,7 @@ const PageContent = () => {
         <CostByService period={period} />
         <CostByMonth period="Last Year" />
         <CostByYear period="Lifetime" />
-        <ContentArea title={3} height="medium" />
-        <ContentArea title={4} height="medium" />
+        <RulesAudit period="Last Year" />
       </Grid>
     </Main>
   );
