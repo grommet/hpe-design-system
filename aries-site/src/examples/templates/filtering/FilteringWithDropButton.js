@@ -112,7 +112,7 @@ export const FilteringWithDropButton = () => {
             Machines
           </Heading>
           <Box align="center" direction="row" gap="small">
-            {size !== 'small' || searchFocused ? (
+            {!['xsmall', 'small'].includes(size) || searchFocused ? (
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
@@ -140,7 +140,7 @@ export const FilteringWithDropButton = () => {
                 onClick={() => setSearchFocused(true)}
               />
             )}
-            {(size !== 'small' || !searchFocused) && (
+            {(!['xsmall', 'small'].includes(size) || !searchFocused) && (
               <Filters
                 data={data}
                 filtering={filtering}
@@ -360,8 +360,12 @@ const Results = ({ data }) => {
   return (
     <Box overflow="auto" pad={{ bottom: 'medium' }} fill>
       <Grid
-        columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
-        gap={size !== 'small' ? 'medium' : 'small'}
+        columns={
+          !['xsmall', 'small'].includes(size)
+            ? 'small'
+            : { count: 2, size: 'auto' }
+        }
+        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
           <Card

@@ -38,7 +38,11 @@ const AnatomyGrid = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
-      columns={size !== 'small' ? ['medium', 'medium'] : ['small', 'small']}
+      columns={
+        !['xsmall', 'small'].includes(size)
+          ? ['medium', 'medium']
+          : ['small', 'small']
+      }
       rows={['xxsmall', 'auto']}
       gap="none"
       justify="center"

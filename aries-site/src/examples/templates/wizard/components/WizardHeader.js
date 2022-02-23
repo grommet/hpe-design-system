@@ -27,7 +27,7 @@ export const WizardHeader = ({ setOpen }) => {
           {activeStep > 1 && (
             <Button
               label={
-                size !== 'small'
+                !['xsmall', 'small'].includes(size)
                   ? (steps[activeIndex - 1] && steps[activeIndex - 1].title) ||
                     `Step ${activeStep - 1} Title`
                   : undefined
@@ -44,7 +44,7 @@ export const WizardHeader = ({ setOpen }) => {
         </Box>
         <Box direction="row" flex justify="end">
           <Button
-            label={size !== 'small' ? 'Cancel' : undefined}
+            label={!['xsmall', 'small'].includes(size) ? 'Cancel' : undefined}
             icon={<FormClose />}
             reverse
             onClick={() => setOpen(true)}

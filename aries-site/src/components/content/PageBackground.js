@@ -33,10 +33,10 @@ export const PageBackground = ({ backgroundImage }) => {
       ) : (
         <Box height={{ min: 'medium' }} justify="center">
           <Grid
-            gap={size !== 'small' ? 'large' : 'medium'}
+            gap={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
             columns={{
               count: 'fit',
-              size: size !== 'small' ? 'medium' : 'fill',
+              size: !['xsmall', 'small'].includes(size) ? 'medium' : 'fill',
             }}
           >
             <Box style={style} margin={margin}>

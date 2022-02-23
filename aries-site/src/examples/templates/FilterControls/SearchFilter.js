@@ -31,7 +31,7 @@ export const SearchFilter = ({ placeholder }) => {
 
   return (
     <>
-      {size !== 'small' || searchFocused ? (
+      {!['xsmall', 'small'].includes(size) || searchFocused ? (
         <Box width="medium" flex="shrink">
           <StyledTextInput
             ref={inputRef}
