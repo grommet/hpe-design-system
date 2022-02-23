@@ -1,0 +1,44 @@
+{
+  "accounts": [
+    {
+      "id": "507f1f77bcf86cd799439011",
+      "name": "Acme Corp.",
+      "createdDate": "2015-08-17T23:09:54.584Z"
+    },
+    {
+      "id": "507f1f77bcf86cd79943emea",
+      "name": "Virtucon Industries",
+      "createdDate": "2017-03-11T17:34:53.584Z"
+    },
+    {
+      "id": "507f1f7g6ty86cd799439034",
+      "name": "CHOAM",
+      "createdDate": "2019-12-07T23:09:54.584Z"
+    },
+    {
+      "id": "507f1f7g6ty86cd56te39034",
+      "name": "Soylent Corp.",
+      "createdDate": "2021-12-08T13:09:54.584Z"
+    },
+    {
+      "id": "407f1f7g6ty86cd56te3903y",
+      "name": "Sirius Cybernetics Corp.",
+      "createdDate": "2015-02-08T13:09:54.584Z"
+    },
+    {
+      "id": "407g1f7h6ty76cd56te39031",
+      "name": "Wayne Enterprises",
+      "createdDate": "2017-03-08T13:09:54.584Z"
+    },
+    {
+      "id": "407a2d6i6ty76cd56te39042",
+      "name": "Tyrell Corp.",
+      "createdDate": "2018-05-18T11:09:54.584Z"
+    },
+    {
+      "id": "307b2d5j6ta46cd56te390ab",
+      "name": "Globex",
+      "createdDate": "2018-07-11T11:09:54.584Z"
+    }
+  ]
+}
