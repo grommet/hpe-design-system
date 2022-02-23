@@ -62,7 +62,6 @@ const PageContent = () => {
         <CostByMonth period="Last Year" />
         <CostByYear period="Lifetime" />
         <RulesAudit period="Last Year" />
-        <ContentArea title={4} height="medium" />
       </Grid>
     </Main>
   );
