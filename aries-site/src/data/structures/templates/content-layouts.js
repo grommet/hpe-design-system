@@ -82,13 +82,15 @@ export const contentLayouts = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/coming-soon.svg',
-          dark: '/templateImages/coming-soon-invert.svg',
+          light: '/templateImages/3col-dashboard.svg',
+          dark: '/templateImages/3col-dashboard-invert.svg',
         },
-        alt: comingSoon,
+        alt: `Dashboard content represented by equal-sized boxes 
+        organized in a three column by two row grid.`,
         fit: 'contain',
       },
     },
+    href: '/templates/dashboards#three-column-dashboard',
   },
   {
     name: 'Multi-column - Dashboard',
