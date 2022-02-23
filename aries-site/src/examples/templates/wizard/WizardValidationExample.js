@@ -105,8 +105,12 @@ const StepOne = () => {
   return (
     <>
       <Grid
-        columns={size !== 'small' ? { count: 'fit', size: 'medium' } : '100%'}
-        gap={size !== 'small' ? 'large' : undefined}
+        columns={
+          !['xsmall', 'small'].includes(size)
+            ? { count: 'fit', size: 'medium' }
+            : '100%'
+        }
+        gap={!['xsmall', 'small'].includes(size) ? 'large' : undefined}
         margin={{ bottom: 'medium' }}
       >
         {stepOneInputs.map((input, index) => (

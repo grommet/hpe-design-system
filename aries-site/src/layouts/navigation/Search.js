@@ -225,7 +225,7 @@ export const Search = ({ setOpen }) => {
 
   return (
     <Layer
-      margin={size !== 'small' ? { top: 'medium' } : 'none'}
+      margin={!['xsmall', 'small'].includes(size) ? { top: 'medium' } : 'none'}
       onEsc={onClose}
       onClickOutside={onClose}
       position="top"

@@ -15,7 +15,9 @@ export const DashboardExample = () => {
             background="background"
             justify="center"
             pad={{
-              horizontal: size !== 'small' ? 'xlarge' : 'medium',
+              horizontal: !['xsmall', 'small'].includes(size)
+                ? 'xlarge'
+                : 'medium',
               vertical: 'large',
             }}
             flex={false}

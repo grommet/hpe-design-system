@@ -1,19 +1,14 @@
-import React, { useContext } from 'react';
-import { Box, Button, Grid, ResponsiveContext } from 'grommet';
+import React from 'react';
+import { Box, Button, Grid } from 'grommet';
 import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
 export const SectionCards = ({ items, seeAllContent }) => {
-  const size = useContext(ResponsiveContext);
   const { buttonLabel, href } = seeAllContent;
 
   return (
     <Box gap="large">
-      <Grid
-        columns={size !== 'small' ? 'medium' : '100%'}
-        rows="auto"
-        gap="medium"
-      >
+      <Grid columns="medium" rows="auto" gap="medium">
         {items.map(item => (
           <LinkCard
             key={item.title}

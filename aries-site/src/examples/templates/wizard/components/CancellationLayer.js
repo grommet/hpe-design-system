@@ -9,7 +9,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
   return (
     <Layer
       position="center"
-      full={size === 'small'}
+      full={['xsmall', 'small'].includes(size)}
       onClickOutside={() => onSetOpen(false)}
       onEsc={() => onSetOpen(false)}
       {...rest}
@@ -28,7 +28,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
         <Box
           as="footer"
           gap="small"
-          direction={size !== 'small' ? 'row' : 'column'}
+          direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
           align="center"
           justify="end"
         >
@@ -36,11 +36,11 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
             label="No, Stay"
             onClick={() => onSetOpen(false)}
             secondary
-            fill={size !== 'small' ? false : 'horizontal'}
+            fill={!['xsmall', 'small'].includes(size) ? false : 'horizontal'}
           />
           <Button
             label="Yes, Exit"
-            fill={size !== 'small' ? false : 'horizontal'}
+            fill={!['xsmall', 'small'].includes(size) ? false : 'horizontal'}
             onClick={() => {
               onSetOpen(false);
               setFormValues(defaultFormValues);

@@ -86,13 +86,13 @@ const AnnualSpend = ({ data: dataProp, ...rest }) => {
         },
       ]}
       axis={{
-        x: { property: 'date', granularity: 'fine' },
+        x: { property: 'date', granularity: 'medium' },
         y: { property: 'cost', granularity: 'medium' },
       }}
       chart={{ property: 'cost', thickness: 'xxsmall', type: 'line' }}
       detail
       guide={{ y: { granularity: 'fine' } }}
-      size={{ width: 'fill' }}
+      margin={{ right: 'medium' }}
       {...rest}
     />
   );

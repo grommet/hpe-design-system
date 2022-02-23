@@ -76,7 +76,11 @@ export const FeedbackOptions = () => {
   return (
     <Box flex={false} width="xlarge">
       <Grid
-        columns={size !== 'small' ? { count: 'fit', size: 'small' } : 'auto'}
+        columns={
+          !['xsmall', 'small'].includes(size)
+            ? { count: 'fit', size: 'small' }
+            : 'auto'
+        }
         gap="large"
       >
         <JoinConversation />
