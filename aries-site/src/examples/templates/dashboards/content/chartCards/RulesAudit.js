@@ -97,13 +97,8 @@ export const RulesAudit = ({ period }) => {
   };
 
   const nextScheduledAudit = nextAudit && (
-    <Box direction="row" gap="xsmall">
-      <Box
-        // pad aligns icon and text first row
-        pad={{ top: 'xsmall' }}
-      >
-        <Calendar size="small" color="text-strong" />
-      </Box>
+    <Box direction="row" gap="xsmall" align="center">
+      <Calendar size="small" color="text-strong" />
       <Text size="small" weight="bold">
         Next audit will be performed in{' '}
         {Math.round(
@@ -152,7 +147,9 @@ const AuditResultsChart = ({ data, ...rest }) => (
   <MeterGroup {...rest}>
     {data.map(datum => (
       <Fragment key={datum.result}>
-        <Text>{datum.result}</Text>
+        <Text>{`${datum.result[0].toUpperCase()}${datum.result.slice(
+          1,
+        )}`}</Text>
         <Meter
           alignSelf="center"
           type="bar"
@@ -160,7 +157,7 @@ const AuditResultsChart = ({ data, ...rest }) => (
             {
               value: datum.percent,
               color: datum.color,
-              label: datum.result,
+              label: `${datum.result[0].toUpperCase()}${datum.result.slice(1)}`,
             },
           ]}
           thickness="small"
@@ -170,12 +167,13 @@ const AuditResultsChart = ({ data, ...rest }) => (
         </Box>
       </Fragment>
     ))}
+    {/* Content is being placed in a 3-column grid. Empty Box ensures the meter 
+    labels flow into the 2nd column */}
     <Box />
     <Box direction="row" justify="between">
       <Text>0%</Text>
       <Text>100%</Text>
     </Box>
-    <Box />
   </MeterGroup>
 );
 
