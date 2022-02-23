@@ -43,8 +43,8 @@ const parentGrid = {
     xsmall: 'large',
     small: 'large',
     medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    large: 'medium',
+    xlarge: 'medium',
   },
 };
 
