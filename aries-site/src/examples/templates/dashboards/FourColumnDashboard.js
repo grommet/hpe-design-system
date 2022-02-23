@@ -7,6 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
+import { CostCompact } from '.';
 
 export const FourColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -55,7 +56,7 @@ const PageContent = () => {
   return (
     <Main {...pageContainer}>
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-        <ContentArea title={1} height="medium" />
+        <CostCompact period="Last 30 Days" />
         <ContentArea title={2} height="medium" />
         <ContentArea title={3} height="medium" />
         <ContentArea title={4} height="medium" />
