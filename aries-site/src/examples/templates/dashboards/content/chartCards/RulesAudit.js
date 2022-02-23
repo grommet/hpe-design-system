@@ -97,8 +97,10 @@ export const RulesAudit = ({ period }) => {
   };
 
   const nextScheduledAudit = nextAudit && (
-    <Box direction="row" gap="xsmall" align="center">
-      <Calendar size="small" color="text-strong" />
+    <Box direction="row" gap="xsmall">
+      <Text>
+        <Calendar size="small" color="text-strong" />
+      </Text>
       <Text size="small" weight="bold">
         Next audit will be performed in{' '}
         {Math.round(
