@@ -127,6 +127,7 @@ export const CostCompact = ({ period }) => {
           rows={grid.rows}
           areas={grid.areas[size]}
           gap={grid.gap[size]}
+          pad={{ top: 'medium' }}
         >
           <Stack alignSelf="start" gridArea="chart" anchor="center">
             <Box
@@ -154,11 +155,13 @@ export const CostCompact = ({ period }) => {
               alignSelf="center"
               align="center"
               direction="column-reverse"
-              name={{ label: { label: period, size: 'small' } }}
+              name={{ label: { label: period, size: 'xsmall' } }}
               value={{
                 value: formatCurrency(active ? active.value : totalCost),
                 size: 'xlarge',
               }}
+              justify="center"
+              width="xsmall"
             />
           </Stack>
           <Legend
