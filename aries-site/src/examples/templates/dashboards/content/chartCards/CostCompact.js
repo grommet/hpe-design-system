@@ -120,14 +120,13 @@ export const CostCompact = ({ period }) => {
   };
 
   return (
-    <ChartCard title="Cost" subtitle="Consumption Analytics">
+    <ChartCard title="Cost" subtitle="Consumption Analytics" gap="medium">
       {values && (
         <Grid
           columns={grid.columns[size]}
           rows={grid.rows}
           areas={grid.areas[size]}
           gap={grid.gap[size]}
-          pad={{ top: 'medium' }}
         >
           <Stack alignSelf="start" gridArea="chart" anchor="center">
             <Box
