@@ -3226,9 +3226,9 @@
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
 "@types/node@*":
-  version "17.0.20"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.20.tgz#29626bd9c9119df5b8194353d34044c895fe56e3"
-  integrity sha512-Q15Clj3lZSLnhVA6yKw1G7SQz46DeL9gO1TEgfK1OQGvMdQ6TUWmCeWf1QBUNkw2BDfV52i2YuYd9OF3ZwGhjw==
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
+  integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/node@^12.20.10":
   version "12.20.46"
@@ -8348,9 +8348,9 @@ grommet-styles@^0.2.0:
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#577d747426b1635e1a9056aba94d0e486295c4ac"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.20.1"
-  uid fef5c173541731db3e19198b435088e7e7278bfe
-  resolved "https://github.com/grommet/grommet/tarball/stable#fef5c173541731db3e19198b435088e7e7278bfe"
+  version "2.21.0"
+  uid "2ecdf1a5580717a87e6b8dd1a1ca0cff1f709f8f"
+  resolved "https://github.com/grommet/grommet/tarball/stable#2ecdf1a5580717a87e6b8dd1a1ca0cff1f709f8f"
   dependencies:
     grommet-icons "^4.7.0"
     hoist-non-react-statics "^3.2.0"
