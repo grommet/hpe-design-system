@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, DataChart, Grid, Meter, Text } from 'grommet';
+import { Box, Grid, Meter, Text } from 'grommet';
 import { Calendar } from 'grommet-icons';
-import { ChartCard, Measure } from '../../components';
+import { ChartCard, Measure, MeterGroup } from '../../components';
 import { defaultWindow, REPORT_WINDOW_MAP } from './utils';
 
 const mockData = require('../../../../../data/mockData/compliance.json');
@@ -14,7 +14,7 @@ export const RulesAudit = ({ period }) => {
   const [nextAudit, setNextAudit] = useState(null);
   const [rules, setRules] = useState([]);
   const [frameworks, setFrameworks] = useState([]);
-  const [auditResults, setAuditResults] = useState([{}]);
+  const [auditResults, setAuditResults] = useState([]);
 
   // Set reporting window
   useEffect(() => {
@@ -64,13 +64,27 @@ export const RulesAudit = ({ period }) => {
 
   // Assemble chart data
   useEffect(() => {
-    // const nextAuditResults = [];
-
-    setAuditResults([
-      { result: 'Pass', count: 35, percent: 70 },
-      { result: 'Fail', count: 10, percent: 20 },
-      { result: 'Error', count: 5, percent: 10 },
-    ]);
+    const nextAuditResults = [
+      { result: 'pass', count: 0, percent: 0, color: 'status-ok' },
+      { result: 'fail', count: 0, percent: 0, color: 'status-critical' },
+      { result: 'error', count: 0, percent: 0, color: 'status-warning' },
+    ];
+    const ruleMap = new Map();
+    nextAuditResults.forEach(result => {
+      const index = nextAuditResults.findIndex(
+        el => el.result === result.result,
+      );
+      ruleMap.set(result.result, index);
+    });
+    rules.forEach(rule => {
+      const index = ruleMap.get(rule.result);
+      nextAuditResults[index] = {
+        ...nextAuditResults[index],
+        count: nextAuditResults[index].count + 1,
+        percent: ((nextAuditResults[index].count + 1) / rules.length) * 100,
+      };
+    });
+    setAuditResults(nextAuditResults);
   }, [rules]);
 
   const grid = {
@@ -124,24 +138,7 @@ export const RulesAudit = ({ period }) => {
           name={{ label: { label: 'Audits', size: 'medium' } }}
           value={completedAudits?.length}
         />
-        {/* <AuditResultsChart gridArea="chart" data={auditResults} /> */}
-        <Box gridArea="chart" gap="medium">
-          <Box direction="row" gap="small">
-            <Text>{auditResults[0].result}</Text>
-            <Meter type="bar" value={auditResults[0].percent} />
-            <Text weight="bold">{auditResults[0].count}</Text>
-          </Box>
-          <Box direction="row" gap="small">
-            <Text>{auditResults[1].result}</Text>
-            <Meter type="bar" value={auditResults[1].percent} />
-            <Text weight="bold">{auditResults[1].count}</Text>
-          </Box>
-          <Box direction="row" gap="small">
-            <Text>{auditResults[2].result}</Text>
-            <Meter type="bar" value={auditResults[2].percent} />
-            <Text weight="bold">{auditResults[2].count}</Text>
-          </Box>
-        </Box>
+        <AuditResultsChart gridArea="chart" data={auditResults} />
       </Grid>
     </ChartCard>
   );
@@ -152,42 +149,41 @@ RulesAudit.propTypes = {
 };
 
 const AuditResultsChart = ({ data, ...rest }) => (
-  <DataChart
-    data={data}
-    series={[
-      {
-        property: 'result',
-        label: 'Result',
-        render: value => <Text>{value}</Text>,
-      },
-      {
-        property: 'percent',
-        label: '% of Rules',
-        render: value => <Text>{value}</Text>,
-      },
-      {
-        property: 'count',
-        label: '# of Rules',
-        render: value => <Text>{value}</Text>,
-      },
-    ]}
-    axis={{
-      x: {
-        property: 'result',
-        granularity: 'fine',
-      },
-      y: {
-        property: 'percent',
-        granularity: 'medium',
-      },
-    }}
-    chart={{ property: 'percent', thickness: 'large' }}
-    guide={{
-      y: {
-        granularity: 'fine',
-      },
-    }}
-    size={{ width: 'fill' }}
-    {...rest}
-  />
+  <MeterGroup {...rest}>
+    {data.map(datum => (
+      <Fragment key={datum.result}>
+        <Text>{datum.result}</Text>
+        <Meter
+          alignSelf="center"
+          type="bar"
+          values={[
+            {
+              value: datum.percent,
+              color: datum.color,
+              label: datum.result,
+            },
+          ]}
+          thickness="small"
+        />
+        <Text weight="bold">{datum.count}</Text>
+      </Fragment>
+    ))}
+    <Box />
+    <Box direction="row" justify="between">
+      <Text>0%</Text>
+      <Text>100%</Text>
+    </Box>
+    <Box />
+  </MeterGroup>
 );
+
+AuditResultsChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      result: PropTypes.string,
+      percent: PropTypes.number,
+      count: PropTypes.number,
+      color: PropTypes.string,
+    }),
+  ),
+};

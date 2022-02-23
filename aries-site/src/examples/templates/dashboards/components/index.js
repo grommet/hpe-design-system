@@ -9,6 +9,7 @@ export * from './DashboardGrid';
 export * from './ItemCountList';
 export * from './Legend';
 export * from './Measure';
+export * from './MeterGroup';
 export * from './Greeting';
 export * from './PageHeader';
 export * from './StatusBar';
