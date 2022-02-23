@@ -98,6 +98,9 @@ export const RulesAudit = ({ period }) => {
 
   const nextScheduledAudit = nextAudit && (
     <Box direction="row" gap="xsmall">
+      {/* Placing the icon within a Text component ensures the icon is 
+      aligned with the accompanying Text's line height, even when lengthy 
+      text may wrap. */}
       <Text>
         <Calendar size="small" color="text-strong" />
       </Text>
