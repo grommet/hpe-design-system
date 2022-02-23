@@ -165,7 +165,9 @@ const AuditResultsChart = ({ data, ...rest }) => (
           ]}
           thickness="small"
         />
-        <Text weight="bold">{datum.count}</Text>
+        <Box align="end">
+          <Text weight="bold">{datum.count}</Text>
+        </Box>
       </Fragment>
     ))}
     <Box />
