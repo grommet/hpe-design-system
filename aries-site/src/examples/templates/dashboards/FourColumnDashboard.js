@@ -7,6 +7,7 @@ import {
 } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from './components';
+import { ChargesByMonth } from './content/chartCards';
 
 export const FourColumnDashboard = () => (
   <AppContainer background="background-back">
@@ -57,7 +58,7 @@ const PageContent = () => {
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
         <ContentArea title={1} height="medium" />
         <ContentArea title={2} height="medium" />
-        <ContentArea title={3} height="medium" />
+        <ChargesByMonth period="Last Year" />
         <ContentArea title={4} height="medium" />
         <ContentArea title={5} height="medium" />
         <ContentArea title={6} height="medium" />
