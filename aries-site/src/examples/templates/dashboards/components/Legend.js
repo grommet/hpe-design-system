@@ -8,6 +8,7 @@ const LegendButton = ({ ...rest }) => (
     <Button hoverIndicator {...rest} />
   </Box>
 );
+
 export const Legend = ({ mode, onClick, values, ...rest }) => {
   const [active, setActive] = useState();
   const theme = useContext(ThemeContext);
