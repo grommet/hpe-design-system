@@ -33,7 +33,7 @@ export const LayerCenterExample = () => {
                 <Box justify="center">
                   <MailOption />
                 </Box>
-                <Heading margin="none" level={4}>
+                <Heading margin="none" size="small" level={2}>
                   Modal Dialog
                 </Heading>
               </Box>
@@ -44,10 +44,10 @@ export const LayerCenterExample = () => {
             <Paragraph margin="none">A subtitle if needed</Paragraph>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
-                The width of this modal dialog is 'medium' (384px) with 'small' (12px) corner radius.
-                The Box component has 'medium' (24px) padding. For modal dialogs, the use
-                case will determine the design and size of the box for your
-                content.
+                The width of this modal dialog is 'medium' (384px) with 'small'
+                (12px) corner radius. The Box component has 'medium' (24px)
+                padding. For modal dialogs, the use case will determine the
+                design and size of the box for your content.
               </Text>
             </Box>
           </Box>
