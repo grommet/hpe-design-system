@@ -44,7 +44,7 @@ export const LayerCenterExample = () => {
             <Paragraph margin="none">A subtitle if needed</Paragraph>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
               <Text>
-                The width of this modal dialog is 384px with 12px corner radius.
+                The width of this modal dialog is 'medium' (384px) with 'small' (12px) corner radius.
                 The box component has 24px padding. For modal dialogs, the use
                 case will determine the design and size of the box for your
                 content.
