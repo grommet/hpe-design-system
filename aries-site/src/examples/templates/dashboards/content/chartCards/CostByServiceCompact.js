@@ -14,7 +14,7 @@ import { defaultWindow, formatCurrency, REPORT_WINDOW_MAP } from './utils';
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
-export const CostCompact = ({ period }) => {
+export const CostByServiceCompact = ({ period }) => {
   const [values, setValues] = useState(null);
   const [totalCost, setTotalCost] = useState(null);
   const [reportWindow, setReportWindow] = useState(defaultWindow);
@@ -176,6 +176,6 @@ export const CostCompact = ({ period }) => {
   );
 };
 
-CostCompact.propTypes = {
+CostByServiceCompact.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),
 };

@@ -2,17 +2,23 @@ import { Fragment, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, List, Text, ThemeContext } from 'grommet';
 
+// apply rounding to Button corners by wrapping in Box
+const LegendButton = ({ ...rest }) => (
+  <Box round="xxsmall" overflow="hidden">
+    <Button hoverIndicator {...rest} />
+  </Box>
+);
 export const Legend = ({ mode, onClick, values, ...rest }) => {
   const [active, setActive] = useState();
   const theme = useContext(ThemeContext);
   const size = theme.global.edgeSize.small;
 
-  const Wrapper = onClick ? Button : Fragment;
+  const Wrapper = onClick ? LegendButton : Fragment;
 
   return (
     <List
       data={values}
-      defaultItemProps={{ pad: { vertical: 'xxsmall' } }}
+      defaultItemProps={{ pad: { vertical: !onClick ? 'xxsmall' : 'none' } }}
       {...rest}
     >
       {datum => (
@@ -24,7 +30,6 @@ export const Legend = ({ mode, onClick, values, ...rest }) => {
                   setActive(active !== datum ? datum : undefined);
                 },
                 active: active === datum,
-                hoverIndicator: true,
               }
             : {})}
         >
