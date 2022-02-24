@@ -198,7 +198,6 @@ const MonthlySpend = ({ data: dataProp, ...rest }) => {
       chart={{ property: 'cost', thickness: 'small' }}
       detail
       guide={{ y: { granularity: 'fine' } }}
-      size={{ width: 'fill' }}
       {...rest}
     />
   );
