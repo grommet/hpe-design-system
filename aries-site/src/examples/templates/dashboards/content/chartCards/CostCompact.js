@@ -167,7 +167,7 @@ export const CostCompact = ({ period }) => {
             alignSelf="center"
             gridArea="legend"
             mode="compact"
-            onClick={datum => setActive(active !== datum ? datum : undefined)}
+            onClick={value => setActive(active !== value ? value : undefined)}
             values={values}
           />
         </Grid>
