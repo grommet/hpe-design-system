@@ -4,7 +4,7 @@ import { ChartCard, Measure, MonthlySpend } from '../../components';
 import {
   formatCurrency,
   useCost,
-  useDataSet,
+  useSpendByMonth,
   useMounted,
   useReportWindow,
 } from './utils';
@@ -14,7 +14,7 @@ const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 export const CostByMonth = ({ period }) => {
   const reportWindow = useReportWindow(period);
   const consumptionData = MOCK_DATA.consumption;
-  const values = useDataSet(consumptionData, reportWindow);
+  const values = useSpendByMonth(consumptionData, reportWindow);
   const { meanCost, projectedCost } = useCost(values);
 
   // ensure component is mounted before trying to access
@@ -40,7 +40,7 @@ export const CostByMonth = ({ period }) => {
           areas={grid.areas}
           gap={grid.gap}
         >
-          {mounted === 'mounted' && (
+          {mounted && (
             <>
               <MonthlySpend
                 gridArea="chart"

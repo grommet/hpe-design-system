@@ -64,10 +64,12 @@ export const useCost = values => {
   return { meanCost, lastMonthCost, projectedCost };
 };
 
-export const useDataSet = (consumptionData, reportWindow) => {
+// Filter and assemble data set. Limit consumptionData to datapoints within
+// the reportWindow range. Create data set which sums spend by month.
+export const useSpendByMonth = (consumptionData, reportWindow) => {
   const values = useMemo(() => {
+    const nextValues = [];
     if (consumptionData) {
-      const nextValues = [];
       consumptionData.forEach(datum => {
         const dataPointDate = new Date(datum.endDate);
         if (
@@ -92,9 +94,8 @@ export const useDataSet = (consumptionData, reportWindow) => {
         }
       });
       nextValues.sort((a, b) => b.key - a.key);
-      return nextValues;
     }
-    return null;
+    return nextValues;
   }, [consumptionData, reportWindow.begin, reportWindow.end]);
 
   return values;
@@ -119,10 +120,10 @@ export const useReportWindow = period => {
 // ensure component is mounted before trying to access
 // browser's Navigator
 export const useMounted = () => {
-  const [mounted, setMounted] = useState('unmounted');
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted('mounted');
-    return () => setMounted('unmounted');
+    setMounted(true);
+    return () => setMounted(false);
   }, []);
 
   return mounted;
