@@ -41,14 +41,14 @@ export const LayerCenterExample = () => {
                 <Button icon={<FormClose />} onClick={onClose} />
               </Box>
             </Box>
-            <Paragraph margin="none">A subtitle if needed</Paragraph>
+            <Text>A subtitle if needed</Text>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
-              <Text>
+              <Paragraph margin="none">
                 The width of this modal dialog is 'medium' (384px) with 'small'
                 (12px) corner radius. The Box component has 'medium' (24px)
                 padding. For modal dialogs, the use case will determine the
                 design and size of the box for your content.
-              </Text>
+              </Paragraph>
             </Box>
           </Box>
           <Box
