@@ -11,28 +11,25 @@ import {
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
-export const CostByMonth = ({ period }) => {
+export const ChargesByMonth = ({ period }) => {
   const reportWindow = useReportWindow(period);
   const consumptionData = MOCK_DATA.consumption;
   const values = useSpendByMonth(consumptionData, reportWindow);
-  const { meanCost, projectedCost } = useCost(values);
+  const { lastMonthCost } = useCost(values);
 
   // ensure component is mounted before trying to access
   // browser's Navigator
   const mounted = useMounted();
 
   const grid = {
-    columns: ['auto', 'auto'],
+    columns: ['auto'],
     rows: ['auto', 'auto'],
-    areas: [
-      ['measure', 'projection'],
-      ['chart', 'chart'],
-    ],
+    areas: [['measure'], ['chart']],
     gap: 'medium',
   };
 
   return (
-    <ChartCard title="Cost by Month" subtitle={period}>
+    <ChartCard title="Monthly Charges" subtitle="Billing">
       {values && (
         <Grid
           columns={grid.columns}
@@ -49,19 +46,11 @@ export const CostByMonth = ({ period }) => {
               />
               <Measure
                 gridArea="measure"
-                name={{ label: { label: 'Monthly Average', size: 'medium' } }}
-                value={{
-                  value: formatCurrency(meanCost, Navigator.language),
-                  size: 'xlarge',
-                }}
-              />
-              <Measure
-                gridArea="projection"
                 name={{
-                  label: { label: 'Projected, Next Month', size: 'medium' },
+                  label: { label: 'Last Month', size: 'medium' },
                 }}
                 value={{
-                  value: formatCurrency(projectedCost, Navigator.language),
+                  value: formatCurrency(lastMonthCost, Navigator.language),
                   size: 'xlarge',
                 }}
               />
@@ -73,6 +62,6 @@ export const CostByMonth = ({ period }) => {
   );
 };
 
-CostByMonth.propTypes = {
+ChargesByMonth.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year', 'Lifetime']),
 };
