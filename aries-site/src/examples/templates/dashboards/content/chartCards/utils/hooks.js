@@ -7,21 +7,21 @@ import {
   REPORT_WINDOW_MAP,
 } from '.';
 
+// calculate cost stats
 export const useCost = values => {
-  const [meanCost, setMeanCost] = useState(null);
-  const [lastMonthCost, setLastMonthCost] = useState(null);
-  const [projectedCost, setProjectedCost] = useState(null);
+  const costs = useMemo(() => {
+    let meanCost = null;
+    let lastMonthCost = null;
+    let projectedCost = null;
 
-  // Calculate cost stats
-  useEffect(() => {
     const datapoints = [];
     if (values) {
       Object.keys(values).forEach(key => {
         datapoints.push({ x: values[key].key, y: values[key].value });
       });
 
-      setMeanCost(mean(datapoints.map(point => point.y)));
-      setLastMonthCost(datapoints[datapoints.length - 1].y);
+      meanCost = mean(datapoints.map(point => point.y));
+      lastMonthCost = datapoints[datapoints.length - 1].y;
 
       const lastMonth = new Date(datapoints[datapoints.length - 1].x);
       // Want last month +1, but also need to compensate for 0-based index,
@@ -57,11 +57,13 @@ export const useCost = values => {
               1}/${nextMonth.getDate()}/${nextMonth.getFullYear()}`,
           ) +
         b;
-      setProjectedCost(costNextMonth.toFixed(2));
+      projectedCost = costNextMonth.toFixed(2);
     }
+
+    return { meanCost, lastMonthCost, projectedCost };
   }, [values]);
 
-  return { meanCost, lastMonthCost, projectedCost };
+  return costs;
 };
 
 // Filter and assemble data set. Limit consumptionData to datapoints within
