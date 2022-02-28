@@ -11,14 +11,7 @@ export const FileInputSimpleExample = () => {
           dropPrompt: 'Drag and drop',
           browse: numFiles > 0 ? 'Replace File' : 'Select File',
         }}
-        onChange={(event, { files }) => {
-          const fileList = files;
-          setNumFiles(fileList.length);
-          for (let i = 0; i < fileList.length; i += 1) {
-            const file = fileList[i];
-            console.log(file.name);
-          }
-        }}
+        onChange={(event, { files }) => setNumFiles(files.length)}
       />
     </Box>
   );

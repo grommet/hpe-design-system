@@ -133,9 +133,7 @@ export const RequiredFieldsExample = () => {
                 browse: numFiles > 0 ? 'Replace File' : 'Select File',
               }}
               id="fileinput"
-              onChange={(event, { files }) => {
-                setNumFiles(files.length);
-              }}
+              onChange={(event, { files }) => setNumFiles(files.length)}
               name="fileinput"
             />
           </FormField>

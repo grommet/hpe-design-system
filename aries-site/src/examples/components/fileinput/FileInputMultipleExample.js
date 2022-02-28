@@ -8,17 +8,10 @@ export const FileInputMultipleExample = () => {
     <Box width="medium">
       <FileInput
         messages={{
-          dropPrompt: 'Drag and drop',
+          dropPromptMultiple: 'Drag and drop',
           browse: numFiles > 0 ? 'Select More Files' : 'Select Files',
         }}
-        onChange={(event, { files }) => {
-          const fileList = files;
-          setNumFiles(fileList.length);
-          for (let i = 0; i < fileList.length; i += 1) {
-            const file = fileList[i];
-            console.log(file.name);
-          }
-        }}
+        onChange={(event, { files }) => setNumFiles(files.length)}
         multiple
       />
     </Box>
