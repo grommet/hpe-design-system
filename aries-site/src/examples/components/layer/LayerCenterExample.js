@@ -1,5 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Button, Box, Layer, Heading, ResponsiveContext, Text } from 'grommet';
+import {
+  Button,
+  Box,
+  Layer,
+  Heading,
+  ResponsiveContext,
+  Text,
+  Paragraph,
+} from 'grommet';
 import { Alert, MailOption, FormClose } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
@@ -25,7 +33,7 @@ export const LayerCenterExample = () => {
                 <Box justify="center">
                   <MailOption />
                 </Box>
-                <Heading margin="none" level={2}>
+                <Heading margin="none" size="small" level={2}>
                   Modal Dialog
                 </Heading>
               </Box>
@@ -33,11 +41,14 @@ export const LayerCenterExample = () => {
                 <Button icon={<FormClose />} onClick={onClose} />
               </Box>
             </Box>
+            <Text>A subtitle if needed</Text>
             <Box overflow="auto" pad={{ vertical: 'medium' }}>
-              <Text>
-                For modal dialogs, the use case will determine the design and
-                size of the box for your content
-              </Text>
+              <Paragraph margin="none">
+                The width of this modal dialog is 'medium' (384px) with 'small'
+                (12px) corner radius. The Box component has 'medium' (24px)
+                padding. For modal dialogs, the use case will determine the
+                design and size of the box for your content.
+              </Paragraph>
             </Box>
           </Box>
           <Box
