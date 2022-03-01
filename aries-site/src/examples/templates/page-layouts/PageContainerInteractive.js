@@ -32,7 +32,7 @@ export const PageContainerInteractive = () => (
      your implementation. */}
     <ContentArea title="Global Header" background="status-unknown" />
     {/* PageContainer is a context provider which specifies the page's 
-      max-width, margins, and horizontal alignment for it's children. 
+      max-width, margins, and horizontal alignment for its children. 
       Possible values for `kind` are wide, narrow, and full. This implementation
       will be replaced by a Page component in Grommet which provides this 
       behavior without the need for implementing your own context nor values
