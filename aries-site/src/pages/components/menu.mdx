@@ -4,6 +4,7 @@ import {
   MenuDisabledExample,
   MenuHeaderExample,
   MenuIconExample,
+  MenuToolBarExample
 } from '../../examples';
 
 <Example
@@ -45,9 +46,10 @@ An icon can be used on a menu item to provide additional context about the actio
 
 There are various places a Menu may be useful within an application. If the user is going to be selecting from a list of options to execute an action, Menu is a good component to use. The usage of labels and icons allow a menu to be versatile for different layout contexts.
 
-### Within a header
+### Within a header using a default Button
 
 A menu can be used in a [Header](/components/header) to group related actions.
+Use the default button variant when the menu has to be is placed in a row with other default buttons or with a heading.
 
 <Example
   docs="https://v2.grommet.io/menu?theme=hpe#props"
@@ -56,6 +58,19 @@ A menu can be used in a [Header](/components/header) to group related actions.
   width="100%"
 >
   <MenuHeaderExample />
+</Example>
+
+### Menu with Toolbar Button
+
+Use the toolbar button variant when it has to be placed in row with other toolbar controls like search or filter. 
+
+<Example
+  docs="https://v2.grommet.io/menu?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuToolBarExample.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <MenuToolBarExample />
 </Example>
 
 ### With custom icon
