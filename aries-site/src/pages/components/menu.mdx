@@ -4,6 +4,7 @@ import {
   MenuDisabledExample,
   MenuHeaderExample,
   MenuIconExample,
+  ToolbarButtonExample
 } from '../../examples';
 
 <Example
@@ -48,6 +49,7 @@ There are various places a Menu may be useful within an application. If the user
 ### Within a header
 
 A menu can be used in a [Header](/components/header) to group related actions.
+The default Menu should be used in all instances unless the Menu is contained within a toolbar, in which case see [Menu within a toolbar](#within-a-toolbar) guidance.
 
 <Example
   docs="https://v2.grommet.io/menu?theme=hpe#props"
@@ -56,6 +58,27 @@ A menu can be used in a [Header](/components/header) to group related actions.
   width="100%"
 >
   <MenuHeaderExample />
+</Example>
+
+### Within a Toolbar
+
+Use `kind="toolbar"` when the Menu is placed in row with other toolbar controls like search or filter. 
+In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/button/ToolbarButtonExample.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <ToolbarButtonExample />
 </Example>
 
 ### With custom icon
