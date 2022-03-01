@@ -127,7 +127,6 @@ export const LayerSideDrawerExample = () => {
           position="right"
           full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           onEsc={onClose}
-          modal={false}
         >
           <Box
             fill="vertical"
