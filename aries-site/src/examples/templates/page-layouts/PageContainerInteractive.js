@@ -28,8 +28,8 @@ export const PageContainerInteractive = () => (
     {...demoStyle}
   >
     {/* ContentArea is specific for the Design System site and is used
-     as a visual aid to help present layout concepts. Remove from your
-     implementation. */}
+     as a visual aid to help present layout concepts. Remove ContentAreas from
+     your implementation. */}
     <ContentArea title="Global Header" background="status-unknown" />
     {/* PageContainer is a context provider which specifies the page's 
       max-width, margins, and horizontal alignment for it's children. 
