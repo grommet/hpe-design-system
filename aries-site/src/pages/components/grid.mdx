@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { GridExample } from '../../examples';
+import { GridExample, FixedGrid } from '../../examples';
 
 <Example
   componentName="Grid"
@@ -13,3 +13,58 @@ import { GridExample } from '../../examples';
 >
   <GridExample />
 </Example>
+
+## Getting to know Grid
+Grid is a powerful tool. It provides tremendous flexibility and control enabling designers and 
+developers at HPE to create optimal user experiences at any screen size or resolution!
+
+However, with great power comes great responsibility. Well, in Grid's case, great power 
+comes with a bit of a learning curve, but the following introduces the key concepts and
+accelerate command of the tool.
+
+### Background
+Based on [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), 
+Grommet's Grid simplifies and presents the API in a manner consistent with other components 
+in the Grommet library.
+
+Grid is composed of columns and rows and its properties allow for:
+- Fixed column widths and row heights, when use cases desire precise dimensions for grid cells.
+- Flexible column widths and heights, allowing grid cell contents to gracefully respond across 
+a variety of browser widths.
+- Fluid grids allowing columns and rows to grow and adapt to the content provided.
+- Precise placement of elements within the grid via [areas]().
+
+## Implementing Grid
+The following implementations are not mutually exclusive. They may be mixed and matched
+as desired, but are presented with the intent to focus on the key concepts for each approach.
+
+### Fixed Grids
+
+<Example
+  componentName="Grid"
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
+>
+  <FixedGrid />
+</Example>
+
+### Flexible Grids
+
+### Fluid Grids
+
+### Grid Areas and Precise Placement
+
+
+
+
+### Columns
+
+### Rows
+
+### Column width
+
+### Gap
+
+### Grid Areas
+
+### Nested Grids

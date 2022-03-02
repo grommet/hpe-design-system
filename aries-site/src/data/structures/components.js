@@ -435,16 +435,23 @@ export const components = [
   {
     name: 'Grid',
     category: 'Layouts',
-    description:
-      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    description: `A layout's best friend. From scaffolding page layouts, to organizing elements within 
+    a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
     preview: {
       component: () => <GridPreview />,
       background: 'background-front',
     },
-    seoDescription:
-      'The Grid component is used to layout content. Responsive grid is important to consider in every use case.',
+    seoDescription: `A layout's best friend. From scaffolding page layouts to organizing elements within 
+    a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
     sections: [],
-    tags: ['layouts', 'page layouts', 'responsive layout', 'CSS grid'],
+    tags: [
+      'layouts',
+      'page layouts',
+      'responsive layout',
+      'CSS grid',
+      'content layouts',
+    ],
+    relatedContent: ['Content Layouts', 'Page Layouts', 'Box'],
   },
   {
     name: 'Layer',
