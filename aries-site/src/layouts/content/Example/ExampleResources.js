@@ -57,7 +57,7 @@ export const ExampleResources = ({
 
   if (horizontalLayout && code) {
     return (
-      <Box margin="0px" height={{ max: 'medium' }} round="small" {...rest}>
+      <Box height={{ max: 'medium' }} {...rest}>
         <SyntaxHighlighter
           tabIndex="0"
           style={theme.dark ? prism.dark : prism.light}
