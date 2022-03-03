@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { GridExample, FixedGrid } from '../../examples';
+import { Columns, GridExample, FixedGrid } from '../../examples';
 
 <Example
   componentName="Grid"
@@ -34,15 +34,33 @@ a variety of browser widths.
 - Fluid grids allowing columns and rows to grow and adapt to the content provided.
 - Precise placement of elements within the grid via [areas]().
 
+## Grid Properties & Key Concepts
+
+### Columns
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/Columns.js"
+  width={{ min: 'medium' }}
+>
+  <Columns />
+</Example>
+
+### Rows
+
 ## Implementing Grid
 The following implementations are not mutually exclusive. They may be mixed and matched
 as desired, but are presented with the intent to focus on the key concepts for each approach.
 
-### Fixed Grids
+### Fluid Grids
 
+### Fixed Grid
+When approaching a design or implementation, beginning with a fixed grid is a great approach as 
+it lays a foundation from which you can build and refine.
+
+A fixed grid 
 
 <Example
-  componentName="Grid"
   horizontalLayout
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/FixedGrid.js"
 >
@@ -50,8 +68,6 @@ as desired, but are presented with the intent to focus on the key concepts for e
 </Example>
 
 ### Flexible Grids
-
-### Fluid Grids
 
 ### Grid Areas and Precise Placement
 
