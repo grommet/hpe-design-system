@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Grid, Meter, Text } from 'grommet';
 import { Calendar } from 'grommet-icons';
 import { ChartCard, Measure, MeterGroup } from '../../components';
-import { defaultWindow, REPORT_WINDOW_MAP } from './utils';
+import { defaultWindow, DEMO_DATE, REPORT_WINDOW_MAP } from './utils';
 
 const mockData = require('../../../../../data/mockData/compliance.json');
 
@@ -21,7 +21,7 @@ export const RulesAudit = ({ period }) => {
     setReportWindow(prevWindow => ({
       ...prevWindow,
       begin: new Date(
-        new Date().setDate(
+        new Date(DEMO_DATE).setDate(
           prevWindow.end.getDate() - REPORT_WINDOW_MAP[period],
         ),
       ),

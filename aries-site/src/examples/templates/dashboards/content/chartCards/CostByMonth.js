@@ -8,6 +8,7 @@ import {
   formatCurrency,
   linearRegression,
   mean,
+  DEMO_DATE,
   REPORT_WINDOW_MAP,
 } from './utils';
 
@@ -26,7 +27,7 @@ export const CostByMonth = ({ period }) => {
     setReportWindow(prevWindow => ({
       ...prevWindow,
       begin: new Date(
-        new Date().setDate(
+        new Date(DEMO_DATE).setDate(
           prevWindow.end.getDate() - REPORT_WINDOW_MAP[period],
         ),
       ),

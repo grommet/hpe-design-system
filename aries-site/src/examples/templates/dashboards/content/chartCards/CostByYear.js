@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DataChart, Text } from 'grommet';
 import { ChartCard } from '../../components';
-import { defaultWindow, formatCurrency, REPORT_WINDOW_MAP } from './utils';
+import {
+  defaultWindow,
+  formatCurrency,
+  DEMO_DATE,
+  REPORT_WINDOW_MAP,
+} from './utils';
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
@@ -17,7 +22,7 @@ export const CostByYear = ({ period }) => {
     setReportWindow(prevWindow => ({
       ...prevWindow,
       begin: new Date(
-        new Date().setDate(
+        new Date(DEMO_DATE).setDate(
           prevWindow.end.getDate() - REPORT_WINDOW_MAP[period],
         ),
       ),
