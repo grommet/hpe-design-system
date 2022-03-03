@@ -10,6 +10,7 @@ import {
 // calculate cost stats
 export const useCost = values => {
   const costs = useMemo(() => {
+    let maxCost = null;
     let meanCost = null;
     let lastMonthCost = null;
     let projectedCost = null;
@@ -20,7 +21,9 @@ export const useCost = values => {
         datapoints.push({ x: values[key].key, y: values[key].value });
       });
 
+      maxCost = Math.max(...datapoints.map(point => point.y));
       meanCost = mean(datapoints.map(point => point.y));
+
       lastMonthCost = datapoints[datapoints.length - 1].y;
 
       const lastMonth = new Date(datapoints[datapoints.length - 1].x);
@@ -60,7 +63,7 @@ export const useCost = values => {
       projectedCost = costNextMonth.toFixed(2);
     }
 
-    return { meanCost, lastMonthCost, projectedCost };
+    return { maxCost, meanCost, lastMonthCost, projectedCost };
   }, [values]);
 
   return costs;
@@ -130,3 +133,10 @@ export const useMounted = () => {
 
   return mounted;
 };
+
+export const useGradient = max => [
+  { value: 0, color: 'status-ok' },
+  { value: max * 0.9, color: 'status-ok' },
+  { value: max * 0.97, color: 'status-warning' },
+  { value: max, color: 'status-critical' },
+];
