@@ -52,6 +52,7 @@ export const Example = ({
   guidance, // link to Design System site guidance
   height,
   horizontalLayout,
+  overflow,
   pad,
   plain, // remove Container from around example
   previewWidth,
@@ -105,6 +106,7 @@ export const Example = ({
     screenContainer,
     showResponsiveControls,
     template,
+    overflow,
   };
 
   // Affects how the Example can behave/display within the outer container
@@ -388,6 +390,7 @@ Example.propTypes = {
   guidance: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontalLayout: PropTypes.bool,
+  overflow: PropTypes.string,
   pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

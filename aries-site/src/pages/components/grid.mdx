@@ -1,5 +1,13 @@
 import { Example } from '../../layouts';
-import { FixedGrid, GridExample, MixedColumns1, MixedColumns2, UniformColumns  } from '../../examples';
+import { 
+  FixedGrid, 
+  GridExample, 
+  MinMaxColumns1,
+  MinMaxColumns2, 
+  MixedColumns1, 
+  MixedColumns2, 
+  UniformColumns 
+} from '../../examples';
 
 <Example
   componentName="Grid"
@@ -40,8 +48,8 @@ following examples will demonstrate how these properties may be applied to affec
 [content layouts](/templates/content-layouts).
 
 ### Columns
-Columns may be specified as uniform widths, mixed widths, a percentage of their containing element, 
-or as min-max ranges which allow the contents to flex gracefully.
+Columns may be specified as [uniform widths](#uniform-columns), [mixed widths](#mixed-width-columns), 
+or as [min-max ranges](#flexible-columns) which allow the contents to flex gracefully.
 
 #### Uniform Columns
 Uniform columns are ideal for presenting a collection of like items such as a grid of images, 
@@ -68,7 +76,7 @@ content such as an [activity feed](/templates/dashboards#two-column-dashboard).
 Mixed-width columns are specified in an array. The number of items in the array dictate the number of columns 
 in the grid. 
 
-For example, columns specified as `columns={[ 'medium', 'small', 'small' ]}` would create a three 
+For example, columns specified as `columns={[ 'small', 'xsmall', 'xsmall' ]}` would create a three 
 column grid with corresponding widths: 
 
 <Example
@@ -80,7 +88,9 @@ column grid with corresponding widths:
   <MixedColumns1 />
 </Example>
 
-`columns={[ '2/3', '1/3' ]}` would result in two columns with proportional 
+<br /><br />
+
+And, `columns={[ '2/3', '1/3' ]}` would result in two columns with proportional 
 widths:
 
 <Example
@@ -92,7 +102,68 @@ widths:
   <MixedColumns2 />
 </Example>
 
+
+#### Flexible Columns
+Flexible columns is where Grid really shines. They allow content to elegantly scale and designs to be dynamic.
+
+The main idea is defining columns as a min-max range. Between those bounds, the column is allowed to 
+flex according to its content 
+and the space available to the grid as a whole. This allows content to be consistently displayed in an 
+organized and cohesive fashion across a variety of screen widths.
+
+The min-max range is specified using a two-item array, instead of a single string. 
+The first item is the min and second max.
+
+```
+// 3 columns. First and second columns are defined as min-max 
+// ranges. The third, as a fixed width.
+
+columns={[
+  ['small', 'medium'], // column 1 is able to flex
+  ['medium', 'large'], // column 2 is able to flex
+  'small',             // column 3 is always 'small'
+]};
+```
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/MinMaxColumns1.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MinMaxColumns1 />
+</Example>
+
+<br/><br/>
+
+Using `auto` and/or `flex` as min-max values provides even more flexibility:
+
+ - `auto` allows the 
+column's width to be defined by its contents; it says, "make 
+my column as wide as my content needs."
+- `flex` allows the column to grow and fill the any excess width in the grid. If multiple columns use 
+`flex`, they share the excess width evenly.
+
+See `auto` and `flex` in action in the example below, or applied in a [dashboard template](/templates/dashboards#two-column-dashboard).
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/MinMaxColumns2.js"
+  width={{ min: 'medium' }}
+  height="auto"
+  showResponsiveControls={['fullscreen']}
+  overflow="auto"
+>
+  <MinMaxColumns2 />
+</Example>
+
 ### Rows
+Rows generally share the same properties as [columns](#columns). Accordingly, they won't be repeated here. 
+
+That said, there a two primary items to call out:
+1. Just like columns, rows are specified in an array. Each item in the array represent an additional row.
+1. The vast majority of time rows will be specified using a fixed height, or as `auto` to let the row's height be defined by its 
+contents.
+
 
 ## Implementing Grid
 The following implementations are not mutually exclusive. They may be mixed and matched
