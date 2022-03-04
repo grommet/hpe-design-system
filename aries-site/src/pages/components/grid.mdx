@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { Columns, GridExample, FixedGrid } from '../../examples';
+import { FixedGrid, GridExample, MixedColumns1, MixedColumns2, UniformColumns  } from '../../examples';
 
 <Example
   componentName="Grid"
@@ -32,18 +32,64 @@ Grid is composed of columns and rows and its properties allow for:
 - Flexible column widths and heights, allowing grid cell contents to gracefully respond across 
 a variety of browser widths.
 - Fluid grids allowing columns and rows to grow and adapt to the content provided.
-- Precise placement of elements within the grid via [areas]().
+- Precise placement of elements within the grid via [areas](#areas).
 
 ## Grid Properties & Key Concepts
+Grid's primary properties include: [columns](#columns), [rows](#rows), and [areas](#areas). The 
+following examples will demonstrate how these properties may be applied to affect 
+[content layouts](/templates/content-layouts).
 
 ### Columns
+Columns may be specified as uniform widths, mixed widths, a percentage of their containing element, 
+or as min-max ranges which allow the contents to flex gracefully.
+
+#### Uniform Columns
+Uniform columns are ideal for presenting a collection of like items such as a grid of images, 
+a catalog of services, or a [dashboard of cards](/templates/dashboards#three-column-dashboard).
+
+Specifying the column width as single string will repeat multiple columns of that size, as long as 
+there is room for more. For example, `columns="medium"` will fit as many "medium" columns into the 
+grid as the overall width allows. Within a wide screen, this might allow 3 or 4 columns; within a narrow 
+screen, maybe only 1 or 2.
 
 <Example
   horizontalLayout
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/Columns.js"
   width={{ min: 'medium' }}
 >
-  <Columns />
+  <UniformColumns />
+</Example>
+
+#### Mixed-Width Columns
+Mixed-width columns allow for control over layouts desiring columns of various widths to appropriately present 
+their contents, establish content hierarchy with wider columns for primary content and narrower for secondary 
+content such as an [activity feed](/templates/dashboards#two-column-dashboard).
+
+Mixed-width columns are specified in an array. The number of items in the array dictate the number of columns 
+in the grid. 
+
+For example, columns specified as `columns={[ 'medium', 'small', 'small' ]}` would create a three 
+column grid with corresponding widths: 
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/Columns.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MixedColumns1 />
+</Example>
+
+`columns={[ '2/3', '1/3' ]}` would result in two columns with proportional 
+widths:
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/Columns.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MixedColumns2 />
 </Example>
 
 ### Rows
