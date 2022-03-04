@@ -46,7 +46,7 @@ const LayerForm = ({ setOpen }) => {
           tabIndex={-1}
           a11yTitle={`You are on a Text Area in a layer containing
           a form. To close the layer 
-          and return to the primary content, press Esc.`}
+          and return to the primary content, press Escape.`}
         >
           <TextArea
             id="text-area-input"
