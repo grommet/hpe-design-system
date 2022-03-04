@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 
 export const HorizontalExample = ({
   content,
@@ -12,8 +12,19 @@ export const HorizontalExample = ({
 }) => {
   const size = useContext(ResponsiveContext);
 
+  const grid = {
+    columns: {
+      xsmall: 'auto',
+      small: 'auto',
+      medium: 'auto',
+      large: ['auto', 'flex'],
+      xlarge: ['auto', 'flex'],
+    },
+    gap: ['large', 'xlarge'].includes(size) ? 'large' : 'small',
+  };
+
   return (
-    <Box align="start" direction="row-responsive" gap="large" wrap>
+    <Grid columns={grid.columns[size]} gap={grid.gap}>
       <Box
         // let content maintain its defined width
         flex={false}
@@ -38,11 +49,11 @@ export const HorizontalExample = ({
       >
         {content}
       </Box>
-      <Box flex={false} width="large">
+      <Box width={{ min: 'medium' }}>
         {resources}
         {controls}
       </Box>
-    </Box>
+    </Grid>
   );
 };
 
