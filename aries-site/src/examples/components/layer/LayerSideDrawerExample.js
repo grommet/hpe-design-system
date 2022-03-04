@@ -43,6 +43,10 @@ const LayerForm = ({ setOpen }) => {
           label="Text Area"
           htmlFor="text-area-input"
           name="textAreaInput"
+          tabIndex={-1}
+          a11yTitle={`You are on a Text Area in a layer containing
+          a form. To close the layer 
+          and return to the primary content, press Esc.`}
         >
           <TextArea
             id="text-area-input"
