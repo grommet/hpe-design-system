@@ -7,8 +7,12 @@ import { contentAreaProps } from './utils';
 
 // 2 columns
 const columns = [
-  ['small', 'auto'], // column 1 is able to flex
-  ['medium', 'flex'], // column 2 is able to flex
+  // column 1 has a minimum width of 'small'; 'auto' specifies that width
+  // should be determined by its contents.
+  ['small', 'auto'],
+  // column 2 has a minimum width of medium, but 'flex' allows it to fill
+  // any excess width in the grid.
+  ['medium', 'flex'],
 ];
 
 export const MinMaxColumns2 = () => (
