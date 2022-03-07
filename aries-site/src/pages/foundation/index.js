@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
 import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
@@ -30,7 +30,7 @@ const Foundation = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/foundation"
     />
-    <Box gap="large">
+    <PageContent gap="large">
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>
@@ -49,7 +49,7 @@ const Foundation = () => (
           <CardGrid cards={cards.filter(card => card.category === 'Assets')} />
         </Subsection>
       </ContentSection>
-    </Box>
+    </PageContent>
   </Layout>
 );
 

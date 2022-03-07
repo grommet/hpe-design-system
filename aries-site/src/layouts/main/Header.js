@@ -19,7 +19,6 @@ const StyledHeader = ({ ...rest }) => {
     <Header
       pad={{
         vertical: 'medium',
-        horizontal: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
       }}
       {...rest}
     >

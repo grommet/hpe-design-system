@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
 import { Layout, PageIntro } from '../../layouts';
@@ -30,7 +30,7 @@ const Templates = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/templates"
     />
-    <Box gap="large">
+    <PageContent gap="large">
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>
@@ -40,7 +40,7 @@ const Templates = () => (
         </Box>
       </PageIntro>
       <CardGrid cards={cards} />
-    </Box>
+    </PageContent>
   </Layout>
 );
 
