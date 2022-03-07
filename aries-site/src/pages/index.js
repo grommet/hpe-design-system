@@ -47,17 +47,16 @@ const Intro = ({ children }) => {
     </PageContent>
   ) : (
     <Stack guidingChild="last">
-      <Box
+      <PageContent
         align="start"
         justify="between"
-        pad={{ horizontal: calcPad(size) }}
         direction="row"
         fill
         {...widthProps}
       >
         <Box width="small" />
         <Hero />
-      </Box>
+      </PageContent>
       <PageContent height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
           gap="large"
