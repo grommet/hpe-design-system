@@ -4,6 +4,7 @@ import {
   Card,
   Grid,
   Heading,
+  PageContent,
   Paragraph,
   ResponsiveContext,
   Stack,
@@ -33,17 +34,17 @@ const calcPad = size => {
 };
 
 // These make a box width limited to xxlarge but centered
-const widthProps = { width: { max: 'xxlarge' }, margin: 'auto' };
+const widthProps = { margin: 'auto' };
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
   return ['xsmall', 'small'].includes(size) ? (
-    <Box>
+    <PageContent>
       <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
       <Card background="none" elevation="none">
         {children}
       </Card>
-    </Box>
+    </PageContent>
   ) : (
     <Stack guidingChild="last">
       <Box
@@ -57,7 +58,7 @@ const Intro = ({ children }) => {
         <Box width="small" />
         <Hero />
       </Box>
-      <Box height={{ min: 'medium' }} justify="center" {...widthProps}>
+      <PageContent height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
           gap="large"
           columns={
@@ -71,7 +72,7 @@ const Intro = ({ children }) => {
             <Card background="none" elevation="none" height="small" />
           )}
         </Grid>
-      </Box>
+      </PageContent>
     </Stack>
   );
 };
@@ -88,7 +89,7 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box>
         <Intro>
-          <Box pad={{ horizontal: calcPad(size) }} width={{ max: '900px' }}>
+          <Box width={{ max: '700px' }}>
             {size === 'xxxsmall' && (
               <Card background="none" elevation="none" height="small" />
             )}
@@ -97,7 +98,7 @@ const Index = () => {
             </Heading>
             <Paragraph size="xlarge">
               Empower designers and developers to quickly create accessible
-              enterprise app experiences
+              enterprise app experiences.
             </Paragraph>
           </Box>
         </Intro>
