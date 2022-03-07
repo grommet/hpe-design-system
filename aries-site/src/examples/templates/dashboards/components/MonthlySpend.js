@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DataChart, Text } from 'grommet';
 import { formatCurrency } from '../content/chartCards/utils';
 
-export const MonthlySpend = ({ data: dataProp, ...rest }) => {
+export const MonthlySpend = ({ color, data: dataProp, ...rest }) => {
   const data = dataProp.map(datum => ({ date: datum.key, cost: datum.value }));
 
   return (
@@ -33,7 +33,11 @@ export const MonthlySpend = ({ data: dataProp, ...rest }) => {
         x: { property: 'date', granularity: 'medium' },
         y: { property: 'cost', granularity: 'medium' },
       }}
-      chart={{ property: 'cost', thickness: 'small' }}
+      chart={{
+        property: 'cost',
+        thickness: 'small',
+        color,
+      }}
       detail
       guide={{ y: { granularity: 'fine' } }}
       size={{ width: 'fill' }}
@@ -43,5 +47,6 @@ export const MonthlySpend = ({ data: dataProp, ...rest }) => {
 };
 
 MonthlySpend.propTypes = {
+  color: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   data: PropTypes.arrayOf(PropTypes.object),
 };

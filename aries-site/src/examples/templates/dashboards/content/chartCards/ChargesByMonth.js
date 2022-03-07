@@ -4,6 +4,7 @@ import { ChartCard, Measure, MonthlySpend } from '../../components';
 import {
   formatCurrency,
   useCost,
+  useGradient,
   useSpendByMonth,
   useMounted,
   useReportWindow,
@@ -15,7 +16,8 @@ export const ChargesByMonth = ({ period }) => {
   const reportWindow = useReportWindow(period);
   const consumptionData = MOCK_DATA.consumption;
   const values = useSpendByMonth(consumptionData, reportWindow);
-  const { lastMonthCost } = useCost(values);
+  const { lastMonthCost, maxCost } = useCost(values);
+  const gradient = useGradient(maxCost);
 
   // ensure component is mounted before trying to access
   // browser's Navigator
@@ -43,6 +45,7 @@ export const ChargesByMonth = ({ period }) => {
                 gridArea="chart"
                 reportWindow={reportWindow}
                 data={values}
+                color={gradient}
               />
               <Measure
                 gridArea="measure"
