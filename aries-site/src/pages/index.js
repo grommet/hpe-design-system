@@ -28,11 +28,6 @@ import { getPageDetails } from '../utils';
 const title = 'Home';
 const pageDetails = getPageDetails(title);
 
-const calcPad = size => {
-  const val = !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large';
-  return val;
-};
-
 // These make a box width limited to xxlarge but centered
 const widthProps = { margin: 'auto' };
 
