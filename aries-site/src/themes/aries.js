@@ -59,19 +59,19 @@ export const aries = deepMerge(hpe, {
       },
       // leave this for Design System site
       xsmall: {
-        pad: { horizontal: 'large', bottom: 'large' },
+        pad: { horizontal: 'large' },
       },
       small: {
-        pad: { horizontal: 'large', bottom: 'large' },
+        pad: { horizontal: 'large' },
       },
       medium: {
-        pad: { horizontal: 'large', bottom: 'large' },
+        pad: { horizontal: 'large' },
       },
       large: {
-        pad: { horizontal: 'xlarge', bottom: 'large' },
+        pad: { horizontal: 'xlarge' },
       },
       xlarge: {
-        pad: { horizontal: 'xlarge', bottom: 'large' },
+        pad: { horizontal: 'xlarge' },
       },
     },
   },
