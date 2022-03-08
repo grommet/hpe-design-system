@@ -7,11 +7,11 @@ export const ButtonIconExample = () => {
 
   return (
     <Box
-      direction={size !== 'small' ? 'column' : 'row'}
-      gap={size !== 'small' ? 'small' : 'medium'}
+      direction={!['xsmall', 'small'].includes(size) ? 'column' : 'row'}
+      gap={!['xsmall', 'small'].includes(size) ? 'small' : 'medium'}
     >
       <Box
-        direction={size !== 'small' ? 'row' : 'column'}
+        direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
         gap="medium"
         align="center"
       >
@@ -20,7 +20,7 @@ export const ButtonIconExample = () => {
         <Button icon={<FormNext />} onClick={() => {}} />
       </Box>
       <Box
-        direction={size !== 'small' ? 'row' : 'column'}
+        direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
         gap="medium"
         align="center"
       >

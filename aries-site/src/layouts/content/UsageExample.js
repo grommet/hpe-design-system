@@ -19,7 +19,7 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
         <Box
           direction="row"
           background={colors['background-front']}
-          pad={size === 'small' ? pad.small : pad}
+          pad={['xsmall', 'small'].includes(size) ? pad.small : pad}
           {...rest}
         >
           {children}

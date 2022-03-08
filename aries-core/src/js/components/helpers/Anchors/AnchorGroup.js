@@ -17,7 +17,7 @@ export const AnchorGroup = ({ items }) => {
             // label={item.label}
             // On desktop, allow final nav item to be completely right justified
             margin={
-              index === items.length - 1 && size !== 'small'
+              index === items.length - 1 && !['xsmall', 'small'].includes(size)
                 ? {
                     vertical: 'small',
                     left: 'small',

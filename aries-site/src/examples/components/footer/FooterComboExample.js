@@ -20,12 +20,12 @@ export const FooterComboExample = () => {
       </Footer>
       <Footer
         background="background-front"
-        direction={size !== 'small' ? 'row' : 'column'}
-        align={size !== 'small' ? 'center' : undefined}
+        direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
+        align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
       >
         <Box
-          direction={size !== 'small' ? 'row' : 'column'}
-          align={size !== 'small' ? 'center' : undefined}
+          direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
+          align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
           gap="xsmall"
         >
           <Text size="small">
@@ -34,7 +34,7 @@ export const FooterComboExample = () => {
         </Box>
         <Box
           direction="row"
-          align={size !== 'small' ? 'center' : undefined}
+          align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
           gap="xsmall"
           wrap
         >

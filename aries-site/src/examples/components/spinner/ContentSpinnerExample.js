@@ -46,7 +46,7 @@ export const ContentSpinnerExample = () => {
           </Box>
         </Button>
 
-        {size !== 'small' ? (
+        {!['xsmall', 'small'].includes(size) ? (
           <Box gap="xsmall" direction="row">
             <Button icon={<HelpOption />} />
             <Button icon={<Notification />} />

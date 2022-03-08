@@ -79,7 +79,9 @@ export const PageContent = () => {
       <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
         {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {(size === 'small' || size === 'xsmall') && <ContentBlock title="1" />}
+        {['xsmall', 'small'].includes(size) && (
+          <ContentBlock title="1" />
+        )}
         <Grid gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ContentBlock title="2" />
@@ -96,7 +98,7 @@ export const PageContent = () => {
             <ContentBlock title="6" fill="vertical" />
           </Grid>
         </Grid>
-        {size !== 'small' && size !== 'xsmall' && (
+        {!['xsmall', 'small'].includes(size) && size !== 'xsmall' && (
           <ContentBlock title="1" fill="vertical" />
         )}
       </Grid>

@@ -98,7 +98,7 @@ export const CustomizeExample = () => {
             />
           </FormField>
           <Box
-            align={size !== 'small' ? 'start' : undefined}
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'small' }}
           >
             <Button label="Continue" primary type="submit" />

@@ -58,7 +58,7 @@ export const WhatIs = ({ ...rest }) => {
       <Box
         fill
         pad={{
-          horizontal: size !== 'small' ? 'xlarge' : 'large',
+          horizontal: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
           top: 'large',
           bottom: 'medium',
         }}
@@ -72,30 +72,31 @@ export const WhatIs = ({ ...rest }) => {
           <Paragraph size="xlarge" fill textAlign="center" margin="none">
             The HPE Design System was created to empower designers, developers,
             and others in contributing to an evolving design language that
-            supports HPE's pursuit in making great customer app experiences.
-            For other contexts check&nbsp;
+            supports HPE's pursuit in making great customer app experiences. For
+            other contexts check&nbsp;
             <Anchor href="https://brandcentral.hpe.com/home">
               HPE Brand Central
-            </Anchor>.
+            </Anchor>
+            .
           </Paragraph>
         </Box>
         <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
           {whatIsContent.map(({ image, text }, index) => (
-              <Box key={`whatis-${index}`} width="120px">
-                <Box width="120px" height="120px">
-                  <Image
-                    src={
-                      darkMode.value
-                        ? image.src.dark || image.src
-                        : image.src.light || image.src
-                    }
-                    fit="contain"
-                    alt={image.alt}
-                  />
-                </Box>
-                <Paragraph size="small">{text}</Paragraph>
+            <Box key={`whatis-${index}`} width="120px">
+              <Box width="120px" height="120px">
+                <Image
+                  src={
+                    darkMode.value
+                      ? image.src.dark || image.src
+                      : image.src.light || image.src
+                  }
+                  fit="contain"
+                  alt={image.alt}
+                />
               </Box>
-            ))}
+              <Paragraph size="small">{text}</Paragraph>
+            </Box>
+          ))}
         </Grid>
       </Box>
     </Box>

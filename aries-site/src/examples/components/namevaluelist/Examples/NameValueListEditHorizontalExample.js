@@ -64,7 +64,7 @@ export const NameValueListEditHorizontalExample = () => {
             secondary
             label="Edit"
             onClick={() => setEdit(true)}
-            fill={size === 'small' ? 'horizontal' : undefined}
+            fill={['xsmall', 'small'].includes(size) ? 'horizontal' : undefined}
           />
         )}
       </Box>
@@ -121,7 +121,9 @@ export const NameValueListEditHorizontalExample = () => {
               label="Save Changes"
               primary
               type="submit"
-              fill={size === 'small' ? 'horizontal' : undefined}
+              fill={
+                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+              }
             />
             <Button
               label="Cancel"
@@ -129,7 +131,9 @@ export const NameValueListEditHorizontalExample = () => {
                 setEdit(false);
                 setTempData(currentData);
               }}
-              fill={size === 'small' ? 'horizontal' : undefined}
+              fill={
+                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+              }
             />
           </Box>
         ) : (

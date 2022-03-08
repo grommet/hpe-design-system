@@ -6,7 +6,7 @@ export const ButtonSizingExample = () => {
 
   return (
     <Box
-      direction={size !== 'small' ? 'row' : 'column'}
+      direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
       align="center"
       gap="medium"
     >

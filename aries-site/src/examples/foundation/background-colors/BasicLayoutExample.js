@@ -25,7 +25,7 @@ export const BasicLayoutExample = () => {
           </Header>
           <Main background="background" flex={false} pad="medium">
             <Box
-              direction={size !== 'small' ? 'row' : 'column'}
+              direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
               gap="medium"
               wrap
             >
@@ -65,7 +65,7 @@ const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
-      direction={size === 'small' ? 'column-reverse' : 'row'}
+      direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
       width={{ max: 'xxlarge' }}

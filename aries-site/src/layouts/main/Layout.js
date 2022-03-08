@@ -24,7 +24,7 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 
 const calcPad = size => {
-  const val = size !== 'small' ? 'xlarge' : 'large';
+  const val = !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large';
   return val;
 };
 

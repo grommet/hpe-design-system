@@ -193,7 +193,7 @@ export const PayExample = () => {
             </Box>
           </Box>
           <Box
-            align={size !== 'small' ? 'start' : undefined}
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Checkout" primary type="submit" />

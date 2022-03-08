@@ -9,14 +9,18 @@ export const StepFooter = () => {
 
   return (
     <Box
-      margin={size !== 'small' ? { horizontal: 'medium' } : undefined}
+      margin={
+        !['xsmall', 'small'].includes(size)
+          ? { horizontal: 'medium' }
+          : undefined
+      }
       flex={false}
     >
       <Footer
         border={{ side: 'top', color: 'border' }}
         justify="end"
         pad={
-          size !== 'small'
+          !['xsmall', 'small'].includes(size)
             ? { vertical: 'medium' }
             : { vertical: 'small', horizontal: 'medium' }
         }
