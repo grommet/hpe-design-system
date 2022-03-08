@@ -91,7 +91,7 @@ export const Community = ({ ...rest }) => {
     <Box fill="horizontal" background="background-front">
       <Box
         fill="horizontal"
-        pad={size !== 'small' ? 'xlarge' : 'large'}
+        pad={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
         gap="large"
         {...rest}
       >

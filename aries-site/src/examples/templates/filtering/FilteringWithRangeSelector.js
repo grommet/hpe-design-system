@@ -122,7 +122,7 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
             Storage
           </Heading>
           <Box align="center" direction="row" gap="small">
-            {size !== 'small' || searchFocused ? (
+            {!['xsmall', 'small'].includes(size) || searchFocused ? (
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
@@ -150,7 +150,7 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
                 onClick={() => setSearchFocused(true)}
               />
             )}
-            {(size !== 'small' || !searchFocused) && (
+            {(!['xsmall', 'small'].includes(size) || !searchFocused) && (
               <Filters
                 data={data}
                 filtering={filtering}
@@ -222,7 +222,7 @@ const Filters = ({
     );
   };
 
-  if (size === 'small') {
+  if (['xsmall', 'small'].includes(size)) {
     return (
       <>
         <Box align="center" direction="row" gap="xsmall">
@@ -490,7 +490,7 @@ const AvailabilityFilter = ({
           // on mobile, we want to filter the data immediately but
           // on desktop, we wait until the user clicks
           // "Apply Filter" to filter the data
-          if (size === 'small') {
+          if (['xsmall', 'small'].includes(size)) {
             const nextFilters = {
               ...filters,
               availability: nextAvailability =>

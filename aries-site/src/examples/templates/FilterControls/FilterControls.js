@@ -49,7 +49,8 @@ export const FilterControls = ({
         align="start"
         justify="between"
         gap="small"
-        wrap={size === 'small'} // so search input has room to grow on mobile
+        // so search input has room to grow on mobile
+        wrap={['xsmall', 'small'].includes(size)}
       >
         <Box direction="row" gap="small" margin={{ bottom: 'xsmall' }}>
           {searchFilter && (

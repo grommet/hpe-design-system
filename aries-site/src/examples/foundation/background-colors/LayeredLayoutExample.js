@@ -36,8 +36,12 @@ export const LayeredLayoutExample = () => {
               content, such as these Cards.
             </Paragraph>
             <Grid
-              columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
-              gap={size !== 'small' ? 'medium' : 'small'}
+              columns={
+                !['xsmall', 'small'].includes(size)
+                  ? 'small'
+                  : { count: 2, size: 'auto' }
+              }
+              gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
             >
               {data.map((datum, index) => (
                 <Card
@@ -65,7 +69,7 @@ const AppContainer = ({ ...rest }) => {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
-      direction={size === 'small' ? 'column-reverse' : 'row'}
+      direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
       width={{ max: 'xxlarge' }}

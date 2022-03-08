@@ -6,7 +6,7 @@ export const DashboardGrid = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
-      columns={size !== 'small' ? 'medium' : '100%'}
+      columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
       rows={[['auto', 'full']]}
       gap="medium"
       fill

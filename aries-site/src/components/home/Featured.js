@@ -11,7 +11,7 @@ const FeaturedLayout = ({ ...rest }) => {
   return (
     <Box
       pad={{
-        horizontal: size !== 'small' ? 'xlarge' : 'large',
+        horizontal: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
         bottom: 'small',
       }}
       {...rest}

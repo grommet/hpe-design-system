@@ -14,7 +14,10 @@ export const NameValueListAnatomyPreview = () => {
     <Box pad="small">
       <NameValueList
         pairProps={{
-          direction: size === 'medium' || size === 'small' ? 'column' : 'row',
+          direction:
+            size === 'medium' || ['xsmall', 'small'].includes(size)
+              ? 'column'
+              : 'row',
         }}
       >
         {Object.entries(anatomyData).map(([name, value]) => (

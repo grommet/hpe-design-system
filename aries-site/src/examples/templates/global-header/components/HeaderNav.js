@@ -18,7 +18,7 @@ export const HeaderNav = () => {
 
   return user ? (
     <Nav align="center" direction="row" gap="small">
-      {size !== 'small' && (
+      {!['xsmall', 'small'].includes(size) && (
         <>
           <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
           <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />

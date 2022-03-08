@@ -28,7 +28,7 @@ const title = 'Home';
 const pageDetails = getPageDetails(title);
 
 const calcPad = size => {
-  const val = size !== 'small' ? 'xlarge' : 'large';
+  const val = !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large';
   return val;
 };
 
@@ -37,7 +37,7 @@ const widthProps = { width: { max: 'xxlarge' }, margin: 'auto' };
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
-  return size === 'small' ? (
+  return ['xsmall', 'small'].includes(size) ? (
     <Box>
       <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
       <Card background="none" elevation="none">
@@ -60,12 +60,14 @@ const Intro = ({ children }) => {
       <Box height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
           gap="large"
-          columns={size === 'small' ? ['auto'] : ['3/4', 'auto']}
+          columns={
+            ['xsmall', 'small'].includes(size) ? ['auto'] : ['3/4', 'auto']
+          }
         >
           <Card background="none" elevation="none">
             {children}
           </Card>
-          {size !== 'small' && (
+          {!['xsmall', 'small'].includes(size) && (
             <Card background="none" elevation="none" height="small" />
           )}
         </Grid>
@@ -94,8 +96,8 @@ const Index = () => {
               Design, develop and deliver
             </Heading>
             <Paragraph size="xlarge">
-              Empower designers and developers to quickly create
-              accessible enterprise app experiences
+              Empower designers and developers to quickly create accessible
+              enterprise app experiences
             </Paragraph>
           </Box>
         </Intro>

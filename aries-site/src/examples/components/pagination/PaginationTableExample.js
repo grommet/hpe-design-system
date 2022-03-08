@@ -558,7 +558,7 @@ export const PaginationTableExample = () => {
               header: 'Id',
               primary: true,
               render: datum => datum.id.slice(datum.id.length - 5),
-              pin: size === 'small',
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}
@@ -569,7 +569,7 @@ export const PaginationTableExample = () => {
             direction: 'row',
             fill: 'horizontal',
             flex: false,
-            justify: size !== 'small' ? 'end' : 'center',
+            justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
             pad: { top: 'xsmall' },
           }}
           step={10}

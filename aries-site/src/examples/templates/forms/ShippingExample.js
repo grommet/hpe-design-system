@@ -308,7 +308,7 @@ export const ShippingExample = () => {
             </FormField>
           </Box>
           <Box
-            align={size !== 'small' ? 'start' : undefined}
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Continue" primary type="submit" />
