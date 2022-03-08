@@ -1,9 +1,18 @@
 import React from 'react';
-import { Notification } from 'grommet';
+import { Box, Notification } from 'grommet';
 
 export const BannerNotificationInfo = () => (
-  <Notification
-    // onClose={() => {}}
-    message="Your subscription is expiring in 7 days."
-  />
+  <Box fill="horizontal">
+    <Notification
+      onClose={() => {}}
+      actions={[
+        {
+          href: '#',
+          label: 'View more',
+        },
+      ]}
+      message="Updates to this service will be available soon
+     including feature a, b, and c."
+    />
+  </Box>
 );
