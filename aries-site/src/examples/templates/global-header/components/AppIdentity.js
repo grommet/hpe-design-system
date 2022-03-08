@@ -24,7 +24,7 @@ export const AppIdentity = forwardRef(
       <Box
         align="center"
         direction="row"
-        gap={size !== 'small' ? 'medium' : 'small'}
+        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
         {/* menu is only available when user is logged in */}
         {user && <MenuLayer />}

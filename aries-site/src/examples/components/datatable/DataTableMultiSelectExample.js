@@ -246,11 +246,11 @@ export const DataTableMultiSelectExample = () => {
               primary: true,
               property: 'id',
               header: 'Id',
-              pin: size === 'small',
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}
-          pin={size === 'small'}
+          pin={['xsmall', 'small'].includes(size)}
           select={selected}
           onSelect={setSelected}
         />

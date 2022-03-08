@@ -210,11 +210,15 @@ export const DataTableSingleSelectExample = () => {
           aria-describedby="orders-heading"
           data={data}
           columns={[
-            { property: 'id', header: 'Id', pin: size === 'small' },
+            {
+              property: 'id',
+              header: 'Id',
+              pin: ['xsmall', 'small'].includes(size),
+            },
             ...columns,
           ]}
           onClickRow={({ datum }) => setPageDetails(datum)}
-          pin={size === 'small'}
+          pin={['xsmall', 'small'].includes(size)}
         />
       </Box>
     </>

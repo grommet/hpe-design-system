@@ -16,10 +16,10 @@ export const ResponsiveContainer = forwardRef(
         fill
       >
         <Box
-          height={size === 'small' ? 'large' : '100%'}
+          height={['xsmall', 'small'].includes(size) ? 'large' : '100%'}
           {...rest}
           ref={ref}
-          width={size === 'small' ? 'medium' : '100%'}
+          width={['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
         />
       </Box>
     );

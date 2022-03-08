@@ -23,7 +23,7 @@ export const FilteringLists = ({ containerRef }) => {
 
   const size = useContext(ResponsiveContext);
   const formFieldProps = {
-    width: size !== 'small' ? 'small' : undefined,
+    width: !['xsmall', 'small'].includes(size) ? 'small' : undefined,
   };
   // Define which attributes should be made available for the user
   // to filter upon
@@ -58,7 +58,7 @@ export const FilteringLists = ({ containerRef }) => {
     containerProps: {
       fill: false,
       pad: {
-        horizontal: size === 'small' ? undefined : 'medium',
+        horizontal: ['xsmall', 'small'].includes(size) ? undefined : 'medium',
         vertical: 'small',
       },
       width: { max: 'large' },
@@ -66,21 +66,21 @@ export const FilteringLists = ({ containerRef }) => {
     // contentProps accept any Grommet Box props to customize the Box
     // containing the FormField filters.
     contentProps: {
-      direction: size === 'small' ? 'column' : 'row',
-      gap: size === 'small' ? 'xsmall' : 'medium',
+      direction: ['xsmall', 'small'].includes(size) ? 'column' : 'row',
+      gap: ['xsmall', 'small'].includes(size) ? 'xsmall' : 'medium',
       pad: { horizontal: 'medium', bottom: 'small' },
     },
-    full: size === 'small',
+    full: ['xsmall', 'small'].includes(size),
     // containerRef is for demonstration purposes on this site. Most
     // implementations should likely remove.
     target: containerRef && containerRef.current,
-    position: size === 'small' ? undefined : 'center',
+    position: ['xsmall', 'small'].includes(size) ? undefined : 'center',
   };
 
   return (
     <Box
       background="background"
-      pad={size !== 'small' ? 'large' : 'medium'}
+      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
       gap="medium"
     >
       <Header gap="small">
@@ -121,7 +121,9 @@ const Orders = () => {
       <List
         action={(item, index) => (
           <Box key={index} align="center" direction="row" gap="small">
-            {size !== 'small' && <Text color="text-strong">{item.status}</Text>}
+            {!['xsmall', 'small'].includes(size) && (
+              <Text color="text-strong">{item.status}</Text>
+            )}
             {statusIcons[item.status]}
           </Box>
         )}

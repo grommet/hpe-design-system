@@ -5,14 +5,13 @@
 export const getWidth = (numberColumns, theme, size) => {
   const inputWidth =
     parseInt(theme.global.size.medium.replace('px', ''), 10) * numberColumns;
-  const gapWidth =
-    size !== 'small'
-      ? parseInt(theme.global.edgeSize.large.replace('px', ''), 10) *
-        (numberColumns - 1)
-      : 0;
+  const gapWidth = !['xsmall', 'small'].includes(size)
+    ? parseInt(theme.global.edgeSize.large.replace('px', ''), 10) *
+      (numberColumns - 1)
+    : 0;
   const focusPad =
     2 *
-    (size === 'small'
+    (['xsmall', 'small'].includes(size)
       ? parseInt(theme.global.edgeSize.small.replace('px', ''), 10)
       : parseInt(theme.global.edgeSize.xxsmall.replace('px', ''), 10));
   return `${inputWidth + gapWidth + focusPad}px`;

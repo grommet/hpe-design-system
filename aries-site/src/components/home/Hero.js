@@ -96,7 +96,7 @@ export const Hero = props => {
         viewBox="0 0 786 514"
         fill="none"
         preserveAspectRatio={
-          size === 'small' ? 'xMidYMin meet' : 'xMaxYMin meet'
+          ['xsmall', 'small'].includes(size) ? 'xMidYMin meet' : 'xMaxYMin meet'
         }
         xmlns="http://www.w3.org/2000/svg"
       >

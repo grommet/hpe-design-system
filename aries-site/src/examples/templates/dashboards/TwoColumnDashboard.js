@@ -92,7 +92,9 @@ const PageContent = () => {
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
         {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {(size === 'small' || size === 'xsmall') && <RecentActivity />}
+        {['xsmall', 'small'].includes(size) && (
+          <RecentActivity />
+        )}
         <Box gap="large">
           <Box gap="small">
             <Heading level={2} size="small" margin="none">
@@ -122,7 +124,7 @@ const PageContent = () => {
             </Grid>
           </Box>
         </Box>
-        {size !== 'small' && size !== 'xsmall' && (
+        {!['xsmall', 'small'].includes(size) && (
           <Box gap="large">
             {/* fragment is used to create a gap spacing element 
             for alignment to column 1 */}
