@@ -173,11 +173,11 @@ export const DataTableSortable = () => {
               property: 'id',
               header: 'Id',
               primary: true,
-              pin: size === 'small',
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}
-          pin={size === 'small'}
+          pin={['xsmall', 'small'].includes(size)}
           sort={{ property: 'numeric', direction: 'desc' }}
           sortable
         />

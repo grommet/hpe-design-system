@@ -46,14 +46,16 @@ const Message = () => (
 const Custom404 = () => {
   const size = useContext(ResponsiveContext);
 
-  const first = size !== 'small' ? <Message /> : <Visual />;
-  const second = size !== 'small' ? <Visual /> : <Message />;
+  const first = !['xsmall', 'small'].includes(size) ? <Message /> : <Visual />;
+  const second = !['xsmall', 'small'].includes(size) ? <Visual /> : <Message />;
 
   return (
     <Layout title={title} isLanding>
       <Meta title={title} />
       <Grid
-        columns={size !== 'small' ? ['medium', 'auto'] : '100%'}
+        columns={
+          !['xsmall', 'small'].includes(size) ? ['medium', 'auto'] : '100%'
+        }
         gap="large"
         pad={{ top: 'large' }}
         fill

@@ -43,7 +43,8 @@ export const HeaderExample = () => {
           responsive={false}
         >
           <Hpe color="brand" />
-          {(size !== 'small' || (size === 'small' && !focused)) && (
+          {(!['xsmall', 'small'].includes(size) ||
+            (['xsmall', 'small'].includes(size) && !focused)) && (
             <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
@@ -54,14 +55,14 @@ export const HeaderExample = () => {
         </Box>
       </Button>
       <>
-        {!focused && size === 'small' && (
+        {!focused && ['xsmall', 'small'].includes(size) && (
           <Button
             icon={<SearchIcon />}
             hoverIndicator
             onClick={() => setFocused(true)}
           />
         )}
-        {(focused || size !== 'small') && (
+        {(focused || !['xsmall', 'small'].includes(size)) && (
           <Box background="background-contrast" round="xsmall" width="medium">
             <Keyboard onEsc={() => setFocused(false)}>
               <StyledTextInput

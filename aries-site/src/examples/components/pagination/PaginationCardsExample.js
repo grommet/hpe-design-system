@@ -53,7 +53,9 @@ export const PaginationCardsExample = () => {
         align="center"
         border="top"
         pad={{ vertical: 'xsmall' }}
-        direction={size !== 'small' ? 'row' : 'column-reverse'}
+        direction={
+          !['xsmall', 'small'].includes(size) ? 'row' : 'column-reverse'
+        }
         justify="between"
         flex={false}
       >

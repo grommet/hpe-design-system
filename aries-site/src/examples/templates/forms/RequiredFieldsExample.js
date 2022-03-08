@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Box,
   Button,
@@ -40,6 +40,8 @@ export const RequiredFieldsExample = () => {
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
   };
+
+  const [numFiles, setNumFiles] = useState(0);
 
   return (
     <Box gap="medium" width="medium">
@@ -128,9 +130,10 @@ export const RequiredFieldsExample = () => {
             <FileInput
               messages={{
                 dropPrompt: 'Drag and drop',
-                browse: 'Select File',
+                browse: numFiles > 0 ? 'Replace File' : 'Select File',
               }}
               id="fileinput"
+              onChange={(event, { files }) => setNumFiles(files.length)}
               name="fileinput"
             />
           </FormField>
@@ -158,7 +161,7 @@ export const RequiredFieldsExample = () => {
             </Box>
           )}
           <Box
-            align={size !== 'small' ? 'start' : undefined}
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'small' }}
           >
             <Button label="Create" primary type="submit" />

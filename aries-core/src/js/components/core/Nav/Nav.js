@@ -28,7 +28,9 @@ export const Nav = ({
         pad={
           pad || {
             vertical: 'small',
-            horizontal: size !== 'small' ? 'xlarge' : 'large',
+            horizontal: !['xsmall', 'small'].includes(size)
+              ? 'xlarge'
+              : 'large',
           }
         }
       >
@@ -51,13 +53,15 @@ export const Nav = ({
         <Box direction="row" gap="medium" align="center">
           {children && !collapse ? (
             children
-          ) : size !== 'small' ? (
+          ) : !['xsmall', 'small'].includes(size) ? (
             children &&
             (children.length > 1
-              ? children.map((child, index) => React.cloneElement(child, {
+              ? children.map((child, index) =>
+                  React.cloneElement(child, {
                     lastSection: index === children.length - 1,
                     key: index,
-                  }))
+                  }),
+                )
               : React.cloneElement(children, {
                   lastSection: true,
                 }))
@@ -70,14 +74,16 @@ export const Nav = ({
           )}
         </Box>
       </Box>
-      {size === 'small' && (
+      {['xsmall', 'small'].includes(size) && (
         <Collapsible background="white" open={open}>
           {children &&
             (children.length > 1
-              ? children.map((child, index) => React.cloneElement(child, {
+              ? children.map((child, index) =>
+                  React.cloneElement(child, {
                     lastSection: index === children.length - 1,
                     key: index,
-                  }))
+                  }),
+                )
               : React.cloneElement(children, {
                   lastSection: true,
                 }))}

@@ -37,11 +37,11 @@ See the table below for breakpoints defined by the HPE Design System. Keep in mi
 
 | T-shirt Size   | Range         |  Margin (pixels) |
 | -------------- | ----------    | -----------------:
-| **xxsmall**    | 576 and below |      12
-| **xsmall**     | 577 - 768     |      24
-| **small**      | 769 - 1080    |      24
-| **medium**     | 1081 - 1439   |      48
-| **large**      | 1440 and above|      48
+| **xsmall**    | 576 and below |      12
+| **small**     | 577 - 768     |      24
+| **medium**      | 769 - 1080    |      24
+| **large**     | 1081 - 1439   |      48
+| **xlarge**      | 1440 and above|      48
 
 #### Page Margin
 
@@ -62,24 +62,9 @@ Wider margins are better for larger screens, as they create more whitespace arou
 
 ## Templates
 
+Responsive, customizable layout templates to help you jumpstart your application design and development. 
 This work is in progress. More templates coming soon.
 
-### Single Column Layouts
-
 <CardGrid
-  cards={contentLayouts.filter(card => card.category === 'Single Column')}
-/>
-
-### 2 Column Layouts
-
-<CardGrid cards={contentLayouts.filter(card => card.category === '2 Column')} />
-
-### 3 Column Layouts
-
-<CardGrid cards={contentLayouts.filter(card => card.category === '3 Column')} />
-
-### Multi-column Layouts
-
-<CardGrid
-  cards={contentLayouts.filter(card => card.category === 'Multi-column')}
+  cards={contentLayouts}
 />

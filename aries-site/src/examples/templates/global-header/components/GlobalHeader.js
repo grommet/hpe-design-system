@@ -14,7 +14,7 @@ export const GlobalHeader = () => {
         justify="between"
         fill="horizontal"
         pad={{
-          horizontal: size !== 'small' ? 'medium' : 'small',
+          horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'small',
           vertical: 'small',
         }}
       >

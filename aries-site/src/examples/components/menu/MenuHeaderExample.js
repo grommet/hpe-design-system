@@ -24,7 +24,7 @@ export const MenuHeaderExample = () => {
           responsive={false}
         >
           <Hpe color="brand" />
-          {size !== 'small' && (
+          {!['xsmall', 'small'].includes(size) && (
             <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE

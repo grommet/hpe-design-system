@@ -146,7 +146,7 @@ export const DataTableSummaryExample = ({ designSystemDemo }) => {
               primary: true,
               property: 'application',
               header: 'Service',
-              pin: size === 'small',
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}

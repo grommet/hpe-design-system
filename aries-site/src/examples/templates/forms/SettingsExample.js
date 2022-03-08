@@ -103,7 +103,7 @@ export const SettingsExample = () => {
               />
             </FormField>
             <Box
-              align={size !== 'small' ? 'start' : undefined}
+              align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
               margin={{ top: 'small', bottom: 'small' }}
             >
               <Button label="Apply Settings" primary type="submit" />

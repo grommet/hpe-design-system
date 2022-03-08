@@ -57,7 +57,7 @@ export const FilteringCards = ({ containerRef }) => {
   return (
     <Box
       background="background"
-      pad={size !== 'small' ? 'large' : 'medium'}
+      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
       gap="medium"
     >
       <Heading level={2} margin="none">
@@ -85,8 +85,12 @@ const Users = () => {
   return (
     <Box overflow="auto" fill>
       <Grid
-        columns={size !== 'small' ? 'small' : { count: 2, size: 'auto' }}
-        gap={size !== 'small' ? 'medium' : 'small'}
+        columns={
+          !['xsmall', 'small'].includes(size)
+            ? 'small'
+            : { count: 2, size: 'auto' }
+        }
+        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
         {filteredResults.map(datum => (
           <Card

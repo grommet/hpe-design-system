@@ -4,8 +4,9 @@ import { Box, ResponsiveContext } from 'grommet';
 
 export const PageContainerContext = createContext({});
 
-// Theme-like object specifying alignment, width, and spacing for
-// a PageContainer.
+// Theme-like object specifying alignment, width, and spacing for a
+// PageContainer. This implementation will be replaced by Grommet <Page />
+// PR: https://github.com/grommet/grommet/pull/5960 and by the HPE theme.
 export const pageContainer = {
   wide: {
     align: 'center',
@@ -44,6 +45,7 @@ export const pageContainer = {
   },
 };
 
+// This implementation will be replaced by Grommet <Page /> PR: https://github.com/grommet/grommet/pull/5960.
 export const PageContainer = ({ kind = 'wide', ...rest }) => {
   const size = useContext(ResponsiveContext);
 
