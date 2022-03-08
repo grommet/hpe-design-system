@@ -1,74 +1,74 @@
 import {  BestPracticeGroup, Example } from '../../layouts';
 import {
+  BannerContentLayoutExample,
   BannerNotificationCritical,
+  BannerNotificationCriticalClose,
   BannerNotificationDoExample,
   BannerNotificationDontExample,
   BannerNotificationInfo,
   BannerNotificationWarning,
+  BannerNotificationWarningClose,
   BannerNotificationDiagram,
 } from '../../examples';
 
-Banner Notifications are comprised of the following elements:
 
 <Example
-  caption="Diagram illustrating the three parts composing of a Banner Notification."
+  showResponsiveControls={['fullScreen']}
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  height="650px"
+  width="100%"
+    caption="An example of a dashboard with a Global Banner warning the user that their subscription is expiring. The user can either dismiss the notification or click on the anchor to renew their subscription."
+  screenContainer={{ scale: 0.57 }}
+>
+  <BannerContentLayoutExample />
+</Example>
+
+
+## Guidelines
+
+Global Banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
+
+Global Banners are used to showcase Warning and Critical statuses. They are also a mechanism for informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissable by the user.
+
+## Anatomy
+<Example
+  caption="Diagram illustrating the four parts composing of a Banner Notification."
   plain
 >
   <BannerNotificationDiagram />
 </Example>
 
-1. [**Status Indicator**](/templates/status-indicator) - an icon made of a shape, color and content to capture the user’s attention.
-2. **Message** - a short description explaining the issue.
-3. **Close Button** (optional) - a button used to dismiss the notification.
+1. Status Indicator is an icon made of a shape and color to capture the user’s attention
+2. Message is a short description explaining the issue
+3. Anchors (optional)  are used to direct users to links related to the notification
+4. Close Button (optional) is used to dismiss the notification
 
-## When to use
-
-Consider using Banner Notifications in the following use cases:
-
-- Scheduled maintenance within the system or platform
-- Subscription expiration
-- Feature releases
-
-## When not to use
-
-Don’t use Banner Notifications in the following use cases:
-
-- Device component failures
-- Task related alerts
-- To show if task is successful. Instead, use [Toast Notifications](/templates/toast-notifications).
-
-## Guidelines
+## Best Practices 
+### Placement
+- Always located directly below the Global Header without a gap and should not obscure any underlying content or action
+- Can persist across multiple sessions until dismissed if necessary
 
 ### Format
-
-- Place below global header.
-- Show one banner at a time.
-- Implement inline with the page content to ensure no other content is obscured.
-- Limit to 192 characters to avoid truncation. Content will be restricted to a single line. If there is insufficient width for the whole message, it will be truncated.
-
-### Things to Avoid
-
-- Do not allow dismissal of the banner (`onClose`) when information is critical (such as potential access loss).
-- Do not stack banners on top of one another; use a single banner at a time.
+- Only show one banner at a time
+- Global Banners should stay within the 192 character limit
+- Long text is not truncated but instead will wrap on smaller screen sizes
+- Anchors are left-aligned and will wrap alongisde the text
+- Use only two or fewer anchors
+- Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language
 
 ### Behavior
+- Never sticky and should scroll when there is other content
+- The background spans the full width of the screen, but the content resizes alongside the Global Header
 
-- Never sticky, should scroll when there is other content.
-- When clicked, should direct user to notification center when clicked.
-- When dismissed, should remove the banner from the screen but the notification will still exist in the notification center.
 
-### Placement
+## When should you use Global Banners?
+Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates. Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
 
-- Banner notifications should always be located directly below the Global Header, above the Page Header.
-
-## Variants
-
-### Informational
-
-Used when there is a:
-
-- New feature
-- Upcoming release
+### Informational:
+- new feature 
+- new release coming
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
@@ -79,48 +79,74 @@ Used when there is a:
   <BannerNotificationInfo />
 </Example>
 
-### Critical
-
-Used to warn the user about:
-
-- Unavailable access to the platform due to the system
-- Scheduled maintenances (good for persistent)
+### Critical:
+- scheduled maintenances
+- unavailable access to the platform due to the system
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationCritical.js"
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationCritical.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  docs="https://v2.grommet.io/notification?theme=hpe"
+  height={{ min: 'small' }}
+>
+  <BannerNotificationCriticalClose />
+</Example>
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   height={{ min: 'small' }}
 >
   <BannerNotificationCritical />
 </Example>
 
-### Warning
 
-Used to warn the user about:
-
-- Subscriptions about to expire (can be dismissed)
-- Session timeout
+### Warning:
+- subscriptions about to expire
+- session timeout
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationWarning.js"
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationWarning.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  docs="https://v2.grommet.io/notification?theme=hpe"
+  height={{ min: 'small' }}
+>
+  <BannerNotificationWarningClose />
+</Example>
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   height={{ min: 'small' }}
 >
   <BannerNotificationWarning />
 </Example>
 
+### Do not use Global Banners for:
+Completion of tasks, such as long running or batch actions
+Success or failure confirmations
+Low-attention and low-severity information
+
+For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use Toast Notifications.
+
+## Things to Avoid
+- Do not use use close icon when information is important and needs to remain persistent. Also consider whether or not the information should remain persistent across multiple sessions
+- Global Banners are not clickable, instead use anchors to direct users to take further action or to view the issue in full detail
+- Overly long notifications can take up lots of screen real estate on smaller screens
+
 ## Do’s and Don’ts
 
 <BestPracticeGroup columns='auto' gap="none">
   <Example
-    height="small"
-    bestPractice={{type: 'do', message: 'In this example a status indicator, title and message are used to explain what the message is about.'}}
+    bestPractice={{type: 'do', message: 'Global Banners should always have relevant anchors for the user. Also, low-severity notifications should not remain persistent and instead be dismissable.'}}
+    height={{ min: 'small' }}
   >
     <BannerNotificationDoExample />
   </Example>
   <Example
-    height="small"
-    bestPractice={{type: 'dont', message: `Don’t stack more than one banner at a time.`}}
+    height={{ min: 'small' }}
+    bestPractice={{type: 'dont', message: `Overloading notifications with long messages and anchors can lead to clutter and confusion. Refer to this
+    alternative.`}}
   >
     <BannerNotificationDontExample />
   </Example>

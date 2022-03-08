@@ -1,12 +1,13 @@
 import React from 'react';
-import { Box, Diagram, Grid, Stack, Text } from 'grommet';
+import PropTypes from 'prop-types';
+import { Anchor, Box, Grid, Diagram, Stack, Text } from 'grommet';
 import { FormClose, StatusCriticalSmall } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 
-const color = 'text-strong';
+const color = 'border';
 const anchor = 'vertical';
 const thickness = 'hair';
-const type = 'rectilinear';
+const type = 'direct';
 
 const connections = [
   {
@@ -31,47 +32,67 @@ const connections = [
     color,
     thickness,
     fromTarget: '3',
+    toTarget: 'link',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '4',
     toTarget: 'close-button',
   },
 ];
 
 const AnatomyGrid = ({ ...rest }) => (
-  <Grid columns={['large']} gap={{ row: 'small' }} {...rest} />
+  <Grid
+    columns={['xxsmall', ['small', 'medium'], 'xxsmall', 'xxsmall']}
+    rows="xxsmall"
+    justify="center"
+    fill
+    {...rest}
+  />
+);
+
+const AnatomyBox = ({ children, id, ...rest }) => (
+  <Box
+    id={id}
+    justify="center"
+    fill="horizontal"
+    background="validation-critical"
+    {...rest}
+  >
+    {children}
+  </Box>
 );
 
 export const BannerNotificationDiagram = () => (
-  <Stack>
-    <Box gap="medium" pad={{ bottom: 'medium' }}>
-      <AnatomyGrid>
-        <Box
-          justify="between"
-          pad={{ vertical: 'small', horizontal: 'small' }}
-          direction="row"
-        >
-          {/* pointers were off by 1px so needed this to have straight line */}
-          <Annotation margin={{ left: '-1px' }} id={1} target="1" />
-          <Annotation margin={{ left: '-1px' }} id={2} target="2" />
-          <Annotation id={3} target="3" />
-        </Box>
-        <Box
-          direction="row"
-          round="xsmall"
-          gap="small"
-          background={{ color: 'validation-critical' }}
-          pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        >
-          <Box id="status-indicator">
-            <StatusCriticalSmall color="red" />
-          </Box>
-          <Box id="content" align="start" direction="row" fill>
-            <Text truncate>
-              System maintenance scheduled to begin February 12 at 12:00 UTC.
-            </Text>
-          </Box>
-          <FormClose id="close-button" />
-        </Box>
-      </AnatomyGrid>
-    </Box>
+  <Stack margin={{ bottom: 'small' }}>
+    <AnatomyGrid>
+      <Annotation id={1} target="1" />
+      <Annotation id={2} target="2" />
+      <Annotation id={3} target="3" />
+      <Annotation id={4} target="4" />
+      <AnatomyBox id="status-indicator" align="center">
+        <StatusCriticalSmall color="red" />
+      </AnatomyBox>
+      <AnatomyBox id="content">
+        <Text alignSelf="start">
+          This service is currently down for maintenance.
+        </Text>
+      </AnatomyBox>
+      <AnatomyBox align="start" id="link">
+        <Anchor href="#" label="Link" />
+      </AnatomyBox>
+      <AnatomyBox id="close-button" align="center">
+        <FormClose />
+      </AnatomyBox>
+    </AnatomyGrid>
     <Diagram connections={connections} />
   </Stack>
 );
+
+AnatomyBox.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string,
+};

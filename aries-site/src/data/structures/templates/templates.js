@@ -607,8 +607,8 @@ export const templates = [
     name: 'Banner Notifications',
     available: false,
     cardOrder: 10,
-    description: `Banner notifications are alerts that attract users attention 
-    about system conditions or updates and may be dismissed by the user.`,
+    description: `Global Banner Notifications are system generated alerts that
+     attract users attention to system conditions and updates.`,
     preview: {
       image: {
         src: {
@@ -620,9 +620,8 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: `Banner notifications are alerts that attract users 
-    attention about system conditions or updates and may be dismissed by the 
-    user.`,
+    seoDescription:  `Global Banner Notifications are system generated alerts
+     that attract users attention to system conditions and updates.`,
     sections: [
       'Anatomy',
       'When To Use',
