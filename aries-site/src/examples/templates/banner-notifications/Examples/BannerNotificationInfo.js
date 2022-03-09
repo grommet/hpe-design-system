@@ -4,6 +4,7 @@ import { Box, Notification } from 'grommet';
 export const BannerNotificationInfo = () => (
   <Box fill="horizontal">
     <Notification
+    status='info'
       onClose={() => {}}
       actions={[
         {
