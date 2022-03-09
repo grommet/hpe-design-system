@@ -83,10 +83,8 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Box>
         <Intro>
+          {/* custom width ensures "and deliver" is on second line */}
           <Box width={{ max: '700px' }}>
-            {size === 'xxxsmall' && (
-              <Card background="none" elevation="none" height="small" />
-            )}
             <Heading margin="none" size="large">
               Design, develop and deliver
             </Heading>
