@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import {
   Anchor,
@@ -6,8 +6,8 @@ import {
   Grid,
   Heading,
   Image,
+  PageContent,
   Paragraph,
-  ResponsiveContext,
 } from 'grommet';
 import { useDarkMode } from '../../utils';
 
@@ -50,15 +50,13 @@ const whatIsContent = [
 ];
 
 export const WhatIs = ({ ...rest }) => {
-  const size = useContext(ResponsiveContext);
   const darkMode = useDarkMode();
 
   return (
-    <Box fill background="background-front">
+    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
       <Box
         fill
         pad={{
-          horizontal: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
           top: 'large',
           bottom: 'medium',
         }}
@@ -99,6 +97,6 @@ export const WhatIs = ({ ...rest }) => {
           ))}
         </Grid>
       </Box>
-    </Box>
+    </PageContent>
   );
 };

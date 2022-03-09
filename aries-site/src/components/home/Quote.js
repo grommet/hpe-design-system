@@ -1,5 +1,13 @@
 import React from 'react';
-import { Avatar, Box, Image, Paragraph, Stack, Text } from 'grommet';
+import {
+  Avatar,
+  Box,
+  Image,
+  PageContent,
+  Paragraph,
+  Stack,
+  Text,
+} from 'grommet';
 import { useDarkMode } from '../../utils';
 
 export const Quote = () => {
@@ -10,7 +18,7 @@ export const Quote = () => {
   }.svg`;
 
   return (
-    <Box
+    <PageContent
       direction="row-responsive"
       gap="large"
       justify="center"
@@ -85,6 +93,6 @@ export const Quote = () => {
           </Box>
         </Box>
       </Stack>
-    </Box>
+    </PageContent>
   );
 };

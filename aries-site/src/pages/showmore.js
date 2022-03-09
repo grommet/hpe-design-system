@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../components';
 import { Layout, PageIntro } from '../layouts';
@@ -51,7 +51,7 @@ const ShowMore = () => (
     isLanding
   >
     <Meta title={title} description={pageDetails.seoDescription} />
-    <Box gap="large">
+    <PageContent gap="large">
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">Highlights</Heading>
@@ -62,7 +62,7 @@ const ShowMore = () => (
         </Box>
       </PageIntro>
       <CardGrid cards={cardOrder} />
-    </Box>
+    </PageContent>
   </Layout>
 );
 
