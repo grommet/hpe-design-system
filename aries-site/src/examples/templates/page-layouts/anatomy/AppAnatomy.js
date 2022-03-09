@@ -22,7 +22,15 @@ export const AppAnatomy = () => {
         background="status-unknown"
         flex={false}
       />
-      <ContentArea title="Page Container" border flex />
+      <ContentArea title="Page" border flex>
+        <ContentArea
+          alignSelf="center"
+          title="PageContent"
+          border
+          flex
+          width="80%"
+        />
+      </ContentArea>
       <ContentArea
         title="Global Footer"
         background="status-unknown"

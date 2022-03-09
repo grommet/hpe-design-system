@@ -1,11 +1,5 @@
-import { useContext } from 'react';
-import { Header, Main } from 'grommet';
-
-import {
-  AppContainer,
-  PageContainer,
-  PageContainerContext,
-} from './components';
+import { Header, Main, Page, PageContent } from 'grommet';
+import { AppContainer } from './components';
 import { ContentArea } from './anatomy/components';
 
 // `demoStyle` is specific for the Design System site and is used
@@ -38,18 +32,18 @@ export const PageContainerInteractive = () => (
       behavior without the need for implementing your own context nor values
       which will be specified by the HPE theme. 
       Follow Grommet Page PR: https://github.com/grommet/grommet/pull/5960 */}
-    <PageContainer kind="wide" fill>
-      <PageChildren />
-    </PageContainer>
+    <Page flex>
+      <ContentArea title="Page" border flex>
+        <PageChildren />
+      </ContentArea>
+    </Page>
     <ContentArea title="Global Footer" background="status-unknown" />
   </AppContainer>
 );
 
-const PageChildren = () => {
-  const { ...pageContainer } = useContext(PageContainerContext);
-
-  return (
-    <ContentArea title="PageContainer" {...pageContainer} {...demoStyle}>
+const PageChildren = () => (
+  <PageContent flex>
+    <ContentArea title="PageContent" {...demoStyle}>
       <Header
         // `as`, `title`, `background`, and `border` for Design System site
         //  demonstration. Remove from your implementation.
@@ -71,5 +65,5 @@ const PageChildren = () => {
         {/* All of the page's content */}
       </Main>
     </ContentArea>
-  );
-};
+  </PageContent>
+);
