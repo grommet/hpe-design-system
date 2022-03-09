@@ -66,7 +66,7 @@ Global Banners are used to showcase Warning and Critical statuses. They are also
 ## When should you use Global Banners?
 Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates. Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
 
-### Informational:
+### Informational
 - new feature 
 - new release coming
 
@@ -80,7 +80,7 @@ Since Global Banners take over the top of an interface and can be intrusive, the
   <BannerNotificationInfo />
 </Example>
 
-### Critical:
+### Critical
 - scheduled maintenances
 - unavailable access to the platform due to the system
 
@@ -103,14 +103,14 @@ Since Global Banners take over the top of an interface and can be intrusive, the
 </Example>
 
 
-### Warning:
+### Warning
 - subscriptions about to expire
 - session timeout
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
-  caption="An example of a Global Banner that is dismissable and has a relevant anchor."
+    caption="An example of a Global Banner that is dismissable and has a relevant anchor."
   height={{ min: 'small' }}
 >
   <BannerNotificationWarningClose />
@@ -141,14 +141,14 @@ For low-severity notifications that do not require user action or user attention
 
 <BestPracticeGroup columns='auto' gap="none">
   <Example
-    bestPractice={{type: 'do', message: 'Global Banners should always have relevant anchors for the user. Also, low-severity notifications should not remain persistent and instead be dismissable.'}}
+    bestPractice={{type: 'do', message: 'Global Banners should always have relevant anchors (two or fewer is recommended). Also, low-severity notifications should not remain persistent and instead be dismissable.'}}
     height={{ min: 'small' }}
   >
     <BannerNotificationDoExample />
   </Example>
   <Example
     height={{ min: 'small' }}
-    bestPractice={{type: 'dont', message: `Overloading notifications with long messages and anchors can lead to clutter and confusion. Refer to the Warning example above.`}}
+    bestPractice={{type: 'dont', message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`}}
   >
     <BannerNotificationDontExample />
   </Example>
