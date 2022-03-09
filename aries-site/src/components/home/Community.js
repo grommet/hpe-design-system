@@ -5,6 +5,7 @@ import {
   Button,
   Grid,
   Heading,
+  PageContent,
   Paragraph,
   ResponsiveContext,
   Text,
@@ -88,10 +89,12 @@ const Feedback = () => (
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box fill="horizontal" background="background-front">
+    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
       <Box
         fill="horizontal"
-        pad={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
+        pad={{
+          vertical: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
+        }}
         gap="large"
         {...rest}
       >
@@ -117,6 +120,6 @@ export const Community = ({ ...rest }) => {
           <Feedback />
         </Grid>
       </Box>
-    </Box>
+    </PageContent>
   );
 };

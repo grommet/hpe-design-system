@@ -6914,9 +6914,9 @@ es-to-primitive@^1.2.1:
     is-symbol "^1.0.2"
 
 es5-ext@^0.10.35, es5-ext@^0.10.50:
-  version "0.10.56"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.56.tgz#fd76bc935212203a83fef35bb58cddde26ae6c3c"
-  integrity sha512-YUhqzoMnIjMW5y8FzaMxsCu0eWCwq32GrlwhOhbQmL5OiZReWFm/KvRiYuvqf3CaG/zZ36Kyb4KfVe674cafCQ==
+  version "0.10.54"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.54.tgz#f364944294a00f9562c26bbde5156018f7d5fb6e"
+  integrity sha512-PmZt9baBXDXz2wJ8RRJGGn9r7Ks4zjxWdazbtY2w8EugwojsasRvsyZM2CGN1NPoYfKFK4CqjqFSFYS9wpjtyg==
   dependencies:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.3"
