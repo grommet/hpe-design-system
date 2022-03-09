@@ -4,6 +4,7 @@ import {
   Card,
   Grid,
   Heading,
+  PageContent,
   Paragraph,
   ResponsiveContext,
   Stack,
@@ -27,37 +28,31 @@ import { getPageDetails } from '../utils';
 const title = 'Home';
 const pageDetails = getPageDetails(title);
 
-const calcPad = size => {
-  const val = !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large';
-  return val;
-};
-
 // These make a box width limited to xxlarge but centered
-const widthProps = { width: { max: 'xxlarge' }, margin: 'auto' };
+const widthProps = { margin: 'auto' };
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
   return ['xsmall', 'small'].includes(size) ? (
-    <Box>
+    <PageContent>
       <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
       <Card background="none" elevation="none">
         {children}
       </Card>
-    </Box>
+    </PageContent>
   ) : (
     <Stack guidingChild="last">
-      <Box
+      <PageContent
         align="start"
         justify="between"
-        pad={{ horizontal: calcPad(size) }}
         direction="row"
         fill
         {...widthProps}
       >
         <Box width="small" />
         <Hero />
-      </Box>
-      <Box height={{ min: 'medium' }} justify="center" {...widthProps}>
+      </PageContent>
+      <PageContent height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
           gap="large"
           columns={
@@ -71,7 +66,7 @@ const Intro = ({ children }) => {
             <Card background="none" elevation="none" height="small" />
           )}
         </Grid>
-      </Box>
+      </PageContent>
     </Stack>
   );
 };
@@ -80,39 +75,33 @@ Intro.propTypes = {
   children: PropTypes.node,
 };
 
-const Index = () => {
-  const size = useContext(ResponsiveContext);
-
-  return (
-    <Layout title={title} isLanding pad={{}} width={{}}>
-      <Meta title={title} description={pageDetails.seoDescription} />
-      <Box>
-        <Intro>
-          <Box pad={{ horizontal: calcPad(size) }} width={{ max: '900px' }}>
-            {size === 'xxxsmall' && (
-              <Card background="none" elevation="none" height="small" />
-            )}
-            <Heading margin="none" size="large">
-              Design, develop and deliver
-            </Heading>
-            <Paragraph size="xlarge">
-              Empower designers and developers to quickly create accessible
-              enterprise app experiences
-            </Paragraph>
-          </Box>
-        </Intro>
-        <Stack guidingChild="last">
-          <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-          <Featured {...widthProps} />
-        </Stack>
-        <WhatIs {...widthProps} />
-        <Video {...widthProps} />
-        <Highlights {...widthProps} />
-        <Quote />
-        <Community {...widthProps} />
-      </Box>
-    </Layout>
-  );
-};
+const Index = () => (
+  <Layout title={title} isLanding pad={{}} width={{}}>
+    <Meta title={title} description={pageDetails.seoDescription} />
+    <Box>
+      <Intro>
+        {/* custom width ensures "and deliver" is on second line */}
+        <Box width={{ max: '700px' }}>
+          <Heading margin="none" size="large">
+            Design, develop and deliver
+          </Heading>
+          <Paragraph size="xlarge">
+            Empower designers and developers to quickly create accessible
+            enterprise app experiences.
+          </Paragraph>
+        </Box>
+      </Intro>
+      <Stack guidingChild="last">
+        <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+        <Featured {...widthProps} />
+      </Stack>
+      <WhatIs {...widthProps} />
+      <Video {...widthProps} />
+      <Highlights {...widthProps} />
+      <Quote />
+      <Community {...widthProps} />
+    </Box>
+  </Layout>
+);
 
 export default Index;
