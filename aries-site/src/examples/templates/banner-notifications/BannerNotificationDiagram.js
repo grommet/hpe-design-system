@@ -46,7 +46,16 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xxsmall', ['small', 'medium'], 'xxsmall', 'xxsmall']}
+    columns={['xxsmall', 'xsmall', 'xsmall', ['xsmall', 'small'], 'small']}
+    justify="center"
+    fill
+    {...rest}
+  />
+);
+
+const DiagramGrid = ({ ...rest }) => (
+  <Grid
+    columns={['xxsmall', 'medium', ['xsmall', 'small'], 'xxsmall']}
     rows="xxsmall"
     justify="center"
     fill
@@ -68,26 +77,35 @@ const AnatomyBox = ({ children, id, ...rest }) => (
 
 export const BannerNotificationDiagram = () => (
   <Stack margin={{ bottom: 'small' }}>
-    <AnatomyGrid>
-      <Annotation id={1} target="1" />
-      <Annotation id={2} target="2" />
-      <Annotation id={3} target="3" />
-      <Annotation id={4} target="4" />
-      <AnatomyBox id="status-indicator" align="center">
-        <StatusCriticalSmall color="red" />
-      </AnatomyBox>
-      <AnatomyBox id="content">
-        <Text alignSelf="start">
-          This service is currently down for maintenance.
-        </Text>
-      </AnatomyBox>
-      <AnatomyBox align="start" id="link">
-        <Anchor href="#" label="Link" />
-      </AnatomyBox>
-      <AnatomyBox id="close-button" align="center">
-        <FormClose />
-      </AnatomyBox>
-    </AnatomyGrid>
+    <Box gap="small">
+      <AnatomyGrid>
+        <Annotation id={1} target="1" />
+        <Annotation id={2} target="2" />
+        <Annotation style={{ justifySelf: 'center' }} id={3} target="3" />
+        <Box />
+        <Annotation id={4} target="4" />
+      </AnatomyGrid>
+      <DiagramGrid>
+        <AnatomyBox id="status-indicator" align="center">
+          <StatusCriticalSmall color="red" />
+        </AnatomyBox>
+        <Box
+          fill="horizontal"
+          background="validation-critical"
+          direction="row"
+          gap="xsmall"
+          align="center"
+        >
+          <Text id="content" alignSelf="center">
+            Any Content text
+          </Text>
+          <Anchor id="link" href="#" label="Link" />
+        </Box>
+        <AnatomyBox id="close-button" align="center">
+          <FormClose />
+        </AnatomyBox>
+      </DiagramGrid>
+    </Box>
     <Diagram connections={connections} />
   </Stack>
 );
