@@ -5,6 +5,7 @@ import {
   Grid,
   Heading,
   Image,
+  PageContent,
   Paragraph,
   ResponsiveContext,
   Text,
@@ -22,9 +23,6 @@ const HighlightsLayout = () => {
 
   return (
     <Grid
-      pad={{
-        horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'large',
-      }}
       columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
       gap="large"
     >
@@ -78,39 +76,32 @@ const HighlightsLayout = () => {
   );
 };
 
-export const Highlights = ({ ...rest }) => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Box fill background="background-front">
-      <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
-        <Box
-          justify="center"
-          align="center"
-          pad={{
-            horizontal: !['xsmall', 'small'].includes(size)
-              ? 'xlarge'
-              : 'large',
-          }}
-          gap="large"
-        >
-          <Heading margin="none" level={2} size="large">
-            Highlights
-          </Heading>
-          <Box width="large" pad={{ bottom: 'medium' }}>
-            <Paragraph size="xlarge" fill textAlign="center" margin="none">
-              The HPE Design System team is committed to conducting thorough
-              research so you don't have to think about it. Just find what you
-              need, design and deliver quickly!
-            </Paragraph>
-          </Box>
-        </Box>
-        <HighlightsLayout />
-        <Box fill="horizontal" align="center" justify="center" pad="medium">
-          <Link href="/showmore" passHref>
-            <Button primary label="Show Me More" />
-          </Link>
+export const Highlights = ({ ...rest }) => (
+  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
+      <Box justify="center" align="center" gap="large">
+        <Heading margin="none" level={2} size="large">
+          Highlights
+        </Heading>
+        <Box width="large" pad={{ bottom: 'medium' }}>
+          <Paragraph size="xlarge" fill textAlign="center" margin="none">
+            The HPE Design System team is committed to conducting thorough
+            research so you don't have to think about it. Just find what you
+            need, design and deliver quickly!
+          </Paragraph>
         </Box>
       </Box>
+      <HighlightsLayout />
+      <Box
+        fill="horizontal"
+        align="center"
+        justify="center"
+        pad={{ vertical: 'medium' }}
+      >
+        <Link href="/showmore" passHref>
+          <Button primary label="Show Me More" />
+        </Link>
+      </Box>
     </Box>
-  );
-};
+  </PageContent>
+);

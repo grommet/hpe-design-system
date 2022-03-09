@@ -30,7 +30,22 @@ import {
 
 Global Banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
 
-Global Banners are used to showcase Warning and Critical statuses. They are also a mechanism for informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissable by the user.
+Global Banners are used to showcase Warning and Critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
+
+Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
+
+Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
+
+### Do not use Global Banners for:
+- Completion of tasks, such as long running or batch actions.
+- Success or failure confirmations.
+- Low-attention and low-severity information.
+  - For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use [Toast Notifications](templates/toast-notifications).
+
+### Things to Avoid
+- Do not use use close icon when information is important and needs to remain persistent. Also consider whether or not the information should remain persistent across multiple sessions
+- Global Banners are not clickable, instead use anchors to direct users to take further action or to view the issue in full detail
+- Overly long notifications can take up lots of screen real estate on smaller screens
 
 ## Anatomy
 <Example
@@ -47,20 +62,20 @@ Global Banners are used to showcase Warning and Critical statuses. They are also
 
 ## Best Practices 
 ### Placement
-- Always located directly below the Global Header without a gap and should not obscure any underlying content or action
-- Can persist across multiple sessions until dismissed if necessary
+- Always located directly below the Global Header without a gap and should be implemented inline with content so no content or actions are obscured.
+- Can persist across multiple sessions until dismissed if necessary.
 
 ### Format
-- Only show one banner at a time
-- Global Banners should stay within the 192 character limit
-- Long text is not truncated but instead will wrap on smaller screen sizes
-- Anchors are left-aligned and will wrap alongisde the text
-- Use only two or fewer anchors
-- Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language
+- Only show one banner at a time.
+- Global Banners should stay within the 192 character limit.
+- Long text is not truncated but instead will wrap on smaller screen sizes.
+- Anchors are left-aligned and will wrap alongisde the text.
+- Use only two or fewer anchors.
+- Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language.
 
 ### Behavior
-- Never sticky and should scroll when there is other content
-- The background spans the full width of the screen, but the content resizes alongside the Global Header
+- Never sticky and should scroll when there is other content.
+- The background spans the full width of the screen, but the content resizes alongside the Global Header.
 
 
 ## When should you use Global Banners?
@@ -157,7 +172,7 @@ For low-severity notifications that do not require user action or user attention
 
 <BestPracticeGroup columns='auto' gap="none">
   <Example
-    bestPractice={{type: 'do', message: 'Global Banners should always have relevant anchors (two or fewer is recommended). Also, low-severity notifications should not remain persistent and instead be dismissable.'}}
+    bestPractice={{type: 'do', message: 'Global Banners should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.'}}
     height={{ min: 'small' }}
   >
     <BannerNotificationDoExample />
