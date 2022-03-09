@@ -1,12 +1,16 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Heading, Main, ResponsiveContext } from 'grommet';
 import {
-  AppContainer,
-  PageContainer,
-  PageContainerContext,
-} from '../page-layouts/components';
+  Box,
+  Grid,
+  Heading,
+  Main,
+  ResponsiveContext,
+  Page,
+  PageContent,
+  Header,
+} from 'grommet';
+import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageHeader } from './components';
 import {
   FirmwareBaselines,
   FirmwareStatus,
@@ -19,10 +23,16 @@ import {
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <PageContainer>
-      <PageHeader title="Dashboard" />
-      <PageContent />
-    </PageContainer>
+    <Page>
+      <PageContent>
+        <Header pad={{ bottom: 'large' }}>
+          <Heading level={1} margin="none" size="small">
+            Dashboard
+          </Heading>
+        </Header>
+        <Content />
+      </PageContent>
+    </Page>
     <ContentArea title="Global Footer" />
   </AppContainer>
 );
@@ -83,18 +93,15 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const PageContent = () => {
+const Content = () => {
   const size = useContext(ResponsiveContext);
-  const { ...pageContainer } = useContext(PageContainerContext);
 
   return (
-    <Main {...pageContainer}>
+    <Main>
       <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
         {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {['xsmall', 'small'].includes(size) && (
-          <RecentActivity />
-        )}
+        {['xsmall', 'small'].includes(size) && <RecentActivity />}
         <Box gap="large">
           <Box gap="small">
             <Heading level={2} size="small" margin="none">

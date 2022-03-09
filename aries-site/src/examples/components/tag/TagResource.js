@@ -8,6 +8,8 @@ import {
   NameValueList,
   Tag,
   Text,
+  Page,
+  PageContent,
 } from 'grommet';
 import { FormPrevious, More } from 'grommet-icons';
 import { details, tags } from '.';
@@ -37,57 +39,59 @@ const SectionDetails = ({ data }) => (
 );
 
 export const TagResource = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" overflow="auto" fill>
-    <Box align="start" pad="medium">
-      <Button label="Devices" icon={<FormPrevious />} />
-    </Box>
-    <Box alignSelf="center" gap="large" pad="medium" flex={false}>
-      <Box
-        border={{ color: 'border-weak', side: 'bottom' }}
-        align="start"
-        direction="row"
-        justify="between"
-        pad={{ bottom: 'medium' }}
-        flex={false}
-      >
-        <Box>
-          <Heading size="small" margin="none">
-            Store C-3P0
-          </Heading>
-          <Text size="large">Aruba 530 32930F</Text>
-        </Box>
-        <Button icon={<More />} />
+  <Page kind="narrow">
+    <PageContent>
+      <Box align="start" pad="medium">
+        <Button label="Devices" icon={<FormPrevious />} />
       </Box>
-      <Section>
-        <SectionHeader heading="Details" />
-        <SectionDetails data={details} />
-      </Section>
-      <Section gap="none">
-        <SectionHeader heading="Tags" />
-        <Box direction="row" pad={{ vertical: 'small' }} wrap>
-          {tags.map((t, index) => {
-            const [name] = Object.keys(t);
-            const [value] = Object.values(t);
-            return (
-              <Tag
-                key={index}
-                name={name}
-                value={value}
-                margin={{ right: 'small', vertical: 'xsmall' }}
-                onClick={() =>
-                  // eslint-disable-next-line no-alert
-                  alert(
-                    // eslint-disable-next-line max-len
-                    `Clicking on '${name}: ${value}' tag could take a user to a filtered view displaying all devices with '${name}: ${value}' applied.`,
-                  )
-                }
-              />
-            );
-          })}
+      <Box alignSelf="center" gap="large" pad="medium" flex={false}>
+        <Box
+          border={{ color: 'border-weak', side: 'bottom' }}
+          align="start"
+          direction="row"
+          justify="between"
+          pad={{ bottom: 'medium' }}
+          flex={false}
+        >
+          <Box>
+            <Heading size="small" margin="none">
+              Store C-3P0
+            </Heading>
+            <Text size="large">Aruba 530 32930F</Text>
+          </Box>
+          <Button icon={<More />} />
         </Box>
-      </Section>
-    </Box>
-  </Box>
+        <Section>
+          <SectionHeader heading="Details" />
+          <SectionDetails data={details} />
+        </Section>
+        <Section gap="none">
+          <SectionHeader heading="Tags" />
+          <Box direction="row" pad={{ vertical: 'small' }} wrap>
+            {tags.map((t, index) => {
+              const [name] = Object.keys(t);
+              const [value] = Object.values(t);
+              return (
+                <Tag
+                  key={index}
+                  name={name}
+                  value={value}
+                  margin={{ right: 'small', vertical: 'xsmall' }}
+                  onClick={() =>
+                    // eslint-disable-next-line no-alert
+                    alert(
+                      // eslint-disable-next-line max-len
+                      `Clicking on '${name}: ${value}' tag could take a user to a filtered view displaying all devices with '${name}: ${value}' applied.`,
+                    )
+                  }
+                />
+              );
+            })}
+          </Box>
+        </Section>
+      </Box>
+    </PageContent>
+  </Page>
 );
 
 SectionHeader.propTypes = {
