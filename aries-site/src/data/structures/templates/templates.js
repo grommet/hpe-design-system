@@ -604,7 +604,7 @@ export const templates = [
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {
-    name: 'Banner Notifications',
+    name: 'Global Banner Notifications',
     available: false,
     cardOrder: 10,
     description: `Global Banner Notifications are system generated alerts that
