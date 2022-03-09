@@ -75,37 +75,33 @@ Intro.propTypes = {
   children: PropTypes.node,
 };
 
-const Index = () => {
-  const size = useContext(ResponsiveContext);
-
-  return (
-    <Layout title={title} isLanding pad={{}} width={{}}>
-      <Meta title={title} description={pageDetails.seoDescription} />
-      <Box>
-        <Intro>
-          {/* custom width ensures "and deliver" is on second line */}
-          <Box width={{ max: '700px' }}>
-            <Heading margin="none" size="large">
-              Design, develop and deliver
-            </Heading>
-            <Paragraph size="xlarge">
-              Empower designers and developers to quickly create accessible
-              enterprise app experiences.
-            </Paragraph>
-          </Box>
-        </Intro>
-        <Stack guidingChild="last">
-          <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-          <Featured {...widthProps} />
-        </Stack>
-        <WhatIs {...widthProps} />
-        <Video {...widthProps} />
-        <Highlights {...widthProps} />
-        <Quote />
-        <Community {...widthProps} />
-      </Box>
-    </Layout>
-  );
-};
+const Index = () => (
+  <Layout title={title} isLanding pad={{}} width={{}}>
+    <Meta title={title} description={pageDetails.seoDescription} />
+    <Box>
+      <Intro>
+        {/* custom width ensures "and deliver" is on second line */}
+        <Box width={{ max: '700px' }}>
+          <Heading margin="none" size="large">
+            Design, develop and deliver
+          </Heading>
+          <Paragraph size="xlarge">
+            Empower designers and developers to quickly create accessible
+            enterprise app experiences.
+          </Paragraph>
+        </Box>
+      </Intro>
+      <Stack guidingChild="last">
+        <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+        <Featured {...widthProps} />
+      </Stack>
+      <WhatIs {...widthProps} />
+      <Video {...widthProps} />
+      <Highlights {...widthProps} />
+      <Quote />
+      <Community {...widthProps} />
+    </Box>
+  </Layout>
+);
 
 export default Index;
