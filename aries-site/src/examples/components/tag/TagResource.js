@@ -40,11 +40,11 @@ const SectionDetails = ({ data }) => (
 
 export const TagResource = () => (
   <Page kind="narrow">
-    <PageContent>
-      <Box align="start" pad="medium">
+    <PageContent gap="small">
+      <Box align="start">
         <Button label="Devices" icon={<FormPrevious />} />
       </Box>
-      <Box alignSelf="center" gap="large" pad="medium" flex={false}>
+      <Box alignSelf="center" gap="large" flex={false}>
         <Box
           border={{ color: 'border-weak', side: 'bottom' }}
           align="start"
