@@ -10,15 +10,23 @@ export const PageAnatomy = () => {
 
   return (
     <ContentArea
-      title="Page Container"
+      title="Page"
       border
-      gap="small"
       round="xsmall"
       height={height}
       width={width}
     >
-      <ContentArea title="Page Header" background="purple!" flex={false} />
-      <ContentArea title="Page Content" background="orange" border flex />
+      <ContentArea
+        title="PageContent"
+        alignSelf="center"
+        border
+        flex
+        gap="small"
+        width="80%"
+      >
+        <ContentArea title="Page Header" background="purple!" flex={false} />
+        <ContentArea title="Page Content" background="orange" border flex />
+      </ContentArea>
     </ContentArea>
   );
 };
