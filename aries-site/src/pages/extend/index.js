@@ -39,7 +39,7 @@ const Extend = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cards} />
+      <CardGrid cards={cards} pad={{ bottom: 'large' }} />
     </PageContent>
   </Layout>
 );
