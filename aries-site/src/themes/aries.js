@@ -57,22 +57,12 @@ export const aries = deepMerge(hpe, {
         min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
         max: 'xxlarge', // 1536
       },
-      // leave this for Design System site
       xsmall: {
         pad: { horizontal: 'large' },
       },
-      // small: {
-      //   pad: { horizontal: 'large' },
-      // },
-      // medium: {
-      //   pad: { horizontal: 'large' },
-      // },
-      // large: {
-      //   pad: { horizontal: 'xlarge' },
-      // },
-      // xlarge: {
-      //   pad: { horizontal: 'xlarge' },
-      // },
+      xlarge: {
+        pad: { horizontal: 'large' },
+      },
     },
   },
 });
