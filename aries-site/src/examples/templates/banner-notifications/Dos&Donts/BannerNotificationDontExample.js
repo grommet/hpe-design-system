@@ -4,7 +4,7 @@ import { Box, Notification } from 'grommet';
 export const BannerNotificationDontExample = () => (
   <Box pad="small">
     <Notification
-      status="critical"
+      status="warning"
       actions={[
         {
           href: '#',
