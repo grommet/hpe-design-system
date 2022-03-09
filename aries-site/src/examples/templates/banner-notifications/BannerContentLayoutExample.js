@@ -23,6 +23,7 @@ export const BannerContentLayoutExample = () => (
       <ContentArea
         pad={{ horizontal: 'large', vertical: 'small' }}
         direction="row"
+        icon
         title="HPE Service Name"
         gap="none"
         justify="between"
@@ -33,7 +34,7 @@ export const BannerContentLayoutExample = () => (
             <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
           </>
           <Avatar background="purple!" flex={false}>
-            <Text size="large" color="text-strong">
+            <Text size="small" color="text-strong">
               JS
             </Text>
           </Avatar>
