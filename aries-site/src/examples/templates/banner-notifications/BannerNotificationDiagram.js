@@ -46,7 +46,14 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xxsmall', 'xsmall', 'xxsmall', ['xsmall', 'medium'], 'xsmall']}
+    columns={[
+      '12px',
+      'xxsmall',
+      'xsmall',
+      'xxsmall',
+      ['xsmall', 'medium'],
+      'xsmall',
+    ]}
     justify="center"
     gap={{ row: 'small' }}
     fill
@@ -70,11 +77,13 @@ const AnatomyBox = ({ children, id, ...rest }) => (
 export const BannerNotificationDiagram = () => (
   <Stack margin={{ bottom: 'small' }}>
     <AnatomyGrid>
+      <Box />
       <Annotation id={1} target="1" />
       <Annotation id={2} target="2" />
       <Annotation id={3} target="3" />
       <Box />
       <Annotation id={4} target="4" />
+      <AnatomyBox />
       <AnatomyBox align="center">
         <StatusCriticalSmall id="status-indicator" color="red" />
       </AnatomyBox>
