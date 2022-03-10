@@ -7,10 +7,10 @@ import {
   ResponsiveContext,
   Page,
   PageContent,
-  Header,
 } from 'grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
+import { PageHeader } from './components';
 import {
   FirmwareBaselines,
   FirmwareStatus,
@@ -24,12 +24,8 @@ export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
     <Page>
-      <PageContent>
-        <Header pad={{ bottom: 'large' }}>
-          <Heading level={1} margin="none" size="small">
-            Dashboard
-          </Heading>
-        </Header>
+      <PageContent gap="large">
+        <PageHeader title="Dashboard" />
         <Content />
       </PageContent>
     </Page>
