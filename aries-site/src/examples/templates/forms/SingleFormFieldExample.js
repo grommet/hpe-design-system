@@ -49,8 +49,8 @@ export const SingleFormFieldExample = () => {
         <Text>A subtitle if needed</Text>
       </Header>
       <Text>
-        Are you sure you want to delete this Cluster? Doing so will erase all
-        the data.{' '}
+        Are you sure you want to delete this cluster? Doing so will erase all
+        the data.
       </Text>
       <Box
         // Padding used to prevent focus from being cutoff
