@@ -1,28 +1,34 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Header, Heading, Main, ResponsiveContext } from 'grommet';
 import {
-  AppContainer,
-  PageContainer,
-  PageContainerContext,
-} from '../page-layouts/components';
+  Box,
+  Grid,
+  Header,
+  Heading,
+  Main,
+  ResponsiveContext,
+  Page,
+  PageContent,
+} from 'grommet';
+import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
 export const ResponsiveContentLayoutExample = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <PageContainer>
-      <PageHeader />
-      <PageContent />
-    </PageContainer>
+    <Page>
+      <PageContent>
+        <PageHeader />
+        <Content />
+      </PageContent>
+    </Page>
     <ContentArea title="Global Footer" />
   </AppContainer>
 );
 
 const PageHeader = () => {
   const size = useContext(ResponsiveContext);
-  const { ...pageContainer } = useContext(PageContainerContext);
   return (
-    <Header {...pageContainer}>
+    <Header pad={{ bottom: 'large' }}>
       <Heading level={1} margin="none" size="small">
         {/* for dev purposes, will be replaced with dashboard content */}
         Dashboard @ '{size}' Breakpoint
@@ -70,18 +76,15 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const PageContent = () => {
+const Content = () => {
   const size = useContext(ResponsiveContext);
-  const { ...pageContainer } = useContext(PageContainerContext);
 
   return (
-    <Main {...pageContainer}>
+    <Main>
       <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
         {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {['xsmall', 'small'].includes(size) && (
-          <ContentBlock title="1" />
-        )}
+        {['xsmall', 'small'].includes(size) && <ContentBlock title="1" />}
         <Grid gap={firstChildGrid.gap}>
           <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
             <ContentBlock title="2" />
