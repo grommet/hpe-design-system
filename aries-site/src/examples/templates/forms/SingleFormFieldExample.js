@@ -44,7 +44,7 @@ export const SingleFormFieldExample = () => {
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading size="small" level={2} margin="none">
-          Delete
+          Delete Cluster
         </Heading>
         <Text>A subtitle if needed</Text>
       </Header>
