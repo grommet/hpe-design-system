@@ -84,9 +84,9 @@ Since Global Banners take over the top of an interface and can be intrusive, the
 
 ## Variants
 
-### Info (Dismissible)
+### Dismissible Info Banner
 
-When **new features are available** or a **new release is coming**, an info status should be used and the notification should be dismissible.
+Some possible use cases are when **new features are available** or a **new release is coming**. Informational banners should be dismissible.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
@@ -94,63 +94,58 @@ When **new features are available** or a **new release is coming**, an info stat
   docs="https://v2.grommet.io/notification?theme=hpe"
   height={{ min: 'small' }}
   width="100%"
-  caption="An example of an Informational Global Banner with a status indicator, message, anchor and close icon."
 >
   <BannerNotificationInfo />
 </Example>
 
 ### Dismissible Critical Banner
 
-When a notification is related to **scheduled maintence**, a critical status should be used and the notification should be dismissible.
+One possible use case is **scheduled maintenance**. A critical status should be used and the notification should be dismissible.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
-  caption="An example of a Critical Global Banner that is dismissable by the user."
   height={{ min: 'small' }}
   width="100%"
 >
   <BannerNotificationCriticalClose />
 </Example>
 
-### Persistent Critical
+### Persistent Critical Banner
 
-When **platform access is unavailable due to the system**, a critical status should be used and should not be dismissible.
+One possible use case is when **platform access is unavailable due to the system**. A critical status should be used and should not be dismissible.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
-  caption="An example of a Critical Global Banner that will remain persistent across sessions and isn’t dismissable by the user (no close icon)."
   height={{ min: 'small' }}
   width="100%"
 >
   <BannerNotificationCritical />
 </Example>
 
-### Dismissible Warning
+### Dismissible Warning Banner
 
-When a notification is related to **subscriptions about to expire**, a warning status should be used and the notification should be dismissible.
+One possible use case is when **subscriptions about to expire**. A warning status should be used and the notification should be dismissible.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
-    caption="An example of a Global Banner that is dismissable and has a relevant anchor."
   height={{ min: 'small' }}
   width="100%"
 >
   <BannerNotificationWarningClose />
 </Example>
 
-### Persistent Warning
+### Persistent Warning Banner
 
-When a notification is related to **session timeout**, a warning status should be used. The notification should contain a relevant anchor to refresh and should not be dismissible.
+One possible use case is a **session timeout**. A warning status should be used and should not be dismissible. The notification should also contain a relevant anchor to refresh.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/banner-notification/Examples/BannerNotificationInfo.js"
   height={{ min: 'small' }}
   width="100%"
-  caption="An example of a Global Banner that is not dismissable but provides an anchor for the user to solve the issue."
 >
   <BannerNotificationWarning />
 </Example>

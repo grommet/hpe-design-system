@@ -5,6 +5,7 @@ export const BannerNotificationCritical = () => (
   <Notification
     status="critical"
     global
-    message="This service is currently down for maintenance. Check back soon."
+    message={`This service is currently unavailable. We are working on getting 
+    things fixed.`}
   />
 );
