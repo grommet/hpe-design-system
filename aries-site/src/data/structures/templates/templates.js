@@ -608,7 +608,7 @@ export const templates = [
     available: false,
     cardOrder: 10,
     description: `Global Banner Notifications are system generated alerts that
-     attract users attention to system conditions and updates.`,
+     attract user's attention to system conditions and updates.`,
     preview: {
       image: {
         src: {
