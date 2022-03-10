@@ -150,19 +150,6 @@ One possible use case is a **session timeout**. A warning status should be used 
   <BannerNotificationWarning />
 </Example>
 
-### Do not use Global Banners for
-- Completion of tasks, such as long running or batch actions.
-- Success or failure confirmations.
-- Low-attention and low-severity information.
-
-For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use Toast Notifications.
-
-## Things to Avoid
-
-- Do not use use close icon when information is important and needs to remain persistent. Also consider whether or not the information should remain persistent across multiple sessions
-- Global Banners are not clickable, instead use anchors to direct users to take further action or to view the issue in full detail
-- Overly long notifications can take up lots of screen real estate on smaller screens
-
 ## Do’s and Don’ts
 
 <BestPracticeGroup columns='auto' gap="none">
