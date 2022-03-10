@@ -39,7 +39,7 @@ export const MinMaxColumns2 = () => (
             remaining width of the grid.
           </Paragraph>
           <Paragraph>
-            Resize your browser width to see how the Grid column's behave.
+            Resize your browser width to see how the Grid's columns behave.
           </Paragraph>
         </ContentLabel>
       </ContentArea>

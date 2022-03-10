@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import { 
   FixedGrid, 
+  GapExample,
   GridExample, 
   MinMaxColumns1,
   MinMaxColumns2, 
@@ -26,9 +27,8 @@ import {
 Grid is a powerful tool. It provides tremendous flexibility and control enabling designers and 
 developers at HPE to create optimal user experiences at any screen size or resolution!
 
-However, with great power comes great responsibility. Well, in Grid's case, great power 
-comes with a bit of a learning curve, but the following introduces the key concepts and
-accelerate command of the tool.
+With all of Grid's power, there is a bit of a learning curve. The following introduces its key 
+concepts and will accelerate your command of the tool.
 
 ### Background
 Based on [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), 
@@ -138,13 +138,13 @@ columns={[
 
 Using `auto` and/or `flex` as min-max values provides even more flexibility:
 
- - `auto` allows the 
+ - 'auto' allows the 
 column's width to be defined by its contents; it says, "make 
 my column as wide as my content needs."
-- `flex` allows the column to grow and fill the any excess width in the grid. If multiple columns use 
+- 'flex' allows the column to grow and fill the any excess width in the grid. If multiple columns use 
 `flex`, they share the excess width evenly.
 
-See `auto` and `flex` in action in the example below, or applied in a [dashboard template](/templates/dashboards#two-column-dashboard).
+See `auto` and `flex` in action in the example below by adjusting your browser width, or applied in a [dashboard template](/templates/dashboards#two-column-dashboard).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/MinMaxColumns2.js"
@@ -164,6 +164,35 @@ That said, there a two primary items to call out:
 1. The vast majority of time rows will be specified using a fixed height, or as `auto` to let the row's height be defined by its 
 contents.
 
+### Gap
+
+Use `gap` to define the spacing applied between columns and rows.
+
+As best practice, use [t-shirt sizing](/foundation/tshirt-sizing?q=gap#t-shirt-sizing-for-spacing-and-other-styles) 
+to define gaps, that keeps layouts consistent and easier to implement and maintain.
+
+Gap may be applied to columns and rows, independently or simulatneously.
+
+```
+// both column gaps and rows gaps will be medium
+gap="medium" 
+
+// column and row gaps applied independently
+gap={{ 
+  column: 'medium', 
+  row: 'xsmall'
+}}
+
+```
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/GapExample.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <GapExample />
+</Example>
 
 ## Implementing Grid
 The following implementations are not mutually exclusive. They may be mixed and matched
@@ -187,17 +216,6 @@ A fixed grid
 ### Flexible Grids
 
 ### Grid Areas and Precise Placement
-
-
-
-
-### Columns
-
-### Rows
-
-### Column width
-
-### Gap
 
 ### Grid Areas
 
