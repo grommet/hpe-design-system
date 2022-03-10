@@ -55,7 +55,19 @@ export const aries = deepMerge(hpe, {
     wide: {
       width: {
         min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
-        max: 'xxlarge', // 1536
+        max: 'xxlarge',
+      },
+      xsmall: {
+        pad: { horizontal: 'large' },
+      },
+      xlarge: {
+        pad: { horizontal: 'large' },
+      },
+    },
+    narrow: {
+      width: {
+        min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
+        max: 'large',
       },
       xsmall: {
         pad: { horizontal: 'large' },
