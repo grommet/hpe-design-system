@@ -46,17 +46,7 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xxsmall', 'xsmall', 'xsmall', ['xsmall', 'small'], 'small']}
-    justify="center"
-    fill
-    {...rest}
-  />
-);
-
-const DiagramGrid = ({ ...rest }) => (
-  <Grid
-    columns={['xxsmall', 'medium', ['xsmall', 'small'], 'xxsmall']}
-    rows="xxsmall"
+    columns={['xxsmall', 'xsmall', 'xxsmall', ['xsmall', 'medium'], 'xsmall']}
     justify="center"
     fill
     {...rest}
@@ -85,26 +75,23 @@ export const BannerNotificationDiagram = () => (
         <Box />
         <Annotation id={4} target="4" />
       </AnatomyGrid>
-      <DiagramGrid>
+      <AnatomyGrid>
         <AnatomyBox id="status-indicator" align="center">
           <StatusCriticalSmall color="red" />
         </AnatomyBox>
-        <Box
-          fill="horizontal"
-          background="validation-critical"
-          direction="row"
-          gap="xsmall"
-          align="center"
-        >
+        <AnatomyBox>
           <Text id="content" alignSelf="center">
-            Any Content text
+            Content Text
           </Text>
+        </AnatomyBox>
+        <AnatomyBox align="center">
           <Anchor id="link" href="#" label="Link" />
-        </Box>
+        </AnatomyBox>
+        <Box fill="horizontal" background="validation-critical" />
         <AnatomyBox id="close-button" align="center">
           <FormClose />
         </AnatomyBox>
-      </DiagramGrid>
+      </AnatomyGrid>
     </Box>
     <Diagram connections={connections} />
   </Stack>
