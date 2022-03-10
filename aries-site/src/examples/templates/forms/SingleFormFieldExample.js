@@ -11,9 +11,17 @@ import {
 } from 'grommet';
 
 export const SingleFormFieldExample = () => {
+  const [cancel, setCancel] = React.useState('');
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+  };
+
+  const confirmDelete = () => {
+    const doesMatch = cancel.delete === 'DELETE';
+    return doesMatch
+      ? undefined
+      : { message: 'Verification Incorrect', status: 'error' };
   };
 
   return (
@@ -35,7 +43,7 @@ export const SingleFormFieldExample = () => {
         HTML section element and this is the first heading within the 
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
-        <Heading size='small' level={2} margin="none">
+        <Heading size="small" level={2} margin="none">
           Delete
         </Heading>
         <Text>A subtitle if needed</Text>
@@ -49,7 +57,8 @@ export const SingleFormFieldExample = () => {
         pad={{ horizontal: 'xxsmall' }}
       >
         <Form
-          validate="submit"
+          validate="blur"
+          onChange={setCancel}
           messages={{
             required: 'This is a required field.',
           }}
@@ -60,6 +69,7 @@ export const SingleFormFieldExample = () => {
             name="delete"
             htmlFor="delete"
             required
+            validate={confirmDelete}
           >
             <TextInput id="delete" name="delete" placeholder="DELETE" />
           </FormField>
