@@ -176,7 +176,7 @@ export const Example = ({
             : undefined
         }
         screen={screen}
-        width={width}
+        width={screen === screens.mobile ? 'medium' : width}
         ref={inlineRef}
       >
         {/* prevent theme from overriding the desired background color */}
