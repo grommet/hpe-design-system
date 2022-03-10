@@ -49,9 +49,9 @@ const AnatomyGrid = ({ ...rest }) => (
     columns={[
       '12px',
       'xxsmall',
-      'xsmall',
+      'small',
       'xxsmall',
-      ['xsmall', 'medium'],
+      ['xsmall', 'large'],
       'xsmall',
     ]}
     justify="center"
@@ -89,7 +89,7 @@ export const BannerNotificationDiagram = () => (
       </AnatomyBox>
       <AnatomyBox>
         <Text id="content" alignSelf="center">
-          Content Text
+          Banner message goes here.
         </Text>
       </AnatomyBox>
       <AnatomyBox align="center">
