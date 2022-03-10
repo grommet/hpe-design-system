@@ -42,7 +42,7 @@ export const TagResource = () => (
   <Page kind="narrow">
     <PageContent gap="small">
       <Button alignSelf="start" label="Devices" icon={<FormPrevious />} />
-      <Box alignSelf="center" gap="large" flex={false}>
+      <Box gap="large" flex={false}>
         <Box
           border={{ color: 'border-weak', side: 'bottom' }}
           align="start"
