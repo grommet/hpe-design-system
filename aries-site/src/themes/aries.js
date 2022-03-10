@@ -9,6 +9,9 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   notification: {
+    actions: {
+      color: { dark: 'text-strong' },
+    },
     direction: 'row',
     container: {
       round: 'xsmall',
@@ -23,6 +26,9 @@ export const aries = deepMerge(hpe, {
       toast: {
         background: 'background-front',
       },
+    },
+    message: {
+      color: { dark: 'text-strong' },
     },
     warning: {
       background: 'validation-warning',
