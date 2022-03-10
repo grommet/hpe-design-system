@@ -621,7 +621,7 @@ export const templates = [
       },
     },
     seoDescription:  `Global Banner Notifications are system generated alerts
-     that attract users attention to system conditions and updates.`,
+     that attract user's attention to system conditions and updates.`,
     sections: [
       'Anatomy',
       'When To Use',
