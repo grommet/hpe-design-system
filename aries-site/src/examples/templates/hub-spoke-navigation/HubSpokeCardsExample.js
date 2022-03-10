@@ -212,11 +212,11 @@ const AppContainer = ({ ...rest }) => {
   return (
     <Box
       background="background-back"
-      height={size === 'small' ? { max: 'large' } : '100%'}
-      width={size === 'small' ? 'medium' : '100%'}
+      height={['xsmall', 'small'].includes(size) ? { max: 'large' } : '100%'}
+      width={['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
       overflow="auto"
       pad={{
-        horizontal: size !== 'small' ? 'large' : 'medium',
+        horizontal: !['xsmall', 'small'].includes(size) ? 'large' : 'medium',
         bottom: 'large',
       }}
       {...rest}

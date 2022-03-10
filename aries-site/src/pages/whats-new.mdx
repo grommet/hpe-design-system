@@ -52,6 +52,58 @@ regarding either via [Slack](https://hpe.slack.com/archives/C04LMJWQT).
 
 <!-- BEGIN: What's New Entries -->
 
+## February 14 - March 4, 2022
+
+### Communications
+- **Office Hours** - We have combined our two office hours into one which will be held every Wednesday, 10:00 PM IST / 8:00 AM PST. This office hours is open to all. Contact [Kamlesh Thakur](mailto:kamlesh.thakur@hpe.com), if you would like a calendar invite.
+
+### Roadmap Updates 
+- **Page Layouts** 
+  - Added Page component in Grommet which makes implementing [page layout guidance and page widths](/templates/page-layouts#page-container-widths) super easy. The [Page component](https://github.com/grommet/grommet/pull/5960) is available on Grommet's Stable branch for beta use and community feedback. HPE Theme and Design System documentation for the Page component is coming soon.
+  - Added [layout templates to Figma](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2906%3A21283) for each breakpoint with ability to add columns and customize widths as needed. Super neat! Be sure to check them out.
+  - Completed dashboard template for a [3 column dashboard layout](/templates/dashboards#three-column-dashboard).
+- **Page Header** - Completed research and gathered use cases for Page Header and began design ideation.
+- **Banner Notification** 
+  - Completed ideation on Global Banner Notifications.
+  - Added support for [Global Banners and actions](https://github.com/grommet/grommet/pull/5958) to Grommet's Notification component.
+  - Guidance, theme updates, and implementation examples for Global Banner Notifications are coming soon.
+
+### Stay current with the latest changes 
+- **Menu** - Added an example of [Menu in a toolbar](/components/menu#within-a-toolbar). This pattern displays a search input, filter button, and action menu presented as a unified set of controls. The intent is to present each control with equal prominence.
+
+### Latest Releases
+- **Grommet v2.20.1** - Release includes enhancements including (but not limited to): Notification toast position, DataChart type additions, Tag size prop, DateInput icon customization.
+Full details about this release are available in the [Release Notes](https://github.com/grommet/grommet/releases/tag/v2.21.0).
+
+
+## January 24 - February 11, 2022
+
+### HPE theme breaking change
+**Text-Weak** - To meet accessibility requirements, the color value for `text-weak` is changing from `#BBBBBB` to `#757575` for light mode and from `#606B7D` to `#8C98AA` for dark mode. A new namespace `text-xweak` is being added with the value `#BBBBBB` for light mode and `#606B7D` for dark mode.
+
+The new `text-weak` value passed WCAG AA contrast values. `#BBBBBB` and `#606B7D` will remain the value for disabled fonts.
+
+We would like to hear any feedback on this change ahead of the the next release of the HPE Theme. To test out this new change, apply the theme's stable branch to your project by [following these directions](https://github.com/grommet/grommet-theme-hpe#stable). 
+ This is a breaking change that will be in the next HPE theme release which will be published in March. 
+
+### Communications
+- **Office Hours** - India office hours will be held every other Thursday, 9:00 PM IST / 7:30 AM PST. This office hours is open to all. Contact Kamlesh Thakur, if you would like a calendar invite.
+
+### Roadmap Updates 
+- **Page Layouts**
+  - Published Content Layouts page with provides guidance for [designing for responsiveness](/templates/content-layouts#designing-for-responsiveness), [responsive breakpoints](/templates/content-layouts#breakpoints) and [page margins](/templates/content-layouts#page-margin).
+  - Began publishing a collection of [page layout templates](/templates/content-layouts#templates) and [dashboard templates](/templates/dashboards#dashboard-templates) which provide customizable templates for design and development.
+  - Collaborating with UCEP to align the Global Header/Footer Service with page layouts guidelines. Provided proof-of-concept project to deliver the [HPE Global Header as a Web Component](https://github.hpe.com/grommet/hpe-global-header).
+- **No Data** - Added guidance and example [displaying empty/missing values](/components/namevaluelist#name-value-pair-with-empty-value) in a NameValueList.
+- **Navigation** - Published [five types of navigation patterns](/templates/navigation#types-of-navigation), the strengths for each, and when to use.
+
+### Stay current with the latest changes 
+- **Toast Notifications** - Enhanced ability to allow greater control over placement of Toast Notifications. Make sure you are aware of the trade-offs associated with [placement design decisions](/templates/toast-notifications#placement).
+- **Accessibility** - Do you know the [4 core principles of accessibility](/foundation/accessibility)? Read up on what it means to be perceivable, operable, understandable, and robust.
+- **Buttons** - Have "grouped buttons?" What types of buttons can be appear together? How should they be ordered? How should they be aligned? See [button ordering](/components/button#button-ordering) for more detail.
+
+### Latest Releases
+- [Grommet v2.20.1](https://github.com/grommet/grommet/releases/tag/v2.20.1) was released which includes an enhancement allowing form validation to occur "onMount" for controlled input forms, and bug fixes for "double focus on Select with search," DateInput formatting, Button icon alignment, and styling for TextInput with suggestions.
 ## January 4 - January 21, 2022
 
 ### Roadmap Updates

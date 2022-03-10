@@ -174,7 +174,7 @@ export const ElevationLight = () => {
       label="Light Background"
       justify="between"
       direction="row-responsive"
-      gap={size === 'small' ? 'medium' : undefined}
+      gap={['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad={{
         horizontal: 'large',
         vertical: 'large',
@@ -202,7 +202,7 @@ export const ElevationDark = () => {
       label="Dark Background"
       justify="between"
       direction="row-responsive"
-      gap={size === 'small' ? 'medium' : undefined}
+      gap={['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad={{
         horizontal: 'large',
         vertical: 'large',

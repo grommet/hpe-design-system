@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Box, Button, ResponsiveContext, Text } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
-import { DashboardGrid, DashboardFooter, PageHeader } from '.';
+import { DashboardGrid, DashboardFooter, Greeting } from '.';
 
 export const DashboardExample = () => {
   const [user, setUser] = useState(defaultUser);
@@ -15,14 +15,16 @@ export const DashboardExample = () => {
             background="background"
             justify="center"
             pad={{
-              horizontal: size !== 'small' ? 'xlarge' : 'medium',
+              horizontal: !['xsmall', 'small'].includes(size)
+                ? 'xlarge'
+                : 'medium',
               vertical: 'large',
             }}
             flex={false}
           >
             {user ? (
               <Box gap="large">
-                <PageHeader />
+                <Greeting />
                 <DashboardGrid />
               </Box>
             ) : (

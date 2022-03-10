@@ -216,7 +216,7 @@ export const PersistentFiltering = ({ containerRef }) => {
             Sites
           </Heading>
           <Box align="center" direction="row" gap="small">
-            {size !== 'small' || searchFocused ? (
+            {!['xsmall', 'small'].includes(size) || searchFocused ? (
               <Box width="medium">
                 <StyledTextInput
                   ref={inputRef}
@@ -244,15 +244,17 @@ export const PersistentFiltering = ({ containerRef }) => {
                 onClick={() => setSearchFocused(true)}
               />
             )}
-            {size === 'small' && !searchFocused && <Filters {...filterProps} />}
+            {['xsmall', 'small'].includes(size) && !searchFocused && (
+              <Filters {...filterProps} />
+            )}
           </Box>
           <RecordSummary data={data} filtering={filtering} />
         </Box>
       </Header>
       <Box direction="row" fill>
-        {size !== 'small' && <Filters {...filterProps} />}
+        {!['xsmall', 'small'].includes(size) && <Filters {...filterProps} />}
         <Box fill>
-          {size !== 'small' && (
+          {!['xsmall', 'small'].includes(size) && (
             <ActiveFilters
               filters={filters}
               filterData={filterData}
@@ -467,7 +469,7 @@ const Filters = ({
     </Box>
   );
 
-  return size === 'small' ? (
+  return ['xsmall', 'small'].includes(size) ? (
     <>
       <Box align="center" direction="row" gap="small">
         <Button
@@ -482,8 +484,8 @@ const Filters = ({
       </Box>
       {showLayer && (
         <Layer
-          position={size !== 'small' ? 'right' : undefined}
-          full={size !== 'small' ? 'vertical' : true}
+          position={!['xsmall', 'small'].includes(size) ? 'right' : undefined}
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           modal
           onClickOutside={() => {
             filterData(allData, previousFilters);
@@ -806,9 +808,9 @@ const Results = ({ data }) => {
   return (
     <Box overflow="auto" fill>
       <Grid
-        columns={size !== 'small' ? 'medium' : '100%'}
+        columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
         gap="medium"
-        pad={size !== 'small' ? 'medium' : 'small'}
+        pad={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
         {data.map((datum, index) => (
           <Card

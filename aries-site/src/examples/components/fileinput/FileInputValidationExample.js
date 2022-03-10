@@ -28,7 +28,9 @@ export const FileInputValidationExample = () => {
             maxSize={maxSize}
             messages={{
               dropPrompt: 'Drag and drop',
-              browse: 'Select File',
+              // when there is already a file, the label should read
+              // "Replace File"
+              browse: 'Replace File',
             }}
           />
         </FormField>
@@ -43,7 +45,9 @@ export const FileInputValidationExample = () => {
             maxSize={maxSize}
             messages={{
               dropPrompt: 'Drag and drop',
-              browse: 'Select Files',
+              // when there are already files, the label should read
+              // "Select More Files"
+              browse: 'Select More Files',
             }}
             multiple
           />

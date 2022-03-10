@@ -43,6 +43,10 @@ const LayerForm = ({ setOpen }) => {
           label="Text Area"
           htmlFor="text-area-input"
           name="textAreaInput"
+          tabIndex={-1}
+          a11yTitle={`You are on a Text Area in a layer containing
+          a form. To close the layer 
+          and return to the primary content, press Escape.`}
         >
           <TextArea
             id="text-area-input"
@@ -125,14 +129,13 @@ export const LayerSideDrawerExample = () => {
       {open && (
         <Layer
           position="right"
-          full={size !== 'small' ? 'vertical' : true}
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
           onEsc={onClose}
-          modal={false}
         >
           <Box
             fill="vertical"
             overflow="auto"
-            width={size !== 'small' ? 'medium' : undefined}
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
             pad="medium"
           >
             <LayerForm setOpen={value => setOpen(value)} />

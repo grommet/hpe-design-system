@@ -66,7 +66,7 @@ const StyledList = () => {
       pad="small"
       action={(item, index) => (
         <Box key={index} direction="row" align="center" gap="medium">
-          {size !== 'small' && (
+          {!['xsmall', 'small'].includes(size) && (
             <Text
               weight="bold"
               size="xsmall"
@@ -82,7 +82,9 @@ const StyledList = () => {
           />
         </Box>
       )}
-      margin={size === 'small' ? { bottom: 'large' } : undefined}
+      margin={
+        ['xsmall', 'small'].includes(size) ? { bottom: 'large' } : undefined
+      }
     >
       {(datum, index) => (
         <Box
@@ -157,8 +159,8 @@ const ScreenContainer = ({ mobile, ...rest }) => {
   return (
     <Box
       background="background"
-      width={size === 'small' ? 'medium' : '100%'}
-      height={size === 'small' ? { max: 'large' } : undefined}
+      width={['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
+      height={['xsmall', 'small'].includes(size) ? { max: 'large' } : undefined}
       style={{ position: 'relative' }}
       fill
     >

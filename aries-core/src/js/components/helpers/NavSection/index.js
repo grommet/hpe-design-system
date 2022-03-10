@@ -9,17 +9,17 @@ export const NavSection = ({ children, lastSection }) => {
     <Box
       border={
         !lastSection
-          ? { side: size !== 'small' ? 'right' : 'bottom' }
+          ? { side: !['xsmall', 'small'].includes(size) ? 'right' : 'bottom' }
           : undefined
       }
       pad={
-        size !== 'small'
+        !['xsmall', 'small'].includes(size)
           ? {
               right: !lastSection ? 'medium' : undefined,
             }
           : undefined
       }
-      direction={size !== 'small' ? 'row' : 'column'}
+      direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
       gap="xsmall"
     >
       {children}

@@ -68,12 +68,11 @@ export const SearchSuggestionsExample = () => {
     if (query) {
       const regexp = new RegExp(query, 'i');
       resultSet = searchSuggestions
-        .filter(option => regexp.test(option))
-        .slice(0, 5);
+        .filter(option => regexp.test(option));
     } else {
       resultSet = searchSuggestions;
     }
-    return resultSet;
+    return resultSet.slice(0, 5);
   };
 
   const onChange = event => {

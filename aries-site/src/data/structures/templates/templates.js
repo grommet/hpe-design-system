@@ -1,10 +1,165 @@
 import {
+  ContentLayoutPreview,
   CodeBlocksPreview,
   StatusIndicatorPreview,
   ToastPreview,
-} from '../../examples/cardPreviews';
+} from '../../../examples/cardPreviews';
 
 export const templates = [
+  {
+    name: 'Ascending Navigation',
+    available: true,
+    cardOrder: 101,
+    description: `The Ascending Button for Navigation allows
+    the user to navigate to a parent page from a child page
+    by moving upward in the application or website hierarchy.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/ascending-navigation.svg',
+          dark: '/templateImages/ascending-navigation-invert.svg',
+        },
+        alt: 'Ascending navigation diagram',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows the user to navigate to a parent 
+     page from a child page by moving upward in the application
+     or website hierarchy.`,
+    sections: ['Guidance', 'When to use', 'Ascending Navigation Example'],
+    relatedContent: [
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+      'Drill Down Navigation',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Content Layouts',
+    available: true,
+    cardOrder: 3,
+    description: `Creating responsive, adaptable content layouts is central to 
+    the user experience.`,
+    seoDescription: `Creating responsive, adaptable content layouts is central 
+    to the user experience.`,
+    preview: {
+      component: () => <ContentLayoutPreview />,
+      background: 'background-front',
+    },
+    sections: [
+      'Designing for Responsiveness',
+      'Prioritizing Content Needs',
+      'Breakpoints',
+      'Page Margin',
+      'Templates',
+      'Single Column Layouts',
+      '2 Column Layouts',
+      '3 Column Layouts',
+      'Multi-column Layout',
+    ],
+    tags: ['content', 'layout', 'page layouts', 'responsiveness', 'responsive'],
+    relatedContent: ['Page Layouts', 'Grid'],
+  },
+  {
+    name: 'Dashboards',
+    available: true,
+    cardOrder: 100,
+    description: `At-a-glance preview for operation critical information 
+    with easy access to areas requiring attention.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-dashboard.svg',
+          dark: '/templateImages/template-preview-dashboard-invert.svg',
+        },
+        alt: 'HPE Dashboards Preview',
+      },
+    },
+    seoDescription: `HPE Design System dashboard template for screens 
+    featuring content within cards.`,
+    sections: [],
+    relatedContent: [
+      'Grid',
+      'Page Layouts',
+      'Content Layouts',
+      'Card',
+      'Lists',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Drill Down Navigation',
+    available: true,
+    cardOrder: 100,
+    description: `Allows users to progressively descend 'down'
+     branches of a hierarchical tree into a child 
+    screen to drill down into more granular details.
+    `,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/DrillDown.svg',
+          dark: '/templateImages/DrillDown-invert.svg',
+        },
+        alt: 'HPE Dashboards Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Allows users to progressively descend 'down'
+    branches of a hierarchical tree into a child 
+   screen to drill down into more granular details.
+   `,
+    sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
+    relatedContent: [
+      'Navigation',
+      'Side to Side Navigation',
+      'Matrix Navigation',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Filtering',
+    available: true,
+    cardOrder: 4,
+    description: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    preview: {
+      image: {
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
+        src: {
+          light: '/templateImages/template-preview-filtering.svg',
+          dark: '/templateImages/template-preview-filtering-invert.svg',
+        },
+      },
+    },
+    seoDescription: `Allows users to create a focused data set by specifying 
+    data attributes and values of interest.`,
+    sections: [
+      'What makes up filtering',
+      'Filters',
+      'Filters in a center Layer',
+      'Filtering with selectable results',
+      'More examples of filtering',
+      'Filtering with RangeSelector',
+      'Filtering with Select',
+    ],
+    relatedContent: ['DataTable', 'Lists', 'Card'],
+    tags: [
+      'filter controls',
+      'table filter',
+      'list filter',
+      'card filter',
+      'search table',
+      'filters layer',
+      'filter guidelines',
+      'filtered results',
+      'pagination',
+      'results',
+      'filters',
+    ],
+  },
   {
     name: 'Forms',
     available: true,
@@ -51,102 +206,9 @@ export const templates = [
     tags: ['forms', 'validation', 'messaging', 'form examples'],
   },
   {
-    name: 'Dashboards',
-    available: true,
-    cardOrder: 100,
-    description: `At-a-glance preview for operation critical information 
-    with easy access to areas requiring attention.`,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-dashboard.svg',
-          dark: '/templateImages/template-preview-dashboard-invert.svg',
-        },
-        alt: 'HPE Dashboards Preview',
-      },
-    },
-    seoDescription: `HPE Design System dashboard template for screens 
-    featuring content within cards.`,
-    sections: [],
-    relatedContent: ['Card', 'Lists', 'Grid'],
-    tags: [],
-  },
-  {
-    name: 'Drill Down Navigation',
-    available: true,
-    cardOrder: 100,
-    description: `Allows users to progressively descend 'down'
-     branches of a hierarchical tree into a child 
-    screen to drill down into more granular details.
-    `,
-    preview: {
-      image: {
-        src: {
-          light: '/templateImages/DrillDown.svg',
-          dark: '/templateImages/DrillDown-invert.svg',
-        },
-        alt: 'HPE Dashboards Preview',
-        fit: 'contain',
-      },
-    },
-    seoDescription: `Allows users to progressively descend 'down'
-    branches of a hierarchical tree into a child 
-   screen to drill down into more granular details.
-   `,
-    sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
-    relatedContent: [
-      'Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
-    ],
-    tags: [],
-  },
-  {
-    name: 'Filtering',
-    available: true,
-    cardOrder: 3,
-    description: `Allows users to create a focused data set by specifying 
-    data attributes and values of interest.`,
-    preview: {
-      image: {
-        alt: 'HPE Filtering Preview',
-        fit: 'contain',
-        src: {
-          light: '/templateImages/template-preview-filtering.svg',
-          dark: '/templateImages/template-preview-filtering-invert.svg',
-        },
-      },
-    },
-    seoDescription: `Allows users to create a focused data set by specifying 
-    data attributes and values of interest.`,
-    sections: [
-      'What makes up filtering',
-      'Filters',
-      'Filters in a center Layer',
-      'Filtering with selectable results',
-      'More examples of filtering',
-      'Filtering with RangeSelector',
-      'Filtering with Select',
-    ],
-    relatedContent: ['DataTable', 'Lists', 'Card'],
-    tags: [
-      'filter controls',
-      'table filter',
-      'list filter',
-      'card filter',
-      'search table',
-      'filters layer',
-      'filter guidelines',
-      'filtered results',
-      'pagination',
-      'results',
-      'filters',
-    ],
-  },
-  {
     name: 'Global Header',
     available: true,
-    cardOrder: 7,
+    cardOrder: 8,
     description: `A standardized header for use when building applications and 
     services that live in the HPE ecosystem.`,
     preview: {
@@ -294,7 +356,7 @@ export const templates = [
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 4,
+    cardOrder: 5,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {
@@ -309,15 +371,16 @@ export const templates = [
     seoDescription: `Navigation pattern guidance and recommendations for a 
       variety of UI use cases.`,
     sections: ['Navigation Within an Application'],
-    relatedContent: ['Header'],
+    relatedContent: [],
     tags: ['navigation patterns'],
   },
   {
     name: 'Page Layouts',
     available: true,
     cardOrder: 2,
-    description: `Page layout options, anatomies, and behaviors serving a wide 
-    variety of enterprise application, workflow, and marketing contexts.`,
+    description: `Choosing a layout is an important first step in designing 
+    a user interface. These guidelines will help create a consistent user 
+    experience across HPE applications and services.`,
     preview: {
       image: {
         src: {
@@ -329,21 +392,22 @@ export const templates = [
       },
     },
     relatedContent: [
+      'Content Layouts',
       'Navigation',
       'Dashboards',
-      'Grid',
-      'Lists',
+      'Global Header',
       'Header',
       'Footer',
     ],
     seoDescription:
       'HPE Design System page layout options, anatomies, and behaviors.',
     sections: [
-      'About Page Layouts',
-      'Responsiveness',
-      'Header and footer',
-      'Sticky header',
-      'Header only',
+      'Elements of an App UI',
+      'Page Container',
+      'Page Container Widths',
+      'Wide (default)',
+      'Narrow',
+      'Full',
     ],
     tags: [
       'common layouts',
@@ -352,6 +416,7 @@ export const templates = [
       'shells',
       'application layouts',
       'app layouts',
+      'page layouts',
     ],
   },
   {
@@ -483,7 +548,7 @@ export const templates = [
   {
     name: 'Wizard',
     available: true,
-    cardOrder: 5,
+    cardOrder: 6,
     description: 'Wizards are an effective way to handle multi-step forms.',
     preview: {
       image: {
@@ -537,5 +602,50 @@ export const templates = [
     regions or pagination.`,
     sections: [],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
+  },
+  {
+    name: 'Banner Notifications',
+    available: false,
+    cardOrder: 10,
+    description: `Banner notifications are alerts that attract users attention 
+    about system conditions or updates and may be dismissed by the user.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-banner-notification.svg',
+          dark:
+            '/templateImages/template-preview-banner-notification-invert.svg',
+        },
+        alt: 'Banner notification under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `Banner notifications are alerts that attract users 
+    attention about system conditions or updates and may be dismissed by the 
+    user.`,
+    sections: [
+      'Anatomy',
+      'When To Use',
+      'When Not To Use',
+      'Guidelines',
+      'Placement',
+      'Variants',
+      'Informational',
+      'Critical',
+      'Warning',
+      "Do's and Don'ts",
+    ],
+    tags: [
+      'notifications',
+      'global',
+      'banner notification',
+      'system alerts',
+      'alert',
+      'maintenance',
+      'subscription',
+      'expiration',
+      'feature release',
+      'updates',
+    ],
   },
 ];

@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
   Box,
   Main,
+  Page,
+  PageContent,
   ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
@@ -24,19 +26,12 @@ import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 
-const calcPad = size => {
-  const val = size !== 'small' ? 'xlarge' : 'large';
-  return val;
-};
-
 export const Layout = ({
   backgroundImage,
   children,
   title: titleProp,
   topic,
   isLanding,
-  pad,
-  width,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -53,22 +48,20 @@ export const Layout = ({
   );
   const layout = isLanding ? 'plain' : pageLayout;
 
+  const MainContentWrapper = isLanding ? Fragment : PageContent;
+
   return (
     <>
+      {/* When a backgroundImage is present, the main page content becomes 
+      the `last` child. We want this content to drive the layout.
+      For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
       <ResponsiveContext.Consumer>
         {size => (
-          // When a backgroundImage is present, the main page content becomes
-          // the `last` child. We want this content to drive the layout.
-          // For details on this prop, see here: https://v2.grommet.io/stack#guidingChild
           <Stack fill guidingChild={backgroundImage && 'last'}>
             {backgroundImage && (
               <PageBackground backgroundImage={backgroundImage} />
             )}
-            <Box
-              height={{ min: '100vh' }}
-              margin="auto"
-              width={width || { max: 'xxlarge' }}
-            >
+            <Page>
               {/* I think Head is redundant at this point, 
               but left it as is for now */}
               <Head title={title} />
@@ -82,66 +75,58 @@ export const Layout = ({
                 <SkipLinks id="skip-links">
                   <SkipLink id="main" label="Main Content" />
                 </SkipLinks>
-                <Header
-                  fill="horizontal"
-                  alignSelf="center"
-                  width={{ max: 'xxlarge' }}
-                />
-                <Main overflow="visible">
-                  <SkipLinkTarget id="main" />
-                  {/* aligns with responsive padding for aries-core Nav */}
-                  <Box
-                    direction={layout !== 'plain' ? 'row' : 'column'}
-                    pad={
-                      pad || {
-                        horizontal: calcPad(size),
-                        bottom: calcPad(size),
-                        top: 'medium',
-                      }
-                    }
-                  >
-                    {layout !== 'plain' ? (
-                      <>
-                        <Box
-                          width={
-                            size !== 'small' ? 'calc(100% - 192px)' : undefined
-                          }
-                          pad={
-                            size !== 'small' ? { right: 'medium' } : undefined
-                          }
-                          margin={
-                            size !== 'small' ? { right: 'large' } : undefined
-                          }
-                        >
-                          <ContentSection>
-                            <DocsPageHeader
-                              title={title}
-                              topic={topic}
-                              render={render}
-                            />
-                            {children}
-                          </ContentSection>
-                          {relatedContent.length > 0 && (
-                            <RelatedContent
-                              relatedContent={relatedContent}
-                              title={title}
-                            />
+                <PageContent>
+                  <Header fill="horizontal" alignSelf="center" />
+                </PageContent>
+                <MainContentWrapper>
+                  <Main overflow="visible">
+                    <SkipLinkTarget id="main" />
+                    <Box direction={layout !== 'plain' ? 'row' : 'column'}>
+                      {layout !== 'plain' ? (
+                        <>
+                          <Box
+                            width={
+                              size !== 'small'
+                                ? 'calc(100% - 192px)'
+                                : undefined
+                            }
+                            pad={
+                              size !== 'small' ? { right: 'medium' } : undefined
+                            }
+                            margin={
+                              size !== 'small' ? { right: 'large' } : undefined
+                            }
+                          >
+                            <ContentSection>
+                              <DocsPageHeader
+                                title={title}
+                                topic={topic}
+                                render={render}
+                              />
+                              {children}
+                            </ContentSection>
+                            {relatedContent.length > 0 && (
+                              <RelatedContent
+                                relatedContent={relatedContent}
+                                title={title}
+                              />
+                            )}
+                            <FeedbackSection />
+                          </Box>
+                          {size !== 'small' ? (
+                            <InPageNavigation title={title} />
+                          ) : (
+                            undefined
                           )}
-                          <FeedbackSection />
-                        </Box>
-                        {size !== 'small' ? (
-                          <InPageNavigation title={title} />
-                        ) : (
-                          undefined
-                        )}
-                      </>
-                    ) : (
-                      children
-                    )}
-                  </Box>
-                </Main>
+                        </>
+                      ) : (
+                        children
+                      )}
+                    </Box>
+                  </Main>
+                </MainContentWrapper>
               </>
-            </Box>
+            </Page>
           </Stack>
         )}
       </ResponsiveContext.Consumer>
@@ -155,8 +140,6 @@ Layout.propTypes = {
   isLanding: PropTypes.bool,
   title: PropTypes.string,
   topic: PropTypes.string,
-  pad: PropTypes.object,
-  width: PropTypes.object,
 };
 
 Layout.defaultProps = {

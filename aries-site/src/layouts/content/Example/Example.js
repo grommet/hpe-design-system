@@ -1,7 +1,23 @@
-import React, { useCallback, useContext, useRef } from 'react';
+import {
+  cloneElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Keyboard, Layer, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Keyboard,
+  Layer,
+  ResponsiveContext,
+  ThemeContext,
+} from 'grommet';
 import { Contract } from 'grommet-icons';
+import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -47,17 +63,22 @@ export const Example = ({
   width,
   ...rest
 }) => {
-  const [screen, setScreen] = React.useState(screens.laptop);
-  const [fullscreen, setFullscreen] = React.useState(false);
+  const [screen, setScreen] = useState(screens.laptop);
+  const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const inlineRef = useRef();
   const layerRef = useRef();
+  const [mockBrowserRect, setMockBrowserRect] = useState({
+    height: null,
+    width: null,
+  });
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
-  const [, updateState] = React.useState();
+  const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  React.useEffect(() => {
+  useEffect(() => {
     forceUpdate();
   }, [fullscreen, forceUpdate]);
 
@@ -97,10 +118,52 @@ export const Example = ({
   else if (showResponsiveControls) ExampleWrapper = ResponsiveContainer;
   else ExampleWrapper = Box;
 
+  // Keep track of mock browser dimensions to calculate current breakpoint
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setMockBrowserRect({
+        height: inlineRef.current?.getBoundingClientRect().height,
+        width: inlineRef.current?.getBoundingClientRect().width,
+      });
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   let viewPort;
+  let scaledTheme;
+
   if (screen === screens.mobile) viewPort = 'small';
   else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else viewPort = undefined;
+  else if (screenContainer) {
+    if (fullscreen) viewPort = size;
+    else if (!fullscreen) {
+      const containerWidth = mockBrowserRect.width;
+      scaledTheme = screenContainer.scale
+        ? scaled(screenContainer.scale)
+        : theme;
+      const { breakpoints } = scaledTheme.global;
+      let breakpoint;
+      Object.entries(breakpoints)
+        .sort((a, b) => {
+          if (a[1].value < b[1].value) return -1;
+          if (a[1].value > b[1].value) return 1;
+          return 0;
+        })
+        .forEach(obj => {
+          if (!breakpoint) [breakpoint] = obj;
+          if (
+            containerWidth > breakpoints[breakpoint].value &&
+            (containerWidth < obj[1].value || !obj[1].value)
+          ) {
+            [breakpoint] = obj;
+          }
+        });
+      viewPort = breakpoint;
+    }
+  } else viewPort = undefined;
 
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
@@ -113,15 +176,20 @@ export const Example = ({
             : undefined
         }
         screen={screen}
-        width={width}
+        width={screen === screens.mobile ? 'medium' : width}
         ref={inlineRef}
       >
-        <ResponsiveContext.Provider value={viewPort}>
-          {React.cloneElement(children, {
-            containerRef: inlineRef,
-            designSystemDemo: fullscreen,
-          })}
-        </ResponsiveContext.Provider>
+        {/* prevent theme from overriding the desired background color */}
+        <ThemeContext.Extend
+          value={{ ...(scaledTheme || theme), background: 'background-front' }}
+        >
+          <ResponsiveContext.Provider value={viewPort}>
+            {cloneElement(children, {
+              containerRef: inlineRef,
+              designSystemDemo: fullscreen,
+            })}
+          </ResponsiveContext.Provider>
+        </ThemeContext.Extend>
       </ExampleWrapper>
     </ExampleContainer>
   );
@@ -270,7 +338,7 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {React.cloneElement(children, {
+                      {cloneElement(children, {
                         containerRef: layerRef,
                         designSystemDemo: fullscreen,
                       })}
@@ -296,7 +364,7 @@ Example.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.string,
   }),
-  caption: PropTypes.string,
+  caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.element,
   code: PropTypes.oneOfType([
     PropTypes.string,
@@ -324,7 +392,10 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
-  screenContainer: PropTypes.bool,
+  screenContainer: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({ scale: PropTypes.number }),
+  ]),
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,
