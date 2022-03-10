@@ -48,6 +48,7 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xxsmall', 'xsmall', 'xxsmall', ['xsmall', 'medium'], 'xsmall']}
     justify="center"
+    gap={{ row: 'small' }}
     fill
     {...rest}
   />
@@ -58,6 +59,7 @@ const AnatomyBox = ({ children, id, ...rest }) => (
     id={id}
     justify="center"
     fill="horizontal"
+    pad={{ vertical: 'xsmall' }}
     background="validation-critical"
     {...rest}
   >
@@ -67,32 +69,28 @@ const AnatomyBox = ({ children, id, ...rest }) => (
 
 export const BannerNotificationDiagram = () => (
   <Stack margin={{ bottom: 'small' }}>
-    <Box gap="small">
-      <AnatomyGrid>
-        <Annotation id={1} target="1" />
-        <Annotation id={2} target="2" />
-        <Annotation id={3} target="3" />
-        <Box />
-        <Annotation id={4} target="4" />
-      </AnatomyGrid>
-      <AnatomyGrid rows="xxsmall">
-        <AnatomyBox align="center">
-          <StatusCriticalSmall id="status-indicator" color="red" />
-        </AnatomyBox>
-        <AnatomyBox>
-          <Text id="content" alignSelf="center">
-            Content Text
-          </Text>
-        </AnatomyBox>
-        <AnatomyBox align="center">
-          <Anchor id="link" href="#" label="Link" />
-        </AnatomyBox>
-        <AnatomyBox />
-        <AnatomyBox align="center">
-          <FormClose id="close-button" />
-        </AnatomyBox>
-      </AnatomyGrid>
-    </Box>
+    <AnatomyGrid>
+      <Annotation id={1} target="1" />
+      <Annotation id={2} target="2" />
+      <Annotation id={3} target="3" />
+      <Box />
+      <Annotation id={4} target="4" />
+      <AnatomyBox align="center">
+        <StatusCriticalSmall id="status-indicator" color="red" />
+      </AnatomyBox>
+      <AnatomyBox>
+        <Text id="content" alignSelf="center">
+          Content Text
+        </Text>
+      </AnatomyBox>
+      <AnatomyBox align="center">
+        <Anchor id="link" href="#" label="Link" />
+      </AnatomyBox>
+      <AnatomyBox />
+      <AnatomyBox align="center">
+        <FormClose id="close-button" />
+      </AnatomyBox>
+    </AnatomyGrid>
     <Diagram connections={connections} />
   </Stack>
 );
