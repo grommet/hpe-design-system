@@ -71,13 +71,13 @@ export const BannerNotificationDiagram = () => (
       <AnatomyGrid>
         <Annotation id={1} target="1" />
         <Annotation id={2} target="2" />
-        <Annotation style={{ justifySelf: 'center' }} id={3} target="3" />
+        <Annotation id={3} target="3" />
         <Box />
         <Annotation id={4} target="4" />
       </AnatomyGrid>
-      <AnatomyGrid>
-        <AnatomyBox id="status-indicator" align="center">
-          <StatusCriticalSmall color="red" />
+      <AnatomyGrid rows="xxsmall">
+        <AnatomyBox align="center">
+          <StatusCriticalSmall id="status-indicator" color="red" />
         </AnatomyBox>
         <AnatomyBox>
           <Text id="content" alignSelf="center">
@@ -87,9 +87,9 @@ export const BannerNotificationDiagram = () => (
         <AnatomyBox align="center">
           <Anchor id="link" href="#" label="Link" />
         </AnatomyBox>
-        <Box fill="horizontal" background="validation-critical" />
-        <AnatomyBox id="close-button" align="center">
-          <FormClose />
+        <AnatomyBox />
+        <AnatomyBox align="center">
+          <FormClose id="close-button" />
         </AnatomyBox>
       </AnatomyGrid>
     </Box>
