@@ -42,7 +42,7 @@ export const SingleFormFieldExample = () => {
       </Header>
       <Text>
         Are you sure you want to delete this Cluster? Doing so will erase all
-        the data.{' '}
+        the data.
       </Text>
       <Box
         // Padding used to prevent focus from being cutoff
