@@ -5,17 +5,14 @@ import {
   Button,
   Header,
   Heading,
+  Page,
+  PageContent,
   Notification,
   Text,
 } from 'grommet';
 import { HelpOption, HomeRounded } from 'grommet-icons';
-import {
-  AppContainer,
-  PageContainer,
-  PageContainerContext,
-} from '../page-layouts/components';
+import { AppContainer, PageContainerContext } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageContent } from '../content-layouts/ResponsiveContentLayoutExample';
 
 export const BannerContentLayoutExample = () => (
   <AppContainer>
@@ -54,11 +51,10 @@ export const BannerContentLayoutExample = () => (
         global
       />
     </Box>
-    <PageContainer>
+    <Page flex>
       <PageHeader />
       <PageContent />
-    </PageContainer>
-    <ContentArea title="Global Footer" />
+    </Page>
   </AppContainer>
 );
 
