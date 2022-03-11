@@ -27,7 +27,7 @@ import {
 
 ## Getting to know Grid
 Grid is a powerful tool. It provides tremendous flexibility and control enabling designers and 
-developers at HPE to create optimal user experiences at any screen size or resolution!
+developers at HPE to create optimal user experiences at any screen size or resolution.
 
 With all of Grid's power, there is a bit of a learning curve. The following introduces its key 
 concepts and will accelerate your command of the tool.
@@ -39,8 +39,8 @@ in the Grommet library.
 
 Grid is composed of columns and rows and its properties allow for:
 - [Fixed](#fixed-grid) column widths and row heights, when use cases desire precise dimensions for grid cells.
-- [Flexible](#flexible-grids) column widths and heights, allowing grid cell contents to gracefully respond across 
-a variety of browser widths.
+- [Flexible](#flexible-grids) column widths and row heights, allowing grid cell contents to gracefully respond 
+across a variety of browser widths.
 - [Fluid grids](#fluid-grids) allowing columns and rows to grow and adapt to the content provided.
 - Precise placement of elements within the grid via [areas](#areas).
 
@@ -71,9 +71,10 @@ screen, maybe only 1 or 2.
 </Example>
 
 #### Mixed-Width Columns
-Mixed-width columns allow for control over layouts desiring columns of various widths to appropriately present 
-their contents, establish content hierarchy with wider columns for primary content and narrower for secondary 
-content such as an [activity feed](/templates/dashboards#two-column-dashboard).
+Mixed-width columns allow for control over layouts desiring columns of various widths.
+This helps appropriately present different content types and establish content hierarchy 
+with wider columns for primary content and narrower for secondary content such as an 
+[activity feed](/templates/dashboards#two-column-dashboard).
 
 Mixed-width columns are specified in an array. The number of items in the array dictate the number of columns 
 in the grid. 
@@ -92,8 +93,8 @@ column grid with corresponding widths:
 
 <br /><br />
 
-And, `columns={[ '2/3', '1/3' ]}` would result in two columns with proportional 
-widths:
+And, `columns={[ '2/3', '1/3' ]}` would result in two columns with widths proportional 
+to the total width of the grid:
 
 <Example
   horizontalLayout
@@ -106,12 +107,13 @@ widths:
 
 
 #### Flexible Columns
-Flexible columns is where Grid really shines. They allow content to elegantly scale and designs to be dynamic.
+Grid really shines when applying flexible columns. Flexible columns allow content to elegantly scale 
+for dynamic designs.
 
-The main idea is defining columns as a min-max range. Between those bounds, the column is allowed to 
-flex according to its content 
-and the space available to the grid as a whole. This allows content to be consistently displayed in an 
-organized and cohesive fashion across a variety of screen widths.
+With flexible columns, columns are defined as a min-max range. Between those bounds, the column is 
+allowed to flex as large as the max and as small as the min, depending on its content and the space 
+available to the grid as a whole. This allows content to be consistently displayed in an organized 
+and cohesive fashion across a variety of screen widths.
 
 The min-max range is specified using a two-item array, instead of a single string. 
 The first item is the min and second max.
@@ -121,9 +123,9 @@ The first item is the min and second max.
 // ranges. The third, as a fixed width.
 
 columns={[
-  ['small', 'medium'], // column 1 is able to flex
-  ['medium', 'large'], // column 2 is able to flex
-  'small',             // column 3 is always 'small'
+  ['xxsmall', 'xsmall'], // column 1 is able to flex
+  ['xsmall', 'small'],   // column 2 is able to flex
+  'xsmall',              // column 3 is always 'xsmall'
 ]};
 ```
 
@@ -138,13 +140,18 @@ columns={[
 
 <br/><br/>
 
-Using `auto` and/or `flex` as min-max values provides even more flexibility:
+Using 'auto' and/or 'flex' as min-max values provides even more flexibility. 
 
- - 'auto' allows the 
-column's width to be defined by its contents; it says, "make 
-my column as wide as my content needs."
-- 'flex' allows the column to grow and fill the any excess width in the grid. If multiple columns use 
-`flex`, they share the excess width evenly.
+'auto' and 'flex' share many characteristics. Both allow the column's width to be defined by its contents; 
+they say, "make my column as wide as my content needs." If there is excess width in the grid, the column 
+will stretch and occupy the excess space.
+
+'auto' and 'flex' differ slightly in behavior when multiple columns are defined using their values:
+- If multiple columns use 'auto', they share the excess width evenly.
+- If multiple columns use 'flex', they share the excess width evenly.
+- If 'auto' and 'flex' are both used, 'flex' will "win" the competition for the excess space. Columns 
+defined with 'auto' will fit the dimensions of their contents; columns defined with 'flex', will fit 
+the dimensions of their contents **and** occupy the excess width in the grid.
 
 See `auto` and `flex` in action in the example below by adjusting your browser width, or applied in a [dashboard template](/templates/dashboards#two-column-dashboard).
 
@@ -171,8 +178,8 @@ contents.
 Use `gap` to define the spacing applied between columns and rows.
 
 - As best practice, use [t-shirt sizing](/foundation/tshirt-sizing?q=gap#t-shirt-sizing-for-spacing-and-other-styles) 
-to define gaps, that keeps layouts consistent and easier to implement and maintain.
-- Gap may be applied to columns and rows, independently or simulatneously.
+to define gaps. T-shirt sizing keeps layouts consistent and easy to maintain.
+- Gap may be applied to columns and rows, independently or simultaneously.
 
 ```
 // both column gaps and rows gaps will be medium
@@ -196,8 +203,8 @@ gap={{
 </Example>
 
 ## Implementing Grid
-The following implementations are not mutually exclusive. They may be mixed and matched
-as desired, but are presented with the intent to focus on the key concepts for each approach.
+Grid is not limited to the following implementations. Approaches may be mixed and matched
+as desired, but are presented with the intent to focus on the key concepts for each.
 
 ### Fluid Grids
 Fluid grids allow the grid to grow and adapt to the grid's container width and the content provided. 
