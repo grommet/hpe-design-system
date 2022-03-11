@@ -10,7 +10,12 @@ export const NameValueListFormLabel = ({ data, name }) => {
   const theme = useContext(ThemeContext);
   return (
     <Box margin={{ top: 'small' }}>
-      <Text as="label" {...theme.nameValuePair.name} htmlFor={name} name={name}>
+      <Text
+        as="label"
+        {...theme.nameValuePair.name}
+        htmlFor={name}
+        // name={name}
+      >
         {data.displayName}
         {data.required && (
           <Text aria-label="required" weight="normal">
