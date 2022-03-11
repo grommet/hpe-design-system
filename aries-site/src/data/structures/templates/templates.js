@@ -604,11 +604,11 @@ export const templates = [
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {
-    name: 'Global Banner Notifications',
+    name: 'Banner Notifications',
     available: false,
     cardOrder: 10,
-    description: `Global Banner Notifications are system generated alerts that
-     attract user's attention to system conditions and updates.`,
+    description: `Banner notifications are alerts that attract users attention 
+    about system conditions or updates and may be dismissed by the user.`,
     preview: {
       image: {
         src: {
@@ -620,8 +620,9 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription:  `Global Banner Notifications are system generated alerts
-     that attract user's attention to system conditions and updates.`,
+    seoDescription: `Banner notifications are alerts that attract users 
+    attention about system conditions or updates and may be dismissed by the 
+    user.`,
     sections: [
       'Anatomy',
       'When To Use',
