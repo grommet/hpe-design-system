@@ -28,7 +28,7 @@ export const SingleFormFieldExample = () => {
 
   return (
     <Card width="medium">
-      <CardBody>
+      <CardBody gap="medium">
         <Header
           direction="column"
           align="start"
