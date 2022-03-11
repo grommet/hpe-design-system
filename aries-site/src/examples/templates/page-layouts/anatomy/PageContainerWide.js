@@ -27,7 +27,7 @@ export const PageContainerWide = () => {
   const diagramHeight = theme.global.size.medium;
   const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
   const annotationMargin = `${(100 - PAGE_CONTAINER_SCALE.replace('%', '')) /
-    2}%`;
+    1.65}%`;
 
   const widthAnnnotation = (
     <Box
@@ -64,9 +64,9 @@ export const PageContainerWide = () => {
           flex={false}
         />
         <Stack>
-          <Box>
+          <ContentArea title="Page" border>
             <ContentArea
-              title="Page Container"
+              title="PageContent"
               alignSelf="center"
               border
               flex={false}
@@ -79,13 +79,13 @@ export const PageContainerWide = () => {
                 flex={false}
               />
               <ContentArea
-                title="Page Content"
+                title="Other Content"
                 background="orange"
                 border
                 height="small"
               />
             </ContentArea>
-          </Box>
+          </ContentArea>
           {widthAnnnotation}
         </Stack>
         <ContentArea

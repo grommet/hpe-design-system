@@ -22,14 +22,15 @@ import {
   />
 
 ## Elements of an App UI
-The User Interface (UI) for an HPE application consists of three 
-building blocks: App Container, Global Header and Footer, and 
-Page Container.
+
+The User Interface (UI) for an HPE application consists of four 
+building blocks: App Container, Global Header and Footer, Page, and 
+PageContent.
 
 <Example
   caption='Diagram of the "building blocks" composing an application 
-    user interface: an App Container which contains the Global Header & Footer, and 
-    a Page Container.'
+    user interface: an App Container which contains the Global Header & Footer, Page  
+    and PageContent.'
   pad="none"
   previewWidth="min-content"
 >
@@ -50,10 +51,14 @@ header and footer to be used across all HPE applications.
 - No matter the screen size, the Global Header & Footer will always be full 
 width, occupying as much space as available.
 
-3. **Page Container**  
-- The Page Container contains the Page Content and the Page Header.
+3. **Page**  
+- The Page component dictates the max width, padding, and alignment of its child PageContent(s).
 - It is responsible for the layout for the main content of a page. 
-- Page container width may be [Wide](#wide-default), [Narrow](#narrow), of [Full](#full).
+- Page `kind` can be [Wide](#wide-default), [Narrow](#narrow), of [Full](#full).
+
+4. **PageContent**
+- The PageContent contains the Page Header and any other content.
+- Its max width, padding, and alignment is determined by what Page `kind` it is in.
 
 <Box direction="row" align="center" gap="xsmall">
   <Clock />
@@ -63,36 +68,41 @@ width, occupying as much space as available.
 - Page Content Layout Templates for Dashboards, Wizards, Lists and Tables.
 - Updated guidance on [Page Headers](/components/header#page-header).
 
-## Page Container
-The Page Container is responsible for the layout for the main content of a page.
-It contains the Page Header and its Page Content.
+## Page and PageContent
+
+Page is the parent component that wraps around all content for a page. Page dictates what max width, padding, and alignment its child PageContent components should receive.
+
+PageContent contains the Page Header and any other content.
 
 <Example
-  caption='Diagram of a Page Container which contains a Page Header 
-    and the Page Content.'
+  caption='Diagram of a Page component and child PageContent. The PageContent component contains the Page Header and other content.'
   pad="none"
   previewWidth="min-content"
 >
   <PageAnatomy />
 </Example>
 
-### Page Container Widths
-There are 3 page container widths from which to choose, depending on 
+### Page Kinds
+
+There are 3 Page kinds from which to choose, depending on 
 the layout use case: [Wide](#wide-default), [Narrow](#narrow) and [Full](#full). 
+
+The Page `kind` determines the max width that PageContent can reach.
 
 In all cases, the minimum width of content is `336px`, after which horizontal 
 scrolling is enabled.
 
 #### Wide (default)
-- This is the default width for the Page Container. 
-- Using the "wide" content width scales the Page Container until a maximum width of `1536px`. 
-- If the screen is larger than `1536px`, the Page Container will be center aligned and white space 
+
+- This is the default width for the PageContent. 
+- Using the "wide" Page scales the PageContent until a maximum width of `1536px`. 
+- If the screen is larger than `1536px`, the PageContent will be center aligned and white space 
 will be displayed around the perimeter of the content. 
 
 <Example
-  caption='Diagram displaying how a "wide" Page Container scales horizontally relative to 
-    the App Container. The App Container fills the viewport while the "wide" 
-    Page Container reaches a maximum width.'
+  caption={`Diagram displaying how a "wide" Page scales its PageContent 
+  horizontally. The Page fills the viewport while the PageContent is 
+  restricted to a maximum width.`}
   pad="none"
   previewWidth="min-content"
 >
@@ -106,14 +116,14 @@ will be displayed around the perimeter of the content.
 - Charts
 
 #### Narrow
-- The "narrow" option scales the content width until a maximum width of `768px`. 
-- If the screen is wider than 768px, the Page Container will be center aligned 
+- The "narrow" Page scales the PageContent until a maximum width of `768px`. 
+- If the screen is wider than 768px, the PageContent will be center aligned 
 and white space will be displayed around the perimeter of the content. 
 
 <Example
-  caption='Diagram displaying how a "narrow" Page Container scales horizontally relative to 
-    the App Container. The App Container fills the viewport while the "narrow" 
-    Page Container reaches a maximum width.'
+  caption={`Diagram displaying how a "narrow" Page scales its PageContent 
+  horizontally. The Page fills the viewport while the PageContent is 
+  restricted to a maximum width.`}
   pad="none"
   previewWidth="min-content"
 >
@@ -127,14 +137,14 @@ and white space will be displayed around the perimeter of the content.
 - Admin and user settings
 
 #### Full
-- This option will automatically resize the container to fill the 
+- The "full" Page will automatically resize the PageContent to fill the 
 screen displaying it.
 - With the "full" option, if the screen grows wider than the available content, the 
-Page Content will be left aligned to the edge of the screen.
+PageContent will be left aligned to the edge of the screen.
 
 <Example
-  caption='Diagram displaying how a "full" Page Container scales horizontally relative to 
-    the App Container. Both the App Container and "full" Page Container fill the viewport.'
+  caption={`Diagram displaying how a "full" Page scales horizontally. Both 
+  the "full" Page and PageContent fill the viewport.`}
   pad="none"
   previewWidth="min-content"
 >
@@ -146,10 +156,10 @@ Page Content will be left aligned to the edge of the screen.
 - Maps 
 - Tables
 
-### Page Container Widths Demonstration
+### PageContent Widths Demonstration
 
 Open the following example in "fullscreen mode" and resize your browser window to see how 
-each [page container width's](/templates/page-layouts#page-container-widths) maximum width, 
+each [page content width's](/templates/page-layouts#page-container-widths) maximum width, 
 contents padding, and alignment gracefully adjust across screens ranging from very narrow 
 to very wide. 
 
