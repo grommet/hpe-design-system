@@ -21,44 +21,23 @@ export const aries = deepMerge(hpe, {
         round: 'none',
       },
     },
-    critical: {
-      background: 'validation-critical',
-      toast: {
-        background: 'background-front',
-      },
-    },
     message: {
       color: { dark: 'text-strong' },
     },
     warning: {
       background: 'validation-warning',
-      toast: {
-        background: 'background-front',
-      },
     },
     normal: {
       background: 'validation-ok',
-      toast: {
-        background: 'background-front',
-      },
     },
     unknown: {
       background: 'background-contrast',
-      toast: {
-        background: 'background-front',
-      },
     },
     info: {
       background: 'background-contrast',
-      toast: {
-        background: 'background-front',
-      },
     },
     undefined: {
       background: 'background-contrast',
-      toast: {
-        background: 'background-front',
-      },
     },
   },
   global: {
