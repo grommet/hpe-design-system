@@ -54,14 +54,17 @@ export const BannerContentLayoutExample = () => (
         global
       />
     </Box>
-    <Page pad="medium" flex>
-      <Header>
-        <Heading level={1} margin="none" size="small">
-          Page Header
-        </Heading>
-      </Header>
-      <Content />
-      <PageContent />
+    <Page>
+      <PageContent>
+        {/* needed pad to match align with content 
+        // strip out once fixed */}
+        <Header pad="small">
+          <Heading level={1} margin="none" size="small">
+            Page Header
+          </Heading>
+        </Header>
+        <Content />
+      </PageContent>
     </Page>
   </AppContainer>
 );
@@ -110,7 +113,13 @@ const Content = () => {
 
   return (
     <Main>
-      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+      <Grid
+        // needed pad elevation was getting cut off
+        // TODO look at page and strip out once fixed
+        pad="small"
+        gap={parentGrid.gap[size]}
+        columns={parentGrid.columns[size]}
+      >
         {/* Content Block 1 is top priority content. At narrow breakpoints, 
           place as first content element. Otherwise, place in second column. */}
         {['xsmall', 'small'].includes(size) && <ContentBlock title="1" />}

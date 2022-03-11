@@ -1,4 +1,4 @@
-import { Anchor } from 'grommet';
+import { Anchor, Notification } from 'grommet';
 import {  BestPracticeGroup, Example } from '../../layouts';
 import {
   BannerContentLayoutExample,
@@ -11,7 +11,6 @@ import {
   BannerNotificationWarningClose,
   BannerNotificationDiagram,
 } from '../../examples';
-
 
 <Example
   showResponsiveControls={['fullScreen']}
@@ -158,6 +157,7 @@ One possible use case is a **session timeout**. A warning status should be used 
   <Example
     height={{ min: 'small' }}
     bestPractice={{type: 'dont', message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`}}
+    width="100%"
   >
     <BannerNotificationDontExample />
   </Example>

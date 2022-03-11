@@ -12,7 +12,7 @@ export const BannerNotificationDontExample = () => (
         },
         {
           href: '#',
-          label: 'Compare Subscription plans',
+          label: 'Compare Subscription Plans',
         },
         {
           href: '#',
