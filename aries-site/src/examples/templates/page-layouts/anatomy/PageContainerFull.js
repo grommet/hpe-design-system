@@ -68,9 +68,9 @@ export const PageContainerFull = () => {
           flex={false}
         />
         <Stack>
-          <Box>
+          <ContentArea title="Page" border>
             <ContentArea
-              title="Page Container"
+              title="PageContent"
               alignSelf="center"
               border
               flex={false}
@@ -83,13 +83,13 @@ export const PageContainerFull = () => {
                 flex={false}
               />
               <ContentArea
-                title="Page Content"
+                title="Other Content"
                 background="orange"
                 border
                 height="small"
               />
             </ContentArea>
-          </Box>
+          </ContentArea>
           {widthAnnnotation}
         </Stack>
         <ContentArea
