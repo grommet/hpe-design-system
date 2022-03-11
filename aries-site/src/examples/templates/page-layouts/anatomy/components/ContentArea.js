@@ -28,7 +28,6 @@ export const ContentArea = ({
       <Text color="text-strong" size="small" weight="bold">
         {title}
       </Text>
-
       {children}
     </Box>
   </ThemeContext.Extend>
@@ -38,7 +37,6 @@ ContentArea.propTypes = {
   background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   border: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   children: PropTypes.node,
-  icon: PropTypes.bool,
   pad: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
