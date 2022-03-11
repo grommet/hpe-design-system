@@ -38,14 +38,14 @@ Grommet's Grid simplifies and presents the API in a manner consistent with other
 in the Grommet library.
 
 Grid is composed of columns and rows and its properties allow for:
-- [Fixed](#fixed-grid) column widths and row heights, when use cases desire precise dimensions for grid cells.
-- [Flexible](#flexible-grids) column widths and row heights, allowing grid cell contents to gracefully respond 
+- [Fixed](#mixed-width-columns) column widths and row heights, when use cases desire precise dimensions for grid cells.
+- [Flexible](#flexible-columns) column widths and row heights, allowing grid cell contents to gracefully respond 
 across a variety of browser widths.
 - [Fluid grids](#fluid-grids) allowing columns and rows to grow and adapt to the content provided.
-- Precise placement of elements within the grid via [areas](#areas).
+- Precise placement of elements within the grid via areas.
 
 ## Grid Properties & Key Concepts
-Grid's primary properties include: [columns](#columns), [rows](#rows), and [areas](#areas). The 
+Grid's primary properties include: [columns](#columns), [rows](#rows), and areas. The 
 following examples will demonstrate how these properties may be applied to affect 
 [content layouts](/templates/content-layouts).
 
@@ -213,8 +213,11 @@ As more content is added, it fills the Grid left to right, top to bottom. Column
 the screen's width is adjusted.
 
 - Great for presenting dynamic content where the number of items in the grid are unknown. Examples might 
-be applying filters to a catalog of services, presenting a dashboard where the user may customize the 
-included widgets, or image results returned from a search query.
+be:
+  - Applying filters to a catalog of services
+  - Presenting a dashboard where the user may customize the 
+included widgets
+  - Presenting image results returned from a search query
 - Make responsive layouts easy to implement.
 - Often implemented with [uniform columns](#uniform-columns).
 
@@ -243,26 +246,3 @@ content may be vertically aligned using its `alignSelf` prop.
 >
   <FluidGrid2 />
 </Example>
-
-### Fixed Grid
-When approaching a design or implementation, beginning with a fixed grid is a great approach as 
-it lays a foundation from which you can build and refine.
-
-A fixed grid 
-
-<Example
-  horizontalLayout
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/FixedGrid.js"
-  width={{ min: 'medium' }}
-  height="auto"
->
-  <FixedGrid />
-</Example>
-
-### Flexible Grids
-
-### Grid Areas and Precise Placement
-
-### Grid Areas
-
-### Nested Grids
