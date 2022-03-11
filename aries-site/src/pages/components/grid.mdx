@@ -1,6 +1,8 @@
 import { Example } from '../../layouts';
 import { 
   FixedGrid, 
+  FluidGrid1,
+  FluidGrid2,
   GapExample,
   GridExample, 
   MinMaxColumns1,
@@ -36,10 +38,10 @@ Grommet's Grid simplifies and presents the API in a manner consistent with other
 in the Grommet library.
 
 Grid is composed of columns and rows and its properties allow for:
-- Fixed column widths and row heights, when use cases desire precise dimensions for grid cells.
-- Flexible column widths and heights, allowing grid cell contents to gracefully respond across 
+- [Fixed](#fixed-grid) column widths and row heights, when use cases desire precise dimensions for grid cells.
+- [Flexible](#flexible-grids) column widths and heights, allowing grid cell contents to gracefully respond across 
 a variety of browser widths.
-- Fluid grids allowing columns and rows to grow and adapt to the content provided.
+- [Fluid grids](#fluid-grids) allowing columns and rows to grow and adapt to the content provided.
 - Precise placement of elements within the grid via [areas](#areas).
 
 ## Grid Properties & Key Concepts
@@ -159,7 +161,7 @@ See `auto` and `flex` in action in the example below by adjusting your browser w
 ### Rows
 Rows generally share the same properties as [columns](#columns). Accordingly, they won't be repeated here. 
 
-That said, there a two primary items to call out:
+That said, there a two primary items to call attention to:
 1. Just like columns, rows are specified in an array. Each item in the array represent an additional row.
 1. The vast majority of time rows will be specified using a fixed height, or as `auto` to let the row's height be defined by its 
 contents.
@@ -168,10 +170,9 @@ contents.
 
 Use `gap` to define the spacing applied between columns and rows.
 
-As best practice, use [t-shirt sizing](/foundation/tshirt-sizing?q=gap#t-shirt-sizing-for-spacing-and-other-styles) 
+- As best practice, use [t-shirt sizing](/foundation/tshirt-sizing?q=gap#t-shirt-sizing-for-spacing-and-other-styles) 
 to define gaps, that keeps layouts consistent and easier to implement and maintain.
-
-Gap may be applied to columns and rows, independently or simulatneously.
+- Gap may be applied to columns and rows, independently or simulatneously.
 
 ```
 // both column gaps and rows gaps will be medium
@@ -199,6 +200,42 @@ The following implementations are not mutually exclusive. They may be mixed and 
 as desired, but are presented with the intent to focus on the key concepts for each approach.
 
 ### Fluid Grids
+Fluid grids allow the grid to grow and adapt to the grid's container width and the content provided. 
+
+As more content is added, it fills the Grid left to right, top to bottom. Columns are added or removed as 
+the screen's width is adjusted.
+
+- Great for presenting dynamic content where the number of items in the grid are unknown. Examples might 
+be applying filters to a catalog of services, presenting a dashboard where the user may customize the 
+included widgets, or image results returned from a search query.
+- Make responsive layouts easy to implement.
+- Often implemented with [uniform columns](#uniform-columns).
+
+The following example demonstrates a fluid grid consisting of 'small' columns. Adjust your browser's width 
+and notice how the grid adjusts by adding/removing columns and rows.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/FluidGrid1.js"
+  width="100%"
+  height="auto"
+>
+  <FluidGrid1 />
+</Example>
+
+<br />
+<br />
+
+The contents within a grid's cells do not have to fill the cell. Grid's `align` and `justify` props may be applied 
+to vertically and horizontally align the content within the cell as desired. Alternatively, an individual cell's 
+content may be vertically aligned using its `alignSelf` prop.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/FluidGrid2.js"
+  width="100%"
+  height="auto"
+>
+  <FluidGrid2 />
+</Example>
 
 ### Fixed Grid
 When approaching a design or implementation, beginning with a fixed grid is a great approach as 
@@ -209,6 +246,8 @@ A fixed grid
 <Example
   horizontalLayout
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/feat-2381-grid-docs/aries-site/src/examples/components/grid/FixedGrid.js"
+  width={{ min: 'medium' }}
+  height="auto"
 >
   <FixedGrid />
 </Example>
