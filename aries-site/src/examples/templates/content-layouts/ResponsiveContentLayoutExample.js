@@ -70,7 +70,7 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const PageContent = () => {
+export const PageContent = () => {
   const size = useContext(ResponsiveContext);
   const { ...pageContainer } = useContext(PageContainerContext);
 

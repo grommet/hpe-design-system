@@ -8,6 +8,59 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  notification: {
+    actions: {
+      color: { dark: 'text-strong' },
+    },
+    direction: 'row',
+    container: {
+      round: 'xsmall',
+    },
+    global: {
+      container: {
+        round: 'none',
+      },
+    },
+    critical: {
+      background: 'validation-critical',
+      toast: {
+        background: 'background-front',
+      },
+    },
+    message: {
+      color: { dark: 'text-strong' },
+    },
+    warning: {
+      background: 'validation-warning',
+      toast: {
+        background: 'background-front',
+      },
+    },
+    normal: {
+      background: 'validation-ok',
+      toast: {
+        background: 'background-front',
+      },
+    },
+    unknown: {
+      background: 'background-contrast',
+      toast: {
+        background: 'background-front',
+      },
+    },
+    info: {
+      background: 'background-contrast',
+      toast: {
+        background: 'background-front',
+      },
+    },
+    undefined: {
+      background: 'background-contrast',
+      toast: {
+        background: 'background-front',
+      },
+    },
+  },
   global: {
     breakpoints: {
       xsmall: {
