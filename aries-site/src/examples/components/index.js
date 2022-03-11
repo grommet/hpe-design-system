@@ -19,6 +19,7 @@ export * from './header';
 export * from './image';
 export * from './fileinput';
 export * from './footer';
+export * from './grid';
 export * from './layer';
 export * from './layouts';
 export * from './main';
