@@ -33,6 +33,7 @@ Global Banners are high-attention notifications used primarily for status update
 - Global Banners are used to showcase Warning and Critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
 - Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
 - Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
+- Do not use `onClose` when information is important and needs to remain persistent. Also, global banners may remain persistent across multiple sessions until they are dismissed.
 
 ### Do Not Use Global Banners For
 - Completion of tasks, such as long running or batch actions.
@@ -42,7 +43,6 @@ Global Banners are high-attention notifications used primarily for status update
 For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use [Toast Notifications](/templates/toast-notifications).
 
 ### Things to Avoid
-- Do not use `onClose` when information is important and needs to remain persistent. Also, consider whether or not the information should remain persistent across multiple sessions.
 - Global Banners are not clickable. Instead use anchors to direct users to take further action or to view the issue in full detail.
 - Do not allow messages to exceed 192 characters.
 
