@@ -5,6 +5,7 @@ export * from './dashboards';
 export * from './drill-down-navigation';
 export * from './filtering';
 export * from './forms';
+export * from './global-banner-notifications';
 export * from './global-header';
 export * from './hub-spoke-navigation';
 export * from './list-views';
