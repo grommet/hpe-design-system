@@ -10,7 +10,7 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   notification: {
     actions: {
-      color: { dark: 'text-strong' },
+      color: { light: 'text', dark: 'text-strong' },
     },
     direction: 'row',
     container: {
