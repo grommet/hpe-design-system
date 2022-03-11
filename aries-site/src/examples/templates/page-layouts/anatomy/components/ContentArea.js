@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import { Box, Text, ThemeContext } from 'grommet';
-import { Hpe } from 'grommet-icons';
 import { aries } from '../../../../../themes/aries';
 
 export const ContentArea = ({
   background = 'background-front',
   border,
   children,
-  icon,
   pad = 'small',
   round = 'xxsmall',
   title,
@@ -27,18 +25,10 @@ export const ContentArea = ({
       round={round}
       {...rest}
     >
-      {icon ? (
-        <Box align="center" gap="small" direction="row">
-          <Hpe color="brand" />
-          <Text color="text-strong" size="small" weight="bold">
-            {title}
-          </Text>
-        </Box>
-      ) : (
-        <Text color="text-strong" size="small" weight="bold">
-          {title}
-        </Text>
-      )}
+      <Text color="text-strong" size="small" weight="bold">
+        {title}
+      </Text>
+
       {children}
     </Box>
   </ThemeContext.Extend>
