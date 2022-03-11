@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, DataTable, DropButton, Header, Heading, Menu } from 'grommet';
+import {
+  Box,
+  DataTable,
+  DropButton,
+  Header,
+  Heading,
+  Menu,
+  Page,
+  PageContent,
+} from 'grommet';
 import { Splits } from 'grommet-icons';
 
 import { ColumnSettings } from './ColumnSettings';
@@ -91,62 +100,62 @@ export const TableCustomizationExample = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box
-      fill
-      gap="medium"
-      margin="auto"
-      pad={{ horizontal: 'medium' }}
-      width={{ max: 'xxlarge' }}
-      background="background"
-    >
-      <FiltersProvider>
-        <Box gap="medium">
-          <Header pad={{ top: 'medium' }}>
-            <Box gap="xsmall" fill="horizontal">
-              <Heading id="users-heading" level={2} margin="none">
-                Users
-              </Heading>
-              <Box direction="row" justify="between" align="start" wrap>
-                <FilterControls
-                  // Table column configuration should be grouped on right
-                  // side with other actions to separate it from filtering.
-                  // If grouped to the left with the Filter control, it
-                  // becomes confusing what the "Clear filters" button will
-                  // do with regards to any column configurations that have
-                  // been applied.
-                  actions={
-                    <Box direction="row" align="start" gap="small" flex={false}>
-                      <DropButton
-                        a11yTitle="Configure columns button"
-                        icon={<Splits />}
-                        kind="toolbar"
-                        dropAlign={{ top: 'bottom', right: 'right' }}
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
-                        dropContent={
-                          <ColumnSettings
-                            columns={COLUMNS}
-                            visibleColumns={visibleColumns}
-                            setVisibleColumns={setVisibleColumns}
-                            open={open}
-                          />
-                        }
-                        tip="Configure columns"
-                      />
-                      <Menu kind="toolbar" label="Actions" items={[]} />
-                    </Box>
-                  }
-                  data={allData}
-                  filters={filtersConfig}
-                  searchFilter={{ placeholder: 'Search users...' }}
-                />
+    <Page background="background" fill>
+      <PageContent>
+        <FiltersProvider>
+          <Box gap="medium">
+            <Header pad={{ top: 'medium' }}>
+              <Box gap="xsmall" fill="horizontal">
+                <Heading id="users-heading" level={2} margin="none">
+                  Users
+                </Heading>
+                <Box direction="row" justify="between" align="start" wrap>
+                  <FilterControls
+                    // Table column configuration should be grouped on right
+                    // side with other actions to separate it from filtering.
+                    // If grouped to the left with the Filter control, it
+                    // becomes confusing what the "Clear filters" button will
+                    // do with regards to any column configurations that have
+                    // been applied.
+                    actions={
+                      <Box
+                        direction="row"
+                        align="start"
+                        gap="small"
+                        flex={false}
+                      >
+                        <DropButton
+                          a11yTitle="Configure columns button"
+                          icon={<Splits />}
+                          kind="toolbar"
+                          dropAlign={{ top: 'bottom', right: 'right' }}
+                          onClose={() => setOpen(false)}
+                          onOpen={() => setOpen(true)}
+                          dropContent={
+                            <ColumnSettings
+                              columns={COLUMNS}
+                              visibleColumns={visibleColumns}
+                              setVisibleColumns={setVisibleColumns}
+                              open={open}
+                            />
+                          }
+                          tip="Configure columns"
+                        />
+                        <Menu kind="toolbar" label="Actions" items={[]} />
+                      </Box>
+                    }
+                    data={allData}
+                    filters={filtersConfig}
+                    searchFilter={{ placeholder: 'Search users...' }}
+                  />
+                </Box>
               </Box>
-            </Box>
-          </Header>
-          <Results columns={visibleColumns} />
-        </Box>
-      </FiltersProvider>
-    </Box>
+            </Header>
+            <Results columns={visibleColumns} />
+          </Box>
+        </FiltersProvider>
+      </PageContent>
+    </Page>
   );
 };
 

@@ -6,7 +6,7 @@ export const BestPracticeGroup = ({ ...rest }) => {
   let column;
   // on small and medium layout we want to use auto
   if (size !== 'medium' && !['xsmall', 'small'].includes(size)) {
-    column = ['1/2', '1/2'];
+    column = ['auto', 'auto'];
   } else column = 'auto';
 
   return (
