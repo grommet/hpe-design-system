@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Notification } from 'grommet';
+import { Notification } from 'grommet';
 
 export const BannerNotificationDontExample = () => (
-  <Box pad="small">
     <Notification
       status="warning"
+      global
       actions={[
         {
           href: '#',
@@ -24,5 +24,4 @@ export const BannerNotificationDontExample = () => (
       starting on 03/03/2022."
       onClose={() => {}}
     />
-  </Box>
 );
