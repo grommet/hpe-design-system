@@ -637,7 +637,6 @@ export const templates = [
     tags: [
       'notifications',
       'global',
-      'banner notification',
       'system alerts',
       'alert',
       'maintenance',
