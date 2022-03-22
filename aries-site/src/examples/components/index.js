@@ -30,6 +30,7 @@ export * from './meter';
 export * from './namevaluelist';
 export * from './nav';
 export * from './notifications';
+export * from './page';
 export * from './pagination';
 export * from './radiobuttongroup';
 export * from './rangeinput';

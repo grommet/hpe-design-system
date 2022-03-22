@@ -794,6 +794,24 @@ export const components = [
     tags: ['tags', 'name value pair'],
   },
   {
+    name: 'Page',
+    available: true,
+    category: 'Layouts',
+    description: `A container to provide context for how content
+     should be laid out on a page`,
+    preview: {
+      component: () => <TagPreview />,
+      background: 'background-front',
+    },
+    seoDescription:  `A container to provide context for how content
+    should be laid out on a page`,
+    sections: [
+
+    ],
+    relatedContent: ['Box', 'Main'],
+    tags: ['page', 'page content'],
+  },
+  {
     name: 'All Components',
     available: true,
     category: 'All',
