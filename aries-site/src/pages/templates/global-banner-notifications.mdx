@@ -1,4 +1,4 @@
-import { Anchor, Button } from 'grommet';
+import { Anchor } from 'grommet';
 import {  BestPracticeGroup, Example } from '../../layouts';
 import {
   BannerContentLayoutExample,
@@ -12,22 +12,14 @@ import {
   BannerNotificationDiagram,
 } from '../../examples';
 
-<Button
-  icon={<Figma color="plain" />}
-  label="Open in Figma"
-  secondary
-  alignSelf="start"
-  href="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=3597%3A16611"
-  target="_blank"
-  margin={{ vertical: 'medium' }}
-  />
-
 <Example
   showResponsiveControls={['fullScreen']}
   // height, width, and screenContainer.scale value chosen to best visually 
   // represent the example
   height="650px"
   width="100%"
+  docs="https://v2.grommet.io/notification?theme=hpe"
+  figma="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=3597%3A16611"
   caption="An example of a dashboard with a Global Banner warning the user that their subscription is expiring. The user can either dismiss the notification or click on the anchor to renew their subscription."
   screenContainer={{ scale: 0.57 }}
 >
