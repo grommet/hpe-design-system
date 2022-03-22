@@ -10,7 +10,7 @@ import {
 } from 'grommet';
 
 export const PageContentExample = () => (
-  <Page kind="narrow">
+  <Page kind="wide">
     <PageContent
       background={{
         fill: 'horizontal',
