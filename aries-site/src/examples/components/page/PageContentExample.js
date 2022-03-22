@@ -33,13 +33,13 @@ export const PageContentExample = () => (
           columns={{ count: 'fit', size: 'small' }}
           gap="small"
         >
-          <Card background="white" pad="large">
+          <Card background="background-front" pad="large">
             Card 20
           </Card>
-          <Card background="white" pad="large">
+          <Card background="background-front" pad="large">
             Card 23
           </Card>
-          <Card background="white" pad="large">
+          <Card background="background-front" pad="large">
             Card 23
           </Card>
         </Grid>
