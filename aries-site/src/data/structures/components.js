@@ -798,7 +798,7 @@ export const components = [
     available: true,
     category: 'Layouts',
     description: `A container to provide context for how content
-     should be laid out on a page`,
+     should be laid out on a page.`,
     preview: {
       component: () => <TagPreview />,
       background: 'background-front',
