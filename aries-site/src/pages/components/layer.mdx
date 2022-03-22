@@ -2,6 +2,7 @@ import { Example } from '../../layouts';
 import {
   LayerExample,
   LayerCenterExample,
+  LayerFormExample,
   LayerNotificationExample,
   LayerSideDrawerExample,
 } from '../../examples';
@@ -105,4 +106,16 @@ A center modal is anchored at the center of the window and acts as a modal. This
   height={{ min: 'small' }}
 >
   <LayerCenterExample />
+</Example>
+
+### Layer Form
+
+The Layer header and action buttons should be sticky while the rest of the Layer content is scrollable.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerFormExample.js"
+  height={{ min: 'small' }}
+>
+  <LayerFormExample />
 </Example>
