@@ -806,7 +806,8 @@ export const components = [
     seoDescription:  `A container to provide context for how content
     should be laid out on a page`,
     sections: [
-
+      'Guidance',
+      'Page Content',
     ],
     relatedContent: ['Box', 'Main'],
     tags: ['page', 'page content'],
