@@ -797,8 +797,7 @@ export const components = [
     name: 'Page',
     available: true,
     category: 'Layouts',
-    description: `A container to provide context for how content
-     should be laid out on a page.`,
+    description: `A helpful container providing consistent page layouts across all HPE applications.`,
     preview: {
       image: {
         src: {
