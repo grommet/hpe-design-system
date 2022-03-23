@@ -1,5 +1,11 @@
 import { Example } from '../../layouts';
-import { PageExample, PageContentExample } from '../../examples';
+import { 
+  PageBackGroundExample,
+  PageExample, 
+  PageFullExample,
+  PageNarrowExample,
+  PageWideExample 
+} from '../../examples';
 
 Page makes it easy to implement [page layouts](/templates/page-layouts) uniformly across HPE applications. Two components, Page and PageContent, work together to ensure HPE theme-defined margins, horizontal alignment, max-width, and responsive behaviors are applied in a consistent, turn-key manner.
 
@@ -16,8 +22,15 @@ Page makes it easy to implement [page layouts](/templates/page-layouts) uniforml
 </Example>
 
 ## Guidance
-Page takes `kind` as a prop which will determine the type of page layout. 
-There are 3 kinds of content width options depending on the use case. 
+
+Page is the outer layout component. Page’s `kind` determines which theme-defined padding, min/max-width, and alignment should be applied to its child PageContent components.
+
+PageContent should be a child of Page. This allows PageContent to adhere to the min/max-width, padding, and alignment values set by its parent Page `kind`.
+
+In most cases, all of the content for a page can be wrapped in a single PageContent component. However, if varying background colors are needed for different page sections or a full-width background color is needed
+(link to variant below), then individual page sections can each be wrapped in their own PageContent.
+
+There are 3 kinds of options for Page. 
 1. [Wide (Default)](https://design-system.hpe.design/templates/page-layouts#wide-default)
    - The Page Container will have a max width of 1536px, the content will be center aligned and white space will be displayed around the perimeter of the content.
 2. [Narrow](https://design-system.hpe.design/templates/page-layouts#narrow) 
@@ -25,16 +38,59 @@ There are 3 kinds of content width options depending on the use case.
 3. [Full](https://design-system.hpe.design/templates/page-layouts#full)
    - This option will automatically resize the container to fill the screen displaying it. With the "full" option, if the screen grows wider than the available content, the Page Content will be left aligned to the edge of the screen.
 
+## Variants 
 
-## PageContent 
-PageContent consumes the context given to it by the Page component. 
-The `min` and `max` width as well as the `alignment` and `padding` are determined by which `kind` prop is passed to the Page Component. 
-Within Page Content is where all of your application content should live.
+### Wide (Default)
 
-## Guidance
-In most cases there should be only one Page Content, however multiple Page Contents can be 
-used in cases where the Background of a certain section needs to span across the screen. 
+<Example 
+  showResponsiveControls={['fullScreen']}
+  docs="https://v2.grommet.io/page?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  height="650px"
+  width="100%"
+  screenContainer={{ scale: 0.57 }}
+>
+  <PageWideExample  />
+</Example>
 
+
+### Narrow 
+
+
+<Example 
+  showResponsiveControls={['fullScreen']}
+  docs="https://v2.grommet.io/page?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  height="650px"
+  width="100%"
+  screenContainer={{ scale: 0.57 }}
+>
+  <PageNarrowExample  />
+</Example>
+  
+
+### Full 
+
+<Example 
+  showResponsiveControls={['fullScreen']}
+  docs="https://v2.grommet.io/page?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  height="650px"
+  width="100%"
+>
+  <PageFullExample  />
+</Example>
+
+
+### Full-width background color
+There are use cases when an application needs a background to span across the page in a 
+certain section this can be done by passing `Background` and `Fill` into PageContent.
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/page/PageContentExample.js"
   docs="https://v2.grommet.io/page?theme=hpe"
@@ -44,7 +100,8 @@ used in cases where the Background of a certain section needs to span across the
   showResponsiveControls={['fullScreen']}
   screenContainer={{ scale: 0.57 }}
 >
-  <PageContentExample />
+  <PageBackGroundExample />
 </Example>
+
 
 

@@ -797,7 +797,8 @@ export const components = [
     name: 'Page',
     available: true,
     category: 'Layouts',
-    description: `A helpful container providing consistent page layouts across all HPE applications.`,
+    description: `A helpful container providing consistent page layouts
+     across all HPE applications.`,
     preview: {
       image: {
         src: {
@@ -808,8 +809,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `A container to provide context for how content
-    should be laid out on a page`,
+    seoDescription: `A helpful container providing consistent page layouts
+    across all HPE applications.`,
     sections: ['Guidance', 'Page Content'],
     relatedContent: ['Page Layouts', 'Content Layouts', 'Box', 'Main'],
     tags: ['page', 'page content'],

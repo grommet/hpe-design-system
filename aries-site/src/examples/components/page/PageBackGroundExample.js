@@ -9,7 +9,7 @@ import {
   PageContent,
 } from 'grommet';
 
-export const PageContentExample = () => (
+export const PageBackGroundExample = () => (
   <Page kind="wide">
     <PageContent
       background={{
