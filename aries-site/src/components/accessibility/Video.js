@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import { Box } from 'grommet';
 
@@ -15,7 +15,7 @@ export const AccessVideo = () => {
           default
           kind="captions"
           srcLang="en"
-          src="/static/HPE.Design.System.V6.vtt"
+          src="/static/Bill.Access.Captions.vtt"
         />
       </video>
     </Box>
