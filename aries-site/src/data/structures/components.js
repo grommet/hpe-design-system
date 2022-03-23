@@ -800,15 +800,18 @@ export const components = [
     description: `A container to provide context for how content
      should be laid out on a page.`,
     preview: {
-      component: () => <TagPreview />,
-      background: 'background-front',
+      image: {
+        src: {
+          light: '/componentImages/component-preview-page.svg',
+          dark: '/componentImages/component-preview-page-invert.svg',
+        },
+        alt: 'HPE Page Preview',
+        fit: 'contain',
+      },
     },
-    seoDescription:  `A container to provide context for how content
+    seoDescription: `A container to provide context for how content
     should be laid out on a page`,
-    sections: [
-      'Guidance',
-      'Page Content',
-    ],
+    sections: ['Guidance', 'Page Content'],
     relatedContent: ['Box', 'Main'],
     tags: ['page', 'page content'],
   },
