@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Anchor, Box } from 'grommet';
+import { Anchor, AnnounceContext, Box } from 'grommet';
 
 export const AccessVideo = () => {
+  const announce = useContext(AnnounceContext);
 
   return (
     <>
-      <Box gap="small" width="large" pad={{ bottom: 'large' }}>
+      <Box 
+        gap="small" 
+        width="large" 
+        pad={{ bottom: 'large' }}
+      >
         <video 
-          aria-label="Accessibility at HPE Video" 
+          aria-label="Accessibility at HPE Video"
           aria-describedby="video-alt" 
           poster="/static/images/Bill-Access-Cover.png" 
           transcript="/static/accessibility/transcript.html"
+          controlsList="nodownload"
           controls
         >
           <source
@@ -19,7 +25,6 @@ export const AccessVideo = () => {
             type="video/mp4"
           />
           <track
-            default
             kind="captions"
             srcLang="en"
             src="/static/accessibility/Bill.Access.Captions.vtt"
@@ -33,9 +38,10 @@ export const AccessVideo = () => {
           </div>
         </video>
         <Anchor 
-          a11yTitle="Accessibility at HPE with Bill Tipton"
+          a11yTitle="Video transcript file"
           href="/static/accessibility/transcript.html" 
           target="_blank"
+          onClick={() => announce("Opened video transcript file")}
         >
           Transcript file
         </Anchor>
