@@ -11,7 +11,7 @@ export const AccessVideo = () => {
           aria-label="Accessibility at HPE Video" 
           aria-describedby="video-alt" 
           poster="/static/images/BILL-ACCESS-COVER.png" 
-          transcript="/static/transcript.html"
+          transcript="/static/accessibility/transcript.html"
           controls
         >
           <source
@@ -22,7 +22,7 @@ export const AccessVideo = () => {
             default
             kind="captions"
             srcLang="en"
-            src="/static/Bill.Access.Captions.vtt"
+            src="/static/accessibility/Bill.Access.Captions.vtt"
           />
 
           <div id="video-alt">
@@ -34,7 +34,7 @@ export const AccessVideo = () => {
         </video>
         <Anchor 
           a11yTitle="Accessibility at HPE with Bill Tipton"
-          href="/static/transcript.html" 
+          href="/static/accessibility/transcript.html" 
           target="_blank"
         >
           Transcript file
