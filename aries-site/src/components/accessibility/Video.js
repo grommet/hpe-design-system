@@ -10,7 +10,7 @@ export const AccessVideo = () => {
         <video 
           aria-label="Accessibility at HPE Video" 
           aria-describedby="video-alt" 
-          poster="/static/accessibility/Bill-Access-Cover.png" 
+          poster="/static/images/Bill-Access-Cover.png" 
           transcript="/static/accessibility/transcript.html"
           controls
         >
