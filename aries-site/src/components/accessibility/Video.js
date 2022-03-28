@@ -12,6 +12,12 @@ export const AccessVideo = () => {
         width="large" 
         pad={{ bottom: 'large' }}
       >
+        <div id="video-alt" style={{ display: 'none' }}>
+            The video shows Bill, a white man with blondish brown hair and a 
+            mustache, in his office wearing a long-sleeved lavender-blue 
+            dress shirt with the HPE rectangular-shaped, multi-color logo
+            against a black background as the background.
+        </div>
         <video 
           aria-label="Accessibility at HPE Video"
           aria-describedby="video-alt" 
@@ -29,13 +35,6 @@ export const AccessVideo = () => {
             srcLang="en"
             src="/static/accessibility/Bill.Access.Captions.vtt"
           />
-
-          <div id="video-alt">
-            The video shows Bill, a white man with blondish brown hair and a 
-            mustache, in his office wearing a long-sleeved lavender-blue 
-            dress shirt with the HPE rectangular-shaped, multi-color logo
-            against a black background as the background.
-          </div>
         </video>
         <Anchor 
           a11yTitle="Video transcript file"
