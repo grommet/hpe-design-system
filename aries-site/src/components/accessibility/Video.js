@@ -35,7 +35,7 @@ export const AccessVideo = () => {
           />
         </video>
         <Anchor 
-          a11yTitle="Video transcript file"
+          a11yTitle="Video transcript file with audio description"
           href="/static/accessibility/transcript.html" 
           target="_blank"
           onClick={() => 
