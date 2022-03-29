@@ -2,6 +2,11 @@ import React, { useContext } from 'react';
 
 import { Anchor, AnnounceContext, Box } from 'grommet';
 
+const desc = `The video shows Bill, a white man with blondish brown hair 
+  and a mustache, in his office wearing a long-sleeved lavender-blue 
+  dress shirt with the HPE rectangular-shaped, multi-color logo
+  against a black background as the background.`
+
 export const AccessVideo = () => {
   const announce = useContext(AnnounceContext);
 
@@ -12,17 +17,10 @@ export const AccessVideo = () => {
         width="large" 
         pad={{ bottom: 'large' }}
       >
-        <div id="video-alt" style={{ display: 'none' }}>
-            The video shows Bill, a white man with blondish brown hair and a 
-            mustache, in his office wearing a long-sleeved lavender-blue 
-            dress shirt with the HPE rectangular-shaped, multi-color logo
-            against a black background as the background.
-        </div>
         <video 
           aria-label="Accessibility at HPE Video"
-          aria-describedby="video-alt" 
+          aria-description={desc}
           poster="/static/images/Bill-Access-Cover.png" 
-          transcript="/static/accessibility/transcript.html"
           controlsList="nodownload"
           controls
         >
@@ -40,7 +38,9 @@ export const AccessVideo = () => {
           a11yTitle="Video transcript file"
           href="/static/accessibility/transcript.html" 
           target="_blank"
-          onClick={() => announce("Opened video transcript file")}
+          onClick={() => 
+            announce("Opened video transcript file", 'assertive')
+          }
         >
           Transcript file
         </Anchor>
