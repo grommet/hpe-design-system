@@ -17,7 +17,7 @@ const Templates = () => (
         light: '/templates-light.svg',
       },
       alt: 'HPE Design System Templates',
-      margin: { left: '-200px', top: '-125px' },
+      margin: { left: '-300px', top: '-125px' },
       small: {
         margin: { left: '-25px', top: '-175px' },
       },
