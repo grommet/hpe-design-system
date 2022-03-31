@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
-import { Anchor, AnnounceContext, Box } from 'grommet';
+import { Accordion, AccordionPanel, Anchor, AnnounceContext, Box } from 'grommet';
+import { set } from 'react-ga';
+import { FormDown, FormUp } from 'grommet-icons';
 
 const desc = `The video shows Bill, a white man with blondish brown hair 
   and a mustache, in his office wearing a long-sleeved lavender-blue 
@@ -10,6 +12,8 @@ const desc = `The video shows Bill, a white man with blondish brown hair
 export const AccessVideo = () => {
   const announce = useContext(AnnounceContext);
 
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <>
       <Box 
@@ -17,6 +21,28 @@ export const AccessVideo = () => {
         width="large" 
         pad={{ bottom: 'large' }}
       >
+        <Box 
+          a11yTitle="Audio Desciption"
+          aria-description="Click to show audio description"
+          gap="small" 
+          direction="row" 
+          onClick={() => {
+            setExpanded(!expanded);
+            expanded ? announce("Hid audio description") : 
+              announce("Opened audio description");
+          }} 
+        >
+          Audio Description
+          {
+            expanded ? 
+              <FormUp a11yTitle="Up arrow" /> : 
+              <FormDown a11yTitle="Down arrow" />
+          }
+        </Box>
+        {
+          expanded &&
+            <div>{desc}</div>
+        }
         <video 
           aria-label="Accessibility at HPE Video"
           aria-description={desc}
