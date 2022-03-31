@@ -39,13 +39,9 @@ export const AccessVideo = () => {
               <FormDown a11yTitle="Down arrow" />
           }
         </Box>
-        {
-          expanded &&
-            <div>{desc}</div>
-        }
+        {expanded && desc}
         <video 
           aria-label="Accessibility at HPE Video"
-          aria-description={desc}
           poster="/static/images/Bill-Access-Cover.png" 
           controlsList="nodownload"
           controls
