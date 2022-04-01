@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { Accordion, AccordionPanel, Anchor, AnnounceContext, Box } from 'grommet';
+import { Accordion, AccordionPanel, Anchor, AnnounceContext, Box, Button } from 'grommet';
 import { set } from 'react-ga';
 import { FormDown, FormUp } from 'grommet-icons';
 
@@ -21,24 +21,23 @@ export const AccessVideo = () => {
         width="large" 
         pad={{ bottom: 'large' }}
       >
-        <Box 
-          a11yTitle="Audio Desciption"
+        <Button 
+          icon={
+            expanded ? 
+              <FormUp a11yTitle="Up arrow" /> : 
+              <FormDown a11yTitle="Down arrow" />
+          }
+          reverse
+          alignSelf="start"
+          label="Audio Description"
+          a11yTitle="Audio Description"
           aria-description="Click to show audio description"
-          gap="small" 
-          direction="row" 
           onClick={() => {
             setExpanded(!expanded);
             expanded ? announce("Hid audio description") : 
               announce("Opened audio description");
           }} 
-        >
-          Audio Description
-          {
-            expanded ? 
-              <FormUp a11yTitle="Up arrow" /> : 
-              <FormDown a11yTitle="Down arrow" />
-          }
-        </Box>
+        />
         {expanded && desc}
         <video 
           aria-label="Accessibility at HPE Video"
