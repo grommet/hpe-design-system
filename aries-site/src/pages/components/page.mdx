@@ -4,35 +4,61 @@ import {
   PageExample, 
   PageFullExample,
   PageNarrowExample,
+  PageSimple,
   PageWideExample 
 } from '../../examples';
 
 Page makes it easy to implement [page layouts](/templates/page-layouts) uniformly across HPE applications. Two components, Page and PageContent, work together to ensure HPE theme-defined margins, horizontal alignment, max-width, and responsive behaviors are applied in a consistent, turn-key manner.
 
 <Example 
-  showResponsiveControls={['fullScreen']}
   docs="https://v2.grommet.io/page?theme=hpe"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  showResponsiveControls={['fullScreen']}
   // height, width, and screenContainer.scale value chosen to best visually 
   // represent the example
-  height="650px"
+  screenContainer={{scale: 0.85}}
   width="100%"
 >
   <PageExample />
 </Example>
 
-## Guidance
+## Page and PageContent Working Together
+Page is the outer layout component and provides the desired layout context. 
+Page’s `kind` determines which theme-defined alignment, padding, and min/max-widths 
+are applied to its PageContent children.
 
-Page is the outer layout component. Page’s `kind` determines which theme-defined padding, min/max-width, and alignment should be applied to its child PageContent components.
+As a child of Page, PageContent consumes and adheres to the 
+layout styling provided by its parent Page.
 
-PageContent should be a child of Page. This allows PageContent to adhere to the min/max-width, padding, and alignment values set by its parent Page `kind`.
+```
+<Page kind="wide">
+  <PageContent>
 
-In most cases, all of the content for a page can be wrapped in a single PageContent component. However, if varying background colors are needed for different page sections or a [full-width background color is needed](http://localhost:3000/components/page#full-width-background-color), then individual page sections can each be wrapped in their own PageContent.
+    /* All contents within me will respect the 
+     * max-width, alignment, and padding specified 
+     * by Page's context. */
+     
+  </PageContent>
+  
+  /* Contents outside of PageContent are not bound by 
+   * Page's context. */
+
+</Page>
+```
+
+<br />
+
+In most cases, all content for a page may be wrapped in a single PageContent 
+component. However, designs using [differing background colors](#full-width-background-color) to delineate page 
+sections may accomplish this by applying a PageContent per desired section.
 
 ## Variants 
 
-### [Wide (Default)](https://design-system.hpe.design/templates/page-layouts#wide-default)
-   - The Page Container will have a max width of 1536px, the content will be center aligned and white space will be displayed around the perimeter of the content.
+### Wide
+"Wide" is Page's default `kind`. It 
+
+See [page layouts](http://localhost:3001/templates/page-layouts#page-kinds) for specifications 
+and use-case guidance.
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -48,8 +74,8 @@ In most cases, all of the content for a page can be wrapped in a single PageCont
 </Example>
 
 
-### [Narrow](https://design-system.hpe.design/templates/page-layouts#narrow) 
-   - The PageContent will have a maximum width of 768px. On wider screens the content will be center aligned and white space will be displayed around the perimeter of the content.
+### Narrow
+For use 
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -80,8 +106,9 @@ In most cases, all of the content for a page can be wrapped in a single PageCont
   <PageFullExample  />
 </Example>
 
+### Customizing PageContent
 
-### Full-width background color
+#### Full-width background color
 There are use cases when an application needs a background to span across the page in a 
 certain section this can be done by passing `Background` and `Fill` into PageContent.
 <Example
