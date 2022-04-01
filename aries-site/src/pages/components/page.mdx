@@ -48,6 +48,46 @@ layout styling provided by its parent Page.
 
 <br />
 
+In most cases, all content on a page can be wrapped in a [single PageContent component](#simple). 
+However, if varying background colors are needed for different page sections or a 
+[full-width background color is needed](http://localhost:3000/components/page#full-width-background-color), 
+then individual page sections may be wrapped in their own PageContent.
+
+## Example use cases
+
+### Simple
+All content is placed within a single PageContent component.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/page/PageContentExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  width="100%" 
+  showResponsiveControls={['fullScreen']}
+  screenContainer={{ scale: 0.57 }}
+>
+  <PageSimple />
+</Example>
+
+### Full-width background color
+Use cases where an application needs a background to span the entire width of a page section 
+is achieved by setting `background={{ fill: "horizontal", ...additional properties }}` on 
+PageContent.
+
+This treatment is often seen on marketing sites where backgrounds help visually 
+block content sections. This might also be seen in a context such as an app-store catalog where 
+the hero section might have an image spanning.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/page/PageContentExample.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  width="100%" 
+  showResponsiveControls={['fullScreen']}
+  screenContainer={{ scale: 0.57 }}
+>
+  <PageBackGroundExample />
+</Example>
 In most cases, all content for a page may be wrapped in a single PageContent 
 component. However, designs using [differing background colors](#full-width-background-color) to delineate page 
 sections may accomplish this by applying a PageContent per desired section.
@@ -106,22 +146,6 @@ For use
   <PageFullExample  />
 </Example>
 
-### Customizing PageContent
-
-#### Full-width background color
-There are use cases when an application needs a background to span across the page in a 
-certain section this can be done by passing `Background` and `Fill` into PageContent.
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/page/PageContentExample.js"
-  docs="https://v2.grommet.io/page?theme=hpe"
-  // height, width, and screenContainer.scale value chosen to best visually 
-  // represent the example
-  width="100%" 
-  showResponsiveControls={['fullScreen']}
-  screenContainer={{ scale: 0.57 }}
->
-  <PageBackGroundExample />
-</Example>
 
 
 
