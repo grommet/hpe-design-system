@@ -1,31 +1,23 @@
-import {
-  Anchor,
-  Box,
-  Footer,
-  Header,
-  Heading,
-  Main,
-  Nav,
-  Page,
-  PageContent,
-  Paragraph,
-} from 'grommet';
+import { Box, Header, Heading, Page, PageContent, Paragraph } from 'grommet';
+
+import { PageHeader } from '../../templates/PageHeader';
 
 export const PageSimple = () => (
   <Page>
-    <PageContent>
-      <Header pad={{ vertical: 'medium' }}>
-        <Box>
-          <Heading size="small" margin="none">
-            Datasets
-          </Heading>
-          <Paragraph>
-            Explore, analyze, and share quality data.{' '}
-            <Anchor href="#">Learn more</Anchor> about data types, creating, and
-            collaborating.
-          </Paragraph>
-        </Box>
-      </Header>
+    <PageContent gap="large">
+      <PageHeader
+        title="Explore Datasets"
+        subtitle={`Explore datasets from a variety sources without reliance
+        on IT or governance and compliance.`}
+        contextualNav={{
+          upButton: { label: 'MLOps' },
+          breadCrumbs: [
+            { label: 'home', href: '#' },
+            { label: 'level1', href: '#' },
+            { label: 'level2', href: '#' },
+          ],
+        }}
+      />
     </PageContent>
   </Page>
 );
