@@ -21,6 +21,22 @@ export const AccessVideo = () => {
         width="large" 
         pad={{ bottom: 'large' }}
       >
+        <video 
+          aria-label="Accessibility at HPE Video"
+          poster="/static/images/Bill-Access-Cover.png" 
+          controlsList="nodownload"
+          controls
+        >
+          <source
+            src="https://d3hq6blov2iije.cloudfront.net/media/BILL-ACCESS-VID.mp4"
+            type="video/mp4"
+          />
+          <track
+            kind="captions"
+            srcLang="en"
+            src="/static/accessibility/Bill.Access.Captions.vtt"
+          />
+        </video>
         <Button 
           icon={
             expanded ? 
@@ -39,32 +55,16 @@ export const AccessVideo = () => {
           }} 
         />
         {expanded && desc}
-        <video 
-          aria-label="Accessibility at HPE Video"
-          poster="/static/images/Bill-Access-Cover.png" 
-          controlsList="nodownload"
-          controls
-        >
-          <source
-            src="https://d3hq6blov2iije.cloudfront.net/media/BILL-ACCESS-VID.mp4"
-            type="video/mp4"
-          />
-          <track
-            kind="captions"
-            srcLang="en"
-            src="/static/accessibility/Bill.Access.Captions.vtt"
-          />
-        </video>
-        <Anchor 
+        <Button 
+          alignSelf="start"
+          label="Transcript file"
           a11yTitle="Video transcript file with audio description"
           href="/static/accessibility/transcript.html" 
           target="_blank"
           onClick={() => 
             announce("Opened video transcript file", 'assertive')
           }
-        >
-          Transcript file
-        </Anchor>
+        />
       </Box>
     </>
   );
