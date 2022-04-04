@@ -1,0 +1,14 @@
+{
+  "trending": {
+    "title": "Trending",
+    "sources": [{}, {}, {}, {}, {}, {}, {}]
+  },
+  "classification": {
+    "title": "Classification",
+    "sources": [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+  },
+  "population": {
+    "title": "Population",
+    "sources": [{}, {}, {}, {}, {}]
+  }
+}

@@ -24,9 +24,9 @@ export const PageHeader = ({
   }, [contextualNav]);
 
   return (
-    <Header {...rest}>
+    <Header pad={{ top: 'large' }} {...rest}>
       <Box>
-        <Box justify="end" gap="xsmall" height={{ min: 'small' }}>
+        <Box gap="xsmall">
           <>
             {breadCrumbs && <BreadCrumbs links={breadCrumbs} />}
             {upButton && (

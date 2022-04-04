@@ -2,11 +2,26 @@ import { generate } from 'grommet/themes/base';
 import { deepMerge } from 'grommet/utils';
 import { aries } from './aries';
 
+// explicitly define theme properties which are undefined or 'inherit'
+// in theme, otherwise they will not be scaled.
+const undefinedThemeProperties = {
+  global: {
+    input: {
+      font: {
+        size: 'medium',
+        height: 'medium',
+      },
+    },
+  },
+};
+
 export const scaled = (scale = 1, baseSpacing = 24) => {
   // scales everything in base
   const scaledBase = generate(baseSpacing * scale);
   // merges theme, but overwrites scale for particular attributes
-  const source = deepMerge(scaledBase, aries);
+  const merged = deepMerge(scaledBase, aries);
+  // add any undefined / inerited theme properties
+  const source = deepMerge(merged, undefinedThemeProperties);
   const scaledTheme = { ...source };
   // define attributes which need to be re-scaled; essentially any
   // size which is staticly set in hpe/aries theme
@@ -14,6 +29,7 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     source.global.breakpoints,
     source.global.drop.border,
     source.global.input.padding,
+    source.global.input.font,
     source.button.secondary.border,
     source.button.toolbar.border,
     source.button.option.border,

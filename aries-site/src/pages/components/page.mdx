@@ -4,7 +4,7 @@ import {
   PageExample, 
   PageFullExample,
   PageNarrowExample,
-  PageSimple,
+  SinglePageContent,
   PageWideExample 
 } from '../../examples';
 
@@ -64,9 +64,9 @@ All content is placed within a single PageContent component.
   // represent the example
   width="100%" 
   showResponsiveControls={['fullScreen']}
-  screenContainer={{ scale: 0.57 }}
+  screenContainer={{ scale: 0.6 }}
 >
-  <PageSimple />
+  <SinglePageContent />
 </Example>
 
 ### Full-width background color
@@ -115,7 +115,7 @@ and use-case guidance.
 
 
 ### Narrow
-For use 
+For use
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -131,7 +131,7 @@ For use
 </Example>
   
 
-### [Full](https://design-system.hpe.design/templates/page-layouts#full)
+### Full
    - This option will automatically resize the container to fill the screen displaying it. With the "full" option, if the screen grows wider than the available content, the Page Content will be left aligned to the edge of the screen.
 
 <Example 
