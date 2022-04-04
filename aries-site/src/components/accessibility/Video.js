@@ -45,8 +45,8 @@ export const AccessVideo = () => {
           }
           reverse
           alignSelf="start"
-          label="Audio Description"
-          a11yTitle="Audio Description"
+          label="Video Audio Description"
+          a11yTitle="Video Audio Description"
           aria-description="Click to show audio description"
           onClick={() => {
             setExpanded(!expanded);
