@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { Accordion, AccordionPanel, Anchor, AnnounceContext, Box, Button } from 'grommet';
-import { set } from 'react-ga';
+import { AnnounceContext, Box, Button } from 'grommet';
 import { FormDown, FormUp } from 'grommet-icons';
 
 const desc = `The video shows Bill, a white man with blondish brown hair 
