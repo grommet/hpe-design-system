@@ -49,9 +49,8 @@ layout styling provided by its parent Page.
 <br />
 
 In most cases, all content on a page can be wrapped in a [single PageContent component](#simple). 
-However, if varying background colors are needed for different page sections or a 
-[full-width background color is needed](http://localhost:3000/components/page#full-width-background-color), 
-then individual page sections may be wrapped in their own PageContent.
+However, designs using [differing background colors](#full-width-background-color) to delineate page 
+sections may accomplish this by applying a PageContent per desired section.
 
 ## Example use cases
 
@@ -94,16 +93,15 @@ the hero section might have an image spanning.
 >
   <PageBackGroundExample />
 </Example>
-In most cases, all content for a page may be wrapped in a single PageContent 
-component. However, designs using [differing background colors](#full-width-background-color) to delineate page 
-sections may accomplish this by applying a PageContent per desired section.
 
 ## Variants 
 
 ### Wide
-"Wide" is Page's default `kind`. It 
+"Wide" is Page's default `kind`. The vast majority of pages in HPE applications will 
+likely use Page's "wide" variant. This page layout ensures consistent content alignment 
+and padding from section to section, page to page, and app to app.
 
-See [page layouts](http://localhost:3001/templates/page-layouts#page-kinds) for specifications 
+See [page layouts](/templates/page-layouts#page-kinds) for specifications 
 and use-case guidance.
 
 <Example 
@@ -121,7 +119,13 @@ and use-case guidance.
 
 
 ### Narrow
-For use
+For use cases where the desire is to provide a user with singular, focussed content or objective, 
+such as editing field values of an object, or stepping through a [wizard-based task flow](/templates/wizard).
+A "narrow" page layout limits the page content's width and positions the content at the center 
+of the page.
+
+See [page layouts](/templates/page-layouts#page-kinds) for specifications 
+and use-case guidance.
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -138,7 +142,13 @@ For use
   
 
 ### Full
-   - This option will automatically resize the container to fill the screen displaying it. With the "full" option, if the screen grows wider than the available content, the Page Content will be left aligned to the edge of the screen.
+"Full" is helpful in situations like presenting a monitoring dashboard filled with a 
+collection of key performance indicators, or an interface allowing a user to browse 
+resources displayed on a geographic map. This option allows the page's content to occupy the entire width of the browser window. 
+If the window's width exceeds the available content, the content is left aligned.
+
+See [page layouts](/templates/page-layouts#page-kinds) for specifications 
+and use-case guidance.
 
 <Example 
   showResponsiveControls={['fullScreen']}
