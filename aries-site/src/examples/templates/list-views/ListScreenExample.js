@@ -5,12 +5,13 @@ import {
   Button,
   List,
   Header,
-  Heading,
   Menu,
   ResponsiveContext,
   Text,
 } from 'grommet';
 import { Monitor, More, User, System, Hpe } from 'grommet-icons';
+
+import { PageHeader } from '../PageHeader';
 
 const data = [
   {
@@ -111,15 +112,6 @@ const StyledList = () => {
   );
 };
 
-const PageHeaderExample = ({ title }) => (
-  <Header>
-    <Heading margin={{ vertical: 'medium' }} size="small">
-      {title}
-    </Heading>
-    <Button label="Manage" primary />
-  </Header>
-);
-
 const AppHeaderExample = () => (
   <Header pad={{ vertical: 'small' }}>
     <Button>
@@ -179,14 +171,15 @@ const ScreenContainer = ({ mobile, ...rest }) => {
 export const ListScreenExample = ({ ...rest }) => (
   <ScreenContainer {...rest}>
     <AppHeaderExample />
-    <PageHeaderExample title="User Controls" />
+    <PageHeader
+      title="User Controls"
+      actions={<Button label="Manage" primary />}
+      pad={{ vertical: 'medium' }}
+    />
     <StyledList />
   </ScreenContainer>
 );
 
-PageHeaderExample.propTypes = {
-  title: PropTypes.string,
-};
 ScreenContainer.propTypes = {
   mobile: PropTypes.bool,
 };
