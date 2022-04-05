@@ -1,34 +1,43 @@
 import React from 'react';
-import { Card, Grid, Heading, Paragraph, Page, PageContent } from 'grommet';
+import { Paragraph, Page, PageContent } from 'grommet';
+
+import { ContentArea } from '../../templates/page-layouts/anatomy/components';
+import { demoStyle } from './demoStyle';
 
 export const PageExample = () => (
-  <Page kind="narrow">
-    <PageContent>
-      <Heading margin="none" level={1} size="small">
-        Narrow Page
-      </Heading>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo
-        gravida tincidunt. Nunc fringilla blandit tortor, id accumsan nisi
-        dictum quis. Aenean porttitor at mi id semper. Donec mattis bibendum
-        leo, interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus
-        nunc porta egestas. Fusce dapibus lobortis tincidunt.
-      </Paragraph>
-      <Grid rows="small" columns={{ count: 'fit', size: 'small' }} gap="small">
-        <Card background="white" pad="large">
-          Card
-        </Card>
-        <Card background="white" pad="large">
-          Card
-        </Card>
-      </Grid>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo
-        gravida tincidunt. Nunc fringilla blandit tortor, id accumsan nisi
-        dictum quis. Aenean porttitor at mi id semper. Donec mattis bibendum
-        leo, interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus
-        nunc porta egestas. Fusce dapibus lobortis tincidunt.
-      </Paragraph>
+  <Page
+    kind="narrow"
+    as={ContentArea}
+    title="Page"
+    fill
+    pad={{ bottom: 'large' }}
+    {...demoStyle}
+  >
+    <PageContent
+      as={ContentArea}
+      title="PageContent"
+      gap="small"
+      {...demoStyle}
+    >
+      <ContentArea title="Page Header" border />
+      <ContentArea title="Other Content" border>
+        <Paragraph margin={{ bottom: 'none' }}>
+          Page is a container providing context (i.e. instructions) for how
+          content should be laid out on a page.
+        </Paragraph>
+        <Paragraph margin={{ bottom: 'none' }}>
+          PageContent is a container for content within a page and executes
+          Page's instructions. In this particular example, Page's "kind" is set
+          to "narrow" instructing PageContent to have a specified maximum-width,
+          to be horizontally center-aligned, and specifies the width of the
+          horizontal padding surrounding PageContent's content across responsive
+          breakpoints.
+        </Paragraph>
+        <Paragraph>
+          Resize your browser window to see how Page and PageContent affect this
+          example's layout across various screen widths.
+        </Paragraph>
+      </ContentArea>
     </PageContent>
   </Page>
 );
