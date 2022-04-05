@@ -174,7 +174,7 @@ export const ListScreenExample = ({ ...rest }) => (
     <PageHeader
       title="User Controls"
       actions={<Button label="Manage" primary />}
-      margin={{ vertical: 'medium' }}
+      pad={{ vertical: 'medium' }}
     />
     <StyledList />
   </ScreenContainer>

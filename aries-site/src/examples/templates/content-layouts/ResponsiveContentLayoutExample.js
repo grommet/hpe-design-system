@@ -11,11 +11,10 @@ export const ResponsiveContentLayoutExample = () => {
     <AppContainer background="background-back">
       <ContentArea title="Global Header" />
       <Page>
-        <PageContent>
+        <PageContent gap="large">
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
             title={`Dashboard @ '${size}' Breakpoint`}
-            pad={{ bottom: 'large' }}
           />
           <Content />
         </PageContent>
