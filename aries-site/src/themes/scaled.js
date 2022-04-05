@@ -9,7 +9,7 @@ const undefinedThemeProperties = {
     input: {
       font: {
         size: 'medium',
-        height: 'medium',
+        height: '24px',
       },
     },
   },

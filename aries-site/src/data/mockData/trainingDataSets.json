@@ -1,14 +1,77 @@
-{
-  "trending": {
-    "title": "Trending",
-    "sources": [{}, {}, {}, {}, {}, {}, {}]
+[
+  {
+    "id": 1,
+    "title": "Commodity Prices",
+    "categories": ["Trending", "Economics"]
   },
-  "classification": {
-    "title": "Classification",
-    "sources": [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+  {
+    "id": 2,
+    "title": "Oil Prices",
+    "categories": ["Trending", "Economics"]
   },
-  "population": {
-    "title": "Population",
-    "sources": [{}, {}, {}, {}, {}]
+  {
+    "id": 3,
+    "title": "World Percipitaion",
+    "categories": ["Trending"]
+  },
+  {
+    "id": 4,
+    "title": "Population of India",
+    "categories": ["Population"]
+  },
+  {
+    "id": 5,
+    "title": "Water Quality",
+    "categories": ["Population", "Classification"]
+  },
+  {
+    "id": 6,
+    "title": "Agricultural Water Use",
+    "categories": ["Population"]
+  },
+  {
+    "id": 7,
+    "title": "Air Quality",
+    "categories": ["Population"]
+  },
+  {
+    "id": 8,
+    "title": "COVID-19 Vacination Rates",
+    "categories": ["Population", "Trending"]
+  },
+  {
+    "id": 9,
+    "title": "Used Car Prices",
+    "categories": ["Economics"]
+  },
+  {
+    "id": 10,
+    "title": "Housing Stock",
+    "categories": ["Economics", "Trending", "Population"]
+  },
+  {
+    "id": 11,
+    "title": "Rice Production",
+    "categories": ["Economics", "Population", "Trending"]
+  },
+  {
+    "id": 12,
+    "title": "Fraudulent Transactions",
+    "categories": ["Classification", "Trending"]
+  },
+  {
+    "id": 13,
+    "title": "Stroke Prediction",
+    "categories": ["Classification"]
+  },
+  {
+    "id": 14,
+    "title": "Website User Personas",
+    "categories": ["Classification"]
+  },
+  {
+    "id": 15,
+    "title": "Renewal and Churn Prediction",
+    "categories": ["Classification", "Trending"]
   }
-}
+]

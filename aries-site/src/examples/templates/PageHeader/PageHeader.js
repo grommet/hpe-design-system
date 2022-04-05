@@ -24,7 +24,7 @@ export const PageHeader = ({
   }, [contextualNav]);
 
   return (
-    <Header pad={{ top: 'large' }} {...rest}>
+    <Header {...rest}>
       <Box>
         <Box gap="xsmall">
           <>
