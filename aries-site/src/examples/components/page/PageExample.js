@@ -9,7 +9,7 @@ export const PageExample = () => (
     kind="narrow"
     as={ContentArea}
     title="Page"
-    fill
+    flex="grow"
     pad={{ bottom: 'large' }}
     {...demoStyle}
   >
