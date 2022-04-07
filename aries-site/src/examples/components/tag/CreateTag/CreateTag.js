@@ -14,10 +14,10 @@ import { ThemeContext } from 'styled-components';
 import { tagData } from '../data';
 import {
   alphabetize,
-  AppContainer,
   getRegExp,
   TagPageHeader,
   prefix,
+  TagAppContainer,
   TagResults,
   updateCreateOption,
 } from '.';
@@ -70,7 +70,7 @@ export const CreateTag = () => {
   }, [name]);
 
   return (
-    <AppContainer>
+    <TagAppContainer>
       <TagPageHeader />
       <Form
         messages={{ required: 'This is a required field.' }}
@@ -223,6 +223,6 @@ export const CreateTag = () => {
           ))
         )}
       </TagResults>
-    </AppContainer>
+    </TagAppContainer>
   );
 };
