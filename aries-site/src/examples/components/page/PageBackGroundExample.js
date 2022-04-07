@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Grid,
@@ -8,6 +8,8 @@ import {
   PageContent,
   Text,
   Button,
+  Image,
+  ThemeContext,
 } from 'grommet';
 
 import { demoStyle } from './demoStyle';
@@ -130,107 +132,171 @@ const Hero = () => (
 
 const Empathize = () => (
   <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Heading level={2} size="large" margin="none">
-      Empathize
-    </Heading>
-    <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-      Design Thinking begins by placing the knowledge that you are designing a
-      solution for people at the forefront of your mind.
-    </Paragraph>
-    <Paragraph size="xlarge">
-      This starts your{' '}
-      <Text size="xlarge" weight="bold">
-        human-centered
-      </Text>{' '}
-      design journey where you seek to understand for whom are you designing?
-      What is their context and perspective? What are their hopes and desires?
-    </Paragraph>
-  </Box>
-);
-
-const Define = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
     <Grid columns={['1/2', '1/2']}>
-      <Box />
       <Box>
         <Heading level={2} size="large" margin="none">
-          Define
+          Empathize
         </Heading>
         <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-          From the empathy developed, give "names" to the personas, objectives,
-          decisions, challenges, and pain points observed.
+          Design Thinking begins by placing the knowledge that you are designing
+          a solution for people at the forefront of your mind.
         </Paragraph>
         <Paragraph size="xlarge">
-          Translate observations into a{' '}
+          This starts your{' '}
           <Text size="xlarge" weight="bold">
-            challenge
+            human-centered
           </Text>{' '}
-          to anchor designs and solutions against and get ready to go.
+          design journey where you seek to understand for whom are you
+          designing? What is their context and perspective? What are their hopes
+          and desires?
         </Paragraph>
+      </Box>
+      <Box height="medium">
+        <Image
+          src="/foundationImages/foundation-preview-human.svg"
+          fit="contain"
+        />
       </Box>
     </Grid>
   </Box>
 );
 
-const Ideate = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Heading level={2} size="large" margin="none">
-      Ideate
-    </Heading>
-    <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-      Go wide and wild with ideas. Make them enumarable. Push the{' '}
-      <Text size="xlarge" weight="bold">
-        possibilities
-      </Text>{' '}
-      beyond comfortable boundaries into the space of wacky "what ifs" where
-      plausibility isn't a limit.
-    </Paragraph>
-    <Paragraph size="xlarge">
-      Survey the generated potentials, find the favorites, and prioritize.
-    </Paragraph>
-  </Box>
-);
+const Define = () => {
+  const theme = useContext(ThemeContext);
 
-const Prototype = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Grid columns={['1/2', '1/2']}>
-      <Box />
-      <Box>
-        <Heading level={2} size="large" margin={{ bottom: 'none' }}>
-          Prototype
-        </Heading>
-        <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-          Grab a sharpie, some paper and tape, and make your ideas tangible in
-          mockups and storyboards.
-        </Paragraph>
-        <Paragraph size="xlarge">
-          <Text size="xlarge" weight="bold">
-            Keep it simple
-          </Text>
-          , fail fast, iterate quickly.
-        </Paragraph>
-      </Box>
-    </Grid>
-  </Box>
-);
+  return (
+    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+      <Grid columns={['1/2', '1/2']}>
+        <Box height="medium">
+          <Image
+            src={
+              theme.dark
+                ? '/templateImages/template-preview-table-customize-invert.svg'
+                : '/templateImages/template-preview-table-customize.svg'
+            }
+            fit="contain"
+          />
+        </Box>
+        <Box alignSelf="center">
+          <Heading level={2} size="large" margin="none">
+            Define
+          </Heading>
+          <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+            From the empathy developed, give "names" to the personas,
+            objectives, decisions, challenges, and pain points observed.
+          </Paragraph>
+          <Paragraph size="xlarge">
+            Translate observations into a{' '}
+            <Text size="xlarge" weight="bold">
+              challenge
+            </Text>{' '}
+            to anchor designs and solutions against and get ready to go.
+          </Paragraph>
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
+
+const Ideate = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+      <Grid columns={['1/2', '1/2']}>
+        <Box>
+          <Heading level={2} size="large" margin="none">
+            Ideate
+          </Heading>
+          <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+            Go wide and wild with ideas. Make them enumarable. Push the{' '}
+            <Text size="xlarge" weight="bold">
+              possibilities
+            </Text>{' '}
+            beyond comfortable boundaries into the space of wacky "what ifs"
+            where plausibility isn't a limit.
+          </Paragraph>
+          <Paragraph size="xlarge">
+            Survey the generated potentials, find the favorites, and prioritize.
+          </Paragraph>
+        </Box>
+        <Box height="medium">
+          <Image
+            src={
+              theme.dark
+                ? '/templateImages/template-preview-pagelayout-invert.svg'
+                : '/templateImages/template-preview-pagelayout.svg'
+            }
+            fit="contain"
+          />
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
+
+const Prototype = () => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+      <Grid columns={['1/2', '1/2']}>
+        <Box height="medium" pad={{ horizontal: 'large' }}>
+          <Image
+            src={
+              theme.dark
+                ? '/templateImages/MatrixNavigation-invert.svg'
+                : '/templateImages/MatrixNavigation.svg'
+            }
+            fit="contain"
+          />
+        </Box>
+        <Box>
+          <Heading level={2} size="large" margin={{ bottom: 'none' }}>
+            Prototype
+          </Heading>
+          <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+            Grab a sharpie, some paper and tape, and make your ideas tangible in
+            mockups and storyboards.
+          </Paragraph>
+          <Paragraph size="xlarge">
+            <Text size="xlarge" weight="bold">
+              Keep it simple
+            </Text>
+            , fail fast, iterate quickly.
+          </Paragraph>
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
 
 const Test = () => (
   <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Heading level={2} size="large" margin={{ bottom: 'none' }}>
-      Test
-    </Heading>
-    <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-      Put the prototypes{' '}
-      <Text size="xlarge" weight="bold">
-        in the hands
-      </Text>{' '}
-      of the people for whom you are designing and turn back on the power of
-      observation.
-    </Paragraph>
-    <Paragraph size="xlarge">
-      Identify impediments. Make note of moments of surpise and delight. What
-      works? Iterate quickly.
-    </Paragraph>
+    <Grid columns={['1/2', '1/2']}>
+      <Box>
+        <Heading level={2} size="large" margin={{ bottom: 'none' }}>
+          Test
+        </Heading>
+        <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+          Put the prototypes{' '}
+          <Text size="xlarge" weight="bold">
+            in the hands
+          </Text>{' '}
+          of the people for whom you are designing and turn back on the power of
+          observation.
+        </Paragraph>
+        <Paragraph size="xlarge">
+          Identify impediments. Make note of moments of surpise and delight.
+          What works? Iterate quickly.
+        </Paragraph>
+      </Box>
+      <Box height="medium">
+        <Image
+          src="/templateImages/template-preview-wizard.svg"
+          fit="contain"
+        />
+      </Box>
+    </Grid>
   </Box>
 );
 
