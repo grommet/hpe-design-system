@@ -29,6 +29,7 @@ export const PageBackGroundExample = () => (
     <PageContent
       background={{
         fill: 'horizontal',
+        color: '#FFFFFF', // ensure correct font color and contrast
         image: `linear-gradient(
           180deg, 
           #FDFDFD 0%,
@@ -62,6 +63,7 @@ export const PageBackGroundExample = () => (
     <PageContent
       background={{
         fill: 'horizontal',
+        color: '#FFFFFF', // ensure correct font color and contrast
         image: `linear-gradient(
           0deg, 
           #FFFFFF 0%,
@@ -148,20 +150,25 @@ const Empathize = () => (
 
 const Define = () => (
   <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Heading level={2} size="large" margin="none">
-      Define
-    </Heading>
-    <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-      From the empathy developed, give "names" to the personas, objectives,
-      decisions, challenges, and pain points observed.
-    </Paragraph>
-    <Paragraph size="xlarge">
-      Translate observations into a{' '}
-      <Text size="xlarge" weight="bold">
-        challenge
-      </Text>{' '}
-      to anchor designs and solutions against and get ready to go.
-    </Paragraph>
+    <Grid columns={['1/2', '1/2']}>
+      <Box />
+      <Box>
+        <Heading level={2} size="large" margin="none">
+          Define
+        </Heading>
+        <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+          From the empathy developed, give "names" to the personas, objectives,
+          decisions, challenges, and pain points observed.
+        </Paragraph>
+        <Paragraph size="xlarge">
+          Translate observations into a{' '}
+          <Text size="xlarge" weight="bold">
+            challenge
+          </Text>{' '}
+          to anchor designs and solutions against and get ready to go.
+        </Paragraph>
+      </Box>
+    </Grid>
   </Box>
 );
 
@@ -186,19 +193,24 @@ const Ideate = () => (
 
 const Prototype = () => (
   <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
-    <Heading level={2} size="large" margin={{ bottom: 'none' }}>
-      Prototype
-    </Heading>
-    <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
-      Grab a sharpie, some paper and tape, and make your ideas tangible in
-      mockups and storyboards.
-    </Paragraph>
-    <Paragraph size="xlarge">
-      <Text size="xlarge" weight="bold">
-        Keep it simple
-      </Text>
-      , fail fast, iterate quickly.
-    </Paragraph>
+    <Grid columns={['1/2', '1/2']}>
+      <Box />
+      <Box>
+        <Heading level={2} size="large" margin={{ bottom: 'none' }}>
+          Prototype
+        </Heading>
+        <Paragraph size="xlarge" margin={{ bottom: 'none' }}>
+          Grab a sharpie, some paper and tape, and make your ideas tangible in
+          mockups and storyboards.
+        </Paragraph>
+        <Paragraph size="xlarge">
+          <Text size="xlarge" weight="bold">
+            Keep it simple
+          </Text>
+          , fail fast, iterate quickly.
+        </Paragraph>
+      </Box>
+    </Grid>
   </Box>
 );
 
