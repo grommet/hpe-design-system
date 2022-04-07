@@ -14,10 +14,10 @@ import { ThemeContext } from 'styled-components';
 import { simpleTags } from './data';
 import {
   alphabetize,
-  AppContainer,
   getRegExp,
   TagPageHeader,
   prefix,
+  TagAppContainer,
   TagResults,
   updateCreateOption,
 } from './CreateTag';
@@ -45,7 +45,7 @@ export const CreateTagSimple = () => {
   const [currentTags, setCurrentTags] = useState(defaultTags);
 
   return (
-    <AppContainer>
+    <TagAppContainer>
       <TagPageHeader
         description={`Tags are values that can be assigned to 
       resources.`}
@@ -150,6 +150,6 @@ export const CreateTagSimple = () => {
           ))
         )}
       </TagResults>
-    </AppContainer>
+    </TagAppContainer>
   );
 };
