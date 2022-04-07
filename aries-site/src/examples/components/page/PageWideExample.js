@@ -15,14 +15,13 @@ import {
 } from 'grommet';
 import { More } from 'grommet-icons';
 
+import { PageHeader } from '../../templates';
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (
   <Page flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
-      <Heading level={1} size="small" margin="none">
-        Wide Page
-      </Heading>
+      <PageHeader title="Wide Page" />
       <SummaryMetrics />
       <Section1 />
       <Section2 />
@@ -31,12 +30,7 @@ export const PageWideExample = () => (
 );
 
 const SummaryMetrics = () => (
-  <Grid
-    columns={{ count: 'fill', size: 'medium' }}
-    rows="xsmall"
-    gap="small"
-    {...demoStyle}
-  >
+  <Grid columns={{ count: 'fill', size: 'medium' }} rows="xsmall" gap="small">
     {new Array(3).fill({}).map((_, index) => (
       <Card key={index} />
     ))}
@@ -45,10 +39,9 @@ const SummaryMetrics = () => (
 
 const Section1 = () => {
   const size = useContext(ResponsiveContext);
-  console.log(size);
 
   return (
-    <Box {...demoStyle}>
+    <>
       <Heading level={2} size="small" margin="none">
         A Content Section
       </Heading>
@@ -63,7 +56,6 @@ const Section1 = () => {
         }
         rows="auto"
         gap="medium"
-        {...demoStyle}
       >
         <Box gap="medium">
           <Paragraph margin="none">
@@ -126,12 +118,12 @@ const Section1 = () => {
         </Box>
         <Card fill height={{ min: 'medium' }} />
       </Grid>
-    </Box>
+    </>
   );
 };
 
 const Section2 = () => (
-  <Box {...demoStyle}>
+  <>
     <Heading level={2} size="small" margin="none">
       Another Content Section
     </Heading>
@@ -142,5 +134,5 @@ const Section2 = () => (
       interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus nunc
       porta egestas. Fusce dapibus lobortis tincidunt.
     </Paragraph>
-  </Box>
+  </>
 );

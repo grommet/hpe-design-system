@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import {
   Anchor,
-  Box,
   Card,
   Grid,
   Header,
@@ -71,20 +70,15 @@ export const SinglePageContent = ({ containerRef }) => {
           title="Explore Datasets"
           subtitle={`Explore datasets from a variety sources without reliance
           on IT or governance and compliance.`}
-          {...demoStyle}
         />
-        <Box {...demoStyle}>
-          <Paragraph margin="none">
-            Discover, analyze, and share quality data. Learn more about data
-            types, creating, and collaborating.
-          </Paragraph>
-        </Box>
-        <Box {...demoStyle}>
-          <FiltersProvider>
-            <FilterControls data={trainingDataSets} {...filterControls} />
-            <Datasets data={trainingDataSets} categories={categories} />
-          </FiltersProvider>
-        </Box>
+        <Paragraph margin="none">
+          Discover, analyze, and share quality data. Learn more about data
+          types, creating, and collaborating.
+        </Paragraph>
+        <FiltersProvider>
+          <FilterControls data={trainingDataSets} {...filterControls} />
+          <Datasets data={trainingDataSets} categories={categories} />
+        </FiltersProvider>
       </PageContent>
     </Page>
   );
@@ -116,7 +110,7 @@ Datasets.propTypes = {
 };
 
 const Category = ({ category }) => (
-  <Box {...demoStyle}>
+  <>
     <Header>
       <Heading level={2} size="small">
         {category.title}
@@ -129,7 +123,7 @@ const Category = ({ category }) => (
       {category &&
         category.sources.slice(0, 7).map(source => <Card key={source.id} />)}
     </Grid>
-  </Box>
+  </>
 );
 
 Category.propTypes = {

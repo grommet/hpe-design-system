@@ -1,34 +1,61 @@
 import React from 'react';
-import { Card, Grid, Heading, Paragraph, Page, PageContent } from 'grommet';
+import {
+  Box,
+  Button,
+  Footer,
+  Grid,
+  Header,
+  List,
+  Page,
+  PageContent,
+  Text,
+} from 'grommet';
+import { Bookmark } from 'grommet-icons';
+
+import serverhealth from '../../../data/mockData/serverhealth.json';
+import { PageHeader, StatusIndicator } from '../../templates';
+import { demoStyle } from './demoStyle';
 
 export const PageFullExample = () => (
-  <Page kind="full">
-    <PageContent>
-      <Heading margin="none" level={1} size="small">
-        Full Page
-      </Heading>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo
-        gravida tincidunt. Nunc fringilla blandit tortor, id accumsan nisi
-        dictum quis. Aenean porttitor at mi id semper. Donec mattis bibendum
-        leo, interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus
-        nunc porta egestas. Fusce dapibus lobortis tincidunt.
-      </Paragraph>
-      <Grid rows="small" columns={{ count: 'fit', size: 'small' }} gap="small">
-        <Card background="white" pad="large">
-          Card
-        </Card>
-        <Card background="white" pad="large">
-          Card
-        </Card>
+  <Page kind="full" flex="grow" {...demoStyle}>
+    <PageContent fill {...demoStyle}>
+      <PageHeader title="Full Page" />
+      <Grid columns={['medium', 'flex']} rows={['large']} border>
+        <ServerList />
+        <Box
+          background={{
+            image: 'url(/images/world_map.jpg)',
+            position: 'right',
+            size: 'cover',
+          }}
+        />
       </Grid>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo
-        gravida tincidunt. Nunc fringilla blandit tortor, id accumsan nisi
-        dictum quis. Aenean porttitor at mi id semper. Donec mattis bibendum
-        leo, interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus
-        nunc porta egestas. Fusce dapibus lobortis tincidunt.
-      </Paragraph>
     </PageContent>
   </Page>
+);
+
+const ServerList = () => (
+  <Box background="background-front" overflow="auto">
+    <List data={serverhealth} pad={{ bottom: 'xsmall' }}>
+      {datum => (
+        <Box
+          border={{ side: 'bottom', color: 'border-weak' }}
+          pad="xsmall"
+          height={{ min: 'xsmall' }}
+          justify="between"
+        >
+          <Header align="start">
+            <Box>
+              <Text weight="bold">{datum.displayName}</Text>{' '}
+              <Text size="xsmall">{datum.hardware.model?.toUpperCase()}</Text>
+            </Box>
+            <Button icon={<Bookmark />} />
+          </Header>
+          <Footer>
+            <StatusIndicator status={datum.hardware.health.summary} />
+          </Footer>
+        </Box>
+      )}
+    </List>
+  </Box>
 );
