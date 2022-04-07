@@ -52,8 +52,16 @@ regarding either via [Slack](https://hpe.slack.com/archives/C04LMJWQT).
 
 <!-- BEGIN: What's New Entries -->
 
-## March 9, 2022 - April 1, 2022
+## April 4, 2022 - April 8, 2022
 
+### Latest Releases
+
+- **grommet-theme-hpe v3.0.0** - This version ships with additional responsive breakpoints to help deliver the optimal user experience for HPE customers.
+  - Gain precise control over how page layouts respond and adapt.
+  - Implement grid layouts, such as a dashboard of cards, which gracefully adapt and flow.
+  - These additional breakpoints are breaking changes from v2 that will require some minor code changes to ensure backwards compatibility. A [migration guide](https://github.com/grommet/grommet-theme-hpe/wiki/Migrating-from-HPE-Theme-2.x-to-3.x) is available to make this a smooth process.
+
+## March 9, 2022 - April 1, 2022
 
 ### Communications
 
@@ -64,32 +72,37 @@ regarding either via [Slack](https://hpe.slack.com/archives/C04LMJWQT).
 ### Roadmap Updates
 
 - **Page Layouts**
-  - Updated the [Page Layouts Figma file](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2891%3A21273) to reflect new Page component in Grommet. Page component coming soon to Design System site.
+  - Updated the [Page Layouts Figma file](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2891%3A21273) to reflect new Page component in Grommet. Page component guidance and examples coming soon to the Design System site.
 - **Global Banner Notifications**
-  - Live on the [Design System site](https://design-system.hpe.design/templates/global-banner-notifications)!
+  - Guidance and examples are now available on the [Design System site](/templates/global-banner-notifications).
+  - Theme-related styling is available on `grommet-theme-hpe v2.4.0`.
 - **Page Header**
-  - Finalized gathering use cases, annotating designs from service teams and concluded what PageHeader consists of. A share out has been conducted with team and [ideations](https://www.figma.com/file/BHp0KrOcPvbnzNyshfHkd8/HPE-Page-Header) are in progress.
-  - Conducted a user study test on the Ascending Button to understand what people are calling this button and how they interact with it.
+  - Finalized gathering use cases, annotating designs from service teams, and exploring anatomy. [Design ideations](https://www.figma.com/file/BHp0KrOcPvbnzNyshfHkd8/HPE-Page-Header) are in progress.
+  - Conducted a user study test on contextual navigation with regards to the "Ascending" Button. The goal was to understand user expectations when navigating up a navigation hierarchy and to determine the most intuitive name for this navigational component. Design decisions and guidance will be coming soon.
 - **Tabs**
-  - Finalized gathering use cases from stakeholders to solve for use cases where there are more than 5 tabs. A share out has been finalized and designer is currently working with developers to optimize for a solution.
+  - Work is in progress to provide design and development guidance for how Tabs should display when there is not ample screen width to fit all available tabs.
+  - Gathered use cases from stakeholders to understand scenarios when more than 5 tabs may be necessary on a single page.
+  - Design and best practice ideation is in progress.
 
 
 ### Stay Current with the Latest Changes
-- Included Grid documentation to help developers better understand how [Grid component](https://design-system.hpe.design/components/grid#grid-properties-and-key-concepts) works and the capabilities it has.
-- Added an example of single required FormField on the [site.](https://design-system.hpe.design/templates/forms#single-required-formfield)
-- FileInput - [Trash icon](https://design-system.hpe.design/components/fileinput) got replaced with a Close icon. 
+- Enhanced Grid documentation to help developers better understand [Grid's](/components/grid#grid-properties-and-key-concepts) capabilities and how to master this component to create dynamic layouts.
+- Added an example of a Form with a [single required FormField](https://design-system.hpe.design/templates/forms#single-required-formfield) on the site.
+- FileInput - Trash icon got replaced with a [Close icon](/components/fileinput). 
 - Wizard - Fixed template spacing issues between elements in [Figma](https://www.figma.com/file/GEhgYzx3b8MejBjg9gAxyA/Wizard?node-id=0%3A1).
-- Menu List - Menu Lists are now swappable in [Figma](https://www.figma.com/file/DyFWlzLBUtK5KH5jJhwoCB/HPE-Menu-Component?node-id=606%3A1489)
 - [Select](https://www.figma.com/file/fZJdRcNrvZ1JjdPRYHpFFU/HPE-Select-Component?node-id=0%3A1), [TextInput](https://www.figma.com/file/E40Oo2MpdRNMyVaJqfJ0Wd/HPE-Text-Input-Component?node-id=0%3A1) and [TextArea](https://www.figma.com/file/evH1LQewFPc8Y2fteywMxM/HPE-Text-Area-Component?node-id=0%3A1) - Added auto layout to fix resizing and wrapping issues in Figma.
 - [Tabs](https://www.figma.com/file/Kp4dWyhUTnKIJ1Cg5CoL9o/HPE-Tabs-Component?node-id=208%3A0) - you can now swap to the selected instance without any issues.
 
 
 
 ### Latest Releases
-- **Grommet v2.22.0** - Release includes enhancements including (but not limited to): NEW Page and PageContent components! Accessibility improvements to RangeInput, Menu, and Select components.
-Full details about this release are available in the [Release Notes](https://github.com/grommet/grommet/releases/tag/v2.22.0).
-- **Grommet-HPE-theme** - Release includes NEW Banner Notifications styling, NEW Page Component styling. Changed value of text-weak to pass color contrast requirements and can be used for text when a more subtle treatment is desired. text-xweak is recommended for disabled text.
-For a more detailed look at these enhancements, check out the [release notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v2.4.0).
+
+- **Grommet v2.22.0** - Release includes enhancements including (but not limited to): NEW Page and PageContent components as well as accessibility improvements to RangeInput, Menu, and Select components. Full details about this release are available in the [Release Notes](https://github.com/grommet/grommet/releases/tag/v2.22.0).
+- **grommet-theme-hpe v2.4.0** - Some features of the release include:
+  - NEW Banner Notifications styling.
+  - NEW Page Component styling.
+  - Changed value of text-weak to pass color contrast requirements and can be used for text when a more subtle treatment is desired. text-xweak is recommended for disabled text.
+  - For a more detailed look at these enhancements, check out the [release notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v2.4.0).
 
 ## February 14 - March 4, 2022
 
