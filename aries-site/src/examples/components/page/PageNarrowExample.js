@@ -48,7 +48,7 @@ const FormSection = () => (
             placeholder="Enter a description ..."
           />
         </FormField>
-        <FormField htmlFor="field2" name="field2" label="Field 2">
+        <FormField htmlFor="field2__input" name="field2" label="Field 2">
           <Select
             id="field2"
             name="field2"

@@ -155,6 +155,9 @@ const Empathize = () => (
         <Image
           src="/foundationImages/foundation-preview-human.svg"
           fit="contain"
+          alt={`Abstract line art depicting three people 
+          in business attire with professional accessories such 
+          as cellphones, tablets, and brief cases.`}
         />
       </Box>
     </Grid>
@@ -175,6 +178,7 @@ const Define = () => {
                 : '/templateImages/template-preview-table-customize.svg'
             }
             fit="contain"
+            alt="Abstract grid representing a data in a table format."
           />
         </Box>
         <Box alignSelf="center">
@@ -228,6 +232,7 @@ const Ideate = () => {
                 : '/templateImages/template-preview-pagelayout.svg'
             }
             fit="contain"
+            alt="Abstract collection of overlapping boxes of various colors."
           />
         </Box>
       </Grid>
@@ -248,6 +253,7 @@ const Prototype = () => {
                 : '/templateImages/MatrixNavigation.svg'
             }
             fit="contain"
+            alt="Boxes with directional arrows, representing a flow chart."
           />
         </Box>
         <Box>
@@ -294,6 +300,8 @@ const Test = () => (
         <Image
           src="/templateImages/template-preview-wizard.svg"
           fit="contain"
+          alt={`Abstract box containing three filled circles 
+          separated by dashes.`}
         />
       </Box>
     </Grid>
