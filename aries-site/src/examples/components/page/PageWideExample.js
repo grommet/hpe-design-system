@@ -16,6 +16,9 @@ import {
 import { More } from 'grommet-icons';
 
 import { PageHeader } from '../../templates';
+// `demoStyle` is specific for the Design System site and is used
+// as a visual aid to help present layout concepts. Remove from
+// your implementation.
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (

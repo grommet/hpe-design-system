@@ -12,10 +12,13 @@ import {
   ThemeContext,
 } from 'grommet';
 
+// `demoStyle` is specific for the Design System site and is used
+// as a visual aid to help present layout concepts. Remove from
+// your implementation.
 import { demoStyle } from './demoStyle';
 
 export const PageBackGroundExample = () => (
-  <Page kind="wide" flex="grow" {...demoStyle}>
+  <Page flex="grow" {...demoStyle}>
     <PageContent
       background={{
         fill: 'horizontal',

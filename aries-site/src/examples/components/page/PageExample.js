@@ -2,6 +2,9 @@ import React from 'react';
 import { Paragraph, Page, PageContent } from 'grommet';
 
 import { ContentArea } from '../../templates/page-layouts/anatomy/components';
+// `demoStyle` is specific for the Design System site and is used
+// as a visual aid to help present layout concepts. Remove from
+// your implementation.
 import { demoStyle } from './demoStyle';
 
 export const PageExample = () => (
