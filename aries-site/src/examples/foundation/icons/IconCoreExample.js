@@ -16,14 +16,14 @@ import {
 } from 'grommet-icons';
 
 const CoreIcon = ({ Icon, name, guidance }) => (
-  <Card>
-    <CardHeader>
+  <Card elevation={false}>
+    <CardHeader direction="column" align="stretch" gap="small">
       <Icon />
       <Heading level="3" size="small" margin="none">
         {name}
       </Heading>
     </CardHeader>
-    <CardBody>
+    <CardBody pad={{ top: 'none', horizontal: 'medium', bottom: 'medium' }}>
       <Paragraph margin="none">{guidance}</Paragraph>
     </CardBody>
   </Card>
