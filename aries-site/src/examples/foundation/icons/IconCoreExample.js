@@ -30,7 +30,7 @@ const CoreIcon = ({ Icon, name, guidance }) => (
 );
 
 CoreIcon.propTypes = {
-  Icon: PropTypes.func,
+  Icon: PropTypes.object,
   name: PropTypes.string,
   guidance: PropTypes.string,
 };
