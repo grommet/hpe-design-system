@@ -54,9 +54,7 @@ In most cases, all content on a page can be wrapped in a [single PageContent com
 However, designs using [differing background colors](#full-width-background-color) to delineate page 
 sections may accomplish this by applying a PageContent per desired section.
 
-## Example use cases
-
-### Simple
+## Example: Content within a single PageContent
 All content is placed within a single PageContent component.
 
 <Example
@@ -77,7 +75,7 @@ All content is placed within a single PageContent component.
   <SinglePageContent />
 </Example>
 
-### Full-width background color
+## Example: Page with full-width background
 Use cases where an application needs a background to span the entire width of a page section 
 is achieved by setting `background={{ fill: "horizontal", ...additional properties }}` on 
 PageContent.
@@ -107,7 +105,8 @@ the hero section might have an image spanning.
 likely use Page's "wide" variant.
 
 See [page layouts](/templates/page-layouts#page-kinds) for specifications 
-and use-case guidance.
+and [Content Layouts](/templates/content-layouts) for templates and guidance 
+on responsive designs.
 
 <Example 
   showResponsiveControls={['fullScreen']}

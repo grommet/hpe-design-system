@@ -22,8 +22,8 @@ export const PageExample = () => (
       gap="small"
       {...demoStyle}
     >
-      <ContentArea title="Page Header" border />
-      <ContentArea title="Other Content" border>
+      <ContentArea title="Page Header" border background="purple!" />
+      <ContentArea title="Other Content" border background="orange">
         <Paragraph margin={{ bottom: 'none' }}>
           Page is a container providing context (i.e. instructions) for how
           content should be laid out on a page.

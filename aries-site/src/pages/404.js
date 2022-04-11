@@ -7,7 +7,6 @@ import {
   Grid,
   Heading,
   Image,
-  Page,
   PageContent,
   Paragraph,
   ResponsiveContext,
