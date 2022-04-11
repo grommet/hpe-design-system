@@ -1,6 +1,6 @@
 import { Box } from 'grommet';
 
-export const AppContainer = ({ ...rest }) => (
+export const TagAppContainer = ({ ...rest }) => (
   <Box
     gap="large"
     fill
