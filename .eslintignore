@@ -7,4 +7,3 @@ package-lock.json
 babel.config.js
 .next/
 out/
-aries-site/src/data/search/
