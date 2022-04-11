@@ -17,7 +17,7 @@ import {
 
 const CoreIcon = ({ Icon, name, guidance }) => (
   <Card elevation={false}>
-    <CardHeader direction="column" align="stretch" gap="small">
+    <CardHeader direction="column" align="stretch" gap="small" pad={{ top: 'medium', horizontal: 'medium', bottom: 'small' }} >
       <Icon />
       <Heading level="3" size="small" margin="none">
         {name}
