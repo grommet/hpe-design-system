@@ -5,15 +5,37 @@ import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
 import { PageMarginAnatomy, ResponsiveContentLayoutExample } from '../../examples';
 
+Content layouts may be thought of across multiple levels of an information hierarchy &mdash;
+from a page template level organizing the layout of primary page sections, down to 
+an "organism" level coordinating how a title, piece of content, and related actions should 
+be laid out in relation to each other.
+
+Regardless of level in the hierarchy, content layouts should consider how its children 
+are displayed in relation to one another. Does their placement change at different 
+screen widths? When does it make sense to switch between a single-column, two-column, 
+or multi-column layout? Answer these questions and more by learning about:
+- [Designing for responsiveness](#designing-for-responsiveness).
+- The power of [using Grid with layout templates](#using-grid-with-templates).
+- Simplifying complex layouts by thinking of them as [nested Grids](#nested-grids).
+
+<br />
+
+Looking for a quick start? [Jump to layout templates](#templates).
+
 ## Designing for Responsiveness
 
-App layouts should be adaptable to different screen sizes depending on the user input. Our goal as designers and developers at HPE should be to create optimal and accessible user experiences regardless of screen size or resolution.
+Layouts should be adaptable to different screen sizes depending on the user input. 
+Our goal as designers and developers at HPE should be to create optimal and accessible 
+user experiences regardless of screen size or resolution.
 
 ### Prioritizing Content Needs
 
-Focusing on content needs can help us create better optimal user experiences–think about which piece of content a user is likely to interact with first and order items on the page accordingly.
+Focusing on content needs can help us create better optimal user experiences–think 
+about which piece of content a user is likely to interact with first and order items 
+on the page accordingly.
 
-Specifying layout content in this way will also ensure that it is interepreted appropriately by screen readers for visually impaired users.
+Specifying layout content in this way will also ensure that it is interepreted 
+appropriately by screen readers for visually impaired users.
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -40,15 +62,16 @@ For designers, breakpoints can help stress test and validate UX decisions around
 
 See the table below for breakpoints defined by the HPE Design System. Keep in mind that these breakpoints are not meant to target every single existing device &mdash; we understand that technology is ever evolving. Instead, the ranges defined here help build a strong foundation to account for diverse use cases when creating responsive designs.
 
-| T-shirt Size   | Range         |  Margin (pixels) |
-| -------------- | ----------    | -----------------:
-| **xsmall**    | 576 and below |      12
-| **small**     | 577 - 768     |      24
-| **medium**      | 769 - 1080    |      24
-| **large**     | 1081 - 1439   |      48
-| **xlarge**      | 1440 and above|      48
+| Breakpoints    | Range (width in pixels) |  Margin (pixels) |
+| -------------- | ----------------------- | -----------------:
+| **xsmall**     | 576 and below           | 12
+| **small**      | 577 - 768               | 24
+| **medium**     | 769 - 1080              | 24
+| **large**      | 1081 - 1439             | 48
+| **xlarge**     | 1440 and above          | 48
 
-#### Page Margin
+#### Page Margin (fyi, thinking of moving this margin section to Page Layouts page which 
+may resolve some confusion voiced in Slack)
 
 Page margin is the left and right space between the main content of a page and the screen edge.
 Based on the screen size, the page margin differs at each breakpoint.
@@ -64,6 +87,36 @@ Based on the screen size, the page margin differs at each breakpoint.
 </Example>
 
 Wider margins are better for larger screens, as they create more whitespace around the perimeter of the content. Smaller margins are appropriate for smaller screens, in order to maximize the available screen real estate.
+
+## Using Grid with Templates
+HPE Design System uses a combination of CSS Grid and Flexbox via Grommet's Grid and Box 
+components. Grid's flexibility provides designers and developers great control and ability 
+to execute layouts regardless of the user's screen size.
+
+The following provides a helpful framework and approach for building content 
+layouts with Grid. Visit [getting to know Grid](/components/grid#getting-to-know-grid) 
+to learn more about its properties and key concepts.
+
+### Columns
+- Number of columns
+- Column widths
+  - static
+  - percentage
+  - flexible min-max
+- Gap between columns
+
+### Nested Grids
+When dealing with complex layouts, it is helpful to simplify them by thinking of them 
+as nested grids. Any column or grid area may be a grid itself. 
+
+### Rows
+The HPE Design System primarily relies on columns + nested grid thinking for defining 
+grid layouts. This is a philisophical approach to aid clarity in thinking, clarity when 
+communicating concepts, and serve as a common thinking pattern across designers and 
+developers. 
+
+That said, Grid allows for row definitions. Use rows if finer control is needed over 
+the vertical rhythm of the page.
 
 ## Templates
 
