@@ -1,39 +1,26 @@
 import React, { useContext } from 'react';
-import {
-  Box,
-  Grid,
-  Header,
-  Heading,
-  Main,
-  ResponsiveContext,
-  Page,
-  PageContent,
-} from 'grommet';
+import { Box, Grid, Main, ResponsiveContext, Page, PageContent } from 'grommet';
+
+import { PageHeader } from '../PageHeader';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
-export const ResponsiveContentLayoutExample = () => (
-  <AppContainer background="background-back">
-    <ContentArea title="Global Header" />
-    <Page>
-      <PageContent>
-        <PageHeader />
-        <Content />
-      </PageContent>
-    </Page>
-    <ContentArea title="Global Footer" />
-  </AppContainer>
-);
-
-const PageHeader = () => {
+export const ResponsiveContentLayoutExample = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Header pad={{ bottom: 'large' }}>
-      <Heading level={1} margin="none" size="small">
-        {/* for dev purposes, will be replaced with dashboard content */}
-        Dashboard @ '{size}' Breakpoint
-      </Heading>
-    </Header>
+    <AppContainer background="background-back">
+      <ContentArea title="Global Header" />
+      <Page>
+        <PageContent gap="large">
+          <PageHeader
+            /* for dev purposes, will be replaced with dashboard content */
+            title={`Dashboard @ '${size}' Breakpoint`}
+          />
+          <Content />
+        </PageContent>
+      </Page>
+      <ContentArea title="Global Footer" />
+    </AppContainer>
   );
 };
 

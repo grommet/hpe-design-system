@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Grid, Main, ResponsiveContext, Page, PageContent } from 'grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageHeader } from './components';
+import { PageHeader } from '../PageHeader';
 import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 
 export const ThreeColumnDashboard = () => (

@@ -17,7 +17,7 @@ const Extend = () => (
         light: '/extend-light.svg',
       },
       alt: 'HPE Design System Extend',
-      margin: { left: '-225px', top: '-85px' },
+      margin: { left: '-280px', top: '-85px' },
       small: {
         margin: { left: '-25px', top: '-100px' },
       },

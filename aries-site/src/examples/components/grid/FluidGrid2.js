@@ -1,6 +1,7 @@
 import { Grid } from 'grommet';
 import { ContentArea } from '../../templates/page-layouts/anatomy/components';
 import { contentAreaProps as props } from './utils';
+
 const contentAreaProps = {
   ...props,
   height: undefined,
