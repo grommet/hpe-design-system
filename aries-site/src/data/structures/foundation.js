@@ -42,8 +42,8 @@ export const foundation = [
     ],
   },
   {
-    name: 'Accessibility Transcript',
-    description: 'Transcription for Accessibility at HPE with Bill Tiption'
+    name: 'Accessibility Transcript File',
+    description: 'Transcription for Accessibility at HPE with Bill Tipton'
   },
   {
     name: 'Our Brand',
