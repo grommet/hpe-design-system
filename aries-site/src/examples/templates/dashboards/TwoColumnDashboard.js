@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import {
+  Anchor,
   Box,
+  Button,
   Grid,
   Heading,
   Main,
@@ -8,6 +11,7 @@ import {
   Page,
   PageContent,
 } from 'grommet';
+import { FormPrevious } from 'grommet-icons';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 import { PageHeader } from '../PageHeader';
@@ -19,13 +23,46 @@ import {
   ServerHealth,
   UpdatesAvaliable,
 } from './content';
+import { BreadCrumbs } from '../PageHeader/BreadCrumbs';
 
 export const TwoColumnDashboard = () => (
-  <AppContainer background="background-back">
+  <AppContainer background="background">
     <ContentArea title="Global Header" />
     <Page>
       <PageContent gap="large">
-        <PageHeader title="Dashboard" />
+        <PageHeader
+          title="Manage Devices"
+          subtitle={`Onboard and manage all devices in your inventory. 
+          This could also be slightly longer.`}
+          actions={[
+            { label: 'Other action', secondary: true },
+            { label: 'Add Device', primary: true },
+          ]}
+          contextualNav={
+            <Link href="#" passHref>
+              <Button label="Settings" icon={<FormPrevious />} kind="up" />
+            </Link>
+          }
+          // contextualNav={
+          //   <BreadCrumbs
+          //     items={[
+          //       { label: 'Settings', href: '/settings' },
+          //       { label: 'Permissions', href: '/settings/permissions' },
+          //     ]}
+          //     router={item => <Link href={item.href} passHref />}
+          //   />
+          //   // <BreadCrumbs>
+          //   //   {[
+          //   //     { label: 'Settings', href: '/settings' },
+          //   //     { label: 'Permissions', href: '/settings/permissions' },
+          //   //   ].map((crumb, index) => (
+          //   //     <Link href={crumb.href} key={index} passHref>
+          //   //       <Anchor size="xsmall" label={crumb.label} />
+          //   //     </Link>
+          //   //   ))}
+          //   // </BreadCrumbs>
+          // }
+        />
         <Content />
       </PageContent>
     </Page>
