@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardHeader, CardBody, Grid, Heading, Paragraph } from 'grommet';
+import {
+  Box,
+  Card,
+  CardHeader,
+  CardBody,
+  Grid,
+  Heading,
+  Paragraph,
+  Text,
+} from 'grommet';
 import {
   Add,
   Close,
@@ -15,7 +24,7 @@ import {
   Trash,
 } from 'grommet-icons';
 
-const CoreIcon = ({ Icon, name, guidance }) => (
+const CoreIcon = ({ Icon, name, aliases, guidance }) => (
   <Card elevation={false}>
     <CardHeader
       direction="column"
@@ -24,9 +33,22 @@ const CoreIcon = ({ Icon, name, guidance }) => (
       pad={{ top: 'medium', horizontal: 'medium', bottom: 'small' }}
     >
       <Icon />
-      <Heading level="3" size="small" margin="none">
-        {name}
-      </Heading>
+      <Box>
+        <Heading level="3" size="small" margin="none">
+          {name}
+        </Heading>
+        {aliases && (
+          <Box direction="row" gap="xsmall" wrap>
+            <Text>or</Text>
+            {aliases.map((a, i) => (
+              <>
+                <Text weight="bold">{a}</Text>
+                {(i < aliases.length - 1) && ', '}
+              </>
+            ))}
+          </Box>
+        ) || <>&nbsp;</>}
+      </Box>
     </CardHeader>
     <CardBody pad={{ top: 'none', horizontal: 'medium', bottom: 'medium' }}>
       <Paragraph margin="none">{guidance}</Paragraph>
@@ -37,74 +59,94 @@ const CoreIcon = ({ Icon, name, guidance }) => (
 CoreIcon.propTypes = {
   Icon: PropTypes.object,
   name: PropTypes.string,
+  aliases: PropTypes.arrayOf(PropTypes.string),
   guidance: PropTypes.string,
 };
 
-export const IconCoreExample = () => (
+export const IconResourceActionsExample = () => (
   <Grid alignSelf="stretch" gap="medium" columns="small">
     <CoreIcon
       Icon={Add}
       name="Add"
-      guidance="Placed in buttons as an action to
-        add items, increase count, and zoom out on maps."
-    />
-    <CoreIcon
-      Icon={Subtract}
-      name="Subtract"
-      guidance="Placed in buttons as an action to
-        remove a selection, decrease count, and zoom in on maps."
+      aliases={['Create']}
+      guidance="Use in buttons to initiate adding or creating things."
     />
     <CoreIcon
       Icon={Edit}
       name="Edit"
-      guidance="Placed in buttons as an action to edit objects."
+      guidance="Use in buttons to initiate editing things."
     />
     <CoreIcon
       Icon={Trash}
       name="Trash"
-      guidance="Placed in buttons as an action to delete objects."
+      aliases={['Delete']}
+      guidance="Use in buttons to initiate deleting things."
     />
+  </Grid>
+);
+
+export const IconUIActionsExample = () => (
+  <Grid alignSelf="stretch" gap="medium" columns="small">
     <CoreIcon
-      Icon={Filter}
-      name="Filter"
-      guidance="Placed in buttons as an action to filter grids of cards,
-        lists, and tables."
-    />
-    <CoreIcon
-      Icon={Download}
-      name="Download"
-      guidance="Placed in buttons as an action to
-        download files."
-    />
-    <CoreIcon
-      Icon={Notification}
-      name="Notification"
-      guidance="Placed in buttons in the global header as an action to
-        open a recent list or new page of notifications."
+      Icon={Close}
+      name="Close"
+      guidance="Use in buttons to close layers."
     />
     <CoreIcon
       Icon={Search}
       name="Search"
-      guidance="Placed next to and within search fields as an action to
-        access and execute search and filtering."
+      guidance="Use next to and within search fields to
+        access and execute searching."
     />
     <CoreIcon
-      Icon={Close}
-      name="Close"
-      guidance="Placed in buttons as an action to
-        close layers."
+      Icon={Filter}
+      name="Filter"
+      guidance="Use in buttons to toggle filter controls associated with
+        grids of cards, lists, and tables."
+    />
+    <CoreIcon
+      Icon={Notification}
+      name="Notification"
+      guidance="Use in buttons in the global header to
+        open a recent list or new page of notifications."
+    />
+    <CoreIcon
+      Icon={Download}
+      name="Download"
+      guidance="Use in buttons to initiate downloading files."
+    />
+  </Grid>
+);
+
+export const IconControlsExample = () => (
+  <Grid alignSelf="stretch" gap="medium" columns="small">
+    <CoreIcon
+      Icon={Add}
+      name="Add"
+      aliases={['Increase', 'Zoom In']}
+      guidance="Use in buttons to increase counts, and zoom in on maps."
+    />
+    <CoreIcon
+      Icon={Subtract}
+      name="Subtract"
+      aliases={['Decrease', 'Zoom Out']}
+      guidance="Use in buttons to decrease counts, and zoom out on maps."
     />
     <CoreIcon
       Icon={FormUp}
       name="Collapse"
-      guidance="Placed in buttons as an action to
-        collapse content."
+      guidance="Use in buttons to collapse content."
     />
     <CoreIcon
       Icon={FormDown}
       name="Expand"
-      guidance="Placed in buttons as an action to
-        expand content."
+      guidance="Use in buttons to expand content."
+    />
+    <CoreIcon
+      Icon={Close}
+      name="Close"
+      aliases={['Clear']}
+      guidance="Use in in file input fields to clear them."
     />
   </Grid>
 );
