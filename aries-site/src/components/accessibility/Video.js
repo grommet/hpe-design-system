@@ -14,46 +14,49 @@ export const AccessVideo = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <>
-      <Box 
-        gap="small" 
-        width="large" 
-        pad={{ bottom: 'large' }}
+    <Box width="large" pad={{ bottom: 'large' }}>
+      <video 
+        aria-label="Accessibility at HPE Video"
+        poster="/static/images/Bill-Access-Cover.png" 
+        controlsList="nodownload"
+        controls
       >
-        <video 
-          aria-label="Accessibility at HPE Video"
-          poster="/static/images/Bill-Access-Cover.png" 
-          controlsList="nodownload"
-          controls
-        >
-          <source
-            src="https://d3hq6blov2iije.cloudfront.net/media/BILL-ACCESS-VID.mp4"
-            type="video/mp4"
-          />
-          <track
-            kind="captions"
-            srcLang="en"
-            src="/static/accessibility/Bill.Access.Captions.vtt"
-          />
-        </video>
+        <source
+          src="https://d3hq6blov2iije.cloudfront.net/media/BILL-ACCESS-VID.mp4"
+          type="video/mp4"
+        />
+        <track
+          kind="captions"
+          srcLang="en"
+          src="/static/accessibility/Bill.Access.Captions.vtt"
+        />
+      </video>
+      <Box 
+        background="background-front" 
+        round={{ corner: 'bottom', size: 'small' }}
+        pad="small" 
+        direction={expanded ? 'column' : 'row'} 
+      >
         <Button 
           icon={
             expanded ? 
-              <FormUp a11yTitle="Up arrow" /> : 
-              <FormDown a11yTitle="Down arrow" />
+              <FormUp a11yTitle="Up icon" /> : 
+              <FormDown a11yTitle="Down icon" />
           }
           reverse
           alignSelf="start"
-          label="Video Audio Description"
-          a11yTitle="Video Audio Description"
-          aria-description="Click to show audio description"
+          label="Video Description"
+          a11yTitle="Audio Description of video"
+          aria-description={`Click to ${expanded ? 'hide' : 'show'} audio description`}
           onClick={() => {
             setExpanded(!expanded);
             expanded ? announce("Hid audio description") : 
               announce("Opened audio description");
           }} 
         />
-        {expanded && desc}
+        <Box pad="small">
+          {expanded && desc}
+        </Box>
         <Button 
           alignSelf="start"
           label="Transcript file"
@@ -65,6 +68,6 @@ export const AccessVideo = () => {
           }
         />
       </Box>
-    </>
+    </Box>
   );
 };
