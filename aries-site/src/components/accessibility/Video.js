@@ -61,7 +61,7 @@ export const AccessVideo = () => {
           alignSelf="start"
           label="Transcript file"
           a11yTitle="Video transcript file with audio description"
-          href="/static/accessibility/transcript.html" 
+          href="/foundation/accessibility-transcript" 
           target="_blank"
           onClick={() => 
             announce("Opened video transcript file", 'assertive')
