@@ -7,6 +7,7 @@ import {
   Grid,
   Heading,
   Image,
+  PageContent,
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
@@ -52,17 +53,19 @@ const Custom404 = () => {
   return (
     <Layout title={title} isLanding>
       <Meta title={title} />
-      <Grid
-        columns={
-          !['xsmall', 'small'].includes(size) ? ['medium', 'auto'] : '100%'
-        }
-        gap="large"
-        pad={{ top: 'large' }}
-        fill
-      >
-        {first}
-        {second}
-      </Grid>
+      <PageContent>
+        <Grid
+          columns={
+            !['xsmall', 'small'].includes(size) ? ['medium', 'auto'] : '100%'
+          }
+          gap="large"
+          pad={{ top: 'large' }}
+          fill
+        >
+          {first}
+          {second}
+        </Grid>
+      </PageContent>
     </Layout>
   );
 };

@@ -13,3 +13,6 @@ export * from './page-layouts';
 export * from './table-customization';
 export * from './toast-notifications';
 export * from './wizard';
+export * from './FilterControls';
+export * from './PageHeader';
+export * from './StatusIndicator';
