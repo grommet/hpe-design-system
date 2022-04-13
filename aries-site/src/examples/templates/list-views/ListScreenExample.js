@@ -173,7 +173,7 @@ export const ListScreenExample = ({ ...rest }) => (
     <AppHeaderExample />
     <PageHeader
       title="User Controls"
-      actions={<Button label="Manage" primary />}
+      actions={[{ label: 'Manage', primary: true }]}
       pad={{ vertical: 'medium' }}
     />
     <StyledList />
