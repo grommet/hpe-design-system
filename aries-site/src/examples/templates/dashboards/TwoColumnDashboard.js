@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import {
-  Anchor,
+  // Anchor,
   Box,
   Button,
   Grid,
@@ -23,7 +23,7 @@ import {
   ServerHealth,
   UpdatesAvaliable,
 } from './content';
-import { BreadCrumbs } from '../PageHeader/BreadCrumbs';
+// import { BreadCrumbs } from '../PageHeader/BreadCrumbs';
 
 export const TwoColumnDashboard = () => (
   <AppContainer background="background">

@@ -1,6 +1,6 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Anchor, Box, Text } from 'grommet';
+import { Box, Text } from 'grommet';
 
 // APPROACH 1: Breadcrumbs as component with props
 // export const BreadCrumbs = ({ items, router }) => (
