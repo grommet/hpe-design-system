@@ -9,7 +9,8 @@ import {
   PageContainerFull, 
   PageContainerInteractive, 
   PageContainerNarrow, 
-  PageContainerWide 
+  PageContainerWide, 
+  PageMarginAnatomy 
 } from '../../examples';
 
 <Button
@@ -158,6 +159,34 @@ PageContent will be left aligned to the edge of the screen.
 - Charts 
 - Maps 
 - Tables
+
+#### Page Margin
+
+Page margin is the left and right space between the main content of a page and the screen 
+edge. Based on the screen size (not Page Kind), the page margin differs at each [responsive breakpoint](/templates/content-layouts#breakpoints).
+
+<Example 
+  caption="A diagram showing the margin area on a larger and smaller screens." 
+  plain 
+  pad="small"
+  previewWidth="large"
+  height={{ min: 'small' }}
+>
+  <PageMarginAnatomy />
+</Example>
+
+Wider margins are better for larger screens, as they create more whitespace around the 
+perimeter of the content. Smaller margins are appropriate for smaller screens, in order to 
+maximize the available screen real estate.
+
+| Breakpoint     |  Margin (pixels) |
+| -------------- | -----------------:
+| **xsmall**     | 12
+| **small**      | 24
+| **medium**     | 24
+| **large**      | 48
+| **xlarge**     | 48
+
 
 ### PageContent Widths Demonstration
 
