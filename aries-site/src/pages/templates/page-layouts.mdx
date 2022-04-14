@@ -160,10 +160,14 @@ PageContent will be left aligned to the edge of the screen.
 - Maps 
 - Tables
 
-#### Page Margin
+#### Page Padding
 
-Page margin is the left and right space between the main content of a page and the screen 
-edge. Based on the screen size (not Page Kind), the page margin differs at each [responsive breakpoint](/templates/content-layouts#breakpoints).
+Page padding is the left and right space between the page content and the 
+screen edge.
+
+Wider padding is better for larger screens, as it creates more whitespace 
+either side of the content. For smaller screens, less whitespace is appropriate 
+in order to maximize the available screen real estate. 
 
 <Example 
   caption="A diagram showing the margin area on a larger and smaller screens." 
@@ -175,11 +179,10 @@ edge. Based on the screen size (not Page Kind), the page margin differs at each 
   <PageMarginAnatomy />
 </Example>
 
-Wider margins are better for larger screens, as they create more whitespace around the 
-perimeter of the content. Smaller margins are appropriate for smaller screens, in order to 
-maximize the available screen real estate.
+[Responsive breakpoints](/templates/content-layouts#breakpoints) determine the amount of horizontal 
+padding to be used at various screen widths.
 
-| Breakpoint     |  Margin (pixels) |
+| Breakpoint     |  Pad (pixels) |
 | -------------- | -----------------:
 | **xsmall**     | 12
 | **small**      | 24
