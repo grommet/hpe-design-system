@@ -35,38 +35,39 @@ export const AccessVideo = () => {
         background="background-front" 
         round={{ corner: 'bottom', size: 'small' }}
         pad="small" 
-        direction={expanded ? 'column' : 'row'} 
       >
-        <Button 
-          icon={
-            expanded ? 
-              <FormUp a11yTitle="Up icon" /> : 
-              <FormDown a11yTitle="Down icon" />
-          }
-          reverse
-          alignSelf="start"
-          label="Video Description"
-          a11yTitle="Audio Description of video"
-          aria-description={`Click to ${expanded ? 'hide' : 'show'} audio description`}
-          onClick={() => {
-            setExpanded(!expanded);
-            expanded ? announce("Hid audio description") : 
-              announce("Opened audio description");
-          }} 
-        />
-        <Box pad="small">
-          {expanded && desc}
+        <Box direction="row" gap="small">
+          <Button 
+            icon={
+              expanded ? 
+                <FormUp a11yTitle="Up icon" /> : 
+                <FormDown a11yTitle="Down icon" />
+            }
+            reverse
+            alignSelf="start"
+            label="Video Description"
+            a11yTitle="Audio Description of video"
+            aria-description={`Click to ${expanded ? 'hide' : 'show'} audio description`}
+            onClick={() => {
+              setExpanded(!expanded);
+              expanded ? announce("Hid audio description") : 
+                announce("Opened audio description");
+            }} 
+          />
+          <Button 
+            alignSelf="start"
+            label="Transcript file"
+            a11yTitle="Video transcript file with audio description"
+            href="/foundation/accessibility-transcript-file" 
+            target="_blank"
+            onClick={() => 
+              announce("Opened video transcript file", 'assertive')
+            }
+          />
         </Box>
-        <Button 
-          alignSelf="start"
-          label="Transcript file"
-          a11yTitle="Video transcript file with audio description"
-          href="/foundation/accessibility-transcript-file" 
-          target="_blank"
-          onClick={() => 
-            announce("Opened video transcript file", 'assertive')
-          }
-        />
+        {expanded && 
+          <Box pad="small">{desc}</Box>
+        } 
       </Box>
     </Box>
   );
