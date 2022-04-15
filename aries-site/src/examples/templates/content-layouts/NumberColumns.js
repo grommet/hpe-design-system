@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Grid, Text } from 'grommet';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
@@ -21,3 +22,7 @@ const GridContentArea = ({ label }) => (
     <Text weight="bold">{label}</Text>
   </ContentArea>
 );
+
+GridContentArea.propTypes = {
+  label: PropTypes.string,
+};
