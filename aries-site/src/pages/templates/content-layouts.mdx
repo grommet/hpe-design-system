@@ -3,7 +3,7 @@ import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
 import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
-import { ResponsiveContentLayoutExample } from '../../examples';
+import { ContainerDrivenLayout, NumberColumns, ResponsiveContentLayoutExample } from '../../examples';
 
 Content layouts may be applied across different levels of information hierarchy.
 At a page template level, it can help with the layout of page sections. At an "organism" 
@@ -70,36 +70,59 @@ widths.
   <ResponsiveContentLayoutExample />
 </Example>
 
-## Using Grid with Templates
-HPE Design System uses a combination of CSS Grid and Flexbox via Grommet's Grid and Box 
-components. Grid's flexibility provides designers and developers great control and ability 
+## Implementing Content Layouts with Grid
+Grid's flexibility provides designers and developers great control and ability 
 to execute layouts regardless of the user's screen size.
 
-The following provides a helpful framework and approach for building content 
-layouts with Grid. Visit [getting to know Grid](/components/grid#getting-to-know-grid) 
-to learn more about its properties and key concepts.
+<!-- HPE Design System uses a combination of CSS Grid and Flexbox via Grommet's Grid and Box 
+components. -->
 
-### Columns
-Columns along with rows help define a grid layout.
-- Number of columns
-- Column widths
-  - static
-  - percentage
-  - flexible min-max
-- Gap between columns
+The following provides two approaches for building responsive content layouts with Grid.
+
+For greater detail about Grid's properties and key concepts visit [getting to know Grid](/components/grid#getting-to-know-grid). 
+Additionally, a can't miss tool for designers is [Layout Templates in Figma](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2906%3A21283) 
+which provide Grid-based layout templates for each responsive breakpoint and [page layout kind](/templates/page-layouts#page-kinds).
+
+### Container-Driven Layouts
+Container-driven layouts drive the layout from the outside-in. They begin by defining 
+regions in which the content will live, whether those regions are [fixed, flexible, or fluid](/components/grid#background), 
+and how those regions are [prioritized](#prioritizing-content-needs) at each responsive breakpoint.
+
+Container-driven layouts are useful for defining larger layouts, such as at the page level, 
+but can be useful for defining smaller sub-regions as well. The best use of available screen 
+real-estate can be achieved by combining a container-driven page layout with things like Cards
+which have been built to have adaptive layouts themselves.
+
+The following example takes a container-driven approach, implementing a an app-catalog 
+consisting of a filters region and a results region.
+
+Key aspects to the approach are:
+- At larger breakpoints, the content layout will be a two-column layout; a single column 
+at smaller breakpoints.
+- The filters region will be fixed-width when in a two-column layout and [flex-width](/components/grid#flexible-columns) 
+when in a single column. The results region always uses a [fluid grid](/components/grid#fluid-grids).
+- The filters region are prioritized over the results region because the filters are needed to control 
+the results.
+
+<Example>
+  <ContainerDrivenLayout />
+</Example>
+
+### Content-Driven Layouts
+Content-driven layouts are driven from the inside-out, allowing the container to respond 
+and adapt to things like user entered content, like names. The layout is custom fit to 
+the content it holds.
+
+The content-driven approach is useful for layouts such as modal dialogs or side-drawer 
+content within a layer, where the content should occupy the space it needs and not be 
+artificially constrained by its layout container.
+
+The following example takes a content-driven approach, implementing a modal dialog 
+displaying content returned from a server with an unknown length.
 
 ### Nested Grids
 When dealing with complex layouts, it is helpful to simplify them by thinking of them 
 as nested grids. Any column or grid area may be a grid itself. 
-
-### Rows
-The HPE Design System primarily relies on columns + nested grid thinking for defining 
-grid layouts. This is a philisophical approach to aid clarity in thinking, clarity when 
-communicating concepts, and serve as a common thinking pattern across designers and 
-developers. 
-
-That said, Grid allows for row definitions. Use rows if finer control is needed over 
-the vertical rhythm of the page.
 
 ## Templates
 
