@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Tab, Tabs } from 'grommet';
-import { Currency, HomeRounded, Notification, User } from 'grommet-icons';
+import { Currency, HomeRounded, User } from 'grommet-icons';
+import { TabContent } from './TabContent';
 
 export const TabWithIconExample = () => {
-  const [index, setIndex] = React.useState();
+  const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
 
   return (
     <Box>
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="General" icon={<HomeRounded />}>
-          <Box margin="small">General Information</Box>
+          <TabContent>General Information</TabContent>
         </Tab>
         <Tab title="Account" icon={<User />}>
-          <Box margin="small">Account Information</Box>
+          <TabContent>Account Information</TabContent>
         </Tab>
         <Tab title="Billing" icon={<Currency />}>
-          <Box margin="small">Billing Information</Box>
-        </Tab>
-        <Tab title="Notifications" icon={<Notification />}>
-          <Box margin="small">Notifications will show here.</Box>
+          <TabContent>Billing Information</TabContent>
         </Tab>
       </Tabs>
     </Box>

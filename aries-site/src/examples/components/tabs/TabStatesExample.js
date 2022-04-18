@@ -1,26 +1,25 @@
-import React from 'react';
-import { Box, Tab, Tabs } from 'grommet';
+import React, { useState } from 'react';
+import { Tab, Tabs } from 'grommet';
+import { TabContent } from './TabContent';
 
 export const TabStatesExample = () => {
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   const onActive = nextIndex => setIndex(nextIndex);
 
   return (
-    <Box>
-      <Tabs activeIndex={index} onActive={onActive} justify="start">
-        <Tab title={index === 0 ? 'Active' : 'Enabled'}>
-          <Box margin="small">The first tab is active.</Box>
-        </Tab>
-        <Tab title={index === 1 ? 'Active' : 'Enabled'}>
-          <Box margin="small">The second tab is active.</Box>
-        </Tab>
-        <Tab title={index === 2 ? 'Active' : 'Enabled'}>
-          <Box margin="small">The third tab is active.</Box>
-        </Tab>
-        <Tab title="Disabled" disabled>
-          <Box margin="small">This tab is disabled.</Box>
-        </Tab>
-      </Tabs>
-    </Box>
+    <Tabs activeIndex={index} onActive={onActive} justify="start">
+      <Tab title={index === 0 ? 'Active' : 'Enabled'}>
+        <TabContent>The first tab is active.</TabContent>
+      </Tab>
+      <Tab title={index === 1 ? 'Active' : 'Enabled'}>
+        <TabContent>The second tab is active.</TabContent>
+      </Tab>
+      <Tab title={index === 2 ? 'Active' : 'Enabled'}>
+        <TabContent>The third tab is active.</TabContent>
+      </Tab>
+      <Tab title="Disabled" disabled>
+        <TabContent>This tab is disabled.</TabContent>
+      </Tab>
+    </Tabs>
   );
 };

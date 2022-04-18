@@ -12,6 +12,9 @@ import {
   docs="https://v2.grommet.io/tabs?theme=hpe#props"
   figma="https://www.figma.com/file/Kp4dWyhUTnKIJ1Cg5CoL9o/HPE-Tabs-Component?node-id=112%3A510"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tabs/Tabs.js"
+  template
+  height={{min: 'small'}}
+  showResponsiveControls={[]}
 >
   <TabsExample />
 </Example>
@@ -33,6 +36,10 @@ the browser location.** This will allow proper active styling and routing to fun
 
 **If using Tabs as a navigation structure, don't use them in conjunction with other navigation structures.** Combining multiple navigation structures creates a confusing experience for the user. It can lead to difficulties in navigating through an application and in ability to remember where desired content lives.
 
+### Content Alignment
+
+Align tab content flush with the left side of the Tab controls. Apply a vertical padding of `medium` to create space between the Tab and its content.
+
 ### Accessibility
 
 Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
@@ -50,7 +57,9 @@ An icon can be used on a Tab to provide additional context about the information
 <Example
   docs="https://v2.grommet.io/tabs?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabWithIconExample.js"
-  height={{ min: 'small' }}
+  template
+  height={{min: 'small'}}
+  showResponsiveControls={[]}
 >
   <TabWithIconExample />
 </Example>
@@ -62,7 +71,9 @@ An individual Tab can take on various states: enabled, disabled, hover, and acti
 <Example
   docs="https://v2.grommet.io/tabs?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabStatesExample.js"
-  height={{ min: 'small' }}
+  template
+  height={{min: 'small'}}
+  showResponsiveControls={[]}
 >
   <TabStatesExample />
 </Example>
