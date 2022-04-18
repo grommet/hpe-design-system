@@ -61,6 +61,7 @@ widths.
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/components/AppContainer.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/anatomy/components/ContentArea.js",
     ]}
+    github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
   // height, width, and screenContainer.scale value chosen to best visually 
   // represent the example
   height="650px"
@@ -71,9 +72,11 @@ widths.
 </Example>
 
 ## Implementing Content Layouts
-The following discusses two approaches for building responsive content layouts:
+The following discusses three approaches for building responsive content layouts. All approaches 
+may be mixed and matched as desired.
 - [Container-driven](#container-driven-layouts)
 - [Content-driven](#content-driven-layouts)
+- [Nested grids](#nested-grids)
 
 These approaches take full advantage of Grid's flexibility which provides designers and 
 developers great control and ability to execute layouts regardless of the user's screen size. 
@@ -106,11 +109,14 @@ the results.
 <Example
   showResponsiveControls={['fullScreen']}
   code={[
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/PageHeader/PageHeader.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/components/AppContainer.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/anatomy/components/ContentArea.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/ContainerDrivenLayout.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/PageHeader/PageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/AppResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/FilterPanel.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/applications.json",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/constants.js",
     ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout.js"
   // height, width, and screenContainer.scale value chosen to best visually 
   // represent the example
   height="650px"
@@ -138,6 +144,10 @@ as nested grids. Any column or grid area may be a grid itself.
 
 <Example
   horizontalLayout
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/NestedGrid.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/NestedGrid.js"
   caption="Diagram illustrating how Grids may be nested inside one another."
   width={{ min: "large" }}
 >
