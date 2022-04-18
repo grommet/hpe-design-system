@@ -1,0 +1,154 @@
+[
+  {
+    "id": 1,
+    "title": "scikit-learn",
+    "publisher": "",
+    "categories": ["Machine Learning", "Developer Tools"],
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "title": "Personalizer",
+    "publisher": "",
+    "categories": ["Machine Learning", "Developer Tools"],
+    "rating": 4.1
+  },
+  {
+    "id": 3,
+    "title": "SuperLearner",
+    "publisher": "",
+    "categories": ["Machine Learning"],
+    "rating": 4.5
+  },
+  {
+    "id": 4,
+    "title": "Data Analytics Acceleration Library",
+    "publisher": "",
+    "categories": ["Machine Learning", "Data Analytics"],
+    "rating": 4.5
+  },
+  {
+    "id": 5,
+    "title": "Python machine-learning",
+    "publisher": "",
+    "categories": ["Machine Learning", "Developer Tools"],
+    "rating": 4.7
+  },
+  {
+    "id": 6,
+    "title": "GoLearn",
+    "publisher": "",
+    "categories": [
+      "Machine Learning",
+      "Developer Tools",
+      "Data Analytics",
+      "Big Data"
+    ],
+    "rating": 4.1
+  },
+  {
+    "id": 7,
+    "title": "PyTorch",
+    "publisher": "",
+    "categories": ["Machine Learning", "Developer Tools"],
+    "rating": 4.6
+  },
+  {
+    "id": 8,
+    "title": "Forecast",
+    "publisher": "",
+    "categories": ["Machine Learning", "Data Analytics", "Big Data"],
+    "rating": 3.8
+  },
+  {
+    "id": 9,
+    "title": "MLlib",
+    "publisher": "",
+    "categories": ["Machine Learning"],
+    "rating": 4.1
+  },
+  {
+    "id": 10,
+    "title": "Kubeflow",
+    "publisher": "",
+    "categories": ["Machine Learning"],
+    "rating": 4.4
+  },
+  {
+    "id": 11,
+    "title": "AppDynamics",
+    "publisher": "",
+    "categories": ["Monitoring"],
+    "rating": 4.3
+  },
+  {
+    "id": 12,
+    "title": "Datadog",
+    "publisher": "",
+    "categories": ["Monitoring"],
+    "rating": 4.3
+  },
+  {
+    "id": 13,
+    "title": "Instana",
+    "publisher": "",
+    "categories": ["Monitoring"],
+    "rating": 4.5
+  },
+  {
+    "id": 14,
+    "title": "LogicMonitor",
+    "publisher": "",
+    "categories": ["Monitoring", "Developer Tools"],
+    "rating": 4.5
+  },
+  {
+    "id": 15,
+    "title": "Databricks",
+    "publisher": "",
+    "categories": ["Data Analytics", "Big Data"],
+    "rating": 4.4
+  },
+  {
+    "id": 16,
+    "title": "MATLAB",
+    "publisher": "",
+    "categories": ["Data Analytics", "Big Data"],
+    "rating": 4.5
+  },
+  {
+    "id": 17,
+    "title": "Lakehouse",
+    "publisher": "",
+    "categories": ["Data Analytics", "Big Data"],
+    "rating": 4.5
+  },
+  {
+    "id": 18,
+    "title": "Vault",
+    "publisher": "",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.2
+  },
+  {
+    "id": 19,
+    "title": "Security Suite",
+    "publisher": "",
+    "categories": ["Data Protection"],
+    "rating": 4.3
+  },
+  {
+    "id": 20,
+    "title": "DBShield",
+    "publisher": "",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.9
+  },
+  {
+    "id": 21,
+    "title": "Padlock",
+    "publisher": "",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.2
+  }
+]

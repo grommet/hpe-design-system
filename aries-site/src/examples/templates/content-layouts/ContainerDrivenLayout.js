@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -16,6 +17,38 @@ import { FormDown, FormNext } from 'grommet-icons';
 
 import { PageHeader } from '..';
 import { ContentArea } from '../page-layouts/anatomy/components';
+
+const allApps = require('../../../data/mockData/applications.json');
+const CATEGORIES = [
+  {
+    value: 'Machine Learning',
+    label: <Text>Machine Learning</Text>,
+  },
+  {
+    value: 'Big Data',
+    label: <Text>Big Data</Text>,
+  },
+  {
+    value: 'Data Analytics',
+    label: <Text>Data Analytics</Text>,
+  },
+  {
+    value: 'Data Protection',
+    label: <Text>Data Protection</Text>,
+  },
+  {
+    value: 'Database',
+    label: <Text>Database</Text>,
+  },
+  {
+    value: 'Developer Tools',
+    label: <Text>Developer Tools</Text>,
+  },
+  {
+    value: 'Monitoring',
+    label: <Text>Monitoring</Text>,
+  },
+];
 
 const pageContentGrid = {
   columns: {
@@ -67,14 +100,30 @@ export const ContainerDrivenLayout = () => {
 
 const ContentLayout = () => {
   const breakpoint = useContext(ResponsiveContext);
+  const [filteredApps, setFilteredApps] = useState(allApps);
+  const [filters, setFilters] = useState({});
+
+  useEffect(() => {
+    const results = [];
+
+    if (filters.categories) {
+      filters.categories.forEach(category => {
+        const matches = allApps.filter(app =>
+          app.categories.includes(category),
+        );
+        matches.forEach(match => results.push(match));
+      });
+      setFilteredApps(results);
+    }
+  }, [filters, setFilteredApps]);
 
   return (
     <Grid
       columns={pageContentGrid.columns[breakpoint]}
       gap={pageContentGrid.gap[breakpoint]}
     >
-      <FilterPanel />
-      <AppResults />
+      <FilterPanel setFilters={setFilters} />
+      <AppResults apps={filteredApps} />
     </Grid>
   );
 };
@@ -97,36 +146,7 @@ const FilterPanel = () => {
           onClick={() => setExpand(!expand)}
         />
         <Collapsible open={expand}>
-          <Box>
-            <CheckBoxGroup
-              options={[
-                {
-                  value: 'analytics',
-                  label: <Text>AI/ML & Analytics</Text>,
-                },
-                {
-                  value: 'big data',
-                  label: <Text>Big Data</Text>,
-                },
-                {
-                  value: 'data protection',
-                  label: <Text>Data Protection</Text>,
-                },
-                {
-                  value: 'database',
-                  label: <Text>Database</Text>,
-                },
-                {
-                  value: 'developer tools',
-                  label: <Text>Developer Tools</Text>,
-                },
-                {
-                  value: 'monitoring',
-                  label: <Text>Monitoring</Text>,
-                },
-              ]}
-            />
-          </Box>
+          <CheckBoxGroup options={CATEGORIES} />
         </Collapsible>
       </>
       <Button label="Publishers" icon={<FormNext />} onClick={() => {}} />
@@ -136,7 +156,7 @@ const FilterPanel = () => {
   );
 };
 
-const AppGrid = {
+const appGrid = {
   columns: {
     xsmall: 'auto',
     small: ['auto', 'auto'],
@@ -153,10 +173,23 @@ const AppGrid = {
   },
 };
 
-const AppResults = () => (
-  <Box gap="medium">
-    <Heading level={2} size="small" margin="none">
-      Apps
-    </Heading>
-  </Box>
-);
+const AppResults = ({ apps }) => {
+  const breakpoint = useContext(ResponsiveContext);
+
+  return (
+    <Box gap="medium">
+      <Heading level={2} size="small" margin="none">
+        Apps
+      </Heading>
+      <Grid columns={appGrid.columns[breakpoint]} gap={appGrid.gap[breakpoint]}>
+        {apps?.map(app => (
+          <ContentArea key={app.id} />
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
+AppResults.propTypes = {
+  apps: PropTypes.arrayOf(PropTypes.object),
+};
