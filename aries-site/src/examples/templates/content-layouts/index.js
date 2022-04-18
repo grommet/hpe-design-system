@@ -1,3 +1,3 @@
 export * from './ContainerDrivenLayout';
-export * from './NumberColumns';
+export * from './NestedGrid';
 export * from './ResponsiveContentLayoutExample';

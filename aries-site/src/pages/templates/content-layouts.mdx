@@ -3,7 +3,7 @@ import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
 import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
-import { ContainerDrivenLayout, NumberColumns, ResponsiveContentLayoutExample } from '../../examples';
+import { ContainerDrivenLayout, NestedGrid, ResponsiveContentLayoutExample } from '../../examples';
 
 Content layouts may be applied across different levels of information hierarchy.
 At a page template level, it can help with the layout of page sections. At an "organism" 
@@ -71,7 +71,9 @@ widths.
 </Example>
 
 ## Implementing Content Layouts
-The following discusses two approaches for building responsive content layouts.
+The following discusses two approaches for building responsive content layouts:
+- [Container-driven](#container-driven-layouts)
+- [Content-driven](#content-driven-layouts)
 
 These approaches take full advantage of Grid's flexibility which provides designers and 
 developers great control and ability to execute layouts regardless of the user's screen size. 
@@ -113,7 +115,7 @@ the results.
   // represent the example
   height="650px"
   width="100%"
-  screenContainer={{ scale: 0.57 }}
+  screenContainer={{ scale: 0.75 }}
 >
   <ContainerDrivenLayout />
 </Example>
@@ -133,6 +135,14 @@ displaying content returned from a server with an unknown length.
 ### Nested Grids
 When dealing with complex layouts, it is helpful to simplify them by thinking of them 
 as nested grids. Any column or grid area may be a grid itself. 
+
+<Example
+  horizontalLayout
+  caption="Diagram illustrating how Grids may be nested inside one another."
+  width={{ min: "large" }}
+>
+  <NestedGrid />
+</Example>
 
 ## Templates
 

@@ -147,7 +147,7 @@ const ContentLayout = () => {
 
 const FilterPanel = ({ setFilters }) => {
   const breakpoint = useContext(ResponsiveContext);
-  const [expand, setExpand] = useState(true);
+  const [expand, setExpand] = useState(false);
 
   const filterOptions = (
     <Box
