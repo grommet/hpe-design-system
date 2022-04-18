@@ -1,28 +1,28 @@
-import React from 'react';
-import { Box, Tab, Tabs } from 'grommet';
+import React, { useState } from 'react';
+import { Paragraph, Tab, Tabs } from 'grommet';
+import { TabContent } from './TabContent';
 
 export const TabsExample = () => {
-  const [index, setIndex] = React.useState();
+  const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
 
   return (
-    <Box>
-      <Tabs activeIndex={index} onActive={onActive} justify="start">
-        <Tab title="General">
-          <Box margin="small" gap="small">
-            User Information
-          </Box>
-        </Tab>
-        <Tab title="Account">
-          <Box margin="small">Account Information</Box>
-        </Tab>
-        <Tab title="Billing">
-          <Box margin="small">Billing Information</Box>
-        </Tab>
-        <Tab title="Notifications">
-          <Box margin="small">Notifications will show here.</Box>
-        </Tab>
-      </Tabs>
-    </Box>
+    <Tabs activeIndex={index} onActive={onActive} justify="start">
+      <Tab title="General">
+        <TabContent>
+          <Paragraph margin="none">
+            Tab content should be flush with the left edge of the Tab. A
+            "medium" vertical padding should be applied to create space between
+            the Tab and its content.
+          </Paragraph>
+        </TabContent>
+      </Tab>
+      <Tab title="Account">
+        <TabContent>Account Information</TabContent>
+      </Tab>
+      <Tab title="Billing">
+        <TabContent>Billing Information</TabContent>
+      </Tab>
+    </Tabs>
   );
 };
