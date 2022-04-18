@@ -72,8 +72,7 @@ Provides users with any type of action, required or optional. These can be confi
 
 Actionable Layers contain the following elements and interactions: 
 - A cancel or close button will always be positioned within the footer of the Layer. Note that the "X" icon is omitted to avoid any confusion the user may have on which option they should use to close out the Layer. 
-- The Layer heading and action buttons should be sticky while the rest of the Layer content is scrollable.
-Provides users with any type of action, required or optional. These can be confirmations, filters, forms, etc.
+- For situations where the contents exceed the height of the layer, the header should either always stick atop the Layer while the content scrolls beneath, or to maximize screen real-estate, the header may scroll away as the user scrolls down the content, but re-appear as the user scrolls up, signaling their intent to return to the top of the content.
 - Buttons within side drawers (forms, filters, etc.) should always be **left-aligned**.
 - Buttons within wizards, confirmation modals, dialogs, and notifications should always be **right-aligned**.
 - To prevent the user from losing progress due to accidentally misclicking outside of a layer, a layer should not be closable by clicking outside of its content. Instead, users should be consciously clicking on a button to close out of the layer to abort any and all actions.
@@ -108,7 +107,7 @@ A center modal is anchored at the center of the window and acts as a modal. This
   <LayerCenterExample />
 </Example>
 
-### Layer Form
+### Layer Form with sticky Header
 
 The Layer header and action buttons should be sticky while the rest of the Layer content is scrollable.
 
