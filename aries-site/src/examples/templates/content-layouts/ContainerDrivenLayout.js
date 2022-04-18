@@ -103,8 +103,15 @@ const ContentLayout = () => {
   const [filteredApps, setFilteredApps] = useState(allApps);
   const [filters, setFilters] = useState({});
 
+  // apply filters
   useEffect(() => {
-    const results = [];
+    let results = [];
+    let numFilters = 0;
+    Object.values(filters).forEach(filter => (numFilters += filter.length));
+
+    if (numFilters === 0) {
+      results = allApps;
+    }
 
     if (filters.categories) {
       filters.categories.forEach(category => {
@@ -113,8 +120,16 @@ const ContentLayout = () => {
         );
         matches.forEach(match => results.push(match));
       });
-      setFilteredApps(results);
     }
+
+    setFilteredApps(
+      results.reduce((acc, cur) => {
+        if (!acc.includes(cur)) {
+          acc.push(cur);
+        }
+        return acc;
+      }, []),
+    );
   }, [filters, setFilteredApps]);
 
   return (
@@ -128,7 +143,7 @@ const ContentLayout = () => {
   );
 };
 
-const FilterPanel = () => {
+const FilterPanel = ({ setFilters }) => {
   const [expand, setExpand] = useState(true);
 
   return (
@@ -146,7 +161,12 @@ const FilterPanel = () => {
           onClick={() => setExpand(!expand)}
         />
         <Collapsible open={expand}>
-          <CheckBoxGroup options={CATEGORIES} />
+          <CheckBoxGroup
+            options={CATEGORIES}
+            onChange={({ value }) => {
+              setFilters({ categories: value });
+            }}
+          />
         </Collapsible>
       </>
       <Button label="Publishers" icon={<FormNext />} onClick={() => {}} />
@@ -154,6 +174,10 @@ const FilterPanel = () => {
       <Button label="Pricing Models" icon={<FormNext />} onClick={() => {}} />
     </Box>
   );
+};
+
+FilterPanel.propTypes = {
+  setFilters: PropTypes.func,
 };
 
 const appGrid = {
