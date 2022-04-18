@@ -178,7 +178,7 @@ const FilterPanel = ({ setFilters }) => {
     </Box>
   );
 
-  return ['xsmall', 'small'].includes(breakpoint) ? 'yo' : filterOptions;
+  return ['xsmall', 'small'].includes(breakpoint) ? null : filterOptions;
 };
 
 FilterPanel.propTypes = {
