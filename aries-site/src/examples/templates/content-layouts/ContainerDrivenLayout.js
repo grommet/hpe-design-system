@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  Card,
   CheckBoxGroup,
   Collapsible,
   Grid,
@@ -16,9 +17,9 @@ import {
 import { FormDown, FormNext } from 'grommet-icons';
 
 import { PageHeader } from '..';
-import { ContentArea } from '../page-layouts/anatomy/components';
 
 const allApps = require('../../../data/mockData/applications.json');
+
 const CATEGORIES = [
   {
     value: 'Machine Learning',
@@ -55,8 +56,8 @@ const pageContentGrid = {
     xsmall: 'auto',
     small: 'auto',
     medium: [['small', '1/3'], 'flex'],
-    large: [['small', 'auto'], 'flex'],
-    xlarge: [['small', 'auto'], 'flex'],
+    large: [['20%', '25%'], 'flex'],
+    xlarge: [['1/4', 'medium'], 'flex'],
   },
   gap: {
     xsmall: 'medium',
@@ -134,6 +135,7 @@ const ContentLayout = () => {
 
   return (
     <Grid
+      align="start"
       columns={pageContentGrid.columns[breakpoint]}
       gap={pageContentGrid.gap[breakpoint]}
     >
@@ -144,9 +146,10 @@ const ContentLayout = () => {
 };
 
 const FilterPanel = ({ setFilters }) => {
+  const breakpoint = useContext(ResponsiveContext);
   const [expand, setExpand] = useState(true);
 
-  return (
+  const filterOptions = (
     <Box
       align="start"
       background="background-front"
@@ -174,6 +177,8 @@ const FilterPanel = ({ setFilters }) => {
       <Button label="Pricing Models" icon={<FormNext />} onClick={() => {}} />
     </Box>
   );
+
+  return ['xsmall', 'small'].includes(breakpoint) ? 'yo' : filterOptions;
 };
 
 FilterPanel.propTypes = {
@@ -185,9 +190,10 @@ const appGrid = {
     xsmall: 'auto',
     small: ['auto', 'auto'],
     medium: { count: 'fit', size: ['1/2', 'auto'] },
-    large: { count: 'fit', size: ['1/2', 'auto'] },
-    xlarge: { count: 'fit', size: ['1/3', 'auto'] },
+    large: { count: 'fit', size: ['1/3', 'auto'] },
+    xlarge: { count: 'fit', size: ['1/4', 'auto'] },
   },
+  rows: 'small',
   gap: {
     xsmall: 'medium',
     small: 'small',
@@ -205,9 +211,13 @@ const AppResults = ({ apps }) => {
       <Heading level={2} size="small" margin="none">
         Apps
       </Heading>
-      <Grid columns={appGrid.columns[breakpoint]} gap={appGrid.gap[breakpoint]}>
+      <Grid
+        columns={appGrid.columns[breakpoint]}
+        rows={appGrid.rows}
+        gap={appGrid.gap[breakpoint]}
+      >
         {apps?.map(app => (
-          <ContentArea key={app.id} />
+          <Card key={app.id} fill />
         ))}
       </Grid>
     </Box>
