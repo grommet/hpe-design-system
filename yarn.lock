@@ -60,13 +60,6 @@
   dependencies:
     cross-fetch "3.1.2"
 
-"@applitools/dom-capture@7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-capture/-/dom-capture-7.3.0.tgz#f9d747f3185c643234fb660cef62a150c754d1a9"
-  integrity sha512-jB9Cmmo901i2ogjTMF/iPGuG6R+NAhhXnYA4KMFL8N2WHRDyi9+U6X3E1Duv3KNsLNWSSQyJSHAy3E0T8I2diA==
-  dependencies:
-    "@applitools/functional-commons" "1.5.4"
-
 "@applitools/dom-capture@8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@applitools/dom-capture/-/dom-capture-8.0.0.tgz#71c6eb7f7fd21f518330878eeba4d28c5204605f"
@@ -80,14 +73,6 @@
   resolved "https://registry.yarnpkg.com/@applitools/dom-shared/-/dom-shared-1.0.4.tgz#1a59116f3f29fb140ac031949547531348c9d972"
   integrity sha512-WRGko/7pJLwcDbQ5r0q2KD58VemIHm+JyKeXSflQhJvQqA5ONYyBX6cZo0h3o1SqdlzQnWM5REzoxoOpOGflzQ==
 
-"@applitools/dom-snapshot@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-4.1.0.tgz#24be90ef39eba3cf31f91fad29d5b0666fea78b6"
-  integrity sha512-xqI6emGbvMqnOIM4TLXNgmQMS+kzJ5FvKmQMX/KLjEX5wHalMRl2YLeosJVbgjZx/3G+CyVGtZoMNG/dw+08lA==
-  dependencies:
-    "@applitools/functional-commons" "1.6.0"
-    css-tree "^1.0.0-alpha.39"
-
 "@applitools/dom-snapshot@4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-4.2.0.tgz#72254be14ff073f6a2b05144e10dd2f1ae1ba93f"
@@ -97,25 +82,6 @@
     "@applitools/functional-commons" "1.6.0"
     css-tree "1.0.0-alpha.39"
     pako "1.0.11"
-
-"@applitools/eyes-sdk-core@12.2.9":
-  version "12.2.9"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-12.2.9.tgz#a23acb0e04d350584689e12be76940cf718da267"
-  integrity sha512-oIE35m1YASLbWDkUoCO2ao8zltzMam4sR1JKUzPHttCy6n/c15aHKo20RoPjpCAUWcaOyS4xMFKcsRvPvUDpbw==
-  dependencies:
-    "@applitools/dom-capture" "7.3.0"
-    "@applitools/dom-snapshot" "4.1.0"
-    "@applitools/isomorphic-fetch" "3.0.0"
-    "@applitools/snippets" "2.0.1"
-    axios "0.19.2"
-    chalk "3.0.0"
-    cosmiconfig "6.0.0"
-    dateformat "3.0.3"
-    debug "4.2.0"
-    deepmerge "4.2.2"
-    png-async "0.9.4"
-    stack-trace "0.0.10"
-    tunnel "0.0.6"
 
 "@applitools/eyes-sdk-core@12.3.0":
   version "12.3.0"
@@ -147,11 +113,6 @@
     "@applitools/visual-grid-client" "15.0.9"
     chalk "^2.4.2"
     rimraf "^2.7.1"
-
-"@applitools/functional-commons@1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@applitools/functional-commons/-/functional-commons-1.5.4.tgz#d32f2bbc6a2598872b3a385d054fcf8e40c30a40"
-  integrity sha512-R+p4fliS8j6YlZNSLgsx6cBpjlmZaec67v9PpophPW5vXnOJFVcELnoeO21AVG1kbHu0FeAk025xr99EUTppFw==
 
 "@applitools/functional-commons@1.6.0", "@applitools/functional-commons@^1.5.5":
   version "1.6.0"
@@ -216,11 +177,6 @@
   integrity sha512-rzEOvGoiEF4KnK0PJ9I0btdwnaNlIPLYhjF1vTEG15PoucbbKpix9fYusxWlDG7kMiZya8ZycVPc0woVlNaHRQ==
   dependencies:
     debug "^4.1.0"
-
-"@applitools/snippets@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@applitools/snippets/-/snippets-2.0.1.tgz#16d641c8d8c42ab13a0fb88979dda084e9a38087"
-  integrity sha512-oDgRfaKUfqY16GqKrLYKY8M/urBd/+DSWzZd1TOrXGwr8dX0hZ5bikJbApoOBPIp6wFmNNXvH4waPGR2MwD5FQ==
 
 "@applitools/snippets@2.0.3":
   version "2.0.3"
@@ -3570,6 +3526,13 @@ acorn-hammerhead@0.6.1:
   dependencies:
     "@types/estree" "0.0.46"
 
+acorn-hammerhead@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/acorn-hammerhead/-/acorn-hammerhead-0.6.1.tgz#f8f27c58ceaf90fbdb77a92f4331a678271194f2"
+  integrity sha512-ZWG/nXPvFiveXhJq/PxuS+4LI1BqtEOviGXWjlTvI+64kwzaddYNaE0UzLorTX7kyxrFtxjJ4w1LmKN5yEzOCg==
+  dependencies:
+    "@types/estree" "0.0.46"
+
 acorn-jsx@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -6077,7 +6040,7 @@ css-tree@1.0.0-alpha.39:
     mdn-data "2.0.6"
     source-map "^0.6.1"
 
-css-tree@^1.0.0-alpha.39, css-tree@^1.1.2:
+css-tree@^1.1.2:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.1.3.tgz#eb4870fb6fd7707327ec95c2ff2ab09b5e8db91d"
   integrity sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==
@@ -8346,7 +8309,6 @@ graphlib@^2.1.5:
 
 grommet-icons@^4.7.0, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.7.0"
-  uid "514dc3c3757ed4d3e3338007e28e2d030124f39c"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#514dc3c3757ed4d3e3338007e28e2d030124f39c"
   dependencies:
     grommet-styles "^0.2.0"
@@ -10668,6 +10630,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lru-cache@^7.4.0:
+  version "7.8.1"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.8.1.tgz#68ee3f4807a57d2ba185b7fd90827d5c21ce82bb"
+  integrity sha512-E1v547OCgJvbvevfjgK9sNKIVXO96NnsTsFPBlg4ZxjhsJSODoH9lk8Bm0OxvHNm6Vm5Yqkl/1fErDxhYL8Skg==
 
 lz-string@^1.4.4:
   version "1.4.4"
@@ -13637,7 +13604,7 @@ semver@^7.2.1, semver@^7.3.2:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
   integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
   dependencies:
-    lru-cache "^6.0.0"
+    lru-cache "^7.4.0"
 
 send@0.17.2:
   version "0.17.2"

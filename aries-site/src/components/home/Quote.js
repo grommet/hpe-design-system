@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Avatar,
   Box,
@@ -7,11 +7,13 @@ import {
   Paragraph,
   Stack,
   Text,
+  ResponsiveContext,
 } from 'grommet';
 import { useDarkMode } from '../../utils';
 
 export const Quote = () => {
   const darkMode = useDarkMode();
+  const size = useContext(ResponsiveContext);
 
   const quoteLines = `/static/images/quote-lines${
     darkMode.value ? '-dark' : ''
@@ -19,7 +21,9 @@ export const Quote = () => {
 
   return (
     <PageContent
-      direction="row-responsive"
+      direction={
+        !['xsmall', 'small', 'medium'].includes(size) ? 'row' : 'column'
+      }
       gap="large"
       justify="center"
       pad="large"
@@ -45,7 +49,7 @@ export const Quote = () => {
           <Text size="xlarge">Creative Director, HPE Global Brand</Text>
         </Box>
       </Box>
-      <Stack>
+      <Stack alignSelf="center">
         <Box
           border={{ size: '3px', color: 'text-weak' }}
           pad="medium"

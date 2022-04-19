@@ -17,7 +17,7 @@ const Foundation = () => (
         light: '/foundation-light.svg',
       },
       alt: 'HPE Design System Foundation',
-      margin: { left: '-200px', top: '-175px' },
+      margin: { left: '-280px', top: '-175px' },
       small: {
         margin: { left: '0', top: '-300px' },
       },
