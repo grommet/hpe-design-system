@@ -65,7 +65,7 @@ export const LayerStickyFormExample = () => {
             <Header
               background="background"
               sticky="scrollup"
-              pad={{ top: 'medium', horizontal: 'small' }}
+              pad={{ vertical: 'medium', horizontal: 'small' }}
             >
               <Heading margin="none" level={2} size="small">
                 Add Monitor
@@ -73,7 +73,7 @@ export const LayerStickyFormExample = () => {
             </Header>
             <Box
               // Padding used to prevent focus from being cutoff
-              pad={{ vertical: 'medium', horizontal: 'small' }}
+              pad={{ bottom: 'medium', horizontal: 'small' }}
             >
               <Form
                 onSubmit={({ value, touched }) => onSubmit({ value, touched })}
