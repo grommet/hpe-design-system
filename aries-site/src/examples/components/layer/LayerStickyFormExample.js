@@ -63,7 +63,7 @@ export const LayerStickyFormExample = () => {
             width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
           >
             <Header
-              background="white"
+              background="background"
               sticky="scrollup"
               pad={{ vertical: 'small', horizontal: 'medium' }}
             >
