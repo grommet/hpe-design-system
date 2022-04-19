@@ -6,7 +6,7 @@ import { FormDown, FormUp } from 'grommet-icons';
 const desc = `The video shows Bill, a white man with blondish brown hair 
   and a mustache, in his office wearing a long-sleeved lavender-blue 
   dress shirt with the HPE rectangular-shaped, multi-color logo
-  against a black background as the background.`
+  against a black background as the background.`;
 
 export const AccessVideo = () => {
   const announce = useContext(AnnounceContext);
@@ -50,8 +50,8 @@ export const AccessVideo = () => {
             aria-description={`Click to ${expanded ? 'hide' : 'show'} audio description`}
             onClick={() => {
               setExpanded(!expanded);
-              expanded ? announce("Hid audio description") : 
-                announce("Opened audio description");
+              expanded ? announce('Hid audio description') : 
+                announce('Opened audio description');
             }} 
           />
           <Button 
@@ -61,7 +61,7 @@ export const AccessVideo = () => {
             href="/foundation/accessibility-transcript-file" 
             target="_blank"
             onClick={() => 
-              announce("Opened video transcript file", 'assertive')
+              announce('Opened video transcript file', 'assertive')
             }
           />
         </Box>

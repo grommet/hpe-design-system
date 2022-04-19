@@ -86,7 +86,13 @@ export const ContentSpinnerExample = () => {
       >
         <Tab title="Customer Details">
           <Box align="center" justify="center" height={{ min: 'small' }}>
-            <Spinner size="medium" />
+            <Spinner
+              size="medium"
+              message={{
+                start: 'Loading customer details.',
+                end: 'Customer details have been loaded.',
+              }}
+            />
           </Box>
         </Tab>
         <Tab title="Customization">

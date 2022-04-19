@@ -54,6 +54,12 @@ export const ListSpinnerExample = () => (
         </Box>
       )}
     </List>
-    <Spinner alignSelf="center" />
+    <Spinner
+      alignSelf="center"
+      message={{
+        start: 'Loading more data.',
+        end: 'Data has been loaded.',
+      }}
+    />
   </Box>
 );

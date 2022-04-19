@@ -22,6 +22,7 @@ const Visual = () => {
   return (
     <Box>
       <Image
+        alt="Colored squares, lines, and letters fallen into a pile."
         src={theme.dark ? '/404-pile-invert.svg' : '/404-pile.svg'}
         fit="contain"
       />

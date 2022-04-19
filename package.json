@@ -9,9 +9,18 @@
     "url": "https://github.com/grommet/hpe-design-system/issues"
   },
   "devDependencies": {
-    "@hpe/project-scripts": "^1.1.2",
-    "eslint-plugin-prettier": "^3.3.0",
-    "jest": "^25.1.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-grommet": "^0.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.5"
   },
   "workspaces": [
     "aries-core",
