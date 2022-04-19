@@ -17,7 +17,7 @@ import {
 
 const options = ['Any', 'None', 'Any Scheduled'];
 
-export const LayerFormExample = () => {
+export const LayerStickyFormExample = () => {
   const [formValues, setFormValues] = React.useState({
     monitorName: 'C2 Monitor',
     desc: `Sustainable neutra echo park helvetica freegan
@@ -59,16 +59,13 @@ export const LayerFormExample = () => {
         >
           <Box
             fill="vertical"
-            gap="medium"
             overflow="auto"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-            pad="medium"
           >
             <Header
-              direction="row"
-              align="center"
-              as="header"
-              justify="between"
+              background="white"
+              sticky="scrollup"
+              pad={{ vertical: 'small', horizontal: 'medium' }}
             >
               <Heading margin="none" level={2} size="small">
                 Add Monitor
@@ -76,10 +73,7 @@ export const LayerFormExample = () => {
             </Header>
             <Box
               // Padding used to prevent focus from being cutoff
-              pad={{ horizontal: 'xsmall' }}
-              // overflow to allow the body to scroll with keeping the
-              // header at the top
-              overflow="auto"
+              pad={{ vertical: 'medium', horizontal: 'small' }}
             >
               <Form
                 onSubmit={({ value, touched }) => onSubmit({ value, touched })}
