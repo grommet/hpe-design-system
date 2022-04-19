@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -10,12 +10,20 @@ import {
 } from 'grommet';
 import { FormDown, FormNext } from 'grommet-icons';
 
+const defaultSelected = {
+  categories: [],
+  publisher: [],
+  delivery: [],
+  pricing: [],
+};
+
 export const FilterPanel = ({ data, setFilters }) => {
   const breakpoint = useContext(ResponsiveContext);
   const [expandCategory, setExpandCategory] = useState(false);
   const [expandPublishers, setExpandPublishers] = useState(false);
   const [expandDelivery, setExpandDelivery] = useState(false);
   const [expandPricing, setExpandPricing] = useState(false);
+  const [selected, setSelected] = useState(defaultSelected);
   const facets = useMemo(() => {
     const results = {
       categories: [],
@@ -66,6 +74,14 @@ export const FilterPanel = ({ data, setFilters }) => {
     [facets],
   );
 
+  useEffect(() => {
+    setFilters(selected);
+  }, [selected, setFilters]);
+
+  const onChange = (key, value) => {
+    setSelected({ ...selected, [key]: value });
+  };
+
   const filterOptions = (
     <Box
       align="start"
@@ -84,7 +100,7 @@ export const FilterPanel = ({ data, setFilters }) => {
           <CheckBoxGroup
             options={formattedFacets.categories}
             onChange={({ value }) => {
-              setFilters({ categories: value });
+              onChange('categories', value);
             }}
           />
         </Collapsible>
@@ -99,7 +115,7 @@ export const FilterPanel = ({ data, setFilters }) => {
           <CheckBoxGroup
             options={formattedFacets.publisher}
             onChange={({ value }) => {
-              setFilters({ publisher: value });
+              onChange('publisher', value);
             }}
           />
         </Collapsible>
@@ -114,7 +130,7 @@ export const FilterPanel = ({ data, setFilters }) => {
           <CheckBoxGroup
             options={formattedFacets.delivery}
             onChange={({ value }) => {
-              setFilters({ delivery: value });
+              onChange('delivery', value);
             }}
           />
         </Collapsible>
@@ -129,7 +145,7 @@ export const FilterPanel = ({ data, setFilters }) => {
           <CheckBoxGroup
             options={formattedFacets.pricing}
             onChange={({ value }) => {
-              setFilters({ pricing: value });
+              onChange('pricing', value);
             }}
           />
         </Collapsible>
