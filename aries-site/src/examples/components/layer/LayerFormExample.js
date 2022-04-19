@@ -95,7 +95,7 @@ export const LayerFormExample = () => {
                     <TextArea name="monitorName" />
                   </FormField>
                   <Text
-                    margin={{ vertical: 'medium' }}
+                    pad={{ vertical: 'medium' }}
                     weight="bold"
                     color="text-strong"
                   >
