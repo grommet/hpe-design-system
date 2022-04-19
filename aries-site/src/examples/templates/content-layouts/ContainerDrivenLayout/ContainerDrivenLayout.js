@@ -74,14 +74,18 @@ const ContentLayout = () => {
 
     if (numFilters === 0) {
       results = allApps;
-    }
-
-    if (filters.categories) {
-      filters.categories.forEach(category => {
-        const matches = allApps.filter(app =>
-          app.categories.includes(category),
-        );
-        matches.forEach(match => results.push(match));
+    } else {
+      results = allApps.filter(app => {
+        let result = true;
+        Object.keys(filters).forEach(key => {
+          if (filters[key].length > 0) {
+            const match = filters[key].some(item => app[key].includes(item));
+            if (match === false) {
+              result = false;
+            }
+          }
+        });
+        return result;
       });
     }
 
