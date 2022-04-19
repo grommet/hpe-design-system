@@ -101,7 +101,7 @@ const ContentLayout = () => {
       columns={pageContentGrid.columns[breakpoint]}
       gap={pageContentGrid.gap[breakpoint]}
     >
-      <FilterPanel setFilters={setFilters} />
+      <FilterPanel data={allApps} filters={filters} setFilters={setFilters} />
       <AppResults apps={filteredApps} />
     </Grid>
   );
