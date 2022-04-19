@@ -122,7 +122,7 @@ export const LayerStickyFormExample = () => {
                   <Select options={options} name="ruleName" />
                 </FormField>
                 <Text
-                  margin={{ vertical: 'medium' }}
+                  pad={{ vertical: 'medium' }}
                   weight="bold"
                   color="text-strong"
                 >
