@@ -65,7 +65,7 @@ export const LayerStickyFormExample = () => {
             <Header
               background="background"
               sticky="scrollup"
-              pad={{ vertical: 'small', horizontal: 'medium' }}
+              pad={{ top: 'medium', horizontal: 'small' }}
             >
               <Heading margin="none" level={2} size="small">
                 Add Monitor
