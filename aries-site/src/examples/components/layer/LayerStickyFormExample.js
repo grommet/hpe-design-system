@@ -149,7 +149,7 @@ export const LayerStickyFormExample = () => {
                   align={
                     !['xsmall', 'small'].includes(size) ? 'start' : undefined
                   }
-                  margin={{ top: 'small', bottom: 'small' }}
+                  pad={{ vertical: 'small' }}
                 >
                   <Button label="Apply Settings" primary type="submit" />
                   <Button label="Cancel" onClick={() => setOpen(false)} />
