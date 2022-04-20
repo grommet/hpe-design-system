@@ -8,7 +8,7 @@ import { SearchResult, SearchResults } from '.';
 import { siteContents } from '../../data/search/contentForSearch';
 
 const allSuggestions = getSearchSuggestions.filter(item => 
-  item.value.searchable || item.value.searchable === undefined
+  item.value.searchable || item.value.searchable === undefined,
 ).map(page => {
   const { label, value } = page;
   const match = siteContents.find(item => item.name === value.name);
