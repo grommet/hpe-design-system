@@ -2,10 +2,10 @@ import { Example } from '../../layouts';
 import {
   LayerExample,
   LayerCenterExample,
-  LayerFormExample,
   LayerNotificationExample,
   LayerSideDrawerExample,
-  LayerStickyFormExample,
+  LayerStickyExample,
+  LayerStickyScrollExample,
 } from '../../examples';
 
 <Example
@@ -110,14 +110,14 @@ A center modal is anchored at the center of the window and acts as a modal. This
 
 ### Layer Form with sticky Header
 
-The Layer header and action buttons can be sticky while the rest of the Layer content is scrollable.
+The Layer header and action buttons can be sticky while the rest of the Layer content is scrollable. This can be accomblished by wrapping a Form within a Box with `overflow` set to `auto`.
 
 <Example
   docs="https://v2.grommet.io/layer?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerFormExample.js"
   height={{ min: 'small' }}
 >
-  <LayerFormExample />
+  <LayerStickyExample />
 </Example>
 
 ### Layer Form with hide/show sticky Header
@@ -129,5 +129,5 @@ In order maximize screen real-estate, the header may scroll away as the user scr
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerFormExample.js"
   height={{ min: 'small' }}
 >
-  <LayerStickyFormExample />
+  <LayerStickyScrollExample />
 </Example>
