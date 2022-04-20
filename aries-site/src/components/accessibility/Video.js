@@ -6,7 +6,7 @@ import { FormDown, FormUp } from 'grommet-icons';
 const desc = `The video shows Bill, a white man with blondish brown hair 
   and a mustache, in his office wearing a long-sleeved lavender-blue 
   dress shirt with the HPE rectangular-shaped, multi-color logo
-  against a black background as the background.`
+  against a black background as the background.`;
 
 export const AccessVideo = () => {
   const announce = useContext(AnnounceContext);
@@ -15,9 +15,9 @@ export const AccessVideo = () => {
 
   return (
     <Box width="large" pad={{ bottom: 'large' }}>
-      <video 
+      <video
         aria-label="Accessibility at HPE Video"
-        poster="/static/images/Bill-Access-Cover.png" 
+        poster="/static/images/Bill-Access-Cover.png"
         controlsList="nodownload"
         controls
       >
@@ -31,43 +31,44 @@ export const AccessVideo = () => {
           src="/static/accessibility/Bill.Access.Captions.vtt"
         />
       </video>
-      <Box 
-        background="background-front" 
+      <Box
+        background="background-front"
         round={{ corner: 'bottom', size: 'small' }}
-        pad="small" 
+        pad="small"
       >
         <Box direction="row" gap="small">
-          <Button 
+          <Button
             icon={
-              expanded ? 
-                <FormUp a11yTitle="Up icon" /> : 
+              expanded ? (
+                <FormUp a11yTitle="Up icon" />
+              ) : (
                 <FormDown a11yTitle="Down icon" />
+              )
             }
             reverse
             alignSelf="start"
             label="Video Description"
             a11yTitle="Audio Description of video"
-            aria-description={`Click to ${expanded ? 'hide' : 'show'} audio description`}
+            ariaDescription={`Click to ${expanded ? 'hide' : 'show'} audio 
+            description`}
             onClick={() => {
               setExpanded(!expanded);
-              expanded ? announce("Hid audio description") : 
-                announce("Opened audio description");
-            }} 
+              if (expanded) announce('Hid audio description');
+              else announce('Opened audio description');
+            }}
           />
-          <Button 
+          <Button
             alignSelf="start"
             label="Transcript file"
             a11yTitle="Video transcript file with audio description"
-            href="/foundation/accessibility-transcript-file" 
+            href="/foundation/accessibility-transcript-file"
             target="_blank"
-            onClick={() => 
-              announce("Opened video transcript file", 'assertive')
+            onClick={() =>
+              announce('Opened video transcript file', 'assertive')
             }
           />
         </Box>
-        {expanded && 
-          <Box pad="small">{desc}</Box>
-        } 
+        {expanded && <Box pad="small">{desc}</Box>}
       </Box>
     </Box>
   );
