@@ -29,11 +29,9 @@ export const LayerStickyExample = () => {
           onEsc={onClose}
         >
           <Box
-            gap="small"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-            pad="medium"
           >
-            <Header pad={{ bottom: 'medium' }}>
+            <Header pad={{ vertical: 'medium', horizontal: 'medium' }}>
               <Heading margin="none" level={2} size="small">
                 Add Monitor
               </Heading>

@@ -40,14 +40,14 @@ export const MonitorFormExample = ({ sticky }) => {
 
   return (
     // Having overflow set to auto is needed for the sticky header.
-    <Box overflow={sticky ? 'auto' : undefined}>
+    <Box pad={{ horizontal: 'medium' }} overflow={sticky ? 'auto' : undefined}>
       <Form
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         value={formValues}
         onChange={onFormChange}
         method="post"
       >
-        <Box margin={{ bottom: 'small' }}>
+        <Box>
           <FormField
             htmlFor="monitorName"
             name="monitorName"

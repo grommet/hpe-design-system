@@ -29,16 +29,14 @@ export const LayerStickyScrollExample = () => {
           onEsc={onClose}
         >
           <Box
-            gap="small"
             fill="vertical"
             overflow="auto"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-            pad="medium"
           >
             <Header
               background="background"
               sticky="scrollup"
-              pad={{ bottom: 'medium' }}
+              pad='medium'
             >
               <Heading margin="none" level={2} size="small">
                 Add Monitor
