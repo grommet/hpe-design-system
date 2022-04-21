@@ -5,10 +5,11 @@ import {
   Button,
   CheckBoxGroup,
   Collapsible,
+  Layer,
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { FormDown, FormNext } from 'grommet-icons';
+import { Filter, FormDown, FormNext } from 'grommet-icons';
 
 const defaultSelected = {
   categories: [],
@@ -17,13 +18,16 @@ const defaultSelected = {
   pricing: [],
 };
 
-export const FilterPanel = ({ data, setFilters }) => {
+export const FilterPanel = ({ containerRef, data, setFilters }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const breakpoint = useContext(ResponsiveContext);
   const [expandCategory, setExpandCategory] = useState(false);
   const [expandPublishers, setExpandPublishers] = useState(false);
   const [expandDelivery, setExpandDelivery] = useState(false);
   const [expandPricing, setExpandPricing] = useState(false);
   const [selected, setSelected] = useState(defaultSelected);
+  const [showLayer, setShowLayer] = useState(false);
   const facets = useMemo(() => {
     const results = {
       categories: [],
@@ -99,6 +103,7 @@ export const FilterPanel = ({ data, setFilters }) => {
         <Collapsible open={expandCategory}>
           <CheckBoxGroup
             options={formattedFacets.categories}
+            value={selected.categories}
             onChange={({ value }) => {
               onChange('categories', value);
             }}
@@ -114,6 +119,7 @@ export const FilterPanel = ({ data, setFilters }) => {
         <Collapsible open={expandPublishers}>
           <CheckBoxGroup
             options={formattedFacets.publisher}
+            value={selected.publisher}
             onChange={({ value }) => {
               onChange('publisher', value);
             }}
@@ -129,6 +135,7 @@ export const FilterPanel = ({ data, setFilters }) => {
         <Collapsible open={expandDelivery}>
           <CheckBoxGroup
             options={formattedFacets.delivery}
+            value={selected.delivery}
             onChange={({ value }) => {
               onChange('delivery', value);
             }}
@@ -144,6 +151,7 @@ export const FilterPanel = ({ data, setFilters }) => {
         <Collapsible open={expandPricing}>
           <CheckBoxGroup
             options={formattedFacets.pricing}
+            value={selected.pricing}
             onChange={({ value }) => {
               onChange('pricing', value);
             }}
@@ -153,10 +161,29 @@ export const FilterPanel = ({ data, setFilters }) => {
     </Box>
   );
 
-  return ['xsmall', 'small'].includes(breakpoint) ? null : filterOptions;
+  const responsiveLayout = showLayer ? (
+    <Layer
+      target={containerRef && containerRef.current}
+      full
+      onEsc={() => setShowLayer(false)}
+    >
+      {filterOptions}
+    </Layer>
+  ) : (
+    <Button
+      kind="toolbar"
+      icon={<Filter />}
+      onClick={() => setShowLayer(true)}
+    />
+  );
+
+  return ['xsmall', 'small'].includes(breakpoint)
+    ? responsiveLayout
+    : filterOptions;
 };
 
 FilterPanel.propTypes = {
+  containerRef: PropTypes.object,
   data: PropTypes.arrayOf(PropTypes.object),
   setFilters: PropTypes.func,
 };

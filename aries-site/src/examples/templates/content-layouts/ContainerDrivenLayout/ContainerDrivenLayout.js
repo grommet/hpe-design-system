@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Grid,
   Page,
@@ -30,8 +31,11 @@ const pageContentGrid = {
   },
 };
 
-export const ContainerDrivenLayout = () => {
+export const ContainerDrivenLayout = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const theme = useContext(ThemeContext);
+
   return (
     <Page
       background="background-back"
@@ -55,13 +59,19 @@ export const ContainerDrivenLayout = () => {
         />
       </PageContent>
       <PageContent>
-        <ContentLayout />
+        <ContentLayout containerRef={containerRef} />
       </PageContent>
     </Page>
   );
 };
 
-const ContentLayout = () => {
+ContainerDrivenLayout.propTypes = {
+  containerRef: PropTypes.object,
+};
+
+const ContentLayout = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
   const breakpoint = useContext(ResponsiveContext);
   const [filteredApps, setFilteredApps] = useState(allApps);
   const [filters, setFilters] = useState({});
@@ -105,8 +115,16 @@ const ContentLayout = () => {
       columns={pageContentGrid.columns[breakpoint]}
       gap={pageContentGrid.gap[breakpoint]}
     >
-      <FilterPanel data={allApps} filters={filters} setFilters={setFilters} />
+      <FilterPanel
+        data={allApps}
+        setFilters={setFilters}
+        containerRef={containerRef}
+      />
       <AppResults apps={filteredApps} />
     </Grid>
   );
+};
+
+ContentLayout.propTypes = {
+  containerRef: PropTypes.object,
 };
