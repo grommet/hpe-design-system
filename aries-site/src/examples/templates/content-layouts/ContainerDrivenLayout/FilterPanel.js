@@ -5,11 +5,13 @@ import {
   Button,
   CheckBoxGroup,
   Collapsible,
+  Header,
+  Heading,
   Layer,
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Filter, FormDown, FormNext } from 'grommet-icons';
+import { Close, Filter, FormDown, FormNext } from 'grommet-icons';
 
 const defaultSelected = {
   categories: [],
@@ -87,14 +89,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
   };
 
   const filterOptions = (
-    <Box
-      align="start"
-      background="background-front"
-      gap="small"
-      pad={{ right: 'small', vertical: 'small' }}
-      round="xsmall"
-      style={{ position: 'sticky', top: '48px' }}
-    >
+    <Box align="start" gap="small">
       <>
         <Button
           label="Categories"
@@ -168,19 +163,42 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       full
       onEsc={() => setShowLayer(false)}
     >
-      {filterOptions}
+      <Box gap="large" pad="large">
+        <Header fill="horizontal" pad={{ left: 'medium' }}>
+          <Heading size="small" margin="none">
+            App Filters
+          </Heading>
+          <Button
+            icon={<Close />}
+            tip="Close filters"
+            onClick={() => setShowLayer(false)}
+          />
+        </Header>
+        {filterOptions}
+      </Box>
     </Layer>
   ) : (
-    <Button
-      kind="toolbar"
-      icon={<Filter />}
-      onClick={() => setShowLayer(true)}
-    />
+    <Box align="start">
+      <Button
+        kind="toolbar"
+        icon={<Filter />}
+        onClick={() => setShowLayer(true)}
+      />
+    </Box>
   );
 
-  return ['xsmall', 'small'].includes(breakpoint)
-    ? responsiveLayout
-    : filterOptions;
+  return ['xsmall', 'small'].includes(breakpoint) ? (
+    responsiveLayout
+  ) : (
+    <Box
+      background="background-front"
+      pad={{ right: 'small', vertical: 'small' }}
+      round="xsmall"
+      style={{ position: 'sticky', top: '48px' }}
+    >
+      {filterOptions}
+    </Box>
+  );
 };
 
 FilterPanel.propTypes = {
