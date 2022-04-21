@@ -93,6 +93,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       gap="small"
       pad={{ right: 'small', vertical: 'small' }}
       round="xsmall"
+      style={{ position: 'sticky', top: '48px' }}
     >
       <>
         <Button
