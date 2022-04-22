@@ -18,14 +18,9 @@ const parts = path.split('/').map(part => `/${part}`);
 const matchPath = [
   ...parts.map(part => ({
     regexp: new RegExp(part),
-    message: `Location paths do not match. Expecting ${part}.`,
+    message: `Location paths do not match. Missing '${part}'.`,
     status: 'error',
   })),
-  {
-    regexp: new RegExp(path),
-    message: 'Location paths do not match.',
-    status: 'error',
-  },
   function validate(value) {
     if (value !== path) {
       return {
@@ -39,12 +34,17 @@ Received: ${value}`,
   },
 ];
 
+const defaultValues = { deletionPath: '' };
+
 export const ContentDrivenLayout = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
-  const [value, setValue] = useState({ deletionPath: '' });
-  const onClose = () => setShowModal(false);
+  const [value, setValue] = useState(defaultValues);
+  const onClose = () => {
+    setShowModal(false);
+    setValue(defaultValues);
+  };
   const onChange = nextValue => {
     setValue(nextValue);
   };
@@ -59,7 +59,6 @@ export const ContentDrivenLayout = ({ containerRef }) => {
       {showModal ? (
         <ModalDialog
           title="Delete Data"
-          onClose={onClose}
           onEsc={onClose}
           target={containerRef && containerRef.current}
         >

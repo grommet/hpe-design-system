@@ -26,11 +26,13 @@ export const ModalDialog = ({
           </Heading>
           <Paragraph margin="none">{subtitle}</Paragraph>
         </Box>
-        <Button
-          a11yTitle="Close modal"
-          icon={<FormClose />}
-          onClick={onClose}
-        />
+        {onClose && (
+          <Button
+            a11yTitle="Close modal"
+            icon={<FormClose />}
+            onClick={onClose}
+          />
+        )}
       </Header>
       {children}
     </Box>
