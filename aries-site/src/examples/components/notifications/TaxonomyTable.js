@@ -1,3 +1,4 @@
+/* eslint-disable grommet/datatable-aria-describedby */
 import React from 'react';
 import { Box, DataTable, Text } from 'grommet';
 
