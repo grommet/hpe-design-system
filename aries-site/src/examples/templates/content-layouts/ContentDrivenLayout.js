@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
-  Footer,
   Form,
   FormField,
-  Header,
-  Heading,
-  Layer,
   Notification,
   Paragraph,
   Text,
   TextInput,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
+
+import { ModalBody, ModalDialog, ModalFooter } from '../ModalDialog';
 
 const path = '/products/data/47287498729/collections/KCHDvfcByKvvjymNheg';
 const parts = path.split('/').map(part => `/${part}`);
@@ -112,56 +109,3 @@ export const ContentDrivenLayout = ({ containerRef }) => {
 };
 
 ContentDrivenLayout.propTypes = { containerRef: PropTypes.object };
-
-const ModalDialog = ({ children, title, subtitle, onClose, ...layerProps }) => (
-  <Layer position="center" {...layerProps}>
-    <Box gap="medium" pad="medium" width={{ min: 'medium' }} flex="grow">
-      <Header align="start">
-        <Box>
-          <Heading level={2} size="small" margin="none">
-            {title}
-          </Heading>
-          <Paragraph margin="none">{subtitle}</Paragraph>
-        </Box>
-        <Button
-          a11yTitle="Close modal"
-          icon={<FormClose />}
-          onClick={onClose}
-        />
-      </Header>
-      {children}
-    </Box>
-  </Layer>
-);
-
-ModalDialog.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.object,
-  ]),
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  onClose: PropTypes.func,
-};
-
-const ModalBody = ({ children, ...boxProps }) => (
-  <Box {...boxProps}>{children}</Box>
-);
-
-ModalBody.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.object,
-  ]),
-};
-
-const ModalFooter = ({ children, ...boxProps }) => (
-  <Footer {...boxProps}>{children}</Footer>
-);
-
-ModalFooter.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.object,
-  ]),
-};
