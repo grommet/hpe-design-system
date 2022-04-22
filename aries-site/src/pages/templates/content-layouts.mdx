@@ -3,7 +3,12 @@ import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
 import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
-import { ContainerDrivenLayout, NestedGrid, ResponsiveContentLayoutExample } from '../../examples';
+import { 
+  ContainerDrivenLayout, 
+  ContentDrivenLayout, 
+  NestedGrid, 
+  ResponsiveContentLayoutExample 
+} from '../../examples';
 
 Content layouts may be applied across different levels of information hierarchy. At a page 
 template level, it can help with the layout of page sections. At an page section level, it can 
@@ -137,6 +142,14 @@ awkwardly constrained by its layout container.
 
 The following example takes a content-driven approach, implementing a modal dialog 
 displaying content returned from a server with an unknown length.
+
+<Example
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
 
 ### Nested Grids
 When dealing with complex layouts, it is helpful to simplify them by thinking of them 

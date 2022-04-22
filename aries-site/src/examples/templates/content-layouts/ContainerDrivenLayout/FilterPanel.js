@@ -194,7 +194,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       background="background-front"
       pad={{ right: 'small', vertical: 'small' }}
       round="xsmall"
-      style={{ position: 'sticky', top: '48px' }}
+      style={{ position: 'sticky', top: '36px' }}
     >
       {filterOptions}
     </Box>
