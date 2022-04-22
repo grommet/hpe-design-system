@@ -10,16 +10,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.20.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-grommet": "^0.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "jest": "^25.1.0",
+    "jest": "^27.5.1",
     "prettier": "^2.0.5"
   },
   "workspaces": [
@@ -27,6 +27,12 @@
     "aries-site"
   ],
   "dependencies": {
-    "husky": "^4.2.3"
+    "husky": "^4.2.3",
+    "grommet": "https://github.com/grommet/grommet/tarball/stable",
+    "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
+    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "styled-components": "^5.2.3"
   }
 }
