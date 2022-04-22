@@ -15,6 +15,7 @@ import { ModalBody, ModalDialog, ModalFooter } from '../ModalDialog';
 
 const path = '/products/data/47287498729/collections/KCHDvfcByKvvjymNheg';
 const parts = path.split('/').map(part => `/${part}`);
+parts.splice(0, 1);
 const matchPath = [
   ...parts.map(part => ({
     regexp: new RegExp(part),
@@ -62,7 +63,15 @@ export const ContentDrivenLayout = ({ containerRef }) => {
           onEsc={onClose}
           target={containerRef && containerRef.current}
         >
-          <Form value={value} onChange={onChange} validate="blur">
+          <Form
+            value={value}
+            onChange={onChange}
+            validate="blur"
+            // eslint-disable-next-line no-unused-vars
+            onSubmit={({ value: formValue, touched }) => {
+              // Your submission logic here
+            }}
+          >
             <Box gap="medium">
               <ModalBody gap="small">
                 <Notification
@@ -96,7 +105,7 @@ export const ContentDrivenLayout = ({ containerRef }) => {
                 <></>
                 <Box direction="row" gap="xsmall">
                   <Button label="Cancel" onClick={onClose} />
-                  <Button primary label="Delete" onClick={() => {}} />
+                  <Button primary label="Delete" type="submit" />
                 </Box>
               </ModalFooter>
             </Box>
