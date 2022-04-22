@@ -3,17 +3,60 @@ import { Grid, ResponsiveContext } from 'grommet';
 import { CardGrid, ContentCard } from '../../components';
 import { DiagramPreview, Example } from '../../layouts';
 import { contentLayouts } from '../../data/structures';
-import { PageMarginAnatomy, ResponsiveContentLayoutExample } from '../../examples';
+import { 
+  ContainerDrivenLayout, 
+  ContentDrivenLayout, 
+  NestedGrid, 
+  ResponsiveContentLayoutExample 
+} from '../../examples';
 
-## Designing for Responsiveness
+Content layouts may be applied across different levels of information hierarchy. At a page 
+template level, it can help with the layout of page sections. At an page section level, it can 
+coordinate how a title, piece of content, and related actions should be laid out in relation to 
+each other.
 
-App layouts should be adaptable to different screen sizes depending on the user input. Our goal as designers and developers at HPE should be to create optimal and accessible user experiences regardless of screen size or resolution.
+Understanding [Grid](/components/grid) is the key to creating successful content layouts.
+
+Looking for a quick start? [Jump to layout templates](#templates).
+
+## Responsive Design
+
+Layouts should be adaptable to different screen sizes. Our goal as designers and 
+developers at HPE should be to create optimal and accessible user experiences regardless 
+of screen size or resolution.
+
+### Breakpoints
+
+A breakpoint is a point at which some change in the page design is likely to occur.
+
+For designers, breakpoints can help stress test and validate UX decisions around page 
+layouts.
+
+See the table below for breakpoints defined by the HPE Design System. Keep in mind that 
+these breakpoints are not meant to target every single existing device &mdash; we understand 
+that technology is ever evolving. Instead, the ranges defined here help build a strong 
+foundation to account for diverse use cases when creating responsive designs.
+
+| Breakpoint     | Range (width in pixels)
+| -------------- | -----------------------
+| **xsmall**     | 576 and below
+| **small**      | 577 - 768
+| **medium**     | 769 - 1080
+| **large**      | 1081 - 1439
+| **xlarge**     | 1440 and above
 
 ### Prioritizing Content Needs
 
-Focusing on content needs can help us create better optimal user experiences–think about which piece of content a user is likely to interact with first and order items on the page accordingly.
+Focusing on content needs allows for optimal user experiences to be created. Thinking 
+about which pieces of content a user will likely need and want to interact with first informs 
+how the items on the page should be ordered.
 
-Specifying layout content in this way will also ensure that it is interepreted appropriately by screen readers for visually impaired users.
+Specifying layout content in this way will also ensure that it is interepreted 
+appropriately by screen readers for visually impaired users.
+
+The example below has content labeled by its priority. Resize your browser window and 
+notice the content layout adjust, ensuring content is ordered as desired across window 
+widths. 
 
 <Example 
   showResponsiveControls={['fullScreen']}
@@ -23,6 +66,7 @@ Specifying layout content in this way will also ensure that it is interepreted a
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/components/AppContainer.js",
     "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/anatomy/components/ContentArea.js",
     ]}
+    github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
   // height, width, and screenContainer.scale value chosen to best visually 
   // represent the example
   height="650px"
@@ -32,38 +76,102 @@ Specifying layout content in this way will also ensure that it is interepreted a
   <ResponsiveContentLayoutExample />
 </Example>
 
-### Breakpoints
+## Implementing Content Layouts
+The following discusses three approaches for building responsive content layouts. All approaches 
+may be mixed and matched as desired.
+- [Container-driven](#container-driven-layouts)
+- [Content-driven](#content-driven-layouts)
+- [Nested grids](#nested-grids)
 
-A breakpoint is a point at which some change in the page design is likely to occur.
+These approaches take full advantage of Grid's flexibility which provides designers and 
+developers great control and ability to execute layouts regardless of the user's screen size. 
+For greater detail about Grid's properties and key concepts visit [getting to know Grid](/components/grid#getting-to-know-grid). 
 
-For designers, breakpoints can help stress test and validate UX decisions around page layouts.
+Additionally, a can't miss tool for designers is [Layout Templates in Figma](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2906%3A21283) 
+which provides Grid-based layout templates for each [responsive breakpoint](#breakpoints) and [page layout kind](/templates/page-layouts#page-kinds).
 
-See the table below for breakpoints defined by the HPE Design System. Keep in mind that these breakpoints are not meant to target every single existing device &mdash; we understand that technology is ever evolving. Instead, the ranges defined here help build a strong foundation to account for diverse use cases when creating responsive designs.
+### Container-Driven Layouts
+Container-driven layouts drive the layout from the outside-in. They begin by defining 
+regions in which the content will live, whether those regions are [fixed, flexible, or fluid](/components/grid#background), 
+and how those regions are [prioritized](#prioritizing-content-needs) at each responsive breakpoint.
 
-| T-shirt Size   | Range         |  Margin (pixels) |
-| -------------- | ----------    | -----------------:
-| **xsmall**    | 576 and below |      12
-| **small**     | 577 - 768     |      24
-| **medium**      | 769 - 1080    |      24
-| **large**     | 1081 - 1439   |      48
-| **xlarge**      | 1440 and above|      48
+Container-driven layouts are useful for defining larger layouts, such as at the page level, 
+but can be useful for defining smaller sub-regions as well. The best use of available screen 
+real-estate can be achieved by combining a container-driven page layout with components 
+such as Cards which have been built to have adaptive layouts themselves.
 
-#### Page Margin
+The following example takes a container-driven approach, implementing an app-catalog 
+consisting of a filters region and a results region.
 
-Page margin is the left and right space between the main content of a page and the screen edge.
-Based on the screen size, the page margin differs at each breakpoint.
+Key aspects to the approach are:
+- At larger breakpoints, the content layout will be a two-column layout; a single column 
+at smaller breakpoints.
+- The filters region will be fixed-width when in a two-column layout and [flex-width](/components/grid#flexible-columns) 
+when in a single column. The results region always uses a [fluid grid](/components/grid#fluid-grids).
+- The filters region are prioritized over the results region because the filters are needed to control 
+the results.
 
-<Example 
-  caption="A diagram showing the margin area on a large and small screen." 
-  plain 
-  pad="small"
-  previewWidth="large"
-  height={{ min: 'small' }}
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/ContainerDrivenLayout.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/PageHeader/PageHeader.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/AppResults.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/FilterPanel.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/applications.json",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/constants.js",
+    ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ContainerDrivenLayout/ContainerDrivenLayout.js"
+  // height, width, and screenContainer.scale value chosen to best visually 
+  // represent the example
+  height="650px"
+  width="100%"
+  screenContainer={{ scale: 0.75 }}
 >
-  <PageMarginAnatomy />
+  <ContainerDrivenLayout />
 </Example>
 
-Wider margins are better for larger screens, as they create more whitespace around the perimeter of the content. Smaller margins are appropriate for smaller screens, in order to maximize the available screen real estate.
+### Content-Driven Layouts
+Content-driven layouts are driven from the inside-out, allowing the container to respond 
+and adapt to things like user entered content, like names. The layout is custom fit to 
+the content it holds.
+
+The content-driven approach is useful for layouts such as modal dialogs or side-drawer 
+content within a layer, where the content should occupy the space it needs and not be 
+awkwardly constrained by its layout container.
+
+The following example takes a content-driven approach, implementing a modal dialog 
+displaying content returned from a server with an unknown length.
+
+<Example
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContentDrivenLayout.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ModalDialog/ModalDialog.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ContentDrivenLayout.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
+
+### Nested Grids
+When dealing with complex layouts, it is helpful to simplify them by thinking of them 
+as nested grids. Any column or grid area may be a grid itself. 
+
+<Example
+  horizontalLayout
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/NestedGrid.js",
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/NestedGrid.js"
+  caption="Diagram illustrating how Grids may be nested inside one another."
+  width={{ min: "large" }}
+>
+  <NestedGrid />
+</Example>
 
 ## Templates
 
