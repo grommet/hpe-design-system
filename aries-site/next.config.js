@@ -71,6 +71,7 @@ const config = {
       },
     ];
   },
+  webpack5: false,
 };
 
 module.exports = withPlugins(
