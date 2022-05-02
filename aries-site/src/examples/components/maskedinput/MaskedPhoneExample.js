@@ -23,10 +23,10 @@ const maskPhone = [
   },
 ];
 
-export const MaskedPhoneExample = () => (
-  <Form>
+export function MaskedPhoneExample() {
+  return <Form>
     <FormField label="Phone" htmlFor="masked-phone" name="maskedPhone">
       <MaskedInput name="maskedPhone" id="masked-phone" mask={maskPhone} />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

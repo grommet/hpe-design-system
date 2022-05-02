@@ -1,8 +1,8 @@
 import React from 'react';
 import { Notification } from 'grommet';
 
-export const BannerNotificationDoExample = () => (
-    <Notification
+export function BannerNotificationDoExample() {
+  return <Notification
       message="Your subscription will be ending in 7 days (03/03/2022)."
       onClose={() => {}}
       global
@@ -13,5 +13,5 @@ export const BannerNotificationDoExample = () => (
           label: 'Renew',
         },
       ]}
-    />
-);
+    />;
+}

@@ -5,13 +5,13 @@ import {
   FiltersProvider,
 } from '../../templates/FilterControls';
 
-export const ToolbarButtonExample = () => (
-  <FiltersProvider>
+export function ToolbarButtonExample() {
+  return <FiltersProvider>
     <FilterControls
       actions={<Menu label="Actions" kind="toolbar" />}
       data={[]}
       filters={[]}
       searchFilter={{ placeholder: 'Search users...' }}
     />
-  </FiltersProvider>
-);
+  </FiltersProvider>;
+}

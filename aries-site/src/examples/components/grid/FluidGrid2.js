@@ -18,8 +18,8 @@ const columns = 'small';
 const rows = 'xsmall';
 const gap = 'small';
 
-export const FluidGrid2 = () => (
-  <Grid columns={columns} rows={rows} gap={gap} align="start">
+export function FluidGrid2() {
+  return <Grid columns={columns} rows={rows} gap={gap} align="start">
     {new Array(11).fill({}).map((item, index) => (
       <ContentArea
         key={index}
@@ -28,5 +28,5 @@ export const FluidGrid2 = () => (
         height={heightMap[index % 4]}
       />
     ))}
-  </Grid>
-);
+  </Grid>;
+}

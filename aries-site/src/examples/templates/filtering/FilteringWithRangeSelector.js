@@ -69,7 +69,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const FilteringWithRangeSelector = ({ containerRef }) => {
+export function FilteringWithRangeSelector({ containerRef }) {
   // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
@@ -171,20 +171,20 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
       <Results data={data} />
     </Box>
   );
-};
+}
 
 FilteringWithRangeSelector.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const Filters = ({
+function Filters({
   data,
   filtering,
   setData,
   setFiltering,
   setSearch,
   target, // target is for demo purposes only, remove in production
-}) => {
+}) {
   const [availability, setAvailability] = useState(defaultAvailability);
   const [filters, setFilters] = useState(defaultFilters);
   const [location, setLocation] = useState(defaultLocation);
@@ -394,7 +394,7 @@ const Filters = ({
       {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
     </Box>
   );
-};
+}
 
 Filters.propTypes = {
   data: PropTypes.arrayOf(
@@ -412,7 +412,7 @@ Filters.propTypes = {
   target: PropTypes.object,
 };
 
-const LocationFilter = ({
+function LocationFilter({
   filters,
   filterData,
   location,
@@ -420,8 +420,8 @@ const LocationFilter = ({
   setLocation,
   previousValues,
   setPreviousValues,
-}) => (
-  <Select
+}) {
+  return <Select
     options={[
       'All Locations',
       'Fort Collins, CO',
@@ -447,8 +447,8 @@ const LocationFilter = ({
       setLocation(option);
       setData(nextData);
     }}
-  />
-);
+  />;
+}
 
 LocationFilter.propTypes = {
   filters: PropTypes.shape({
@@ -466,7 +466,7 @@ LocationFilter.propTypes = {
   setPreviousValues: PropTypes.func.isRequired,
 };
 
-const AvailabilityFilter = ({
+function AvailabilityFilter({
   availability,
   setAvailability,
   filters,
@@ -474,7 +474,7 @@ const AvailabilityFilter = ({
   previousValues,
   setPreviousValues,
   setData,
-}) => {
+}) {
   const size = useContext(ResponsiveContext);
   return (
     <Stack>
@@ -510,7 +510,7 @@ const AvailabilityFilter = ({
       />
     </Stack>
   );
-};
+}
 
 AvailabilityFilter.propTypes = {
   availability: PropTypes.arrayOf(PropTypes.number).isRequired,
@@ -528,8 +528,8 @@ AvailabilityFilter.propTypes = {
   setPreviousValues: PropTypes.func.isRequired,
 };
 
-const RecordSummary = ({ data, filtering }) => (
-  <Box direction="row" gap="xxsmall">
+function RecordSummary({ data, filtering }) {
+  return <Box direction="row" gap="xxsmall">
     <Text size="small" weight="bold">
       {data.length}
     </Text>
@@ -544,8 +544,8 @@ const RecordSummary = ({ data, filtering }) => (
         <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
-  </Box>
-);
+  </Box>;
+}
 
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(
@@ -558,8 +558,8 @@ RecordSummary.propTypes = {
   filtering: PropTypes.bool,
 };
 
-const Results = ({ data }) => (
-  <Box
+function Results({ data }) {
+  return <Box
     pad={{ horizontal: 'xxsmall', bottom: 'medium', top: 'xxsmall' }}
     overflow="auto"
     fill
@@ -596,8 +596,8 @@ const Results = ({ data }) => (
         </>
       )}
     </List>
-  </Box>
-);
+  </Box>;
+}
 
 Results.propTypes = {
   data: PropTypes.arrayOf(

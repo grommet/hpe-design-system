@@ -24,13 +24,13 @@ import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 
-export const Layout = ({
+export function Layout({
   backgroundImage,
   children,
   title: titleProp,
   topic,
   isLanding,
-}) => {
+}) {
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -107,7 +107,7 @@ export const Layout = ({
       </Stack>
     </>
   );
-};
+}
 
 Layout.propTypes = {
   backgroundImage: PropTypes.shape({}),

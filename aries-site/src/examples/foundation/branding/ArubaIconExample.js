@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text } from 'grommet';
 import { Aruba } from 'grommet-icons';
 
-export const ArubaIconExample = () => {
+export function ArubaIconExample() {
   const textSize = 'small';
 
   return (
@@ -16,4 +16,4 @@ export const ArubaIconExample = () => {
       </Box>
     </Box>
   );
-};
+}

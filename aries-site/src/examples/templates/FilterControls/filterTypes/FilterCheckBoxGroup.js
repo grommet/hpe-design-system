@@ -4,7 +4,7 @@ import { Box, Button, CheckBoxGroup, FormField } from 'grommet';
 
 import { useFilters } from '..';
 
-export const FilterCheckBoxGroup = ({ attr }) => {
+export function FilterCheckBoxGroup({ attr }) {
   const { data, filters, setFilters, getFilterOptions } = useFilters();
   const {
     property,
@@ -87,7 +87,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
       )}
     </Box>
   );
-};
+}
 
 FilterCheckBoxGroup.propTypes = {
   attr: PropTypes.shape({

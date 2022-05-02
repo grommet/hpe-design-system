@@ -98,7 +98,7 @@ const stepOneInputs = [
   ),
 ];
 
-const StepOne = () => {
+function StepOne() {
   const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
 
@@ -122,10 +122,10 @@ const StepOne = () => {
       {!valid && <Error>There is an error with one or more inputs.</Error>}
     </>
   );
-};
+}
 
-const StepTwo = () => (
-  <Box margin={{ bottom: 'medium' }} width="medium">
+function StepTwo() {
+  return <Box margin={{ bottom: 'medium' }} width="medium">
     <FormField label="Select" htmlFor="select" name="select">
       <Select
         placeholder="Select item"
@@ -155,8 +155,8 @@ const StepTwo = () => (
         resize="vertical"
       />
     </FormField>
-  </Box>
-);
+  </Box>;
+}
 
 const data = [
   'Summary value of step 1',
@@ -165,8 +165,8 @@ const data = [
   'More summary values from step 2',
 ];
 
-const StepThree = () => (
-  <Box gap="small">
+function StepThree() {
+  return <Box gap="small">
     <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
       {(datum, index) => (
         <Box key={index} direction="row" gap="small" align="center">
@@ -180,8 +180,8 @@ const StepThree = () => (
     <Text color="text-strong">
       Include guidance to what will occur when “Finish Wizard" is clicked.
     </Text>
-  </Box>
-);
+  </Box>;
+}
 
 export const steps = [
   {
@@ -203,7 +203,7 @@ export const steps = [
   },
 ];
 
-export const WizardValidationExample = ({ containerRef }) => {
+export function WizardValidationExample({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const size = useContext(ResponsiveContext);
@@ -276,7 +276,7 @@ export const WizardValidationExample = ({ containerRef }) => {
       )}
     </WizardContext.Provider>
   );
-};
+}
 
 WizardValidationExample.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

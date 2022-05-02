@@ -4,7 +4,7 @@ import { Box, ResponsiveContext, Text } from 'grommet';
 
 import { colors } from '../../themes/aries';
 
-export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
+export function UsageExample({ children, label, themeMode, pad, ...rest }) {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -27,7 +27,7 @@ export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
       </Box>
     </Box>
   );
-};
+}
 
 UsageExample.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])

@@ -84,7 +84,7 @@ const ROUND_STEP = 15; // step 15 (a bit after the line fade in)
 
 const sequence = step => ANIM_START + step * STEP_DURATION;
 
-export const Hero = props => {
+export function Hero(props) {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const darkMode = useDarkMode();
@@ -224,4 +224,4 @@ export const Hero = props => {
       </svg>
     </Box>
   );
-};
+}

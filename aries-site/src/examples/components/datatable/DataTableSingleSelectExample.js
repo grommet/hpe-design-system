@@ -10,14 +10,14 @@ import {
 } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 
-const DetailsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
-  <Box direction="row" align="start" {...rest}>
+function DetailsPage({ orderDetails, orderPageDetails, ...rest }) {
+  return <Box direction="row" align="start" {...rest}>
     <Box width="small">
       <Text size="small">{orderDetails}</Text>
     </Box>
     <Text color="text-strong">{orderPageDetails}</Text>
-  </Box>
-);
+  </Box>;
+}
 
 DetailsPage.propTypes = {
   orderDetails: PropTypes.string,
@@ -192,7 +192,7 @@ const columns = [
   },
 ];
 
-export const DataTableSingleSelectExample = () => {
+export function DataTableSingleSelectExample() {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetails] = React.useState({});
 
@@ -254,4 +254,4 @@ export const DataTableSingleSelectExample = () => {
       </Box>
     </>
   );
-};
+}

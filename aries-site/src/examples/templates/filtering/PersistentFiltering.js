@@ -134,7 +134,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const PersistentFiltering = ({ containerRef }) => {
+export function PersistentFiltering({ containerRef }) {
   // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
@@ -280,20 +280,20 @@ export const PersistentFiltering = ({ containerRef }) => {
       </Box>
     </Box>
   );
-};
+}
 
 PersistentFiltering.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const ActiveFilters = ({
+function ActiveFilters({
   filterValues,
   setFilterValues,
   filters,
   filterData,
   setData,
   setFilters,
-}) => {
+}) {
   const activeValues = Object.keys(filterValues)
     .filter(key => {
       if (key === 'employeeCount') {
@@ -391,7 +391,7 @@ const ActiveFilters = ({
         })}
     </Box>
   );
-};
+}
 
 ActiveFilters.propTypes = {
   filters: PropTypes.shape({}),
@@ -404,7 +404,7 @@ ActiveFilters.propTypes = {
   setFilterValues: PropTypes.func.isRequired,
 };
 
-const Filters = ({
+function Filters({
   filters,
   setFilters,
   filtering,
@@ -415,7 +415,7 @@ const Filters = ({
   setFilterValues,
   setSearch,
   target, // target is for demo purposes only, remove in production
-}) => {
+}) {
   const { country, employeeCount, locationType, status } = filterValues;
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
@@ -576,7 +576,7 @@ const Filters = ({
       {content}
     </Box>
   );
-};
+}
 
 Filters.propTypes = {
   filters: PropTypes.shape({}),
@@ -605,13 +605,13 @@ Filters.propTypes = {
   target: PropTypes.object,
 };
 
-const LocationTypeFilter = ({
+function LocationTypeFilter({
   filters,
   setFilters,
   filterValues,
   setFilterValues,
-}) => (
-  <FormField
+}) {
+  return <FormField
     label="Location Type"
     htmlFor="location-type-b"
     name="location-type-b"
@@ -633,8 +633,8 @@ const LocationTypeFilter = ({
         setFilters(nextFilters);
       }}
     />
-  </FormField>
-);
+  </FormField>;
+}
 
 LocationTypeFilter.propTypes = {
   filters: PropTypes.shape({
@@ -650,13 +650,13 @@ LocationTypeFilter.propTypes = {
   setFilterValues: PropTypes.func.isRequired,
 };
 
-const StatusFilter = ({
+function StatusFilter({
   filters,
   setFilters,
   filterValues,
   setFilterValues,
-}) => (
-  <FormField label="Status" htmlFor="status-b" name="status-b">
+}) {
+  return <FormField label="Status" htmlFor="status-b" name="status-b">
     <CheckBoxGroup
       id="status-b"
       name="status-b"
@@ -672,8 +672,8 @@ const StatusFilter = ({
         setFilters(nextFilters);
       }}
     />
-  </FormField>
-);
+  </FormField>;
+}
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
@@ -689,13 +689,13 @@ StatusFilter.propTypes = {
   setFilterValues: PropTypes.func.isRequired,
 };
 
-const CountryFilter = ({
+function CountryFilter({
   filters,
   setFilters,
   filterValues,
   setFilterValues,
-}) => (
-  <FormField label="Country" htmlFor="country-b" name="country-b">
+}) {
+  return <FormField label="Country" htmlFor="country-b" name="country-b">
     <CheckBoxGroup
       id="country-b"
       name="country-b"
@@ -711,8 +711,8 @@ const CountryFilter = ({
         setFilters(nextFilters);
       }}
     />
-  </FormField>
-);
+  </FormField>;
+}
 
 CountryFilter.propTypes = {
   filters: PropTypes.shape({
@@ -728,13 +728,13 @@ CountryFilter.propTypes = {
   setFilterValues: PropTypes.func.isRequired,
 };
 
-const EmployeeCountFilter = ({
+function EmployeeCountFilter({
   filters,
   setFilters,
   filterValues,
   setFilterValues,
-}) => (
-  <Box flex={false}>
+}) {
+  return <Box flex={false}>
     <FormField
       label="Employee Count"
       htmlFor="employee-count-b"
@@ -775,8 +775,8 @@ const EmployeeCountFilter = ({
       {`${filterValues.employeeCount[0]} - 
         ${filterValues.employeeCount[1]} people`}
     </Text>
-  </Box>
-);
+  </Box>;
+}
 
 EmployeeCountFilter.propTypes = {
   filters: PropTypes.shape({
@@ -789,8 +789,8 @@ EmployeeCountFilter.propTypes = {
   setFilterValues: PropTypes.func.isRequired,
 };
 
-const RecordSummary = ({ data, filtering }) => (
-  <Box direction="row" gap="xxsmall">
+function RecordSummary({ data, filtering }) {
+  return <Box direction="row" gap="xxsmall">
     <Text size="small" weight="bold">
       {data.length}
     </Text>
@@ -805,15 +805,15 @@ const RecordSummary = ({ data, filtering }) => (
         <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
-  </Box>
-);
+  </Box>;
+}
 
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filtering: PropTypes.bool.isRequired,
 };
 
-const Results = ({ data }) => {
+function Results({ data }) {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -865,7 +865,7 @@ const Results = ({ data }) => {
       </Grid>
     </Box>
   );
-};
+}
 
 Results.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

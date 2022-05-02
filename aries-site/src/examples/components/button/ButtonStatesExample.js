@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, ResponsiveContext } from 'grommet';
 
-export const ButtonStatesExample = () => {
+export function ButtonStatesExample() {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -27,4 +27,4 @@ export const ButtonStatesExample = () => {
       </Box>
     </Box>
   );
-};
+}

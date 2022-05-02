@@ -1,8 +1,8 @@
 import React from 'react';
 import { Anchor, Paragraph } from 'grommet';
 
-export const AnchorExternalExample = () => (
-    <Paragraph>
+export function AnchorExternalExample() {
+  return <Paragraph>
       The HPE Design System is built with Grommet components. If you want to
       learn more, head over to the{' '}
       <Anchor
@@ -12,5 +12,5 @@ export const AnchorExternalExample = () => (
         rel="noopener"
       />
       .
-    </Paragraph>
-  );
+    </Paragraph>;
+}

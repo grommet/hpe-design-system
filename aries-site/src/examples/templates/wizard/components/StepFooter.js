@@ -3,7 +3,7 @@ import { Box, Button, Footer, ResponsiveContext } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import { WizardContext } from '.';
 
-export const StepFooter = () => {
+export function StepFooter() {
   const size = useContext(ResponsiveContext);
   const { activeIndex, id, steps, width } = useContext(WizardContext);
 
@@ -38,4 +38,4 @@ export const StepFooter = () => {
       </Footer>
     </Box>
   );
-};
+}

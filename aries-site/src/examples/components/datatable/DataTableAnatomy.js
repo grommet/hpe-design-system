@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-export const DataTableAnatomy = () => (
-  <Box width="medium" margin={{ bottom: 'medium' }}>
+export function DataTableAnatomy() {
+  return <Box width="medium" margin={{ bottom: 'medium' }}>
     <AnatomySection
       background="green!"
       gap="xsmall"
@@ -38,21 +38,21 @@ export const DataTableAnatomy = () => (
     <AnatomySection background="blue!">
       <AnatomyLabel>Table footer</AnatomyLabel>
     </AnatomySection>
-  </Box>
-);
+  </Box>;
+}
 
-const AnatomySection = ({ background, ...rest }) => (
-  <Box
+function AnatomySection({ background, ...rest }) {
+  return <Box
     background={background}
     pad={{ horizontal: 'small', vertical: 'xxsmall' }}
     round="xxsmall"
     {...rest}
-  />
-);
+  />;
+}
 
-const AnatomyLabel = ({ ...rest }) => (
-  <Text color="text-strong" size="xsmall" weight="bold" {...rest} />
-);
+function AnatomyLabel({ ...rest }) {
+  return <Text color="text-strong" size="xsmall" weight="bold" {...rest} />;
+}
 
 AnatomySection.propTypes = {
   background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

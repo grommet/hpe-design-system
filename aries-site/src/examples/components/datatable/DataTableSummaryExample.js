@@ -118,7 +118,7 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const DataTableSummaryExample = ({ designSystemDemo }) => {
+export function DataTableSummaryExample({ designSystemDemo }) {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -155,7 +155,7 @@ export const DataTableSummaryExample = ({ designSystemDemo }) => {
       </Box>
     </>
   );
-};
+}
 
 DataTableSummaryExample.propTypes = {
   designSystemDemo: PropTypes.bool,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionPanel, Box } from 'grommet';
 
-export const AccordionExample = ({ ...rest }) => {
+export function AccordionExample({ ...rest }) {
   const pad = 'small';
 
   return (
@@ -26,4 +26,4 @@ export const AccordionExample = ({ ...rest }) => {
       </AccordionPanel>
     </Accordion>
   );
-};
+}

@@ -10,7 +10,7 @@ for (let i = 0; i < 95; i += 1) {
   });
 }
 
-export const PaginationListExample = () => {
+export function PaginationListExample() {
   const size = useContext(ResponsiveContext);
   return (
     <Box overflow="auto" pad="xsmall">
@@ -36,4 +36,4 @@ export const PaginationListExample = () => {
       />
     </Box>
   );
-};
+}

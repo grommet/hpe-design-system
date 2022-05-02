@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-export const ColorRow = ({ colorSpec, textColor, textSize = 'small' }) => {
+export function ColorRow({ colorSpec, textColor, textSize = 'small' }) {
   const { value, name, hex } = colorSpec;
 
   return (
@@ -25,7 +25,7 @@ export const ColorRow = ({ colorSpec, textColor, textSize = 'small' }) => {
       </Text>
     </Box>
   );
-};
+}
 
 ColorRow.propTypes = {
   colorSpec: PropTypes.shape({

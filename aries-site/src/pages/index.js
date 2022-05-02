@@ -31,7 +31,7 @@ const pageDetails = getPageDetails(title);
 // These make a box width limited to xxlarge but centered
 const widthProps = { margin: 'auto' };
 
-const Intro = ({ children }) => {
+function Intro({ children }) {
   const size = useContext(ResponsiveContext);
   return ['xsmall', 'small'].includes(size) ? (
     <PageContent>
@@ -69,14 +69,14 @@ const Intro = ({ children }) => {
       </PageContent>
     </Stack>
   );
-};
+}
 
 Intro.propTypes = {
   children: PropTypes.node,
 };
 
-const Index = () => (
-  <Layout title={title} isLanding pad={{}} width={{}}>
+function Index() {
+  return <Layout title={title} isLanding pad={{}} width={{}}>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
       <Intro>
@@ -101,7 +101,7 @@ const Index = () => (
       <Quote />
       <Community {...widthProps} />
     </Box>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default Index;

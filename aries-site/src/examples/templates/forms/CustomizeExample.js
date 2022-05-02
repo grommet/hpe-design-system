@@ -12,7 +12,7 @@ import {
   Text,
 } from 'grommet';
 
-export const CustomizeExample = () => {
+export function CustomizeExample() {
   const [formValues, setFormValues] = React.useState({});
   const size = useContext(ResponsiveContext);
 
@@ -107,4 +107,4 @@ export const CustomizeExample = () => {
       </Box>
     </Box>
   );
-};
+}

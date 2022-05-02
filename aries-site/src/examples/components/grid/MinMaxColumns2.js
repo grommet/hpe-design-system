@@ -15,8 +15,8 @@ const columns = [
   ['medium', 'flex'],
 ];
 
-export const MinMaxColumns2 = () => (
-  <Grid columns={columns} gap="xsmall">
+export function MinMaxColumns2() {
+  return <Grid columns={columns} gap="xsmall">
     <ContentArea title="1" {...contentAreaProps} height="auto">
       <Text color="text-strong">[ 'small', 'auto' ]</Text>
       <ContentArea border fill="vertical" flex width="medium">
@@ -44,5 +44,5 @@ export const MinMaxColumns2 = () => (
         </ContentLabel>
       </ContentArea>
     </ContentArea>
-  </Grid>
-);
+  </Grid>;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Box, Drop, Text } from 'grommet';
 
-export const DropExample = () => {
+export function DropExample() {
   const targetRef = useRef();
 
   const [, setShowDrop] = useState(false);
@@ -31,4 +31,4 @@ export const DropExample = () => {
       )}
     </>
   );
-};
+}

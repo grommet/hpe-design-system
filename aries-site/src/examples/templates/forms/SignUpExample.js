@@ -82,7 +82,7 @@ const emailMask = [
   },
 ];
 
-export const SignUpExample = () => {
+export function SignUpExample() {
   const [formValues, setFormValues] = React.useState({
     email: 'jane.smith@hpe.com',
     fullName: '',
@@ -239,4 +239,4 @@ export const SignUpExample = () => {
       </Box>
     </Box>
   );
-};
+}

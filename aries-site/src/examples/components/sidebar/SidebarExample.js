@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 import { Avatar, Box, Button, Sidebar } from 'grommet';
 import { Clock, Apps, Terminal, Chat, StatusUnknown } from 'grommet-icons';
 
-export const SidebarExample = () => {
+export function SidebarExample() {
   const theme = useContext(ThemeContext);
   return (
     <Sidebar
@@ -28,4 +28,4 @@ export const SidebarExample = () => {
       </Box>
     </Sidebar>
   );
-};
+}

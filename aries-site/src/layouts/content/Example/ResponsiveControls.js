@@ -9,13 +9,13 @@ import {
 
 import { screens } from '..';
 
-export const ResponsiveControls = ({
+export function ResponsiveControls({
   controls: controlsProp,
   onSetScreen,
   screen,
   fullscreen: displayingFullscreen,
   setFullscreen,
-}) => {
+}) {
   // default controls to display
   const controls = {
     desktop: true,
@@ -80,7 +80,7 @@ export const ResponsiveControls = ({
       )}
     </Box>
   );
-};
+}
 
 ResponsiveControls.propTypes = {
   controls: PropTypes.oneOfType([

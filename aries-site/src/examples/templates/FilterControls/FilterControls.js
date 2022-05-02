@@ -4,14 +4,14 @@ import { Box, ResponsiveContext } from 'grommet';
 
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
-export const FilterControls = ({
+export function FilterControls({
   actions,
   data,
   filters,
   layerProps,
   primaryKey,
   searchFilter,
-}) => {
+}) {
   const {
     setData,
     setFilterAttributes,
@@ -68,7 +68,7 @@ export const FilterControls = ({
       <ResultsSummary />
     </Box>
   );
-};
+}
 
 FilterControls.propTypes = {
   actions: PropTypes.element,

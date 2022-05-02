@@ -17,7 +17,7 @@ const maskSize = [
   },
 ];
 
-export const MaskedSizeUnitsExample = () => {
+export function MaskedSizeUnitsExample() {
   const [value, setValue] = useState('');
 
   return (
@@ -37,4 +37,4 @@ export const MaskedSizeUnitsExample = () => {
       </FormField>
     </Form>
   );
-};
+}

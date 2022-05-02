@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, RangeSelector, Stack, Text } from 'grommet';
 
-export const RangeSelectorExample = () => {
+export function RangeSelectorExample() {
   const [range, setRange] = useState([4, 7]);
   const onChange = values => {
     setRange(values);
@@ -34,4 +34,4 @@ export const RangeSelectorExample = () => {
       </Stack>
     </Box>
   );
-};
+}

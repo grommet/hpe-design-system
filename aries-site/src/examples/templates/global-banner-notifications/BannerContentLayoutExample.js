@@ -4,11 +4,10 @@ import {
   Box,
   Button,
   Grid,
-  Header,
-  Heading,
   Main,
   Page,
   PageContent,
+  PageHeader,
   Notification,
   Text,
   ResponsiveContext,
@@ -17,57 +16,55 @@ import { HelpOption, HomeRounded } from 'grommet-icons';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
-export const BannerContentLayoutExample = () => (
-  <AppContainer>
-    <Box>
-      <ContentArea
-        pad={{ horizontal: 'large', vertical: 'small' }}
-        direction="row"
-        icon
-        title="HPE Service Name"
-        gap="none"
-        justify="between"
-      >
-        <Box align="center" direction="row" gap="small">
-          <>
-            <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
-            <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
-          </>
-          <Avatar background="purple!" flex={false}>
-            <Text size="small" color="text-strong">
-              JS
-            </Text>
-          </Avatar>
-        </Box>
-      </ContentArea>
-      <Notification
-        status="warning"
-        message={`Your supscription will expire in 7 days. Renew your 
+export function BannerContentLayoutExample() {
+  return (
+    <AppContainer>
+      <Box>
+        <ContentArea
+          pad={{ horizontal: 'large', vertical: 'small' }}
+          direction="row"
+          icon
+          title="HPE Service Name"
+          gap="none"
+          justify="between"
+        >
+          <Box align="center" direction="row" gap="small">
+            <>
+              <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
+              <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
+            </>
+            <Avatar background="purple!" flex={false}>
+              <Text size="small" color="text-strong">
+                JS
+              </Text>
+            </Avatar>
+          </Box>
+        </ContentArea>
+        <Notification
+          status="warning"
+          message={`Your supscription will expire in 7 days. Renew your 
             subscription to ensure you don't lose access.`}
-        onClose={() => {}}
-        actions={[
-          {
-            href: '#',
-            label: 'Renew Subscription',
-          },
-        ]}
-        global
-      />
-    </Box>
-    <Page>
-      <PageContent>
-        {/* needed pad to match align with content 
+          onClose={() => {}}
+          actions={[
+            {
+              href: '#',
+              label: 'Renew Subscription',
+            },
+          ]}
+          global
+        />
+      </Box>
+      <Page>
+        <PageContent>
+          {/* needed pad to match align with content 
         // strip out once fixed */}
-        <Header pad="small">
-          <Heading level={1} margin="none" size="small">
-            Page Header
-          </Heading>
-        </Header>
-        <Content />
-      </PageContent>
-    </Page>
-  </AppContainer>
-);
+          <PageHeader title="Page Header" pad="small" />
+          <Content />
+        </PageContent>
+      </Page>
+    </AppContainer>
+  );
+}
 
 const parentGrid = {
   columns: {
@@ -108,7 +105,7 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const Content = () => {
+function Content() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -145,8 +142,10 @@ const Content = () => {
       </Grid>
     </Main>
   );
-};
+}
 
-const ContentBlock = ({ ...rest }) => (
-  <ContentArea elevation="medium" height="small" round="small" {...rest} />
-);
+function ContentBlock({ ...rest }) {
+  return (
+    <ContentArea elevation="medium" height="small" round="small" {...rest} />
+  );
+}

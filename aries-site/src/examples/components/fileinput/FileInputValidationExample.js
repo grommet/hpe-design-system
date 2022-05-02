@@ -6,7 +6,7 @@ const exampleFiles = [
   { name: 'file-size-too-large.zip', size: 2650000 },
 ];
 
-export const FileInputValidationExample = () => {
+export function FileInputValidationExample() {
   const maxSize = 2621440; // 2.5 MB
   // Initializing value state to demonstrate FileInput Validation state.
   const [value, setValue] = useState({
@@ -55,4 +55,4 @@ export const FileInputValidationExample = () => {
       </Box>
     </Form>
   );
-};
+}

@@ -2,8 +2,8 @@ import React from 'react';
 import { Anchor, Box, Heading, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
 
-export const NameValueListHeadingPreview = () => (
-  <Box pad="small" gap="medium">
+export function NameValueListHeadingPreview() {
+  return <Box pad="small" gap="medium">
     <Heading level={2} margin="none">
       Name Value List Heading
     </Heading>
@@ -25,5 +25,5 @@ export const NameValueListHeadingPreview = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

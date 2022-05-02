@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu } from 'grommet';
 
-export const MenuDisabledExample = () => {
+export function MenuDisabledExample() {
   const items = [
     { label: 'Reset password' },
     { label: 'Change username' },
@@ -11,4 +11,4 @@ export const MenuDisabledExample = () => {
   return (
     <Menu label="Account Information" items={items} width="medium" disabled />
   );
-};
+}

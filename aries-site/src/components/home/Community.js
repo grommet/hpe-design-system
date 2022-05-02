@@ -12,17 +12,17 @@ import {
 } from 'grommet';
 import { ChatOption, Github, Info, Map, Slack } from 'grommet-icons';
 
-const LinkButton = props => (
-  <Button
+function LinkButton(props) {
+  return <Button
     target="_blank"
     rel="noreferrer noopener"
     alignSelf="start"
     {...props}
-  />
-);
+  />;
+}
 
-const SlackOption = () => (
-  <Box gap="medium">
+function SlackOption() {
+  return <Box gap="medium">
     <Slack size="large" color="text-strong" />
     <Box>
       <Heading level={3} margin="none" size="small">
@@ -36,11 +36,11 @@ const SlackOption = () => (
       href="https://slack-invite.grommet.io/"
       primary
     />
-  </Box>
-);
+  </Box>;
+}
 
-const Roadmap = () => (
-  <Box gap="medium">
+function Roadmap() {
+  return <Box gap="medium">
     <Map size="large" color="text-strong" />
     <Box>
       <Heading level={3} margin="none" size="small">
@@ -53,11 +53,11 @@ const Roadmap = () => (
       href="https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com"
       secondary
     />
-  </Box>
-);
+  </Box>;
+}
 
-const Backlog = () => (
-  <Box gap="medium">
+function Backlog() {
+  return <Box gap="medium">
     <Github size="large" color="text-strong" />
     <Box>
       <Heading level={3} margin="none" size="small">
@@ -70,11 +70,11 @@ const Backlog = () => (
       href="https://github.com/orgs/grommet/projects/10"
       secondary
     />
-  </Box>
-);
+  </Box>;
+}
 
-const Feedback = () => (
-  <Box gap="medium">
+function Feedback() {
+  return <Box gap="medium">
     <Info size="large" color="text-strong" />
     <Box>
       <Heading level={3} margin="none" size="small">
@@ -83,10 +83,10 @@ const Feedback = () => (
       <Text>Let us know your feedback!</Text>
     </Box>
     <LinkButton label="Provide feedback" href="/feedback" secondary />
-  </Box>
-);
+  </Box>;
+}
 
-export const Community = ({ ...rest }) => {
+export function Community({ ...rest }) {
   const size = useContext(ResponsiveContext);
   return (
     <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
@@ -122,4 +122,4 @@ export const Community = ({ ...rest }) => {
       </Box>
     </PageContent>
   );
-};
+}

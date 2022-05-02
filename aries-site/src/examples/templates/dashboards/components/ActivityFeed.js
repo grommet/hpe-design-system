@@ -9,7 +9,7 @@ import {
 } from 'grommet';
 import { useContext } from 'react';
 
-export const ActivityFeed = ({ children, title, footer: footerContent }) => {
+export function ActivityFeed({ children, title, footer: footerContent }) {
   const theme = useContext(ThemeContext);
   const { body, footer, header } = theme.card;
 
@@ -30,7 +30,7 @@ export const ActivityFeed = ({ children, title, footer: footerContent }) => {
       </CardFooter>
     </Card>
   );
-};
+}
 
 ActivityFeed.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),

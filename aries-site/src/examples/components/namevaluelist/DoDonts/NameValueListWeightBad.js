@@ -3,8 +3,8 @@ import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 import { serverData } from '../data';
 
-export const NameValueListWeightBadExample = () => (
-  <Box pad="small">
+export function NameValueListWeightBadExample() {
+  return <Box pad="small">
     <NameValueList>
       {Object.entries(serverData).map(([name, value]) => {
         let val = value;
@@ -23,5 +23,5 @@ export const NameValueListWeightBadExample = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

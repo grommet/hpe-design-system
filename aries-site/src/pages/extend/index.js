@@ -9,8 +9,8 @@ const title = 'Extend';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Extend = () => (
-  <Layout
+function Extend() {
+  return <Layout
     backgroundImage={{
       src: {
         dark: '/extend-dark.svg',
@@ -41,7 +41,7 @@ const Extend = () => (
       </PageIntro>
       <CardGrid cards={cards} pad={{ bottom: 'large' }} />
     </PageContent>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default Extend;

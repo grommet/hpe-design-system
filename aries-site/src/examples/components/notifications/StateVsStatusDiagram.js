@@ -26,8 +26,8 @@ const connections = [
   },
 ];
 
-export const StateVsStatusDiagram = () => (
-  <Stack>
+export function StateVsStatusDiagram() {
+  return <Stack>
     <Box gap="medium" pad={{ bottom: 'medium' }}>
       <Box gap="large">
         <Box id="2" pad="small" width="small" background="background-front">
@@ -40,5 +40,5 @@ export const StateVsStatusDiagram = () => (
       </Box>
     </Box>
     <Diagram connections={connections} />
-  </Stack>
-);
+  </Stack>;
+}

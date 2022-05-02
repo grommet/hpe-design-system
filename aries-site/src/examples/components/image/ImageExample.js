@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Image } from 'grommet';
 
-export const ImageExample = () => (
-  <Box height="medium">
+export function ImageExample() {
+  return <Box height="medium">
     <Image
       fit="contain"
       src="/cards.svg"
@@ -10,5 +10,5 @@ export const ImageExample = () => (
       a surface and depict the four pillars of the Design System: Foundation, 
       Components, Templates, and Extend.`}
     />
-  </Box>
-);
+  </Box>;
+}

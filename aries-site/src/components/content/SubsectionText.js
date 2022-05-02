@@ -21,15 +21,15 @@ const StyledBox = styled(Box)`
   }
 `;
 
-export const SubsectionText = ({ children, level, size, ...rest }) => (
-  <StyledBox width="large" margin={{ bottom: 'medium' }}>
+export function SubsectionText({ children, level, size, ...rest }) {
+  return <StyledBox width="large" margin={{ bottom: 'medium' }}>
     <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
       <HighlightPhrase size={size || TEXT_SIZE[level]}>
         {children}
       </HighlightPhrase>
     </Paragraph>
-  </StyledBox>
-);
+  </StyledBox>;
+}
 
 SubsectionText.propTypes = {
   children: PropTypes.oneOfType([

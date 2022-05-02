@@ -226,7 +226,7 @@ const columns = [
   },
 ];
 
-export const DataTableMultiSelectExample = () => {
+export function DataTableMultiSelectExample() {
   const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 
@@ -257,14 +257,14 @@ export const DataTableMultiSelectExample = () => {
       </Box>
     </>
   );
-};
+}
 
 const ActionsMenu = styled(Menu)`
   border: 1px solid
     ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
 `;
 
-const TableControls = ({ selected }) => {
+function TableControls({ selected }) {
   const demoActionHandler = records => {
     // eslint-disable-next-line no-alert
     alert(
@@ -311,14 +311,14 @@ const TableControls = ({ selected }) => {
       />
     </Box>
   );
-};
+}
 
 TableControls.propTypes = {
   selected: PropTypes.array,
 };
 
-const SelectionSummary = ({ selected }) => (
-  <>
+function SelectionSummary({ selected }) {
+  return <>
     {selected && (
       <>
         {selected.length > 0 ? (
@@ -342,8 +342,8 @@ const SelectionSummary = ({ selected }) => (
         )}
       </>
     )}
-  </>
-);
+  </>;
+}
 
 SelectionSummary.propTypes = {
   selected: PropTypes.array,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, FormField, TextArea } from 'grommet';
 
-export const TextAreaDisabledExample = () => (
-  <Form>
+export function TextAreaDisabledExample() {
+  return <Form>
     <FormField
       label="Additional feedback"
       htmlFor="text-area-disabled-example"
@@ -16,5 +16,5 @@ export const TextAreaDisabledExample = () => (
         disabled
       />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

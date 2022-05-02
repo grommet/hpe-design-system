@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Header, Button, Text } from 'grommet';
 import { Hpe, Menu } from 'grommet-icons';
 
-export const HeaderPreview = () => (
-    <Header
+export function HeaderPreview() {
+  return <Header
       border={{ color: 'background-contrast', side: 'bottom' }}
       background="background-front"
       fill="horizontal"
@@ -18,5 +18,5 @@ export const HeaderPreview = () => (
         </Box>
       </Box>
       <Button icon={<Menu />} tabIndex={-1} />
-    </Header>
-  );
+    </Header>;
+}

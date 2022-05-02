@@ -34,7 +34,7 @@ const emailValidation = [
   },
 ];
 
-const ResetPassword = ({ closeLayer, email }) => {
+function ResetPassword({ closeLayer, email }) {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
 
   // eslint-disable-next-line no-unused-vars
@@ -96,9 +96,9 @@ const ResetPassword = ({ closeLayer, email }) => {
       </Box>
     </>
   );
-};
+}
 
-export const SignInExample = () => {
+export function SignInExample() {
   const [formValues, setFormValues] = React.useState({
     email: '',
     password: '',
@@ -233,7 +233,7 @@ export const SignInExample = () => {
       </Box>
     </Box>
   );
-};
+}
 
 ResetPassword.propTypes = {
   closeLayer: PropTypes.func,

@@ -2,8 +2,8 @@ import React from 'react';
 import { NameValueList, NameValuePair } from 'grommet';
 import { gridData } from '../data';
 
-export const NameValueListGridExample = () => (
-  <NameValueList
+export function NameValueListGridExample() {
+  return <NameValueList
     pairProps={{ direction: 'column' }}
     layout="grid"
     valueProps={{ width: 'small' }}
@@ -13,5 +13,5 @@ export const NameValueListGridExample = () => (
         {value}
       </NameValuePair>
     ))}
-  </NameValueList>
-);
+  </NameValueList>;
+}

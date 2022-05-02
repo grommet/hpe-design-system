@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
-import { Box, Heading, Text } from 'grommet';
+import { Box, PageHeader, Paragraph, Text } from 'grommet';
 
-export const TagPageHeader = ({ description }) => (
-  <Box gap="medium" flex={false}>
-    <Box gap="xsmall" flex={false}>
-      <Heading level={2} margin="none">
-        Create and Assign Tags
-      </Heading>
-      <Text size="large">
-        {description ||
-          'Tags are name-value pairs that can be assigned to resources.'}
-      </Text>
-    </Box>
+export function TagPageHeader({ description }) {
+  return <Box gap="medium" flex={false}>
+    <PageHeader
+      title="Create and Assign Tags"
+      subtitle={
+        <Paragraph size="large" margin="none" fill>
+          {description ||
+            'Tags are name-value pairs that can be assigned to resources.'}
+        </Paragraph>
+      }
+    />
     <Text size="large">
       Tags will be assigned to <Text weight="bold">1</Text> selected device.
     </Text>
-  </Box>
-);
+  </Box>;
+}
 
 TagPageHeader.propTypes = {
   description: PropTypes.string,

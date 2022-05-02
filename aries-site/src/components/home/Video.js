@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Box, Video as GrommetVideo } from 'grommet';
 import { useDarkMode } from '../../utils';
 
-export const Video = ({ ...rest }) => {
+export function Video({ ...rest }) {
   const darkMode = useDarkMode();
   const videoRef = useRef(null);
 
@@ -61,4 +61,4 @@ export const Video = ({ ...rest }) => {
       </GrommetVideo>
     </Box>
   );
-};
+}

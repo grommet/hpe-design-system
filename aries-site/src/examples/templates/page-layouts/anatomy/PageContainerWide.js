@@ -22,7 +22,7 @@ const connections = [
 const PAGE_CONTAINER_WIDTH = '1536px';
 const PAGE_CONTAINER_SCALE = '80%';
 
-export const PageContainerWide = () => {
+export function PageContainerWide() {
   const theme = useContext(ThemeContext);
   const diagramHeight = theme.global.size.medium;
   const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
@@ -97,4 +97,4 @@ export const PageContainerWide = () => {
       <Diagram connections={connections} />
     </Stack>
   );
-};
+}

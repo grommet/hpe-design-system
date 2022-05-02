@@ -2,8 +2,8 @@ import React from 'react';
 import { Avatar, Box, Button, Header, Text } from 'grommet';
 import { Hpe } from 'grommet-icons';
 
-export const HeaderAvatarExample = () => (
-    <Header fill="horizontal">
+export function HeaderAvatarExample() {
+  return <Header fill="horizontal">
       <Button>
         <Box
           direction="row"
@@ -26,5 +26,5 @@ export const HeaderAvatarExample = () => (
       <Button>
         <Avatar background="background-contrast">ES</Avatar>
       </Button>
-    </Header>
-  );
+    </Header>;
+}

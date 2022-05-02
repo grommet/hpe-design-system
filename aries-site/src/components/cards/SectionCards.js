@@ -3,7 +3,7 @@ import { Box, Button, Grid } from 'grommet';
 import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
-export const SectionCards = ({ items, seeAllContent }) => {
+export function SectionCards({ items, seeAllContent }) {
   const { buttonLabel, href } = seeAllContent;
 
   return (
@@ -29,7 +29,7 @@ export const SectionCards = ({ items, seeAllContent }) => {
       />
     </Box>
   );
-};
+}
 SectionCards.propTypes = {
   items: PropTypes.array,
   seeAllContent: PropTypes.oneOfType([

@@ -27,7 +27,7 @@ const STATUS_MAP = {
   },
 };
 
-export const StatusIndicator = ({ status }) => {
+export function StatusIndicator({ status }) {
   const { label, icon, color } = STATUS_MAP[status];
 
   const statusIcon = React.cloneElement(icon, { color, size: 'small' });
@@ -38,7 +38,7 @@ export const StatusIndicator = ({ status }) => {
       <Text>{label}</Text>
     </Box>
   );
-};
+}
 
 StatusIndicator.propTypes = {
   status: PropTypes.oneOf(['OK', 'Warning', 'Critical', 'Unknown']).isRequired,

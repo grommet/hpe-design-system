@@ -64,8 +64,8 @@ const columns = [
   },
 ];
 
-export const ButtonAlignmentTable = () => (
-  <Card
+export function ButtonAlignmentTable() {
+  return <Card
     alignSelf="start"
     elevation="none"
     pad="medium"
@@ -126,5 +126,5 @@ export const ButtonAlignmentTable = () => (
         ))}
       </TableBody>
     </Table>
-  </Card>
-);
+  </Card>;
+}

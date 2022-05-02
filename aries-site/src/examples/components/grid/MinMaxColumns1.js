@@ -12,8 +12,8 @@ const columns = [
   'xsmall', // column 3 is always 'small'
 ];
 
-export const MinMaxColumns1 = () => (
-  <Grid columns={columns} gap="xsmall">
+export function MinMaxColumns1() {
+  return <Grid columns={columns} gap="xsmall">
     <ContentArea title="1" {...contentAreaProps}>
       <ContentLabel>[ 'xxsmall', 'xsmall' ]</ContentLabel>
     </ContentArea>
@@ -23,5 +23,5 @@ export const MinMaxColumns1 = () => (
     <ContentArea title="3" {...contentAreaProps}>
       <ContentLabel>'xsmall'</ContentLabel>
     </ContentArea>
-  </Grid>
-);
+  </Grid>;
+}

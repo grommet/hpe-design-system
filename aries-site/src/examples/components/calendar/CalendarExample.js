@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Calendar } from 'grommet';
 
-export const CalendarExample = () => {
+export function CalendarExample() {
   const [date, setDate] = useState();
 
   const onSelect = nextDate => {
@@ -15,4 +15,4 @@ export const CalendarExample = () => {
       bounds={['2020-09-08', '2025-12-13']}
     />
   );
-};
+}

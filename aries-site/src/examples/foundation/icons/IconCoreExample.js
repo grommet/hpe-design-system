@@ -24,8 +24,8 @@ import {
   Trash,
 } from 'grommet-icons';
 
-const CoreIcon = ({ Icon, name, aliases, guidance }) => (
-  <Card elevation={false}>
+function CoreIcon({ Icon, name, aliases, guidance }) {
+  return <Card elevation={false}>
     <CardHeader
       direction="column"
       align="stretch"
@@ -53,8 +53,8 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
     <CardBody pad={{ top: 'none', horizontal: 'medium', bottom: 'medium' }}>
       <Paragraph margin="none">{guidance}</Paragraph>
     </CardBody>
-  </Card>
-);
+  </Card>;
+}
 
 CoreIcon.propTypes = {
   Icon: PropTypes.object,
@@ -63,8 +63,8 @@ CoreIcon.propTypes = {
   guidance: PropTypes.string,
 };
 
-export const IconResourceActionsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+export function IconResourceActionsExample() {
+  return <Grid alignSelf="stretch" gap="medium" columns="small">
     <CoreIcon
       Icon={Add}
       name="Add"
@@ -82,11 +82,11 @@ export const IconResourceActionsExample = () => (
       aliases={['Delete']}
       guidance="Use in buttons to initiate deleting things."
     />
-  </Grid>
-);
+  </Grid>;
+}
 
-export const IconUIActionsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+export function IconUIActionsExample() {
+  return <Grid alignSelf="stretch" gap="medium" columns="small">
     <CoreIcon
       Icon={Close}
       name="Close"
@@ -115,11 +115,11 @@ export const IconUIActionsExample = () => (
       name="Download"
       guidance="Use in buttons to initiate downloading files."
     />
-  </Grid>
-);
+  </Grid>;
+}
 
-export const IconControlsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+export function IconControlsExample() {
+  return <Grid alignSelf="stretch" gap="medium" columns="small">
     <CoreIcon
       Icon={Add}
       name="Add"
@@ -148,5 +148,5 @@ export const IconControlsExample = () => (
       aliases={['Clear']}
       guidance="Use in in file input fields to clear them."
     />
-  </Grid>
-);
+  </Grid>;
+}

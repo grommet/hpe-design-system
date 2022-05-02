@@ -8,8 +8,8 @@ const cardData = {
   Spoke: 'Visible details that pertain to the List Item',
 };
 
-export const DrillDownDataTableExample = () => (
-  <NameValueList
+export function DrillDownDataTableExample() {
+  return <NameValueList
     pairProps={{ direction: 'column' }}
     layout="grid"
     valueProps={{ width: 'small' }}
@@ -19,5 +19,5 @@ export const DrillDownDataTableExample = () => (
         {value}
       </NameValuePair>
     ))}
-  </NameValueList>
-);
+  </NameValueList>;
+}

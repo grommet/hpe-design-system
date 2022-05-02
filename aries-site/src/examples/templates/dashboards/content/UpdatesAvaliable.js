@@ -3,7 +3,7 @@ import { UpdatesFeed, UpdateNotificationsList } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/firmware-bundles.json');
 
-export const UpdatesAvaliable = () => {
+export function UpdatesAvaliable() {
   const data = MOCK_DATA['firmware-bundles'].items;
   const [updates, setUpdates] = useState([]);
 
@@ -42,4 +42,4 @@ export const UpdatesAvaliable = () => {
       )}
     </UpdatesFeed>
   );
-};
+}

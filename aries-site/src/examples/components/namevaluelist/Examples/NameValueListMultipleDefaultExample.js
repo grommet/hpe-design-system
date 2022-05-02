@@ -1,16 +1,22 @@
 import React from 'react';
-import { Box, Heading, NameValueList, NameValuePair, Tab, Tabs } from 'grommet';
+import {
+  Box,
+  Heading,
+  NameValueList,
+  NameValuePair,
+  PageHeader,
+  Tab,
+  Tabs,
+} from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 import { kubernetesData, serverData, tagsData } from '../data';
 
-export const NameValueListMultipleDefaultExample = () => {
+export function NameValueListMultipleDefaultExample() {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
     <>
-      <Heading level={1} size="small">
-        Demo_Cluster_5
-      </Heading>
+      <PageHeader title="Demo_Cluster_5" />
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
           <Box gap="medium">
@@ -68,4 +74,4 @@ export const NameValueListMultipleDefaultExample = () => {
       </Tabs>
     </>
   );
-};
+}

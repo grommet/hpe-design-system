@@ -10,7 +10,7 @@ const options = [
   'Item Six',
 ];
 
-export const SelectValidationExample = () => {
+export function SelectValidationExample() {
   const [selected, setSelected] = useState('');
   const [message, setMessage] = useState(
     'Select a value from the list to resolve this error.',
@@ -40,4 +40,4 @@ export const SelectValidationExample = () => {
       </FormField>
     </Form>
   );
-};
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Heading, Header, Text } from 'grommet';
 
-export const ButtonBadGroupPreview = () => (
-  <Box gap="medium" pad="small" width="medium">
+export function ButtonBadGroupPreview() {
+  return <Box gap="medium" pad="small" width="medium">
     <Header
       direction="column"
       align="start"
@@ -19,5 +19,5 @@ export const ButtonBadGroupPreview = () => (
       <Button secondary label="Seconda..." onClick={() => {}} />
       <Button default label="Default..." onClick={() => {}} />
     </Box>
-  </Box>
-);
+  </Box>;
+}

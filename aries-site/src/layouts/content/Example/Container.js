@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, defaultProps } from 'grommet';
 
 // This creates the overall canvas/frame that the Example sits inside of
-export const Container = ({
+export function Container({
   designer, // link to grommet designer example
   docs, // link to grommet doc for component
   figma, // link to figma design
@@ -16,7 +16,7 @@ export const Container = ({
   showResponsiveControls,
   template, // showing as template causes appropriate aspect ratio
   ...rest
-}) => {
+}) {
   // Height for template screen needs to be between medium and large
   // to maintain aspect ratio, so this is small + medium
   const { small, medium } = defaultProps.theme.global.size;
@@ -46,7 +46,7 @@ export const Container = ({
       {...rest}
     />
   );
-};
+}
 
 Container.propTypes = {
   designer: PropTypes.string,

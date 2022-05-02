@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from 'grommet';
 
-export const ContentSection = ({ ...rest }) => (
-  <Box
+export function ContentSection({ ...rest }) {
+  return <Box
     as="section"
     pad={{
       bottom: 'medium',
@@ -10,5 +10,5 @@ export const ContentSection = ({ ...rest }) => (
       top: 'large',
     }}
     {...rest}
-  />
-);
+  />;
+}

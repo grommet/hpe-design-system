@@ -43,16 +43,16 @@ const connections = [
   },
 ];
 
-const AnatomyGrid = ({ ...rest }) => (
-  <Grid
+function AnatomyGrid({ ...rest }) {
+  return <Grid
     columns={['xxsmall', ['small', 'medium']]}
     gap={{ column: 'small', row: 'medium' }}
     justify="center"
     {...rest}
-  />
-);
+  />;
+}
 
-const AnatomyBox = ({ background, id }) => {
+function AnatomyBox({ background, id }) {
   const theme = useContext(ThemeContext);
 
   return (
@@ -64,10 +64,10 @@ const AnatomyBox = ({ background, id }) => {
       round="xxsmall"
     />
   );
-};
+}
 
-export const NameValueListAnatomy = () => (
-  <Stack margin={{ bottom: 'medium' }}>
+export function NameValueListAnatomy() {
+  return <Stack margin={{ bottom: 'medium' }}>
     <Box direction="row-responsive" gap="medium">
       <AnatomyGrid>
         {/* Empty Box occupies first cell of grid. Alternatively 
@@ -89,8 +89,8 @@ export const NameValueListAnatomy = () => (
       </AnatomyGrid>
     </Box>
     <Diagram connections={connections} />
-  </Stack>
-);
+  </Stack>;
+}
 
 AnatomyBox.propTypes = {
   background: PropTypes.string,

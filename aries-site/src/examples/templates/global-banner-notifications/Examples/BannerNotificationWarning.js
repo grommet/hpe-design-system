@@ -1,8 +1,8 @@
 import React from 'react';
 import { Notification } from 'grommet';
 
-export const BannerNotificationWarning = () => (
-  <Notification
+export function BannerNotificationWarning() {
+  return <Notification
     actions={[
       {
         href: '#',
@@ -12,5 +12,5 @@ export const BannerNotificationWarning = () => (
     status="warning"
     global
     message="Your session has timed out due to inactivity."
-  />
-);
+  />;
+}

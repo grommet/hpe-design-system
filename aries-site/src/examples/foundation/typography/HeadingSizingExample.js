@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Heading } from 'grommet';
 
-export const HeadingSizingExample = () => (
-    <Box gap="large">
+export function HeadingSizingExample() {
+  return <Box gap="large">
       <Box gap="medium">
         <Heading level={1} size="medium" margin="none">
           h1 default
@@ -59,5 +59,5 @@ export const HeadingSizingExample = () => (
           h4 small
         </Heading>
       </Box>
-    </Box>
-  );
+    </Box>;
+}

@@ -2,7 +2,7 @@ import { Box, Text } from 'grommet';
 
 import { useFilters } from '.';
 
-export const ResultsSummary = () => {
+export function ResultsSummary() {
   const { data, filteredResults, isFiltered, selected } = useFilters();
   const textSize = 'small';
 
@@ -37,4 +37,4 @@ export const ResultsSummary = () => {
       )}
     </Box>
   );
-};
+}

@@ -536,7 +536,7 @@ const handleClickRow = obj => {
   `);
 };
 
-export const PaginationTableExample = () => {
+export function PaginationTableExample() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -578,4 +578,4 @@ export const PaginationTableExample = () => {
       </Box>
     </Box>
   );
-};
+}

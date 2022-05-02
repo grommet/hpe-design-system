@@ -34,6 +34,6 @@ const guidesSeeAllContent = {
     'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-web-software-and-hardware-design.aspx',
 };
 
-export const GuideSection = () => (
-  <SectionCards items={guides} seeAllContent={guidesSeeAllContent} />
-);
+export function GuideSection() {
+  return <SectionCards items={guides} seeAllContent={guidesSeeAllContent} />;
+}

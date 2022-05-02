@@ -4,7 +4,7 @@ import { Box, FormField, RangeSelector, Stack, Text } from 'grommet';
 
 import { useFilters } from '..';
 
-export const FilterRangeSelector = ({ attr }) => {
+export function FilterRangeSelector({ attr }) {
   const { data, filters, setFilters, getFilterOptions } = useFilters();
   const { property, label, contentProps, inputProps } = attr;
   const options = getFilterOptions(data, property);
@@ -48,7 +48,7 @@ export const FilterRangeSelector = ({ attr }) => {
       <Text size="small">{inputProps.valueRange}</Text>
     </>
   );
-};
+}
 
 FilterRangeSelector.propTypes = {
   attr: PropTypes.shape({

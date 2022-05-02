@@ -2,7 +2,7 @@ import { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, NameValuePair, Text } from 'grommet';
 
-export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
+export function Measure({ name, value: valueProp, onClick, ...rest }) {
   const { icon: iconProp, label } = name;
   const icon = iconProp ? cloneElement(iconProp, { size: 'small' }) : null;
 
@@ -39,7 +39,7 @@ export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
   }
 
   return <Box {...rest}>{contents}</Box>;
-};
+}
 
 Measure.propTypes = {
   name: PropTypes.shape({

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Card, CardBody, Image, Text } from 'grommet';
 
-export const CardWithImage = () => (
-  <Card background="background-front">
+export function CardWithImage() {
+  return <Card background="background-front">
     <Box height="small" width="medium">
       <Image
         alt={`View of the Golden Gate Bridge with San Francisco in the 
@@ -21,5 +21,5 @@ export const CardWithImage = () => (
         </Text>
       </Box>
     </CardBody>
-  </Card>
-);
+  </Card>;
+}

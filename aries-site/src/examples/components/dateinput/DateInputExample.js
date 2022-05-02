@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, FormField, DateInput } from 'grommet';
 
-export const DateInputExample = () => {
+export function DateInputExample() {
   const [value, setValue] = React.useState({ value: '' });
   const onChange = nextValue => {
     setValue(nextValue);
@@ -21,4 +21,4 @@ export const DateInputExample = () => {
       </FormField>
     </Form>
   );
-};
+}

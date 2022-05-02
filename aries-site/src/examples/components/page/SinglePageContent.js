@@ -7,6 +7,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Paragraph,
   Text,
 } from 'grommet';
@@ -15,7 +16,7 @@ import {
   FilterControls,
   FiltersProvider,
   useFilters,
-  PageHeader,
+  // PageHeader,
 } from '../../templates';
 import trainingDataSets from '../../../data/mockData/trainingDataSets.json';
 // `demoStyle` is specific for the Design System site and is used
@@ -30,7 +31,7 @@ const defaultCategories = {
   Economics: { title: 'Economics', sources: [] },
 };
 
-export const SinglePageContent = ({ containerRef }) => {
+export function SinglePageContent({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
 
@@ -82,13 +83,13 @@ export const SinglePageContent = ({ containerRef }) => {
       </PageContent>
     </Page>
   );
-};
+}
 
 SinglePageContent.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const Datasets = ({ data, categories }) => {
+function Datasets({ data, categories }) {
   const { filteredResults } = useFilters();
 
   return filteredResults.length !== data.length ? (
@@ -102,15 +103,15 @@ const Datasets = ({ data, categories }) => {
         <Category key={key} category={value} />
       ))
   );
-};
+}
 
 Datasets.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   categories: PropTypes.object,
 };
 
-const Category = ({ category }) => (
-  <>
+function Category({ category }) {
+  return <>
     <Header>
       <Heading level={2} size="small">
         {category.title}
@@ -123,8 +124,8 @@ const Category = ({ category }) => (
       {category &&
         category.sources.slice(0, 7).map(source => <Card key={source.id} />)}
     </Grid>
-  </>
-);
+  </>;
+}
 
 Category.propTypes = {
   category: PropTypes.shape({

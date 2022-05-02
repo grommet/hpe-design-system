@@ -13,7 +13,7 @@ import { FormClose } from 'grommet-icons';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
-export const FiltersLayer = () => {
+export function FiltersLayer() {
   const size = useContext(ResponsiveContext);
   const {
     applyFilters,
@@ -95,4 +95,4 @@ export const FiltersLayer = () => {
       </Box>
     </Layer>
   );
-};
+}

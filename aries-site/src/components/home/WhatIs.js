@@ -49,7 +49,7 @@ const whatIsContent = [
   },
 ];
 
-export const WhatIs = ({ ...rest }) => {
+export function WhatIs({ ...rest }) {
   const darkMode = useDarkMode();
 
   return (
@@ -99,4 +99,4 @@ export const WhatIs = ({ ...rest }) => {
       </Box>
     </PageContent>
   );
-};
+}

@@ -10,7 +10,7 @@ import {
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const LayerExample = () => {
+export function LayerExample() {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
@@ -59,4 +59,4 @@ export const LayerExample = () => {
       )}
     </>
   );
-};
+}

@@ -11,7 +11,9 @@ import {
 } from 'grommet';
 import { Checkmark } from 'grommet-icons';
 
-const CheckmarkIcon = () => <Checkmark size="small" color="text-strong" />;
+function CheckmarkIcon() {
+  return <Checkmark size="small" color="text-strong" />;
+}
 
 const data = [
   {
@@ -67,8 +69,8 @@ const columns = [
   },
 ];
 
-export const NameValueListScaleTable = () => (
-  <Box pad="small" align="start">
+export function NameValueListScaleTable() {
+  return <Box pad="small" align="start">
     <Table>
       <TableHeader>
         <TableRow>
@@ -105,5 +107,5 @@ export const NameValueListScaleTable = () => (
         ))}
       </TableBody>
     </Table>
-  </Box>
-);
+  </Box>;
+}

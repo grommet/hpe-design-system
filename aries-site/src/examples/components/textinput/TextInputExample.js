@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, FormField, TextInput } from 'grommet';
 
-export const TextInputExample = () => (
-  <Form>
+export function TextInputExample() {
+  return <Form>
     <FormField name="textInput-example" label="Label" htmlFor="username">
       <TextInput
         name="textInput-example"
@@ -11,5 +11,5 @@ export const TextInputExample = () => (
         type="email"
       />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

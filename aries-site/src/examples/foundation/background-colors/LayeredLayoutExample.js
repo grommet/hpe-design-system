@@ -12,7 +12,7 @@ import {
 import { AppIdentity } from '../../../components/content/AppIdentity';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-export const LayeredLayoutExample = () => {
+export function LayeredLayoutExample() {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
@@ -63,9 +63,9 @@ export const LayeredLayoutExample = () => {
       </Box>
     </AppContainer>
   );
-};
+}
 
-const AppContainer = ({ ...rest }) => {
+function AppContainer({ ...rest }) {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
@@ -76,4 +76,4 @@ const AppContainer = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}

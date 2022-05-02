@@ -23,7 +23,7 @@ const passwordRulesWeak = [
   },
 ];
 
-export const ChangePasswordExample = () => {
+export function ChangePasswordExample() {
   const [formValues, setFormValues] = React.useState({
     currentPassword: '',
     newPassword: '',
@@ -121,4 +121,4 @@ export const ChangePasswordExample = () => {
       </Box>
     </Box>
   );
-};
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Grid, Text } from 'grommet';
 
-export const MainExample = () => (
-  <Grid
+export function MainExample() {
+  return <Grid
     rows={['xxsmall', 'flex', 'xxsmall']}
     columns={['xsmall', 'auto']}
     areas={[
@@ -36,5 +36,5 @@ export const MainExample = () => (
     >
       <Text weight="bold">Footer</Text>
     </Box>
-  </Grid>
-);
+  </Grid>;
+}

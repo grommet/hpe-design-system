@@ -5,8 +5,8 @@ import { Wifi, StatusCriticalSmall } from 'grommet-icons';
 
 const mockAvailability = 0.872;
 
-export const CardMeterExample = () => (
-  <Card
+export function CardMeterExample() {
+  return <Card
     background="background-front"
     onClick={() => {
       // eslint-disable-next-line no-alert
@@ -48,11 +48,11 @@ export const CardMeterExample = () => (
         statusColor="status-critical"
       />
     </CardFooter>
-  </Card>
-);
+  </Card>;
+}
 
-const Identifier = ({ title, subtitle, icon }) => (
-  <Box direction="row" gap="small">
+function Identifier({ title, subtitle, icon }) {
+  return <Box direction="row" gap="small">
     <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
     <Box>
       <Text color="text-strong" size="xlarge" weight="bold">
@@ -60,8 +60,8 @@ const Identifier = ({ title, subtitle, icon }) => (
       </Text>
       <Text>{subtitle}</Text>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 Identifier.propTypes = {
   title: PropTypes.node,
@@ -69,7 +69,7 @@ Identifier.propTypes = {
   icon: PropTypes.node,
 };
 
-const KPIMeter = ({ values, ...rest }) => {
+function KPIMeter({ values, ...rest }) {
   const { value } = values[0];
 
   return (
@@ -88,18 +88,18 @@ const KPIMeter = ({ values, ...rest }) => {
       </Box>
     </Stack>
   );
-};
+}
 
 KPIMeter.propTypes = {
   values: PropTypes.arrayOf(PropTypes.object),
 };
 
-const KPISummary = ({ message, statusColor }) => (
-  <Box direction="row" align="center" gap="small">
+function KPISummary({ message, statusColor }) {
+  return <Box direction="row" align="center" gap="small">
     <StatusCriticalSmall color={statusColor} size="small" />
     <Text>{message}</Text>
-  </Box>
-);
+  </Box>;
+}
 
 KPISummary.propTypes = {
   message: PropTypes.string,

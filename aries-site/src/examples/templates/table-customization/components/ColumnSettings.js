@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Box, CheckBoxGroup, List, Tab, Tabs, TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 
-export const ColumnSettings = ({
+export function ColumnSettings({
   columns,
   visibleColumns,
   setVisibleColumns,
   open,
   ...rest
-}) => {
+}) {
   const [filteredColumns, setFilteredColumns] = useState(columns);
   const [search, setSearch] = useState('');
 
@@ -71,7 +71,7 @@ export const ColumnSettings = ({
       </Tabs>
     </Box>
   );
-};
+}
 
 const ColumnType = PropTypes.shape({
   header: PropTypes.string,

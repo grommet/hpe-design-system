@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { fontWeightData } from '../data';
 
-export const NameValueListFontWeightSecondPreview = () => (
-  <Box pad="small">
+export function NameValueListFontWeightSecondPreview() {
+  return <Box pad="small">
     <NameValueList
       valueProps={{ width: 'xsmall' }}
       pairProps={{ direction: 'column' }}
@@ -15,5 +15,5 @@ export const NameValueListFontWeightSecondPreview = () => (
         </NameValuePair>
       ))}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

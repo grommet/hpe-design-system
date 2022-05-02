@@ -2,4 +2,6 @@ import React from 'react';
 
 import { SearchExample } from '../components/search';
 
-export const SearchPreview = () => <SearchExample tabIndex={-1} />;
+export function SearchPreview() {
+  return <SearchExample tabIndex={-1} />;
+}

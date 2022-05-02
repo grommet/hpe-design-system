@@ -4,7 +4,7 @@ import { Box, ThemeContext } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
-export const CodeBlocksPreview = () => {
+export function CodeBlocksPreview() {
   const theme = useContext(ThemeContext);
   const codeString = `console.log(
   "Hello World"
@@ -20,4 +20,4 @@ export const CodeBlocksPreview = () => {
       </SyntaxHighlighter>
     </Box>
   );
-};
+}

@@ -64,7 +64,7 @@ const corePrinciplesObjects = [
   },
 ];
 
-export const CorePrinciples = () => {
+export function CorePrinciples() {
   const theme = useContext(ThemeContext);
 
   return (
@@ -85,4 +85,4 @@ export const CorePrinciples = () => {
       ))}
     </Grid>
   );
-};
+}

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { CircleAlert } from 'grommet-icons';
 
-export const Error = ({ children, ...rest }) => (
-  <Box
+export function Error({ children, ...rest }) {
+  return <Box
     animation="fadeIn"
     background="validation-critical"
     margin={{ bottom: 'medium' }}
@@ -18,8 +18,8 @@ export const Error = ({ children, ...rest }) => (
       </Box>
       <Text size="xsmall">{children}</Text>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 Error.propTypes = {
   children: PropTypes.string,

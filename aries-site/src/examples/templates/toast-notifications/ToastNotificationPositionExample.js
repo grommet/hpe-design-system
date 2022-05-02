@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Notification, Paragraph } from 'grommet';
 
-export const ToastNotificationPositionExample = () => {
+export function ToastNotificationPositionExample() {
   const [visible, setVisible] = useState();
 
   const onOpen = () => setVisible(true);
@@ -28,4 +28,4 @@ export const ToastNotificationPositionExample = () => {
       </Box>
     </>
   );
-};
+}

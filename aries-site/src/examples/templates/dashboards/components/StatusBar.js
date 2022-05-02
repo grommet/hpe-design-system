@@ -9,7 +9,7 @@ import {
 } from 'grommet';
 import { DashboardCardHeader } from '.';
 
-export const StatusBar = ({ children, title, menuItems, ...rest }) => {
+export function StatusBar({ children, title, menuItems, ...rest }) {
   const theme = useContext(ThemeContext);
   const { header } = theme.card;
 
@@ -31,7 +31,7 @@ export const StatusBar = ({ children, title, menuItems, ...rest }) => {
       </CardBody>
     </Card>
   );
-};
+}
 
 StatusBar.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),

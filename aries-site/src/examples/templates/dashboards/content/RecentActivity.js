@@ -59,7 +59,7 @@ const generateMessage = (type, count) => {
   return { title, message };
 };
 
-export const RecentActivity = () => {
+export function RecentActivity() {
   const data = MOCK_DATA;
   const [activities, setActivities] = useState();
 
@@ -123,10 +123,10 @@ export const RecentActivity = () => {
           ))}
     </ActivityFeed>
   );
-};
+}
 
-const FeedFooter = () => (
-  <Button
+function FeedFooter() {
+  return <Button
     label="View All"
     icon={<FormNext />}
     onClick={() => {
@@ -136,5 +136,5 @@ Typically this would route to a view displaying all activities.
           `);
     }}
     reverse
-  />
-);
+  />;
+}

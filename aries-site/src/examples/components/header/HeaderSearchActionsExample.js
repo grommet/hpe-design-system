@@ -21,7 +21,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-complex-example',
 }))``;
 
-const Search = () => {
+function Search() {
   const inputRef = useRef();
   const size = useContext(ResponsiveContext);
   const [focused, setFocused] = useState(false);
@@ -53,10 +53,10 @@ const Search = () => {
       </Keyboard>
     </Box>
   );
-};
+}
 
-export const HeaderSearchActionsExample = () => (
-  <Header fill="horizontal">
+export function HeaderSearchActionsExample() {
+  return <Header fill="horizontal">
     <Button>
       <Box
         direction="row"
@@ -82,5 +82,5 @@ export const HeaderSearchActionsExample = () => (
       <Button icon={<Chat />} />
       <Button icon={<User />} />
     </Box>
-  </Header>
-);
+  </Header>;
+}

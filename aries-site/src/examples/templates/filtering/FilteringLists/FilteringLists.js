@@ -17,7 +17,7 @@ const statusIcons = {
   'Ready to Ship': <Package />,
 };
 
-export const FilteringLists = ({ containerRef }) => {
+export function FilteringLists({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
 
@@ -101,13 +101,13 @@ export const FilteringLists = ({ containerRef }) => {
       </FiltersProvider>
     </Box>
   );
-};
+}
 
 FilteringLists.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const Orders = () => {
+function Orders() {
   const size = useContext(ResponsiveContext);
   const { filteredResults } = useFilters();
 
@@ -150,4 +150,4 @@ const Orders = () => {
       </List>
     </Box>
   );
-};
+}

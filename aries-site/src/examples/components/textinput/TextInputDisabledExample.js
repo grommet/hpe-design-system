@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, FormField, TextInput } from 'grommet';
 
-export const TextInputDisabledExample = () => (
-  <Form>
+export function TextInputDisabledExample() {
+  return <Form>
     <FormField
       name="disabled-example"
       label="Label"
@@ -16,5 +16,5 @@ export const TextInputDisabledExample = () => (
         disabled
       />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

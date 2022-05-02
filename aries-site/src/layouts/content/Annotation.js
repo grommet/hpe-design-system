@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Box, Text } from 'grommet';
 
-export const Annotation = ({ id, target, ...rest }) => {
+export function Annotation({ id, target, ...rest }) {
   const theme = useContext(ThemeContext);
 
   return (
@@ -23,7 +23,7 @@ export const Annotation = ({ id, target, ...rest }) => {
       </Text>
     </Box>
   );
-};
+}
 
 Annotation.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

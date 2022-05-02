@@ -1,8 +1,8 @@
 import { Clock } from 'grommet';
 
-export const ClockExample = () => (
-  <>
+export function ClockExample() {
+  return <>
     <Clock type="digital" />
     <Clock />
-  </>
-);
+  </>;
+}

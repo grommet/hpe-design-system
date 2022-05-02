@@ -124,7 +124,7 @@ const emailValidation = [
   },
 ];
 
-export const ShippingExample = () => {
+export function ShippingExample() {
   const [formValues, setFormValues] = React.useState({
     firstName: '',
     lastName: '',
@@ -317,4 +317,4 @@ export const ShippingExample = () => {
       </Box>
     </Box>
   );
-};
+}

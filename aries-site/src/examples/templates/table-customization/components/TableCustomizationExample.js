@@ -95,7 +95,7 @@ const filtersConfig = [
   { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
 ];
 
-export const TableCustomizationExample = () => {
+export function TableCustomizationExample() {
   const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
   const [open, setOpen] = useState(false);
 
@@ -157,9 +157,9 @@ export const TableCustomizationExample = () => {
       </PageContent>
     </Page>
   );
-};
+}
 
-const Results = ({ columns }) => {
+function Results({ columns }) {
   const [select, setSelect] = useState([]);
   const { filteredResults } = useFilters();
 
@@ -176,7 +176,7 @@ const Results = ({ columns }) => {
       />
     </Box>
   );
-};
+}
 
 Results.propTypes = {
   columns: PropTypes.arrayOf(

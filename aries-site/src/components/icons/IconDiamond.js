@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Blank } from 'grommet-icons';
 
-export const IconDiamond = props => (
-  <Blank {...props}>
+export function IconDiamond(props) {
+  return <Blank {...props}>
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g fill="#000000" fillRule="nonzero">
         <path
@@ -12,5 +12,5 @@ export const IconDiamond = props => (
         />
       </g>
     </g>
-  </Blank>
-);
+  </Blank>;
+}

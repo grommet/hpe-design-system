@@ -4,6 +4,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Form,
   FormField,
   Select,
@@ -14,26 +15,25 @@ import {
   Button,
 } from 'grommet';
 
-import { PageHeader } from '../../templates';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.
 import { demoStyle } from './demoStyle';
 
-export const PageNarrowExample = () => (
-  <Page kind="narrow" flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
+export function PageNarrowExample() {
+  return <Page kind="narrow" flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
       <PageHeader
         title="Narrow Page"
-        actions={[<Button key="Action A" secondary label="Action A" />]}
+        actions={<Button key="Action A" secondary label="Action A" />}
       />
       <FormSection />
     </PageContent>
-  </Page>
-);
+  </Page>;
+}
 
-const FormSection = () => (
-  <Form>
+function FormSection() {
+  return <Form>
     <Box width="medium" gap="medium">
       <>
         <Heading level={2} size="small" margin="none">
@@ -93,5 +93,5 @@ const FormSection = () => (
       </>
       <Button alignSelf="start" primary label="Apply Settings" />
     </Box>
-  </Form>
-);
+  </Form>;
+}

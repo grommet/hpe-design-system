@@ -12,13 +12,13 @@ import {
 } from 'grommet';
 import { DashboardCardHeader } from '.';
 
-export const ItemCountList = ({
+export function ItemCountList({
   defaultItemProps,
   items,
   menuItems,
   title,
   ...rest
-}) => {
+}) {
   const theme = useContext(ThemeContext);
   const { body, header } = theme.card;
 
@@ -44,10 +44,10 @@ export const ItemCountList = ({
       </CardBody>
     </Card>
   );
-};
+}
 
-const ItemCount = ({ title, description, count, ...rest }) => (
-  <Box direction="row" justify="between" gap="medium" {...rest}>
+function ItemCount({ title, description, count, ...rest }) {
+  return <Box direction="row" justify="between" gap="medium" {...rest}>
     <Box>
       <Text weight="bold">{title}</Text>
       <Paragraph size="small" margin="none">
@@ -55,8 +55,8 @@ const ItemCount = ({ title, description, count, ...rest }) => (
       </Paragraph>
     </Box>
     <Text size="xlarge">{count}</Text>
-  </Box>
-);
+  </Box>;
+}
 
 ItemCount.propTypes = {
   title: PropTypes.string,

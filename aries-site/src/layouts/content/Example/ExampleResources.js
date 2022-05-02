@@ -19,14 +19,14 @@ const getFileName = file => {
   return adjustedFileName[adjustedFileName.length - 1];
 };
 
-export const ExampleResources = ({
+export function ExampleResources({
   code,
   details,
   github,
   horizontalLayout,
   relevantComponents,
   ...rest
-}) => {
+}) {
   const theme = useContext(ThemeContext);
 
   const [codeOpen, setCodeOpen] = React.useState(
@@ -139,7 +139,7 @@ export const ExampleResources = ({
       )}
     </Box>
   );
-};
+}
 
 ExampleResources.propTypes = {
   code: PropTypes.oneOfType([

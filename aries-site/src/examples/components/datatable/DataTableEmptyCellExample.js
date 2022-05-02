@@ -294,7 +294,7 @@ const handleClickRow = obj => {
 };
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const DataTableEmptyCellExample = ({ designSystemDemo }) => {
+export function DataTableEmptyCellExample({ designSystemDemo }) {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -334,7 +334,7 @@ export const DataTableEmptyCellExample = ({ designSystemDemo }) => {
       </Box>
     </>
   );
-};
+}
 
 DataTableEmptyCellExample.propTypes = {
   designSystemDemo: PropTypes.bool,

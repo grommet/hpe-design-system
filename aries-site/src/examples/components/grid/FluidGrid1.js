@@ -11,10 +11,10 @@ const columns = 'small';
 const rows = 'xsmall';
 const gap = 'small';
 
-export const FluidGrid1 = () => (
-  <Grid columns={columns} rows={rows} gap={gap}>
+export function FluidGrid1() {
+  return <Grid columns={columns} rows={rows} gap={gap}>
     {new Array(11).fill({}).map((item, index) => (
       <ContentArea key={index} title={index + 1} {...contentAreaProps} />
     ))}
-  </Grid>
-);
+  </Grid>;
+}

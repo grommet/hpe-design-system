@@ -6,16 +6,16 @@ import {
   Button,
   Form,
   FormField,
-  Heading,
   MaskedInput,
   NameValueList,
   NameValuePair,
+  PageHeader,
   TextInput,
   Text,
 } from 'grommet';
 import { profileData } from '../data';
 
-export const NameValueListEditExample = () => {
+export function NameValueListEditExample() {
   const theme = useContext(ThemeContext);
   const [currentData, setCurrentData] = useState(profileData);
   const [tempData, setTempData] = useState(currentData);
@@ -23,21 +23,21 @@ export const NameValueListEditExample = () => {
 
   return (
     <Box gap="medium">
-      <Box justify="between" width="large" direction="row">
-        <Heading level={2} size="small" margin="none">
-          Profile Details
-        </Heading>
-        {!edit && (
-          <Box justify="center">
-            <Button
-              alignSelf="center"
-              secondary
-              label="Edit Profile"
-              onClick={() => setEdit(true)}
-            />
-          </Box>
-        )}
-      </Box>
+      <PageHeader
+        title="Profile Details"
+        actions={
+          !edit && (
+            <Box justify="center">
+              <Button
+                alignSelf="center"
+                secondary
+                label="Edit Profile"
+                onClick={() => setEdit(true)}
+              />
+            </Box>
+          )
+        }
+      />
       {!edit ? (
         <NameValueList pairProps={{ direction: 'column' }}>
           {Object.entries(currentData).map(
@@ -141,4 +141,4 @@ export const NameValueListEditExample = () => {
       )}
     </Box>
   );
-};
+}

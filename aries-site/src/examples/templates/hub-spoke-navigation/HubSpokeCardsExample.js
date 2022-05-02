@@ -153,7 +153,7 @@ const pages = [
 
 const getPageDetails = pageName => pages.find(page => page.name === pageName);
 
-export const HubSpokeCardsExample = () => {
+export function HubSpokeCardsExample() {
   const [currentPage, setCurrentPage] = React.useState(getPageDetails('Home'));
   const [subPages, setSubPages] = React.useState();
 
@@ -204,9 +204,9 @@ export const HubSpokeCardsExample = () => {
       )}
     </AppContainer>
   );
-};
+}
 
-const AppContainer = ({ ...rest }) => {
+function AppContainer({ ...rest }) {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -222,23 +222,23 @@ const AppContainer = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}
 
-const AppHeader = ({ setCurrentPage }) => (
-  <Header fill="horizontal" height="xsmall">
+function AppHeader({ setCurrentPage }) {
+  return <Header fill="horizontal" height="xsmall">
     <AppIdentity
       name="Service"
       onClick={() => setCurrentPage(getPageDetails('Home'))}
     />
-  </Header>
-);
+  </Header>;
+}
 
 AppHeader.propTypes = {
   setCurrentPage: PropTypes.func,
 };
 
-const AppIdentity = ({ name, ...rest }) => (
-  <Button {...rest}>
+function AppIdentity({ name, ...rest }) {
+  return <Button {...rest}>
     <Box
       direction="row"
       align="start"
@@ -256,15 +256,15 @@ const AppIdentity = ({ name, ...rest }) => (
         <Text color="text-strong">{name}</Text>
       </Box>
     </Box>
-  </Button>
-);
+  </Button>;
+}
 
 AppIdentity.propTypes = {
   name: PropTypes.string,
 };
 
-const GridLayout = ({ items, onClick }) => (
-  <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
+function GridLayout({ items, onClick }) {
+  return <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
     {items &&
       items.map((item, index) => (
         <Card
@@ -283,16 +283,16 @@ const GridLayout = ({ items, onClick }) => (
           )}
         </Card>
       ))}
-  </Grid>
-);
+  </Grid>;
+}
 
 GridLayout.propTypes = {
   items: PropTypes.array,
   onClick: PropTypes.func,
 };
 
-const ListLayout = ({ items, setCurrentPage }) => (
-  <List data={items} border={{ size: '0' }} pad={{ vertical: 'xsmall' }}>
+function ListLayout({ items, setCurrentPage }) {
+  return <List data={items} border={{ size: '0' }} pad={{ vertical: 'xsmall' }}>
     {(datum, index) => {
       const page = getPageDetails(datum) || '';
       const { name, icon, status } = page;
@@ -333,15 +333,15 @@ const ListLayout = ({ items, setCurrentPage }) => (
         </Button>
       );
     }}
-  </List>
-);
+  </List>;
+}
 
 ListLayout.propTypes = {
   items: PropTypes.array,
   setCurrentPage: PropTypes.func,
 };
 
-const PanesLayout = ({ content, items, setCurrentPage }) => {
+function PanesLayout({ content, items, setCurrentPage }) {
   const sections = items || [''];
 
   return (
@@ -366,7 +366,7 @@ const PanesLayout = ({ content, items, setCurrentPage }) => {
       ))}
     </>
   );
-};
+}
 
 PanesLayout.propTypes = {
   content: PropTypes.object,

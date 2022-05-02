@@ -3,7 +3,7 @@ import { ThemeContext } from 'grommet';
 
 import { ContentArea } from './components';
 
-export const PageAnatomy = () => {
+export function PageAnatomy() {
   const theme = useContext(ThemeContext);
   const height = theme.global.size.medium;
   const width = `${(height.replace('px', '') * 4) / 3}px`;
@@ -29,4 +29,4 @@ export const PageAnatomy = () => {
       </ContentArea>
     </ContentArea>
   );
-};
+}

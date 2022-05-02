@@ -9,7 +9,7 @@ const getEscapedText = text => text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
 // Create the regular expression with escaped special characters.
 const formatSearchExpression = text => new RegExp(getEscapedText(text), 'i');
 
-export const SelectSearchExample = () => {
+export function SelectSearchExample() {
   const [options, setOptions] = useState(defaultOptions);
   const [selected, setSelected] = useState('');
 
@@ -39,4 +39,4 @@ export const SelectSearchExample = () => {
       </FormField>
     </Form>
   );
-};
+}

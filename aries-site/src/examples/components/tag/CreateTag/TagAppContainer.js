@@ -1,7 +1,7 @@
 import { Box } from 'grommet';
 
-export const TagAppContainer = ({ ...rest }) => (
-  <Box
+export function TagAppContainer({ ...rest }) {
+  return <Box
     gap="large"
     fill
     margin="auto"
@@ -9,5 +9,5 @@ export const TagAppContainer = ({ ...rest }) => (
     pad="medium"
     width={{ max: 'xxlarge' }}
     {...rest}
-  />
-);
+  />;
+}

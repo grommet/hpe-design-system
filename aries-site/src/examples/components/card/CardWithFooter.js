@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Box, Card, CardFooter, Text } from 'grommet';
 import { Alert, Server } from 'grommet-icons';
 
-export const CardWithFooter = () => (
-  <Card background="background-front" width="medium">
+export function CardWithFooter() {
+  return <Card background="background-front" width="medium">
     <Identifier
       icon={<Server size="large" color="text-strong" />}
       title="OmniStackVC-10"
@@ -14,11 +14,11 @@ export const CardWithFooter = () => (
       <Alert />
       <Text weight="bold">Expired</Text>
     </CardFooter>
-  </Card>
-);
+  </Card>;
+}
 
-const Identifier = ({ title, subtitle, icon }) => (
-  <Box
+function Identifier({ title, subtitle, icon }) {
+  return <Box
     direction="row"
     gap="small"
     align="center"
@@ -31,8 +31,8 @@ const Identifier = ({ title, subtitle, icon }) => (
       </Text>
       <Text>{subtitle}</Text>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 Identifier.propTypes = {
   title: PropTypes.node,

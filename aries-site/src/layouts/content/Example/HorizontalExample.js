@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-export const HorizontalExample = ({
+export function HorizontalExample({
   content,
   controls,
   plain,
   resources,
   showResponsiveControls,
   width,
-}) => {
+}) {
   const size = useContext(ResponsiveContext);
 
   const grid = {
@@ -55,7 +55,7 @@ export const HorizontalExample = ({
       </Box>
     </Grid>
   );
-};
+}
 
 HorizontalExample.propTypes = {
   content: PropTypes.node,

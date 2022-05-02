@@ -6,8 +6,8 @@ import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
-const FeaturedLayout = ({ ...rest }) => (
-  <PageContent {...rest}>
+function FeaturedLayout({ ...rest }) {
+  return <PageContent {...rest}>
     <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
       {featured.map(({ name, description, icon, url }) => (
         <Link href={url || nameToPath(name)} passHref key={name}>
@@ -32,12 +32,12 @@ const FeaturedLayout = ({ ...rest }) => (
         </Link>
       ))}
     </Grid>
-  </PageContent>
-);
+  </PageContent>;
+}
 
-export const Featured = ({ ...rest }) => (
-  <Stack guidingChild="last">
+export function Featured({ ...rest }) {
+  return <Stack guidingChild="last">
     <Box background="background-front" margin={{ top: 'xlarge' }} fill />
     <FeaturedLayout {...rest} />
-  </Stack>
-);
+  </Stack>;
+}

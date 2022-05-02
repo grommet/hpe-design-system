@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import { Header, ResponsiveContext } from 'grommet';
 import { AppIdentity, HeaderNav, UserContext } from '.';
 
-export const GlobalHeader = () => {
+export function GlobalHeader() {
   const size = useContext(ResponsiveContext);
   const { user } = useContext(UserContext);
   return (
-    <>
-      <Header
+    <Header
         align="center"
         background="background"
         border={user ? { color: 'border-weak', side: 'bottom' } : undefined}
@@ -21,6 +20,5 @@ export const GlobalHeader = () => {
         <AppIdentity title="Service Name" brand="hpe" />
         {user && <HeaderNav />}
       </Header>
-    </>
   );
-};
+}

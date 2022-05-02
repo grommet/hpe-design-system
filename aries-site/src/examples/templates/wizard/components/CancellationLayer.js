@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Text, ResponsiveContext } from 'grommet';
 import { WizardContext } from '.';
 
-export const CancellationLayer = ({ onSetOpen, ...rest }) => {
+export function CancellationLayer({ onSetOpen, ...rest }) {
   const { defaultFormValues, setFormValues } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
   return (
@@ -51,7 +51,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
       </Box>
     </Layer>
   );
-};
+}
 
 CancellationLayer.propTypes = {
   onSetOpen: PropTypes.func.isRequired,

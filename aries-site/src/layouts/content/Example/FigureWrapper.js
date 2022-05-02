@@ -7,16 +7,16 @@ const StyledFigure = styled.figure`
   margin: 0;
 `;
 
-const StyledCaption = ({ ...rest }) => (
-  <Text as="figcaption" margin={{ top: 'xsmall' }} size="small" {...rest} />
-);
+function StyledCaption({ ...rest }) {
+  return <Text as="figcaption" margin={{ top: 'xsmall' }} size="small" {...rest} />;
+}
 
-export const FigureWrapper = ({ caption, children }) => (
-  <StyledFigure>
+export function FigureWrapper({ caption, children }) {
+  return <StyledFigure>
     {children}
     <StyledCaption>{caption}</StyledCaption>
-  </StyledFigure>
-);
+  </StyledFigure>;
+}
 
 FigureWrapper.propTypes = {
   caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,

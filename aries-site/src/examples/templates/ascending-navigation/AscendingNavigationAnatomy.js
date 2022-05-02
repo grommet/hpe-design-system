@@ -34,7 +34,7 @@ const connections = [
   },
 ];
 
-const AnatomyGrid = ({ ...rest }) => {
+function AnatomyGrid({ ...rest }) {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
@@ -49,9 +49,9 @@ const AnatomyGrid = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}
 
-export const AscendingNavigationAnatomy = () => {
+export function AscendingNavigationAnatomy() {
   const theme = useContext(ThemeContext);
   return (
     <Stack margin={{ bottom: 'medium' }}>
@@ -82,4 +82,4 @@ export const AscendingNavigationAnatomy = () => {
       <Diagram connections={connections} />
     </Stack>
   );
-};
+}

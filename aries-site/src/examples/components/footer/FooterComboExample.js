@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
 import { FormPrevious, FormNext } from 'grommet-icons';
 
-export const FooterComboExample = () => {
+export function FooterComboExample() {
   const size = useContext(ResponsiveContext);
   const year = new Date().getFullYear();
   const footerLinks = [
@@ -45,4 +45,4 @@ export const FooterComboExample = () => {
       </Footer>
     </Box>
   );
-};
+}

@@ -24,7 +24,7 @@ const maskTime = [
   },
 ];
 
-export const MaskedTimeExample = () => {
+export function MaskedTimeExample() {
   const [time, setTime] = useState('');
 
   return (
@@ -40,4 +40,4 @@ export const MaskedTimeExample = () => {
       </FormField>
     </Form>
   );
-};
+}

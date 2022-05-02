@@ -12,7 +12,7 @@ import {
   TextInput,
 } from 'grommet';
 
-export const SingleFormFieldExample = () => {
+export function SingleFormFieldExample() {
   const [cancel, setCancel] = React.useState('');
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -83,4 +83,4 @@ export const SingleFormFieldExample = () => {
       </CardBody>
     </Card>
   );
-};
+}

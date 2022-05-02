@@ -7,7 +7,7 @@ import { defaultWindow, DEMO_DATE, REPORT_WINDOW_MAP } from './utils';
 
 const mockData = require('../../../../../data/mockData/compliance.json');
 
-export const RulesAudit = ({ period }) => {
+export function RulesAudit({ period }) {
   const { audits, checks } = mockData;
   const [reportWindow, setReportWindow] = useState(defaultWindow);
   const [completedAudits, setCompletedAudits] = useState(null);
@@ -142,14 +142,14 @@ export const RulesAudit = ({ period }) => {
       </Grid>
     </ChartCard>
   );
-};
+}
 
 RulesAudit.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year', 'Lifetime']),
 };
 
-const AuditResultsChart = ({ data, ...rest }) => (
-  <MeterGroup {...rest}>
+function AuditResultsChart({ data, ...rest }) {
+  return <MeterGroup {...rest}>
     {data.map(datum => (
       <Fragment key={datum.result}>
         <Text>{`${datum.result[0].toUpperCase()}${datum.result.slice(
@@ -179,8 +179,8 @@ const AuditResultsChart = ({ data, ...rest }) => (
       <Text>0%</Text>
       <Text>100%</Text>
     </Box>
-  </MeterGroup>
-);
+  </MeterGroup>;
+}
 
 AuditResultsChart.propTypes = {
   data: PropTypes.arrayOf(

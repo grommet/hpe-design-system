@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, List, Menu } from 'grommet';
 import { More } from 'grommet-icons';
 
-export const MenuIconExample = () => {
+export function MenuIconExample() {
   const data = ['User 1', 'User 2', 'User 3'];
 
   return (
@@ -28,4 +28,4 @@ export const MenuIconExample = () => {
       </List>
     </Box>
   );
-};
+}

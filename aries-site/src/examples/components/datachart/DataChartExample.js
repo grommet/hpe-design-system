@@ -9,8 +9,8 @@ for (let i = 0; i < 7; i += 1) {
   });
 }
 
-export const DataChartExample = () => (
-  <DataChart
+export function DataChartExample() {
+  return <DataChart
     data={data}
     series={[
       {
@@ -36,5 +36,5 @@ export const DataChartExample = () => (
     axis={{ x: { property: 'date', granularity: 'fine' }, y: true }}
     guide={{ y: true }}
     legend
-  />
-);
+  />;
+}

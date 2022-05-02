@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Video } from 'grommet';
 
-export const VideoExample = () => (
-  <Box height="medium" width="large">
+export function VideoExample() {
+  return <Box height="medium" width="large">
     <Video
       aria-label={`Video, one minute in length, describing the purpose of the 
       HPE Design System and providing an overview for the types of resources 
@@ -20,5 +20,5 @@ export const VideoExample = () => (
         src="/static/HPE.Design.System.V6.vtt"
       />
     </Video>
-  </Box>
-);
+  </Box>;
+}

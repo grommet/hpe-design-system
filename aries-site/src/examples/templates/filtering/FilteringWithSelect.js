@@ -41,7 +41,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const FilteringWithSelect = ({ containerRef }) => {
+export function FilteringWithSelect({ containerRef }) {
   // containerRef above is for demo purposes only, remove in production
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
@@ -158,13 +158,13 @@ export const FilteringWithSelect = ({ containerRef }) => {
       <Results data={data} />
     </Box>
   );
-};
+}
 
 FilteringWithSelect.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-const Filters = ({
+function Filters({
   filtering,
   filters,
   setData,
@@ -173,7 +173,7 @@ const Filters = ({
   setFiltering,
   setSearch,
   target, // target is for demo purposes only, remove in production
-}) => {
+}) {
   const [selectValue, setSelectValue] = useState(defaultSelectValue);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
@@ -299,7 +299,7 @@ const Filters = ({
       )}
     </>
   );
-};
+}
 
 Filters.propTypes = {
   filters: PropTypes.shape({}).isRequired,
@@ -313,8 +313,8 @@ Filters.propTypes = {
   target: PropTypes.object,
 };
 
-const RecordSummary = ({ data, filtering }) => (
-  <Box direction="row" gap="xxsmall">
+function RecordSummary({ data, filtering }) {
+  return <Box direction="row" gap="xxsmall">
     <Text size="small" weight="bold">
       {data.length}
     </Text>
@@ -329,8 +329,8 @@ const RecordSummary = ({ data, filtering }) => (
         <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
-  </Box>
-);
+  </Box>;
+}
 
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(
@@ -343,7 +343,7 @@ RecordSummary.propTypes = {
   filtering: PropTypes.bool,
 };
 
-const Results = ({ data }) => {
+function Results({ data }) {
   const size = useContext(ResponsiveContext);
   return (
     <Box pad={{ bottom: 'medium' }} overflow="auto" fill>
@@ -384,7 +384,7 @@ const Results = ({ data }) => {
       </List>
     </Box>
   );
-};
+}
 
 Results.propTypes = {
   data: PropTypes.arrayOf(

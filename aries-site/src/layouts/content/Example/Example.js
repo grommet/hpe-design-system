@@ -36,7 +36,7 @@ export const screens = {
   laptop: 'laptop',
 };
 
-export const Example = ({
+export function Example({
   background,
   bestPractice,
   caption,
@@ -63,7 +63,7 @@ export const Example = ({
   showResponsiveControls = !!screenContainer || !!template,
   width,
   ...rest
-}) => {
+}) {
   const [screen, setScreen] = useState(screens.laptop);
   const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
@@ -358,7 +358,7 @@ export const Example = ({
       )}
     </>
   );
-};
+}
 
 Example.propTypes = {
   background: PropTypes.string,

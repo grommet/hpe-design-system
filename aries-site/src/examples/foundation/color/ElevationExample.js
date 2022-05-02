@@ -8,7 +8,7 @@ const elevations = {
   'elevation-weak': 'small',
 };
 
-export const ElevationExample = ({ color, hex }) => {
+export function ElevationExample({ color, hex }) {
   const textSize = 'small';
 
   return (
@@ -25,7 +25,7 @@ export const ElevationExample = ({ color, hex }) => {
       </Text>
     </Box>
   );
-};
+}
 
 ElevationExample.propTypes = {
   color: PropTypes.oneOfType([

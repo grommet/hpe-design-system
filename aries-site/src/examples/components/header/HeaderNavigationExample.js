@@ -16,7 +16,7 @@ const items = [
   { label: 'Label 3' },
 ];
 
-export const HeaderNavigationExample = () => {
+export function HeaderNavigationExample() {
   const size = useContext(ResponsiveContext);
   return (
     <Header fill="horizontal">
@@ -50,4 +50,4 @@ export const HeaderNavigationExample = () => {
       )}
     </Header>
   );
-};
+}

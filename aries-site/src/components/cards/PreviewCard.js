@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'grommet';
 
-export const PreviewImageCard = ({ background, children, ...rest }) => (
-    <Card
+export function PreviewImageCard({ background, children, ...rest }) {
+  return <Card
       background={background}
       elevation="none"
       height="small"
@@ -12,8 +12,8 @@ export const PreviewImageCard = ({ background, children, ...rest }) => (
       {...rest}
     >
       {children}
-    </Card>
-  );
+    </Card>;
+}
 
 PreviewImageCard.defaultProps = {
   background: 'background-back',

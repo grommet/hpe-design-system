@@ -44,8 +44,8 @@ const connections = [
   },
 ];
 
-const AnatomyGrid = ({ ...rest }) => (
-  <Grid
+function AnatomyGrid({ ...rest }) {
+  return <Grid
     columns={[
       '12px',
       'xxsmall',
@@ -58,11 +58,11 @@ const AnatomyGrid = ({ ...rest }) => (
     gap={{ row: 'small' }}
     fill
     {...rest}
-  />
-);
+  />;
+}
 
-const AnatomyBox = ({ children, id, ...rest }) => (
-  <Box
+function AnatomyBox({ children, id, ...rest }) {
+  return <Box
     id={id}
     justify="center"
     fill="horizontal"
@@ -71,11 +71,11 @@ const AnatomyBox = ({ children, id, ...rest }) => (
     {...rest}
   >
     {children}
-  </Box>
-);
+  </Box>;
+}
 
-export const BannerNotificationDiagram = () => (
-  <Stack margin={{ bottom: 'small' }}>
+export function BannerNotificationDiagram() {
+  return <Stack margin={{ bottom: 'small' }}>
     <AnatomyGrid>
       <Box />
       <Annotation id={1} target="1" />
@@ -101,8 +101,8 @@ export const BannerNotificationDiagram = () => (
       </AnatomyBox>
     </AnatomyGrid>
     <Diagram connections={connections} />
-  </Stack>
-);
+  </Stack>;
+}
 
 AnatomyBox.propTypes = {
   children: PropTypes.node,

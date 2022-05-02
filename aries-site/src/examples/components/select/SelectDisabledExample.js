@@ -10,7 +10,7 @@ const options = [
   'Item Six',
 ];
 
-export const SelectDisabledExample = () => {
+export function SelectDisabledExample() {
   const [selected, setSelected] = useState('');
   const [disabled, setDisabled] = useState(true);
 
@@ -57,4 +57,4 @@ export const SelectDisabledExample = () => {
       </Form>
     </Box>
   );
-};
+}

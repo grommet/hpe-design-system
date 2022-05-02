@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Box, Table, TableCell, TableBody, TableRow, Text } from 'grommet';
 import { columns } from '../../data';
 
-export const ColorCompliance = ({ color, data, ...rest }) => (
-    <Box>
+export function ColorCompliance({ color, data, ...rest }) {
+  return <Box>
       <Box
         align="center"
         justify="center"
@@ -32,8 +32,8 @@ export const ColorCompliance = ({ color, data, ...rest }) => (
           ))}
         </TableBody>
       </Table>
-    </Box>
-  );
+    </Box>;
+}
 
 ColorCompliance.propTypes = {
   color: PropTypes.shape({ color: PropTypes.string, dark: PropTypes.bool })

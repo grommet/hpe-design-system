@@ -12,7 +12,7 @@ import {
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
-export const CostByService = ({ period }) => {
+export function CostByService({ period }) {
   const [values, setValues] = useState(null);
   const [totalCost, setTotalCost] = useState(null);
   const [reportWindow, setReportWindow] = useState(defaultWindow);
@@ -165,7 +165,7 @@ export const CostByService = ({ period }) => {
       )}
     </ChartCard>
   );
-};
+}
 
 CostByService.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),

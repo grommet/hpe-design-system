@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, CheckBoxGroup, Form, FormField } from 'grommet';
 
-export const CheckBoxGroupValidationExample = () => {
+export function CheckBoxGroupValidationExample() {
   const demoErrorMessage =
     'Select at least one checkbox option to resolve error.';
   const [message, setMessage] = useState(demoErrorMessage);
@@ -29,4 +29,4 @@ export const CheckBoxGroupValidationExample = () => {
       </Form>
     </Box>
   );
-};
+}

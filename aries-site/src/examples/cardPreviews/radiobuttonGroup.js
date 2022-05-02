@@ -1,8 +1,8 @@
 import React from 'react';
 import { RadioButtonGroup } from 'grommet';
 
-export const RadioButtonGroupPreview = () => (
-    <RadioButtonGroup
+export function RadioButtonGroupPreview() {
+  return <RadioButtonGroup
       name="radio"
       aria-label="preview"
       options={[
@@ -10,5 +10,5 @@ export const RadioButtonGroupPreview = () => (
         { label: 'Choice 2', value: 'c2', tabIndex: -1 },
         { label: 'Choice 3', value: 'c3', tabIndex: -1 },
       ]}
-    />
-  );
+    />;
+}

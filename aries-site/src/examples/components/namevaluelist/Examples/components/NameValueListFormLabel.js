@@ -6,7 +6,7 @@ import { Box, Text } from 'grommet';
 // mimics Grommet's FormField label in terms of accessibility considerations
 // by including as="label", htmlFor, and name
 // applies NameValueList text styling
-export const NameValueListFormLabel = ({ data, name }) => {
+export function NameValueListFormLabel({ data, name }) {
   const theme = useContext(ThemeContext);
   return (
     <Box margin={{ top: 'small' }}>
@@ -26,7 +26,7 @@ export const NameValueListFormLabel = ({ data, name }) => {
       {data.help && <Text size="xsmall">{data.help}</Text>}
     </Box>
   );
-};
+}
 
 NameValueListFormLabel.propTypes = {
   name: PropTypes.string,

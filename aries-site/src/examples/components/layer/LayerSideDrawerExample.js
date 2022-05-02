@@ -16,7 +16,7 @@ import {
   Text,
 } from 'grommet';
 
-const LayerForm = ({ setOpen }) => {
+function LayerForm({ setOpen }) {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
@@ -109,13 +109,13 @@ const LayerForm = ({ setOpen }) => {
       </Form>
     </Box>
   );
-};
+}
 
 LayerForm.propTypes = {
   setOpen: PropTypes.func.isRequired,
 };
 
-export const LayerSideDrawerExample = () => {
+export function LayerSideDrawerExample() {
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
@@ -144,4 +144,4 @@ export const LayerSideDrawerExample = () => {
       )}
     </>
   );
-};
+}

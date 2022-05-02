@@ -10,37 +10,37 @@ import {
   Paragraph,
   Page,
   PageContent,
+  PageHeader,
   ResponsiveContext,
   Text,
 } from 'grommet';
 import { More } from 'grommet-icons';
 
-import { PageHeader } from '../../templates';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.
 import { demoStyle } from './demoStyle';
 
-export const PageWideExample = () => (
-  <Page flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
+export function PageWideExample() {
+  return <Page flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
       <PageHeader title="Wide Page" />
       <SummaryMetrics />
       <Section1 />
       <Section2 />
     </PageContent>
-  </Page>
-);
+  </Page>;
+}
 
-const SummaryMetrics = () => (
-  <Grid columns={{ count: 'fill', size: 'medium' }} rows="xsmall" gap="small">
+function SummaryMetrics() {
+  return <Grid columns={{ count: 'fill', size: 'medium' }} rows="xsmall" gap="small">
     {new Array(3).fill({}).map((_, index) => (
       <Card key={index} />
     ))}
-  </Grid>
-);
+  </Grid>;
+}
 
-const Section1 = () => {
+function Section1() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -123,10 +123,10 @@ const Section1 = () => {
       </Grid>
     </>
   );
-};
+}
 
-const Section2 = () => (
-  <>
+function Section2() {
+  return <>
     <Heading level={2} size="small" margin="none">
       Another Content Section
     </Heading>
@@ -137,5 +137,5 @@ const Section2 = () => (
       interdum ullamcorper lectus ultrices vel. Fusce nec enim faucibus nunc
       porta egestas. Fusce dapibus lobortis tincidunt.
     </Paragraph>
-  </>
-);
+  </>;
+}

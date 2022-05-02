@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Form, FormField, TextInput } from 'grommet';
 
-export const TextInputSuggestionsExample = () => {
+export function TextInputSuggestionsExample() {
   const allSuggestions = ['Apples', 'Oranges', 'Bananas'];
   const [suggestions, setSuggestions] = useState(allSuggestions);
   const [value, setValue] = useState('');
@@ -60,4 +60,4 @@ export const TextInputSuggestionsExample = () => {
       </Form>
     </Box>
   );
-};
+}

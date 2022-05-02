@@ -8,7 +8,7 @@ const powerRegulationOptions = [
   'OS control mode',
 ];
 
-export const RadioButtonGroupExample = () => {
+export function RadioButtonGroupExample() {
   const [powerRegulation, setPowerRegulation] = useState(
     'Static high performance mode',
   );
@@ -26,4 +26,4 @@ export const RadioButtonGroupExample = () => {
       </FormField>
     </Form>
   );
-};
+}

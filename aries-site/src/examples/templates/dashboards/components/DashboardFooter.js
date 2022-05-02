@@ -17,7 +17,7 @@ const footerButtons = [
   },
 ];
 
-export const DashboardFooter = () => {
+export function DashboardFooter() {
   const year = new Date().getFullYear();
 
   return (
@@ -46,4 +46,4 @@ export const DashboardFooter = () => {
       </Box>
     </Footer>
   );
-};
+}

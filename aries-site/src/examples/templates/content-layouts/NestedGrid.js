@@ -8,8 +8,8 @@ const parentGrid = {
   gap: 'medium',
 };
 
-export const NestedGrid = () => (
-  <ContentArea title="Parent Grid" {...demoStyle}>
+export function NestedGrid() {
+  return <ContentArea title="Parent Grid" {...demoStyle}>
     <Grid columns={parentGrid.columns} gap={parentGrid.gap}>
       <ContentArea background="orange" {...demoStyle} />
       <Box gap="small">
@@ -17,8 +17,8 @@ export const NestedGrid = () => (
         <NestedGridB />
       </Box>
     </Grid>
-  </ContentArea>
-);
+  </ContentArea>;
+}
 
 const nestedGridA = {
   columns: ['xxsmall', 'flex'],
@@ -26,8 +26,8 @@ const nestedGridA = {
   gap: 'small',
 };
 
-const NestedGridA = () => (
-  <ContentArea title="Nested Grid A" {...demoStyle}>
+function NestedGridA() {
+  return <ContentArea title="Nested Grid A" {...demoStyle}>
     <Grid
       columns={nestedGridA.columns}
       rows={nestedGridA.rows}
@@ -36,8 +36,8 @@ const NestedGridA = () => (
       <ContentArea background="orange" {...demoStyle} />
       <ContentArea background="orange" {...demoStyle} />
     </Grid>
-  </ContentArea>
-);
+  </ContentArea>;
+}
 
 const nestedGridB = {
   columns: ['60%', 'flex'],
@@ -45,8 +45,8 @@ const nestedGridB = {
   gap: 'small',
 };
 
-const NestedGridB = () => (
-  <ContentArea title="Nested Grid B" {...demoStyle}>
+function NestedGridB() {
+  return <ContentArea title="Nested Grid B" {...demoStyle}>
     <Grid
       columns={nestedGridB.columns}
       rows={nestedGridB.rows}
@@ -58,5 +58,5 @@ const NestedGridB = () => (
         <ContentArea border background="orange" height="xsmall" />
       </Box>
     </Grid>
-  </ContentArea>
-);
+  </ContentArea>;
+}

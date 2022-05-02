@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 import { data, DashboardCard } from '.';
 
-export const DashboardGrid = ({ ...rest }) => {
+export function DashboardGrid({ ...rest }) {
   const size = useContext(ResponsiveContext);
   return (
     <Grid
@@ -16,4 +16,4 @@ export const DashboardGrid = ({ ...rest }) => {
         data.map((datum, index) => <DashboardCard key={index} card={datum} />)}
     </Grid>
   );
-};
+}

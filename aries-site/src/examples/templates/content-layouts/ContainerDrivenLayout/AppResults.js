@@ -20,7 +20,7 @@ const appGrid = {
   },
 };
 
-export const AppResults = ({ apps }) => {
+export function AppResults({ apps }) {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
@@ -39,7 +39,7 @@ export const AppResults = ({ apps }) => {
       </Grid>
     </Box>
   );
-};
+}
 
 AppResults.propTypes = {
   apps: PropTypes.arrayOf(PropTypes.object),

@@ -9,7 +9,7 @@ import {
 } from 'grommet';
 import { AppIdentity } from '../../../components/content/AppIdentity';
 
-export const BasicLayoutExample = () => {
+export function BasicLayoutExample() {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer>
@@ -59,9 +59,9 @@ export const BasicLayoutExample = () => {
       </Box>
     </AppContainer>
   );
-};
+}
 
-const AppContainer = ({ ...rest }) => {
+function AppContainer({ ...rest }) {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
@@ -72,4 +72,4 @@ const AppContainer = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}

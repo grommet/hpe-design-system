@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, DateInput } from 'grommet';
 
-export const DateInputSimpleExample = () => {
+export function DateInputSimpleExample() {
   const [value, setValue] = React.useState('');
   const onChange = event => {
     const nextValue = event.value;
@@ -19,4 +19,4 @@ export const DateInputSimpleExample = () => {
       />
     </Box>
   );
-};
+}

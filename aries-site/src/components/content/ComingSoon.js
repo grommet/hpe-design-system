@@ -4,7 +4,7 @@ import { Box, Text, Anchor } from 'grommet';
 import { ContentSection } from '../../layouts';
 import { SubsectionText } from '.';
 
-export const ComingSoon = () => {
+export function ComingSoon() {
   const textSize = 'xxlarge';
   return (
     <>
@@ -37,4 +37,4 @@ export const ComingSoon = () => {
       </ContentSection>
     </>
   );
-};
+}

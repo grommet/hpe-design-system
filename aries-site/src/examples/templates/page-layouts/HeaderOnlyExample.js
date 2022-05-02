@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header, Box, Main, ResponsiveContext, Text } from 'grommet';
 
-export const HeaderOnlyExample = () => (
-  <AppContainer>
+export function HeaderOnlyExample() {
+  return <AppContainer>
     <Box flex overflow="auto">
       <Box height={{ min: '100%' }}>
         <Header
@@ -33,10 +33,10 @@ export const HeaderOnlyExample = () => (
         </Main>
       </Box>
     </Box>
-  </AppContainer>
-);
+  </AppContainer>;
+}
 
-const AppContainer = ({ ...rest }) => {
+function AppContainer({ ...rest }) {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
@@ -47,4 +47,4 @@ const AppContainer = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}

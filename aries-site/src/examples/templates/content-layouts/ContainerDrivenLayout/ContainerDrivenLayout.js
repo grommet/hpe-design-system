@@ -4,11 +4,11 @@ import {
   Grid,
   Page,
   PageContent,
+  PageHeader,
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
 
-import { PageHeader } from '../..';
 import { AppResults } from './AppResults';
 import { FilterPanel } from './FilterPanel';
 
@@ -31,7 +31,7 @@ const pageContentGrid = {
   },
 };
 
-export const ContainerDrivenLayout = ({ containerRef }) => {
+export function ContainerDrivenLayout({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const theme = useContext(ThemeContext);
@@ -63,13 +63,13 @@ export const ContainerDrivenLayout = ({ containerRef }) => {
       </PageContent>
     </Page>
   );
-};
+}
 
 ContainerDrivenLayout.propTypes = {
   containerRef: PropTypes.object,
 };
 
-const ContentLayout = ({ containerRef }) => {
+function ContentLayout({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const breakpoint = useContext(ResponsiveContext);
@@ -123,7 +123,7 @@ const ContentLayout = ({ containerRef }) => {
       <AppResults apps={filteredApps} />
     </Grid>
   );
-};
+}
 
 ContentLayout.propTypes = {
   containerRef: PropTypes.object,

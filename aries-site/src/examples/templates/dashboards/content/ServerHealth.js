@@ -28,7 +28,7 @@ const STATUS_MAP = {
   },
 };
 
-export const ServerHealth = () => {
+export function ServerHealth() {
   const data = MOCK_DATA;
   const [measures, setMeasures] = useState({ ...STATUS_MAP });
 
@@ -81,4 +81,4 @@ export const ServerHealth = () => {
         })}
     </StatusBar>
   );
-};
+}

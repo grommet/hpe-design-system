@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Collapsible, Text } from 'grommet';
 import { FormUp, FormDown } from 'grommet-icons';
 
-export const CollapsibleSection = ({ label, onClick, ...rest }) => {
+export function CollapsibleSection({ label, onClick, ...rest }) {
   const [open, setOpen] = useState(false);
   const [labelText, setLabelText] = useState();
 
@@ -41,7 +41,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
       </Collapsible>
     </>
   );
-};
+}
 
 CollapsibleSection.propTypes = {
   label: PropTypes.oneOfType([

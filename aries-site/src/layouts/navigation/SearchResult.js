@@ -4,7 +4,7 @@ import { Box, Paragraph, Text } from 'grommet';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
-export const SearchResult = ({ query, result }) => {
+export function SearchResult({ query, result }) {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
@@ -44,7 +44,7 @@ export const SearchResult = ({ query, result }) => {
       )}
     </Box>
   );
-};
+}
 
 SearchResult.propTypes = {
   query: PropTypes.string,

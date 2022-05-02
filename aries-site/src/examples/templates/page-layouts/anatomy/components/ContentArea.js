@@ -3,7 +3,7 @@ import { Box, Text, ThemeContext } from 'grommet';
 import { Hpe } from 'grommet-icons';
 import { aries } from '../../../../../themes/aries';
 
-export const ContentArea = ({
+export function ContentArea({
   background = 'background-front',
   border,
   children,
@@ -12,11 +12,8 @@ export const ContentArea = ({
   round = 'xxsmall',
   title,
   ...rest
-}) => (
-  // If the ThemeContext is scaled, as it can be in the mock browser, we do
-  // not want the scaled theme to be applied to ContentArea. This resets
-  // to scale = 1.
-  <ThemeContext.Extend value={aries}>
+}) {
+  return <ThemeContext.Extend value={aries}>
     <Box
       background={background}
       border={
@@ -41,8 +38,8 @@ export const ContentArea = ({
       )}
       {children}
     </Box>
-  </ThemeContext.Extend>
-);
+  </ThemeContext.Extend>;
+}
 
 ContentArea.propTypes = {
   background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

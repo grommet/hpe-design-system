@@ -31,8 +31,8 @@ const maskIp = [
 
 const ipValidation = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
-export const MaskedValidationExample = () => (
-    <Form>
+export function MaskedValidationExample() {
+  return <Form>
       <FormField
         label="IP Address"
         name="maskedIpAddressValidation"
@@ -52,5 +52,5 @@ export const MaskedValidationExample = () => (
         <Button type="submit" label="Validate" primary />
         <Button type="reset" label="Reset" />
       </Box>
-    </Form>
-  );
+    </Form>;
+}

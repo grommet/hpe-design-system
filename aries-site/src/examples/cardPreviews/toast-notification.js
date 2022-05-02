@@ -6,8 +6,8 @@ import { FormClose } from 'grommet-icons/icons/FormClose';
 
 import { Box, Text } from 'grommet';
 
-export const ToastPreview = ({ card, message, title }) => (
-  <Box background="background-back">
+export function ToastPreview({ card, message, title }) {
+  return <Box background="background-back">
     <Box
       elevation="medium"
       round="xsmall"
@@ -35,8 +35,8 @@ export const ToastPreview = ({ card, message, title }) => (
         </Box>
       </Box>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 ToastPreview.propTypes = {
   card: PropTypes.bool,

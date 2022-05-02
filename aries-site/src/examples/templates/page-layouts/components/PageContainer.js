@@ -46,7 +46,7 @@ export const pageContainer = {
 };
 
 // This implementation will be replaced by Grommet <Page /> PR: https://github.com/grommet/grommet/pull/5960.
-export const PageContainer = ({ kind = 'wide', ...rest }) => {
+export function PageContainer({ kind = 'wide', ...rest }) {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -62,7 +62,7 @@ export const PageContainer = ({ kind = 'wide', ...rest }) => {
       <Box gap={pageContainer.gap[size]} overflow="horizontal" {...rest} />
     </PageContainerContext.Provider>
   );
-};
+}
 
 PageContainer.propTypes = {
   kind: PropTypes.oneOf(['full', 'narrow', 'wide']),

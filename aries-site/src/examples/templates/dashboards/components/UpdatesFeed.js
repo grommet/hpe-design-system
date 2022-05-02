@@ -3,7 +3,7 @@ import { Box, Card, CardBody, CardHeader, ThemeContext } from 'grommet';
 import { useContext } from 'react';
 import { DashboardCardHeader } from '.';
 
-export const UpdatesFeed = ({ background, children, menuItems, title }) => {
+export function UpdatesFeed({ background, children, menuItems, title }) {
   const theme = useContext(ThemeContext);
   const { body, header } = theme.card;
 
@@ -24,7 +24,7 @@ export const UpdatesFeed = ({ background, children, menuItems, title }) => {
       </Box>
     </Card>
   );
-};
+}
 
 UpdatesFeed.propTypes = {
   background: PropTypes.string,

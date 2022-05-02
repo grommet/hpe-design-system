@@ -8,8 +8,8 @@ import { contentAreaProps } from './utils';
 // 3 columns with corresponding widths
 const columns = ['small', 'xsmall', 'xsmall'];
 
-export const MixedColumns1 = () => (
-  <Grid columns={columns} gap="xsmall">
+export function MixedColumns1() {
+  return <Grid columns={columns} gap="xsmall">
     <ContentArea title="1" {...contentAreaProps}>
       <ContentLabel>small</ContentLabel>
     </ContentArea>
@@ -19,5 +19,5 @@ export const MixedColumns1 = () => (
     <ContentArea title="3" {...contentAreaProps}>
       <ContentLabel>xsmall</ContentLabel>
     </ContentArea>
-  </Grid>
-);
+  </Grid>;
+}

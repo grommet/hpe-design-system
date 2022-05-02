@@ -9,7 +9,7 @@ const COLUMNS = [
   { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
 ];
 
-export const ColumnSettingsExample = props => {
+export function ColumnSettingsExample(props) {
   const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
   return (
     <ColumnSettings
@@ -19,4 +19,4 @@ export const ColumnSettingsExample = props => {
       {...props}
     />
   );
-};
+}

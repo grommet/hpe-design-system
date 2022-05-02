@@ -4,7 +4,7 @@ import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
 import { FormClose, FormPreviousLink } from 'grommet-icons';
 import { WizardContext } from '.';
 
-export const WizardHeader = ({ setOpen }) => {
+export function WizardHeader({ setOpen }) {
   const size = useContext(ResponsiveContext);
   const {
     activeIndex,
@@ -53,7 +53,7 @@ export const WizardHeader = ({ setOpen }) => {
       </Box>
     </Header>
   );
-};
+}
 
 WizardHeader.propTypes = {
   setOpen: PropTypes.func.isRequired,

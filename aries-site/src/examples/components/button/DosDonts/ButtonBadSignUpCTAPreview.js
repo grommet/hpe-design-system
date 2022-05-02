@@ -13,7 +13,7 @@ import {
   TextInput,
 } from 'grommet';
 
-export const ButtonBadSignUpCTAsPreview = () => {
+export function ButtonBadSignUpCTAsPreview() {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
@@ -116,4 +116,4 @@ export const ButtonBadSignUpCTAsPreview = () => {
       </Box>
     </Box>
   );
-};
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Heading, Header, Text } from 'grommet';
 
-export const ButtonGoodLongTitlePreview = () => (
-  <Box gap="medium" pad="small" width="medium">
+export function ButtonGoodLongTitlePreview() {
+  return <Box gap="medium" pad="small" width="medium">
     <Header
       direction="column"
       align="start"
@@ -19,5 +19,5 @@ export const ButtonGoodLongTitlePreview = () => (
       <Button secondary label="Secondary Button" onClick={() => {}} />
       <Button default label="Default Button" onClick={() => {}} />
     </Box>
-  </Box>
-);
+  </Box>;
+}

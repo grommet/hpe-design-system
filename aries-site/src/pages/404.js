@@ -16,7 +16,7 @@ import { Meta } from '../components';
 
 const title = 'Page Not Found';
 
-const Visual = () => {
+function Visual() {
   const theme = useContext(ThemeContext);
 
   return (
@@ -28,10 +28,10 @@ const Visual = () => {
       />
     </Box>
   );
-};
+}
 
-const Message = () => (
-  <Box align="start" gap="small">
+function Message() {
+  return <Box align="start" gap="small">
     <Heading margin="none">Oops, there’s nothing here.</Heading>
     <Paragraph margin="none" size="large">
       The page you’re looking for could not be found.
@@ -42,10 +42,10 @@ const Message = () => (
     <Link href="/" passHref>
       <Button label="Back to Home" primary />
     </Link>
-  </Box>
-);
+  </Box>;
+}
 
-const Custom404 = () => {
+function Custom404() {
   const size = useContext(ResponsiveContext);
 
   const first = !['xsmall', 'small'].includes(size) ? <Message /> : <Visual />;
@@ -69,6 +69,6 @@ const Custom404 = () => {
       </PageContent>
     </Layout>
   );
-};
+}
 
 export default Custom404;

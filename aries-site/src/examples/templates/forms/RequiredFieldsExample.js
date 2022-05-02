@@ -19,7 +19,7 @@ import { CircleAlert } from 'grommet-icons';
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
 
-export const RequiredFieldsExample = () => {
+export function RequiredFieldsExample() {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
     superPower: 'Sky Runner',
@@ -170,4 +170,4 @@ export const RequiredFieldsExample = () => {
       </Box>
     </Box>
   );
-};
+}

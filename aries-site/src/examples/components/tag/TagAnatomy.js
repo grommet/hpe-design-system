@@ -44,16 +44,16 @@ const connections = [
   },
 ];
 
-export const AnatomyGrid = ({ ...rest }) => (
-  <Grid
+export function AnatomyGrid({ ...rest }) {
+  return <Grid
     columns={['xsmall', 'small', 'xsmall']}
     gap={{ column: 'small', row: 'medium' }}
     justify="center"
     {...rest}
-  />
-);
+  />;
+}
 
-export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
+export function AnatomyBox({ id, nameId, valueId, closeId }) {
   const theme = useContext(ThemeContext);
   const boxProps = {
     direction: 'row',
@@ -93,9 +93,9 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
       )}
     </Box>
   );
-};
+}
 
-export const TagAnatomy = () => {
+export function TagAnatomy() {
   const theme = useContext(ThemeContext);
 
   return (
@@ -130,7 +130,7 @@ export const TagAnatomy = () => {
       <Diagram connections={connections} />
     </Stack>
   );
-};
+}
 
 AnatomyBox.propTypes = {
   id: PropTypes.string,

@@ -1,12 +1,18 @@
 import { useContext, useState } from 'react';
-import { Grid, Main, ResponsiveContext, Page, PageContent } from 'grommet';
+import {
+  Grid,
+  Main,
+  ResponsiveContext,
+  Page,
+  PageContent,
+  PageHeader,
+} from 'grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageHeader } from '../PageHeader';
 import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 
-export const ThreeColumnDashboard = () => (
-  <AppContainer background="background-back">
+export function ThreeColumnDashboard() {
+  return <AppContainer background="background-back">
     <ContentArea title="Global Header" />
     <Page>
       <PageContent gap="large">
@@ -15,8 +21,8 @@ export const ThreeColumnDashboard = () => (
       </PageContent>
     </Page>
     <ContentArea title="Global Footer" />
-  </AppContainer>
-);
+  </AppContainer>;
+}
 
 const parentGrid = {
   columns: {
@@ -48,7 +54,7 @@ const parentGrid = {
 
 const defaultPeriod = 'Last 30 Days';
 
-const Content = () => {
+function Content() {
   const size = useContext(ResponsiveContext);
   const [period] = useState(defaultPeriod);
 
@@ -62,4 +68,4 @@ const Content = () => {
       </Grid>
     </Main>
   );
-};
+}

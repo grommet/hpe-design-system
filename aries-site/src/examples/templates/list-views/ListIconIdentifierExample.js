@@ -36,8 +36,8 @@ const data = [
   },
 ];
 
-export const ListIconIdentifierExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+export function ListIconIdentifierExample() {
+  return <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       background="background-front"
       data={data}
@@ -54,5 +54,5 @@ export const ListIconIdentifierExample = () => (
         </Box>
       )}
     </List>
-  </Box>
-);
+  </Box>;
+}

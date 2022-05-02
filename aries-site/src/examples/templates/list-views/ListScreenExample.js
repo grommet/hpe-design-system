@@ -6,12 +6,11 @@ import {
   List,
   Header,
   Menu,
+  PageHeader,
   ResponsiveContext,
   Text,
 } from 'grommet';
 import { Monitor, More, User, System, Hpe } from 'grommet-icons';
-
-import { PageHeader } from '../PageHeader';
 
 const data = [
   {
@@ -58,7 +57,7 @@ const data = [
   },
 ];
 
-const StyledList = () => {
+function StyledList() {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -110,10 +109,10 @@ const StyledList = () => {
       )}
     </List>
   );
-};
+}
 
-const AppHeaderExample = () => (
-  <Header pad={{ vertical: 'small' }}>
+function AppHeaderExample() {
+  return <Header pad={{ vertical: 'small' }}>
     <Button>
       <Box
         direction="row"
@@ -143,10 +142,10 @@ const AppHeaderExample = () => (
         ]}
       />
     </Box>
-  </Header>
-);
+  </Header>;
+}
 
-const ScreenContainer = ({ mobile, ...rest }) => {
+function ScreenContainer({ mobile, ...rest }) {
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -166,10 +165,10 @@ const ScreenContainer = ({ mobile, ...rest }) => {
       </Box>
     </Box>
   );
-};
+}
 
-export const ListScreenExample = ({ ...rest }) => (
-  <ScreenContainer {...rest}>
+export function ListScreenExample({ ...rest }) {
+  return <ScreenContainer {...rest}>
     <AppHeaderExample />
     <PageHeader
       title="User Controls"
@@ -177,8 +176,8 @@ export const ListScreenExample = ({ ...rest }) => (
       pad={{ vertical: 'medium' }}
     />
     <StyledList />
-  </ScreenContainer>
-);
+  </ScreenContainer>;
+}
 
 ScreenContainer.propTypes = {
   mobile: PropTypes.bool,

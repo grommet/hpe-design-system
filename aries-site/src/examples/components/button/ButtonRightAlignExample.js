@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Header, Text } from 'grommet';
 
-export const ButtonRightAlignExample = () => (
-  <Box width="large" gap="medium" pad="small">
+export function ButtonRightAlignExample() {
+  return <Box width="large" gap="medium" pad="small">
     <Header
       direction="column"
       align="start"
@@ -18,5 +18,5 @@ export const ButtonRightAlignExample = () => (
       <Button secondary label="Secondary" onClick={() => {}} />
       <Button primary label="Primary" onClick={() => {}} />
     </Box>
-  </Box>
-);
+  </Box>;
+}

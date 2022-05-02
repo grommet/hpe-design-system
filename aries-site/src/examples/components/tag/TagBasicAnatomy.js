@@ -27,13 +27,13 @@ const connections = [
   },
 ];
 
-export const TagBasicAnatomy = () => (
-  <Stack>
+export function TagBasicAnatomy() {
+  return <Stack>
     <AnatomyGrid columns={['xsmall']}>
       <Annotation id={1} target="1" />
       <AnatomyBox id="border-basic" valueId="value-basic" />
       <Annotation alignSelf="center" id={2} target="2" />
     </AnatomyGrid>
     <Diagram connections={connections} />
-  </Stack>
-);
+  </Stack>;
+}

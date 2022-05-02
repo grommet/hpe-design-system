@@ -5,8 +5,8 @@ import { Info, Emoji } from 'grommet-icons';
 
 const spacing = defaultProps.theme.global.edgeSize;
 
-export const CardAnatomy = () => (
-  <Card background="background-front" width="medium">
+export function CardAnatomy() {
+  return <Card background="background-front" width="medium">
     <CardBody>
       <Identifier
         icon={<Emoji size="large" color="text-strong" />}
@@ -32,11 +32,11 @@ export const CardAnatomy = () => (
         information.
       </Text>
     </CardFooter>
-  </Card>
-);
+  </Card>;
+}
 
-const Identifier = ({ title, subtitle, icon }) => (
-  <Box direction="row" gap="small" align="center">
+function Identifier({ title, subtitle, icon }) {
+  return <Box direction="row" gap="small" align="center">
     <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
     <Box>
       <Text color="text-strong" size="xxlarge" weight="bold">
@@ -44,8 +44,8 @@ const Identifier = ({ title, subtitle, icon }) => (
       </Text>
       <Text>{subtitle}</Text>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 Identifier.propTypes = {
   title: PropTypes.node,
@@ -53,15 +53,15 @@ Identifier.propTypes = {
   icon: PropTypes.node,
 };
 
-const ContentBlock = ({ background, height, width, ...rest }) => (
-  <Box
+function ContentBlock({ background, height, width, ...rest }) {
+  return <Box
     background={background}
     height={height}
     width={width}
     round="xxsmall"
     {...rest}
-  />
-);
+  />;
+}
 
 ContentBlock.propTypes = {
   background: PropTypes.oneOfType([

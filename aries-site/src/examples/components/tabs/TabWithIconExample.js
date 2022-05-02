@@ -3,7 +3,7 @@ import { Tab, Tabs } from 'grommet';
 import { Currency, HomeRounded, User } from 'grommet-icons';
 import { TabContent } from './TabContent';
 
-export const TabWithIconExample = () => {
+export function TabWithIconExample() {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
 
@@ -20,4 +20,4 @@ export const TabWithIconExample = () => {
       </Tab>
     </Tabs>
   );
-};
+}

@@ -9,6 +9,7 @@
     "url": "https://github.com/grommet/hpe-design-system/issues"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -27,10 +28,10 @@
     "aries-site"
   ],
   "dependencies": {
-    "husky": "^4.2.3",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
+    "husky": "^4.2.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "styled-components": "^5.2.3"

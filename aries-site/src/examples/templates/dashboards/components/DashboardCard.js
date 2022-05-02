@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardBody, Text } from 'grommet';
 
-export const DashboardCard = ({ card, ...rest }) => {
+export function DashboardCard({ card, ...rest }) {
   const { background, cta, description, descriptionColor, icon, title } = card;
   return (
     <Card background={background || 'background'} fill {...rest}>
@@ -16,7 +16,7 @@ export const DashboardCard = ({ card, ...rest }) => {
       </CardBody>
     </Card>
   );
-};
+}
 
 DashboardCard.propTypes = {
   card: PropTypes.shape({

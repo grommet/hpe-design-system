@@ -16,7 +16,7 @@ import { SearchInput, SearchResult } from '.';
 const defaultPage = { begin: 0, end: 4 };
 const step = defaultPage.end - defaultPage.begin;
 
-export const SearchResults = ({
+export function SearchResults({
   allSuggestions,
   onChange,
   onClose,
@@ -26,7 +26,7 @@ export const SearchResults = ({
   results,
   setSuggestions,
   ...rest
-}) => {
+}) {
   const size = useContext(ResponsiveContext);
   const searchRef = useRef();
   const [page, setPage] = useState(defaultPage);
@@ -170,7 +170,7 @@ export const SearchResults = ({
       />
     </Box>
   );
-};
+}
 
 SearchResults.propTypes = {
   allSuggestions: PropTypes.array,

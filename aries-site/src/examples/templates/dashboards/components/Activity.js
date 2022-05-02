@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Text } from 'grommet';
 
-export const Activity = ({
+export function Activity({
   icon,
   title,
   message,
   timestamp: timestampProp,
-}) => {
+}) {
   const timestamp = new Date(timestampProp);
 
   return (
@@ -38,7 +38,7 @@ behind the selected activities.
       </Box>
     </Grid>
   );
-};
+}
 
 Activity.propTypes = {
   icon: PropTypes.node,

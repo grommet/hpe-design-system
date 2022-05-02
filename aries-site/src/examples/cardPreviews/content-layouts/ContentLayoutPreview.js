@@ -1,10 +1,12 @@
 import React from 'react';
 import { Box, Grid } from 'grommet';
 
-const GridRegion = () => <Box background="blue!" round="xsmall" />;
+function GridRegion() {
+  return <Box background="blue!" round="xsmall" />;
+}
 
-export const ContentLayoutPreview = () => (
-  <Grid columns={['3/4', '1/4']} gap="small" fill>
+export function ContentLayoutPreview() {
+  return <Grid columns={['3/4', '1/4']} gap="small" fill>
     <Grid gap="small">
       <GridRegion />
       <Grid columns={['auto', 'auto']} gap="small">
@@ -17,5 +19,5 @@ export const ContentLayoutPreview = () => (
     <Grid>
       <GridRegion />
     </Grid>
-  </Grid>
-);
+  </Grid>;
+}

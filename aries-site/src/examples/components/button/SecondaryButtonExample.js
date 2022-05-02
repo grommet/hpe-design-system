@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'grommet';
 
-export const SecondaryButtonExample = () => (
-  <Button label="Secondary button" secondary />
-);
+export function SecondaryButtonExample() {
+  return <Button label="Secondary button" secondary />;
+}

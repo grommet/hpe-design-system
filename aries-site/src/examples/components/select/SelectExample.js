@@ -10,7 +10,7 @@ const options = [
   'Item Six',
 ];
 
-export const SelectExample = () => {
+export function SelectExample() {
   const [selected, setSelected] = useState('');
 
   return (
@@ -31,4 +31,4 @@ export const SelectExample = () => {
       </FormField>
     </Form>
   );
-};
+}

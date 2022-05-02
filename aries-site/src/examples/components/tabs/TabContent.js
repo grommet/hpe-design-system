@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet';
 
-export const TabContent = ({ ...rest }) => (
-  <Box pad={{ vertical: 'medium' }} {...rest} />
-);
+export function TabContent({ ...rest }) {
+  return <Box pad={{ vertical: 'medium' }} {...rest} />;
+}

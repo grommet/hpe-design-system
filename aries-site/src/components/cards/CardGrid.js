@@ -7,8 +7,8 @@ import { ContentCard } from '.';
 import { nameToPath } from '../../utils';
 import { internalLink } from '..';
 
-export const CardGrid = ({ cards, minimal, ...rest }) => (
-  <Grid
+export function CardGrid({ cards, minimal, ...rest }) {
+  return <Grid
     columns="medium"
     rows={[['auto', 'full']]}
     gap="medium"
@@ -40,8 +40,8 @@ export const CardGrid = ({ cards, minimal, ...rest }) => (
           </Wrapper>
         );
       })}
-  </Grid>
-);
+  </Grid>;
+}
 
 CardGrid.propTypes = {
   cards: PropTypes.arrayOf(

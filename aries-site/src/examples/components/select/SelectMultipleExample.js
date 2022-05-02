@@ -3,7 +3,7 @@ import { Form, FormField, Select } from 'grommet';
 
 const options = ['Item One', 'Item Two', 'Item Three', 'Item Four'];
 
-export const SelectMultipleExample = () => {
+export function SelectMultipleExample() {
   const [selected, setSelected] = useState('');
 
   return (
@@ -26,4 +26,4 @@ export const SelectMultipleExample = () => {
       </FormField>
     </Form>
   );
-};
+}

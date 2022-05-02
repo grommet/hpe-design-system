@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Card, CardBody, Text } from 'grommet';
 import { Hpe } from 'grommet-icons';
 
-export const SimpleCard = () => (
-  <Card width="medium">
+export function SimpleCard() {
+  return <Card width="medium">
     <CardBody>
       <Box direction="row" gap="small">
         <Hpe size="large" color="plain" />
@@ -15,5 +15,5 @@ export const SimpleCard = () => (
         </Box>
       </Box>
     </CardBody>
-  </Card>
-);
+  </Card>;
+}

@@ -11,11 +11,11 @@ for (let i = 0; i < 95; i += 1) {
   });
 }
 
-const CardResult = ({ item }) => (
-  <Card fill pad="medium">
+function CardResult({ item }) {
+  return <Card fill pad="medium">
     {item.entry}
-  </Card>
-);
+  </Card>;
+}
 
 CardResult.propTypes = {
   item: PropTypes.shape({
@@ -23,7 +23,7 @@ CardResult.propTypes = {
   }),
 };
 
-export const PaginationCardsExample = () => {
+export function PaginationCardsExample() {
   const size = useContext(ResponsiveContext);
   const [currentData, setCurrentData] = useState(data.slice(0, 10));
   const [indices, setIndices] = useState([0, 10]);
@@ -66,4 +66,4 @@ export const PaginationCardsExample = () => {
       </Box>
     </Box>
   );
-};
+}

@@ -140,7 +140,7 @@ const search = (data, query) => {
   return sortSearch(results);
 };
 
-export const Search = ({ setOpen }) => {
+export function Search({ setOpen }) {
   const router = useRouter();
   const size = useContext(ResponsiveContext);
   const [value, setValue] = useState('');
@@ -244,7 +244,7 @@ export const Search = ({ setOpen }) => {
       />
     </Layer>
   );
-};
+}
 
 Search.propTypes = {
   setOpen: PropTypes.func,

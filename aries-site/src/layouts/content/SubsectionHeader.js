@@ -6,7 +6,7 @@ import { Link as LinkIcon } from 'grommet-icons';
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
-export const SubsectionHeader = ({ children, level }) => {
+export function SubsectionHeader({ children, level }) {
   const [over, setOver] = useState(false);
   const id = nameToSlug(children);
   return (
@@ -35,7 +35,7 @@ export const SubsectionHeader = ({ children, level }) => {
       />
     </Box>
   );
-};
+}
 
 SubsectionHeader.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,

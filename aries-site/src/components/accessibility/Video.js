@@ -8,7 +8,7 @@ const desc = `The video shows Bill, a white man with blondish brown hair
   dress shirt with the HPE rectangular-shaped, multi-color logo
   against a black background as the background.`;
 
-export const AccessVideo = () => {
+export function AccessVideo() {
   const announce = useContext(AnnounceContext);
 
   const [expanded, setExpanded] = useState(false);
@@ -72,4 +72,4 @@ export const AccessVideo = () => {
       </Box>
     </Box>
   );
-};
+}

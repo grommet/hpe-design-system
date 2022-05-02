@@ -24,8 +24,8 @@ const statuses = {
   },
 };
 
-const StatusBadge = ({ status, type }) => (
-    <Box direction="row">
+function StatusBadge({ status, type }) {
+  return <Box direction="row">
       <Box
         background="background-front"
         pad={{ vertical: 'xsmall', horizontal: 'small' }}
@@ -48,8 +48,8 @@ const StatusBadge = ({ status, type }) => (
         {statuses[status[type]].icon}
         <Text weight="bold">{status[type]}</Text>
       </Box>
-    </Box>
-  );
+    </Box>;
+}
 
 StatusBadge.propTypes = {
   status: PropTypes.shape({
@@ -59,12 +59,12 @@ StatusBadge.propTypes = {
   type: PropTypes.oneOf(['figma', 'grommet']),
 };
 
-export const Status = ({ status }) => (
-    <Box direction="row-responsive" gap="medium">
+export function Status({ status }) {
+  return <Box direction="row-responsive" gap="medium">
       {status.figma && <StatusBadge type="figma" status={status} />}
       {status.grommet && <StatusBadge type="grommet" status={status} />}
-    </Box>
-  );
+    </Box>;
+}
 
 Status.propTypes = {
   status: PropTypes.shape({

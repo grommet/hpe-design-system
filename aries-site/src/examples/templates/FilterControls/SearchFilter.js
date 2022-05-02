@@ -9,7 +9,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const SearchFilter = ({ placeholder }) => {
+export function SearchFilter({ placeholder }) {
   const size = useContext(ResponsiveContext);
   const filterContext = useFilters();
   const {
@@ -56,7 +56,7 @@ export const SearchFilter = ({ placeholder }) => {
       )}
     </>
   );
-};
+}
 
 SearchFilter.propTypes = {
   placeholder: PropTypes.string,

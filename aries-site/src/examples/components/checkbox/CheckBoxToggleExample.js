@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CheckBox, Form, FormField } from 'grommet';
 
-export const CheckBoxToggleExample = () => {
+export function CheckBoxToggleExample() {
   const [checked, setChecked] = useState(false);
   return (
     <Form>
@@ -17,4 +17,4 @@ export const CheckBoxToggleExample = () => {
       </FormField>
     </Form>
   );
-};
+}

@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import { Aruba, FormClose, Menu } from 'grommet-icons';
 
-export const MenuLayer = () => {
+export function MenuLayer() {
   const size = useContext(ResponsiveContext);
   const [showLayer, setShowLayer] = useState(false);
 
@@ -57,10 +57,10 @@ export const MenuLayer = () => {
       )}
     </>
   );
-};
+}
 
-const SidebarHeader = () => (
-  <Box
+function SidebarHeader() {
+  return <Box
     align="start"
     border={{ color: 'border-weak', side: 'bottom' }}
     pad={{ top: 'small', bottom: 'medium' }}
@@ -81,30 +81,30 @@ const SidebarHeader = () => (
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
     </Box>
     <Button label="Switch Account" secondary />
-  </Box>
-);
+  </Box>;
+}
 
-const SidebarNav = () => (
-  <Nav a11yTitle="Sidebar Navigation">
+function SidebarNav() {
+  return <Nav a11yTitle="Sidebar Navigation">
     <NavButton label="Home" />
     <NavButton label="My Apps" />
     <NavButton label="App Catalog" />
     <NavButton label="Manage" />
-  </Nav>
-);
+  </Nav>;
+}
 
-const NavButton = ({ label }) => (
-  <Button>
+function NavButton({ label }) {
+  return <Button>
     <Text color="text-strong">{label}</Text>
-  </Button>
-);
+  </Button>;
+}
 
 NavButton.propTypes = {
   label: PropTypes.string,
 };
 
-const SidebarFooter = () => (
-  <Footer pad={{ bottom: 'small' }}>
+function SidebarFooter() {
+  return <Footer pad={{ bottom: 'small' }}>
     <Box fill="horizontal" gap="medium">
       <Box border={{ side: 'bottom' }} pad={{ bottom: 'xsmall' }}>
         <Text size="xsmall">Last Visited</Text>
@@ -123,5 +123,5 @@ const SidebarFooter = () => (
         </Box>
       </Button>
     </Box>
-  </Footer>
-);
+  </Footer>;
+}

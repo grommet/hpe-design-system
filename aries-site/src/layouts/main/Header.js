@@ -8,7 +8,7 @@ import { ThemeModeToggle, AppIdentity } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-const StyledHeader = ({ ...rest }) => {
+function StyledHeader({ ...rest }) {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
   const [showSearch, setShowSearch] = useState(false);
@@ -46,6 +46,6 @@ const StyledHeader = ({ ...rest }) => {
       </Box>
     </Header>
   );
-};
+}
 
 export { StyledHeader as Header };

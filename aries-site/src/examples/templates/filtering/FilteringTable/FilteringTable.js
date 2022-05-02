@@ -14,7 +14,7 @@ import {
 } from '../../FilterControls';
 import { servers } from './mockData';
 
-export const FilteringTable = () => {
+export function FilteringTable() {
   // Define which attributes should be made available for the user
   // to filter upon
   const filtersConfig = [
@@ -67,7 +67,7 @@ export const FilteringTable = () => {
       </FiltersProvider>
     </Box>
   );
-};
+}
 
 const columns = [
   {
@@ -96,7 +96,7 @@ const statusIcons = {
   Unknown: <StatusUnknownSmall color="status-unknown" size="small" />,
 };
 
-const ServerResults = () => {
+function ServerResults() {
   const size = useContext(ResponsiveContext);
   const { filteredResults, selected, setSelected } = useFilters();
 
@@ -133,4 +133,4 @@ const ServerResults = () => {
       />
     </Box>
   );
-};
+}

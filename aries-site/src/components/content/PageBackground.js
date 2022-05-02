@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Card, Grid, Image, ResponsiveContext } from 'grommet';
 import { useDarkMode } from '../../utils';
 
-export const PageBackground = ({ backgroundImage }) => {
+export function PageBackground({ backgroundImage }) {
   const size = useContext(ResponsiveContext);
   const themeMode = useDarkMode().value ? 'dark' : 'light';
   const { src, alt, style, useGrid, position } = backgroundImage;
@@ -50,7 +50,7 @@ export const PageBackground = ({ backgroundImage }) => {
       )}
     </Box>
   );
-};
+}
 
 PageBackground.propTypes = {
   backgroundImage: PropTypes.shape({

@@ -9,8 +9,8 @@ const title = 'Templates';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Templates = () => (
-  <Layout
+function Templates() {
+  return <Layout
     backgroundImage={{
       src: {
         dark: '/templates-dark.svg',
@@ -41,7 +41,7 @@ const Templates = () => (
       </PageIntro>
       <CardGrid cards={cards} pad={{ bottom: 'large' }} />
     </PageContent>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default Templates;

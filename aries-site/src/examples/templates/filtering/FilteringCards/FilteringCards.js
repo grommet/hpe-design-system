@@ -17,7 +17,7 @@ import {
 } from '../../FilterControls';
 import { users } from './mockData';
 
-export const FilteringCards = ({ containerRef }) => {
+export function FilteringCards({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
 
@@ -76,9 +76,9 @@ export const FilteringCards = ({ containerRef }) => {
       </FiltersProvider>
     </Box>
   );
-};
+}
 
-const Users = () => {
+function Users() {
   const size = useContext(ResponsiveContext);
   const { filteredResults } = useFilters();
 
@@ -133,7 +133,7 @@ const Users = () => {
       </Grid>
     </Box>
   );
-};
+}
 
 FilteringCards.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

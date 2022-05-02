@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const FiltersContext = createContext();
 
-const FiltersProvider = ({ children }) => {
+function FiltersProvider({ children }) {
   // data represents the entire result set
   const [data, setData] = useState([]);
   // fields or columns in the data set
@@ -54,7 +54,7 @@ const FiltersProvider = ({ children }) => {
   return (
     <FiltersContext.Provider value={value}>{children}</FiltersContext.Provider>
   );
-};
+}
 
 const useFilters = () => {
   const context = useContext(FiltersContext);

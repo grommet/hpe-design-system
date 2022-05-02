@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, defaultProps } from 'grommet';
 
-export const HeaderOnlyPreview = () => (
-    <Box fill>
+export function HeaderOnlyPreview() {
+  return <Box fill>
       <Box
         height={defaultProps.theme.global.edgeSize.medium}
         // remove dashed border in prod, for demo purposes only
@@ -13,5 +13,5 @@ export const HeaderOnlyPreview = () => (
         border={{ color: 'border', style: 'dashed' }}
         flex
       />
-    </Box>
-  );
+    </Box>;
+}

@@ -13,7 +13,7 @@ import {
   TextInput,
 } from 'grommet';
 
-export const SettingsExample = () => {
+export function SettingsExample() {
   const [formValues, setFormValues] = React.useState({
     doNotDisturbHours: '9:00pm - 5:00am',
     notifications: true,
@@ -113,4 +113,4 @@ export const SettingsExample = () => {
       </Box>
     </Box>
   );
-};
+}

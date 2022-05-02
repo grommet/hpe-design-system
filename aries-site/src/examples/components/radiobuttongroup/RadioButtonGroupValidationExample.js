@@ -8,7 +8,7 @@ const powerRegulationOptions = [
   'OS control mode',
 ];
 
-export const RadioButtonGroupValidationExample = () => {
+export function RadioButtonGroupValidationExample() {
   const [powerRegulation, setPowerRegulation] = useState();
   const [message, setMessage] = useState({
     error: 'Required information.',
@@ -41,4 +41,4 @@ export const RadioButtonGroupValidationExample = () => {
       </FormField>
     </Form>
   );
-};
+}

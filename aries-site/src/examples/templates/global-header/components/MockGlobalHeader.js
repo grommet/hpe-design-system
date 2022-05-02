@@ -10,7 +10,7 @@ const globalFooterAlt = `HPE Global Footer which features HPE copyright on the
 far left and navigational elements such as Privacy and Terms of Use on the far 
 right.`;
 
-export const MockGlobalHeader = ({ children }) => {
+export function MockGlobalHeader({ children }) {
   const size = useContext(ResponsiveContext);
 
   return ['xsmall', 'small'].includes(size) ? (
@@ -35,7 +35,7 @@ export const MockGlobalHeader = ({ children }) => {
       />
     </Box>
   );
-};
+}
 
 MockGlobalHeader.propTypes = {
   children: PropTypes.node,

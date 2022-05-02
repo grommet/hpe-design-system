@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Footer, Text } from 'grommet';
 
-export const FooterPreview = () => (
-    <Footer
+export function FooterPreview() {
+  return <Footer
       background="background-front"
       border={{ color: 'background-contrast', side: 'top' }}
       fill="horizontal"
@@ -15,5 +15,5 @@ export const FooterPreview = () => (
         <Text size="small">Privacy</Text>
         <Text size="small">Security</Text>
       </Box>
-    </Footer>
-  );
+    </Footer>;
+}

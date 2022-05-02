@@ -34,8 +34,8 @@ const connections = [
   },
 ];
 
-export const ToastDiagram = () => (
-  <Stack>
+export function ToastDiagram() {
+  return <Stack>
     <Box gap="medium" pad={{ bottom: 'medium' }}>
       <Box direction="row" gap="xlarge">
         <Box
@@ -66,5 +66,5 @@ export const ToastDiagram = () => (
       <ToastPreview title="Status Title" message="This is a status message" />
     </Box>
     <Diagram connections={connections} />
-  </Stack>
-);
+  </Stack>;
+}

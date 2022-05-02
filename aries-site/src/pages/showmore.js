@@ -35,8 +35,8 @@ featuredCards.sort(
 
 cardOrder.splice(0, 0, ...featuredCards);
 
-const ShowMore = () => (
-  <Layout
+function ShowMore() {
+  return <Layout
     backgroundImage={{
       src: { dark: '/cards-dark.svg', light: '/cards.svg' },
       alt: 'HPE Design System',
@@ -63,7 +63,7 @@ const ShowMore = () => (
       </PageIntro>
       <CardGrid cards={cardOrder} />
     </PageContent>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default ShowMore;

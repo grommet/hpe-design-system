@@ -8,19 +8,19 @@ import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
 
 import { Box } from 'grommet';
 
-export const StatusIndicatorPreview = () => (
-  <Box align="center" justify="center" fill background="background-back">
+export function StatusIndicatorPreview() {
+  return <Box align="center" justify="center" fill background="background-back">
     <Box direction="row" gap="small">
       <StatusGoodSmall color="status-ok" />
       <StatusWarningSmall color="status-warning" />
       <StatusCriticalSmall color="status-critical" />
       <StatusUnknownSmall color="status-unknown" />
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
-export const StatusBox = ({ toast }) => (
-  <Box direction="row" gap="large" pad={{ bottom: 'medium' }}>
+export function StatusBox({ toast }) {
+  return <Box direction="row" gap="large" pad={{ bottom: 'medium' }}>
     <Box align="center">
       <StatusGoodSmall color="status-ok" />
       Normal
@@ -39,8 +39,8 @@ export const StatusBox = ({ toast }) => (
       <StatusUnknownSmall color="status-unknown" />
       Unknown
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 StatusBox.propTypes = {
   toast: PropTypes.bool,

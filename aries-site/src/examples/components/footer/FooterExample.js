@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
 
-export const FooterExample = () => {
+export function FooterExample() {
   const size = useContext(ResponsiveContext);
   const year = new Date().getFullYear();
 
@@ -40,4 +40,4 @@ export const FooterExample = () => {
       </Box>
     </Footer>
   );
-};
+}

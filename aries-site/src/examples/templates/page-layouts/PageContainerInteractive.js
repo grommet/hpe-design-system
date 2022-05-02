@@ -13,8 +13,8 @@ const demoStyle = {
   round: { size: 'xsmall' },
 };
 
-export const PageContainerInteractive = () => (
-  <AppContainer
+export function PageContainerInteractive() {
+  return <AppContainer
     // `as`, `title`, and `demoStyle` for Design System site demonstration.
     //  Remove from your implementation.
     as={ContentArea}
@@ -38,11 +38,11 @@ export const PageContainerInteractive = () => (
       </ContentArea>
     </Page>
     <ContentArea title="Global Footer" background="status-unknown" />
-  </AppContainer>
-);
+  </AppContainer>;
+}
 
-const PageChildren = () => (
-  <PageContent flex>
+function PageChildren() {
+  return <PageContent flex>
     <ContentArea title="PageContent" {...demoStyle}>
       <Header
         // `as`, `title`, `background`, and `border` for Design System site
@@ -65,5 +65,5 @@ const PageChildren = () => (
         {/* All of the page's content */}
       </Main>
     </ContentArea>
-  </PageContent>
-);
+  </PageContent>;
+}

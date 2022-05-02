@@ -12,7 +12,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const SearchSimpleExample = () => {
+export function SearchSimpleExample() {
   const [value, setValue] = React.useState();
 
   return (
@@ -27,4 +27,4 @@ export const SearchSimpleExample = () => {
       />
     </Box>
   );
-};
+}

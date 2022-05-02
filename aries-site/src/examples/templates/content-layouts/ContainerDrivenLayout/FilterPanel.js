@@ -20,7 +20,7 @@ const defaultSelected = {
   pricing: [],
 };
 
-export const FilterPanel = ({ containerRef, data, setFilters }) => {
+export function FilterPanel({ containerRef, data, setFilters }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const breakpoint = useContext(ResponsiveContext);
@@ -199,7 +199,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       {filterOptions}
     </Box>
   );
-};
+}
 
 FilterPanel.propTypes = {
   containerRef: PropTypes.object,

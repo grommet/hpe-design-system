@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Form, ResponsiveContext } from 'grommet';
 import { StepHeader, WizardContext } from '.';
 
-export const StepContent = ({ onSubmit }) => {
+export function StepContent({ onSubmit }) {
   const size = useContext(ResponsiveContext);
   const {
     activeIndex,
@@ -91,7 +91,7 @@ export const StepContent = ({ onSubmit }) => {
       </Box>
     </Box>
   );
-};
+}
 
 StepContent.propTypes = {
   onSubmit: PropTypes.func.isRequired,

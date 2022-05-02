@@ -5,7 +5,7 @@ import { Filter } from 'grommet-icons';
 import { useFilters } from '.';
 import { FiltersLayer } from './FiltersLayer';
 
-export const Filters = () => {
+export function Filters() {
   const {
     applyFilters,
     data,
@@ -75,4 +75,4 @@ export const Filters = () => {
       {filtersLayer && <FiltersLayer />}
     </>
   );
-};
+}

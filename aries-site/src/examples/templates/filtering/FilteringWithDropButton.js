@@ -60,7 +60,7 @@ const defaultFilters = {};
 const ramOptions = ['16', '32', '128'];
 const statuses = ['Online', 'Offline'];
 
-export const FilteringWithDropButton = () => {
+export function FilteringWithDropButton() {
   const [data, setData] = useState(allData);
   const [filtering, setFiltering] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -159,9 +159,9 @@ export const FilteringWithDropButton = () => {
       <Results data={data} />
     </Box>
   );
-};
+}
 
-const Filters = ({
+function Filters({
   filters,
   filterData,
   setFilters,
@@ -169,7 +169,7 @@ const Filters = ({
   setData,
   setFiltering,
   setSearch,
-}) => {
+}) {
   const [ram, setRam] = useState([]);
   const [previousValues, setPreviousValues] = useState({});
   const [previousFilters, setPreviousFilters] = useState({});
@@ -261,7 +261,7 @@ const Filters = ({
       {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
     </Box>
   );
-};
+}
 
 Filters.propTypes = {
   filters: PropTypes.shape({}).isRequired,
@@ -273,8 +273,8 @@ Filters.propTypes = {
   setSearch: PropTypes.func.isRequired,
 };
 
-const RamFilter = ({ filters, setFilters, ram, setRam }) => (
-  <CheckBoxGroup
+function RamFilter({ filters, setFilters, ram, setRam }) {
+  return <CheckBoxGroup
     options={ramOptions}
     value={ram}
     onChange={({ value }) => {
@@ -285,8 +285,8 @@ const RamFilter = ({ filters, setFilters, ram, setRam }) => (
       };
       setFilters(nextFilters);
     }}
-  />
-);
+  />;
+}
 
 RamFilter.propTypes = {
   filters: PropTypes.shape({
@@ -297,8 +297,8 @@ RamFilter.propTypes = {
   setFilters: PropTypes.func.isRequired,
 };
 
-const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
-  <CheckBoxGroup
+function StatusFilter({ filters, setFilters, setStatus, status }) {
+  return <CheckBoxGroup
     options={statuses}
     value={status}
     onChange={({ value }) => {
@@ -309,8 +309,8 @@ const StatusFilter = ({ filters, setFilters, setStatus, status }) => (
       };
       setFilters(nextFilters);
     }}
-  />
-);
+  />;
+}
 
 StatusFilter.propTypes = {
   filters: PropTypes.shape({
@@ -325,8 +325,8 @@ StatusFilter.propTypes = {
   setStatus: PropTypes.func.isRequired,
 };
 
-const RecordSummary = ({ data, filtering }) => (
-  <Box direction="row" gap="xxsmall">
+function RecordSummary({ data, filtering }) {
+  return <Box direction="row" gap="xxsmall">
     <Text size="small" weight="bold">
       {data.length}
     </Text>
@@ -341,8 +341,8 @@ const RecordSummary = ({ data, filtering }) => (
         <Text size="small">{`item${allData.length > 1 ? 's' : ''}`}</Text>
       </Box>
     )}
-  </Box>
-);
+  </Box>;
+}
 
 RecordSummary.propTypes = {
   data: PropTypes.arrayOf(
@@ -354,7 +354,7 @@ RecordSummary.propTypes = {
   filtering: PropTypes.bool.isRequired,
 };
 
-const Results = ({ data }) => {
+function Results({ data }) {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -407,7 +407,7 @@ const Results = ({ data }) => {
       </Grid>
     </Box>
   );
-};
+}
 
 Results.propTypes = {
   data: PropTypes.arrayOf(

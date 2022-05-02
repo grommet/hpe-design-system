@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
 
-export const BoxExample = () => (
-    <Box direction="row-responsive" gap="medium" align="center">
+export function BoxExample() {
+  return <Box direction="row-responsive" gap="medium" align="center">
       <Box
         align="center"
         border={{ color: 'green', size: 'medium' }}
@@ -23,5 +23,5 @@ export const BoxExample = () => (
       >
         <Text>Boxes can be various sizes.</Text>
       </Box>
-    </Box>
-  );
+    </Box>;
+}

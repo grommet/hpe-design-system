@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text } from 'grommet';
 import { Hpe } from 'grommet-icons';
 
-export const HpeElementExample = () => {
+export function HpeElementExample() {
   const textSize = 'small';
 
   return (
@@ -16,4 +16,4 @@ export const HpeElementExample = () => {
       </Box>
     </Box>
   );
-};
+}

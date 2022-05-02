@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 
-export const BestPracticeGroup = ({ ...rest }) => {
+export function BestPracticeGroup({ ...rest }) {
   const size = useContext(ResponsiveContext);
   let column;
   // on small and medium layout we want to use auto
@@ -16,4 +16,4 @@ export const BestPracticeGroup = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}

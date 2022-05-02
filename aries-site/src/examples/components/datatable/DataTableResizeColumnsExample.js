@@ -175,8 +175,8 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
-  <>
+export function DataTableResizeColumnsExample({ designSystemDemo }) {
+  return <>
     <Heading
       id="contact-info-heading"
       level={3}
@@ -202,8 +202,8 @@ export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
         resizeable
       />
     </Box>
-  </>
-);
+  </>;
+}
 
 DataTableResizeColumnsExample.propTypes = {
   designSystemDemo: PropTypes.bool,

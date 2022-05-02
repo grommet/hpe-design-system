@@ -19,7 +19,7 @@ import {
   Notification,
 } from 'grommet-icons';
 
-export const ContentSpinnerExample = () => {
+export function ContentSpinnerExample() {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   const size = useContext(ResponsiveContext);
@@ -104,4 +104,4 @@ export const ContentSpinnerExample = () => {
       </Tabs>
     </>
   );
-};
+}

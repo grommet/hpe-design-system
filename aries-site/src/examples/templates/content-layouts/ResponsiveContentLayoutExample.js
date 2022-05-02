@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Main, ResponsiveContext, Page, PageContent } from 'grommet';
+import {
+  Box,
+  Grid,
+  Main,
+  ResponsiveContext,
+  Page,
+  PageContent,
+  PageHeader,
+} from 'grommet';
 
-import { PageHeader } from '../PageHeader';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
-export const ResponsiveContentLayoutExample = () => {
+export function ResponsiveContentLayoutExample() {
   const size = useContext(ResponsiveContext);
   return (
     <AppContainer background="background-back">
@@ -22,7 +29,7 @@ export const ResponsiveContentLayoutExample = () => {
       <ContentArea title="Global Footer" />
     </AppContainer>
   );
-};
+}
 
 const parentGrid = {
   columns: {
@@ -63,7 +70,7 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const Content = () => {
+function Content() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -94,8 +101,8 @@ const Content = () => {
       </Grid>
     </Main>
   );
-};
+}
 
-const ContentBlock = ({ ...rest }) => (
-  <ContentArea elevation="medium" height="small" round="small" {...rest} />
-);
+function ContentBlock({ ...rest }) {
+  return <ContentArea elevation="medium" height="small" round="small" {...rest} />;
+}

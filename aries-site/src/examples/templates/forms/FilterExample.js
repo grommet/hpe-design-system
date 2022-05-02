@@ -30,7 +30,7 @@ const serverTypes = [
   'Blade Infrastructure',
 ];
 
-export const FilterExample = () => {
+export function FilterExample() {
   const [formValues, setFormValues] = React.useState({
     keyword: '',
     locationType: 'All Locations',
@@ -115,4 +115,4 @@ export const FilterExample = () => {
       </Box>
     </Box>
   );
-};
+}

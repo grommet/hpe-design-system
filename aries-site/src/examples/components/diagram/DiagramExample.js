@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Diagram, Stack } from 'grommet';
 
-const Node = ({ id, ...rest }) => (
-  <Box
+function Node({ id, ...rest }) {
+  return <Box
     id={id}
     basis="xxsmall"
     margin="small"
@@ -11,8 +11,8 @@ const Node = ({ id, ...rest }) => (
     round="small"
     background={{ color: 'background', dark: true }}
     {...rest}
-  />
-);
+  />;
+}
 
 Node.propTypes = {
   id: PropTypes.number,
@@ -29,7 +29,7 @@ const connection = (fromTarget, toTarget, { color, ...rest } = {}) => ({
   ...rest,
 });
 
-export const DiagramExample = () => {
+export function DiagramExample() {
   const connections = [
     connection('1', '5'),
     connection('1', '2', { anchor: 'horizontal' }),
@@ -53,4 +53,4 @@ export const DiagramExample = () => {
       <Diagram connections={connections} />
     </Stack>
   );
-};
+}

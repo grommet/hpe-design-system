@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { Box, Grid, Text, ThemeContext } from 'grommet';
 import PropTypes from 'prop-types';
 
-const MarginText = ({ label }) => (
-  <Box border="bottom">
+function MarginText({ label }) {
+  return <Box border="bottom">
     <Text alignSelf="center">{label}</Text>
-  </Box>
-);
+  </Box>;
+}
 
-const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
-  <Box gap="small" width={width}>
+function GridViewPort({ columns, label, marginLabel, rows, width }) {
+  return <Box gap="small" width={width}>
     <Box direction="row" justify="between">
       <MarginText label={marginLabel} />
       <MarginText label={marginLabel} />
@@ -44,10 +44,10 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
       </Box>
       <Box gridArea="bottom-gap" background="background-front" />
     </Grid>
-  </Box>
-);
+  </Box>;
+}
 
-export const PageMarginAnatomy = () => {
+export function PageMarginAnatomy() {
   const theme = useContext(ThemeContext);
   // values chosen to best visually represent the margin area in diagram
   const RowSizes = [
@@ -83,7 +83,7 @@ export const PageMarginAnatomy = () => {
       />
     </Box>
   );
-};
+}
 
 MarginText.propTypes = {
   label: PropTypes.string,

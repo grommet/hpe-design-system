@@ -1,12 +1,11 @@
 // (C) Copyright 2022 Hewlett Packard Enterprise Development LP.
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   extends: [
     'airbnb',
     'plugin:jsx-a11y/recommended',
     'prettier',
-    'prettier/react',
     'plugin:grommet/recommended',
   ],
   plugins: ['react', 'jsx-a11y', 'react-hooks', 'prettier'],

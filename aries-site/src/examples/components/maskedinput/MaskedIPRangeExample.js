@@ -53,7 +53,7 @@ const maskIp = [
   },
 ];
 
-export const MaskedIPRangeExample = () => {
+export function MaskedIPRangeExample() {
   const [value, setValue] = useState('');
 
   return (
@@ -73,4 +73,4 @@ export const MaskedIPRangeExample = () => {
       </FormField>
     </Form>
   );
-};
+}

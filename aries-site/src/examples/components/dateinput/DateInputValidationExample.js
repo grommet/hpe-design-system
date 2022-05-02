@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Form, FormField, DateInput } from 'grommet';
 
-export const DateInputValidationExample = () => {
+export function DateInputValidationExample() {
   const [value, setValue] = React.useState('');
   const defaultErrorMessage =
     'Select or type a valid date to resolve this error.';
@@ -36,4 +36,4 @@ export const DateInputValidationExample = () => {
       </Form>
     </Box>
   );
-};
+}

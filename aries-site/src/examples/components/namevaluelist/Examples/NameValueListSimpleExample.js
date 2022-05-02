@@ -2,8 +2,8 @@ import React from 'react';
 import { Anchor, Box, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
 
-export const NameValueListSimpleExample = () => (
-  <Box pad="small">
+export function NameValueListSimpleExample() {
+  return <Box pad="small">
     <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
       {Object.entries(simpleData).map(([name, value]) => {
         let date;
@@ -25,5 +25,5 @@ export const NameValueListSimpleExample = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

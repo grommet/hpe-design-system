@@ -9,8 +9,8 @@ const title = 'Foundation';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Foundation = () => (
-  <Layout
+function Foundation() {
+  return <Layout
     backgroundImage={{
       src: {
         dark: '/foundation-dark.svg',
@@ -50,7 +50,7 @@ const Foundation = () => (
         </Subsection>
       </ContentSection>
     </PageContent>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default Foundation;

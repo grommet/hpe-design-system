@@ -152,7 +152,7 @@ const formatData = dataSet =>
     return adjustedDatum;
   });
 
-export const DataTableSortable = () => {
+export function DataTableSortable() {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -184,4 +184,4 @@ export const DataTableSortable = () => {
       </Box>
     </>
   );
-};
+}

@@ -15,7 +15,7 @@ const ATTENTION_MAP = {
   },
 };
 
-export const ServerAttention = () => {
+export function ServerAttention() {
   const data = MOCK_DATA['serverState-counts'].counts;
   const [connectionStatus, setConnectionStatus] = useState(undefined);
 
@@ -57,4 +57,4 @@ export const ServerAttention = () => {
         })}
     </StatusBar>
   );
-};
+}

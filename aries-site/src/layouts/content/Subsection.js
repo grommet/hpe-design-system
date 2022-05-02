@@ -19,7 +19,7 @@ export const HEADING_SIZE = {
   3: 'small', // heading is h3, but should render as the small variant
 };
 
-export const Subsection = ({
+export function Subsection({
   children,
   showHeading,
   gap,
@@ -28,7 +28,7 @@ export const Subsection = ({
   name,
   topic,
   ...rest
-}) => {
+}) {
   const [over, setOver] = useState(false);
   const parent = topic && getPageDetails(topic);
   const id = nameToSlug(name);
@@ -115,7 +115,7 @@ export const Subsection = ({
       {remainingChildren}
     </Box>
   );
-};
+}
 
 Subsection.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),

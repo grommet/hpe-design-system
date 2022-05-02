@@ -10,7 +10,7 @@ import {
   Figma,
 } from 'grommet-icons';
 
-export const ExampleControls = ({
+export function ExampleControls({
   componentName,
   designer,
   docs,
@@ -20,7 +20,7 @@ export const ExampleControls = ({
   horizontalLayout,
   setFullscreen,
   showResponsiveControls,
-}) => {
+}) {
   const size = useContext(ResponsiveContext);
   const isSmall = ['xsmall', 'small'].includes(size);
   const buttonSize = isSmall ? 'small' : undefined;
@@ -128,7 +128,7 @@ export const ExampleControls = ({
       )}
     </Box>
   );
-};
+}
 
 ExampleControls.propTypes = {
   componentName: PropTypes.string,
@@ -145,15 +145,15 @@ ExampleControls.propTypes = {
   ]),
 };
 
-const FullscreenButton = ({ buttonSize, setFullscreen }) => (
-  <Button
+function FullscreenButton({ buttonSize, setFullscreen }) {
+  return <Button
     icon={<Expand />}
     a11yTitle="See Fullscreen"
     tip="See Fullscreen"
     onClick={() => setFullscreen(true)}
     size={buttonSize}
-  />
-);
+  />;
+}
 
 FullscreenButton.propTypes = {
   buttonSize: PropTypes.string,

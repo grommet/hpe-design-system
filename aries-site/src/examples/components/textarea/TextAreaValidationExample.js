@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormField, TextArea } from 'grommet';
 
-export const TextAreaValidationExample = () => {
+export function TextAreaValidationExample() {
   const [value, setValue] = useState('');
   const defaultErrorMessage = 'Type something to resolve this error.';
   const [message, setMessage] = useState(defaultErrorMessage);
@@ -32,4 +32,4 @@ export const TextAreaValidationExample = () => {
       </FormField>
     </Form>
   );
-};
+}

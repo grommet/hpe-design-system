@@ -229,8 +229,8 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
-  <>
+export function DataTableFixedHeaderExample({ designSystemDemo }) {
+  return <>
     <Heading
       id="connected-heading"
       level={3}
@@ -256,8 +256,8 @@ export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
         pin
       />
     </Box>
-  </>
-);
+  </>;
+}
 
 DataTableFixedHeaderExample.propTypes = {
   designSystemDemo: PropTypes.bool,

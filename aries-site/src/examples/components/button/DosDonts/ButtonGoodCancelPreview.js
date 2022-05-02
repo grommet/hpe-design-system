@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Heading, Header, Text } from 'grommet';
 
-export const ButtonGoodCancelPreview = () => (
-  <Box width="large" gap="medium" pad="small">
+export function ButtonGoodCancelPreview() {
+  return <Box width="large" gap="medium" pad="small">
     <Header
       direction="column"
       align="start"
@@ -21,5 +21,5 @@ export const ButtonGoodCancelPreview = () => (
       <Button label="Cancel" onClick={() => {}} />
       <Button primary label="Delete Role Assignment" onClick={() => {}} />
     </Box>
-  </Box>
-);
+  </Box>;
+}

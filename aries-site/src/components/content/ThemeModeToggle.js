@@ -4,7 +4,7 @@ import { Button, Tip } from 'grommet';
 import { Moon, Sun } from 'grommet-icons';
 import { useDarkMode } from '../../utils';
 
-export const ThemeModeToggle = ({ active }) => {
+export function ThemeModeToggle({ active }) {
   const darkMode = useDarkMode();
   const label = darkMode.value ? 'Switch to Light Mode' : 'Switch to Dark Mode';
   const icon = darkMode.value ? <Moon /> : <Sun />;
@@ -19,7 +19,7 @@ export const ThemeModeToggle = ({ active }) => {
       />
     </Tip>
   );
-};
+}
 
 ThemeModeToggle.propTypes = {
   active: PropTypes.bool,

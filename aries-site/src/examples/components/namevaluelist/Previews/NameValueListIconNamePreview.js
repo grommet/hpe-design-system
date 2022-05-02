@@ -3,8 +3,8 @@ import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { StatusGood, InProgress } from 'grommet-icons';
 import { iconNameData } from '../data';
 
-export const NameValueListIconNamePreview = () => (
-  <Box pad="small">
+export function NameValueListIconNamePreview() {
+  return <Box pad="small">
     <NameValueList>
       {Object.entries(iconNameData).map(([name, value]) => {
         let icon;
@@ -27,5 +27,5 @@ export const NameValueListIconNamePreview = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

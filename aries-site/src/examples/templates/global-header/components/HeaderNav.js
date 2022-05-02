@@ -11,7 +11,7 @@ import {
 import { HelpOption, HomeRounded } from 'grommet-icons';
 import { UserContext } from '.';
 
-export const HeaderNav = () => {
+export function HeaderNav() {
   const size = useContext(ResponsiveContext);
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState();
@@ -43,9 +43,9 @@ export const HeaderNav = () => {
       </DropButton>
     </Nav>
   ) : null;
-};
+}
 
-const UserDetails = () => {
+function UserDetails() {
   const { user, setUser } = useContext(UserContext);
   return (
     <Box width="medium">
@@ -81,4 +81,4 @@ const UserDetails = () => {
       </Box>
     </Box>
   );
-};
+}

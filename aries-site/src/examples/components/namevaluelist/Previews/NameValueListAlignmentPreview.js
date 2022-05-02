@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
 import { alignmentData } from '../data';
 
-export const NameValueListAlignmentPreview = () => (
-  <Box pad="small">
+export function NameValueListAlignmentPreview() {
+  return <Box pad="small">
     <NameValueList>
       {Object.entries(alignmentData).map(([name, value]) => {
         let date;
@@ -18,5 +18,5 @@ export const NameValueListAlignmentPreview = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

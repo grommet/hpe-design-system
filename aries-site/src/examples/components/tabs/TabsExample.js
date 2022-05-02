@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Paragraph, Tab, Tabs } from 'grommet';
 import { TabContent } from './TabContent';
 
-export const TabsExample = () => {
+export function TabsExample() {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
 
@@ -25,4 +25,4 @@ export const TabsExample = () => {
       </Tab>
     </Tabs>
   );
-};
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Paragraph, Spinner } from 'grommet';
 
-export const AnnounceSpinnerExample = () => {
+export function AnnounceSpinnerExample() {
   // 'show=true' will trigger the announcement
   const [show, setShow] = useState(false);
   return (
@@ -24,4 +24,4 @@ export const AnnounceSpinnerExample = () => {
       {show && <Spinner message="More data is loading" />}
     </Box>
   );
-};
+}

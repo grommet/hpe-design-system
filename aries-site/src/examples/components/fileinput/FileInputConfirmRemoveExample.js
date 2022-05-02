@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, FileInput, Heading, Layer, Text } from 'grommet';
 
-export const FileInputConfirmRemoveExample = () => {
+export function FileInputConfirmRemoveExample() {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
@@ -32,4 +32,4 @@ export const FileInputConfirmRemoveExample = () => {
       />
     </Box>
   );
-};
+}

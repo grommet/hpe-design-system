@@ -18,10 +18,10 @@ const maskEmail = [
   },
 ];
 
-export const MaskedEmailExample = () => (
-  <Form>
+export function MaskedEmailExample() {
+  return <Form>
     <FormField label="Email" htmlFor="masked-email" name="maskedEmail">
       <MaskedInput name="maskedEmail" id="masked-email" mask={maskEmail} />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

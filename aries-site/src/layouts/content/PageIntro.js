@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Card, Grid, ResponsiveContext } from 'grommet';
 
-export const PageIntro = ({ children, ...rest }) => {
+export function PageIntro({ children, ...rest }) {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box height={{ min: 'medium' }} justify="center">
@@ -23,7 +23,7 @@ export const PageIntro = ({ children, ...rest }) => {
       </Grid>
     </Box>
   );
-};
+}
 
 PageIntro.propTypes = {
   children: PropTypes.node.isRequired,

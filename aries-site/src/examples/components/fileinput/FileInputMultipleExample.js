@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, FileInput } from 'grommet';
 
-export const FileInputMultipleExample = () => {
+export function FileInputMultipleExample() {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
@@ -16,4 +16,4 @@ export const FileInputMultipleExample = () => {
       />
     </Box>
   );
-};
+}

@@ -14,7 +14,7 @@ const movies = [
   { title: 'Inside Out', genre: 'Comedy/Family' },
 ];
 
-export const ListOrderExample = () => {
+export function ListOrderExample() {
   const [ordered, setOrder] = useState(movies);
   const [allowReorder, setAllowReorder] = useState(false);
 
@@ -62,4 +62,4 @@ export const ListOrderExample = () => {
       </Box>
     </Box>
   );
-};
+}

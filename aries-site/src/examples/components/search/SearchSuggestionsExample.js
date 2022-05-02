@@ -56,7 +56,7 @@ const searchSuggestions = [
   'what is artificial intelligence',
 ];
 
-export const SearchSuggestionsExample = () => {
+export function SearchSuggestionsExample() {
   const [value, setValue] = React.useState();
   const [suggestions, setSuggestions] = React.useState(
     searchSuggestions.slice(0, 5),
@@ -95,4 +95,4 @@ export const SearchSuggestionsExample = () => {
       onChange={onChange}
     />
   );
-};
+}

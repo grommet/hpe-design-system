@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 
-export const TipSizeExample = () => (
-  <Box gap="large">
+export function TipSizeExample() {
+  return <Box gap="large">
     <Tip
       content={
         <Box width={{ max: 'small' }} round="xsmall">
@@ -24,5 +24,5 @@ export const TipSizeExample = () => (
     >
       <Button a11yTitle="large tip" label="Large Tip" secondary />
     </Tip>
-  </Box>
-);
+  </Box>;
+}

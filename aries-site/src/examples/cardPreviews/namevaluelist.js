@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
 
-export const NameValueListPreview = () => (
-  <Box width="medium" round="xsmall">
+export function NameValueListPreview() {
+  return <Box width="medium" round="xsmall">
     <NameValueList nameProps={{ width: 'xsmall' }}>
       <NameValuePair name="Created On">13/02/2021 at 14:23:32</NameValuePair>
       <NameValuePair name="Description">
@@ -10,5 +10,5 @@ export const NameValueListPreview = () => (
         not be allowed.
       </NameValuePair>
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

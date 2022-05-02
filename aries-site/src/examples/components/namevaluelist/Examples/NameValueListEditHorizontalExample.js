@@ -7,6 +7,7 @@ import {
   Heading,
   NameValueList,
   NameValuePair,
+  PageHeader,
   TextInput,
   Text,
   ResponsiveContext,
@@ -14,7 +15,7 @@ import {
 import { NameValueListFormField, NameValueListFormLabel } from './components';
 import { formattedData } from '../data';
 
-export const NameValueListEditHorizontalExample = () => {
+export function NameValueListEditHorizontalExample() {
   const theme = useContext(ThemeContext);
   const size = useContext(ResponsiveContext);
   const [currentData, setCurrentData] = useState(formattedData);
@@ -46,28 +47,22 @@ export const NameValueListEditHorizontalExample = () => {
 
   return (
     <Box gap="medium">
-      <Box
-        justify="between"
-        width="large"
-        direction="row-responsive"
-        align="start"
-        gap="medium"
-      >
-        <Box gap="xsmall">
-          <Heading level={2} size="small" margin="none">
-            Company Information
-          </Heading>
-          <Text size="large">Add your company information.</Text>
-        </Box>
-        {!edit && (
-          <Button
-            secondary
-            label="Edit"
-            onClick={() => setEdit(true)}
-            fill={['xsmall', 'small'].includes(size) ? 'horizontal' : undefined}
-          />
-        )}
-      </Box>
+      <PageHeader
+        title="Company Information"
+        subtitle="Add your company information."
+        actions={
+          !edit && (
+            <Button
+              secondary
+              label="Edit"
+              onClick={() => setEdit(true)}
+              fill={
+                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+              }
+            />
+          )
+        }
+      />
       <Wrapper {...wrapperProps}>
         <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
           {Object.entries(currentData).map(([name, value]) => {
@@ -136,10 +131,8 @@ export const NameValueListEditHorizontalExample = () => {
               }
             />
           </Box>
-        ) : (
-          undefined
-        )}
+        ) : undefined}
       </Wrapper>
     </Box>
   );
-};
+}

@@ -4,8 +4,8 @@ import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
 import { ChatOption, Contact, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
-const Subscribe = () => (
-  <Box gap="small">
+function Subscribe() {
+  return <Box gap="small">
     <Contact size="large" />
     <Text weight="bold" size="large">
       Stay up-to-date
@@ -23,11 +23,11 @@ const Subscribe = () => (
         primary
       />
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
-const JoinConversation = () => (
-  <Box gap="small">
+function JoinConversation() {
+  return <Box gap="small">
     <ChatOption size="large" />
     <Text weight="bold" size="large">
       Join the conversation
@@ -46,11 +46,11 @@ const JoinConversation = () => (
         primary
       />
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
-const Contribute = () => (
-  <Box gap="small">
+function Contribute() {
+  return <Box gap="small">
     <Github size="large" />
     <Text weight="bold" size="large">
       Contribute
@@ -68,10 +68,10 @@ const Contribute = () => (
         primary
       />
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
-export const FeedbackOptions = () => {
+export function FeedbackOptions() {
   const size = useContext(ResponsiveContext);
   return (
     <Box flex={false} width="xlarge">
@@ -89,9 +89,9 @@ export const FeedbackOptions = () => {
       </Grid>
     </Box>
   );
-};
+}
 
-export const SubmitFeedback = () => {
+export function SubmitFeedback() {
   const [open, setOpen] = useState();
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
@@ -137,4 +137,4 @@ export const SubmitFeedback = () => {
       )}
     </>
   );
-};
+}

@@ -9,12 +9,12 @@ export const appContainer = {
   },
 };
 
-export const AppContainer = ({ ...rest }) => (
-  <Box
+export function AppContainer({ ...rest }) {
+  return <Box
     gap={appContainer.gap}
     height={{ min: '100%' }}
     width={appContainer.width}
     flex={false}
     {...rest}
-  />
-);
+  />;
+}

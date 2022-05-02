@@ -19,7 +19,7 @@ const FIRMWARE_MAP = {
   },
 };
 
-export const FirmwareStatus = ({ ...rest }) => {
+export function FirmwareStatus({ ...rest }) {
   const data = MOCK_DATA['firmware-counts'].counts;
   const [firmwareStatus, setFirmwareStatus] = useState(undefined);
 
@@ -62,4 +62,4 @@ export const FirmwareStatus = ({ ...rest }) => {
         })}
     </StatusBar>
   );
-};
+}

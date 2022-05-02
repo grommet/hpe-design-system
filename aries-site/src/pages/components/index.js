@@ -9,8 +9,8 @@ const title = 'Components';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Components = () => (
-  <Layout
+function Components() {
+  return <Layout
     backgroundImage={{
       src: {
         dark: '/components-dark.svg',
@@ -79,7 +79,7 @@ const Components = () => (
         </Subsection>
       </ContentSection>
     </PageContent>
-  </Layout>
-);
+  </Layout>;
+}
 
 export default Components;

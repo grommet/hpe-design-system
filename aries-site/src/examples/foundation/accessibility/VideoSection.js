@@ -34,6 +34,6 @@ const videosSeeAllContent = {
     'https://hpe.sharepoint.com/sites/f5/cto/office/Accessibility/Pages/accessible-design-training.aspx',
 };
 
-export const VideoSection = () => (
-  <SectionCards items={videos} seeAllContent={videosSeeAllContent} />
-);
+export function VideoSection() {
+  return <SectionCards items={videos} seeAllContent={videosSeeAllContent} />;
+}

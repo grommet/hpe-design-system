@@ -37,7 +37,7 @@ tagData.forEach(datum => {
   });
 });
 
-export const CreateTag = () => {
+export function CreateTag() {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
 
@@ -225,4 +225,4 @@ export const CreateTag = () => {
       </TagResults>
     </TagAppContainer>
   );
-};
+}

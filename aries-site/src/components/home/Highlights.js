@@ -17,7 +17,7 @@ import { internalLink } from '../content';
 import { nameToPath, useDarkMode } from '../../utils';
 import { highlights } from '../../data';
 
-const HighlightsLayout = () => {
+function HighlightsLayout() {
   const size = useContext(ResponsiveContext);
   const darkMode = useDarkMode();
 
@@ -74,10 +74,10 @@ const HighlightsLayout = () => {
       })}
     </Grid>
   );
-};
+}
 
-export const Highlights = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+export function Highlights({ ...rest }) {
+  return <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
     <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
       <Box justify="center" align="center" gap="large">
         <Heading margin="none" level={2} size="large">
@@ -103,5 +103,5 @@ export const Highlights = ({ ...rest }) => (
         </Link>
       </Box>
     </Box>
-  </PageContent>
-);
+  </PageContent>;
+}

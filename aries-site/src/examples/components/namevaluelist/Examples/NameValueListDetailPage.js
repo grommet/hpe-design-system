@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Heading,
+  PageHeader,
   NameValueList,
   NameValuePair,
   Tab,
@@ -11,14 +12,12 @@ import {
 import { StatusGoodSmall } from 'grommet-icons';
 import { emptyServerData } from '../data';
 
-export const NameValueListDetailPage = () => {
+export function NameValueListDetailPage() {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
     <>
-      <Heading level={1} size="small">
-        Demo_Cluster_5
-      </Heading>
+      <PageHeader title="Demo_Cluster_5" />
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
           <Box gap="medium">
@@ -50,4 +49,4 @@ export const NameValueListDetailPage = () => {
       </Tabs>
     </>
   );
-};
+}

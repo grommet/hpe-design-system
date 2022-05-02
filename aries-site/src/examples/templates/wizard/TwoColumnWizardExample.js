@@ -32,7 +32,7 @@ const defaultFormValues = {
   'twocolumn-text-area': '',
 };
 
-const StepOne = () => {
+function StepOne() {
   const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
   return (
@@ -89,10 +89,10 @@ const StepOne = () => {
       <Guidance />
     </Box>
   );
-};
+}
 
-const StepTwo = () => (
-  <Box width="medium">
+function StepTwo() {
+  return <Box width="medium">
     <FormField
       label="Select"
       htmlFor="twocolumn-select"
@@ -130,8 +130,8 @@ const StepTwo = () => (
         resize="vertical"
       />
     </FormField>
-  </Box>
-);
+  </Box>;
+}
 
 const data = [
   'Summary value of step 1',
@@ -140,8 +140,8 @@ const data = [
   'More summary values from step 2',
 ];
 
-const StepThree = () => (
-  <Box gap="small">
+function StepThree() {
+  return <Box gap="small">
     <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
       {(datum, index) => (
         <Box key={index} direction="row" gap="small" align="center">
@@ -155,8 +155,8 @@ const StepThree = () => (
     <Text color="text-strong">
       Include guidance to what will occur when “Finish Wizard" is clicked.
     </Text>
-  </Box>
-);
+  </Box>;
+}
 
 const steps = [
   {
@@ -176,7 +176,7 @@ const steps = [
   },
 ];
 
-export const TwoColumnWizardExample = ({ containerRef }) => {
+export function TwoColumnWizardExample({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const size = useContext(ResponsiveContext);
@@ -250,9 +250,9 @@ export const TwoColumnWizardExample = ({ containerRef }) => {
       )}
     </WizardContext.Provider>
   );
-};
+}
 
-const Guidance = () => {
+function Guidance() {
   const size = useContext(ResponsiveContext);
   return (
     <Box
@@ -288,7 +288,7 @@ const Guidance = () => {
       </Box>
     </Box>
   );
-};
+}
 
 TwoColumnWizardExample.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

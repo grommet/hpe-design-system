@@ -3,7 +3,7 @@ import { Box, Button, ResponsiveContext, Text } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { DashboardGrid, DashboardFooter, Greeting } from '.';
 
-export const DashboardExample = () => {
+export function DashboardExample() {
   const [user, setUser] = useState(defaultUser);
   const size = useContext(ResponsiveContext);
   return (
@@ -36,11 +36,11 @@ export const DashboardExample = () => {
       </Box>
     </UserContext.Provider>
   );
-};
+}
 
 // This is for demo purposes only. Replace in production with app
 // specific content.
-const DemoPageContent = () => {
+function DemoPageContent() {
   const { setUser } = useContext(UserContext);
   return (
     <Box align="center" gap="small">
@@ -48,4 +48,4 @@ const DemoPageContent = () => {
       <Button label="Sign In" primary onClick={() => setUser(defaultUser)} />
     </Box>
   );
-};
+}

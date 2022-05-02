@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Paragraph, Text } from 'grommet';
 
-export const UpdateItem = ({ title, description }) => {
+export function UpdateItem({ title, description }) {
   // HPE Design System guidance for string length
   // when presenting content within a Card.
   // https://design-system.hpe.design/components/card#general
@@ -17,12 +17,10 @@ export const UpdateItem = ({ title, description }) => {
             {description}
           </Paragraph>
         ) : (
-          <>
-            <Paragraph size="small" margin="none">{`${description.substring(
+          <Paragraph size="small" margin="none">{`${description.substring(
               0,
               MAX_STRING_LENGTH,
             )}...`}</Paragraph>
-          </>
         )}
         <Anchor
           href="#"
@@ -41,7 +39,7 @@ export const UpdateItem = ({ title, description }) => {
       </Box>
     </Box>
   );
-};
+}
 UpdateItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,

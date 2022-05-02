@@ -6,12 +6,12 @@ import { contentAreaProps } from './utils';
 // long as there is room for more.
 const columns = 'xsmall';
 
-export const UniformColumns = () => (
-  <Grid columns={columns} gap="xsmall">
+export function UniformColumns() {
+  return <Grid columns={columns} gap="xsmall">
     <ContentArea title="1" {...contentAreaProps} />
     <ContentArea title="2" {...contentAreaProps} />
     <ContentArea title="3" {...contentAreaProps} />
     <ContentArea title="4" {...contentAreaProps} />
     <ContentArea title="5" {...contentAreaProps} />
-  </Grid>
-);
+  </Grid>;
+}

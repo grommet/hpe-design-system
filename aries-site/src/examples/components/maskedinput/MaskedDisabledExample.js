@@ -4,7 +4,7 @@ import { FormField, Form, MaskedInput } from 'grommet';
 const today = new Date();
 const daysInMonth = month => new Date(today.getFullYear(), month, 0).getDate();
 
-export const MaskedDisabledExample = () => {
+export function MaskedDisabledExample() {
   const [date, setDate] = useState('');
 
   const maskDate = [
@@ -57,4 +57,4 @@ export const MaskedDisabledExample = () => {
       </FormField>
     </Form>
   );
-};
+}

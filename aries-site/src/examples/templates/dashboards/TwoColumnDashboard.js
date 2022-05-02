@@ -7,10 +7,10 @@ import {
   ResponsiveContext,
   Page,
   PageContent,
+  PageHeader,
 } from 'grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageHeader } from '../PageHeader';
 import {
   FirmwareBaselines,
   FirmwareStatus,
@@ -20,8 +20,8 @@ import {
   UpdatesAvaliable,
 } from './content';
 
-export const TwoColumnDashboard = () => (
-  <AppContainer background="background-back">
+export function TwoColumnDashboard() {
+  return <AppContainer background="background-back">
     <ContentArea title="Global Header" />
     <Page>
       <PageContent gap="large">
@@ -30,8 +30,8 @@ export const TwoColumnDashboard = () => (
       </PageContent>
     </Page>
     <ContentArea title="Global Footer" />
-  </AppContainer>
-);
+  </AppContainer>;
+}
 
 const parentGrid = {
   columns: {
@@ -89,7 +89,7 @@ const secondChildGrid = {
   gap: 'medium',
 };
 
-const Content = () => {
+function Content() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -138,4 +138,4 @@ const Content = () => {
       </Grid>
     </Main>
   );
-};
+}

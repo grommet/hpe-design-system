@@ -1,6 +1,6 @@
 import { Box, Meter, Stack, Text } from 'grommet';
 
-export const MeterExample = () => {
+export function MeterExample() {
   const meterValue = 30;
 
   return (
@@ -20,4 +20,4 @@ export const MeterExample = () => {
       </Stack>
     </Box>
   );
-};
+}

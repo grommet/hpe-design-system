@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, FormField, TextInput } from 'grommet';
 
-export const TextInputPreview = () => (
-    <Form>
+export function TextInputPreview() {
+  return <Form>
       <FormField htmlFor="focus-id" name="focus">
         <TextInput
           aria-label="preview"
@@ -16,5 +16,5 @@ export const TextInputPreview = () => (
           tabIndex={-1}
         />
       </FormField>
-    </Form>
-  );
+    </Form>;
+}

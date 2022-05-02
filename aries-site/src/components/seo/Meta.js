@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export const Meta = ({
+export function Meta({
   title,
   description,
   canonicalUrl,
   render,
   socialImageUrl,
-}) => {
+}) {
   const siteName = 'HPE Design System';
   const defaultImage = '/static/images/aries-introduction.jp2';
   const previewImage = socialImageUrl || defaultImage;
@@ -109,7 +109,7 @@ export const Meta = ({
       <meta httpEquiv="Content-Security-Policy" content={csp} />
     </Head>
   );
-};
+}
 
 Meta.propTypes = {
   canonicalUrl: PropTypes.string,

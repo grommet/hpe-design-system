@@ -12,7 +12,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon',
 }))``;
 
-export const SearchIconPositionExample = () => {
+export function SearchIconPositionExample() {
   const [value, setValue] = React.useState();
 
   return (
@@ -23,4 +23,4 @@ export const SearchIconPositionExample = () => {
       onChange={event => setValue(event.target.value)}
     />
   );
-};
+}

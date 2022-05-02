@@ -8,7 +8,7 @@ import {
 } from 'grommet';
 import { anatomyData } from '../data';
 
-export const NameValueListAnatomyPreview = () => {
+export function NameValueListAnatomyPreview() {
   const size = useContext(ResponsiveContext);
   return (
     <Box pad="small">
@@ -32,4 +32,4 @@ export const NameValueListAnatomyPreview = () => {
       </NameValueList>
     </Box>
   );
-};
+}

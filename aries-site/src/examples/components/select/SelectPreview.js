@@ -1,11 +1,11 @@
 import React from 'react';
 import { Select } from 'grommet';
 
-export const SelectPreview = () => (
-    <Select
+export function SelectPreview() {
+  return <Select
       aria-label="preview"
       options={['First']}
       placeholder="Choices"
       disabled
-    />
-  );
+    />;
+}

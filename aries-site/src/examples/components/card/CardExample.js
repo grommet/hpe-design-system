@@ -18,8 +18,8 @@ const gradient = [
   { value: 85, color: 'status-critical' },
 ];
 
-export const CardExample = () => (
-  <Card
+export function CardExample() {
+  return <Card
     background="background-front"
     onClick={() => {
       // eslint-disable-next-line no-alert
@@ -43,11 +43,11 @@ export const CardExample = () => (
     <CardFooter background="background-back">
       <KPISummary instances={capacityWarnings} statusColor="status-warning" />
     </CardFooter>
-  </Card>
-);
+  </Card>;
+}
 
-const Identifier = ({ title, subtitle, icon }) => (
-  <Box
+function Identifier({ title, subtitle, icon }) {
+  return <Box
     direction="row"
     gap="medium"
     align="center"
@@ -60,8 +60,8 @@ const Identifier = ({ title, subtitle, icon }) => (
       </Text>
       <Text>{subtitle}</Text>
     </Box>
-  </Box>
-);
+  </Box>;
+}
 
 Identifier.propTypes = {
   title: PropTypes.node,
@@ -69,8 +69,8 @@ Identifier.propTypes = {
   icon: PropTypes.node,
 };
 
-const KPIChart = ({ data, ...rest }) => (
-  <Stack>
+function KPIChart({ data, ...rest }) {
+  return <Stack>
     <Chart
       type="area"
       thickness="xxsmall"
@@ -88,8 +88,8 @@ const KPIChart = ({ data, ...rest }) => (
       size={{ height: 'xsmall' }}
       {...rest}
     />
-  </Stack>
-);
+  </Stack>;
+}
 
 KPIChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -99,12 +99,12 @@ KPIChart.propTypes = {
   ),
 };
 
-const KPISummary = ({ instances, statusColor }) => (
-  <Box direction="row" align="center" gap="small">
+function KPISummary({ instances, statusColor }) {
+  return <Box direction="row" align="center" gap="small">
     <StatusWarningSmall color={statusColor} size="small" />
     <Text>{instances} instances above utilization target</Text>
-  </Box>
-);
+  </Box>;
+}
 
 KPISummary.propTypes = {
   instances: PropTypes.number,

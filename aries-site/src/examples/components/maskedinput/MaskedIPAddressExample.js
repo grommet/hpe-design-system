@@ -29,8 +29,8 @@ const maskIp = [
   },
 ];
 
-export const MaskedIPAddressExample = () => (
-  <Form>
+export function MaskedIPAddressExample() {
+  return <Form>
     <FormField
       label="IP Address"
       htmlFor="masked-ip-address"
@@ -42,5 +42,5 @@ export const MaskedIPAddressExample = () => (
         mask={maskIp}
       />
     </FormField>
-  </Form>
-);
+  </Form>;
+}

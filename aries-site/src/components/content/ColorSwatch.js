@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Box } from 'grommet';
 
-export const ColorSwatch = ({ background }) => {
+export function ColorSwatch({ background }) {
   const theme = useContext(ThemeContext);
 
   let backgroundColor;
@@ -21,7 +21,7 @@ export const ColorSwatch = ({ background }) => {
       style={{ display: 'inline-block', verticalAlign: 'text-top' }}
     />
   );
-};
+}
 
 ColorSwatch.propTypes = {
   background: PropTypes.oneOfType([

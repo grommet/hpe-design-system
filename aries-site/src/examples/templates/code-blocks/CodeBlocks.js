@@ -4,7 +4,7 @@ import { Box, ThemeContext } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
-export const CodeBlockExample = () => {
+export function CodeBlockExample() {
   const theme = useContext(ThemeContext);
   const codeString = `import React from 'react';
 import PropTypes from 'prop-types';
@@ -132,4 +132,4 @@ KPISummary.propTypes = {
       </SyntaxHighlighter>
     </Box>
   );
-};
+}

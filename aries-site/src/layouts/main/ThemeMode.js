@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { aries } from '../../themes/aries';
 import { useDarkMode } from '../../utils';
 
-export const ThemeMode = ({ children, ...rest }) => {
+export function ThemeMode({ children, ...rest }) {
   const { value } = useDarkMode(aries.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
@@ -39,7 +39,7 @@ export const ThemeMode = ({ children, ...rest }) => {
   }
 
   return body;
-};
+}
 
 ThemeMode.propTypes = {
   children: PropTypes.element,

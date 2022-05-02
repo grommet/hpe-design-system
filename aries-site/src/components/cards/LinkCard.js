@@ -2,7 +2,7 @@ import { Box, Card, CardBody, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-export const LinkCard = ({ link, title, icon }) => {
+export function LinkCard({ link, title, icon }) {
   const Wrapper = Link;
   const wrapperProps = {
     href: link,
@@ -30,7 +30,7 @@ export const LinkCard = ({ link, title, icon }) => {
       </Card>
     </Wrapper>
   );
-};
+}
 
 LinkCard.propTypes = {
   title: PropTypes.string,

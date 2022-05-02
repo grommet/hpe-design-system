@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, RangeInput, Text } from 'grommet';
 
-export const RangeInputExample = () => {
+export function RangeInputExample() {
   const [value, setValue] = useState(80);
 
   return (
@@ -16,4 +16,4 @@ export const RangeInputExample = () => {
       <Text weight={600}>100</Text>
     </Box>
   );
-};
+}

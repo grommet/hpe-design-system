@@ -9,8 +9,8 @@ import {
 } from 'grommet';
 import { cardSummaryData } from '../data';
 
-export const NameValueListSummaryExample = () => (
-  <Card width="medium">
+export function NameValueListSummaryExample() {
+  return <Card width="medium">
     <CardHeader gap="none" align="start" direction="column">
       <Text>Catalog Lifecyle Manager</Text>
       <Text size="xxlarge" color="text-strong" weight="bold">
@@ -26,5 +26,5 @@ export const NameValueListSummaryExample = () => (
         ))}
       </NameValueList>
     </CardBody>
-  </Card>
-);
+  </Card>;
+}

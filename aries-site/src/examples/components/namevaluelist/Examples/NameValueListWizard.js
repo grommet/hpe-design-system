@@ -26,8 +26,8 @@ const data = {
   'Domain Name': 'https://att.com',
 };
 
-const StepThree = () => (
-  <Box gap="small" pad={{ vertical: 'medium' }}>
+function StepThree() {
+  return <Box gap="small" pad={{ vertical: 'medium' }}>
     <NameValueList>
       {Object.entries(data).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
@@ -35,12 +35,16 @@ const StepThree = () => (
         </NameValuePair>
       ))}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}
 
-const StepOne = () => <Box width="medium">This is step 1.</Box>;
+function StepOne() {
+  return <Box width="medium">This is step 1.</Box>;
+}
 
-const StepTwo = () => <Box width="medium">This is step 2.</Box>;
+function StepTwo() {
+  return <Box width="medium">This is step 2.</Box>;
+}
 
 const steps = [
   {
@@ -60,7 +64,7 @@ const steps = [
   },
 ];
 
-export const NameValueListWizard = ({ containerRef }) => {
+export function NameValueListWizard({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const size = useContext(ResponsiveContext);
@@ -133,7 +137,7 @@ export const NameValueListWizard = ({ containerRef }) => {
       )}
     </WizardContext.Provider>
   );
-};
+}
 
 NameValueListWizard.propTypes = {
   containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

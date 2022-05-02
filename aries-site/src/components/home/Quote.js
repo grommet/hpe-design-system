@@ -11,7 +11,7 @@ import {
 } from 'grommet';
 import { useDarkMode } from '../../utils';
 
-export const Quote = () => {
+export function Quote() {
   const darkMode = useDarkMode();
   const size = useContext(ResponsiveContext);
 
@@ -99,4 +99,4 @@ export const Quote = () => {
       </Stack>
     </PageContent>
   );
-};
+}

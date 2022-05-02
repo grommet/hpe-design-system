@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Carousel, Image } from 'grommet';
 
-export const CarouselExample = () => (
-  <Carousel>
+export function CarouselExample() {
+  return <Carousel>
     <Box height="medium" width="large">
       <Image
         alt={`Photo of a woman sitting on a couch and using her laptop 
@@ -22,5 +22,5 @@ export const CarouselExample = () => (
         src="/woman-man-server-room.jpeg"
       />
     </Box>
-  </Carousel>
-);
+  </Carousel>;
+}

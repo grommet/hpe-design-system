@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
 import { defaultData } from '../data';
 
-export const NameValueListDefaultExample = () => (
-  <Box pad="small">
+export function NameValueListDefaultExample() {
+  return <Box pad="small">
     <NameValueList nameProps={{ width: 'xsmall' }}>
       {Object.entries(defaultData).map(([name, value]) => {
         let date;
@@ -21,5 +21,5 @@ export const NameValueListDefaultExample = () => (
         );
       })}
     </NameValueList>
-  </Box>
-);
+  </Box>;
+}

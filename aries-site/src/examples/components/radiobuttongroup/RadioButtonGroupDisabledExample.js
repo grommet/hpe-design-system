@@ -8,7 +8,7 @@ const powerRegulationOptions = [
   'OS control mode',
 ];
 
-export const RadioButtonGroupDisabledExample = () => {
+export function RadioButtonGroupDisabledExample() {
   const [powerRegulation, setPowerRegulation] = useState();
   const [disabled, setDisabled] = useState(true);
 
@@ -50,4 +50,4 @@ export const RadioButtonGroupDisabledExample = () => {
       </FormField>
     </Form>
   );
-};
+}

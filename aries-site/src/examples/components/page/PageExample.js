@@ -7,8 +7,8 @@ import { ContentArea } from '../../templates/page-layouts/anatomy/components';
 // your implementation.
 import { demoStyle } from './demoStyle';
 
-export const PageExample = () => (
-  <Page
+export function PageExample() {
+  return <Page
     kind="narrow"
     as={ContentArea}
     title="Page"
@@ -42,5 +42,5 @@ export const PageExample = () => (
         </Paragraph>
       </ContentArea>
     </PageContent>
-  </Page>
-);
+  </Page>;
+}

@@ -36,8 +36,8 @@ const data = [
   },
 ];
 
-export const ListSpinnerExample = () => (
-  <Box pad="small" gap="small" width={{ max: 'xxlarge' }} margin="auto" fill>
+export function ListSpinnerExample() {
+  return <Box pad="small" gap="small" width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       background="background-front"
       data={data}
@@ -61,5 +61,5 @@ export const ListSpinnerExample = () => (
         end: 'Data has been loaded.',
       }}
     />
-  </Box>
-);
+  </Box>;
+}

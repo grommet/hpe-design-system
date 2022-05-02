@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text, ResponsiveContext } from 'grommet';
 
-export const TextExample = ({ color, hex }) => {
+export function TextExample({ color, hex }) {
   const size = React.useContext(ResponsiveContext);
   const textSize = 'small';
   const exampleTextSize = ['xsmall', 'small'].includes(size) ? '60px' : '84px';
@@ -25,7 +25,7 @@ export const TextExample = ({ color, hex }) => {
       </Text>
     </Box>
   );
-};
+}
 
 TextExample.propTypes = {
   color: PropTypes.oneOfType([

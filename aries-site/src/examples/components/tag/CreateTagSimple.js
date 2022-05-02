@@ -30,7 +30,7 @@ simpleTags.forEach(datum => {
   defaultValueOptions.push(datum);
 });
 
-export const CreateTagSimple = () => {
+export function CreateTagSimple() {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
 
@@ -152,4 +152,4 @@ export const CreateTagSimple = () => {
       </TagResults>
     </TagAppContainer>
   );
-};
+}

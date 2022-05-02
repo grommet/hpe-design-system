@@ -8,8 +8,8 @@ import { getPageDetails } from '../utils';
 const title = 'Feedback';
 const page = getPageDetails(title);
 
-const Feedback = () => (
-    <Layout title={title} isLanding>
+function Feedback() {
+  return <Layout title={title} isLanding>
       <Meta
         title={title}
         description={page.seoDescription}
@@ -23,7 +23,7 @@ const Feedback = () => (
         </Subsection>
         <FeedbackOptions />
       </Box>
-    </Layout>
-  );
+    </Layout>;
+}
 
 export default Feedback;

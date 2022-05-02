@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header, Box, Footer, Main, ResponsiveContext, Text } from 'grommet';
 
-export const StickyHeaderExample = () => (
-  <AppContainer>
+export function StickyHeaderExample() {
+  return <AppContainer>
     <Box fill>
       <Header
         background="background-front"
@@ -46,10 +46,10 @@ export const StickyHeaderExample = () => (
         </Footer>
       </Box>
     </Box>
-  </AppContainer>
-);
+  </AppContainer>;
+}
 
-const AppContainer = ({ ...rest }) => {
+function AppContainer({ ...rest }) {
   const size = React.useContext(ResponsiveContext);
   return (
     <Box
@@ -60,4 +60,4 @@ const AppContainer = ({ ...rest }) => {
       {...rest}
     />
   );
-};
+}

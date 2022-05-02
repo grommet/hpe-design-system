@@ -37,7 +37,7 @@ Received: ${value}`,
 
 const defaultValues = { deletionPath: '' };
 
-export const ContentDrivenLayout = ({ containerRef }) => {
+export function ContentDrivenLayout({ containerRef }) {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
@@ -89,12 +89,10 @@ export const ContentDrivenLayout = ({ containerRef }) => {
                   htmlFor="deletionPath"
                   name="deletionPath"
                   label={
-                    <>
-                      <Text>
+                    <Text>
                         To confirm, please type: <br />
                         {path}
                       </Text>
-                    </>
                   }
                   validate={matchPath}
                 >
@@ -114,6 +112,6 @@ export const ContentDrivenLayout = ({ containerRef }) => {
       ) : null}
     </Box>
   );
-};
+}
 
 ContentDrivenLayout.propTypes = { containerRef: PropTypes.object };

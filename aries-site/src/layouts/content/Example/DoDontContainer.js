@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Box, Paragraph, Text, ResponsiveContext } from 'grommet';
 import { Container } from '.';
 
-export const DoDontContainer = ({
+export function DoDontContainer({
   bestPractice: bestPracticeProp,
   height,
   ...rest
-}) => {
+}) {
   let bestPractice;
   let background;
   let label;
@@ -51,7 +51,7 @@ export const DoDontContainer = ({
       {bestPractice}
     </>
   );
-};
+}
 
 DoDontContainer.propTypes = {
   bestPractice: PropTypes.shape({

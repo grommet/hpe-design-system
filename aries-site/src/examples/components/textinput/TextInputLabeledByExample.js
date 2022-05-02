@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 
-export const TextInputLabeledByExample = () => {
+export function TextInputLabeledByExample() {
   const StyledTextInput = styled(TextInput).attrs(() => ({
     'aria-labelledby': 'search-icon',
   }))``;
@@ -15,4 +15,4 @@ export const TextInputLabeledByExample = () => {
       reverse
     />
   );
-};
+}

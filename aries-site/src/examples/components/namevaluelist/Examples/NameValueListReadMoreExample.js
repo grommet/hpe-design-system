@@ -4,7 +4,7 @@ import { Anchor, Box, Button, NameValueList, NameValuePair } from 'grommet';
 import { FormDown, FormUp } from 'grommet-icons';
 import { contentTruncationData } from '../data';
 
-export const NameValueListReadMoreExample = () => {
+export function NameValueListReadMoreExample() {
   // HPE Design System guidance for string length prior to truncation.
   const MAX_STRING_LENGTH = 192;
   // HPE Design System guidance for list length prior to truncation.
@@ -86,18 +86,18 @@ route the user to a detailed view of the service.`,
       </NameValueList>
     </Box>
   );
-};
+}
 
-const TruncateButton = ({ showAll, setShowAll }) => (
-  <Button
+function TruncateButton({ showAll, setShowAll }) {
+  return <Button
     alignSelf="start"
     size="small"
     label={`Show ${!showAll ? 'all' : 'less'}`}
     onClick={() => setShowAll(!showAll)}
     icon={!showAll ? <FormDown /> : <FormUp />}
     reverse
-  />
-);
+  />;
+}
 
 TruncateButton.propTypes = {
   showAll: PropTypes.bool,

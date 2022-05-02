@@ -3,11 +3,11 @@ import { Grid } from 'grommet';
 
 const columns = ['xxsmall', 'auto', 'xxsmall'];
 
-export const MeterGroup = ({ children, gap = 'small', ...rest }) => (
-  <Grid columns={columns} rows="auto" gap={gap} {...rest}>
+export function MeterGroup({ children, gap = 'small', ...rest }) {
+  return <Grid columns={columns} rows="auto" gap={gap} {...rest}>
     {children}
-  </Grid>
-);
+  </Grid>;
+}
 
 MeterGroup.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),

@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const TipExitExample = () => (
-    <Box gap="small" direction="row">
+export function TipExitExample() {
+  return <Box gap="small" direction="row">
       <Box width="small">
         <Text color="text-strong" size="large" weight="bold">
           Add Service
@@ -17,5 +17,5 @@ export const TipExitExample = () => (
           <Button a11yTitle="close" icon={<FormClose />} />
         </Tip>
       </Box>
-    </Box>
-  );
+    </Box>;
+}

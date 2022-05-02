@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormField, TextInput } from 'grommet';
 
-export const TextInputPasswordExample = () => {
+export function TextInputPasswordExample() {
   const [password, setPassword] = useState('123password');
 
   return (
@@ -22,4 +22,4 @@ export const TextInputPasswordExample = () => {
       </FormField>
     </Form>
   );
-};
+}

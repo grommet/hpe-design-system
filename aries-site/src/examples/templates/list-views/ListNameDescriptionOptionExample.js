@@ -29,8 +29,8 @@ const data = [
   },
 ];
 
-export const ListNameDescriptionOptionExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+export function ListNameDescriptionOptionExample() {
+  return <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       background="background-front"
       data={data}
@@ -45,5 +45,5 @@ export const ListNameDescriptionOptionExample = () => (
         </Box>
       )}
     </List>
-  </Box>
-);
+  </Box>;
+}

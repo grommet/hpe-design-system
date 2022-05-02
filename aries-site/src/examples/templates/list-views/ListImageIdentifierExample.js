@@ -44,8 +44,8 @@ const data = [
   },
 ];
 
-export const ListImageIdentifierExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+export function ListImageIdentifierExample() {
+  return <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       background="background-front"
       data={data}
@@ -68,5 +68,5 @@ export const ListImageIdentifierExample = () => (
         </Box>
       )}
     </List>
-  </Box>
-);
+  </Box>;
+}

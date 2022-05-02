@@ -15,7 +15,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon-example',
 }))``;
 
-export const HeaderExample = () => {
+export function HeaderExample() {
   const size = useContext(ResponsiveContext);
   const [focused, setFocused] = useState(false);
   const inputRef = useRef();
@@ -80,4 +80,4 @@ export const HeaderExample = () => {
       </>
     </Header>
   );
-};
+}

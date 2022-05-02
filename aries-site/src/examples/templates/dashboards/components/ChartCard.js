@@ -10,14 +10,14 @@ import {
 } from 'grommet';
 import { DashboardCardHeader } from '.';
 
-export const ChartCard = ({
+export function ChartCard({
   title,
   subtitle,
   children,
   footer,
   onClick,
   ...rest
-}) => {
+}) {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const { body, header, footer: footerTheme } = theme.card;
@@ -56,7 +56,7 @@ export const ChartCard = ({
       )}
     </Card>
   );
-};
+}
 
 ChartCard.propTypes = {
   children: PropTypes.node,

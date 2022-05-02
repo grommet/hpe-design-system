@@ -10,14 +10,14 @@ import {
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const ModalDialog = ({
+export function ModalDialog({
   children,
   title,
   subtitle,
   onClose,
   ...layerProps
-}) => (
-  <Layer position="center" {...layerProps}>
+}) {
+  return <Layer position="center" {...layerProps}>
     <Box gap="medium" pad="medium" width={{ min: 'medium' }} flex="grow">
       <Header align="start">
         <Box>
@@ -36,8 +36,8 @@ export const ModalDialog = ({
       </Header>
       {children}
     </Box>
-  </Layer>
-);
+  </Layer>;
+}
 
 ModalDialog.propTypes = {
   children: PropTypes.oneOfType([
@@ -49,9 +49,9 @@ ModalDialog.propTypes = {
   onClose: PropTypes.func,
 };
 
-export const ModalBody = ({ children, ...boxProps }) => (
-  <Box {...boxProps}>{children}</Box>
-);
+export function ModalBody({ children, ...boxProps }) {
+  return <Box {...boxProps}>{children}</Box>;
+}
 
 ModalBody.propTypes = {
   children: PropTypes.oneOfType([
@@ -60,9 +60,9 @@ ModalBody.propTypes = {
   ]),
 };
 
-export const ModalFooter = ({ children, ...boxProps }) => (
-  <Footer {...boxProps}>{children}</Footer>
-);
+export function ModalFooter({ children, ...boxProps }) {
+  return <Footer {...boxProps}>{children}</Footer>;
+}
 
 ModalFooter.propTypes = {
   children: PropTypes.oneOfType([

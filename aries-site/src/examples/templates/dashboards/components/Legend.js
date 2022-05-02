@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, List, Text, ThemeContext } from 'grommet';
 
-export const Legend = ({ values, ...rest }) => {
+export function Legend({ values, ...rest }) {
   const theme = useContext(ThemeContext);
   const size = theme.global.edgeSize.small;
 
@@ -23,7 +23,7 @@ export const Legend = ({ values, ...rest }) => {
       )}
     </List>
   );
-};
+}
 
 Legend.propTypes = {
   values: PropTypes.arrayOf(PropTypes.object),

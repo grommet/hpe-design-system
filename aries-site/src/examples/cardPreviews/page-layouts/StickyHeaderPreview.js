@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, defaultProps } from 'grommet';
 
-export const StickyHeaderPreview = () => (
-    <Box fill direction="row">
+export function StickyHeaderPreview() {
+  return <Box fill direction="row">
       <Box
         basis={defaultProps.theme.global.edgeSize.medium}
         // remove dashed border in prod, for demo purposes only
@@ -27,5 +27,5 @@ export const StickyHeaderPreview = () => (
           />
         </Box>
       </Box>
-    </Box>
-  );
+    </Box>;
+}

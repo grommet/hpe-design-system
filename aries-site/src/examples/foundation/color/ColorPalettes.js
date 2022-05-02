@@ -39,70 +39,73 @@ const generateColorExamples = (colors, textColor, textSize) => (
 export const BrandColor = () =>
   primaryColors && generateColorExamples(primaryColors, 'text-strong', 'large');
 
-export const CorePalette = () =>
-  coreColors && (
+export function CorePalette() {
+  return coreColors && (
     <UsageExample pad="none">{generateColorExamples(coreColors)}</UsageExample>
   );
+}
 
-export const LightPalette = () =>
-  lightColors && (
+export function LightPalette() {
+  return lightColors && (
     <UsageExample pad="none">{generateColorExamples(lightColors)}</UsageExample>
   );
+}
 
-export const DarkPalette = () =>
-  darkColors && (
+export function DarkPalette() {
+  return darkColors && (
     <UsageExample pad="none">{generateColorExamples(darkColors)}</UsageExample>
   );
+}
 
-export const BackgroundLight = () => (
-  <UsageExample themeMode="light" label="Light Background" pad="none">
+export function BackgroundLight() {
+  return <UsageExample themeMode="light" label="Light Background" pad="none">
     {lightBackgrounds && generateColorExamples(lightBackgrounds)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const BackgroundDark = () => (
-  <UsageExample themeMode="dark" label="Dark Background" pad="none">
+export function BackgroundDark() {
+  return <UsageExample themeMode="dark" label="Dark Background" pad="none">
     {darkBackgrounds && generateColorExamples(darkBackgrounds)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const ContrastLight = () => (
-  <UsageExample themeMode="light" label="Light Background" pad="none">
+export function ContrastLight() {
+  return <UsageExample themeMode="light" label="Light Background" pad="none">
     {contrastLight && generateColorExamples(contrastLight)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const ContrastDark = () => (
-  <UsageExample themeMode="dark" label="Dark Background" pad="none">
+export function ContrastDark() {
+  return <UsageExample themeMode="dark" label="Dark Background" pad="none">
     {contrastDark && generateColorExamples(contrastDark)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const BordersLight = () => (
-  <UsageExample themeMode="light" label="Light Border" pad="none">
+export function BordersLight() {
+  return <UsageExample themeMode="light" label="Light Border" pad="none">
     {borderLight && generateColorExamples(borderLight)}
-  </UsageExample>
-);
-export const BordersDark = () => (
-  <UsageExample themeMode="dark" label="Dark Border" pad="none">
+  </UsageExample>;
+}
+export function BordersDark() {
+  return <UsageExample themeMode="dark" label="Dark Border" pad="none">
     {borderDark && generateColorExamples(borderDark)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const InputsLight = () => (
-  <UsageExample themeMode="light" label="Light Input" pad="none">
+export function InputsLight() {
+  return <UsageExample themeMode="light" label="Light Input" pad="none">
     {inputLight && generateColorExamples(inputLight)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const InputsDark = () => (
-  <UsageExample themeMode="dark" label="Dark Input" pad="none">
+export function InputsDark() {
+  return <UsageExample themeMode="dark" label="Dark Input" pad="none">
     {inputDark && generateColorExamples(inputDark)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const TextLight = () => (
-  <UsageExample
+export function TextLight() {
+  return <UsageExample
     themeMode="light"
     label="Light Background"
     justify="between"
@@ -125,11 +128,11 @@ export const TextLight = () => (
           hex={color.hex.light}
         />
       ))}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const TextDark = () => (
-  <UsageExample
+export function TextDark() {
+  return <UsageExample
     themeMode="dark"
     label="Dark Background"
     justify="between"
@@ -148,24 +151,24 @@ export const TextDark = () => (
       textColors.map(color => (
         <TextExample key={color.name} color={color.name} hex={color.hex.dark} />
       ))}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const StatusLight = () => (
-  <UsageExample themeMode="light" label="Light Background" pad="none">
+export function StatusLight() {
+  return <UsageExample themeMode="light" label="Light Background" pad="none">
     {statusColorsLight && generateColorExamples(statusColorsLight)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
-export const StatusDark = () => (
-  <UsageExample themeMode="dark" label="Dark Background" pad="none">
+export function StatusDark() {
+  return <UsageExample themeMode="dark" label="Dark Background" pad="none">
     {statusColorsDark && generateColorExamples(statusColorsDark)}
-  </UsageExample>
-);
+  </UsageExample>;
+}
 
 export const FocusColor = () => focusColor && generateColorExamples(focusColor);
 
-export const ElevationLight = () => {
+export function ElevationLight() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -191,9 +194,9 @@ export const ElevationLight = () => {
         ))}
     </UsageExample>
   );
-};
+}
 
-export const ElevationDark = () => {
+export function ElevationDark() {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -219,7 +222,7 @@ export const ElevationDark = () => {
         ))}
     </UsageExample>
   );
-};
+}
 
 export const Overlay = () => layerColor && generateColorExamples(layerColor);
 

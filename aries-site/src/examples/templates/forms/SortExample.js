@@ -11,7 +11,7 @@ import {
 
 const sortFeatures = ['Featured', 'Price', 'Users'];
 
-export const SortExample = () => {
+export function SortExample() {
   const [formValues, setFormValues] = React.useState({
     sortBy: 'Featured',
     sortOrder: 'Descending',
@@ -72,4 +72,4 @@ export const SortExample = () => {
       </Box>
     </Box>
   );
-};
+}

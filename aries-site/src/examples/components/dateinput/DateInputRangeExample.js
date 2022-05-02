@@ -5,7 +5,7 @@ const now = new Date();
 const nextWeek = new Date(now);
 nextWeek.setDate(nextWeek.getDate() + 7);
 
-export const DateInputRangeExample = () => {
+export function DateInputRangeExample() {
   const [value, setValue] = React.useState([
     '2020-07-31T15:27:42.920Z',
     '2020-08-07T15:27:42.920Z',
@@ -33,4 +33,4 @@ export const DateInputRangeExample = () => {
       </Form>
     </Box>
   );
-};
+}

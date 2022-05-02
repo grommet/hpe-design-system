@@ -17,8 +17,8 @@ import {
 // your implementation.
 import { demoStyle } from './demoStyle';
 
-export const PageBackGroundExample = () => (
-  <Page flex="grow" {...demoStyle}>
+export function PageBackGroundExample() {
+  return <Page flex="grow" {...demoStyle}>
     <PageContent
       background={{
         fill: 'horizontal',
@@ -93,11 +93,11 @@ export const PageBackGroundExample = () => (
     >
       <CallToAction />
     </PageContent>
-  </Page>
-);
+  </Page>;
+}
 
-const Hero = () => (
-  <Box height={{ min: 'medium' }}>
+function Hero() {
+  return <Box height={{ min: 'medium' }}>
     <Grid
       columns={['flex', 'large']}
       rows={['auto', 'auto']}
@@ -130,11 +130,11 @@ const Hero = () => (
         </Paragraph>
       </Box>
     </Grid>
-  </Box>
-);
+  </Box>;
+}
 
-const Empathize = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+function Empathize() {
+  return <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
     <Grid columns={['1/2', '1/2']}>
       <Box>
         <Heading level={2} size="large" margin="none">
@@ -164,10 +164,10 @@ const Empathize = () => (
         />
       </Box>
     </Grid>
-  </Box>
-);
+  </Box>;
+}
 
-const Define = () => {
+function Define() {
   const theme = useContext(ThemeContext);
 
   return (
@@ -203,9 +203,9 @@ const Define = () => {
       </Grid>
     </Box>
   );
-};
+}
 
-const Ideate = () => {
+function Ideate() {
   const theme = useContext(ThemeContext);
 
   return (
@@ -241,9 +241,9 @@ const Ideate = () => {
       </Grid>
     </Box>
   );
-};
+}
 
-const Prototype = () => {
+function Prototype() {
   const theme = useContext(ThemeContext);
   return (
     <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
@@ -277,10 +277,10 @@ const Prototype = () => {
       </Grid>
     </Box>
   );
-};
+}
 
-const Test = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+function Test() {
+  return <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
     <Grid columns={['1/2', '1/2']}>
       <Box>
         <Heading level={2} size="large" margin={{ bottom: 'none' }}>
@@ -308,11 +308,11 @@ const Test = () => (
         />
       </Box>
     </Grid>
-  </Box>
-);
+  </Box>;
+}
 
-const CallToAction = () => (
-  <Box
+function CallToAction() {
+  return <Box
     alignSelf="center"
     height={{ min: 'large' }}
     pad={{ vertical: 'xlarge' }}
@@ -325,5 +325,5 @@ const CallToAction = () => (
       creating a free account today.
     </Paragraph>
     <Button alignSelf="start" primary label="Get Started" size="large" />
-  </Box>
-);
+  </Box>;
+}

@@ -82,7 +82,7 @@ const creditCardMask = [
   },
 ];
 
-export const PayExample = () => {
+export function PayExample() {
   const [formValues, setFormValues] = React.useState({
     cardName: '',
     cardNumber: '',
@@ -202,4 +202,4 @@ export const PayExample = () => {
       </Box>
     </Box>
   );
-};
+}

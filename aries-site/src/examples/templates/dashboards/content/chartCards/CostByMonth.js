@@ -14,7 +14,7 @@ import {
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
-export const CostByMonth = ({ period }) => {
+export function CostByMonth({ period }) {
   const [values, setValues] = useState(null);
   const [meanCost, setMeanCost] = useState(null);
   const [projectedCost, setProjectedCost] = useState(null);
@@ -160,13 +160,13 @@ export const CostByMonth = ({ period }) => {
       )}
     </ChartCard>
   );
-};
+}
 
 CostByMonth.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year', 'Lifetime']),
 };
 
-const MonthlySpend = ({ data: dataProp, ...rest }) => {
+function MonthlySpend({ data: dataProp, ...rest }) {
   const data = dataProp.map(datum => ({ date: datum.key, cost: datum.value }));
 
   return (
@@ -203,7 +203,7 @@ const MonthlySpend = ({ data: dataProp, ...rest }) => {
       {...rest}
     />
   );
-};
+}
 
 MonthlySpend.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),

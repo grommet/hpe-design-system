@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Button, Header, Text } from 'grommet';
 import { Add, Hpe } from 'grommet-icons';
 
-export const HeaderActionExample = () => (
-    <Header fill="horizontal">
+export function HeaderActionExample() {
+  return <Header fill="horizontal">
       <Button>
         <Box
           direction="row"
@@ -24,5 +24,5 @@ export const HeaderActionExample = () => (
         </Box>
       </Button>
       <Button label="Label" icon={<Add />} reverse />
-    </Header>
-  );
+    </Header>;
+}
