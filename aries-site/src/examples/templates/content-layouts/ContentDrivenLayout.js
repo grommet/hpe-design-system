@@ -89,20 +89,17 @@ export const ContentDrivenLayout = ({ containerRef }) => {
                   htmlFor="deletionPath"
                   name="deletionPath"
                   label={
-                    <>
-                      <Text>
-                        To confirm, please type: <br />
-                        {path}
-                      </Text>
-                    </>
+                    <Text>
+                      To confirm, please type: <br />
+                      {path}
+                    </Text>
                   }
                   validate={matchPath}
                 >
                   <TextInput id="deletionPath" name="deletionPath" />
                 </FormField>
               </ModalBody>
-              <ModalFooter>
-                <></>
+              <ModalFooter justify="end">
                 <Box direction="row" gap="xsmall">
                   <Button label="Cancel" onClick={onClose} />
                   <Button primary label="Delete" type="submit" />

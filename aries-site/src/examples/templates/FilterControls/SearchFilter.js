@@ -12,13 +12,8 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
 export const SearchFilter = ({ placeholder }) => {
   const size = useContext(ResponsiveContext);
   const filterContext = useFilters();
-  const {
-    applyFilters,
-    data,
-    filters,
-    searchValue,
-    setSearchValue,
-  } = filterContext;
+  const { applyFilters, data, filters, searchValue, setSearchValue } =
+    filterContext;
   const [searchFocused, setSearchFocused] = useState(false);
   const inputRef = useRef();
 
@@ -29,32 +24,28 @@ export const SearchFilter = ({ placeholder }) => {
     }
   }, [searchFocused, setSearchFocused]);
 
-  return (
-    <>
-      {!['xsmall', 'small'].includes(size) || searchFocused ? (
-        <Box width="medium" flex="shrink">
-          <StyledTextInput
-            ref={inputRef}
-            type="search"
-            icon={<Search id="search-icon" />}
-            placeholder={placeholder || 'Search...'}
-            onBlur={() => setSearchFocused(false)}
-            value={searchValue}
-            onChange={event => {
-              setSearchValue(event.target.value);
-              applyFilters(data, filters, event.target.value);
-            }}
-          />
-        </Box>
-      ) : (
-        <Button
-          id="search-button"
-          kind="toolbar"
-          icon={<Search />}
-          onClick={() => setSearchFocused(true)}
-        />
-      )}
-    </>
+  return !['xsmall', 'small'].includes(size) || searchFocused ? (
+    <Box width="medium" flex="shrink">
+      <StyledTextInput
+        ref={inputRef}
+        type="search"
+        icon={<Search id="search-icon" />}
+        placeholder={placeholder || 'Search...'}
+        onBlur={() => setSearchFocused(false)}
+        value={searchValue}
+        onChange={event => {
+          setSearchValue(event.target.value);
+          applyFilters(data, filters, event.target.value);
+        }}
+      />
+    </Box>
+  ) : (
+    <Button
+      id="search-button"
+      kind="toolbar"
+      icon={<Search />}
+      onClick={() => setSearchFocused(true)}
+    />
   );
 };
 

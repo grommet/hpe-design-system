@@ -17,12 +17,10 @@ export const UpdateItem = ({ title, description }) => {
             {description}
           </Paragraph>
         ) : (
-          <>
-            <Paragraph size="small" margin="none">{`${description.substring(
-              0,
-              MAX_STRING_LENGTH,
-            )}...`}</Paragraph>
-          </>
+          <Paragraph size="small" margin="none">{`${description.substring(
+            0,
+            MAX_STRING_LENGTH,
+          )}...`}</Paragraph>
         )}
         <Anchor
           href="#"
