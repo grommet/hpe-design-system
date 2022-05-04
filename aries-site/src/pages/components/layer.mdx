@@ -4,6 +4,8 @@ import {
   LayerCenterExample,
   LayerNotificationExample,
   LayerSideDrawerExample,
+  LayerStickyExample,
+  LayerStickyScrollExample,
 } from '../../examples';
 
 <Example
@@ -71,8 +73,7 @@ Provides users with any type of action, required or optional. These can be confi
 
 Actionable Layers contain the following elements and interactions: 
 - A cancel or close button will always be positioned within the footer of the Layer. Note that the "X" icon is omitted to avoid any confusion the user may have on which option they should use to close out the Layer. 
-- The Layer heading and action buttons should be sticky while the rest of the Layer content is scrollable.
-Provides users with any type of action, required or optional. These can be confirmations, filters, forms, etc.
+- The Layer header should be sticky while the rest of the Layer content is scrollable. This can either be achieved with a [persistent sticky header](#layer-form-with-sticky-header) or a [header that is sticky when the user scrolls up](#layer-form-with-hide-show-sticky-header). 
 - Buttons within side drawers (forms, filters, etc.) should always be **left-aligned**.
 - Buttons within wizards, confirmation modals, dialogs, and notifications should always be **right-aligned**.
 - To prevent the user from losing progress due to accidentally misclicking outside of a layer, a layer should not be closable by clicking outside of its content. Instead, users should be consciously clicking on a button to close out of the layer to abort any and all actions.
@@ -105,4 +106,35 @@ A center modal is anchored at the center of the window and acts as a modal. This
   height={{ min: 'small' }}
 >
   <LayerCenterExample />
+</Example>
+
+### Layer Form with sticky Header
+
+The Layer header and action buttons can be sticky while the rest of the Layer content is scrollable. This can be accomblished by wrapping a Form within a Box with `overflow` set to `auto`.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js"
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyExample />
+</Example>
+
+### Layer Form with hide/show sticky Header
+
+In order to maximize screen real-estate when content is scrollable, the header may scroll away as the user scrolls down but reappear as the user scrolls up. This can be accomblished by using the `sticky` prop
+on Heading and setting it to `"scrollup"`.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyScrollExample.js",
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js"
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyScrollExample />
 </Example>
