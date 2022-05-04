@@ -28,7 +28,6 @@ export const NameValueListEditExample = () => {
         actions={
           !edit && (
             <Button
-              alignSelf="center"
               secondary
               label="Edit Profile"
               onClick={() => setEdit(true)}

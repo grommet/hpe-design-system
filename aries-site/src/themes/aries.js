@@ -13,6 +13,26 @@ export const aries = deepMerge(hpe, {
     subtitle: {
       size: 'large',
     },
+    xsmall: {
+      areas: [
+        ['parent', 'null'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['small', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: 'xsmall', column: 'large' },
+    },
+    xlarge: {
+      areas: [
+        ['parent', 'null'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'large'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: 'xsmall', column: 'large' },
+    },
   },
 });
 
