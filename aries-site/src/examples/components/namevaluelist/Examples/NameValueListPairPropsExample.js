@@ -19,8 +19,8 @@ export const NameValueListPairPropsExample = () => (
             {name === 'Created by' && (
               <Anchor label={value} href={`mailto:${value}`} />
             )}
-            {name === 'Created on' && <>{date}</>}
-            {name !== 'Created on' && name !== 'Created by' && <>{value}</>}
+            {name === 'Created on' && date}
+            {name !== 'Created on' && name !== 'Created by' && value}
           </NameValuePair>
         );
       })}
