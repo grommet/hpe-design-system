@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const FiltersContext = createContext();
@@ -26,30 +26,45 @@ const FiltersProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState('');
   // array of primaryKeys for filteredResults that have been selected
   const [selected, setSelected] = useState([]);
-  const value = {
-    data,
-    setData,
-    filterAttributes,
-    setFilterAttributes,
-    filters,
-    setFilters,
-    filtersLayer,
-    setFiltersLayer,
-    filteredResults,
-    setFilteredResults,
-    isFiltered,
-    setIsFiltered,
-    layerProps,
-    setLayerProps,
-    previousFilters,
-    setPreviousFilters,
-    primaryKey,
-    setPrimaryKey,
-    searchValue,
-    setSearchValue,
-    selected,
-    setSelected,
-  };
+  const value = useMemo(
+    () => ({
+      data,
+      setData,
+      filterAttributes,
+      setFilterAttributes,
+      filters,
+      setFilters,
+      filtersLayer,
+      setFiltersLayer,
+      filteredResults,
+      setFilteredResults,
+      isFiltered,
+      setIsFiltered,
+      layerProps,
+      setLayerProps,
+      previousFilters,
+      setPreviousFilters,
+      primaryKey,
+      setPrimaryKey,
+      searchValue,
+      setSearchValue,
+      selected,
+      setSelected,
+    }),
+    [
+      data,
+      filterAttributes,
+      filteredResults,
+      filters,
+      filtersLayer,
+      isFiltered,
+      layerProps,
+      previousFilters,
+      primaryKey,
+      searchValue,
+      selected,
+    ],
+  );
 
   return (
     <FiltersContext.Provider value={value}>{children}</FiltersContext.Provider>
@@ -128,10 +143,7 @@ const useFilters = () => {
     if (searchTerm) {
       const searchString = searchTerm.toLowerCase();
       filterResults = filterResults.filter(
-        item =>
-          getTextFromJson(item)
-            .toLowerCase()
-            .indexOf(searchString) > -1,
+        item => getTextFromJson(item).toLowerCase().indexOf(searchString) > -1,
       );
     }
 

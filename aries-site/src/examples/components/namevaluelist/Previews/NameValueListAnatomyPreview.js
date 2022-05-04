@@ -25,7 +25,7 @@ export const NameValueListAnatomyPreview = () => {
             {name === 'Created by' ? (
               <Anchor label={value} href={`mailto:${value}`} />
             ) : (
-              <>{value}</>
+              value
             )}
           </NameValuePair>
         ))}

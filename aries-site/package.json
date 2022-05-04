@@ -9,15 +9,9 @@
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
-    "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
     "next-compose-plugins": "^2.2.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
-    "react-syntax-highlighter": "^15.4.4",
-    "styled-components": "^5.2.3"
+    "react-syntax-highlighter": "^15.4.4"
   },
   "scripts": {
     "build": "yarn build-search && next build",
@@ -41,7 +35,7 @@
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
-    "next": "^9.1.3",
+    "next": "^11.1.4",
     "next-transpile-modules": "^2.3.1",
     "start-server-and-test": "^1.10.8",
     "testcafe": "^1.16.0",

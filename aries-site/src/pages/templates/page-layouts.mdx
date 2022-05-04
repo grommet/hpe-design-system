@@ -9,7 +9,8 @@ import {
   PageContainerFull, 
   PageContainerInteractive, 
   PageContainerNarrow, 
-  PageContainerWide 
+  PageContainerWide, 
+  PageMarginAnatomy 
 } from '../../examples';
 
 <Button
@@ -73,6 +74,9 @@ width, occupying as much space as available.
 Page is the parent component that wraps around all content for a page. Page dictates what max width, padding, and alignment its child PageContent components should receive.
 
 PageContent contains the Page Header and any other content.
+
+To make the following functionality easy to implement, Grommet provides 
+[Page and PageContent components](/components/page).
 
 <Example
   caption='Diagram of a Page component and child PageContent. The PageContent component contains the Page Header and other content.'
@@ -156,10 +160,41 @@ PageContent will be left aligned to the edge of the screen.
 - Maps 
 - Tables
 
+#### Page Padding
+
+Page padding is the left and right space between the page content and the 
+screen edge.
+
+Wider padding is better for larger screens, as it creates more whitespace 
+either side of the content. For smaller screens, less whitespace is appropriate 
+in order to maximize the available screen real estate. 
+
+<Example 
+  caption="A diagram showing the margin area on a larger and smaller screens." 
+  plain 
+  pad="small"
+  previewWidth="large"
+  height={{ min: 'small' }}
+>
+  <PageMarginAnatomy />
+</Example>
+
+[Responsive breakpoints](/templates/content-layouts#breakpoints) determine the amount of horizontal 
+padding to be used at various screen widths.
+
+| Breakpoint     |  Pad (pixels) |
+| -------------- | -----------------:
+| **xsmall**     | 12
+| **small**      | 24
+| **medium**     | 24
+| **large**      | 48
+| **xlarge**     | 48
+
+
 ### PageContent Widths Demonstration
 
 Open the following example in "fullscreen mode" and resize your browser window to see how 
-each [page content width's](/templates/page-layouts#page-container-widths) maximum width, 
+each [page content width's](#page-kinds) maximum width, 
 contents padding, and alignment gracefully adjust across screens ranging from very narrow 
 to very wide. 
 

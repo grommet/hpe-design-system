@@ -4,16 +4,6 @@
   "description": "Design System for HPE",
   "license": "Apache-2.0",
   "main": "src/js/index.js",
-  "dependencies": {
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
-    "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable"
-  },
-  "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^5.2.3"
-  },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.1.2",
@@ -26,16 +16,13 @@
     "@storybook/addon-storysource": "^5.2.6",
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
-    "babel-loader": "^8.0.5",
+    "babel-loader": "^8.2.5",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
     "fs-extra": "^8.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "simple-git": "^1.126.0",
-    "styled-components": "^5.2.3",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
+    "simple-git": "^3.5.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^3.1.14"
   },
   "scripts": {

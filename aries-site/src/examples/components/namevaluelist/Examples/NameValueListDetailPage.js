@@ -34,7 +34,7 @@ export const NameValueListDetailPage = () => {
                       {value}
                     </Box>
                   ) : (
-                    <>{value || <Text a11yTitle="No value">--</Text>}</>
+                    value || <Text a11yTitle="No value">--</Text>
                   )}
                 </NameValuePair>
               ))}
