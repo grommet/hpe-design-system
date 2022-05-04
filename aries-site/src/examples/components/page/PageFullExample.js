@@ -8,12 +8,13 @@ import {
   List,
   Page,
   PageContent,
+  PageHeader,
   Text,
 } from 'grommet';
 import { Bookmark } from 'grommet-icons';
 
 import serverhealth from '../../../data/mockData/serverhealth.json';
-import { PageHeader, StatusIndicator } from '../../templates';
+import { StatusIndicator } from '../../templates';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.

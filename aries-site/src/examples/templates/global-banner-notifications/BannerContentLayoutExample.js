@@ -4,11 +4,10 @@ import {
   Box,
   Button,
   Grid,
-  Header,
-  Heading,
   Main,
   Page,
   PageContent,
+  PageHeader,
   Notification,
   Text,
   ResponsiveContext,
@@ -58,11 +57,7 @@ export const BannerContentLayoutExample = () => (
       <PageContent>
         {/* needed pad to match align with content 
         // strip out once fixed */}
-        <Header pad="small">
-          <Heading level={1} margin="none" size="small">
-            Page Header
-          </Heading>
-        </Header>
+        <PageHeader title="Page Header" pad="small" />
         <Content />
       </PageContent>
     </Page>
