@@ -591,8 +591,14 @@ export const components = [
       'State v.s. Status',
       'Notification Systems',
       'Toast Notification',
+      'Global Banner Notification',
     ],
-    relatedContent: ['Status Indicator', 'Toast Notifications', 'Stack'],
+    relatedContent: [
+      'Status Indicator',
+      'Toast Notifications',
+      'Global Banner Notifications',
+      'Stack',
+    ],
     tags: [
       'banner',
       'toast',
