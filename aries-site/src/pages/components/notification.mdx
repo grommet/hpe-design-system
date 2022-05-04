@@ -1,4 +1,9 @@
-import { StateVsStatusDiagram, TaxonomyTable, ToastNotificationExample } from '../../examples';
+import {
+  BannerNotificationCritical,
+  StateVsStatusDiagram,
+  TaxonomyTable,
+  ToastNotificationExample,
+} from '../../examples';
 import { Example } from '../../layouts';
 import { Box, Text } from 'grommet';
 
@@ -6,7 +11,7 @@ import { Box, Text } from 'grommet';
 
 Notifications build trust by providing users confidence and assurance that they are informed with timely, relevant status about their systems and tasks.
 
-## Taxonomy 
+## Taxonomy
 
 To standardize language for Notifications across HPE projects, be sure to familiarize yourself with this taxonomy:
 
@@ -25,7 +30,7 @@ To standardize language for Notifications across HPE projects, be sure to famili
 
 A state is the current stage of a process.
 
-A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health”. 
+A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health”.
 
 Here is an example of a Toast Notification that illustrates their differences:
 
@@ -38,7 +43,7 @@ Keep in mind that a status **derives** from a state.
 The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
 
 - [Status Indicators](/templates/status-indicator) are used within all types of notifications. They capture a user’s attention based on the notification’s level of severity.
-- For low priority and non-action-oriented notifications, [Toast Notifications](/templates/toast-notifications) are a great way to inform users unobtrusively. 
+- For low priority and non-action-oriented notifications, [Toast Notifications](/templates/toast-notifications) are a great way to inform users unobtrusively.
 
 ## Variants
 
@@ -57,12 +62,26 @@ Toast notifications are used for low attention status messages or updates that d
   <ToastNotificationExample />
 </Example>
 
+### Global Banner Notification
+
+Global Banner Notifications are system generated alerts that attract user's attention to system conditions and updates. For more thorough guidance on how and when to properly make use of a global banner, access the full page on [Global Banner Notifications](/templates/global-banner-notifications).
+
+<Example
+  componentName="Notification"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/ToastNotificationExample.js"
+  docs="https://v2.grommet.io/notification"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Notification/Notification.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationCritical />
+</Example>
+
 ### Roadmap
 
 The Design System is currently exploring and researching best practices and considerations for notification patterns. Here are some things we have lined out for the future:
 
-- Banner
-- Global
+- Page Banner
 - System
 - Inline
 - Notification center
