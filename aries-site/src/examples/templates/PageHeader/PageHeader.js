@@ -10,7 +10,7 @@ export const PageHeader = ({ title, subtitle, actions, ...rest }) => (
       {typeof subtitle === 'string' ? (
         <Paragraph margin="none">{subtitle}</Paragraph>
       ) : (
-        <>{subtitle}</>
+        subtitle
       )}
     </Box>
     {actions}
