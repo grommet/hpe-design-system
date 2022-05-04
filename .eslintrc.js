@@ -64,7 +64,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/function-component-definition': 0,
     'react/no-unstable-nested-components': 0,
-    // 'react/jsx-no-useless-fragment': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-cycle': 0,
