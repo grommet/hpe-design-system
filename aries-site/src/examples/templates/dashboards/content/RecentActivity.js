@@ -70,7 +70,7 @@ export function RecentActivity() {
         (previous, current) => {
           const { title, createdAt, selfUri } = current;
           const next = { ...previous };
-          const count = previous[title]?.count + 1 || 1;
+          const count = previous[title]?.count ? previous[title].count + 1 : 1;
           let mostRecent = createdAt;
           let nextSelfUri = selfUri;
 

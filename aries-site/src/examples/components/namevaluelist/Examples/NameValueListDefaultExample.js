@@ -16,7 +16,7 @@ export function NameValueListDefaultExample() {
         }
         return (
           <NameValuePair key={name} name={name}>
-            {name === 'Created on' ? <> {date}</> : <>{value}</>}
+            {name === 'Created on' ? <> {date}</> : value}
           </NameValuePair>
         );
       })}

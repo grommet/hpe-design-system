@@ -18,9 +18,9 @@ export function UpdateItem({ title, description }) {
           </Paragraph>
         ) : (
           <Paragraph size="small" margin="none">{`${description.substring(
-              0,
-              MAX_STRING_LENGTH,
-            )}...`}</Paragraph>
+            0,
+            MAX_STRING_LENGTH,
+          )}...`}</Paragraph>
         )}
         <Anchor
           href="#"

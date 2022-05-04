@@ -317,33 +317,26 @@ TableControls.propTypes = {
   selected: PropTypes.array,
 };
 
-function SelectionSummary({ selected }) {
-  return <>
-    {selected && (
-      <>
-        {selected.length > 0 ? (
-          <Box direction="row" gap="xxsmall">
-            <Text size="small" weight="bold">
-              {selected.length}
-            </Text>
-            <Text size="small">of</Text>
-            <Text size="small" weight="bold">
-              {data.length}
-            </Text>
-            <Text size="small">items selected</Text>
-          </Box>
-        ) : (
-          <Box direction="row" gap="xxsmall">
-            <Text size="small" weight="bold">
-              {data.length}
-            </Text>
-            <Text size="small">items</Text>
-          </Box>
-        )}
-      </>
-    )}
-  </>;
-}
+const SelectionSummary = ({ selected }) =>
+  selected.length ? (
+    <Box direction="row" gap="xxsmall">
+      <Text size="small" weight="bold">
+        {selected.length}
+      </Text>
+      <Text size="small">of</Text>
+      <Text size="small" weight="bold">
+        {data.length}
+      </Text>
+      <Text size="small">items selected</Text>
+    </Box>
+  ) : (
+    <Box direction="row" gap="xxsmall">
+      <Text size="small" weight="bold">
+        {data.length}
+      </Text>
+      <Text size="small">items</Text>
+    </Box>
+  );
 
 SelectionSummary.propTypes = {
   selected: PropTypes.array,

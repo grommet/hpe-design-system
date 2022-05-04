@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import {
@@ -104,24 +104,28 @@ export function NameValueListWizard({ containerRef }) {
 
   const numberColumns = 1;
   const width = getWidth(numberColumns, theme, size);
+
+  const contextValue = useMemo(
+    () => ({
+      activeIndex,
+      setActiveIndex,
+      activeStep,
+      setActiveStep,
+      valid,
+      setValid,
+      formValues,
+      setFormValues,
+      id,
+      ref: wizardRef,
+      steps,
+      wizardTitle: 'Wizard Title',
+      width,
+    }),
+    [activeIndex, activeStep, formValues, valid, width],
+  );
+
   return (
-    <WizardContext.Provider
-      value={{
-        activeIndex,
-        setActiveIndex,
-        activeStep,
-        setActiveStep,
-        valid,
-        setValid,
-        formValues,
-        setFormValues,
-        id,
-        ref: wizardRef,
-        steps,
-        wizardTitle: 'Wizard Title',
-        width,
-      }}
-    >
+    <WizardContext.Provider value={contextValue}>
       <Box fill>
         <WizardHeader setOpen={setOpen} />
         <StepContent

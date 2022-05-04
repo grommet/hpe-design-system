@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { Box, Button, ResponsiveContext, Text } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { DashboardGrid, DashboardFooter, Greeting } from '.';
@@ -6,8 +6,17 @@ import { DashboardGrid, DashboardFooter, Greeting } from '.';
 export function DashboardExample() {
   const [user, setUser] = useState(defaultUser);
   const size = useContext(ResponsiveContext);
+
+  const contextValue = useMemo(
+    () => ({
+      user,
+      setUser,
+    }),
+    [user],
+  );
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={contextValue}>
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <GlobalHeader />
         <Box overflow="auto">

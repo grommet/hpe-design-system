@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import {
@@ -216,25 +216,29 @@ export function TwoColumnWizardExample({ containerRef }) {
 
   const numberColumns = 2;
   const width = getWidth(numberColumns, theme, size);
+
+  const contextValue = useMemo(
+    () => ({
+      activeIndex,
+      id,
+      defaultFormValues,
+      setActiveIndex,
+      activeStep,
+      setActiveStep,
+      valid,
+      ref: wizardRef,
+      setValid,
+      steps,
+      formValues,
+      setFormValues,
+      wizardTitle: 'Wizard Title',
+      width,
+    }),
+    [activeIndex, activeStep, formValues, valid, width],
+  );
+
   return (
-    <WizardContext.Provider
-      value={{
-        activeIndex,
-        setActiveIndex,
-        activeStep,
-        setActiveStep,
-        defaultFormValues,
-        valid,
-        setValid,
-        formValues,
-        setFormValues,
-        id,
-        ref: wizardRef,
-        steps,
-        wizardTitle: 'Wizard Title',
-        width,
-      }}
-    >
+    <WizardContext.Provider value={contextValue}>
       <Box fill>
         <WizardHeader setOpen={setOpen} />
         <StepContent

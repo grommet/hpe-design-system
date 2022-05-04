@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext } from 'grommet';
 
@@ -49,16 +49,19 @@ export const pageContainer = {
 export function PageContainer({ kind = 'wide', ...rest }) {
   const size = useContext(ResponsiveContext);
 
+  const contextValue = useMemo(
+    () => ({
+      alignSelf: pageContainer[kind].align,
+      fill: 'horizontal',
+      margin: { horizontal: 'auto' },
+      width: pageContainer[kind].width,
+      pad: pageContainer.pad[size],
+    }),
+    [kind, size],
+  );
+
   return (
-    <PageContainerContext.Provider
-      value={{
-        alignSelf: pageContainer[kind].align,
-        fill: 'horizontal',
-        margin: { horizontal: 'auto' },
-        width: pageContainer[kind].width,
-        pad: pageContainer.pad[size],
-      }}
-    >
+    <PageContainerContext.Provider value={contextValue}>
       <Box gap={pageContainer.gap[size]} overflow="horizontal" {...rest} />
     </PageContainerContext.Provider>
   );
