@@ -1,7 +1,14 @@
 import React, { useContext } from 'react';
-import { Box, Grid, Main, ResponsiveContext, Page, PageContent } from 'grommet';
+import {
+  Box,
+  Grid,
+  Main,
+  ResponsiveContext,
+  Page,
+  PageContent,
+  PageHeader,
+} from 'grommet';
 
-import { PageHeader } from '../PageHeader';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 

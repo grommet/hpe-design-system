@@ -4,11 +4,11 @@ import {
   Grid,
   Page,
   PageContent,
+  PageHeader,
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
 
-import { PageHeader } from '../..';
 import { AppResults } from './AppResults';
 import { FilterPanel } from './FilterPanel';
 

@@ -8,10 +8,10 @@ import {
   ResponsiveContext,
   Page,
   PageContent,
+  PageHeader,
 } from 'grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
-import { PageHeader } from '../PageHeader';
 import {
   FirmwareBaselines,
   FirmwareStatus,
