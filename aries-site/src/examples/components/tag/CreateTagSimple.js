@@ -56,8 +56,6 @@ export const CreateTagSimple = () => {
     }
   };
 
-  console.log(open, valueSearch);
-
   return (
     <TagAppContainer>
       <TagPageHeader
