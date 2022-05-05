@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Box, Button, Heading, PageHeader, Text } from 'grommet';
+import { Anchor, Heading, PageHeader } from 'grommet';
 import { getPageDetails } from '../../utils';
 import { Status, SubsectionText } from '../../components';
 
@@ -18,12 +18,10 @@ export const DocsPageHeader = ({ title, topic, render }) => {
       }
       parent={
         <Link href={`/${topic.toLowerCase()}`} passHref>
-          <Button>
-            <Box align="center" direction="row" gap="small">
-              {parent.icon('small', parent.color)}
-              <Text color="text">{parent.name}</Text>
-            </Box>
-          </Button>
+          <Anchor
+            icon={parent.icon('small', parent.color)}
+            label={parent.name}
+          />
         </Link>
       }
       subtitle={<SubsectionText>{page.description}</SubsectionText>}
