@@ -22,7 +22,6 @@ import {
   TagResults,
   updateCreateOption,
 } from '.';
-import { zipObjectDeep } from 'lodash';
 
 const defaultNameOptions = [];
 const defaultValueOptions = [];
