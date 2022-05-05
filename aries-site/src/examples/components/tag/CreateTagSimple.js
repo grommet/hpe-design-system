@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Grid,
+  Keyboard,
   Form,
   FormField,
   Select,
@@ -40,9 +41,22 @@ export const CreateTagSimple = () => {
   );
   const [value, setValue] = useState(defaultValue);
   const [valueSearch, setValueSearch] = useState('');
+  const [open, setOpen] = useState('');
 
   // tags
   const [currentTags, setCurrentTags] = useState(defaultTags);
+  const onEnter = () => {
+    if (valueSearch.length) {
+      defaultValueOptions.pop(); // remove create options
+      defaultValueOptions.push(valueSearch);
+      setValueOptions(alphabetize(defaultValueOptions));
+      setValue(valueSearch);
+      setOpen(false);
+      setValueSearch('');
+    }
+  };
+
+  console.log(open, valueSearch);
 
   return (
     <TagAppContainer>
@@ -72,33 +86,36 @@ export const CreateTagSimple = () => {
             label="Tags"
             required={{ indicator: false }}
           >
-            <Select
-              name="tag-value-simple"
-              id="tag-value-simple"
-              placeholder="Select or create a tag"
-              value={value}
-              options={valueOptions}
-              onChange={({ option }) => {
-                if (option.includes(prefix)) {
-                  defaultValueOptions.pop(); // remove Create option
-                  defaultValueOptions.push(valueSearch);
-                  setValueOptions(alphabetize(defaultValueOptions));
-                  setValue(valueSearch);
-                } else {
-                  setValue(option);
-                }
-              }}
-              onSearch={text => {
-                const nextValueOptions = defaultValueOptions;
-                updateCreateOption(text, nextValueOptions);
-                const exp = getRegExp(text);
-                setValueOptions(
-                  alphabetize(nextValueOptions.filter(o => exp.test(o))),
-                );
-                setValueSearch(text);
-              }}
-              searchPlaceholder="Search tags"
-            />
+            <Keyboard onEnter={onEnter}>
+              <Select
+                name="tag-value-simple"
+                id="tag-value-simple"
+                placeholder="Select or create a tag"
+                value={value}
+                open={open}
+                options={valueOptions}
+                onChange={({ option }) => {
+                  if (option.includes(prefix)) {
+                    defaultValueOptions.pop(); // remove Create option
+                    defaultValueOptions.push(valueSearch);
+                    setValueOptions(alphabetize(defaultValueOptions));
+                    setValue(valueSearch);
+                  } else {
+                    setValue(option);
+                  }
+                }}
+                onSearch={text => {
+                  const nextValueOptions = defaultValueOptions;
+                  updateCreateOption(text, nextValueOptions);
+                  const exp = getRegExp(text);
+                  setValueOptions(
+                    alphabetize(nextValueOptions.filter(o => exp.test(o))),
+                  );
+                  setValueSearch(text);
+                }}
+                searchPlaceholder="Search tags"
+              />
+            </Keyboard>
           </FormField>
           <Box
             justify="start"

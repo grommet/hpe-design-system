@@ -5,6 +5,7 @@ import {
   Grid,
   Form,
   FormField,
+  Keyboard,
   Select,
   Tag,
   Text,
@@ -21,6 +22,7 @@ import {
   TagResults,
   updateCreateOption,
 } from '.';
+import { zipObjectDeep } from 'lodash';
 
 const defaultNameOptions = [];
 const defaultValueOptions = [];
@@ -58,9 +60,37 @@ export const CreateTag = () => {
   );
   const [value, setValue] = useState(defaultValue);
   const [valueSearch, setValueSearch] = useState('');
+  const [nameOpen, setNameOpen] = useState('');
+  const [valueOpen, setValueOpen] = useState('');
 
   // tags
   const [currentTags, setCurrentTags] = useState(defaultTags);
+
+  const onEnterName = () => {
+    if (nameSearch.length) {
+      defaultNameOptions.pop(); // remove create options
+      defaultNameOptions.push({ label: nameSearch, values: [] });
+      setNameOptions(alphabetize(defaultNameOptions, 'label'));
+      setName(nameSearch);
+      setNameOpen(false);
+    }
+  };
+
+  const onEnterValue = () => {
+    if (valueSearch.length) {
+      defaultValueOptions.pop();
+      defaultValueOptions.push(valueSearch);
+      setValueOptions(
+        alphabetize(
+          name
+            ? defaultNameOptions.filter(n => n.label === name)[0].values
+            : defaultValueOptions,
+        ),
+      );
+      setValue(valueSearch);
+      setValuesOpen(false);
+    }
+  };
 
   useEffect(() => {
     const nextValueOptions = name
@@ -97,33 +127,36 @@ export const CreateTag = () => {
             htmlFor="tag-name"
             required={{ indicator: false }}
           >
-            <Select
-              name="tag-name"
-              id="tag-name"
-              placeholder="Select or create a name"
-              value={name}
-              options={nameOptions}
-              onChange={({ option, value: val }) => {
-                if (option.label.includes(prefix)) {
-                  defaultNameOptions.pop(); // remove Create option
-                  defaultNameOptions.push({ label: nameSearch, values: [] });
-                  setNameOptions(alphabetize(defaultNameOptions, 'label'));
-                  setName(nameSearch);
-                } else {
-                  setName(val);
-                }
-              }}
-              onSearch={text => {
-                updateCreateOption(text, defaultNameOptions);
-                const exp = getRegExp(text);
-                setNameOptions(
-                  defaultNameOptions.filter(o => exp.test(o.label)),
-                );
-                setNameSearch(text);
-              }}
-              labelKey="label"
-              valueKey={{ key: 'label', reduce: true }}
-            />
+            <Keyboard onEnter={onEnterName}>
+              <Select
+                name="tag-name"
+                id="tag-name"
+                placeholder="Select or create a name"
+                value={name}
+                options={nameOptions}
+                open={nameOpen}
+                onChange={({ option, value: val }) => {
+                  if (option.label.includes(prefix)) {
+                    defaultNameOptions.pop(); // remove Create option
+                    defaultNameOptions.push({ label: nameSearch, values: [] });
+                    setNameOptions(alphabetize(defaultNameOptions, 'label'));
+                    setName(nameSearch);
+                  } else {
+                    setName(val);
+                  }
+                }}
+                onSearch={text => {
+                  updateCreateOption(text, defaultNameOptions);
+                  const exp = getRegExp(text);
+                  setNameOptions(
+                    defaultNameOptions.filter(o => exp.test(o.label)),
+                  );
+                  setNameSearch(text);
+                }}
+                labelKey="label"
+                valueKey={{ key: 'label', reduce: true }}
+              />
+            </Keyboard>
           </FormField>
           <FormField
             name="tag-value"
@@ -131,42 +164,61 @@ export const CreateTag = () => {
             label="Value"
             required={{ indicator: false }}
           >
-            <Select
-              name="tag-value"
-              id="tag-value"
-              placeholder="Select or create a value"
-              value={value}
-              options={valueOptions}
-              onChange={({ option }) => {
-                if (option.includes(prefix)) {
-                  const { values } = defaultNameOptions.filter(
-                    n => n.label === name,
-                  )[0];
-                  values.pop(); // remove Create option
-                  values.push(valueSearch);
-                  setValueOptions(
-                    alphabetize(
-                      name
-                        ? defaultNameOptions.filter(n => n.label === name)[0]
-                            .values
-                        : defaultValueOptions,
-                    ),
-                  );
-                  setValue(valueSearch);
-                } else {
-                  setValue(option);
-                }
-              }}
-              onSearch={text => {
-                const nextValueOptions =
-                  defaultNameOptions.filter(n => n.label === name)[0]?.values ||
-                  defaultValueOptions;
-                updateCreateOption(text, nextValueOptions);
-                const exp = getRegExp(text);
-                setValueOptions(nextValueOptions.filter(o => exp.test(o)));
-                setValueSearch(text);
-              }}
-            />
+            <Keyboard onEnter={onEnterValue}>
+              <Select
+                name="tag-value"
+                id="tag-value"
+                placeholder="Select or create a value"
+                value={value}
+                options={valueOptions}
+                open={valueOpen}
+                onChange={({ option }) => {
+                  if (option.includes(prefix)) {
+                    if (name.length) {
+                      const { values } = defaultNameOptions.filter(
+                        n => n.label === name,
+                      )[0];
+                      values.pop(); // remove Create option
+                      values.push(valueSearch);
+                      setValueOptions(
+                        alphabetize(
+                          name
+                            ? defaultNameOptions.filter(
+                                n => n.label === name,
+                              )[0].values
+                            : defaultValueOptions,
+                        ),
+                      );
+                      setValue(valueSearch);
+                    } else {
+                      defaultValueOptions.pop();
+                      defaultValueOptions.push(valueSearch);
+                      setValueOptions(
+                        alphabetize(
+                          name
+                            ? defaultNameOptions.filter(
+                                n => n.label === name,
+                              )[0].values
+                            : defaultValueOptions,
+                        ),
+                      );
+                      setValue(valueSearch);
+                    }
+                  } else {
+                    setValue(option);
+                  }
+                }}
+                onSearch={text => {
+                  const nextValueOptions =
+                    defaultNameOptions.filter(n => n.label === name)[0]
+                      ?.values || defaultValueOptions;
+                  updateCreateOption(text, nextValueOptions);
+                  const exp = getRegExp(text);
+                  setValueOptions(nextValueOptions.filter(o => exp.test(o)));
+                  setValueSearch(text);
+                }}
+              />
+            </Keyboard>
           </FormField>
           <Box
             justify="start"
