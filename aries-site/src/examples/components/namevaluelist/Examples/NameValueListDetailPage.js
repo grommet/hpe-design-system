@@ -4,6 +4,7 @@ import {
   Heading,
   NameValueList,
   NameValuePair,
+  PageHeader,
   Tab,
   Tabs,
   Text,
@@ -15,10 +16,8 @@ export const NameValueListDetailPage = () => {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
-    <>
-      <Heading level={1} size="small">
-        Demo_Cluster_5
-      </Heading>
+    <Box gap="medium">
+      <PageHeader title="Demo_Cluster_5" />
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
           <Box gap="medium">
@@ -48,6 +47,6 @@ export const NameValueListDetailPage = () => {
           <Box margin="small">Services Information</Box>
         </Tab>
       </Tabs>
-    </>
+    </Box>
   );
 };
