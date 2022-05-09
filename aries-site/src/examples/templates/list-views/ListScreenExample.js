@@ -6,12 +6,11 @@ import {
   List,
   Header,
   Menu,
+  PageHeader,
   ResponsiveContext,
   Text,
 } from 'grommet';
 import { Monitor, More, User, System, Hpe } from 'grommet-icons';
-
-import { PageHeader } from '../PageHeader';
 
 const data = [
   {

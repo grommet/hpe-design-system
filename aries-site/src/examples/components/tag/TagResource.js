@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Anchor,
   Box,
   Button,
   Heading,
   NameValuePair,
   NameValueList,
   Tag,
-  Text,
   Page,
   PageContent,
 } from 'grommet';
-import { FormPrevious, More } from 'grommet-icons';
+import { FormPrevious } from 'grommet-icons';
+import { PageHeader } from 'grommet/components';
 import { details, tags } from '.';
 
 const Section = ({ ...rest }) => <Box gap="medium" flex={false} {...rest} />;
@@ -41,24 +42,13 @@ const SectionDetails = ({ data }) => (
 export const TagResource = () => (
   <Page kind="narrow">
     <PageContent gap="small">
-      <Button alignSelf="start" label="Devices" icon={<FormPrevious />} />
+      <PageHeader
+        title="Store C-3P0"
+        subtitle="Aruba 530 32930F"
+        parent={<Anchor icon={<FormPrevious />} label="Devices" />}
+        actions={<Button label="Edit" primary />}
+      />
       <Box gap="large" flex={false}>
-        <Box
-          border={{ color: 'border-weak', side: 'bottom' }}
-          align="start"
-          direction="row"
-          justify="between"
-          pad={{ bottom: 'medium' }}
-          flex={false}
-        >
-          <Box>
-            <Heading size="small" margin="none">
-              Store C-3P0
-            </Heading>
-            <Text size="large">Aruba 530 32930F</Text>
-          </Box>
-          <Button icon={<More />} />
-        </Box>
         <Section>
           <SectionHeader heading="Details" />
           <SectionDetails data={details} />

@@ -4,6 +4,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Form,
   FormField,
   Select,
@@ -14,7 +15,6 @@ import {
   Button,
 } from 'grommet';
 
-import { PageHeader } from '../../templates';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.

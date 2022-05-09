@@ -7,16 +7,12 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Paragraph,
   Text,
 } from 'grommet';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-  PageHeader,
-} from '../../templates';
+import { FilterControls, FiltersProvider, useFilters } from '../../templates';
 import trainingDataSets from '../../../data/mockData/trainingDataSets.json';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
