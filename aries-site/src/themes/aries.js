@@ -15,7 +15,7 @@ export const aries = deepMerge(hpe, {
     },
     xsmall: {
       areas: [
-        ['parent', 'null'],
+        ['parent', 'parent'],
         ['title', 'actions'],
         ['subtitle', 'actions'],
       ],
@@ -25,11 +25,11 @@ export const aries = deepMerge(hpe, {
     },
     xlarge: {
       areas: [
-        ['parent', 'null'],
+        ['parent', 'parent'],
         ['title', 'actions'],
         ['subtitle', 'actions'],
       ],
-      columns: [['medium', 'large'], 'auto'],
+      columns: [['medium', 'flex'], 'auto'],
       rows: ['auto', 'auto', 'auto'],
       gap: { row: 'xsmall', column: 'large' },
     },

@@ -1,0 +1,215 @@
+import { Example } from '../../layouts';
+import {
+  ChildPageHeaderExample,
+  PageHeaderAnatomy,
+  PageHeaderIntroExample,
+  TopLevelPageHeaderExample,
+} from '../../examples';
+import { Box } from 'grommet';
+
+The PageHeader's title communicates the context of the page. The subtitle elaborates secondary information about the page. The user is also able to access navigation to the parent page and any relevant page-level actions.
+
+<Example
+  docs="https://v2.grommet.io/pageheader?theme=hpe"
+  height={{ min: 'small' }}
+  showResponsiveControls={[]}
+  template
+>
+  <PageHeaderIntroExample />
+</Example>
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the four main content regions of a PageHeader."
+  plain
+>
+  <PageHeaderAnatomy />
+</Example>
+
+1. **Page Identifier:** This region is intended to provide the user with context on what the page is about.
+
+   - **a.** [Title](#title) (required): A short and descriptive title that uniquely identifies the page.
+   - **b.** [Subtitle](#subtitle) (optional): Concise contextual information that helps elaborate the purpose of the page.
+
+2. [Contextual Navigation](#reverse-anchor): A Reverse Anchor is required on all child pages as a means of navigating up the information hierarchy.
+3. [Page-Level Actions](#page-level-actions) (optional): This region is reserved for actions that affect the entire page or kick-off a task flow.
+
+## Responsive Behavior and Content Prioritization
+
+The main purpose of a page header is to identify a page and its context within an application. Therefore, the title and subtitle regions should receive screen priority when they come into contact with page-level actions.
+
+The region containing the title and subtitle should:
+
+- Flex to fill the available horizontal space on the page.
+- Have a minimum width of "medium" on `medium-xlarge` breakpoints and "small" on `xsmall-small` breakpoints to avoid excessive wrapping.
+
+Page-level actions should:
+
+- Have a width of "auto" by default.
+- Progressively collapse into an overflow menu as screen width becomes limited. This should follow guidance on [responsive behavior of actions](#responsive-behavior-of-actions).
+
+Resize your screen to see how the content regions adapt at various screen widths.
+
+TBD: Do we want this to be a high-fidelity example?
+
+<Example showResponsiveControls={[]} screenContainer plain width="100%">
+  <PageHeaderAnatomy background="background-front" />
+</Example>
+
+## Title
+
+A title is a required element of the page and should:
+
+- Always be an h1 with size="small".
+- Uniquely and concisely identify the page. No two pages under the same parent should have the same name.
+- Follow title case capitalization (i.e., List of Clusters, My Account).
+- Wrap if too long for the available space. See [Responsive Behavior and Content Prioritization](#responsive-behavior-and-content-prioritization) for more guidance.
+- Be left-aligned with page content.
+
+## Subtitle
+
+A subtitle is an optional element that can provide additional contextual information about the contents of the page.
+
+A subtitle should:
+
+- Concisely elaborate what the page is on. This could be additional information such as ownership of an application, timestamps, or a name to represent by whom a piece of information was created.
+- Be located below the title and left-aligned with page content.
+- Wrap at the max-width for the paragraph's font-size in order to optimize the readability.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Include concise, high-priority metadata in the subtitle that aids page identification.',
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <Box>Example Coming</Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't clutter the Page Header with all of the page metadata. Instead, include this as a NameValueList in the page content.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <Box>Example Coming</Box>
+  </Example>
+</BestPracticeGroup>
+
+## Reverse Anchor
+
+A reverse Anchor is required on all child pages and should:
+
+- Be located above the title and left-aligned with page content.
+- Be labelled with the name of the parent page and accompanied by the "FormPrevious" icon.
+- Not be used on top-level pages because they do not have a parent.
+
+### Example of Child Page
+
+<Example
+  docs="https://v2.grommet.io/pageheader?theme=hpe"
+  // height, width, and screenContainer.scale value chosen to best visually
+  // represent the example
+  showResponsiveControls={['fullScreen']}
+  screenContainer={{ scale: 0.6 }}
+>
+  <ChildPageHeaderExample />
+</Example>
+
+### Example of Top-Level Page
+
+Top-level pages will not display a reverse anchor because they do not have a parent.
+
+<Example
+  docs="https://v2.grommet.io/pageheader?theme=hpe"
+  // height, width, and screenContainer.scale value chosen to best visually
+  // represent the example
+  showResponsiveControls={['fullScreen']}
+  screenContainer={{ scale: 0.6 }}
+>
+  <TopLevelPageHeaderExample />
+</Example>
+
+## Page-Level Actions
+
+Page-level actions are actions that affect the entire page or kick-off another task flow.
+
+**All actions should:**
+
+- Have clear and concise button labels.
+- Use verb+noun format to provide sufficient context on action expectations (i.e., Edit Profile). See [button labeling]() for more guidance.
+- Be right-aligned with the page content.
+- Follow [button ordering guidance](/components/button#button-ordering) for right-aligned buttons.
+
+**Additional Notes:**
+
+- A primary action should only be used if the primary purpose of the page is to faciliate performing that action. Most pages will not have a primary action.
+- Do not include actions related to table or list data (such as create, update, and delete) in the page-level actions. These should be placed in the toolbar above the data.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Include actions that affect the entire page in the page-level actions. Place actions related to table or list data (such as create, update, and delete) in the toolbar.',
+    }}
+    width="100%"
+  >
+    <Box>Example Coming</Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't include actions related to table or list data (such as create, update, and delete) in the page-level actions.`,
+    }}
+    width="100%"
+  >
+    <Box>Example Coming</Box>
+  </Example>
+</BestPracticeGroup>
+
+### Responsive Behavior of Actions
+
+Follow this guidance on how actions should progressively collapse based on their priority.
+
+**A primary action should:**
+
+- Only be used if the primary purpose of the page is the perform that action. Most pages won't have a primary button.
+- Always remain visible, if present. At `xsmall` and `small` breakpoints, the primary button should appear beneath the subtitle and be left-aligned with page content.
+
+**Secondary and default actions:**
+
+- Should remain visible if there is space but collapse into an action menu if there is not enough space.
+- Default buttons should collapse first because they are lower priority than secondary buttons.
+
+NOTE: WE NEED TO DISCUSS THIS SECTION AND HOW TO DISCUSS THE CONCEPT OF ACTION CATEGORIES (MATT"S EXAMPLE WITH PIN/SHARE ICON ONLY BUTTONS)
+
+Resize your window to see the responsive behavior of the actions.
+
+<BestPracticeGroup columns="100%">
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Collapse default and secondary buttons into an action menu.',
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <Box>Example Coming</Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't collapse primary button into an action menu.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <Box>Example Coming</Box>
+  </Example>
+</BestPracticeGroup>

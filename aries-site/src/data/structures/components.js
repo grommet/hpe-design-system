@@ -822,6 +822,28 @@ export const components = [
     tags: ['page', 'page content'],
   },
   {
+    name: 'PageHeader',
+    available: true,
+    category: 'Layouts',
+    description: `A required page component that provides users context of 
+    their current location and a consistent experience across all HPE applications.`,
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-page.svg',
+          dark: '/componentImages/component-preview-page-invert.svg',
+        },
+        alt: 'HPE Page Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `A required page component that provides users context of 
+    their current location and a consistent experience across all HPE applications.`,
+    sections: ['Guidance', 'Page Content'],
+    relatedContent: ['Page Layouts', 'Content Layouts', 'Page'],
+    tags: ['page header', 'header', 'page'],
+  },
+  {
     name: 'All Components',
     available: true,
     category: 'All',

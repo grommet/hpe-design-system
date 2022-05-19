@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { Box, DataTable, Heading, Menu, ResponsiveContext } from 'grommet';
+import { Box, Button, DataTable, Heading, ResponsiveContext } from 'grommet';
 import {
+  Splits,
   StatusWarningSmall,
   StatusCriticalSmall,
   StatusGoodSmall,
@@ -12,62 +13,62 @@ import {
   FiltersProvider,
   useFilters,
 } from '../../FilterControls';
-import { servers } from './mockData';
+import serverhealth from '../../../../data/mockData/serverhealth.json';
 
-export const FilteringTable = () => {
-  // Define which attributes should be made available for the user
-  // to filter upon
-  const filtersConfig = [
-    {
-      property: 'hardware.health.summary',
-      label: 'Status',
-      filterType: 'CheckBoxGroup',
-    },
-    {
-      property: 'state.connected',
-      label: 'State',
-      filterType: 'CheckBoxGroup',
-      render: datum => (datum ? 'Connected' : 'Not Connected'),
-    },
-    {
-      property: 'hardware.powerState',
-      label: 'Power',
-      filterType: 'CheckBoxGroup',
-    },
-    {
-      property: 'hardware.model',
-      label: 'Model',
-      filterType: 'CheckBoxGroup',
-    },
-  ];
+// Define which attributes should be made available for the user
+// to filter upon
+const filtersConfig = [
+  {
+    property: 'hardware.health.summary',
+    label: 'Status',
+    filterType: 'CheckBoxGroup',
+  },
+  {
+    property: 'state.connected',
+    label: 'State',
+    filterType: 'CheckBoxGroup',
+    render: datum => (datum ? 'Connected' : 'Not Connected'),
+  },
+  {
+    property: 'hardware.powerState',
+    label: 'Power',
+    filterType: 'CheckBoxGroup',
+  },
+  {
+    property: 'hardware.model',
+    label: 'Model',
+    filterType: 'CheckBoxGroup',
+  },
+];
 
-  return (
-    <Box background="background-front" pad="small" gap="medium" fill>
-      <Heading id="servers-heading" level={2} margin="none">
-        Servers
-      </Heading>
-      <FiltersProvider>
-        <Box gap="medium">
-          <FilterControls
-            data={servers}
-            filters={filtersConfig}
-            primaryKey="id"
-            searchFilter={{ placeholder: 'Search servers...' }}
-            actions={
-              <Menu
-                kind="toolbar"
-                label="Actions"
-                items={[{ label: 'Power On' }, { label: 'Power Off' }]}
-              />
-            }
-          />
+export const FilteringTable = () => (
+  <Box background="background-front" pad="small" gap="medium" fill>
+    <Heading id="servers-heading" level={2} margin="none">
+      Servers
+    </Heading>
+    <FilterServers />
+  </Box>
+);
 
-          <ServerResults />
-        </Box>
-      </FiltersProvider>
+export const FilterServers = () => (
+  <FiltersProvider>
+    <Box gap="medium">
+      <FilterControls
+        data={serverhealth}
+        filters={filtersConfig}
+        primaryKey="id"
+        searchFilter={{ placeholder: 'Search' }}
+        actions={
+          <Box direction="row" gap="small">
+            <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
+            <Button label="Add Server" secondary />
+          </Box>
+        }
+      />
+      <ServerResults />
     </Box>
-  );
-};
+  </FiltersProvider>
+);
 
 const columns = [
   {
