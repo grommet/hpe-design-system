@@ -1,8 +1,10 @@
 import { Example } from '../../layouts';
 import {
   ChildPageHeaderExample,
+  PageHeaderActions,
   PageHeaderAnatomy,
   PageHeaderIntroExample,
+  PageHeaderSubtitle,
   TopLevelPageHeaderExample,
 } from '../../examples';
 import { Box } from 'grommet';
@@ -87,17 +89,17 @@ A subtitle should:
     width="100%"
     height={{ min: 'small' }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderSubtitle />
   </Example>
   <Example
     bestPractice={{
       type: 'dont',
-      message: `Don't clutter the Page Header with all of the page metadata. Instead, include this as a NameValueList in the page content.`,
+      message: `Don't clutter the Page Header with all of the page metadata. Instead, include this in the page content.`,
     }}
     width="100%"
     height={{ min: 'small' }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderSubtitle bestPractice={false} />
   </Example>
 </BestPracticeGroup>
 
@@ -107,7 +109,7 @@ A reverse Anchor is required on all child pages and should:
 
 - Be located above the title and left-aligned with page content.
 - Be labelled with the name of the parent page and accompanied by the "FormPrevious" icon.
-- Not be used on top-level pages because they do not have a parent.
+- Not be used on [top-level pages](#example-of-top-level-page) because they do not have a parent.
 
 ### Example of Child Page
 
@@ -195,12 +197,13 @@ Resize your window to see the responsive behavior of the actions.
   <Example
     bestPractice={{
       type: 'do',
-      message: 'Collapse default and secondary buttons into an action menu.',
+      message:
+        'Collapse default and secondary buttons into an action menu. Always keep the primary action visible if it exists. At xsmall and small breakpoints, place the primary action underneath the title and subtitle.',
     }}
     width="100%"
     height={{ min: 'small' }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderActions />
   </Example>
   <Example
     bestPractice={{
@@ -210,6 +213,6 @@ Resize your window to see the responsive behavior of the actions.
     width="100%"
     height={{ min: 'small' }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderActions bestPractice={false} />
   </Example>
 </BestPracticeGroup>
