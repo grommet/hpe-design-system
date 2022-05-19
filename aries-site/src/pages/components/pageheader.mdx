@@ -4,10 +4,10 @@ import {
   PageHeaderActions,
   PageHeaderAnatomy,
   PageHeaderIntroExample,
+  PageHeaderResponsiveActions,
   PageHeaderSubtitle,
   TopLevelPageHeaderExample,
 } from '../../examples';
-import { Box } from 'grommet';
 
 The PageHeader's title communicates the context of the page. The subtitle elaborates secondary information about the page. The user is also able to access navigation to the parent page and any relevant page-level actions.
 
@@ -161,8 +161,10 @@ Page-level actions are actions that affect the entire page or kick-off another t
         'Include actions that affect the entire page in the page-level actions. Place actions related to table or list data (such as create, update, and delete) in the toolbar.',
     }}
     width="100%"
+    showResponsiveControls={[]}
+    screenContainer={{ scale: 0.6 }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderActions />
   </Example>
   <Example
     bestPractice={{
@@ -170,8 +172,10 @@ Page-level actions are actions that affect the entire page or kick-off another t
       message: `Don't include actions related to table or list data (such as create, update, and delete) in the page-level actions.`,
     }}
     width="100%"
+    showResponsiveControls={[]}
+    screenContainer={{ scale: 0.6 }}
   >
-    <Box>Example Coming</Box>
+    <PageHeaderActions bestPractice={false} />
   </Example>
 </BestPracticeGroup>
 
@@ -203,7 +207,7 @@ Resize your window to see the responsive behavior of the actions.
     width="100%"
     height={{ min: 'small' }}
   >
-    <PageHeaderActions />
+    <PageHeaderResponsiveActions />
   </Example>
   <Example
     bestPractice={{
@@ -213,6 +217,6 @@ Resize your window to see the responsive behavior of the actions.
     width="100%"
     height={{ min: 'small' }}
   >
-    <PageHeaderActions bestPractice={false} />
+    <PageHeaderResponsiveActions bestPractice={false} />
   </Example>
 </BestPracticeGroup>

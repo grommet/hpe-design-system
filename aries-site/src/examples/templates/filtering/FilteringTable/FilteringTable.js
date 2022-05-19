@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, DataTable, Heading, ResponsiveContext } from 'grommet';
 import {
   Splits,
@@ -50,7 +51,7 @@ export const FilteringTable = () => (
   </Box>
 );
 
-export const FilterServers = () => (
+export const FilterServers = ({ bestPractice = true }) => (
   <FiltersProvider>
     <Box gap="medium">
       <FilterControls
@@ -61,7 +62,7 @@ export const FilterServers = () => (
         actions={
           <Box direction="row" gap="small">
             <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
-            <Button label="Add Server" secondary />
+            {bestPractice && <Button label="Add Server" secondary />}
           </Box>
         }
       />
@@ -69,6 +70,10 @@ export const FilterServers = () => (
     </Box>
   </FiltersProvider>
 );
+
+FilterServers.propTypes = {
+  bestPractice: PropTypes.bool,
+};
 
 const columns = [
   {

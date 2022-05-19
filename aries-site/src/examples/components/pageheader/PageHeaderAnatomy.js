@@ -43,7 +43,11 @@ export const PageHeaderAnatomy = ({ background }) => {
           gridArea="actions"
           background="blue"
           pad="small"
-          width="medium"
+          width={
+            ['xsmall', 'small', 'medium'].includes(breakpoint)
+              ? 'small'
+              : 'medium'
+          }
           round="xxsmall"
         >
           <Annotation id={3} target="3" />

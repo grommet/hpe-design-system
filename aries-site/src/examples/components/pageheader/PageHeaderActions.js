@@ -1,102 +1,46 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
   Button,
-  Menu,
-  PageHeader,
   Page,
   PageContent,
-  ResponsiveContext,
+  PageHeader,
+  Text,
 } from 'grommet';
-import { FormPrevious, MoreVertical } from 'grommet-icons';
+import { FormPrevious, Pin } from 'grommet-icons';
+import { FilterServers } from '../../templates';
 
-const deviceActions = [
-  {
-    label: 'Delete Device',
-  },
-
-  {
-    label: 'Power Off',
-    secondary: true,
-  },
-  {
-    label: 'Edit Device',
-    primary: true,
-  },
-];
-
-const groupActions = (actions, breakpoint, bestPractice) => {
-  let collapsedActions;
-  let displayedActions;
-  // collapse all default/secondary actions
-  if (breakpoint === 'medium') {
-    collapsedActions = actions.filter(action => !action.primary);
-    displayedActions = actions.filter(action => action.primary);
-    // only leave primary action visible
-  } else if (['xsmall', 'small'].includes(breakpoint)) {
-    collapsedActions = actions.filter(action =>
-      bestPractice ? !action.primary : action.primary,
-    );
-    // primary action should render as child of PageHeader
-    displayedActions = [];
-  } else displayedActions = actions;
-
-  return [collapsedActions, displayedActions];
-};
-
-const Actions = ({ bestPractice }) => {
-  const breakpoint = useContext(ResponsiveContext);
-
-  const [collapsedActions, displayedActions] = groupActions(
-    deviceActions,
-    breakpoint,
-    bestPractice,
-  );
-
-  return (
-    <Box direction="row" gap="small">
-      {collapsedActions && (
-        <Menu
-          dropAlign={{ top: 'bottom', right: 'right' }}
-          icon={<MoreVertical />}
-          items={collapsedActions}
-        />
-      )}
-      {displayedActions.map((action, index) => (
-        <Button key={index} {...action} />
-      ))}
+export const PageHeaderActions = ({ bestPractice = true }) => (
+  <Page>
+    <Box align="center" pad="small" elevation="small">
+      <Text weight="bold">Global Header</Text>
     </Box>
-  );
-};
+    <PageContent>
+      <PageHeader
+        title="Servers"
+        subtitle="View and manage servers."
+        parent={<Anchor label="Dashboard" icon={<FormPrevious />} />}
+        actions={<PageActions bestPractice={bestPractice} />}
+        pad={{ vertical: 'large' }}
+      />
+      <FilterServers bestPractice={bestPractice} />
+    </PageContent>
+  </Page>
+);
 
-Actions.propTypes = {
+PageHeaderActions.propTypes = {
   bestPractice: PropTypes.bool,
 };
 
-export const PageHeaderActions = ({ bestPractice = true }) => {
-  const breakpoint = useContext(ResponsiveContext);
-  return (
-    <Page>
-      <PageContent>
-        <PageHeader
-          title="L2Pod-FTC02 Device"
-          parent={<Anchor icon={<FormPrevious />} label="Devices" />}
-          actions={<Actions bestPractice={bestPractice} />}
-        >
-          {bestPractice && ['xsmall', 'small'].includes(breakpoint) && (
-            <Button
-              alignSelf="start"
-              {...deviceActions[deviceActions.length - 1]}
-            />
-          )}
-        </PageHeader>
-      </PageContent>
-    </Page>
-  );
-};
+const PageActions = ({ bestPractice }) => (
+  <Box direction="row" gap="small">
+    <Button icon={<Pin />} />
+    {!bestPractice ? <Button label="Add Server" secondary /> : undefined}
+  </Box>
+);
 
-PageHeaderActions.propTypes = {
+PageActions.propTypes = {
   bestPractice: PropTypes.bool,
 };
