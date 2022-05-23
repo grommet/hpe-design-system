@@ -3,11 +3,13 @@ import {
   ChildPageHeaderExample,
   PageHeaderActions,
   PageHeaderAnatomy,
+  PageHeaderContentRegions,
   PageHeaderIntroExample,
   PageHeaderResponsiveActions,
   PageHeaderSubtitle,
   TopLevelPageHeaderExample,
 } from '../../examples';
+import { Box, Grid } from 'grommet';
 
 The PageHeader's title communicates the context of the page. The subtitle elaborates secondary information about the page. The user is also able to access navigation to the parent page and any relevant page-level actions.
 
@@ -53,10 +55,8 @@ Page-level actions should:
 
 Resize your screen to see how the content regions adapt at various screen widths.
 
-TBD: Do we want this to be a high-fidelity example?
-
 <Example showResponsiveControls={[]} screenContainer plain width="100%">
-  <PageHeaderAnatomy background="background-front" />
+  <PageHeaderContentRegions background="background-front" />
 </Example>
 
 ## Title
@@ -192,8 +192,6 @@ Follow this guidance on how actions should progressively collapse based on their
 
 - Should remain visible if there is space but collapse into an action menu if there is not enough space.
 - Default buttons should collapse first because they are lower priority than secondary buttons.
-
-NOTE: WE NEED TO DISCUSS THIS SECTION AND HOW TO DISCUSS THE CONCEPT OF ACTION CATEGORIES (MATT"S EXAMPLE WITH PIN/SHARE ICON ONLY BUTTONS)
 
 Resize your window to see the responsive behavior of the actions.
 

@@ -1,61 +1,90 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Diagram, Grid, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
+import { PageHeaderContentRegions } from '.';
 
-export const PageHeaderAnatomy = ({ background }) => {
-  const theme = useContext(ThemeContext);
-  const breakpoint = useContext(ResponsiveContext);
-  return (
-    <Box background={background} fill>
-      <Grid {...theme.pageHeader[breakpoint]} fill="horizontal">
-        <Box
-          gridArea="parent"
-          background="orange"
-          pad="small"
-          round="xxsmall"
-          width="small"
-        >
-          <Annotation id={2} target="2" />
-        </Box>
-        <Box gridArea="title" background="purple!" round="xxsmall" pad="small">
-          <Annotation
-            background={{ color: 'background-front', dark: false }}
-            id={1}
-            target="1a"
-          />
-        </Box>
-        <Box
-          gridArea="subtitle"
-          background="purple!"
-          round="xxsmall"
-          pad="small"
-        >
-          <Annotation
-            background={{ color: 'background-front', dark: false }}
-            id={1}
-            target="1b"
-          />
-        </Box>
-        <Box
-          alignSelf="start"
-          gridArea="actions"
-          background="blue"
-          pad="small"
-          width={
-            ['xsmall', 'small', 'medium'].includes(breakpoint)
-              ? 'small'
-              : 'medium'
-          }
-          round="xxsmall"
-        >
-          <Annotation id={3} target="3" />
-        </Box>
-      </Grid>
-    </Box>
-  );
-};
+const color = 'border';
+const anchor = 'horizontal';
+const thickness = 'hair';
+const type = 'direct';
+
+const connections = [
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '1a',
+    toTarget: 'title',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '1b',
+    toTarget: 'subtitle',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '2',
+    toTarget: 'parent',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '3',
+    toTarget: 'actions',
+  },
+];
+
+export const PageHeaderAnatomy = ({ background }) => (
+  <Stack>
+    <Grid
+      columns={['auto', 'flex', 'auto']}
+      rows={['auto', 'auto', 'auto']}
+      areas={[
+        ['annotation-2', 'pageheader', 'null'],
+        ['annotation-1a', 'pageheader', 'annotation-3'],
+        ['annotation-1b', 'pageheader', 'null-2'],
+      ]}
+      gap={{ column: 'large' }}
+    >
+      <Annotation
+        id={2}
+        target="2"
+        gridArea="annotation-2"
+        alignSelf="center"
+      />
+      <Annotation
+        id="1a"
+        target="1a"
+        gridArea="annotation-1a"
+        alignSelf="center"
+      />
+      <Annotation
+        id="1b"
+        target="1b"
+        gridArea="annotation-1b"
+        alignSelf="center"
+      />
+      <Annotation
+        id={3}
+        target="3"
+        gridArea="annotation-3"
+        alignSelf="center"
+      />
+      <PageHeaderContentRegions gridArea="pageheader" background={background} />
+    </Grid>
+    <Diagram connections={connections} />
+  </Stack>
+);
 
 PageHeaderAnatomy.propTypes = {
   background: PropTypes.string,
