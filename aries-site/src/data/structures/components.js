@@ -830,10 +830,10 @@ export const components = [
     preview: {
       image: {
         src: {
-          light: '/componentImages/component-preview-page.svg',
-          dark: '/componentImages/component-preview-page-invert.svg',
+          light: '/componentImages/component-preview-pageheader.svg',
+          dark: '/componentImages/component-preview-pageheader-invert.svg',
         },
-        alt: 'HPE Page Preview',
+        alt: 'HPE PageHeader Preview',
         fit: 'contain',
       },
     },
