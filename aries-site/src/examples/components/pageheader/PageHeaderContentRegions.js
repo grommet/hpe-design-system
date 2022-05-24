@@ -7,14 +7,28 @@ import {
   Button,
   Grid,
   Heading,
+  Menu,
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { FormPrevious, MoreVertical } from 'grommet-icons';
+import { groupActions } from './utils';
+
+const actions = [
+  {
+    label: 'Delete Device',
+    secondary: true,
+  },
+  {
+    label: 'Edit Device',
+    primary: true,
+  },
+];
 
 export const PageHeaderContentRegions = ({ background, ...rest }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
+
   return (
     <Box background={background} fill {...rest}>
       <Grid {...theme.pageHeader[breakpoint]} fill="horizontal">
@@ -53,16 +67,40 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
           border={{ style: 'dashed' }}
           round="xxsmall"
         >
-          <Box justify="end" direction="row" gap="small">
-            <Button label="Delete Device" secondary />
-            <Button label="Edit Device" primary />
-          </Box>
+          <Actions />
         </Box>
       </Grid>
+      {['xsmall', 'small'].includes(breakpoint) && (
+        <Button alignSelf="start" {...actions[actions.length - 1]} />
+      )}
     </Box>
   );
 };
 
 PageHeaderContentRegions.propTypes = {
   background: PropTypes.string,
+};
+
+const Actions = () => {
+  const breakpoint = useContext(ResponsiveContext);
+
+  const [collapsedActions, displayedActions] = groupActions(
+    actions,
+    breakpoint,
+  );
+
+  return (
+    <Box direction="row" gap="small">
+      {collapsedActions && (
+        <Menu
+          dropAlign={{ top: 'bottom', right: 'right' }}
+          icon={<MoreVertical />}
+          items={collapsedActions}
+        />
+      )}
+      {displayedActions.map((action, index) => (
+        <Button key={index} {...action} />
+      ))}
+    </Box>
+  );
 };
