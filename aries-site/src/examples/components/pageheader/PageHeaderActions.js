@@ -23,7 +23,7 @@ export const PageHeaderActions = ({ bestPractice = true }) => (
         subtitle="View and manage servers."
         parent={<Anchor label="Dashboard" icon={<FormPrevious />} />}
         actions={<PageActions bestPractice={bestPractice} />}
-        pad={{ vertical: 'large' }}
+        pad={{ top: 'large', bottom: 'medium' }}
       />
       <FilterServers bestPractice={bestPractice} />
     </PageContent>

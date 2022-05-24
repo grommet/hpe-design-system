@@ -8,10 +8,9 @@ export const groupActions = (actions, breakpoint, bestPractice) => {
     // only leave primary action visible
   } else if (['xsmall', 'small'].includes(breakpoint)) {
     collapsedActions = actions.filter(action =>
-      bestPractice ? !action.primary : action.primary,
+      bestPractice ? !action.primary : action,
     );
-    // primary action should render as child of PageHeader
-    displayedActions = [];
+    displayedActions = actions.filter(action => bestPractice && action.primary);
   } else displayedActions = actions;
 
   return [collapsedActions, displayedActions];

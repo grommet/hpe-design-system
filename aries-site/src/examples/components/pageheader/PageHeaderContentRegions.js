@@ -4,33 +4,20 @@ import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
-  Button,
   Grid,
   Heading,
-  Menu,
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { FormPrevious, MoreVertical } from 'grommet-icons';
-import { groupActions } from './utils';
-
-const actions = [
-  {
-    label: 'Delete Device',
-    secondary: true,
-  },
-  {
-    label: 'Edit Device',
-    primary: true,
-  },
-];
+import { FormPrevious } from 'grommet-icons';
+import { Actions } from './PageHeaderResponsiveActions';
 
 export const PageHeaderContentRegions = ({ background, ...rest }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Box background={background} fill {...rest}>
+    <Box align="start" background={background} fill gap="medium" {...rest}>
       <Grid {...theme.pageHeader[breakpoint]} fill="horizontal">
         <Box
           id="parent"
@@ -60,18 +47,27 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
             View and edit details for this device.
           </Paragraph>
         </Box>
+        {!['xsmall', 'small'].includes(breakpoint) && (
+          <Box
+            id="actions"
+            alignSelf="start"
+            gridArea="actions"
+            border={{ style: 'dashed' }}
+            round="xxsmall"
+          >
+            <Actions />
+          </Box>
+        )}
+      </Grid>
+      {['xsmall', 'small'].includes(breakpoint) && (
         <Box
           id="actions"
-          alignSelf="start"
-          gridArea="actions"
+          align="start"
           border={{ style: 'dashed' }}
           round="xxsmall"
         >
           <Actions />
         </Box>
-      </Grid>
-      {['xsmall', 'small'].includes(breakpoint) && (
-        <Button alignSelf="start" {...actions[actions.length - 1]} />
       )}
     </Box>
   );
@@ -79,28 +75,4 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
 
 PageHeaderContentRegions.propTypes = {
   background: PropTypes.string,
-};
-
-const Actions = () => {
-  const breakpoint = useContext(ResponsiveContext);
-
-  const [collapsedActions, displayedActions] = groupActions(
-    actions,
-    breakpoint,
-  );
-
-  return (
-    <Box direction="row" gap="small">
-      {collapsedActions && (
-        <Menu
-          dropAlign={{ top: 'bottom', right: 'right' }}
-          icon={<MoreVertical />}
-          items={collapsedActions}
-        />
-      )}
-      {displayedActions.map((action, index) => (
-        <Button key={index} {...action} />
-      ))}
-    </Box>
-  );
 };

@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
 import {
   ChildPageHeaderExample,
   PageHeaderActions,
@@ -18,9 +18,9 @@ The PageHeader's title communicates the context of the page. The subtitle elabor
   docs="https://v2.grommet.io/pageheader?theme=hpe"
   figma="https://www.figma.com/file/BHp0KrOcPvbnzNyshfHkd8/HPE-Page-Header?node-id=2%3A5"
   height={{ min: 'small' }}
-  showResponsiveControls={[]}
-  template
+  width="100%"
 >
+
   <PageHeaderIntroExample />
 </Example>
 
@@ -85,7 +85,7 @@ A subtitle should:
 - Be located below the title and left-aligned with page content.
 - Wrap at the max-width for the paragraph's font-size in order to optimize the readability.
 
-<BestPracticeGroup>
+<BestPracticeGroup columns="100%">
   <Example
     bestPractice={{
       type: 'do',
@@ -157,7 +157,7 @@ Page-level actions are actions that affect the entire page or kick-off another t
 - A primary action should only be used if the primary purpose of the page is to faciliate performing that action. Most pages will not have a primary action.
 - Do not include actions related to table or list data (such as create, update, and delete) in the page-level actions. These should be placed in the toolbar above the data.
 
-<BestPracticeGroup>
+<BestPracticeGroup columns="100%">
   <Example
     bestPractice={{
       type: 'do',
@@ -229,5 +229,16 @@ Follow this guidance on how actions should progressively collapse based on their
     height={{ min: 'small' }}
   >
     <PageHeaderResponsiveActions bestPractice={false} />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'On xsmall and small screens when no primary action exists, leave the action menu in the same row as the title.',
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <PageHeaderResponsiveActions primaryAction={false} />
   </Example>
 </BestPracticeGroup>

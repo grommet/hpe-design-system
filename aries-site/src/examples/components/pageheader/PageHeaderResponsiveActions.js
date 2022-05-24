@@ -10,7 +10,7 @@ import {
   PageContent,
   ResponsiveContext,
 } from 'grommet';
-import { FormPrevious, MoreVertical } from 'grommet-icons';
+import { FormPrevious, More } from 'grommet-icons';
 import { groupActions } from './utils';
 
 const deviceActions = [
@@ -28,21 +28,29 @@ const deviceActions = [
   },
 ];
 
-const Actions = ({ bestPractice }) => {
+export const Actions = ({ bestPractice = true, primaryAction = true }) => {
   const breakpoint = useContext(ResponsiveContext);
 
   const [collapsedActions, displayedActions] = groupActions(
-    deviceActions,
+    primaryAction
+      ? deviceActions
+      : deviceActions.filter(action => !action.primary),
     breakpoint,
     bestPractice,
   );
 
   return (
-    <Box direction="row" gap="small">
+    <Box
+      alignSelf={['xsmall', 'small'].includes(breakpoint) ? 'start' : undefined}
+      direction={
+        ['xsmall', 'small'].includes(breakpoint) ? 'row-reverse' : 'row'
+      }
+      gap="small"
+    >
       {collapsedActions && (
         <Menu
           dropAlign={{ top: 'bottom', right: 'right' }}
-          icon={<MoreVertical />}
+          icon={<More />}
           items={collapsedActions}
         />
       )}
@@ -55,22 +63,42 @@ const Actions = ({ bestPractice }) => {
 
 Actions.propTypes = {
   bestPractice: PropTypes.bool,
+  primaryAction: PropTypes.bool,
 };
 
-export const PageHeaderResponsiveActions = ({ bestPractice = true }) => {
+export const PageHeaderResponsiveActions = ({
+  bestPractice = true,
+  primaryAction = true,
+}) => {
   const breakpoint = useContext(ResponsiveContext);
+
+  const showHeaderActions =
+    !['xsmall', 'small'].includes(breakpoint) || !primaryAction;
+
+  const showResponsiveActions =
+    primaryAction && ['xsmall', 'small'].includes(breakpoint);
+
   return (
     <Page>
       <PageContent>
         <PageHeader
+          gap="medium" // recommending this gets added as default in grommet
           title="L2Pod-FTC02 Device"
+          subtitle="View and edit details about this device."
           parent={<Anchor icon={<FormPrevious />} label="Devices" />}
-          actions={<Actions bestPractice={bestPractice} />}
+          actions={
+            showHeaderActions && (
+              <Actions
+                bestPractice={bestPractice}
+                primaryAction={primaryAction}
+              />
+            )
+          }
         >
-          {bestPractice && ['xsmall', 'small'].includes(breakpoint) && (
-            <Button
-              alignSelf="start"
-              {...deviceActions[deviceActions.length - 1]}
+          {showResponsiveActions && (
+            <Actions
+              bestPractice={bestPractice}
+              primaryAction={primaryAction}
             />
           )}
         </PageHeader>
@@ -81,4 +109,5 @@ export const PageHeaderResponsiveActions = ({ bestPractice = true }) => {
 
 PageHeaderResponsiveActions.propTypes = {
   bestPractice: PropTypes.bool,
+  primaryAction: PropTypes.bool,
 };
