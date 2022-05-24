@@ -1,6 +1,13 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, DataTable, Heading, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  DataTable,
+  Heading,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
 import {
   Splits,
   StatusWarningSmall,
@@ -92,6 +99,11 @@ const columns = [
   {
     property: 'hardware.model',
     header: 'Model',
+    render: datum => (
+      <Text a11yTitle={!datum.hardware.model ? 'No value' : undefined}>
+        {datum.hardware.model || '--'}
+      </Text>
+    ),
   },
 ];
 

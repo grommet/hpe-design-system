@@ -839,7 +839,17 @@ export const components = [
     },
     seoDescription: `A required page component that provides users context of 
     their current location and a consistent experience across all HPE applications.`,
-    sections: ['Guidance', 'Page Content'],
+    sections: [
+      'Anatomy',
+      'Responsive Behavior and Content Prioritization',
+      'Title',
+      'Subtitle',
+      'Reverse Anchor',
+      'Example of Child Page',
+      'Example of Top-Level Page',
+      'Page-Level Actions',
+      'Responsive Behavior of Actions',
+    ],
     relatedContent: ['Page Layouts', 'Content Layouts', 'Page'],
     tags: ['page header', 'header', 'page'],
   },

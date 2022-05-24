@@ -9,12 +9,14 @@ import {
   PageHeaderSubtitle,
   TopLevelPageHeaderExample,
 } from '../../examples';
-import { Box, Grid } from 'grommet';
+import { Box, Grid, Notification } from 'grommet';
 
 The PageHeader's title communicates the context of the page. The subtitle elaborates secondary information about the page. The user is also able to access navigation to the parent page and any relevant page-level actions.
 
 <Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/PageHeaderIntroExample.js"
   docs="https://v2.grommet.io/pageheader?theme=hpe"
+  figma="https://www.figma.com/file/BHp0KrOcPvbnzNyshfHkd8/HPE-Page-Header?node-id=2%3A5"
   height={{ min: 'small' }}
   showResponsiveControls={[]}
   template
@@ -25,7 +27,7 @@ The PageHeader's title communicates the context of the page. The subtitle elabor
 ## Anatomy
 
 <Example
-  caption="Diagram illustrating the four main content regions of a PageHeader."
+  caption="Diagram illustrating the four main content regions of a PageHeader 1a. Title, 1b. Subtitle, 2. Contextual Navigation, 3. Page-Level Actions."
   plain
 >
   <PageHeaderAnatomy />
@@ -53,7 +55,11 @@ Page-level actions should:
 - Have a width of "auto" by default.
 - Progressively collapse into an overflow menu as screen width becomes limited. This should follow guidance on [responsive behavior of actions](#responsive-behavior-of-actions).
 
-Resize your screen to see how the content regions adapt at various screen widths.
+<Notification
+  width="large"
+  status="info"
+  message="Resize your window to see how the content regions adapt at various screen widths."
+/>
 
 <Example showResponsiveControls={[]} screenContainer plain width="100%">
   <PageHeaderContentRegions background="background-front" />
@@ -114,9 +120,8 @@ A reverse Anchor is required on all child pages and should:
 ### Example of Child Page
 
 <Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js"
   docs="https://v2.grommet.io/pageheader?theme=hpe"
-  // height, width, and screenContainer.scale value chosen to best visually
-  // represent the example
   showResponsiveControls={['fullScreen']}
   screenContainer={{ scale: 0.6 }}
 >
@@ -128,9 +133,8 @@ A reverse Anchor is required on all child pages and should:
 Top-level pages will not display a reverse anchor because they do not have a parent.
 
 <Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/TopLevelPageHeaderExample.js"
   docs="https://v2.grommet.io/pageheader?theme=hpe"
-  // height, width, and screenContainer.scale value chosen to best visually
-  // represent the example
   showResponsiveControls={['fullScreen']}
   screenContainer={{ scale: 0.6 }}
 >
@@ -186,21 +190,30 @@ Follow this guidance on how actions should progressively collapse based on their
 **A primary action should:**
 
 - Only be used if the primary purpose of the page is the perform that action. Most pages won't have a primary button.
-- Always remain visible, if present. At `xsmall` and `small` breakpoints, the primary button should appear beneath the subtitle and be left-aligned with page content.
+- Always remain visible, if present.
 
 **Secondary and default actions:**
 
 - Should remain visible if there is space but collapse into an action menu if there is not enough space.
 - Default buttons should collapse first because they are lower priority than secondary buttons.
 
-Resize your window to see the responsive behavior of the actions.
+**If the screen breakpoint is `small` or `xsmall`:**
+
+- If there is a primary action, then all actions should appear beneath the title and subtitle and be left-aligned with page content.
+- If there is no primary action, then the overflow menu should remain to the right of the title.
+
+<Notification
+  width="large"
+  status="info"
+  message="Resize your window to see how the actions collapse and respond at various screen widths."
+/>
 
 <BestPracticeGroup columns="100%">
   <Example
     bestPractice={{
       type: 'do',
       message:
-        'Collapse default and secondary buttons into an action menu. Always keep the primary action visible if it exists. At xsmall and small breakpoints, place the primary action underneath the title and subtitle.',
+        'Collapse default and secondary buttons into an action menu. Always keep the primary action visible if it exists. At xsmall and small breakpoints, place the actions underneath the title and subtitle.',
     }}
     width="100%"
     height={{ min: 'small' }}
