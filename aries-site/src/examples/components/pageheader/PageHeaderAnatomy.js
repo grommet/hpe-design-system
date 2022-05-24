@@ -16,7 +16,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '1a',
-    toTarget: 'title',
+    toTarget: 'title-region',
   },
   {
     anchor,
@@ -24,7 +24,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '1b',
-    toTarget: 'subtitle',
+    toTarget: 'subtitle-region',
   },
   {
     anchor,

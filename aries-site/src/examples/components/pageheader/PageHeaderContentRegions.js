@@ -28,7 +28,7 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
           <Anchor label="Devices" icon={<FormPrevious />} />
         </Box>
         <Box
-          id="title"
+          id="title-region"
           gridArea="title"
           border={{ style: 'dashed' }}
           round="xxsmall"
@@ -38,7 +38,7 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
           </Heading>
         </Box>
         <Box
-          id="subtitle"
+          id="subtitle-region"
           gridArea="subtitle"
           border={{ style: 'dashed' }}
           round="xxsmall"
