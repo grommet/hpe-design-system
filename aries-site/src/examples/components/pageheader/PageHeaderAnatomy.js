@@ -57,7 +57,7 @@ export const PageHeaderAnatomy = ({ background }) => {
         rows={
           mobileLayout
             ? ['auto', 'auto', 'auto', 'auto']
-            : ['auto', 'auto', 'auto']
+            : ['31px', '58px', '30px']
         }
         areas={
           mobileLayout
