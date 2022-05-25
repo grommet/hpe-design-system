@@ -14,9 +14,14 @@ import { Box, Grid, Notification } from 'grommet';
 The PageHeader's title communicates the context of the page. The subtitle elaborates secondary information about the page. The user is also able to access navigation to the parent page and any relevant page-level actions.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/PageHeaderIntroExample.js"
+  code={[
+    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/PageHeaderIntroExample.js",
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ReverseAnchor/ReverseAnchor.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ActionMenu/ActionMenu.js',
+  ]}
   docs="https://v2.grommet.io/pageheader?theme=hpe"
   figma="https://www.figma.com/file/BHp0KrOcPvbnzNyshfHkd8/HPE-Page-Header?node-id=2%3A5"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/pageheader/PageHeaderIntroExample.js"
   height={{ min: 'small' }}
   width="100%"
 >
@@ -129,8 +134,12 @@ A reverse anchor is required on all child pages and should:
 Child pages include a reverse anchor which allows the user to navigate from the child page to its parent.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ReverseAnchor/ReverseAnchor.js',
+  ]}
   docs="https://v2.grommet.io/pageheader?theme=hpe"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer={{ scale: 0.6 }}
 >
@@ -165,6 +174,7 @@ Page-level actions affect the entire page or launch a task flow.
 
 - A primary action should only be used if the primary purpose of the page is to faciliate performing that action. Most pages will not have a primary action.
 - Do not include actions related to table or list data (such as create, update, and delete) in the page-level actions. These should be placed in the toolbar above the data.
+- Page-level actions may be in the form of a button or in a menu.
 
 <BestPracticeGroup columns="100%">
   <Example
