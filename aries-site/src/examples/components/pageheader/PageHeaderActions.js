@@ -1,16 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Anchor,
-  Box,
-  Button,
-  Page,
-  PageContent,
-  PageHeader,
-  Text,
-} from 'grommet';
-import { FormPrevious, Pin } from 'grommet-icons';
-import { FilterServers } from '../../templates';
+import { Box, Button, Page, PageContent, PageHeader, Text } from 'grommet';
+import { Pin } from 'grommet-icons';
+import { FilterServers, ReverseAnchor } from '../../templates';
 
 export const PageHeaderActions = ({ bestPractice = true }) => (
   <Page>
@@ -21,7 +13,7 @@ export const PageHeaderActions = ({ bestPractice = true }) => (
       <PageHeader
         title="Servers"
         subtitle="View and manage servers."
-        parent={<Anchor label="Dashboard" icon={<FormPrevious />} />}
+        parent={<ReverseAnchor label="Dashboard" />}
         actions={<PageActions bestPractice={bestPractice} />}
         pad={{ top: 'large', bottom: 'medium' }}
       />

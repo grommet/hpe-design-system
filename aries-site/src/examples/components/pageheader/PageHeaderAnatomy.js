@@ -52,6 +52,7 @@ export const PageHeaderAnatomy = ({ background }) => {
   return (
     <Stack>
       <Grid
+        align="center"
         columns={['auto', 'flex', 'auto']}
         rows={
           mobileLayout
@@ -74,36 +75,14 @@ export const PageHeaderAnatomy = ({ background }) => {
         }
         gap={{ column: 'large' }}
       >
-        <Annotation
-          id={2}
-          target="2"
-          gridArea="annotation-2"
-          alignSelf="center"
-          margin={{ bottom: 'small' }}
-        />
-        <Annotation
-          id="1a"
-          target="1a"
-          gridArea="annotation-1a"
-          alignSelf="center"
-          margin={{ bottom: 'small' }}
-        />
-        <Annotation
-          id="1b"
-          target="1b"
-          gridArea="annotation-1b"
-          alignSelf="center"
-        />
-        <Annotation
-          id={3}
-          target="3"
-          gridArea="annotation-3"
-          alignSelf="center"
-          margin={{ bottom: 'small' }}
-        />
+        <Annotation id={2} target="2" gridArea="annotation-2" />
+        <Annotation id="1a" target="1a" gridArea="annotation-1a" />
+        <Annotation id="1b" target="1b" gridArea="annotation-1b" />
+        <Annotation id={3} target="3" gridArea="annotation-3" />
         <PageHeaderContentRegions
           gridArea="pageheader"
           background={background}
+          pad="none" // removing pad from anatomy diagram
         />
       </Grid>
       <Diagram connections={connections} />

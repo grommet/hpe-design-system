@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Anchor,
   Box,
   Button,
   Menu,
@@ -10,8 +9,9 @@ import {
   PageContent,
   ResponsiveContext,
 } from 'grommet';
-import { FormPrevious, More } from 'grommet-icons';
+import { More } from 'grommet-icons';
 import { groupActions } from './utils';
+import { ReverseAnchor } from '../../templates';
 
 const deviceActions = [
   {
@@ -85,7 +85,7 @@ export const PageHeaderResponsiveActions = ({
           gap="medium" // recommending this gets added as default in grommet
           title="L2Pod-FTC02 Device"
           subtitle="View and edit details about this device."
-          parent={<Anchor icon={<FormPrevious />} label="Devices" />}
+          parent={<ReverseAnchor label="Devices" />}
           actions={
             showHeaderActions && (
               <Actions

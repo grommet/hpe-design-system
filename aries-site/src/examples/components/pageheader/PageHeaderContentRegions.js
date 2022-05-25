@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import {
-  Anchor,
-  Box,
-  Grid,
-  Heading,
-  Paragraph,
-  ResponsiveContext,
-} from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { Box, Grid, Heading, Paragraph, ResponsiveContext } from 'grommet';
 import { Actions } from './PageHeaderResponsiveActions';
+import { ReverseAnchor } from '../../templates';
 
-export const PageHeaderContentRegions = ({ background, ...rest }) => {
+export const PageHeaderContentRegions = ({ background, pad, ...rest }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Box align="start" background={background} fill gap="medium" {...rest}>
+    <Box
+      align="start"
+      background={background}
+      fill
+      gap="medium"
+      pad={pad || { top: 'large', bottom: 'medium' }}
+      {...rest}
+    >
       <Grid {...theme.pageHeader[breakpoint]} fill="horizontal">
         <Box
           id="parent"
@@ -25,7 +25,7 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
           border={{ style: 'dashed' }}
           round="xxsmall"
         >
-          <Anchor label="Devices" icon={<FormPrevious />} />
+          <ReverseAnchor label="Devices" />
         </Box>
         <Box
           id="title-region"
@@ -75,4 +75,5 @@ export const PageHeaderContentRegions = ({ background, ...rest }) => {
 
 PageHeaderContentRegions.propTypes = {
   background: PropTypes.string,
+  pad: PropTypes.string,
 };

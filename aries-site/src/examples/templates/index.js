@@ -15,4 +15,5 @@ export * from './toast-notifications';
 export * from './wizard';
 export * from './FilterControls';
 export * from './ModalDialog';
+export * from './ReverseAnchor';
 export * from './StatusIndicator';

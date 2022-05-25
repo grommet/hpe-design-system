@@ -7,6 +7,9 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   pageHeader: {
+    actions: {
+      pad: { vertical: 'xxsmall' }, // aligns button height with heading line-height
+    },
     title: {
       size: 'small',
     },

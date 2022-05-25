@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, PageHeader, NameValueList, NameValuePair } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { PageHeader, NameValueList, NameValuePair } from 'grommet';
+import { ReverseAnchor } from '../../templates';
 
 export const PageHeaderSubtitle = ({ bestPractice = true }) => (
   <PageHeader
     title="Order 201928"
     subtitle={bestPractice ? <SubtitleBestPractice /> : <SubtitleBadPractice />}
-    parent={<Anchor label="Orders" icon={<FormPrevious />} />}
+    parent={<ReverseAnchor label="Orders" />}
   />
 );
 

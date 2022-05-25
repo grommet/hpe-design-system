@@ -1,8 +1,7 @@
 import React from 'react';
-import { Anchor, Box, Page, PageContent, PageHeader, Text } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { Box, Page, PageContent, PageHeader, Text } from 'grommet';
 
-import { FilterServers } from '../../templates';
+import { FilterServers, ReverseAnchor } from '../../templates';
 
 export const ChildPageHeaderExample = () => (
   <Page>
@@ -13,7 +12,7 @@ export const ChildPageHeaderExample = () => (
       <PageHeader
         title="Servers"
         subtitle="View and manage servers."
-        parent={<Anchor label="Manage Account" icon={<FormPrevious />} />}
+        parent={<ReverseAnchor label="Manage Account" />}
         pad={{ vertical: 'large', bottom: 'medium' }}
       />
       <FilterServers />

@@ -61,7 +61,13 @@ Page-level actions should:
   message="Resize your window to see how the content regions adapt at various screen widths."
 />
 
-<Example showResponsiveControls={[]} screenContainer plain width="100%">
+<Example
+  docs="https://v2.grommet.io/pageheader?theme=hpe"
+  showResponsiveControls={[]}
+  height={{ min: 'small' }}
+  screenContainer
+  width="100%"
+>
   <PageHeaderContentRegions background="background-front" />
 </Example>
 
@@ -119,7 +125,9 @@ A reverse anchor is required on all child pages and should:
 - Not be used on [top-level pages](#example-of-top-level-page) because they do not have a parent.
 
 ### Example of Child Page
+
 Child pages include a reverse anchor which allows the user to navigate from the child page to its parent.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js"
   docs="https://v2.grommet.io/pageheader?theme=hpe"
@@ -162,8 +170,7 @@ Page-level actions affect the entire page or launch a task flow.
   <Example
     bestPractice={{
       type: 'do',
-      message:
-        'Include actions affecting the entire page in the page-level actions. Actions related to table or list data (such as create, update, and delete) should be placed in the list's or table's toolbar.',
+      message: `Include actions affecting the entire page in the page-level actions. Actions related to table or list data (such as create, update, and delete) should be placed in the list's or table's toolbar.`,
     }}
     width="100%"
     showResponsiveControls={[]}
