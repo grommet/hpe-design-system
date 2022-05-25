@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { Button, Menu, PageHeader, ResponsiveContext } from 'grommet';
-import { More } from 'grommet-icons';
-import { ReverseAnchor } from '../../templates';
+import { Button, PageHeader, ResponsiveContext } from 'grommet';
+import { ActionMenu, ReverseAnchor } from '../../templates';
 
 const actions = [
   {
@@ -19,10 +18,10 @@ export const PageHeaderIntroExample = () => {
       subtitle="View and manage devices."
       parent={<ReverseAnchor label="Dashboard" />}
       actions={
-        !['xsmall', 'small'].includes(breakpoint) ? (
+        breakpoint !== 'xsmall' ? (
           <Button label="Export Devices" secondary />
         ) : (
-          <Menu items={actions} icon={<More />} />
+          <ActionMenu items={actions} />
         )
       }
     />

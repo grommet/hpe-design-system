@@ -8,7 +8,8 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   pageHeader: {
     actions: {
-      pad: { vertical: 'xxsmall' }, // aligns button height with heading line-height
+      // aligns button height with heading line-height
+      pad: { vertical: 'xxsmall' },
     },
     title: {
       size: 'small',

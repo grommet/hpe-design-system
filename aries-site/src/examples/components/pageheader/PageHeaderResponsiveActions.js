@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Button,
-  Menu,
   PageHeader,
   Page,
   PageContent,
   ResponsiveContext,
 } from 'grommet';
-import { More } from 'grommet-icons';
 import { groupActions } from './utils';
-import { ReverseAnchor } from '../../templates';
+import { ActionMenu, ReverseAnchor } from '../../templates';
 
 const deviceActions = [
   {
@@ -47,13 +45,7 @@ export const Actions = ({ bestPractice = true, primaryAction = true }) => {
       }
       gap="small"
     >
-      {collapsedActions && (
-        <Menu
-          dropAlign={{ top: 'bottom', right: 'right' }}
-          icon={<More />}
-          items={collapsedActions}
-        />
-      )}
+      {collapsedActions && <ActionMenu items={collapsedActions} />}
       {displayedActions.map((action, index) => (
         <Button key={index} {...action} />
       ))}

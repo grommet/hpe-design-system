@@ -1,3 +1,4 @@
+export * from './ActionMenu';
 export * from './ascending-navigation';
 export * from './code-blocks';
 export * from './content-layouts';
