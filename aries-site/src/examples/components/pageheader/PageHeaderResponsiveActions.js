@@ -39,7 +39,7 @@ export const Actions = ({ bestPractice = true, primaryAction = true }) => {
 
   return (
     <Box
-      alignSelf={['xsmall', 'small'].includes(breakpoint) ? 'start' : undefined}
+      alignSelf={['xsmall', 'small'].includes(breakpoint) ? 'start' : 'end'}
       direction={
         ['xsmall', 'small'].includes(breakpoint) ? 'row-reverse' : 'row'
       }
