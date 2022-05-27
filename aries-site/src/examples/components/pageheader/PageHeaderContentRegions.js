@@ -15,7 +15,7 @@ export const PageHeaderContentRegions = ({ background, pad, ...rest }) => {
       background={background}
       fill
       gap="medium"
-      pad={pad || { top: 'large', bottom: 'medium' }}
+      pad={pad || theme.pageHeader.pad}
       {...rest}
     >
       <Grid {...theme.pageHeader[breakpoint]} fill="horizontal">

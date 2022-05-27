@@ -74,7 +74,6 @@ export const PageHeaderResponsiveActions = ({
     <Page>
       <PageContent>
         <PageHeader
-          gap="medium" // recommending this gets added as default in grommet
           title="L2Pod-FTC02 Device"
           subtitle="View and edit details about this device."
           parent={<ReverseAnchor label="Devices" />}

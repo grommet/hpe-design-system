@@ -13,7 +13,6 @@ export const ChildPageHeaderExample = () => (
         title="Servers"
         subtitle="View and manage servers."
         parent={<ReverseAnchor label="Manage Account" />}
-        pad={{ vertical: 'large', bottom: 'medium' }}
       />
       <FilterServers />
     </PageContent>

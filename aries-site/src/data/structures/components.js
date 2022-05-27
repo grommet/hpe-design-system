@@ -825,7 +825,7 @@ export const components = [
     name: 'PageHeader',
     available: true,
     category: 'Layouts',
-    description: `A component providing users a consistent, predictable layout for locating a page's title, contextual navigation, and actions across all HPE applications.`,
+    description: 'A component providing users a consistent, predictable layout for locating a page\'s title, contextual navigation, and actions across all HPE applications.',
     preview: {
       image: {
         src: {
