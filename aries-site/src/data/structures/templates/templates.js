@@ -622,6 +622,7 @@ export const templates = [
       image: {
         src: {
           light: '/templateImages/template-preview-banner-notification.svg',
+          // eslint-disable-next-line max-len
           dark: '/templateImages/template-preview-banner-notification-invert.svg',
         },
         alt: 'Banner notification under HPE Global Application header.',

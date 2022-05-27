@@ -822,6 +822,37 @@ export const components = [
     tags: ['page', 'page content'],
   },
   {
+    name: 'PageHeader',
+    available: true,
+    category: 'Layouts',
+    description: 'A component providing users a consistent, predictable layout for locating a page\'s title, contextual navigation, and actions across all HPE applications.',
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-pageheader.svg',
+          dark: '/componentImages/component-preview-pageheader-invert.svg',
+        },
+        alt: 'HPE PageHeader Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `A required page component that provides users context of 
+    their current location and a consistent experience across all HPE applications.`,
+    sections: [
+      'Anatomy',
+      'Responsive Behavior and Content Prioritization',
+      'Title',
+      'Subtitle',
+      'Reverse Anchor',
+      'Example of Child Page',
+      'Example of Top-Level Page',
+      'Page-Level Actions',
+      'Responsive Behavior of Actions',
+    ],
+    relatedContent: ['Page Layouts', 'Content Layouts', 'Page'],
+    tags: ['page header', 'header', 'page'],
+  },
+  {
     name: 'All Components',
     available: true,
     category: 'All',
