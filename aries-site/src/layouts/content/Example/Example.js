@@ -196,24 +196,20 @@ export const Example = ({
     </ExampleContainer>
   );
 
-  const exampleControls = (designer ||
-    docs ||
-    figma ||
-    guidance ||
-    screenContainer ||
-    template) && (
-    <ExampleControls
-      componentName={componentName}
-      designer={designer}
-      docs={docs}
-      figma={figma}
-      grommetSource={grommetSource}
-      guidance={guidance}
-      horizontalLayout={horizontalLayout}
-      setFullscreen={value => setFullscreen(value)}
-      showResponsiveControls={showResponsiveControls}
-    />
-  );
+  const exampleControls = !bestPractice &&
+    (designer || docs || figma || guidance || screenContainer || template) && (
+      <ExampleControls
+        componentName={componentName}
+        designer={designer}
+        docs={docs}
+        figma={figma}
+        grommetSource={grommetSource}
+        guidance={guidance}
+        horizontalLayout={horizontalLayout}
+        setFullscreen={value => setFullscreen(value)}
+        showResponsiveControls={showResponsiveControls}
+      />
+    );
 
   if (!horizontalLayout)
     content = (

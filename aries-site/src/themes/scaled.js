@@ -13,6 +13,9 @@ const undefinedThemeProperties = {
       },
     },
   },
+  anchor: {
+    extend: '',
+  },
 };
 
 export const scaled = (scale = 1, baseSpacing = 24) => {
@@ -100,6 +103,15 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
       /* eslint-enable no-param-reassign */
     });
   });
+
+  // Anchor typically inherits its font-size from its parent and does not have
+  // a theme property to adjust. Therefore use anchor.extend, assume 'medium'
+  // and scale accordingly.
+  scaledTheme.anchor.extend = `
+    ${source.anchor.extend} 
+    font-size: ${Math.ceil(18 * scale)}px;
+    line-height: ${Math.ceil(24 * scale)}px;
+  `;
 
   return scaledTheme;
 };

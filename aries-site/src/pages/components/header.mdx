@@ -4,7 +4,6 @@ import {
   HeaderExample,
   HeaderActionExample,
   HeaderNavigationExample,
-  HeaderPageExample,
   HeaderAvatarExample,
   HeaderSearchActionsExample,
 } from '../../examples';
@@ -70,15 +69,7 @@ If you have actions that pertain specifically to a single page, consider adding 
 
 ### Page Header
 
-A page-level Header sets the context for a single page within an application. It may contain the main heading of the page as well as some actions pertaining to the specific page content.
-
-**A page-level Header should:**
-
-- always be used in addition to the App Header
-- be placed below the App Header in the layout
-- contain actions relevant to a single page of an app
-
-For more guidance, check out an example of [how to use a page-level header](#header-for-a-single-page).
+A page-level Header sets the context for a single page within an application. For guidance, see documentation for [PageHeader](/components/pageheader).
 
 ### Accessibility
 
@@ -152,17 +143,4 @@ A complex header can be effective for certain application purposes. However, it 
   height={{ min: 'small' }}
 >
   <HeaderSearchActionsExample />
-</Example>
-
-### Header for a single page
-
-A Page Header should never replace the App Header. It should be used in addition to the App Header and placed below the App Header in the layout. The actions within a Page Header should pertain only to the content within the current page.
-
-<Example
-  docs="https://v2.grommet.io/header?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/header/HeaderPageExample.js"
-  width="100%"
-  height={{ min: 'small' }}
->
-  <HeaderPageExample />
 </Example>
