@@ -61,42 +61,23 @@ Actions.propTypes = {
 export const PageHeaderResponsiveActions = ({
   bestPractice = true,
   primaryAction = true,
-}) => {
-  const breakpoint = useContext(ResponsiveContext);
-
-  const showHeaderActions =
-    !['xsmall', 'small'].includes(breakpoint) || !primaryAction;
-
-  const showResponsiveActions =
-    primaryAction && ['xsmall', 'small'].includes(breakpoint);
-
-  return (
-    <Page>
-      <PageContent>
-        <PageHeader
-          title="L2Pod-FTC02 Device"
-          subtitle="View and edit details about this device."
-          parent={<ReverseAnchor label="Devices" />}
-          actions={
-            showHeaderActions && (
-              <Actions
-                bestPractice={bestPractice}
-                primaryAction={primaryAction}
-              />
-            )
-          }
-        >
-          {showResponsiveActions && (
-            <Actions
-              bestPractice={bestPractice}
-              primaryAction={primaryAction}
-            />
-          )}
-        </PageHeader>
-      </PageContent>
-    </Page>
-  );
-};
+}) => (
+  <Page>
+    <PageContent>
+      <PageHeader
+        title="L2Pod-FTC02 Device"
+        subtitle="View and edit details about this device."
+        parent={<ReverseAnchor label="Devices" />}
+        actions={
+          <Actions bestPractice={bestPractice} primaryAction={primaryAction} />
+        }
+        // if there is a primary action, the PageHeader should
+        // use responsive behavior
+        responsive={primaryAction}
+      />
+    </PageContent>
+  </Page>
+);
 
 PageHeaderResponsiveActions.propTypes = {
   bestPractice: PropTypes.bool,
