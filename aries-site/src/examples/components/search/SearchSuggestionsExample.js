@@ -67,8 +67,7 @@ export const SearchSuggestionsExample = () => {
 
     if (query) {
       const regexp = new RegExp(query, 'i');
-      resultSet = searchSuggestions
-        .filter(option => regexp.test(option));
+      resultSet = searchSuggestions.filter(option => regexp.test(option));
     } else {
       resultSet = searchSuggestions;
     }
@@ -93,6 +92,7 @@ export const SearchSuggestionsExample = () => {
       suggestions={suggestions}
       value={value}
       onChange={onChange}
+      type="search"
     />
   );
 };

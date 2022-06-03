@@ -1,7 +1,8 @@
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
 import {
   SearchExample,
   SearchIconPositionExample,
+  SearchPlaceholder,
   SearchSimpleExample,
   SearchSuggestionsExample,
 } from '../../examples';
@@ -23,6 +24,31 @@ import {
 Search inputs provide a powerful means for users to access content quickly and efficiently.
 
 Many search best practices extend "behind the scenes," such as how query strings are matched to relevant content and to the efficiency in which that information is retrieved.
+
+### Placeholder
+
+Placeholder text should only contain the text "Search".
+
+<BestPracticeGroup>
+  <Example
+    height="small"
+    bestPractice={{
+      type: 'do',
+      message: 'Search placeholder only contains the text "Search".',
+    }}
+  >
+    <SearchPlaceholder />
+  </Example>
+  <Example
+    height="small"
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use specific attributes or descriptors in the search placeholder.`,
+    }}
+  >
+    <SearchPlaceholder bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
 
 ### Auto-suggestions
 

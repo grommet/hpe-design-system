@@ -22,6 +22,7 @@ export const SearchExample = ({ ...props }) => {
       reverse
       value={value}
       onChange={event => setValue(event.target.value)}
+      type="search"
       {...props}
     />
   );

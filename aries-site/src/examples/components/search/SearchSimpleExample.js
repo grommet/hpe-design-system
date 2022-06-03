@@ -24,6 +24,7 @@ export const SearchSimpleExample = () => {
         reverse
         value={value}
         onChange={event => setValue(event.target.value)}
+        type="search"
       />
     </Box>
   );

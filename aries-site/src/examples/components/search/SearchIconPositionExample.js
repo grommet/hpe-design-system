@@ -21,6 +21,7 @@ export const SearchIconPositionExample = () => {
       placeholder="Search"
       value={value}
       onChange={event => setValue(event.target.value)}
+      type="search"
     />
   );
 };
