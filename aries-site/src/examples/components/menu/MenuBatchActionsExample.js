@@ -1,12 +1,15 @@
 import { Menu } from 'grommet';
 
-export const MenuBatchActionsExample = ({ bestPractice }) => (
+export const MenuBatchActionsExample = () => (
   <Menu
     label="Actions"
     open={true}
     items={[
-      [{ label: 'View', onClick: () => {} }],
-      [{ label: 'Update firmware', onClick: () => {} }],
+      { label: 'Power on', onClick: () => {} },
+      { label: 'Power off', onClick: () => {} },
+      { label: 'Reset', onClick: () => {} },
+      { label: 'Update firmware', onClick: () => {} },
+      { label: 'Add to group', onClick: () => {} },
     ]}
   />
 );

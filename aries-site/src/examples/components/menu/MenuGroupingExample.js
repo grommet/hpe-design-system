@@ -1,17 +1,24 @@
 import PropTypes from 'prop-types';
 import { Menu } from 'grommet';
 
-export const MenuGroupingExample = ({ bestPractice }) => (
+export const MenuGroupingExample = ({ bestPractice = true }) => (
   <Menu
     label="Actions"
-    open={true}
-    items={[
-      [{ label: 'View', onClick: () => {} }],
-      [{ label: 'Update firmware', onClick: () => {} }],
-    ]}
+    open
+    items={
+      bestPractice
+        ? [
+            { label: 'View', onClick: () => {} },
+            { label: 'Update firmware', onClick: () => {} },
+          ]
+        : [
+            [{ label: 'View', onClick: () => {} }],
+            [{ label: 'Update firmware', onClick: () => {} }],
+          ]
+    }
   />
 );
 
 MenuGroupingExample.propTypes = {
-  bestPractice: PropTypes.object,
+  bestPractice: PropTypes.bool,
 };
