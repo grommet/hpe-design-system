@@ -66,8 +66,8 @@ export const MenuRecordActionsExample = () => (
             icon={<More />}
             open={index === 0}
             items={[
-              [{ label: 'Edit', onClick: () => {} }],
               [
+                { label: 'Edit', onClick: () => {} },
                 { label: 'View servers', onClick: () => {} },
                 { label: 'Add servers', onClick: () => {} },
                 { label: 'Remove servers', onClick: () => {} },

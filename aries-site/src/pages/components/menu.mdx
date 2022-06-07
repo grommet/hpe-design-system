@@ -182,20 +182,27 @@ Actions enabling a user to share or consume data related to a resource.
 - Send [resource] to [user]
 - Notify [user] about [resource]
 
-TODO: add a series of examples showcasing tangible resources (e.g. servers, clusters, etc.)
-
 #### Batch actions menu related to a selection of servers
+
+The table menu's batch actions are grouped by exectuing and configuration actions. 
+The executing actions group is ordered first because the actions in it are the 
+most frequently used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js"
   docs="https://v2.grommet.io/menu?theme=hpe#props"
-  template
   height={{ min: 'small' }}
 >
   <MenuBatchActionsExample />
 </Example>
 
 #### Actions menu related to an individual record
+
+Each server group has a menu whose actions have been grouped by configuration, 
+executing, and dangerous actions. The configuration actions group is ordered first 
+because adjusting and viewing the group are the most frequently used. The delete 
+group action is ordered last since deleting the group is a destructive action and 
+cannot be recovered.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js"
