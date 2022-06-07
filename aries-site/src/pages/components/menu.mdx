@@ -1,3 +1,4 @@
+import { Box } from 'grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   MenuExample,
@@ -77,15 +78,23 @@ Menu items should only be grouped if there are two or more related items.
         'Leave actions in a single group when there is only 1 menu item in each category.',
     }}
   >
-    <MenuGroupingExample />
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="xsmall">
+      <MenuGroupingExample />
+    </Box>
   </Example>
   <Example
     bestPractice={{
       type: 'dont',
-      message: `Don't add a separator between groups when there is only 1 menu item in each category.`,
+      message: `Don't add a separator between groups when there is only 1 menu item in 
+      each category. A single dangerous actions in the exception and should be placed 
+      in a distinct group.`,
     }}
   >
-    <MenuGroupingExample bestPractice={false} />
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="xsmall">
+      <MenuGroupingExample bestPractice={false} />
+    </Box>
   </Example>
 </BestPracticeGroup>
 
@@ -118,7 +127,10 @@ Selecting a dangerous action should lead to double confirmation.
         'Always separate a dangerous action into its own group and place it at the end. Clicking on a dangerous action should lead to a double confirmation.',
     }}
   >
-    <MenuDangerousExample />
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuDangerousExample />
+    </Box>
   </Example>
   <Example
     bestPractice={{
@@ -126,7 +138,10 @@ Selecting a dangerous action should lead to double confirmation.
       message: `Don't leave dangerous actions grouped with other actions.`,
     }}
   >
-    <MenuDangerousExample bestPractice={false} />
+   {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuDangerousExample bestPractice={false} />
+    </Box>
   </Example>
 </BestPracticeGroup>
 
@@ -174,6 +189,7 @@ TODO: add a series of examples showcasing tangible resources (e.g. servers, clus
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js"
   docs="https://v2.grommet.io/menu?theme=hpe#props"
+  template
   height={{ min: 'small' }}
 >
   <MenuBatchActionsExample />
@@ -184,7 +200,7 @@ TODO: add a series of examples showcasing tangible resources (e.g. servers, clus
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js"
   docs="https://v2.grommet.io/menu?theme=hpe#props"
-  height={{ min: 'small' }}
+  height={{ min: 'medium' }}
 >
   <MenuRecordActionsExample />
 </Example>

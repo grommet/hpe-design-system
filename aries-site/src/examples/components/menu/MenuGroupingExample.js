@@ -9,10 +9,12 @@ export const MenuGroupingExample = ({ bestPractice = true }) => (
       bestPractice
         ? [
             { label: 'View', onClick: () => {} },
+            { label: 'Add to group', onClick: () => {} },
             { label: 'Update firmware', onClick: () => {} },
           ]
         : [
             [{ label: 'View', onClick: () => {} }],
+            [{ label: 'Add to group', onClick: () => {} }],
             [{ label: 'Update firmware', onClick: () => {} }],
           ]
     }
