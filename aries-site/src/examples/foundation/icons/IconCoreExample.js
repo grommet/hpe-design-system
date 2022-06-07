@@ -12,6 +12,8 @@ import {
 } from 'grommet';
 import {
   Add,
+  CircleInformation,
+  CircleQuestion,
   Close,
   Download,
   Edit,
@@ -42,12 +44,14 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
             <Text>or</Text>
             {aliases.map((a, i) => (
               <>
-                <Text weight="bold" color="text-strong" >{a}</Text>
-                {(i < aliases.length - 1) && ', '}
+                <Text weight="bold" color="text-strong">
+                  {a}
+                </Text>
+                {i < aliases.length - 1 && ', '}
               </>
             ))}
           </Box>
-        ) || <>&nbsp;</>}
+        )}
       </Box>
     </CardHeader>
     <CardBody pad={{ top: 'none', horizontal: 'medium', bottom: 'medium' }}>
@@ -147,6 +151,23 @@ export const IconControlsExample = () => (
       name="Close"
       aliases={['Clear']}
       guidance="Use in in file input fields to clear them."
+    />
+  </Grid>
+);
+
+export const IconInformationalExample = () => (
+  <Grid alignSelf="stretch" gap="medium" columns="small">
+    <CoreIcon
+      Icon={CircleInformation}
+      name="Information"
+      guidance={`Use to reveal additional contextual information inline or as a 
+      tooltip.`}
+    />
+    <CoreIcon
+      Icon={CircleQuestion}
+      name="Help"
+      guidance={`Use to assist the user via a modal dialog, side drawer, 
+      navigation to a help center, or other mechanism.`}
     />
   </Grid>
 );
