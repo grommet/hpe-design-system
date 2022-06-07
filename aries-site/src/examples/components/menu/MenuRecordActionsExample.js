@@ -1,6 +1,5 @@
-import { Box, Grid, Heading, List, Menu, Text } from 'grommet';
+import { Box, Heading, List, Menu, Text } from 'grommet';
 import {
-  Cluster,
   More,
   StatusCriticalSmall,
   StatusGoodSmall,
@@ -44,23 +43,17 @@ export const MenuRecordActionsExample = () => (
     >
       {(datum, index) => (
         <Box direction="row" justify="between" align="start">
-          <Box gap="small" fill>
-            <Box direction="row" align="center" gap="small">
-              <Cluster />
-              <Text weight="bold" size="large">
-                {datum.name}
-              </Text>
-            </Box>
-            <Grid
-              columns={{ count: 'fit', size: ['xxsmall', 'auto'] }}
-              rows="auto"
-            >
+          <Box gap="xsmall" fill>
+            <Text weight="bold" size="large">
+              {datum.name}
+            </Text>
+            <Box gap="xxsmall">
+              <Text>{datum.servers.length} Servers</Text>
               <Box direction="row" gap="xsmall" align="center">
                 {STATUS_MAP[datum.status].icon}
                 {STATUS_MAP[datum.status].label}
               </Box>
-              <Text>{datum.servers.length} Servers</Text>
-            </Grid>
+            </Box>
           </Box>
           <Menu
             icon={<More />}
