@@ -21,7 +21,7 @@ export const ToastNotificationExample = () => {
           <Notification
             toast
             status="normal"
-            title='Starting deployment of application "XYZ"'
+            message='Starting deployment of application "XYZ"'
             onClose={onClose}
           />
         )}
