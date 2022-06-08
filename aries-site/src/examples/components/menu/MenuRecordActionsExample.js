@@ -36,9 +36,7 @@ export const MenuRecordActionsExample = () => (
     <List
       data={serverGroups}
       defaultItemProps={{
-        border: 'border-weak',
-        margin: { vertical: 'small' },
-        round: 'small',
+        pad: { vertical: 'small' },
       }}
     >
       {(datum, index) => (
