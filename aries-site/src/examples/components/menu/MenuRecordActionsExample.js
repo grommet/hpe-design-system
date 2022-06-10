@@ -108,7 +108,8 @@ export const MenuRecordActionsExample = () => {
           setShowModal={setShowModal}
           setToast={setToast}
           onSubmit={() => {
-            const timer = setTimeout(() => setActive(defaultActive), 300);
+            // timer needs to be longer than toast's duration
+            const timer = setTimeout(() => setActive(defaultActive), 10000);
             return () => {
               clearTimeout(timer);
             };
