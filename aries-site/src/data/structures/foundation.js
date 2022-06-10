@@ -384,6 +384,7 @@ export const foundation = [
       image: {
         src: {
           light: '/foundationImages/foundation-preview-voice-and-tone.svg',
+          // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
         },
         alt: 'HPE Voice and Tone Preview with two speech bubbles',

@@ -1,4 +1,4 @@
-import { Box, Heading, List, Menu, Text } from 'grommet';
+import { Box, Heading, List, Menu, Notification, Text } from 'grommet';
 import {
   More,
   StatusCriticalSmall,
@@ -6,6 +6,9 @@ import {
   StatusUnknownSmall,
   StatusWarningSmall,
 } from 'grommet-icons';
+import { useState } from 'react';
+
+import { DestructiveConfirmation } from '../../templates';
 
 const serverGroups = require('../../../data/mockData/serverGroups.json').groups;
 
@@ -28,50 +31,98 @@ const STATUS_MAP = {
   },
 };
 
-export const MenuRecordActionsExample = () => (
-  <Box gap="small" width="medium">
-    <Heading level={2} size="small" margin="none">
-      Server Groups
-    </Heading>
-    <List
-      data={serverGroups}
-      defaultItemProps={{
-        pad: { vertical: 'small' },
-      }}
-    >
-      {(datum, index) => (
-        <Box direction="row" justify="between" align="start">
-          <Box gap="xsmall" fill>
-            <Text weight="bold" size="large">
-              {datum.name}
-            </Text>
-            <Box gap="xxsmall">
-              <Text>{datum.servers.length} Servers</Text>
-              <Box direction="row" gap="xsmall" align="center">
-                {STATUS_MAP[datum.status].icon}
-                {STATUS_MAP[datum.status].label}
+const defaultActive = { id: '', path: '' };
+
+export const MenuRecordActionsExample = () => {
+  const [active, setActive] = useState(defaultActive);
+  const [showModal, setShowModal] = useState(false);
+  const [toast, setToast] = useState(false);
+
+  return (
+    <>
+      {' '}
+      <Box gap="small" width="medium">
+        <Heading level={2} size="small" margin="none">
+          Server Groups
+        </Heading>
+        <List
+          data={serverGroups}
+          defaultItemProps={{
+            pad: { vertical: 'small' },
+          }}
+        >
+          {(datum, index) => (
+            <Box direction="row" justify="between" align="start">
+              <Box gap="xsmall" fill>
+                <Text weight="bold" size="large">
+                  {datum.name}
+                </Text>
+                <Box gap="xxsmall">
+                  <Text>{datum.servers.length} Servers</Text>
+                  <Box direction="row" gap="xsmall" align="center">
+                    {STATUS_MAP[datum.status].icon}
+                    {STATUS_MAP[datum.status].label}
+                  </Box>
+                </Box>
               </Box>
+              <Menu
+                icon={<More />}
+                open={index === 0}
+                items={[
+                  [
+                    { label: 'Edit', onClick: () => {} },
+                    { label: 'View servers', onClick: () => {} },
+                    { label: 'Add servers', onClick: () => {} },
+                    { label: 'Remove servers', onClick: () => {} },
+                  ],
+                  [
+                    { label: 'Update firmware', onClick: () => {} },
+                    { label: 'Update BIOS settings', onClick: () => {} },
+                  ],
+                  [
+                    {
+                      label: 'Delete',
+                      onClick: () => {
+                        setActive({
+                          id: datum.name,
+                          path: `/servers/groups/${datum.name
+                            .replace(' ', '-')
+                            .toLowerCase()}`,
+                        });
+                        setShowModal(true);
+                      },
+                    },
+                  ],
+                ]}
+              />
             </Box>
-          </Box>
-          <Menu
-            icon={<More />}
-            open={index === 0}
-            items={[
-              [
-                { label: 'Edit', onClick: () => {} },
-                { label: 'View servers', onClick: () => {} },
-                { label: 'Add servers', onClick: () => {} },
-                { label: 'Remove servers', onClick: () => {} },
-              ],
-              [
-                { label: 'Update firmware', onClick: () => {} },
-                { label: 'Update BIOS settings', onClick: () => {} },
-              ],
-              [{ label: 'Delete', onClick: () => {} }],
-            ]}
-          />
-        </Box>
+          )}
+        </List>
+      </Box>
+      {showModal && (
+        <DestructiveConfirmation
+          title="Delete server group"
+          message={`This will permanently delete ${active.id} 
+          server group, including all history, located at:`}
+          path={`${active.path}`}
+          setShowModal={setShowModal}
+          setToast={setToast}
+          onSubmit={() => {
+            const timer = setTimeout(() => setActive(defaultActive), 300);
+            return () => {
+              clearTimeout(timer);
+            };
+          }}
+        />
       )}
-    </List>
-  </Box>
-);
+      {toast && (
+        <Notification
+          toast
+          status="normal"
+          message={`Server group ${active.id} deleted.`}
+          onClose={() => setToast(false)}
+        />
+      )}
+    </>
+  );
+};
