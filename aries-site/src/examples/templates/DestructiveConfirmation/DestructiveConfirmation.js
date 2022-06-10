@@ -64,7 +64,7 @@ export const DestructiveConfirmation = ({
         onSubmit={({ value: formValue, touched }) => {
           if (onSubmitProp) onSubmitProp(formValue, touched);
           onClose();
-          setToast(true);
+          if (setToast) setToast(true);
         }}
       >
         <Box gap="medium">
