@@ -384,7 +384,8 @@ export const foundation = [
       image: {
         src: {
           light: '/foundationImages/foundation-preview-voice-and-tone.svg',
-          dark: '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
+          dark:
+            '/foundationImages/foundation-preview-voice-and-tone-invert.svg',
         },
         alt: 'HPE Voice and Tone Preview with two speech bubbles',
       },
