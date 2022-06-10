@@ -100,7 +100,7 @@ export const SearchResults = ({
         <Keyboard onEsc={onClose} onEnter={onEnter}>
           <SearchInput
             ref={searchRef}
-            placeholder="Search the HPE Design System"
+            placeholder="Search"
             value={query}
             onChange={onChange}
             size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'medium'}

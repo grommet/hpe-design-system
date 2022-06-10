@@ -10,7 +10,7 @@ export const TextInputLabeledByExample = () => {
 
   return (
     <StyledTextInput
-      placeholder="Search..."
+      placeholder="Search"
       icon={<Search id="search-icon" />}
       reverse
     />

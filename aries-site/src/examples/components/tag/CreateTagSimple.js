@@ -97,7 +97,7 @@ export const CreateTagSimple = () => {
                 );
                 setValueSearch(text);
               }}
-              searchPlaceholder="Search tags"
+              searchPlaceholder="Search"
             />
           </FormField>
           <Box
@@ -106,7 +106,8 @@ export const CreateTagSimple = () => {
             pad={
               !['xsmall', 'small'].includes(size)
                 ? {
-                    top: `${parseInt(theme.text.xsmall.height, 10) +
+                    top: `${
+                      parseInt(theme.text.xsmall.height, 10) +
                       parseInt(
                         theme.global.edgeSize[theme.formField.label.margin.top],
                         10,
@@ -116,7 +117,8 @@ export const CreateTagSimple = () => {
                           theme.formField.content.margin.vertical
                         ],
                         10,
-                      )}px`,
+                      )
+                    }px`,
                   }
                 : undefined
             }

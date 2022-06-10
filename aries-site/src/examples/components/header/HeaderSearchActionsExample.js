@@ -45,7 +45,7 @@ const Search = () => {
           ref={inputRef}
           icon={<SearchIcon id="search-complex-example" />}
           dropHeight="small"
-          placeholder="Search App Name"
+          placeholder="Search"
           onBlur={() => setFocused(false)}
           plain
           reverse

@@ -30,7 +30,7 @@ export const SearchFilter = ({ placeholder }) => {
         ref={inputRef}
         type="search"
         icon={<Search id="search-icon" />}
-        placeholder={placeholder || 'Search...'}
+        placeholder={placeholder || 'Search'}
         onBlur={() => setSearchFocused(false)}
         value={searchValue}
         onChange={event => {

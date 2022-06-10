@@ -41,7 +41,7 @@ export const ColumnSettings = ({
               type="search"
               icon={<Search id="search-cols-icon" />}
               aria-labelledby="search-cols-icon"
-              placeholder="Search columns"
+              placeholder="Search"
               value={search}
               onChange={event => {
                 setSearch(event.target.value);

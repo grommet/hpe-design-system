@@ -30,7 +30,7 @@ export const SelectSearchExample = () => {
           id="select-with-search"
           name="select-with-search"
           placeholder="Select location"
-          searchPlaceholder="Search locations"
+          searchPlaceholder="Search"
           options={options}
           value={selected}
           onChange={({ option }) => setSelected(option)}
