@@ -18,7 +18,7 @@ export const foundation = [
     seoDescription: `Accessibility is central to the HPE Design System and 
     ensures that HPE applications are usable by as many people as possible.`,
     sections: [
-      'Accessibility in Design', 
+      'Accessibility in Design',
       'Accessibility in Development',
       'Designer and Software Developer Guides',
       'Accessibile Product Design Videos',
@@ -215,6 +215,11 @@ export const foundation = [
       'Icon Sizes',
       'Button Icons',
       'Icon Plain Color',
+      'Core Icons',
+      'Resource Actions',
+      'UI Actions',
+      'UI Controls',
+      'Info and Help',
     ],
     tags: ['icon usage', 'icon accessibility', 'icon examples'],
   },

@@ -92,7 +92,7 @@ You can read more guidance about [status indicators](/templates/status-indicator
 
 ### Content (Title + Message)
 
-All toasts have content comprised of a title and an optional message. The title and message must be distinguishable from each other by the weight of the text.
+All toasts have content comprised of a message and an optional title. The title and message must be distinguishable from each other by the weight of the text.
 
 **1. Amount of Information**
 
@@ -100,15 +100,15 @@ Toast notifications should not have too much information inside of them. Additio
 
 Because toasts are primarily used to convey information about tasks, the content must include enough context to be clearly understood. For example, what task is being performed, what resource is it being performed against, and what is the state of the task (E.g., starting, completed, failed, etc.).
 
-For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the title and the message or a three-line title. If the information is heavy and long, consider using a different type of notification other than toast. Never truncate text within a toast. The main point is to keep the information concise and clear.
+For best practice, keep the amount of information to three lines or under. This three line limit either can be a combination of both the message and the title or a three-line message. If the information is heavy and long, consider using a different type of notification other than toast. Never truncate text within a toast. The main point is to keep the information concise and clear.
 
-Do not add a message that is redundant with the title. If you can explain everything in a title, there is no need for a message.
+Do not add a title that is redundant with the message. If you can explain everything in a message, there is no need for a title. It is recommended to avoid using a title when possible to minimize the amount of bold text, which can hinder readability.
 
-Examples of title-only toasts:
+Examples of message-only toasts:
 
-- Deleted cluster "Joe's cluster"
-- Update of "Rule set 5" completed
-- Created Kubernetes cluster "New York State Tax Authority"
+- Deleted cluster "Joe's cluster".
+- Update of "Rule set 5" completed.
+- Created Kubernetes cluster "New York State Tax Authority".
 
 **2. Interactive Content**
 
@@ -135,10 +135,8 @@ Follow these placement guidelines for Toast Notifications:
 
 ### Top-right Aligned Toast
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationPositionExample.js"
->
-  < ToastNotificationPositionExample />
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationPositionExample.js">
+  <ToastNotificationPositionExample />
 </Example>
 
 ### Have more questions?
