@@ -11,7 +11,7 @@ export const ToolbarButtonExample = () => (
       actions={<Menu label="Actions" kind="toolbar" />}
       data={[]}
       filters={[]}
-      searchFilter={{ placeholder: 'Search users...' }}
+      searchFilter={{ placeholder: 'Search' }}
     />
   </FiltersProvider>
 );

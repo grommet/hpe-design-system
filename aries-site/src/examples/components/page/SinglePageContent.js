@@ -50,7 +50,7 @@ export const SinglePageContent = ({ containerRef }) => {
       target: containerRef && containerRef.current,
     },
     searchFilter: {
-      placeholder: 'Search datasets...',
+      placeholder: 'Search',
     },
   };
 

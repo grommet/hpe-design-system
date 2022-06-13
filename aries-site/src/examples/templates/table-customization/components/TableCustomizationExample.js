@@ -146,7 +146,7 @@ export const TableCustomizationExample = () => {
                     }
                     data={allData}
                     filters={filtersConfig}
-                    searchFilter={{ placeholder: 'Search users...' }}
+                    searchFilter={{ placeholder: 'Search' }}
                   />
                 </Box>
               </Box>
