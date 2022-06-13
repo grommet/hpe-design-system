@@ -69,7 +69,7 @@ export const HeaderExample = () => {
                 ref={inputRef}
                 icon={<SearchIcon id="search-icon-example" />}
                 dropHeight="small"
-                placeholder="Search HPE Design System"
+                placeholder="Search"
                 onBlur={() => setFocused(false)}
                 plain
                 reverse

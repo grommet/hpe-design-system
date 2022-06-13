@@ -69,7 +69,7 @@ export const FilteringCards = ({ containerRef }) => {
             data={users}
             filters={filtersConfig}
             layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search users...' }}
+            searchFilter={{ placeholder: 'Search' }}
           />
           <Users />
         </Box>

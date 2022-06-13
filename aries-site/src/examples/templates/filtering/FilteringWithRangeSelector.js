@@ -128,7 +128,7 @@ export const FilteringWithRangeSelector = ({ containerRef }) => {
                   ref={inputRef}
                   type="search"
                   icon={<Search id="search-icon" />}
-                  placeholder="Search placeholder"
+                  placeholder="Search"
                   onBlur={() => setSearchFocused(false)}
                   value={search}
                   onChange={event => {
