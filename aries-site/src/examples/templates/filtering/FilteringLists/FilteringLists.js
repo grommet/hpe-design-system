@@ -94,7 +94,7 @@ export const FilteringLists = ({ containerRef }) => {
             data={orders}
             filters={filtersConfig}
             layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search orders...' }}
+            searchFilter={{ placeholder: 'Search' }}
           />
           <Orders />
         </Box>
