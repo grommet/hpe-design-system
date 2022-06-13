@@ -6749,6 +6749,15 @@ eslint-plugin-jsx-a11y@^6.4.1:
     language-tags "^1.0.5"
     minimatch "^3.0.4"
 
+eslint-plugin-jsx@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx/-/eslint-plugin-jsx-0.1.0.tgz#6d0dc2a519d7102b17a9774a231b3548077f2a52"
+  integrity sha512-278HIClJgb3Gp1b89wbva7AGS7cxQzBNgKFysy6aEB44Acso2M8ARdoaLUnN7VTWf0vnSvtwugCmc/B8MSzY5g==
+  dependencies:
+    eslint-plugin-react "3.4.2"
+    html-tags "1"
+    svg-tags "1"
+
 eslint-plugin-prettier@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.0.0.tgz#8b99d1e4b8b24a762472b4567992023619cb98e0"
@@ -6760,6 +6769,11 @@ eslint-plugin-react-hooks@^4.0.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.5.0.tgz#5f762dfedf8b2cf431c689f533c9d3fa5dcf25ad"
   integrity sha512-8k1gRt7D7h03kd+SAAlzXkQwWK22BnK6GKZG+FJA6BAGy22CFvl8kCIXKpVux0cCxMWDQUPqSok0LKaZ0aOcCw==
+
+eslint-plugin-react@3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-3.4.2.tgz#9e6ef8a8054f8ac3b87b97236e7b849e5835dc6c"
+  integrity sha512-rIhweRuQMLxNOOHHl9pEkQR+6QiKt9wUHpBvjSefSzUg5qdhC08jc2rxsSm1TAXii9rxabhzK5MUu+YBJxn6sA==
 
 eslint-plugin-react@^7.22.0:
   version "7.30.0"
@@ -7945,7 +7959,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.24.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#15f03f68f130503de061e4e157b59d8b050d1cdc"
+  resolved "https://github.com/grommet/grommet/tarball/stable#3d68f429a1f7f636b96d630884e67def6fefc122"
   dependencies:
     grommet-icons "^4.7.0"
     hoist-non-react-statics "^3.2.0"
@@ -8265,6 +8279,11 @@ html-minifier-terser@^5.0.1:
     param-case "^3.0.3"
     relateurl "^0.2.7"
     terser "^4.6.3"
+
+html-tags@1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-1.2.0.tgz#c78de65b5663aa597989dd2b7ab49200d7e4db98"
+  integrity sha512-uVteDXUCs08M7QJx0eY6ue7qQztwIfknap81vAtNob2sdEPKa8PjPinx0vxbs2JONPamovZjMvKZWNW44/PBKg==
 
 html-void-elements@^1.0.0:
   version "1.0.5"
@@ -13971,6 +13990,11 @@ svg-parser@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-2.0.4.tgz#fdc2e29e13951736140b76cb122c8ee6630eb6b5"
   integrity sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==
+
+svg-tags@1:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
+  integrity sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==
 
 svgo@^1.2.2:
   version "1.3.2"
