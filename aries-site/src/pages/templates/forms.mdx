@@ -23,20 +23,36 @@ import { Example } from '../../layouts';
   <SimpleSignUpExample />
 </Example>
 
+### Jump to section...
+[When to use/not to use](#use)</br>
+[Do’s and Don’ts visual examples](#dos)</br>
+[Use cases and example code](#cases)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#signup)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#signin)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#pwd)</br> 
+&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)</br> 
+&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)</br>
+[Accessibility](#accessibility)</br> 
+[Exceptions and how to address them](#exceptions)</br>
 
-### When to use
+
+### <a name="use"></a>When to use
 
 To efficiently capture information necessary for completing a task.
 
 ### When not to use
 
-Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a Wizard.
+Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
 
-**Do's**
+**Do's**  <a name="dos"></a>
 
 - Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
 - User-entered input needs to be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
-- Use asterisks for required fields when the form has more than two required fields and/or has optional fields. See HPE UX research.  
+- Use asterisks for required fields when the form has more than two required fields and/or has optional fields. [See HPE UX research](https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=4988%3A3653).  
 - Asterisks for required fields should be the same color as label field 
 - If a field is optional, write "Optional" in italics next to the form field label
 - Wrap all input elements within a FormField <FormField label="Username"> 
@@ -46,12 +62,12 @@ Complicated processes where the user might need guidance at various stages, or w
 - Fill in default values for as many fields as possible 
 - Use clear, concise labels for each field 
 - Write helpful placeholder text inside the fields 
-- If absolutely necessary, include helpful text below the field, such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context
+- If absolutely necessary, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context
 - List the most common field requirements below the relevant field 
-- Place the submit, reset and cancel buttons at the bottom left of the form. See responsive button behavior. 
+- Place the submit, reset and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button?q=button#responsiveness). 
 - Use specific labels on buttons that tell the user what action to expect 
 - Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.) 
-- In the case of an error, red highlight the field where the error occurred 
+- [In the case of an error](#requiredoptional), red highlight the field where the error occurred 
 - List below the button all relevant errors and the corrective action the user must take 
 - Allow user to continue navigating through the application immediately
 
@@ -62,12 +78,11 @@ Complicated processes where the user might need guidance at various stages, or w
 - Use asterisks for sign up and sign in forms 
 - Red asterisks stresses the user and actually decrease success in filling out the form 
 - Use generic labels on buttons, such as “Submit” 
-- Restrict resource naming. Allow spaces, punctuation and unicode characters 
-- Examples: Björk Guðmundsdóttir, 联想, John Q. Public, etc. 
+- Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.)
 - No need to list requirements up front that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.) 
 
 
-### Required vs. optional fields
+### Single field forms  <a name="singlefield"></a>
 
 - When possible, keep forms concise by only including required fields.
 - For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
@@ -79,9 +94,9 @@ Complicated processes where the user might need guidance at various stages, or w
   alt="HPE Design System Form example where required and optional fields are used."
 />
 
-### Use cases
+### Use cases  <a name="cases"></a>
 
-## Sign up
+## Sign up <a name="signup"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
@@ -90,7 +105,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SignUpExample />
 </Example>
 
-## Sign in
+## Sign in <a name="signin"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
@@ -99,7 +114,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SignInExample />
 </Example>
 
-## Filter
+## Filter <a name="filter"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
@@ -108,7 +123,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <FilterExample />
 </Example>
 
-## Sort
+## Sort  <a name="sort"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
@@ -117,7 +132,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SortExample />
 </Example>
 
-## Change password
+## Change password  <a name="pwd"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ChangePasswordExample.js"
@@ -126,7 +141,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <ChangePasswordExample />
 </Example>
 
-## Settings
+## Settings  <a name="settings"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
@@ -135,7 +150,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SettingsExample />
 </Example>
 
-## Pay
+## Pay  <a name="pay"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
@@ -153,7 +168,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <ShippingExample />
 </Example>
 
-## Required vs optional fields
+## Required vs optional fields <a name="requiredoptional"></a>
 
 For standard forms, use an asterisk(\*) to indicate required field/controls.
 
@@ -164,7 +179,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <RequiredFieldsExample />
 </Example>
 
-## Single required FormField
+## Single required FormField  <a name="single"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SingleFormFieldExample.js"
@@ -173,7 +188,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <SingleFormFieldExample />
 </Example>
 
-## Customize
+## Customize <a name="customize"></a>
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
@@ -182,17 +197,17 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <CustomizeExample />
 </Example>
 
-### Accessibility
+## Accessibility  <a name="accessibility"></a>
 
 All Form input elements need to be contained within a FormField.
 
-**FormFields must include:**
+**FormFields must include:** 
 
 - A "for" property that matches the id of its child input. If using Grommet, this is applied with the htmlFor prop.
 - A "name" property applied on both the FormField and its child input element
 - A clear, concise label
 
-## Exceptions and how to address them
+## Exceptions and how to address them  <a name="exceptions"></a>
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is relatively obvious.
 
