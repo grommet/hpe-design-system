@@ -3,6 +3,7 @@ import {
   TabsExample,
   TabStatesExample,
   TabWithIconExample,
+  TabResponsiveExample,
 } from '../../examples';
 
 <Example
@@ -41,6 +42,25 @@ the browser location.** This will allow proper active styling and routing to fun
 To maintain a clean, consistent presentation, all content should be aligned to the left edge of the Tabs component.
 - Apply `justify="start"` to left-align the tabs and have their bottom border extend the full-width of the parent container.
 - Content within the Tab should be flush with the left edge of the Tabs component and have a vertical padding of `medium` to provide spacing and room for the content to breathe.
+
+### Responsive Tabs
+
+When horizontal space is limited, only the tabs that fit will be displayed. The remaining tabs can be accessed by using the previous and next arrows or with the keyboard.
+
+### Responsive Behavior
+
+- Previous and next arrows will be present if the horizontal tabs are fully outside the viewport.
+- Previous and next arrows are disabled if the horizontal tab has no more tabs to view towards the left or right.
+- Clicking on the previous and next arrows will show additional tabs. On a small screen the arrows will show 1 additional tab. On medium or large screens, clicking the arrows will show 3 additional tabs.
+
+<Example
+  docs="https://v2.grommet.io/tabs?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabResponsiveExample.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <TabResponsiveExample />
+</Example>
 
 ### Accessibility
 

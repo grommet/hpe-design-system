@@ -13,6 +13,12 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  tabs: {
+    step: {
+      xsmall: 1,
+      xlarge: 3,
+    },
+  },
 });
 
 export const { colors } = aries.global;
