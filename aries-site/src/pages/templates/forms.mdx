@@ -24,23 +24,22 @@ import { Example } from '../../layouts';
 </Example>
 
 ### Jump to section...
-[When to use/not to use](#use)</br>
-[Do’s and Don’ts visual examples](#dos)</br>
-[Use cases and example code](#cases)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#signup)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#signin)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#pwd)</br> 
-&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)</br> 
-&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)</br>
-[Accessibility](#accessibility)</br> 
-[Exceptions and how to address them](#exceptions)</br>
+[Use cases and example code](#when-to-use)  
+[Do's and Don'ts visual examples](#Dos)  
+[Use case and example code](use-cases)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#sign-up)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#sign-in)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
+[Accessibility](#accessibility)   
+[Exceptions and how to address them](#exceptions-and-how-to-address-them)  
 
-
-### <a name="use"></a>When to use
+### When to use
 
 To efficiently capture information necessary for completing a task.
 
@@ -48,15 +47,18 @@ To efficiently capture information necessary for completing a task.
 
 Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
 
-**Do's**  <a name="dos"></a>
+#### Do's
 
 - Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
 - User-entered input needs to be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
 - Use asterisks for required fields when the form has more than two required fields and/or has optional fields. [See HPE UX research](https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=4988%3A3653).  
 - Asterisks for required fields should be the same color as label field 
 - If a field is optional, write "Optional" in italics next to the form field label
-- Wrap all input elements within a FormField <FormField label="Username"> 
+- Wrap all input elements within a FormField 
+  ``` 
+   <FormField label="Username"> 
    <TextInput /></FormField>  
+  ```
 - Reveal fields progressively so the user is not overwhelmed 
 - Write in sentence case (capitalize the first letter and all following letters should be lowercase)  
 - Fill in default values for as many fields as possible 
@@ -71,7 +73,7 @@ Complicated processes where the user might need guidance at various stages, or w
 - List below the button all relevant errors and the corrective action the user must take 
 - Allow user to continue navigating through the application immediately
 
-**Don'ts**
+#### Don'ts
 
 - Have more than two optional fields  
 - Repeat the field label to use as placeholder text 
@@ -82,7 +84,7 @@ Complicated processes where the user might need guidance at various stages, or w
 - No need to list requirements up front that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.) 
 
 
-### Single field forms  <a name="singlefield"></a>
+### Single field forms
 
 - When possible, keep forms concise by only including required fields.
 - For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
@@ -94,9 +96,9 @@ Complicated processes where the user might need guidance at various stages, or w
   alt="HPE Design System Form example where required and optional fields are used."
 />
 
-### Use cases  <a name="cases"></a>
+### Use cases
 
-## Sign up <a name="signup"></a>
+## Sign up
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
@@ -105,7 +107,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SignUpExample />
 </Example>
 
-## Sign in <a name="signin"></a>
+## Sign in
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
@@ -114,7 +116,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SignInExample />
 </Example>
 
-## Filter <a name="filter"></a>
+## Filter
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
@@ -123,7 +125,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <FilterExample />
 </Example>
 
-## Sort  <a name="sort"></a>
+## Sort
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
@@ -132,7 +134,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SortExample />
 </Example>
 
-## Change password  <a name="pwd"></a>
+## Change password
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ChangePasswordExample.js"
@@ -141,7 +143,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <ChangePasswordExample />
 </Example>
 
-## Settings  <a name="settings"></a>
+## Settings
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
@@ -150,7 +152,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <SettingsExample />
 </Example>
 
-## Pay  <a name="pay"></a>
+## Pay
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
@@ -168,7 +170,7 @@ Complicated processes where the user might need guidance at various stages, or w
   <ShippingExample />
 </Example>
 
-## Required vs optional fields <a name="requiredoptional"></a>
+## Required vs optional fields
 
 For standard forms, use an asterisk(\*) to indicate required field/controls.
 
@@ -179,7 +181,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <RequiredFieldsExample />
 </Example>
 
-## Single required FormField  <a name="single"></a>
+## Single required FormField
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SingleFormFieldExample.js"
@@ -188,7 +190,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <SingleFormFieldExample />
 </Example>
 
-## Customize <a name="customize"></a>
+## Customize
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
@@ -197,7 +199,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <CustomizeExample />
 </Example>
 
-## Accessibility  <a name="accessibility"></a>
+## Accessibility
 
 All Form input elements need to be contained within a FormField.
 
@@ -207,7 +209,7 @@ All Form input elements need to be contained within a FormField.
 - A "name" property applied on both the FormField and its child input element
 - A clear, concise label
 
-## Exceptions and how to address them  <a name="exceptions"></a>
+## Exceptions and how to address them
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is relatively obvious.
 
