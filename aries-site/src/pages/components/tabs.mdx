@@ -5,6 +5,7 @@ import {
   TabWithIconExample,
   TabResponsiveExample,
 } from '../../examples';
+import { Notification } from 'grommet';
 
 <Example
   componentName="Tabs"
@@ -53,6 +54,12 @@ When horizontal space is limited, only the Tabs that fit will be displayed. The 
 - Previous and next arrows will be present if the horizontal Tabs are fully outside the viewport.
 - Previous and next arrows are disabled if the horizontal Tab has no more Tabs to view towards the left or right.
 - Clicking on the previous and next arrows will show additional Tabs. At `xsmall` and `small` [breakpoints](/templates/content-layouts?q=responsive#breakpoints) the arrows will show 1 additional Tab. At `medium`, `large`, or `xlarge` [breakpoints](/templates/content-layouts?q=responsive#breakpoints), clicking the arrows will show 3 additional Tabs.
+
+<Notification
+  width="large"
+  status="info"
+  message="Resize your window to see how Tabs adapts when there is not enough room to display all of the Tabs."
+/>
 
 <Example
   docs="https://v2.grommet.io/tabs?theme=hpe#tabs.step"
