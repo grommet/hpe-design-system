@@ -29,9 +29,14 @@ export const SubsectionHeader = ({ children, level }) => {
         <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
-        a11yTitle={`Jump to section titled ${children}`}
-        href={`#${id}`}
-        icon={<LinkIcon color={over ? 'text-weak' : 'transparent'} />}
+        tip='Copy link to clipboard'
+        a11yTitle={`Jump to section titled ${children} 
+                    and copy link to clipboard`}
+        icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
+        onClick={() => {
+          window.location.href = `#${id}`;
+          navigator.clipboard.writeText(window.location.href);
+        }}
       />
     </Box>
   );
