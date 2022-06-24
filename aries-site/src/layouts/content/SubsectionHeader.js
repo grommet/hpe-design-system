@@ -17,9 +17,9 @@ export const SubsectionHeader = ({ children, level }) => {
       id={id}
       margin={{ top: level === 3 ? 'medium' : 'large' }}
       onMouseOver={() => setOver(true)}
-      onFocus={() => {}}
+      onFocus={() => setOver(true)}
       onMouseOut={() => setOver(false)}
-      onBlur={() => {}}
+      onBlur={() => setOver(false)}
     >
       <Heading
         margin={{ vertical: 'small' }}
