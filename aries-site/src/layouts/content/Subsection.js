@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Button, Header, Text } from 'grommet';
+import { Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 import { Subheading } from '../../components';
 import { getPageDetails, nameToSlug } from '../../utils';
@@ -98,11 +98,16 @@ export const Subsection = ({
               </Subheading>
             </Box>
             {level > 1 && (
-              <Anchor
-                a11yTitle={`Jump to section titled ${name}`}
-                href={`#${id}`}
+              <Button
+                tip='Copy link to clipboard'
+                a11yTitle={`Jump to section titled ${name} 
+                            and copy link to clipboard`}
                 icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-              />
+                onClick={() => {
+                  window.location.href = `#${id}`;
+                  navigator.clipboard.writeText(window.location.href);
+              }}
+            />
             )}
           </Header>
         )
