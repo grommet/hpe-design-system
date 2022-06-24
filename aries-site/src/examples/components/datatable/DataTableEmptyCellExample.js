@@ -197,14 +197,8 @@ const columns = [
   },
   {
     property: 'size',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Size{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          (TiB)
-        </Text>
-      </Text>
-    ),
+    header: 'Size',
+    units: 'TiB',
     render: datum => (
       // bytes to tebibytes
       <Text a11yTitle={!datum.size ? 'No value' : undefined}>
@@ -215,14 +209,8 @@ const columns = [
   },
   {
     property: 'pinnable',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Pinnable{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          (B)
-        </Text>
-      </Text>
-    ),
+    header: 'Pinnable',
+    units: 'B',
     render: datum => (
       // bytes to tebibytes
       <Text a11yTitle={!datum.pinnable ? 'No value' : undefined}>
@@ -233,14 +221,8 @@ const columns = [
   },
   {
     property: 'pinned',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Pinned{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          %
-        </Text>
-      </Text>
-    ),
+    header: 'Pinned',
+    units: '%',
     render: datum => (
       <Box gap="xsmall" direction="row">
         <Box pad={{ vertical: 'xsmall' }}>
@@ -261,14 +243,8 @@ const columns = [
   },
   {
     property: 'savings',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Savings{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          (xGHz)
-        </Text>
-      </Text>
-    ),
+    header: 'Savings',
+    units: 'xGHz',
     align: 'end',
     render: datum => (
       <Text a11yTitle={!datum.savings.length ? 'No value' : undefined} truncate>
