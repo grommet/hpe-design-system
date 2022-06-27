@@ -103,7 +103,7 @@ const ServerResults = () => {
   const { filteredResults, selected, setSelected } = useFilters();
 
   return (
-    <Box height="medium" overflow="auto">
+    <Box overflow="auto">
       <DataTable
         aria-describedby="servers-heading"
         data={filteredResults}
