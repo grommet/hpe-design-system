@@ -1,3 +1,21 @@
+
+
+### Jump to section...
+[Use cases and example code](#when-to-use)  
+[Do's and Don'ts](#dos)  
+[Use case and example code](use-cases)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#sign-up)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#sign-in)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
+[Accessibility](#accessibility)   
+[Exceptions and how to address them](#exceptions-and-how-to-address-them)  
+
 import {
   ChangePasswordExample,
   CustomizeExample,
@@ -23,22 +41,6 @@ import { Example } from '../../layouts';
   <SimpleSignUpExample />
 </Example>
 
-### Jump to section...
-[Use cases and example code](#when-to-use)  
-[Do's and Don'ts visual examples](#dos)  
-[Use case and example code](use-cases)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#sign-up)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#sign-in)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)   
-&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)   
-&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
-[Accessibility](#accessibility)   
-[Exceptions and how to address them](#exceptions-and-how-to-address-them)  
-
 ## When to use
 
 To efficiently capture information necessary for completing a task.
@@ -47,42 +49,53 @@ To efficiently capture information necessary for completing a task.
 
 Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
 
+
 ## Do's
 
+**Required fields**
 - Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
-- User-entered input needs to be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
+- List only the most common field requirements below the relevant field 
 - Use asterisks for required fields when the form has more than two required fields and/or has optional fields. [See HPE UX research](https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=4988%3A3653).  
 - Asterisks for required fields should be the same color as label field 
 - If a field is optional, write "Optional" in italics next to the form field label
+
+**Format and fields**
+- User-entered input must be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
 - Wrap all input elements within a FormField `<FormField label="Username"><TextInput /></FormField>`  
 - Reveal fields progressively so the user is not overwhelmed 
 - Write in sentence case (capitalize the first letter and all following letters should be lowercase)  
 - Fill in default values for as many fields as possible 
-- Use clear, concise labels for each field 
+- Use clear, concise title labels for each field 
 - Write helpful placeholder text inside the fields 
-- If absolutely necessary, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context
-- List the most common field requirements below the relevant field 
+- If the user would likely have doubts, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context
 - Place the submit, reset and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button?q=button#responsiveness). 
 - Use specific labels on buttons that tell the user what action to expect 
+
+**Actions after the user submits information**
 - Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.) 
 - [In the case of an error](#requiredoptional), red highlight the field where the error occurred 
 - List below the button all relevant errors and the corrective action the user must take 
-- Allow user to continue navigating through the application immediately
+- Allow the user to continue navigating through the application immediately
+
 
 ## Don'ts
 
-- Have more than two optional fields  
-- Repeat the field label to use as placeholder text 
+**Required fields**
+- Have more than two optional fields 
 - Use asterisks for sign up and sign in forms 
 - Red asterisks stresses the user and actually decrease success in filling out the form 
-- Use generic labels on buttons, such as “Submit” 
-- Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.)
 - No need to list requirements up front that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.) 
 
+**Format and fields**
+- Repeat the field label to use as placeholder text 
+- Use generic labels on buttons, such as “Submit” 
 
-### Single field forms
+**Actions after the user submits information**
+- Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.)
 
-- When possible, keep forms concise by only including required fields.
+
+## Single field forms
+
 - For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
 
 <ExampleImagePreview
@@ -197,7 +210,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
 
 ### Accessibility
 
-All Form input elements need to be contained within a FormField.
+All form input elements must be contained within a FormField.
 
 **FormFields must include:** 
 
@@ -215,7 +228,7 @@ All Form input elements need to be contained within a FormField.
 
    - Create the form the optimal way: with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, create those fields where the user can proactively add this helpful information at another time. 
 
-- However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional. 
+   - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional. 
 
 <ExampleImagePreview
   label="Forms where 'asterisk' and 'optional' can be skipped"
