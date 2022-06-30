@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
-  Button, 
+  Button,
   DataTable,
   Heading,
   Text,
@@ -14,65 +14,60 @@ import ServerGroups from '../../../data/mockData/serverGroups.json';
    cell, hiding all values from view that exceed the given maximum list 
    length until the "View More" button is clicked, at which point the 
    button label changes to "View Less". */
-function ViewMore(arr, maxParam) {
-    const [viewMoreBool, setViewMoreBool] = useState(false);
-    return (
-        <Box align="end">
-            <Text truncate>{viewMoreBool ? arr.map(tmp => 
-                <Box>
-                    <Text>{tmp}</Text>
-                </Box>) : arr.map(tmp => 
-                <Box>
-                    <Text>{tmp}</Text>
-                </Box>).slice(0, maxParam)
-                }
-            </Text>
-            {arr.length > maxParam && (
-                <Button 
-                    label = {viewMoreBool ? 'View less'
-                            : `View more (${arr.length - maxParam})`}
-                    onClick = {() => setViewMoreBool(!viewMoreBool)} 
-                />
-            )}
-        </Box>
-    );
-}
+const ViewMore = (arr, max) => {
+  const [viewMore, setViewMore] = useState(false);
+  return (
+    <Box align="start">
+      {viewMore
+        ? arr.map(item => <Text>{item}</Text>)
+        : arr.map(item => <Text>{item}</Text>).slice(0, max)}
+
+      {arr.length > max && (
+        <Button
+          label={viewMore ? 'View less' : `View more (${arr.length - max})`}
+          onClick={() => setViewMore(!viewMore)}
+        />
+      )}
+    </Box>
+  );
+};
 
 const data = ServerGroups.groups;
 const max = 3;
 const columns = [
-    {
-        property: 'name',
-        header: 'Name',
-        render: datum => <Text truncate>{datum.name}</Text>,
-    },
-    {
-        property: 'groupName',
-        header: 'Group Name',
-        render: datum => <Text truncate>{datum.groupName}</Text>,
-        sortable: true,
-    },
-    {
-        property: 'servers',
-        header: 'Servers',
-        align: 'start',
-        sortable: false,
-        render: datum => (ViewMore(datum.servers, max)),
-    },
-    {
-        property: 'status',
-        header: 'Status',
-        sortable: false,
-    },
+  {
+    property: 'name',
+    header: 'Name',
+    render: datum => <Text truncate>{datum.name}</Text>,
+  },
+  {
+    property: 'groupName',
+    header: 'Group Name',
+    render: datum => <Text truncate>{datum.groupName}</Text>,
+    sortable: true,
+  },
+  {
+    property: 'servers',
+    // header: 'Servers',
+    header: 'UNDER CONSTRUCTION',
+    align: 'start',
+    sortable: false,
+    render: datum => ViewMore(datum.servers, max),
+  },
+  {
+    property: 'status',
+    header: 'Status',
+    sortable: false,
+  },
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
 export const DataTableVerticalListExample = ({ designSystemDemo }) => {
-const size = React.useContext(ResponsiveContext);
+  const size = React.useContext(ResponsiveContext);
   return (
     <>
       <Heading
-        id="server-groups-heading"
+        id="server-groups-vertical-align"
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
@@ -86,16 +81,16 @@ const size = React.useContext(ResponsiveContext);
         overflow="auto"
       >
         <DataTable
-          aria-describedby="server-groups-heading"
+          aria-describedby="server-groups-vertical-align"
           data={data}
           columns={[
             {
-                property: 'id',
-                header: 'Id',
-                primary: true,
-                sortable: false,
-                render: datum => datum.id.slice(datum.id.length - 5),
-                pin: ['xsmall', 'small'].includes(size),
+              property: 'id',
+              header: 'Id',
+              primary: true,
+              sortable: false,
+              render: datum => datum.id.slice(datum.id.length - 5),
+              pin: ['xsmall', 'small'].includes(size),
             },
             ...columns,
           ]}
