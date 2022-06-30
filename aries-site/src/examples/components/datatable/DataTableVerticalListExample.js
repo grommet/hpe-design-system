@@ -17,7 +17,7 @@ import ServerGroups from '../../../data/mockData/serverGroups.json';
 const ViewMore = (arr, max) => {
   const [viewMore, setViewMore] = useState(false);
   return (
-    <Box align="start">
+    <Box>
       {viewMore
         ? arr.map(item => <Text>{item}</Text>)
         : arr.map(item => <Text>{item}</Text>).slice(0, max)}
