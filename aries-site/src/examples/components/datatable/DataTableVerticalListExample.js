@@ -8,6 +8,9 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+
+import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+
 import ServerGroups from '../../../data/mockData/serverGroups.json';
 
 /* This function displays an arr's values in a vertical list within a table 
@@ -33,6 +36,34 @@ const ViewMore = (data, max) => {
   );
 };
 
+const formatData = dataSet =>
+  dataSet.map(datum => {
+    const adjustedDatum = { ...datum };
+    switch (datum.status) {
+      case 'ok':
+        adjustedDatum.status = {
+          label: datum.status,
+          icon: StatusGoodSmall,
+          value: 0,
+          color: 'status-ok',
+        };
+        break;
+      case 'warning':
+        adjustedDatum.status = {
+          label: datum.status,
+          icon: StatusWarningSmall,
+          value: 1,
+          color: 'status-warning',
+        };
+        break;
+      default:
+        adjustedDatum.status = {
+          label: datum.status,
+        };
+    }
+    return adjustedDatum;
+  });
+
 const data = ServerGroups.groups;
 const max = 3;
 const columns = [
@@ -45,17 +76,12 @@ const columns = [
     property: 'groupName',
     header: 'Group Name',
     render: datum => <Text truncate>{datum.groupName}</Text>,
-    sortable: true,
+    size: 'small',
   },
   {
     property: 'servers',
     header: 'Servers',
-    sortable: false,
     render: datum => ViewMore(datum.servers, max),
-  },
-  {
-    property: 'status',
-    header: 'Status',
     sortable: false,
   },
 ];
@@ -78,16 +104,27 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
         // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
         height={designSystemDemo ? undefined : 'medium'}
         overflow="auto"
+        align="start"
       >
         <DataTable
           aria-describedby="server-groups-vertical-align"
-          data={data}
+          data={formatData(data)}
           columns={[
+            {
+              property: 'status.value',
+              header: 'Status',
+              render: datum => (
+                <Box direction="row" align="center" gap="xsmall">
+                  <datum.status.icon color={datum.status.color} size="small" />
+                  <Text>{datum.status.label}</Text>
+                </Box>
+              ),
+              size: 'xsmall',
+            },
             {
               property: 'id',
               header: 'Id',
               primary: true,
-              sortable: false,
               render: datum => datum.id.slice(datum.id.length - 5),
               pin: ['xsmall', 'small'].includes(size),
             },
