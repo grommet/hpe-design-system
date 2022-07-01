@@ -14,17 +14,18 @@ import ServerGroups from '../../../data/mockData/serverGroups.json';
    cell, hiding all values from view that exceed the given maximum list 
    length until the "View More" button is clicked, at which point the 
    button label changes to "View Less". */
-const ViewMore = (arr, max) => {
+const ViewMore = (data, max) => {
   const [viewMore, setViewMore] = useState(false);
   return (
     <Box>
       {viewMore
-        ? arr.map(item => <Text>{item}</Text>)
-        : arr.map(item => <Text>{item}</Text>).slice(0, max)}
+        ? data.map(item => <Text>{item}</Text>)
+        : data.slice(0, max).map(item => <Text>{item}</Text>)}
 
-      {arr.length > max && (
+      {data.length > max && (
         <Button
-          label={viewMore ? 'View less' : `View more (${arr.length - max})`}
+          alignSelf="start"
+          label={viewMore ? 'View less' : `View more (${data.length - max})`}
           onClick={() => setViewMore(!viewMore)}
         />
       )}
@@ -48,9 +49,7 @@ const columns = [
   },
   {
     property: 'servers',
-    // header: 'Servers',
-    header: 'UNDER CONSTRUCTION',
-    align: 'start',
+    header: 'Servers',
     sortable: false,
     render: datum => ViewMore(datum.servers, max),
   },

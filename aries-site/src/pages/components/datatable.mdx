@@ -189,6 +189,7 @@ accessible in a tool specifically designed for analysis.
 ### Wrapping and truncating
 
 When text exceeds the amount of space available within a table cell, [wrapping](#wrapping) or [truncation](#truncation) may be used depending on your use case. Below are some best practices to consider when implementing.
+
 - For readability, avoid truncating or wrapping text within the first column.
 - Keep each cell short and concise, limiting the amount of characters within a cell when possible.
 - Minimize the number of included columns by only showing those which are used most frequently.
@@ -197,7 +198,7 @@ When text exceeds the amount of space available within a table cell, [wrapping](
 
 **Truncation should not be used on headings, numeric values, or statuses.**
 
-Truncation may be applied at the beginning, middle, or end of a piece of data. When choosing where to apply truncation within a string, consider which section of the text is most likely to differentiate the item from others in the column. 
+Truncation may be applied at the beginning, middle, or end of a piece of data. When choosing where to apply truncation within a string, consider which section of the text is most likely to differentiate the item from others in the column.
 
 Additional questions to keep in mind when using truncation:
 
@@ -226,6 +227,7 @@ If truncating numerical values is absolutely necessary, use end-text truncation.
 Wrapping allows long strings of text or words to break and wrap onto subsequent lines.
 
 Wrapping should be used when:
+
 - The entirety of the content must be available at all times.
 - Long numerical values need to be displayed.
 
@@ -263,9 +265,10 @@ For example, if on the Heading you apply `id="storage-pools-heading"`, on the Da
 ### Status and State within a DataTable
 
 Statuses within a DataTable should always have these accompanying elements:
+
 - Shape
 - Color
-- Content (***This is not restricted to just normal, warning, unknown, and critical***)
+- Content (**_This is not restricted to just normal, warning, unknown, and critical_**)
 
 Greater detail, including accessibility considerations, is included on the [status indicator](/templates/status-indicator#what-makes-up-a-status-indicator) page.
 
@@ -280,12 +283,16 @@ Depending on the scenario, status and state may be displayed within a DataTable 
 #### 1. Separate columns for status and state
 
 When status and state are distinct and independent from each other, display them in separate columns. This is the most common use case.
+
 - Used when the status column is not coupled with the displayed state column. (Ex. An equipment can have a “Normal” status but have a “Running” state shown within the DataTable.)
 - Allows columns to be sorted independently from each other.
 - Clearly visually separates and labels status and state to avoid false associations.
 
 <Box width="large">
-  <Image src="/static/images/datatable-separate-columns-status-state.svg" alt="Example of a data table showing separate columns for status and state" />
+  <Image
+    src="/static/images/datatable-separate-columns-status-state.svg"
+    alt="Example of a data table showing separate columns for status and state"
+  />
 </Box>
 
 #### 2. Status only column
@@ -295,19 +302,26 @@ When status and state are distinct and independent from each other, display them
 - If displaying state is required, provide the user the ability to view the record's detail. State may be displayed once the user selects the row for more information.
 
 <Box width="large">
-  <Image src="/static/images/datatable-only-status-column.svg" alt="Example showing a status column in the data table pointing to the state within the details" />
+  <Image
+    src="/static/images/datatable-only-status-column.svg"
+    alt="Example showing a status column in the data table pointing to the state within the details"
+  />
 </Box>
 
 #### 3. Combined column
 
 When the status and state are coupled, they may be displayed as a single element.
+
 - Coupled statuses have a 1:1 relationship with specific states.
 - A single column presents both status and state. Status represented by a [status indicator](/templates/status-indicator) and state as the accompanying label.
 - Status and State are sorted together rather than individually.
-- ***Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled.***
+- **_Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled._**
 
 <Box width="large">
-  <Image src="/static/images/datatable-combined-column-status-state.svg" alt="Example of a data table showing combined column for status and state" />
+  <Image
+    src="/static/images/datatable-combined-column-status-state.svg"
+    alt="Example of a data table showing combined column for status and state"
+  />
 </Box>
 
 ## DataTable behaviors & actions
@@ -435,10 +449,12 @@ Should be guided by the task the user is setting out to accomplish.
 - Do rows have many interactive elements? --> Pagination
   - Be mindful of keyboard users.
 
-### Vertical lists within DataTables
-A DataTable row could have a vertical list as a data entry. 
+### Vertically align row data
+
+A DataTable row could have a vertical list as a data entry.
 TODO: Example code snippet currently shows 404 (new .js file not yet merged to master).
 TODO: Add more written guidance for vertical list behavior/functionality.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableVerticalListExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
@@ -447,8 +463,6 @@ TODO: Add more written guidance for vertical list behavior/functionality.
 >
   <DataTableVerticalListExample />
 </Example>
-
-
 
 <!-- To be added. Placeholders for future content.
 ### Pagination
