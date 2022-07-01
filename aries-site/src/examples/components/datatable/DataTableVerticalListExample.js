@@ -76,7 +76,6 @@ const columns = [
     property: 'groupName',
     header: 'Group Name',
     render: datum => <Text truncate>{datum.groupName}</Text>,
-    size: 'small',
   },
   {
     property: 'servers',
@@ -104,7 +103,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
         // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
         height={designSystemDemo ? undefined : 'medium'}
         overflow="auto"
-        align="start"
+        alignSelf="start"
       >
         <DataTable
           aria-describedby="server-groups-vertical-align"
@@ -119,7 +118,6 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
                   <Text>{datum.status.label}</Text>
                 </Box>
               ),
-              size: 'xsmall',
             },
             {
               property: 'id',
@@ -132,7 +130,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
           ]}
           pin
           sortable
-          verticalAlign="top"
+          verticalAlign={{ body: 'top' }}
         />
       </Box>
     </>
