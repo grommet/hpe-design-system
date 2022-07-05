@@ -4,7 +4,7 @@
       "id": "blcvo1v0rg7c",
       "name": "Production",
       "groupName": "Dev",
-      "status": "ok",
+      "status": "OK",
       "servers": [
         "875765-S01+2M282501WV",
         "P18603-B21+CN703712GP",
@@ -24,7 +24,7 @@
       "id": "tgudqmsf4kv6",
       "name": "Staging",
       "groupName": "Dev", 
-      "status": "ok",
+      "status": "OK",
       "servers": [
         "874460-S01+MXQ824045Q",
         "P19774-B21+SGH9321GF3",
@@ -36,7 +36,7 @@
       "id": "v4sglqvwnf6e",
       "name": "QA",
       "groupName": "Production",
-      "status": "warning",
+      "status": "Warning",
       "servers": [
         "874460-S01+MXQ8240458",
         "P18603-B21+CN702708SP",

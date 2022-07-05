@@ -40,17 +40,17 @@ const formatData = dataSet =>
   dataSet.map(datum => {
     const adjustedDatum = { ...datum };
     switch (datum.status) {
-      case 'ok':
+      case 'OK':
         adjustedDatum.status = {
-          label: datum.status,
+          label: 'ok',
           icon: StatusGoodSmall,
           value: 0,
           color: 'status-ok',
         };
         break;
-      case 'warning':
+      case 'Warning':
         adjustedDatum.status = {
-          label: datum.status,
+          label: 'warning',
           icon: StatusWarningSmall,
           value: 1,
           color: 'status-warning',
