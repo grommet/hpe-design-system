@@ -1,6 +1,7 @@
 {
   "groups": [
     {
+      "id": "blcvo1v0rg7c",
       "name": "Production",
       "status": "OK",
       "servers": [
@@ -19,6 +20,7 @@
       ]
     },
     {
+      "id": "tgudqmsf4kv6",
       "name": "Staging",
       "status": "OK",
       "servers": [
@@ -29,8 +31,9 @@
       ]
     },
     {
+      "id": "v4sglqvwnf6e",
       "name": "QA",
-      "status": "OK",
+      "status": "Warning",
       "servers": [
         "874460-S01+MXQ8240458",
         "P18603-B21+CN702708SP",
