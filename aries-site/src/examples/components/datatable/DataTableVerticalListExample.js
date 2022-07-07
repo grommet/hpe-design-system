@@ -44,7 +44,6 @@ const formatData = dataSet =>
         adjustedDatum.status = {
           label: 'ok',
           icon: StatusGoodSmall,
-          value: 0,
           color: 'status-ok',
         };
         break;
@@ -52,7 +51,6 @@ const formatData = dataSet =>
         adjustedDatum.status = {
           label: 'warning',
           icon: StatusWarningSmall,
-          value: 1,
           color: 'status-warning',
         };
         break;
@@ -71,11 +69,6 @@ const columns = [
     property: 'name',
     header: 'Name',
     render: datum => <Text truncate>{datum.name}</Text>,
-  },
-  {
-    property: 'groupName',
-    header: 'Group Name',
-    render: datum => <Text truncate>{datum.groupName}</Text>,
   },
   {
     property: 'servers',
@@ -110,7 +103,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
           data={formatData(data)}
           columns={[
             {
-              property: 'status.value',
+              property: 'status.label',
               header: 'Status',
               render: datum => (
                 <Box direction="row" align="center" gap="xsmall">

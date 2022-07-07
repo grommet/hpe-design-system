@@ -39,7 +39,7 @@ the meaning of the data.
 
 DataTable controls should live above the table and facilitate a user's ability to locate and
 take actions against records of interest. A controls section may contain [search and filter
-controls](#searching-and-filtering-tables), as well as [action controls](#selecting-multiple-records-and-batch-actions)
+controls](#searching-and-filtering-datatables), as well as [action controls](#selecting-multiple-records-and-batch-actions)
 such as batch applying settings or data export.
 
 **DataTable header**
@@ -49,7 +49,7 @@ Column headers may be enhanced by enabling [sorting](#sorting).
 
 **DataTable body**<br />
 Consists of rows allowing users to scan, read and take action on the data.
-Rows may be enhanced by enabling actions such as [record selection](#selecting-single-records) and
+Rows may be enhanced by enabling actions such as [record selection](#selecting-multiple-records-and-batch-actions) and
 navigation to a record's detailed view.
 
 **DataTable footer**<br />
@@ -81,7 +81,7 @@ quickly as possible.
 
 <ExampleImagePreview
   label="See finding a specific record"
-  href="#searching-and-filtering-tables"
+  href="#searching-and-filtering-datatables"
   src="/static/images/Searching_Data_Tables.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
@@ -97,7 +97,7 @@ result set.
 
 <ExampleImagePreview
   label="Learn more about providing a great filter experience"
-  href="#searching-and-filtering-tables"
+  href="/templates/filtering"
   src="/static/images/Filtering_Data_Tables.png"
   alt="Example demonstrating how to find a record of interest with a Table"
 />
@@ -131,7 +131,7 @@ in depth analysis. In this scenario, a data table's design should be optimized f
 assembling the data set for analysis and easy portability of that data into the
 user's preferred analytical tool.
 
-- Provide [filter controls](#searching-and-filtering-tables).
+- Provide [filter controls](/templates/filtering#controls).
 - Filter control input types should be chosen to best fit the data type and breadth of values.
 - Provide export capability for users to consume the data in their analytical
   tool of choice.
@@ -454,8 +454,12 @@ Should be guided by the task the user is setting out to accomplish.
 When a column has multi-line data, it may improve readability to align the data to the top of the row. In these cases, apply `verticalAlign={{ body: 'top' }}` to the DataTable.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableVerticalListExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableVerticalListExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/serverGroups.json',
+  ]}
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/datatable"
   showResponsiveControls={['laptop', 'mobile']}
   template
 >

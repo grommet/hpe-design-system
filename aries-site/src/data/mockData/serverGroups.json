@@ -3,7 +3,6 @@
     {
       "id": "blcvo1v0rg7c",
       "name": "Production",
-      "groupName": "Dev",
       "status": "OK",
       "servers": [
         "875765-S01+2M282501WV",
@@ -23,7 +22,6 @@
     {
       "id": "tgudqmsf4kv6",
       "name": "Staging",
-      "groupName": "Dev", 
       "status": "OK",
       "servers": [
         "874460-S01+MXQ824045Q",
@@ -35,7 +33,6 @@
     {
       "id": "v4sglqvwnf6e",
       "name": "QA",
-      "groupName": "Production",
       "status": "Warning",
       "servers": [
         "874460-S01+MXQ8240458",
