@@ -81,16 +81,15 @@ Complicated processes where the user might need guidance at various stages, or w
 ## Don'ts
 
 **Required fields**
-- Have more than two optional fields. 
 - Use asterisks for sign up and sign in forms. 
 - Red asterisks stresses the user and actually decrease success in filling out the form. 
 - No need to list requirements up front that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.). 
 
+
 **Format and fields**
+- Have more than two optional fields. 
 - Repeat the field label to use as placeholder text. 
 - Use generic labels on buttons, such as “Submit.” 
-
-**Actions after the user submits information**
 - Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
 
@@ -222,11 +221,11 @@ All form input elements must be contained within a FormField.
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
 
-- For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
+   - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
 
 - Forms with minimal fields are optimal but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases: 
 
-   - Create the form the optimal way: with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, create those fields where the user can proactively add this helpful information at another time. 
+   - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, create those fields where the user can proactively add this helpful information at another time. For example, asking for someone's official title or role might be highly useful on a sign-in form. However, this might also be a charged question with many implications for the admin to answer easily. Instead, offer this "role" or "title" field in profile settings.
 
    - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional. 
 
