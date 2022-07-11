@@ -68,7 +68,7 @@ Complicated processes where the user might need guidance at various stages, or w
 - Use clear, concise title labels for each field. 
 - Write helpful placeholder text inside the fields. 
 - If the user would likely have doubts, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context.
-- Place the submit, reset and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button?q=button#responsiveness). 
+- Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button?q=button#responsiveness). 
 - Use specific labels on buttons that tell the user what action to expect. 
 
 **Actions after the user submits information**
@@ -214,8 +214,8 @@ All form input elements must be contained within a FormField.
 **FormFields must include:** 
 
 - A "for" property that matches the id of its child input. If using Grommet, this is applied with the htmlFor prop.
-- A `name` property applied on both the FormField and its child input element
-- A clear, concise label
+- A `name` property applied on both the FormField and its child input element.
+- A clear, concise label.
 
 ## Exceptions and how to address them
 
@@ -225,7 +225,7 @@ All form input elements must be contained within a FormField.
 
 - Forms with minimal fields are optimal but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases: 
 
-   - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, create those fields where the user can proactively add this helpful information at another time. For example, asking for someone's official title or role might be highly useful on a sign-in form. However, this might also be a charged question with many implications for the admin to answer easily. Instead, offer this "role" or "title" field in profile settings.
+   - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, create those fields where the user can proactively add this helpful information at another time. An example of a helpful but not required field could be asking for someone's official title or role. It might be highly useful to capture it right away on a sign-in form, but a title or role might be too problematic for the admin to enter. Instead, offer this "role" or "title" field in profile settings.
 
    - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional. 
 
