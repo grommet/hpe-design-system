@@ -7,3 +7,4 @@ export * from './DataTableMultiSelectExample';
 export * from './DataTableResizeColumnsExample';
 export * from './DataTableSingleSelectExample';
 export * from './DataTableSummaryExample';
+export * from './DataTableVerticalListExample';
