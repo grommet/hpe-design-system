@@ -205,7 +205,7 @@ export const SignUpExample = () => {
               type="password"
             />
           </FormField>
-          <FormField htmlFor="terms-and-privacy">
+          <FormField required htmlFor="terms-and-privacy">
             <CheckBox
               id="terms-and-privacy"
               name="termsAndPrivacy"
