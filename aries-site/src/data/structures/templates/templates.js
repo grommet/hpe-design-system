@@ -194,6 +194,7 @@ export const templates = [
       'Shipping',
       'Customize',
       'Required and Optional Fields',
+      'Terms and Conditions'
     ],
     relatedContent: [
       'TextInput',
