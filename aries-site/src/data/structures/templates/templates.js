@@ -184,6 +184,7 @@ export const templates = [
       'Button placement and labeling',
       'User-Entered Input',
       'Form submission',
+      'Terms and Conditions',
       'Sign In',
       'Sign Up',
       'Change Password',
