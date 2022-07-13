@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box, Button, ResponsiveContext } from 'grommet';
+import { Splits } from 'grommet-icons';
 
 import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
 export const FilterControls = ({
   actions,
+  configure,
   data,
   filters,
   layerProps,
@@ -62,6 +64,7 @@ export const FilterControls = ({
             <SearchFilter placeholder={searchFilter.placeholder} />
           )}
           <Filters />
+          {configure}
         </Box>
         {actions}
       </Box>
@@ -72,6 +75,7 @@ export const FilterControls = ({
 
 FilterControls.propTypes = {
   actions: PropTypes.element,
+  configure: PropTypes.element,
   data: PropTypes.array,
   filters: PropTypes.arrayOf(
     PropTypes.shape({
