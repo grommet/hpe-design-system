@@ -13,6 +13,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)   
 &nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Character counter](#character-counter)  
 [Accessibility](#accessibility)   
 [Exceptions and how to address them](#exceptions-and-how-to-address-them)  
 
@@ -205,6 +206,27 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
 >
   <CustomizeExample />
+</Example>
+
+### Character counter
+
+**When to use**  
+In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.  
+
+**Guidance**
+- Place the character counter at the bottom right of the field.  
+- [See guidance on character limits for fields](https://design-system.hpe.design/components/tag#anatomy). If you have doubts about how many characters to limit in the field, set a generous limit so as to not frustrate the user. When possible, check analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too few. Increase accordingly.
+- Use a numerator/denominator format. Ex. 0/128.  
+- Count down the characters as the user is typing. Ex. 52/128 if the user has typed 52 characters. 53/128 when they type an extra character, etc.  
+- The character counter should be the same color as the field title.  
+- Make the field roughly the same size as the character limit.  
+- Red highlight the field when the user meets the character limitation.  
+
+**Accessibility**
+- Announce the max character allowed before the user begins typing.
+- Announce when the user has typed 50% of the max allowed. 
+
+<Example
 </Example>
 
 ### Accessibility
