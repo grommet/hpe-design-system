@@ -1,6 +1,5 @@
-
-
 ### Jump to section...
+
 [Use cases and example code](#when-to-use)  
 [Do's and Don'ts](#dos)  
 [Use case and example code](use-cases)  
@@ -8,14 +7,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#sign-in)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)   
+&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Character counter](#character-counter)  
-[Accessibility](#accessibility)   
-[Exceptions and how to address them](#exceptions-and-how-to-address-them)  
+[Accessibility](#accessibility)  
+[Exceptions and how to address them](#exceptions-and-how-to-address-them)
 
 import {
   ChangePasswordExample,
@@ -50,49 +49,54 @@ To efficiently capture information necessary for completing a task.
 
 Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
 
-
 ## Do's
 
 **Required fields**
+
 - Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
-- List only the most common field requirements below the relevant field. 
-- Use asterisks for required fields when the form has more than two required fields and/or has optional fields. 
-- Asterisks for required fields should be the same color as label field. 
+- List only the most common field requirements below the relevant field.
+- Use asterisks for required fields when the form has more than two required fields and/or has optional fields.
+- Asterisks for required fields should be the same color as label field.
 - If a field is optional, write "Optional" next to the form field label.
 
 **Format and fields**
+
 - User-entered input must be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
-- Wrap all input elements within a FormField `<FormField label="Username"><TextInput /></FormField>`  
+- Wrap all input elements within a FormField `<FormField label="Username"><TextInput /></FormField>`
 - Reveal fields progressively so the user is not overwhelmed.
-- Write in sentence case (capitalize the first letter and all following letters should be lowercase).  
-- Fill in default values for as many fields as possible. 
-- Use clear, concise labels for each field. 
-- Write helpful placeholder text inside the fields. 
+- Write in sentence case (capitalize the first letter and all following letters should be lowercase).
+- Fill in default values for as many fields as possible.
+- Use clear, concise labels for each field.
+- Write helpful placeholder text inside the fields.
 - If the user will likely have doubts about how to complete an input, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context.
-- Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button#responsiveness). 
-- Use specific labels on buttons that tell the user what action to expect. 
+- Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button#responsiveness).
+- Use specific labels on buttons that tell the user what action to expect.
 
 **Actions after the user submits information**
-- Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.). 
-- [In the case of an error](#requiredoptional), red highlight the field where the error occurred. 
-- List all errors and the corrective action the user must take. Place in-line when possible. Otherwise, list above the submit button. 
-- Allow the user to continue navigating through the application immediately.
 
+- Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.).
+- [In the case of an error](#requiredoptional), red highlight the field where the error occurred.
+- List all errors and the corrective action the user must take. Place in-line when possible. Otherwise, list above the submit button.
+- Allow the user to continue navigating through the application immediately.
 
 ## Don'ts
 
 **Required fields**
-- Use asterisks for sign up and sign in forms. This can be implemented using `required={{ indicator: false }}`.
-- Use red asterisks, because has shown to actually decrease success in filling out the form. 
-- List rejection criteria that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.). Only when they commit the error do you alert them. 
 
+- Use asterisks for sign up and sign in forms. This can be implemented using `required={{ indicator: false }}`.
+- Use red asterisks, because has shown to actually decrease success in filling out the form.
+- List rejection criteria that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.). Only when they commit the error do you alert them.
 
 **Format and fields**
-- Have more than two optional fields. 
-- Repeat the field label as placeholder text. 
-- Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.  
+
+- Have more than two optional fields.
+- Repeat the field label as placeholder text.
+- Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.
 - Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
+## Terms and Conditions
+
+Users must actively check a box next to a statement that shows they have agreed to the Terms and Conditions when signing up for an account. For easy access and quick reference, the legal agreement is a simple link in the text.
 
 ## Single field forms
 
@@ -211,20 +215,22 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
 ### Character counter
 
 **When to use**  
-In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.  
+In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.
 
 **Guidance**
-- Place the character counter at the bottom right of the field.  
+
+- Place the character counter at the bottom right of the field.
 - [See guidance on character limits for fields](https://design-system.hpe.design/components/tag#anatomy). Note that your backend may have character limitations. When you can choose the character limits, however, set a generous number to avoid frustrating the user. A suggestion to ensure your limit is user-friendly, check the analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too low. Increase accordingly.
-- Use a numerator/denominator format. Ex. 0/128.  
-- Show the progression in the numerator as the user is typing. Ex. 52/128 if the user has typed 52 characters, 53/128 when they type an extra character, 54/128, 55/128, etc.  
+- Use a numerator/denominator format. Ex. 0/128.
+- Show the progression in the numerator as the user is typing. Ex. 52/128 if the user has typed 52 characters, 53/128 when they type an extra character, 54/128, 55/128, etc.
 - Use the `text` styling (same color, weight, font, etc.)
-- Make the field roughly the same size as the character limit.  
-- Red highlight the field when the user meets the character limitation.  
+- Make the field roughly the same size as the character limit.
+- Red highlight the field when the user meets the character limitation.
 
 **Accessibility**
+
 - Announce the max character allowed before the user begins typing.
-- Announce when the user has typed 50% of the max allowed. 
+- Announce when the user has typed 50% of the max allowed.
 
 <Example
 </Example>
@@ -233,7 +239,7 @@ In cases where the user is given an opportunity to express themselves or would l
 
 All form input elements must be contained within a FormField.
 
-**FormFields must include:** 
+**FormFields must include:**
 
 - A "for" property that matches the `id` of its child input. If using Grommet, this is applied with the `htmlFor` prop.
 - A `name` property applied on both the FormField and its child input element.
@@ -243,13 +249,13 @@ All form input elements must be contained within a FormField.
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
 
-   - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
+  - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
 
-- Forms with minimal fields are optimal, but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases: 
+- Forms with minimal fields are optimal, but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases:
 
-   - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, provide a form that allows the user to add helpful, optional information at another time. An example of a helpful but not required field could be asking for someone's official title or role. If it is not necessary to capture this information right away on a sign-in form, offer this "role" or "title" field in profile settings.
+  - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, provide a form that allows the user to add helpful, optional information at another time. An example of a helpful but not required field could be asking for someone's official title or role. If it is not necessary to capture this information right away on a sign-in form, offer this "role" or "title" field in profile settings.
 
-   - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional. 
+  - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional.
 
 <ExampleImagePreview
   label="Forms where 'asterisk' and 'optional' can be skipped"
