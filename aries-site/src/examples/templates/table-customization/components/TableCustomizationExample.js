@@ -117,13 +117,7 @@ export const TableCustomizationExample = () => {
                     // becomes confusing what the "Clear filters" button will
                     // do with regards to any column configurations that have
                     // been applied.
-                    actions={
-                      <Box
-                        direction="row"
-                        align="start"
-                        gap="small"
-                        flex={false}
-                      >
+                    configure={
                         <DropButton
                           a11yTitle="Configure columns button"
                           icon={<Splits />}
@@ -141,9 +135,8 @@ export const TableCustomizationExample = () => {
                           }
                           tip="Configure columns"
                         />
-                        <Menu kind="toolbar" label="Actions" items={[]} />
-                      </Box>
                     }
+                    actions={<Menu kind="toolbar" label="Actions" items={[]} />}
                     data={allData}
                     filters={filtersConfig}
                     searchFilter={{ placeholder: 'Search' }}
