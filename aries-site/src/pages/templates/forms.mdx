@@ -75,7 +75,7 @@ Complicated processes where the user might need guidance at various stages, or w
 **Actions after the user submits information**
 - Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.). 
 - [In the case of an error](#requiredoptional), red highlight the field where the error occurred. 
-- List below the button all relevant errors and the corrective action the user must take. 
+- List all errors and the corrective action the user must take. Place in-line when possible. Otherwise, list above the submit button. 
 - Allow the user to continue navigating through the application immediately.
 
 
@@ -83,14 +83,14 @@ Complicated processes where the user might need guidance at various stages, or w
 
 **Required fields**
 - Use asterisks for sign up and sign in forms. This can be implemented using `required={{ indicator: false }}`.
-- Red asterisks stresses the user and actually decrease success in filling out the form. 
-- No need to list requirements up front that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.). 
+- Use red asterisks, because has shown to actually decrease success in filling out the form. 
+- List rejection criteria that the user is unlikely to commit (ex. double hyphens, starting with a space, etc.). Only when they commit the error do you alert them. 
 
 
 **Format and fields**
 - Have more than two optional fields. 
 - Repeat the field label as placeholder text. 
-- Use generic labels on buttons, such as “Submit.” 
+- Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.  
 - Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
 
@@ -215,10 +215,10 @@ In cases where the user is given an opportunity to express themselves or would l
 
 **Guidance**
 - Place the character counter at the bottom right of the field.  
-- [See guidance on character limits for fields](https://design-system.hpe.design/components/tag#anatomy). If you have doubts about how many characters to limit in the field, set a generous limit so as to not frustrate the user. When possible, check analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too few. Increase accordingly.
+- [See guidance on character limits for fields](https://design-system.hpe.design/components/tag#anatomy). Note that your backend may have character limitations. When you can choose the character limits, however, set a generous number to avoid frustrating the user. A suggestion to ensure your limit is user-friendly, check the analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too low. Increase accordingly.
 - Use a numerator/denominator format. Ex. 0/128.  
-- Count down the characters as the user is typing. Ex. 52/128 if the user has typed 52 characters. 53/128 when they type an extra character, etc.  
-- The character counter should be the same color as the field title.  
+- Show the progression in the numerator as the user is typing. Ex. 52/128 if the user has typed 52 characters, 53/128 when they type an extra character, 54/128, 55/128, etc.  
+- Use the `text` styling (same color, weight, font, etc.)
 - Make the field roughly the same size as the character limit.  
 - Red highlight the field when the user meets the character limitation.  
 
