@@ -1,21 +1,3 @@
-### Jump to section...
-
-[Use cases and example code](#when-to-use)  
-[Do's and Don'ts](#dos)  
-[Use case and example code](use-cases)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign up](#sign-up)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sign in](#sign-in)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Filter](#filter)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Sort](#sort)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Change password](#change-password)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Settings](#settings)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Pay](#pay)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Shipping](#shipping)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Customize](#customize)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Character counter](#character-counter)  
-[Accessibility](#accessibility)  
-[Exceptions and how to address them](#exceptions-and-how-to-address-them)
-
 import {
   ChangePasswordExample,
   CustomizeExample,
@@ -32,6 +14,28 @@ import {
 } from '../../examples';
 import { ExampleImagePreview } from '../../components';
 import { Example } from '../../layouts';
+
+## Jump to section
+
+- [When to use](#when-to-use)
+- [When not to use](#when-not-to-use)
+- [Do's](#dos)
+- [Don'ts](#donts)
+- [Terms and onditions](#terms-and-conditions)
+- [Single field forms](#single-field-forms)
+- [Use case and example code](use-cases)
+  - [Sign up](#sign-up)
+  - [Sign in](#sign-in)
+  - [Filter](#filter)
+  - [Sort](#sort)
+  - [Change password](#change-password)
+  - [Settings](#settings)
+  - [Pay](#pay)
+  - [Shipping](#shipping)
+  - [Customize](#customize)
+  - [Character counter](#character-counter)
+- [Accessibility](#accessibility)
+- [Exceptions and how to address them](#exceptions-and-how-to-address-them)
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
@@ -101,13 +105,6 @@ Users must actively check a box next to a statement that shows they have agreed 
 ## Single field forms
 
 - For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
-
-<ExampleImagePreview
-  label="Required and Optional Fields Example."
-  src="/required&optional-Fields-example.png."
-  href="#required-and-optional-fields."
-  alt="HPE Design System Form example where required and optional fields are used."
-/>
 
 ## Use cases
 
@@ -231,9 +228,6 @@ In cases where the user is given an opportunity to express themselves or would l
 
 - Announce the max character allowed before the user begins typing.
 - Announce when the user has typed 50% of the max allowed.
-
-<Example
-</Example>
 
 ### Accessibility
 
