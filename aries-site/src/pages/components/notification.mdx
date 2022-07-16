@@ -13,12 +13,12 @@ Notifications build trust by providing users confidence and assurance that they 
 
 ## Taxonomy
 
-To standardize language for Notifications across HPE projects, be sure to familiarize yourself with this taxonomy:
+To standardize language for notifications across HPE projects, be sure to familiarize yourself with this taxonomy:
 
 - **Type** - In the broadest terms, what the notification is about
 - **State** - The current stage within a process
 - **Status** - The condition of a process
-- **Attention Level** - The priority and importance of a notification
+- **Attention level** - The priority and importance of a notification
 - **Actions** - Interactactions within a notification
 - **Persistence** - How the notification is dismissed
 - **Placement** - Where the notification can be found
@@ -26,19 +26,19 @@ To standardize language for Notifications across HPE projects, be sure to famili
 
 <TaxonomyTable />
 
-### State v.s. Status
+### State vs. status vs. health
 
 A state is the current stage of a process.
 
-A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health”.
+A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health.” At HPE we tend to use the two terms interchangeably, but the end users don't know that. To avoid confusion for the end user, do not use the word "health" in your user interfaces. Always use "status" instead.  
 
-Here is an example of a Toast Notification that illustrates their differences:
+Here is an example of a toast notification that illustrates their differences:
 
 <StateVsStatusDiagram />
 
 Keep in mind that a status **derives** from a state.
 
-## Notification Systems
+## Notification systems
 
 The following types of notifications are used to provide users with full transparent clarity on tasks and system statuses:
 
@@ -47,9 +47,9 @@ The following types of notifications are used to provide users with full transpa
 
 ## Variants
 
-There are a couple "types" of the Notification component depending on use case.
+There are a couple types of the notification component depending on use case.
 
-### Toast Notification
+### Toast notification
 
 Toast notifications are used for low attention status messages or updates that do not require user action. For more thorough guidance on how and when to properly make use of a toast, access the full page on [Toast Notifications](/templates/toast-notifications).
 
@@ -62,9 +62,9 @@ Toast notifications are used for low attention status messages or updates that d
   <ToastNotificationExample />
 </Example>
 
-### Global Banner Notification
+### Global banner notification
 
-Global Banner Notifications are system generated alerts that attract user's attention to system conditions and updates. For more thorough guidance on how and when to properly make use of a global banner, access the full page on [Global Banner Notifications](/templates/global-banner-notifications).
+Global banner notifications are system-generated alerts that attract the user's attention to system conditions and updates. For more thorough guidance on how and when to properly make use of a global banner, access the full page on [Global Banner Notifications](/templates/global-banner-notifications).
 
 <Example
   componentName="Notification"
@@ -79,13 +79,13 @@ Global Banner Notifications are system generated alerts that attract user's atte
 
 ### Roadmap
 
-The Design System is currently exploring and researching best practices and considerations for notification patterns. Here are some things we have lined out for the future:
+The Design System team is currently exploring and researching best practices and considerations for notification patterns. Here are some we plan on addressing:
 
-- Page Banner
+- Page banner
 - System
 - Inline
 - Notification center
-- Badging & Bell
+- Badging & bell
 
 ### Have more questions?
 
