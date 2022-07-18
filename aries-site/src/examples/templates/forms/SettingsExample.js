@@ -95,7 +95,11 @@ export const SettingsExample = () => {
                 toggle
               />
             </FormField>
-            <FormField htmlFor="doNotDisturbHours" name="doNotDisturbHours">
+            <FormField
+              htmlFor="doNotDisturbHours"
+              name="doNotDisturbHours"
+              label="Do Not Disturb Hours"
+            >
               <TextInput
                 id="doNotDisturbHours"
                 name="doNotDisturbHours"
