@@ -61,11 +61,13 @@ export const SortExample = () => {
             name="sortOrder"
             label="Sort order"
             help="Select how results are ordered"
+            id="sortOrder-formfield-id"
           >
             <RadioButtonGroup
               id="sortOrder"
               name="sortOrder"
               options={['Ascending', 'Descending']}
+              aria-labelledby="sortOrder-formfield-id"
             />
           </FormField>
         </Form>

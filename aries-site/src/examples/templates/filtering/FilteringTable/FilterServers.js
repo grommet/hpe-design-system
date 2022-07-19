@@ -50,7 +50,9 @@ export const FilterServers = ({ bestPractice = true }) => (
         filters={filtersConfig}
         primaryKey="id"
         searchFilter={{ placeholder: 'Search' }}
-        configure={<Button icon={<Splits />} kind="toolbar" tip="Configure columns" />}
+        configure={
+          <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
+        }
         actions={bestPractice && <Button label="Add Server" secondary />}
       />
       <ServerResults />
