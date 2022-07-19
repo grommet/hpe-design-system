@@ -76,7 +76,7 @@ export const RequiredFieldsExample = () => {
           <FormField
             required
             error="Provide a unique name."
-            htmlFor="name__input"
+            htmlFor="name"
             name="name"
             label="Name"
           >
@@ -98,12 +98,12 @@ export const RequiredFieldsExample = () => {
           >
             <Select options={weakness} id="weakness" name="weakness" />
           </FormField>
-          <FormField required htmlFor="email__input" name="email" label="Email">
+          <FormField required htmlFor="email" name="email" label="Email">
             <TextInput id="email" name="email" />
           </FormField>
           <FormField
             help="Would you like to apply nemesis character?"
-            htmlFor="nemesis__input"
+            htmlFor="nemesis"
             name="nemesis"
             label="Nemesis (optional)"
           >
