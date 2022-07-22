@@ -104,12 +104,16 @@ Form inputs must be accompanied by a label that identifies itself to screen read
 
 **FormFields must include:**
 
-- A "for" property that matches the `id` of its child input. If using Grommet, this is applied with the ```<FormField
+- A "for" property that matches the `id` of its child input. If using Grommet, this is applied with the htmlFor property.
+```
+<FormField
   label="Username"
   htmlFor="example-username"
-  name="example-username">
+  name="example-username"
+  >
    <TextInput id="example-username" name="example-username" />
-</FormField>```.  
+</FormField>
+```  
 - A `name` property applied on both the FormField and its child input element.  
 - A clear, concise label.  
 - Ensure that users can tab through fields and buttons in a logical order and not have to use arrow keys.  
