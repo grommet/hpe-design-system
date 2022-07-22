@@ -6,6 +6,7 @@ import { Filters, ResultsSummary, SearchFilter, useFilters } from '.';
 
 export const FilterControls = ({
   actions,
+  configure,
   data,
   filters,
   layerProps,
@@ -61,6 +62,7 @@ export const FilterControls = ({
           {searchFilter && (
             <SearchFilter placeholder={searchFilter.placeholder} />
           )}
+          {configure}
           <Filters />
         </Box>
         {actions}
@@ -72,6 +74,7 @@ export const FilterControls = ({
 
 FilterControls.propTypes = {
   actions: PropTypes.element,
+  configure: PropTypes.element,
   data: PropTypes.array,
   filters: PropTypes.arrayOf(
     PropTypes.shape({

@@ -218,39 +218,40 @@ export const ShippingExample = () => {
             >
               Shipping Address *
             </Text>
-
-            <FormField required htmlFor="firstName" name="firstName">
-              <TextInput
-                id="firstName"
-                name="firstName"
-                placeholder="First Name"
-              />
+            <FormField
+              required
+              htmlFor="firstName"
+              name="firstName"
+              label="First Name"
+            >
+              <TextInput id="firstName" name="firstName" />
             </FormField>
-            <FormField required htmlFor="lastName" name="lastName">
-              <TextInput
-                id="lastName"
-                name="lastName"
-                placeholder="Last Name"
-              />
+            <FormField
+              required
+              htmlFor="lastName"
+              name="lastName"
+              label="Last Name"
+            >
+              <TextInput id="lastName" name="lastName" label="Last Name" />
             </FormField>
-            <FormField htmlFor="address1" name="address1">
+            <FormField htmlFor="address1" name="address1" label="Address 1">
               <TextInput
                 id="address1"
                 name="address1"
                 placeholder="Street Address"
               />
             </FormField>
-            <FormField htmlFor="address2" name="address2">
+            <FormField htmlFor="address2" name="address2" label="Address 2">
               <TextInput
                 id="address2"
                 name="address2"
                 placeholder="Apt., Suite, Building (Optional)"
               />
             </FormField>
-            <FormField htmlFor="city" name="city">
-              <TextInput id="city" name="city" placeholder="City" />
+            <FormField htmlFor="city" name="city" label="City">
+              <TextInput id="city" name="city" />
             </FormField>
-            <FormField htmlFor="state" name="state">
+            <FormField htmlFor="state__input" name="state" label="State">
               <Select
                 id="state"
                 name="state"
@@ -259,8 +260,8 @@ export const ShippingExample = () => {
                 placeholder="Select State"
               />
             </FormField>
-            <FormField htmlFor="zipcode" name="zipcode">
-              <TextInput id="zipcode" name="zipcode" placeholder="ZIP Code" />
+            <FormField htmlFor="zipcode" name="zipcode" label="ZIP Code">
+              <TextInput id="zipcode" name="zipcode" />
             </FormField>
             <FormField htmlFor="isBusiness" name="isBusiness">
               <CheckBox name="isBusiness" label="This is a business" />
@@ -276,11 +277,7 @@ export const ShippingExample = () => {
               htmlFor="fullName"
               name="fullName-shipping"
             >
-              <TextInput
-                id="fullName"
-                name="fullName-shipping"
-                placeholder="Full Name"
-              />
+              <TextInput id="fullName" name="fullName-shipping" />
             </FormField>
             <FormField
               htmlFor="phone-ship"

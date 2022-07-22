@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, DataTable, ResponsiveContext, Text } from 'grommet';
 import {
-  Splits,
   StatusWarningSmall,
   StatusCriticalSmall,
   StatusGoodSmall,
   StatusUnknownSmall,
+  Splits,
 } from 'grommet-icons';
 
 import {
@@ -50,12 +50,10 @@ export const FilterServers = ({ bestPractice = true }) => (
         filters={filtersConfig}
         primaryKey="id"
         searchFilter={{ placeholder: 'Search' }}
-        actions={
-          <Box direction="row" gap="small">
-            <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
-            {bestPractice && <Button label="Add Server" secondary />}
-          </Box>
+        configure={
+          <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
         }
+        actions={bestPractice && <Button label="Add Server" secondary />}
       />
       <ServerResults />
     </Box>
