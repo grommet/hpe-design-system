@@ -31,19 +31,22 @@ const mapContent = async files => {
         pathParts
           .pop()
           .replace(/.mdx|.js/, '')
-          .replace('-', ' '),
+          .replace(/-/g, ' '),
       );
       const parent = pathParts.pop();
       const filePath = file;
       let content = await readFile(file, 'utf-8');
-      // Tag headings with '|' markup to indicate end of heading
-      // Remove line breaks symbols
-      // Remove import statements, Examples markup, and other markup
+
       content = content
-        .replace(/#{1,} (...+?)(\n){2}/g, p1 => `${p1}~~ `)
+        // Tag headings with '~~' markup to indicate end of heading
+        .replace(/#{1,} (...+?)(\n){1,}/g, p1 => `${p1}~~ `)
+        // Remove line breaks symbols
         .replace(/(\n){1,}/g, ' ')
+        // Remove import statements, Examples markup, and other markup
+        // Search for "import " instead of "import"
+        // so that words like "important" are not flagged
         .replace(
-          /import(...+?)(?<=;)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\(([^)]+)\)|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
+          /(import ...+?(?<=;))|(<[^<>]+>)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
           '',
         );
 
