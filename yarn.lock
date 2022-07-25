@@ -7980,7 +7980,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.25.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#f6190427d5884140b6b47add95761c354d09da92"
+  resolved "https://github.com/grommet/grommet/tarball/stable#2d5892e7fb41210b9db0cb026810dc1d19bfd30e"
   dependencies:
     grommet-icons "^4.7.0"
     hoist-non-react-statics "^3.2.0"

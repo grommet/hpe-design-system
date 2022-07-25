@@ -15,6 +15,28 @@ import {
 import { ExampleImagePreview } from '../../components';
 import { Example } from '../../layouts';
 
+## Jump to section
+
+- [When to use](#when-to-use)
+- [When not to use](#when-not-to-use)
+- [Do's](#dos)
+- [Don'ts](#donts)
+- [Accessibility](#accessibility)
+- [Terms and conditions](#terms-and-conditions)
+- [Single field forms](#single-field-forms)
+- [Use case and example code](#use-cases)
+  - [Sign up](#sign-up)
+  - [Sign in](#sign-in)
+  - [Filter](#filter)
+  - [Sort](#sort)
+  - [Change password](#change-password)
+  - [Settings](#settings)
+  - [Pay](#pay)
+  - [Shipping](#shipping)
+  - [Customize](#customize)
+  - [Character counter](#character-counter)
+- [Exceptions and how to address them](#exceptions-and-how-to-address-them)
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
   docs="https://v2.grommet.io/form?theme=hpe"
@@ -23,108 +45,94 @@ import { Example } from '../../layouts';
   <SimpleSignUpExample />
 </Example>
 
-## Guidance
+## When to use
 
-Forms provide a way to collect important data from a user. However, this data is only collected effectively when Forms are built in a way in which users are inclined to fill out in full.
+To efficiently capture information necessary for completing a task.
 
-### Usage
+## When not to use
 
-Forms don't need to be a tedious task for users to complete, as they often come to be. It is important to ease as much of this effort as possible when building a Form. Making Forms simple to complete leads to increase in form completion.
+Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
 
-**Follow these guidelines when creating a Form:**
+## Do's
 
-- Use as few fields as possible
-- Wrap all input elements within a FormField
-- Fill in default values for as many fields as possible
-- Reveal fields progressively so the user is not overwhelmed
-- Use clear, concise labels for each field
-- Use placeholder text as an added visual indication of expected input value format
+**Required fields**
 
-### Required vs. optional fields
+- Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
+- List only the most common field requirements below the relevant field.
+- Use asterisks for required fields when the form has more than two required fields and/or has optional fields.
+- Asterisks for required fields should be the same color as label field.
+- If a field is optional, write "Optional" next to the form field label.
 
-- When possible, restrict forms only to fields that are required in order to keep them concise.
-- For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
-- There may be cases where optional fields may be appropriate. In these forms, clearly denote which fields are optional vs. required. This way, users won't be forced to infer anything - but can instead stay focused on completing their task.
-- Limit the number of optional fields as much as possible. Remember that the more fields you have on your form, the more you risk overwhelming the users.
+**Format and fields**
 
-<ExampleImagePreview
-  label="Required and Optional Fields Example"
-  src="/required&optional-Fields-example.png"
-  href="#required-and-optional-fields"
-  alt="HPE Design System Form example where required and optional fields are used."
-/>
+- User-entered input must be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
+- Wrap all input elements within a FormField `<FormField label="Username"><TextInput /></FormField>`
+- Reveal fields progressively so the user is not overwhelmed.
+- Write in sentence case (capitalize the first letter and all following letters should be lowercase).
+- Fill in default values for as many fields as possible.
+- Use clear, concise labels for each field.
+- Write helpful placeholder text inside the fields.
+- If the user will likely have doubts about how to complete an input, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context.
+- Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button#responsiveness).
+- Use specific labels on buttons that tell the user what action to expect.
 
-**Forms where 'asterisk' and 'optional' can be skipped**
+**Actions after the user submits information**
 
-A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is relatively obvious.
+- Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.).
+- [In the case of an error](#requiredoptional), red highlight the field where the error occurred.
+- List all errors and the corrective action the user must take. Place inline when possible. Otherwise, list above the submit button.
+- Allow the user to continue navigating through the application immediately.
 
-For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
+## Don'ts
 
-<ExampleImagePreview
-  label="Forms where 'asterisk' and 'optional' can be skipped"
-  src="/form-example-nonrequired.png"
-  href="#sign-in"
-  alt="HPE Design System Form where required and optional can be skipped"
-/>
+**Required fields**
 
-### Using help text
+- Use asterisks for sign up and sign in forms. This can be implemented using `required={{ indicator: false }}`.
+- Use red asterisks, because has shown to actually decrease success in filling out the form.
+- List rejection criteria that the user is unlikely to input (ex. double hyphens, starting with a space, etc.). Only alert them when they type the error.
 
-In most cases, the FormField label should be clear enough to instruct the user how to complete a field. However, if help text is required, ensure that it is kept brief and precise.
+**Format and fields**
 
-Help text may be relevant for cases such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context.
+- Have more than two optional fields.
+- Repeat the field label as placeholder text.
+- Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.
+- Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
-### Capitalization in forms
+## Accessibility
 
-Writing standards contribute to the voice, tone, and grammatical accuracy that inform the experiences we create. These standards are aligned with HPE Brand.
+Form inputs must be accompanied by a label that identifies itself to screen readers. Placing all inputs within a Grommet FormField and applying the guidance below play a big role in ensuring the inputs are accessible.
 
-Within a form, you should:
+**FormFields must include:**
 
-- Use title case and capitalize short prepositions when they are the last word in a sentence (e.g. Sign Up, Sign Out)
-- For headings and captions, use sentence case
+- A "for" property that matches the `id` of its child input. If using Grommet, this is applied with the htmlFor property.
 
-### Button placement and labeling
+```
+<FormField
+  label="Username"
+  htmlFor="example-username"
+  name="example-username"
+  >
+   <TextInput id="example-username" name="example-username" />
+</FormField>
+```
 
-Submit, reset, or cancel buttons should always be placed at the bottom of a Form and be left-aligned.
+- A `name` property applied on both the FormField and its child input element.
+- A clear, concise label.
+- Ensure that users can tab through fields and buttons in a logical order and not have to use arrow keys.
 
-Button labels should be specific to the action of the button. For example, a [sign-up form](#sign-up) may have a submit button with label "Sign Up". Alternately, a [password change form](#change-password) may have a button with label "Update Password".
+[View the accessibility guidance page if you'd like to use simulators, testing tools, and other resources](https://design-system.hpe.design/foundation/accessibility?q=acce).
 
-Button label specificity provides users confidence in the action they are performing.
+## Terms and Conditions
 
-### User-Entered Input
-
-There should be few restrictions on user-entered input.
-
-- Resource naming should allow for spaces, punctional characters, unicode characters.
-  - Examples: Björk Guðmundsdóttir, 联想, John Q. Public, etc.
-- User-entered input needs to be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
-
-### Form submission
-
-Visual feedback is important to instill confidence in a user after form submission.
-
-**On submission, your form should:**
-
-- In the case of an error, focus should be placed on the input element where the error occurred.
-- Provide user with indication that form was submitted successfully (e.g. notification, success page, etc.)
-- Display all relevant errors accompanied by text explaining actions needed to resolve.
-- Allow user to continue navigating through the application immediately
-
-Never force the user to wait for post-submission processing to complete before they can continue using an application.
-
-### Terms and Conditions
 Users must actively check a box next to a statement that shows they have agreed to the Terms and Conditions when signing up for an account. For easy access and quick reference, the legal agreement is a simple link in the text.
 
-### Accessibility
+## Single field forms
 
-All Form input elements need to be contained within a FormField.
+- For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
 
-**FormFields need to have:**
+## Use cases
 
-- A "for" property that matches the id of its child input. If using Grommet, this is applied with the htmlFor prop.
-- A "name" property applied on both the FormField and its child input element
-- A clear, concise label
-
-## Sign Up
+### Sign up
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
@@ -133,7 +141,7 @@ All Form input elements need to be contained within a FormField.
   <SignUpExample />
 </Example>
 
-## Sign In
+### Sign in
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
@@ -142,7 +150,7 @@ All Form input elements need to be contained within a FormField.
   <SignInExample />
 </Example>
 
-## Filter
+### Filter
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/FilterExample.js"
@@ -151,7 +159,7 @@ All Form input elements need to be contained within a FormField.
   <FilterExample />
 </Example>
 
-## Sort
+### Sort
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SortExample.js"
@@ -160,7 +168,7 @@ All Form input elements need to be contained within a FormField.
   <SortExample />
 </Example>
 
-## Change Password
+### Change password
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ChangePasswordExample.js"
@@ -169,7 +177,7 @@ All Form input elements need to be contained within a FormField.
   <ChangePasswordExample />
 </Example>
 
-## Settings
+### Settings
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SettingsExample.js"
@@ -178,7 +186,7 @@ All Form input elements need to be contained within a FormField.
   <SettingsExample />
 </Example>
 
-## Pay
+### Pay
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/PayExample.js"
@@ -187,7 +195,7 @@ All Form input elements need to be contained within a FormField.
   <PayExample />
 </Example>
 
-## Shipping
+### Shipping
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
@@ -196,7 +204,7 @@ All Form input elements need to be contained within a FormField.
   <ShippingExample />
 </Example>
 
-## Required and Optional Fields
+## Required vs optional fields
 
 For standard forms, use an asterisk(\*) to indicate required field/controls.
 
@@ -207,7 +215,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <RequiredFieldsExample />
 </Example>
 
-## Single Required FormField
+### Single required FormField
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SingleFormFieldExample.js"
@@ -216,7 +224,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <SingleFormFieldExample />
 </Example>
 
-## Customize
+### Customize
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
@@ -224,3 +232,43 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
 >
   <CustomizeExample />
 </Example>
+
+### Character counter
+
+**When to use**
+
+In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.
+
+**Guidance**
+
+- Place the character counter at the bottom right of the field.
+- See guidance on [character limits for fields](/components/tag#anatomy). Note that your backend may have character limitations. When you can choose the character limits, however, set a generous number to avoid frustrating the user. A suggestion to ensure your limit is user-friendly is to check the analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too low. Increase accordingly.
+- Use a numerator/denominator format. Ex. 0/128.
+- Show the progression in the numerator as the user is typing. Ex. 52/128 if the user has typed 52 characters, 53/128 when they type an extra character, 54/128, 55/128, etc.
+- Use default text styling.
+- Make the field roughly the same size as the character limit.
+- Red highlight the field when the user meets the character limitation.
+
+**Accessibility**
+
+- Announce the max character allowed before the user begins typing.
+- Announce when the user has typed 50% of the max allowed.
+
+## Exceptions and how to address them
+
+- A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
+
+  - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
+
+- Forms with minimal fields are optimal, but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases:
+
+  - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, provide a form that allows the user to add helpful, optional information at another time. An example of a helpful but not required field could be asking for someone's official title or role. If it is not necessary to capture this information right away on a sign-in form, offer this "role" or "title" field in profile settings.
+
+  - However, add the optional field if there is compelling evidence that the user’s experience would be greatly improved if they could input this extra information in this initial form. Ensure to mark the field as optional.
+
+<ExampleImagePreview
+  label="Forms where 'asterisk' and 'optional' can be skipped"
+  src="/form-example-nonrequired.png"
+  href="#sign-in"
+  alt="HPE Design System Form where required and optional can be skipped"
+/>
