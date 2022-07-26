@@ -38,7 +38,7 @@ export const InPageNavigation = ({ title }) => {
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
 
-  // top and bottom margin values for calculating intersection window
+  // top and bottom margin values to calculate intersection window
   const topMargin = '50';
   const bottomMargin = '-95';
   const activeId = useActiveHeadingId(headings, {
