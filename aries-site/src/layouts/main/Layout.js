@@ -89,15 +89,19 @@ export const Layout = ({
                         <>
                           <Box
                             width={
-                              size !== 'small'
+                              !['xsmall', 'small'].includes(size)
                                 ? 'calc(100% - 192px)'
                                 : undefined
                             }
                             pad={
-                              size !== 'small' ? { right: 'medium' } : undefined
+                              !['xsmall', 'small'].includes(size)
+                                ? { right: 'medium' }
+                                : undefined
                             }
                             margin={
-                              size !== 'small' ? { right: 'large' } : undefined
+                              !['xsmall', 'small'].includes(size)
+                                ? { right: 'large' }
+                                : undefined
                             }
                           >
                             <ContentSection>
@@ -116,9 +120,11 @@ export const Layout = ({
                             )}
                             <FeedbackSection />
                           </Box>
-                          {!['xsmall', 'small'].includes(size) ? (
-                            <InPageNavigation title={title} />
-                          ) : undefined}
+                          <Box pad="small">
+                            {!['xsmall', 'small'].includes(size) ? (
+                              <InPageNavigation title={title} />
+                            ) : undefined}
+                          </Box>
                         </>
                       ) : (
                         children

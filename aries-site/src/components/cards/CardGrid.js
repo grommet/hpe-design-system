@@ -13,7 +13,6 @@ export const CardGrid = ({ cards, minimal, ...rest }) => (
     rows={[['auto', 'full']]}
     gap="medium"
     justify="center"
-    fill
     {...rest}
   >
     {cards &&
