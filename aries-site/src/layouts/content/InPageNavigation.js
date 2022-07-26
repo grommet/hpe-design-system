@@ -60,38 +60,47 @@ export const InPageNavigation = ({ title }) => {
       width="small"
       flex={false}
     >
-      <Text color="text-strong" size="xsmall" weight="bold">
-        CONTENTS
+      <Text
+        color="text-strong"
+        weight="bold"
+        margin={{
+          vertical: 'xsmall',
+        }}
+      >
+        Jump to section
       </Text>
 
       <Nav gap="none">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
           const [level] = heading[0].match(levelRegexp);
-          const headingIsActive = activeId === nameToSlug(heading[1]);
+          // heading[1] refers to the full heading title matched by regex
+          const headingTitle = heading[1];
+          const active = activeId === nameToSlug(headingTitle);
 
           // TODO: margin/spacing for subheadings within ToC TBD,
           let margin;
           if (level.length > 3) margin = 'medium';
           else if (level.length === 3) margin = 'small';
           return (
-            <Link key={index} href={`#${nameToSlug(heading[1])}`} passHref>
+            <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
               <Button
                 alignSelf="start"
                 style={{ textAlign: 'start', borderRadius: '3px' }}
                 size="small"
                 kind="option"
-                active={headingIsActive}
+                margin={{ left: margin }}
+                active={active}
                 label={
                   <Text
+                    // TODO: final text design TBD (based on active/hover)
                     color="text-strong"
                     size="small"
-                    weight={headingIsActive ? 'bold' : 'normal'}
+                    weight="normal"
                   >
-                    {heading[1]}
+                    {headingTitle}
                   </Text>
                 }
-                margin={{ left: margin }}
               />
             </Link>
           );
