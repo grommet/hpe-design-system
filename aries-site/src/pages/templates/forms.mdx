@@ -37,6 +37,7 @@ import { Example } from '../../layouts';
   - [Character counter](#character-counter)
 - [Exceptions and how to address them](#exceptions-and-how-to-address-them)
 
+## Form example
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
   docs="https://v2.grommet.io/form?theme=hpe"
@@ -71,7 +72,7 @@ Complicated processes where the user might need guidance at various stages, or w
 - Write in sentence case (capitalize the first letter and all following letters should be lowercase).
 - Fill in default values for as many fields as possible.
 - Use clear, concise labels for each field.
-- Write helpful placeholder text inside the fields.
+- Write helpful placeholder text inside the fields if there is a high chance the user would need clarity on the format (for example, MM/DD/YYYY) or deciding what to write.
 - If the user will likely have doubts about how to complete an input, include helpful text below the field, such as [password requirements](#signup) or [additional resources](#customize) on a field's context.
 - Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button#responsiveness).
 - Use specific labels on buttons that tell the user what action to expect.
@@ -101,6 +102,15 @@ Complicated processes where the user might need guidance at various stages, or w
 ## Accessibility
 
 Form inputs must be accompanied by a label that identifies itself to screen readers. Placing all inputs within a Grommet FormField and applying the guidance below play a big role in ensuring the inputs are accessible.
+
+## General guidance
+
+Good forms make it intuitive for the user to understand what is required vs what is optional. Adding too much on the form - even if the intention is to be helpful - can create clutter and confusion.  
+
+Before adding an element to a form that you would think would be helpful to a user, ask yourself how likely the user is likely commit that error at all! If they are unlikely to commit an error, do not add that element.  
+
+Some forms, such as signup and signin forms need no explanations. And while we aim for specific field labels, you can use a placeholder text inside fields where the user might need some extra help in deciding how to format their answer.  
+
 
 **FormFields must include:**
 
