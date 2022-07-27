@@ -8,6 +8,7 @@ import { nameToSlug } from '../../utils';
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
   const observer = useRef();
+  // useEffect finds which page heading is on screen as the user scrolls
   useEffect(() => {
     const elements = headings.map(heading =>
       document.getElementById(nameToSlug(heading[1])),
@@ -47,8 +48,8 @@ export const InPageNavigation = ({ title }) => {
 
   return headings.length > 0 ? (
     <Box
-      gap="xsmall"
-      pad={{ left: 'xxsmall' }} // account for focus indicator space
+      pad={{ horizontal: 'xsmall' }} // pad for keyboard focus
+      gap="small"
       style={{
         height: 'calc(100vh - 50px)',
         overflowY: 'auto',
@@ -60,13 +61,7 @@ export const InPageNavigation = ({ title }) => {
       width="small"
       flex={false}
     >
-      <Text
-        color="text-strong"
-        weight="bold"
-        margin={{
-          vertical: 'xsmall',
-        }}
-      >
+      <Text color="text-strong" weight="bold" a11yTitle="Jump to section">
         Jump to section
       </Text>
 
@@ -79,30 +74,50 @@ export const InPageNavigation = ({ title }) => {
           const active = activeId === nameToSlug(headingTitle);
 
           // TODO: margin/spacing for subheadings within ToC TBD,
-          let margin;
-          if (level.length > 3) margin = 'medium';
-          else if (level.length === 3) margin = 'small';
+          let subsectionPad;
+          if (level.length > 3) subsectionPad = 'medium';
+          else if (level.length === 3) subsectionPad = 'small';
           return (
-            <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
-              <Button
-                alignSelf="start"
-                style={{ textAlign: 'start', borderRadius: '3px' }}
-                size="small"
-                kind="option"
-                margin={{ left: margin }}
-                active={active}
-                label={
-                  <Text
-                    // TODO: final text design TBD (based on active/hover)
-                    color="text-strong"
-                    size="small"
-                    weight="normal"
-                  >
-                    {headingTitle}
-                  </Text>
-                }
-              />
-            </Link>
+            <Box
+              // this border below is to ONLY show border on active, no bg
+              //   border={
+              //     active
+              //       ? {
+              //           side: 'left',
+              //           color: 'text-strong',
+              //         }
+              //       : null
+              //   }
+
+              // this border always shows bg and also active
+              border={{
+                side: 'left',
+                color: active ? 'text-strong' : 'text-weak',
+                // size: 'small', // exact border size TBD
+              }}
+            >
+              <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
+                <Button
+                  alignSelf="start"
+                  style={{ textAlign: 'start' }}
+                  size="small"
+                  kind="option"
+                  // active={active} // ToC reflects current active subheading
+                  label={
+                    <Box pad={{ left: subsectionPad }}>
+                      <Text
+                        // TODO: final text design TBD (based on active/hover)
+                        color="text-strong"
+                        size="small"
+                        weight="normal"
+                      >
+                        {headingTitle}
+                      </Text>
+                    </Box>
+                  }
+                />
+              </Link>
+            </Box>
           );
         })}
       </Nav>

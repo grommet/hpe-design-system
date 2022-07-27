@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -52,91 +52,77 @@ export const Layout = ({
   const layout = isLanding ? 'plain' : pageLayout;
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
+  const size = useContext(ResponsiveContext);
+  const notSmall = !['xsmall', 'small'].includes(size);
 
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Stack fill guidingChild={backgroundImage && 'last'}>
-            {backgroundImage && (
-              <PageBackground backgroundImage={backgroundImage} />
-            )}
-            <Page>
-              {/* I think Head is redundant at this point, 
-              but left it as is for now */}
-              <Head title={title} />
-              <Meta
-                title={title}
-                render={render}
-                description={seoDescription}
-                canonicalUrl={`https://design-system.hpe.design${router.route}`}
-              />
-              <>
-                <SkipLinks id="skip-links">
-                  <SkipLink id="main" label="Main Content" />
-                </SkipLinks>
-                <PageContent>
-                  <Header fill="horizontal" alignSelf="center" />
-                </PageContent>
-                <MainContentWrapper>
-                  <Main overflow="visible">
-                    <SkipLinkTarget id="main" />
-                    <Box direction={layout !== 'plain' ? 'row' : 'column'}>
-                      {layout !== 'plain' ? (
-                        <>
-                          <Box
-                            width={
-                              !['xsmall', 'small'].includes(size)
-                                ? 'calc(100% - 192px)'
-                                : undefined
-                            }
-                            pad={
-                              !['xsmall', 'small'].includes(size)
-                                ? { right: 'medium' }
-                                : undefined
-                            }
-                            margin={
-                              !['xsmall', 'small'].includes(size)
-                                ? { right: 'large' }
-                                : undefined
-                            }
-                          >
-                            <ContentSection>
-                              <DocsPageHeader
-                                title={title}
-                                topic={topic}
-                                render={render}
-                              />
-                              {children}
-                            </ContentSection>
-                            {relatedContent.length > 0 && (
-                              <RelatedContent
-                                relatedContent={relatedContent}
-                                title={title}
-                              />
-                            )}
-                            <FeedbackSection />
-                          </Box>
-                          <Box pad="small">
-                            {!['xsmall', 'small'].includes(size) ? (
-                              <InPageNavigation title={title} />
-                            ) : undefined}
-                          </Box>
-                        </>
-                      ) : (
-                        children
-                      )}
-                    </Box>
-                  </Main>
-                </MainContentWrapper>
-              </>
-            </Page>
-          </Stack>
+      <Stack fill guidingChild={backgroundImage && 'last'}>
+        {backgroundImage && (
+          <PageBackground backgroundImage={backgroundImage} />
         )}
-      </ResponsiveContext.Consumer>
+        <Page>
+          {/* I think Head is redundant at this point, 
+              but left it as is for now */}
+          <Head title={title} />
+          <Meta
+            title={title}
+            render={render}
+            description={seoDescription}
+            canonicalUrl={`https://design-system.hpe.design${router.route}`}
+          />
+          <>
+            <SkipLinks id="skip-links">
+              <SkipLink id="main" label="Main Content" />
+            </SkipLinks>
+            <PageContent>
+              <Header fill="horizontal" alignSelf="center" />
+            </PageContent>
+            <MainContentWrapper>
+              <Main overflow="visible">
+                <SkipLinkTarget id="main" />
+                <Box direction={layout !== 'plain' ? 'row' : 'column'}>
+                  {layout !== 'plain' ? (
+                    <>
+                      <Box
+                        width={notSmall ? 'calc(100% - 192px)' : undefined}
+                        // TODO: exact pad TBD, depends on update bar
+                        pad={notSmall ? 'large' : undefined}
+                      >
+                        <ContentSection>
+                          <DocsPageHeader
+                            title={title}
+                            topic={topic}
+                            render={render}
+                          />
+                          {children}
+                        </ContentSection>
+                        {relatedContent.length > 0 && (
+                          <RelatedContent
+                            relatedContent={relatedContent}
+                            title={title}
+                          />
+                        )}
+                        <FeedbackSection />
+                      </Box>
+                      {!['xsmall', 'small'].includes(size) ? (
+                        <Box pad="small">
+                          <InPageNavigation title={title} />
+                        </Box>
+                      ) : undefined}
+                    </>
+                  ) : (
+                    children
+                  )}
+                </Box>
+              </Main>
+            </MainContentWrapper>
+          </>
+        </Page>
+      </Stack>
     </>
   );
 };
