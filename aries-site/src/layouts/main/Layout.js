@@ -53,7 +53,6 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
-  const notSmall = !['xsmall', 'small'].includes(size);
 
   return (
     <>
@@ -88,9 +87,11 @@ export const Layout = ({
                   {layout !== 'plain' ? (
                     <>
                       <Box
-                        width={notSmall ? 'calc(100% - 192px)' : undefined}
-                        // TODO: exact pad TBD, depends on update bar
-                        pad={notSmall ? 'large' : undefined}
+                        width={
+                          !['xsmall', 'small'].includes(size)
+                            ? 'calc(100% - 192px)'
+                            : undefined
+                        }
                       >
                         <ContentSection>
                           <DocsPageHeader
@@ -109,7 +110,7 @@ export const Layout = ({
                         <FeedbackSection />
                       </Box>
                       {!['xsmall', 'small'].includes(size) ? (
-                        <Box pad="small">
+                        <Box pad={{ left: 'large' }}>
                           <InPageNavigation title={title} />
                         </Box>
                       ) : undefined}
