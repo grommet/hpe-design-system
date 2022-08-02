@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { siteContents } from '../../data/search/contentForSearch';
 import { nameToSlug } from '../../utils';
 
@@ -44,6 +45,7 @@ export const InPageNavigation = ({ title }) => {
     item => item.name.toLowerCase() === title.toLowerCase(),
   );
 
+  const theme = useContext(ThemeContext);
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
 
@@ -61,20 +63,20 @@ export const InPageNavigation = ({ title }) => {
         height: 'calc(100vh - 50px)',
         overflowY: 'auto',
         position: 'sticky',
-        marginTop: '50px',
+        marginTop: '123px', // align "Jump to section" with page title at start
         flexShrink: 0,
         top: '30px',
       }}
       width="small"
       flex={false}
     >
-      <Box pad="small" a11yTitle="Table of Contents Heading">
+      <Box pad="small" flex={false}>
         <Text color="text-strong" weight="bold">
           Jump to section
         </Text>
       </Box>
 
-      <Nav gap="none">
+      <Nav gap="none" a11yTitle="Table of Contents Heading">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
           const [level] = heading[0].match(levelRegexp);
@@ -92,10 +94,7 @@ export const InPageNavigation = ({ title }) => {
           if (level.length > 3) subsectionPad = 'medium';
           else if (level.length === 3) subsectionPad = 'small';
           return (
-            <Box
-              border={borderStyle}
-              a11yTitle={`Jump to section ${headingTitle}`}
-            >
+            <Box border={borderStyle}>
               <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
                 <Button
                   style={{ textAlign: 'start' }}
@@ -104,7 +103,12 @@ export const InPageNavigation = ({ title }) => {
                   label={
                     <Box
                       pad={{ left: subsectionPad }}
-                      margin={active ? undefined : { left: '2px' }}
+                      // margin={active ? undefined : { left: '2px' }}
+                      margin={
+                        active
+                          ? undefined
+                          : { left: theme.global.borderSize.small }
+                      }
                     >
                       <Text color="text-strong" size="small" weight="normal">
                         {headingTitle}
