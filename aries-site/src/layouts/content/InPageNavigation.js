@@ -10,23 +10,31 @@ const useActiveHeadingId = (headings, options) => {
   const observer = useRef();
   // useEffect finds which page heading is on screen as the user scrolls
   useEffect(() => {
-    const elements = headings.map(heading =>
-      document.getElementById(nameToSlug(heading[1])),
-    );
-    observer.current?.disconnect();
-    observer.current = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry?.isIntersecting) {
-          setActiveHeadingId(entry.target.id);
-        }
-      });
-    }, options);
-    elements.forEach(el => {
-      if (el) {
-        observer.current?.observe(el);
+    // if at top of page, do not show active heading on ToC
+    window.onscroll = () => {
+      if (window.pageYOffset === 0) {
+        setActiveHeadingId(null);
+      } else {
+        // find page active page heading
+        const elements = headings.map(heading =>
+          document.getElementById(nameToSlug(heading[1])),
+        );
+        observer.current?.disconnect();
+        observer.current = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry?.isIntersecting) {
+              setActiveHeadingId(entry.target.id);
+            }
+          });
+        }, options);
+        elements.forEach(el => {
+          if (el) {
+            observer.current?.observe(el);
+          }
+        });
       }
-    });
-    return () => observer.current?.disconnect();
+      return () => observer.current?.disconnect();
+    };
   }, [headings, options]);
   return activeHeadingId;
 };
@@ -60,8 +68,8 @@ export const InPageNavigation = ({ title }) => {
       width="small"
       flex={false}
     >
-      <Box pad="small">
-        <Text color="text-strong" weight="bold" a11yTitle="Jump to section">
+      <Box pad="small" a11yTitle="Table of Contents Heading">
+        <Text color="text-strong" weight="bold">
           Jump to section
         </Text>
       </Box>
@@ -84,7 +92,10 @@ export const InPageNavigation = ({ title }) => {
           if (level.length > 3) subsectionPad = 'medium';
           else if (level.length === 3) subsectionPad = 'small';
           return (
-            <Box border={borderStyle}>
+            <Box
+              border={borderStyle}
+              a11yTitle={`Jump to section ${headingTitle}`}
+            >
               <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
                 <Button
                   style={{ textAlign: 'start' }}
