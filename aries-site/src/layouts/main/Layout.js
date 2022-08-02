@@ -83,9 +83,15 @@ export const Layout = ({
             <MainContentWrapper>
               <Main overflow="visible">
                 <SkipLinkTarget id="main" />
-                <Box direction={layout !== 'plain' ? 'row' : 'column'}>
+                {/* row-reverse direction to tabs through ToC first */}
+                <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
+                      {!['xsmall', 'small'].includes(size) ? (
+                        <Box pad={{ left: 'large' }}>
+                          <InPageNavigation title={title} />
+                        </Box>
+                      ) : undefined}
                       <Box
                         width={
                           !['xsmall', 'small'].includes(size)
@@ -109,11 +115,6 @@ export const Layout = ({
                         )}
                         <FeedbackSection />
                       </Box>
-                      {!['xsmall', 'small'].includes(size) ? (
-                        <Box pad={{ left: 'large' }}>
-                          <InPageNavigation title={title} />
-                        </Box>
-                      ) : undefined}
                     </>
                   ) : (
                     children
