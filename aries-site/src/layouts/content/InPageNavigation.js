@@ -103,7 +103,6 @@ export const InPageNavigation = ({ title }) => {
                   label={
                     <Box
                       pad={{ left: subsectionPad }}
-                      // margin={active ? undefined : { left: '2px' }}
                       margin={
                         active
                           ? undefined
