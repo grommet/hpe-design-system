@@ -83,7 +83,7 @@ export const Layout = ({
             <MainContentWrapper>
               <Main overflow="visible">
                 <SkipLinkTarget id="main" />
-                {/* row-reverse direction to tabs through ToC first */}
+                {/* row-reverse direction to tab through ToC first */}
                 <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
@@ -95,7 +95,7 @@ export const Layout = ({
                       <Box
                         width={
                           !['xsmall', 'small'].includes(size)
-                            ? 'calc(100% - 192px)'
+                            ? 'calc(100% - 192px)' // 192px = small t-shirt size
                             : undefined
                         }
                       >
