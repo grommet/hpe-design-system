@@ -76,7 +76,7 @@ export const InPageNavigation = ({ title }) => {
         </Text>
       </Box>
 
-      <Nav gap="none" a11yTitle="Table of Contents Heading">
+      <Nav gap="none" a11yTitle="Jump to section">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
           const [level] = heading[0].match(levelRegexp);
