@@ -82,7 +82,12 @@ export const InPageNavigation = ({ title }) => {
         flex={false}
         border={{ side: 'left', color: 'border-weak', size: 'small' }}
       >
-        <Text color="text-strong" weight="bold">
+        <Text
+          color="text-strong"
+          weight="bold"
+          // align with button labels
+          margin={{ left: theme.global.borderSize.small }}
+        >
           Jump to section
         </Text>
       </Box>
