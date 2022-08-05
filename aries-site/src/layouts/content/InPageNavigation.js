@@ -100,30 +100,35 @@ export const InPageNavigation = ({ title }) => {
             color: active ? 'border-strong' : 'border-weak',
           };
 
-          let subsectionPad = 'xsmall';
+          let subsectionPad = 'small';
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
           return (
-            <Box key={index} border={borderLeft}>
+            <Box
+              key={index}
+              border={borderLeft}
+              round={{ corner: 'right', size: 'xsmall' }}
+              overflow="hidden" // hoverIndicator to respect rounding
+            >
               <Link href={`#${nameToSlug(headingTitle)}`} passHref>
-                <Button
-                  style={{ textAlign: 'start' }}
-                  size="small"
-                  label={
-                    <Box
-                      pad={{ left: subsectionPad }}
-                      margin={
-                        active
-                          ? undefined
-                          : { left: theme.global.borderSize.small }
-                      }
-                    >
-                      <Text color="text-strong" size="small" weight="normal">
-                        {headingTitle}
-                      </Text>
-                    </Box>
-                  }
-                />
+                <Button hoverIndicator>
+                  <Box
+                    pad={{
+                      left: subsectionPad,
+                      vertical: theme.button.size.small.pad.vertical,
+                      right: theme.button.size.small.pad.horizontal,
+                    }}
+                    margin={
+                      active
+                        ? undefined
+                        : { left: theme.global.borderSize.small }
+                    }
+                  >
+                    <Text color="text-strong" size="small" weight="normal">
+                      {headingTitle}
+                    </Text>
+                  </Box>
+                </Button>
               </Link>
             </Box>
           );
