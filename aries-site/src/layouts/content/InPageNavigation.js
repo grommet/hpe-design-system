@@ -49,29 +49,36 @@ export const InPageNavigation = ({ title }) => {
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
 
+  let { large, medium } = theme.global.edgeSize;
+  large = parseInt(large.replace('px', ''), 10); // 48
+  medium = parseInt(medium.replace('px', ''), 10); // 24
+
   // top and bottom margin values to calculate intersection window
-  const topMargin = '50';
-  const bottomMargin = '-95';
+  const topMargin = large;
+  const bottomMargin = `-${2 * large}`;
   const activeId = useActiveHeadingId(headings, {
     rootMargin: `${topMargin}% 0% ${bottomMargin}% 0%`,
   });
 
+  // align "Jump to section" with page title at start
+  const marginTop = `${large + medium}px`;
+
   return headings.length > 0 ? (
     <Box
-      pad={{ horizontal: 'xsmall' }} // pad for keyboard focus
+      pad={{ horizontal: 'xxsmall' }} // pad for keyboard focus
       style={{
-        height: 'calc(100vh - 50px)',
+        // determine when TOC scroll is needed
+        height: `calc(100vh - ${marginTop})`,
         overflowY: 'auto',
         position: 'sticky',
-        marginTop: '123px', // align "Jump to section" with page title at start
-        flexShrink: 0,
-        top: '30px',
+        marginTop,
+        top: theme.global.edgeSize.large,
       }}
       width="small"
       flex={false}
     >
       <Box
-        pad="small"
+        pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
         border={{ side: 'left', color: 'border-weak', size: 'small' }}
       >
@@ -79,7 +86,6 @@ export const InPageNavigation = ({ title }) => {
           Jump to section
         </Text>
       </Box>
-
       <Nav gap="none" a11yTitle="Jump to section">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
@@ -98,8 +104,8 @@ export const InPageNavigation = ({ title }) => {
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
           return (
-            <Box border={borderLeft}>
-              <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
+            <Box key={index} border={borderLeft}>
+              <Link href={`#${nameToSlug(headingTitle)}`} passHref>
                 <Button
                   style={{ textAlign: 'start' }}
                   size="small"
