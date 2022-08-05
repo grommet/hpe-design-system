@@ -99,7 +99,8 @@ export const Layout = ({
                             : undefined
                         }
                       >
-                        <ContentSection>
+                        {/* top pad handled by PageHeader */}
+                        <ContentSection pad={{ top: 'none' }}>
                           <DocsPageHeader
                             title={title}
                             topic={topic}
