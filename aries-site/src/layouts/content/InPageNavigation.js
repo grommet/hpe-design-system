@@ -70,7 +70,11 @@ export const InPageNavigation = ({ title }) => {
       width="small"
       flex={false}
     >
-      <Box pad="small" flex={false}>
+      <Box
+        pad="small"
+        flex={false}
+        border={{ side: 'left', color: 'border-weak', size: 'small' }}
+      >
         <Text color="text-strong" weight="bold">
           Jump to section
         </Text>
@@ -84,22 +88,21 @@ export const InPageNavigation = ({ title }) => {
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
 
-          const borderStyle = {
+          const borderLeft = {
             side: 'left',
             size: active ? 'medium' : 'small',
             color: active ? 'border-strong' : 'border-weak',
           };
 
-          let subsectionPad;
-          if (level.length > 3) subsectionPad = 'medium';
-          else if (level.length === 3) subsectionPad = 'small';
+          let subsectionPad = 'xsmall';
+          if (level.length > 3) subsectionPad = 'large';
+          else if (level.length === 3) subsectionPad = 'medium';
           return (
-            <Box border={borderStyle}>
+            <Box border={borderLeft}>
               <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
                 <Button
                   style={{ textAlign: 'start' }}
                   size="small"
-                  kind="option"
                   label={
                     <Box
                       pad={{ left: subsectionPad }}
