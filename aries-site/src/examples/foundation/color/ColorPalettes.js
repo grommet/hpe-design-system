@@ -5,18 +5,10 @@ import { ColorRow, UsageExample } from '../../../layouts';
 import { colorExamples } from '../../../data';
 import { ElevationExample, TextExample } from '../..';
 
-const {
-  coreColors,
-  darkColors,
-  lightColors,
-  primaryColors,
-} = colorExamples.palettes;
-const {
-  contrastDark,
-  contrastLight,
-  darkBackgrounds,
-  lightBackgrounds,
-} = colorExamples.backgrounds;
+const { coreColors, darkColors, lightColors, primaryColors } =
+  colorExamples.palettes;
+const { contrastDark, contrastLight, darkBackgrounds, lightBackgrounds } =
+  colorExamples.backgrounds;
 const { borderDark, borderLight } = colorExamples.borders;
 const { inputDark, inputLight } = colorExamples.input;
 const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
@@ -24,7 +16,7 @@ const { focusColor, layerColor, graphColor } = colorExamples;
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor, textSize) => (
-  <Box fill>
+  <Box fill="horizontal" flex={false}>
     {colors.map(color => (
       <ColorRow
         colorSpec={color}

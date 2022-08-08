@@ -24,8 +24,7 @@ export const ThemeMode = ({ children, ...rest }) => {
       }}
       theme={aries}
       themeMode={themeMode}
-      full
-      style={{ height: 'auto', width: '100%' }}
+      full="min"
       {...rest}
     >
       {children}

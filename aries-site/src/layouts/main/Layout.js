@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -7,6 +7,7 @@ import {
   Main,
   Page,
   PageContent,
+  ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
   SkipLinks,
@@ -18,11 +19,13 @@ import {
   Header,
   Head,
   FeedbackSection,
+  InPageNavigation,
   RelatedContent,
 } from '..';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
+import { siteContents } from '../../data/search/contentForSearch';
 
 export const Layout = ({
   backgroundImage,
@@ -41,12 +44,24 @@ export const Layout = ({
   const router = useRouter();
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
-  const { name: title, seoDescription, pageLayout, render } = getPageDetails(
-    titleProp,
-  );
+  const {
+    name: title,
+    seoDescription,
+    pageLayout,
+    render,
+  } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
+  const size = useContext(ResponsiveContext);
+
+  const match = siteContents.find(
+    item => item?.name?.toLowerCase() === title?.toLowerCase(),
+  );
+  const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
+  const headings = match && [...match.content.matchAll(regexp)];
+  const showInPageNav =
+    !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
   return (
     <>
@@ -77,24 +92,39 @@ export const Layout = ({
             <MainContentWrapper>
               <Main overflow="visible">
                 <SkipLinkTarget id="main" />
-                <Box>
+                {/* row-reverse direction to tab through ToC first */}
+                <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
-                      <ContentSection>
-                        <DocsPageHeader
-                          title={title}
-                          topic={topic}
-                          render={render}
-                        />
-                        {children}
-                      </ContentSection>
-                      {relatedContent.length > 0 && (
-                        <RelatedContent
-                          relatedContent={relatedContent}
-                          title={title}
-                        />
-                      )}
-                      <FeedbackSection />
+                      {showInPageNav ? (
+                        <Box pad={{ left: 'large' }}>
+                          <InPageNavigation headings={headings} />
+                        </Box>
+                      ) : undefined}
+                      <Box
+                        width={
+                          showInPageNav
+                            ? 'calc(100% - 192px)' // 192px = small t-shirt size
+                            : '100%'
+                        }
+                      >
+                        {/* top pad handled by PageHeader */}
+                        <ContentSection pad={{ top: 'none' }}>
+                          <DocsPageHeader
+                            title={title}
+                            topic={topic}
+                            render={render}
+                          />
+                          {children}
+                        </ContentSection>
+                        {relatedContent.length > 0 && (
+                          <RelatedContent
+                            relatedContent={relatedContent}
+                            title={title}
+                          />
+                        )}
+                        <FeedbackSection />
+                      </Box>
                     </>
                   ) : (
                     children
