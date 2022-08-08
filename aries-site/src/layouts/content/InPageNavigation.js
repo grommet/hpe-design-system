@@ -2,9 +2,14 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
-import { ThemeContext } from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { siteContents } from '../../data/search/contentForSearch';
 import { nameToSlug } from '../../utils';
+
+const SectionButton = styled(Button)`
+  border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
+    ${props => props.theme.global.edgeSize.xsmall} 0;
+`;
 
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
@@ -108,15 +113,11 @@ export const InPageNavigation = ({ title }) => {
           let subsectionPad = 'small';
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
+
           return (
-            <Box
-              key={index}
-              border={borderLeft}
-              round={{ corner: 'right', size: 'xsmall' }}
-              overflow="hidden" // hoverIndicator to respect rounding
-            >
-              <Link href={`#${nameToSlug(headingTitle)}`} passHref>
-                <Button hoverIndicator>
+            <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
+              <SectionButton theme={theme} hoverIndicator>
+                <Box border={borderLeft}>
                   <Box
                     pad={{
                       left: subsectionPad,
@@ -133,9 +134,9 @@ export const InPageNavigation = ({ title }) => {
                       {headingTitle}
                     </Text>
                   </Box>
-                </Button>
-              </Link>
-            </Box>
+                </Box>
+              </SectionButton>
+            </Link>
           );
         })}
       </Nav>
