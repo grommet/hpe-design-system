@@ -56,7 +56,7 @@ export const Layout = ({
   const size = useContext(ResponsiveContext);
 
   const match = siteContents.find(
-    item => item.name.toLowerCase() === title.toLowerCase(),
+    item => item?.name?.toLowerCase() === title?.toLowerCase(),
   );
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
