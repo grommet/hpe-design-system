@@ -3,7 +3,6 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
-import { siteContents } from '../../data/search/contentForSearch';
 import { nameToSlug } from '../../utils';
 
 const SectionButton = styled(Button)`
@@ -45,14 +44,8 @@ const useActiveHeadingId = (headings, options) => {
   return activeHeadingId;
 };
 
-export const InPageNavigation = ({ title }) => {
-  const match = siteContents.find(
-    item => item.name.toLowerCase() === title.toLowerCase(),
-  );
-
+export const InPageNavigation = ({ headings }) => {
   const theme = useContext(ThemeContext);
-  const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
-  const headings = match && [...match.content.matchAll(regexp)];
 
   let { large, medium } = theme.global.edgeSize;
   large = parseInt(large.replace('px', ''), 10); // 48
@@ -68,7 +61,7 @@ export const InPageNavigation = ({ title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  return headings.length > 0 ? (
+  return (
     <Box
       pad={{ horizontal: 'xxsmall' }} // pad for keyboard focus
       style={{
@@ -141,9 +134,9 @@ export const InPageNavigation = ({ title }) => {
         })}
       </Nav>
     </Box>
-  ) : null;
+  );
 };
 
 InPageNavigation.propTypes = {
-  title: PropTypes.string.isRequired,
+  headings: PropTypes.arrayOf(PropTypes.array),
 };
