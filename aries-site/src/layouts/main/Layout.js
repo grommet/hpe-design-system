@@ -25,6 +25,7 @@ import {
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
+import { siteContents } from '../../data/search/contentForSearch';
 
 export const Layout = ({
   backgroundImage,
@@ -53,6 +54,14 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
+
+  const match = siteContents.find(
+    item => item.name.toLowerCase() === title.toLowerCase(),
+  );
+  const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
+  const headings = match && [...match.content.matchAll(regexp)];
+  const showInPageNav =
+    !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
   return (
     <>
@@ -87,16 +96,16 @@ export const Layout = ({
                 <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
-                      {!['xsmall', 'small'].includes(size) ? (
+                      {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
-                          <InPageNavigation title={title} />
+                          <InPageNavigation headings={headings} />
                         </Box>
                       ) : undefined}
                       <Box
                         width={
-                          !['xsmall', 'small'].includes(size)
+                          showInPageNav
                             ? 'calc(100% - 192px)' // 192px = small t-shirt size
-                            : undefined
+                            : '100%'
                         }
                       >
                         {/* top pad handled by PageHeader */}
