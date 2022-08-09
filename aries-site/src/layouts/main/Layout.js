@@ -63,6 +63,14 @@ export const Layout = ({
   const showInPageNav =
     !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
+  /* If no headings are found, do not show Table of Contents SkipLink, 
+     instead set ToC skiplink as undefined and filter it out.
+     Future: Enhance Grommet SkipLink component to automatically filter */
+  const skiplinks = [
+    showInPageNav ? { id: 'toc', label: 'Table of Contents' } : undefined,
+    { id: 'main', label: 'Main Content' },
+  ].filter(link => link !== undefined);
+
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -83,17 +91,11 @@ export const Layout = ({
             canonicalUrl={`https://design-system.hpe.design${router.route}`}
           />
           <>
-            {showInPageNav ? (
-              <SkipLinks id="skip-links">
-                {/* Show ToC SkipLink if headings are found */}
-                <SkipLink id="toc" label="Table of Contents" />
-                <SkipLink id="main" label="Main Content" />
-              </SkipLinks>
-            ) : (
-              <SkipLinks id="skip-links">
-                <SkipLink id="main" label="Main Content" />
-              </SkipLinks>
-            )}
+            <SkipLinks id="skip-links">
+              {skiplinks.map(({ id, label }) => (
+                <SkipLink id={id} label={label} />
+              ))}
+            </SkipLinks>
             <PageContent>
               <Header fill="horizontal" alignSelf="center" />
             </PageContent>
