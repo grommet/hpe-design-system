@@ -899,4 +899,23 @@ export const components = [
     ],
     relatedContent: [],
   },
+  {
+    name: 'Button Rounding Check',
+    available: true,
+    category: 'All',
+    description: 'How are things looking?',
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'Purple playing cards representing HPE Design System components',
+        fit: 'contain',
+      },
+    },
+    seoDescription: 'View all HPE Design System and Grommet components.',
+    sections: [],
+    relatedContent: [],
+  },
 ];
