@@ -84,6 +84,7 @@ export const Layout = ({
           />
           <>
             <SkipLinks id="skip-links">
+              <SkipLink id="toc" label="Table of Contents" />
               <SkipLink id="main" label="Main Content" />
             </SkipLinks>
             <PageContent>
@@ -98,6 +99,7 @@ export const Layout = ({
                     <>
                       {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
+                          <SkipLinkTarget id="toc" />
                           <InPageNavigation headings={headings} />
                         </Box>
                       ) : undefined}
