@@ -83,16 +83,22 @@ export const Layout = ({
             canonicalUrl={`https://design-system.hpe.design${router.route}`}
           />
           <>
-            <SkipLinks id="skip-links">
-              <SkipLink id="toc" label="Table of Contents" />
-              <SkipLink id="main" label="Main Content" />
-            </SkipLinks>
+            {showInPageNav ? (
+              <SkipLinks id="skip-links">
+                {/* Show ToC SkipLink if headings are found */}
+                <SkipLink id="toc" label="Table of Contents" />
+                <SkipLink id="main" label="Main Content" />
+              </SkipLinks>
+            ) : (
+              <SkipLinks id="skip-links">
+                <SkipLink id="main" label="Main Content" />
+              </SkipLinks>
+            )}
             <PageContent>
               <Header fill="horizontal" alignSelf="center" />
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
-                <SkipLinkTarget id="main" />
                 {/* row-reverse direction to tab through ToC first */}
                 <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
@@ -111,6 +117,7 @@ export const Layout = ({
                         }
                       >
                         {/* top pad handled by PageHeader */}
+                        <SkipLinkTarget id="main" />
                         <ContentSection pad={{ top: 'none' }}>
                           <DocsPageHeader
                             title={title}

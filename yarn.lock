@@ -14205,10 +14205,40 @@ testcafe-browser-tools@2.0.23:
     read-file-relative "^1.2.0"
     which-promise "^1.0.0"
 
-testcafe-hammerhead@24.7.2, testcafe-hammerhead@>=19.4.0:
+testcafe-hammerhead@24.7.2:
   version "24.7.2"
   resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-24.7.2.tgz#e3665ead7b1df63593fc278f9345f8fbec815147"
   integrity sha512-f9f/CuOtaeIq+avD8hFO6aMGCdc446R1+7h3TR+4vuqkOQaqow5SuwEI/QdCF05z8nENDcXGUORXx0hOPrGhlw==
+  dependencies:
+    acorn-hammerhead "0.6.1"
+    asar "^2.0.1"
+    bowser "1.6.0"
+    crypto-md5 "^1.0.0"
+    css "2.2.3"
+    debug "4.3.1"
+    esotope-hammerhead "0.6.2"
+    http-cache-semantics "^4.1.0"
+    iconv-lite "0.5.1"
+    lodash "^4.17.20"
+    lru-cache "2.6.3"
+    match-url-wildcard "0.0.4"
+    merge-stream "^1.0.1"
+    mime "~1.4.1"
+    mustache "^2.1.1"
+    nanoid "^3.1.12"
+    os-family "^1.0.0"
+    parse5 "2.2.3"
+    pinkie "2.0.4"
+    read-file-relative "^1.2.0"
+    semver "5.5.0"
+    tough-cookie "4.0.0"
+    tunnel-agent "0.6.0"
+    webauth "^1.1.0"
+
+testcafe-hammerhead@>=19.4.0:
+  version "24.7.3"
+  resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-24.7.3.tgz#d3e3db345026364f738b20c2714cd049d8c1a307"
+  integrity sha512-3VfGuFLoh9selCk88zqDG5KxN2A73nBzYRaymQHlh3fFcaQ6XH1gkOGEn0MWaly+aDcG2snBFlK82n1i/vz2jA==
   dependencies:
     acorn-hammerhead "0.6.1"
     asar "^2.0.1"
