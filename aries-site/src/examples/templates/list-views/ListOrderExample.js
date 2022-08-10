@@ -16,7 +16,7 @@ const movies = [
 
 export const ListOrderExample = () => {
   const [ordered, setOrder] = useState(movies);
-  const [allowReorder, setAllowReorder] = useState(false);
+  const [allowReorder, setAllowReorder] = useState(true);
 
   return (
     <Box

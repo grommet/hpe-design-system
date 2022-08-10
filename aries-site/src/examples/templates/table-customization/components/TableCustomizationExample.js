@@ -118,25 +118,31 @@ export const TableCustomizationExample = () => {
                     // do with regards to any column configurations that have
                     // been applied.
                     configure={
-                        <DropButton
-                          a11yTitle="Configure columns button"
-                          icon={<Splits />}
-                          kind="toolbar"
-                          dropAlign={{ top: 'bottom', right: 'right' }}
-                          onClose={() => setOpen(false)}
-                          onOpen={() => setOpen(true)}
-                          dropContent={
-                            <ColumnSettings
-                              columns={COLUMNS}
-                              visibleColumns={visibleColumns}
-                              setVisibleColumns={setVisibleColumns}
-                              open={open}
-                            />
-                          }
-                          tip="Configure columns"
-                        />
+                      <DropButton
+                        a11yTitle="Configure columns button"
+                        icon={<Splits />}
+                        kind="toolbar"
+                        dropAlign={{ top: 'bottom', right: 'right' }}
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        dropContent={
+                          <ColumnSettings
+                            columns={COLUMNS}
+                            visibleColumns={visibleColumns}
+                            setVisibleColumns={setVisibleColumns}
+                            open={open}
+                          />
+                        }
+                        tip="Configure columns"
+                      />
                     }
-                    actions={<Menu kind="toolbar" label="Actions" items={[]} />}
+                    actions={
+                      <Menu
+                        kind="toolbar"
+                        label="Actions"
+                        items={[{ label: 'Item one' }, { label: 'Item two' }]}
+                      />
+                    }
                     data={allData}
                     filters={filtersConfig}
                     searchFilter={{ placeholder: 'Search' }}
@@ -165,6 +171,7 @@ const Results = ({ columns }) => {
         columns={columns}
         select={select}
         onSelect={setSelect}
+        sortable
         pin
       />
     </Box>
