@@ -65,7 +65,7 @@ export const Layout = ({
 
   /* If no headings are found, do not show Table of Contents SkipLink, 
      instead set ToC skiplink as undefined and filter it out.
-     Future: Enhance Grommet SkipLink component to automatically filter */
+     Logic to be removed in future by: https://github.com/grommet/grommet/issues/6266  */
   const skiplinks = [
     showInPageNav ? { id: 'toc', label: 'Table of Contents' } : undefined,
     { id: 'main', label: 'Main Content' },
