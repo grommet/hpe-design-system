@@ -63,7 +63,7 @@ export const Layout = ({
   const showInPageNav =
     !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
-  /* If no headings are found, do not show Table of Contents SkipLink, 
+  /* If no headings are found, do not show Table of Contents link, 
      instead set ToC skiplink as undefined and filter it out.
      Logic to be removed in future by: https://github.com/grommet/grommet/issues/6266  */
   const skiplinks = [
