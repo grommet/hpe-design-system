@@ -93,7 +93,7 @@ export const Layout = ({
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
-                <SkipLink id={id} label={label} />
+                <SkipLink key={id} id={id} label={label} />
               ))}
             </SkipLinks>
             <PageContent>
