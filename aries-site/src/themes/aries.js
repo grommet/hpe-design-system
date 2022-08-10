@@ -67,11 +67,14 @@ export const aries = deepMerge(hpe, {
   radioButton: {
     container: {
       extend: ({ theme }) => `
-      font-weight: 500;
-      width: auto;
-      border-radius: ${theme.global.edgeSize.small};
-      padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
-    `,
+        font-weight: 500;
+        width: auto;
+        border-radius: ${theme.global.edgeSize.small};
+        padding: 
+        ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
+      `,
+    },
+  },
   button: {
     size: {
       small: {
