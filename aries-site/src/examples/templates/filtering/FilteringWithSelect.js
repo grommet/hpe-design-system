@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  Anchor,
   Box,
   Button,
   Layer,
@@ -233,7 +232,7 @@ const Filters = ({
             }}
           />
         )}
-        {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
+        {filtering && <Button label="Clear filters" onClick={resetFilters} />}
       </Box>
       {showLayer && (
         <Layer
