@@ -141,7 +141,7 @@ export const RequiredFieldsExample = () => {
           {showFormLevelError && (
             <Box
               margin={{ top: 'medium', bottom: 'medium' }}
-              round="4px"
+              round="small"
               pad="small"
               background="validation-critical"
               direction="row"
