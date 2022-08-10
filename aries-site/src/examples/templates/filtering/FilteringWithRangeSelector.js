@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  Anchor,
   Box,
   Button,
   DropButton,
@@ -287,7 +286,7 @@ const Filters = ({
                 </Text>
                 <Box align="center" direction="row" justify="end" gap="medium">
                   {filtering && (
-                    <Anchor label="Clear filters" onClick={resetFilters} />
+                    <Button label="Clear filters" onClick={resetFilters} />
                   )}
                   <Button
                     label={`See ${data.length} results`}
@@ -391,7 +390,7 @@ const Filters = ({
           dropAlign={{ top: 'bottom', left: 'left' }}
         />
       </Box>
-      {filtering && <Anchor label="Clear filters" onClick={resetFilters} />}
+      {filtering && <Button label="Clear filters" onClick={resetFilters} />}
     </Box>
   );
 };
