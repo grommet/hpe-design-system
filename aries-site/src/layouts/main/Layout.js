@@ -63,6 +63,14 @@ export const Layout = ({
   const showInPageNav =
     !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
+  /* If no headings are found, do not show Table of Contents link, 
+     instead set ToC skiplink as undefined and filter it out.
+     Logic to be removed in future by: https://github.com/grommet/grommet/issues/6266  */
+  const skiplinks = [
+    showInPageNav ? { id: 'toc', label: 'Table of Contents' } : undefined,
+    { id: 'main', label: 'Main Content' },
+  ].filter(link => link !== undefined);
+
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -84,20 +92,22 @@ export const Layout = ({
           />
           <>
             <SkipLinks id="skip-links">
-              <SkipLink id="main" label="Main Content" />
+              {skiplinks.map(({ id, label }) => (
+                <SkipLink key={id} id={id} label={label} />
+              ))}
             </SkipLinks>
             <PageContent>
               <Header fill="horizontal" alignSelf="center" />
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
-                <SkipLinkTarget id="main" />
                 {/* row-reverse direction to tab through ToC first */}
                 <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
                       {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
+                          <SkipLinkTarget id="toc" />
                           <InPageNavigation headings={headings} />
                         </Box>
                       ) : undefined}
@@ -109,6 +119,7 @@ export const Layout = ({
                         }
                       >
                         {/* top pad handled by PageHeader */}
+                        <SkipLinkTarget id="main" />
                         <ContentSection pad={{ top: 'none' }}>
                           <DocsPageHeader
                             title={title}
