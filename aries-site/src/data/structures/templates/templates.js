@@ -197,7 +197,7 @@ export const templates = [
       'Required and Optional Fields',
       'Full-page form guidance',
       'Full Page Form Example',
-      'Full Page Form Dos and Donts',
+      'Avoid using multiple column layouts',
     ],
     relatedContent: [
       'TextInput',
