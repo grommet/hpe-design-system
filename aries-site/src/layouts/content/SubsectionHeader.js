@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
 import { Link as LinkIcon } from 'grommet-icons';
 
+import { ThemeContext } from 'styled-components';
+import { useIntersection } from '@hpe/react-hooks';
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
-import { ThemeContext } from 'styled-components';
-
-import { useIntersection } from '@hpe/react-hooks';
 import { ActiveHeadingContext } from './ActiveHeadingContext';
 
 export const SubsectionHeader = ({ children, level }) => {
@@ -17,9 +16,8 @@ export const SubsectionHeader = ({ children, level }) => {
   const { setActiveHeading } = useContext(ActiveHeadingContext);
 
   const theme = useContext(ThemeContext);
-  let { large, medium } = theme.global.edgeSize;
+  let { large } = theme.global.edgeSize;
   large = parseInt(large.replace('px', ''), 10); // 48
-  medium = parseInt(medium.replace('px', ''), 10); // 24
 
   // top and bottom margin values to calculate intersection window
   const topMargin = large;
@@ -27,7 +25,7 @@ export const SubsectionHeader = ({ children, level }) => {
 
   const options = {
     rootMargin: `${topMargin}% 0% ${bottomMargin}% 0%`,
-    //threshold: 1.0,
+    // threshold: 1.0,
   };
 
   const [headingToWatch, entry] = useIntersection({ options });

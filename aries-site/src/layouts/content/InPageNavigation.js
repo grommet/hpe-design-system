@@ -45,7 +45,7 @@ const SectionButton = styled(Button)`
 //   return activeHeadingId;
 // };
 
-//active heading is in the slug format
+// active heading is in the slug format
 export const InPageNavigation = ({ headings }) => {
   const theme = useContext(ThemeContext);
   const { activeHeading } = useContext(ActiveHeadingContext);

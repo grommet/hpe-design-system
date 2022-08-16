@@ -2,8 +2,6 @@ import React, { Fragment, useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
-import { ActiveHeadingContext } from '../content/ActiveHeadingContext';
-
 import {
   Box,
   Main,
@@ -15,6 +13,8 @@ import {
   SkipLinks,
   Stack,
 } from 'grommet';
+import { ActiveHeadingContext } from '../content/ActiveHeadingContext';
+
 import {
   ContentSection,
   DocsPageHeader,
@@ -62,8 +62,19 @@ export const Layout = ({
   const showInPageNav =
     !['xsmall', 'small'].includes(size) && headings?.length > 0;
 
+  /* If no headings are found, do not show Table of Contents link, 
+     instead set ToC skiplink as undefined and filter it out.
+     Logic to be removed in future by: https://github.com/grommet/grommet/issues/6266  */
+  const skiplinks = [
+    showInPageNav ? { id: 'toc', label: 'Table of Contents' } : undefined,
+    { id: 'main', label: 'Main Content' },
+  ].filter(link => link !== undefined);
+
   const [activeHeading, setActiveHeading] = useState();
-  const activeHeadingContextValue = { activeHeading, setActiveHeading };
+  const activeHeadingContextValue = React.useMemo(() => {
+    const nextValue = { activeHeading, setActiveHeading };
+    return nextValue;
+  }, [activeHeading]);
 
   // useEffect finds which page heading is on screen as the user scrolls
   useEffect(() => {
@@ -73,7 +84,7 @@ export const Layout = ({
         setActiveHeading(null);
       }
     };
-  }, [headings]);
+  });
 
   return (
     <>
@@ -96,7 +107,9 @@ export const Layout = ({
           />
           <>
             <SkipLinks id="skip-links">
-              <SkipLink id="main" label="Main Content" />
+              {skiplinks.map(({ id, label }) => (
+                <SkipLink key={id} id={id} label={label} />
+              ))}
             </SkipLinks>
             <PageContent>
               <Header fill="horizontal" alignSelf="center" />
@@ -106,7 +119,6 @@ export const Layout = ({
                 <ActiveHeadingContext.Provider
                   value={activeHeadingContextValue}
                 >
-                  <SkipLinkTarget id="main" />
                   {/* row-reverse direction to tab through ToC first */}
                   <Box
                     direction={layout !== 'plain' ? 'row-reverse' : 'column'}
@@ -115,6 +127,7 @@ export const Layout = ({
                       <>
                         {showInPageNav ? (
                           <Box pad={{ left: 'large' }}>
+                            <SkipLinkTarget id="toc" />
                             <InPageNavigation headings={headings} />
                           </Box>
                         ) : (
@@ -123,12 +136,12 @@ export const Layout = ({
                         <Box
                           width={
                             showInPageNav
-                              ? 'calc(100% - 192px)' // 192px = small t-shirt size
+                              ? 'calc(100% - 192px)' // 192px=small t-shirt size
                               : '100%'
                           }
                         >
                           {/* top pad handled by PageHeader */}
-
+                          <SkipLinkTarget id="main" />
                           <ContentSection pad={{ top: 'none' }}>
                             <DocsPageHeader
                               title={title}
