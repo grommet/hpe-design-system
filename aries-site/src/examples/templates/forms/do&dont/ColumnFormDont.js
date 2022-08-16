@@ -176,7 +176,7 @@ export const ColumnFormDont = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <Box gap="medium">
       <Header
         direction="column"
         align="start"
