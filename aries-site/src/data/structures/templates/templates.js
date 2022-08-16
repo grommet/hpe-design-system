@@ -195,6 +195,9 @@ export const templates = [
       'Shipping',
       'Customize',
       'Required and Optional Fields',
+      'Full-page form guidance',
+      'Full Page Form Example',
+      'Full Page Form Dos and Donts',
     ],
     relatedContent: [
       'TextInput',
