@@ -1,5 +1,6 @@
 import {
   ChangePasswordExample,
+  ColumnFormDont,
   CustomizeExample,
   FilterExample,
   RequiredFieldsExample,
@@ -250,3 +251,35 @@ In cases where the user is given an opportunity to express themselves or would l
   href="#sign-in"
   alt="HPE Design System Form where required and optional can be skipped"
 />
+
+## Full-page form guidance
+- Use full-page forms for create and edit flows, irrespective of the size of the form. 
+- Use a single-column full-page form instead of multi-column layouts.
+- Full-page forms shoud be center-aligned.
+- Use full-page when the form is too long.
+- Use Center modal instead of side drawers/layers for secondary inputs.
+- Use side layers to display help text, filters, or a form over another form. 
+
+
+### Full Page Form Example
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
+>
+  <CustomizeExample />
+</Example>
+
+### Full Page Form Dos and Donts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{type: 'do', message: 'One column layer to create a clear path to completion for the user.'}}
+  >
+    <ShippingExample />
+  </Example>
+  <Example
+    bestPractice={{type: 'dont', message: `Avoid using multiple-column form layout.`}}
+  >
+    <ColumnFormDont />
+  </Example>
+</BestPracticeGroup>
