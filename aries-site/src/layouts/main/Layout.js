@@ -1,7 +1,9 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
+import { ActiveHeadingContext } from '../content/ActiveHeadingContext';
+
 import {
   Box,
   Main,
@@ -44,12 +46,9 @@ export const Layout = ({
   const router = useRouter();
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
-  const {
-    name: title,
-    seoDescription,
-    pageLayout,
-    render,
-  } = getPageDetails(titleProp);
+  const { name: title, seoDescription, pageLayout, render } = getPageDetails(
+    titleProp,
+  );
   const layout = isLanding ? 'plain' : pageLayout;
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
@@ -62,6 +61,19 @@ export const Layout = ({
   const headings = match && [...match.content.matchAll(regexp)];
   const showInPageNav =
     !['xsmall', 'small'].includes(size) && headings?.length > 0;
+
+  const [activeHeading, setActiveHeading] = useState();
+  const activeHeadingContextValue = { activeHeading, setActiveHeading };
+
+  // useEffect finds which page heading is on screen as the user scrolls
+  useEffect(() => {
+    // if at top of page, do not show active heading on ToC
+    window.onscroll = () => {
+      if (window.pageYOffset === 0) {
+        setActiveHeading(null);
+      }
+    };
+  }, [headings]);
 
   return (
     <>
@@ -91,45 +103,55 @@ export const Layout = ({
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
-                <SkipLinkTarget id="main" />
-                {/* row-reverse direction to tab through ToC first */}
-                <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
-                  {layout !== 'plain' ? (
-                    <>
-                      {showInPageNav ? (
-                        <Box pad={{ left: 'large' }}>
-                          <InPageNavigation headings={headings} />
-                        </Box>
-                      ) : undefined}
-                      <Box
-                        width={
-                          showInPageNav
-                            ? 'calc(100% - 192px)' // 192px = small t-shirt size
-                            : '100%'
-                        }
-                      >
-                        {/* top pad handled by PageHeader */}
-                        <ContentSection pad={{ top: 'none' }}>
-                          <DocsPageHeader
-                            title={title}
-                            topic={topic}
-                            render={render}
-                          />
-                          {children}
-                        </ContentSection>
-                        {relatedContent.length > 0 && (
-                          <RelatedContent
-                            relatedContent={relatedContent}
-                            title={title}
-                          />
+                <ActiveHeadingContext.Provider
+                  value={activeHeadingContextValue}
+                >
+                  <SkipLinkTarget id="main" />
+                  {/* row-reverse direction to tab through ToC first */}
+                  <Box
+                    direction={layout !== 'plain' ? 'row-reverse' : 'column'}
+                  >
+                    {layout !== 'plain' ? (
+                      <>
+                        {showInPageNav ? (
+                          <Box pad={{ left: 'large' }}>
+                            <InPageNavigation headings={headings} />
+                          </Box>
+                        ) : (
+                          undefined
                         )}
-                        <FeedbackSection />
-                      </Box>
-                    </>
-                  ) : (
-                    children
-                  )}
-                </Box>
+                        <Box
+                          width={
+                            showInPageNav
+                              ? 'calc(100% - 192px)' // 192px = small t-shirt size
+                              : '100%'
+                          }
+                        >
+                          {/* top pad handled by PageHeader */}
+
+                          <ContentSection pad={{ top: 'none' }}>
+                            <DocsPageHeader
+                              title={title}
+                              topic={topic}
+                              render={render}
+                            />
+                            {children}
+                          </ContentSection>
+
+                          {relatedContent.length > 0 && (
+                            <RelatedContent
+                              relatedContent={relatedContent}
+                              title={title}
+                            />
+                          )}
+                          <FeedbackSection />
+                        </Box>
+                      </>
+                    ) : (
+                      children
+                    )}
+                  </Box>
+                </ActiveHeadingContext.Provider>
               </Main>
             </MainContentWrapper>
           </>

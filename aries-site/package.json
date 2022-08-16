@@ -6,6 +6,7 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
+    "@hpe/react-hooks": "^1.0.4",
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",
