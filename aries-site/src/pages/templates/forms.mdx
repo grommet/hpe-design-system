@@ -3,6 +3,7 @@ import {
   ColumnFormDont,
   CustomizeExample,
   FilterExample,
+  FullPageFormExample,
   RequiredFieldsExample,
   PayExample,
   SettingsExample,
@@ -13,7 +14,8 @@ import {
   SingleFormFieldExample,
   SortExample,
 } from '../../examples';
-import { ExampleImagePreview, CardGrid } from '../../components';
+import { ExampleImagePreview } from '../../components';
+import { Image } from 'grommet';
 import { Example } from '../../layouts';
 import { formLayouts } from '../../data/structures';
 
@@ -261,7 +263,9 @@ In cases where the user is given an opportunity to express themselves or would l
 - Use full-page when the form is too long.
 - Use Center modal instead of side drawer to display information without leaving the current context
 
-<CardGrid cards={formLayouts} />
+<Example>
+  <FullPageFormExample />
+</Example>
 
 ### Avoid using multiple column layouts
 
