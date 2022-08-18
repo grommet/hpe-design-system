@@ -208,7 +208,7 @@ export const ColumnFormDont = () => {
           method="post"
           validate="submit"
         >
-          <Box gap="xlarge" direction="row">
+          <Box gap="large" direction="row">
             <Box>
               <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
                 Shipping Information
