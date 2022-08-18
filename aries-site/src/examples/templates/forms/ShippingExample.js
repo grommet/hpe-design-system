@@ -13,60 +13,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { emailMask, emailValidation, phoneMask } from './utils/FormValidation';
-
-const states = [
-  'AK',
-  'AL',
-  'AR',
-  'AZ',
-  'CA',
-  'CO',
-  'CT',
-  'DC',
-  'DE',
-  'FL',
-  'GA',
-  'HI',
-  'IA',
-  'ID',
-  'IL',
-  'IN',
-  'KS',
-  'KY',
-  'LA',
-  'MA',
-  'ME',
-  'MD',
-  'MN',
-  'MO',
-  'MS',
-  'MT',
-  'NC',
-  'ND',
-  'NE',
-  'NH',
-  'NJ',
-  'NM',
-  'NY',
-  'NV',
-  'OH',
-  'OK',
-  'OR',
-  'PA',
-  'RI',
-  'SC',
-  'SD',
-  'TN',
-  'TX',
-  'UT',
-  'VA',
-  'VT',
-  'WA',
-  'WI',
-  'WV',
-  'WY',
-];
+import { emailMask, emailValidation, phoneMask, states } from './utils/FormValidation';
 
 export const ShippingExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -92,8 +39,6 @@ export const ShippingExample = () => {
   // provide order of formfields for validation
   // to properly place focus on any errors or infos
   const formFields = [
-    'firstName',
-    'lastName',
     'address1',
     'address2',
     'city',
@@ -162,24 +107,6 @@ export const ShippingExample = () => {
             >
               Shipping Address *
             </Text>
-            <FormField
-              required
-              htmlFor="firstName"
-              name="firstName"
-              label="First Name"
-              contentProps={{ width: 'medium' }}
-            >
-              <TextInput id="firstName" name="firstName" />
-            </FormField>
-            <FormField
-              required
-              htmlFor="lastName"
-              name="lastName"
-              label="Last Name"
-              contentProps={{ width: 'medium' }}
-            >
-              <TextInput id="lastName" name="lastName" label="Last Name" />
-            </FormField>
             <FormField
               contentProps={{ width: 'medium' }}
               htmlFor="address1"
