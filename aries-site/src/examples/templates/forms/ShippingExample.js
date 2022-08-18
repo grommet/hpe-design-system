@@ -13,23 +13,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-
-const emailMask = [
-  {
-    regexp: /^[\w\-_.]+$/,
-    placeholder: 'jane.smith',
-  },
-  { fixed: '@' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'hpe',
-  },
-  { fixed: '.' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'com',
-  },
-];
+import { emailMask, emailValidation, phoneMask } from './utils/FormValidation';
 
 const states = [
   'AK',
@@ -82,46 +66,6 @@ const states = [
   'WI',
   'WV',
   'WY',
-];
-
-const phoneMask = [
-  { fixed: '(' },
-  {
-    length: 3,
-    regexp: /^[0-9]{1,3}$/,
-    placeholder: 'XXX',
-  },
-  { fixed: ')' },
-  { fixed: ' ' },
-  {
-    length: 3,
-    regexp: /^[0-9]{1,3}$/,
-    placeholder: 'XXX',
-  },
-  { fixed: '-' },
-  {
-    length: 4,
-    regexp: /^[0-9]{1,4}$/,
-    placeholder: 'XXXX',
-  },
-];
-
-const emailValidation = [
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
 ];
 
 export const ShippingExample = () => {
@@ -313,12 +257,12 @@ export const ShippingExample = () => {
             </FormField>
             <FormField
               contentProps={{ width: 'medium' }}
-              htmlFor="phone-ship"
+              htmlFor="phone-shipping"
               name="phone-shipping"
               label="Phone Number"
             >
               <MaskedInput
-                id="phone-ship"
+                id="phone-shipping"
                 name="phone-shipping"
                 mask={phoneMask}
               />
