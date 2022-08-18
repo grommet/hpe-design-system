@@ -224,6 +224,7 @@ export const ColumnFormDont = () => {
                 htmlFor="firstName"
                 name="firstName"
                 label="First Name"
+                contentProps={{ width: 'medium' }}
               >
                 <TextInput id="firstName" name="firstName" />
               </FormField>
@@ -232,27 +233,48 @@ export const ColumnFormDont = () => {
                 htmlFor="lastName"
                 name="lastName"
                 label="Last Name"
+                contentProps={{ width: 'medium' }}
               >
                 <TextInput id="lastName" name="lastName" label="Last Name" />
               </FormField>
-              <FormField htmlFor="address1" name="address1" label="Address 1">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="address1"
+                name="address1"
+                label="Address 1"
+              >
                 <TextInput
                   id="address1"
                   name="address1"
                   placeholder="Street Address"
                 />
               </FormField>
-              <FormField htmlFor="address2" name="address2" label="Address 2">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="address2"
+                name="address2"
+                label="Address 2"
+              >
                 <TextInput
                   id="address2"
                   name="address2"
                   placeholder="Apt., Suite, Building (Optional)"
                 />
               </FormField>
-              <FormField htmlFor="city" name="city" label="City">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="city"
+                name="city"
+                label="City"
+              >
                 <TextInput id="city" name="city" />
               </FormField>
-              <FormField htmlFor="state__input" name="state" label="State">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="state__input"
+                name="state"
+                label="State"
+              >
                 <Select
                   id="state"
                   name="state"
@@ -261,10 +283,19 @@ export const ColumnFormDont = () => {
                   placeholder="Select State"
                 />
               </FormField>
-              <FormField htmlFor="zipcode" name="zipcode" label="ZIP Code">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="zipcode"
+                name="zipcode"
+                label="ZIP Code"
+              >
                 <TextInput id="zipcode" name="zipcode" />
               </FormField>
-              <FormField htmlFor="isBusiness" name="isBusiness">
+              <FormField
+                contentProps={{ width: 'medium' }}
+                htmlFor="isBusiness"
+                name="isBusiness"
+              >
                 <CheckBox name="isBusiness" label="This is a business" />
               </FormField>
             </Box>
@@ -277,11 +308,13 @@ export const ColumnFormDont = () => {
                 required
                 htmlFor="fullName"
                 name="fullName-shipping"
+                contentProps={{ width: 'medium' }}
               >
                 <TextInput id="fullName" name="fullName-shipping" />
               </FormField>
               <FormField
                 htmlFor="phone-ship"
+                contentProps={{ width: 'medium' }}
                 name="phone-shipping"
                 label="Phone Number"
               >
@@ -297,6 +330,7 @@ export const ColumnFormDont = () => {
                 required
                 label="Email Address"
                 validate={emailValidation}
+                contentProps={{ width: 'medium' }}
               >
                 <MaskedInput
                   id="email-ship"
