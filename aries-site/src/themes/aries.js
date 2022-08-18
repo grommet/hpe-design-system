@@ -1,11 +1,25 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 
+import { backgrounds } from './backgrounds';
+
 const hpeElement = color =>
-  `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24' preserveAspectRatio='none'%3E%3Cg x='0' y='0' fill='${encodeURIComponent(
-    color,
-    // eslint-disable-next-line max-len
-  )}' fill-rule='evenodd' clip-rule='evenodd' %3E%3Cpath d='M2 6h44v12H2V6zm3 3h38v6H5V9z' /%3E%3C/g%3E%3C/svg%3E")`;
+  `url("data:image/svg+xml,
+  %3Csvg 
+    xmlns='http://www.w3.org/2000/svg' 
+    viewBox='0 0 48 24' 
+    preserveAspectRatio='none'
+  %3E
+    %3Cg 
+      x='0' 
+      y='0' 
+      fill='${encodeURIComponent(color)}' 
+      fill-rule='evenodd' 
+      clip-rule='evenodd' %3E
+        %3Cpath 
+          d='M2 6h44v12H2V6zm3 3h38v6H5V9z' /%3E
+    %3C/g%3E
+  %3C/svg%3E")`;
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -13,6 +27,7 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   global: {
+    backgrounds,
     control: {
       border: {
         radius: '24px',
@@ -20,12 +35,7 @@ export const aries = deepMerge(hpe, {
     },
     drop: {
       border: {
-        radius: '6px',
-      },
-    },
-    input: {
-      padding: {
-        left: '14px',
+        radius: '12px',
       },
     },
   },
@@ -39,7 +49,7 @@ export const aries = deepMerge(hpe, {
             theme.dark ? 'dark' : 'light'
           ]
         };
-        border-radius: ${theme.global.edgeSize.small};
+        border-radius: 1px;
       }`
       }
       font-weight: 500;
@@ -55,7 +65,7 @@ export const aries = deepMerge(hpe, {
     },
   },
   formField: {
-    round: 'medium',
+    round: 'large',
   },
   menu: {
     group: {
@@ -69,7 +79,7 @@ export const aries = deepMerge(hpe, {
       extend: ({ theme }) => `
         font-weight: 500;
         width: auto;
-        border-radius: ${theme.global.edgeSize.small};
+        border-radius: 1px;
         padding: 
         ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Form, FormField, Select } from 'grommet';
+import {
+  CheckBoxGroup,
+  Form,
+  FormField,
+  RadioButtonGroup,
+  Select,
+} from 'grommet';
 
 const options = [
   'Item One',
@@ -29,6 +35,20 @@ export const SelectExample = () => {
           onChange={({ option }) => setSelected(option)}
         />
       </FormField>
+      <FormField label="Label">
+        <RadioButtonGroup options={['eenie', 'meenie', 'miney', 'moe']} />
+      </FormField>
+      <FormField label="Label">
+        <CheckBoxGroup options={['eenie', 'meenie', 'miney', 'moe']} />
+      </FormField>
+      <Select
+        id="select-example"
+        name="select-example"
+        placeholder="Select item"
+        options={options}
+        value={selected}
+        onChange={({ option }) => setSelected(option)}
+      />
     </Form>
   );
 };
