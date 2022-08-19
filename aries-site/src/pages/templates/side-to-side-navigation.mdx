@@ -27,15 +27,11 @@ For more information, reference the [Global Header page](/templates/global-heade
 - Allows users to move between top-level important destinations
 - Located at the top of all application and websites
 
-<Example 
-  previewWidth="xlarge"
-  height="xsmall"
-  plain
->
+<Example previewWidth="xlarge" height="xsmall" plain>
   <DiagramPreview
     src={{
-      dark: "/templateImages/globalheader-full.svg", 
-      light: "/templateImages/globalheader-full.svg"
+      dark: '/templateImages/globalheader-full.svg',
+      light: '/templateImages/globalheader-full.svg',
     }}
     alt="HPE Global Header"
   />
@@ -64,7 +60,7 @@ Tabs are a persistent horizontal bar that is used to navigate between related co
 - Keep users on same page when navigating between Tabs.
 - Use 5-7 Tabs max.
 
-<Example 
+<Example
   caption="Diagram illustrating how Tabs can provide side-to-side navigation between various sets of related content."
   previewWidth="medium"
   height={{ min: 'small' }}
@@ -72,8 +68,8 @@ Tabs are a persistent horizontal bar that is used to navigate between related co
 >
   <DiagramPreview
     src={{
-      dark: "/templateImages/tab-nav-invert.svg", 
-      light: "/templateImages/tab-nav.svg"
+      dark: '/templateImages/tab-nav-invert.svg',
+      light: '/templateImages/tab-nav.svg',
     }}
     alt="Diagram illustrating how Tabs can provide side-to-side navigation between various sets of related content."
   />
@@ -90,12 +86,13 @@ export const data = {
 
 export const TabCaption = () => (
   <NameValueList
-    layout="grid"
     pairProps={{ direction: 'column' }}
     columns={['medium', 'medium']}
   >
     {Object.entries(data).map(([name, value]) => (
-      <NameValuePair key={name} name={name}>{value}</NameValuePair>
+      <NameValuePair key={name} name={name}>
+        {value}
+      </NameValuePair>
     ))}
   </NameValueList>
 );
