@@ -101,7 +101,7 @@ export const Layout = ({
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
-                {/* row-reverse direction to tab through ToC first */}
+                {/* row-reverse direction, tab through ToC first */}
                 <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
                   {layout !== 'plain' ? (
                     <>
