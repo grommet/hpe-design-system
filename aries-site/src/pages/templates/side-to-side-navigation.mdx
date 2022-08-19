@@ -85,14 +85,17 @@ export const data = {
 };
 
 export const TabCaption = () => (
-  <NameValueList
-    pairProps={{ direction: 'column' }}
-    columns={['medium', 'medium']}
-  >
-    {Object.entries(data).map(([name, value]) => (
-      <NameValuePair key={name} name={name}>
-        {value}
-      </NameValuePair>
-    ))}
-  </NameValueList>
+  <Box>
+    <NameValueList
+      layout="grid"
+      pairProps={{ direction: 'column' }}
+      columns={['medium', 'medium']}
+    >
+      {Object.entries(data).map(([name, value]) => (
+        <NameValuePair key={name} name={name}>
+          {value}
+        </NameValuePair>
+      ))}
+    </NameValueList>
+  </Box>
 );
