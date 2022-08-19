@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -12,6 +12,8 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
+  TextArea,
+  FormField,
 } from 'grommet';
 import {
   ContentSection,
@@ -22,7 +24,12 @@ import {
   InPageNavigation,
   RelatedContent,
 } from '..';
-import { Meta, PageBackground } from '../../components';
+import {
+  Meta,
+  PageBackground,
+  FeedbackButton,
+  FeedbackComponent,
+} from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
@@ -54,6 +61,9 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
+  const [open, setOpen] = useState(false);
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(undefined);
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
@@ -73,6 +83,26 @@ export const Layout = ({
 
   return (
     <>
+      <FeedbackButton
+        onClick={onOpen}
+        color="purple!"
+        label="Feedback"
+        primary
+      />
+      <FeedbackComponent
+        onClickOutside={onClose}
+        onEsc={onClose}
+        kind="rating"
+        show={open}
+        modal
+        subTitle={`Was this ${title} page helpful?`}
+        title="We’d love your feedback"
+        question={{ label: 'testing', kind: TextArea }}
+      >
+        <FormField htmlFor='' label="Want to tell us anything else about this page?">
+          <TextArea placeholder='' />
+        </FormField>
+      </FeedbackComponent>
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
