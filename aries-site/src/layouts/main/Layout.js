@@ -12,8 +12,6 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
-  TextArea,
-  FormField,
 } from 'grommet';
 import {
   ContentSection,
@@ -28,7 +26,8 @@ import {
   Meta,
   PageBackground,
   FeedbackButton,
-  FeedbackComponent,
+  Feedback,
+  Question,
 } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
@@ -61,9 +60,6 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
-  const [open, setOpen] = useState(false);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
@@ -83,26 +79,7 @@ export const Layout = ({
 
   return (
     <>
-      <FeedbackButton
-        onClick={onOpen}
-        color="purple!"
-        label="Feedback"
-        primary
-      />
-      <FeedbackComponent
-        onClickOutside={onClose}
-        onEsc={onClose}
-        kind="rating"
-        show={open}
-        modal
-        subTitle={`Was this ${title} page helpful?`}
-        title="We’d love your feedback"
-        question={{ label: 'testing', kind: TextArea }}
-      >
-        <FormField htmlFor='' label="Want to tell us anything else about this page?">
-          <TextArea placeholder='' />
-        </FormField>
-      </FeedbackComponent>
+      <PageFeedback />
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
@@ -176,6 +153,62 @@ export const Layout = ({
           </>
         </Page>
       </Stack>
+    </>
+  );
+};
+
+const defaultFeedback = {
+  'like-rating': '',
+  'star-rating': 0,
+  'text-area': '',
+};
+
+const PageFeedback = () => {
+  const [open, setOpen] = useState(false);
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(undefined);
+  const [value, setValue] = useState(defaultFeedback);
+
+  return (
+    <>
+      <FeedbackButton
+        onClick={onOpen}
+        color="purple!"
+        label="Feedback"
+        primary
+      />
+      <Feedback
+        title="We’d love your feedback"
+        show={open}
+        modal
+        onClickOutside={onClose}
+        onEsc={onClose}
+        value={value}
+        onChange={nextValue => setValue(nextValue)}
+        onReset={() => setValue(defaultFeedback)}
+        onSubmit={({ value: submitVal }) => console.log(submitVal)}
+      >
+        {/* <Question
+    label="Was this page helpful to you?"
+    kind="star"
+    name="star-rating"
+    primary
+  /> */}
+        <Question
+          label="What this page helpful to you?"
+          kind="thumbs"
+          name="like-rating"
+          primary
+        />
+        <Question
+          name="text-area"
+          kind="textArea"
+          label="Want to tell us anything else about this page?"
+          inputProps={{
+            placeholder: 'Tell us more!',
+          }}
+        />
+      </Feedback>
     </>
   );
 };
