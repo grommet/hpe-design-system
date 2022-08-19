@@ -6,6 +6,7 @@ export * from './FullPageFormExample';
 export * from './RequiredFieldsExample';
 export * from './PayExample';
 export * from './SettingsExample';
+export * from './Shipping';
 export * from './ShippingExample';
 export * from './SignInExample';
 export * from './SignUpExample';
