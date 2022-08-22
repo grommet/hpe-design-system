@@ -64,6 +64,7 @@ export const Layout = ({
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
+  const [value, setValue] = useState();
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
@@ -97,10 +98,14 @@ export const Layout = ({
         modal
         subTitle={`Was this ${title} page helpful?`}
         title="We’d love your feedback"
-        question={{ label: 'testing', kind: TextArea }}
+        onChange={nextValue => setValue(nextValue)}
+        onSubmit={({ value: submitVal }) => console.log(submitVal)}
       >
-        <FormField htmlFor='' label="Want to tell us anything else about this page?">
-          <TextArea placeholder='' />
+        <FormField
+          htmlFor=""
+          label="Want to tell us anything else about this page?"
+        >
+          <TextArea />
         </FormField>
       </FeedbackComponent>
       {/* When a backgroundImage is present, the main page content becomes 

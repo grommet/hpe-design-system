@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -7,15 +7,17 @@ import {
   Heading,
   Paragraph,
   Layer,
+  RadioButtonGroup,
   ResponsiveContext,
 } from 'grommet';
-import { Like, Dislike, FormClose, Star } from 'grommet-icons';
+import { Like, Dislike, FormClose, Star, StarOutline } from 'grommet-icons';
 
 export const FeedbackComponent = ({
   children,
   kind,
   modal,
   onChange,
+  onClose,
   onClickOutside,
   onEsc,
   onSubmit,
@@ -24,68 +26,14 @@ export const FeedbackComponent = ({
   title,
   value,
 }) => {
-  return (
-    <>
-      {!modal ? (
-        <Feedback
-          onClickOutside={onClickOutside}
-          title={title}
-          subTitle={subTitle}
-          onChange={onChange}
-          value={value}
-          children={children}
-          onSubmit={onSubmit}
-          kind={kind}
-          modal={modal}
-        />
-      ) : (
-        <>
-          {show && (
-            <Layer
-              margin={{ vertical: 'xlarge', horizontal: 'large' }}
-              position="bottom-right"
-              modal={modal}
-              onClickOutside={onClickOutside}
-              onEsc={onEsc}
-            >
-              <Feedback
-                onClickOutside={onClickOutside}
-                title={title}
-                subTitle={subTitle}
-                onChange={onChange}
-                value={value}
-                children={children}
-                onSubmit={onSubmit}
-                kind={kind}
-                modal={modal}
-              />
-            </Layer>
-          )}
-        </>
-      )}
-    </>
-  );
-};
-
-const Feedback = ({
-  onClickOutside,
-  title,
-  subTitle,
-  onChange,
-  value,
-  kind,
-  children,
-  onSubmit,
-  modal,
-}) => {
   const size = useContext(ResponsiveContext);
-  return (
+
+  let content = (
     <Box
       fill="vertical"
       overflow="auto"
       width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad="medium"
-      gap="medium"
     >
       <Box gap="small">
         <Identifier
@@ -94,7 +42,6 @@ const Feedback = ({
           subtitle={subTitle}
           modal={modal}
         />
-        {kind !== 'rating' ? <StarRating /> : <ThumbRating />}
       </Box>
       <Box margin={{ vertical: 'small' }}>
         <Form
@@ -104,6 +51,8 @@ const Feedback = ({
           method="post"
           validate="submit"
         >
+          {' '}
+          {kind !== 'rating' ? <StarRating /> : <ThumbRating />}
           {children}
         </Form>
       </Box>
@@ -113,6 +62,21 @@ const Feedback = ({
       </Box>
     </Box>
   );
+
+  if (modal)
+    content = show && (
+      <Layer
+        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        position="bottom-right"
+        modal={modal}
+        onClickOutside={onClose}
+        onEsc={onEsc}
+      >
+        {content}
+      </Layer>
+    );
+
+  return content;
 };
 
 const Identifier = ({ onClick, title, subtitle, modal }) => (
@@ -131,35 +95,52 @@ const Identifier = ({ onClick, title, subtitle, modal }) => (
   </Box>
 );
 
-const ThumbRating = () => {
+const ThumbRating = ({ color, value, onChange, ...rest }) => {
   const [rating, setRating] = useState(null);
   return (
-    <Box direction="row">
-      <Button
-        icon={<Like color={rating === 'like' ? 'blue' : 'pink'} />}
-        onClick={() => setRating('like')}
-      />
-      <Button
-        icon={<Dislike color={rating === 'dislike' ? 'blue' : 'pink'} />}
-        onClick={() => setRating('dislike')}
-      />
-    </Box>
+    <RadioButtonGroup
+      direction="row"
+      options={['thumbsUp', 'thumbsDown']}
+      value={rating}
+      name="ratings"
+      onChange={event => {
+        setRating(event.target.value);
+        if (onChange) onChange(event);
+      }}
+      {...rest}
+    >
+      {(option, { checked }) => {
+        const Icon = option === 'thumbsUp' ? Like : Dislike;
+        return <Icon color={checked ? 'green' : 'border-strong'} />;
+      }}
+    </RadioButtonGroup>
   );
 };
-const StarRating = ({ value }) => {
-  const [rating, setRating] = useState(null);
+
+const StarRating = ({ color, value, onChange, ...rest }) => {
+  const [rating, setRating] = useState(value);
+
+  const options = [];
+  for (let i = 0; i < 5; i += 1) {
+    options.push(i);
+  }
+
   return (
-    <div>
-      {[...Array(5)].map((star, i) => {
-        const ratingValue = i + 1;
-        return (
-          <Button
-            icon={<Star color={onClick ? 'blue' : 'pink'} />}
-            onClick={() => setRating(ratingValue)}
-          />
-        );
-      })}
-    </div>
+    <RadioButtonGroup
+      direction="row"
+      options={options}
+      value={rating}
+      name="starRating"
+      onChange={event => {
+        const adjustedRating = parseInt(event.target.value, 10) + 1;
+        setRating(adjustedRating);
+      }}
+      {...rest}
+    >
+      {option =>
+        option < rating ? <Star color={color} /> : <StarOutline color={color} />
+      }
+    </RadioButtonGroup>
   );
 };
 
