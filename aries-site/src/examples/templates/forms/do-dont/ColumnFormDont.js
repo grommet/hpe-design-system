@@ -12,7 +12,7 @@ export const ColumnFormDont = () => {
         <Box>
           <ContactInformation />
           <Box
-            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+            align={['xsmall', 'small'].includes(size) ? undefined : 'start'}
             margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Continue" primary type="submit" />
