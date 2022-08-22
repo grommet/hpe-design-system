@@ -8,9 +8,25 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ContactInformation, ShippingInfomation } from './Shipping';
+import { ShippingInfomation, ContactInformation } from './Shipping';
 
-export const ShippingExample = () => {
+export const ShippingFormExample = () => {
+  const size = useContext(ResponsiveContext);
+  return (
+    <ShippingExample>
+      <ShippingInfomation />
+      <ContactInformation />
+      <Box
+        align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+        margin={{ top: 'small', bottom: 'small' }}
+      >
+        <Button label="Continue" primary type="submit" />
+      </Box>
+    </ShippingExample>
+  );
+};
+
+export const ShippingExample = ({ children }) => {
   const [formValues, setFormValues] = React.useState({
     firstName: '',
     lastName: '',
@@ -24,7 +40,6 @@ export const ShippingExample = () => {
     'phone-shipping': '',
     'email-shipping': '',
   });
-  const size = useContext(ResponsiveContext);
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -60,7 +75,7 @@ export const ShippingExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <Box gap="medium">
       <Header
         direction="column"
         align="start"
@@ -92,14 +107,7 @@ export const ShippingExample = () => {
           method="post"
           validate="submit"
         >
-          <ShippingInfomation />
-          <ContactInformation />
-          <Box
-            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'small', bottom: 'small' }}
-          >
-            <Button label="Continue" primary type="submit" />
-          </Box>
+          {children}
         </Form>
       </Box>
     </Box>
