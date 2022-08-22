@@ -94,12 +94,12 @@ export const ShippingExample = () => {
         >
           <ShippingInfomation />
           <ContactInformation />
-          {/* <Box
+          <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'small', bottom: 'small' }}
           >
             <Button label="Continue" primary type="submit" />
-          </Box> */}
+          </Box>
         </Form>
       </Box>
     </Box>
