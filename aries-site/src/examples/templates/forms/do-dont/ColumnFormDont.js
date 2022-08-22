@@ -9,7 +9,7 @@ export const ColumnFormDont = () => {
     <ShippingExample>
       <Box gap="large" direction="row">
         <ShippingInfomation />
-        <Box>
+        <>
           <ContactInformation />
           <Box
             align={['xsmall', 'small'].includes(size) ? undefined : 'start'}
@@ -17,7 +17,7 @@ export const ColumnFormDont = () => {
           >
             <Button label="Continue" primary type="submit" />
           </Box>
-        </Box>
+        </>
       </Box>
     </ShippingExample>
   );
