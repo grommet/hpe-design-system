@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, FormField, MaskedInput, Text, TextInput } from 'grommet';
 import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
 
-export const ContactInformation = () => (
+export const ContactInformation = ({ name }) => (
   <Box>
     <Text size="large" margin={{ vertical: 'small' }}>
       Contact Information
@@ -11,28 +11,36 @@ export const ContactInformation = () => (
       contentProps={{ width: 'medium' }}
       label="Full Name"
       required
-      htmlFor="fullName"
-      name="fullName-shipping"
+      htmlFor={`full-name-${name}`}
+      name="full-name"
     >
-      <TextInput id="fullName" name="fullName-shipping" />
+      <TextInput id={`full-name-${name}`} name="full-name" />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="phone-shipping"
+      htmlFor={`phone-shipping-${name}}`}
       name="phone-shipping"
       label="Phone Number"
     >
-      <MaskedInput id="phone-shipping" name="phone-shipping" mask={phoneMask} />
+      <MaskedInput
+        id={`phone-shipping-${name}}`}
+        name="phone-shipping"
+        mask={phoneMask}
+      />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="email-ship"
+      htmlFor={`email-ship-${name}`}
       name="email-shipping"
       required
       label="Email Address"
       validate={emailValidation}
     >
-      <MaskedInput id="email-ship" name="email-shipping" mask={emailMask} />
+      <MaskedInput
+        id={`email-ship-${name}`}
+        name="email-shipping"
+        mask={emailMask}
+      />
     </FormField>
   </Box>
 );

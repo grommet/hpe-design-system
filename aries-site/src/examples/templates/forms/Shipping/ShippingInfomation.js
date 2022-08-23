@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, CheckBox, FormField, Select, Text, TextInput } from 'grommet';
 import { states } from '../utils/FormValidation';
 
-export const ShippingInfomation = () => (
+export const ShippingInfomation = ({ name }) => (
   <Box>
     <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
       Shipping Information
@@ -12,41 +12,45 @@ export const ShippingInfomation = () => (
     </Text>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="address1"
+      htmlFor={`address1-${name}`}
       name="address1"
       label="Address 1"
     >
-      <TextInput id="address1" name="address1" placeholder="Street Address" />
+      <TextInput
+        id={`address1-${name}`}
+        name="address1"
+        placeholder="Street Address"
+      />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="address2"
+      htmlFor={`address2-${name}`}
       name="address2"
       label="Address 2"
     >
       <TextInput
-        id="address2"
+        id={`address2-${name}`}
         name="address2"
         placeholder="Apt., Suite, Building (Optional)"
       />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="city"
+      htmlFor={`city-${name}`}
       name="city"
       label="City"
     >
-      <TextInput id="city" name="city" />
+      <TextInput id={`city-${name}`} name="city" />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="state__input"
+      htmlFor={`state-shipping-${name}`}
       name="state"
       label="State"
     >
       <Select
-        id="state"
         name="state"
+        id={`state-shipping-${name}`}
         dropHeight="small"
         options={states}
         placeholder="Select State"
@@ -54,18 +58,22 @@ export const ShippingInfomation = () => (
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="zipcode"
+      htmlFor={`zipcode-${name}`}
       name="zipcode"
       label="ZIP Code"
     >
-      <TextInput id="zipcode" name="zipcode" />
+      <TextInput id={`state-shipping-${name}`} name="zipcode" />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
-      htmlFor="isBusiness"
+      htmlFor={`is-business-${name}`}
       name="isBusiness"
     >
-      <CheckBox name="isBusiness" label="This is a business" />
+      <CheckBox
+        id={`is-business-${name}`}
+        name="isBusiness"
+        label="This is a business"
+      />
     </FormField>
   </Box>
 );

@@ -5,38 +5,21 @@ import {
   Form,
   Header,
   Heading,
-  ResponsiveContext,
   Text,
+  ResponsiveContext,
 } from 'grommet';
 import { ShippingInfomation, ContactInformation } from './Shipping';
 
-export const ShippingFormExample = () => {
+export const ShippingExample = () => {
   const size = useContext(ResponsiveContext);
-  return (
-    <ShippingExample>
-      <ShippingInfomation />
-      <ContactInformation />
-      <Box
-        align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-        margin={{ top: 'small', bottom: 'small' }}
-      >
-        <Button label="Continue" primary type="submit" />
-      </Box>
-    </ShippingExample>
-  );
-};
-
-export const ShippingExample = ({ children }) => {
   const [formValues, setFormValues] = React.useState({
-    firstName: '',
-    lastName: '',
     address1: '',
     address2: '',
     city: '',
     state: '',
     zipcode: '',
     isBusiness: '',
-    'fullName-shipping': '',
+    'full-name': '',
     'phone-shipping': '',
     'email-shipping': '',
   });
@@ -55,7 +38,7 @@ export const ShippingExample = ({ children }) => {
     'state',
     'zipcode',
     'isBusiness',
-    'fullName-shipping',
+    'full-name',
     'phone-shipping',
     'email-shipping',
   ];
@@ -107,7 +90,14 @@ export const ShippingExample = ({ children }) => {
           method="post"
           validate="submit"
         >
-          {children}
+          <ShippingInfomation name="shippingExample" />
+          <ContactInformation name="shippingExample" />
+          <Box
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+            margin={{ top: 'small', bottom: 'small' }}
+          >
+            <Button label="Continue" primary type="submit" />
+          </Box>
         </Form>
       </Box>
     </Box>
