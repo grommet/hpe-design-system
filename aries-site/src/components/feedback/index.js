@@ -1,2 +1,5 @@
 export * from './FeedbackButton';
-export * from './FeedbackComponent';
+export * from './Feedback';
+export * from './Question';
+export * from './StarRating';
+export * from './ThumbsRating';
