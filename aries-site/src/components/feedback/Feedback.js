@@ -8,7 +8,6 @@ export const Feedback = ({
   modal,
   onChange,
   onClose,
-  onClickOutside,
   onEsc,
   onSubmit,
   show,
@@ -25,7 +24,7 @@ export const Feedback = ({
       pad="medium"
       flex={false}
     >
-      <Identifier onClick={onClickOutside} title={title} modal={modal} />
+      <Identifier onClick={onClose} title={title} modal={modal} />
       <Box gap="medium" margin={{ vertical: 'small' }}>
         <Form
           value={value}
@@ -41,7 +40,7 @@ export const Feedback = ({
             gap="medium"
             direction="row"
           >
-            <Button onClick={onClickOutside} label="Cancel" />
+            <Button onClick={onClose} label="Cancel" />
             <Button onSubmit={onSubmit} label="Submit" primary type="submit" />
           </Box>
         </Form>
@@ -55,7 +54,6 @@ export const Feedback = ({
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
         position="bottom-right"
         modal={false}
-        onClickOutside={onClose}
         onEsc={onEsc}
       >
         {content}

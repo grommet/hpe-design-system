@@ -89,37 +89,6 @@ export const Layout = ({
 
   return (
     <>
-      <FeedbackButton
-        onClick={onOpen}
-        color="purple!"
-        label="Feedback"
-        primary
-        a11yTitle={`This button launches a modal to give feedback on the ${title} page`}
-      />
-      <Feedback
-        onClickOutside={onClose}
-        onEsc={onClose}
-        show={open}
-        modal
-        title="We’d love your feedback"
-        onChange={nextValue => setValue(nextValue)}
-        onReset={() => setValue(defaultFeedback)}
-        onSubmit={({ value: submitVal }) => console.log(submitVal)}
-      >
-        <Question
-          label="What this page helpful to you?"
-          kind="thumbs"
-          name="like-rating"
-        />
-        <Question
-          name="text-area"
-          kind="textArea"
-          label="Want to tell us anything else about this page?"
-          inputProps={{
-            placeholder: 'Tell us more!',
-          }}
-        />
-      </Feedback>
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
@@ -190,6 +159,37 @@ export const Layout = ({
                 </Box>
               </Main>
             </MainContentWrapper>
+            <FeedbackButton
+              onClick={onOpen}
+              color="purple!"
+              label="Feedback"
+              primary
+              a11yTitle={`This button launches a modal to give feedback on the ${title} page`}
+            />
+            <Feedback
+              onEsc={onClose}
+              onClose={onClose}
+              show={open}
+              modal
+              title="We’d love your feedback"
+              onChange={nextValue => setValue(nextValue)}
+              onReset={() => setValue(defaultFeedback)}
+              onSubmit={({ value: submitVal }) => console.log(submitVal)}
+            >
+              <Question
+                label="What this page helpful to you?"
+                kind="thumbs"
+                name="like-rating"
+              />
+              <Question
+                name="text-area"
+                kind="textArea"
+                label="Want to tell us anything else about this page?"
+                inputProps={{
+                  placeholder: 'Tell us more!',
+                }}
+              />
+            </Feedback>
           </>
         </Page>
       </Stack>
