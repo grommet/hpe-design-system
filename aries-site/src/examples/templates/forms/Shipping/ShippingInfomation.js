@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, CheckBox, FormField, Select, Text, TextInput } from 'grommet';
 import { states } from '../utils/FormValidation';
+import PropTypes from 'prop-types';
 
 export const ShippingInfomation = ({ name }) => (
   <Box>
@@ -77,3 +78,7 @@ export const ShippingInfomation = ({ name }) => (
     </FormField>
   </Box>
 );
+
+ShippingInfomation.propTypes = {
+  name: PropTypes.string.required,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, FormField, MaskedInput, Text, TextInput } from 'grommet';
 import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
+import PropTypes from 'prop-types';
 
 export const ContactInformation = ({ name }) => (
   <Box>
@@ -44,3 +45,7 @@ export const ContactInformation = ({ name }) => (
     </FormField>
   </Box>
 );
+
+ContactInformation.propTypes = {
+  name: PropTypes.string.required,
+};
