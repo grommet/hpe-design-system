@@ -12,8 +12,6 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
-  TextArea,
-  FormField,
 } from 'grommet';
 import {
   ContentSection,
@@ -28,7 +26,8 @@ import {
   Meta,
   PageBackground,
   FeedbackButton,
-  FeedbackComponent,
+  Feedback,
+  Question,
 } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
@@ -59,12 +58,18 @@ export const Layout = ({
   } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
 
+  const defaultFeedback = {
+    'like-rating': '',
+    'star-rating': 0,
+    'text-area': '',
+  };
+
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(defaultFeedback);
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
@@ -89,25 +94,32 @@ export const Layout = ({
         color="purple!"
         label="Feedback"
         primary
+        a11yTitle={`This button launches a modal to give feedback on the ${title} page`}
       />
-      <FeedbackComponent
+      <Feedback
         onClickOutside={onClose}
         onEsc={onClose}
-        kind="rating"
         show={open}
         modal
-        subTitle={`Was this ${title} page helpful?`}
         title="We’d love your feedback"
         onChange={nextValue => setValue(nextValue)}
+        onReset={() => setValue(defaultFeedback)}
         onSubmit={({ value: submitVal }) => console.log(submitVal)}
       >
-        <FormField
-          htmlFor=""
+        <Question
+          label="What this page helpful to you?"
+          kind="thumbs"
+          name="like-rating"
+        />
+        <Question
+          name="text-area"
+          kind="textArea"
           label="Want to tell us anything else about this page?"
-        >
-          <TextArea />
-        </FormField>
-      </FeedbackComponent>
+          inputProps={{
+            placeholder: 'Tell us more!',
+          }}
+        />
+      </Feedback>
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
