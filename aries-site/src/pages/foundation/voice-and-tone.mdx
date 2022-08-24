@@ -20,11 +20,11 @@ We exercise empathy in our voice through situational tones that speak to each co
 
 Refer to the guidance for [HPE's Voice](https://brandcentral.hpe.com/brand-central/content/voice) for more information.
 
-## Best Practices
+## Best practices
 
 The following are some high-level guidelines for constructing good messaging.
 
-## Writing Effective Content
+## Writing effective content
 
 A design speaks for itself. 
 
@@ -127,7 +127,7 @@ This is a collection of common words or phrases used in India, that are not used
 | Strong all the more              | _makes the case strong all the more._                                                  | _makes the case stronger._                                                                                                                                            | Never used.                                                    |
 | I have a doubt                   | _I have a doubt about that._                                                           | _I have a question_                                                                                                                                                   | "I have a doubt about that" implies you think it is incorrect. |
 
-## Point of View
+## Point of view (POV)
 
 Point of view is the perspective from which the message is written.
 First person perspective uses words like: I, me, us, we, our, etc.
@@ -170,32 +170,36 @@ These concrete rules structure our communications.
 
 ## Capitalization
 
-There are four types of capitalization. 
-1. Sentence case, where the first letter is a capital, the second and all subsequent words begin with lowercase letters.
+There are five types of capitalization. 
+1. Sentence case, where the first letter is capitalized and subsequent words begin with lowercase letters, with some exceptions, such as proper nouns.
    (example: Storage volume) 
 2. Title case, where most words are capitalized except for "connector" words such as "the," "an," "or," etc.
    (example: "The Benefits of Cloud Storage Explained")
-3. Camel case, where there are capital letters inside the word, almost always for branding purposes.
+3. PascalCase, where there are capital letters inside the word, almost always for branding purposes.
     (example: GreenLake)
-4. All lower case, where every single word is lowercase 
+4. All lower case, where every single word is lower case 
     (example: "lower case exudes an approachable and casual vibe")
+5. All caps, where every letter is capitalized
+    (example: ALL LETTERS ARE CAPITALIZED)
 
 At HPE, almost all text should be written in sentence case. 
 
-Sentence case:
+Sentence case should be applied on:
 - Attribute labels
 - Column headings
 - Legends
 - Tabs
+- Menus
 - Section and subsection headings
 - Paragraphs of text
 - Tips
 - Notifications
 - Help
-
-Title case:
-- Page/dialog titles
 - Buttons
+- Dialog titles
+
+Title case should only be applied on:
+- Page titles
 
 Capitalize proper nouns. HPE brand and product names are proper nouns.
 
@@ -203,7 +207,18 @@ Fight the urge to elevate normal nouns to proper noun status. For example, if yo
 
 DO NOT USE ALL CAPS IN EITHER TITLES OR SENTENCES. It is equated with yelling and increases stress levels.
 
-## Acronyms & Initialisms
+When writing instructions, you can choose to refer generally to the action that should be taken or to the button or page. When you refer generally to an action, use lower case. When you refer to a specific button, page or other element, follow the case of the element.  
+
+Example of when you can refer to action in a general manner:
+To create a data fabric you must first [anchor]create a new cluster[anchor].
+
+vs.
+
+Example when you refer to a page or button:
+First, go to the "[anchor]Create a New Cluster[anchor]" page to create a data fabric.
+
+
+## Acronyms and initialisms
 
 Acronyms and initialisms can be problematic and should be used with care.
 Because they are shortcuts communicating a concept in a visually shortened form, they
@@ -226,7 +241,7 @@ Additionally, only use the acronym if it is used multiple times in the message.
 
 To aid in comprehension, do not use full brand/product names in messaging. Refer to these with shortened names. For example, "_HPE GreenLake Lighthouse_" is a mouthful and if needed several times in a sentence, set context and consider using a simpler "_Lighthouse_" the second, third, Nth time.
 
-## Language Dos and Don'ts
+## Language dos and don'ts
 
 **Do this:**
 
@@ -269,7 +284,7 @@ To aid in comprehension, do not use full brand/product names in messaging. Refer
   - Incorrect: _One of the input parameters is null._
   - Correct: _One of the parameters is null._ or _One of the specified parameters is null._ or _The "name" parameter is null._
 
-## Other Common Problems and How To Address Them
+## Other common problems and how to address them
 
 The following are commonly misspelled/mis-capitalized terms:
 
@@ -342,7 +357,7 @@ The following table contains a set of common mistakes found in messaging, along 
 
 Implement effective communications with these conventions.
 
-## Documenting Messages
+## Documenting messages
 
 A best practice for developers is to add comments to messages in the properties files or message catalogs. Reviewers and translators (and ultimately, users) will thank you.
 
@@ -355,7 +370,7 @@ A best practice for developers is to add comments to messages in the properties 
 
 To localize content for international audiences, reference our [internationalization](/templates/internationalization) resources.
 
-## User Input
+## User input
 
 Unless there is a compelling reason, do not limit the character set that a user can use to name things. Names commonly contain non-alphanumeric characters and we must handle them correctly on input and in re-display via messaging. For example:
 
@@ -394,7 +409,7 @@ various contexts. For example:
 - normal = Ezmeral Container Platform
 - short = Container Platform
 
-## Case Study
+## Case study
 
 Consider a case with messaging related to a condition where a Kubernetes cluster is running low on available memory. Versions 1-7 highlight bad practices and identify the respective problems within each version. Lastly, a [best practice](#best-practice) example is provided.
 
