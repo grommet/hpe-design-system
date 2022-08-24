@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grommet } from 'grommet';
 import PropTypes from 'prop-types';
 import { aries } from '../../themes/aries';
-import { useDarkMode } from '../../utils';
+import { analytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
   const { value } = useDarkMode(aries.defaultMode === 'dark');
@@ -25,6 +25,7 @@ export const ThemeMode = ({ children, ...rest }) => {
       theme={aries}
       themeMode={themeMode}
       full="min"
+      onAnalytics={analytics}
       {...rest}
     >
       {children}
