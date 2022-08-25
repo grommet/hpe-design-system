@@ -46,7 +46,7 @@ export const Feedback = ({
         >
           {children}
           <>
-            {isSucessful !== true ? (
+            {i!sSucessful ? (
               <Box
                 margin={{ top: 'medium', bottom: 'small' }}
                 justify="end"
