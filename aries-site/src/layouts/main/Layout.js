@@ -72,10 +72,18 @@ export const Layout = ({
   const [value, setValue] = useState(defaultFeedback);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const close = () => {
+    setTimeout(() => {
+      setOpen(false);
+      setIsSuccess(false);
+    }, 2000);
+  };
+
   const onSubmit = event => {
     event.preventDefault();
-    console.log(event.value);
+    console.log('response from user', event.value);
     setIsSuccess(true);
+    close();
   };
 
   const match = siteContents.find(
@@ -185,7 +193,7 @@ export const Layout = ({
               isSucessful={isSuccess}
             >
               <Question
-                label="What this page helpful to you?"
+                label={`What this ${title} guidance helpful to you?`}
                 kind="thumbs"
                 name="like-rating"
               />
