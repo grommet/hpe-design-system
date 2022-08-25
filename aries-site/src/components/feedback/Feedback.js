@@ -98,7 +98,7 @@ const Identifier = ({ onClick, title, modal }) => (
     </Heading>
     {modal && (
       <Box justify="center">
-        <Button onClick={onClick} icon={<FormClose />} />
+        <Button onClick={onClick} icon={<FormClose />}  a11yTitle="Close Feedback Layer" />
       </Box>
     )}
   </Box>
