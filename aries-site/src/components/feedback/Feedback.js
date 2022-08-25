@@ -93,7 +93,7 @@ export const Feedback = ({
 
 const Identifier = ({ onClick, title, modal }) => (
   <Box align="center" direction="row" justify="between">
-    <Heading level={2} margin={{ vertical: 'none' }}>
+    <Heading size='small' level={2} margin={{ vertical: 'none' }}>
       {title}
     </Heading>
     {modal && (
