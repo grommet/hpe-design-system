@@ -46,7 +46,7 @@ export const Feedback = ({
         >
           {children}
           <>
-            {i!sSucessful ? (
+            {!isSucessful ? (
               <Box
                 pad={{ top: 'medium' }}
                 justify="end"
