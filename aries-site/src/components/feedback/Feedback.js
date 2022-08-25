@@ -34,7 +34,7 @@ export const Feedback = ({
       pad="medium"
       flex
     >
-      <Identifier onClick={onClose} title={title} modal={modal} />
+      <Identifier onClose={onClose} title={title} modal={modal} />
       <Box gap="medium" margin={{ vertical: 'small' }}>
         <Form
           value={value}
