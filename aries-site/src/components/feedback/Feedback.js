@@ -62,7 +62,7 @@ export const Feedback = ({
                 />
               </Box>
             ) : (
-              <Box align="end" margin={{ top: 'medium', bottom: 'small' }}>
+              <Box align="end" pad={{ top: 'medium', bottom: 'small' }}>
                 <Text alignSelf="end" weight="bold">
                   Thank You!
                 </Text>
