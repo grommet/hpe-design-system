@@ -53,7 +53,7 @@ export const Feedback = ({
                 gap="medium"
                 direction="row"
               >
-                <Button onClick={onClose} label="Cancel" />
+                <Button onClick={onClose} label="Cancel" a11yTitle="Cancel feedback submission" />
                 <Button
                   onSubmit={onSubmit}
                   label="Submit"
