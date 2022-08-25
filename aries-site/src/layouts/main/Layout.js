@@ -70,6 +70,13 @@ export const Layout = ({
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const [value, setValue] = useState(defaultFeedback);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const onSubmit = event => {
+    event.preventDefault();
+    console.log(event.value);
+    setIsSuccess(true);
+  };
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
@@ -174,7 +181,8 @@ export const Layout = ({
               title="We’d love your feedback"
               onChange={nextValue => setValue(nextValue)}
               onReset={() => setValue(defaultFeedback)}
-              onSubmit={({ value: submitVal }) => console.log(submitVal)}
+              onSubmit={onSubmit}
+              isSucessful={isSuccess}
             >
               <Question
                 label="What this page helpful to you?"
@@ -193,62 +201,6 @@ export const Layout = ({
           </>
         </Page>
       </Stack>
-    </>
-  );
-};
-
-const defaultFeedback = {
-  'like-rating': '',
-  'star-rating': 0,
-  'text-area': '',
-};
-
-const PageFeedback = () => {
-  const [open, setOpen] = useState(false);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
-  const [value, setValue] = useState(defaultFeedback);
-
-  return (
-    <>
-      <FeedbackButton
-        onClick={onOpen}
-        color="purple!"
-        label="Feedback"
-        primary
-      />
-      <Feedback
-        title="We’d love your feedback"
-        show={open}
-        modal
-        onClickOutside={onClose}
-        onEsc={onClose}
-        value={value}
-        onChange={nextValue => setValue(nextValue)}
-        onReset={() => setValue(defaultFeedback)}
-        onSubmit={({ value: submitVal }) => console.log(submitVal)}
-      >
-        {/* <Question
-    label="Was this page helpful to you?"
-    kind="star"
-    name="star-rating"
-    primary
-  /> */}
-        <Question
-          label="What this page helpful to you?"
-          kind="thumbs"
-          name="like-rating"
-          primary
-        />
-        <Question
-          name="text-area"
-          kind="textArea"
-          label="Want to tell us anything else about this page?"
-          inputProps={{
-            placeholder: 'Tell us more!',
-          }}
-        />
-      </Feedback>
     </>
   );
 };

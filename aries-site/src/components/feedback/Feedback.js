@@ -1,6 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Form, Heading, Layer, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Form,
+  Heading,
+  Layer,
+  Text,
+  ResponsiveContext,
+} from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
@@ -13,6 +21,7 @@ export const Feedback = ({
   show,
   title,
   value,
+  isSucessful,
 }) => {
   const size = useContext(ResponsiveContext);
 
@@ -34,15 +43,30 @@ export const Feedback = ({
           validate="submit"
         >
           {children}
-          <Box
-            margin={{ top: 'medium', bottom: 'small' }}
-            justify="end"
-            gap="medium"
-            direction="row"
-          >
-            <Button onClick={onClose} label="Cancel" />
-            <Button onSubmit={onSubmit} label="Submit" primary type="submit" />
-          </Box>
+          <>
+            {isSucessful !== true ? (
+              <Box
+                margin={{ top: 'medium', bottom: 'small' }}
+                justify="end"
+                gap="medium"
+                direction="row"
+              >
+                <Button onClick={onClose} label="Cancel" />
+                <Button
+                  onSubmit={onSubmit}
+                  label="Submit"
+                  primary
+                  type="submit"
+                />
+              </Box>
+            ) : (
+              <Box align="end" margin={{ top: 'medium', bottom: 'small' }}>
+                <Text alignSelf="end" weight="bold">
+                  Thank You!
+                </Text>
+              </Box>
+            )}
+          </>
         </Form>
       </Box>
     </Box>
@@ -52,7 +76,9 @@ export const Feedback = ({
     content = show && (
       <Layer
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
-        position="bottom-right"
+        position={
+          !['xsmall', 'small'].includes(size) ? 'bottom-right' : 'center'
+        }
         modal={false}
         onEsc={onEsc}
       >
