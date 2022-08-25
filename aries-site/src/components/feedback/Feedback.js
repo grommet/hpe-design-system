@@ -48,7 +48,7 @@ export const Feedback = ({
           <>
             {i!sSucessful ? (
               <Box
-                margin={{ top: 'medium', bottom: 'small' }}
+                pad={{ top: 'medium' }}
                 justify="end"
                 gap="medium"
                 direction="row"
