@@ -18,6 +18,7 @@ export const Feedback = ({
   onClose,
   onEsc,
   onSubmit,
+  onReset,
   show,
   title,
   value,
@@ -31,7 +32,7 @@ export const Feedback = ({
       overflow="auto"
       width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad="medium"
-      flex={false}
+      flex
     >
       <Identifier onClick={onClose} title={title} modal={modal} />
       <Box gap="medium" margin={{ vertical: 'small' }}>
@@ -39,6 +40,7 @@ export const Feedback = ({
           value={value}
           onChange={onChange}
           onSubmit={onSubmit}
+          onReset={onReset}
           method="post"
           validate="submit"
         >
@@ -90,17 +92,15 @@ export const Feedback = ({
 };
 
 const Identifier = ({ onClick, title, modal }) => (
-  <Box>
-    <Box align="center" direction="row" justify="between">
-      <Heading level={4} size="small" margin={{ vertical: 'none' }}>
-        {title}
-      </Heading>
-      {modal && (
-        <Box justify="center">
-          <Button onClick={onClick} icon={<FormClose />} />
-        </Box>
-      )}
-    </Box>
+  <Box align="center" direction="row" justify="between">
+    <Heading level={4} size="small" margin={{ vertical: 'none' }}>
+      {title}
+    </Heading>
+    {modal && (
+      <Box justify="center">
+        <Button onClick={onClick} icon={<FormClose />} />
+      </Box>
+    )}
   </Box>
 );
 
@@ -110,12 +110,15 @@ Identifier.propTypes = {
 };
 
 Feedback.propTypes = {
+  children: PropTypes.node,
+  isSucessful: PropTypes.bool,
   modal: PropTypes.bool,
   onChange: PropTypes.func,
-  onClickOutside: PropTypes.func,
+  onClose: PropTypes.func,
   onEsc: PropTypes.func,
   onSubmit: PropTypes.func,
+  onReset: PropTypes.func,
   show: PropTypes.bool,
-  subTitle: PropTypes.string,
   title: PropTypes.string,
+  value: PropTypes.object,
 };
