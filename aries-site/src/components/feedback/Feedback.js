@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -13,6 +14,7 @@ import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
   children,
+  layerProps: layerPropsProp,
   modal,
   onChange,
   onClose,
@@ -24,12 +26,14 @@ export const Feedback = ({
   value,
   isSucessful,
 }) => {
+  const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
 
   let content = (
     <Box
       width={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : undefined}
       pad="medium"
+      {...theme?.feedBack?.container}
     >
       <Identifier onClose={onClose} title={title} modal={modal} />
       <Form
@@ -41,12 +45,14 @@ export const Feedback = ({
         validate="submit"
         // should we accept all form props ?
       >
-        <Box gap="medium">
-          <>
-          {children}
-          </>
-          <Box direction="row" justify="end" gap="medium">
-            {/* accept all box props ? */}
+        <Box {...theme?.feedBack?.body} gap="medium">
+          <>{children}</>
+          <Box
+            direction="row"
+            justify="end"
+            gap="medium"
+            {...theme?.feedBack?.footer}
+          >
             {!isSucessful ? (
               <Box direction="row" gap="small">
                 <Button
@@ -54,11 +60,7 @@ export const Feedback = ({
                   label="Cancel"
                   a11yTitle="Cancel feedback submission"
                 />
-                <Button
-                  label="Submit"
-                  primary
-                  type="submit"
-                />
+                <Button label="Submit" primary type="submit" />
               </Box>
             ) : (
               <Text alignSelf="end" weight="bold">
@@ -74,12 +76,13 @@ export const Feedback = ({
   if (modal)
     content = show && (
       <Layer
-        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        modal
+        onEsc={onEsc}
         position={
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
         }
-        modal={false}
-        onEsc={onEsc}
+        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        {...layerPropsProp}
       >
         {content}
       </Layer>
@@ -89,8 +92,18 @@ export const Feedback = ({
 };
 
 const Identifier = ({ onClose, title, modal }) => (
-  <Box align="start" direction="row" justify="between">
-    <Heading size="small" level={2} margin={{ vertical: 'none' }}>
+  <Box
+    align="start"
+    direction="row"
+    justify="between"
+    {...theme?.feedBack?.header?.container}
+  >
+    <Heading
+      size="small"
+      level={2}
+      margin={{ vertical: 'none' }}
+      {...theme?.feedBack?.header}
+    >
       {title}
     </Heading>
     {modal && (
@@ -98,6 +111,7 @@ const Identifier = ({ onClose, title, modal }) => (
         onClick={onClose}
         icon={<FormClose />}
         a11yTitle="Close Feedback Layer"
+        {...theme?.feedBack?.button}
       />
     )}
   </Box>
