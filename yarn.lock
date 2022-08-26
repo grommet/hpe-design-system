@@ -7999,7 +7999,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.25.1"
-  resolved "https://github.com/grommet/grommet/tarball/stable#6b848986f60b4407df18df4d9db0b762c49ec5be"
+  resolved "https://github.com/grommet/grommet/tarball/stable#647603a2290a4867e686e7c423b6b0a7e87001a7"
   dependencies:
     "@testing-library/testcafe" "^4.4.1"
     grommet-icons "^4.7.0"
@@ -14632,9 +14632,9 @@ tough-cookie@^3.0.1:
     punycode "^2.1.1"
 
 tough-cookie@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-4.1.1.tgz#3600960f1e1c83545f130ac80043b9de8e5d488b"
-  integrity sha512-Ns3k8QxkEzIfLZbRwLOrMPDqRa1BEAl4BzNNAOYY4BhBmEkf+HvP467F4NrD9loK3NcYflWOpUH3LJg0ehq/rQ==
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-4.1.2.tgz#e53e84b85f24e0b65dd526f46628db6c85f6b874"
+  integrity sha512-G9fqXWoYFZgTc2z8Q5zaHy/vJMjm+WV0AkAeHxVCQiEB1b+dGvWzFW6QV07cY5jQ5gRkeid2qIkzkxUnmoQZUQ==
   dependencies:
     psl "^1.1.33"
     punycode "^2.1.1"
