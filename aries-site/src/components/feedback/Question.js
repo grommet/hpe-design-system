@@ -11,11 +11,15 @@ export const Question = ({ label, inputProps, kind, name }) => {
   };
 
   let Input;
-  if (kind === 'star') Input = StarRating;
-  else if (kind === 'thumbs') Input = ThumbsRating;
-  else if (kind === 'textArea') Input = TextArea;
-  else if (kind === 'radioButtonGroup') Input = RadioButtonGroup;
-  else if (kind === 'fileInput') Input = FileInput;
+const formats = {
+  star: StarRating,
+  thumbs: ThumbsRating,
+  textArea: TextArea,
+  radioButtonGroup: RadioButtonGroup,
+  fileInput: FileInput,
+};
+
+const Input = formats[kind];
 
   if (kind === 'star' || kind === 'thumbs')
     return (
