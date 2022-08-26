@@ -24,36 +24,34 @@ export const Feedback = ({
   value,
   isSucessful,
 }) => {
-  const size = useContext(ResponsiveContext);
+  const breakpoint = useContext(ResponsiveContext);
 
   let content = (
     <Box
-      fill="vertical"
-      overflow="auto"
-      width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
+      width={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : undefined}
       pad="medium"
-      flex
     >
       <Identifier onClose={onClose} title={title} modal={modal} />
-      <Box gap="medium" margin={{ vertical: 'small' }}>
-        <Form
-          value={value}
-          onChange={onChange}
-          onSubmit={onSubmit}
-          onReset={onReset}
-          method="post"
-          validate="submit"
-        >
+      <Form
+        value={value}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        onReset={onReset}
+        method="post"
+        validate="submit"
+        // should we accept all form props ?
+      >
+        <Box gap="medium">
           {children}
-          <>
+          <Box direction="row" justify="end" gap="medium">
+            {/* accept all box props ? */}
             {!isSucessful ? (
-              <Box
-                pad={{ top: 'medium' }}
-                justify="end"
-                gap="medium"
-                direction="row"
-              >
-                <Button onClick={onClose} label="Cancel" a11yTitle="Cancel feedback submission" />
+              <Box direction="row" gap="small">
+                <Button
+                  onClick={onClose}
+                  label="Cancel"
+                  a11yTitle="Cancel feedback submission"
+                />
                 <Button
                   onSubmit={onSubmit}
                   label="Submit"
@@ -62,24 +60,23 @@ export const Feedback = ({
                 />
               </Box>
             ) : (
-              <Box align="end" pad={{ top: 'medium', bottom: 'small' }}>
-                <Text alignSelf="end" weight="bold">
-                  Thank You!
-                </Text>
-              </Box>
+              <Text alignSelf="end" weight="bold">
+                Thank You!
+              </Text>
             )}
-          </>
-        </Form>
-      </Box>
+          </Box>
+        </Box>
+      </Form>
     </Box>
   );
 
   if (modal)
     content = show && (
       <Layer
+        role="dialog"
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
         position={
-          !['xsmall', 'small'].includes(size) ? 'bottom-right' : 'center'
+          !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
         }
         modal={false}
         onEsc={onEsc}
@@ -91,22 +88,24 @@ export const Feedback = ({
   return content;
 };
 
-const Identifier = ({ onClick, title, modal }) => (
-  <Box align="center" direction="row" justify="between">
-    <Heading size='small' level={2} margin={{ vertical: 'none' }}>
+const Identifier = ({ onClose, title, modal }) => (
+  <Box align="start" direction="row" justify="between">
+    <Heading size="small" level={2} margin={{ vertical: 'none' }}>
       {title}
     </Heading>
     {modal && (
-      <Box justify="center">
-        <Button onClick={onClick} icon={<FormClose />}  a11yTitle="Close Feedback Layer" />
-      </Box>
+      <Button
+        onClick={onClose}
+        icon={<FormClose />}
+        a11yTitle="Close Feedback Layer"
+      />
     )}
   </Box>
 );
 
 Identifier.propTypes = {
   title: PropTypes.string,
-  onClick: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 Feedback.propTypes = {

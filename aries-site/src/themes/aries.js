@@ -6,6 +6,15 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  // feedBack: {
+  //   container: {
+  //     width: undefined,
+  //     pad: undefined,
+  //   },
+  //   footer: {
+  //     gap: undefined,
+  //   },
+  // },
   menu: {
     group: {
       separator: {
