@@ -42,7 +42,9 @@ export const Feedback = ({
         // should we accept all form props ?
       >
         <Box gap="medium">
+          <>
           {children}
+          </>
           <Box direction="row" justify="end" gap="medium">
             {/* accept all box props ? */}
             {!isSucessful ? (
