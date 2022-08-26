@@ -53,7 +53,6 @@ export const Feedback = ({
                   a11yTitle="Cancel feedback submission"
                 />
                 <Button
-                  onSubmit={onSubmit}
                   label="Submit"
                   primary
                   type="submit"
@@ -73,7 +72,6 @@ export const Feedback = ({
   if (modal)
     content = show && (
       <Layer
-        role="dialog"
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
         position={
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
