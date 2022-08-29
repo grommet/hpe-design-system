@@ -177,7 +177,7 @@ export const Layout = ({
               </Main>
             </MainContentWrapper>
             <FeedbackButton
-              margin="medium"
+              margin={{ vertical: 'large', horizontal: 'medium' }}
               elevation="large"
               onClick={onOpen}
               color="purple!"
