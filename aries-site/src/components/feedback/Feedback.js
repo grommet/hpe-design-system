@@ -7,7 +7,7 @@ import { FormClose } from 'grommet-icons';
 export const Feedback = ({
   children,
   footerActions,
-  layerProps: layerPropsProp,
+  layerProps,
   modal,
   onChange,
   onClose,
@@ -62,7 +62,7 @@ export const Feedback = ({
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
         }
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
-        {...layerPropsProp}
+        {...layerProps}
       >
         {content}
       </Layer>
