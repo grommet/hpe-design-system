@@ -1,19 +1,12 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Form,
-  Heading,
-  Layer,
-  Text,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Button, Form, Heading, Layer, ResponsiveContext } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
   children,
+  footerActions,
   layerProps: layerPropsProp,
   modal,
   onChange,
@@ -24,7 +17,6 @@ export const Feedback = ({
   show,
   title,
   value,
-  isSucessful,
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
@@ -32,10 +24,18 @@ export const Feedback = ({
   let content = (
     <Box
       width={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : undefined}
-      pad="medium"
-      {...theme?.feedBack?.container}
+      {...theme?.feedback?.container}
     >
-      <Identifier onClose={onClose} title={title} modal={modal} />
+      <FeedbackHeader title={title}>
+        {modal && (
+          <Button
+            onClick={onClose}
+            icon={<FormClose />}
+            autoFocus
+            {...theme?.feedback?.button}
+          />
+        )}
+      </FeedbackHeader>
       <Form
         value={value}
         onChange={onChange}
@@ -43,31 +43,11 @@ export const Feedback = ({
         onReset={onReset}
         method="post"
         validate="submit"
-        // should we accept all form props ?
+        // should we accept all form props?
       >
-        <Box {...theme?.feedBack?.body} gap="medium">
+        <Box {...theme?.feedback?.body}>
           <>{children}</>
-          <Box
-            direction="row"
-            justify="end"
-            gap="medium"
-            {...theme?.feedBack?.footer}
-          >
-            {!isSucessful ? (
-              <Box direction="row" gap="small">
-                <Button
-                  onClick={onClose}
-                  label="Cancel"
-                  a11yTitle="Cancel feedback submission"
-                />
-                <Button label="Submit" primary type="submit" />
-              </Box>
-            ) : (
-              <Text alignSelf="end" weight="bold">
-                Thank You!
-              </Text>
-            )}
-          </Box>
+          <Box {...theme?.feedback?.footer}>{footerActions}</Box>
         </Box>
       </Form>
     </Box>
@@ -76,7 +56,7 @@ export const Feedback = ({
   if (modal)
     content = show && (
       <Layer
-        modal
+        modal={false}
         onEsc={onEsc}
         position={
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
@@ -91,33 +71,18 @@ export const Feedback = ({
   return content;
 };
 
-const Identifier = ({ onClose, title, modal }) => (
-  <Box
-    align="start"
-    direction="row"
-    justify="between"
-    {...theme?.feedBack?.header?.container}
-  >
-    <Heading
-      size="small"
-      level={2}
-      margin={{ vertical: 'none' }}
-      {...theme?.feedBack?.header}
-    >
-      {title}
-    </Heading>
-    {modal && (
-      <Button
-        onClick={onClose}
-        icon={<FormClose />}
-        a11yTitle="Close Feedback Layer"
-        {...theme?.feedBack?.button}
-      />
-    )}
-  </Box>
-);
+const FeedbackHeader = ({ children, title }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box {...theme?.feedback?.header?.container}>
+      <Heading {...theme?.feedback?.header}>{title}</Heading>
+      {children}
+    </Box>
+  );
+};
 
-Identifier.propTypes = {
+FeedbackHeader.propTypes = {
+  children: PropTypes.node,
   title: PropTypes.string,
   onClose: PropTypes.func,
 };

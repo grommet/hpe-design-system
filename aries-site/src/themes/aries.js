@@ -6,15 +6,35 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
-  // feedBack: {
-  //   container: {
-  //     width: undefined,
-  //     pad: undefined,
-  //   },
-  //   footer: {
-  //     gap: undefined,
-  //   },
-  // },
+  feedback: {
+    body: {
+      gap: 'medium',
+    },
+    button: {
+      a11yTitle: `You are in a layer containing a form to submit feedback.
+        To close this layer, press Enter.`,
+    },
+    container: {
+      pad: 'medium',
+    },
+    header: {
+      size: 'small',
+      level: 2,
+      margin: {
+        vertical: 'none',
+      },
+      container: {
+        align: 'start',
+        direction: 'row',
+        justify: 'between',
+      },
+    },
+    footer: {
+      direction: 'row',
+      justify: 'end',
+      gap: 'medium',
+    },
+  },
   menu: {
     group: {
       separator: {

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormField, TextArea, Text, RadioButtonGroup, FileInput } from 'grommet';
+import {
+  FormField,
+  TextArea,
+  Text,
+  RadioButtonGroup,
+  FileInput,
+} from 'grommet';
 import { StarRating } from './StarRating';
 import { ThumbsRating } from './ThumbsRating';
 
@@ -26,19 +32,18 @@ export const Question = ({ label, inputProps, kind, name }) => {
         contentProps={{
           border: false,
         }}
-        label={label}
+        label={<Text>{label}</Text>}
         name={name}
         htmlFor={name}
       >
-        <Text>
-          <Input {...accessibilityProps} {...inputProps} />
-        </Text>
+        <Input {...accessibilityProps} {...inputProps} />
       </FormField>
     );
-
   return (
     <FormField label={label} name={name} htmlFor={name}>
-      <Input {...accessibilityProps} {...inputProps} />
+      <Text>
+        <Input {...accessibilityProps} {...inputProps} />
+      </Text>
     </FormField>
   );
 };

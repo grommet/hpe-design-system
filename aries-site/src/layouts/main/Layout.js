@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
   Box,
+  Button,
   Main,
   Page,
   PageContent,
@@ -12,6 +13,7 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
+  Text,
 } from 'grommet';
 import {
   ContentSection,
@@ -70,7 +72,7 @@ export const Layout = ({
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const [value, setValue] = useState(defaultFeedback);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSucessful, setIsSuccess] = useState(false);
 
   const close = () => {
     setTimeout(() => {
@@ -175,6 +177,8 @@ export const Layout = ({
               </Main>
             </MainContentWrapper>
             <FeedbackButton
+              margin="medium"
+              elevation="large"
               onClick={onOpen}
               color="purple!"
               label="Feedback"
@@ -190,7 +194,24 @@ export const Layout = ({
               onChange={nextValue => setValue(nextValue)}
               onReset={() => setValue(defaultFeedback)}
               onSubmit={onSubmit}
-              isSucessful={isSuccess}
+              footerActions={
+                <>
+                  {!isSucessful ? (
+                    <Box direction="row" gap="small">
+                      <Button
+                        onClick={onClose}
+                        label="Cancel"
+                        a11yTitle="Cancel feedback submission"
+                      />
+                      <Button label="Submit" primary type="submit" />
+                    </Box>
+                  ) : (
+                    <Text alignSelf="end" weight="bold">
+                      Thank You!
+                    </Text>
+                  )}
+                </>
+              }
             >
               <Question
                 label={`What this ${title} guidance helpful to you?`}
@@ -201,9 +222,6 @@ export const Layout = ({
                 name="text-area"
                 kind="textArea"
                 label="Want to tell us anything else about this page?"
-                inputProps={{
-                  placeholder: 'Tell us more!',
-                }}
               />
             </Feedback>
           </>
