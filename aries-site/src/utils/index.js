@@ -1,3 +1,4 @@
+export * from './analytics';
 export * from './createGlobalState';
 export * from './createPersistedState';
 export * from './createStorage';
