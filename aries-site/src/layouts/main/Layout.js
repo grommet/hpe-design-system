@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
+  AnnounceContext,
   Box,
   Button,
   Main,
@@ -50,6 +51,7 @@ export const Layout = ({
   }, []);
 
   const router = useRouter();
+  const announce = useContext(AnnounceContext);
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
   const {
@@ -85,6 +87,7 @@ export const Layout = ({
     event.preventDefault();
     console.log('response from user', event.value);
     setIsSuccess(true);
+    announce('Thank you for submitting feedback', 'polite');
     close();
   };
 

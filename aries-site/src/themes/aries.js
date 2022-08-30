@@ -35,13 +35,6 @@ export const aries = deepMerge(hpe, {
       gap: 'medium',
     },
   },
-  menu: {
-    group: {
-      separator: {
-        color: 'border-weak',
-      },
-    },
-  },
 });
 
 export const { colors } = aries.global;
