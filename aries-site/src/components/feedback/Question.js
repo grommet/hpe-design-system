@@ -28,7 +28,7 @@ export const Question = ({ label, inputProps, kind, name }) => {
   return (
     <FormField
       contentProps={{
-        border: kind === 'star' || kind === 'thumbs' ? falses : 'undefined',
+        border: kind === 'star' || kind === 'thumbs' ? false : 'undefined',
       }}
       label={
         kind === 'star' || kind === 'thumbs' ? <Text>{label}</Text> : label
