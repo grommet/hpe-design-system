@@ -19,7 +19,6 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
-  const breakpoint = useContext(ResponsiveContext);
 
   let content = (
     <Box
@@ -84,7 +83,6 @@ FeedbackHeader.propTypes = {
 
 Feedback.propTypes = {
   children: PropTypes.node,
-  isSucessful: PropTypes.bool,
   modal: PropTypes.bool,
   onChange: PropTypes.func,
   onClose: PropTypes.func,
