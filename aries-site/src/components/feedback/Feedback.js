@@ -23,7 +23,6 @@ export const Feedback = ({
 
   let content = (
     <Box
-      width={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : undefined}
       {...theme?.feedback?.container}
     >
       <FeedbackHeader title={title}>
@@ -58,10 +57,6 @@ export const Feedback = ({
       <Layer
         modal={false}
         onEsc={onEsc}
-        position={
-          !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
-        }
-        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
         {...layerProps}
       >
         {content}

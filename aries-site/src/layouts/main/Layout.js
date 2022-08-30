@@ -69,7 +69,7 @@ export const Layout = ({
   };
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
-  const size = useContext(ResponsiveContext);
+  const breakpoint = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
@@ -97,7 +97,7 @@ export const Layout = ({
   const regexp = new RegExp(/#{1,} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
   const showInPageNav =
-    !['xsmall', 'small'].includes(size) && headings?.length > 0;
+    !['xsmall', 'small'].includes(breakpoint) && headings?.length > 0;
 
   /* If no headings are found, do not show Table of Contents link, 
      instead set ToC skiplink as undefined and filter it out.
@@ -197,6 +197,12 @@ export const Layout = ({
               onChange={nextValue => setValue(nextValue)}
               onReset={() => setValue(defaultFeedback)}
               onSubmit={onSubmit}
+              layerProps={{
+                position: !['xsmall', 'small'].includes(breakpoint)
+                  ? 'bottom-right'
+                  : 'center',
+                margin: { vertical: 'xlarge', horizontal: 'medium' },
+              }}
               footerActions={
                 <>
                   {!isSucessful ? (
