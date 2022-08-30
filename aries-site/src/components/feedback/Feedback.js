@@ -6,8 +6,8 @@ import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
   children,
-  footerActions,
   layerProps,
+  messages,
   modal,
   onChange,
   onClose,
@@ -20,10 +20,9 @@ export const Feedback = ({
 }) => {
   const theme = useContext(ThemeContext);
 
+  console.log(messages);
   let content = (
-    <Box
-      {...theme?.feedback?.container}
-    >
+    <Box {...theme?.feedback?.container}>
       <FeedbackHeader title={title}>
         {modal && (
           <Button
@@ -45,7 +44,16 @@ export const Feedback = ({
       >
         <Box {...theme?.feedback?.body}>
           <>{children}</>
-          <Box {...theme?.feedback?.footer}>{footerActions}</Box>
+          <Box {...theme?.feedback?.footer}>
+            {/* how would we decide which order? offer reverse prop? */}
+            {/* what about passing in other button props? primary icon? */}
+            {messages && (
+              <>
+                <Button label={messages?.submit || 'Submit'} type="submit" />
+                <Button label={messages?.cancel || 'Cancel'} />
+              </>
+            )}
+          </Box>
         </Box>
       </Form>
     </Box>
@@ -53,11 +61,7 @@ export const Feedback = ({
 
   if (modal)
     content = show && (
-      <Layer
-        modal={false}
-        onEsc={onEsc}
-        {...layerProps}
-      >
+      <Layer modal={false} onEsc={onEsc} {...layerProps}>
         {content}
       </Layer>
     );

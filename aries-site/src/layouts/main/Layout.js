@@ -192,6 +192,14 @@ export const Layout = ({
               onEsc={onClose}
               onClose={onClose}
               show={open}
+              messages={
+                !isSucessful
+                  ? {
+                      submit: 'Submit feedback',
+                      cancel: 'No thanks',
+                    }
+                  : undefined
+              }
               modal
               title="We’d love your feedback"
               onChange={nextValue => setValue(nextValue)}
@@ -203,24 +211,6 @@ export const Layout = ({
                   : 'center',
                 margin: { vertical: 'xlarge', horizontal: 'medium' },
               }}
-              footerActions={
-                <>
-                  {!isSucessful ? (
-                    <Box direction="row" gap="small">
-                      <Button
-                        onClick={onClose}
-                        label="Cancel"
-                        a11yTitle="Cancel feedback submission"
-                      />
-                      <Button label="Submit" primary type="submit" />
-                    </Box>
-                  ) : (
-                    <Text alignSelf="end" weight="bold">
-                      Thank You!
-                    </Text>
-                  )}
-                </>
-              }
             >
               <Question
                 label={`What this ${title} guidance helpful to you?`}
