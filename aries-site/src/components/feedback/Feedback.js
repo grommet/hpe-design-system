@@ -19,8 +19,7 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
-
-  console.log(messages);
+  
   let content = (
     <Box {...theme?.feedback?.container}>
       <FeedbackHeader title={title}>
