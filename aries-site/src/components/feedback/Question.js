@@ -25,25 +25,18 @@ export const Question = ({ label, inputProps, kind, name }) => {
   };
 
   const Input = formats[kind];
-
-  if (kind === 'star' || kind === 'thumbs')
-    return (
-      <FormField
-        contentProps={{
-          border: false,
-        }}
-        label={<Text>{label}</Text>}
-        name={name}
-        htmlFor={name}
-      >
-        <Input {...accessibilityProps} {...inputProps} />
-      </FormField>
-    );
   return (
-    <FormField label={label} name={name} htmlFor={name}>
-      <Text>
-        <Input {...accessibilityProps} {...inputProps} />
-      </Text>
+    <FormField
+      contentProps={{
+        border: kind === 'star' || kind === 'thumbs' ? falses : 'undefined',
+      }}
+      label={
+        kind === 'star' || kind === 'thumbs' ? <Text>{label}</Text> : label
+      }
+      name={name}
+      htmlFor={name}
+    >
+      <Input {...accessibilityProps} {...inputProps} />
     </FormField>
   );
 };
