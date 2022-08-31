@@ -7,7 +7,7 @@ export const StarRating = ({ scale = 5, value, onChange, ...rest }) => {
   const [rating, setRating] = useState(value);
 
   const options = [];
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < scale; i += 1) {
     options.push(i);
   }
 
