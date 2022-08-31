@@ -5,7 +5,7 @@ const PositionedBox = styled(Box)`
   position: fixed;
   bottom: 0px;
   right: 0px;
-  z-index: 9999;
+  z-index: 10;
   }
 `;
 
