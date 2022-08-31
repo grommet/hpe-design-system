@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { RadioButtonGroup } from 'grommet';
 import { Star, StarOutline } from 'grommet-icons';
 
-export const StarRating = ({ value, onChange, ...rest }) => {
+export const StarRating = ({ scale = 5, value, onChange, ...rest }) => {
   const [rating, setRating] = useState(value);
 
   const options = [];
