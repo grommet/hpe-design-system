@@ -7981,15 +7981,15 @@ graphlib@^2.1.5:
     lodash "^4.17.15"
 
 grommet-icons@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.7.0.tgz#1d537b2bdc507be07d5643309d433bbe1464c5b6"
-  integrity sha512-ptw8x86Age/Yz6SplCLtJ8q1z/4ZLktMruCOnE6oTgc7hcIV/8ieOucTrLbu+PDi7rKxoP321O3OG3Zo/3qXjw==
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.8.0.tgz#3c9922b3662d0b9e22913ecbaa7b1101031b554b"
+  integrity sha512-8cS1zVib88SIyLfsWFFazMzYz/8k5MvXZqopUjN/Bnl8HvQBUe0Z87F+JXRb1AMMYkuqXQW9Pg6XfBB3Ro9VdQ==
   dependencies:
     grommet-styles "^0.2.0"
 
 "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
-  version "4.7.0"
-  resolved "https://github.com/grommet/grommet-icons/tarball/stable#d4c49eb99f2450fa244d0561a7b989e60311e236"
+  version "4.8.0"
+  resolved "https://github.com/grommet/grommet-icons/tarball/stable#40e660dae9f33cdc6c63fd776135f85503605bab"
   dependencies:
     grommet-styles "^0.2.0"
 
