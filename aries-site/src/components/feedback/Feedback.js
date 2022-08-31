@@ -41,19 +41,8 @@ export const Feedback = ({
         validate="submit"
         // should we accept all form props?
       >
-        <Box {...theme?.feedback?.body}>
-          <>{children}</>
-          <Box {...theme?.feedback?.footer}>
-            {/* how would we decide which order? offer reverse prop? */}
-            {/* what about passing in other button props? primary icon? */}
-            {messages && (
-              <>
-                <Button label={messages?.submit || 'Submit'} type="submit" />
-                <Button label={messages?.cancel || 'Cancel'} />
-              </>
-            )}
-          </Box>
-        </Box>
+          <Box {...theme?.feedback?.body}>{children}</Box>
+          <Box {...theme?.feedback?.footer}>{footerActions}</Box>
       </Form>
     </Box>
   );

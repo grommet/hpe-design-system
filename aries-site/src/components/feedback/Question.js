@@ -16,23 +16,21 @@ export const Question = ({ label, inputProps, kind, name }) => {
     name,
   };
 
-  const formats = {
-    star: StarRating,
-    thumbs: ThumbsRating,
-    textArea: TextArea,
-    radioButtonGroup: RadioButtonGroup,
-    fileInput: FileInput,
+const formats = {
+    star: { render: StarRating, border: false },
+    thumbs: { render: ThumbsRating, border: false },
+    textArea: { render: TextArea },
+    radioButtonGroup: { render: RadioButtonGroup },
+    fileInput: { render: FileInput },
   };
 
-  const Input = formats[kind];
+  const Input = formats[kind].render;
   return (
     <FormField
       contentProps={{
-        border: kind === 'star' || kind === 'thumbs' ? false : 'undefined',
+        border: formats[kind].border ?? true,
       }}
-      label={
-        kind === 'star' || kind === 'thumbs' ? <Text>{label}</Text> : label
-      }
+      label={formats[kind].label || <Text>{label}</Text>}
       name={name}
       htmlFor={name}
     >
