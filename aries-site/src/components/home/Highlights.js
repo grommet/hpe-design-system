@@ -11,6 +11,8 @@ import {
   Text,
 } from 'grommet';
 
+import Link from 'next/link';
+
 import { ContentPreviewCard } from '../cards';
 import { nameToPath, useDarkMode } from '../../utils';
 import { highlights } from '../../data';
