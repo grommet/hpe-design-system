@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Page, PageContent } from 'grommet';
+import { Page, PageContent } from 'grommet';
 import { Layout, Subsection } from '../layouts';
 import { Meta, FeedbackOptions, SubsectionText } from '../components';
 import { getPageDetails } from '../utils';
