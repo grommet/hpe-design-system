@@ -43,10 +43,8 @@ export const Feedback = ({
         validate="submit"
         // should we accept all form props?
       >
-        <Box {...theme?.feedback?.body}>
-          <>{children}</>
+          <Box {...theme?.feedback?.body}>{children}</Box>
           <Box {...theme?.feedback?.footer}>{footerActions}</Box>
-        </Box>
       </Form>
     </Box>
   );
