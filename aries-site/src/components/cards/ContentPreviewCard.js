@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import { Card } from 'grommet';
+import { LinkCard } from './LinkCard';
 
 export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => (
-  <Card
+  <LinkCard
     align="start"
     fill="horizontal"
     background="background-front"
