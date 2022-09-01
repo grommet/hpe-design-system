@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Button,
@@ -10,10 +10,10 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
+
 import Link from 'next/link';
 
 import { ContentPreviewCard } from '../cards';
-import { internalLink } from '../content';
 import { nameToPath, useDarkMode } from '../../utils';
 import { highlights } from '../../data';
 
@@ -28,48 +28,35 @@ const HighlightsLayout = () => {
     >
       {highlights.map(({ name, summary, image }) => {
         const href = nameToPath(name);
-        const isInternalLink = internalLink.test(href);
-        const Wrapper = isInternalLink ? Link : Fragment;
-        const wrapperProps = isInternalLink && {
-          href,
-          passHref: true,
-        };
-
         return (
-          <Wrapper key={name} {...wrapperProps}>
-            <ContentPreviewCard
-              as="a"
-              style={{ textDecoration: 'none' }}
-              pad="medium"
-            >
-              <Box direction="row" gap="medium">
-                <Box width="small" round="xsmall">
-                  {image && (
-                    <Image
-                      src={
-                        darkMode.value
-                          ? image.src.dark || image.src
-                          : image.src.light || image.src
-                      }
-                      alt={image.alt}
-                      fit={image.fit || 'contain'}
-                    />
-                  )}
-                </Box>
-                <Box fill>
-                  <Text
-                    weight="bold"
-                    size="large"
-                    margin={{ top: 'small' }}
-                    color="text-strong"
-                  >
-                    {name}
-                  </Text>
-                  <Paragraph>{summary}</Paragraph>
-                </Box>
+          <ContentPreviewCard key={name} href={href} pad="medium">
+            <Box direction="row" gap="medium">
+              <Box width="small" round="xsmall">
+                {image && (
+                  <Image
+                    src={
+                      darkMode.value
+                        ? image.src.dark || image.src
+                        : image.src.light || image.src
+                    }
+                    alt={image.alt}
+                    fit={image.fit || 'contain'}
+                  />
+                )}
               </Box>
-            </ContentPreviewCard>
-          </Wrapper>
+              <Box fill>
+                <Text
+                  weight="bold"
+                  size="large"
+                  margin={{ top: 'small' }}
+                  color="text-strong"
+                >
+                  {name}
+                </Text>
+                <Paragraph>{summary}</Paragraph>
+              </Box>
+            </Box>
+          </ContentPreviewCard>
         );
       })}
     </Grid>
