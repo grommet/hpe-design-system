@@ -19,7 +19,7 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
-  
+
   let content = (
     <Box {...theme?.feedback?.container}>
       <FeedbackHeader title={title}>
@@ -41,8 +41,11 @@ export const Feedback = ({
         validate="submit"
         // should we accept all form props?
       >
-          <Box {...theme?.feedback?.body}>{children}</Box>
-          <Box {...theme?.feedback?.footer}>{footerActions}</Box>
+        <Box {...theme?.feedback?.body}>{children}</Box>
+        <Box {...theme?.feedback?.footer}>
+          <Button label={messages?.cancel || 'Cancel'} />
+          <Button label={messages?.submit || 'Submit'} primary type="submit" />
+        </Box>
       </Form>
     </Box>
   );
