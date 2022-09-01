@@ -6,8 +6,8 @@ import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
   children,
-  footerActions,
   layerProps,
+  messages,
   modal,
   onChange,
   onClose,
@@ -19,11 +19,9 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
-
+  
   let content = (
-    <Box
-      {...theme?.feedback?.container}
-    >
+    <Box {...theme?.feedback?.container}>
       <FeedbackHeader title={title}>
         {modal && (
           <Button
@@ -51,11 +49,7 @@ export const Feedback = ({
 
   if (modal)
     content = show && (
-      <Layer
-        modal={false}
-        onEsc={onEsc}
-        {...layerProps}
-      >
+      <Layer modal={false} onEsc={onEsc} {...layerProps}>
         {content}
       </Layer>
     );
