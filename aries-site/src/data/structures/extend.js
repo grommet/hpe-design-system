@@ -19,6 +19,6 @@ export const extend = [
       'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
     sections: [],
     url:
-      'https://roadmap.grommet.io/hpe-design-system-roadmap-mike-walrath-hpe-com',
+      'https://github.com/orgs/grommet/projects/11?fullscreen=true',
   },
 ];
