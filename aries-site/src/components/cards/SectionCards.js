@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Grid } from 'grommet';
+import { Box, Button, CardBody, Grid, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
@@ -9,14 +9,27 @@ export const SectionCards = ({ items, seeAllContent }) => {
   return (
     <Box gap="large">
       <Grid columns="medium" rows="auto" gap="medium">
-        {items.map(item => (
-          <LinkCard
-            key={item.title}
-            title={item.title}
-            link={item.link}
-            icon={item.icon}
-          />
-        ))}
+        {items.map(({ title, link, icon }) => {
+          const Icon = icon;
+          return (
+            <LinkCard key={title} href={link}>
+              <CardBody direction="row" gap="small">
+                <Box
+                  pad="small"
+                  justify="center"
+                  round="small"
+                  background="background-back"
+                  flex={false}
+                >
+                  <Icon size="large" />
+                </Box>
+                <Text color="text-strong" weight="bold" size="xlarge">
+                  {title}
+                </Text>
+              </CardBody>
+            </LinkCard>
+          );
+        })}
       </Grid>
       <Button
         alignSelf="start"
