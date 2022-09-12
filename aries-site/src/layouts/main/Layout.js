@@ -212,17 +212,21 @@ export const Layout = ({
               }}
             >
               <Question
-                label={`What this ${title} guidance helpful to you?`}
-                kind="star"
+                label="Was this page helpful"
+                kind="thumbs"
                 name="like-rating"
               />
               <Question
                 name="text-area"
                 kind="textArea"
-                label="Want to tell us anything else about this page?"
+                label="Comments"
+                inputProps={{
+                  placeholder:
+                    'Heres your chance to tell us your thoughts about this page',
+                }}
               />
               {isSucessful && (
-                <Text alignSelf='end' size="large" weight="bold">
+                <Text alignSelf="end" size="large" weight="bold">
                   Thank you!
                 </Text>
               )}
