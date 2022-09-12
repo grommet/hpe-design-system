@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Button, Form, Heading, Layer, ResponsiveContext } from 'grommet';
+import { Box, Button, Form, Heading, Layer } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const Feedback = ({
@@ -39,12 +39,19 @@ export const Feedback = ({
         onReset={onReset}
         method="post"
         validate="submit"
-        // should we accept all form props?
       >
         <Box {...theme?.feedback?.body}>{children}</Box>
         <Box {...theme?.feedback?.footer}>
-          <Button label={messages?.cancel || 'Cancel'} />
-          <Button label={messages?.submit || 'Submit'} primary type="submit" />
+          {messages && (
+            <>
+              <Button label={messages?.cancel || 'Cancel'} />
+              <Button
+                label={messages?.submit || 'Submit'}
+                primary
+                type="submit"
+              />
+            </>
+          )}
         </Box>
       </Form>
     </Box>

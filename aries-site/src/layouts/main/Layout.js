@@ -5,7 +5,6 @@ import { initialize, pageview } from 'react-ga';
 import {
   AnnounceContext,
   Box,
-  Button,
   Main,
   Page,
   PageContent,
@@ -214,7 +213,7 @@ export const Layout = ({
             >
               <Question
                 label={`What this ${title} guidance helpful to you?`}
-                kind="thumbs"
+                kind="star"
                 name="like-rating"
               />
               <Question
@@ -222,6 +221,11 @@ export const Layout = ({
                 kind="textArea"
                 label="Want to tell us anything else about this page?"
               />
+              {isSucessful && (
+                <Text alignSelf='end' size="large" weight="bold">
+                  Thank you!
+                </Text>
+              )}
             </Feedback>
           </>
         </Page>
