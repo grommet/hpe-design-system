@@ -208,7 +208,7 @@ export const Layout = ({
               }}
             >
               <Question
-                label="Was this page helpful"
+                label="Was this page helpful?"
                 kind="thumbs"
                 name="like-rating"
               />
