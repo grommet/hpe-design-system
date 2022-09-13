@@ -48,7 +48,6 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
-  const announce = useContext(AnnounceContext);
 
   let content = (
     <Box {...theme?.feedback?.container}>
