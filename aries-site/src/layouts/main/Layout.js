@@ -215,7 +215,7 @@ export const Layout = ({
               <Question
                 name="text-area"
                 kind="textArea"
-                label="Comments"
+                label="Any additional comments?"
                 formProps={{
                   help: 'Heres your chance to tell us your thoughts about this page',
                 }}
