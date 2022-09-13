@@ -62,7 +62,6 @@ export const Layout = ({
 
   const defaultFeedback = {
     'like-rating': '',
-    'star-rating': 0,
     'text-area': '',
   };
 
@@ -78,14 +77,14 @@ export const Layout = ({
   const closeFeedbackModal = () => {
     setTimeout(() => {
       setOpen(false);
-      setIsSuccess(false);
+      setSuccessfulSubmit(false);
     }, 2000);
   };
 
   const onSubmit = event => {
     event.preventDefault();
     console.log('response from user', event.value);
-    setIsSuccess(true);
+    setSuccessfulSubmit(true);
     close();
   };
 
@@ -187,15 +186,15 @@ export const Layout = ({
               a11yTitle={`This button launches a modal to give feedback.`}
             />
             <Feedback
-              onEsc={onClose}
-              onClose={onClose}
+              onEsc={closeFeedbackModal}
+              onClose={closeFeedbackModal}
               show={open}
               messages={{
                 submit: 'Submit feedback',
                 cancel: 'No thanks',
                 successful: 'Thank you!',
               }}
-              isSuccessful={isSucessful}
+              isSuccessful={successfulSubmit}
               modal
               title="We’d love your feedback"
               onChange={nextValue => setValue(nextValue)}
