@@ -35,6 +35,25 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 
+const Announcer = ({ announce, message, mode, role }) => {
+  React.useEffect(() => {
+    const timeout = 3000;
+    announce(message, mode, timeout);
+  }, [announce, message, mode]);
+
+  return (
+    <Text align="center" role={role} aria-live={mode}>
+      {message}
+    </Text>
+  );
+};
+
+const AnnounceContextComponent = props => (
+  <AnnounceContext.Consumer>
+    {announce => <Announcer announce={announce} {...props} />}
+  </AnnounceContext.Consumer>
+);
+
 export const Layout = ({
   backgroundImage,
   children,
@@ -50,7 +69,7 @@ export const Layout = ({
   }, []);
 
   const router = useRouter();
-  const announce = useContext(AnnounceContext);
+  // const announce = useContext(AnnounceContext);
   const relatedContent = getRelatedContent(titleProp);
   // Allow proper capitalization to be used
   const {
@@ -86,7 +105,7 @@ export const Layout = ({
     event.preventDefault();
     console.log('response from user', event.value);
     setIsSuccess(true);
-    announce('Thank you for submitting feedback', 'polite');
+    // announce('Thank you for submitting feedback', 'polite');
     close();
   };
 
@@ -226,15 +245,13 @@ export const Layout = ({
                 }}
               />
               {isSucessful && (
-                <AnnounceContext
-                  message="Thank you for submiting your feedback."
-                  mode="assertive"
-                  role="alert"
-                >
-                  <Text alignSelf="end" size="large" weight="bold">
-                    Thank you!
-                  </Text>
-                </AnnounceContext>
+                <>
+                  <AnnounceContextComponent
+                    message="Thank you for your feedback."
+                    mode="assertive"
+                    role="alert"
+                  />
+                </>
               )}
             </Feedback>
           </>
