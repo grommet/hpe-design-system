@@ -1,16 +1,18 @@
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  CallToActionCard,
+  CardAlignmentBestPractice,
+  CardSpacingBestPractice,
   CardAnatomy,
   CardExample,
   CardMeterExample,
   CardWithFooter,
   CardWithImage,
   PaginationCardsExample,
+  NavigationalCard,
   SimpleCard,
 } from '../../examples';
-
-Elements of a card can include titles, subheadings, charts, media, metadata, and notifications. They are flexible and customizable to organize your content.
 
 <Example
   componentName="Card"
@@ -18,156 +20,179 @@ Elements of a card can include titles, subheadings, charts, media, metadata, and
   docs="https://v2.grommet.io/card?theme=hpe#props"
   figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
-  horizontalLayout
-  plain
 >
+
   <CardExample />
 </Example>
 
-## What makes up a Card?
+## Principles
 
-### Purpose
+Cards are containers that display content and actions on a single topic. They should be easy to scan for relevant and actionable information.
 
-- Allows the user to quickly scan and determine if they should engage further.
-- Focused and concise information of a single subject.
-- Primarily limited to a singular action (like a large button).
-- Secondary actions (e.g. clickable icons, anchors, buttons) should be clearly.
-  distiguishable. When applying these use cases, the card no longer should behave as a primary action.
+**Contained**
 
-### Form
+A card is identifiable as a single, contained unit.
 
-- Aligns to the grid and global edge size for gap, margin, and pad.
-- Shape and direction may be horizontal or vertical.
-- Can include a footer for additional information.
-- Customizable background, border, and elevation.
+**Independent**
 
-### Content
+A card can stand alone, without relying on surrounding elements for context.
 
-- Provides a summary preview of information to scan and process.
-- Visually group content or distinguish various types of information.
-- Organize in a responsive grid or list.
+**Individual**
 
-### Appearance
+A card cannot merge with another card, or divide into multiple cards.
 
-- Card titles should be [Text](/foundation/typography#text) (not Heading) with color `text-strong` and weight `bold`.
+**Summarized**
+
+A card by nature has limited real-estate, so it should present summarized information.
+
+## Types of cards
+
+### Call-to-action
+
+A call-to-action (CTA) card should be used to entice the user down a desired path. CTA cards should be visually prominent as a means of attracting user attention. This type of card is more commonly used within marketing contexts and should be used sparingly within HPE products and services.
+
+Examples use cases for a CTA card include:
+
+- Request a trial
+- Register for an event
+- Upgrade software version
+- This encourages users to stay on the latest version to avoid bugs, legacy software
+
+TO DO: add more common examples
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardAnatomy.js"
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
   docs="https://v2.grommet.io/card?theme=hpe#props"
-  horizontalLayout
+  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
   plain
+  horizontalLayout
 >
-  <CardAnatomy />
+  <CallToActionCard />
 </Example>
 
-## When to Use
+In order to create visual prominence, CTA cards should include one or more of the following elements:
 
-- When presenting a collection of high-level pieces of information (e.g. dashboard).
-- When presenting a menu of options (e.g. a catalog of available services).
-- Best for sets of items which can best be consumed visually.
+- CTA button
+- Brand approved background texture/gradient
+- Graphic/Image
 
-### Dashboard Example
+DO/DONT (probably no image + background texture)
 
-Cards may be customized to meet the needs of the content they contain.
-In a dashboard, content is organized and displayed for the user to quickly
-scan and identify areas which may need for further engagement.
+Call-to-action cards may be presented in a group with other call-to-action cards but also may be presented on their own. When presented in a group, their layout/treatment can be independent from the layout/treatment of the surrounding call-to-action cards.
 
-Each card is customizable and clickable (like a large button) allowing users to explore
-the detail behind the summarized content.
-Learn more about [Dashboard Templates](/templates/dashboards).
+### Navigational
 
-<ExampleImagePreview
-  label="See Cards in a Dashboard"
-  href="/templates/dashboards"
-  src="/cards-dashboard-example.png"
-  alt="HPE Design System Cards Dashboard Example"
-/>
+Navigational cards provide the user with a means of wayfinding. Navigational cards enable the user to identify, compare, and choose their desired next step.
 
-## Guidelines
+Navigational cards should:
 
-### General
+- Be presented in a group with other navigational cards of the same category.
+- Provide an easily scannable and browseable range of options.
+- Have the same anatomy and layout as other navigational cards in their group.
+  - This visual consistency further establishes the sense that these cards are part of the same category.
 
-- Limit content to under 100 characters or no more than two short sentences.
-- Provide a visual hierchy to content.
-- Only one idea or subject in one card.
-- Differentiate the card from its background using color, border, shadow, or contrast.
+<Example
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+  width="100%"
+>
+  <NavigationalCard />
+</Example>
 
-### Actions
+For example, a group of cards may be used to provide a user with a means of navigating from a hub called “Manage” to various spoke pages such as “Roles and Permissions”, “Account Settings”, etc. All the cards in this group should be related to “Manage”.
 
-- The card typically behaves as a singular action item (like a big button).
-- Secondary actions should be differentiated visually and behaviorally.
-- Do not include inline links/anchors.
+## Formatting
 
-### Interactions
+### Anatomy
+
+TBD
+
+- Background (use sparingly, often only in CTA cards)
+- Graphic/Icon/Visual (use sparingly, only if it provides unqiue identification)
+- Pre-title
+- Title (required)
+- Subtitle
+- Description
+- Action
+
+### Alignment
+
+Use left alignment whenever possible in order to optimize readability.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Left-align text and content.',
+    }}
+    height={{ min: 'small' }}
+  >
+    <CardAlignmentBestPractice />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't center text and content. This hurts readability.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardAlignmentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+TBD - when can an action button take the full-width of the card? When width is < medium?
+
+### Spacing
+
+Place a minimum gap of "medium" between cards. For cards within the same section, a "medium" gap should be used. For cards in adjacent layout sections, a "large" gap may be used (TBD - clarify this and or show a do/dont)
+
+<BestPracticeGroup columns="100%">
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use a "medium" gap between cards.',
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardSpacingBestPractice />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use a gap smaller than "medium" between cards because this creates a crowded feeling.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardSpacingBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Interactions
+
+### Mouse
 
 - If a card does not contain an action behavior, do not provide hover feedback.
-- If a card contains a secondary action behavior, provide the documented hover feedback on that secondary action only.
-- If a card has a singular action behavior, the entire card should be clickable. Provide a hand cursor change and large elevation on hover.
+- If a card has a singular action behavior, the entire card can be clickable. Provide a hand cursor change and large elevation on hover.
+- If a card contains a multiple action behaviors, such as a primary action and a secondary action, provide the documented hover feedback on the individual actionable elements only.
 
-### Grid, List, or Table?
+### Keyboard
 
-- Grid is great for dashboards or when the use case for the cards lend themselves
-  to larger sizes and simple scanning (e.g. service catalog).
-- A list of cards is great when you need to display more cards that have simple
-  content but have serveral items (a list of users).
-- Consider using list alone, without the card component, when actions required for
-  items are more complex (like multi-select).
-- When content needs to be analyzed, sorted, compared and filtered, a table may
-  be more appropriate.
+| Key         | Interaction                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| Tab         | Move forward through the cards (if entire card is clickable) or through logical order of the interactive elements.    |
+| Shift + Tab | Move backward through the cards (if entire card is clickable) or through logical order of the interactive elements.   |
+| Enter       | Perform the card action (if entire card is clickable) or the corresponding action of the focused interactive element. |
 
-## More Examples of a Card
+## Accessibility
 
-### Simple Card
+Card titles should use a Heading of the correct semantic level based on where the card is in the document. For example, a card nested under a Heading level 2 should use a Heading level 3 for its title.
 
-Consider a small, simple card for smaller data sets that can be scanned easily in a list.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/SimpleCard.js"
-  docs="https://v2.grommet.io/card?theme=hpe#props"
-  horizontalLayout
-  plain
->
-  <SimpleCard />
-</Example>
-
-### Card with a Footer
-
-Adding footer content can help provide additional information that can provide more context, clarity, or display notification data.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardWithFooter.js"
-  docs="https://v2.grommet.io/card?theme=hpe#props"
-  horizontalLayout
-  plain
->
-  <CardWithFooter />
-</Example>
-
-### Card with an Image
-
-When images are featured on cards, they have a full ‘bleed’ as well as heirachical text to give additional context for the content.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardWithImage.js"
-  docs="https://v2.grommet.io/card?theme=hpe#props"
-  horizontalLayout
-  plain
->
-  <CardWithImage />
-</Example>
-
-### Card as a Dashboard Element
-
-Card's versatility allows for it to serve dashboard contexts quite nicely. The main content can
-showcase a key performance indicator and be represented by a wide variety of charts or meters. Ideally the
-key performance indicator is accompanied by a contextual signal, indicating whether a user should
-drill into the detail behind the metric's current value.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardMeterExample.js"
-  docs="https://v2.grommet.io/card?theme=hpe#props"
-  horizontalLayout
-  plain
->
-  <CardMeterExample />
-</Example>
+Don't use Text for the card title as this will hurt the experience for users of assisstive technologies.
