@@ -217,7 +217,7 @@ export const Layout = ({
                 kind="textArea"
                 label="Any additional comments?"
                 formProps={{
-                  help: 'Heres your chance to tell us your thoughts about this page',
+                  help: `Here's your chance to tell us your thoughts about this page.`,
                 }}
               />
             </Feedback>
