@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
-  AnnounceContext,
   Box,
   Main,
   Page,
@@ -34,25 +33,6 @@ import {
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
-
-const Announcer = ({ announce, message, mode, role }) => {
-  React.useEffect(() => {
-    const timeout = 3000;
-    announce(message, mode, timeout);
-  }, [announce, message, mode]);
-
-  return (
-    <Text align="center" role={role} aria-live={mode}>
-      {message}
-    </Text>
-  );
-};
-
-const AnnounceContextComponent = props => (
-  <AnnounceContext.Consumer>
-    {announce => <Announcer announce={announce} {...props} />}
-  </AnnounceContext.Consumer>
-);
 
 export const Layout = ({
   backgroundImage,
@@ -105,7 +85,6 @@ export const Layout = ({
     event.preventDefault();
     console.log('response from user', event.value);
     setIsSuccess(true);
-    // announce('Thank you for submitting feedback', 'polite');
     close();
   };
 
@@ -204,20 +183,18 @@ export const Layout = ({
               color="purple!"
               label="Feedback"
               primary
-              a11yTitle={`This button launches a modal to give feedback on the ${title} page`}
+              a11yTitle={`This button launches a modal to give feedback.`}
             />
             <Feedback
               onEsc={onClose}
               onClose={onClose}
               show={open}
-              messages={
-                !isSucessful
-                  ? {
-                      submit: 'Submit feedback',
-                      cancel: 'No thanks',
-                    }
-                  : undefined
-              }
+              messages={{
+                submit: 'Submit feedback',
+                cancel: 'No thanks',
+                successful: 'Thank you!',
+              }}
+              isSuccessful={isSucessful}
               modal
               title="We’d love your feedback"
               onChange={nextValue => setValue(nextValue)}
@@ -244,15 +221,6 @@ export const Layout = ({
                     'Heres your chance to tell us your thoughts about this page',
                 }}
               />
-              {isSucessful && (
-                <>
-                  <AnnounceContextComponent
-                    message="Thank you for your feedback."
-                    mode="assertive"
-                    role="alert"
-                  />
-                </>
-              )}
             </Feedback>
           </>
         </Page>

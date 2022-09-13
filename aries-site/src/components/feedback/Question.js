@@ -16,9 +16,13 @@ export const Question = ({ label, inputProps, kind, name }) => {
     name,
   };
 
-const formats = {
+  const formats = {
     star: { render: StarRating, border: false },
-    thumbs: { render: ThumbsRating, border: false },
+    thumbs: {
+      render: ThumbsRating,
+      border: false,
+      label: <Text size="large">{label}</Text>,
+    },
     textArea: { render: TextArea },
     radioButtonGroup: { render: RadioButtonGroup },
     fileInput: { render: FileInput },

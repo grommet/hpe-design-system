@@ -1,11 +1,40 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Button, Form, Heading, Layer } from 'grommet';
+import {
+  AnnounceContext,
+  Box,
+  Button,
+  Form,
+  Heading,
+  Layer,
+  Text,
+} from 'grommet';
 import { FormClose } from 'grommet-icons';
+
+const Announcer = ({ announce, message, mode, role }) => {
+  const theme = useContext(ThemeContext);
+  announce(message, mode);
+  return (
+    <Text
+      role={role}
+      aria-live={mode}
+      {...theme?.feedback?.footer?.success?.text}
+    >
+      {message}
+    </Text>
+  );
+};
+
+const AnnounceContextComponent = props => (
+  <AnnounceContext.Consumer>
+    {announce => <Announcer announce={announce} {...props} />}
+  </AnnounceContext.Consumer>
+);
 
 export const Feedback = ({
   children,
+  isSuccessful,
   layerProps,
   messages,
   modal,
@@ -19,6 +48,7 @@ export const Feedback = ({
   value,
 }) => {
   const theme = useContext(ThemeContext);
+  const announce = useContext(AnnounceContext);
 
   let content = (
     <Box {...theme?.feedback?.container}>
@@ -41,18 +71,24 @@ export const Feedback = ({
         validate="submit"
       >
         <Box {...theme?.feedback?.body}>{children}</Box>
-        <Box {...theme?.feedback?.footer}>
-          {messages && (
-            <>
-              <Button label={messages?.cancel || 'Cancel'} />
-              <Button
-                label={messages?.submit || 'Submit'}
-                primary
-                type="submit"
-              />
-            </>
-          )}
-        </Box>
+        {messages && !isSuccessful ? (
+          <Box {...theme?.feedback?.footer}>
+            <Button label={messages?.cancel || 'Cancel'} />
+            <Button
+              label={messages?.submit || 'Submit'}
+              primary
+              type="submit"
+            />
+          </Box>
+        ) : (
+          <Box {...theme?.feedback?.footer}>
+            <AnnounceContextComponent
+              mode="assertive"
+              role="alert"
+              message={messages?.successful || 'Thanks'}
+            />
+          </Box>
+        )}
       </Form>
     </Box>
   );
