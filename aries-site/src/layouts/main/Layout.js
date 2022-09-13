@@ -226,9 +226,15 @@ export const Layout = ({
                 }}
               />
               {isSucessful && (
-                <Text alignSelf="end" size="large" weight="bold">
-                  Thank you!
-                </Text>
+                <AnnounceContext
+                  message="Thank you for submiting your feedback."
+                  mode="assertive"
+                  role="alert"
+                >
+                  <Text alignSelf="end" size="large" weight="bold">
+                    Thank you!
+                  </Text>
+                </AnnounceContext>
               )}
             </Feedback>
           </>
