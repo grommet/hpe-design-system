@@ -72,7 +72,8 @@ export const Layout = ({
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const [value, setValue] = useState(defaultFeedback);
-  const [isSucessful, setIsSuccess] = useState(false);
+  // tracks if feedback has successfully been submitted
+  const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 
   const close = () => {
     setTimeout(() => {
