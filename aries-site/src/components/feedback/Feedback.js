@@ -19,7 +19,7 @@ const Announcer = ({ announce, message, mode, role }) => {
     <Text
       role={role}
       aria-live={mode}
-      {...theme?.feedback?.footer?.success?.text}
+      {...theme?.feedback?.success}
     >
       {message}
     </Text>

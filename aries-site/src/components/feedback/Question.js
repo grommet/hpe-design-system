@@ -17,7 +17,11 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
   };
 
   const formats = {
-    star: { render: StarRating, border: false },
+    star: {
+      render: StarRating,
+      border: false,
+      label: <Text size="large">{label}</Text>,
+    },
     thumbs: {
       render: ThumbsRating,
       border: false,
@@ -34,7 +38,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
       contentProps={{
         border: formats[kind].border ?? true,
       }}
-      label={formats[kind].label || <Text>{label}</Text>}
+      label={formats[kind].label || label }
       name={name}
       htmlFor={name}
       {...formProps}

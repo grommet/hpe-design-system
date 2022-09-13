@@ -27,6 +27,7 @@ export const aries = deepMerge(hpe, {
         align: 'start',
         direction: 'row',
         justify: 'between',
+        gap: 'xsmall',
       },
     },
     footer: {
@@ -36,13 +37,11 @@ export const aries = deepMerge(hpe, {
       direction: 'row',
       justify: 'end',
       gap: 'medium',
-      success: {
-        text: {
-          color: 'text-strong',
-          weight: 'bold',
-          alignSelf: 'end',
-        },
-      },
+    },
+    success: {
+      color: 'text-strong',
+      weight: 'bold',
+      alignSelf: 'end',
     },
   },
 });
