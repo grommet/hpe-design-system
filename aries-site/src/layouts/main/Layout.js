@@ -75,7 +75,7 @@ export const Layout = ({
   // tracks if feedback has successfully been submitted
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 
-  const close = () => {
+  const closeFeedbackModal = () => {
     setTimeout(() => {
       setOpen(false);
       setIsSuccess(false);
