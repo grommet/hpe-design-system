@@ -85,7 +85,7 @@ export const Layout = ({
     event.preventDefault();
     console.log('response from user', event.value);
     setSuccessfulSubmit(true);
-    close();
+    closeFeedbackModal();
   };
 
   const match = siteContents.find(
