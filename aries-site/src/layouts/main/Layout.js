@@ -216,9 +216,8 @@ export const Layout = ({
                 name="text-area"
                 kind="textArea"
                 label="Comments"
-                inputProps={{
-                  placeholder:
-                    'Heres your chance to tell us your thoughts about this page',
+                formProps={{
+                  help: 'Heres your chance to tell us your thoughts about this page',
                 }}
               />
             </Feedback>

@@ -10,7 +10,7 @@ import {
 import { StarRating } from './StarRating';
 import { ThumbsRating } from './ThumbsRating';
 
-export const Question = ({ label, inputProps, kind, name }) => {
+export const Question = ({ formProps, label, inputProps, kind, name }) => {
   const accessibilityProps = {
     id: name,
     name,
@@ -37,6 +37,7 @@ export const Question = ({ label, inputProps, kind, name }) => {
       label={formats[kind].label || <Text>{label}</Text>}
       name={name}
       htmlFor={name}
+      {...formProps}
     >
       <Input {...accessibilityProps} {...inputProps} />
     </FormField>
