@@ -10,7 +10,7 @@ export const aries = deepMerge(hpe, {
     body: {
       gap: 'medium',
     },
-    button: {
+    closeButton: {
       a11yTitle: `You are in a layer containing a form to submit feedback.
         To close this layer, press Enter.`,
     },
