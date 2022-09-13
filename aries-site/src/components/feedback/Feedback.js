@@ -105,8 +105,8 @@ export const Feedback = ({
 const FeedbackHeader = ({ children, title }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Box {...theme?.feedback?.header?.container}>
-      <Heading {...theme?.feedback?.header}>{title}</Heading>
+    <Box {...theme?.feedback?.header}>
+      <Heading {...theme?.feedback?.heading}>{title}</Heading>
       {children}
     </Box>
   );
