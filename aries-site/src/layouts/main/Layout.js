@@ -12,7 +12,6 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
-  Text,
 } from 'grommet';
 import {
   ContentSection,
