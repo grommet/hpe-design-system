@@ -17,13 +17,13 @@ export const aries = deepMerge(hpe, {
     container: {
       pad: 'medium',
     },
-    heading: {
+    header: {
       align: 'start',
       direction: 'row',
       justify: 'between',
       gap: 'xsmall',
     },
-    header: {
+    heading: {
       size: 'small',
       level: 2,
       margin: {
