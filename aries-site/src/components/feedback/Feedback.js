@@ -57,7 +57,7 @@ export const Feedback = ({
             onClick={onClose}
             icon={<FormClose />}
             autoFocus
-            {...theme?.feedback?.button}
+            {...theme?.feedback?.closeButton}
           />
         )}
       </FeedbackHeader>
