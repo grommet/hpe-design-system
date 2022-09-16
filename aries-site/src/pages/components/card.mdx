@@ -45,32 +45,28 @@ A card cannot merge with another card, or divide into multiple cards.
 
 A card by nature has limited real-estate, so it should present summarized information.
 
-## Anatomy
+## When to use
 
 TBD
 
-- Background (use sparingly, often only in CTA cards)
-- Graphic/Icon/Visual (use sparingly, only if it provides unqiue identification)
-- Pre-title
-- Title (required)
-- Subtitle
-- Description
-- Action
+## When not to use
+
+TBD
 
 ## Types of cards
 
 ### Call-to-action
 
-A call-to-action (CTA) card should be used to entice the user down a desired path. CTA cards should be visually prominent as a means of attracting user attention. This type of card is more commonly used within marketing contexts and should be used sparingly within HPE products and services.
+**Primary purpose:** A call-to-action card should be used to entice the user down a desired path.
 
-Examples use cases for a CTA card include:
+#### Example use cases
 
 - Request a trial
 - Register for an event
 - Upgrade software version
-- This encourages users to stay on the latest version to avoid bugs, legacy software
+  - This encourages users to stay on the latest version to avoid bugs, legacy software.
 
-TO DO: add more common examples
+This type of card is more commonly used within marketing contexts and should be used sparingly within HPE products and services. Secondary purposes might include an action to navigate to a screen with greater detail on the offering.
 
 <Example
   componentName="Card"
@@ -78,32 +74,27 @@ TO DO: add more common examples
   docs="https://v2.grommet.io/card?theme=hpe#props"
   figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
-  plain
   horizontalLayout
 >
   <CallToActionCard />
 </Example>
 
-In order to create visual prominence, CTA cards should include one or more of the following elements:
+#### Anatomy
 
-- CTA button
-- Brand approved background texture/gradient
-- Graphic/Image
+Call-to-action cards should be visually prominent as a means of attracting user attention.
 
-DO/DONT (probably no image + background texture)
+TBD
 
-Call-to-action cards may be presented in a group with other call-to-action cards but also may be presented on their own. When presented in a group, their layout/treatment can be independent from the layout/treatment of the surrounding call-to-action cards.
+#### Presentation
+
+- Call-to-action cards may be presented in a group with other call-to-action cards but also may be presented on their own.
+- When presented in a group, their layout/treatment can be independent from the layout/treatment of the surrounding call-to-action cards.
 
 ### Navigational
 
-Navigational cards provide the user with a means of wayfinding. Navigational cards enable the user to identify, compare, and choose their desired next step.
+**Primary purpose:** Navigational cards provide the user with a means of wayfinding.
 
-Navigational cards should:
-
-- Be presented in a group with other navigational cards of the same category.
-- Provide an easily scannable and browseable range of options.
-- Have the same anatomy and layout as other navigational cards in their group.
-  - This visual consistency further establishes the sense that these cards are part of the same category.
+Navigational cards enable the user to identify, compare, and choose their desired next step.
 
 <Example
   componentName="Card"
@@ -116,7 +107,16 @@ Navigational cards should:
   <NavigationalCard />
 </Example>
 
-For example, a group of cards may be used to provide a user with a means of navigating from a hub called “Manage” to various spoke pages such as “Roles and Permissions”, “Account Settings”, etc. All the cards in this group should be related to “Manage”.
+#### Anatomy
+
+TBD
+
+#### Presentation
+
+- Present navigational cards in a group with other navigational cards of the same category.
+  - For example, a group of navigational cards may be used to provide a user with a means of navigating from a hub called “Manage” to various spoke pages such as “Roles and Permissions”, “Account Settings”, etc.
+- Use the same anatomy and layout as other navigational cards in the same group.
+  - This visual consistency further establishes the relationship that these cards are part of the same category.
 
 ## Formatting
 
