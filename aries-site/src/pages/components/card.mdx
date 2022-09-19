@@ -1,3 +1,4 @@
+import { Box, Notification } from 'grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
@@ -47,11 +48,9 @@ A card by nature has limited real-estate, so it should present summarized inform
 
 ## When to use
 
-TBD
-
 ## When not to use
 
-TBD
+- Do not use a Card to filter data on the same screen, instead use **\_**.
 
 ## Types of cards
 
@@ -63,6 +62,7 @@ TBD
 
 - Request a trial
 - Register for an event
+- Launch a demo for an upcoming feature release
 - Upgrade software version
   - This encourages users to stay on the latest version to avoid bugs, legacy software.
 
@@ -89,6 +89,11 @@ TBD
 
 - Call-to-action cards may be presented in a group with other call-to-action cards but also may be presented on their own.
 - When presented in a group, their layout/treatment can be independent from the layout/treatment of the surrounding call-to-action cards.
+
+- Cards that are highly promotional should use elements that create higher visual emphasis (colorful brand-approved images, background colors/textures, etc.).
+  - Use cases (ordered from highest visual emphasis to lowest) include event promotion, new feature release, trial promotion.
+- Cards that are less promotional should still have enticing titles but do not necessarily need as strong of visual emphasis. The white brand-approved textures are appropriate if a subtle visual emphasis is desired.
+  - A use case is a software upgrade announcement.
 
 ### Navigational
 
@@ -118,11 +123,21 @@ TBD
 - Use the same anatomy and layout as other navigational cards in the same group.
   - This visual consistency further establishes the relationship that these cards are part of the same category.
 
+### Coming Soon
+
+<Box width="large">
+  <Notification
+    message="We are in the process of establishing guidance for more card types, such as analytics cards."
+    actions={[{ label: 'Feel free to ask us questions on Slack', href: '#' }]}
+    status="info"
+  />
+</Box>
+
 ## Formatting
 
 ### Alignment
 
-Use left alignment whenever possible in order to optimize readability.
+Use left-alignment whenever possible in order to optimize readability.
 
 <BestPracticeGroup>
   <Example
@@ -146,11 +161,9 @@ Use left alignment whenever possible in order to optimize readability.
   </Example>
 </BestPracticeGroup>
 
-TBD - when can an action button take the full-width of the card? When width is less than medium?
-
 ### Spacing
 
-Place a minimum gap of "medium" between cards. For cards within the same section, a "medium" gap should be used. For cards in adjacent layout sections, a "large" gap may be used (TBD - clarify this and or show a do/dont)
+For cards within the same layout section, place a minimum gap of "medium" between cards.
 
 <BestPracticeGroup columns="100%">
   <Example
