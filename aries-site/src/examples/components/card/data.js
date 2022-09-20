@@ -156,3 +156,17 @@ export const products = [
     tags: ['AI/ML & Analytics'],
   },
 ];
+
+export const event = {
+  title: 'Unleash the power of data',
+  pretitle: 'Virtual Event',
+  subtitle: 'June 25, 2022',
+  description: `Propelled by the nexus of data, cloud, and AI, 
+  HPE is delivering groundbreaking innovations that completely 
+  reimagine how organizations unleash the power of their data.`,
+  image: {
+    src: 'https://d3hq6blov2iije.cloudfront.net/images/textures/HPE_data_slice_01_800_0_72_RGB+20107.jpg',
+    alt: 'Layers of purple, pink, orange, and yellow in slices',
+    fit: 'cover',
+  },
+};

@@ -10,12 +10,14 @@ const DesignSystemCard = ({
   direction,
   icon,
   level,
+  media,
   subtitle,
   pretitle,
   title,
   ...rest
 }) => (
-  <Card {...rest}>
+  <Card direction={direction} {...rest}>
+    {media && media}
     <CardBody
       direction={direction}
       align="start"
@@ -26,10 +28,12 @@ const DesignSystemCard = ({
         <>
           {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
           {pretitle && <Text size="small">{pretitle}</Text>}
-          {title && (
+          {title && typeof title === 'string' ? (
             <Heading level={level} margin="none" size="small">
               {title}
             </Heading>
+          ) : (
+            title
           )}
           {subtitle && (
             <Box pad={{ bottom: 'xsmall' }}>
@@ -39,7 +43,7 @@ const DesignSystemCard = ({
         </>
         <Paragraph margin="none">{description}</Paragraph>
       </Box>
-      {actions}
+      <Box flex={false}>{actions}</Box>
     </CardBody>
   </Card>
 );
@@ -58,6 +62,7 @@ DesignSystemCard.propTypes = {
   direction: PropTypes.oneOf(['column', 'row']),
   icon: PropTypes.element,
   level: PropTypes.number,
+  media: PropTypes.element,
   title: PropTypes.string,
   pretitle: PropTypes.string,
   subtitle: PropTypes.string,
