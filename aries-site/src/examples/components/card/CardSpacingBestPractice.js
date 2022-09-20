@@ -10,11 +10,11 @@ import {
   Tag,
   Text,
 } from 'grommet';
-import { navigationalData } from './data';
+import { applications } from './data';
 
 export const CardSpacingBestPractice = ({ bestPractice = true }) => (
   <Grid gap={!bestPractice ? 'small' : 'medium'} columns="medium">
-    {navigationalData.map((datum, index) => (
+    {applications.map((datum, index) => (
       <Card key={index} onClick={() => {}}>
         <CardBody align="start" gap="medium">
           <Box>
