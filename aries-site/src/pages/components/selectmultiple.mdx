@@ -1,0 +1,79 @@
+import { Example } from '../../layouts';
+import { SelectMultipleAnatomyExample, SelectMultipleSimpleExample } from '../../examples';
+
+The SelectMultiple component is typically used as a form element but can also be leveraged for user experiences that include searching or narrowing down data. It contains an optional search field. When within a form, the SelectMultiple will support labels, error and disabled states.
+
+<Example
+  componentName="SelectMultiple"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/selectmultiple/SelectMultipleSimpleExample.js"
+  designer="https://designer.grommet.io/selectmultiple?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/selectmultiple?theme=hpe#props"
+  figma="https://www.figma.com/file/fZJdRcNrvZ1JjdPRYHpFFU/hpe-select?node-id=117%3A4"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/SelectMultiple/SelectMultiple.js"
+>
+  <SelectMultipleSimpleExample />
+</Example>
+
+## When to use
+
+When multiple selections can be made in a list that contains 5 or more items.
+
+## When not to use
+
+- For lists that contain less than 5 options to choose from, consider using a [CheckBoxGroup](/components/checkboxgroup) instead. 
+- When only a single selection is permitted, use the [Select](/components/select) component instead.
+
+## Anatomy
+
+<Example plain >
+  <SelectMultipleAnatomyExample />
+</Example>
+
+1. **Select**: Displays current input value and control to open/close options drop
+1. **Selection Summary**: Succinct presentation of what a user can do, has done, and/or reset to default state
+1. **Search (optional)**: Helps narrow down or quickly find options corresponding to the entered keyword.
+1. **Help Text (optional)**
+1. **List**: Available options from which the user can choose
+1. **List Item**: Clearly displays available option and its selected state
+
+## Sizing & Scrolling
+
+- Depending on the length of the dropdown list, the height of the SelectMultiple can be increased or decreased as needed with the `dropHeight` prop.
+- For long lists, consider setting a max height to ensure optimum readability and scannability of list items. 
+- It is recommended to show approximately 10-15 items before enabling a scroll. Showing more than that will potentially increase the cognitive load on the user.
+
+## Variants
+
+### Default SelectMultiple
+
+Containing multiple choices under a single drop --- Suitable for longer lists such as user or user group selection. 
+
+### SelectMultiple With Visible Selection
+
+Suitable for shorter lists such as network selection, especially when critical data needs to be displayed at input level. Can show up to 5 selected items before truncating the rest of the selections. This will help to reduce cognitive load on user and maintain visual consistency across UI. Not recommended for lists that have more than 15 options–use the default SelectMultiple instead.
+
+### Limited Selection
+
+## Other Use Cases
+
+### Pre-selected list items
+
+### Load time (weak connection or slow data transfer)
+
+### Selection Display Outside of Multi-Select
+
+## Behavior
+
+### Validation
+
+Show a clear validation message when the SelectMultiple form input does not meet the requirements of its bounding formfield. A "required" input error is the most common with SelectMultiple since the available options are typically pre-defined.
+
+### Disabled List Item
+
+When a SelectMultiple allows a limited number of selections, the rest of the unselected list items get disabled when the user reaches their max limit of selections.
+
+## Best Practices
+
+- Always use a label unless there is something else (such as preceding body text or headers) that makes that SelectMultiple’s purpose perfectly clear.
+- Ordering of lists - chronological/ recency
+- Search: Consider including a search if your list is 10 items or longer to make it easier to browse options.

@@ -38,6 +38,7 @@ export * from './rangeinput';
 export * from './rangeselector';
 export * from './search';
 export * from './select';
+export * from './selectmultiple';
 export * from './tabs';
 export * from './tag';
 export * from './textarea';
