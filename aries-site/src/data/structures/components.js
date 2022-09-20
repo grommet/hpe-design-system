@@ -310,6 +310,46 @@ export const components = [
     ],
   },
   {
+    name: 'SelectMultiple',
+    category: 'Inputs',
+    description:
+      'Enables the user to quickly scan through a dropdown list of options and select multiple choices.',
+    seoDescription:
+      'Select input component allows users to choose from a list of options.',
+    sections: [
+      'When to use',
+      'When not to use',
+      'Anatomy',
+      'Sizing & Scrolling',
+      'Variants',
+      'Other Use Cases',
+      'Behavior',
+      'Best Practices',
+    ],
+    preview: {
+      component: () => <SelectPreview />,
+      background: 'background-front',
+    },
+    relatedContent: [
+      'Forms',
+      'Menu',
+      'RadioButtonGroup',
+      'CheckBox',
+      'Select',
+      'TextInput',
+      'MaskedInput',
+    ],
+    tags: [
+      'select options',
+      'dropdown',
+      'drop-down',
+      'drop down',
+      'option list',
+      'multi select',
+      'multiple values',
+    ],
+  },
+  {
     name: 'CheckBox',
     category: 'Inputs',
     description:
