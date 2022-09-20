@@ -321,9 +321,9 @@ export const components = [
       'When not to use',
       'Anatomy',
       'Sizing & Scrolling',
-      'Variants',
-      'Other Use Cases',
-      'Behavior',
+      // 'Variants',
+      // 'Other Use Cases',
+      // 'Behavior',
       'Best Practices',
     ],
     preview: {
