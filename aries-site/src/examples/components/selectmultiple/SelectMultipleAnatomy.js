@@ -15,7 +15,7 @@ export const AnatomyGrid = ({ ...rest }) => (
     rows={rows}
     areas={[
       { name: 'component', start: [1, 0], end: [1, 15]},
-      { name: 'a1', start: [0, 1], end: [0, 1]},
+      { name: 'a1', start: [0, 1], end: [0, 1] },
       { name: 'a2', start: [0, 2], end: [0, 2] },
       { name: 'a3', start: [2, 3], end: [2, 3] },
       { name: 'a4', start: [0, 4], end: [0, 4] },
@@ -28,68 +28,103 @@ export const AnatomyGrid = ({ ...rest }) => (
   />
 );
 
+export const SelectMultipleInput = ({ id, ...rest }) => (
+  <Form { ...rest }>
+    <FormField
+      htmlFor="multi-select-anayomy-example__input"
+      name="multi-select-anatomy-example"
+      label="Users"
+    >
+      <Box
+        id={id}
+        background="background-front"
+        direction="row"
+        pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        justify="between"
+      >
+        <Text>{`${selected.length} selected`}</Text>
+        <FormUp />
+      </Box>
+    </FormField>
+  </Form>
+);
+
+const Highlight = ({ ...rest }) => (
+  <Box
+    pad={{ horizontal: 'xsmall' }}
+    border={{ style: 'dashed' }}
+    {...rest}
+  />
+);
+
+const DropElement = ({ ...rest }) => (
+  <Box
+    background="background-front"
+    elevation="medium"
+    pad="xsmall"
+    {...rest}
+  />
+);
+
+export const SelectMultipleSelected = ({ id, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight
+      id={id}
+      background="validation-ok"
+      direction="row"
+      justify="between"
+      align="center"
+    >
+      <Text size="small">{`${selected.length} of ${options.length} selected`}</Text>
+      <Button label="Clear All" size="small"/>
+    </Highlight>
+  </DropElement>
+)
+export const SelectMultipleSearch = ({ id, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight id={id} background="teal" pad="none">
+      <TextInput />
+    </Highlight>
+  </DropElement>
+);
+
+export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight id={id} background="validation-warning">
+      <Text size="small">{`Select up to ${limit}`}</Text>
+    </Highlight>
+  </DropElement>
+)
+
+export const SelectMultipleOptions = ({ id, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight id={id} background="background-back" pad='xsmall'>
+      {options.map((label) => (
+        <Highlight
+        id={(label === highlightedOption) ? "listItem" : undefined}
+        background={label === highlightedOption ? "yellow" : undefined}>
+          <CheckBox 
+            label={label}
+            checked={selected.includes(label)}
+          />
+        </Highlight>
+      ))}
+    </Highlight>
+  </DropElement>
+);
+
+export const SelectMultipleDrop = () => (
+  <>
+    <SelectMultipleSelected id="selected" />
+    <SelectMultipleSearch id="search" />
+    <SelectMultipleLimit id="limit" limit={6} />
+    <SelectMultipleOptions id="list" />
+  </>
+);
+
 export const SelectMultipleAnatomy = ({ ...rest }) => (
   <Box width="medium" flex="grow" {...rest}>
-    <Form>
-      <FormField
-        htmlFor="multi-select-anayomy-example__input"
-        name="multi-select-anatomy-example"
-        label="Users"
-      >
-        <Box
-          id="select"
-          background="background-front"
-          direction="row"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-          justify="between"
-        >
-          <Text>{`${selected.length} selected`}</Text>
-          <FormUp />
-        </Box>
-      </FormField>
-    </Form>
-    <Box background="background-front" elevation="medium" pad="xsmall" gap="xsmall">
-      <Box
-        id="selected"
-        direction="row"
-        justify="between"
-        align="center"
-        pad={{ horizontal: 'xsmall' }}
-        background="validation-ok"
-        border={{ style: 'dashed' }}
-      >
-        <Text size="small">{`${selected.length} of ${options.length} selected`}</Text>
-        <Button label="Clear All" size="small"/>
-      </Box>
-      <Box id="search" background="teal" border={{ style: 'dashed' }}>
-        <TextInput />
-      </Box>
-      <Box
-        id="limit"
-        pad={{ horizontal: 'xsmall' }}
-        background="validation-warning"
-        border={{ style: 'dashed' }}
-      >
-        <Text size="small">Select up to 6</Text>
-      </Box>
-      <Box
-        id="list"
-        border={{ style: 'dashed' }}
-        pad='xsmall'
-        background="background-back"
-      >
-        {options.map((label) => (
-          <Box
-            id={(label === highlightedOption) ? "listItem" : undefined}
-            border={{ style: 'dashed' }}
-            background={label === highlightedOption ? "yellow" : undefined}>
-            <CheckBox 
-              label={label}
-              checked={selected.includes(label)}
-            />
-          </Box>
-        ))}
-      </Box>
-    </Box>
+    <SelectMultipleInput id="select" />
+    <SelectMultipleDrop />
   </Box>
 );
