@@ -118,3 +118,41 @@ export const tools = [
     },
   },
 ];
+
+export const products = [
+  {
+    icon: '/apache-spark.svg',
+    title: 'Apache Spark',
+    author: 'HPE',
+    description: `Open source analytics engine for big data processing, 
+    with built-in modules for streaming, SQL, machine learning and 
+    graph processing.`,
+    tags: ['AI/ML & Analytics'],
+  },
+  {
+    icon: '/ctera.svg',
+    title: 'CTERA',
+    author: 'CTERA',
+    description: `CTERA’s mission is to enable cloud-driven enterprise IT 
+    organizations to deliver secure file services.`,
+    tags: ['Storage'],
+  },
+  {
+    icon: '/single-store.svg',
+    title: 'SingleStore',
+    author: 'SingleStore',
+    description: `SingleStore is the world’s first cloud database 
+    which unifies transactions and analytics and provides hybrid 
+    and on-premises deployment option.`,
+    tags: ['AI/ML & Analytics', 'Big Data'],
+  },
+  {
+    icon: '/starburst.svg',
+    title: 'Starbust Enterprise',
+    author: 'Starburst',
+    description: `Starburst Enterprise is a fully supported, 
+    production-tested and enterprise-grade distribution of 
+    open source Trino.`,
+    tags: ['AI/ML & Analytics'],
+  },
+];
