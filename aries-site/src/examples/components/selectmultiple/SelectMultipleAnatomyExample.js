@@ -1,4 +1,4 @@
-import { Box, Diagram, Stack } from 'grommet';
+import { Diagram, Stack } from 'grommet';
 import React from 'react';
 import { Annotation } from '../../../layouts';
 import { AnatomyGrid, SelectMultipleAnatomy } from './SelectMultipleAnatomy';
@@ -30,8 +30,8 @@ const connections = [
     type,
     color,
     thickness,
-    fromTarget: '3',
-    toTarget: 'search',
+    fromTarget: 'search',
+    toTarget: '3',
   },
   {
     anchor,
@@ -46,8 +46,8 @@ const connections = [
     type,
     color,
     thickness,
-    fromTarget: '5',
-    toTarget: 'list',
+    fromTarget: 'list',
+    toTarget: '5',
   },
   {
     anchor,
