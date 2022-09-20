@@ -42,36 +42,6 @@ When multiple selections can be made in a list that contains 5 or more items.
 - For long lists, consider setting a max height to ensure optimum readability and scannability of list items. 
 - It is recommended to show approximately 10-15 items before enabling a scroll. Showing more than that will potentially increase the cognitive load on the user.
 
-## Variants
-
-### Default SelectMultiple
-
-Containing multiple choices under a single drop --- Suitable for longer lists such as user or user group selection. 
-
-### SelectMultiple With Visible Selection
-
-Suitable for shorter lists such as network selection, especially when critical data needs to be displayed at input level. Can show up to 5 selected items before truncating the rest of the selections. This will help to reduce cognitive load on user and maintain visual consistency across UI. Not recommended for lists that have more than 15 options–use the default SelectMultiple instead.
-
-### Limited Selection
-
-## Other Use Cases
-
-### Pre-selected list items
-
-### Load time (weak connection or slow data transfer)
-
-### Selection Display Outside of Multi-Select
-
-## Behavior
-
-### Validation
-
-Show a clear validation message when the SelectMultiple form input does not meet the requirements of its bounding formfield. A "required" input error is the most common with SelectMultiple since the available options are typically pre-defined.
-
-### Disabled List Item
-
-When a SelectMultiple allows a limited number of selections, the rest of the unselected list items get disabled when the user reaches their max limit of selections.
-
 ## Best Practices
 
 - Always use a label unless there is something else (such as preceding body text or headers) that makes that SelectMultiple’s purpose perfectly clear.
