@@ -114,6 +114,7 @@ export const SelectMultipleOptions = ({ id, ...rest }) => (
           id={(label === highlightedOption) ? "listItem" : undefined}
           background={label === highlightedOption ? "yellow" : undefined}
           pad="none"
+          key={label}
         >
           <CheckBox 
             label={label}

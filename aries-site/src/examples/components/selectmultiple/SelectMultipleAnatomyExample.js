@@ -3,7 +3,6 @@ import React from 'react';
 import { Annotation } from '../../../layouts';
 import {
   AnatomyGrid,
-  SelectMultipleAnatomy,
   SelectMultipleInput,
   SelectMultipleLimit,
   SelectMultipleOptions,
@@ -67,7 +66,6 @@ const connections = [
   },
 ];
 
-// <SelectMultipleAnatomy gridArea="component" alignSelf="start"/>
 export const SelectMultipleAnatomyExample = () => (
   <Stack interactiveChild="first">
     <AnatomyGrid>
