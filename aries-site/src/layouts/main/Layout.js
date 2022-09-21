@@ -70,21 +70,65 @@ export const Layout = ({
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const [value, setValue] = useState(defaultFeedback);
-  // tracks if feedback has successfully been submitted
-  const [successfulSubmit, setSuccessfulSubmit] = useState(false);
+  const [surveyResults, setSurveyResults] = useState({});
+
+  console.log(surveyResults, surveyResults?.result?.displayedFields);
+
+  useEffect(() => {
+    fetch(
+      'https://ca1.qualtrics.com/API/v3/surveys/SV_ezVvKtA2bBBbvDM/responses/R_1HitDZLeYlmyx3E',
+      {
+        method: 'GET',
+        headers: {
+          'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
+        },
+      },
+    ).then(async response => {
+      if (!response.ok) {
+        console.log('error');
+        return;
+      } else {
+        const result = await response.json();
+        setSurveyResults(result);
+      }
+    });
+  }, []);
 
   const closeFeedbackModal = () => {
     setTimeout(() => {
       setOpen(false);
-      setSuccessfulSubmit(false);
     }, 2000);
   };
 
   const onSubmit = event => {
     event.preventDefault();
-    console.log('response from user', event.value);
-    setSuccessfulSubmit(true);
-    closeFeedbackModal();
+    const data = {
+      values: {
+        fullURL: `https://https://design-system.hpe.design/${router}`,
+        QID1: 1,
+        QID2_TEXT: 'API Test Submission',
+      },
+    };
+    fetch(
+      'https://ca1.qualtrics.com/API/v3/surveys/SV_ezVvKtA2bBBbvDM/responses',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
+        },
+        body: JSON.stringify(data),
+      },
+    )
+      .then(response => response.json())
+      .then(result => {
+        closeFeedbackModal();
+        console.log('response from user', event.value, result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   const match = siteContents.find(
@@ -185,26 +229,17 @@ export const Layout = ({
               a11yTitle={`This button launches a modal to give feedback.`}
             />
             <Feedback
-              onEsc={closeFeedbackModal}
-              onClose={closeFeedbackModal}
               show={open}
               messages={{
                 submit: 'Submit feedback',
                 cancel: 'No thanks',
                 successful: 'Thank you!',
               }}
-              isSuccessful={successfulSubmit}
               modal
+              onClose={onClose}
               title="We’d love your feedback"
               onChange={nextValue => setValue(nextValue)}
-              onReset={() => setValue(defaultFeedback)}
               onSubmit={onSubmit}
-              layerProps={{
-                position: !['xsmall', 'small'].includes(breakpoint)
-                  ? 'bottom-right'
-                  : 'center',
-                margin: { vertical: 'xlarge', horizontal: 'medium' },
-              }}
             >
               <Question
                 label="Was this page helpful?"

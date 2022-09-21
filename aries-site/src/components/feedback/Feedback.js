@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -9,6 +9,7 @@ import {
   Heading,
   Layer,
   Text,
+  ResponsiveContext,
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -16,11 +17,7 @@ const Announcer = ({ announce, message, mode, role }) => {
   const theme = useContext(ThemeContext);
   announce(message, mode);
   return (
-    <Text
-      role={role}
-      aria-live={mode}
-      {...theme?.feedback?.success}
-    >
+    <Text role={role} aria-live={mode} {...theme?.feedback?.success}>
       {message}
     </Text>
   );
@@ -34,20 +31,43 @@ const AnnounceContextComponent = props => (
 
 export const Feedback = ({
   children,
-  isSuccessful,
   layerProps,
   messages,
   modal,
   onChange,
   onClose,
-  onEsc,
   onSubmit,
-  onReset,
   show,
   title,
   value,
 }) => {
   const theme = useContext(ThemeContext);
+  const breakpoint = useContext(ResponsiveContext);
+  // tracks if feedback has successfully been submitted
+  const [successfulSubmit, setSuccessfulSubmit] = useState(false);
+
+  useEffect(() => {
+    setSuccessfulSubmit(false);
+  }, [show]);
+
+  let footerContent;
+  if (!successfulSubmit) {
+    footerContent = (
+      <Box {...theme?.feedback?.footer}>
+        <Button onClick={onClose} label={messages?.cancel || 'Cancel'} />
+        <Button label={messages?.submit || 'Submit'} primary type="submit" />
+      </Box>
+    );
+  } else
+    footerContent = (
+      <Box {...theme?.feedback?.footer}>
+        <AnnounceContextComponent
+          mode="assertive"
+          role="alert"
+          message={messages?.successful || 'Thanks'}
+        />
+      </Box>
+    );
 
   let content = (
     <Box {...theme?.feedback?.container}>
@@ -65,36 +85,26 @@ export const Feedback = ({
         value={value}
         onChange={onChange}
         onSubmit={onSubmit}
-        onReset={onReset}
         method="post"
         validate="submit"
       >
         <Box {...theme?.feedback?.body}>{children}</Box>
-        {messages && !isSuccessful ? (
-          <Box {...theme?.feedback?.footer}>
-            <Button label={messages?.cancel || 'Cancel'} />
-            <Button
-              label={messages?.submit || 'Submit'}
-              primary
-              type="submit"
-            />
-          </Box>
-        ) : (
-          <Box {...theme?.feedback?.footer}>
-            <AnnounceContextComponent
-              mode="assertive"
-              role="alert"
-              message={messages?.successful || 'Thanks'}
-            />
-          </Box>
-        )}
+        {footerContent}
       </Form>
     </Box>
   );
 
   if (modal)
     content = show && (
-      <Layer modal={false} onEsc={onEsc} {...layerProps}>
+      <Layer
+        position={
+          !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
+        }
+        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        modal={false}
+        onEsc={onClose}
+        {...layerProps}
+      >
         {content}
       </Layer>
     );
@@ -115,7 +125,6 @@ const FeedbackHeader = ({ children, title }) => {
 FeedbackHeader.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
-  onClose: PropTypes.func,
 };
 
 Feedback.propTypes = {
