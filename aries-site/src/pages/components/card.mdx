@@ -57,9 +57,14 @@ A card by nature has limited real-estate, so it should present summarized inform
 
 ## When to use
 
+- When presenting a collection of high-level pieces of information.
+- When presenting an item or collection of items that can best be consumed visually.
+
 ## When not to use
 
-- Do not use a Card to filter data on the same screen, instead use **\_**.
+- Do not use a Card as a clickable region to filter data on the same screen.
+- Do not use a Card to group complex content into a single container.
+- When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
 
 ## Types of cards
 
@@ -236,8 +241,14 @@ These are example layouts for various use cases.
 
 <Box width="large">
   <Notification
-    message="We are in the process of establishing guidance for more card types, such as analytics cards."
-    actions={[{ label: 'Feel free to ask us questions on Slack', href: '#' }]}
+    message="We are in the process of establishing guidance for more card types, such as those that contain meters or charts."
+    actions={[
+      {
+        label: 'Feel free to ask us questions on Slack',
+        href: 'https://slack-invite.grommet.io/',
+        target: '_blank',
+      },
+    ]}
     status="info"
   />
 </Box>
