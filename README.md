@@ -46,7 +46,7 @@ yarn install
 
 Running 'yarn install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
 
-Note: Sometimes you may get and error that says : "Integrity check failed for "grommet" (computed integrity doesn't match our records"...). 
+Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...". 
 Since grommet-site is referencing the latest stable branch of grommet. Any new commits added to the stable branch, the sha hash gets updated and becomes out of sync with the sha in the yarn.lock file. 
 
 To fetch the latest grommet stable, remove yarn.lock and clean yarn cache, then yarn install. For Example: rm yarn.lock && yarn cache clean && yarn install
