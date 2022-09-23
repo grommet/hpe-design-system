@@ -2,87 +2,27 @@ import React, { useContext } from 'react';
 import {
   Box,
   Button,
-  CheckBox,
   Form,
-  FormField,
   Header,
   Heading,
-  MaskedInput,
-  ResponsiveContext,
-  Select,
   Text,
-  TextInput,
+  ResponsiveContext,
 } from 'grommet';
-import { emailMask, emailValidation, phoneMask } from './utils/FormValidation';
-
-const states = [
-  'AK',
-  'AL',
-  'AR',
-  'AZ',
-  'CA',
-  'CO',
-  'CT',
-  'DC',
-  'DE',
-  'FL',
-  'GA',
-  'HI',
-  'IA',
-  'ID',
-  'IL',
-  'IN',
-  'KS',
-  'KY',
-  'LA',
-  'MA',
-  'ME',
-  'MD',
-  'MN',
-  'MO',
-  'MS',
-  'MT',
-  'NC',
-  'ND',
-  'NE',
-  'NH',
-  'NJ',
-  'NM',
-  'NY',
-  'NV',
-  'OH',
-  'OK',
-  'OR',
-  'PA',
-  'RI',
-  'SC',
-  'SD',
-  'TN',
-  'TX',
-  'UT',
-  'VA',
-  'VT',
-  'WA',
-  'WI',
-  'WV',
-  'WY',
-];
+import { ShippingInfomation, ContactInformation } from './Shipping';
 
 export const ShippingExample = () => {
+  const size = useContext(ResponsiveContext);
   const [formValues, setFormValues] = React.useState({
-    firstName: '',
-    lastName: '',
     address1: '',
     address2: '',
     city: '',
     state: '',
     zipcode: '',
     isBusiness: '',
-    'fullName-shipping': '',
+    'full-name': '',
     'phone-shipping': '',
     'email-shipping': '',
   });
-  const size = useContext(ResponsiveContext);
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -92,15 +32,13 @@ export const ShippingExample = () => {
   // provide order of formfields for validation
   // to properly place focus on any errors or infos
   const formFields = [
-    'firstName',
-    'lastName',
     'address1',
     'address2',
     'city',
     'state',
     'zipcode',
     'isBusiness',
-    'fullName-shipping',
+    'full-name',
     'phone-shipping',
     'email-shipping',
   ];
@@ -120,7 +58,7 @@ export const ShippingExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <Box gap="medium">
       <Header
         direction="column"
         align="start"
@@ -128,10 +66,10 @@ export const ShippingExample = () => {
         pad={{ horizontal: 'xxsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
-        needed. In this instance, this example is presented within an 
-        HTML section element and this is the first heading within the 
-        section, therefor h2 is the semantically correct heading. For 
-        additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+  needed. In this instance, this example is presented within an 
+  HTML section element and this is the first heading within the 
+  section, therefor h2 is the semantically correct heading. For 
+  additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading level={2} margin="none">
           Shipping
         </Heading>
@@ -152,136 +90,8 @@ export const ShippingExample = () => {
           method="post"
           validate="submit"
         >
-          <Box>
-            <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
-              Shipping Information
-            </Text>
-            <Text
-              margin={{ horizontal: 'none', vertical: 'xsmall' }}
-              size="xsmall"
-            >
-              Shipping Address *
-            </Text>
-            <FormField
-              required
-              htmlFor="firstName"
-              name="firstName"
-              label="First Name"
-              contentProps={{ width: 'medium' }}
-            >
-              <TextInput id="firstName" name="firstName" />
-            </FormField>
-            <FormField
-              required
-              htmlFor="lastName"
-              name="lastName"
-              label="Last Name"
-              contentProps={{ width: 'medium' }}
-            >
-              <TextInput id="lastName" name="lastName" label="Last Name" />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="address1"
-              name="address1"
-              label="Address 1"
-            >
-              <TextInput
-                id="address1"
-                name="address1"
-                placeholder="Street Address"
-              />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="address2"
-              name="address2"
-              label="Address 2"
-            >
-              <TextInput
-                id="address2"
-                name="address2"
-                placeholder="Apt., Suite, Building (Optional)"
-              />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="city"
-              name="city"
-              label="City"
-            >
-              <TextInput id="city" name="city" />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="state__input"
-              name="state"
-              label="State"
-            >
-              <Select
-                id="state"
-                name="state"
-                dropHeight="small"
-                options={states}
-                placeholder="Select State"
-              />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="zipcode"
-              name="zipcode"
-              label="ZIP Code"
-            >
-              <TextInput id="zipcode" name="zipcode" />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="isBusiness"
-              name="isBusiness"
-            >
-              <CheckBox name="isBusiness" label="This is a business" />
-            </FormField>
-          </Box>
-          <Box>
-            <Text size="large" margin={{ vertical: 'small' }}>
-              Contact Information
-            </Text>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              label="Full Name"
-              required
-              htmlFor="fullName"
-              name="fullName-shipping"
-            >
-              <TextInput id="fullName" name="fullName-shipping" />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="phone-shipping"
-              name="phone-shipping"
-              label="Phone Number"
-            >
-              <MaskedInput
-                id="phone-shipping"
-                name="phone-shipping"
-                mask={phoneMask}
-              />
-            </FormField>
-            <FormField
-              contentProps={{ width: 'medium' }}
-              htmlFor="email-ship"
-              name="email-shipping"
-              required
-              label="Email Address"
-              validate={emailValidation}
-            >
-              <MaskedInput
-                id="email-ship"
-                name="email-shipping"
-                mask={emailMask}
-              />
-            </FormField>
-          </Box>
+          <ShippingInfomation name="shippingExample" />
+          <ContactInformation name="shippingExample" />
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'small', bottom: 'small' }}
