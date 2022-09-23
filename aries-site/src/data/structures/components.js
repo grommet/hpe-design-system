@@ -315,7 +315,7 @@ export const components = [
     description:
       'Enables the user to quickly scan through a dropdown list of options and select multiple choices.',
     seoDescription:
-      'Select input component allows users to choose from a list of options.',
+      'SelectMultiple input component allows users to choose one or more items from a list of options.',
     sections: [
       'When to use',
       'When not to use',
@@ -332,6 +332,7 @@ export const components = [
     },
     relatedContent: [
       'Forms',
+      'CheckBoxGroup',
       'Menu',
       'RadioButtonGroup',
       'CheckBox',
