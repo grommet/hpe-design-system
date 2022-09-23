@@ -2,7 +2,6 @@ import { Example } from '../../layouts';
 import {
   SelectDisabledExample,
   SelectExample,
-  SelectMultipleExample,
   SelectSearchExample,
   SelectValidationExample,
 } from '../../examples';
@@ -33,6 +32,10 @@ Because Select is flexible and familiar, the following questions are helpful to 
 - Is the select for a State/Province in the context of collecting an address? Consider only asking for ZIP/Postal Code and automatically determining City, State, Country, etc. without user input.
 - Are the values in list well known and understood, such as Year? Consider [TextInput with suggestions](/components/textinput#textinput-with-suggestions) or [MaskedInput](/components/maskedinput).
 
+### Selecting multiple options
+
+If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
+
 ### Accessibility
 
 Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
@@ -40,20 +43,6 @@ Using Select as a form field is preferred for user experience. When Select is us
 ## Variants
 
 The Select input is flexible and may be extended to allow for multi-select, search, and create options.
-
-### Multi-Select
-
-Allow multiple options to be selected.
-
-[CheckBoxGroup](/components/checkboxgroup) is also great alternative to consider when multiple selections are desired.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectMultipleExample.js"
-  docs="https://v2.grommet.io/select?theme=hpe#props"
-  height={{ min: 'small' }}
->
-  <SelectMultipleExample />
-</Example>
 
 ### Select with Search
 
