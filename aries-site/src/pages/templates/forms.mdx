@@ -3,6 +3,7 @@ import {
   ColumnFormDont,
   CustomizeExample,
   FilterExample,
+  FormPresentationDecisionTree,
   FullPageFormExample,
   RequiredFieldsExample,
   PayExample,
@@ -20,8 +21,10 @@ import { Example } from '../../layouts';
 import { formLayouts } from '../../data/structures';
 
 <Example
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js",
-        "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js"]}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   docs="https://v2.grommet.io/form?theme=hpe"
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
 >
@@ -81,6 +84,10 @@ Complicated processes where the user might need guidance at various stages, or w
 - Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.
 - Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
+## Where to present a form
+
+<FormPresentationDecisionTree />
+
 ## Accessibility
 
 Form inputs must be accompanied by a label that identifies itself to screen readers. Placing all inputs within a Grommet FormField and applying the guidance below play a big role in ensuring the inputs are accessible.
@@ -118,8 +125,10 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Sign up
 
 <Example
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js",
-       "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js"]}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
 >
   <SignUpExample />
@@ -128,8 +137,10 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Sign in
 
 <Example
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js",
-        "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js"]}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
 >
   <SignInExample />
@@ -183,8 +194,10 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Shipping
 
 <Example
-  code={["https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js",
-        "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js"]}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A382"
 >
   <ShippingExample />
@@ -258,40 +271,3 @@ In cases where the user is given an opportunity to express themselves or would l
   href="#sign-in"
   alt="HPE Design System Form where required and optional can be skipped"
 />
-
-## Full-page form
-
-- Use full-page forms for create and edit flows, irrespective of the size of the form.
-- Use a single-column full-page form instead of multi-column layouts.
-- Full-page forms shoud be center-aligned.
-- Use full-page when the form is too long.
-- Use Center modal instead of side drawer to display information without leaving the current context
-
-<Example>
-  <FullPageFormExample />
-</Example>
-
-### Avoid using multiple column layouts
-
-Single-column layouts create clear paths for users.
-Multi-column layouts can inadvertently cause users to skip important fields, input data in the wrong field, or simply prevent progress; all of which can lead users to abandon forms.
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'One column layer to create a clear path to completion for the user.',
-    }}
-  >
-    <ShippingExample />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: `Avoid using multiple-column form layout.`,
-    }}
-  >
-    <ColumnFormDont />
-  </Example>
-</BestPracticeGroup>

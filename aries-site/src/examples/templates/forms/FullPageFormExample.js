@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDarkMode } from '../../../utils';
 import { Image } from 'grommet';
+import { useDarkMode } from '../../../utils';
 
 export const FullPageFormExample = () => {
   const themeMode = useDarkMode().value ? 'dark' : 'light';
