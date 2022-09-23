@@ -9,6 +9,8 @@ import {
   FeaturePromotionCard,
   FeatureReleaseCard,
   CardAlignmentBestPractice,
+  CardContentBestPractice,
+  CardFilteringBestPractice,
   CardSpacingBestPractice,
   CardAnatomy,
   CardExample,
@@ -66,6 +68,56 @@ A card by nature has limited real-estate, so it should present summarized inform
 - Do not use a Card to group complex content into a single container.
 - When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
 
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Style filter buttons as default buttons.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a Card to wrap a set of buttons. Cards should act as independent regions that do not affect surrounding content.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Place non-Card page content flush on the page.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a Card solely as a way to denote a layout region of related content.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
 ## Types of cards
 
 ### Call-to-action
@@ -106,12 +158,12 @@ DIAGRAM TO BE ADDED
 
 - Cards that are highly promotional should use elements that create higher visual emphasis (colorful brand-approved images, background colors/textures, etc.).
   - Use cases (ordered from highest visual emphasis to lowest) include event promotion, new feature release, trial promotion.
-- Cards that are less promotional should still have enticing titles but do not necessarily need as strong of visual emphasis. The white brand-approved textures are appropriate if a subtle visual emphasis is desired.
+- Cards that are less promotional should still have enticing titles but do not necessarily need as strong of visual emphasis. The [white brand-approved textures](https://brandcentral.hpe.com/brand-central/content/distinctive-brand-assets/flexible-ingredients#c3-color-and-texture-style-3) are appropriate if a subtle visual emphasis is desired.
   - A use case is a software upgrade announcement.
 
 #### Examples
 
-These are example layouts for various use cases. Call-to-action ards that are highly promotional, such as event promotions, incorporate stronger visual elements while those that are less promotional, like software updates, are more subtle.
+These are example layouts for various use cases. Call-to-action cards that are highly promotional, such as event promotions, incorporate stronger visual elements while those that are less promotional, like software updates, are more subtle.
 
 <Example
   componentName="Card"

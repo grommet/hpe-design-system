@@ -42,7 +42,7 @@ const filtersConfig = [
   },
 ];
 
-export const FilterServers = ({ bestPractice = true }) => (
+export const FilterServers = ({ bestPractice = true, height }) => (
   <FiltersProvider>
     <Box gap="medium">
       <FilterControls
@@ -55,13 +55,14 @@ export const FilterServers = ({ bestPractice = true }) => (
         }
         actions={bestPractice && <Button label="Add Server" secondary />}
       />
-      <ServerResults />
+      <ServerResults height={height} />
     </Box>
   </FiltersProvider>
 );
 
 FilterServers.propTypes = {
   bestPractice: PropTypes.bool,
+  height: PropTypes.string,
 };
 
 const columns = [
@@ -96,12 +97,12 @@ const statusIcons = {
   Unknown: <StatusUnknownSmall color="status-unknown" size="small" />,
 };
 
-const ServerResults = () => {
+const ServerResults = ({ height }) => {
   const size = useContext(ResponsiveContext);
   const { filteredResults, selected, setSelected } = useFilters();
 
   return (
-    <Box overflow="auto">
+    <Box height={height} overflow="auto">
       <DataTable
         aria-describedby="servers-heading"
         data={filteredResults}
@@ -133,4 +134,8 @@ const ServerResults = () => {
       />
     </Box>
   );
+};
+
+ServerResults.propTypes = {
+  height: PropTypes.string,
 };
