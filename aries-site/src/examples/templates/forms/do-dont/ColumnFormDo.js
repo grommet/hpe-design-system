@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import {
-  Box,
-  Button,
-  Form,
-  Header,
-  Heading,
-  Text,
-  ResponsiveContext,
-} from 'grommet';
+    Box,
+    Button,
+    Form,
+    Header,
+    Heading,
+    Text,
+    ResponsiveContext,
+  } from 'grommet';
 import { ContactInformation, ShippingInfomation } from '../Shipping';
 
-export const ColumnFormDont = () => {
+export const ColumnFormDo = () => {
   const size = useContext(ResponsiveContext);
   const [formValues, setFormValues] = React.useState({
     'address1': '',
@@ -19,9 +19,9 @@ export const ColumnFormDont = () => {
     'state': '',
     'zipcode': '',
     'isBusiness': '',
-    'full-name-2': '',
-    'phone-shipping-2': '',
-    'email-shipping-2': '',
+    'full-name-1': '',
+    'phone-shipping-1': '',
+    'email-shipping-1': '',
   });
 
   // eslint-disable-next-line no-unused-vars
@@ -32,15 +32,15 @@ export const ColumnFormDont = () => {
   // provide order of formfields for validation
   // to properly place focus on any errors or infos
   const formFields = [
-    'address/1',
-    'address/2',
-    'city-2',
-    'state-2',
-    'zipcode-2',
-    'isBusiness-2',
-    'full-name-2',
-    'phone-shipping-2',
-    'email-shipping-2',
+    'address1',
+    'address2',
+    'city',
+    'state',
+    'zipcode',
+    'isBusiness',
+    'full-name-1',
+    'phone-shipping-1',
+    'email-shipping-1',
   ];
 
   // On long forms, we want to focus the first of any fields that
@@ -90,17 +90,13 @@ export const ColumnFormDont = () => {
           method="post"
           validate="submit"
         >
-          <Box gap="large" direction="row">
-            <ShippingInfomation name="shippingDontExample" />
-            <Box>
-              <ContactInformation name="shippingDontExample" />
-              <Box
-                align={['xsmall', 'small'].includes(size) ? undefined : 'start'}
-                margin={{ vertical: 'small' }}
-              >
-                <Button label="Continue" primary type="submit" />
-              </Box>
-            </Box>
+          <ShippingInfomation name="shippingDoExample" />
+          <ContactInformation name="shippingDoExample" />
+          <Box
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+            margin={{ top: 'small', bottom: 'small' }}
+          >
+            <Button label="Continue" primary type="submit" />
           </Box>
         </Form>
       </Box>
