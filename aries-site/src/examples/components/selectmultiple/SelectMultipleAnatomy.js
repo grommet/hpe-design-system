@@ -72,6 +72,7 @@ const DropElement = ({ ...rest }) => (
     background="background-front"
     elevation="medium"
     pad="xsmall"
+    round="xxsmall"
     {...rest}
   />
 );
@@ -93,7 +94,7 @@ export const SelectMultipleSelected = ({ id, ...rest }) => (
 export const SelectMultipleSearch = ({ id, ...rest }) => (
   <DropElement pad={{ horizontal: 'xsmall' }} { ...rest }>
     <Highlight id={id} background="teal" pad="none">
-      <TextInput />
+      <TextInput placeholder="Search" />
     </Highlight>
   </DropElement>
 );
