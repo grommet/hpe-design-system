@@ -49,7 +49,7 @@ Running 'yarn install' anywhere in the monorepo hierarchy will always install AL
 Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...". 
 `aries-site` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the yarn.lock file. 
 
-To fetch the latest grommet stable, remove yarn.lock and clean yarn cache, then yarn install. For Example: rm yarn.lock && yarn cache clean && yarn install
+To fetch the latest grommet stable, remove yarn.lock and clean yarn cache, then yarn install. For example: `rm yarn.lock && yarn cache clean && yarn install`
 
 Run aries-site in development mode:
 
