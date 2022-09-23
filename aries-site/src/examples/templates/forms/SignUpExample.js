@@ -15,7 +15,12 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { FormCheckmark } from 'grommet-icons';
-import { emailMask, emailValidation, passwordRequirements, passwordRulesStrong  } from './utils/FormValidation';
+import {
+  emailMask,
+  emailValidation,
+  passwordRequirements,
+  passwordRulesStrong,
+} from './utils/FormValidation';
 
 export const SignUpExample = () => {
   const [formValues, setFormValues] = React.useState({

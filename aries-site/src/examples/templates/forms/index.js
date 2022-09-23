@@ -2,6 +2,7 @@ export * from './do-dont';
 export * from './ChangePasswordExample';
 export * from './CustomizeExample';
 export * from './FilterExample';
+export * from './FormPresentationDecisionTree';
 export * from './FullPageFormExample';
 export * from './RequiredFieldsExample';
 export * from './PayExample';
