@@ -17,7 +17,7 @@ const DesignSystemCard = ({
   ...rest
 }) => (
   <Card direction={direction} {...rest}>
-    {media && media}
+    {media}
     <CardBody
       direction={direction}
       align="start"

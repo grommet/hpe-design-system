@@ -59,21 +59,22 @@ A card by nature has limited real-estate, so it should present summarized inform
 
 ## When to use
 
-- When presenting high-level, summarized pieces of information.
-- When presenting an item or collection of items that can best be consumed visually.
+- Presenting high-level, summarized pieces of information.
+- Presenting an item, or collection of items, which can best be consumed visually.
+
+In all cases the presentation allows users to quickly scan the content and navigate to underlying detail if desired.
 
 ## When not to use
 
-- Do not use a Card as a clickable region to filter data on the same screen.
-- Do not use a Card to group complex content into a single container.
-- When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
+- Cards should not be used as a control to filter data on the same screen. A button is the appropriate control to apply a filter. Alternatively, cards may be used present summarized information and allow a user to navigate to a pre-filtered view of that information.
 
 <BestPracticeGroup>
   <Example
     height={{ min: 'small' }}
     bestPractice={{
       type: 'do',
-      message: 'Style filter buttons as default buttons.',
+      message:
+        'Style status filter buttons as default buttons when the buttons are placed on the same page as the data they will be filtering.',
     }}
     scale={0.4}
     width="100%"
@@ -84,7 +85,7 @@ A card by nature has limited real-estate, so it should present summarized inform
     height={{ min: 'small' }}
     bestPractice={{
       type: 'dont',
-      message: `Don’t use a Card to wrap a set of buttons. Cards should act as independent regions that do not affect surrounding content.`,
+      message: `Don’t use a card to wrap a set of status filter buttons that affect data on the same page. Cards should act as independent regions that do not affect surrounding content. However, placing these buttons in a Card would be appropriate on a dashboard, where clicking on one of the status buttons would navigate to a different page that is filtered by the selected status.`,
     }}
     scale={0.4}
     width="100%"
@@ -92,6 +93,8 @@ A card by nature has limited real-estate, so it should present summarized inform
     <CardFilteringBestPractice bestPractice={false} />
   </Example>
 </BestPracticeGroup>
+
+- A Card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
 
 <BestPracticeGroup>
   <Example
@@ -118,11 +121,23 @@ A card by nature has limited real-estate, so it should present summarized inform
   </Example>
 </BestPracticeGroup>
 
+- When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
+
 ## Types of cards
+
+A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinfornce its purpose. The following are distinct types of cards that have unique purposes and best practices:
+
+- [Call-to-action](#call-to-action)
+- [Navigational](#navigational)
+- [Status-based navigation](#status-based-navigation)
+- [Resource](#resource)
+- [Analytic](#analytic)
 
 ### Call-to-action
 
 **Primary purpose:** A call-to-action card should be used to entice the user down a desired path.
+
+This type of card is more commonly used within marketing contexts and should be used sparingly within HPE products and services. Secondary purposes might include an action to navigate to a screen with greater detail on the offering.
 
 #### Example use cases
 
@@ -131,8 +146,6 @@ A card by nature has limited real-estate, so it should present summarized inform
 - Launch a demo for an upcoming feature release
 - Upgrade software version
   - This encourages users to stay on the latest version to avoid bugs, legacy software.
-
-This type of card is more commonly used within marketing contexts and should be used sparingly within HPE products and services. Secondary purposes might include an action to navigate to a screen with greater detail on the offering.
 
 #### Anatomy
 
@@ -308,21 +321,23 @@ These are example layouts for various use cases.
   <MarketplaceNavigationalCards />
 </Example>
 
-### Coming Soon
+### Status-based navigation
 
-<Box width="large">
-  <Notification
-    message="We are in the process of establishing guidance for more card types, such as those that contain meters or charts."
-    actions={[
-      {
-        label: 'Feel free to ask us questions on Slack',
-        href: 'https://slack-invite.grommet.io/',
-        target: '_blank',
-      },
-    ]}
-    status="info"
-  />
-</Box>
+**Primary purpose:** Quickly assist the user to navigate to resources, tasks, or processes requiring their attention and/or action.
+
+Guidance for this card type is coming soon.
+
+### Resource
+
+**Primary purpose:** Allow a user to scan a set of resource options and choose one based on their needs.
+
+Guidance for this card type is coming soon.
+
+### Analytics
+
+**Primary purpose:** Present measures and metrics in short, digestible content pieces and allow a user to navigate to underlying detail is needed.
+
+Guidance for this card type is coming soon.
 
 ## Formatting
 
@@ -397,6 +412,16 @@ For cards within the same layout section, place a minimum gap of "medium" betwee
 
 ## Accessibility
 
+### Card titles
+
 Card titles should use a Heading of the correct [semantic heading level](foundation/typography#semantic-usage-of-heading-levels) based on where the card is in the document. For example, a card nested under a Heading level 2 should use a Heading level 3 for its title.
 
 Don't use Text for the card title as this will hurt the experience for users of assisstive technologies.
+
+### Card sections
+
+When cards are presenting as a group, they should function as a list.
+
+- Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
+  - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
+- Apply `as="li"` to the individual cards.
