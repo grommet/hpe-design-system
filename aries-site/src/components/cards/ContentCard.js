@@ -1,15 +1,16 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Card, CardBody, Image, Text } from 'grommet';
+import { Box, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
+import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const { description, name, parent, preview, render } = topic;
   const darkMode = useDarkMode();
   return (
-    <Card fill pad="medium" ref={ref} {...rest}>
+    <LinkCard fill pad="medium" ref={ref} {...rest}>
       <CardBody gap="large">
         {!minimal && (
           <PreviewImageCard
@@ -58,7 +59,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
           {description && <Text size="small">{description}</Text>}
         </Box>
       </CardBody>
-    </Card>
+    </LinkCard>
   );
 });
 
