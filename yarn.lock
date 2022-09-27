@@ -6394,9 +6394,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.723, electron-to-chromium@^1.4.251:
-  version "1.4.262"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.262.tgz#25715dfbae4c2e0640517cba184715241ecd8e63"
-  integrity sha512-Ckn5haqmGh/xS8IbcgK3dnwAVnhDyo/WQnklWn6yaMucYTq7NNxwlGE8ElzEOnonzRLzUCo2Ot3vUb2GYUF2Hw==
+  version "1.4.264"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.264.tgz#2f68a062c38b7a04bf57f3e6954b868672fbdcd3"
+  integrity sha512-AZ6ZRkucHOQT8wke50MktxtmcWZr67kE17X/nAXFf62NIdMdgY6xfsaJD5Szoy84lnkuPWH+4tTNE3s2+bPCiw==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -8007,7 +8007,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.26.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#82f4dc0784be73ee1c3b2a85990e7f3ef30bf823"
+  resolved "https://github.com/grommet/grommet/tarball/stable#a6b31724d7f89db5f897856d59892f9fbd271e3e"
   dependencies:
     grommet-icons "^4.7.0"
     hoist-non-react-statics "^3.2.0"
@@ -8759,9 +8759,9 @@ invariant@^2.2.3, invariant@^2.2.4:
     loose-envify "^1.0.0"
 
 io-ts-types@^0.5.15:
-  version "0.5.16"
-  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.16.tgz#e9eed75371e217c97050cc507915e8eedc250946"
-  integrity sha512-h9noYVfY9rlbmKI902SJdnV/06jgiT2chxG6lYDxaYNp88HscPi+SBCtmcU+m0E7WT5QSwt7sIMj93+qu0FEwQ==
+  version "0.5.17"
+  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.17.tgz#d58c115f699468d3e822cebebdadef95080f739f"
+  integrity sha512-W0zrePsFWAyBdvHj4b/LU4HaHfDiKQ0DvSYDeE5hgXYaEtTEqcyNTLGRcFSa32lZAQFQzyQRDVtN+B7MyBaXAw==
 
 io-ts@^2.2.14:
   version "2.2.18"

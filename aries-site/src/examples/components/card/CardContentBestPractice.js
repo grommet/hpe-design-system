@@ -7,6 +7,7 @@ import {
   CardBody,
   Grid,
   Heading,
+  Image,
   NameValueList,
   NameValuePair,
   Page,
@@ -76,8 +77,16 @@ CardContentBestPractice.propTypes = {
 const LeftPanel = ({ bestPractice }) => {
   const content = (
     <Box gap="medium">
+      <Box alignSelf="start" height="xxsmall">
+        <Image
+          alignSelf="start"
+          src="/acme.svg"
+          alt="Acme Corporation logo"
+          fit="contain"
+        />
+      </Box>
       <Heading level={2} size="small" margin="none">
-        Acme, Inc.
+        Acme Corporation
       </Heading>
       <NameValueList pairProps={{ direction: 'column' }}>
         <NameValuePair name="Account ID">
