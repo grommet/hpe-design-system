@@ -1,39 +1,34 @@
-import { Box, Card, CardBody, Text } from 'grommet';
+import { useRouter } from 'next/router';
+import { Card, useAnalytics } from 'grommet';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import { internalLink } from '..';
+export const LinkCard = ({ href, ...rest }) => {
 
-export const LinkCard = ({ link, title, icon }) => {
-  const Wrapper = Link;
-  const wrapperProps = {
-    href: link,
-    passHref: true,
+  const router = useRouter();
+  const sendAnalytics = useAnalytics();
+
+  const isInternalLink = internalLink.test(href);
+  const handleClick = (e) => {
+    sendAnalytics({ type: 'cardClick', href });
+    
+    if (isInternalLink) {
+      e.preventDefault();
+      router.push(href);
+    }
   };
-  const Icon = icon;
 
   return (
-    <Wrapper {...wrapperProps}>
-      <Card as="a" target="_blank" style={{ textDecoration: 'none' }}>
-        <CardBody direction="row" gap="small">
-          <Box
-            pad="small"
-            justify="center"
-            round="small"
-            background="background-back"
-            flex={false}
-          >
-            <Icon size="large" />
-          </Box>
-          <Text color="text-strong" weight="bold" size="xlarge">
-            {title}
-          </Text>
-        </CardBody>
-      </Card>
-    </Wrapper>
+    <Card
+      as="a"
+      href={href}
+      onClick={handleClick}
+      target={!isInternalLink ? '_blank' : undefined}
+      style={{ textDecoration: 'none' }}
+      {...rest}
+    />
   );
 };
 
 LinkCard.propTypes = {
-  title: PropTypes.string,
-  link: PropTypes.string,
-  icon: PropTypes.object,
+  href: PropTypes.string,
 };
