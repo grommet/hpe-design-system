@@ -169,7 +169,13 @@ const areas = [
 ];
 
 const DecisionTree = () => (
-  <Grid columns={columns} areas={areas} rows={rows} gap="large">
+  <Grid
+    columns={columns}
+    areas={areas}
+    rows={rows}
+    gap="large"
+    pad={{ vertical: 'medium' }}
+  >
     <Decision gridArea="return-or-continue" id="return-or-continue">
       Does the user want to return to their starting context or continue on
       their current path after completing the form?
