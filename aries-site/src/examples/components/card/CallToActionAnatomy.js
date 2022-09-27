@@ -16,6 +16,58 @@ import { FormNextLink } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 import { event } from './data';
 
+const connection = (fromTarget, toTarget) => ({
+  anchor: 'horizontal',
+  type: 'direct',
+  color: 'border',
+  thickness: 'hair',
+  fromTarget,
+  toTarget,
+});
+
+const connections = [
+  connection('cta-1a', 'cta-title'),
+  connection('cta-1b', 'cta-pretitle'),
+  connection('cta-1c', 'cta-subtitle'),
+  connection('cta-2', 'cta-description'),
+  connection('cta-3', 'cta-action'),
+  connection('cta-4', 'cta-image'),
+  connection('cta-5', 'cta-background-image'),
+];
+
+export const CallToActionAnatomy = () => (
+  <Stack interactiveChild="first">
+    <Grid
+      align="center"
+      columns={['xsmall', 'medium']}
+      rows={['small', '24px', '24px', '48px', '24px', '100px', '24px', '40px']}
+      areas={[
+        ['cta-annotation-4', 'card-example'],
+        ['cta-empty', 'card-example'],
+        ['cta-annotation-1b', 'card-example'],
+        ['cta-annotation-1a', 'card-example'],
+        ['cta-annotation-1c', 'card-example'],
+        ['cta-annotation-2', 'card-example'],
+        ['cta-empty-2', 'card-example'],
+        ['cta-annotation-3', 'card-example'],
+        ['cta-annotation-5', 'card-example'],
+      ]}
+    >
+      <Annotation id="cta-4" target="4" gridArea="cta-annotation-4" />
+      <Annotation id="cta-1b" target="1b" gridArea="cta-annotation-1b" />
+      <Annotation id="cta-1a" target="1a" gridArea="cta-annotation-1a" />
+      <Annotation id="cta-1c" target="1c" gridArea="cta-annotation-1c" />
+      <Annotation id="cta-2" target="2" gridArea="cta-annotation-2" />
+      <Annotation id="cta-3" target="3" gridArea="cta-annotation-3" />
+      <Annotation id="cta-5" target="5" gridArea="cta-annotation-5" />
+      <Box gridArea="cta-empty" />
+      <Box gridArea="cta-empty-2" />
+      <CardExample gridArea="card-example" />
+    </Grid>
+    <Diagram connections={connections} />
+  </Stack>
+);
+
 const DashedBox = ({ ...rest }) => (
   <Box
     alignSelf="start"
@@ -61,99 +113,4 @@ const CardExample = ({ ...rest }) => (
     </CardBody>
     <Box id="cta-background-image" />
   </Card>
-);
-
-const color = 'border';
-const anchor = 'horizontal';
-const thickness = 'hair';
-const type = 'direct';
-
-const connections = [
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-1a',
-    toTarget: 'cta-title',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-1b',
-    toTarget: 'cta-pretitle',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-1c',
-    toTarget: 'cta-subtitle',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-2',
-    toTarget: 'cta-description',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-3',
-    toTarget: 'cta-action',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-4',
-    toTarget: 'cta-image',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: 'cta-5',
-    toTarget: 'cta-background-image',
-  },
-];
-
-export const CallToActionAnatomy = () => (
-  <Stack interactiveChild="first">
-    <Grid
-      justify="start"
-      columns={['xsmall', 'medium']}
-      rows={['small', '24px', '24px', '48px', '24px', '100px', '24px', '40px']}
-      areas={[
-        ['cta-annotation-4', 'card-example'],
-        ['cta-empty', 'card-example'],
-        ['cta-annotation-1b', 'card-example'],
-        ['cta-annotation-1a', 'card-example'],
-        ['cta-annotation-1c', 'card-example'],
-        ['cta-annotation-2', 'card-example'],
-        ['cta-empty-2', 'card-example'],
-        ['cta-annotation-3', 'card-example'],
-        ['cta-annotation-5', 'card-example'],
-      ]}
-    >
-      <Annotation id="cta-4" target="4" gridArea="cta-annotation-4" />
-      <Annotation id="cta-1b" target="1b" gridArea="cta-annotation-1b" />
-      <Annotation id="cta-1a" target="1a" gridArea="cta-annotation-1a" />
-      <Annotation id="cta-1c" target="1c" gridArea="cta-annotation-1c" />
-      <Annotation id="cta-2" target="2" gridArea="cta-annotation-2" />
-      <Annotation id="cta-3" target="3" gridArea="cta-annotation-3" />
-      <Annotation id="cta-5" target="5" gridArea="cta-annotation-5" />
-      <CardExample gridArea="card-example" />
-    </Grid>
-    <Diagram connections={connections} />
-  </Stack>
 );
