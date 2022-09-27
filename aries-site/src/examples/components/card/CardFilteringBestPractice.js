@@ -20,7 +20,7 @@ import { FilterServers } from '../../templates/filtering';
 
 export const CardFilteringBestPractice = ({ bestPractice = true }) => (
   <Page>
-    <PageContent>
+    <PageContent pad={bestPractice ? { bottom: 'large' } : undefined}>
       <PageHeader title="Servers" />
       <Box gap="medium">
         <FilterBar bestPractice={bestPractice} />

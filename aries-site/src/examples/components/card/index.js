@@ -1,5 +1,6 @@
 export * from './ActivitiesNavigationalCards';
 export * from './ApplicationsNavigationalCards';
+export * from './CallToActionAnatomy';
 export * from './CardAlignmentBestPractice';
 export * from './CardContentBestPractice';
 export * from './CardFilteringBestPractice';
@@ -13,6 +14,7 @@ export * from './EventPromotionCard';
 export * from './EventPromotionRowCard';
 export * from './FeaturePromotionCard';
 export * from './FeatureReleaseCard';
+export * from './NavigationalAnatomy';
 export * from './TrialPromotionCard';
 export * from './TrialPromotionRowCard';
 export * from './TrialPromotionColorCard';

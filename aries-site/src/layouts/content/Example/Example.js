@@ -394,11 +394,11 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
+  scale: PropTypes.number,
   screenContainer: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({ scale: PropTypes.number }),
   ]),
-  scale: PropTypes.number,
   showResponsiveControls: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.bool,

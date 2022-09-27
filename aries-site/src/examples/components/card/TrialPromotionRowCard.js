@@ -7,6 +7,7 @@ export const TrialPromotionRowCard = () => (
     background={{
       image:
         'url(https://d3hq6blov2iije.cloudfront.net/images/textures/GettyImages-1190757657_800_0_72_RGB+19855.jpg)',
+      dark: false,
     }}
     title="Simple, self-service storage made easy with HPE Block Storage"
     level={2}
