@@ -4,6 +4,7 @@ export * from './CallToActionAnatomy';
 export * from './CardAlignmentBestPractice';
 export * from './CardContentBestPractice';
 export * from './CardFilteringBestPractice';
+export * from './CardKitchenSink';
 export * from './CardSpacingBestPractice';
 export * from './CardAnatomy';
 export * from './CardExample';
