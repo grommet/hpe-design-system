@@ -73,6 +73,7 @@ export const components = {
   h2: props => <SubsectionHeader level={2} {...props} />,
   h3: props => <SubsectionHeader level={3} {...props} />,
   h4: props => <SubsectionHeader level={4} {...props} />,
+  h5: props => <SubsectionHeader level={5} {...props} />,
   hr: () => (
     <Box
       as="hr"
