@@ -7,7 +7,7 @@ export const Destination = ({ children, detail, useCases, ...rest }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box {...rest}>
+    <Box border {...rest}>
       <Button onClick={() => setOpen(!open)}>
         <Box
           alignSelf="start"
