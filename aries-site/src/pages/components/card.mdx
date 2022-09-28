@@ -464,3 +464,5 @@ When cards are presenting as a group, they should function as a list.
 - Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
   - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
 - Apply `as="li"` to the individual cards.
+
+Internally, the Card has a container that is implemented as a `section` that contains CardHeader (which translates to a `header`), CardBody, and CardFooter (which translates to a `footer`). This aligns with HTML spec which states that `header` and `footer` regions relate to their nearest sectioning content element.

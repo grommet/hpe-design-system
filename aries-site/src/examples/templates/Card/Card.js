@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Card, CardBody, Heading, Paragraph, Text } from 'grommet';
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  CardFooter,
+  Heading,
+  Paragraph,
+  Text,
+} from 'grommet';
+import { adjustPad } from './utils';
 
 const DesignSystemCard = ({
+  as,
   actions,
   alignActions,
   children,
@@ -15,44 +27,56 @@ const DesignSystemCard = ({
   pretitle,
   title,
   ...rest
-}) => (
-  <Card direction={direction} {...rest}>
-    {media}
-    <CardBody
-      direction={direction}
-      align="start"
-      gap="medium"
-      justify={alignActions === 'end' ? 'between' : 'start'}
-    >
-      <Box gap="xsmall">
-        <>
-          {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
-          {pretitle && <Text size="small">{pretitle}</Text>}
-          {title && typeof title === 'string' ? (
-            <Heading level={level} margin="none" size="small">
-              {title}
-            </Heading>
-          ) : (
-            title
-          )}
-          {subtitle && (
-            <Box pad={{ bottom: 'xsmall' }}>
-              <Text size="small">{subtitle}</Text>
-            </Box>
-          )}
-        </>
-        <Paragraph margin="none">{description}</Paragraph>
-      </Box>
-      <Box flex={false}>{actions}</Box>
-    </CardBody>
-  </Card>
-);
+}) => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box as={as}>
+      <Card direction={direction} as="section" {...rest}>
+        {media && media}
+        <Box>
+          <CardHeader
+            direction="column"
+            gap="none"
+            align="start"
+            pad={adjustPad(direction, 'header', theme)}
+          >
+            {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
+            {pretitle && <Text size="small">{pretitle}</Text>}
+            {title && typeof title === 'string' ? (
+              <Heading level={level} margin="none" size="small">
+                {title}
+              </Heading>
+            ) : (
+              title
+            )}
+            {subtitle && (
+              <Box pad={{ bottom: 'xsmall' }}>
+                <Text size="small">{subtitle}</Text>
+              </Box>
+            )}
+          </CardHeader>
+          <CardBody align="start" pad={adjustPad(direction, 'body', theme)}>
+            <Paragraph margin="none">{description}</Paragraph>
+          </CardBody>
+        </Box>
+        <CardFooter
+          align={alignActions || 'start'}
+          pad={adjustPad(direction, 'footer', theme)}
+        >
+          <Box flex={false}>{actions}</Box>
+        </CardFooter>
+      </Card>
+    </Box>
+  );
+};
 
 DesignSystemCard.propTypes = {
   actions: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
+  as: PropTypes.string,
   alignActions: PropTypes.oneOf(['end']),
   children: PropTypes.oneOf([
     PropTypes.element,
