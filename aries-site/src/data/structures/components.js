@@ -105,6 +105,67 @@ export const components = [
     tags: ['tiles', 'widgets', 'containers', 'cards'],
   },
   {
+    name: 'Call to action card',
+    render: 'Call-to-action card',
+    parent: 'Card',
+    category: 'Layouts',
+    description:
+      'A call-to-action card should be used to entice the user down a desired path.',
+    seoDescription:
+      'A call-to-action card should be used to entice the user down a desired path.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
+    sections: [
+      'What makes up a Card',
+      'Dashboard Example',
+      'Navigation Example',
+      'Card as a Dashboard Element',
+      'Card with an Image',
+      'Card with a Footer',
+      'Grid, List, or Table',
+      'More Examples of a Card',
+    ],
+    tags: ['tiles', 'widgets', 'containers', 'cards'],
+  },
+  {
+    name: 'Navigational card',
+    parent: 'Card',
+    category: 'Layouts',
+    description:
+      'Navigational cards provide the user with a means of wayfinding.',
+    seoDescription:
+      'Navigational cards provide the user with a means of wayfinding.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    relatedContent: ['Lists', 'Dashboards', 'Navigation'],
+    sections: [
+      'What makes up a Card',
+      'Dashboard Example',
+      'Navigation Example',
+      'Card as a Dashboard Element',
+      'Card with an Image',
+      'Card with a Footer',
+      'Grid, List, or Table',
+      'More Examples of a Card',
+    ],
+    tags: ['tiles', 'widgets', 'containers', 'cards'],
+  },
+  {
     name: 'Tabs',
     category: 'Controls',
     description:

@@ -1,0 +1,272 @@
+import { Box, Button, Notification } from 'grommet';
+import Link from 'next/link';
+import { FormNextLink } from 'grommet-icons';
+import { BestPracticeGroup, Example } from '../../../layouts';
+import { ExampleImagePreview } from '../../../components';
+import {
+  ActivitiesNavigationalCards,
+  ApplicationsNavigationalCards,
+  EventPromotionCard,
+  EventPromotionRowCard,
+  FeaturePromotionCard,
+  FeatureReleaseCard,
+  CallToActionAnatomy,
+  CardAlignmentBestPractice,
+  CardContentBestPractice,
+  CardKitchenSink,
+  CardFilteringBestPractice,
+  CardSpacingBestPractice,
+  CardAnatomy,
+  CardExample,
+  CardMeterExample,
+  CardWithFooter,
+  CardWithImage,
+  PaginationCardsExample,
+  MarketplaceNavigationalCards,
+  NavigationalAnatomy,
+  SimpleCard,
+  ToolsNavigationalCards,
+  TrialPromotionCard,
+  TrialPromotionRowCard,
+  TrialPromotionColorCard,
+} from '../../../examples';
+
+<Example
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardKitchenSink.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+  width="100%"
+>
+  <CardKitchenSink />
+</Example>
+
+## Principles
+
+Cards are containers that display content and actions on a single topic. They should be easy to scan for relevant and actionable information.
+
+**Contained** - A card is identifiable as a single, contained unit.
+
+**Independent** - A card can stand alone, without relying on surrounding elements for context.
+
+**Individual** - A card cannot merge with another card, or divide into multiple cards.
+
+**Summarized** - A card by nature has limited real-estate, so it should present summarized information.
+
+## When to use
+
+- Presenting high-level, summarized pieces of information.
+- Presenting an item, or collection of items, which can best be consumed visually.
+
+In all cases the presentation allows users to quickly scan the content and navigate to underlying detail if desired.
+
+## When not to use
+
+- Cards should not be used as a control to filter data on the same screen. A button is the appropriate control to apply a filter. Alternatively, cards may be used to present summarized information and allow a user to navigate to a pre-filtered view of that information.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Style status filter buttons as default buttons when the buttons are placed on the same page as the data they will be filtering.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a card to wrap a set of status filter buttons that affect data on the same page. Cards should act as independent regions that do not affect surrounding content. However, placing these buttons in a Card would be appropriate on a dashboard, where clicking on one of the status buttons would navigate to a different page that is filtered by the selected status.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+- A Card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Place non-Card page content flush on the page.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a Card solely as a way to denote a layout region of related content.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+- When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
+
+## Types of cards
+
+A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices:
+
+### Call-to-action
+
+Entice the user down a desired path.
+
+<Link href="/components/card/call-to-action-card" passHref>
+  <Button
+    label="Call-to-action card guidance"
+    icon={<FormNextLink />}
+    reverse
+    primary
+    alignSelf="start"
+    margin={{ bottom: 'medium' }}
+  />
+</Link>
+
+<Example>
+  <EventPromotionCard />
+</Example>
+
+### Navigational
+
+**Primary purpose:** Navigational cards provide the user with a means of wayfinding.
+
+Navigational cards enable the user to identify, compare, and choose their desired next step.
+
+<Link href="/components/card/navigational-card" passHref>
+  <Button
+    label="Navigational card guidance"
+    icon={<FormNextLink />}
+    reverse
+    primary
+    alignSelf="start"
+    margin={{ bottom: 'medium' }}
+  />
+</Link>
+
+<Example>
+  <ActivitiesNavigationalCards heading={false} />
+</Example>
+
+### Status-based navigation
+
+**Primary purpose:** Quickly assist the user to navigate to resources, tasks, or processes requiring their attention and/or action.
+
+Guidance for this card type is coming soon.
+
+### Resource
+
+**Primary purpose:** Allow a user to scan a set of resource options and choose one based on their needs.
+
+Guidance for this card type is coming soon.
+
+### Analytic
+
+**Primary purpose:** Present measures and metrics in short, digestible content pieces and allow a user to navigate to underlying detail is needed.
+
+Guidance for this card type is coming soon.
+
+## Formatting
+
+### Alignment
+
+Use left-alignment whenever possible in order to optimize readability.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Left-align text and content.',
+    }}
+    height={{ min: 'small' }}
+  >
+    <CardAlignmentBestPractice />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't center text and content. This hurts readability.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardAlignmentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+### Spacing
+
+For cards within the same layout section, place a minimum gap of "medium" between cards.
+
+<BestPracticeGroup columns="100%">
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use a "medium" gap between cards.',
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardSpacingBestPractice />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use a gap smaller than "medium" between cards because this creates a crowded feeling.`,
+    }}
+    width="100%"
+    height={{ min: 'small' }}
+  >
+    <CardSpacingBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Interactions
+
+### Mouse
+
+- If a card does not contain an action behavior, do not provide hover feedback.
+- If a card has a singular action behavior, the entire card can be clickable. Provide a hand cursor change and large elevation on hover.
+- If a card contains a multiple action behaviors, such as a primary action and a secondary action, provide the documented hover feedback on the individual actionable elements only.
+
+### Keyboard
+
+| Key         | Interaction                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| Tab         | Move forward through the cards (if entire card is clickable) or through logical order of the interactive elements.    |
+| Shift + Tab | Move backward through the cards (if entire card is clickable) or through logical order of the interactive elements.   |
+| Enter       | Perform the card action (if entire card is clickable) or the corresponding action of the focused interactive element. |
+
+## Accessibility
+
+### Card titles
+
+Card titles should use a Heading of the correct [semantic heading level](foundation/typography#semantic-usage-of-heading-levels) based on where the card is in the document. For example, a card nested under a Heading level 2 should use a Heading level 3 for its title.
+
+Don't use Text for the card title as this will hurt the experience for users of assisstive technologies.
+
+### Card sections
+
+When cards are presenting as a group, they should function as a list.
+
+- Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
+  - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
+- Apply `as="li"` to the individual cards.
+
+Internally, the Card has a container that is implemented as a `section` that contains CardHeader (which translates to a `header`), CardBody, and CardFooter (which translates to a `footer`). This aligns with HTML spec which states that `header` and `footer` regions relate to their nearest sectioning content element.
