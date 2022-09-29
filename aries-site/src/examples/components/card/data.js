@@ -68,7 +68,7 @@ export const activities = [
     icon: <Notes color="blue" />,
     title: 'Helpful Guides',
     description: `Access step by step guides on getting the most out of 
-    your Greenlake console.`,
+    your GreenLake console.`,
     action: {
       label: 'View Guides',
       href: '#',

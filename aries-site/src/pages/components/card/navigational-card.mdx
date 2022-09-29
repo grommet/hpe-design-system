@@ -1,38 +1,25 @@
-import { Box, Button, Grid, Notification } from 'grommet';
-import Link from 'next/link';
-import { FormNextLink } from 'grommet-icons';
-import { BestPracticeGroup, Example } from '../../../layouts';
+import { Example } from '../../../layouts';
 import { ExampleImagePreview } from '../../../components';
 import {
-  Card,
   ActivitiesNavigationalCards,
   ApplicationsNavigationalCards,
-  EventPromotionCard,
-  EventPromotionRowCard,
-  FeaturePromotionCard,
-  FeatureReleaseCard,
-  CallToActionAnatomy,
-  CardAlignmentBestPractice,
-  CardContentBestPractice,
-  CardKitchenSink,
-  CardFilteringBestPractice,
-  CardSpacingBestPractice,
-  CardAnatomy,
-  CardExample,
-  CardMeterExample,
-  CardWithFooter,
-  CardWithImage,
-  PaginationCardsExample,
   MarketplaceNavigationalCards,
   NavigationalAnatomy,
-  SimpleCard,
   ToolsNavigationalCards,
-  TrialPromotionCard,
-  TrialPromotionRowCard,
-  TrialPromotionColorCard,
 } from '../../../examples';
 
 Navigational cards enable the user to identify, compare, and choose their desired next step.
+
+<Example
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/ActivitiesNavigationalCards.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+  width="100%"
+>
+  <ActivitiesNavigationalCards />
+</Example>
 
 ## Anatomy
 
@@ -70,6 +57,19 @@ These are example layouts for various use cases.
   <ActivitiesNavigationalCards />
 </Example>
 
+### Single action, no button
+
+<Example
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+  width="100%"
+>
+  <MarketplaceNavigationalCards />
+</Example>
+
 ### Primary and secondary actions
 
 <Example
@@ -94,17 +94,4 @@ These are example layouts for various use cases.
   width="100%"
 >
   <ToolsNavigationalCards />
-</Example>
-
-### Single action, no button
-
-<Example
-  componentName="Card"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/card/CardExample.js"
-  docs="https://v2.grommet.io/card?theme=hpe#props"
-  figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
-  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
-  width="100%"
->
-  <MarketplaceNavigationalCards />
 </Example>

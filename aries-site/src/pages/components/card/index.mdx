@@ -1,34 +1,12 @@
-import { Box, Button, Notification } from 'grommet';
-import Link from 'next/link';
-import { FormNextLink } from 'grommet-icons';
 import { BestPracticeGroup, Example } from '../../../layouts';
 import { ExampleImagePreview } from '../../../components';
 import {
-  ActivitiesNavigationalCards,
-  ApplicationsNavigationalCards,
-  EventPromotionCard,
-  EventPromotionRowCard,
-  FeaturePromotionCard,
-  FeatureReleaseCard,
-  CallToActionAnatomy,
   CardAlignmentBestPractice,
   CardContentBestPractice,
   CardKitchenSink,
+  CardTypes,
   CardFilteringBestPractice,
   CardSpacingBestPractice,
-  CardAnatomy,
-  CardExample,
-  CardMeterExample,
-  CardWithFooter,
-  CardWithImage,
-  PaginationCardsExample,
-  MarketplaceNavigationalCards,
-  NavigationalAnatomy,
-  SimpleCard,
-  ToolsNavigationalCards,
-  TrialPromotionCard,
-  TrialPromotionRowCard,
-  TrialPromotionColorCard,
 } from '../../../examples';
 
 <Example
@@ -37,7 +15,6 @@ import {
   docs="https://v2.grommet.io/card?theme=hpe#props"
   figma="https://www.figma.com/file/je5AYzMavRt1cG7rmw8j1W/HPE-Card-Component?node-id=1%3A2"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
-  width="100%"
 >
   <CardKitchenSink />
 </Example>
@@ -53,6 +30,12 @@ Cards are containers that display content and actions on a single topic. They sh
 **Individual** - A card cannot merge with another card, or divide into multiple cards.
 
 **Summarized** - A card by nature has limited real-estate, so it should present summarized information.
+
+## Types of cards
+
+A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices.
+
+<CardTypes />
 
 ## When to use
 
@@ -120,67 +103,9 @@ In all cases the presentation allows users to quickly scan the content and navig
 
 - When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
 
-## Types of cards
-
-A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices:
-
-### Call-to-action
-
-Entice the user down a desired path.
-
-<Link href="/components/card/call-to-action-card" passHref>
-  <Button
-    label="Call-to-action card guidance"
-    icon={<FormNextLink />}
-    reverse
-    primary
-    alignSelf="start"
-    margin={{ bottom: 'medium' }}
-  />
-</Link>
-
 <Example>
   <EventPromotionCard />
 </Example>
-
-### Navigational
-
-**Primary purpose:** Navigational cards provide the user with a means of wayfinding.
-
-Navigational cards enable the user to identify, compare, and choose their desired next step.
-
-<Link href="/components/card/navigational-card" passHref>
-  <Button
-    label="Navigational card guidance"
-    icon={<FormNextLink />}
-    reverse
-    primary
-    alignSelf="start"
-    margin={{ bottom: 'medium' }}
-  />
-</Link>
-
-<Example>
-  <ActivitiesNavigationalCards heading={false} />
-</Example>
-
-### Status-based navigation
-
-**Primary purpose:** Quickly assist the user to navigate to resources, tasks, or processes requiring their attention and/or action.
-
-Guidance for this card type is coming soon.
-
-### Resource
-
-**Primary purpose:** Allow a user to scan a set of resource options and choose one based on their needs.
-
-Guidance for this card type is coming soon.
-
-### Analytic
-
-**Primary purpose:** Present measures and metrics in short, digestible content pieces and allow a user to navigate to underlying detail is needed.
-
-Guidance for this card type is coming soon.
 
 ## Formatting
 
@@ -268,5 +193,3 @@ When cards are presenting as a group, they should function as a list.
 - Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
   - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
 - Apply `as="li"` to the individual cards.
-
-Internally, the Card has a container that is implemented as a `section` that contains CardHeader (which translates to a `header`), CardBody, and CardFooter (which translates to a `footer`). This aligns with HTML spec which states that `header` and `footer` regions relate to their nearest sectioning content element.
