@@ -1,4 +1,8 @@
 import React from 'react';
-import { Box } from 'grommet';
+import { Box, Text } from 'grommet';
 
-export const Answer = ({ ...rest }) => <Box align="center" {...rest} />;
+export const Answer = ({ children, ...rest }) => (
+  <Box align="center" {...rest}>
+    <Text weight={500}>{children}</Text>
+  </Box>
+);

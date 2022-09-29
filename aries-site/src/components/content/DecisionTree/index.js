@@ -1,3 +1,3 @@
 export * from './Answer';
+export * from './Decision';
 export * from './Destination';
-export * from './Question';

@@ -85,10 +85,6 @@ Complicated processes where the user might need guidance at various stages, or w
 - Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.
 - Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
 
-## Where to present a form
-
-<FormPresentationDecisionTree />
-
 ## Accessibility
 
 Form inputs must be accompanied by a label that identifies itself to screen readers. Placing all inputs within a Grommet FormField and applying the guidance below play a big role in ensuring the inputs are accessible.
@@ -274,3 +270,53 @@ In cases where the user is given an opportunity to express themselves or would l
   href="#sign-in"
   alt="HPE Design System Form where required and optional can be skipped"
 />
+
+## Where to present a form
+
+There are several placement options when presenting a form, but when should a particular 
+placement be chosen and why? On a dedicated page? Within a layer? If within a layer, which 
+type?
+
+<FormPresentationDecisionTree />
+
+## Forms in layers vs. full page 
+
+A full-page form is used to display information free from interuption.
+
+**Best practices for full-page forms:**
+- When using a full-page form use a single-column form layout to create a clear focused path to complete for the user.
+- When using a full-page form avoid using Multi-column layouts not to cause users to skip important fields, input data in the wrong field, or simply hinder efficiency which leads to frustration or even abandonment.
+- When using a single form-page use no more than 10 form fields in the same viewport so that users are not intimidated by seeing a long page filled with form fields and sections.
+
+**Best practices for forms in layers:**
+- Use [center modals](https://design-system.hpe.design/components/layer#center-modal) for full-page forms to display information without leaving the current contexts. 
+- Use the [side drawer](https://design-system.hpe.design/components/layer#side-drawer-modal) for a form if you want to hide all the less important things so you only focus on how to filter the most important information for each view. In doing so the page is intended to have no interaction when the form layer is open. 
+- Use a fullscreen modal for forms like [wizard](https://design-system.hpe.design/templates/wizard) which involves multiple steps to help avoid error by validating inputs and having a more manageable experience.
+
+<Example>
+  <FullPageFormExample />
+</Example>
+
+### Avoid using multiple column layouts
+
+Use Single-column layouts create clear paths for users. Multi-column layouts can inadvertently cause users to skip important fields, input data in the wrong field, or simply prevent progress; all of which can lead users to abandon forms.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'One column layer to create a clear path to completion for the user.',
+    }}
+  >
+    <ColumnFormDo />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Avoid using multiple-column form layout.`,
+    }}
+  >
+    <ColumnFormDont />
+  </Example>
+</BestPracticeGroup>
