@@ -18,8 +18,8 @@ export const DocsPageHeader = ({ title, topic, render }) => {
         </Heading>
       }
       parent={
-        page.parent ? (
-          <Link href={nameToPath(page.parent)} passHref>
+        page.parentPage ? (
+          <Link href={nameToPath(page.parentPage)} passHref>
             <Anchor label={parent.name} icon={<FormPrevious />} />
           </Link>
         ) : (
