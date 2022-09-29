@@ -33,7 +33,7 @@ const DesignSystemCard = ({
   return (
     <Box as={as}>
       <Card direction={direction} as="section" {...rest}>
-        {media && media}
+        {media}
         <Box>
           <CardHeader
             direction="column"

@@ -13,92 +13,24 @@ import {
 import { Notes } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 
-const DashedBox = ({ ...rest }) => (
-  <Box
-    alignSelf="start"
-    border={{ style: 'dashed' }}
-    round="xxsmall"
-    {...rest}
-  />
-);
-
-const CardExample = ({ ...rest }) => (
-  <Card width="medium" onClick={() => {}} {...rest}>
-    <CardBody align="start" gap="medium">
-      <Box gap="xsmall">
-        <>
-          <Box pad={{ bottom: 'small' }}>
-            <DashedBox id="icon">
-              <Notes color="blue" />
-            </DashedBox>
-          </Box>
-          <DashedBox id="title">
-            <Heading level={3} margin="none" size="small">
-              Helpful Guides
-            </Heading>
-          </DashedBox>
-        </>
-        <DashedBox id="description">
-          <Paragraph margin="none">
-            Access step by step guides on getting the most out of your Greenlake
-            console.
-          </Paragraph>
-        </DashedBox>
-      </Box>
-      <DashedBox id="action" flex={false}>
-        <Button
-          label="View Guides"
-          secondary
-          // tabIndex is -1 because entire card is clickable
-          tabIndex={-1}
-        />
-      </DashedBox>
-    </CardBody>
-  </Card>
-);
-
-const color = 'border';
-const anchor = 'horizontal';
-const thickness = 'hair';
-const type = 'direct';
+const connection = (fromTarget, toTarget) => ({
+  color: 'border',
+  anchor: 'horizontal',
+  thickness: 'hair',
+  type: 'direct',
+  fromTarget,
+  toTarget,
+});
 
 const connections = [
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: '1a',
-    toTarget: 'title',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: '1b',
-    toTarget: 'icon',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: '2',
-    toTarget: 'description',
-  },
-  {
-    anchor,
-    type,
-    color,
-    thickness,
-    fromTarget: '3',
-    toTarget: 'action',
-  },
+  connection('1a', 'title'),
+  connection('1b', 'icon'),
+  connection('2', 'description'),
+  connection('3', 'action'),
 ];
 
 export const NavigationalAnatomy = () => (
-  <Stack>
+  <Stack interactiveChild="first">
     <Grid
       columns={['xsmall', 'medium']}
       rows={['58px', '36px', '48px', 'xsmall']}
@@ -137,4 +69,41 @@ export const NavigationalAnatomy = () => (
     </Grid>
     <Diagram connections={connections} />
   </Stack>
+);
+
+const DashedBox = ({ ...rest }) => (
+  <Box
+    alignSelf="start"
+    border={{ style: 'dashed' }}
+    round="xxsmall"
+    {...rest}
+  />
+);
+
+const CardExample = ({ ...rest }) => (
+  <Card width="medium" {...rest}>
+    <CardBody align="start" gap="medium">
+      <Box gap="xsmall">
+        <>
+          <DashedBox id="icon" margin={{ bottom: 'small' }}>
+            <Notes color="blue" />
+          </DashedBox>
+          <DashedBox id="title">
+            <Heading level={3} margin="none" size="small">
+              Helpful Guides
+            </Heading>
+          </DashedBox>
+        </>
+        <DashedBox id="description">
+          <Paragraph margin="none">
+            Access step by step guides on getting the most out of your Greenlake
+            console.
+          </Paragraph>
+        </DashedBox>
+      </Box>
+      <DashedBox id="action" flex={false}>
+        <Button label="View Guides" secondary />
+      </DashedBox>
+    </CardBody>
+  </Card>
 );
