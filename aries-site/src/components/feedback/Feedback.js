@@ -129,12 +129,11 @@ FeedbackHeader.propTypes = {
 
 Feedback.propTypes = {
   children: PropTypes.node,
+  messages: PropTypes.object,
   modal: PropTypes.bool,
   onChange: PropTypes.func,
   onClose: PropTypes.func,
-  onEsc: PropTypes.func,
   onSubmit: PropTypes.func,
-  onReset: PropTypes.func,
   show: PropTypes.bool,
   title: PropTypes.string,
   value: PropTypes.object,
