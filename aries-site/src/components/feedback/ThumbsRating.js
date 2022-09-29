@@ -9,7 +9,7 @@ export const ThumbsRating = ({ color, value, onChange, ...rest }) => {
   return (
     <RadioButtonGroup
       direction="row"
-      options={['thumbsUp', 'thumbsDown']}
+      options={['1', '2']}
       value={thumbs}
       onChange={event => {
         setThumbs(event.target.value);
@@ -19,10 +19,10 @@ export const ThumbsRating = ({ color, value, onChange, ...rest }) => {
     >
       {(option, { checked }) => {
         let Icon;
-        if (option === 'thumbsUp' && !checked) Icon = Like;
-        else if (option === 'thumbsUp' && checked) Icon = LikeFill;
-        else if (option !== 'thumbsUp' && !checked) Icon = Dislike;
-        else if (option !== 'thumbsUp' && checked) Icon = DislikeFill;
+        if (option === '1' && !checked) Icon = Like;
+        else if (option === '1' && checked) Icon = LikeFill;
+        else if (option !== '1' && !checked) Icon = Dislike;
+        else if (option !== '1' && checked) Icon = DislikeFill;
         return <Icon color="purple!" />;
       }}
     </RadioButtonGroup>

@@ -30,6 +30,7 @@ import {
   Question,
 } from '../../components';
 import { Config } from '../../../config';
+import { REACT_FEEDBACK_SURVEY } from '../../components/feedback/api';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 
@@ -59,24 +60,24 @@ export const Layout = ({
   } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
 
-  const defaultFeedback = {
-    'like-rating': '',
-    'text-area': '',
-  };
-
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
-  const [value, setValue] = useState(defaultFeedback);
+  const [value, setValue] = useState();
   const [surveyResults, setSurveyResults] = useState({});
 
-  console.log(surveyResults, surveyResults?.result?.displayedFields);
+  const ratingValue = surveyResults[0];
+  const textValue = surveyResults[1];
+  const feedbackValues = {
+    ratingValue: parseInt(value?.['like-rating']),
+    textValue: value?.['text-area'],
+  };
 
   useEffect(() => {
     fetch(
-      'https://ca1.qualtrics.com/API/v3/surveys/SV_ezVvKtA2bBBbvDM/responses/R_1HitDZLeYlmyx3E',
+      `${REACT_FEEDBACK_SURVEY}SV_ezVvKtA2bBBbvDM/responses/R_1HitDZLeYlmyx3E`,
       {
         method: 'GET',
         headers: {
@@ -88,8 +89,8 @@ export const Layout = ({
         console.log('error');
         return;
       } else {
-        const result = await response.json();
-        setSurveyResults(result);
+        const results = await response.json();
+        setSurveyResults(results?.result?.displayedFields);
       }
     });
   }, []);
@@ -105,26 +106,21 @@ export const Layout = ({
     const data = {
       values: {
         fullURL: `https://https://design-system.hpe.design/${router}`,
-        QID1: 1,
-        QID2_TEXT: 'API Test Submission',
+        ...feedbackValues,
       },
     };
-    fetch(
-      'https://ca1.qualtrics.com/API/v3/surveys/SV_ezVvKtA2bBBbvDM/responses',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
-        },
-        body: JSON.stringify(data),
+    fetch(`${REACT_FEEDBACK_SURVEY}SV_ezVvKtA2bBBbvDM/responses`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
       },
-    )
+      body: JSON.stringify(data),
+    })
       .then(response => response.json())
       .then(result => {
         closeFeedbackModal();
-        console.log('response from user', event.value, result);
       })
       .catch(error => {
         console.error('Error:', error);
