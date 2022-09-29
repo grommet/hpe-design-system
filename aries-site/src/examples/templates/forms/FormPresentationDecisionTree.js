@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
+import Link from 'next/link';
+import { Anchor, Diagram, Grid, ResponsiveContext, Stack, Text } from 'grommet';
 import { Answer, Decision, Destination } from '../../../components';
 
 const connection = (fromTarget, toTarget, { ...rest }) => ({
   fromTarget,
   toTarget,
-  label: 'link-5',
   color: 'border',
   anchor: 'vertical',
   thickness: 'hair',
@@ -26,7 +26,7 @@ export const FormPresentationDecisionTree = () => {
     connection('reference-no', 'lengthy-form'),
     connection('lengthy-form', 'lengthy-yes'),
     connection('lengthy-form', 'lengthy-no'),
-    connection('lengthy-yes', 'fullscree-layer'),
+    connection('lengthy-yes', 'fullscreen-layer'),
     connection('lengthy-no', 'centered-modal'),
   ];
 
@@ -140,10 +140,10 @@ const areas = [
   [
     'null-7-0',
     'null-7-0',
-    'fullscree-layer',
-    'fullscree-layer',
-    'fullscree-layer',
-    'fullscree-layer',
+    'fullscreen-layer',
+    'fullscreen-layer',
+    'fullscreen-layer',
+    'fullscreen-layer',
     'centered-modal',
     'centered-modal',
     'centered-modal',
@@ -155,8 +155,6 @@ const areas = [
 
 const DecisionTree = () => {
   const breakpoint = useContext(ResponsiveContext);
-  console.log(breakpoint);
-
   const columns = new Array(12).fill(undefined);
   const rows = ['auto'];
   const gap = {
@@ -217,7 +215,11 @@ const DecisionTree = () => {
   locations or flows within an application."
         useCases={['Creating/editing an account, role, user, profile, etc.']}
       >
-        Use a dedicated page.
+        Use a{' '}
+        <Link href="#forms-in-layers-vs-full-page" passHref>
+          <Anchor color="text-strong">dedicated page</Anchor>
+        </Link>
+        .
       </Destination>
       <Decision gridArea="reference-needed" id="reference-needed">
         Is there a need or benefit for the user to reference information on the
@@ -236,16 +238,20 @@ const DecisionTree = () => {
       <Destination
         gridArea="side-drawer"
         id="side-drawer"
-        detail="Using a side-drawer presents the form fixed to the edge of 
-  the screen, allowing the content on the originating page to be visible 
-  to the user as they complete the form."
+        detail={`Using a side-drawer presents the form fixed to the edge of the 
+            screen, allowing the content on the originating page to be visible 
+            to the user as they complete the form.`}
         useCases={[
           `Creating or editing an object from a page displaying a data 
   collection, where it would be helpful to reference other objects and 
   their attributes in that collection.`,
         ]}
       >
-        Use a side-drawer.
+        Use a{' '}
+        <Link href="/components/layer#side-drawer-modal" passHref>
+          <Anchor color="text-strong">side-drawer</Anchor>
+        </Link>
+        .
       </Destination>
       <Answer gridArea="lengthy-yes" id="lengthy-yes">
         Yes
@@ -254,12 +260,19 @@ const DecisionTree = () => {
         No
       </Answer>
       <Destination
-        gridArea="fullscree-layer"
-        id="fullscree-layer"
-        detail={`The form may either be presented as a full-page form or as a 
-  wizard. The advantage of presenting the layer in fullscreen mode is that 
-  it allows the user’s attention to be solely focused on 
-  the task at hand.`}
+        gridArea="fullscreen-layer"
+        id="fullscreen-layer"
+        detail={
+          <Text>
+            The form may either be presented as a full-page form or as a{' '}
+            <Link href="/templates/wizard" passHref>
+              <Anchor color="text-strong">wizard</Anchor>
+            </Link>
+            . The advantage of presenting the layer in fullscreen mode is that
+            it allows the user’s attention to be solely focused on the task at
+            hand.
+          </Text>
+        }
         useCases={[
           `Creating or editing an object with a lot of attributes to be set or 
     configured.`,
@@ -276,7 +289,11 @@ const DecisionTree = () => {
         detail={`If the form is brief, the center modal presentation draws 
   the user’s eye and presents the form task focussed and distraction free.`}
       >
-        Use a centered modal.
+        Use a{' '}
+        <Link href="/components/layer#center-modal" passHref>
+          <Anchor color="text-strong">centered modal</Anchor>
+        </Link>
+        .
       </Destination>
     </Grid>
   );
