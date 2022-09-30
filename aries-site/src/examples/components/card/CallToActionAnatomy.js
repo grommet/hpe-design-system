@@ -29,8 +29,8 @@ const connections = [
   connection('cta-1a', 'cta-title'),
   connection('cta-1b', 'cta-pretitle'),
   connection('cta-1c', 'cta-subtitle'),
-  connection('cta-2', 'cta-description'),
-  connection('cta-3', 'cta-action'),
+  connection('cta-3', 'cta-description'),
+  connection('cta-2', 'cta-action'),
   connection('cta-4', 'cta-image'),
   connection('cta-5', 'cta-background-image'),
 ];
@@ -47,9 +47,9 @@ export const CallToActionAnatomy = () => (
         ['cta-annotation-1b', 'card-example'],
         ['cta-annotation-1a', 'card-example'],
         ['cta-annotation-1c', 'card-example'],
-        ['cta-annotation-2', 'card-example'],
-        ['cta-empty-2', 'card-example'],
         ['cta-annotation-3', 'card-example'],
+        ['cta-empty-2', 'card-example'],
+        ['cta-annotation-2', 'card-example'],
         ['cta-annotation-5', 'card-example'],
       ]}
     >

@@ -25,8 +25,8 @@ const connection = (fromTarget, toTarget) => ({
 const connections = [
   connection('1a', 'title'),
   connection('1b', 'icon'),
-  connection('2', 'description'),
-  connection('3', 'action'),
+  connection('3', 'description'),
+  connection('2', 'action'),
 ];
 
 export const NavigationalAnatomy = () => (
@@ -37,8 +37,8 @@ export const NavigationalAnatomy = () => (
       areas={[
         ['annotation-1b', 'card-example'],
         ['annotation-1a', 'card-example'],
-        ['annotation-2', 'card-example'],
         ['annotation-3', 'card-example'],
+        ['annotation-2', 'card-example'],
       ]}
     >
       <Annotation
@@ -57,13 +57,13 @@ export const NavigationalAnatomy = () => (
         id={2}
         target="2"
         gridArea="annotation-2"
-        margin={{ top: 'medium' }}
+        margin={{ top: 'large' }}
       />
       <Annotation
         id={3}
         target="3"
         gridArea="annotation-3"
-        margin={{ top: 'large' }}
+        margin={{ top: 'medium' }}
       />
       <CardExample gridArea="card-example" />
     </Grid>
