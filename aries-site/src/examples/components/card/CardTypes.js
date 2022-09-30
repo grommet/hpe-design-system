@@ -27,7 +27,7 @@ export const CardTypes = () => {
   return (
     <Grid columns={columns[breakpoint]} gap="medium">
       <Type
-        title="Call-to-action"
+        title="Call to action"
         description="Entice the user down a desired path."
         preview={<EventPromotionCard />}
         href="/components/card/call-to-action-card"
@@ -68,12 +68,13 @@ const Type = ({ description, href, preview, title }) => (
         <Link href={href} passHref>
           <Button
             a11yTitle={`Read ${title} guidance`}
+            alignSelf="start"
             margin={{ vertical: 'small' }}
             label="Read guidance"
             icon={<FormNextLink aria-hidden="true" />}
+            // size="small"
             reverse
-            primary
-            alignSelf="start"
+            secondary
           />
         </Link>
       ) : (

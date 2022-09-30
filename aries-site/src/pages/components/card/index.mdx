@@ -31,81 +31,18 @@ Cards are containers that display content and actions on a single topic. They sh
 
 **Summarized** - A card by nature has limited real estate, so it should present summarized information.
 
-## Types of cards
-
-A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices.
-
-<CardTypes />
-
-## When to use
+Cards should be used when:
 
 - Presenting high-level, summarized pieces of information.
 - Presenting an item, or collection of items, which can best be consumed visually.
 
 In all cases the presentation allows users to quickly scan the content and navigate to underlying detail if desired.
 
-## When not to use
+## Types of cards
 
-- Cards should not be used as a control to filter data on the same screen. A button is the appropriate control to apply a filter. Alternatively, cards may be used to present summarized information and allow a user to navigate to a pre-filtered view of that information.
+A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices.
 
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'do',
-      message:
-        'Style status filter buttons as default buttons when the buttons are placed on the same page as the data they will be filtering.',
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardFilteringBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t use a card to wrap a set of status filter buttons that affect data on the same page. Cards should act as independent regions that do not affect surrounding content. However, placing these buttons in a Card would be appropriate on a dashboard, where clicking on one of the status buttons would navigate to a different page that is filtered by the selected status.`,
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardFilteringBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-
-- A Card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'do',
-      message: 'Place non-Card page content flush on the page.',
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardContentBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t use a Card solely as a way to denote a layout region of related content.`,
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardContentBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-
-- When data attributes across items needs to be analyzed, sorted, compared and filtered, a Card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate.
-
-<Example>
-  <EventPromotionCard />
-</Example>
+<CardTypes />
 
 ## Formatting
 
@@ -193,3 +130,62 @@ When cards are presenting as a group, they should function as a list.
 - Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
   - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
 - Apply `as="li"` to the individual cards.
+
+## Misuses
+
+- When data attributes across items needs to be analyzed, sorted, compared, and filtered, a card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate tool to meet these needs.
+- Cards should not be used as a control to filter data on the same screen. A button is the appropriate control to apply a filter. Alternatively, cards may be used to present summarized information and allow a user to navigate to a pre-filtered view of that information.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Style status filter buttons as default buttons when the buttons are placed on the same page as the data they will be filtering.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a card to wrap a set of status filter buttons if clicking on one of those buttons will filter data that exists on the same page as that card. Cards should act as independent regions that do not affect surrounding content. However, placing these buttons in a card would be appropriate on a dashboard, where clicking on one of the status buttons would navigate to a different page that is filtered by the selected status.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardFilteringBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+- A card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Align any content that is outside the card flush to the left page margin.',
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use a card just to show general content. The purpose of a card is to group pieces of information that should be visually separated from the main page content in order to emphasize the relationship of those pieces to each other.`,
+    }}
+    scale={0.4}
+    width="100%"
+  >
+    <CardContentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>

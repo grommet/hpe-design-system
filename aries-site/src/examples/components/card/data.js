@@ -159,7 +159,7 @@ export const products = [
 
 export const event = {
   title: 'Unleash the power of data',
-  pretitle: 'Virtual Event',
+  pretitle: 'Virtual event',
   subtitle: 'June 25, 2022',
   description: `Propelled by the nexus of data, cloud, and AI, 
   HPE is delivering groundbreaking innovations that completely 

@@ -111,13 +111,12 @@ export const components = [
   },
   {
     name: 'Call to action card',
-    render: 'Call-to-action card',
     parentPage: 'Card',
     category: 'Layouts',
     description:
-      'A call-to-action card should be used to entice the user down a desired path.',
+      'A call to action card should be used to entice the user down a desired path.',
     seoDescription:
-      'A call-to-action card should be used to entice the user down a desired path.',
+      'A call to action card should be used to entice the user down a desired path.',
     preview: {
       image: {
         src: {
