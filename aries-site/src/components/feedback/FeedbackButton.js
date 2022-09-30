@@ -6,7 +6,6 @@ const PositionedBox = styled(Box)`
   bottom: 0px;
   right: 0px;
   z-index: 10;
-  }
 `;
 
 export const FeedbackButton = ({ elevation, margin, ...buttonProps }) => (

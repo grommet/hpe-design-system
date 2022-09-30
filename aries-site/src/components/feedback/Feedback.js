@@ -34,12 +34,10 @@ export const Feedback = ({
   layerProps,
   messages,
   modal,
-  onChange,
   onClose,
   onSubmit,
   show,
   title,
-  value,
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
@@ -47,7 +45,7 @@ export const Feedback = ({
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 
   useEffect(() => {
-    setSuccessfulSubmit(false);
+    if (show) setSuccessfulSubmit(false);
   }, [show]);
 
   let footerContent;
@@ -82,11 +80,8 @@ export const Feedback = ({
         )}
       </FeedbackHeader>
       <Form
-        value={value}
-        onChange={onChange}
-        onSubmit={(event) => {
-          event.preventDefault();
-          onSubmit();
+        onSubmit={event => {
+          onSubmit(event);
           setSuccessfulSubmit(true);
         }}
         method="post"
@@ -135,10 +130,8 @@ Feedback.propTypes = {
   children: PropTypes.node,
   messages: PropTypes.object,
   modal: PropTypes.bool,
-  onChange: PropTypes.func,
   onClose: PropTypes.func,
   onSubmit: PropTypes.func,
   show: PropTypes.bool,
   title: PropTypes.string,
-  value: PropTypes.object,
 };

@@ -70,20 +70,20 @@ export const Layout = ({
   const [open, setOpen] = useState(false);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
-  const [value, setValue] = useState();
 
+  // Want to show Thank you message so close the modal after 2 seconds
   const closeFeedbackModal = () => {
     setTimeout(() => {
       setOpen(false);
     }, 2000);
   };
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = useCallback(event => {
     const data = {
       values: {
         fullURL: `https://design-system.hpe.design/${router}`,
-        Q1D1: parseInt(value?.['like-rating']),
-        Q1D2_TEXT: value?.['text-area'],
+        Q1D1: parseInt(event.value['like-rating']),
+        Q1D2_TEXT: event.value['text-area'],
       },
     };
     fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
@@ -211,7 +211,6 @@ export const Layout = ({
               modal
               onClose={onClose}
               title="We’d love your feedback"
-              onChange={nextValue => setValue(nextValue)}
               onSubmit={onSubmit}
             >
               <Question
