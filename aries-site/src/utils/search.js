@@ -56,7 +56,7 @@ export const getSectionParent = section =>
 export const nameToPath = name => {
   // if a page defines its own url, then it is an external link
   const external = structure.filter(
-    e => e.name.toLowerCase() === name.toLowerCase() && e.url,
+    e => e.name.toLowerCase() === name?.toLowerCase() && e.url,
   )[0];
   if (external) {
     return external.url;
@@ -64,13 +64,23 @@ export const nameToPath = name => {
 
   // Item selected is a main topic
   const [page] = structure.filter(
-    p => p.name.toLowerCase() === name.toLowerCase(),
+    p => p.name.toLowerCase() === name?.toLowerCase(),
   );
   if (typeof page !== 'undefined' && page.pages) {
     if (page.name === 'Home') {
       return '/';
     }
     return `/${nameToSlug(page.name)}`;
+  }
+
+  // Temporarily hard coding these routes to allow card work to progress:
+  // (https://github.com/grommet/hpe-design-system/pull/2905)
+  // Search utils should be enhanced to support this kind of nested routing.
+  if (name === 'Call to action card') {
+    return '/components/card/call-to-action-card';
+  }
+  if (name === 'Navigational card') {
+    return '/components/card/navigational-card';
   }
 
   // Item selected is a sub-topic of a main topic, so we need to find

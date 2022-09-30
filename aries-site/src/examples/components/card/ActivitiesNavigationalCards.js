@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Heading, Grid, ResponsiveContext } from 'grommet';
 import { Card } from '../../templates';
 import { activities } from './data';
@@ -11,14 +12,16 @@ const columns = {
   xlarge: ['auto', 'auto', 'auto'],
 };
 
-export const ActivitiesNavigationalCards = () => {
+export const ActivitiesNavigationalCards = ({ heading = true }) => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
     <Box gap="medium">
-      <Heading level={2} size="small" margin="none">
-        Activities & Tasks
-      </Heading>
+      {heading && (
+        <Heading level={2} size="small" margin="none">
+          Activities & Tasks
+        </Heading>
+      )}
       <Grid columns={columns[breakpoint]} gap="medium">
         {activities.map((activity, index) => (
           <Card
@@ -39,4 +42,8 @@ export const ActivitiesNavigationalCards = () => {
       </Grid>
     </Box>
   );
+};
+
+ActivitiesNavigationalCards.propTypes = {
+  heading: PropTypes.bool,
 };
