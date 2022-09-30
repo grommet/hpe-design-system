@@ -18,12 +18,18 @@ export const ThumbsRating = ({ color, value, onChange, ...rest }) => {
       {...rest}
     >
       {(option, { checked }) => {
-        let Icon;
-        if (option === '1' && !checked) Icon = Like;
-        else if (option === '1' && checked) Icon = LikeFill;
-        else if (option !== '1' && !checked) Icon = Dislike;
-        else if (option !== '1' && checked) Icon = DislikeFill;
-        return <Icon color="purple!" />;
+        if (option === '1') {
+          return checked ? (
+            <LikeFill color="purple!" />
+          ) : (
+            <Like color="purple!" />
+          );
+        }
+        return checked ? (
+          <DislikeFill color="purple!" />
+        ) : (
+          <Dislike color="purple!" />
+        );
       }}
     </RadioButtonGroup>
   );
