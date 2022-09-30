@@ -1,27 +1,27 @@
 import React, { useContext } from 'react';
 import {
-  Box,
-  Button,
-  Form,
-  Header,
-  Heading,
-  Text,
-  ResponsiveContext,
-} from 'grommet';
-import { ShippingInfomation, ContactInformation } from './Shipping';
+    Box,
+    Button,
+    Form,
+    Header,
+    Heading,
+    Text,
+    ResponsiveContext,
+  } from 'grommet';
+import { ContactInformation, ShippingInfomation } from '../Shipping';
 
-export const ShippingExample = () => {
+export const ColumnFormDo = () => {
   const size = useContext(ResponsiveContext);
   const [formValues, setFormValues] = React.useState({
-    address1: '',
-    address2: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    isBusiness: '',
-    'full-name': '',
-    'phone-shipping': '',
-    'email-shipping': '',
+    'address1': '',
+    'address2': '',
+    'city': '',
+    'state': '',
+    'zipcode': '',
+    'isBusiness': '',
+    'full-name-1': '',
+    'phone-shipping-1': '',
+    'email-shipping-1': '',
   });
 
   // eslint-disable-next-line no-unused-vars
@@ -38,9 +38,9 @@ export const ShippingExample = () => {
     'state',
     'zipcode',
     'isBusiness',
-    'full-name',
-    'phone-shipping',
-    'email-shipping',
+    'full-name-1',
+    'phone-shipping-1',
+    'email-shipping-1',
   ];
 
   // On long forms, we want to focus the first of any fields that
@@ -66,10 +66,10 @@ export const ShippingExample = () => {
         pad={{ horizontal: 'xxsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
-  needed. In this instance, this example is presented within an 
-  HTML section element and this is the first heading within the 
-  section, therefor h2 is the semantically correct heading. For 
-  additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
+      needed. In this instance, this example is presented within an 
+      HTML section element and this is the first heading within the 
+      section, therefor h2 is the semantically correct heading. For 
+      additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading level={2} margin="none">
           Shipping
         </Heading>
@@ -90,8 +90,8 @@ export const ShippingExample = () => {
           method="post"
           validate="submit"
         >
-          <ShippingInfomation name="shippingExample" />
-          <ContactInformation name="shippingExample" />
+          <ShippingInfomation name="shippingDoExample" />
+          <ContactInformation name="shippingDoExample" />
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'small', bottom: 'small' }}
