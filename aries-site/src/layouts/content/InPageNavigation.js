@@ -45,7 +45,6 @@ const useActiveHeadingId = (headings, options) => {
 };
 
 export const InPageNavigation = ({ headings }) => {
-  console.log('hey', headings);
   const theme = useContext(ThemeContext);
 
   let { large, medium } = theme.global.edgeSize;
