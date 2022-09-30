@@ -1,4 +1,10 @@
-import React, { Fragment, useEffect, useContext, useState } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useContext,
+  useCallback,
+  useState,
+} from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -30,7 +36,6 @@ import {
   Question,
 } from '../../components';
 import { Config } from '../../../config';
-import { REACT_FEEDBACK_SURVEY } from '../../components/feedback/api';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 
@@ -66,34 +71,6 @@ export const Layout = ({
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const [value, setValue] = useState();
-  const [surveyResults, setSurveyResults] = useState({});
-
-  const ratingValue = surveyResults[0];
-  const textValue = surveyResults[1];
-  const feedbackValues = {
-    ratingValue: parseInt(value?.['like-rating']),
-    textValue: value?.['text-area'],
-  };
-
-  useEffect(() => {
-    fetch(
-      `${REACT_FEEDBACK_SURVEY}SV_ezVvKtA2bBBbvDM/responses/R_1HitDZLeYlmyx3E`,
-      {
-        method: 'GET',
-        headers: {
-          'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
-        },
-      },
-    ).then(async response => {
-      if (!response.ok) {
-        console.log('error');
-        return;
-      } else {
-        const results = await response.json();
-        setSurveyResults(results?.result?.displayedFields);
-      }
-    });
-  }, []);
 
   const closeFeedbackModal = () => {
     setTimeout(() => {
@@ -101,20 +78,21 @@ export const Layout = ({
     }, 2000);
   };
 
-  const onSubmit = event => {
+  const onSubmit = useCallback(event => {
     event.preventDefault();
     const data = {
       values: {
-        fullURL: `https://https://design-system.hpe.design/${router}`,
-        ...feedbackValues,
+        fullURL: `https://design-system.hpe.design/${router}`,
+        Q1D1: parseInt(value?.['like-rating']),
+        Q1D2_TEXT: value?.['text-area'],
       },
     };
-    fetch(`${REACT_FEEDBACK_SURVEY}SV_ezVvKtA2bBBbvDM/responses`, {
+    fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'X-API-TOKEN': 'acLCL6dZED3y8nZhqPSq1R6rCTFh1adqrYEXPdfY',
+        'X-API-TOKEN': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
       },
       body: JSON.stringify(data),
     })
@@ -125,7 +103,7 @@ export const Layout = ({
       .catch(error => {
         console.error('Error:', error);
       });
-  };
+  }, []);
 
   const match = siteContents.find(
     item => item?.name?.toLowerCase() === title?.toLowerCase(),
