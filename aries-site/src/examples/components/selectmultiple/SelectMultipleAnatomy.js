@@ -1,0 +1,129 @@
+import { Box, Button, CheckBox, Form, FormField, Grid, Text, TextInput } from "grommet";
+import { FormUp } from 'grommet-icons';
+
+const options = [];
+for (let i = 1; i<= 10; i += 1) options.push(`User ${i}`);
+
+const selected = options.slice(0, 3);
+const highlightedOption = options[5];
+
+const rows = ['auto','auto', 'auto', 'auto', 'auto'];
+
+const areas = [
+  { name: 'select', start: [1, 0], end: [1, 0] },
+  { name: 'selected', start: [1, 1], end: [1, 1] },
+  { name: 'search', start: [1, 2], end: [1, 2] },
+  { name: 'limit', start: [1, 3], end: [1, 3] },
+  { name: 'list', start: [1, 4], end: [1, 4] },
+  { name: 'a1', start: [0, 0], end: [0, 0] },
+  { name: 'a2', start: [0, 1], end: [0, 1] },
+  { name: 'a3', start: [2, 2], end: [2, 2] },
+  { name: 'a4', start: [0, 3], end: [0, 3] },
+  { name: 'a5', start: [2, 4], end: [2, 4] },
+  { name: 'a6', start: [0, 4], end: [0, 4] },
+];
+
+export const AnatomyGrid = ({ ...rest }) => (
+  <Grid
+    columns={['xsmall', 'medium', 'xsmall']}
+    rows={rows}
+    areas={areas}
+    justify="center"
+    align="center"
+    {...rest}
+  />
+);
+
+export const SelectMultipleInput = ({ id, ...rest }) => (
+  <Box width="medium" { ...rest }>
+    <Form>
+      <FormField
+        htmlFor="multi-select-anayomy-example__input"
+        name="multi-select-anatomy-example"
+        label="Users"
+      >
+        <Box
+          id={id}
+          background="background-front"
+          direction="row"
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          justify="between"
+          round="xxsmall"
+        >
+          <Text>{`${selected.length} selected`}</Text>
+          <FormUp />
+        </Box>
+      </FormField>
+    </Form>
+  </Box>
+);
+
+const Highlight = ({ ...rest }) => (
+  <Box
+    pad={{ horizontal: 'xsmall' }}
+    border={{ style: 'dashed' }}
+    {...rest}
+  />
+);
+
+const DropElement = ({ ...rest }) => (
+  <Box
+    width="medium"
+    background="background-front"
+    elevation="medium"
+    pad="xsmall"
+    round="xxsmall"
+    {...rest}
+  />
+);
+
+export const SelectMultipleSelected = ({ id, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight
+      id={id}
+      background="validation-ok"
+      direction="row"
+      justify="between"
+      align="center"
+    >
+      <Text size="small">{`${selected.length} of ${options.length} selected`}</Text>
+      <Button label="Clear All" size="small"/>
+    </Highlight>
+  </DropElement>
+)
+export const SelectMultipleSearch = ({ id, ...rest }) => (
+  <DropElement pad={{ horizontal: 'xsmall' }} { ...rest }>
+    <Highlight id={id} background="teal" pad="none">
+      <TextInput placeholder="Search" />
+    </Highlight>
+  </DropElement>
+);
+
+export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
+  <DropElement pad={{ horizontal: 'xsmall', top: 'xsmall' }} { ...rest }>
+    <Highlight id={id} background="validation-warning">
+      <Text size="small">{`Select up to ${limit}`}</Text>
+    </Highlight>
+  </DropElement>
+)
+
+export const SelectMultipleOptions = ({ id, ...rest }) => (
+  <DropElement { ...rest }>
+    <Highlight id={id} background="background-back" pad='xsmall'>
+      {options.map((label) => (
+        <Highlight
+          id={(label === highlightedOption) ? "listItem" : undefined}
+          background={label === highlightedOption ? "yellow" : undefined}
+          pad="none"
+          key={label}
+        >
+          <CheckBox 
+            label={label}
+            checked={selected.includes(label)}
+            pad="xsmall"
+          />
+        </Highlight>
+      ))}
+    </Highlight>
+  </DropElement>
+);

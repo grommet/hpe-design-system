@@ -55,8 +55,10 @@ export const Layout = ({
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const size = useContext(ResponsiveContext);
 
-  const match = siteContents.find(
-    item => item?.name?.toLowerCase() === title?.toLowerCase(),
+  const match = siteContents.find(item =>
+    item?.name === 'Index'
+      ? item?.parent?.toLowerCase() === title?.toLowerCase()
+      : item?.name?.toLowerCase() === title?.toLowerCase(),
   );
   const regexp = new RegExp(/ #{1,3} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];

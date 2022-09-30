@@ -34,6 +34,7 @@ export const SelectSearchExample = () => {
           options={options}
           value={selected}
           onChange={({ option }) => setSelected(option)}
+          onClose={() => setOptions(defaultOptions)}
           onSearch={text => onSearch(text)}
         />
       </FormField>
