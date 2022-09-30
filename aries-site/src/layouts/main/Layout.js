@@ -81,7 +81,7 @@ export const Layout = ({
   const onSubmit = useCallback(value => {
     const data = {
       values: {
-        fullURL: `https://design-system.hpe.design/${router}`,
+        fullURL: `https://design-system.hpe.design/${router.route}`,
         deviceType: 'desktop',
         QID1: parseInt(value.value['like-rating']),
         QID2_TEXT: value.value['text-area'],
