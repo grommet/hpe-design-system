@@ -15,24 +15,7 @@ import {
   TextInput,
 } from 'grommet';
 import { Close, FormNext, CircleAlert } from 'grommet-icons';
-
-const emailValidation = [
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-];
+import { emailValidation } from './utils/FormValidation';
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
