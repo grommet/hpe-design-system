@@ -78,12 +78,13 @@ export const Layout = ({
     }, 2000);
   };
 
-  const onSubmit = useCallback(event => {
+  const onSubmit = useCallback(value => {
     const data = {
       values: {
         fullURL: `https://design-system.hpe.design/${router}`,
-        Q1D1: parseInt(event.value['like-rating']),
-        Q1D2_TEXT: event.value['text-area'],
+        deviceType: 'desktop',
+        QID1: parseInt(value.value['like-rating']),
+        QID2_TEXT: value.value['text-area'],
       },
     };
     fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
