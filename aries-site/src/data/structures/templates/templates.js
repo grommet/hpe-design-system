@@ -195,6 +195,8 @@ export const templates = [
       'Shipping',
       'Customize',
       'Required and Optional Fields',
+      'Full-page form',
+      'Avoid using multiple column layouts',
     ],
     relatedContent: [
       'TextInput',
