@@ -84,7 +84,11 @@ export const Feedback = ({
       <Form
         value={value}
         onChange={onChange}
-        onSubmit={onSubmit}
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSubmit();
+          setSuccessfulSubmit(true);
+        }}
         method="post"
         validate="submit"
       >

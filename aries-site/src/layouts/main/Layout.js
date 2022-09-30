@@ -78,8 +78,7 @@ export const Layout = ({
     }, 2000);
   };
 
-  const onSubmit = useCallback((event) => {
-    event.preventDefault();
+  const onSubmit = useCallback(() => {
     const data = {
       values: {
         fullURL: `https://design-system.hpe.design/${router}`,
