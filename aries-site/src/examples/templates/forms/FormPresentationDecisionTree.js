@@ -216,7 +216,7 @@ const DecisionTree = () => {
         useCases={['Creating/editing an account, role, user, profile, etc.']}
       >
         Use a{' '}
-        <Link href="#forms-in-layers-vs-full-page" passHref>
+        <Link href="#full-page-forms" passHref>
           <Anchor color="text-strong">dedicated page</Anchor>
         </Link>
         .
@@ -264,7 +264,11 @@ const DecisionTree = () => {
         id="fullscreen-layer"
         detail={
           <Text>
-            The form may either be presented as a full-page form or as a{' '}
+            The form may either be presented as a{' '}
+            <Link href="#full-page-forms" passHref>
+              <Anchor color="text-strong">full-page form</Anchor>
+            </Link>{' '}
+            or as a{' '}
             <Link href="/templates/wizard" passHref>
               <Anchor color="text-strong">wizard</Anchor>
             </Link>
