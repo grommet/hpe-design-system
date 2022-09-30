@@ -73,6 +73,16 @@ export const nameToPath = name => {
     return `/${nameToSlug(page.name)}`;
   }
 
+  // Temporarily hard coding these routes to allow card work to progress:
+  // (https://github.com/grommet/hpe-design-system/pull/2905)
+  // Search utils should be enhanced to support this kind of nested routing.
+  if (name === 'Call to action card') {
+    return '/components/card/call-to-action-card';
+  }
+  if (name === 'Navigational card') {
+    return '/components/card/navigational-card';
+  }
+
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
   const parent = getParentPage(name);
