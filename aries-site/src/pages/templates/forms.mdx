@@ -1,7 +1,11 @@
 import {
   ChangePasswordExample,
+  ColumnFormDo,
+  ColumnFormDont,
   CustomizeExample,
   FilterExample,
+  FormPresentationDecisionTree,
+  FullPageFormExample,
   RequiredFieldsExample,
   PayExample,
   SettingsExample,
@@ -13,10 +17,15 @@ import {
   SortExample,
 } from '../../examples';
 import { ExampleImagePreview } from '../../components';
+import { Image } from 'grommet';
 import { Example } from '../../layouts';
+import { formLayouts } from '../../data/structures';
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SimpleSignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   docs="https://v2.grommet.io/form?theme=hpe"
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
 >
@@ -113,7 +122,10 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Sign up
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=1807%3A734"
 >
   <SignUpExample />
@@ -122,7 +134,10 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Sign in
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/SignInExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A499"
 >
   <SignInExample />
@@ -176,10 +191,24 @@ Users must actively check a box next to a statement that shows they have agreed 
 ### Shipping
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/ShippingExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/Shipping/ShippingInformation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/Shipping/ContactInformation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
   figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A382"
 >
   <ShippingExample />
+</Example>
+
+### Customize
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
+>
+  <CustomizeExample />
 </Example>
 
 ## Required vs optional fields
@@ -202,16 +231,7 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
   <SingleFormFieldExample />
 </Example>
 
-### Customize
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CustomizeExample.js"
-  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=54%3A608"
->
-  <CustomizeExample />
-</Example>
-
-### Character counter
+### Fields with character limits
 
 **When to use**
 
@@ -232,7 +252,7 @@ In cases where the user is given an opportunity to express themselves or would l
 - Announce the max character allowed before the user begins typing.
 - Announce when the user has typed 50% of the max allowed.
 
-## Exceptions and how to address them
+### Exceptions and how to address them
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
 
@@ -250,3 +270,50 @@ In cases where the user is given an opportunity to express themselves or would l
   href="#sign-in"
   alt="HPE Design System Form where required and optional can be skipped"
 />
+
+## Where to present a form
+
+There are several placement options when presenting a form, but when should a particular 
+placement be chosen and why? On a dedicated page? Within a layer? If within a layer, which 
+type?
+
+<FormPresentationDecisionTree />
+
+## Full-page forms
+
+A full-page form is used to display information free from interuption. They may be presented 
+on a dedicated page or within a fullscreen layer.
+
+**Best practices for full-page forms:**
+- When using a full-page form use a single-column form layout to create a clear focused path 
+to complete for the user.
+- When using a full-page form avoid using multi-column layouts, which can cause users to skip 
+important fields, input data in the wrong field, or simply hinder efficiency which leads to 
+frustration or even abandonment.
+- When using a single form page, use no more than 10 form fields in the same viewport so that 
+users are not intimidated by seeing a long page filled with form fields and sections. Instead, 
+consider breaking the form up into logical sections and present them one at a time.
+
+### Avoid using multiple column layouts
+
+Use Single-column layouts create clear paths for users. Multi-column layouts can inadvertently cause users to skip important fields, input data in the wrong field, or simply prevent progress; all of which can lead users to abandon forms.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'One column layer to create a clear path to completion for the user.',
+    }}
+  >
+    <ColumnFormDo />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Avoid using multiple-column form layout.`,
+    }}
+  >
+    <ColumnFormDont />
+  </Example>
+</BestPracticeGroup>
