@@ -45,8 +45,7 @@ export const Feedback = ({
   const breakpoint = useContext(ResponsiveContext);
   // tracks if feedback has successfully been submitted
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
-  
-  console.log(onSubmit);
+
   useEffect(() => {
     setSuccessfulSubmit(false);
   }, [show]);

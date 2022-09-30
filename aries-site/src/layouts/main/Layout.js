@@ -78,7 +78,7 @@ export const Layout = ({
     }, 2000);
   };
 
-  const onSubmit = useCallback(event => {
+  const onSubmit = useCallback((event) => {
     event.preventDefault();
     const data = {
       values: {
