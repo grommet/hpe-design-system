@@ -70,7 +70,7 @@ export const activities = [
     description: `Access step by step guides on getting the most out of 
     your GreenLake console.`,
     action: {
-      label: 'View Guides',
+      label: 'View guides',
       href: '#',
     },
   },
@@ -80,7 +80,7 @@ export const activities = [
     description: `Send a sign-up link to users so you can collaborate 
     with your team.`,
     action: {
-      label: 'Send Invite',
+      label: 'Send invite',
       href: '#',
     },
   },
@@ -90,7 +90,7 @@ export const activities = [
     description: `Add, apply licenses, and assign devices in your
     device inventory.`,
     action: {
-      label: 'Manage Devices',
+      label: 'Manage devices',
       href: '#',
     },
   },
