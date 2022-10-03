@@ -92,7 +92,8 @@ export const InPageNavigation = ({ headings }) => {
       <Nav gap="none" a11yTitle="Jump to section">
         {headings.map((heading, index) => {
           const levelRegexp = new RegExp(/^(#)+/);
-          const [level] = heading[0].match(levelRegexp);
+          // remove space from in front of #s
+          const [level] = heading[0].substring(1).match(levelRegexp);
           // heading[1] refers to the full heading title matched by regex
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
