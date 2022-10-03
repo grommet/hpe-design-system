@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { Card, useAnalytics } from 'grommet';
 import PropTypes from 'prop-types';
 import { internalLink } from '..';
+
 export const LinkCard = ({ href, ...rest }) => {
 
   const router = useRouter();

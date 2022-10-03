@@ -42,19 +42,31 @@ const Components = () => (
       </PageIntro>
       <ContentSection>
         <Subsection name="Layouts">
-          <CardGrid cards={cards.filter(card => card.category === 'Layouts')} />
+          <CardGrid
+            cards={cards.filter(
+              card => card.category === 'Layouts' && !card.parentPage,
+            )}
+          />
         </Subsection>
         <Subsection name="Controls">
           <CardGrid
-            cards={cards.filter(card => card.category === 'Controls')}
+            cards={cards.filter(
+              card => card.category === 'Controls' && !card.parentPage,
+            )}
           />
         </Subsection>
         <Subsection name="Inputs">
-          <CardGrid cards={cards.filter(card => card.category === 'Inputs')} />
+          <CardGrid
+            cards={cards.filter(
+              card => card.category === 'Inputs' && !card.parentPage,
+            )}
+          />
         </Subsection>
         <Subsection name="Visualizations">
           <CardGrid
-            cards={cards.filter(card => card.category === 'Visualizations')}
+            cards={cards.filter(
+              card => card.category === 'Visualizations' && !card.parentPage,
+            )}
           />
         </Subsection>
         <Subsection name="All Components">

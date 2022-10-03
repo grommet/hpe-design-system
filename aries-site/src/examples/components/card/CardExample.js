@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Card, CardBody, CardFooter, Chart, Text, Stack } from 'grommet';
-import { Wifi, StatusWarningSmall } from 'grommet-icons';
+import {
+  Box,
+  Card,
+  CardBody,
+  CardFooter,
+  Chart,
+  Heading,
+  Text,
+  Stack,
+} from 'grommet';
+import { StatusWarningSmall } from 'grommet-icons';
 
 const mockData = Array(30)
   .fill()
@@ -30,15 +39,9 @@ export const CardExample = () => (
     }}
     width="medium"
   >
-    <CardBody pad="none">
-      <Identifier
-        title="Network Traffic"
-        subtitle="Bandwidth Utilization - Last 30 Days"
-        icon={<Wifi size="large" color="text-strong" />}
-      />
-      <Box margin={{ top: 'medium' }}>
-        <KPIChart id="metric-0" data={mockData} />
-      </Box>
+    <CardBody pad="none" gap="medium">
+      <Identifier title="Bandwidth Utilization" subtitle="Last 30 Days" />
+      <KPIChart id="metric-0" data={mockData} />
     </CardBody>
     <CardFooter background="background-back">
       <KPISummary instances={capacityWarnings} statusColor="status-warning" />
@@ -53,11 +56,11 @@ const Identifier = ({ title, subtitle, icon }) => (
     align="center"
     pad={{ horizontal: 'medium', top: 'medium' }}
   >
-    <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
+    {icon && <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>}
     <Box>
-      <Text color="text-strong" size="xxlarge" weight="bold">
+      <Heading level={2} margin="none" size="small">
         {title}
-      </Text>
+      </Heading>
       <Text>{subtitle}</Text>
     </Box>
   </Box>

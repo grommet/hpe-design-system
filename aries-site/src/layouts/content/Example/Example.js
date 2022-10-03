@@ -57,6 +57,7 @@ export const Example = ({
   plain, // remove Container from around example
   previewWidth,
   relevantComponents,
+  scale,
   screenContainer, // show example in mock browser
   template, // showing as template causes appropriate aspect ratio
   // show screen size controls by default with screenContainer or template
@@ -138,14 +139,16 @@ export const Example = ({
   let scaledTheme;
 
   if (screen === screens.mobile) viewPort = 'small';
-  else if (!screenContainer && !showResponsiveControls) viewPort = size;
-  else if (screenContainer) {
+  else if (!screenContainer && !showResponsiveControls && !scale)
+    viewPort = size;
+  else if (screenContainer || scale) {
     if (fullscreen) viewPort = size;
     else if (!fullscreen) {
       const containerWidth = mockBrowserRect.width;
-      scaledTheme = screenContainer.scale
-        ? scaled(screenContainer.scale)
-        : theme;
+      scaledTheme =
+        scale || screenContainer.scale
+          ? scaled(scale || screenContainer.scale)
+          : theme;
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
@@ -391,6 +394,7 @@ Example.propTypes = {
   plain: PropTypes.bool,
   previewWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
+  scale: PropTypes.number,
   screenContainer: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({ scale: PropTypes.number }),
