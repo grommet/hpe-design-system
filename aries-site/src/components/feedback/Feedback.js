@@ -62,7 +62,7 @@ export const Feedback = ({
         <AnnounceContextComponent
           mode="assertive"
           role="alert"
-          message={messages?.successful || 'Thanks'}
+          message={messages?.successful || 'Thank you!'}
         />
       </Box>
     );
