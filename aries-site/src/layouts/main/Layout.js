@@ -87,6 +87,8 @@ export const Layout = ({
         QID2_TEXT: value.value['text-area'],
       },
     };
+    // using next js env variables for url & api token
+    // https://nextjs.org/docs/basic-features/environment-variables
     fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
       method: 'POST',
       headers: {
