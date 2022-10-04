@@ -20,12 +20,12 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
     star: {
       render: StarRating,
       border: false,
-      label: <Text size="large">{label}</Text>,
+      label: <Text>{label}</Text>,
     },
     thumbs: {
       render: ThumbsRating,
       border: false,
-      label: <Text size="large">{label}</Text>,
+      label: <Text>{label}</Text>,
     },
     textArea: { render: TextArea },
     radioButtonGroup: { render: RadioButtonGroup },
