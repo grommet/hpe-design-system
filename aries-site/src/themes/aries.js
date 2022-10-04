@@ -8,7 +8,6 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   feedback: {
     body: {
-      gap: 'medium',
     },
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
