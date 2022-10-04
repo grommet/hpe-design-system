@@ -7,8 +7,6 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   feedback: {
-    body: {
-    },
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
         To close this layer, press Enter.`,

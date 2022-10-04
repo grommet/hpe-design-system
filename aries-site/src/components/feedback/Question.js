@@ -38,7 +38,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
       contentProps={{
         border: formats[kind].border ?? true,
       }}
-      label={formats[kind].label || label }
+      label={formats[kind].label || <Text>{label}</Text> }
       name={name}
       htmlFor={name}
       {...formProps}
