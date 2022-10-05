@@ -11,14 +11,7 @@ module.exports = {
     'prettier',
     'plugin:grommet/recommended',
   ],
-  plugins: [
-    'react',
-    'jsx',
-    'jsx-a11y',
-    'react-hooks',
-    'prettier',
-    'typescript',
-  ],
+  plugins: ['react', 'jsx', 'jsx-a11y', 'react-hooks', 'prettier'],
   env: {
     browser: true,
     jest: true,
