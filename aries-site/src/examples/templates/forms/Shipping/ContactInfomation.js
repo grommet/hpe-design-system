@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, FormField, MaskedInput, Text, TextInput } from 'grommet';
-import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
 import PropTypes from 'prop-types';
+import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
 
 export const ContactInformation = ({ name }) => (
   <Box>

@@ -1,4 +1,4 @@
-import { Box, Button, CheckBox, Form, FormField, Grid, Text, TextInput } from "grommet";
+import { Box, Button, CheckBox, Form, FormField, Grid, Text, TextInput } from 'grommet';
 import { FormUp } from 'grommet-icons';
 
 const options = [];
@@ -90,7 +90,7 @@ export const SelectMultipleSelected = ({ id, ...rest }) => (
       <Button label="Clear All" size="small"/>
     </Highlight>
   </DropElement>
-)
+);
 export const SelectMultipleSearch = ({ id, ...rest }) => (
   <DropElement pad={{ horizontal: 'xsmall' }} { ...rest }>
     <Highlight id={id} background="teal" pad="none">
@@ -105,15 +105,15 @@ export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
       <Text size="small">{`Select up to ${limit}`}</Text>
     </Highlight>
   </DropElement>
-)
+);
 
 export const SelectMultipleOptions = ({ id, ...rest }) => (
   <DropElement { ...rest }>
     <Highlight id={id} background="background-back" pad='xsmall'>
       {options.map((label) => (
         <Highlight
-          id={(label === highlightedOption) ? "listItem" : undefined}
-          background={label === highlightedOption ? "yellow" : undefined}
+          id={(label === highlightedOption) ? 'listItem' : undefined}
+          background={label === highlightedOption ? 'yellow' : undefined}
           pad="none"
           key={label}
         >

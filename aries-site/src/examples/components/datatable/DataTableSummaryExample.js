@@ -102,14 +102,8 @@ const columns = [
   },
   {
     property: 'attachment',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Attachment{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          %
-        </Text>
-      </Text>
-    ),
+    header: 'Attachment',
+    units: '%',
     render: datum => `${(datum.attachment * 100).toFixed([1])}`,
     align: 'end',
     aggregate: 'avg',
