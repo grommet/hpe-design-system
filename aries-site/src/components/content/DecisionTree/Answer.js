@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
 export const Answer = ({ children, ...rest }) => (
@@ -6,3 +7,7 @@ export const Answer = ({ children, ...rest }) => (
     <Text weight={500}>{children}</Text>
   </Box>
 );
+
+Answer.propTypes = {
+  children: PropTypes.string,
+};
