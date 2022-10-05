@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, CheckBox, FormField, Select, Text, TextInput } from 'grommet';
-import { states } from '../utils/FormValidation';
 import PropTypes from 'prop-types';
+import { states } from '../utils/FormValidation';
 
 export const ShippingInfomation = ({ name }) => (
   <Box>
