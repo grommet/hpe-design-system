@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -10,9 +9,6 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-=======
-import { Box, Button, CheckBox, Form, FormField, Grid, Text, TextInput } from 'grommet';
->>>>>>> master
 import { FormUp } from 'grommet-icons';
 
 const options = [];
@@ -106,14 +102,11 @@ export const SelectMultipleSelected = ({ id, ...rest }) => (
     </Highlight>
   </DropElement>
 );
-<<<<<<< HEAD
 
 SelectMultipleSelected.propTypes = {
   id: PropTypes.string,
 };
 
-=======
->>>>>>> master
 export const SelectMultipleSearch = ({ id, ...rest }) => (
   <DropElement pad={{ horizontal: 'xsmall' }} {...rest}>
     <Highlight id={id} background="teal" pad="none">
@@ -133,25 +126,18 @@ export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
     </Highlight>
   </DropElement>
 );
-<<<<<<< HEAD
 
 SelectMultipleLimit.propTypes = {
   id: PropTypes.string,
   limit: PropTypes.number,
 };
-=======
->>>>>>> master
 
 export const SelectMultipleOptions = ({ id, ...rest }) => (
   <DropElement {...rest}>
     <Highlight id={id} background="background-back" pad="xsmall">
       {options.map(label => (
         <Highlight
-<<<<<<< HEAD
           id={label === highlightedOption ? 'listItem' : undefined}
-=======
-          id={(label === highlightedOption) ? 'listItem' : undefined}
->>>>>>> master
           background={label === highlightedOption ? 'yellow' : undefined}
           pad="none"
           key={label}
