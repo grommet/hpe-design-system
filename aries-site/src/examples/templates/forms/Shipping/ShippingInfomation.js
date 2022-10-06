@@ -80,5 +80,5 @@ export const ShippingInfomation = ({ name }) => (
 );
 
 ShippingInfomation.propTypes = {
-  name: PropTypes.string.required,
+  name: PropTypes.string.isRequired,
 };
