@@ -1,8 +1,8 @@
 import { readdir, readFile, mkdir, writeFile, access } from 'fs/promises';
 import { resolve, sep } from 'path';
 
-const SOURCE_DIRECTORY = 'src/pages';
-const OUT_DIRECTORY = 'src/data/search';
+const SOURCE_DIRECTORY = `${process.cwd()}/src/pages`;
+const OUT_DIRECTORY = `${process.cwd()}/src/data/search`;
 const OUT_PATH = `${OUT_DIRECTORY}/contentForSearch.js`;
 
 const toTitleCase = str =>

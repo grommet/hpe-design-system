@@ -202,27 +202,15 @@ const columns = [
   },
   {
     property: 'networkBand.value',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Network Band{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          (GHz)
-        </Text>
-      </Text>
-    ),
+    header: 'Network Band',
+    units: 'GHz',
     render: datum => datum.networkBand.value,
     align: 'end',
   },
   {
     property: 'linkRate.value',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Link Rate{' '}
-        <Text size="xsmall" weight="normal" color="text">
-          (Mbps)
-        </Text>
-      </Text>
-    ),
+    header: 'Link Rate',
+    units: 'Mbps',
     render: datum => datum.linkRate.value,
     align: 'end',
   },
