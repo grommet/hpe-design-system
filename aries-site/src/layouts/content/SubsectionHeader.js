@@ -21,15 +21,11 @@ export const SubsectionHeader = ({ children, level }) => {
       onMouseOut={() => setOver(false)}
       onBlur={() => setOver(false)}
     >
-      <Heading
-        margin={{ vertical: 'small' }}
-        level={level}
-        size={level === 3 ? 'small' : undefined}
-      >
+      <Heading margin={{ vertical: 'small' }} level={level}>
         <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
-        tip='Copy link to clipboard'
+        tip="Copy link to clipboard"
         a11yTitle={`Jump to section titled ${children} 
                     and copy link to clipboard`}
         icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
