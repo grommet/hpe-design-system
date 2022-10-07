@@ -22,4 +22,5 @@ export const Decision = ({ children, id, ...rest }) => {
 
 Decision.propTypes = {
   children: PropTypes.string,
+  id: PropTypes.string,
 };
