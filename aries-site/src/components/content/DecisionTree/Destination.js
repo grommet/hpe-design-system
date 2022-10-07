@@ -82,5 +82,6 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
 Destination.propTypes = {
   children: PropTypes.string,
   detail: PropTypes.string,
+  id: PropTypes.string,
   useCases: PropTypes.arrayOf(PropTypes.string),
 };
