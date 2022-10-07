@@ -47,5 +47,5 @@ export const ContactInformation = ({ name }) => (
 );
 
 ContactInformation.propTypes = {
-  name: PropTypes.string.required,
+  name: PropTypes.string.isRequired,
 };
