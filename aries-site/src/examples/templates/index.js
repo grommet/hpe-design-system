@@ -1,5 +1,6 @@
 /* Template page examples */
 export * from './ascending-navigation';
+export * from './Card';
 export * from './code-blocks';
 export * from './content-layouts';
 export * from './dashboards';

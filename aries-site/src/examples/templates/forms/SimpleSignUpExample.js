@@ -15,72 +15,12 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { FormCheckmark } from 'grommet-icons';
-
-const passwordRequirements = [
-  {
-    regexp: new RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$ %^&*-]).{8,}'),
-    message: 'Password requirements not met.',
-    status: 'error',
-  },
-];
-
-const passwordRulesStrong = [
-  {
-    regexp: new RegExp('(?=.*?[A-Z])'),
-    message: 'One uppercase letter',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[a-z])'),
-    message: 'One lowercase letter',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('(?=.*?[#?!@$ %^&*-])'),
-    message: 'One special character',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('.{8,}'),
-    message: 'At least 8 characters',
-    status: 'error',
-  },
-];
-
-const emailValidation = [
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-  {
-    regexp: new RegExp('[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+'),
-    message: 'Enter a valid email address.',
-    status: 'error',
-  },
-];
-
-const emailMask = [
-  {
-    regexp: /^[\w\-_.]+$/,
-    placeholder: 'jane.smith',
-  },
-  { fixed: '@' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'hpe',
-  },
-  { fixed: '.' },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: 'com',
-  },
-];
+import {
+  emailMask,
+  emailValidation,
+  passwordRequirements,
+  passwordRulesStrong,
+} from './utils/FormValidation';
 
 export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({

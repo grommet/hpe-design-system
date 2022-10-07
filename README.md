@@ -46,6 +46,11 @@ yarn install
 
 Running 'yarn install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
 
+Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...". 
+`aries-site` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the yarn.lock file. 
+
+To fetch the latest grommet stable, remove yarn.lock and clean yarn cache, then yarn install. For example: `rm yarn.lock && yarn cache clean && yarn install`
+
 Run aries-site in development mode:
 
 ```
@@ -59,64 +64,4 @@ Running in production mode:
 yarn build
 ```
 
-## Sprint Schedule
 
-### Q3
-
-**June 2020**  
-6/8
-
-- Digest company app page layout variations
-- Initial [page layout](https://github.com/grommet/hpe-design-system/issues/797) design review
-- Designer "How to get started" training video
-
-6/15
-
-- Final Page Layout design review
-- Developer "how to get started" training video
-- Grommet Designer Intro tutorial
-
-6/22
-
-- Add page layouts to the Design System site
-- [Card](https://github.com/grommet/hpe-design-system/issues/801) and [List](https://github.com/grommet/hpe-design-system/issues/799) template exploration
-- Grommet Designer Share tetorial
-
-6/29
-
-- Initial Card template design review
-- Grommet Designer Backing up tetorial
-
-**July 2020**  
-7/6
-
-- Fisrt pass Card template review
-- Design System/Brand Central content audit
-
-7/13
-
-- First pass list template review
-- Final Card template design review
-- Initial Table template design review
-
-7/20
-
-- Final List template review
-- Align Design System/Brand Central content
-
-7/27
-
-- First pass Table template review
-- Initial Data Visualization template design review
-
-8/3
-
-- Final Table template review
-
-8/10
-
-- First pass Data Visualization review
-
-8/17
-
-- Initial Asynchronous Notifications design review

@@ -88,7 +88,7 @@ export const components = {
       <Box
         background="background-front"
         pad={{ horizontal: 'medium', top: 'medium', bottom: 'large' }}
-        round="xxsmall"
+        round="xsmall"
       >
         <Table {...props} />
       </Box>
