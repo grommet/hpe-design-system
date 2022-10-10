@@ -82,7 +82,17 @@ export const foundation = [
     brand assets are comprised of the top elements that are always used, 
     along with several optional components that can be added. Use "always" 
     assets combined with the "flexible" brand assets to make recipes.`,
-    sections: [],
+    sections: [
+      'Always ingredients',
+      'HPE GreenLake badge',
+      'HPE green',
+      'MetricHPE font',
+      'Call to action button',
+      'Flexible ingredients',
+      'Color and texture styles',
+      'Typography styles',
+      'Photography, film, and more',
+    ],
     tags: [
       'logos',
       'brand assets',
