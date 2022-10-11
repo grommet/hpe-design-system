@@ -14,6 +14,7 @@ import {
   ButtonStatesExample,
   ButtonSizingExample,
   ColorButtonExample,
+  CTAButtonExample,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -62,15 +63,13 @@ Buttons are unique components since their alignment depends on where they appear
 
 Button types may be applied in various combinations, however they should always be ordered by order of importance and in relation to their alignment: Primary first, followed by Secondary, then by Default.
 
-<Example previewWidth='large' height="none" pad="small" width="large">
- <ButtonLeftAlignExample />
+<Example previewWidth="large" height="none" pad="small" width="large">
+  <ButtonLeftAlignExample />
 </Example>
 
-<Example previewWidth='large' height="none" pad="small" width="large">
- <ButtonRightAlignExample />
+<Example previewWidth="large" height="none" pad="small" width="large">
+  <ButtonRightAlignExample />
 </Example>
-
-
 
 ### Buttons vs. Anchors
 
@@ -82,7 +81,7 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 
 ### Cancel Buttons
 
-Cancel buttons enable users to exit out of or dismiss the current screen in order to go back to the previous one. Having an explicit way to cancel provides a fallback to safety as it helps discard any unwanted changes. 
+Cancel buttons enable users to exit out of or dismiss the current screen in order to go back to the previous one. Having an explicit way to cancel provides a fallback to safety as it helps discard any unwanted changes.
 
 #### Styling
 
@@ -90,12 +89,19 @@ Cancel buttons should be presented in the default button styling. The neutral ap
 
 <BestPracticeGroup>
   <Example
-    bestPractice={{type: 'do', message: 'Always use default button styling for cancel button, and keep it aligned in accordance with use case, following the hierarchy.'}}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Always use default button styling for cancel button, and keep it aligned in accordance with use case, following the hierarchy.',
+    }}
   >
     <ButtonGoodCancelPreview />
   </Example>
   <Example
-    bestPractice={{type: 'dont', message: `Don't use Secondary Button styling for Cancel button.`}}
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use Secondary Button styling for Cancel button.`,
+    }}
   >
     <ButtonBadCancelPreview />
   </Example>
@@ -110,6 +116,7 @@ Toggle buttons are used either to switch between two states, such as checked and
 Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes the action that the user will be performing when using screen readers.
 
 **Best Practices:**
+
 - Limit to 2-3 descriptive words.
 - Use verbs first to describe the action such as “Hide/View”, "Switch/Unswitch", “Favorite/Unfavorite”, "Light/Dark" or “Like/Dislike".
 - Use sentence case capitalization.
@@ -127,13 +134,31 @@ If pressing a Button results in a new URL, or the resultant UI makes sense as "a
 
 The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
 
+## Primary Buttons
+
+Primary buttons highlight actions on a page delivering the most benefit to users. They are helpful in enabling users’ goals, unlocking new value by enabling a new experience, capability, or creation of something which hadn’t previously existed.
+
+Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content. At HPE there are two kinds of primary buttons, a CTA Button and a primary action button. Learn more about the purpose behind each and when to apply them.
+
+### When to use a CTA button
+
+Call-to-action (CTA) buttons entice a user down a curated path leading to incremental value. A primary call-to-action is meant to encourage the most desired action you want visitors to take, leading prospects and customers towards conversion, whether that be to learn more, register, test-drive and even buy a product.
+
+Specifically, CTA Buttons should be used whenever a prospect or customer is unlocking new value from HPE’s edge-to-cloud promise. This primarily occurs in marketing contexts, but can also occur within an enterprise application where a service, feature, trial opportunity, or event is being promoted.
+
+### When to use a primary action button
+
+Primary action buttons are used within enterprise applications. They are meant to assist, as opposed to entice, and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
+
+Actions supported by primary action buttons are numerous and may be constructive or destructive in nature. Example actions include: create, schedule, deploy, add, save, and depending on context could even be cancel or delete.
+
 ## Variants
 
 There are a couple "flavors" of button depending on use case.
 
 ### Primary Button
 
-Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button).  Consider that the 80% use case for some pages is visualization and not action.  In cases like these, a call to action is inappropriate and a secondary button can be used.
+Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a call to action is inappropriate and a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -155,9 +180,25 @@ Secondary buttons are used to represent calls to action that are either in suppo
   <SecondaryButtonExample />
 </Example>
 
+### CTA button
+
+CTA Buttons should be used whenever a prospect or customer is unlocking new value from HPE’s edge-to-cloud promise. Read [when to use a CTA button](/components/button?q=butt#when-to-use-a-cta-button) for detailed guidance on usage.
+
+<Example
+  componentName="Button"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/CTAButtonExample.js"
+  designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  figma="https://www.figma.com/file/Oi5UEEQ33VCAyOKQcZ8Nr8/HPE-Button-Component?node-id=1%3A2"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js"
+  height={{ min: 'small' }}
+>
+  <CTAButtonExample />
+</Example>
+
 ### Toolbar Button
 
-Toolbar buttons are used when buttons are placed in a row with other toolbar controls. 
+Toolbar buttons are used when buttons are placed in a row with other toolbar controls.
 
 A common use case would be when creating a [filtering experience](/templates/filtering). In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
 
@@ -165,12 +206,12 @@ To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-b
 
 <Example
   code={[
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js",
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js',
   ]}
   github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/button/ToolbarButtonExample.js"
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -245,6 +286,7 @@ Button label text size may be specified. Padding and rounding scale proportionat
 Ensure you are always being mindful of our responsive page layouts when designing user experiences. Even if you don’t anticipate your users leveraging mobile or tablet devices, they may be reducing/expanding browser widths, zooming in on content, or manipulating the browser in unanticipated ways. As a best practice, always design for a usable UI on all browser widths and resolutions.
 
 ### Best Practices
+
 - Ensure the button label does not wrap, truncate, or alter the text content in any way when presented on smaller browser widths.
 - Button label text should not scale down to fit on smaller browser widths.
 - The minimum button width for any button should be 42px.
@@ -255,12 +297,20 @@ On screen widths of less than or equal to 576px (Grommet "small"), it is best to
 
 <BestPracticeGroup>
   <Example
-    bestPractice={{type: 'do', message: 'On small resolutions, full-width buttons help users more easily identify & interact with actions on smaller browser widths and when using the press gesture.'}}
+    bestPractice={{
+      type: 'do',
+      message:
+        'On small resolutions, full-width buttons help users more easily identify & interact with actions on smaller browser widths and when using the press gesture.',
+    }}
   >
     <ButtonGoodSignUpCTAPreview />
   </Example>
   <Example
-    bestPractice={{type: 'dont', message: 'On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.'}}
+    bestPractice={{
+      type: 'dont',
+      message:
+        'On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.',
+    }}
   >
     <ButtonBadSignUpCTAsPreview />
   </Example>
@@ -272,12 +322,20 @@ For button groups on screen widths less than or equal to 576px (Grommet "small")
 
 <BestPracticeGroup>
   <Example
-    bestPractice={{type: 'do', message: 'Reorder the button group vertically on smaller screens to ensure each individual button is given enough space to be easily read and actioned on.'}}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Reorder the button group vertically on smaller screens to ensure each individual button is given enough space to be easily read and actioned on.',
+    }}
   >
     <ButtonGoodLongTitlePreview />
   </Example>
   <Example
-    bestPractice={{type: 'dont', message: 'Horizontal, inline button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.'}}
+    bestPractice={{
+      type: 'dont',
+      message:
+        'Horizontal, inline button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.',
+    }}
   >
     <ButtonBadGroupPreview />
   </Example>
