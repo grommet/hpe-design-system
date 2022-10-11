@@ -424,7 +424,11 @@ export const components = [
       'When the user needs to select one or more options, use a checkbox.',
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
-    sections: ['Toggle', 'CheckBox with Description'],
+    sections: [
+      'CheckBox outside of FormField',
+      'Toggle',
+      'CheckBox with Description',
+    ],
     relatedContent: ['CheckBoxGroup', 'Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
