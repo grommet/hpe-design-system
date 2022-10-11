@@ -1,9 +1,17 @@
+import { Box, Button, Image, Notification } from 'grommet';
+import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
 import {
   GlobalHeaderExample,
 } from '../../examples';
 import { DiagramPreview, Example } from '../../layouts';
-import { Box, Button, Image } from 'grommet';
-import { AppsRounded, Language, Search, Shop } from 'grommet-icons';
+
+<Notification 
+  status="info" 
+  message={`Please note that a new implementation of Global Header delivering 
+  a variety of new features, including the new HPE GreenLake badge, is coming soon.`}
+  width={{min: "medium", max: "large"}}
+  margin={{bottom: "medium"}}
+/>
 
 The Global Header, also known as the HPE Common Header and Footer Web Service,
 provides a tunable, yet consistent header and footer to be used across all HPE
