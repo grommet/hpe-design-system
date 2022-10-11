@@ -1,3 +1,5 @@
+import { Box, Text } from 'grommet';
+
 export const foundation = [
   {
     name: 'Accessibility',
@@ -64,6 +66,46 @@ export const foundation = [
     logos in the experiences you create.`,
     sections: ['HPE Logo', 'HPE Element', 'Aruba Logo', 'Aruba Icon'],
     tags: ['logos', 'brand icons'],
+  },
+  {
+    name: 'Distinctive Brand Assets',
+    category: 'Assets',
+    cardOrder: 5,
+    description: `Our distinctive brand assets are comprised of 
+    the top elements that are always used, along with several optional 
+    components that can be added.`,
+    preview: {
+      component: () => <Box fill background="datawave-multi-5" />,
+    },
+    seoDescription: `To be easy to mind and easy to buy as the market leader
+    in edge to cloud, we must be consistent and fresh. Our distinctive 
+    brand assets are comprised of the top elements that are always used, 
+    along with several optional components that can be added. Use "always" 
+    assets combined with the "flexible" brand assets to make recipes.`,
+    sections: [
+      'Always ingredients',
+      'HPE GreenLake badge',
+      'HPE green',
+      'MetricHPE font',
+      'Call to action button',
+      'Flexible ingredients',
+      'Color and texture styles',
+      'Typography styles',
+      'Photography, film, and more',
+    ],
+    tags: [
+      'logos',
+      'brand assets',
+      'distinctive brand assets',
+      'brand',
+      'brand ingredients',
+      'ingredients',
+      'always',
+      'flexible',
+      'textures',
+      'gradients',
+      'typography',
+    ],
   },
   {
     name: 'Developer Guidance',
