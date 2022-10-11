@@ -1,18 +1,27 @@
-import { Box, Image } from 'grommet';
+import { Box, Image, ThemeContext } from 'grommet';
+import { useContext } from 'react';
 
-export const HPEGreenLakeBadge = () => (
-  <Box
-    alignSelf="start"
-    flex={false}
-    background="background-front"
-    pad="medium"
-    height="xsmall"
-    width={{ max: 'small' }}
-  >
-    <Image
-      alt="HPE GreenLake badge"
-      src="https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/hpe_greenlake_grn_pos_rgb.svg"
-      fit="contain"
-    />
-  </Box>
-);
+export const HPEGreenLakeBadge = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box
+      alignSelf="start"
+      flex={false}
+      background="background-front"
+      pad="medium"
+      height="xsmall"
+      width={{ max: 'small' }}
+    >
+      <Image
+        alt="HPE GreenLake badge"
+        src={
+          theme.dark
+            ? 'https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/hpe_greenlake_grn_rev_rgb.svg'
+            : 'https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/hpe_greenlake_grn_pos_rgb.svg'
+        }
+        fit="contain"
+      />
+    </Box>
+  );
+};
