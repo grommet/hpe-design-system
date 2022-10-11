@@ -1,25 +1,30 @@
 ---
 name: Define
-about: articulate a meaningful and actionable problem statement, which becomes the focus for creating solutions in the ideation phase.
+about: Articulate a meaningful and actionable problem statement, which becomes the focus for creating solutions in the ideation phase.
 title: [Name of tracking issue] - Define
 labels: 'define'
 assignees: ''
 
 ---
 
+Articulate a meaningful and actionable problem statement, which becomes the focus for 
+creating solutions in the ideation phase.
 
+This guides our work by:
+- Kickstarting the ideation process with direction and inspiration.
+- Bringing clarity and focus to the design solution space.
 
 ## Deliverables
 
 ### Articulate the problem statement
 **Name**: Who has the problem? Give them a name.
 
-**Things they are trying to do (needs)**:
+**Desired objectives - Things they are trying to do (needs)**:
+Hint: Use the "5 whys" technique to get beyond surface level and closer to the 
+core issue. 
 
 
-
-
-**Ways they want to fell (insight/meaning)**:
+**Desired feelings - Ways they want to feel (insight/meaning)**:
 
 
 
