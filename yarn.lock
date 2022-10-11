@@ -6387,9 +6387,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.723, electron-to-chromium@^1.4.251:
-  version "1.4.276"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.276.tgz#17837b19dafcc43aba885c4689358b298c19b520"
-  integrity sha512-EpuHPqu8YhonqLBXHoU6hDJCD98FCe6KDoet3/gY1qsQ6usjJoHqBH2YIVs8FXaAtHwVL8Uqa/fsYao/vq9VWQ==
+  version "1.4.277"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.277.tgz#6dc3d9724a0a19b7ab155bf8e37967357a081dc5"
+  integrity sha512-Ej4VyUfGdVY5D2J5WHAVNqrEFBKgeNcX7p/bBQU4x/VKwvnyEvGd62NEkIK3lykLEe9Cg4MCcoWAa+u97o0u/A==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7999,7 +7999,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.27.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#259bedf92a420723faf3bb748bc95ce84cdf830d"
+  resolved "https://github.com/grommet/grommet/tarball/stable#22635c2c5d51cc9ebd262f8c286fee9dd682e95b"
   dependencies:
     grommet-icons "^4.8.0"
     hoist-non-react-statics "^3.2.0"
@@ -9797,9 +9797,9 @@ jimp@^0.16.1:
     regenerator-runtime "^0.13.3"
 
 joi@^17.4.0:
-  version "17.6.2"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.2.tgz#00ac55ce6495596545cce45309f38738cfbd7cd3"
-  integrity sha512-+gqqdh1xc1wb+Lor0J9toqgeReyDOCqOdG8QSdRcEvwrcRiFQZneUCGKjFjuyBWUb3uaFOgY56yMaZ5FIc+H4w==
+  version "17.6.3"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.3.tgz#b8e9e143f0188884563e6de50f8b23ddcd3cb2f5"
+  integrity sha512-YlQsIaS9MHYekzf1Qe11LjTkNzx9qhYluK3172z38RxYoAUf82XMX1p1DG1H4Wtk2ED/vPdSn9OggqtDu+aTow==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
@@ -10681,9 +10681,9 @@ minimatch@^3.0.2, minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
     brace-expansion "^1.1.7"
 
 minimist@^1.1.0, minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
-  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minipass-collect@^1.0.2:
   version "1.0.2"
@@ -14237,9 +14237,9 @@ testcafe-hammerhead@24.7.2:
     webauth "^1.1.0"
 
 testcafe-hammerhead@>=19.4.0:
-  version "25.0.1"
-  resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-25.0.1.tgz#384dae45ab45561e4e82366170ef28fe679ae524"
-  integrity sha512-UYCD2LjR5kEgR8fLvxDwVhHdQKoBlDGS2EdNUnQGkwouRmdYxIOxsWcXUJe93yC5NAX40AVb5tp+401sSGEguQ==
+  version "25.0.2"
+  resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-25.0.2.tgz#12c7ea4e508089c1aa2ac8ff8d1c862001f00ccf"
+  integrity sha512-0KHhvKTOKewmM57RL7eTnGQXRKplMmx4kMY2pMozaZFXNREw1FudW+wie5FMLMtI6cpuvZWFa8igGwt28AE/0A==
   dependencies:
     acorn-hammerhead "0.6.1"
     asar "^2.0.1"
