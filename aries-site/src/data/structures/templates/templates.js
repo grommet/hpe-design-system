@@ -582,6 +582,11 @@ export const templates = [
       'Cancellation',
       'Single Column vs Two Column Wizards',
       'Two-column Wizard',
+      'Alignment',
+      'Previous step button',
+      'Cancel button',
+      'Title',
+      'Next step button',
     ],
     relatedContent: ['Forms'],
     tags: [
