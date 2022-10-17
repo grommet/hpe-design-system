@@ -3,6 +3,7 @@ import {
   CheckBoxDisabledExample,
   CheckBoxDescriptionExample,
   CheckBoxSimpleExample,
+  CheckBoxSolelyExample,
   CheckBoxToggleExample,
   CheckBoxValidationExample,
 } from '../../examples/components/checkbox';
@@ -36,7 +37,18 @@ Checked and unchecked states refer to when an individual CheckBox is checked or 
 
 ### CheckBox outside of FormField
 
+In product design there is usage for a single checkbox that may be needed to turn a feature on or off.
+At times a single Checkbox may control progressiive disclosure which works well if the checkbox is not wrapped in a FormField.
+
 By default, CheckBox has built-in `pad` to create space between the CheckBox and FormField border. When using CheckBox outside of a FormField, apply `pad="none"`.
+
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/checkbox/CheckBoxSolelyExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxSolelyExample />
+</Example>
 
 ### Toggle
 
