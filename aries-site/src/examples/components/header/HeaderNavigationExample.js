@@ -1,14 +1,6 @@
 import React, { useContext } from 'react';
-import {
-  Box,
-  Button,
-  Header,
-  Menu,
-  Nav,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
-import { Hpe } from 'grommet-icons';
+import { Button, Header, Menu, Nav, ResponsiveContext } from 'grommet';
+import { AppIdentity } from 'aries-core/src/js/components/helpers/AppIdentity';
 
 const items = [
   { label: 'Label 1' },
@@ -20,27 +12,9 @@ export const HeaderNavigationExample = () => {
   const size = useContext(ResponsiveContext);
   return (
     <Header fill="horizontal">
-      <Button>
-        <Box
-          direction="row"
-          align="start"
-          gap="medium"
-          // pad maintains accessible hit target
-          // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: 'small' }}
-          responsive={false}
-        >
-          <Hpe color="brand" />
-          <Box direction="row" gap="xsmall" wrap>
-            <Text color="text-strong" weight="bold">
-              HPE
-            </Text>
-            <Text color="text-strong">App Name</Text>
-          </Box>
-        </Box>
-      </Button>
+      <AppIdentity href="#" brand="hpe" title="App Name" />
       {!['xsmall', 'small'].includes(size) ? (
-        <Nav direction="row">
+        <Nav direction="row" gap="small">
           {items.map(item => (
             <Button label={item.label} key={item.label} />
           ))}
