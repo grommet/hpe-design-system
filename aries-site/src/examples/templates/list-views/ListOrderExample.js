@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Button, Heading, List, Menu } from 'grommet';
+import { Box, Button, Heading, List } from 'grommet';
 
 const movies = [
   { title: 'Ponyo', genre: 'Fantasy/Adventure' },
@@ -30,24 +30,11 @@ export const ListOrderExample = () => {
           Favorite Movies
         </Heading>
         <Box direction="row" justify="end">
-          {allowReorder ? (
-            <Button
-              label="Done"
-              primary
-              onClick={() => setAllowReorder(false)}
-            />
-          ) : (
-            <Menu
-              label="Actions"
-              items={[
-                { label: 'Add item', onClick: () => {} },
-                {
-                  label: 'Re-order items',
-                  onClick: () => setAllowReorder(true),
-                },
-              ]}
-            />
-          )}
+          <Button
+            label={allowReorder ? 'Done' : 'Reorder items'}
+            primary
+            onClick={() => setAllowReorder(!allowReorder)}
+          />
         </Box>
         <List
           defaultItemProps={{
