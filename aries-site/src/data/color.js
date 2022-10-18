@@ -308,6 +308,11 @@ const textColors = [
     value: 'text-weak',
     hex: colors['text-weak'],
   },
+  {
+    name: 'text-xweak',
+    value: 'text-xweak',
+    hex: colors['text-xweak'],
+  },
 ];
 
 const statusColorsLight = [
