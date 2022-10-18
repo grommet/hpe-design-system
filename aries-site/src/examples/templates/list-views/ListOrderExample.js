@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box, Button, List, Menu, Text } from 'grommet';
+import { Box, Button, Heading, List, Menu } from 'grommet';
 
 const movies = [
   { title: 'Ponyo', genre: 'Fantasy/Adventure' },
@@ -16,7 +16,7 @@ const movies = [
 
 export const ListOrderExample = () => {
   const [ordered, setOrder] = useState(movies);
-  const [allowReorder, setAllowReorder] = useState(false);
+  const [allowReorder, setAllowReorder] = useState(true);
 
   return (
     <Box
@@ -26,9 +26,9 @@ export const ListOrderExample = () => {
       role="application"
     >
       <Box gap="small" width="large">
-        <Text weight="bold" size="large">
+        <Heading level={2} size="small" margin="none">
           Favorite Movies
-        </Text>
+        </Heading>
         <Box direction="row" justify="end">
           {allowReorder ? (
             <Button
@@ -40,10 +40,9 @@ export const ListOrderExample = () => {
             <Menu
               label="Actions"
               items={[
-                { label: 'Add Item', onClick: () => {} },
-                { label: 'Remove Item', onClick: () => {} },
+                { label: 'Add item', onClick: () => {} },
                 {
-                  label: 'Re-Order Items',
+                  label: 'Re-order items',
                   onClick: () => setAllowReorder(true),
                 },
               ]}
