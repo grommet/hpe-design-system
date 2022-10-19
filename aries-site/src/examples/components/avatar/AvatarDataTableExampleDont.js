@@ -96,7 +96,6 @@ export const AvatarDataTableExampleDont = () => {
     <>
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
-          aria-describedby="orders-heading"
           data={data}
           primaryKey="name"
           columns={columns}
