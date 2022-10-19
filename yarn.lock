@@ -4933,9 +4933,9 @@ can-use-dom@^0.1.0:
   integrity sha512-ceOhN1DL7Y4O6M0j9ICgmTYziV89WMd96SvSl0REd8PMgrY0B/WBOPoed5S1KUmJqXgUXh8gzSe6E3ae27upsQ==
 
 caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001202, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001228, caniuse-lite@^1.0.30001400:
-  version "1.0.30001421"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001421.tgz#979993aaacff5ab72a8d0d58c28ddbcb7b4deba6"
-  integrity sha512-Sw4eLbgUJAEhjLs1Fa+mk45sidp1wRn5y6GtDpHGBaNJ9OCDJaVh2tIaWWUnGfuXfKf1JCBaIarak3FkVAvEeA==
+  version "1.0.30001422"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001422.tgz#f2d7c6202c49a8359e6e35add894d88ef93edba1"
+  integrity sha512-hSesn02u1QacQHhaxl/kNMZwqVG35Sz/8DgvmgedxSH8z9UUpcDYSPYgsj3x5dQNRcNp6BwpSfQfVzYUTm+fog==
 
 case-sensitive-paths-webpack-plugin@^2.2.0:
   version "2.4.0"
@@ -7999,7 +7999,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.27.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#54f55090d711ac1ab9f9bddee460976a8e2a8c5c"
+  resolved "https://github.com/grommet/grommet/tarball/stable#be37d6e0e1caff864310086cd150e0996ed139e6"
   dependencies:
     grommet-icons "^4.8.0"
     hoist-non-react-statics "^3.2.0"
@@ -14237,9 +14237,9 @@ testcafe-hammerhead@24.7.2:
     webauth "^1.1.0"
 
 testcafe-hammerhead@>=19.4.0:
-  version "26.0.2"
-  resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-26.0.2.tgz#2d9d0c0cb7410dca82fa393d64a74446f4833dd8"
-  integrity sha512-+iqgwl2bYPeVTjbH0o+tFcw3Qtob7n+Yc4aUNZUlzKbDWoP41U4eWuqOToPo6Pww0JTGUkaft4R02TRGofUHOg==
+  version "27.0.1"
+  resolved "https://registry.yarnpkg.com/testcafe-hammerhead/-/testcafe-hammerhead-27.0.1.tgz#4e7f9902c8ad136e65cd6637c38ab6e78911752f"
+  integrity sha512-Ev9SDiy63Ps2W46wteHxiiZuoOx0xn6huylXUe2IbLDxQbOV+l+VfU7NohbDhCOhZiu0eaz8udoM69aSDKIl8w==
   dependencies:
     acorn-hammerhead "0.6.1"
     asar "^2.0.1"

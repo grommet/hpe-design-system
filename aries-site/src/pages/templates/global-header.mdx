@@ -20,9 +20,9 @@ import { DiagramPreview, Example } from '../../layouts';
 
 ## When to use
 
-For all products that exist within the GreenLake ecosystem, Global Header with the GreenLake badge should be used.
+For all products that exist within the HPE GreenLake ecosystem, Global Header with the HPE GreenLake badge should be used.
 
-If a product does not exist within the GreenLake ecosystem, use the [HPE Common Header and Footer Web Service](#hpe-common-header-and-footer-web-service).
+If a product does not exist within the HPE GreenLake ecosystem, use the [HPE Common Header and Footer Web Service](#hpe-common-header-and-footer-web-service).
 
 ## Implementing the Global Header
 
@@ -50,7 +50,7 @@ The Global Header is published as a Figma component in the HPE Design System Com
 While the specifics of the Global Header implementation are still being worked out, we do know that the Global Header will:
 
 - Continue to be delivered as its own service with 24/7 support.
-- Be distributed as a Web Component to allow it to easily be inserted into any product, regardless that product's use of React or not.
+- Be distributed as a Web Component which can be easily consumed by any UI framework.
 
 In the meantime, the [Global Header Figma component](https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=3028%3A58403) should be referenced for the latest design specs.
 
@@ -58,9 +58,7 @@ For additional questions, feel free to [reach out on Grommet Slack](https://grom
 
 ## HPE Common Header and Footer Web Service
 
-The HPE Common Header and Footer Web Service provides a tunable, yet consistent header and footer to be used across HPE
-applications that exist outside of the GreenLake ecosystem. The header is provided as a service and injected into your
-application at run-time.
+For HPE applications that exist outside of the HPE GreenLake ecosystem, the HPE Common Header and Footer Web Service provides a tunable, yet consistent header and footer. It is provided as a service and injected into your application at run-time.
 
 <Box direction="row" gap="medium" pad={{ bottom: 'large' }}>
   <Button
@@ -125,13 +123,13 @@ Let's take a closer look at each part of the common header and footer.
 
 #### App Identity
 
-Most sites should choose the default which will be the HPE logo for regular mode or the GreenLake logo for
-`console` mode. You can force it to use one or the other by specifically choosing HPE versus GreenLake if
+Most sites should choose the default which will be the HPE logo for regular mode or the HPE GreenLake logo for
+`console` mode. You can force it to use one or the other by specifically choosing HPE versus HPE GreenLake if
 needed.
 
 ![HPE logo](/templateImages/globalheader-hpe.png)
 
-![GreenLake logo](/templateImages/globalheader-greenlake.png)
+![HPE GreenLake logo](/templateImages/globalheader-greenlake.png)
 
 #### Header Main Navigation
 
@@ -165,9 +163,10 @@ option if your site uses features that require a Passport login.
 #### Cube Menu
 
 <AppsRounded /> The *Cube Menu* allows access to HPE services available to the
-user such as GreenLake and other Cloud console applications as well as general
-HPE links for HPE content like developer.hpe.com, education.hpe.com, etc. This
-menu should be enabled to allow access to other HPE sites and applications.
+user such as HPE GreenLake and other Cloud console applications as well as
+general HPE links for HPE content like developer.hpe.com, education.hpe.com,
+etc. This menu should be enabled to allow access to other HPE sites and
+applications.
 
 #### Color Scheme
 
