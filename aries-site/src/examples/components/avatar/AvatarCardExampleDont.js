@@ -4,7 +4,7 @@ import { Notes, ShareRounded } from 'grommet-icons';
 import { Card } from '../../templates';
 
 const product = {
-  icon: '/apache-spark.svg',
+  avatar: '/apache-spark.svg',
   title: 'Helpful Guides',
   description:
     'Access step by step guides on getting the most out of Apache Spark.',
