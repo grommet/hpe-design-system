@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
+  Avatar,
   Box,
   Card,
   CardBody,
@@ -17,6 +18,7 @@ const DesignSystemCard = ({
   as,
   actions,
   alignActions,
+  avatar,
   children,
   description,
   direction,
@@ -41,6 +43,14 @@ const DesignSystemCard = ({
             align="start"
             pad={adjustPad(direction, 'header', theme)}
           >
+            {avatar && (
+              <Avatar
+                pad={{ bottom: 'small' }}
+                a11yTitle={`${title} icon`}
+                round={false}
+                src={avatar}
+              />
+            )}
             {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
@@ -84,6 +94,7 @@ DesignSystemCard.propTypes = {
   ]),
   description: PropTypes.string,
   direction: PropTypes.oneOf(['column', 'row']),
+  avatar: PropTypes.element,
   icon: PropTypes.element,
   level: PropTypes.number,
   media: PropTypes.element,

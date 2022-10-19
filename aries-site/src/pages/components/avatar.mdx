@@ -1,0 +1,111 @@
+import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  AvatarAccessibilityExample,
+  AvatarCardExampleDo,
+  AvatarCardExampleDont,
+  AvatarDataTableExampleDo,
+  AvatarDataTableExampleDont,
+  AvatarPageHeaderExample,
+  AvatarSizePreviewExample,
+} from '../../examples';
+
+## Anatomy
+
+Avatars can be displayed as an image, initials, or a logo. They come in three different sizes:
+
+- `small`: 24x24px
+- `medium`: 48x48px
+- `large`: 96x96px
+
+The container of an Avatar can be circular or a rounded square based on the use case.
+
+- Use a circle Avatar when representing a person either through an image or their initials.
+- Use a rounded square Avatar when representing a company’s or entity’s logo. This can be achieved by passing `round='medium'`
+- Always round the edges of a square container when using an avatar.
+
+<Example
+  figma="https://www.figma.com/file/d7a74LgBABdgTZR6HrzWKo/HPE-Avatar?node-id=0%3A1"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarSizePreviewExample.js"
+>
+  <AvatarSizePreviewExample />
+</Example>
+
+## Accessibility
+
+Inform the user of what the Avatar is and what will happen when it is clicked by including an `a11yTitle`.
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarAccessibilityExample.js"
+  width={{ min: 'medium' }}
+>
+  <AvatarAccessibilityExample />
+</Example>
+
+## When to use Avatars
+
+Typically, Avatars are used mainly as an easy identifier for users and are always paired with additional information for better clarity. If possible, prioritize using an image or logo over initials.
+
+## Variants
+
+### DataTable
+
+When using Avatars in a DataTable, always provide the user’s or company’s name or email alongside it. If an image is not available provide an Avatar with initials instead. Use small-sized avatars in DataTables.
+
+<BestPracticeGroup columns="100%">
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Including Avatars here helps the user to quickly scan the table.',
+    }}
+  >
+    <AvatarDataTableExampleDo />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don't remove an avatar if one is not available. This breaks visual consistency. Instead use initials as a placeholder.`,
+    }}
+  >
+    <AvatarDataTableExampleDont />
+  </Example>
+</BestPracticeGroup>
+
+### Card
+
+Both Avatars and Icons can be used within Cards. Reminder that...
+
+- Avatars represent a person, company, or entity.
+- Icons represent objects, actions, programs, and other communicative symbols.
+
+Use medium-sized avatars within cards.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Pair Avatars and Icons adjacent to relevant content.',
+    }}
+  >
+    <AvatarCardExampleDo />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t stack Avatars and Icons on top of one another. Choose one that is most relevant to the title. In this case, use the document icon over the Avatar. `,
+    }}
+  >
+    <AvatarCardExampleDont />
+  </Example>
+</BestPracticeGroup>
+
+### PageHeader
+
+When applicable, an Avatar is aligned to the left of the title within a PageHeader. Use large-sized avatars within PageHeaders.
+
+<Example height="medium" pad="small">
+  <AvatarPageHeaderExample />
+</Example>
