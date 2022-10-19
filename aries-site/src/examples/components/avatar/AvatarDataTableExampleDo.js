@@ -91,7 +91,7 @@ const columns = [
   },
   {
     property: 'platformRole',
-    header: 'Platform Role',
+    header: 'Platform role',
   },
   {
     property: 'lastActive',
