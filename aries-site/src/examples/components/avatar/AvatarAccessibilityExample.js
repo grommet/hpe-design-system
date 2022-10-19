@@ -1,14 +1,21 @@
 import React from 'react';
-import { Avatar, Box } from 'grommet';
+import { Avatar, Box, Button } from 'grommet';
 
-export const AvatarAccessibilityExample = () => (
-  <Box align="center">
-    <Avatar
-      size="large"
-      a11yTitle="Avatar containing initial letters J and S"
-      background="green"
-    >
-      JS
-    </Avatar>
-  </Box>
-);
+export const AvatarAccessibilityExample = () => {
+  const handleClick = obj => {
+    alert(`Avatar containing initial letters J and S was clicked`);
+  };
+  return (
+    <Box align="center">
+      <Button onClick={handleClick}>
+        <Avatar
+          size="large"
+          a11yTitle="Avatar containing initial letters J and S when clicked an alert will pop up"
+          background="green"
+        >
+          JS
+        </Avatar>
+      </Button>
+    </Box>
+  );
+};
