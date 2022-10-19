@@ -45,6 +45,7 @@ const DesignSystemCard = ({
           >
             {avatar && (
               <Avatar
+                 flex={false}
                 pad={{ bottom: 'small' }}
                 a11yTitle={`${title} icon`}
                 round='medium'
