@@ -22,7 +22,7 @@ export const AvatarSizePreviewExample = () => (
       size="xlarge"
       src="/Shape.svg"
       title="Large avatar with logo"
-    ></AvatarContainer>
+    />
   </Box>
 );
 
