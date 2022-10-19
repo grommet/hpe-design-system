@@ -16,7 +16,7 @@ const data = [
     avatar: {
       src: '/Vicky.png',
     },
-    status: 'Invite Pending',
+    status: 'Invite pending',
     platformRole: 'Editor',
     lastActive: '2 days ago',
   },
