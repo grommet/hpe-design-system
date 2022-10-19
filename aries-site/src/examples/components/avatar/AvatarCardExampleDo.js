@@ -18,7 +18,7 @@ graph processing.`,
 
 export const AvatarCardExampleDo = () => (
   <Card
-    avatar={product.icon}
+    avatar={product.avatar}
     title={product.title}
     description={product.description}
     actions={
