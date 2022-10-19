@@ -84,7 +84,7 @@ const columns = [
   {
     property: 'lastActive',
     header: 'Last Active',
-    render: datum => <Text>{datum.lastActive || '--'}</Text>,
+    render: datum => <Text a11yTitle={!datum.lastActive ? "No value" : undefined}>{datum.lastActive || '--'}</Text>,
   },
 ];
 
