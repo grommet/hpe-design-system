@@ -17,7 +17,7 @@ const product = {
 
 export const AvatarCardExampleDont = () => (
   <Card
-    avatar={product.icon}
+    avatar={product.avatar}
     icon={
       <Box pad={{ left: 'small' }}>
         <Notes />
