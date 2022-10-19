@@ -8,7 +8,7 @@ export const AvatarSizePreviewExample = () => (
       size="small"
       src="//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
       title="Small avatar with profile picture"
-    ></AvatarContainer>
+    />
     <AvatarContainer
       background="green"
       alt="Avatar containing initial letters J and S"
