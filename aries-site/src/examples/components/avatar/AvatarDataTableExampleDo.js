@@ -30,7 +30,7 @@ const data = [
     lastActive: 'April 15, 2022',
   },
   {
-    name: 'Matt Glissman',
+    name: 'Matt Glissmann',
     avatar: {
       src: '/Matt.png',
     },
