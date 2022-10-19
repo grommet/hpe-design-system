@@ -51,12 +51,15 @@ export const components = [
     name: 'Avatar',
     category: 'Visualizations',
     description: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
-    seoDescription: 'An Avatar draws attention to users so that they can efficiently identify a person, company, or entity.',
+    seoDescription: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
     sections: [
       'Anatomy',
       'Accessibility',
       'When to use Avatars',
-      'Variants'
+      'Variants',
+      'DataTable',
+      'Card',
+      'PageHeader'
     ],
     preview: {
       component: () => <AvatarPreview />,
