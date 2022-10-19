@@ -47,7 +47,7 @@ const DesignSystemCard = ({
               <Avatar
                 pad={{ bottom: 'small' }}
                 a11yTitle={`${title} icon`}
-                round={false}
+                round='medium'
                 src={avatar}
               />
             )}
