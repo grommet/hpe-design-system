@@ -3,8 +3,7 @@ import {
   AvatarAccessibilityExample,
   AvatarCardExampleDo,
   AvatarCardExampleDont,
-  AvatarDataTableExampleDo,
-  AvatarDataTableExampleDont,
+  AvatarDataTableExample,
   AvatarPageHeaderExample,
   AvatarSizePreviewExample,
 } from '../../examples';
@@ -66,7 +65,7 @@ When using avatars in a DataTable, always accompany the avatar with another piec
         'Include avatars to help the user to quickly scan the table and identify a specific user. Use initials in the avatar when an image is not available.',
     }}
   >
-    <AvatarDataTableExampleDo />
+    <AvatarDataTableExample />
   </Example>
   <Example
     height="none"
@@ -75,7 +74,7 @@ When using avatars in a DataTable, always accompany the avatar with another piec
       message: `Don't remove an avatar if an image is not available. This breaks visual consistency. Instead, use initials as a placeholder.`,
     }}
   >
-    <AvatarDataTableExampleDont />
+    <AvatarDataTableExample bestPractice={false} />
   </Example>
 </BestPracticeGroup>
 

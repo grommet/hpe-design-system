@@ -4,7 +4,7 @@ import { ShareRounded } from 'grommet-icons';
 import { Card } from '../../templates';
 
 const product = {
-  icon: '/apache-spark.svg',
+  avatar: '/apache-spark.svg',
   title: 'Apache Spark',
   description: `Open source analytics engine for big data processing, 
 with built-in modules for streaming, SQL, machine learning and 
