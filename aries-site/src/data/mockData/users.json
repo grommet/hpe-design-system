@@ -13,7 +13,7 @@
       "avatar": {
         "src": "/Vicky.png"
       },
-      "status": "Invite Pending",
+      "status": "Invite pending",
       "platformRole": "Editor",
       "lastActive": "2 days ago"
     },
@@ -40,7 +40,7 @@
       "avatar": {
         "src": "/Taylor.png"
       },
-      "status": "Invite Pending",
+      "status": "Invite pending",
       "platformRole": "Admin",
       "lastActive": "1 hour ago"
     },
@@ -58,8 +58,8 @@
       "avatar": {
         "inital": "JF"
       },
-      "status": "Invite Pending",
-      "platformRole": "Invite Pending",
+      "status": "Editor",
+      "platformRole": "Invite pending",
       "lastActive": "3 hours ago"
     }
   ]
