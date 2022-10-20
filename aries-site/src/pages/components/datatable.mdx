@@ -3,6 +3,7 @@ import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   PaginationTableExample,
+  PaginationServerTableExample,
   DataTableAnatomy,
   DataTableExample,
   DataTableEmptyCellExample,
@@ -405,6 +406,12 @@ With long sets of data, pagination can help to create a more efficient means of 
   height="auto"
 >
   <PaginationTableExample />
+</Example>
+
+Below is an example of a server-side paginated DataTable.
+
+<Example showResponsiveControls={['laptop', 'mobile']} template height="auto">
+  <PaginationServerTableExample />
 </Example>
 
 ### Fixing header row and/or columns
