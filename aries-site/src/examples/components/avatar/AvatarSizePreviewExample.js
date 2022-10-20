@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Box, Text } from 'grommet';
 
 export const AvatarSizePreviewExample = () => (
-  <Box align="center"direction="row-responsive" gap="xlarge">
+  <Box direction="row-responsive" gap="large">
     <AvatarContainer
       alt="Eric Soderberg image"
       size="small"
