@@ -76,7 +76,7 @@ export const SingleFormFieldExample = () => {
               direction="row"
             >
               <Button label="Cancel" />
-              <Button label="Delete Cluster" primary type="submit" />
+              <Button label="Delete cluster" primary type="submit" />
             </Box>
           </Form>
         </Box>

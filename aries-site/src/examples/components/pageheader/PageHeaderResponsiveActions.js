@@ -13,7 +13,7 @@ import { ActionMenu, ReverseAnchor } from '../../templates';
 
 const deviceActions = [
   {
-    label: 'Delete Device',
+    label: 'Delete device',
   },
 
   {
@@ -21,7 +21,7 @@ const deviceActions = [
     secondary: true,
   },
   {
-    label: 'Edit Device',
+    label: 'Edit device',
     primary: true,
   },
 ];
