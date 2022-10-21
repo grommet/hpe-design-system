@@ -1,5 +1,8 @@
 import { Example } from '../../layouts';
-import { SelectMultipleAnatomyExample, SelectMultipleSimpleExample } from '../../examples';
+import {
+  SelectMultipleAnatomyExample,
+  SelectMultipleSimpleExample,
+} from '../../examples';
 
 The SelectMultiple component is typically used as a form element but can also be leveraged for user experiences that include searching or narrowing down data. It contains an optional search field. When within a form, the SelectMultiple will support labels, error and disabled states.
 
@@ -19,12 +22,15 @@ When multiple selections can be made in a list that contains 5 or more items.
 
 ## When not to use
 
-- For lists that contain less than 5 options to choose from, consider using a [CheckBoxGroup](/components/checkboxgroup) instead. 
+- For lists that contain less than 5 options to choose from, consider using a [CheckBoxGroup](/components/checkboxgroup) instead.
 - When only a single selection is permitted, use the [Select](/components/select) component instead.
 
 ## Anatomy
 
-<Example plain caption="Diagram illustrating the various elements composing SelectMultiple.">
+<Example
+  plain
+  caption="Diagram illustrating the various elements composing SelectMultiple."
+>
   <SelectMultipleAnatomyExample />
 </Example>
 
@@ -35,13 +41,13 @@ When multiple selections can be made in a list that contains 5 or more items.
 1. **List**: Available options from which the user can choose
 1. **List Item**: Clearly displays available option and its selected state.
 
-## Sizing & Scrolling
+## Sizing & scrolling
 
 - Depending on the length of the dropdown list, the height of the SelectMultiple can be increased or decreased as needed with the `dropHeight` prop.
-- For lists with more than 10 items, consider setting a max height to ensure optimum readability and scannability of list items. 
+- For lists with more than 10 items, consider setting a max height to ensure optimum readability and scannability of list items.
 - It is recommended to show approximately 10-15 items before enabling a scroll. Showing more than that will potentially increase the cognitive load on the user.
 
-## Best Practices
+## Best practices
 
 - Always use a label unless there is something else (such as preceding body text or headers) that makes that SelectMultiple’s purpose perfectly clear.
 - Ordering of lists - chronological/recency
