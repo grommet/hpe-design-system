@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Box, DataTable, Text, Tip, ResponsiveContext, Heading } from 'grommet';
+import React, { useEffect, useState } from 'react';
+import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
@@ -50,10 +50,11 @@ const columns = [
 ];
 
 export const PaginationServerTableExample = () => {
-  const size = useContext(ResponsiveContext);
-  const stepSize = 10;
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
+  const [limit, setLimit] = useState(10);
+  const [numberItems, setNumberItems] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,7 +70,8 @@ export const PaginationServerTableExample = () => {
             [sort.property || 'name']: sort.direction || 'asc',
           },
           select: ['name', 'success', 'failures'],
-          pagination: false,
+          limit,
+          page,
         },
       };
       fetch('https://api.spacexdata.com/v4/launches/query', {
@@ -81,13 +83,15 @@ export const PaginationServerTableExample = () => {
       })
         .then(response => response.json())
         .then(d => {
+          setPage(d.page);
+          setNumberItems(d.totalDocs);
           setData(d.docs || []);
         })
         .catch(error => console.error('Unable to get data:', error));
     };
 
     fetchData();
-  }, [sort]);
+  }, [sort, page, limit]);
 
   return (
     <Box pad="small">
@@ -105,20 +109,44 @@ export const PaginationServerTableExample = () => {
           data={data}
           sortable
           replace
-          step={stepSize}
-          onUpdate={opts => {
-            if (opts.sort) setSort(opts.sort);
-          }}
-          paginate={{
-            border: 'top',
-            direction: 'row',
-            fill: 'horizontal',
-            flex: false,
-            justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
-            pad: { top: 'xsmall' },
-          }}
+          step={limit}
+          onSort={(opts) => setSort(opts)}
         />
+        
+        {numberItems > limit && (
+          <Box
+            direction="row-responsive"
+            align="center"
+            border="top"
+            justify="between"
+            pad={{ vertical: 'xsmall' }}
+          >
+            <Text>
+              Showing {(page - 1) * limit + 1}-
+              {Math.min(page * limit, numberItems)} of {numberItems}
+            </Text>
+            <Pagination
+              step={limit}
+              numberItems={numberItems}
+              page={page}
+              onChange={(opts) => setPage(opts.page)}
+              direction="row"
+              flex={false}
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   );
 };
+
+/*
+paginate={{
+  border: 'top',
+  direction: 'row',
+  fill: 'horizontal',
+  flex: false,
+  justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
+  pad: { top: 'xsmall' },
+}}
+*/
