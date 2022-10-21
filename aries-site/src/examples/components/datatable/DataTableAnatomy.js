@@ -17,7 +17,7 @@ export const DataTableAnatomy = () => (
             <AnatomyLabel>Search</AnatomyLabel>
           </AnatomySection>
           <AnatomySection background="background-contrast">
-            <AnatomyLabel>Filter Controls</AnatomyLabel>
+            <AnatomyLabel>Filter controls</AnatomyLabel>
           </AnatomySection>
         </Box>
         <AnatomySection background="background-contrast">

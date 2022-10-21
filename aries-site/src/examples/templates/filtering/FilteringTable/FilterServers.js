@@ -28,7 +28,7 @@ const filtersConfig = [
     property: 'state.connected',
     label: 'State',
     filterType: 'CheckBoxGroup',
-    render: datum => (datum ? 'Connected' : 'Not Connected'),
+    render: datum => (datum ? 'Connected' : 'Not connected'),
   },
   {
     property: 'hardware.powerState',
@@ -53,7 +53,7 @@ export const FilterServers = ({ bestPractice = true, height }) => (
         configure={
           <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
         }
-        actions={bestPractice && <Button label="Add Server" secondary />}
+        actions={bestPractice && <Button label="Add server" secondary />}
       />
       <ServerResults height={height} />
     </Box>
@@ -73,7 +73,7 @@ const columns = [
   {
     property: 'state.connected',
     header: 'State',
-    render: datum => (datum.state.connected ? 'Connected' : 'Not Connected'),
+    render: datum => (datum.state.connected ? 'Connected' : 'Not connected'),
   },
   {
     property: 'hardware.powerState',

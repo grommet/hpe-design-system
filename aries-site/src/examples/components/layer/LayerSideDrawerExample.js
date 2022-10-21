@@ -28,7 +28,7 @@ const LayerForm = ({ setOpen }) => {
       <Header align="start" pad={{ horizontal: 'xxsmall' }}>
         <Box gap="xxsmall">
           <Heading level={2} margin="none" id="layer-title">
-            Form Header
+            Form header
           </Heading>
           <Text id="layer-desc">a subtitle if needed</Text>
         </Box>
@@ -40,7 +40,7 @@ const LayerForm = ({ setOpen }) => {
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
       >
         <FormField
-          label="Text Area"
+          label="Text area"
           htmlFor="text-area-input"
           name="textAreaInput"
           tabIndex={-1}
@@ -54,11 +54,7 @@ const LayerForm = ({ setOpen }) => {
             resize="vertical"
           />
         </FormField>
-        <FormField
-          label="Select Component"
-          htmlFor="select-one__input"
-          name="selectOne"
-        >
+        <FormField label="Select" htmlFor="select-one__input" name="selectOne">
           <Select
             id="select-one"
             name="selectOne"
@@ -66,11 +62,7 @@ const LayerForm = ({ setOpen }) => {
             placeholder="Select item"
           />
         </FormField>
-        <FormField
-          label="Select Component"
-          htmlFor="select-two__input"
-          name="selectTwo"
-        >
+        <FormField label="Select" htmlFor="select-two__input" name="selectTwo">
           <Select
             id="select-two"
             name="selectTwo"
@@ -78,7 +70,7 @@ const LayerForm = ({ setOpen }) => {
             placeholder="Select item"
           />
         </FormField>
-        <FormField label="Text Input" htmlFor="text-input" name="textInput">
+        <FormField label="Text input" htmlFor="text-input" name="textInput">
           <TextInput
             id="text-input"
             name="textInput"
@@ -86,7 +78,7 @@ const LayerForm = ({ setOpen }) => {
           />
         </FormField>
         <FormField
-          label="Checkbox Toggle"
+          label="Checkbox toggle"
           htmlFor="checkbox-toggle"
           name="checkboxToggle"
           help="Description of how to use this field"
@@ -103,7 +95,7 @@ const LayerForm = ({ setOpen }) => {
           gap="small"
           margin={{ top: 'medium', bottom: 'small' }}
         >
-          <Button label="Submit Form" primary type="submit" />
+          <Button label="Submit form" primary type="submit" />
           <Button label="Cancel" onClick={() => setOpen(false)} />
         </Box>
       </Form>

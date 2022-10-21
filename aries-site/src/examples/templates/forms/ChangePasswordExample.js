@@ -73,7 +73,7 @@ export const ChangePasswordExample = () => {
           <FormField
             htmlFor="currentPassword"
             name="currentPassword"
-            label="Current Password"
+            label="Current password"
             required={{ indicator: false }}
           >
             <TextInput
@@ -86,7 +86,7 @@ export const ChangePasswordExample = () => {
           <FormField
             htmlFor="newPassword"
             name="newPassword"
-            label="New Password"
+            label="New password"
             validate={passwordRulesWeak}
             required={{ indicator: false }}
           >
@@ -100,7 +100,7 @@ export const ChangePasswordExample = () => {
           <FormField
             htmlFor="confirmPassword"
             name="confirmPassword"
-            label="Confirm Password"
+            label="Confirm password"
             required={{ indicator: false }}
             validate={confirmPassword}
           >
@@ -115,7 +115,7 @@ export const ChangePasswordExample = () => {
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'small' }}
           >
-            <Button label="Update Password" primary type="submit" />
+            <Button label="Update password" primary type="submit" />
           </Box>
         </Form>
       </Box>

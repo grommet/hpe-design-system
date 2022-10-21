@@ -113,7 +113,7 @@ export const NameValueListEditHorizontalExample = () => {
             margin={{ top: 'medium' }}
           >
             <Button
-              label="Save Changes"
+              label="Save changes"
               primary
               type="submit"
               fill={

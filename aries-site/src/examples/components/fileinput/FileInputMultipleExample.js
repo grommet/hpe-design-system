@@ -9,7 +9,7 @@ export const FileInputMultipleExample = () => {
       <FileInput
         messages={{
           dropPromptMultiple: 'Drag and drop',
-          browse: numFiles > 0 ? 'Select More Files' : 'Select Files',
+          browse: numFiles > 0 ? 'Select more files' : 'Select files',
         }}
         onChange={(event, { files }) => setNumFiles(files.length)}
         multiple
