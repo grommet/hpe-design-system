@@ -1,8 +1,6 @@
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   AvatarAccessibilityExample,
-  AvatarCardExampleDo,
-  AvatarCardExampleDont,
   AvatarDataTableExample,
   AvatarPageHeaderExample,
   AvatarSizePreviewExample,
@@ -77,35 +75,6 @@ When using avatars in a DataTable, always accompany the avatar with another piec
     <AvatarDataTableExample bestPractice={false} />
   </Example>
 </BestPracticeGroup>
-
-### Card
-
-Both avatars and icons can be used within cards. Each represents different kinds of information.
-
-- Avatars represent a unique person, company, or entity with an image, logo, or initials.
-- Icons are more generic and represent objects, actions, programs, and other communicative symbols.
-
-Use medium-sized avatars within cards.
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message: `Use avatar when representing a specific entity, such as an applications logo. Refrain from using an icon to represent a specific entity.`,
-    }}
-  >
-    <AvatarCardExampleDo />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t use both avatars and icons as identifiers. Choose one that is most relevant to the title. In this case, an icon is appropriate to represent "Helpful Guides" which is a more generic item.`,
-    }}
-  >
-    <AvatarCardExampleDont />
-  </Example>
-</BestPracticeGroup>
-
 
 ### PageHeader
 
