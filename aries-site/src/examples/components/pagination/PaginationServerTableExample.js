@@ -139,14 +139,3 @@ export const PaginationServerTableExample = () => {
     </Box>
   );
 };
-
-/*
-paginate={{
-  border: 'top',
-  direction: 'row',
-  fill: 'horizontal',
-  flex: false,
-  justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
-  pad: { top: 'xsmall' },
-}}
-*/
