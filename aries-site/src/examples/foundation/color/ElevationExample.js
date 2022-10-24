@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
 const elevations = {
-  elevation: 'medium',
-  'elevation-strong': 'large',
-  'elevation-weak': 'small',
+  medium: 'medium',
+  large: 'large',
+  small: 'small',
 };
 
 export const ElevationExample = ({ color, hex }) => {
