@@ -40,19 +40,6 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                 </>
               ),
             },
-            {
-              property: 'status',
-              header: 'Status',
-            },
-            {
-              property: 'platformRole',
-              header: 'Platform Role',
-            },
-            {
-              property: 'lastActive',
-              header: 'Last Active',
-              render: datum => <Text>{datum.lastActive || '--'}</Text>,
-            },
           ]}
           pin={['xsmall', 'small'].includes(size)}
           select={selected}
