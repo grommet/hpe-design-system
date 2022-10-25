@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Ctera",
+      "src": "/ctera.svg"
+    },
+    {
+      "name": "Suse",
+      "src": "/singlestore.svg"
+    },
+    {
+      "name": "Oracle",
+      "src": "/oracle.svg"
+    },
+    {
+      "name": "Apache",
+      "src": "/apache.svg"
+    },
+    {
+      "name": "Google",
+      "src": "/google.svg"
+    }
+  ]
+
+  

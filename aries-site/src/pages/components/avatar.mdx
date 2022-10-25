@@ -1,20 +1,30 @@
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   AvatarAccessibilityExample,
+  AvatarDarkModeExample,
   AvatarDataTableExample,
+  AvatarDataTableIconExample,
   AvatarPageHeaderExample,
   AvatarSizePreviewExample,
+  MarketplaceNavigationalCards,
 } from '../../examples';
 
-## When to use Avatars
+## When to use
 
 Avatars are used to enable users to quickly identify an object, whether that be a specific user, account, or other entity. Avatars are always paired with additional information, such as a user's name, for better clarity. If possible, use an image or logo over initials.
+
+The consistent dimensions of an avatar ensure that readability and scanability of content surrounding the avatar is not compromised. For example, when scanning a data table column that contains an avatar of a company’s logo and the company name, the company name stays aligned from one row to the next. 
+
+## When not to use
+Avatars are not the only components that provide visual representation. When applicable, use these over Avatars:
+- Use Icons when representing objects, actions, programs, or other communicative symbols.
+- Use an image when the context of the visual does not need to have equal height and width to maintain alignment of its surrounding content.
 
 ## Anatomy
 
 Avatars can be displayed as an image, initials, or a logo. They come in three different sizes:
 
-| T-shirt size |  Dimensions (in pixels)   |
+| T-shirt size |  Dimensions (in pixels) |
 | ----------   | --------------|
 | **small**    |    24x24px    |
 | **medium**   |    48x48px    |
@@ -48,9 +58,42 @@ If the avatar acts as a button, the `a11yTitle` should also inform the user of w
   <AvatarAccessibilityExample />
 </Example>
 
-## Variants
+## Handling logos in dark mode
+When possible, provide both a light and dark mode version of a company logo. If a dark mode version of the logo is not available, apply background={{ color: ‘background’, dark: false }} to the avatar.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarAccessibilityExample.js"
+>
+  <AvatarDarkModeExample />
+</Example>
+
+## Examples
 
 ### DataTable
+
+Avatars are always used over images within DataTables to maintain visual alignment with paired content. Use small-sized avatars in DataTables.
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Include avatars to help the user to quickly scan the table and identify a specific user. Use initials in the avatar when an image is not available.',
+    }}
+  >
+    <AvatarDataTableIconExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don't remove an avatar if an image is not available. This breaks visual consistency. Instead, use initials as a placeholder.`,
+    }}
+  >
+    <AvatarDataTableIconExample bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
 
 When using avatars in a DataTable, always accompany the avatar with another piece of identifying information such as the user or company's name or email. If an image is not available provide an avatar with initials instead. Use Avatar with `size=small` in DataTables.
 
@@ -83,3 +126,4 @@ When applicable, an Avatar is aligned to the left of the title within a PageHead
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarPageHeaderExample.js" height="medium" pad="small">
   <AvatarPageHeaderExample />
 </Example>
+
