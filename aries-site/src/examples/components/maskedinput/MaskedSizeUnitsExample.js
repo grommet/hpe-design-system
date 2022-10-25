@@ -23,7 +23,7 @@ export const MaskedSizeUnitsExample = () => {
   return (
     <Form>
       <FormField
-        label="Storage Size"
+        label="Storage size"
         htmlFor="masked-size-units"
         name="maskedSizeUnits"
       >

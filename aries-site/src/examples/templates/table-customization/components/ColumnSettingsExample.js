@@ -6,7 +6,7 @@ const COLUMNS = [
   { property: 'status', header: 'Status' },
   { property: 'role', header: 'Role' },
   { property: 'location', header: 'Location' },
-  { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
+  { property: 'hoursAvailable', header: 'Hours available', align: 'end' },
 ];
 
 export const ColumnSettingsExample = props => {

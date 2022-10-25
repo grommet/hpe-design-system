@@ -14,7 +14,7 @@ export const ButtonSizingExample = () => {
       <Button size="small" label="Small" primary />
       <Button size="medium" label="Medium" primary />
       <Button size="large" label="Large" primary />
-      <Button size="xlarge" label="X-Large" primary />
+      <Button size="xlarge" label="X-large" primary />
     </Box>
   );
 };

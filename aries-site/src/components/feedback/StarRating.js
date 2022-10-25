@@ -23,14 +23,13 @@ export const StarRating = ({ scale = 5, value, onChange, ...rest }) => {
       }}
       {...rest}
     >
-      {option =>
-        option < rating ? <Star color='green' /> : <StarOutline />
-      }
+      {option => (option < rating ? <Star color="green" /> : <StarOutline />)}
     </RadioButtonGroup>
   );
 };
 
 StarRating.propTypes = {
   onChange: PropTypes.func,
+  scale: PropTypes.number,
   value: PropTypes.number,
 };

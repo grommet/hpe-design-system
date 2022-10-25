@@ -9,13 +9,13 @@ export const CheckBoxDescriptionExample = () => {
       <FormField
         name="checkbox-with-desc"
         htmlFor="checkbox-desc"
-        label="Checkbox Heading"
-        help="Checkbox Description"
+        label="Checkbox heading"
+        help="Checkbox description"
       >
         <CheckBox
           name="checkbox-with-desc"
           id="checkbox-desc"
-          label="Checkbox Label"
+          label="Checkbox label"
           checked={checked}
           onChange={event => setChecked(event.target.checked)}
         />

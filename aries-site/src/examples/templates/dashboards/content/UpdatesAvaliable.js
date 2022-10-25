@@ -29,7 +29,7 @@ export const UpdatesAvaliable = () => {
         { label: 'Share', onClick: () => {} },
       ]}
       background="validation-warning"
-      title="Updates Available!"
+      title="Updates available!"
     >
       {updates && (
         <UpdateNotificationsList
