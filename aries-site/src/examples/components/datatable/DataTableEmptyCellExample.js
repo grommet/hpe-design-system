@@ -168,7 +168,7 @@ const data = [
 const columns = [
   {
     property: 'poolName',
-    header: 'Pool Name',
+    header: 'Pool name',
     render: datum => (
       <Text a11yTitle={!datum.poolName ? 'No value' : undefined} truncate>
         {datum.poolName || '--'}
@@ -178,7 +178,7 @@ const columns = [
   },
   {
     property: 'groupName',
-    header: 'Group Name',
+    header: 'Group name',
     render: datum => (
       <Text a11yTitle={!datum.groupName ? 'No value' : undefined} truncate>
         {datum.groupName || '--'}

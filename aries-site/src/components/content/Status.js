@@ -16,7 +16,7 @@ const types = {
 };
 
 const statuses = {
-  'In Progress': {
+  'In progress': {
     icon: <IconTriangle size="small" color="status-warning" />,
   },
   Complete: {
@@ -25,31 +25,31 @@ const statuses = {
 };
 
 const StatusBadge = ({ status, type }) => (
-    <Box direction="row">
-      <Box
-        background="background-front"
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        round={{ corner: 'left', size: 'xsmall' }}
-        direction="row"
-      >
-        <Box direction="row" gap="xsmall" align="center">
-          {types[type].icon}
-          <Text weight="bold">{type && types[type].name}</Text>
-        </Box>
-      </Box>
-      <Box
-        background="background-contrast"
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        round={{ corner: 'right', size: 'xsmall' }}
-        direction="row"
-        align="center"
-        gap="small"
-      >
-        {statuses[status[type]].icon}
-        <Text weight="bold">{status[type]}</Text>
+  <Box direction="row">
+    <Box
+      background="background-front"
+      pad={{ vertical: 'xsmall', horizontal: 'small' }}
+      round={{ corner: 'left', size: 'xsmall' }}
+      direction="row"
+    >
+      <Box direction="row" gap="xsmall" align="center">
+        {types[type].icon}
+        <Text weight="bold">{type && types[type].name}</Text>
       </Box>
     </Box>
-  );
+    <Box
+      background="background-contrast"
+      pad={{ vertical: 'xsmall', horizontal: 'small' }}
+      round={{ corner: 'right', size: 'xsmall' }}
+      direction="row"
+      align="center"
+      gap="small"
+    >
+      {statuses[status[type]].icon}
+      <Text weight="bold">{status[type]}</Text>
+    </Box>
+  </Box>
+);
 
 StatusBadge.propTypes = {
   status: PropTypes.shape({
@@ -60,15 +60,15 @@ StatusBadge.propTypes = {
 };
 
 export const Status = ({ status }) => (
-    <Box direction="row-responsive" gap="medium">
-      {status.figma && <StatusBadge type="figma" status={status} />}
-      {status.grommet && <StatusBadge type="grommet" status={status} />}
-    </Box>
-  );
+  <Box direction="row-responsive" gap="medium">
+    {status.figma && <StatusBadge type="figma" status={status} />}
+    {status.grommet && <StatusBadge type="grommet" status={status} />}
+  </Box>
+);
 
 Status.propTypes = {
   status: PropTypes.shape({
-    figma: PropTypes.oneOf(['Complete', 'In Progress']),
-    grommet: PropTypes.oneOf(['Complete', 'In Progress']),
+    figma: PropTypes.oneOf(['Complete', 'In progress']),
+    grommet: PropTypes.oneOf(['Complete', 'In progress']),
   }),
 };

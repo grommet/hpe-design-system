@@ -46,7 +46,7 @@ const Section1 = () => {
   return (
     <>
       <Heading level={2} size="small" margin="none">
-        A Content Section
+        A content section
       </Heading>
       <Grid
         columns={
@@ -128,7 +128,7 @@ const Section1 = () => {
 const Section2 = () => (
   <>
     <Heading level={2} size="small" margin="none">
-      Another Content Section
+      Another content section
     </Heading>
     <Paragraph margin="none">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer commodo
