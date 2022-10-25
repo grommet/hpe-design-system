@@ -69,7 +69,7 @@ const columns = [
   {
     property: 'state.connected',
     header: 'State',
-    render: datum => (datum.state.connected ? 'Connected' : 'Not Connected'),
+    render: datum => (datum.state.connected ? 'Connected' : 'Not connected'),
   },
   {
     property: 'hardware.powerState',

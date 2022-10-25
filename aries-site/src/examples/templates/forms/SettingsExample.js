@@ -85,12 +85,12 @@ export const SettingsExample = () => {
           <Box>
             <FormField
               name="doNotDisturb"
-              label="Key Feature"
+              label="Key feature"
               help="Description of feature"
             >
               <CheckBox
                 name="doNotDisturb"
-                label="Do Not Disturb"
+                label="Do not disturb"
                 reverse
                 toggle
               />
@@ -98,7 +98,7 @@ export const SettingsExample = () => {
             <FormField
               htmlFor="doNotDisturbHours"
               name="doNotDisturbHours"
-              label="Do Not Disturb Hours"
+              label="Do not disturb hours"
             >
               <TextInput
                 id="doNotDisturbHours"
@@ -110,7 +110,7 @@ export const SettingsExample = () => {
               align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
               margin={{ top: 'small', bottom: 'small' }}
             >
-              <Button label="Apply Settings" primary type="submit" />
+              <Button label="Apply settings" primary type="submit" />
             </Box>
           </Box>
         </Form>

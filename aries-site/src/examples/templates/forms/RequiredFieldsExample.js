@@ -130,7 +130,7 @@ export const RequiredFieldsExample = () => {
             <FileInput
               messages={{
                 dropPrompt: 'Drag and drop',
-                browse: numFiles > 0 ? 'Replace File' : 'Select File',
+                browse: numFiles > 0 ? 'Replace file' : 'Select file',
               }}
               id="fileinput"
               onChange={(event, { files }) => setNumFiles(files.length)}
