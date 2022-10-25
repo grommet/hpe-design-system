@@ -53,6 +53,11 @@ export const PageHeaderContentRegions = ({ background, pad, ...rest }) => {
             alignSelf="start"
             gridArea="actions"
             border={{ style: 'dashed' }}
+            width={{
+              min: ['xlarge'].includes(breakpoint)
+                ? 'medium'
+                : undefined,
+            }}
             round="xxsmall"
           >
             <Actions />

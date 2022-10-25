@@ -53,7 +53,7 @@ export const PageHeaderAnatomy = ({ background }) => {
     <Stack>
       <Grid
         align="center"
-        columns={['auto', 'flex', 'auto']}
+        columns={['30px', 'flex', '30px']}
         rows={
           mobileLayout
             ? ['auto', 'auto', 'auto', 'auto']
@@ -73,7 +73,7 @@ export const PageHeaderAnatomy = ({ background }) => {
                 ['annotation-1b', 'pageheader', 'null-2'],
               ]
         }
-        gap={{ column: 'large' }}
+        gap={{ column: 'small' }}
       >
         <Annotation id={2} target="2" gridArea="annotation-2" />
         <Annotation id="1a" target="1a" gridArea="annotation-1a" />
