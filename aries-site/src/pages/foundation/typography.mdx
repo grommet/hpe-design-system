@@ -7,7 +7,7 @@ import {
 } from '../../examples';
 import { Example } from '../../layouts';
 
-Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
+Typography refers to the creation and styling of letters into fonts. The HPE brand font is MetricHPE. Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
 
 <Button
   alignSelf="start"
@@ -20,7 +20,7 @@ Our typography is about more than words. It’s an integral part of our personal
 
 ## MetricHPE Styles
 
-The weights and styles shown are part of the HPE Design System theme. MetricHPE comes in a varity of weights. For digital experiences we use Light, Regular, Medium, and Bold weights at a variety of scales to compliment the content in a given design.
+The weights and styles shown are part of the HPE Design System theme. MetricHPE comes in a varity of weights. For digital experiences we use Light, Regular, Medium, and Bold weights at a variety of scales to complement the content in a given design.
 
 ## Heading
 
@@ -34,13 +34,13 @@ The weights and styles shown are part of the HPE Design System theme. MetricHPE 
 
 ### Semantic usage of Heading levels
 
-For accessibility reasons, always ensure [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes) are applied.
+For accessibility reasons, always ensure to apply [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes).
 
 Heading levels create a scaffold of a web page's content structure by defining the main page title, page sections, and subsections of those sections.
 
 Correctly implementing heading levels:
 
-- establishes a more scannable visual hierarchy
+- establishes a more scannable, visual hierarchy
 - creates a clear HTML structure which is critical for use by assistive technologies
 
 If heading levels are not implemented in the correct hierarchy, users of screen readers and other assistive technologies will have a more effortful and difficult experience using the application.
@@ -54,7 +54,7 @@ If heading levels are not implemented in the correct hierarchy, users of screen 
 - Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading, then adjust the size by means of Heading's `size` prop.
 - It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
 - Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
-- Treat Layers as if they were their own page with the exceptions that the first heading in a Layer would be a Heading with `level={2}`.
+- Apply Heading with `level={2}`to Layers.
 
 Below is an example of how Heading levels should be implemented for a page called "Page title" with 3 topics called Topic A, Topic B, and Topic C. Each topic has 2 subtopics.
 
@@ -79,7 +79,7 @@ When implementing heading levels, always begin with the correct heading level, t
 
 ### Heading Sizes
 
-If Heading `size` is adjusted, it should be adjusted for all levels. For example, if `size="small"` is desired for a Heading level 1, then "small" should be used for the size of all levels.
+If Heading `size` is adjusted, it should be adjusted for all levels. For example, if `size="small"` is desired for a Heading level 1, use "small" for the size of all levels.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/HeadingSizingExample.js"
