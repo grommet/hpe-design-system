@@ -24,7 +24,7 @@ const COLUMNS = [
   { property: 'status', header: 'Status' },
   { property: 'role', header: 'Role' },
   { property: 'location', header: 'Location' },
-  { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
+  { property: 'hoursAvailable', header: 'Hours available', align: 'end' },
 ];
 
 const allData = [
@@ -84,7 +84,7 @@ const filtersConfig = [
   },
   {
     property: 'hoursAvailable',
-    label: 'Remaining Hours Available',
+    label: 'Remaining hours available',
     filterType: 'RangeSelector',
     inputProps: {
       min: 0,
@@ -118,23 +118,23 @@ export const TableCustomizationExample = () => {
                     // do with regards to any column configurations that have
                     // been applied.
                     configure={
-                        <DropButton
-                          a11yTitle="Configure columns button"
-                          icon={<Splits />}
-                          kind="toolbar"
-                          dropAlign={{ top: 'bottom', right: 'right' }}
-                          onClose={() => setOpen(false)}
-                          onOpen={() => setOpen(true)}
-                          dropContent={
-                            <ColumnSettings
-                              columns={COLUMNS}
-                              visibleColumns={visibleColumns}
-                              setVisibleColumns={setVisibleColumns}
-                              open={open}
-                            />
-                          }
-                          tip="Configure columns"
-                        />
+                      <DropButton
+                        a11yTitle="Configure columns button"
+                        icon={<Splits />}
+                        kind="toolbar"
+                        dropAlign={{ top: 'bottom', right: 'right' }}
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        dropContent={
+                          <ColumnSettings
+                            columns={COLUMNS}
+                            visibleColumns={visibleColumns}
+                            setVisibleColumns={setVisibleColumns}
+                            open={open}
+                          />
+                        }
+                        tip="Configure columns"
+                      />
                     }
                     actions={<Menu kind="toolbar" label="Actions" items={[]} />}
                     data={allData}

@@ -4,7 +4,7 @@ export const TagResults = ({ ...rest }) => (
   <Box flex={false}>
     <Box border="bottom" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
       <Text color="text-strong" weight="bold">
-        Assigned Tags
+        Assigned tags
       </Text>
     </Box>
     <Box

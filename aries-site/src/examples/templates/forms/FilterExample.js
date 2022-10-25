@@ -12,7 +12,7 @@ import {
 } from 'grommet';
 
 const locationTypes = [
-  'All Locations',
+  'All locations',
   'EU-East',
   'EU-West',
   'NA-Central',
@@ -33,7 +33,7 @@ const serverTypes = [
 export const FilterExample = () => {
   const [formValues, setFormValues] = React.useState({
     keyword: '',
-    locationType: 'All Locations',
+    locationType: 'All locations',
     'server-types': ['Rack Servers', 'Tower Servers'],
     sellers: ['Amazon', 'Insight'],
   });
@@ -80,7 +80,7 @@ export const FilterExample = () => {
           <FormField
             htmlFor="locationType__input"
             name="locationType"
-            label="Location Type"
+            label="Location type"
           >
             <Select
               id="locationType"
@@ -90,7 +90,7 @@ export const FilterExample = () => {
           </FormField>
           {serverTypes && (
             <FormField
-              label="HPE Server Types"
+              label="HPE server types"
               htmlFor="server-types"
               name="server-types"
             >
@@ -107,8 +107,8 @@ export const FilterExample = () => {
             </FormField>
           )}
           <Box direction="row-responsive" gap="medium" pad={{ top: 'medium' }}>
-            <Button label="Apply Filters" primary />
-            <Button label="Reset Filters" secondary />
+            <Button label="Apply filters" primary />
+            <Button label="Reset filters" secondary />
             <Button label="Cancel" />
           </Box>
         </Form>

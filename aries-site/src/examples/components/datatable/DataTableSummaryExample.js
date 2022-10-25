@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, DataTable, Heading, ResponsiveContext, Text } from 'grommet';
+import { Box, DataTable, Heading, ResponsiveContext } from 'grommet';
 
 const data = [
   {

@@ -184,13 +184,13 @@ const data = [
 const columns = [
   {
     property: 'poolName',
-    header: 'Pool Name',
+    header: 'Pool name',
     render: datum => <Text truncate>{datum.poolName}</Text>,
     primary: true,
   },
   {
     property: 'groupName',
-    header: 'Group Name',
+    header: 'Group name',
   },
   {
     property: 'arrays',
@@ -202,7 +202,7 @@ const columns = [
     property: 'size',
     header: 'Size',
     units: 'TiB',
-   
+
     render: datum =>
       // bytes to tebibytes
       (datum.size / 2 ** 40).toFixed([1]),
