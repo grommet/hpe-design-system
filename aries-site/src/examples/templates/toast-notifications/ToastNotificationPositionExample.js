@@ -14,7 +14,7 @@ export const ToastNotificationPositionExample = () => {
           This toast notification is aligned to pop up in the top right corner
           of the page.
         </Paragraph>
-        <Button label="Show the Toast Notification" onClick={onOpen} primary />
+        <Button label="Show the toast notification" onClick={onOpen} primary />
       </Box>
       <Box align="center" gap="small">
         {visible && (

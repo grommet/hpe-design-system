@@ -49,7 +49,7 @@ export const ListNameOptionActionExample = () => (
           <Menu
             icon={<More />}
             hoverIndicator
-            items={[{ label: 'Manage Order' }, { label: 'Cancel Order' }]}
+            items={[{ label: 'Manage order' }, { label: 'Cancel order' }]}
           />
         </Box>
       )}

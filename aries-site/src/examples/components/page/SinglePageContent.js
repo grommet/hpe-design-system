@@ -112,7 +112,7 @@ const Category = ({ category }) => (
         {category.title}
       </Heading>
       <Text>
-        <Anchor href="#" label="See All" />
+        <Anchor href="#" label="See all" />
       </Text>
     </Header>
     <Grid columns={{ count: 'fill', size: 'small' }} rows="small" gap="small">

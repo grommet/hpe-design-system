@@ -28,7 +28,7 @@ const data = [
     id: 'OID789345',
     orderName: 'GEM_1',
     purchaseOrder: '9253856295',
-    state: 'Build Prep',
+    state: 'Build prep',
     service: 'HPE Goats as a Service',
     tenant: 'Nestle',
     contact: {
@@ -52,7 +52,7 @@ const data = [
     id: 'OID829374',
     orderName: 'GEM_1',
     purchaseOrder: '1926573453',
-    state: 'Factory Express',
+    state: 'Factory express',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Domain',
     contact: {
@@ -76,7 +76,7 @@ const data = [
     id: 'OID192653',
     orderName: 'GEM_1',
     purchaseOrder: '9253578367',
-    state: 'In Transit',
+    state: 'In transit',
     service: 'HPE GreenLake Private Cloud',
     tenant: 'Suncor Energy',
     contact: {
@@ -100,7 +100,7 @@ const data = [
     id: 'OID824567',
     orderName: 'VMaaS for R&D',
     purchaseOrder: '1986476536',
-    state: 'Ready to Ship',
+    state: 'Ready to ship',
     service: 'HPE Goats as a Service',
     tenant: 'Coke',
     contact: {
@@ -178,7 +178,7 @@ const onClickHandler = record => {
 const columns = [
   {
     property: 'orderName',
-    header: 'Order Name',
+    header: 'Order name',
     render: datum => (
       <Button onClick={() => onClickHandler(datum)}>
         <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
@@ -219,7 +219,7 @@ const columns = [
   },
   {
     property: 'orderDate',
-    header: 'Order Date',
+    header: 'Order date',
     render: datum =>
       datum.orderDate && new Date(datum.orderDate).toLocaleDateString(),
     align: 'end',

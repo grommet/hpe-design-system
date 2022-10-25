@@ -18,7 +18,7 @@ export const FileInputValidationExample = () => {
     <Form validate="change" value={value} onChange={setValue}>
       <Box width="medium">
         <FormField
-          label="File Input With Max Size"
+          label="File input with max size"
           htmlFor="fileInput"
           name="fileInput"
         >
@@ -30,12 +30,12 @@ export const FileInputValidationExample = () => {
               dropPrompt: 'Drag and drop',
               // when there is already a file, the label should read
               // "Replace File"
-              browse: 'Replace File',
+              browse: 'Replace file',
             }}
           />
         </FormField>
         <FormField
-          label="Multiple File Input With Max Size"
+          label="Multiple file input with max size"
           htmlFor="fileInputMultiple"
           name="fileInputMultiple"
         >
@@ -47,7 +47,7 @@ export const FileInputValidationExample = () => {
               dropPrompt: 'Drag and drop',
               // when there are already files, the label should read
               // "Select More Files"
-              browse: 'Select More Files',
+              browse: 'Select more files',
             }}
             multiple
           />

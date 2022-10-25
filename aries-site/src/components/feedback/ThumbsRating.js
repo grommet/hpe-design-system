@@ -36,6 +36,7 @@ export const ThumbsRating = ({ color, value, onChange, ...rest }) => {
 };
 
 ThumbsRating.propTypes = {
+  color: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.string,
 };

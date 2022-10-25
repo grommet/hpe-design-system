@@ -19,7 +19,7 @@ export const ButtonBadCancelPreview = () => (
     </Header>
     <Box direction="row" justify="end" gap="small">
       <Button secondary label="Cancel" onClick={() => {}} />
-      <Button primary label="Delete Role Assignment" onClick={() => {}} />
+      <Button primary label="Delete role assignment" onClick={() => {}} />
     </Box>
   </Box>
 );

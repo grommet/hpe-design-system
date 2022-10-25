@@ -35,7 +35,7 @@ export const ColumnSettings = ({
   return (
     <Box pad="small" elevation="medium">
       <Tabs {...rest}>
-        <Tab title="Select Columns">
+        <Tab title="Select columns">
           <Box pad={{ top: 'xsmall' }}>
             <TextInput
               type="search"
@@ -60,7 +60,7 @@ export const ColumnSettings = ({
             />
           </Box>
         </Tab>
-        <Tab title="Order Columns">
+        <Tab title="Order columns">
           <List
             data={visibleColumns}
             onOrder={orderedData => setVisibleColumns(orderedData)}
