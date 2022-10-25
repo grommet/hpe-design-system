@@ -21,13 +21,13 @@ import { Box } from 'grommet';
 
 ## Guidelines
 
-For complex data tables with many columns, is it important for the user to be able to
+For complex data tables with many columns, the user will need the ability to
 configure which columns they want to see and the order in which these columns appear.
 
 This functionality is handled by a dropdown that contains two tabs: one for selecting
 which columns should appear in the DataTable and another for ordering the columns.
 
-## What makes up the customizable DataTable?
+## Anatomy of a customizable DataTable
 
 ### An action to display column visibility and order controls
 
@@ -35,13 +35,13 @@ Place a button with an `Edit` icon next to the `Actions` menu for the data table
 right side above the data table. The `Actions` menu is mainly for actions which modify
 items in the data table. Controls like the search and filter controls change what items
 are shown in the data table or how they are presented rather than changing the items
-themselves. Since we want to customize the data table itself, we have a separate controls
+themselves. Since we want to customize the data table itself, we have separate controls
 for changing which columns are shown in the data table and their order.
 
 ### Column visibility
 
 Clicking on the `Edit` button opens a dropdown which has two tabs. The first tab should
-be active and labeled "Select Columns". The tab content should consist of a Search input
+be active and labeled "Select Columns." The tab content should consist of a Search input
 and a CheckBoxGroup that lists all possible table columns.
 
 When a column in the list is checked, it is visible in the data table. When it is unchecked,
@@ -61,8 +61,8 @@ The user can also search for a specific column by typing in the Search input.
 
 ### Column order
 
-The second tab of the dropdown should be labeled "Order Columns". It contains a
-list of the selected columns from the "Select Columns" tab. A user can reorder the
+The second tab of the dropdown should be labeled "Order columns." It contains a
+list of the selected columns from the "Select columns" tab. A user can reorder the
 columns either by dragging and dropping the column names in the list or by using
 the move up/move down buttons that are present next to each column name.
 
