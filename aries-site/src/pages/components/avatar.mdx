@@ -71,7 +71,7 @@ When possible, provide both a light and dark mode version of a company logo. If 
 
 ### DataTable
 
-Avatars are always used over images within DataTables to maintain visual alignment with paired content. Use small-sized avatars in DataTables.
+Avatars are always used over images within DataTables to maintain visual alignment with paired content. Use `size=small` avatars in DataTables.
 
 <BestPracticeGroup>
   <Example
@@ -79,7 +79,7 @@ Avatars are always used over images within DataTables to maintain visual alignme
     bestPractice={{
       type: 'do',
       message:
-        'Include avatars to help the user to quickly scan the table and identify a specific user. Use initials in the avatar when an image is not available.',
+        'Use Avatars to align content.',
     }}
   >
     <AvatarDataTableIconExample />
@@ -88,7 +88,7 @@ Avatars are always used over images within DataTables to maintain visual alignme
     height="none"
     bestPractice={{
       type: 'dont',
-      message: `Don't remove an avatar if an image is not available. This breaks visual consistency. Instead, use initials as a placeholder.`,
+      message: `Don't use Image or other components to implement company logos. This causes inconsistent alignment with paired content when logos are not square.`,
     }}
   >
     <AvatarDataTableIconExample bestPractice={false} />
