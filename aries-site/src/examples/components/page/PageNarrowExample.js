@@ -37,7 +37,7 @@ const FormSection = () => (
     <Box width="medium" gap="medium">
       <>
         <Heading level={2} size="small" margin="none">
-          A Form Section
+          A form section
         </Heading>
         <FormField
           htmlFor="field1"
@@ -74,7 +74,7 @@ const FormSection = () => (
       </>
       <>
         <Heading level={2} size="small" margin="none">
-          Another Form Section
+          Another form section
         </Heading>
         {new Array(5).fill().map((_, index) => (
           <FormField
@@ -86,12 +86,12 @@ const FormSection = () => (
             <TextInput
               id={`toggle${index + 1}`}
               name={`toggle${index + 1}`}
-              placeholder="Placeholder..."
+              placeholder="Placeholder"
             />
           </FormField>
         ))}
       </>
-      <Button alignSelf="start" primary label="Apply Settings" />
+      <Button alignSelf="start" primary label="Apply settings" />
     </Box>
   </Form>
 );

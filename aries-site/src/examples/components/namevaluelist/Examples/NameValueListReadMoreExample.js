@@ -27,7 +27,7 @@ export const NameValueListReadMoreExample = () => {
         <NameValuePair name="State">
           {contentTruncationData.state}
         </NameValuePair>
-        <NameValuePair name="Data Sources">
+        <NameValuePair name="Data sources">
           {dataSources.length <= MAX_STRING_LENGTH ? (
             dataSources
           ) : (

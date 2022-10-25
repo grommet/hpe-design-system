@@ -5,7 +5,7 @@ import { Box, DataTable, Text } from 'grommet';
 const data = [
   {
     type: 'Information',
-    state: 'In-Progress',
+    state: 'In progress',
     status: 'Critical',
     attentionLevel: 'High',
     actions: 'Dismiss',
@@ -21,7 +21,7 @@ const data = [
     actions: 'Read',
     persistence: 'Clearable',
     placement: 'Browser',
-    insight: 'Progress Update',
+    insight: 'Progress update',
   },
   {
     type: 'Event',
@@ -29,9 +29,9 @@ const data = [
     status: 'Warning',
     attentionLevel: 'Low',
     actions: 'Unread',
-    persistence: 'Action Required',
+    persistence: 'Action required',
     placement: 'Email',
-    insight: 'Status/Task Tracking',
+    insight: 'Status/task tracking',
   },
   {
     type: '',
@@ -51,7 +51,7 @@ const data = [
     actions: 'No',
     persistence: '',
     placement: 'Bell',
-    insight: 'Request Received',
+    insight: 'Request received',
   },
   {
     type: '',
@@ -124,7 +124,7 @@ export const columns = [
     property: 'attentionLevel',
     header: (
       <Text color="text-strong" weight="bold">
-        Attention Level
+        Attention level
       </Text>
     ),
   },

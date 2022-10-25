@@ -34,7 +34,14 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <script
+            id="hpe-global-header"
+            type="text/javascript"
+            async=""
+            src="https://storage.googleapis.com/hpe-global-header-assets/hpe-global-header.js"
+          />
+        </Head>
         <body>
           <div id="header" className="header" />
           <Main />

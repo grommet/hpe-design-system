@@ -18,7 +18,7 @@ export const LayerExample = () => {
   return (
     <>
       <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
+        <Button label="Show me the layer" onClick={onOpen} primary />
       </Box>
       {open && (
         <Layer
