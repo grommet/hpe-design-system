@@ -13,8 +13,8 @@ import { orders } from './mockData';
 const statusIcons = {
   Cancelled: <StatusCritical />,
   Delivered: <StatusGood />,
-  'In Transit': <Deliver />,
-  'Ready to Ship': <Package />,
+  'In transit': <Deliver />,
+  'Ready to ship': <Package />,
 };
 
 export const FilteringLists = ({ containerRef }) => {

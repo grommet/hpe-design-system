@@ -324,6 +324,6 @@ const CallToAction = () => (
       Access a curated collection of excercises, tool kits, and tutorials by
       creating a free account today.
     </Paragraph>
-    <Button alignSelf="start" primary label="Get Started" size="large" />
+    <Button alignSelf="start" primary label="Get started" size="large" />
   </Box>
 );

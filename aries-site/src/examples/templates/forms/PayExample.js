@@ -141,13 +141,13 @@ export const PayExample = () => {
             <Text>or</Text>
           </Box>
           <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
-            Credit Card Information
+            Credit card information
           </Text>
           <FormField
             name="cardName"
             required
             htmlFor="cardName"
-            label="Name on Card"
+            label="Name on card"
           >
             <TextInput id="cardName" name="cardName" placeholder="Jane Smith" />
           </FormField>
@@ -155,7 +155,7 @@ export const PayExample = () => {
             htmlFor="cardNumber"
             required
             name="cardNumber"
-            label="Credit Card Number"
+            label="Credit card number"
           >
             <MaskedInput
               id="cardNumber"

@@ -18,7 +18,7 @@ const data = [
     alignment: 'Left-aligned',
     useCases: [
       {
-        label: 'Side Drawers',
+        label: 'Side drawers',
         href: '/components/layer#side-drawer-modal',
       },
       {
@@ -40,11 +40,11 @@ const data = [
         href: '/templates/wizard',
       },
       {
-        label: 'Confirmation Modals',
+        label: 'Confirmation modals',
         href: '/components/fileinput#fileinput-with-file-removal-confirmation',
       },
       {
-        label: 'Dialog Modals',
+        label: 'Dialog modals',
       },
       {
         label: 'Notifications',
@@ -60,7 +60,7 @@ const columns = [
   },
   {
     property: 'useCases',
-    label: 'Use Cases',
+    label: 'Use cases',
   },
 ];
 

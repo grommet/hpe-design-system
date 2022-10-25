@@ -94,7 +94,7 @@ export const SimpleSignUpExample = () => {
             />
           </FormField>
           <FormField
-            label="Full Name"
+            label="Full name"
             htmlFor="fullName-sign-up-simple"
             name="fullName"
             required={{ indicator: false }}
