@@ -7,12 +7,12 @@ export const alignmentData = {
 };
 
 export const anatomyData = {
-  'Single Line Description': 'This is an example of a single-line description',
-  'Multi-line Description': `This is an example of a multi-line description like
+  'Single line description': 'This is an example of a single-line description',
+  'Multi-line description': `This is an example of a multi-line description like
    full-service AI insights, security and unified infrastructure management for
    campus, branch, remote, and data center networks`,
   'Created by': 'jane.doe@email.com',
-  'List of Items': 'Item 1, Item 2, Item 3, Item 4, Item 5',
+  'List of items': 'Item 1, Item 2, Item 3, Item 4, Item 5',
 };
 
 export const contentTruncationData = {
@@ -40,19 +40,19 @@ export const contentTruncationData = {
 // representing data that has been formatted to include render functions
 // for how the data should render in NameValueList and Form
 export const formattedData = {
-  companyName: { displayName: 'Company Name', value: 'AT&T', required: true },
+  companyName: { displayName: 'Company name', value: 'AT&T', required: true },
   productName: {
-    displayName: 'Product Name',
+    displayName: 'Product name',
     value: 'Connect',
     required: true,
   },
   contactEmail: {
-    displayName: 'Contact Email',
+    displayName: 'Contact email',
     value: 'jane.smith@email.com',
     render: value => <Anchor label={value} href={`mailto:${value}`} />,
   },
   phoneNumber: {
-    displayName: 'Phone Number',
+    displayName: 'Phone number',
     value: '',
     formRender: (name, value, onChange) => (
       <MaskedInput
@@ -90,13 +90,13 @@ export const formattedData = {
     help: 'Replaces company name in the footer of the application.',
   },
   termsAndConditions: {
-    displayName: 'Terms and Conditions',
+    displayName: 'Terms and conditions',
     value: '',
     help: 'Provide link to your  terms and conditions.',
     placeholder: 'www.yourcompany.com/terms',
   },
   privacyPolicy: {
-    displayName: 'Privacy Policy',
+    displayName: 'Privacy policy',
     value: '',
     help: 'Provide link to your  privacy policy.',
     placeholder: 'www.yourcompany.com/privacy',
@@ -108,7 +108,7 @@ export const formattedData = {
     placeholder: 'www.yourcompany.com/security',
   },
   contactUs: {
-    displayName: 'Contact Us',
+    displayName: 'Contact us',
     value: '',
     help: 'Provide link to your companies contact us page.',
     placeholder: 'www.yourcompany.com/contact',
@@ -118,12 +118,12 @@ export const formattedData = {
 export const defaultData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   Description: 'Full-service A.I. insights and data center networks',
-  'IP Address': '172.98.091.0',
+  'IP address': '172.98.091.0',
 };
 
 export const iconNameData = {
   Active: '90',
-  'In Progress': '24',
+  'In progress': '24',
 };
 
 export const iconValueData = {
@@ -138,9 +138,9 @@ export const data = {
 };
 
 export const fontData = {
-  'Serial Number': 'MXQ83700F3',
+  'Serial number': 'MXQ83700F3',
   'Product ID': 'JL258A',
-  'IP Address': '172.98.091.0',
+  'IP address': '172.98.091.0',
 };
 
 export const fontWeightData = {
@@ -151,9 +151,9 @@ export const fontWeightData = {
 
 export const gridData = {
   Description: 'Whether to enable email link user authentication',
-  'Ephemeral Storage': '54.7%  (3000 GB of 5489 GB)',
-  'Kubernetes Verison': '19.7',
-  'IP Address': '172.98.091.0',
+  'Ephemeral storage': '54.7%  (3000 GB of 5489 GB)',
+  'Kubernetes version': '19.7',
+  'IP address': '172.98.091.0',
   'Created on': '13/02/2021 at 14:23:32',
 };
 
@@ -172,29 +172,29 @@ export const kubernetesData = {
 };
 
 export const profileData = {
-  'First Name': 'Jane',
-  'Last Name': '',
+  'First name': 'Jane',
+  'Last name': '',
   Country: 'United States',
-  'Phone Number': '',
+  'Phone number': '',
   Email: 'jane.smith@hpe.com',
 };
 
 export const simpleData = {
   'Created on': '2021-10-05T14:48:00.000Z',
   'Created by': 'jane.doe@email.com',
-  'Default Storage Class': 'Block Storage Cost',
+  'Default storage class': 'Block Storage Cost',
   Description: `Full-service A.I. insights, security
    and unified infrastructure management for campus,
   branch, remote, and data center networks.`,
-  'IP Address': '172.98.091.0',
+  'IP address': '172.98.091.0',
 };
 
 export const serverData = {
   Health: 'Healthy',
   State: 'Active',
   ID: 'b3894722-adscb29308478-8032j',
-  'API EndPoint': 'democluster1.dev.cloud.net',
-  'Default Storage Class': 'Block Storage Cost',
+  'API endpoint': 'democluster1.dev.cloud.net',
+  'Default storage class': 'Block Storage Cost',
   Description: 'This is a short description of the cluster.',
   Version: '1.18',
   Nodes: '3 Control Plane, 5 workers',
@@ -204,8 +204,8 @@ export const emptyServerData = {
   Health: 'Healthy',
   State: 'Active',
   ID: 'b3894722-adscb29308478-8032j',
-  'API EndPoint': 'democluster1.dev.cloud.net',
-  'Default Storage Class': '',
+  'API endpoint': 'democluster1.dev.cloud.net',
+  'Default storage class': '',
   Description: '',
   Version: '1.18',
   Nodes: '',
@@ -213,11 +213,11 @@ export const emptyServerData = {
 
 export const tagsData = {
   Usage: '300',
-  MachineInfor1: 'Standard',
+  'Machine information': 'Standard',
 };
 
 export const cardSummaryData = {
-  'Total Orders': 114,
+  'Total orders': 114,
   Active: 90,
-  'In Progress': 24,
+  'In progress': 24,
 };

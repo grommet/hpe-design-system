@@ -9,7 +9,7 @@ export const FileInputSimpleExample = () => {
       <FileInput
         messages={{
           dropPrompt: 'Drag and drop',
-          browse: numFiles > 0 ? 'Replace File' : 'Select File',
+          browse: numFiles > 0 ? 'Replace file' : 'Select file',
         }}
         onChange={(event, { files }) => setNumFiles(files.length)}
       />

@@ -22,8 +22,8 @@ export const ButtonStatesExample = () => {
         gap="medium"
       >
         <Button label="Primary" primary onClick={() => {}} />
-        <Button label="Primary Active" primary active onClick={() => {}} />
-        <Button label="Primary Disabled" primary disabled onClick={() => {}} />
+        <Button label="Primary active" primary active onClick={() => {}} />
+        <Button label="Primary disabled" primary disabled onClick={() => {}} />
       </Box>
     </Box>
   );
