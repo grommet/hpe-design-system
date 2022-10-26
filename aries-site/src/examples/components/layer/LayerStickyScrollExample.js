@@ -18,7 +18,7 @@ export const LayerStickyScrollExample = () => {
   return (
     <>
       <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
+        <Button label="Show me the layer" onClick={onOpen} primary />
       </Box>
       {open && (
         <Layer
@@ -33,13 +33,9 @@ export const LayerStickyScrollExample = () => {
             overflow="auto"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
           >
-            <Header
-              background="background"
-              sticky="scrollup"
-              pad='medium'
-            >
+            <Header background="background" sticky="scrollup" pad="medium">
               <Heading margin="none" level={2} size="small">
-                Add Monitor
+                Add monitor
               </Heading>
             </Header>
             <MonitorFormExample />

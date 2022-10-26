@@ -31,7 +31,7 @@ export const StepFooter = () => {
           icon={<FormNextLink />}
           primary
           reverse
-          label={activeIndex === steps.length - 1 ? 'Finish Wizard' : 'Next'}
+          label={activeIndex === steps.length - 1 ? 'Finish wizard' : 'Next'}
           form={`${id}-form`}
           type="submit"
         />

@@ -31,27 +31,27 @@ export const data = [
     icon: <Aruba color="plain" />,
   },
   {
-    cta: 'Explore Guides',
+    cta: 'Explore guides',
     title: 'Guides & Resources',
     description:
       'Stay informed with how-to guides, resources, and documentation.',
     icon: <Support color="purple!" />,
   },
   {
-    cta: 'Send an Invite',
+    cta: 'Send an invite',
     title: 'Invite Users ',
     description:
       'Send a sign-up link to users so you can collaborate with your team.',
     icon: <Group color="orange!" />,
   },
   {
-    cta: 'Assign Roles',
+    cta: 'Assign roles',
     title: 'Assign User Access',
     description: 'Assign a custom role or built-in roles to your account.',
     icon: <UserAdd color="yellow!" />,
   },
   {
-    cta: 'Set Up SAML SSO',
+    cta: 'Set up SAML SSO',
     title: 'Add a SSO/SAML Connection',
     description: `Easily add extra protection to your HPE Account by connecting 
     to your company's IDP.`,
@@ -65,7 +65,7 @@ export const data = [
     icon: <PhoneVertical color="purple!" />,
   },
   {
-    cta: 'Release Notes',
+    cta: 'Release notes',
     title: 'Get Release Notes',
     description:
       'Stay up to date with the latest release notes from HPE Common Cloud.',

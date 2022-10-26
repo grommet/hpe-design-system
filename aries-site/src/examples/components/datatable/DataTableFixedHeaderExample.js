@@ -165,7 +165,7 @@ const columns = [
   {
     primary: true,
     property: 'macAddress',
-    header: 'MAC Address',
+    header: 'MAC address',
     render: datum => datum.macAddress,
     pin: true,
   },
@@ -184,7 +184,7 @@ const columns = [
   },
   {
     property: 'connectionType',
-    header: 'Connection Type',
+    header: 'Connection type',
   },
   {
     property: 'category',
@@ -192,7 +192,7 @@ const columns = [
   },
   {
     property: 'deviceName',
-    header: 'Device Name',
+    header: 'Device name',
     render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
     size: 'xsmall',
   },
@@ -202,14 +202,14 @@ const columns = [
   },
   {
     property: 'networkBand.value',
-    header: 'Network Band',
+    header: 'Network band',
     units: 'GHz',
     render: datum => datum.networkBand.value,
     align: 'end',
   },
   {
     property: 'linkRate.value',
-    header: 'Link Rate',
+    header: 'Link rate',
     units: 'Mbps',
     render: datum => datum.linkRate.value,
     align: 'end',

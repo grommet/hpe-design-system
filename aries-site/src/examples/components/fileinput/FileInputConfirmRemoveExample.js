@@ -9,7 +9,7 @@ export const FileInputConfirmRemoveExample = () => {
       <FileInput
         messages={{
           dropPromptMultiple: 'Drag and drop',
-          browse: numFiles > 0 ? 'Select More Files' : 'Select Files',
+          browse: numFiles > 0 ? 'Select more files' : 'Select files',
         }}
         onChange={(event, { files }) => setNumFiles(files.length)}
         confirmRemove={({ onConfirm, onCancel }) => (
@@ -23,7 +23,7 @@ export const FileInputConfirmRemoveExample = () => {
               </Box>
               <Box direction="row" align="center" justify="end" gap="medium">
                 <Button label="Cancel" onClick={onCancel} />
-                <Button label="Remove File" onClick={onConfirm} primary />
+                <Button label="Remove file" onClick={onConfirm} primary />
               </Box>
             </Box>
           </Layer>

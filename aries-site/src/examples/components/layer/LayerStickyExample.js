@@ -18,7 +18,7 @@ export const LayerStickyExample = () => {
   return (
     <>
       <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
+        <Button label="Show me the layer" onClick={onOpen} primary />
       </Box>
       {open && (
         <Layer
@@ -33,7 +33,7 @@ export const LayerStickyExample = () => {
           >
             <Header pad={{ vertical: 'medium', horizontal: 'medium' }}>
               <Heading margin="none" level={2} size="small">
-                Add Monitor
+                Add monitor
               </Heading>
             </Header>
             <MonitorFormExample sticky />
