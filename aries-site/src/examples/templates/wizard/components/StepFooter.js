@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Footer, ResponsiveContext } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import { WizardContext } from '.';
 
-export const StepFooter = () => {
+export const StepFooter = ({ nextId, ...rest }) => {
   const size = useContext(ResponsiveContext);
   const { activeIndex, id, steps, width } = useContext(WizardContext);
 
@@ -15,6 +16,7 @@ export const StepFooter = () => {
           : undefined
       }
       flex={false}
+      {...rest}
     >
       <Footer
         border={{ side: 'top', color: 'border' }}
@@ -28,6 +30,7 @@ export const StepFooter = () => {
         width={width}
       >
         <Button
+          id={nextId}
           icon={<FormNextLink />}
           primary
           reverse
@@ -38,4 +41,8 @@ export const StepFooter = () => {
       </Footer>
     </Box>
   );
+};
+
+StepFooter.propTypes = {
+  nextId: PropTypes.string,
 };
