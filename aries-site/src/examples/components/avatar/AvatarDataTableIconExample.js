@@ -43,7 +43,10 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                       alignContent="center"
                       direction="row"
                     >
-                      <Image src={datum.src} />
+                      // or whatever value would align with avatar small height
+                      <Box height="small">
+                         <Image src={datum.src} />
+                      </Box>
                       <Text>{datum.name}</Text>
                     </Box>
                   )}

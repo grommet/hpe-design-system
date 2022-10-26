@@ -11,7 +11,9 @@ import {
 
 ## When to use
 
-Avatars are used to enable users to quickly identify an object, whether that be a specific user, account, or other entity. Avatars are always paired with additional information, such as a user's name, for better clarity. If possible, use an image or logo over initials.
+Avatars are used to enable users to quickly identify an object, whether that be a specific user, account, or other entity.
+
+Avatars are always paired with additional information, such as a user's name, for better clarity. If possible, use an image or logo over initials.
 
 The consistent dimensions of an avatar ensure that readability and scanability of content surrounding the avatar is not compromised. For example, when scanning a data table column that contains an avatar of a company’s logo and the company name, the company name stays aligned from one row to the next. 
 
@@ -59,7 +61,7 @@ If the avatar acts as a button, the `a11yTitle` should also inform the user of w
 </Example>
 
 ## Handling logos in dark mode
-When possible, provide both a light and dark mode version of a company logo. If a dark mode version of the logo is not available, apply background={{ color: ‘background’, dark: false }} to the avatar.
+When possible, provide both a light and dark mode version of a company logo. If a dark mode version of the logo is not available, apply `background={{ color: ‘background’, dark: false }}` to the avatar.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarDarkModeExample.js"
@@ -121,7 +123,7 @@ When using avatars in a DataTable, always accompany the avatar with another piec
 
 ### PageHeader
 
-When applicable, an Avatar is aligned to the left of the title within a PageHeader. Use large-sized avatars within PageHeaders.
+When applicable, an avatar is aligned to the left of the title within a PageHeader. Use large-sized avatars within PageHeaders.
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarPageHeaderExample.js" height="medium" pad="small">
   <AvatarPageHeaderExample />
