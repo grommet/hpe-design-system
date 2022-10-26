@@ -4,10 +4,10 @@ import { Avatar, Box } from 'grommet';
 export const AvatarDarkModeExample = () => (
   <Box
     width="medium"
-    height='small'
+    height="small"
     background={{ color: 'background', dark: true }}
-    justify='center'
-    align='center'
+    justify="center"
+    align="center"
   >
     <Avatar
       background={{ color: 'background', dark: false }}
