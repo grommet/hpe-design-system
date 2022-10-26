@@ -13,7 +13,7 @@ export const AvatarDarkModeExample = () => (
       background={{ color: 'background', dark: false }}
       alt="Ctera Logo"
       src="/ctera.svg"
-      size="small"
+      size="large"
       round="medium"
       align="undefined"
     />
