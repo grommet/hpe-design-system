@@ -9,8 +9,8 @@ const FIRMWARE_MAP = {
     label: 'Failed',
     icon: <StatusWarning />,
   },
-  'In Progress': {
-    label: 'In Progress',
+  'In progress': {
+    label: 'In progress',
     icon: <InProgress />,
   },
   Completed: {
@@ -35,7 +35,7 @@ export const FirmwareStatus = ({ ...rest }) => {
 
   return (
     <StatusBar
-      title="Firmware Status"
+      title="Firmware status"
       menuItems={[
         { label: 'Move', onClick: () => {} },
         { label: 'Share', onClick: () => {} },

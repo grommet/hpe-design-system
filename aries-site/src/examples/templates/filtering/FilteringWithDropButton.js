@@ -227,7 +227,7 @@ const Filters = ({
 
       <Box align="center" direction="row" gap="small">
         <Button
-          label="Apply Filters"
+          label="Apply filters"
           onClick={() => {
             const nextData = filterData(allData, filters);
             setData(nextData);
@@ -235,7 +235,7 @@ const Filters = ({
           }}
           primary
         />
-        <Button label="Reset Filters" onClick={resetFilters} secondary />
+        <Button label="Reset filters" onClick={resetFilters} secondary />
       </Box>
     </Box>
   );
