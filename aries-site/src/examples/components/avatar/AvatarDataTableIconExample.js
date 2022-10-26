@@ -27,7 +27,12 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                 <>
                   {bestPractice ? (
                     <Box alignContent="center" gap="small" direction="row">
-                      <Avatar src={datum.src} round="medium" size="small" />
+                      <Avatar
+                        src={datum.src}
+                        align="undefined"
+                        round="medium"
+                        size="small"
+                      />
                       <Text>{datum.name}</Text>
                     </Box>
                   ) : (
