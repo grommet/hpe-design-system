@@ -20,7 +20,6 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                 <>
                   {bestPractice ? (
                     <Box alignContent="center" gap="small" direction="row">
-                      {' '}
                       <Avatar
                         a11yTitle={datum.avatar.name}
                         background="purple!"
