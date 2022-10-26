@@ -2,6 +2,7 @@ import { Example } from '../../layouts';
 import {
   TwoColumnWizardExample,
   WizardValidationExample,
+  WizardAnatomy,
 } from '../../examples';
 
 <Example
@@ -24,9 +25,30 @@ import {
   <WizardValidationExample />
 </Example>
 
-## Guidance
+## When to use
 
 Use a wizard when your form involves multiple steps. This makes the experience more manageable for the user and helps to eliminate error by validating inputs as the user progresses.
+
+## Anatomy
+
+<Example plain>
+  <WizardAnatomy />
+</Example>
+
+1. **Wizard header**: This region is intended to provide user with context on what the wizard is about.
+   - **a. Wizard title** (required): A short and descriptive title that identifies the wizard.
+   - **b. Previous step button** (required): A button that allows the user to move back one step in the wizard. This button is aligned to the left side of the header and is present on all steps expect the first.
+   - **c. Cancel button** (required): A button that allows the user to leave the wizard. When clicked, a confirmation modal will appear. This button is aligned to the right side of the header.
+1. **Step identifier:** This region is intended to provide the user with context on what the step is about.
+   - **a. Step title** (required): A short and descriptive title that uniquely identifies the step.
+   - **b. Step summary** (optional): A summary of where the user is within the wizard, formatted as "Step X of Y".
+   - **c. Step description** (optional): Any additional context or information about the given step.
+1. **Step inputs**: Form inputs for the current step.
+1. **Step footer**: The footer contains a primary action button to advance to the next step or finish the wizard. The footer should remain a consistent width across all steps of a wizard. Its width should match the width of the widest step.
+   - **a. Next/finish button** (required): A primary action button that allows the user to advance to the next step or finish the wizard. This button should be aligned to the far-right side of the footer.
+1. **Cancel wizard modal** (required): A center modal that provides double confirmation before the wizard is exited and cancelled. It appears when the user clicks on the "Cancel" button.
+
+## Guidance
 
 A wizard should always appear as a fullscreen modal.
 
@@ -72,24 +94,6 @@ If guidance can be provided in a short description, use a single column wizard. 
 - Center the "Next" or submit button underneath both the form inputs and the guidance.
 - On desktop, place the guidance to the right of form inputs.
 - On mobile, place the guidance above form inputs.
-
-## Alignment
-
-### Previous step button
-
-A button that enables the user to navigate to the previous step should be placed in the wizard header and aligned to the far-left side of the header.
-
-### Cancel button
-
-A button that enables the user to cancel out of the wizard should be placed in the wizard header and aligned to the far-right side of the header.
-
-### Title
-
-The title should be centered in the wizard header.
-
-### Next step button
-
-A primary action button that enables the user to advance to the next step should be placed in the footer of the wizard step and aligned to the far-right side of the footer.
 
 ## Variants
 
