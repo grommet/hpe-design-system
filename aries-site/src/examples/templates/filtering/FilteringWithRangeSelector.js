@@ -60,7 +60,7 @@ const allData = [
   },
 ];
 
-const defaultLocation = 'All Locations';
+const defaultLocation = 'All locations';
 const defaultAvailability = [0, 100];
 const defaultFilters = {};
 
@@ -356,7 +356,7 @@ const Filters = ({
                 </Text>
                 <Box direction="row" justify="end" gap="small">
                   <Button
-                    label="Reset Filter"
+                    label="Reset filter"
                     secondary
                     onClick={() => {
                       const nextFilters = {
@@ -369,7 +369,7 @@ const Filters = ({
                     }}
                   />
                   <Button
-                    label="Apply Filter"
+                    label="Apply filter"
                     primary
                     onClick={() => {
                       const nextFilters = {
@@ -422,7 +422,7 @@ const LocationFilter = ({
 }) => (
   <Select
     options={[
-      'All Locations',
+      'All locations',
       'Fort Collins, CO',
       'Houston, TX',
       'New York, NY',
@@ -488,7 +488,7 @@ const AvailabilityFilter = ({
           setAvailability(nextRange);
           // on mobile, we want to filter the data immediately but
           // on desktop, we wait until the user clicks
-          // "Apply Filter" to filter the data
+          // "Apply filter" to filter the data
           if (['xsmall', 'small'].includes(size)) {
             const nextFilters = {
               ...filters,

@@ -26,7 +26,7 @@ export const UpdateItem = ({ title, description }) => {
           href="#"
           a11yTitle={`This anchor is for visual demonstration purposes. 
             The link will not navigate to a new page.`}
-          label="View Details"
+          label="View details"
           size="small"
           onClick={() => {
             // eslint-disable-next-line no-alert

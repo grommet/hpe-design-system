@@ -46,7 +46,7 @@ export const ButtonGoodSignUpCTAPreview = () => {
           method="post"
         >
           <FormField
-            label="Full Name"
+            label="Full name"
             htmlFor="fullName-sign-up-good"
             name="fullName"
             required={{ indicator: false }}
