@@ -23,6 +23,13 @@ const Announcer = ({ announce, message, mode, role }) => {
   );
 };
 
+Announcer.propTypes = {
+  announce: PropTypes.func,
+  message: PropTypes.string,
+  mode: PropTypes.string,
+  role: PropTypes.string,
+};
+
 const AnnounceContextComponent = props => (
   <AnnounceContext.Consumer>
     {announce => <Announcer announce={announce} {...props} />}
@@ -128,6 +135,7 @@ FeedbackHeader.propTypes = {
 
 Feedback.propTypes = {
   children: PropTypes.node,
+  layerProps: PropTypes.shape({}),
   messages: PropTypes.object,
   modal: PropTypes.bool,
   onClose: PropTypes.func,

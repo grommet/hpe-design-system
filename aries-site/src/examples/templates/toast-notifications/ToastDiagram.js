@@ -63,7 +63,7 @@ export const ToastDiagram = () => (
           3
         </Box>
       </Box>
-      <ToastPreview title="Status Title" message="This is a status message" />
+      <ToastPreview title="Status title" message="This is a status message" />
     </Box>
     <Diagram connections={connections} />
   </Stack>
