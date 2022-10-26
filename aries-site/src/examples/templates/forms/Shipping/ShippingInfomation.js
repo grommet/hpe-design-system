@@ -6,10 +6,10 @@ import { states } from '../utils/FormValidation';
 export const ShippingInfomation = ({ name }) => (
   <Box>
     <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
-      Shipping Information
+      Shipping information
     </Text>
     <Text margin={{ horizontal: 'none', vertical: 'xsmall' }} size="xsmall">
-      Shipping Address *
+      Shipping address *
     </Text>
     <FormField
       contentProps={{ width: 'medium' }}
@@ -32,7 +32,7 @@ export const ShippingInfomation = ({ name }) => (
       <TextInput
         id={`address2-${name}`}
         name="address2"
-        placeholder="Apt., Suite, Building"
+        placeholder="Apt., suite, building (optional)"
       />
     </FormField>
     <FormField
@@ -54,14 +54,14 @@ export const ShippingInfomation = ({ name }) => (
         id={`state-shipping-${name}`}
         dropHeight="small"
         options={states}
-        placeholder="Select State"
+        placeholder="Select state"
       />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
       htmlFor={`zipcode-${name}`}
       name="zipcode"
-      label="ZIP Code"
+      label="ZIP code"
     >
       <TextInput id={`state-shipping-${name}`} name="zipcode" />
     </FormField>

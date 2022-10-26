@@ -12,7 +12,7 @@ export const DateInputValidationExample = () => {
       <Form>
         <FormField
           name="required-field"
-          label="Required Field"
+          label="Required field"
           htmlFor="required-field"
           error={message}
           required

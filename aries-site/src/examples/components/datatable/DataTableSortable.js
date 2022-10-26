@@ -76,19 +76,19 @@ const columns = [
   { property: 'string', header: 'Fruits' },
   {
     property: 'numeric',
-    header: 'Favorite Numbers',
+    header: 'Favorite numbers',
     align: 'end',
   },
   {
     property: 'date',
-    header: 'Significant Dates',
+    header: 'Significant dates',
     render: datum =>
       datum.date && new Date(datum.date).toLocaleDateString('en-US'),
     align: 'end',
   },
   {
     property: 'percent',
-    header: '% Complete',
+    header: '% complete',
     render: datum => (
       <Box gap="xsmall" direction="row">
         <Box pad={{ vertical: 'xsmall' }}>

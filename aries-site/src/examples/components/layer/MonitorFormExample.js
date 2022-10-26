@@ -51,14 +51,14 @@ export const MonitorFormExample = ({ sticky }) => {
           <FormField
             htmlFor="monitorName"
             name="monitorName"
-            label="Monitor Name"
+            label="Monitor name"
           >
             <TextInput id="monitorName" name="monitorName" />
           </FormField>
           <FormField
             htmlFor="description"
             name="desc"
-            label="Bussiness Description"
+            label="Bussiness description"
           >
             <TextArea id="description" name="monitorName" />
           </FormField>
@@ -67,12 +67,12 @@ export const MonitorFormExample = ({ sticky }) => {
             weight="bold"
             color="text-strong"
           >
-            Monitor Detail
+            Monitor detail
           </Text>
           <FormField
             htmlFor="monitorType"
             name="monitorType"
-            label="Monitor Type"
+            label="Monitor type"
           >
             <TextInput id="monitorType" name="monitorType" />
           </FormField>
@@ -80,7 +80,7 @@ export const MonitorFormExample = ({ sticky }) => {
             <CheckBox
               id="rules"
               name="rules"
-              label="Include Process Rules"
+              label="Include process rules"
               toggle
               fill
               checked
@@ -90,7 +90,7 @@ export const MonitorFormExample = ({ sticky }) => {
           <FormField htmlFor="frameworks" name="frameworks" label="Frameworks">
             <Select id="frameworks" options={options} name="frameworks" />
           </FormField>
-          <FormField htmlFor="severity" name="severity" label="Rule Severity">
+          <FormField htmlFor="severity" name="severity" label="Rule severity">
             <Select id="severity" options={options} name="severity" />
           </FormField>
           <FormField htmlFor="provider" name="provider" label="Provider">
@@ -99,7 +99,7 @@ export const MonitorFormExample = ({ sticky }) => {
           <FormField htmlFor="account" name="account" label="Account">
             <Select id="account" options={options} name="account" />
           </FormField>
-          <FormField htmlFor="ruleName" name="ruleName" label="Rule Name">
+          <FormField htmlFor="ruleName" name="ruleName" label="Rule name">
             <Select id="ruleName" options={options} name="ruleName" />
           </FormField>
           <Text
@@ -107,20 +107,20 @@ export const MonitorFormExample = ({ sticky }) => {
             weight="bold"
             color="text-strong"
           >
-            Email Notification
+            Email notification
           </Text>
           <FormField htmlFor="notifications" name="notifications">
             <CheckBox
               name="notifications"
               id="notifications"
-              label="Email Notifications"
+              label="Email notifications"
               toggle
               fill
               checked
               reverse
             />
           </FormField>
-          <FormField htmlFor="email" name="email" label="Primary Email">
+          <FormField htmlFor="email" name="email" label="Primary email">
             <TextInput id="email" name="email" />
           </FormField>
           <Box
@@ -128,7 +128,7 @@ export const MonitorFormExample = ({ sticky }) => {
             gap="small"
             margin={{ top: 'medium', bottom: 'small' }}
           >
-            <Button label="Submit Form" primary type="submit" />
+            <Button label="Add monitor" primary type="submit" />
             <Button label="Cancel" />
           </Box>
         </Box>

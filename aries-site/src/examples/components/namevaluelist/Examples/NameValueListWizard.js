@@ -18,12 +18,12 @@ import {
 import { getWidth } from '../../../templates/wizard/utils';
 
 const data = {
-  'Request Name': 'Q1 Collection Request',
-  'Request Description': '',
-  'Contact Number': '',
-  'Request Type': 'Collection',
+  'Request name': 'Q1 Collection Request',
+  'Request description': '',
+  'Contact number': '',
+  'Request type': 'Collection',
   'Initiated by': 'Jane Cooper',
-  'Domain Name': 'https://att.com',
+  'Domain name': 'https://att.com',
 };
 
 const StepThree = () => (
@@ -46,17 +46,17 @@ const steps = [
   {
     description: 'Step 1 description.',
     inputs: <StepOne />,
-    title: 'Step 1 Title',
+    title: 'Step 1 title',
   },
   {
     description: 'Step 2 description.',
     inputs: <StepTwo />,
-    title: 'Step 2 Title',
+    title: 'Step 2 title',
   },
   {
     description: 'Review your configuration details.',
     inputs: <StepThree />,
-    title: 'Review & Create',
+    title: 'Review & create',
   },
 ];
 
