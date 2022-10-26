@@ -6,13 +6,8 @@ import { WizardContext } from '.';
 
 export const WizardHeader = ({ setOpen }) => {
   const size = useContext(ResponsiveContext);
-  const {
-    activeIndex,
-    activeStep,
-    setActiveIndex,
-    steps,
-    wizardTitle,
-  } = useContext(WizardContext);
+  const { activeIndex, activeStep, setActiveIndex, steps, wizardTitle } =
+    useContext(WizardContext);
   return (
     <Header background="background-contrast" pad="small" responsive={false}>
       <Box
@@ -29,7 +24,7 @@ export const WizardHeader = ({ setOpen }) => {
               label={
                 !['xsmall', 'small'].includes(size)
                   ? (steps[activeIndex - 1] && steps[activeIndex - 1].title) ||
-                    `Step ${activeStep - 1} Title`
+                    `Step ${activeStep - 1} title`
                   : undefined
               }
               icon={<FormPreviousLink />}

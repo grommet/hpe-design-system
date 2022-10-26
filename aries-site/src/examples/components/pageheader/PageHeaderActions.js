@@ -28,7 +28,7 @@ PageHeaderActions.propTypes = {
 const PageActions = ({ bestPractice }) => (
   <Box direction="row" gap="small">
     <Button icon={<Pin />} />
-    {!bestPractice ? <Button label="Add Server" secondary /> : undefined}
+    {!bestPractice ? <Button label="Add server" secondary /> : undefined}
   </Box>
 );
 

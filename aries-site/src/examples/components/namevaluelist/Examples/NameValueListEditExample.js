@@ -29,7 +29,7 @@ export const NameValueListEditExample = () => {
           !edit && (
             <Button
               secondary
-              label="Edit Profile"
+              label="Edit profile"
               onClick={() => setEdit(true)}
             />
           )
@@ -62,7 +62,7 @@ export const NameValueListEditExample = () => {
               name={name}
               contentProps={{ width: 'medium' }}
             >
-              {name !== 'Phone Number' ? (
+              {name !== 'Phone number' ? (
                 <TextInput
                   id={name}
                   name={name}

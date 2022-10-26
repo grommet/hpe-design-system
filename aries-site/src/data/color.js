@@ -371,36 +371,36 @@ const focusColor = [
 
 const elevationColorsDark = [
   {
-    name: 'elevation',
-    value: 'elevation',
+    name: 'medium',
+    value: 'medium',
     hex: elevation.dark.medium,
   },
   {
-    name: 'elevation-strong',
-    value: 'elevation-strong',
+    name: 'large',
+    value: 'large',
     hex: elevation.dark.large,
   },
   {
-    name: 'elevation-weak',
-    value: 'elevation-weak',
+    name: 'small',
+    value: 'small',
     hex: elevation.dark.small,
   },
 ];
 
 const elevationColorsLight = [
   {
-    name: 'elevation',
-    value: 'elevation',
+    name: 'medium',
+    value: 'medium',
     hex: elevation.light.medium,
   },
   {
-    name: 'elevation-strong',
-    value: 'elevation-strong',
+    name: 'large',
+    value: 'large',
     hex: elevation.light.large,
   },
   {
-    name: 'elevation-weak',
-    value: 'elevation-weak',
+    name: 'small',
+    value: 'small',
     hex: elevation.light.small,
   },
 ];

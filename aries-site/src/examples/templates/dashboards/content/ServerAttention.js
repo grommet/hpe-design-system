@@ -10,7 +10,7 @@ const ATTENTION_MAP = {
     icon: <CircleInformation />,
   },
   'Not connected': {
-    label: 'Not Connected',
+    label: 'Not connected',
     icon: <StatusWarning />,
   },
 };
@@ -31,7 +31,7 @@ export const ServerAttention = () => {
 
   return (
     <StatusBar
-      title="Needs Attention"
+      title="Needs attention"
       menuItems={[
         { label: 'Move', onClick: () => {} },
         { label: 'Share', onClick: () => {} },
