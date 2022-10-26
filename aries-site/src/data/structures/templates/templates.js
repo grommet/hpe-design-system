@@ -164,8 +164,8 @@ export const templates = [
     name: 'Forms',
     available: true,
     cardOrder: 1,
-    description: `Common form use cases from application configuration 
-    to payment acceptance.`,
+    description: `Common form use cases from application configuration to 
+    payment acceptance.`,
     preview: {
       image: {
         src: {
