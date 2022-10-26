@@ -1,14 +1,13 @@
 import React from 'react';
-import { Avatar, Box } from 'grommet';
+import { Avatar } from 'grommet';
 
 export const AvatarDarkModeExample = () => (
-  <Box
-  // background={{ color: 'background', dark: true }}
-  >
-    <Avatar
-      background={{ color: 'background', dark: 'false' }}
-      alt="Apache Logo"
-      src="/apache-spark.svg"
-    />
-  </Box>
+  <Avatar
+    background={{ color: 'background' }}
+    alt="Ctera Logo"
+    src="/ctera.svg"
+    size='small'
+    round="medium"
+    align='undefined'
+  />
 );
