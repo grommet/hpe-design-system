@@ -276,7 +276,7 @@ const Filters = ({
             </Box>
             <Box align="center" direction="row" gap="small">
               <Button
-                label="Apply Filters"
+                label="Apply filters"
                 onClick={() => {
                   const nextData = filterData(allData, filters);
                   setData(nextData);
@@ -285,7 +285,7 @@ const Filters = ({
                 primary
               />
               <Button
-                label="Reset Filters"
+                label="Reset filters"
                 onClick={() => {
                   resetFilters();
                   setShowLayer(!showLayer);
@@ -370,7 +370,7 @@ const Results = ({ data }) => {
             <Menu
               icon={<More />}
               hoverIndicator
-              items={[{ label: 'Manage Host' }]}
+              items={[{ label: 'Manage host' }]}
             />
           </Box>
         )}

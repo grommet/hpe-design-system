@@ -1,7 +1,6 @@
 import { Box, Text } from 'grommet';
 
-export const TypographyStyles = () => {
-  return (
+export const TypographyStyles = () => (
     <Box
       fill
       background={{ color: 'background-front', dark: false }}
@@ -25,4 +24,3 @@ export const TypographyStyles = () => {
       </Box>
     </Box>
   );
-};

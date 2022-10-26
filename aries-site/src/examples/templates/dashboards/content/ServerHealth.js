@@ -55,7 +55,7 @@ export const ServerHealth = () => {
 
   return (
     <StatusBar
-      title="Server Health"
+      title="Server health"
       menuItems={[
         { label: 'Move', onClick: () => {} },
         { label: 'Share', onClick: () => {} },
