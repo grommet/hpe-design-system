@@ -49,7 +49,6 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
               ),
             },
           ]}
-          pin={['xsmall', 'small'].includes(size)}
           select={selected}
           onSelect={setSelected}
         />
