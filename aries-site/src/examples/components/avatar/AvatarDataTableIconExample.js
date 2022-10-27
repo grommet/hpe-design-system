@@ -13,11 +13,13 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
   const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 
+  const data = company.company;
+
   return (
     <>
       <Box width="medium" height={{ max: 'large' }} overflow="auto">
         <DataTable
-          data={company}
+          data={data}
           primaryKey="name"
           columns={[
             {
@@ -36,7 +38,7 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                       <Text>{datum.name}</Text>
                     </Box>
                   ) : (
-                    <Box gap="small" align="center" direction="row">
+                    <Box gap="large" alignContent="center" direction="row">
                       <Box height="24px" align="start">
                         <Image src={datum.src} fit="contain" />
                       </Box>
