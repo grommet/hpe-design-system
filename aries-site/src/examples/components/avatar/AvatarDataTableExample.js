@@ -42,7 +42,6 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
               ),
             },
           ]}
-          pin={['xsmall', 'small'].includes(size)}
           select={selected}
           onSelect={setSelected}
         />
