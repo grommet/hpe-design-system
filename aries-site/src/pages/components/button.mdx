@@ -47,10 +47,10 @@ Buttons should be used in situations where users might need to:
 
 ### Button Labeling
 
-Using the design system Button Component will ensure you’re button looks like a button. Applying the appropriate label is also important in making sure the user has a clear understanding of what the action will do.
+Using the design system Button Component will ensure your button looks like a button and is in line with HPE designs. Ensure to apply an appropriate label so the user has a clear understanding of what action to expect.
 
 - Use clear and concise wording.
-- Avoid contractions or colloquialisms. Keep the language approachable but not personal.
+- Avoid contractions or colloquialisms. Keep the language approachable but not personal, for examples, see [point of view] (https://design-system.hpe.design/foundation/voice-and-tone?q=tone#point-of-view).
 - Ensure your button label matches the route destination.
 
 ### Button Alignment
@@ -118,7 +118,7 @@ Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes 
 **Best Practices:**
 
 - Limit to 2-3 descriptive words.
-- Use verbs first to describe the action such as “Hide/View”, "Switch/Unswitch", “Favorite/Unfavorite”, "Light/Dark" or “Like/Dislike".
+- Use verbs first to describe the action such as “Hide/View,” "Switch/Unswitch," “Favorite/Unfavorite,” "Light/Dark," or “Like/Dislike."
 - Use sentence case capitalization.
 - Words such as “the” and “a” should be avoided.
 
@@ -130,7 +130,7 @@ For Buttons with Icons ONLY, it is important that you show the two following ele
 
 ### Accessibility
 
-If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab", that is a link `<a>`. Everything else is a `<button>`.
+If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab," that is a link `<a>`. Everything else is a `<button>`.
 
 The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
 
@@ -142,7 +142,7 @@ Primary buttons have increased visual weight through placement and contrast, dra
 
 ### When to use a CTA button
 
-Call-to-action (CTA) buttons entice a user down a curated path leading to incremental value. A primary call-to-action is meant to encourage the most desired action you want visitors to take, leading prospects and customers towards conversion, whether that be to learn more, register, test-drive and even buy a product.
+Call to action (CTA) buttons entice a user down a curated path leading to incremental value. A primary call to action is meant to encourage the most desired action you want visitors to take, leading prospects and customers towards conversion, whether that be to learn more, register, test drive and even buy a product.
 
 Specifically, CTA buttons should be used when a prospective or current HPE customer will gain value from HPE's edge-to-cloud promise. This occurs in marketing contexts such as:
 
@@ -154,14 +154,17 @@ Because a CTA button is very visually prominent:
 - Only use one CTA button per context to highlight the main action.
 - Generally, there should only be a single CTA button for a page region. However, this is not a firm rule and should be handled on a case-by-case basis.
   - For example, it may be appropriate for multiple cards within a single region to each have their own CTA button.
-- A CTA button may not always be the best element to use. If there is not a need to highlight an action, it is appropriate to use other controls.
-  - For example, enabling a new feature could be presented on a dashboard with a CTA button but it also could be presented in a menu or as a toggle in a settings page. This decision is to be determined by the designer based on the use case.
+
+### When not to use a CTA button
+
+If there is not a need to highlight an action, it is appropriate to use other controls.
+- For example, enabling a new feature could be presented on a dashboard with a CTA button but it also could be presented in a menu or as a toggle in a settings page. This decision is to be determined by the designer based on the use case.
 
 If you have questions about your use case, feel free to reach out in the #hpe-design-system channel on [Grommet Slack](https://grommet.slack.com).
 
 ### When to use a primary action button
 
-Primary action buttons are used within enterprise applications. They are meant to assist, as opposed to entice, and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
+Primary action buttons are used within enterprise applications. They are meant to assist - as opposed to CTA buttons, which intend to entice - and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
 
 Actions supported by primary action buttons are numerous and may be constructive or destructive in nature. Example actions include: create, schedule, deploy, add, save, and depending on context could even be cancel or delete.
 
@@ -313,7 +316,7 @@ On screen widths of less than or equal to 576px (Grommet "small"), it is best to
     bestPractice={{
       type: 'do',
       message:
-        'On small resolutions, full-width buttons help users more easily identify & interact with actions on smaller browser widths and when using the press gesture.',
+        'On small resolutions, full-width buttons help users more easily identify and interact with actions on smaller browser widths and when using the press gesture.',
     }}
   >
     <ButtonGoodSignUpCTAPreview />
