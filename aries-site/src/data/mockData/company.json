@@ -2,7 +2,8 @@
   "company": [
     {
       "name": "Ctera",
-      "src": "/ctera.svg"
+      "src": "/ctera.svg",
+      "background": "background"
     },
     {
       "name": "SingleStore",
