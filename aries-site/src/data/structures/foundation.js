@@ -5,8 +5,7 @@ export const foundation = [
     name: 'Accessibility',
     category: 'Philosophy',
     cardOrder: 3,
-    description: `Central to the HPE Design System, accessibility is 
-    incorporated into all Design System facets, ensuring HPE applications 
+    description: `Accessibility is design that takes into consideration users' visual, hearing, motor, cognitive and other limitations. Accessibility is central to the HPE Design System and we ensure it is incorporated into all facets of our design and functionality, ensuring HPE apps 
     are usable by as many people as possible.`,
     preview: {
       image: {
@@ -18,7 +17,7 @@ export const foundation = [
       },
     },
     seoDescription: `Accessibility is central to the HPE Design System and 
-    ensures that HPE applications are usable by as many people as possible.`,
+    ensures that HPE apps are usable by as many people as possible.`,
     sections: [
       'Accessibility in Design',
       'Accessibility in Development',
@@ -28,6 +27,9 @@ export const foundation = [
     ],
     tags: [
       'accessibility',
+      'disabilities',
+      'AAA',
+      'AA',
       'accessibility resources',
       'product accessibility',
       'accessible design',
@@ -52,7 +54,7 @@ export const foundation = [
     name: 'Our Brand',
     category: 'Assets',
     cardOrder: 4,
-    description: `The Element is about focus. It creates momentum and 
+    description: `Logos are critical to any brand. The HPE logo, known as the "Element" is about focus. It creates momentum and 
     energy. It is a building block. It can move, change, expand, and 
     constrain. It works across many touch points.`,
     preview: {
@@ -61,7 +63,7 @@ export const foundation = [
         alt: 'HPE Our Brand Preview',
       },
     },
-    seoDescription: `Logos are a powerful expression of our brand and 
+    seoDescription: `Logos are a powerful expression of the HPE brand and 
     who we are. Learn how to access and apply HPE and Aruba Networks 
     logos in the experiences you create.`,
     sections: ['HPE Logo', 'HPE Element', 'Aruba Logo', 'Aruba Icon'],
@@ -95,13 +97,16 @@ export const foundation = [
     ],
     tags: [
       'logos',
+      'element',
+      'HPE logo',
+      'Aruba logo',
+      'new branding',
+      'new logo',
+      'HPE branding',
       'brand assets',
       'distinctive brand assets',
       'brand',
       'brand ingredients',
-      'ingredients',
-      'always',
-      'flexible',
       'textures',
       'gradients',
       'typography',
@@ -119,8 +124,7 @@ export const foundation = [
         alt: 'HPE Developer Guidance Preview',
       },
     },
-    seoDescription: `Resources for setting up your application with
-     the HPE Design System library and HPE theme.`,
+    seoDescription: `Resources for HPE developers to set up apps using the HPE Design System library and HPE theme.`,
     sections: [
       'Getting started',
       'Preferred environment',
@@ -129,7 +133,7 @@ export const foundation = [
       "What if our team doesn't use ReactJS?",
     ],
     relatedContent: ['Components', 'Templates'],
-    tags: ['react tutorial', 'grommet', 'getting started with grommet'],
+    tags: ['react tutorial', 'grommet', 'getting started with grommet', 'hpe developer tools', 'reactjs', 'hpe developer slack channel', 'components', 'component library'],
   },
   {
     name: 'Designer Guidance',
@@ -147,18 +151,16 @@ export const foundation = [
         alt: 'HPE Designer Guidance Preview',
       },
     },
-    seoDescription: `View patterns, interactions, and other best practices for
-       how to succeed using resources included with the HPE
-       Design System.`,
+    seoDescription: `HPE designers can gain access to tools, view standard patterns, interactions, and best practices for the best UX experience.`,
     sections: [
       'Getting started',
       'Setting up your Figma account',
       'Joining the HPE Design System Figma team',
-      'Before you start desiging',
+      'Before you start designing',
       'HPE Design System Figma Library',
     ],
     relatedContent: ['Components', 'Templates'],
-    tags: ['sticker sheet', 'Figma'],
+    tags: ['sticker sheet', 'Figma', 'designer tools', 'designer resources', 'ReacJS', 'Grommet', 'HPE designers'],
   },
   {
     name: 'Color',
@@ -176,9 +178,8 @@ export const foundation = [
       },
     },
     seoDescription: `HPE Design System color palette brings out the 
-    depth and dimension of our identity. From sophisticated, neutral 
-    hues reflective of technology to vibrant, saturated colors that 
-    evoke energy and inspiration.`,
+    depth and dimension of our identity. Our saturated colors 
+    evoke energy and inspiration. See how to use color in dark mode.`,
     sections: [
       'Color Palettes',
       'Brand Color',
@@ -210,14 +211,19 @@ export const foundation = [
       'accessible colors',
       'status colors',
       'chart colors',
+      'dark mode',
+      'hpe brand colors'
+      'hpe color hashtags'
+      'hpe hex colors'
+      'hpe figma colors'
     ],
   },
   {
     name: 'Human Centered',
     cardOrder: 2,
     category: 'Philosophy',
-    description: `The starting point of the design system is human 
-    centered, generating experiences which are inclusive and vibrant.`,
+    description: `"Human centered" is a term used to describe designers' goal of creating products and technology that are easy for people to use. 
+    The HPE Design System is committed to human-centered design, generating experiences which are inclusive and vibrant.`,
     preview: {
       image: {
         src: {
@@ -227,18 +233,18 @@ export const foundation = [
         alt: 'HPE Human Centered',
       },
     },
-    seoDescription: `Unlocking human potential through human centered 
+    seoDescription: `Unlocking human potential through human-centered 
     design. HPE Design System is inclusive, attentive, adaptable, and 
     conversational.`,
     sections: ['Inclusive', 'Attentive', 'Conversational'],
-    tags: ['WCAG', 'human centered design'],
+    tags: ['WCAG', 'human centered design', 'hpe design philosophy', 'hpe design', 'hpe designers', 'design thinking'],
   },
   {
     name: 'Icons',
     cardOrder: 8,
     category: 'Assets',
-    description: `Icons are an integral part of our visual storytelling style 
-    to represent objects, actions, programs and other communicative symbols. 
+    description: `Icons are a graphic symbol that represent a person or entity. Icons are an integral part of HPE's visual storytelling style 
+    to represent objects, actions, programs, and other communicative symbols.
     This clean, dynamic style remains flexible while retaining the voice of our 
     brand.`,
     preview: {
@@ -263,13 +269,13 @@ export const foundation = [
       'UI Controls',
       'Info and Help',
     ],
-    tags: ['icon usage', 'icon accessibility', 'icon examples'],
+    tags: ['icon usage', 'icon accessibility', 'icon examples' 'hpe icons', 'hpe grommet icon library', 'icon library', 'hpe logo icon', 'aruba logo icon', 'add icon', 'edit icon', 'trash icon', 'close icon', 'search icon', 'filter icon', 'notification icon', 'download icon', 'collapse icon'],
   },
   {
     name: 'Typography',
     cardOrder: 7,
     category: 'Assets',
-    description: `The MetricHPE font is an integral part of our personality 
+    description: `Typography refers to art of designing letters, their spacing, and generally the "look" of text. The HPE font, MetricHPE, is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
     preview: {
@@ -301,6 +307,9 @@ export const foundation = [
       'otf',
       'font sizes',
       'headings',
+      'subheadings',
+      'download metricHPE',
+      'download hpe font'
     ],
   },
   {
@@ -331,7 +340,7 @@ export const foundation = [
       'Be Intuitive',
       'Lead people to success',
     ],
-    tags: ['human centered design', 'design principles', 'design philosophy'],
+    tags: ['human centered design', 'design principles', 'design philosophy', 'about hpe design system', 'hpe designers', 'design thinking'],
   },
   {
     name: 'Background Colors Guidance',
@@ -368,6 +377,11 @@ export const foundation = [
       'background-front',
       'background-contrast',
       'background-back',
+      'help text style',
+      'informational dialogs',
+      'tips section',
+      'color contrast'
+      'hpe page color'
     ],
   },
   {
@@ -376,7 +390,7 @@ export const foundation = [
     category: 'Philosophy',
     cardOrder: 4,
     description:
-      'Create consistent, composable interfaces with t-shirt sizing.',
+      'The HPE Design System uses a set of standard sizes that Grommet calls "t-shirt sizing" to create consistent, composable interfaces.',
     preview: {
       image: {
         src: {
@@ -387,7 +401,7 @@ export const foundation = [
       },
     },
     seoDescription:
-      'Create consistent, scalable interfaces with t-shirt sizing.',
+      'Create consistent, scalable interfaces with standard sizes that the Grommet tool calls "t-shirt sizing."',
     sections: [
       'What is t-shirt sizing',
       'Why do we use t-shirt sizing',
@@ -413,14 +427,22 @@ export const foundation = [
       'height',
       'width',
       'dimensions',
+      'HPE layout sizes'
+      'button sizes'
+      'layer sizes'
+      'hpe margin sizes'
+      'border sizes'
+      'default sizing'
+      'responsive sizing'
     ],
   },
   {
     name: 'Voice and Tone',
     category: 'Philosophy',
     cardOrder: 6,
-    description: `Deliver clear, consistent experiences to HPE customers by 
-    following guidelines for the voice and tone of text-based user interface 
+    description: `Voice and tone refers to the crafting of words to transmit particular impressions and evoke feelings. 
+    Even short button labels influence the HPE voice and tone that we transmit to our users. Deliver clear, consistent experiences to HPE customers by 
+    following these guidelines for text-based user interface 
     elements.`,
     preview: {
       image: {
@@ -466,8 +488,18 @@ export const foundation = [
       'voice',
       'tone',
       'sentence case',
+      'title case',
       'casing',
-      'capitilization',
+      'capitalization',
+      'button labels'
+      'short form ux copy'
+      'ux copy'
+      'hpe grammar rules'
+      'hpe writing style guide'
+      'best verbiage'
+      'hpe phrases'
+      'hpe app labels'
+      'how to write'
     ],
   },
 ];
