@@ -34,12 +34,16 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                         align="undefined"
                         round="medium"
                         size="small"
+                        background={{ color: datum.background, dark: false }}
                       />
                       <Text>{datum.name}</Text>
                     </Box>
                   ) : (
                     <Box gap="large" alignContent="center" direction="row">
-                      <Box height="24px" align="start">
+                      <Box
+                        height="24px"
+                        align="start"
+                      >
                         <Image src={datum.src} fit="contain" />
                       </Box>
                       <Text>{datum.name}</Text>
