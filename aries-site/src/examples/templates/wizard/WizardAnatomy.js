@@ -30,15 +30,15 @@ export const WizardAnatomy = ({ containerRef }) => (
   <Stack interactiveChild="first">
     <Grid
       columns={['xxsmall', 'flex', 'xxsmall']}
-      rows={['36px', '60px', '48px', '24px', '60px', '60px', 'auto', 'auto']}
+      rows={['36px', '60px', '48px', '24px', '60px', '60px', 'auto', '85px']}
       areas={[
-        ['blah', 'annotation-1a', 'blahh'],
+        ['empty-1', 'annotation-1a', 'empty-2'],
         ['annotation-1b', 'wizard', 'annotation-1c'],
-        ['empty-3', 'wizard', 'empty-1'],
-        ['annotation-2b', 'wizard', 'empty-1'],
-        ['annotation-2a', 'wizard', 'empty-1'],
-        ['annotation-2c', 'wizard', 'empty-1'],
-        ['annotation-3', 'wizard', 'empty-1'],
+        ['empty-3', 'wizard', 'empty-4'],
+        ['annotation-2b', 'wizard', 'empty-4'],
+        ['annotation-2a', 'wizard', 'empty-4'],
+        ['annotation-2c', 'wizard', 'empty-4'],
+        ['annotation-3', 'wizard', 'empty-4'],
         ['annotation-4', 'wizard', 'annotation-4a'],
       ]}
       align="center"
@@ -61,19 +61,19 @@ export const WizardAnatomy = ({ containerRef }) => (
         id="3"
         target="3"
         gridArea="annotation-3"
-        margin={{ top: 'large' }}
+        alignSelf="center"
       />
       <Annotation
         id="4"
         target="4"
         gridArea="annotation-4"
-        margin={{ bottom: 'large' }}
+        alignSelf="center"
       />
       <Annotation
         id="4a"
         target="4a"
         gridArea="annotation-4a"
-        margin={{ bottom: 'medium' }}
+        alignSelf="center"
       />
     </Grid>
     <Diagram connections={connections} />
@@ -152,7 +152,12 @@ const WizardExample = ({ containerRef, ...rest }) => {
 
   return (
     <WizardContext.Provider value={contextValue}>
-      <Box ref={ref} background="background-front" height="large" {...rest}>
+      <Box
+        ref={ref}
+        background="background-front"
+        height="min-content"
+        {...rest}
+      >
         <Box fill>
           <WizardHeader
             titleId="wizard-title"
