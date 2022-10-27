@@ -1,4 +1,5 @@
- [
+{
+  "users": [
     {
       "name": "Kenny Tran",
       "avatar": {
@@ -63,5 +64,4 @@
       "lastActive": "3 hours ago"
     }
   ]
-
-  
+}

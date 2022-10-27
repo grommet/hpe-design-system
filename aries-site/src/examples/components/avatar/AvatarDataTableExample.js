@@ -6,11 +6,13 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
   const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 
+  const data = users.users;
+
   return (
     <>
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
-          data={users}
+          data={data}
           primaryKey="name"
           columns={[
             {
@@ -32,7 +34,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                     </Box>
                   ) : (
                     <Box gap="small" alignContent="center" direction="row">
-                      <Avatar src={datum.avatar?.src} size="small" />
+                      <Avatar src={datum.avatar.src} size="small" />
                       <Text>{datum.name}</Text>
                     </Box>
                   )}

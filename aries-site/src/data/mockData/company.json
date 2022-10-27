@@ -1,4 +1,5 @@
-[
+{
+  "company": [
     {
       "name": "Ctera",
       "src": "/ctera.svg"
@@ -20,5 +21,6 @@
       "src": "/google.svg"
     }
   ]
+}
 
   
