@@ -31,7 +31,8 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                     <Box alignContent="center" gap="small" direction="row">
                       <Avatar
                         src={datum.src}
-                        align="undefined"
+                        // grommet defines align center whiich we want to overid
+                        align="unset"
                         round="medium"
                         size="small"
                         background={{ color: datum.background, dark: false }}
@@ -40,10 +41,7 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                     </Box>
                   ) : (
                     <Box gap="large" alignContent="center" direction="row">
-                      <Box
-                        height="24px"
-                        align="start"
-                      >
+                      <Box height="24px" align="start">
                         <Image src={datum.src} fit="contain" />
                       </Box>
                       <Text>{datum.name}</Text>
