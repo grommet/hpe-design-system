@@ -307,7 +307,7 @@ export const components = [
     description:
       'A Tip is a small layer that opens when the user moves the mouse pointer over an element. The intention is to offer helpful information in the immediate context.',
     seoDescription:
-      'A Tip offers extra information when the user moves the mouse over an element. See when not to use Tip, ',
+      'A Tip offers extra information when the user moves the mouse over an element. See when to use Tip.',
     sections: [
       'Truncation with Tip',
       'Truncated Table Cell Content',
