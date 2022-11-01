@@ -1039,7 +1039,7 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `PageHeader is a component providing users a predictable location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.',
+    seoDescription: `PageHeader is a component providing users a predictable layout and location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.',
 
     sections: [
       'Anatomy',
