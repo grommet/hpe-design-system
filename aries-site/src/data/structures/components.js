@@ -657,7 +657,7 @@ export const components = [
     description:
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
-      'MaskedInput allows you to specify formalized text within a form field.',
+      'MaskedInput allows you to specify formatted text within a form field.',
     sections: [
       'IP Address',
       'IP Range',
