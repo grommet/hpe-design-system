@@ -217,7 +217,7 @@ export const components = [
     name: 'FileInput',
     category: 'Inputs',
     description: 'An input field where a user can select and upload one or more files.',
-    seoDescription: 'FileInput is a field where a user can select and upload one or more files. See HPE UX standars for file size errors, multiple files, etc.',
+    seoDescription: 'FileInput is a field where a user can select and upload one or more files. See HPE UX standards for file size errors, multiple files, etc.',
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
