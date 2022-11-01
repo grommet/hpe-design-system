@@ -351,7 +351,7 @@ export const components = [
   {
     name: 'Search',
     category: 'Controls',
-    description: 'Search is a field that allows a user to input keywords for content they are looking for. The user expects the system to display links to matching content.',
+    description: 'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription: 'See HPE Design System Search input design and code examples.',
     sections: [
       'Placeholder',
