@@ -28,8 +28,10 @@ export const components = [
   {
     name: 'Anchor',
     category: 'Controls',
-    description: 'Hyperlinks used with text-based navigation, such as inline text.',
-    seoDescription: 'Anchors are links in text-based navigation. See when to use a button vs. an anchor and accessibility best practices.',
+    description:
+      'Hyperlinks used with text-based navigation, such as inline text.',
+    seoDescription:
+      'Anchors are links in text-based navigation. See when to use a button vs. an anchor and accessibility best practices.',
     sections: [
       'Usage of Anchor vs. Button',
       'Anchor Labeling',
@@ -44,12 +46,22 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Button', 'Typography', 'Forms'],
-    tags: ['hyperlinks', 'links', 'linking', 'navigation', 'anchors', 'buttons', 'accessibility standards for links', 'link labels'],
+    tags: [
+      'hyperlinks',
+      'links',
+      'linking',
+      'navigation',
+      'anchors',
+      'buttons',
+      'accessibility standards for links',
+      'link labels',
+    ],
   },
   {
     name: 'Button',
     category: 'Controls',
-    description: 'Buttons are graphic elements that indicate to users that actions can be performed.',
+    description:
+      'Buttons are graphic elements that indicate to users that actions can be performed.',
     seoDescription:
       'Buttons indicate that actions can be performed. See HPE styling for different states, colors, placement, etc.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
@@ -73,7 +85,18 @@ export const components = [
       component: () => <ButtonPreview />,
       background: 'background-front',
     },
-    tags: ['buttons', 'actions', 'button style', 'hpe button styling', 'cancel button', 'delete button' 'button ux best practices', 'how to use a toggle', 'cta placement', 'call to action button'],
+    tags: [
+      'buttons',
+      'actions',
+      'button style',
+      'hpe button styling',
+      'cancel button',
+      'delete button',
+      'button ux best practices',
+      'how to use a toggle',
+      'cta placement',
+      'call to action button',
+    ],
   },
   {
     name: 'Card',
@@ -140,7 +163,18 @@ export const components = [
       'Trial promotion (background color)',
       'Feature release',
     ],
-    tags: ['tiles', 'widgets', 'containers', 'cards', 'when to use a card', 'call to action', 'cta button alternative', 'marketing cards', 'card sizes', 'hpe card colors', ],
+    tags: [
+      'tiles',
+      'widgets',
+      'containers',
+      'cards',
+      'when to use a card',
+      'call to action',
+      'cta button alternative',
+      'marketing cards',
+      'card sizes',
+      'hpe card colors',
+    ],
   },
   {
     name: 'Navigational card',
@@ -169,7 +203,19 @@ export const components = [
       'Primary and secondary actions',
       'Row-orientation',
     ],
-    tags: ['tiles', 'widgets', 'containers', 'cards', 'navigation', 'most frequent actions', 'most frequent functions', 'how to display cards', 'how to layout cards', 'site map', 'site map alternative',],
+    tags: [
+      'tiles',
+      'widgets',
+      'containers',
+      'cards',
+      'navigation',
+      'most frequent actions',
+      'most frequent functions',
+      'how to display cards',
+      'how to layout cards',
+      'site map',
+      'site map alternative',
+    ],
   },
   {
     name: 'Tabs',
@@ -184,7 +230,18 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['Button', 'Menu'],
-    tags: ['tabs', 'tab panels', 'navigation', 'containers', 'tab alignment', 'responsive tabs', 'hpe tabs standards', 'hpe tabs style', 'tabs styling', 'tabs ux recommendations'],
+    tags: [
+      'tabs',
+      'tab panels',
+      'navigation',
+      'containers',
+      'tab alignment',
+      'responsive tabs',
+      'hpe tabs standards',
+      'hpe tabs style',
+      'tabs styling',
+      'tabs ux recommendations',
+    ],
   },
   {
     name: 'DateInput',
@@ -210,14 +267,18 @@ export const components = [
       'calendar',
       'calendar input',
       'select date',
-      'select date range', 'HPE calendar component', 'hpe calendar widget'
+      'select date range',
+      'HPE calendar component',
+      'hpe calendar widget',
     ],
   },
   {
     name: 'FileInput',
     category: 'Inputs',
-    description: 'An input field where a user can select and upload one or more files.',
-    seoDescription: 'FileInput is a field where a user can select and upload one or more files. See HPE UX standards for file size errors, multiple files, etc.',
+    description:
+      'An input field where a user can select and upload one or more files.',
+    seoDescription:
+      'FileInput is a field where a user can select and upload one or more files. See HPE UX standards for file size errors, multiple files, etc.',
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
@@ -240,9 +301,9 @@ export const components = [
       'error message',
       'deleting files',
       'file is too big',
-      'fileinput styling'
-      'fileinput standards'
-      'selecting files'
+      'fileinput styling',
+      'fileinput standards',
+      'selecting files',
     ],
   },
   {
@@ -266,15 +327,14 @@ export const components = [
       'text input',
       'description fields',
       'text boxes',
-      'placeholder text'
-      'input error'
+      'placeholder text',
+      'input error',
     ],
   },
   {
     name: 'TextInput',
     category: 'Inputs',
-    description:
-      'TextInput is a field used in forms to capture short entries.',
+    description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
     sections: [
@@ -293,12 +353,11 @@ export const components = [
       'input type text',
       'text field',
       'password',
-      'enter password'
-      'search field'
-      'short text field'
-      'simple text field'
-      'text field error message'
-      ,
+      'enter password',
+      'search field',
+      'short text field',
+      'simple text field',
+      'text field error message',
     ],
   },
   {
@@ -341,18 +400,20 @@ export const components = [
       'truncate',
       'pop-up',
       'help text',
-      'dialog box'
-      'small dialog'
-      'informational pop-up'
-      'contextual help'
-      'on hover'
+      'dialog box',
+      'small dialog',
+      'informational pop-up',
+      'contextual help',
+      'on hover',
     ],
   },
   {
     name: 'Search',
     category: 'Controls',
-    description: 'Search is a field that allows a user to input keywords for content they are looking for.',
-    seoDescription: 'See HPE Design System Search input design and code examples.',
+    description:
+      'Search is a field that allows a user to input keywords for content they are looking for.',
+    seoDescription:
+      'See HPE Design System Search input design and code examples.',
     sections: [
       'Placeholder',
       'Auto-suggestions',
@@ -366,7 +427,14 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['TextInput', 'Header'],
-    tags: ['search input', 'search accessibility standards', 'auto-suggest in search', 'search suggestions', 'search placement', 'search icon'],
+    tags: [
+      'search input',
+      'search accessibility standards',
+      'auto-suggest in search',
+      'search suggestions',
+      'search placement',
+      'search icon',
+    ],
   },
   {
     name: 'Select',
@@ -399,8 +467,7 @@ export const components = [
       'select error message',
       'drop-down alternatives',
       'drop-down error message',
-      'disabled state'
-      '
+      'disabled state',
     ],
   },
   {
@@ -441,11 +508,11 @@ export const components = [
       'drop down',
       'option list',
       'multi select',
-      'multiple values'
-      'multiple options'
-      'search in dropdown'
-      'search in multiselect'
-      'help text'
+      'multiple values',
+      'multiple options',
+      'search in dropdown',
+      'search in multiselect',
+      'help text',
       'scrolling in dropdown',
     ],
   },
@@ -466,7 +533,17 @@ export const components = [
       component: () => <CheckBoxPreview />,
       background: 'background-front',
     },
-    tags: ['check box', 'toggle', 'input type', 'indeterminate' 'multiple choices checkbox', 'checkbox states', 'hpe checkbox styling', 'checkbox vs toggle', 'error message',],
+    tags: [
+      'check box',
+      'toggle',
+      'input type',
+      'indeterminate',
+      'multiple choices checkbox',
+      'checkbox states',
+      'hpe checkbox styling',
+      'checkbox vs toggle',
+      'error message',
+    ],
   },
   {
     name: 'CheckBoxGroup',
@@ -481,12 +558,21 @@ export const components = [
       component: () => <CheckBoxGroupPreview />,
       background: 'background-front',
     },
-    tags: ['checkbox', 'checkbox group', 'check box group', 'grouped', 'checkbox error message,' 'checkbox group accessibility', 'checkbox scrolling', ],
+    tags: [
+      'checkbox',
+      'checkbox group',
+      'check box group',
+      'grouped',
+      'checkbox error message',
+      'checkbox group accessibility',
+      'checkbox scrolling',
+    ],
   },
   {
     name: 'Accordion',
     category: 'Controls',
-    description: 'The accordion is a menu list that when clicked opens to reveal more options.',
+    description:
+      'The accordion is a menu list that when clicked opens to reveal more options.',
     preview: {
       image: {
         src: {
@@ -501,7 +587,18 @@ export const components = [
     seoDescription:
       'The accordion is a menu list that when clicked opens to reveal more options. See different behaviors, states, and icons.',
     sections: ['About Accordion'],
-    tags: ['accordian', 'acordion', 'collapse', 'panel', 'expand', 'expandable menu', 'menu alternatives', 'menu styles', 'havigation elements', 'navigation alternatives,'],
+    tags: [
+      'accordian',
+      'acordion',
+      'collapse',
+      'panel',
+      'expand',
+      'expandable menu',
+      'menu alternatives',
+      'menu styles',
+      'havigation elements',
+      'navigation alternatives,',
+    ],
   },
   {
     name: 'Header',
@@ -526,7 +623,18 @@ export const components = [
       justify: 'start',
     },
     relatedContent: ['Button', 'Menu', 'TextInput', 'Dashboards', 'Search'],
-    tags: ['app headers', 'navigation', 'page sections', 'page layouts', 'header vs global header', 'logo placement', 'hpe header', 'avatar placement', 'navigation pane', 'search placement',],
+    tags: [
+      'app headers',
+      'navigation',
+      'page sections',
+      'page layouts',
+      'header vs global header',
+      'logo placement',
+      'hpe header',
+      'avatar placement',
+      'navigation pane',
+      'search placement',
+    ],
   },
   {
     name: 'Footer',
@@ -546,7 +654,17 @@ export const components = [
       justify: 'end',
     },
     relatedContent: ['Header', 'Button', 'Dashboards'],
-    tags: ['app footers', 'navigation', 'page sections', 'page layouts' 'necessary page elements', 'landmarks', 'page regions', 'page footer vs app footer', 'hpe footer standards'],
+    tags: [
+      'app footers',
+      'navigation',
+      'page sections',
+      'page layouts',
+      'necessary page elements',
+      'landmarks',
+      'page regions',
+      'page footer vs app footer',
+      'hpe footer standards',
+    ],
   },
   {
     name: 'Menu',
@@ -555,13 +673,33 @@ export const components = [
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
     seoDescription:
       'Menu contains a list of actions. See some best UX practices .',
-    sections: ['organizing menu items', 'dangerous actions', 'commmon action groupings' 'hpe applications', 'menu within a header', 'menu within a toolbar', 'menu with a custom icon' ],
+    sections: [
+      'organizing menu items',
+      'dangerous actions',
+      'commmon action groupings',
+      'hpe applications',
+      'menu within a header',
+      'menu within a toolbar',
+      'menu with a custom icon',
+    ],
     preview: {
       component: () => <MenuPreview />,
       background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
-    tags: ['dropdown', 'drop down', 'actions', 'navigation', 'cascading menu', 'hpe menu styling', 'destructive actions', 'menu items', 'menu actions' 'types of actions', 'hpe menu icon' ],
+    tags: [
+      'dropdown',
+      'drop down',
+      'actions',
+      'navigation',
+      'cascading menu',
+      'hpe menu styling',
+      'destructive actions',
+      'menu items',
+      'menu actions',
+      'types of actions',
+      'hpe menu icon',
+    ],
   },
   {
     name: 'Box',
@@ -588,7 +726,14 @@ export const components = [
     },
     seoDescription: `Grids are a layout's best friend. From scaffolding page layouts to organizing elements within 
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
-    sections: ['grid properties and key concepts', 'grid columns', 'grid rows', 'grid gaps', 'implementing grid', 'fluid grids'],
+    sections: [
+      'grid properties and key concepts',
+      'grid columns',
+      'grid rows',
+      'grid gaps',
+      'implementing grid',
+      'fluid grids',
+    ],
     tags: [
       'layouts',
       'page layouts',
@@ -620,7 +765,13 @@ export const components = [
     },
     seoDescription:
       'Layer is a component that displays content on top of the page the user is currently on. See how HPE implements side panels, center modals, dialogs, etc.',
-    sections: ['Using Headings in Layer', 'Side Drawer Modal', 'Center Modal', 'Layer form within header', 'layer form with hide/show sticky header',],
+    sections: [
+      'Using Headings in Layer',
+      'Side Drawer Modal',
+      'Center Modal',
+      'Layer form within header',
+      'layer form with hide/show sticky header',
+    ],
     preview: {
       component: () => <LayerPreview />,
     },
@@ -649,7 +800,15 @@ export const components = [
       'The Main component is where you define the location and layout of the primary context of your content.',
     sections: [],
     relatedContent: ['Header', 'Footer', 'Grid', 'Box'],
-    tags: ['layouts', 'page sections', 'header', 'footer', 'page', 'table placement', 'summmary placement',],
+    tags: [
+      'layouts',
+      'page sections',
+      'header',
+      'footer',
+      'page',
+      'table placement',
+      'summmary placement',
+    ],
   },
   {
     name: 'MaskedInput',
@@ -683,10 +842,10 @@ export const components = [
       'form validation',
       'form inputs',
       'placeholder text',
-      'pre-filled'
-      'use-cases for preformatted text'
+      'pre-filled',
+      'use-cases for preformatted text',
       'preformatted text',
-      'preformatted form fields'
+      'preformatted form fields',
     ],
   },
   {
@@ -779,13 +938,13 @@ export const components = [
       'taxonomy',
       'ticker',
       'pop-up',
-      'message'
-      'messaging'
-      'push notification'
+      'message',
+      'messaging',
+      'push notification',
       'warnings',
-      'error message'
-      'failure message'
-      'red alert'
+      'error message',
+      'failure message',
+      'red alert',
       'notification system',
       'alert alternatives',
     ],
@@ -803,7 +962,13 @@ export const components = [
       background: 'background-front',
     },
     relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
-    tags: ['grouped radio button', 'radio button group', 'radio button', 'checkbox alternative', 'radio button vs checkbox', '],
+    tags: [
+      'grouped radio button',
+      'radio button group',
+      'radio button',
+      'checkbox alternative',
+      'radio button vs checkbox',
+    ],
   },
   {
     name: 'RangeInput',
@@ -817,7 +982,17 @@ export const components = [
       component: () => <RangeInputPreview />,
       background: 'background-front',
     },
-    tags: ['slider', 'slider input', 'volume control', 'range input', 'value selector', 'choices alternatives', 'choosing numbers', 'continuum', 'choosing a value',],
+    tags: [
+      'slider',
+      'slider input',
+      'volume control',
+      'range input',
+      'value selector',
+      'choices alternatives',
+      'choosing numbers',
+      'continuum',
+      'choosing a value',
+    ],
   },
   {
     name: 'Stack',
@@ -831,12 +1006,13 @@ export const components = [
     seoDescription:
       'A Stack component is a container that stacks content on top of each other. See HPE styling and example code.',
     sections: [],
-    tags: ['containers', 'layers', 'z-index',],
+    tags: ['containers', 'layers', 'z-index'],
   },
   {
     name: 'Spinner',
     category: 'Visualizations',
-    description: 'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
+    description:
+      'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
 
     preview: {
       image: {
@@ -847,7 +1023,8 @@ export const components = [
         alt: 'HPE Spinner preview',
       },
     },
-    seoDescription: 'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
+    seoDescription:
+      'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
     relatedContent: ['Lists', 'DataTable', 'Forms'],
     sections: [
       'When to use Spinner',
@@ -865,14 +1042,13 @@ export const components = [
       'spinning wheel',
       'progress indicator',
       'progress bar',
-      'splash screen'
-      'loading icon'
-      'hpe spinner icon'
-      'progress indicator alternative'
-      'hpe style spinner'
-      'hpe loading spinner'
-      'spooling'
-      ,
+      'splash screen',
+      'loading icon',
+      'hpe spinner icon',
+      'progress indicator alternative',
+      'hpe style spinner',
+      'hpe loading spinner',
+      'spooling',
     ],
   },
   {
@@ -925,11 +1101,11 @@ export const components = [
       'tables',
       'truncation',
       'informational table',
-      'table summary'
-      'best table width for a screen'
+      'table summary',
+      'best table width for a screen',
       'how to wrap in datatable',
       'no value datatable',
-      'not applicable datatable'
+      'not applicable datatable',
       'icons in datatables',
       'datatable responsive',
       'flexible columns',
@@ -971,7 +1147,16 @@ export const components = [
       'Paginated Cards',
     ],
     relatedContent: ['DataTable', 'Lists', 'Card'],
-    tags: ['paginated results', 'paginated data', 'multiple pages', 'scrolling alternatives', 'long pages', 'hpe pagination styling', 'accessibility standards for pagination', 'pagination aria labels', ],
+    tags: [
+      'paginated results',
+      'paginated data',
+      'multiple pages',
+      'scrolling alternatives',
+      'long pages',
+      'hpe pagination styling',
+      'accessibility standards for pagination',
+      'pagination aria labels',
+    ],
   },
   {
     name: 'Tag',
@@ -1000,7 +1185,17 @@ export const components = [
       'Filtering with Tags on a Summary Page',
     ],
     relatedContent: ['NameValueList', 'Lists'],
-    tags: ['tags', 'name value pair', 'metatags', 'metadata', 'keywords', 'assigning keywords', 'filtering by keywords', 'adding tags', 'tag creation',],
+    tags: [
+      'tags',
+      'name value pair',
+      'metatags',
+      'metadata',
+      'keywords',
+      'assigning keywords',
+      'filtering by keywords',
+      'adding tags',
+      'tag creation',
+    ],
   },
   {
     name: 'Page',
@@ -1021,14 +1216,21 @@ export const components = [
     seoDescription: `Page is a container providing consistent layouts across HPE apps. See examples of standard HPE page sizes and their use cases.`,
     sections: ['Guidance', 'Page Content'],
     relatedContent: ['Page Layouts', 'Content Layouts', 'Box', 'Main'],
-    tags: ['page', 'page content', 'hpe page layout', 'hpe standard page', 'page basics', 'page sizing',],
+    tags: [
+      'page',
+      'page content',
+      'hpe page layout',
+      'hpe standard page',
+      'page basics',
+      'page sizing',
+    ],
   },
   {
     name: 'PageHeader',
     available: true,
     category: 'Layouts',
     description:
-      "A component providing users a consistent, predictable layout and location for the page title, contextual navigation, and actions across all HPE applications. PageHeader is placed at the top of the page.",
+      'A component providing users a consistent, predictable layout and location for the page title, contextual navigation, and actions across all HPE applications. PageHeader is placed at the top of the page.',
     preview: {
       image: {
         src: {
@@ -1039,8 +1241,7 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `PageHeader is a component providing users a predictable layout and location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.',
-
+    seoDescription: `PageHeader is a component providing users a predictable layout and location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.`,
     sections: [
       'Anatomy',
       'Responsive Behavior and Content Prioritization',
@@ -1053,7 +1254,16 @@ export const components = [
       'Responsive Behavior of Actions',
     ],
     relatedContent: ['Page Layouts', 'Content Layouts', 'Page'],
-    tags: ['page header', 'header', 'page', 'hpe pageheader', 'hpe header styling', 'header ux best practices', 'actions in a header', 'responsive pageheader',],
+    tags: [
+      'page header',
+      'header',
+      'page',
+      'hpe pageheader',
+      'hpe header styling',
+      'header ux best practices',
+      'actions in a header',
+      'responsive pageheader',
+    ],
   },
   {
     name: 'All Components',
@@ -1071,7 +1281,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: 'See all HPE Design System and Grommet components, from scrolling, diagram, carousel, calendar, data chart, maskedinput, etc.',
+    seoDescription:
+      'See all HPE Design System and Grommet components, from scrolling, diagram, carousel, calendar, data chart, maskedinput, etc.',
     sections: [
       'Sidebar',
       'Markdown',
