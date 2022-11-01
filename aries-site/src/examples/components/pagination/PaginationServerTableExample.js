@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Pagination,
+  Select,
+  Text,
+  Tip,
+} from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
   {
     property: 'name',
     header: 'Name',
-    size: 'medium',
+    size: 'small',
     primary: true,
   },
   {
@@ -14,11 +22,13 @@ const columns = [
     header: 'Rocket',
     size: 'small',
     render: datum => <Text key={datum.rocket.name}>{datum.rocket.name}</Text>,
+    align: 'end',
   },
   {
     property: 'success',
     header: 'Success',
     size: 'xsmall',
+    align: 'end',
     render: datum => {
       if (datum.success === false) {
         const content = (
@@ -50,6 +60,7 @@ const columns = [
 ];
 
 export const PaginationServerTableExample = () => {
+  const showCount = [10, 25, 50, 100];
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
   const [limit, setLimit] = useState(10);
@@ -102,7 +113,24 @@ export const PaginationServerTableExample = () => {
       >
         Launches
       </Heading>
-      <Box align="center">
+      {/* {numberItems > limit && (
+        <Box
+          direction="row-responsive"
+          align="center"
+          gap="small"
+          // justify="between"
+        >
+          <Text>Show</Text>
+          <Select
+            placeholder="10" // 10 is default step size
+            value={limit}
+            options={showCount}
+            onChange={({ option }) => setLimit(option)}
+          />
+          <Text>entries</Text>
+        </Box>
+      )} */}
+      <Box align="start" fill>
         <DataTable
           aria-describedby="server-side-pagination"
           columns={columns}
@@ -110,9 +138,16 @@ export const PaginationServerTableExample = () => {
           sortable
           replace
           step={limit}
-          onSort={(opts) => setSort(opts)}
+          onSort={opts => setSort(opts)}
+          // onUpdate={opts => setData(getData(opts))} TO BE FIXED in select control
+
+          // onUpdate={() => {
+          //   console.log('UPDATED');
+          //   console.log(data);
+          //   setData(data);
+          // }}
         />
-        
+
         {numberItems > limit && (
           <Box
             direction="row-responsive"
@@ -120,6 +155,7 @@ export const PaginationServerTableExample = () => {
             border="top"
             justify="between"
             pad={{ vertical: 'xsmall' }}
+            fill
           >
             <Text>
               Showing {(page - 1) * limit + 1}-
@@ -129,7 +165,7 @@ export const PaginationServerTableExample = () => {
               step={limit}
               numberItems={numberItems}
               page={page}
-              onChange={(opts) => setPage(opts.page)}
+              onChange={opts => setPage(opts.page)}
               direction="row"
               flex={false}
             />
