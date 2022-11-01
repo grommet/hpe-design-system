@@ -372,7 +372,7 @@ export const components = [
     name: 'Select',
     category: 'Inputs',
     description:
-      'Select is a flexible input field that allows users to choose from a list of options. Also known as a drop-down field.',
+      'Select is a flexible input field that allows users to choose from a list of options.',
     seoDescription:
       'The select input component offers users a choice from a list of options. See how HPE displays the disabled state, error messages, and alternatives to the drop-down.',
     sections: ['When to use Select', 'Multi-Select', 'Select with Search'],
