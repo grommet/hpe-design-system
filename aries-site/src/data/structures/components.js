@@ -847,7 +847,7 @@ export const components = [
         alt: 'HPE Spinner preview',
       },
     },
-    seoDescription: 'Spinner is a motion graphic element loading state for quick asynchronous tasks.',
+    seoDescription: 'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
     relatedContent: ['Lists', 'DataTable', 'Forms'],
     sections: [
       'When to use Spinner',
