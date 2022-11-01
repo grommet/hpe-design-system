@@ -453,7 +453,7 @@ export const components = [
     name: 'CheckBox',
     category: 'Inputs',
     description:
-      'CheckBox is a square design element that when clicked accepts the choice(s) offered. Checkboxes allow for multiple selections.',
+      'CheckBox is a square design element that when clicked accepts the choice offered.',
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [
