@@ -507,7 +507,7 @@ export const components = [
     name: 'Header',
     category: 'Layouts',
     description:
-      'Header is a Box with a set of preset properties for introductory content. It is placed prominently at the top of a page to provide context.',
+      'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
     sections: [
