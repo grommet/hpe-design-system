@@ -249,7 +249,7 @@ export const components = [
     name: 'TextArea',
     category: 'Inputs',
     description:
-      'TextArea is a field used in forms to capture what the user is writing. This component allows the user to type more characters than the TextInput field.',
+      'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
     sections: [],
