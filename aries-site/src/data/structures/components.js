@@ -274,7 +274,7 @@ export const components = [
     name: 'TextInput',
     category: 'Inputs',
     description:
-      'TextInput is a field used in forms that captures what the user is writing. Use this for short entries.',
+      'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
     sections: [
