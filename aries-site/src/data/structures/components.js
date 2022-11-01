@@ -983,7 +983,7 @@ export const components = [
       component: () => <TagPreview />,
       background: 'background-front',
     },
-    seoDescription: `Tags are metadata keywords that facilitate identification, 
+    seoDescription: `Tags are metadata attributes that facilitate identification, 
     organization, searching, and filtering resources. See HPE tag styling and how we create and assign tags.`,
     sections: [
       'Guidance',
