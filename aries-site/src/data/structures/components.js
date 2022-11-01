@@ -1028,7 +1028,7 @@ export const components = [
     available: true,
     category: 'Layouts',
     description:
-      "A component providing users a consistent, predictable location for the page title, contextual navigation, and actions across all HPE applications. Usually placed at the top of the page.",
+      "A component providing users a consistent, predictable layout and location for the page title, contextual navigation, and actions across all HPE applications. PageHeader is placed at the top of the page.",
     preview: {
       image: {
         src: {
