@@ -960,7 +960,7 @@ export const components = [
       },
     },
     seoDescription: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items. `,
+    enhance navigation to specific items.`,
     sections: [
       'When to use Pagination',
       'Number of results per page',
