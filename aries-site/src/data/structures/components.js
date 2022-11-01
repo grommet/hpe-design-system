@@ -619,7 +619,7 @@ export const components = [
       component: () => <LayerPreview />,
     },
     seoDescription:
-      'Layer is component that displays content on top of the page the user is currently on. See how HPE implements side panels, center modals, dialogs, etc.',
+      'Layer is a component that displays content on top of the page the user is currently on. See how HPE implements side panels, center modals, dialogs, etc.',
     sections: ['Using Headings in Layer', 'Side Drawer Modal', 'Center Modal', 'Layer form within header', 'layer form with hide/show sticky header',],
     preview: {
       component: () => <LayerPreview />,
