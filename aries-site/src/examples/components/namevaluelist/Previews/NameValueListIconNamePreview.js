@@ -10,7 +10,7 @@ export const NameValueListIconNamePreview = () => (
         let icon;
         if (name === 'Active')
           icon = <StatusGood aria-hidden="true" size="small" />;
-        else if (name === 'In Progress')
+        else if (name === 'In progress')
           icon = <InProgress aria-hidden="true" size="small" />;
         return (
           <NameValuePair

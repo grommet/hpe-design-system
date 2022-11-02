@@ -74,7 +74,7 @@ export const FiltersLayer = () => {
           pad={{ horizontal: 'medium', bottom: 'small' }}
         >
           <Button
-            label="Apply Filters"
+            label="Apply filters"
             onClick={() => {
               applyFilters(data, filters);
               setFiltersLayer(false);
@@ -82,10 +82,10 @@ export const FiltersLayer = () => {
             primary
           />
           <Button
-            label="Reset Filters"
+            label="Reset filters"
             onClick={() => {
               const nextFilters = {};
-              /* Remove all filters, but do not apply until "Apply Filters" 
+              /* Remove all filters, but do not apply until "Apply filters" 
                  is clicked. */
               setFilters(nextFilters);
             }}

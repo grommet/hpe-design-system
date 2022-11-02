@@ -10,7 +10,7 @@ export const StepHeader = () => {
         Step {activeStep} of {steps.length}
       </Text>
       <Heading color="text-strong" margin="none" size="small">
-        {steps[activeIndex].title || `Step ${activeStep} Title`}
+        {steps[activeIndex].title || `Step ${activeStep} title`}
       </Heading>
       {typeof steps[activeIndex].description === 'string' ? (
         <Paragraph size="large" margin="none">
