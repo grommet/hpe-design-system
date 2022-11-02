@@ -1,4 +1,4 @@
-import { Box, Text } from 'grommet';
+import { Box } from 'grommet';
 
 export const foundation = [
   {

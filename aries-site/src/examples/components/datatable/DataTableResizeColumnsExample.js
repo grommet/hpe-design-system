@@ -160,11 +160,11 @@ const columns = [
   },
   {
     property: 'phoneNumber',
-    header: 'Phone Number',
+    header: 'Phone number',
   },
   {
     property: 'deviceName',
-    header: 'Device Name',
+    header: 'Device name',
     render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
     size: 'xsmall',
   },

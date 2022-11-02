@@ -20,7 +20,7 @@ export const DateInputRangeExample = () => {
         <FormField
           name="dateinput-range"
           htmlFor="dateinput-range"
-          label="DateInput Range"
+          label="DateInput range"
         >
           <DateInput
             value={value}

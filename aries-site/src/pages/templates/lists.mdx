@@ -40,7 +40,7 @@ A list is primarily used for:
 - Aggregating. When coupled with search or filters, it provides a summary of what items match the search/filter criteria and verification of the matching items.
 - Selecting multiple items to perform an action with them.
 
-### Best Practices:
+### Best practices
 
 - Be consistent with layout and visual treatments for all list items.
 - Keep list item descriptions brief and concise.
@@ -48,7 +48,7 @@ A list is primarily used for:
 - Maintain sufficient space between list items or consider using dividers between rows.
 - Sort lists in a logical order such as alphabetically, numerically, chronologically, or by user preference.
 
-### Types of Lists
+### Types of lists
 
 The following list types are supported:
 
@@ -67,14 +67,14 @@ Use hover states to indicate which kind of selection is being used. If the entir
 - A list with selectable items and no action menu on the same page, allows an item to be selected. When an item is selected, a detail view can be shown with a single action menu for performing other things, such as powering on or off a device. Multi-select is not supported.
 - A list without selectable items, but an action menu on each item, allows an action to be performed inline on a single item. Multi-select is not supported.
 
-### Action Menu in List Item
+### Action menu in list item
 
 - If space is limited, then don’t use an Action Menu in a List item (repetition of the Action Menu icon uses a lot of space)
 - If more context is needed to perform an action, the entire list row should be clickable and should route the user to a detail page for the List item. On this detail page, an Action Menu can be provided to allow the user to engage with the data.
 - If an action is simple and the results can be seen in the List contents (e.g. enable/disable), then use an Action Menu in a List item
 - If multi-select is required, then don’t use the Action Menu in the List item.
 
-### Long Lists
+### Long lists
 
 - Add a sticky header for the list
 - Avoid using multiple vertical scrollbars
@@ -86,9 +86,9 @@ Use hover states to indicate which kind of selection is being used. If the entir
 
 Examples are included for different screen sizes – Desktop, Laptop and Mobile.
 
-Lists should span the width of the container they are laid out in
+Lists should span the width of the container they are laid out in.
 
-### Wrapping vs Truncation:
+### Wrapping vs. truncation
 
 - Long data in lists should be wrapped, rather than truncated.
 - It’s about respecting the user’s content; that is, the words they type in.
@@ -108,7 +108,7 @@ When list items are interactive, the Tab key can be used to focus on the List. T
 
 Each list should also have a clear aria-label indicating what the list contains and a summary of the contents, such as how many items are in the list.
 
-### List vs Table
+### List vs. table
 
 A List or a Table can be used to represent a set of related items, such as servers or devices or users. The one that is chosen will depend on the specific use cases that need to be supported.
 
@@ -120,7 +120,7 @@ A List or a Table can be used to represent a set of related items, such as serve
 
 Examples of common lists.
 
-### Icon + Name + Option
+### Icon + name + option
 
 Single-line list with an icon, primary title, and a short status tag. In this example, the list items are clickable.
 
@@ -133,7 +133,7 @@ Single-line list with an icon, primary title, and a short status tag. In this ex
   <ListIconIdentifierExample />
 </Example>
 
-### Name + Description + Option
+### Name + description + option
 
 Two-line list with primary title, description, and a short status tag.
 
@@ -147,7 +147,7 @@ Two-line list with primary title, description, and a short status tag.
   <ListNameDescriptionOptionExample />
 </Example>
 
-### Name + Option + Action
+### Name + option + action
 
 Single-line list with a primary title, short status tag and an action button.
 
@@ -161,7 +161,7 @@ Single-line list with a primary title, short status tag and an action button.
   <ListNameOptionActionExample />
 </Example>
 
-### Image + Name + Description
+### Image + name + description
 
 Two-line list with an image, primary title, and a description.
 
@@ -188,7 +188,7 @@ With long sets of data, pagination can help to create a more efficient means of 
   <PaginationListExample />
 </Example>
 
-### Item Order
+### Item order
 
 List supports `onOrder` property which allows the user to reorder the items in a list by dragging items or pressing up and down controls.
 

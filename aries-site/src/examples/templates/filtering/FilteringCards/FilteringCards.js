@@ -35,7 +35,7 @@ export const FilteringCards = ({ containerRef }) => {
     },
     {
       property: 'hoursAvailable',
-      label: 'Remaining Hours Available',
+      label: 'Remaining hours available',
       filterType: 'RangeSelector',
       inputProps: {
         min: 0,

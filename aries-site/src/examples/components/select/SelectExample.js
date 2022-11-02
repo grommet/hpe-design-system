@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Form, FormField, Select } from 'grommet';
 
 const options = [
-  'Item One',
-  'Item Two',
-  'Item Three',
-  'Item Four',
-  'Item Five',
-  'Item Six',
+  'Item one',
+  'Item two',
+  'Item three',
+  'Item four',
+  'Item five',
+  'Item six',
 ];
 
 export const SelectExample = () => {
