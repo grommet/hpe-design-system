@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Box,
-  DataTable,
-  Heading,
-  Pagination,
-  Select,
-  Text,
-  Tip,
-} from 'grommet';
+import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
@@ -60,10 +52,9 @@ const columns = [
 ];
 
 export const PaginationServerTableExample = () => {
-  const showCount = [10, 25, 50, 100];
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
-  const [limit, setLimit] = useState(10);
+  const limit = useState(10);
   const [numberItems, setNumberItems] = useState(0);
   const [page, setPage] = useState(1);
 
@@ -113,24 +104,8 @@ export const PaginationServerTableExample = () => {
       >
         Launches
       </Heading>
-      {/* {numberItems > limit && (
-        <Box
-          direction="row-responsive"
-          align="center"
-          gap="small"
-          // justify="between"
-        >
-          <Text>Show</Text>
-          <Select
-            placeholder="10" // 10 is default step size
-            value={limit}
-            options={showCount}
-            onChange={({ option }) => setLimit(option)}
-          />
-          <Text>entries</Text>
-        </Box>
-      )} */}
-      <Box align="start" fill>
+
+      <Box>
         <DataTable
           aria-describedby="server-side-pagination"
           columns={columns}
@@ -139,13 +114,7 @@ export const PaginationServerTableExample = () => {
           replace
           step={limit}
           onSort={opts => setSort(opts)}
-          // onUpdate={opts => setData(getData(opts))} TO BE FIXED in select control
-
-          // onUpdate={() => {
-          //   console.log('UPDATED');
-          //   console.log(data);
-          //   setData(data);
-          // }}
+          fill
         />
 
         {numberItems > limit && (
@@ -153,7 +122,7 @@ export const PaginationServerTableExample = () => {
             direction="row-responsive"
             align="center"
             border="top"
-            justify="between"
+            justify="end"
             pad={{ vertical: 'xsmall' }}
             fill
           >
