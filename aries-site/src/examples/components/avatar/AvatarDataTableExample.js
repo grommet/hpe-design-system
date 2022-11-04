@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Avatar, Box, DataTable, Text } from 'grommet';
 import users from '../../../data/mockData/users.json';
 
@@ -45,4 +46,8 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
         />
       </Box>
   );
+};
+
+AvatarDataTableExample.propTypes = {
+  bestPractice: PropTypes.bool,
 };
