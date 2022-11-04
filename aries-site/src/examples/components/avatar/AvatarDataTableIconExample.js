@@ -4,13 +4,11 @@ import {
   Box,
   DataTable,
   Image,
-  ResponsiveContext,
   Text,
 } from 'grommet';
 import company from '../../../data/mockData/company.json';
 
 export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
-  const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 
   const data = company.company;
@@ -59,3 +57,4 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
     </>
   );
 };
+
