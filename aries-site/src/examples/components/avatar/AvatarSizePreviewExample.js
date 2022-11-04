@@ -44,14 +44,12 @@ const AvatarContainer = ({
       src={src}
       background={background}
       flex={false}
-
     >
       {children}
     </Avatar>
     <Text size="small">{title}</Text>
   </Box>
 );
-
 
 AvatarContainer.propTypes = {
   alt: PropTypes.string,
@@ -60,6 +58,5 @@ AvatarContainer.propTypes = {
   round: PropTypes.string,
   size: PropTypes.string,
   src: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
-

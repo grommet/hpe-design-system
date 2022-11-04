@@ -11,8 +11,8 @@ export const AvatarAccessibilityExample = () => {
       <Button onClick={handleClick}>
         <Avatar
           size="large"
-          a11yTitle='Avatar containing initial letters
-           J and S when clicked an alert will pop up'
+          a11yTitle="Avatar containing initial letters
+           J and S when clicked an alert will pop up"
           background="green"
         >
           JS
