@@ -409,7 +409,7 @@ export const components = [
       'When to use',
       'When not to use',
       'Anatomy',
-      'Sizing & Scrolling',
+      'Sizing and scrolling',
       // 'Variants',
       // 'Other Use Cases',
       // 'Behavior',
