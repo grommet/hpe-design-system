@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'grommet';
 
 export const AvatarSizePreviewExample = () => (
@@ -50,3 +51,15 @@ const AvatarContainer = ({
     <Text size="small">{title}</Text>
   </Box>
 );
+
+
+AvatarContainer.propTypes = {
+  alt: PropTypes.string,
+  background: PropTypes.string,
+  children: PropTypes.node,
+  round: PropTypes.string,
+  size: PropTypes.string,
+  src: PropTypes.string,
+  title: PropTypes.string
+};
+
