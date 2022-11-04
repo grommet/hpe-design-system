@@ -1,15 +1,13 @@
 import React from 'react';
-import { Avatar, Box, DataTable, ResponsiveContext, Text } from 'grommet';
+import { Avatar, Box, DataTable, Text } from 'grommet';
 import users from '../../../data/mockData/users.json';
 
 export const AvatarDataTableExample = ({ bestPractice = true }) => {
-  const size = React.useContext(ResponsiveContext);
   const [selected, setSelected] = React.useState([]);
 
   const data = users.users;
 
   return (
-    <>
       <Box height={{ max: 'large' }} overflow="auto">
         <DataTable
           data={data}
@@ -46,6 +44,5 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
           onSelect={setSelected}
         />
       </Box>
-    </>
   );
 };
