@@ -37,9 +37,9 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
                     />
                   ) : (
                     <Box align="start">
-                      {/* eslint-disable-next-line grommet/image-alt-text */}
                       <Image
                         alignSelf="start"
+                        alt={datum.name}
                         src={datum.src}
                         fit="contain"
                         style={{ height: '24px' }}
