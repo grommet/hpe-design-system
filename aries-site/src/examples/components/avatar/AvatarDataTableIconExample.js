@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
@@ -14,11 +15,11 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
   const data = company.company;
 
   return (
-    <>
       <Box width="medium" height={{ max: 'large' }} overflow="auto">
         <DataTable
           data={data}
           primaryKey="name"
+          aria-describedby="company-logos"
           columns={[
             {
               property: 'name',
@@ -54,7 +55,11 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
           onSelect={setSelected}
         />
       </Box>
-    </>
   );
 };
+
+AvatarDataTableIconExample.propTypes = {
+  bestPractice: PropTypes.bool,
+};
+
 
