@@ -13,6 +13,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
         <DataTable
           data={data}
           primaryKey="name"
+          aria-describedby="ds-users"
           columns={[
             {
               property: 'name',
