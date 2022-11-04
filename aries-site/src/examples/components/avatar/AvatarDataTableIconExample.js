@@ -26,28 +26,29 @@ export const AvatarDataTableIconExample = ({ bestPractice = true }) => {
               property: 'name',
               header: 'Name',
               render: datum => (
-                <>
+                <Box justify="start" align="center" gap="small" direction="row">
                   {bestPractice ? (
-                    <Box alignContent="center" gap="small" direction="row">
-                      <Avatar
-                        src={datum.src}
-                        // grommet defines align center whiich we want to overid
-                        align="unset"
-                        round="medium"
-                        size="small"
-                        background={{ color: datum.background, dark: false }}
-                      />
-                      <Text>{datum.name}</Text>
-                    </Box>
+                    <Avatar
+                      src={datum.src}
+                      // grommet defines align center which we want to overid
+                      align="unset"
+                      round="medium"
+                      size="small"
+                      background={{ color: datum.background, dark: false }}
+                    />
                   ) : (
-                    <Box gap="large" alignContent="center" direction="row">
-                      <Box height="24px" align="start">
-                        <Image src={datum.src} fit="contain" />
-                      </Box>
-                      <Text>{datum.name}</Text>
+                    <Box align="start">
+                      {/* eslint-disable-next-line grommet/image-alt-text */}
+                      <Image
+                        alignSelf="start"
+                        src={datum.src}
+                        fit="contain"
+                        style={{ height: '24px' }}
+                      />
                     </Box>
                   )}
-                </>
+                  <Text>{datum.name}</Text>
+                </Box>
               ),
             },
           ]}
