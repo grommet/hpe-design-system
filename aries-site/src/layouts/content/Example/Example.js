@@ -76,6 +76,7 @@ export const Example = ({
     width: null,
   });
 
+
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
   const [, updateState] = useState();

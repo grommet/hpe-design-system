@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "name": "Kenny Tran",
+      "avatar": {
+        "src": "/Kenny.png"
+      },
+      "status": "Verified",
+      "platformRole": "Admin",
+      "lastActive": "4 hours ago"
+    },
+    {
+      "name": "Vicky Avalos Campos",
+      "avatar": {
+        "src": "/Vicky.png"
+      },
+      "status": "Invite pending",
+      "platformRole": "Editor",
+      "lastActive": "2 days ago"
+    },
+    {
+      "name": "Brittany Archibeque",
+      "avatar": {
+        "inital": "BA"
+      },
+      "status": "Verified",
+      "platformRole": "Viewer",
+      "lastActive": "April 15, 2022"
+    },
+    {
+      "name": "Matt Glissmann",
+      "avatar": {
+        "src": "/Matt.png"
+      },
+      "status": "Verified",
+      "platformRole": "Editor",
+      "lastActive": " "
+    },
+    {
+      "name": "Taylor Seamans",
+      "avatar": {
+        "src": "/Taylor.png"
+      },
+      "status": "Invite pending",
+      "platformRole": "Admin",
+      "lastActive": "1 hour ago"
+    },
+    {
+      "name": "Eric Soderberg",
+      "avatar": {
+        "src": "//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
+      },
+      "status": "Verified",
+      "platformRole": "Admin",
+      "lastActive": ""
+    },
+    {
+      "name": "Jessica Filben",
+      "avatar": {
+        "inital": "JF"
+      },
+      "status": "Editor",
+      "platformRole": "Invite pending",
+      "lastActive": "3 hours ago"
+    }
+  ]
+}
