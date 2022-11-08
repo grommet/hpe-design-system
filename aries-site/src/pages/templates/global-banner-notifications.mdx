@@ -1,5 +1,5 @@
 import { Anchor } from 'grommet';
-import {  BestPracticeGroup, Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
 import {
   BannerContentLayoutExample,
   BannerNotificationCritical,
@@ -14,7 +14,7 @@ import {
 
 <Example
   showResponsiveControls={['fullScreen']}
-  // height, width, and screenContainer.scale value chosen to best visually 
+  // height, width, and screenContainer.scale value chosen to best visually
   // represent the example
   height="650px"
   width="100%"
@@ -26,27 +26,22 @@ import {
   <BannerContentLayoutExample />
 </Example>
 
-## Guidance
-Global Banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
+## When to use
 
-### Usage
-- Global Banners are used to showcase Warning and Critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
-- Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
-- Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
-- Do not use `onClose` when information is important and needs to remain persistent. Also, global banners may remain persistent across multiple sessions until they are dismissed.
+Global banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
 
-### Do Not Use Global Banners For
+Global banners are used to showcase warning and critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
+
+## When not to use
+
 - Completion of tasks, such as long running or batch actions.
 - Success or failure confirmations.
 - Low-attention and low-severity information.
 
 For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use [Toast Notifications](/templates/toast-notifications).
 
-### Things to Avoid
-- Global Banners are not clickable. Instead use anchors to direct users to take further action or to view the issue in full detail.
-- Do not allow messages to exceed 192 characters.
-
 ## Anatomy
+
 <Example
   caption="Diagram illustrating the four parts composing of a Banner Notification."
   plain
@@ -59,13 +54,19 @@ For low-severity notifications that do not require user action or user attention
 3. **Anchors (optional)** are used to direct users to links related to the notification.
 4. **Close Button (optional)** is used to dismiss the notification.
 
-## Best Practices
+## Best practices
+
+- Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
+- Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
+- Do not use `onClose` when information is important and needs to remain persistent. Also, global banners may remain persistent across multiple sessions until they are dismissed.
 
 ### Placement
+
 - Always located directly below the Global Header without a gap and should be implemented inline with content so no content or actions are obscured.
 - Can persist across multiple sessions until dismissed if necessary.
 
 ### Format
+
 - Only show one banner at a time.
 - Global Banners should stay within the 192 character limit.
 - Long text is not truncated but instead will wrap on smaller screen sizes.
@@ -74,12 +75,18 @@ For low-severity notifications that do not require user action or user attention
 - Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language.
 
 ### Behavior
+
 - Never sticky and should scroll when there is other content.
 - The background spans the full width of the screen, but the content resizes alongside the Global Header.
 
+### Things to avoid
+
+- Global Banners are not clickable. Instead use anchors to direct users to take further action or to view the issue in full detail.
+- Do not allow messages to exceed 192 characters.
+
 ## Variants
 
-### Dismissible Info Banner
+### Dismissible info banner
 
 Some possible use cases are when **new features are available** or a **new release is coming**. Informational banners should be dismissible.
 
@@ -93,7 +100,7 @@ Some possible use cases are when **new features are available** or a **new relea
   <BannerNotificationInfo />
 </Example>
 
-### Dismissible Critical Banner
+### Dismissible critical banner
 
 One possible use case is **scheduled maintenance**. A critical status should be used and the notification should be dismissible.
 
@@ -106,7 +113,7 @@ One possible use case is **scheduled maintenance**. A critical status should be 
   <BannerNotificationCriticalClose />
 </Example>
 
-### Persistent Critical Banner
+### Persistent critical banner
 
 One possible use case is when **platform access is unavailable due to the system**. A critical status should be used and should not be dismissible.
 
@@ -119,7 +126,7 @@ One possible use case is when **platform access is unavailable due to the system
   <BannerNotificationCritical />
 </Example>
 
-### Dismissible Warning Banner
+### Dismissible warning banner
 
 One possible use case is when **subscriptions about to expire**. A warning status should be used and the notification should be dismissible.
 
@@ -132,7 +139,7 @@ One possible use case is when **subscriptions about to expire**. A warning statu
   <BannerNotificationWarningClose />
 </Example>
 
-### Persistent Warning Banner
+### Persistent warning banner
 
 One possible use case is a **session timeout**. A warning status should be used and should not be dismissible. The notification should also contain a relevant anchor to refresh.
 
@@ -145,11 +152,15 @@ One possible use case is a **session timeout**. A warning status should be used 
   <BannerNotificationWarning />
 </Example>
 
-## Do’s and Don’ts
+## Do’s and don’ts
 
-<BestPracticeGroup columns='auto' gap="none">
+<BestPracticeGroup columns="auto" gap="none">
   <Example
-    bestPractice={{type: 'do', message: 'Global Banners should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.'}}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Global Banners should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.',
+    }}
     height={{ min: 'small' }}
     pad="large"
     width="100%"
@@ -159,7 +170,10 @@ One possible use case is a **session timeout**. A warning status should be used 
   <Example
     height={{ min: 'small' }}
     pad="large"
-    bestPractice={{type: 'dont', message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`}}
+    bestPractice={{
+      type: 'dont',
+      message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`,
+    }}
     width="100%"
   >
     <BannerNotificationDontExample />
