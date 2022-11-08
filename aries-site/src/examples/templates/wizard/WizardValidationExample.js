@@ -98,7 +98,7 @@ const stepOneInputs = [
   ),
 ];
 
-const StepOne = () => {
+export const StepOne = () => {
   const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
 
