@@ -50,8 +50,10 @@ export const components = [
   {
     name: 'Avatar',
     category: 'Visualizations',
-    description: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
-    seoDescription: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    description:
+      'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    seoDescription:
+      'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
     sections: [
       'Anatomy',
       'Accessibility',
@@ -59,7 +61,7 @@ export const components = [
       'Variants',
       'DataTable',
       'Card',
-      'PageHeader'
+      'PageHeader',
     ],
     preview: {
       component: () => <AvatarPreview />,
@@ -476,7 +478,8 @@ export const components = [
   {
     name: 'Accordion',
     category: 'Controls',
-    description: 'The accordion affords content to be delivered progressively.',
+    description:
+      'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail.',
     preview: {
       image: {
         src: {
@@ -489,7 +492,7 @@ export const components = [
     },
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
-      'The accordion affords content to be delivered progressively.',
+      'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail.',
     sections: ['About Accordion'],
     tags: ['accordian', 'acordion', 'collapse', 'panel', 'expand'],
   },
@@ -706,7 +709,7 @@ export const components = [
     name: 'Notification',
     category: 'Visualizations',
     description:
-      'Notifications deliver transparent clarity for task and system statuses.',
+      'Notifications deliver clarity for information related to tasks or system statuses that the user should be made aware of.',
     preview: {
       image: {
         src: {
