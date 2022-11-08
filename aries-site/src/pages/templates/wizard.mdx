@@ -35,18 +35,18 @@ Use a wizard when your form involves multiple steps. This makes the experience m
   <WizardAnatomy />
 </Example>
 
-1. **Wizard header**: This region is intended to provide user with context on what the wizard is about.
-   - **a. Wizard title** (required): A short and descriptive title that identifies the wizard.
-   - **b. Previous step button** (required): A button that allows the user to move back one step in the wizard. This button is aligned to the left side of the header and is present on all steps expect the first.
-   - **c. Cancel button** (required): A button that allows the user to leave the wizard. When clicked, a confirmation modal will appear. This button is aligned to the right side of the header.
-1. **Step identifier:** This region is intended to provide the user with context on what the step is about.
-   - **a. Step title** (required): A short and descriptive title that uniquely identifies the step.
+1. **Wizard header**: This region identifies the task flow and provides the wizard's controls. The wizard header spands the full width of the viewport.
+   - **a. Wizard title** (required): A short, descriptive title identifying the wizard.
+   - **b. Previous step button** (required): A button allowing the user to return to the previous wizard step. This button is positioned similarly to a browser's back button and is aligned to the left side of the wizard's header. It should appear on all steps except the first.
+   - **c. Cancel button** (required): A button allowing the user to leave the wizard. When clicked, a confirmation modal will appear. This button is aligned to the right side of the header.
+1. **Step identifier:** This region provides the user with information regarding the current step.
+   - **a. Step title** (required): A short, descriptive title uniquely identifying the step.
    - **b. Step summary** (optional): A summary of where the user is within the wizard, formatted as "Step X of Y".
-   - **c. Step description** (optional): Any additional context or information about the given step.
+   - **c. Step description** (optional): Any additional context or information about the current step.
 1. **Step inputs**: Form inputs for the current step.
-1. **Step footer**: The footer contains a primary action button to advance to the next step or finish the wizard. The footer should remain a consistent width across all steps of a wizard. Its width should match the width of the widest step.
+1. **Step footer**: The footer contains a primary action button to advance to the next step or finish the wizard. The footer should remain a consistent width across all steps of a wizard so that the next button is placed consistently for the user. Its width should match the width of the widest step.
    - **a. Next/finish button** (required): A primary action button that allows the user to advance to the next step or finish the wizard. This button should be aligned to the far-right side of the footer.
-1. **Cancel wizard modal** (required): A center modal that provides double confirmation before the wizard is exited and cancelled. It appears when the user clicks on the "Cancel" button.
+1. **Cancel wizard modal** (required), displayed when "Cancel" button is clicked: A center modal that provides double confirmation before the wizard is exited and cancelled.
 
 ## Guidance
 
