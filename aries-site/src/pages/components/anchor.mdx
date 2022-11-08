@@ -46,13 +46,20 @@ It is important that your anchor clearly states to what content the anchor leads
 <BestPracticeGroup>
   <Example
     height="none"
-    bestPractice={{type: 'do', message: 'Use label text that is descriptive about where the anchor will lead the user.'}}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use label text that is descriptive about where the anchor will lead the user.',
+    }}
   >
     <AnchorGoodExample />
   </Example>
   <Example
     height="none"
-    bestPractice={{type: 'dont', message: `Use vague text like "Click here" because it doesn't provide meaning to users that rely on screen readers.`}}
+    bestPractice={{
+      type: 'dont',
+      message: `Use vague text like "Click here" because it doesn't provide meaning to users that rely on screen readers.`,
+    }}
   >
     <AnchorBadExample />
   </Example>
@@ -92,7 +99,7 @@ This clearly states the type of content to which the Anchor relates.
 Anchors are used primarily in text heavy contexts. Here are some ways
 to use them.
 
-### Inline Anchor
+### Inline anchor
 
 Anchors are most commonly used as inline elements to bring users to other pages within an application or to external links.
 
@@ -125,7 +132,7 @@ Using an Anchor within a [Form](/templates/forms) can link users to additional i
   <SignUpExample />
 </Example>
 
-### Disabled Anchor
+### Disabled anchor
 
 Used to indicate that an anchor cannot be interacted with.
 
