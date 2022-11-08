@@ -45,21 +45,21 @@ Buttons should be used in situations where users might need to:
 - Trigger a new UI element to appear on the page
 - Specify a new or next step in a process
 
-### Button Labeling
+### Button labeling
 
-Using the design system Button Component will ensure you’re button looks like a button. Applying the appropriate label is also important in making sure the user has a clear understanding of what the action will do.
+Using the design system Button Component will ensure your button looks like a button. Applying the appropriate label is also important in making sure the user has a clear understanding of what the action will do.
 
 - Use clear and concise wording.
 - Avoid contractions or colloquialisms. Keep the language approachable but not personal.
 - Ensure your button label matches the route destination.
 
-### Button Alignment
+### Button alignment
 
 Buttons are unique components since their alignment depends on where they appear (drawers, modals, etc.). Buttons should always be where the user most expects it. In general, follow this guide on how to align buttons in most use cases.
 
 <ButtonAlignmentTable />
 
-### Button Ordering
+### Button ordering
 
 Button types may be applied in various combinations, however they should always be ordered by order of importance and in relation to their alignment: Primary first, followed by Secondary, then by Default.
 
@@ -71,7 +71,7 @@ Button types may be applied in various combinations, however they should always 
   <ButtonRightAlignExample />
 </Example>
 
-### Buttons vs. Anchors
+### Buttons vs. anchors
 
 The HTML elements for buttons and links (a.k.a. anchors) describe a very specific type of action that is going to be taken when they are used. It is important you know when to use which, as the distinction matters:
 
@@ -79,7 +79,7 @@ The HTML elements for buttons and links (a.k.a. anchors) describe a very specifi
 - Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
 - An action almost always occurs on the same page
 
-### Cancel Buttons
+### Cancel buttons
 
 Cancel buttons enable users to exit out of or dismiss the current screen in order to go back to the previous one. Having an explicit way to cancel provides a fallback to safety as it helps discard any unwanted changes.
 
@@ -107,11 +107,11 @@ Cancel buttons should be presented in the default button styling. The neutral ap
   </Example>
 </BestPracticeGroup>
 
-### Toggle Buttons
+### Toggle buttons
 
 Toggle buttons are used either to switch between two states, such as checked and unchecked, or to trigger two actions like on or off.
 
-#### Toggle Buttons with Icons
+#### Toggle buttons with icons
 
 Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes the action that the user will be performing when using screen readers.
 
@@ -122,7 +122,7 @@ Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes 
 - Use sentence case capitalization.
 - Words such as “the” and “a” should be avoided.
 
-For Buttons with Icons ONLY, it is important that you show the two following elements:
+For buttons with icons ONLY, it is important that you show the two following elements:
 
 1. Show the current state of the button through the use of an icon.
 
@@ -130,15 +130,15 @@ For Buttons with Icons ONLY, it is important that you show the two following ele
 
 ### Accessibility
 
-If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab", that is a link `<a>`. Everything else is a `<button>`.
+If pressing a button results in a new URL, or the resultant UI makes sense as "a new browser tab," that is a link `<a>`. Everything else is a `<button>`.
 
 The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
 
-## Primary Buttons
+## Primary buttons
 
 Primary buttons highlight actions on a page delivering the most benefit to users. They are helpful in enabling users’ goals, unlocking new value by enabling a new experience, capability, or creation of something which hadn’t previously existed.
 
-Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content. At HPE there are two kinds of primary buttons, a CTA Button and a primary action button. Learn more about the purpose behind each and when to apply them.
+Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content. At HPE there are two kinds of primary buttons, a CTA button and a primary action button. Learn more about the purpose behind each and when to apply them.
 
 ### When to use a CTA button
 
@@ -169,9 +169,9 @@ Actions supported by primary action buttons are numerous and may be constructive
 
 There are a couple "flavors" of button depending on use case.
 
-### Primary Button
+### Primary button
 
-Used for key actions on the page. Primary Buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default Button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a call to action is inappropriate and a secondary button can be used.
+Used for key actions on the page. Primary buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a call to action is inappropriate and a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -181,7 +181,7 @@ Used for key actions on the page. Primary Buttons can also be referred to as “
   <PrimaryButtonExample />
 </Example>
 
-### Secondary Button
+### Secondary button
 
 Secondary buttons are used to represent calls to action that are either in support of the primary call to action or stand-alone. There can be multiple secondary buttons per page. However, a [default button](#default-button) should be used for any navigation-type actions.
 
@@ -195,7 +195,7 @@ Secondary buttons are used to represent calls to action that are either in suppo
 
 ### CTA button
 
-CTA Buttons should be used whenever a prospect or customer is unlocking new value from HPE’s edge-to-cloud promise. Read [when to use a CTA button](/components/button?q=butt#when-to-use-a-cta-button) for detailed guidance on usage.
+CTA buttons should be used whenever a prospect or customer is unlocking new value from HPE’s edge-to-cloud promise. Read [when to use a CTA button](/components/button?q=butt#when-to-use-a-cta-button) for detailed guidance on usage.
 
 <Example
   componentName="Button"
@@ -209,7 +209,7 @@ CTA Buttons should be used whenever a prospect or customer is unlocking new valu
   <CTAButtonExample />
 </Example>
 
-### Toolbar Button
+### Toolbar button
 
 Toolbar buttons are used when buttons are placed in a row with other toolbar controls.
 
@@ -234,7 +234,7 @@ To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-b
   <ToolbarButtonExample />
 </Example>
 
-### Default Button
+### Default button
 
 This is the default appreance and behavior of button. The majority of buttons on your page should use this form of button. If you are designating a primary call to action, use a [primary button](#primary-button). If you are designating a secondary call to action, use a [secondary button](#secondary-button).
 
@@ -246,9 +246,9 @@ This is the default appreance and behavior of button. The majority of buttons on
   <DefaultButtonExample />
 </Example>
 
-### Color Button
+### Color button
 
-When looking to accent an interaction or for special use cases that require more importance than a [default button](#default-button), the Color Button can be used to support an HPE sub-brand when appropriate or a serious action (i.e. using red for a destructive task).
+When looking to accent an interaction or for special use cases that require more importance than a [default button](#default-button), the color button can be used to support an HPE sub-brand when appropriate or a serious action (i.e. using red for a destructive task).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ColorButtonExample.js"
@@ -258,7 +258,7 @@ When looking to accent an interaction or for special use cases that require more
   <ColorButtonExample />
 </Example>
 
-### Button with Icon
+### Button with icon
 
 Icons may be incorporated into buttons, either inline with text or as an icon only. When using icon only buttons, the dimension of the clickable area should be kept in mind for its use on mobile devices. Areas too small lead to errant clicks, and as result, poor experience.
 
@@ -270,7 +270,7 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
   <ButtonIconExample />
 </Example>
 
-### Button States
+### Button states
 
 A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met. However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users. It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met. Buttons that do not apply (for reasons of context or permissions) should not be shown at all, rather than being shown as disabled.
 
@@ -282,7 +282,7 @@ A button's visual state may be specified as appropriate in the application's con
   <ButtonStatesExample />
 </Example>
 
-### Button Sizes
+### Button sizes
 
 Button label text size may be specified. Padding and rounding scale proportionately to the label size. The default size is medium.
 
@@ -298,13 +298,13 @@ Button label text size may be specified. Padding and rounding scale proportionat
 
 Ensure you are always being mindful of our responsive page layouts when designing user experiences. Even if you don’t anticipate your users leveraging mobile or tablet devices, they may be reducing/expanding browser widths, zooming in on content, or manipulating the browser in unanticipated ways. As a best practice, always design for a usable UI on all browser widths and resolutions.
 
-### Best Practices
+### Best practices
 
 - Ensure the button label does not wrap, truncate, or alter the text content in any way when presented on smaller browser widths.
 - Button label text should not scale down to fit on smaller browser widths.
 - The minimum button width for any button should be 42px.
 
-### Single Buttons
+### Single buttons
 
 On screen widths of less than or equal to 576px (Grommet "small"), it is best to have buttons fill the full width of the container. Because press target size and an unclear visual hierarchy are key concerns at smaller resolutions, this utilizes available space to ensure users can easily identify and interact with the buttons.
 
@@ -329,7 +329,7 @@ On screen widths of less than or equal to 576px (Grommet "small"), it is best to
   </Example>
 </BestPracticeGroup>
 
-### Button Groups
+### Button groups
 
 For button groups on screen widths less than or equal to 576px (Grommet "small"), ensure each button within the group follows the established guidance for single buttons. If a button group is presented inline horizontally, rearrange the buttons vertically on smaller browser widths to ensure the proper full button widths can be achieved.
 
