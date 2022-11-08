@@ -121,7 +121,7 @@ export const tools = [
 
 export const products = [
   {
-    icon: '/apache-spark.svg',
+    icon: '/apache.svg',
     title: 'Apache Spark',
     author: 'HPE',
     description: `Open source analytics engine for big data processing, 
@@ -138,7 +138,7 @@ export const products = [
     tags: ['Storage'],
   },
   {
-    icon: '/single-store.svg',
+    icon: '/singlestore.svg',
     title: 'SingleStore',
     author: 'SingleStore',
     description: `SingleStore is the world’s first cloud database 
