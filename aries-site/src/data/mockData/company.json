@@ -1,0 +1,27 @@
+{
+  "company": [
+    {
+      "name": "Ctera",
+      "src": "/ctera.svg",
+      "background": "background"
+    },
+    {
+      "name": "SingleStore",
+      "src": "/singlestore.svg"
+    },
+    {
+      "name": "Oracle",
+      "src": "/oracle.svg"
+    },
+    {
+      "name": "Apache",
+      "src": "/apache.svg"
+    },
+    {
+      "name": "Google",
+      "src": "/google.svg"
+    }
+  ]
+}
+
+  
