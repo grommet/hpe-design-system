@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import {
   AnchorPreview,
+  AvatarPreview,
   BoxPreview,
   ButtonPreview,
   CheckBoxPreview,
@@ -45,6 +46,27 @@ export const components = [
     },
     relatedContent: ['Button', 'Typography', 'Forms'],
     tags: ['hyperlinks', 'links', 'linking', 'navigation'],
+  },
+  {
+    name: 'Avatar',
+    category: 'Visualizations',
+    description: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    seoDescription: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    sections: [
+      'Anatomy',
+      'Accessibility',
+      'When to use Avatars',
+      'Variants',
+      'DataTable',
+      'Card',
+      'PageHeader'
+    ],
+    preview: {
+      component: () => <AvatarPreview />,
+      background: 'background-front',
+    },
+    relatedContent: ['PageHeader', 'Box', 'DataTable', 'Card'],
+    tags: ['logo', 'image'],
   },
   {
     name: 'Button',
@@ -387,7 +409,7 @@ export const components = [
       'When to use',
       'When not to use',
       'Anatomy',
-      'Sizing & Scrolling',
+      'Sizing and scrolling',
       // 'Variants',
       // 'Other Use Cases',
       // 'Behavior',
