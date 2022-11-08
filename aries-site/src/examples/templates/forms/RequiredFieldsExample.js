@@ -105,14 +105,14 @@ export const RequiredFieldsExample = () => {
             help="Would you like to apply nemesis character?"
             htmlFor="nemesis"
             name="nemesis"
-            label="Nemesis (optional)"
+            label="Nemesis"
           >
             <CheckBox name="nemesis" label="Bring it on" toggle reverse />
           </FormField>
           <FormField
             htmlFor="comments"
             name="comments"
-            label="Comments (optional)"
+            label="Comments"
           >
             <TextArea
               id="comments"
