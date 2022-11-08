@@ -43,7 +43,7 @@ export const WizardAnatomy = ({ containerRef }) => (
       ]}
       align="center"
       justify="center"
-      gap={{ column: 'xsmall' }}
+      gap={{ column: 'medium' }}
     >
       <WizardExample gridArea="wizard" containerRef={containerRef} />
       <Annotation
@@ -94,16 +94,16 @@ const defaultFormValues = {
 // placeholders so anatomy diagram shows second step
 const steps = [
   {
-    title: 'Placeholder',
+    title: 'Step 1 title',
   },
   {
-    description: `Step 2 description. Even though this step is single-column, 
-    the width of the footer should be consistent across all steps.`,
+    description: `Step 2 description. Keep each step simple and limited to 
+    inputs related to the step's topic.`,
     inputs: <StepOne />,
     title: 'Step 2 title',
   },
   {
-    title: 'Placeholder',
+    title: 'Step 3 title',
   },
 ];
 
@@ -156,6 +156,7 @@ const WizardExample = ({ containerRef, ...rest }) => {
         ref={ref}
         background="background-front"
         height="min-content"
+        fill="horizontal"
         {...rest}
       >
         <Box fill>
