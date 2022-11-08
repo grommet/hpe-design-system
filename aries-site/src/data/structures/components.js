@@ -61,8 +61,10 @@ export const components = [
   {
     name: 'Avatar',
     category: 'Visualizations',
-    description: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
-    seoDescription: 'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    description:
+      'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
+    seoDescription:
+      'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
     sections: [
       'Anatomy',
       'Accessibility',
@@ -70,7 +72,7 @@ export const components = [
       'Variants',
       'DataTable',
       'Card',
-      'PageHeader'
+      'PageHeader',
     ],
     preview: {
       component: () => <AvatarPreview />,
@@ -594,7 +596,7 @@ export const components = [
     name: 'Accordion',
     category: 'Controls',
     description:
-      'The accordion is a menu list that when clicked opens to reveal more options.',
+      'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail.',
     preview: {
       image: {
         src: {
@@ -607,7 +609,7 @@ export const components = [
     },
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
-      'The accordion is a menu list that when clicked opens to reveal more options. See different behaviors, states, and icons.',
+      'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail. See different behaviors, states, and icons.',
     sections: ['About Accordion'],
     tags: [
       'accordian',
@@ -918,7 +920,7 @@ export const components = [
     name: 'Notification',
     category: 'Visualizations',
     description:
-      'Notifications are messages that pop up about in the moment that there is a change or a failure that the user should be made aware of.',
+      'Notifications deliver clarity for information related to tasks or system statuses that the user should be made aware of.',
     preview: {
       image: {
         src: {
@@ -1138,7 +1140,6 @@ export const components = [
       'totals in tables',
       'scrolling tables',
       'scrolling vs pagination',
-      ,
     ],
   },
   {
@@ -1235,7 +1236,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `Page is a container providing consistent layouts across HPE apps. See examples of standard HPE page sizes and their use cases.`,
+    seoDescription:
+      'Page is a container providing consistent layouts across HPE apps. See examples of standard HPE page sizes and their use cases.',
     sections: ['Guidance', 'Page Content'],
     relatedContent: ['Page Layouts', 'Content Layouts', 'Box', 'Main'],
     tags: [
@@ -1263,7 +1265,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `PageHeader is a component providing users a predictable layout and location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.`,
+    seoDescription:
+      'PageHeader is a component providing users a predictable layout and location for the page title, contextual navigation, and actions. See the obligatory elements, responsiveness, best UX practices.',
     sections: [
       'Anatomy',
       'Responsive Behavior and Content Prioritization',
