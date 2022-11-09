@@ -14,7 +14,6 @@ const StyledHeader = ({ ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
   const size = useContext(ResponsiveContext);
   const router = useRouter();
-
   return (
     <Header
       pad={{

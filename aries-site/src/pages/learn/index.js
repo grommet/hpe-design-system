@@ -14,7 +14,7 @@ import { CardGrid, Meta } from '../../components';
 import { ContentSection, Layout, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
-const title = 'Developer';
+const title = 'Learn';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CardBody, Image, Text } from 'grommet';
+import { Box, CardBody, Image, Tag, Text } from 'grommet';
 import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
@@ -8,7 +8,7 @@ import { useDarkMode } from '../../utils';
 
 export const ContentCard = forwardRef(
   ({ topic, developer, minimal, ...rest }, ref) => {
-    const { description, name, parent, preview, render } = topic;
+    const { description, name, parent, preview, render, topics } = topic;
     const darkMode = useDarkMode();
     return (
       <LinkCard fill pad="medium" ref={ref} {...rest}>
@@ -63,6 +63,18 @@ export const ContentCard = forwardRef(
                 {description}
               </Text>
             )}
+            {developer && (
+              <Box direction="row" gap="xsmall" wrap>
+                {topics?.map(t => (
+                  <Tag
+                    alignSelf="start"
+                    value={t}
+                    size="xsmall"
+                    margin={{ bottom: 'xsmall' }}
+                  />
+                ))}
+              </Box>
+            )}
           </Box>
         </CardBody>
       </LinkCard>
@@ -76,6 +88,7 @@ ContentCard.propTypes = {
   developer: PropTypes.bool,
   minimal: PropTypes.bool,
   topic: PropTypes.shape({
+    topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
     name: PropTypes.string.isRequired,
     parent: PropTypes.shape({

@@ -5,6 +5,7 @@ export const developer = [
     name: 'The Box Model Part One',
     render: 'The Box Model (Part One)',
     category: 'Tutorials',
+    topics: ['Layout'],
     description:
       'Build a hero section to learn about fundamental Box properties.',
     seoDescription: 'Used with text based navigation, such as inline text.',
@@ -16,6 +17,7 @@ export const developer = [
     name: 'The Box Model Part Two',
     render: 'The Box Model (Part Two)',
     category: 'Tutorials',
+    topics: ['Layout'],
     description:
       'Build an app header to learn about direction, align, and justify.',
     seoDescription:
@@ -28,6 +30,7 @@ export const developer = [
     name: 'Grid Part One',
     render: 'Grid (Part One)',
     category: 'Tutorials',
+    topics: ['Layout'],
     description: 'Build a uniform grid of cards.',
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
@@ -39,6 +42,7 @@ export const developer = [
     name: 'Grid Part Two',
     render: 'Grid (Part Two)',
     category: 'Tutorials',
+    topics: ['Layout'],
     description: 'Build a nested grid.',
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
@@ -49,6 +53,7 @@ export const developer = [
   {
     name: 'Building layouts with Page and PageContent',
     category: 'Tutorials',
+    topics: ['Layout'],
     description: 'Build a simple, semantically correct page.',
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
@@ -59,6 +64,7 @@ export const developer = [
   {
     name: 'Set up your application',
     category: 'Guides',
+    topics: ['Setup'],
     description: 'Import dependencies, use Grommet, and apply the HPE theme.',
     seoDescription:
       'Buttons are used to indicate actions that can be performed.',
@@ -68,6 +74,7 @@ export const developer = [
   },
   {
     name: 'Implement a router with Button/Anchor',
+    topics: ['Routing', 'Performance'],
     category: 'Guides',
     description: 'Improve performance by leveraging routers.',
     seoDescription:
@@ -78,6 +85,7 @@ export const developer = [
   },
   {
     name: 'Build an accessible form',
+    topics: ['Accessibility'],
     category: 'Guides',
     description:
       'Ensure all necessary props are applied to make an accessible experience.',
@@ -89,6 +97,7 @@ export const developer = [
   },
   {
     name: 'Set up ESlint and Prettier configs',
+    topics: ['Setup'],
     category: 'Guides',
     description: 'Keep code formatting clean and consistent across your team.',
     seoDescription:
@@ -99,6 +108,7 @@ export const developer = [
   },
   {
     name: 'Implement SkipLinks',
+    topics: ['Accessibility'],
     category: 'Guides',
     description:
       'Make it easy for users of assisstive technology to navigate your app.',
@@ -122,6 +132,7 @@ export const developer = [
   {
     name: 'Test the keyboard navigation and screen reader compatibility of a page',
     category: 'Guides',
+    topics: ['Accessibility'],
     description:
       'Learn how to ensure what you build is accessible to all users.',
     seoDescription:
@@ -132,6 +143,7 @@ export const developer = [
   },
   {
     name: 'Properly import Grommet icons to minimize bundle size',
+    topics: ['Performance'],
     category: 'Guides',
     description: 'Improve performance with this small tip for importing icons.',
     seoDescription:
