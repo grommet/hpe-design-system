@@ -32,7 +32,7 @@ export const components = {
     </Box>
   ),
   code: props => (
-    <Box width="xlarge">
+    <Box width="large" margin={{ bottom: 'medium' }}>
       <SyntaxHighlighter
         style={prism.light}
         wrapLongLines

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Heading } from 'grommet';
 
 export const Subheading = ({ children, headingSize, level }) => (
-    <Heading level={level} margin={{ vertical: 'none' }} size={headingSize}>
-      {children}
-    </Heading>
-  );
+  <Heading level={level} margin={{ vertical: 'none' }} size={headingSize}>
+    {children}
+  </Heading>
+);
 
 Subheading.propTypes = {
   children: PropTypes.string.isRequired,

@@ -290,9 +290,9 @@
     semver "^6.3.0"
 
 "@babel/generator@^7.12.11", "@babel/generator@^7.12.5", "@babel/generator@^7.20.1", "@babel/generator@^7.20.2", "@babel/generator@^7.7.2":
-  version "7.20.3"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.3.tgz#e58c9ae2f7bf7fdf4899160cf1e04400a82cd641"
-  integrity sha512-Wl5ilw2UD1+ZYprHVprxHZJCFeBWlzZYOovE4SDYLZnqCOD11j+0QzNeEWKLLTWM7nixrZEh7vNIyb76MyJg3A==
+  version "7.20.4"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.4.tgz#4d9f8f0c30be75fd90a0562099a26e5839602ab8"
+  integrity sha512-luCf7yk/cm7yab6CAW1aiFnmEfBJplb/JojV56MYEK7ziWfGmFlTfmL9Ehwfy4gFhbjBfWO1wj7/TuSbVNEEtA==
   dependencies:
     "@babel/types" "^7.20.2"
     "@jridgewell/gen-mapping" "^0.3.2"
@@ -7997,7 +7997,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.27.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#d74b7d922d26ce0bc20d4def48a54c294cdfe610"
+  resolved "https://github.com/grommet/grommet/tarball/stable#16f921278a65375aea36f2fdd763e747a8398f32"
   dependencies:
     grommet-icons "^4.8.0"
     hoist-non-react-statics "^3.2.0"

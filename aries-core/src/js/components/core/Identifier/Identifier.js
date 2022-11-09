@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 
 import { Box, Text } from 'grommet';
 
-export const Identifier = ({ children, title, subTitle, size, ...rest }) => (
+export const Identifier = ({
+  children,
+  developer,
+  title,
+  subTitle,
+  size,
+  ...rest
+}) => (
   <Box align="center" {...rest}>
     {children}
     <Box>
-      <Text size={size} weight="bold" color="text-strong">
+      <Text size={size} weight={developer ? 500 : 'bold'} color="text-strong">
         {title}
       </Text>
       <Text size={size}>{subTitle}</Text>
@@ -20,6 +27,7 @@ Identifier.propTypes = {
   title: PropTypes.string,
   size: PropTypes.string,
   subTitle: PropTypes.string,
+  developer: PropTypes.bool,
 };
 
 Identifier.defaultProps = {

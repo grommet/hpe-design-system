@@ -121,11 +121,19 @@ At this point, your project should look like this:
 
 Right now, the dimensions of the image file are determining how wide it is. In order to have more control of the image’s width, wrap the image in its own Box.
 
+```jsx
+...
+<Box>
+  <Image ... />
+</Box>
+...
+```
+
 ## Adjust width to manage content dimensions
 
 In order to ensure the text content remains a more readable width across wide screens, apply `width="large"` on the Box containing the heading, text, and button. To keep the button from stretching the full width of the box, apply `alignSelf="start"` on the Button. Notice how the button is no longer spanning the entire width of the Box.
 
-Note: Throughout this tutorial, we’ll be using t-shirt sizes. Make sure to read the [explanation on t-shirt sizes](https://design-system.hpe.design/foundation/tshirt-sizing?q=tsh) for more information on what they are and their value in Grommet.
+Note: Throughout this tutorial, we’ll be using t-shirt sizes. Make sure to read the [explanation on t-shirt sizes](/foundation/tshirt-sizing) for more information on what they are and their value in Grommet.
 
 At this point, your project should look something like this:
 
