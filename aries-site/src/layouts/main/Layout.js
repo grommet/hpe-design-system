@@ -63,6 +63,7 @@ export const Layout = ({
     pageLayout,
     render,
   } = getPageDetails(titleProp);
+
   const layout = isLanding ? 'plain' : pageLayout;
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;

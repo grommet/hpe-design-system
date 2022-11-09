@@ -11,7 +11,7 @@ export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
   const darkMode = useDarkMode();
   return (
     <LinkCard fill pad="medium" ref={ref} {...rest}>
-      <CardBody gap="large">
+      <CardBody gap="large" pad="small">
         {!minimal && (
           <PreviewImageCard
             pad={preview?.pad || 'none'}

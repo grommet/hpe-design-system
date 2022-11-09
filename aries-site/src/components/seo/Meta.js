@@ -21,7 +21,7 @@ export const Meta = ({
   style-src 'self' *.hpe.com/hfws-static/5/css/ 'unsafe-inline';
   connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://ca1.qualtrics.com/API/v3/surveys/;
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/;
-  img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/;
+  img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/ https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd752b77-d785-47d6-afd0-24f9529e1e4c/;
   script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js ${
     // in dev mode, we allow unsafe-eval to work with react hot reloader
     process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''

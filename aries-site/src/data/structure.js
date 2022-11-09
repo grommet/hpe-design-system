@@ -2,6 +2,7 @@
 import { IconCircle, IconDiamond, IconExtend, IconSquare } from '../components';
 import {
   components as componentsArr,
+  developer as developerArr,
   extend as extendArr,
   foundation as foundationArr,
   templates as templatesArr,
@@ -9,6 +10,7 @@ import {
 } from './structures';
 
 const components = Structure.from(componentsArr);
+const developer = Structure.from(developerArr);
 const extend = Structure.from(extendArr);
 const foundation = Structure.from(foundationArr);
 const templates = Structure.from(templatesArr);
@@ -18,7 +20,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates', 'Extend'],
+    pages: ['Foundation', 'Components', 'Templates', 'Developer', 'Extend'],
   },
   {
     name: 'Feedback',
@@ -44,6 +46,25 @@ export const structure = [
       .sortByCardOrder()
       .sortByCategory({ Assets: 1, Philosophy: 0 })
       .map(page => page.name),
+  },
+  {
+    name: 'Developer',
+    color: 'purple!',
+    description:
+      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
+    icon: (size, color) => <IconSquare size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    seoDescription:
+      'Browse our component library of user interface elements for use in your applications and websites.',
+    pages: developer.map(page => page.name),
   },
   {
     name: 'Templates',
@@ -109,6 +130,7 @@ export const structure = [
     pageLayout: 'plain',
   },
   components,
+  developer,
   foundation,
   templates,
   extend,
