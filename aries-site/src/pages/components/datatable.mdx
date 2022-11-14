@@ -408,7 +408,11 @@ With long sets of data, pagination can help to create a more efficient means of 
   <PaginationTableExample />
 </Example>
 
-Below is an example of a server-side paginated DataTable which dynamically fetches data using an API call.
+### Server-side paginated table
+
+In this example, data is dynamically fetched using an API call and rendered as a paginated DataTable.
+This approach is preferred for DataTables that may have large amounts of records because,
+by loading only a page worth of data at a time, it ensures the DOM doesn't become overloaded.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationServerTableExample.js"

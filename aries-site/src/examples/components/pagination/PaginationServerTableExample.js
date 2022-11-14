@@ -54,9 +54,11 @@ const columns = [
 export const PaginationServerTableExample = () => {
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
-  const limit = useState(10);
   const [numberItems, setNumberItems] = useState(0);
   const [page, setPage] = useState(1);
+  const limit = 10;
+  const pageResultStart = (page - 1) * limit + 1;
+  const pageResultEnd = Math.min(page * limit, numberItems);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,17 +93,12 @@ export const PaginationServerTableExample = () => {
         })
         .catch(error => console.error('Unable to get data:', error));
     };
-
     fetchData();
-  }, [sort, page, limit]);
+  }, [sort, page]);
 
   return (
     <Box pad="small">
-      <Heading
-        id="server-side-pagination-heading"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+      <Heading id="server-side-pagination-heading" level={3}>
         Launches
       </Heading>
 
@@ -110,11 +107,12 @@ export const PaginationServerTableExample = () => {
           aria-describedby="server-side-pagination"
           columns={columns}
           data={data}
-          sortable
+          sort={{ ...sort, external: true }}
           replace
           step={limit}
           onSort={opts => setSort(opts)}
           fill
+          gap="small"
         />
 
         {numberItems > limit && (
@@ -127,8 +125,7 @@ export const PaginationServerTableExample = () => {
             fill
           >
             <Text>
-              Showing {(page - 1) * limit + 1}-
-              {Math.min(page * limit, numberItems)} of {numberItems}
+              Showing {pageResultStart}-{pageResultEnd} of {numberItems}
             </Text>
             <Pagination
               step={limit}
