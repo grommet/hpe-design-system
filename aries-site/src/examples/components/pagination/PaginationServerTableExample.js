@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, DataTable, Heading, Pagination, Text, Meter, Tip } from 'grommet';
+import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
