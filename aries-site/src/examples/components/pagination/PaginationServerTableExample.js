@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
+import { Box, DataTable, Heading, Pagination, Text, Meter, Tip } from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
@@ -21,6 +21,7 @@ const columns = [
     header: 'Success',
     size: 'xsmall',
     align: 'end',
+    sortable: false,
     render: datum => {
       if (datum.success === false) {
         const content = (
@@ -104,7 +105,7 @@ export const PaginationServerTableExample = () => {
 
       <Box>
         <DataTable
-          aria-describedby="server-side-pagination"
+          aria-describedby="server-side-pagination-heading"
           columns={columns}
           data={data}
           sort={{ ...sort, external: true }}
