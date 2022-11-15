@@ -783,7 +783,7 @@ export const components = [
     name: 'Layer',
     category: 'Layouts',
     description:
-      'Layer is component that displays content on top of the page the user is currently on. Examples of uses of layers include modals, dialogs, and notifications.',
+      'Layer is component that displays content on top of the page the user is currently on.',
     previewComponent: {
       component: () => <LayerPreview />,
     },
@@ -814,6 +814,52 @@ export const components = [
       'dialog layer',
       'accessibility standards layers',
     ],
+  },
+  {
+    name: 'Center Layer',
+    parentPage: 'Layer',
+    category: 'Layouts',
+    description:
+      'A center layer should be used for brief, concise confirmations or dialogs.',
+    seoDescription:
+      'A center layer should be used for brief, concise confirmations or dialogs.',
+    preview: {
+      component: () => <LayerPreview />,
+    },
+    relatedContent: ['Forms', 'Filtering'],
+    sections: [],
+    tags: [],
+  },
+  {
+    name: 'Sidedrawer Layer',
+    render: 'Side-drawer Layer',
+    parentPage: 'Layer',
+    category: 'Layouts',
+    description:
+      'Side-drawer layers should be used for configuration of an object or filtering.',
+    seoDescription:
+      'Side-drawer layers should be used for configuration of an object or filtering.',
+    preview: {
+      component: () => <LayerPreview />,
+    },
+    relatedContent: ['Forms', 'Filtering'],
+    sections: [],
+    tags: [],
+  },
+  {
+    name: 'Fullscreen Layer',
+    parentPage: 'Layer',
+    category: 'Layouts',
+    description:
+      'Fullscreen layers should be used for large or longer layer content.',
+    seoDescription:
+      'Fullscreen layers should be used for large or longer layer content.',
+    preview: {
+      component: () => <LayerPreview />,
+    },
+    relatedContent: ['Forms', 'Filtering'],
+    sections: [],
+    tags: [],
   },
   {
     name: 'Main',

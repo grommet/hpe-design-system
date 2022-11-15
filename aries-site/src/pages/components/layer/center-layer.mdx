@@ -1,0 +1,20 @@
+import { Button } from 'grommet';
+import { Example } from '../../../layouts';
+import { CenterLayerAnatomy } from '../../../examples';
+
+## Anatomy
+
+<Example plain>
+  <CenterLayerAnatomy />
+</Example>
+
+1. **Header**: This region identifies the layer. There should be a `gap="small"` between title and subtitle.
+   - **a. Title** (required): A short, descriptive title identifying the wizard implemented as a Heading level 2.
+   - **b. Subtitle** (optional): Any additional context or information about the layer.
+   - **c. Close button** (optional): A button to close the layer. This should only be used in informational layers.
+1. **Body** (optional): This region houses any additional content.
+1. **Footer**: The footer contains layer actions. The actions should be right-aligned with primary action on the right. Actions should only appear in actionable layers.
+
+## Examples
+
+### Double confirmation
