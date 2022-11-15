@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Pagination,
+  Select,
+  Text,
+  Tip,
+} from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
@@ -57,9 +65,10 @@ export const PaginationServerTableExample = () => {
   const [data, setData] = useState([]);
   const [numberItems, setNumberItems] = useState(0);
   const [page, setPage] = useState(1);
-  const limit = 10;
+  const [limit, setLimit] = useState(10);
   const pageResultStart = (page - 1) * limit + 1;
   const pageResultEnd = Math.min(page * limit, numberItems);
+  const options = [5, 10, 25, 50, 100];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,7 +104,7 @@ export const PaginationServerTableExample = () => {
         .catch(error => console.error('Unable to get data:', error));
     };
     fetchData();
-  }, [sort, page]);
+  }, [sort, page, limit]);
 
   return (
     <Box pad="small" align="start">
@@ -103,6 +112,25 @@ export const PaginationServerTableExample = () => {
         Launches
       </Heading>
 
+      {numberItems > limit && (
+        <Box
+          pad={{ vetical: 'small' }}
+          align="center"
+          direction="row-responsive"
+          gap="small"
+        >
+          <Text>Select</Text>
+          <Select
+            id="select"
+            name="select"
+            placeholder="10"
+            value={limit}
+            options={options}
+            onChange={({ option }) => setLimit(option)}
+          />
+          <Text>entries</Text>
+        </Box>
+      )}
       <Box>
         <DataTable
           aria-describedby="server-side-pagination-heading"
