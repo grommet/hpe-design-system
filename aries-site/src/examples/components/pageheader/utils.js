@@ -2,7 +2,7 @@ export const groupActions = (actions, breakpoint, bestPractice) => {
   let collapsedActions;
   let displayedActions;
   // collapse all default/secondary actions
-  if (['medium'].includes(breakpoint)) {
+  if (breakpoint === 'medium') {
     collapsedActions = actions.filter(action => !action.primary);
     displayedActions = actions.filter(action => action.primary);
     // only leave primary and secondary visable

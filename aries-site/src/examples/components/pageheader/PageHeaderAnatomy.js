@@ -53,7 +53,7 @@ export const PageHeaderAnatomy = ({ background }) => {
     <Stack>
       <Grid
         align="center"
-        columns={['30px', 'flex', '30px']}
+        columns={['auto', 'flex', 'auto']}
         rows={
           mobileLayout
             ? ['auto', 'auto', 'auto', 'auto']
