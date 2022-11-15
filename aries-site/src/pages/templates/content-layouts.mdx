@@ -19,7 +19,7 @@ Understanding [Grid](/components/grid) is the key to creating successful content
 
 Looking for a quick start? [Jump to layout templates](#templates).
 
-## Responsive Design
+## Responsive design
 
 Layouts should be adaptable to different screen sizes. Our goal as designers and
 developers at HPE should be to create optimal and accessible user experiences regardless
@@ -45,7 +45,7 @@ foundation to account for diverse use cases when creating responsive designs.
 | **large**  | 1081 - 1439             |
 | **xlarge** | 1440 and above          |
 
-### Prioritizing Content Needs
+### Prioritizing content needs
 
 Focusing on content needs allows for optimal user experiences to be created. Thinking
 about which pieces of content a user will likely need and want to interact with first informs
@@ -76,7 +76,7 @@ widths.
   <ResponsiveContentLayoutExample />
 </Example>
 
-## Implementing Content Layouts
+## Implementing content layouts
 
 The following discusses three approaches for building responsive content layouts. All approaches
 may be mixed and matched as desired.
@@ -92,7 +92,7 @@ For greater detail about Grid's properties and key concepts visit [getting to kn
 Additionally, a can't miss tool for designers is [Layout Templates in Figma](https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2906%3A21283)
 which provides Grid-based layout templates for each [responsive breakpoint](#breakpoints) and [page layout kind](/templates/page-layouts#page-kinds).
 
-### Container-Driven Layouts
+### Container-driven layouts
 
 Container-driven layouts drive the layout from the outside-in. They begin by defining
 regions in which the content will live, whether those regions are [fixed, flexible, or fluid](/components/grid#background),
@@ -135,7 +135,7 @@ Key aspects to the approach are:
   <ContainerDrivenLayout />
 </Example>
 
-### Content-Driven Layouts
+### Content-driven layouts
 
 Content-driven layouts are driven from the inside-out, allowing the container to respond
 and adapt to things like user entered content, like names. The layout is custom fit to
@@ -162,7 +162,7 @@ displaying content returned from a server with an unknown length.
   <ContentDrivenLayout />
 </Example>
 
-### Nested Grids
+### Nested grids
 
 When dealing with complex layouts, it is helpful to simplify them by thinking of them
 as nested grids. Any column or grid area may be a grid itself.

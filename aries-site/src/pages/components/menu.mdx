@@ -138,7 +138,7 @@ Selecting a dangerous action should lead to double confirmation.
       message: `Don't leave dangerous actions grouped with other actions. Don't apply the dangerous action without double confirmation.`,
     }}
   >
-   {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
     <Box height="small">
       <MenuDangerousExample bestPractice={false} />
     </Box>
@@ -184,15 +184,15 @@ Actions enabling a user to share or consume data related to a resource.
 
 #### Batch actions menu related to a selection of servers
 
-The table menu's batch actions are grouped by executing and configuration actions. 
-The executing actions group is ordered first because the actions in it are the 
+The table menu's batch actions are grouped by executing and configuration actions.
+The executing actions group is ordered first because the actions in it are the
 most frequently used.
 
 <Example
   code={[
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/servers.json"
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/servers.json',
   ]}
   github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js"
   height={{ min: 'small' }}
@@ -202,16 +202,16 @@ most frequently used.
 
 #### Actions menu related to an individual record
 
-Each server group has a menu whose actions have been grouped by configuration, 
-executing, and dangerous actions. The configuration actions group is ordered first 
-because adjusting and viewing the group are the most frequently used. The delete 
-group action is ordered last since deleting the group is a destructive action and 
+Each server group has a menu whose actions have been grouped by configuration,
+executing, and dangerous actions. The configuration actions group is ordered first
+because adjusting and viewing the group are the most frequently used. The delete
+group action is ordered last since deleting the group is a destructive action and
 cannot be recovered.
 
 <Example
   code={[
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js",
-    "https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/serverGroups.json"
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/serverGroups.json',
   ]}
   github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js"
   height={{ min: 'medium' }}
@@ -237,7 +237,7 @@ The default Menu should be used in all instances unless the Menu is contained wi
   <MenuHeaderExample />
 </Example>
 
-### Within a Toolbar
+### Within a toolbar
 
 Use `kind="toolbar"` when the Menu is placed in row with other toolbar controls like search or filter.
 In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.

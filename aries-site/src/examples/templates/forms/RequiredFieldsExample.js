@@ -105,14 +105,14 @@ export const RequiredFieldsExample = () => {
             help="Would you like to apply nemesis character?"
             htmlFor="nemesis"
             name="nemesis"
-            label="Nemesis (optional)"
+            label="Nemesis"
           >
             <CheckBox name="nemesis" label="Bring it on" toggle reverse />
           </FormField>
           <FormField
             htmlFor="comments"
             name="comments"
-            label="Comments (optional)"
+            label="Comments"
           >
             <TextArea
               id="comments"
@@ -130,7 +130,7 @@ export const RequiredFieldsExample = () => {
             <FileInput
               messages={{
                 dropPrompt: 'Drag and drop',
-                browse: numFiles > 0 ? 'Replace File' : 'Select File',
+                browse: numFiles > 0 ? 'Replace file' : 'Select file',
               }}
               id="fileinput"
               onChange={(event, { files }) => setNumFiles(files.length)}

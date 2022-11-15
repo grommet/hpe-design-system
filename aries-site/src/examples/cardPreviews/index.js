@@ -1,3 +1,4 @@
+export * from './avatar';
 export * from './anchor';
 export * from './box';
 export * from './button';

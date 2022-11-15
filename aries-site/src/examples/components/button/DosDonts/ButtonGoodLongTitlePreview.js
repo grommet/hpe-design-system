@@ -15,9 +15,9 @@ export const ButtonGoodLongTitlePreview = () => (
       <Text>Subtitle</Text>
     </Header>
     <Box gap="small">
-      <Button primary label="Primary Button" onClick={() => {}} />
-      <Button secondary label="Secondary Button" onClick={() => {}} />
-      <Button default label="Default Button" onClick={() => {}} />
+      <Button primary label="Primary button" onClick={() => {}} />
+      <Button secondary label="Secondary button" onClick={() => {}} />
+      <Button default label="Default button" onClick={() => {}} />
     </Box>
   </Box>
 );

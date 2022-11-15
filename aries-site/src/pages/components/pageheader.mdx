@@ -46,7 +46,7 @@ The PageHeader's title communicates the context of the page. The subtitle elabor
 2. [Contextual Navigation](#reverse-anchor): A Reverse Anchor is required on all child pages as a means of navigating up the information hierarchy.
 3. [Page-Level Actions](#page-level-actions) (optional): This region is reserved for actions that affect the entire page or kick-off a task flow.
 
-## Responsive Behavior and Content Prioritization
+## Responsive behavior and content prioritization
 
 The main purpose of a page header is to identify a page and its context within an application. Therefore, the title and subtitle regions should receive screen priority when they come into contact with page-level actions.
 
@@ -120,7 +120,7 @@ A subtitle should:
   </Example>
 </BestPracticeGroup>
 
-## Reverse Anchor
+## Reverse anchor
 
 A reverse anchor is required on all child pages and should:
 
@@ -129,7 +129,7 @@ A reverse anchor is required on all child pages and should:
 - Navigate the user from the child page to its parent.
 - Not be used on [top-level pages](#example-of-top-level-page) because they do not have a parent.
 
-### Example of Child Page
+### Example of child page
 
 Child pages include a reverse anchor which allows the user to navigate from the child page to its parent.
 
@@ -147,7 +147,7 @@ Child pages include a reverse anchor which allows the user to navigate from the 
   <ChildPageHeaderExample />
 </Example>
 
-### Example of Top-Level Page
+### Example of top-level page
 
 Top-level pages do not display a reverse anchor because they do not have a parent.
 
@@ -161,18 +161,18 @@ Top-level pages do not display a reverse anchor because they do not have a paren
   <TopLevelPageHeaderExample />
 </Example>
 
-## Page-Level Actions
+## Page-level actions
 
 Page-level actions affect the entire page or launch a task flow.
 
 **All actions should:**
 
 - Have clear and concise button labels.
-- Use verb+noun format to provide sufficient context on action expectations (i.e., Edit Profile). See [button labeling]() for more guidance.
+- Use verb+noun format to provide sufficient context on action expectations (i.e., Edit profile). See [button labeling](/components/button#button-labeling) for more guidance.
 - Be right-aligned with the page content.
 - Follow [button ordering guidance](/components/button#button-ordering) for right-aligned buttons.
 
-**Additional Notes:**
+**Additional notes:**
 
 - A primary action should only be used if the primary purpose of the page is to faciliate performing that action. Most pages will not have a primary action.
 - Do not include actions related to table or list data (such as create, update, and delete) in the page-level actions. These should be placed in the toolbar above the data.
@@ -203,7 +203,7 @@ Page-level actions affect the entire page or launch a task flow.
   </Example>
 </BestPracticeGroup>
 
-### Responsive Behavior of Actions
+### Responsive behavior of actions
 
 Page-level actions is a flexible region in which a wide variety of actions may live. Actions in this region should be thought of in terms of their importance to a user and progressively collapse based on their priority.
 

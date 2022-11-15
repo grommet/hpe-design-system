@@ -8,7 +8,7 @@ export const orders = [
   {
     name: 'GEM_1',
     service: 'VMaaS for R&D',
-    status: 'In Transit',
+    status: 'In transit',
     tenant: 'Boeing',
   },
   {
@@ -26,7 +26,7 @@ export const orders = [
   {
     name: 'Mercury 7',
     service: 'VMaaS for R&D',
-    status: 'Ready to Ship',
+    status: 'Ready to ship',
     tenant: 'Suncor Energy',
   },
   {

@@ -153,7 +153,7 @@ const StepThree = () => (
       )}
     </List>
     <Text color="text-strong">
-      Include guidance to what will occur when “Finish Wizard" is clicked.
+      Include guidance to what will occur when “Finish wizard" is clicked.
     </Text>
   </Box>
 );
@@ -162,12 +162,12 @@ const steps = [
   {
     description: 'Two column configuration for wizard.',
     inputs: <StepOne />,
-    title: 'Step 1 Title',
+    title: 'Step 1 title',
   },
   {
     description: 'Step 2 description.',
     inputs: <StepTwo />,
-    title: 'Step 2 Title',
+    title: 'Step 2 title',
   },
   {
     description: 'Provide a summary of what was accomplished or configured. ',

@@ -34,7 +34,7 @@ export const MenuHeaderExample = () => {
           )}
         </Box>
       </Button>
-      <Menu label="Account Information" items={items} width="medium" />
+      <Menu label="Account information" items={items} width="medium" />
     </Header>
   );
 };
