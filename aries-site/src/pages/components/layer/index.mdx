@@ -1,0 +1,100 @@
+import { Button } from 'grommet';
+import { Example } from '../../../layouts';
+import {
+  LayerAnatomy,
+  LayerExample,
+  LayerCenterExample,
+  LayerNotificationExample,
+  LayerSideDrawerExample,
+  LayerStickyExample,
+  LayerStickyScrollExample,
+  InformationalLayerTypes,
+  LayerTypes,
+} from '../../../examples';
+
+<Example
+  componentName="Layer"
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerExample.js"
+  figma="https://www.figma.com/file/Ts53TAipMolmsv9DxWG3p0/HPE-Layer-Component?node-id=2%3A22"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Layer/Layer.js"
+>
+  <LayerExample />
+</Example>
+
+## When to use
+
+A layer should be used to present information or task flows to the user without navigating them away from their current context.
+
+## Anatomy
+
+<Example plain>
+  <LayerAnatomy />
+</Example>
+
+A layer contains three main content regions:
+
+1. Header
+1. Body
+1. Footer
+
+There is a "medium" pad inside the layer container and a "medium" gap between the content regions.
+
+For specifics on the anatomy and spacing of various layer types, see guidance on [types of layers](#types-of-layers).
+
+## Types of layers
+
+Different use cases warrant different layer types. Learn more about the specific anatomy and behaviors of each type below.
+
+<LayerTypes />
+
+## Layer closing behavior
+
+### Mouse
+
+For informational (text-only with no required or optional actions):
+
+- The layer header contains an "X" button that closes the layer.
+- The user can click outside of the layer to close it.
+- This applies to all layers types but an example of this can be seen in the [contextual help example]().
+
+For actionable layers (require an action from the user):
+
+- The layer footer a primary action that accepts the content and a "Cancel" action that rejects the content and closes the layer.
+- The user should not be able to click outside of the layer to close it. Instead, users should be consciously clicking the "Cancel" button to close out of the layer to abort any and all actions. This prevents the user from losing progress due to accidentally misclicking outside of a layer.
+- Actionable layers do not contain an "X" button in the layer header to avoid confusion of how the user should close the layer.
+- This applies to all layer types, but an example of this behavior can be seen in the [double confirmation example]().
+
+### Keyboard
+
+| Key | Interaction                                                                                                       |
+| --- | ----------------------------------------------------------------------------------------------------------------- |
+| Esc | For all layer types, close the layer and return focus to the element on the page the originally opened the layer. |
+
+```
+<Layer onEsc={() => setOpen(false)}>
+   ...
+</Layer>
+```
+
+## Accessibility
+
+### Layer titles
+
+Layer headings should be semantically correct. Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`. All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+
+### Close button
+
+When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. This close button should also be given an `a11yTitle` that provides the user with context that they are in a Layer.
+
+For example, implementation of this "Close" button for a Layer would be:
+
+```
+<Button
+  a11yTitle={`You are in a layer containing a form to add new hosts.
+  To close this layer, press Enter.`}
+  icon={<FormClose />}
+  onClick={() => setShowLayer(false)}
+  autoFocus
+/>
+```
