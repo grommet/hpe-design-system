@@ -6,14 +6,6 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
-  pageHeader: {
-    large: {
-      columns: [['small', 'flex'], 'auto'],
-    },
-    xlarge: {
-      columns: [['medium', 'flex'], 'auto'],
-    },
-  },
   feedback: {
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.

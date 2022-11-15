@@ -1,8 +1,19 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
+import { Diagram, Grid, ResponsiveContext, Stack, ThemeContext } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { PageHeaderContentRegions } from '.';
+
+const PageHeaderSiteTheme = {
+  pageHeader: {
+    large: {
+      columns: [['small', 'flex'], 'auto'],
+    },
+    xlarge: {
+      columns: [['medium', 'flex'], 'auto'],
+    },
+  },
+};
 
 const color = 'border';
 const anchor = 'horizontal';
@@ -79,11 +90,13 @@ export const PageHeaderAnatomy = ({ background }) => {
         <Annotation id="1a" target="1a" gridArea="annotation-1a" />
         <Annotation id="1b" target="1b" gridArea="annotation-1b" />
         <Annotation id={3} target="3" gridArea="annotation-3" />
+        <ThemeContext.Extend value={PageHeaderSiteTheme}>
         <PageHeaderContentRegions
           gridArea="pageheader"
           background={background}
           pad="none" // removing pad from anatomy diagram
         />
+        </ThemeContext.Extend>
       </Grid>
       <Diagram connections={connections} />
     </Stack>
