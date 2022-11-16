@@ -7,6 +7,26 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   global: {
+    colors: {
+      text: {
+        dark: '#FFFFFFE6', // 90%
+        light: '#6F6F6F', // light: '#444444',
+      },
+      'text-strong': {
+        dark: '#FFFFFFF5', // 96%
+        light: '#444444', // light: '#000000',
+      },
+      'text-weak': {
+        dark: '#FFFFFF80', // 50%
+        // light value may need to be revisited
+        light: '#757575',
+      },
+      'text-xweak': {
+        dark: '#FFFFFF33', // 20%
+        // light value may need to be revisited
+        light: '#BBBBBB',
+      },
+    },
     font: {
       family: "'Metric', Arial, sans-serif",
       face: `
@@ -50,7 +70,47 @@ export const aries = deepMerge(hpe, {
           src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff2") format('woff2'),
                url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff") format('woff');
           font-weight: 900;
+        }
+        @font-face {
+          font-family: "Metric-Light";
+          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
+               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');
         }`,
+    },
+  },
+  feedback: {
+    closeButton: {
+      a11yTitle: `You are in a dialog containing a form to submit feedback.
+        To close this layer, press Enter.`,
+    },
+    container: {
+      pad: 'medium',
+    },
+    header: {
+      align: 'start',
+      direction: 'row',
+      justify: 'between',
+      gap: 'xsmall',
+    },
+    heading: {
+      size: 'small',
+      level: 2,
+      margin: {
+        vertical: 'none',
+      },
+    },
+    footer: {
+      pad: {
+        top: 'medium',
+      },
+      direction: 'row',
+      justify: 'end',
+      gap: 'xsmall',
+    },
+    success: {
+      color: 'text-strong',
+      weight: 'bold',
+      alignSelf: 'end',
     },
   },
   heading: {
@@ -214,39 +274,37 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
-  feedback: {
-    closeButton: {
-      a11yTitle: `You are in a dialog containing a form to submit feedback.
-        To close this layer, press Enter.`,
+  paragraph: {
+    font: {
+      family: 'Metric-Light',
     },
-    container: {
-      pad: 'medium',
+    small: {
+      // weight needs to be modified at the size level
+      size: '16px',
+      height: '20px',
+      maxWidth: '379px',
     },
-    header: {
-      align: 'start',
-      direction: 'row',
-      justify: 'between',
-      gap: 'xsmall',
+    medium: {
+      // weight needs to be modified at the size level
+      size: '18px',
+      height: '22px',
+      maxWidth: '432px',
     },
-    heading: {
-      size: 'small',
-      level: 2,
-      margin: {
-        vertical: 'none',
-      },
+    large: {
+      size: '24px',
+      height: '30px',
+      maxWidth: '538px',
     },
-    footer: {
-      pad: {
-        top: 'medium',
-      },
-      direction: 'row',
-      justify: 'end',
-      gap: 'xsmall',
+    xlarge: {
+      size: '36px',
+      height: '42px',
+      maxWidth: '643px',
     },
-    success: {
-      color: 'text-strong',
-      weight: 'bold',
-      alignSelf: 'end',
+    // xxlarge is not part of Chris's type exploration
+    xxlarge: {
+      size: '42px',
+      height: '48px',
+      maxWidth: '854px',
     },
   },
 });
