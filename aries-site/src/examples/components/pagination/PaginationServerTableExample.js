@@ -98,7 +98,7 @@ export const PaginationServerTableExample = () => {
   }, [sort, page]);
 
   return (
-    <Box pad="small">
+    <Box pad="small" align="start">
       <Heading id="server-side-pagination-heading" level={3}>
         Launches
       </Heading>
@@ -109,7 +109,6 @@ export const PaginationServerTableExample = () => {
           columns={columns}
           data={data}
           sort={{ ...sort, external: true }}
-          replace
           step={limit}
           onSort={opts => setSort(opts)}
           fill
@@ -119,11 +118,10 @@ export const PaginationServerTableExample = () => {
         {numberItems > limit && (
           <Box
             direction="row-responsive"
-            align="center"
+            fill="horizontal"
             border="top"
             justify="end"
             pad={{ vertical: 'xsmall' }}
-            fill
           >
             <Text>
               Showing {pageResultStart}-{pageResultEnd} of {numberItems}
