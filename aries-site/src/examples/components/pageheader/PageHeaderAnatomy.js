@@ -4,6 +4,10 @@ import { Diagram, Grid, ResponsiveContext, Stack, ThemeContext } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { PageHeaderContentRegions } from '.';
 
+// need to overrid the PageHeader theme values in order for our anatomy
+// to fit correctly on the page. Even though it is using the correct breakpoints
+// our anatomy are only taking up half the space on the page so layout different than
+// a PageHeader on a full page.
 const PageHeaderSiteTheme = {
   pageHeader: {
     large: {
