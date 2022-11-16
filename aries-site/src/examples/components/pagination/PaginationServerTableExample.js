@@ -68,7 +68,7 @@ export const PaginationServerTableExample = () => {
   const [limit, setLimit] = useState(10);
   const pageResultStart = (page - 1) * limit + 1;
   const pageResultEnd = Math.min(page * limit, numberItems);
-  const options = [5, 10, 25, 50, 100];
+  const options = [10, 25, 50, 100];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,16 +114,13 @@ export const PaginationServerTableExample = () => {
 
       {numberItems > limit && (
         <Box
-          pad={{ vetical: 'small' }}
+          pad={{ vertical: 'small' }}
           align="center"
           direction="row-responsive"
           gap="small"
         >
-          <Text>Select</Text>
+          <Text>Show</Text>
           <Select
-            id="select"
-            name="select"
-            placeholder="10"
             value={limit}
             options={options}
             onChange={({ option }) => setLimit(option)}
@@ -137,7 +134,6 @@ export const PaginationServerTableExample = () => {
           columns={columns}
           data={data}
           sort={{ ...sort, external: true }}
-          step={limit}
           onSort={opts => setSort(opts)}
           fill
           gap="small"
