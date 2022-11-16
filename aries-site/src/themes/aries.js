@@ -32,8 +32,8 @@ export const aries = deepMerge(hpe, {
       face: `
         @font-face {
           font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff") format('woff');
+          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
+               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');     
         }
         @font-face {
           font-family: "Metric";
@@ -46,6 +46,12 @@ export const aries = deepMerge(hpe, {
           src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
                url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');
           font-weight: 300;
+        }
+        @font-face {
+          font-family: "Metric";
+          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff2") format('woff2'),
+               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff") format('woff');
+          font-weight: 450;
         }
         @font-face {
           font-family: "Metric";
@@ -70,11 +76,6 @@ export const aries = deepMerge(hpe, {
           src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff2") format('woff2'),
                url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff") format('woff');
           font-weight: 900;
-        }
-        @font-face {
-          font-family: "Metric-Light";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');
         }`,
     },
   },
@@ -115,7 +116,7 @@ export const aries = deepMerge(hpe, {
   },
   heading: {
     color: 'text',
-    weight: 400,
+    weight: 450,
     level: {
       1: {
         font: {
@@ -275,8 +276,48 @@ export const aries = deepMerge(hpe, {
     },
   },
   paragraph: {
-    font: {
-      family: 'Metric-Light',
+    // font: {
+    //   family: 'Metric-Light',
+    // },
+    small: {
+      // weight needs to be modified at the size level
+      size: '16px',
+      height: '20px',
+      maxWidth: '379px',
+    },
+    medium: {
+      // weight needs to be modified at the size level
+      size: '18px',
+      height: '22px',
+      maxWidth: '432px',
+    },
+    large: {
+      size: '24px',
+      height: '30px',
+      maxWidth: '538px',
+    },
+    xlarge: {
+      size: '36px',
+      height: '42px',
+      maxWidth: '643px',
+    },
+    // xxlarge is not part of Chris's type exploration
+    xxlarge: {
+      size: '42px',
+      height: '48px',
+      maxWidth: '854px',
+    },
+  },
+  text: {
+    // font is not documented in base.js
+    // font: {
+    //   family: 'Metric-Light',
+    // },
+    xsmall: {
+      // weight needs to be modified at the size level
+      size: '14px',
+      height: '18px',
+      maxWidth: '379px',
     },
     small: {
       // weight needs to be modified at the size level
