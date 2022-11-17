@@ -119,6 +119,9 @@ export const aries = deepMerge(hpe, {
     },
   },
   formField: {
+    // border: {
+    //   color: 'border',
+    // },
     disabled: {
       label: {
         color: 'text-xweak',
