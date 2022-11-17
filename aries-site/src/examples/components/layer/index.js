@@ -1,4 +1,6 @@
 export * from './CenterLayerAnatomy';
+export * from './ActionableLayerClose';
+export * from './InformationalLayerClose';
 export * from './LayerAnatomy';
 export * from './LayerExample';
 export * from './LayerCenterExample';

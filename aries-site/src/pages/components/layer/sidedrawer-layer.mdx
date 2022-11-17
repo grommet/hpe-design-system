@@ -8,12 +8,10 @@ import { SideDrawerLayerAnatomy } from '../../../examples';
   <SideDrawerLayerAnatomy />
 </Example>
 
-1. **Header**: This region identifies the layer. There should be a `gap="small"` between title and subtitle. If the layer is actionable, the header should be [sticky](#header-behavior).
-   - **a. Title** (required): A short, descriptive title identifying the wizard implemented as a Heading level 2.
-   - **b. Subtitle** (optional): Any additional context or information about the layer.
-   - **c. Close button** (optional): A button to close the layer. This should only be used in informational layers.
-1. **Body** (optional): This region houses any additional content.
-1. **Footer**: The footer contains layer actions. The actions should be left-aligned with primary action on the left. Actions should only appear in actionable layers.
+See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
+
+1.  **Close button** (only on layers with no footer actions): A button to close the layer.
+1.  **Footer actions**: Because the layer is anchored to the right edge of the screen, the actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
 
 ## Guidance
 
