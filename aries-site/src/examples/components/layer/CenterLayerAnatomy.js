@@ -1,73 +1,44 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  Diagram,
-  Grid,
-  Heading,
-  Paragraph,
-  Stack,
-} from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Box, Button, Diagram, Grid, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils/utils';
+import { LayerHeader } from './components/LayerHeader';
+import { LayerContainer } from './components/LayerContainer';
 
 const connections = [
-  connection('1a', 'layer-title'),
-  connection('1b', 'layer-subtitle'),
-  connection('1c', 'layer-header'),
-  connection('2', 'layer-body'),
-  connection('3', 'layer-actions'),
+  connection('1', 'layer-close-button'),
+  connection('2', 'layer-actions'),
 ];
 
 export const CenterLayerAnatomy = () => (
   <Stack interactiveChild="first">
     <Grid
       align="center"
-      columns={['flex', 'auto', 'flex']}
-      rows={['24px', '37px', '6px', '24px', '24px', 'small', 'auto']}
+      columns={['medium', 'flex']}
+      rows={['24px', '37px', '48px', '24px', 'small', '24px', '36px', '24px']}
       areas={[
-        ['empty-0', 'layer', 'empty-1'],
-        ['annotation-1a', 'layer', 'annotation-1c'],
-        ['gap-1', 'layer', 'empty-2'],
-        ['annotation-1b', 'layer', 'empty-2'],
-        ['gap-2', 'layer', 'empty-2'],
-        ['annotation-2', 'layer', 'empty-2'],
-        ['empty-3', 'layer', 'annotation-3'],
+        ['layer', 'empty-1'],
+        ['layer', 'annotation-1'],
+        ['layer', 'empty-2'],
+        ['layer', 'empty-2'],
+        ['layer', 'empty-2'],
+        ['layer', 'empty-2'],
+        ['layer', 'annotation-2'],
+        ['layer', 'empty-3'],
       ]}
       gap={{ column: 'medium' }}
     >
       <Annotation
         alignSelf="center"
-        id="1a"
-        target="1a"
-        gridArea="annotation-1a"
-      />
-      <Annotation
-        alignSelf="center"
-        id="1b"
-        target="1b"
-        gridArea="annotation-1b"
-      />
-      <Annotation
-        alignSelf="center"
-        id="1c"
-        target="1c"
-        gridArea="annotation-1c"
+        id="1"
+        target="1"
+        gridArea="annotation-1"
       />
       <Annotation
         alignSelf="center"
         id="2"
         target="2"
         gridArea="annotation-2"
-      />
-      <Annotation
-        alignSelf="center"
-        id="3"
-        target="3"
-        gridArea="annotation-3"
       />
       <LayerContent gridArea="layer" />
     </Grid>
@@ -76,38 +47,19 @@ export const CenterLayerAnatomy = () => (
 );
 
 const LayerContent = ({ ...rest }) => (
-  <Card id="layer-container" alignSelf="start" animate={false} {...rest}>
-    <CardBody gap="medium">
-      <Box direction="row" align="start" gap="small" flex={false}>
-        <Box gap="xsmall">
-          <Heading level={2} margin="none" size="small" id="layer-title">
-            Layer title
-          </Heading>
-          <Paragraph margin="none" id="layer-subtitle">
-            A concise subtitle that provides additional context.
-          </Paragraph>
-        </Box>
-        <Button id="layer-header" icon={<FormClose />} />
-      </Box>
-      <Box
-        id="layer-body"
-        border={{ style: 'dashed' }}
-        height="small"
-        align="center"
-        justify="center"
-      >
-        Layer body content goes here.
-      </Box>
-      <Box
-        id="layer-footer"
-        direction="row"
-        gap="small"
-        justify="end"
-        flex={false}
-      >
-        <Button label="Cancel" />
-        <Button label="Confirm action" primary id="layer-actions" />
-      </Box>
-    </CardBody>
-  </Card>
+  <LayerContainer id="layer-container" {...rest}>
+    <LayerHeader informational />
+    <Box
+      border={{ style: 'dashed' }}
+      height="small"
+      align="center"
+      justify="center"
+    >
+      Layer body content goes here.
+    </Box>
+    <Box direction="row" gap="small" justify="end" flex={false}>
+      <Button label="Cancel" />
+      <Button label="Confirm action" primary id="layer-actions" />
+    </Box>
+  </LayerContainer>
 );

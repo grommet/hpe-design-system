@@ -1,6 +1,6 @@
-export const connection = (fromTarget, toTarget, direction) => ({
+export const connection = (fromTarget, toTarget, direction, type) => ({
   anchor: direction || 'horizontal',
-  type: 'direct',
+  type: type || 'direct',
   color: 'border',
   thickness: 'hair',
   fromTarget,

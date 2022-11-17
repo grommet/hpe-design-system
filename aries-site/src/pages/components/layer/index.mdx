@@ -1,4 +1,4 @@
-import { Button } from 'grommet';
+import { Button, Notification } from 'grommet';
 import { Example } from '../../../layouts';
 import {
   LayerAnatomy,
@@ -8,7 +8,8 @@ import {
   LayerSideDrawerExample,
   LayerStickyExample,
   LayerStickyScrollExample,
-  InformationalLayerTypes,
+  ActionableLayerClose,
+  InformationalLayerClose,
   LayerTypes,
 } from '../../../examples';
 
@@ -28,23 +29,23 @@ A layer should be used to present information or task flows to the user without 
 
 ## Anatomy
 
+Basic anatomy and spacing that applies to all layer types.
+
 <Example plain>
   <LayerAnatomy />
 </Example>
 
 A layer contains three main content regions:
 
-1. Header
-1. Body
-1. Footer
-
-There is a "medium" pad inside the layer container and a "medium" gap between the content regions.
-
-For specifics on the anatomy and spacing of various layer types, see guidance on [types of layers](#types-of-layers).
+1. **Header** (required): This region identifies the layer.
+   - **a. Title** (required): A short, descriptive title identifying the layer, implemented as a Heading level 2.
+   - **b. Subtitle** (optional): Any additional context or information about the layer.
+1. **Body** (optional): Any additional content.
+1. **Footer** (optional) - This region contains layer actions. The ordering and aligment of footer actions depends on the type of layer. See guidance on [types of layers](#types-of-layers) for details.
 
 ## Types of layers
 
-Different use cases warrant different layer types. Learn more about the specific anatomy and behaviors of each type below.
+Different use cases and content warrant different layer types. Learn more about each type below.
 
 <LayerTypes />
 
@@ -52,30 +53,47 @@ Different use cases warrant different layer types. Learn more about the specific
 
 ### Mouse
 
-For informational (text-only with no required or optional actions):
+The closing behavior and anatomy of a layer will differ depending on if the layer is informational or actionable.
 
-- The layer header contains an "X" button that closes the layer.
-- The user can click outside of the layer to close it.
-- This applies to all layers types but an example of this can be seen in the [contextual help example]().
+#### Informational
 
-For actionable layers (require an action from the user):
+For informational layers that do not require any user actions, place a close button in the layer header.
 
-- The layer footer a primary action that accepts the content and a "Cancel" action that rejects the content and closes the layer.
-- The user should not be able to click outside of the layer to close it. Instead, users should be consciously clicking the "Cancel" button to close out of the layer to abort any and all actions. This prevents the user from losing progress due to accidentally misclicking outside of a layer.
-- Actionable layers do not contain an "X" button in the layer header to avoid confusion of how the user should close the layer.
-- This applies to all layer types, but an example of this behavior can be seen in the [double confirmation example]().
+<Example plain>
+  <InformationalLayerClose />
+</Example>
+
+- The "X" button should close the layer.
+- The user can also click outside of the layer to close it.
+
+#### Actionable
+
+For actionable layers that require user actions, place a "Cancel" action alongside the other footer actions. In some cases, a label other than "Cancel" may be appropriate.
+
+Do not include an "X" button in the header to avoid confusion of how the user should close the layer.
+
+<Example plain>
+  <ActionableLayerClose />
+</Example>
+
+- The "Cancel" button should reject any changes and close the layer.
+- To prevent the user from losing progress due to accidentally misclicking outside of a layer, they should not be able to click outside of the layer to close it.
+
+<Notification
+  status="info"
+  message="The ordering and alignment of footer actions depends on the type of layer. See anatomy diagrams for specific layer types for details."
+  actions={[{ label: 'See layer types', href: '#types-of-layers' }]}
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
 
 ### Keyboard
 
-| Key | Interaction                                                                                                       |
-| --- | ----------------------------------------------------------------------------------------------------------------- |
-| Esc | For all layer types, close the layer and return focus to the element on the page the originally opened the layer. |
+| Key | Interaction                                                                                                                                                                                         |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Esc | Close the layer and return focus to the element on the page the originally opened the layer. If the user has input any data into the layer, provide a double confirmation before closing the layer. |
 
-```
-<Layer onEsc={() => setOpen(false)}>
-   ...
-</Layer>
-```
+[ ADD EXAMPLE ?? ]
 
 ## Accessibility
 

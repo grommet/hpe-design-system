@@ -1,19 +1,24 @@
-import { Button } from 'grommet';
+import { Button, Notification } from 'grommet';
 import { Example } from '../../../layouts';
 import { CenterLayerAnatomy } from '../../../examples';
 
 ## Anatomy
 
+This diagram highlights details specific to center layers. See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
+
 <Example plain>
   <CenterLayerAnatomy />
 </Example>
 
-1. **Header**: This region identifies the layer. There should be a `gap="small"` between title and subtitle.
-   - **a. Title** (required): A short, descriptive title identifying the wizard implemented as a Heading level 2.
-   - **b. Subtitle** (optional): Any additional context or information about the layer.
-   - **c. Close button** (optional): A button to close the layer. This should only be used in informational layers.
-1. **Body** (optional): This region houses any additional content.
-1. **Footer**: The footer contains layer actions. The actions should be right-aligned with primary action on the right. Actions should only appear in actionable layers.
+1.  **Close button** (only on layers with no footer actions): A button to close the layer.
+1.  **Footer actions**: The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. See [layer closing behavior](/components/layer#actionable) for details.
+
+<Notification
+  status="info"
+  message="A layer should either have actions in the footer or a close button in the header, not both."
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
 
 ## Examples
 

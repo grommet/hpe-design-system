@@ -15,42 +15,59 @@ import { Example } from '../../../layouts';
 const columns = {
   xsmall: ['auto'],
   small: ['auto'],
-  medium: ['auto', 'auto'],
-  large: ['auto', 'auto', 'auto'],
-  xlarge: ['auto', 'auto', 'auto'],
+  medium: ['flex', 'flex'],
+  large: ['flex', 'flex', 'flex'],
+  xlarge: ['flex', 'flex', 'flex'],
 };
 
 export const LayerTypes = () => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Grid columns={columns[breakpoint]} gap="medium" pad={{ top: 'medium' }}>
+    <Grid columns={columns[breakpoint]} gap="large" pad={{ top: 'medium' }}>
       <Type
         title="Center"
-        description="Use cases: short forms, double confirmations, etc."
+        description={`Use for concise task-flow oriented or informational 
+        content that the should appear front and center to the user.`}
         href="/components/layer/center-layer"
-      />
+      >
+        <Paragraph>Use cases include: confirmations, </Paragraph>
+      </Type>
       <Type
         title="Side-drawer"
-        description="Use cases: long forms, filtering, etc."
+        description={`Use for manipulating data on a page or presenting 
+        additional information without navigating the user away from their 
+        current context.`}
         href="/components/layer/sidedrawer-layer"
-      />
+      >
+        <Paragraph>
+          Use cases include: filtering, edit object, configure flows.
+        </Paragraph>
+      </Type>
       <Type
         title="Full screen"
-        description="Use cases: long forms, filtering, etc."
+        description={`Use when the layer content is dimensionally large or 
+        when it is an involved task flow.`}
         href="/components/layer/fullscreen-layer"
-      />
+      >
+        <Paragraph>
+          Use cases include: 1) creating/editing an object with a lot of
+          attributes, 2) progressive forms revealing inputs based on preceding
+          values
+        </Paragraph>
+      </Type>
     </Grid>
   );
 };
 
-const Type = ({ description, href, preview, title }) => (
+const Type = ({ children, description, href, preview, title }) => (
   <Box>
     <Box gap="xsmall">
-      <Heading level={3} size="small" margin="none">
+      <Heading level={3} margin="none">
         {title}
       </Heading>
       <Paragraph margin="none">{description}</Paragraph>
+      {children}
       {href ? (
         <Link href={href} passHref>
           <Button
