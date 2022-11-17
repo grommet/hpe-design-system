@@ -26,6 +26,7 @@ export const aries = deepMerge(hpe, {
         // light value may need to be revisited
         light: '#BBBBBB',
       },
+      placeholder: 'text-weak',
     },
     font: {
       family: "'Metric', Arial, sans-serif",
@@ -78,6 +79,9 @@ export const aries = deepMerge(hpe, {
           font-weight: 900;
         }`,
     },
+    input: {
+      weight: 450, // weight: 500,
+    },
   },
   feedback: {
     closeButton: {
@@ -112,6 +116,30 @@ export const aries = deepMerge(hpe, {
       color: 'text-strong',
       weight: 'bold',
       alignSelf: 'end',
+    },
+  },
+  formField: {
+    disabled: {
+      label: {
+        color: 'text-xweak',
+      },
+    },
+    error: {
+      color: 'text',
+    },
+    help: {
+      size: 'xsmall',
+      color: 'text',
+    },
+    info: {
+      size: 'xsmall',
+      color: 'text',
+    },
+    label: {
+      // any Text props not documented in base.js
+      size: 'xsmall',
+      color: 'text',
+      weight: 450, // weight: 500,
     },
   },
   heading: {
