@@ -115,7 +115,7 @@ export const aries = deepMerge(hpe, {
     },
   },
   heading: {
-    color: 'text',
+    color: 'text-strong',
     weight: 450,
     level: {
       1: {
