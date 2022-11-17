@@ -1,26 +1,29 @@
-import { Button } from 'grommet';
+import { Notification } from 'grommet';
 import { Example } from '../../../layouts';
-import { SideDrawerLayerAnatomy } from '../../../examples';
+import {
+  SideDrawerLayerAnatomy,
+  FilteringTable,
+  LayerStickyExample,
+  LayerStickyScrollExample,
+} from '../../../examples';
 
 ## Anatomy
+
+This diagram highlights details specific to side drawer layers. See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
 
 <Example plain>
   <SideDrawerLayerAnatomy />
 </Example>
 
-See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
-
 1.  **Close button** (only on layers with no footer actions): A button to close the layer.
-1.  **Footer actions**: Because the layer is anchored to the right edge of the screen, the actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
+1.  **Footer actions**: The actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. See [layer closing behavior](/components/layer#actionable) for details.
 
-## Guidance
-
-Provides users with any type of action, required or optional. These can be confirmations, filters, forms, etc.
-
-Actionable Layers contain the following elements and interactions:
-
-- A cancel or close button will always be positioned within the footer of the Layer. Note that the "X" icon is omitted to avoid any confusion the user may have on which option they should use to close out the Layer.
-- The Layer header should be sticky while the rest of the Layer content is scrollable. This can either be achieved with a [persistent sticky header](#layer-form-with-sticky-header) or a [header that is sticky when the user scrolls up](#layer-form-with-hide-show-sticky-header).
+<Notification
+  status="info"
+  message="A layer should either have actions in the footer or a close button in the header, not both."
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
 
 ## Header behavior
 
@@ -64,3 +67,9 @@ on Heading and setting it to `"scrollup"`.
 ### Configuration form
 
 ### Filtering
+
+Click the filter icon to see the layer.
+
+<Example template showResponsiveControls={[]}>
+  <FilteringTable />
+</Example>

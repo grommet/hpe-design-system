@@ -66,13 +66,13 @@ export const LayerAnatomy = () => (
         gridArea="annotation-3"
       />
       <Box align="center" gridArea="annotation-pad" width="medium">
-        <Annotation id="pad" kind="style" target='pad="medium" (24px)' />
+        <Annotation id="pad" kind="style" target='pad="medium"' />
       </Box>
       <Annotation
         kind="style"
         alignSelf="center"
         id="gap"
-        target='gap="medium" (24px)'
+        target='gap="medium"'
         gridArea="annotation-gap"
       />
       <Box align="center" gridArea="annotation-elevation" width="medium">
@@ -82,7 +82,7 @@ export const LayerAnatomy = () => (
         alignSelf="center"
         id="round"
         kind="style"
-        target='round="small" (12px)'
+        target='round="small"'
         gridArea="annotation-round"
       />
       <LayerContent gridArea="layer" />
