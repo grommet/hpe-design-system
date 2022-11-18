@@ -8,7 +8,7 @@ import { PageHeaderContentRegions } from '.';
 // to fit correctly on the page. Even though it is using the correct breakpoints
 // our anatomy are only taking up half the space on the page so layout different than
 // a PageHeader on a full page.
-const PageHeaderSiteTheme = {
+const pageHeaderSiteTheme = {
   pageHeader: {
     large: {
       columns: [['small', 'flex'], 'auto'],
