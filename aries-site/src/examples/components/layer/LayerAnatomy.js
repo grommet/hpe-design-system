@@ -11,8 +11,8 @@ const connections = [
   connection('3', 'layer-footer'),
   connection('pad', 'layer-container', 'vertical'),
   connection('elevation', 'layer-container', 'vertical'),
-  connection('gap', 'layer-gap'),
-  connection('gap', 'first-gap'),
+  connection('gap', 'layer-gap', 'horizontal', 'rectilinear'),
+  connection('gap', 'first-gap', 'horizontal', 'rectilinear'),
   connection('round', 'bottom-pad'),
 ];
 
