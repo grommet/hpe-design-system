@@ -1,5 +1,5 @@
 import { Button, Notification } from 'grommet';
-import { Example } from '../../../layouts';
+import { Example, StyleTable } from '../../../layouts';
 import {
   LayerAnatomy,
   LayerExample,
@@ -42,6 +42,31 @@ A layer contains three main content regions:
    - **b. Subtitle** (optional): Any additional context or information about the layer.
 1. **Body** (optional): Any additional content.
 1. **Footer** (optional) - This region contains layer actions. The ordering and aligment of footer actions depends on the type of layer. See guidance on [types of layers](#types-of-layers) for details.
+
+<StyleTable
+  data={[
+    {
+      label: 4,
+      property: 'pad',
+      value: 'medium',
+    },
+    {
+      label: 5,
+      property: 'gap',
+      value: 'medium',
+    },
+    {
+      label: 6,
+      property: 'round',
+      value: 'small',
+    },
+    {
+      label: 7,
+      property: 'elevation',
+      value: 'large',
+    },
+  ]}
+/>
 
 ## Types of layers
 
@@ -92,8 +117,6 @@ Do not include an "X" button in the header to avoid confusion of how the user sh
 | Key | Interaction                                                                                                                                                                                         |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Esc | Close the layer and return focus to the element on the page the originally opened the layer. If the user has input any data into the layer, provide a double confirmation before closing the layer. |
-
-[ ADD EXAMPLE ?? ]
 
 ## Accessibility
 

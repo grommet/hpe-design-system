@@ -94,6 +94,7 @@ const Type = ({ children, description, href, preview, title }) => (
 );
 
 Type.propTypes = {
+  children: PropTypes.element,
   preview: PropTypes.element,
   title: PropTypes.string,
   description: PropTypes.string,
