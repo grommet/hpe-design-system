@@ -7949,7 +7949,7 @@ grommet-styles@^0.2.0:
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable#08d34a79153ab871974a920120071a1e991145ab"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable#2f93e05a89d20a0f92c534db7d2f5d107b24880f"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.27.0"
