@@ -5,7 +5,7 @@ export const groupActions = (actions, breakpoint, bestPractice) => {
   if (breakpoint === 'medium') {
     collapsedActions = actions.filter(action => !action.primary);
     displayedActions = actions.filter(action => action.primary);
-    // only leave primary and secondary visable
+    // only leave primary and secondary visible
   } else if (breakpoint === 'large') {
     collapsedActions = actions.filter(action => !action.primary);
     displayedActions = actions.filter(
