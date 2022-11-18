@@ -43,15 +43,6 @@ A layer contains three main content regions:
 1. **Body** (optional): Any additional content.
 1. **Footer** (optional) - This region contains layer actions. The ordering and aligment of footer actions depends on the type of layer. See guidance on [types of layers](#types-of-layers) for details.
 
-### Container styles
-
-| Style     | T-shirt size | px  |
-| --------- | ------------ | --- |
-| pad       | medium       | 24  |
-| gap       | medium       | 24  |
-| elevation | large        | --  |
-| round     | small        | 12  |
-
 ## Types of layers
 
 Different use cases and content warrant different layer types. Learn more about each type below.
@@ -108,11 +99,13 @@ Do not include an "X" button in the header to avoid confusion of how the user sh
 
 ### Layer titles
 
-Layer headings should be semantically correct. Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`. All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+- Layer headings should be semantically correct.
+- Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`.
+- All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
 
 ### Close button
 
-When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. This close button should also be given an `a11yTitle` that provides the user with context that they are in a Layer.
+When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. Give the close button an `a11yTitle` that provides the user with context that they are in a Layer.
 
 For example, implementation of this "Close" button for a Layer would be:
 

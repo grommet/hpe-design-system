@@ -10,7 +10,7 @@ export const Annotation = ({ id, kind, target, ...rest }) => {
     <Box
       id={id}
       align="center"
-      background={kind === 'style' ? { color: 'orange' } : 'background-front'}
+      background={kind === 'style' ? { color: 'purple!' } : 'background-front'}
       border={{ color: 'border-weak' }}
       height={theme.global.edgeSize.medium}
       justify="center"
