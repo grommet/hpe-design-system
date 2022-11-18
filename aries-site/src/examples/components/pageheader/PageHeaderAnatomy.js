@@ -94,7 +94,7 @@ export const PageHeaderAnatomy = ({ background }) => {
         <Annotation id="1a" target="1a" gridArea="annotation-1a" />
         <Annotation id="1b" target="1b" gridArea="annotation-1b" />
         <Annotation id={3} target="3" gridArea="annotation-3" />
-        <ThemeContext.Extend value={PageHeaderSiteTheme}>
+        <ThemeContext.Extend value={pageHeaderSiteTheme}>
         <PageHeaderContentRegions
           gridArea="pageheader"
           background={background}
