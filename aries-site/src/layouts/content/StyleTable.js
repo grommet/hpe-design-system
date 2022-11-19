@@ -26,7 +26,6 @@ export const StyleTable = ({ data }) => {
       elevation="none"
       pad={{ top: 'small', horizontal: 'medium', bottom: 'medium' }}
       width="medium"
-      round="xsmall"
     >
       {/* style tag is necessary in order for table not 
     to exceed container width */}
