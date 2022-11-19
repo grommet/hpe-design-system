@@ -35,13 +35,13 @@ Basic anatomy and spacing that applies to all layer types.
   <LayerAnatomy />
 </Example>
 
-A layer contains three main content regions:
-
-1. **Header** (required): This region identifies the layer.
-   - **a. Title** (required): A short, descriptive title identifying the layer, implemented as a Heading level 2.
-   - **b. Subtitle** (optional): Any additional context or information about the layer.
-1. **Body** (optional): Any additional content.
-1. **Footer** (optional) - This region contains layer actions. The ordering and aligment of footer actions depends on the type of layer. See guidance on [types of layers](#types-of-layers) for details.
+| Label  | Region       | Required? | Purpose                                                | Notes                                                                     |
+| ------ | ------------ | --------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
+| **1**  | **Header**   | required  | Identifies the layer.                                  | --                                                                        |
+| **1a** | **Title**    | required  | A short, descriptive title identifying the layer.      | Implemented as a Heading level 2, size="small".                           |
+| **1b** | **Subtitle** | optional  | Any additional context or information about the layer. | --                                                                        |
+| **2**  | **Body**     | optional  | Any additional content.                                | --                                                                        |
+| **3**  | **Footer**   | optional  | Contains layer actions.                                | The ordering and aligment of footer actions depends on the type of layer. |
 
 <StyleTable
   data={[

@@ -15,8 +15,12 @@ This diagram highlights details specific to side drawer layers. See [general lay
   <SideDrawerLayerAnatomy />
 </Example>
 
-1.  **Close button** (only on layers with no footer actions): A button to close the layer.
-1.  **Footer actions**: The actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. See [layer closing behavior](/components/layer#actionable) for details.
+| Label | Region             | Required?                                  | Purpose                                                           | Notes                                                                                                                             |
+| ----- | ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**   | Required on layers with no footer actions. | Closes the layer.                                                 | --                                                                                                                                |
+| **2** | **Footer actions** | Required on actionable layers.             | Provides actions for user to accept layer consequences or cancel. | The actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. |
+
+See [layer closing behavior](/components/layer#actionable) for details.
 
 <Notification
   status="info"
