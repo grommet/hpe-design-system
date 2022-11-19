@@ -16,7 +16,7 @@ import { ActionMenu, ReverseAnchor } from '../../templates';
 // to fit their container page. Even though it is using the correct breakpoints
 // our examples are only taking up half the space on the page so layout different than
 // a PageHeader on a full page.
-const PageHeaderSiteTheme = {
+const pageHeaderSiteTheme = {
   pageHeader: {
     medium: {
       columns: [['small', 'flex'], 'auto'],
@@ -83,7 +83,7 @@ export const PageHeaderResponsiveActions = ({
 }) => (
   <Page>
     <PageContent>
-      <ThemeContext.Extend value={PageHeaderSiteTheme}>
+      <ThemeContext.Extend value={pageHeaderSiteTheme}>
         <PageHeader
           title="L2Pod-FTC02 Device"
           subtitle="View and edit details about this device."
