@@ -20,13 +20,18 @@ export const DocsPageHeader = ({ title, topic, render }) => {
       parent={
         page.parentPage ? (
           <Link href={nameToPath(page.parentPage)} passHref>
-            <Anchor label={parent.name} icon={<FormPrevious />} />
+            <Anchor
+              label={parent.name}
+              icon={<FormPrevious />}
+              color="text-strong"
+            />
           </Link>
         ) : (
           <Link href={`/${topic.toLowerCase()}`} passHref>
             <Anchor
               icon={parent.icon('small', parent.color)}
               label={parent.name}
+              color="text-strong"
             />
           </Link>
         )

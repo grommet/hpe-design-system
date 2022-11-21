@@ -83,6 +83,7 @@ export const components = {
       fill="horizontal"
     />
   ),
+  strong: props => <strong {...props} style={{ fontWeight: 500 }} />,
   table: props => (
     <Box align="start" width={{ max: 'xlarge' }}>
       <Box

@@ -8,6 +8,7 @@ export const ReverseAnchor = ({ label, href, onClick, ...rest }) => (
     label={label}
     href={href || '#'} // placeholder href to ensure it appears in tab flow
     onClick={onClick}
+    color="text-strong"
     {...rest}
   />
 );
