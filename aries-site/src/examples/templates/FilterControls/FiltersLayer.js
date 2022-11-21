@@ -86,7 +86,7 @@ export const FiltersLayer = () => {
             primary
           />
           <Button
-            label="Reset filters"
+            label="Reset"
             onClick={() => {
               const nextFilters = {};
               /* Remove all filters, but do not apply until "Apply filters" 
