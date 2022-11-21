@@ -35,6 +35,7 @@ export const components = {
       width="large"
       round="xsmall"
       pad="medium"
+      overflow="auto"
       {...props}
     />
   ),
@@ -84,7 +85,12 @@ export const components = {
     />
   ),
   table: props => (
-    <Box align="start" width={{ max: 'xlarge' }} margin={{ bottom: 'medium' }}>
+    <Box
+      align="start"
+      width={{ max: 'xlarge' }}
+      margin={{ bottom: 'medium' }}
+      overflow="auto"
+    >
       <Box background="background-front" pad="medium" round="small">
         <Table {...props} />
       </Box>

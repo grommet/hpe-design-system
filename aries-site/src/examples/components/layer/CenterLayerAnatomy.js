@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Button, Diagram, Grid, Stack } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Button, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils/utils';
 import { LayerHeader } from './components/LayerHeader';
@@ -10,41 +10,48 @@ const connections = [
   connection('2', 'layer-actions'),
 ];
 
-export const CenterLayerAnatomy = () => (
-  <Stack interactiveChild="first">
-    <Grid
-      align="center"
-      columns={['medium', 'flex']}
-      rows={['24px', '37px', '48px', '24px', 'small', '24px', '36px', '24px']}
-      areas={[
-        ['layer', 'empty-1'],
-        ['layer', 'annotation-1'],
-        ['layer', 'empty-2'],
-        ['layer', 'empty-2'],
-        ['layer', 'empty-2'],
-        ['layer', 'empty-2'],
-        ['layer', 'annotation-2'],
-        ['layer', 'empty-3'],
-      ]}
-      gap={{ column: 'medium' }}
-    >
-      <Annotation
-        alignSelf="center"
-        id="1"
-        target="1"
-        gridArea="annotation-1"
-      />
-      <Annotation
-        alignSelf="center"
-        id="2"
-        target="2"
-        gridArea="annotation-2"
-      />
-      <LayerContent gridArea="layer" />
-    </Grid>
-    <Diagram connections={connections} />
-  </Stack>
-);
+export const CenterLayerAnatomy = () => {
+  const breakpoint = useContext(ResponsiveContext);
+
+  return (
+    <Stack interactiveChild="first">
+      <Grid
+        align="center"
+        columns={[
+          ['xsmall', 'small'].includes(breakpoint) ? 'flex' : 'medium',
+          'auto',
+        ]}
+        rows={['24px', '37px', '48px', '24px', 'small', '24px', '36px', '24px']}
+        areas={[
+          ['layer', 'empty-1'],
+          ['layer', 'annotation-1'],
+          ['layer', 'empty-2'],
+          ['layer', 'empty-2'],
+          ['layer', 'empty-2'],
+          ['layer', 'empty-2'],
+          ['layer', 'annotation-2'],
+          ['layer', 'empty-3'],
+        ]}
+        gap={{ column: 'medium' }}
+      >
+        <Annotation
+          alignSelf="center"
+          id="1"
+          target="1"
+          gridArea="annotation-1"
+        />
+        <Annotation
+          alignSelf="center"
+          id="2"
+          target="2"
+          gridArea="annotation-2"
+        />
+        <LayerContent gridArea="layer" />
+      </Grid>
+      <Diagram connections={connections} />
+    </Stack>
+  );
+};
 
 const LayerContent = ({ ...rest }) => (
   <LayerContainer id="layer-container" {...rest}>

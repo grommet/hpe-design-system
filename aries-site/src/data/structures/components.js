@@ -831,14 +831,13 @@ export const components = [
     tags: [],
   },
   {
-    name: 'Sidedrawer Layer',
-    render: 'Side-drawer Layer',
+    name: 'Side Drawer Layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
-      'Side-drawer layers should be used for configuration of an object or filtering.',
+      'Side drawer layers should be used for configuration of an object or filtering.',
     seoDescription:
-      'Side-drawer layers should be used for configuration of an object or filtering.',
+      'Side drawer layers should be used for configuration of an object or filtering.',
     preview: {
       component: () => <LayerPreview />,
     },
