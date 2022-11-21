@@ -4,7 +4,7 @@ import { LayerHeader } from './components/LayerHeader';
 import { LayerContainer } from './components/LayerContainer';
 
 export const ActionableLayerClose = () => (
-  <LayerContainer margin={{ bottom: 'medium' }} gridArea="informational-layer">
+  <LayerContainer margin={{ bottom: 'medium' }} width={{ max: 'medium' }}>
     <LayerHeader />
     <Box
       height="small"

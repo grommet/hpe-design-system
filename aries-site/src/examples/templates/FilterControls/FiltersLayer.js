@@ -8,7 +8,6 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
 
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
@@ -39,7 +38,6 @@ export const FiltersLayer = () => {
       as="section"
       position={!['xsmall', 'small'].includes(size) ? 'right' : undefined}
       full={['xsmall', 'small'].includes(size) ? true : 'vertical'}
-      onClickOutside={() => closeLayer()}
       onEsc={() => closeLayer()}
       {...layerProps}
     >
@@ -56,7 +54,6 @@ export const FiltersLayer = () => {
           <Heading margin="none" level={2} size="small">
             Filters
           </Heading>
-          <Button icon={<FormClose />} onClick={() => closeLayer()} />
         </Header>
         <Box
           pad={{ horizontal: 'medium', bottom: 'medium' }}
@@ -98,6 +95,7 @@ export const FiltersLayer = () => {
             }}
             secondary
           />
+          <Button label="Cancel" onClick={() => closeLayer()} />
         </Footer>
       </Box>
     </Layer>
