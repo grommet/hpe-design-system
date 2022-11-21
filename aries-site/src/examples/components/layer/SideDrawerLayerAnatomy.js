@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Button,
@@ -8,6 +8,7 @@ import {
   Grid,
   Heading,
   Paragraph,
+  ResponsiveContext,
   Stack,
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
@@ -20,50 +21,55 @@ const connections = [
   connection('screen', 'layer-container'),
 ];
 
-export const SideDrawerLayerAnatomy = () => (
-  <Stack interactiveChild="first">
-    <Grid
-      align="center"
-      columns={['medium', 'auto']}
-      rows={['24px', '36px', '55px', '24px', 'small', '24px', '36px', '24px']}
-      areas={[
-        ['layer', 'empty-1'],
-        ['layer', 'annotation-1'],
-        ['layer', 'empty-2'],
-        ['layer', 'empty-2'],
-        ['layer', 'annotation-screen'],
-        ['layer', 'empty-3'],
-        ['layer', 'annotation-2'],
-        ['layer', 'empty-4'],
-      ]}
-      gap={{ column: 'medium' }}
-    >
-      <Annotation
-        alignSelf="center"
-        id="1"
-        target="1"
-        gridArea="annotation-1"
-      />
-      <Annotation
-        alignSelf="center"
-        id="2"
-        target="2"
-        gridArea="annotation-2"
-      />
-      <Annotation
-        alignSelf="center"
-        id="screen"
-        target="Right edge of window"
-        pad={{ horizontal: 'small' }}
-        background="background-contrast"
-        gridArea="annotation-screen"
-        width="fit-content"
-      />
-      <LayerContent gridArea="layer" />
-    </Grid>
-    <Diagram connections={connections} />
-  </Stack>
-);
+export const SideDrawerLayerAnatomy = () => {
+  const breakpoint = useContext(ResponsiveContext);
+
+  return (
+    <Stack interactiveChild="first">
+      <Grid
+        align="center"
+        columns={[
+          ['xsmall', 'small'].includes(breakpoint) ? 'flex' : 'medium',
+          'auto',
+        ]}
+        rows={['24px', '36px', '48px', '24px', 'small', '24px', '36px', '24px']}
+        areas={[
+          ['layer', 'empty-1'],
+          ['layer', 'annotation-1'],
+          ['layer', 'empty-2'],
+          ['layer', 'empty-2'],
+          ['layer', 'annotation-screen'],
+          ['layer', 'empty-3'],
+          ['layer', 'annotation-2'],
+          ['layer', 'empty-4'],
+        ]}
+        gap={{ column: 'medium' }}
+      >
+        <Annotation
+          alignSelf="center"
+          id="1"
+          target="1"
+          gridArea="annotation-1"
+        />
+        <Annotation
+          alignSelf="center"
+          id="2"
+          target="2"
+          gridArea="annotation-2"
+        />
+        <Annotation
+          alignSelf="center"
+          id="screen"
+          target="3"
+          pad={{ horizontal: 'small' }}
+          gridArea="annotation-screen"
+        />
+        <LayerContent gridArea="layer" />
+      </Grid>
+      <Diagram connections={connections} />
+    </Stack>
+  );
+};
 
 const LayerContent = ({ ...rest }) => (
   <Card
@@ -78,7 +84,7 @@ const LayerContent = ({ ...rest }) => (
   >
     <CardBody gap="medium">
       <Box direction="row" align="start" gap="small" flex={false}>
-        <Box gap="xsmall">
+        <Box>
           <Heading level={2} margin="none" size="small">
             Layer title
           </Heading>

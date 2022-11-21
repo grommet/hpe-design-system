@@ -8,7 +8,6 @@ export const LayerContainer = ({ ...rest }) => (
     gap="medium"
     pad="medium"
     round="small"
-    width="medium"
     {...rest}
   />
 );

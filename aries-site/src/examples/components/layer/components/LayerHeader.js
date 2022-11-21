@@ -4,7 +4,14 @@ import { Box, Button, Heading, Paragraph } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const LayerHeader = ({ informational, ...rest }) => (
-  <Box flex={false} align="start" direction="row" gap="small" {...rest}>
+  <Box
+    flex={false}
+    align="start"
+    direction="row"
+    gap="small"
+    justify="between"
+    {...rest}
+  >
     <Box>
       <Heading id="layer-title" level={2} margin="none" size="small">
         Layer title

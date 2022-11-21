@@ -1,1 +1,45 @@
-docs tbd.
+import { Notification } from 'grommet';
+import { Example } from '../../../layouts';
+import { FullscreenLayerAnatomy } from '../../../examples';
+
+## Anatomy
+
+This diagram highlights details specific to fullscreen layers. See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
+
+Fullscreen layers cover the entire page. Therefore, there is no rounding or elevation visible.
+
+<Example plain>
+  <FullscreenLayerAnatomy />
+</Example>
+
+| Label | Region             | Required?                                  | Purpose                                                           | Notes                                                                                                                               |
+| ----- | ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**   | Required on layers with no footer actions. | Closes the layer.                                                 | Use "FormClose" icon.                                                                                                               |
+| **2** | **Footer actions** | Required on actionable layers.             | Provides actions for user to accept layer consequences or cancel. | The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. |
+
+See [layer closing behavior](/components/layer#actionable) for details.
+
+<Notification
+  status="info"
+  message="A layer should either have actions in the footer or a close button in the header, not both."
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
+
+### Grommet properties
+
+Apply these [layer properties](https://v2.grommet.io/layer) for a fullscreen layer.
+
+| Property | Value |
+| -------- | ----- |
+| full     | true  |
+
+## Examples
+
+### Lengthy configuration form
+
+Coming soon.
+
+### Wizard
+
+A wizard is a specialized fullscreen layer where a task flow is divided into multiple steps. See [wizard guidance](/templates/wizard) for examples and details.

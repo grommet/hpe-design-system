@@ -31,29 +31,29 @@ export const LayerTypes = () => {
         content that the should appear front and center to the user.`}
         href="/components/layer/center-layer"
       >
-        <Paragraph>Use cases include: confirmations, </Paragraph>
+        <Paragraph>Use cases include: confirmations. </Paragraph>
       </Type>
       <Type
-        title="Side-drawer"
+        title="Side drawer"
         description={`Use for manipulating data on a page or presenting 
         additional information without navigating the user away from their 
         current context.`}
-        href="/components/layer/sidedrawer-layer"
+        href="/components/layer/side-drawer-layer"
       >
         <Paragraph>
           Use cases include: filtering, edit object, configure flows.
         </Paragraph>
       </Type>
       <Type
-        title="Full screen"
+        title="Fullscreen"
         description={`Use when the layer content is dimensionally large or 
         when it is an involved task flow.`}
         href="/components/layer/fullscreen-layer"
       >
         <Paragraph>
-          Use cases include: 1) creating/editing an object with a lot of
-          attributes, 2) progressive forms revealing inputs based on preceding
-          values
+          Use cases include: creating/editing an object with a lot of
+          attributes, progressive forms revealing inputs based on preceding
+          values.
         </Paragraph>
       </Type>
     </Grid>
