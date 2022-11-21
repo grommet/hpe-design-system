@@ -83,7 +83,7 @@ ConfigurationForm.propTypes = {
   containerRef: PropTypes.object,
 };
 
-const LayerForm = ({ setOpen }) => (
+export const LayerForm = ({ setOpen }) => (
   <Form
     id="application-form"
     onSubmit={event => {
