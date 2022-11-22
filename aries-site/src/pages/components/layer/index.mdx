@@ -1,7 +1,8 @@
 import { Button, Notification } from 'grommet';
 import { FormNext } from 'grommet-icons';
-import { Example, StyleTable } from '../../../layouts';
+import { BestPracticeGroup, Example, StyleTable } from '../../../layouts';
 import {
+  ActionLabels,
   LayerAnatomy,
   LayerExample,
   LayerCenterExample,
@@ -120,15 +121,42 @@ Do not include an "X" button in the header to avoid confusion of how the user sh
 
 ## Action label conventions
 
-If a layer contains footer actions, the primary action should be labeled using verb + noun format (e.g., "Apply filters").
+If a layer contains footer actions:
+
+- The primary action should be labeled using verb + noun format (e.g., "Apply filters").
+- The primary action verb should align with the layer title.
 
 The noun may be omitted from actions labels beyond the primary action if the action is clear and unambiguous (e.g. "Reset" instead of "Reset filters").
 
-When in doubt, follow the verb + noun convention to ensure clarity.
+When in doubt, follow the verb + noun convention to ensure clarity. See [button labeling guidance](/components/button#button-labeling) for more details.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'When secondary actions are clear and unambiguous, you can omit the noun. In this case, "filters" is not repeated for the reset action.',
+    }}
+    width="100%"
+  >
+    <ActionLabels />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t remove the noun from the primary action as this can cause ambiguity about what the actions refer to.`,
+    }}
+    width="100%"
+  >
+    <ActionLabels bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
 
 ## Overflow behavior
 
-If a layer contains filters, the footer actions should be persistent and sticky at the bottom of the layer.
+If a layer contains filters, the footer actions should be persistent and sticky at the bottom of the layer so that the user always has access to apply, reset, or cancel out of the filter view and return to the data set.
 
 If the layer contains a form, the footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.
 

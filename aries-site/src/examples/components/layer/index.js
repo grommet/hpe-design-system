@@ -1,4 +1,6 @@
+export * from './ActionLabels';
 export * from './ActionableLayerClose';
+export * from './CenterInformational';
 export * from './CenterLayerAnatomy';
 export * from './ConfigurationForm';
 export * from './FullscreenLayerAnatomy';
