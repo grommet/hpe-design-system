@@ -12,7 +12,7 @@ export const TrialPromotionColorCard = () => (
     actions={
       <Button
         label="Take a test drive"
-        primary
+        kind="cta-primary"
         // tabIndex is -1 because the entire card is clickable
         tabIndex={-1}
       />

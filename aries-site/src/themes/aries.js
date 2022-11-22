@@ -3,7 +3,7 @@ import { deepMerge } from 'grommet/utils';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  // To be stripped out once theme changes are made in grommet-theme-hpe.
+  // To be stripped out once theme changes are made in grommet-theme-hpe
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   feedback: {
