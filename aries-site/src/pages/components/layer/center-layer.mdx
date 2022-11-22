@@ -4,18 +4,18 @@ import { CenterLayerAnatomy, ContentDrivenLayout } from '../../../examples';
 
 ## Anatomy
 
-This diagram highlights details specific to center layers. See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
+This diagram highlights details specific to center layers. See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
 
 <Example plain>
   <CenterLayerAnatomy />
 </Example>
 
-| Label | Region             | Required?                                  | Purpose                                                           | Notes                                                                                                                               |
-| ----- | ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**   | Required on layers with no footer actions. | Closes the layer.                                                 | Use "FormClose" icon.                                                                                                               |
-| **2** | **Footer actions** | Required on actionable layers.             | Provides actions for user to accept layer consequences or cancel. | The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. |
+| Label | Region             | Required?                                  | Purpose                                                          | Notes                                                                                                                                                                                                                                |
+| ----- | ------------------ | ------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | **Close button**   | Required on layers with no footer actions. | Closes the layer.                                                | Use "FormClose" icon.                                                                                                                                                                                                                |
+| **2** | **Footer actions** | Required on actionable layers.             | Allows the user to confirm, apply, or cancel the layer's action. | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
 
-See [layer closing behavior](/components/layer#actionable) for details.
+See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
 
 <Notification
   status="info"
@@ -28,7 +28,30 @@ See [layer closing behavior](/components/layer#actionable) for details.
 
 ### Destructive confirmation
 
+<Notification
+  status="info"
+  message="Additional destructive confirmation patterns differing based off of level of severity are coming soon."
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
+
 For highly destructive actions, have the user type a string that matches the name or path of the object to be deleted. This approach ensures the user is aware of the consequences of the action.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/content-layouts/ContentDrivenLayout.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ModalDialog/ModalDialog.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/content-layouts/ContentDrivenLayout.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
+
+### Confirming next steps
 
 <Example
   code={[
