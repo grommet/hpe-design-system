@@ -828,7 +828,7 @@ export const components = [
     },
     relatedContent: ['Forms', 'Filtering'],
     sections: [],
-    tags: [],
+    tags: ['modal', 'center modal', 'confirmation dialogue', 'confirmation layer', 'confirmation modal'],
   },
   {
     name: 'Side Drawer Layer',
