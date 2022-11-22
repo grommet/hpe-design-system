@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button, Heading } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
 import { Card } from '../../templates';
 
 export const FeaturePromotionCard = () => (
@@ -26,8 +25,7 @@ export const FeaturePromotionCard = () => (
     actions={
       <Button
         label="Launch demo"
-        icon={<FormNextLink />}
-        primary
+        kind="cta-primary"
         reverse
         // tabIndex is -1 because the entire card is clickable
         tabIndex={-1}

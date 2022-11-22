@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button, Image } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
 import { Card } from '../../templates';
 import { event } from './data';
 
@@ -29,8 +28,7 @@ export const EventPromotionRowCard = () => {
       actions={
         <Button
           label="Register now"
-          icon={<FormNextLink />}
-          primary
+          kind="cta-primary"
           reverse
           // tabIndex is -1 because the entire card is clickable
           tabIndex={-1}
