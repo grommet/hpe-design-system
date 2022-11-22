@@ -4,6 +4,7 @@ import { Card } from '../../templates';
 
 export const FeaturePromotionCard = () => (
   <Card
+    background="white"
     pretitle="Feature update"
     title={
       <Box
