@@ -41,7 +41,7 @@ export const LayerTypes = () => {
         href="/components/layer/side-drawer-layer"
       >
         <Paragraph>
-          Use cases include: filtering, edit object, configure flows.
+          Use cases include: filtering, editing objects, configuration flows.
         </Paragraph>
       </Type>
       <Type
