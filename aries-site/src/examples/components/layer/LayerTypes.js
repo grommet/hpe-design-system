@@ -28,7 +28,7 @@ export const LayerTypes = () => {
       <Type
         title="Center"
         description={`Use for concise task-flow oriented or informational 
-        content that the should appear front and center to the user.`}
+        content that should appear front and center to the user.`}
         href="/components/layer/center-layer"
       >
         <Paragraph>Use cases include: confirmations. </Paragraph>

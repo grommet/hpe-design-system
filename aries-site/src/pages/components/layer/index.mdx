@@ -1,4 +1,5 @@
 import { Button, Notification } from 'grommet';
+import { FormNext } from 'grommet-icons';
 import { Example, StyleTable } from '../../../layouts';
 import {
   LayerAnatomy,
@@ -35,13 +36,13 @@ Basic anatomy and spacing that applies to all layer types.
   <LayerAnatomy />
 </Example>
 
-| Label  | Region       | Required? | Purpose                                                | Notes                                                                     |
-| ------ | ------------ | --------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
-| **1**  | **Header**   | required  | Identifies the layer.                                  | --                                                                        |
-| **1a** | **Title**    | required  | A short, descriptive title identifying the layer.      | Implemented as a Heading level 2, size="small".                           |
-| **1b** | **Subtitle** | optional  | Any additional context or information about the layer. | --                                                                        |
-| **2**  | **Body**     | optional  | Any additional content.                                | --                                                                        |
-| **3**  | **Footer**   | optional  | Contains layer actions.                                | The ordering and aligment of footer actions depends on the type of layer. |
+| Label  | Region       | Purpose                                                | Required? | Notes                                                                      |
+| ------ | ------------ | ------------------------------------------------------ | --------- | -------------------------------------------------------------------------- |
+| **1**  | **Header**   | Identifies the layer.                                  | required  | --                                                                         |
+| **1a** | **Title**    | A short, descriptive title identifying the layer.      | required  | Implemented as a Heading level 2, size="small".                            |
+| **1b** | **Subtitle** | Any additional context or information about the layer. | optional  | --                                                                         |
+| **2**  | **Body**     | Any additional content.                                | optional  | --                                                                         |
+| **3**  | **Footer**   | Contains layer actions.                                | optional  | The ordering and alignment of footer actions depends on the type of layer. |
 
 <StyleTable
   data={[
@@ -76,11 +77,9 @@ Different use cases and content warrant different layer types. Learn more about 
 
 ## Layer closing behavior
 
-### Mouse
-
 The closing behavior and anatomy of a layer will differ depending on if the layer is informational or actionable.
 
-#### Informational
+### Informational
 
 For informational layers that do not require any user actions, place a close button in the layer header.
 
@@ -89,9 +88,9 @@ For informational layers that do not require any user actions, place a close but
 </Example>
 
 - The "X" button should close the layer.
-- The user can also click outside of the layer to close it.
+- A user may also click outside of the layer or use the Escape key to close it. To implement, use `onClickOutside` and `onEsc` on Layer.
 
-#### Actionable
+### Actionable
 
 For actionable layers that require user actions, place a "Cancel" action alongside the other footer actions. In some cases, a label other than "Cancel" may be appropriate.
 
@@ -102,21 +101,22 @@ Do not include an "X" button in the header to avoid confusion of how the user sh
 </Example>
 
 - The "Cancel" button should reject any changes and close the layer.
-- To prevent the user from losing progress due to accidentally misclicking outside of a layer, they should not be able to click outside of the layer to close it.
+  To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
 
 <Notification
   status="info"
   message="The ordering and alignment of footer actions depends on the type of layer. See anatomy diagrams for specific layer types for details."
-  actions={[{ label: 'See layer types', href: '#types-of-layers' }]}
+  actions={[
+    {
+      label: 'See layer types',
+      icon: <FormNext />,
+      href: '#types-of-layers',
+      reverse: true,
+    },
+  ]}
   width="large"
   margin={{ bottom: 'medium' }}
 />
-
-### Keyboard
-
-| Key | Interaction                                                                                                                                                                                         |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Esc | Close the layer and return focus to the element on the page the originally opened the layer. If the user has input any data into the layer, provide a double confirmation before closing the layer. |
 
 ## Action label conventions
 

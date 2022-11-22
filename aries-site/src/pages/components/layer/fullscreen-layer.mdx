@@ -4,20 +4,20 @@ import { FullscreenLayerAnatomy } from '../../../examples';
 
 ## Anatomy
 
-This diagram highlights details specific to fullscreen layers. See [general layer anatomy](/components/layer#anatomy) for specs that apply to all layers.
+This diagram highlights details specific to fullscreen layers. See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
 
-Fullscreen layers cover the entire page. Therefore, there is no rounding or elevation visible.
+Fullscreen layers fill the entire page. Therefore, there is no rounding or elevation visible.
 
 <Example plain>
   <FullscreenLayerAnatomy />
 </Example>
 
-| Label | Region             | Required?                                  | Purpose                                                           | Notes                                                                                                                               |
-| ----- | ------------------ | ------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**   | Required on layers with no footer actions. | Closes the layer.                                                 | Use "FormClose" icon.                                                                                                               |
-| **2** | **Footer actions** | Required on actionable layers.             | Provides actions for user to accept layer consequences or cancel. | The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. |
+| Label | Region             | Purpose                                                           | Required?                                  | Notes                                                                                                                               |
+| ----- | ------------------ | ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**   | Closes the layer.                                                 | Required on layers with no footer actions. | Use "FormClose" icon.                                                                                                               |
+| **2** | **Footer actions** | Provides actions for user to accept layer consequences or cancel. | Required on actionable layers.             | The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. |
 
-See [layer closing behavior](/components/layer#actionable) for details.
+See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
 
 <Notification
   status="info"
@@ -30,9 +30,9 @@ See [layer closing behavior](/components/layer#actionable) for details.
 
 Apply these [layer properties](https://v2.grommet.io/layer) for a fullscreen layer.
 
-| Property | Value |
-| -------- | ----- |
-| full     | true  |
+| Property                                 | Value |
+| ---------------------------------------- | ----- |
+| [full](https://v2.grommet.io/layer#full) | true  |
 
 ## Examples
 
