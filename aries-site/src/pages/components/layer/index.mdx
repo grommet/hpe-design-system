@@ -102,7 +102,7 @@ Do not include an "X" button in the header to avoid confusion of how the user sh
 </Example>
 
 - The "Cancel" button should reject any changes and close the layer.
-- To prevent the user from losing progress due to accidentally misclicking outside of a layer, they should not be able to click outside of the layer to close it.
+- To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
 
 <Notification
   status="info"
