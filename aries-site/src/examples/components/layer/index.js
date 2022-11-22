@@ -1,4 +1,5 @@
 export * from './ActionLabels';
+export * from './ActionLabelTitle';
 export * from './ActionableLayerClose';
 export * from './CenterInformational';
 export * from './CenterLayerAnatomy';
