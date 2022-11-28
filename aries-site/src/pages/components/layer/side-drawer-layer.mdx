@@ -10,26 +10,7 @@ import {
 
 ## Anatomy
 
-This diagram highlights details specific to side drawer layers. See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
-
-<Example plain>
-  <SideDrawerLayerAnatomy />
-</Example>
-
-| Label | Region                   | Purpose                                                           | Required?                                  | Notes                                                                                                                             |
-| ----- | ------------------------ | ----------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**         | Closes the layer.                                                 | Required on layers with no footer actions. | --                                                                                                                                |
-| **2** | **Footer actions**       | Provides actions for user to accept layer consequences or cancel. | Required on actionable layers.             | The actions should be left-aligned with primary action on the left. One action should be a "Cancel" button that closes the layer. |
-| **3** | **Right edge of window** | --                                                                | --                                         | The layer should be anchored to the right edge of the window and fill the height.                                                 |
-
-See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
-
-<Notification
-  status="info"
-  message="A layer should either have actions in the footer or a close button in the header, not both."
-  width="large"
-  margin={{ bottom: 'medium' }}
-/>
+See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
 
 ### Grommet properties
 
@@ -39,6 +20,37 @@ Apply these [layer properties](https://v2.grommet.io/layer#props) for a side dra
 | ------------------------------------------------ | -------- |
 | [position](https://v2.grommet.io/layer#position) | right    |
 | [full](https://v2.grommet.io/layer#full)         | vertical |
+
+## Layer closing behavior
+
+### Informational
+
+For informational side drawer layers that do not require any user actions, place a close button in the layer header.
+
+<Example plain>
+  <SideDrawerLayerAnatomy informational />
+</Example>
+
+| Label | Region           | Purpose           | Required? | Notes                 |
+| ----- | ---------------- | ----------------- | --------- | --------------------- |
+| **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
+
+The user should be able to dismiss the informational layer by clicking outside, `onClickOutside`, or using the Escape key, `onEsc`.
+
+### Actionable
+
+<Example plain>
+  <SideDrawerLayerAnatomy />
+</Example>
+
+| Label | Region            | Purpose                                                           | Required? | Notes                                                                                                                                                      |
+| ----- | ----------------- | ----------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer.                                                 | required  | In cases where the layer content overflows, this allows the user to efficiently exit the layer using the close button in the header. Use "FormClose" icon. |
+| **2** | **Cancel button** | Allows the user to cancel the layer's action and close the layer. | required  | --                                                                                                                                                         |
+
+When the close button or cancel button are clicked, ensure the correct [confirmation type](/components/layer#avoid-losing-users-work) appears for the user before closing.
+
+To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
 
 ## Header behavior
 

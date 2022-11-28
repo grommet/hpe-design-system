@@ -1,18 +1,22 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils/utils';
 import { LayerHeader } from './components/LayerHeader';
 import { LayerContainer } from './components/LayerContainer';
 
-const connections = [
-  connection('1', 'layer-close-button'),
-  connection('2', 'layer-actions'),
-];
-
-export const CenterLayerAnatomy = () => {
+export const CenterLayerAnatomy = ({ informational }) => {
   const breakpoint = useContext(ResponsiveContext);
+  const id = informational ? 'info-annotation' : 'action-annnotation';
+  const connections = [
+    connection(id, informational ? 'layer-close-button' : 'layer-actions'),
+  ];
 
+  let rows = ['24px', '37px', '24px', '24px', 'small', '24px'];
+  if (!informational) {
+    rows = [...rows, '36px', '24px'];
+  }
   return (
     <Stack interactiveChild="first">
       <Grid
@@ -21,41 +25,39 @@ export const CenterLayerAnatomy = () => {
           ['xsmall', 'small'].includes(breakpoint) ? 'flex' : 'medium',
           'auto',
         ]}
-        rows={['24px', '37px', '48px', '24px', 'small', '24px', '36px', '24px']}
+        rows={rows}
         areas={[
           ['layer', 'empty-1'],
-          ['layer', 'annotation-1'],
+          ['layer', 'annotation-close'],
           ['layer', 'empty-2'],
           ['layer', 'empty-2'],
           ['layer', 'empty-2'],
           ['layer', 'empty-2'],
-          ['layer', 'annotation-2'],
+          ['layer', 'annotation-actions'],
           ['layer', 'empty-3'],
         ]}
         gap={{ column: 'medium' }}
       >
         <Annotation
           alignSelf="center"
-          id="1"
+          id={id}
           target="1"
-          gridArea="annotation-1"
+          gridArea={informational ? 'annotation-close' : 'annotation-actions'}
         />
-        <Annotation
-          alignSelf="center"
-          id="2"
-          target="2"
-          gridArea="annotation-2"
-        />
-        <LayerContent gridArea="layer" />
+        <LayerContent gridArea="layer" informational={informational} />
       </Grid>
       <Diagram connections={connections} />
     </Stack>
   );
 };
 
-const LayerContent = ({ ...rest }) => (
-  <LayerContainer id="layer-container" {...rest}>
-    <LayerHeader informational />
+CenterLayerAnatomy.propTypes = {
+  informational: PropTypes.bool,
+};
+
+const LayerContent = ({ informational, ...rest }) => (
+  <LayerContainer {...rest}>
+    <LayerHeader informational={informational} />
     <Box
       border={{ style: 'dashed' }}
       height="small"
@@ -64,9 +66,15 @@ const LayerContent = ({ ...rest }) => (
     >
       Layer body content goes here.
     </Box>
-    <Box direction="row" gap="small" justify="end" flex={false}>
-      <Button label="Cancel" />
-      <Button label="Confirm action" primary id="layer-actions" />
-    </Box>
+    {!informational ? (
+      <Box direction="row" gap="small" justify="end" flex={false}>
+        <Button label="Cancel" />
+        <Button label="Confirm action" primary id="layer-actions" />
+      </Box>
+    ) : null}
   </LayerContainer>
 );
+
+LayerContent.propTypes = {
+  informational: PropTypes.bool,
+};

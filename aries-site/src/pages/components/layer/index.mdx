@@ -77,48 +77,17 @@ Different use cases and content warrant different layer types. Learn more about 
 
 <LayerTypes />
 
-## Layer closing behavior
+## Avoid losing user's work
 
-The closing behavior and anatomy of a layer will differ depending on if the layer is informational or actionable.
+When users are inputting or editing data in a layer, the design should always avoid losing user's work.
 
-### Informational
+While the anatomy and mechanisms to close a given layer differ depend on if it is a [center](/components/layer/center-layer#actionable), [side drawer](/components/layer/side-drawer-layer#actionable), or [fullscreen](/components/layer/fullscreen-layer#actionable) layer, the below criteria to determine the type of confirmation to provide before closing the layer are consistent across all layer types.
 
-For informational layers that do not require any user actions, place a close button in the layer header.
-
-<Example plain>
-  <InformationalLayerClose />
-</Example>
-
-- The "X" button should close the layer.
-- A user may also click outside of the layer or use the Escape key to close it. To implement, use `onClickOutside` and `onEsc` on Layer.
-
-### Actionable
-
-For actionable layers that require user actions, place a "Cancel" action alongside the other footer actions. In some cases, a label other than "Cancel" may be appropriate.
-
-Do not include an "X" button in the header to avoid confusion of how the user should close the layer.
-
-<Example plain>
-  <ActionableLayerClose />
-</Example>
-
-- The "Cancel" button should reject any changes and close the layer.
-  To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
-
-<Notification
-  status="info"
-  message="The ordering and alignment of footer actions depends on the type of layer. See anatomy diagrams for specific layer types for details."
-  actions={[
-    {
-      label: 'See layer types',
-      icon: <FormNext />,
-      href: '#types-of-layers',
-      reverse: true,
-    },
-  ]}
-  width="large"
-  margin={{ bottom: 'medium' }}
-/>
+| Interaction                                                                                     | Confirmation type       | Notes                                                                                            |
+| ----------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| User has not input any data.                                                                    | No confirmation         | The user will not lose anything if the layer closes immediately.                                 |
+| User has input data, but the data could be recovered or input again in a matter of minutes.     | [Double confirmation]() | --                                                                                               |
+| Losing this data will have critical impacts on the user's work and could be a liability to HPE. | [Triple confirmation]() | The user should actively acknowledge the consequences of closing the layer in its current state. |
 
 ## Modal vs. non-modal
 
