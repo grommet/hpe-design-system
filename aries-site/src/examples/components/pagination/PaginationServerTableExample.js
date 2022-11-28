@@ -68,7 +68,7 @@ export const PaginationServerTableExample = () => {
   const [limit, setLimit] = useState(10);
   const pageResultStart = (page - 1) * limit + 1;
   const pageResultEnd = Math.min(page * limit, numberItems);
-  const options = [10, 25, 50, 100];
+  const options = [5, 10, 25, 50];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -120,24 +120,28 @@ export const PaginationServerTableExample = () => {
           gap="small"
         >
           <Text>Show</Text>
-          <Select
-            value={limit}
-            options={options}
-            onChange={({ option }) => setLimit(option)}
-          />
+          <Box width="xsmall">
+            <Select
+              value={limit}
+              options={options}
+              onChange={({ option }) => setLimit(option)}
+            />
+          </Box>
           <Text>entries</Text>
         </Box>
       )}
       <Box>
-        <DataTable
-          aria-describedby="server-side-pagination-heading"
-          columns={columns}
-          data={data}
-          sort={{ ...sort, external: true }}
-          onSort={opts => setSort(opts)}
-          fill
-          gap="small"
-        />
+        <Box overflow="auto">
+          <DataTable
+            aria-describedby="server-side-pagination-heading"
+            columns={columns}
+            data={data}
+            sort={{ ...sort, external: true }}
+            onSort={opts => setSort(opts)}
+            fill
+            gap="small"
+          />
+        </Box>
 
         {numberItems > limit && (
           <Box
@@ -146,6 +150,7 @@ export const PaginationServerTableExample = () => {
             border="top"
             justify="end"
             pad={{ vertical: 'xsmall' }}
+            align="center"
           >
             <Text>
               Showing {pageResultStart}-{pageResultEnd} of {numberItems}
