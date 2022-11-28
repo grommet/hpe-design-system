@@ -8,25 +8,46 @@ import {
 
 ## Anatomy
 
-This diagram highlights details specific to center layers. See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
+See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
+
+## Layer closing behavior
+
+The closing behavior and anatomy of a center layer will differ depending on if the layer is informational or actionable.
+
+<Notification
+  status="info"
+  message="A center layer should either have actions in the footer or a close button in the header, not both."
+  width="large"
+  margin={{ bottom: 'medium' }}
+/>
+
+### Informational
+
+For informational layers that do not require any user actions, place a close button in the layer header.
+
+<Example plain>
+  <CenterLayerAnatomy informational />
+</Example>
+
+| Label | Region           | Purpose           | Required? | Notes                 |
+| ----- | ---------------- | ----------------- | --------- | --------------------- |
+| **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
+
+The user should be able to dismiss the informational layer by clicking outside, `onClickOutside`, or using the Escape key, `onEsc`.
+
+### Actionable
+
+For layers that require user actions, place a "Cancel" action alongside the other footer actions. In some cases, a label other than "Cancel" may be appropriate.
 
 <Example plain>
   <CenterLayerAnatomy />
 </Example>
 
-| Label | Region             | Purpose                                                          | Required?                                  | Notes                                                                                                                                                                                                                                |
-| ----- | ------------------ | ---------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **1** | **Close button**   | Closes the layer.                                                | Required on layers with no footer actions. | Use "FormClose" icon.                                                                                                                                                                                                                |
-| **2** | **Footer actions** | Allows the user to confirm, apply, or cancel the layer's action. | Required on actionable layers.             | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
+| Label | Region             | Purpose                                                          | Required? | Notes                                                                                                                                                                                                                                |
+| ----- | ------------------ | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | **Footer actions** | Allows the user to confirm, apply, or cancel the layer's action. | required  | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
 
-See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
-
-<Notification
-  status="info"
-  message="A layer should either have actions in the footer or a close button in the header, not both."
-  width="large"
-  margin={{ bottom: 'medium' }}
-/>
+To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
 
 ## Examples
 
