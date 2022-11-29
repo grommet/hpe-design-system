@@ -10,215 +10,94 @@ export const aries = deepMerge(hpe, {
     colors: {
       text: {
         dark: '#FFFFFFE6', // 90%
-        light: '#6F6F6F', // light: '#444444',
+        light: '#444444',
       },
       'text-strong': {
         dark: '#FFFFFFF5', // 96%
-        light: '#444444', // light: '#000000',
+        light: '#000000',
       },
       'text-weak': {
         dark: '#FFFFFF80', // 50%
-        // light value may need to be revisited
-        light: '#757575',
+        light: '#6F6F6F', // light: '#757575',
       },
       'text-xweak': {
+        // light value may need to be revisited to allow enough differentiation
+        // from 'text' / 'text-weak'
         dark: '#FFFFFF33', // 20%
-        // light value may need to be revisited
         light: '#BBBBBB',
       },
-      placeholder: 'text-weak',
-    },
-    font: {
-      family: "'Metric', Arial, sans-serif",
-      face: `
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');     
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSThin-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSThin-Regular.woff") format('woff');
-          font-weight: 100;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSLight-Regular.woff") format('woff');
-          font-weight: 300;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Regular.woff") format('woff');
-          font-weight: 450;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSMedium-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSMedium-Regular.woff") format('woff');
-          font-weight: 500;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSSemibold-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSSemibold-Regular.woff") format('woff');
-          font-weight: 600;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Bold.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXS-Bold.woff") format('woff');
-          font-weight: 700;
-        }
-        @font-face {
-          font-family: "Metric";
-          src: url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff2") format('woff2'),
-               url("https://d3hq6blov2iije.cloudfront.net/fonts/HPEXS-Metric-Fonts/MetricHPEXSBlack-Regular.woff") format('woff');
-          font-weight: 900;
-        }`,
-    },
-    input: {
-      weight: 450, // weight: 500,
-    },
-  },
-  feedback: {
-    closeButton: {
-      a11yTitle: `You are in a dialog containing a form to submit feedback.
-        To close this layer, press Enter.`,
-    },
-    container: {
-      pad: 'medium',
-    },
-    header: {
-      align: 'start',
-      direction: 'row',
-      justify: 'between',
-      gap: 'xsmall',
-    },
-    heading: {
-      size: 'small',
-      level: 2,
-      margin: {
-        vertical: 'none',
-      },
-    },
-    footer: {
-      pad: {
-        top: 'medium',
-      },
-      direction: 'row',
-      justify: 'end',
-      gap: 'xsmall',
-    },
-    success: {
-      color: 'text-strong',
-      weight: 'bold',
-      alignSelf: 'end',
-    },
-  },
-  formField: {
-    // border: {
-    //   color: 'border',
-    // },
-    disabled: {
-      label: {
-        color: 'text-xweak',
-      },
-    },
-    error: {
-      color: 'text',
-    },
-    help: {
-      size: 'xsmall',
-      color: 'text',
-    },
-    info: {
-      size: 'xsmall',
-      color: 'text',
-    },
-    label: {
-      // any Text props not documented in base.js
-      size: 'xsmall',
-      color: 'text',
-      weight: 450, // weight: 500,
     },
   },
   heading: {
-    color: 'text-strong',
-    weight: 450,
+    color: 'text',
+    weight: 400,
     level: {
       1: {
-        font: {
-          // family: undefined,
-          // weight: undefined,
-        },
         small: {
-          size: '48px', // size: '36px',
-          height: '48px', // height: '42px',
+          size: '26px', // size: '48px', // size: '36px',
+          height: '26px', // height: '48px', // height: '42px',
           maxWidth: '854px',
         },
         medium: {
-          size: '72px', // size: '53px',
-          height: '72px', // height: '59px',
+          size: '36px', // size: '72px', // size: '53px',
+          height: '36px', // height: '72px', // height: '59px',
           maxWidth: '1277px',
         },
         large: {
-          size: '96px', // size: '88px',
-          height: '96px', // height: '94px',
+          size: '48px', // size: '96px', // size: '88px',
+          height: '48px', // height: '96px', // height: '94px',
           maxWidth: '2122px',
         },
         xlarge: {
-          size: '120px', // size: '124px',
-          height: '120px', // height: '130px',
+          size: '60px', // size: '120px', // size: '124px',
+          height: '60px', // height: '120px', // height: '130px',
           maxWidth: '2966px',
         },
       },
       2: {
         small: {
-          size: '36px', // size: '31px',
-          height: '36px', // height: '37px',
+          size: '18px', // size: '36px', // size: '31px',
+          height: '18px', // height: '36px', // height: '37px',
           maxWidth: '749px',
         },
         medium: {
-          size: '48px', // size: '44px',
-          height: '48px', // height: '50px',
+          size: '26px', // size: '48px', // size: '44px',
+          height: '26px', // height: '48px', // height: '50px',
           maxWidth: '1066px',
         },
         large: {
-          size: '72px', // size: '58px',
-          height: '72px', // height: '64px',
+          size: '36px', // size: '72px', // size: '58px',
+          height: '36px', // height: '72px', // height: '64px',
           maxWidth: '1382px',
         },
         xlarge: {
-          size: '96px', // size: '71px',
-          height: '96px', // height: '77px',
+          size: '48px', // size: '96px', // size: '71px',
+          height: '48px', // height: '96px', // height: '77px',
           maxWidth: '1699px',
         },
       },
       3: {
+        font: {
+          weight: 500,
+        },
         small: {
-          // Design file call for h3 small to bump up to font-weight 500,
-          // however the theme does not currently support this at the 'size'
-          // level, only for at the 'level' level.
-          size: '24px', // size: '27px',
-          height: '24px', // height: '33px',
+          size: '16px', // size: '24px', // size: '27px',
+          height: '16px', // height: '24px', // height: '33px',
           maxWidth: '643px',
         },
         medium: {
-          size: '36px', // size: '36px',
-          height: '36px', // height: '42px',
+          size: '18px', // size: '36px', // size: '36px',
+          height: '18px', // height: '36px', // height: '42px',
           maxWidth: '854px',
         },
         large: {
-          size: '48px', // size: '44px',
-          height: '48px', // height: '50px',
+          size: '26px', // size: '48px', // size: '44px',
+          height: '26px', // height: '48px', // height: '50px',
           maxWidth: '1066px',
         },
         xlarge: {
-          size: '72px', // size: '53px',
-          height: '72px', // height: '59px',
+          size: '36px', // size: '72px', // size: '53px',
+          height: '36px', // height: '72px', // height: '59px',
           maxWidth: '1277px',
         },
       },
@@ -227,29 +106,23 @@ export const aries = deepMerge(hpe, {
           weight: 500,
         },
         small: {
-          // Design file call for h4 small to bump up to font-weight 500,
-          // however the theme does not currently support this at the 'size'
-          // level, only for at the 'level' level.
-          size: '18px', // size: '22px',
-          height: '18px', // height: '28px',
+          size: '14px', // size: '18px', // size: '22px',
+          height: '14px', // height: '18px', // height: '28px',
           maxWidth: '538px',
         },
         medium: {
-          // Design file call for h4 medium to bump up to font-weight 500,
-          // however the theme does not currently support this at the 'size'
-          // level, only for at the 'level' level.
-          size: '24px', // size: '27px',
-          height: '24px', // height: '33px',
+          size: '16px', // size: '24px', // size: '27px',
+          height: '16px', // height: '24px', // height: '33px',
           maxWidth: '643px',
         },
         large: {
-          size: '36px', // size: '31px',
-          height: '36px', // height: '37px',
+          size: '18px', // size: '36px', // size: '31px',
+          height: '18px', // height: '36px', // height: '37px',
           maxWidth: '749px',
         },
         xlarge: {
-          size: '48px', // size: '36px',
-          height: '48px', // height: '42px',
+          size: '24px', // size: '48px', // size: '36px',
+          height: '24px', // height: '48px', // height: '42px',
           maxWidth: '854px',
         },
       },
@@ -258,30 +131,29 @@ export const aries = deepMerge(hpe, {
           weight: 500,
         },
         small: {
-          size: '16px', // size: '16px',
-          height: '16px', // height: '22px',
+          size: '14px', // size: '16px', // size: '16px',
+          height: '14px', // height: '16px', // height: '22px',
           maxWidth: '379px',
         },
         medium: {
-          size: '18px', // size: '16px',
-          height: '18px', // height: '22px',
+          size: '14px', // size: '18px', // size: '16px',
+          height: '14px', // height: '18px', // height: '22px',
           maxWidth: '379px',
         },
         large: {
-          size: '24px', // size: '16px',
-          height: '24px', // height: '22px',
+          size: '16px', // size: '24px', // size: '16px',
+          height: '16px', // height: '24px', // height: '22px',
           maxWidth: '379px',
         },
         xlarge: {
-          // This should be a weight of 400, while all smaller sizes 500.
-          size: '36px', // size: '16px',
-          height: '36px', // height: '22px',
+          size: '18px', // size: '36px', // size: '16px',
+          height: '18px', // height: '36px', // height: '22px',
           maxWidth: '379px',
         },
       },
       6: {
         font: {
-          weight: 500,
+          weight: 600,
         },
         small: {
           size: '14px', // size: '14px',
@@ -289,95 +161,107 @@ export const aries = deepMerge(hpe, {
           maxWidth: '326px',
         },
         medium: {
-          size: '16px', // size: '14px',
-          height: '16px', // height: '20px',
+          size: '14px', // size: '16px', // size: '14px',
+          height: '14px', // height: '16px', // height: '20px',
           maxWidth: '326px',
         },
         large: {
-          size: '18px', // size: '14px',
-          height: '18px', // height: '20px',
+          size: '14px', // size: '18px', // size: '14px',
+          height: '14px', // height: '18px', // height: '20px',
           maxWidth: '326px',
         },
         xlarge: {
-          size: '24px', // size: '14px',
-          height: '24px', // height: '20px',
+          size: '16px', // size: '24px', // size: '14px',
+          height: '16px', // height: '24px', // height: '20px',
           maxWidth: '326px',
         },
       },
     },
+    extend: ({ level, size }) => {
+      let fontWeight = '';
+      if ([1, 2].includes(level) && size === 'small') {
+        fontWeight = 'font-weight: 500;';
+      } else if ([2, 3].includes(level) && size === 'medium') {
+        fontWeight = 'font-weight: 500;';
+      } else if (level === 3 && size === 'xlarge') {
+        fontWeight = 'font-weight: 400;';
+      } else if (level === 4 && size === 'small') {
+        fontWeight = 'font-weight: 600;';
+      } else if (level === 5 && ['small', 'medium'].includes(size)) {
+        fontWeight = 'font-weight: 600;';
+      } else if (level === 6 && size === 'xlarge') {
+        fontWeight = 'font-weight: 500;';
+      }
+      return fontWeight;
+    },
   },
   paragraph: {
-    // font: {
-    //   family: 'Metric-Light',
-    // },
     small: {
-      // weight needs to be modified at the size level
-      size: '16px',
-      height: '20px',
+      size: '14px', // '16px',
+      height: '16px', // '20px',
       maxWidth: '379px',
     },
     medium: {
-      // weight needs to be modified at the size level
-      size: '18px',
-      height: '22px',
+      size: '16px', // '18px',
+      height: '20px', // '22px',
       maxWidth: '432px',
     },
     large: {
-      size: '24px',
-      height: '30px',
+      size: '20px', // '24px',
+      height: '22px', // '30px',
       maxWidth: '538px',
     },
     xlarge: {
-      size: '36px',
-      height: '42px',
+      size: '24px', // '36px',
+      height: '27px', // '42px',
       maxWidth: '643px',
     },
     // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '42px',
-      height: '48px',
+      size: '36px', // '42px',
+      height: '40px', // '48px',
       maxWidth: '854px',
     },
+    extend: ({ theme }) => `
+      color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
+    `,
   },
   text: {
-    // font is not documented in base.js
-    // font: {
-    //   family: 'Metric-Light',
-    // },
     xsmall: {
-      // weight needs to be modified at the size level
-      size: '14px',
-      height: '18px',
-      maxWidth: '379px',
+      size: '12px', // '14px',
+      height: '14px', // '18px',
+      maxWidth: '326px',
     },
     small: {
-      // weight needs to be modified at the size level
-      size: '16px',
-      height: '20px',
+      size: '14px', // '16px',
+      height: '16px', // '20px',
       maxWidth: '379px',
     },
     medium: {
-      // weight needs to be modified at the size level
-      size: '18px',
-      height: '22px',
+      size: '16px', // '18px',
+      height: '20px', // '22px',
       maxWidth: '432px',
     },
     large: {
-      size: '24px',
-      height: '30px',
+      size: '20px', // '24px',
+      height: '22px', // '30px',
       maxWidth: '538px',
     },
     xlarge: {
-      size: '36px',
-      height: '42px',
+      size: '24px', // '36px',
+      height: '27px', // '42px',
       maxWidth: '643px',
     },
     // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '42px',
-      height: '48px',
+      size: '36px', // '42px',
+      height: '40px', // '48px',
       maxWidth: '854px',
     },
+    extend: ({ size, theme }) => `
+      color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
+      ${['3xl', '4xl', '5xl', '6xl'].includes(size) ? 'font-weight: 300;' : ''};
+    `,
   },
 });
 
