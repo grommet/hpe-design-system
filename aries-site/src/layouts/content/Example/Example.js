@@ -17,6 +17,7 @@ import {
   ThemeContext,
 } from 'grommet';
 import { Contract } from 'grommet-icons';
+import { aries } from '../../../themes/aries';
 import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
@@ -68,14 +69,14 @@ export const Example = ({
   const [screen, setScreen] = useState(screens.laptop);
   const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
+  // const theme = useContext(ThemeContext);
+  const theme = aries;
   const inlineRef = useRef();
   const layerRef = useRef();
   const [mockBrowserRect, setMockBrowserRect] = useState({
     height: null,
     width: null,
   });
-
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
@@ -187,7 +188,10 @@ export const Example = ({
       >
         {/* prevent theme from overriding the desired background color */}
         <ThemeContext.Extend
-          value={{ ...(scaledTheme || theme), background: 'background-front' }}
+          value={{
+            ...(scaledTheme || theme),
+            background: 'background-front',
+          }}
         >
           <ResponsiveContext.Provider value={viewPort}>
             {cloneElement(children, {

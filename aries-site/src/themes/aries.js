@@ -260,8 +260,256 @@ export const aries = deepMerge(hpe, {
     },
     extend: ({ size, theme }) => `
       color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
-      ${['3xl', '4xl', '5xl', '6xl'].includes(size) ? 'font-weight: 300;' : ''};
+      ${
+        ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
+          ? 'font-weight: 300;'
+          : ''
+      };
     `,
+  },
+});
+
+export const ariesWeb = deepMerge(aries, {
+  heading: {
+    color: 'text',
+    weight: 400,
+    level: {
+      1: {
+        small: {
+          size: '48px',
+          height: '48px',
+          maxWidth: '854px',
+        },
+        medium: {
+          size: '72px',
+          height: '72px',
+          maxWidth: '1277px',
+        },
+        large: {
+          size: '96px',
+          height: '96px',
+          maxWidth: '2122px',
+        },
+        xlarge: {
+          size: '120px',
+          height: '120px',
+          maxWidth: '2966px',
+        },
+      },
+      2: {
+        small: {
+          size: '36px',
+          height: '36px',
+          maxWidth: '749px',
+        },
+        medium: {
+          size: '48px',
+          height: '48px',
+          maxWidth: '1066px',
+        },
+        large: {
+          size: '72px',
+          height: '72px',
+          maxWidth: '1382px',
+        },
+        xlarge: {
+          size: '96px',
+          height: '96px',
+          maxWidth: '1699px',
+        },
+      },
+      3: {
+        small: {
+          size: '24px',
+          height: '24px',
+          maxWidth: '643px',
+        },
+        medium: {
+          size: '36px',
+          height: '36px',
+          maxWidth: '854px',
+        },
+        large: {
+          size: '48px',
+          height: '48px',
+          maxWidth: '1066px',
+        },
+        xlarge: {
+          size: '72px',
+          height: '72px',
+          maxWidth: '1277px',
+        },
+      },
+      4: {
+        font: {
+          weight: 500,
+        },
+        small: {
+          size: '18px',
+          height: '18px',
+          maxWidth: '538px',
+        },
+        medium: {
+          size: '24px',
+          height: '24px',
+          maxWidth: '643px',
+        },
+        large: {
+          size: '36px',
+          height: '36px',
+          maxWidth: '749px',
+        },
+        xlarge: {
+          size: '48px',
+          height: '48px',
+          maxWidth: '854px',
+        },
+      },
+      5: {
+        font: {
+          weight: 500,
+        },
+        small: {
+          size: '16px',
+          height: '16px',
+          maxWidth: '379px',
+        },
+        medium: {
+          size: '18px',
+          height: '18px',
+          maxWidth: '379px',
+        },
+        large: {
+          size: '24px',
+          height: '24px',
+          maxWidth: '379px',
+        },
+        xlarge: {
+          size: '36px',
+          height: '36px',
+          maxWidth: '379px',
+        },
+      },
+      6: {
+        font: {
+          weight: 500,
+        },
+        small: {
+          size: '14px',
+          height: '14px',
+          maxWidth: '326px',
+        },
+        medium: {
+          size: '16px',
+          height: '16px',
+          maxWidth: '326px',
+        },
+        large: {
+          size: '18px',
+          height: '18px',
+          maxWidth: '326px',
+        },
+        xlarge: {
+          size: '24px',
+          height: '24px',
+          maxWidth: '326px',
+        },
+      },
+    },
+    extend: ({ level, size }) => {
+      let fontWeight = '';
+      if (level === 3 && size === 'small') {
+        fontWeight = 'font-weight: 500;';
+      } else if (level === 4 && ['large', 'xlarge'].includes(size)) {
+        fontWeight = 'font-weight: 400;';
+      } else if (level === 5 && size === 'xlarge') {
+        fontWeight = 'font-weight: 400;';
+      } else if (level === 6 && size === 'small') {
+        fontWeight = 'font-weight: 600;';
+      }
+      return fontWeight;
+    },
+  },
+  paragraph: {
+    small: {
+      size: '16px',
+      height: '20px',
+      maxWidth: '379px',
+    },
+    medium: {
+      size: '18px',
+      height: '22px',
+      maxWidth: '432px',
+    },
+    large: {
+      size: '24px',
+      height: '30px',
+      maxWidth: '538px',
+    },
+    xlarge: {
+      size: '36px',
+      height: '42px',
+      maxWidth: '643px',
+    },
+    // xxlarge is not part of Chris's type exploration
+    xxlarge: {
+      size: '42px',
+      height: '48px',
+      maxWidth: '854px',
+    },
+    extend: ({ size }) => {
+      if (['large', 'xlarge', 'xxlarge'].includes(size))
+        return 'font-weight: 300;';
+      return '';
+    },
+  },
+  text: {
+    xsmall: {
+      // weight needs to be modified at the size level
+      size: '14px',
+      height: '18px',
+      maxWidth: '326px',
+    },
+    small: {
+      // weight needs to be modified at the size level
+      size: '16px',
+      height: '20px',
+      maxWidth: '379px',
+    },
+    medium: {
+      // weight needs to be modified at the size level
+      size: '18px',
+      height: '22px',
+      maxWidth: '432px',
+    },
+    large: {
+      // weight needs to be modified at the size level by bumping down to 300
+      size: '24px',
+      height: '30px',
+      maxWidth: '538px',
+    },
+    xlarge: {
+      // weight needs to be modified at the size level by bumping down to 300
+      size: '36px',
+      height: '42px',
+      maxWidth: '643px',
+    },
+    // xxlarge is not part of Chris's type exploration
+    xxlarge: {
+      // weight needs to be modified at the size level by bumping down to 300
+      size: '42px',
+      height: '48px',
+      maxWidth: '854px',
+    },
+    extend: ({ size }) => {
+      if (
+        ['large', 'xlarge', 'xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(
+          size,
+        )
+      )
+        return 'font-weight: 300;';
+      return '';
+    },
   },
 });
 
