@@ -4,6 +4,8 @@ import { BestPracticeGroup, Example, StyleTable } from '../../../layouts';
 import {
   ActionLabels,
   ActionLabelTitle,
+  DoubleConfirmationAnatomy,
+  DoubleConfirmationExample,
   LayerAnatomy,
   LayerExample,
   LayerCenterExample,
@@ -79,25 +81,44 @@ Different use cases and content warrant different layer types. Learn more about 
 
 ## Avoid losing user's work
 
-When users are inputting or editing data in a layer, the design should always avoid losing user's work.
+When a user attempts to close out of a layer, the layer closing behavior should always avoid losing user's work.
 
-While the anatomy and mechanisms to close a given layer differ depend on if it is a [center](/components/layer/center-layer#actionable), [side drawer](/components/layer/side-drawer-layer#actionable), or [fullscreen](/components/layer/fullscreen-layer#actionable) layer, the below criteria to determine the type of confirmation to provide before closing the layer are consistent across all layer types.
+Therefore, when data has been edited or changed and the user tries to close the layer, a double confirmation should be shown.
 
-| Interaction                                                                                     | Confirmation type       | Notes                                                                                            |
-| ----------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| User has not input any data.                                                                    | No confirmation         | The user will not lose anything if the layer closes immediately.                                 |
-| User has input data, but the data could be recovered or input again in a matter of minutes.     | [Double confirmation]() | --                                                                                               |
-| Losing this data will have critical impacts on the user's work and could be a liability to HPE. | [Triple confirmation]() | The user should actively acknowledge the consequences of closing the layer in its current state. |
+| Layer state                             | Confirmation type   | Notes                                                                                                                                                                                                                      |
+| --------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                                                           |
+| User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, clicks outside of the layer, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
+
+### Double confirmation anatomy
+
+A double confirmation appears as a center layer. This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
+
+<Example plain>
+  <DoubleConfirmationAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                              | Required? | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | required  | --                                                                                                         |
+| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | required  | --                                                                                                         |
+| **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | required  | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+
+### Double confirmation example
+
+<Example code="jkl">
+  <DoubleConfirmationExample />
+</Example>
 
 ## Modal vs. non-modal
 
 When a layer is modal, a translucent overlay appears behind the layer and covers the rest of the page content to block the user from interacting with the page until the layer is closed.
 
-[Actionable layers](#actionable) should always be modal to ensure user focus is on the layer content and required actions. Modal is the default behavior of a layer.
+Actionable layers should always be modal to ensure user focus is on the layer content and required actions. Modal is the default behavior of a layer.
 
 When a layer is non-modal, there is no translucent overlay that covers the page content, and the page can still be interacted with.
 
-[Informational layers](#informational) can be non-modal. To implement, apply `modal={false}` to the layer.
+Informational layers can be non-modal. To implement, apply `modal={false}` to the layer.
 
 ## Action label conventions
 

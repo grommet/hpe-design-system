@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading, Paragraph } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
-export const LayerHeader = ({ informational, ...rest }) => (
+export const LayerHeader = ({
+  closeId,
+  informational,
+  title = 'Layer title',
+  onClose,
+  subtitle,
+  ...rest
+}) => (
   <Box
     flex={false}
     align="start"
@@ -14,18 +21,22 @@ export const LayerHeader = ({ informational, ...rest }) => (
   >
     <Box>
       <Heading id="layer-title" level={2} margin="none" size="small">
-        Layer title
+        {title}
       </Heading>
       <Paragraph id="layer-subtitle" margin="none">
-        An optional, concise subtitle for added context.
+        {subtitle}
       </Paragraph>
     </Box>
-    {informational ? (
-      <Button id="layer-close-button" icon={<FormClose />} />
+    {onClose ? (
+      <Button icon={<FormClose />} onClick={onClose} id={closeId} />
     ) : null}
   </Box>
 );
 
 LayerHeader.propTypes = {
+  closeId: PropTypes.string,
   informational: PropTypes.bool,
+  onClose: PropTypes.func,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
 };
