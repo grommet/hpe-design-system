@@ -1,5 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { CircleAlert } from 'grommet-icons/icons/CircleAlert';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -27,6 +28,52 @@ export const aries = deepMerge(hpe, {
         light: '#BBBBBB',
       },
     },
+  },
+  formField: {
+    disabled: {
+      label: {
+        // this disabled label is getting overwritten by StyledText, presumably
+        // because the color is being specified in theme.text.extend.
+        color: 'text-xweak',
+      },
+    },
+    error: {
+      icon: (
+        <CircleAlert
+          size="small"
+          style={{
+            marginTop: '2px', // '4px',
+          }}
+        />
+      ),
+      size: 'small', // 'xsmall',
+      color: 'text',
+      margin: {
+        bottom: 'xsmall',
+        top: 'none',
+        horizontal: 'none',
+      },
+    },
+    help: {
+      size: 'small', // 'xsmall',
+    },
+    info: {
+      size: 'small', // 'xsmall',
+    },
+    label: {
+      // this label is getting overwritten by StyledText, presumably
+      // because the color is being specified in theme.text.extend.
+      color: 'text',
+      size: 'small', // 'xsmall',
+      weight: 500,
+    },
+    // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
+    // because the color is being specified in theme.text.extend.
+    extend: ({ theme }) => `
+      label { 
+        color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
+      }
+    `,
   },
   heading: {
     color: 'text',
