@@ -1,158 +1,166 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
   Button,
   DataTable,
-  Drop,
   Form,
   FormField,
   Heading,
-  Layer,
   Page,
   PageContent,
-  Select,
   TextInput,
   CheckBoxGroup,
-  Paragraph,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
 import {
   useFilters,
   FiltersProvider,
   FilterControls,
 } from '../../templates/FilterControls';
 import applications from '../../../data/mockData/applications.json';
+import {
+  ConfirmationContext,
+  ConfirmationProvider,
+  DoubleConfirmation,
+  LayerHeader,
+  Sidedrawer,
+  useConfirmation,
+} from './components';
 
 const defaultFormValues = {
-  'flavor-select': 'Center modal',
   'application-title': '',
   'publisher-title': '',
   'pricing-select': [],
   'delivery-select': [],
 };
 
-export const ConfigurationForm = ({ fullscreen, containerRef }) => {
-  const [open, setOpen] = useState(false);
-  const [formValue, setFormValue] = useState(defaultFormValues);
-  const [touched, setTouched] = useState(false);
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const layerProps = fullscreen
-    ? { full: true }
-    : { position: 'right', full: 'vertical' };
+export const ConfigurationForm = ({ containerRef }) => (
+  <ConfirmationProvider>
+    <ConfirmationContext.Consumer>
+      {({ showLayer, showConfirmation }) => (
+        <>
+          <ApplicationsPage />
+          {showLayer ? <AddApplication target={containerRef?.current} /> : null}
+          {showConfirmation ? (
+            <DoubleConfirmation
+              title="application"
+              target={containerRef?.current}
+            />
+          ) : null}
+        </>
+      )}
+    </ConfirmationContext.Consumer>
+  </ConfirmationProvider>
+);
 
-  const onClose = () => {
-    if (touched) {
-      setShowConfirmation(true);
-    } else {
-      setOpen(false);
-      setFormValue(defaultFormValues);
-    }
-  };
+ConfigurationForm.propTypes = {
+  containerRef: PropTypes.object,
+};
 
-  const targetRef = useRef();
-  const Confirmation =
-    formValue['flavor-select'] === 'Center modal' ? (
-      <DoubleConfirmation
-        setOpen={setOpen}
-        setShowConfirmation={setShowConfirmation}
-        setFormValue={setFormValue}
-      />
-    ) : (
-      targetRef.current && (
-        <Drop
-          align={{ top: 'top', right: 'left' }}
-          target={targetRef.current}
-          round="small"
-        >
-          <ConfirmationContent
-            setShowConfirmation={setShowConfirmation}
-            setOpen={setOpen}
-            setFormValue={setFormValue}
-            drop
-          />
-        </Drop>
-      )
-    );
+const AddApplication = ({ ...rest }) => {
+  const { onClose } = useConfirmation();
 
-  let content = (
-    <Box pad="medium" gap="medium" overflow="auto">
-      <Box
-        direction="row"
-        align="start"
-        gap="small"
-        justify="between"
-        flex={false}
-      >
-        <Heading level={2} size="small" margin="none">
-          Add application
-        </Heading>
-        <Button icon={<FormClose />} onClick={onClose} ref={targetRef} />
-      </Box>
+  return (
+    <Sidedrawer onEsc={onClose} {...rest}>
+      <LayerHeader title="Add application" onClose={onClose} />
       <Box flex={false}>
-        <LayerForm
-          setOpen={setOpen}
-          value={formValue}
-          setFormValue={setFormValue}
-          setTouched={setTouched}
-        />
+        <LayerForm id="application-form" />
       </Box>
       <Box direction="row" gap="small" flex={false}>
         <Button
+          form="application-form"
           label="Add application"
           primary
           type="submit"
-          form="application-form"
         />
         <Button label="Cancel" onClick={onClose} />
       </Box>
-    </Box>
+    </Sidedrawer>
   );
+};
 
-  if (fullscreen)
-    content = (
-      <Page kind="narrow" overflow="auto">
-        <Button
-          alignSelf="end"
-          icon={<FormClose />}
-          onClick={onClose}
-          ref={targetRef}
+export const LayerForm = ({ ...rest }) => {
+  const [formValue, setFormValue] = useState(defaultFormValues);
+
+  const { setShowLayer, setTouched } = useConfirmation();
+
+  return (
+    <Form
+      onSubmit={event => {
+        console.log(event.value);
+        setShowLayer(false);
+      }}
+      messages={{
+        required: 'This is a required field.',
+      }}
+      value={formValue}
+      onChange={(nextValue, { touched }) => {
+        console.log('Change', nextValue, touched);
+        setFormValue(nextValue);
+        setTouched(Object.keys(touched).length);
+      }}
+      {...rest}
+    >
+      <FormField
+        label="Title"
+        contentProps={{ width: 'medium' }}
+        required
+        name="application-title"
+        htmlFor="application-title"
+      >
+        <TextInput id="application-title" name="application-title" />
+      </FormField>
+      <FormField
+        label="Publisher"
+        contentProps={{ width: 'medium' }}
+        required
+        name="publisher"
+        htmlFor="publisher"
+      >
+        <TextInput name="publisher" id="publisher" />
+      </FormField>
+      <FormField
+        label="Pricing"
+        contentProps={{ width: 'medium' }}
+        name="pricing-select"
+        htmlFor="pricing-select__input"
+        required
+      >
+        <CheckBoxGroup
+          id="pricing-select"
+          name="pricing-select"
+          options={[
+            'Annual license',
+            'Free',
+            'Free trial',
+            'Monthly Subscription',
+          ]}
         />
-        <PageContent align="center">
-          <Box gap="medium" pad={{ bottom: 'large' }} flex={false}>
-            <Box>
-              <Heading level={2} margin="none" size="small">
-                Layer title
-              </Heading>
-              <Paragraph margin="none">
-                1. Click close without interacting with form -- no confirmation
-              </Paragraph>
-              <Paragraph margin="none">
-                2. Type something into form then click close -- double
-                confirmation confirmation
-              </Paragraph>
-            </Box>
-            <LayerForm
-              setOpen={setOpen}
-              value={formValue}
-              setFormValue={setFormValue}
-              setTouched={setTouched}
-            />
-            <Box direction="row" gap="small" flex={false}>
-              <Button
-                label="Add application"
-                primary
-                type="submit"
-                form="application-form"
-              />
-              <Button label="Cancel" onClick={onClose} />
-            </Box>
-          </Box>
-        </PageContent>
-      </Page>
-    );
+      </FormField>
+      <FormField
+        label="Delivery"
+        contentProps={{ width: 'medium' }}
+        name="delivery-select"
+        htmlFor="delivery-select__input"
+        required
+      >
+        <CheckBoxGroup
+          id="delivery-select"
+          name="delivery-select"
+          options={['License key', 'Package manager', 'Web application']}
+        />
+      </FormField>
+    </Form>
+  );
+};
 
+LayerForm.propTypes = {
+  setShowLayer: PropTypes.func.isRequired,
+};
+
+const ApplicationsPage = () => {
+  const { setShowLayer } = useConfirmation();
   return (
     <FiltersProvider>
       <Page>
@@ -170,158 +178,19 @@ export const ConfigurationForm = ({ fullscreen, containerRef }) => {
                 <Button
                   label="Add application"
                   secondary
-                  onClick={() => setOpen(true)}
+                  onClick={() => setShowLayer(true)}
                 />
               }
-              layerProps={{ target: containerRef?.target }}
+              // layerProps={{ target: containerRef?.target }}
             />
             <ApplicationResults />
           </Box>
-          {open && (
-            <Layer
-              // target={containerRef?.current}
-              {...layerProps}
-              onEsc={onClose}
-            >
-              {content}
-            </Layer>
-          )}
-          {showConfirmation ? Confirmation : null}
         </PageContent>
       </Page>
     </FiltersProvider>
   );
 };
 
-ConfigurationForm.propTypes = {
-  containerRef: PropTypes.object,
-};
-
-export const LayerForm = ({ setOpen, setFormValue, setTouched, value }) => (
-  <Form
-    id="application-form"
-    onSubmit={event => {
-      console.log(event.value);
-      setOpen(false);
-    }}
-    messages={{
-      required: 'This is a required field.',
-    }}
-    value={value}
-    onChange={(nextValue, { touched }) => {
-      console.log('Change', nextValue, touched);
-      setFormValue(nextValue);
-      setTouched(Object.keys(touched).length);
-    }}
-  >
-    <FormField
-      label="Confirmation flavor"
-      contentProps={{ width: 'medium' }}
-      required
-      name="flavor-select"
-      htmlFor="flavor-select__input"
-    >
-      <Select
-        id="flavor-select"
-        name="flavor-select"
-        options={['Center modal', 'Drop']}
-      />
-    </FormField>
-    <FormField
-      label="Title"
-      contentProps={{ width: 'medium' }}
-      required
-      name="application-title"
-      htmlFor="application-title"
-    >
-      <TextInput id="application-title" name="application-title" />
-    </FormField>
-    <FormField
-      label="Publisher"
-      contentProps={{ width: 'medium' }}
-      required
-      name="publisher"
-      htmlFor="publisher"
-    >
-      <TextInput name="publisher" id="publisher" />
-    </FormField>
-    <FormField
-      label="Pricing"
-      contentProps={{ width: 'medium' }}
-      name="pricing-select"
-      htmlFor="pricing-select__input"
-      required
-    >
-      <CheckBoxGroup
-        id="pricing-select"
-        name="pricing-select"
-        options={[
-          'Annual license',
-          'Free',
-          'Free trial',
-          'Monthly Subscription',
-        ]}
-      />
-    </FormField>
-    <FormField
-      label="Delivery"
-      contentProps={{ width: 'medium' }}
-      name="delivery-select"
-      htmlFor="delivery-select__input"
-      required
-    >
-      <CheckBoxGroup
-        id="delivery-select"
-        name="delivery-select"
-        options={['License key', 'Package manager', 'Web application']}
-      />
-    </FormField>
-  </Form>
-);
-
-LayerForm.propTypes = {
-  setOpen: PropTypes.func.isRequired,
-};
-
-const DoubleConfirmation = ({ setShowConfirmation, setOpen, setFormValue }) => (
-  <Layer>
-    <ConfirmationContent
-      setShowConfirmation={setShowConfirmation}
-      setOpen={setOpen}
-      setFormValue={setFormValue}
-    />
-  </Layer>
-);
-
-const ConfirmationContent = ({
-  setShowConfirmation,
-  setOpen,
-  setFormValue,
-  drop,
-}) => (
-  <Box pad="medium" gap="medium">
-    <Box>
-      <Heading level={2} size="small" margin="none">
-        Leave application form?
-      </Heading>
-      <Paragraph margin="none">
-        You have unsaved changes that will be lost.
-      </Paragraph>
-    </Box>
-    <Box direction={drop ? 'row-reverse' : 'row'} gap="small" justify="end">
-      <Button label="Cancel" onClick={() => setShowConfirmation(false)} />
-      <Button
-        label="Yes, leave"
-        primary
-        onClick={() => {
-          setShowConfirmation(false);
-          setOpen(false);
-          setFormValue(defaultFormValues);
-        }}
-      />
-    </Box>
-  </Box>
-);
 const columns = [
   {
     property: 'title',
