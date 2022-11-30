@@ -35,22 +35,22 @@ For informational side drawer layers that do not require any user actions, place
 | ----- | ---------------- | ----------------- | --------- | --------------------- |
 | **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
 
-The user should be able to dismiss the informational layer by clicking outside, `onClickOutside`, or using the Escape key, `onEsc`.
+The user should be able to close the informational layer by clicking on the close button, clicking outside, the layer, or using the Escape key.
 
 ### Actionable
+
+For actionable layers, include the close button in the header and a "Cancel" button alongside footer actions.
+
+When a user has input or edited any data in the layer, show a double confirmation before closing the layer. See [double confirmation guidance](/components/layer#avoid-losing-users-work) for more details and examples.
 
 <Example plain>
   <SideDrawerLayerAnatomy />
 </Example>
 
-| Label | Region            | Purpose                                                           | Required? | Notes                                                                                                                                                      |
-| ----- | ----------------- | ----------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**  | Closes the layer.                                                 | required  | In cases where the layer content overflows, this allows the user to efficiently exit the layer using the close button in the header. Use "FormClose" icon. |
-| **2** | **Cancel button** | Allows the user to cancel the layer's action and close the layer. | required  | --                                                                                                                                                         |
-
-When the close button or cancel button are clicked, ensure the correct [confirmation type](/components/layer#avoid-losing-users-work) appears for the user before closing.
-
-To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
+| Label | Region            | Purpose           | Required? | Notes                                                                                                                                                                                                                                  |
+| ----- | ----------------- | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer. | required  | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
+| **2** | **Cancel button** | Closes the layer. | required  | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
 
 ## Header behavior
 

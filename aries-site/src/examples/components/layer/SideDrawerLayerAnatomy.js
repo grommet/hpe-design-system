@@ -1,77 +1,85 @@
 import React, { useContext } from 'react';
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  Diagram,
-  Grid,
-  Heading,
-  Paragraph,
-  ResponsiveContext,
-  Stack,
-} from 'grommet';
-import { FormClose } from 'grommet-icons';
+import PropTypes from 'prop-types';
+import { Box, Button, Card, CardBody, Diagram, Grid, Stack } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils/utils';
+import { LayerHeader } from './components';
 
-const connections = [
-  connection('1', 'layer-header'),
-  connection('2', 'layer-actions'),
-  connection('screen', 'layer-container'),
-];
+export const SideDrawerLayerAnatomy = ({ informational }) => {
+  const theme = useContext(ThemeContext);
 
-export const SideDrawerLayerAnatomy = () => {
-  const breakpoint = useContext(ResponsiveContext);
+  const closeId = informational ? 'informational-close' : 'actionable-close';
+  const annotationId = informational
+    ? 'informational-annotation'
+    : 'actionable-annotation';
+
+  const connections = [
+    connection(annotationId, closeId),
+    connection('2', 'layer-actions'),
+  ];
+
+  let rows = ['auto', '36px', '48px', '24px', 'medium', '24px', '36px', '24px'];
+  let areas = [
+    ['null', 'empty-1', 'layer'],
+    ['null', 'annotation-1', 'layer'],
+    ['null', 'empty-2', 'layer'],
+    ['null', 'empty-2', 'layer'],
+    ['null', 'empty-2', 'layer'],
+    ['null', 'empty-2', 'layer'],
+    ['null', 'annotation-2', 'layer'],
+    ['null', 'empty-4', 'layer'],
+  ];
+
+  if (informational) {
+    rows = rows.slice(0, 6);
+    areas = areas.slice(0, 6);
+  }
 
   return (
     <Stack interactiveChild="first">
-      <Grid
-        align="center"
-        columns={[
-          ['xsmall', 'small'].includes(breakpoint) ? 'flex' : 'medium',
-          'auto',
-        ]}
-        rows={['24px', '36px', '48px', '24px', 'small', '24px', '36px', '24px']}
-        areas={[
-          ['layer', 'empty-1'],
-          ['layer', 'annotation-1'],
-          ['layer', 'empty-2'],
-          ['layer', 'empty-2'],
-          ['layer', 'annotation-screen'],
-          ['layer', 'empty-3'],
-          ['layer', 'annotation-2'],
-          ['layer', 'empty-4'],
-        ]}
-        gap={{ column: 'medium' }}
+      <Box
+        background={{ color: theme.layer.overlay.background, dark: false }}
+        fill="horizontal"
       >
-        <Annotation
-          alignSelf="center"
-          id="1"
-          target="1"
-          gridArea="annotation-1"
-        />
-        <Annotation
-          alignSelf="center"
-          id="2"
-          target="2"
-          gridArea="annotation-2"
-        />
-        <Annotation
-          alignSelf="center"
-          id="screen"
-          target="3"
-          pad={{ horizontal: 'small' }}
-          gridArea="annotation-screen"
-        />
-        <LayerContent gridArea="layer" />
-      </Grid>
+        <Grid
+          align="center"
+          columns={['flex', 'auto', 'medium']}
+          rows={rows}
+          areas={areas}
+          gap={{ column: 'medium' }}
+        >
+          <Annotation
+            alignSelf="center"
+            id={annotationId}
+            target="1"
+            gridArea="annotation-1"
+          />
+          {!informational ? (
+            <Annotation
+              alignSelf="center"
+              id="2"
+              target="2"
+              gridArea="annotation-2"
+            />
+          ) : null}
+          <LayerContent
+            gridArea="layer"
+            closeId={closeId}
+            informational={informational}
+          />
+        </Grid>
+      </Box>
       <Diagram connections={connections} />
     </Stack>
   );
 };
 
-const LayerContent = ({ ...rest }) => (
+SideDrawerLayerAnatomy.propTypes = {
+  informational: PropTypes.bool,
+};
+
+const LayerContent = ({ closeId, informational, ...rest }) => (
   <Card
     id="layer-container"
     alignSelf="start"
@@ -84,29 +92,32 @@ const LayerContent = ({ ...rest }) => (
   >
     <CardBody gap="medium">
       <Box direction="row" align="start" gap="small" flex={false}>
-        <Box>
-          <Heading level={2} margin="none" size="small">
-            Layer title
-          </Heading>
-          <Paragraph margin="none">
-            A concise subtitle that provides additional context.
-          </Paragraph>
-        </Box>
-        <Button id="layer-header" icon={<FormClose />} />
+        <LayerHeader
+          onClose={() => {}}
+          subtitle="An optional, concise subtitle for added context."
+          closeId={closeId}
+        />
       </Box>
       <Box
         id="layer-body"
         border={{ style: 'dashed' }}
-        height="small"
+        height="medium"
         align="center"
         justify="center"
       >
         Layer body content goes here.
       </Box>
-      <Box direction="row" gap="small" flex={false}>
-        <Button label="Confirm action" primary />
-        <Button label="Cancel" id="layer-actions" />
-      </Box>
+      {!informational ? (
+        <Box direction="row" gap="small" flex={false}>
+          <Button label="Confirm action" primary />
+          <Button label="Cancel" id="layer-actions" />
+        </Box>
+      ) : null}
     </CardBody>
   </Card>
 );
+
+LayerContent.propTypes = {
+  closeId: PropTypes.string,
+  informational: PropTypes.bool,
+};
