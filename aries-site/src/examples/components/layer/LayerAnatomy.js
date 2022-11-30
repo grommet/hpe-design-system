@@ -161,7 +161,10 @@ const LayerContent = ({ ...rest }) => (
     {...rest}
   >
     <CardBody pad={{ top: 'medium', horizontal: 'medium' }}>
-      <LayerHeader border={{ style: 'dashed' }} />
+      <LayerHeader
+        border={{ style: 'dashed' }}
+        subtitle="An optional, concise subtitle for added context."
+      />
       <Box pad="small" id="first-gap" />
       <Box
         id="layer-body"
