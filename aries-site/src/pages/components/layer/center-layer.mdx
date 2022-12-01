@@ -47,7 +47,13 @@ For layers that require user actions, place a "Cancel" action alongside the othe
 | ----- | ------------------ | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **1** | **Footer actions** | Allows the user to confirm, apply, or cancel the layer's action. | required  | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
 
-To prevent the user from losing progress due to accidental clicks outside of a layer or Escape key presses, `onEsc` and `onClickOutside` functionality should not be enabled.
+To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled.
+
+### When to use double confirmation
+
+When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown. This helps avoid unintentional loss of work.
+
+Learn more about the anatomy and implementation of a [double confirmation](/components/layer#when-to-use-double-confirmation) on the main layer page since this behavior applies to all layer types.
 
 ## Examples
 

@@ -5,7 +5,7 @@ import {
   ActionLabels,
   ActionLabelTitle,
   DoubleConfirmationAnatomy,
-  DoubleConfirmationExample,
+  ConfigurationForm,
   LayerAnatomy,
   LayerExample,
   LayerCenterExample,
@@ -24,6 +24,8 @@ import {
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerExample.js"
   figma="https://www.figma.com/file/Ts53TAipMolmsv9DxWG3p0/HPE-Layer-Component?node-id=2%3A22"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Layer/Layer.js"
+  template
+  showResponsiveControls={[]}
 >
   <LayerExample />
 </Example>
@@ -79,11 +81,42 @@ Different use cases and content warrant different layer types. Learn more about 
 
 <LayerTypes />
 
-## Avoid losing user's work
+## Layer closing behavior
+
+Depending on if a layer is informational or actionable, the elements and interactions that will close a layer differ.
+
+### Informational
+
+Informational layers do not require any actions from the user, and therefore do not contain any footer actions.
+
+The following should cause an informational layer to close:
+
+1. Clicking on the close button in the layer's header.
+1. Clicking outside of the layer, `onClickOutside`.
+1. Pressing the Escape key, `onEsc`.
+
+Learn more about the specifics of [informational center layers](/components/layer/center-layer#informational), [informational side drawer layers](/components/layer/side-drawer-layer#informational), and [informational fullscreen layers](/components/layer/fullscreen-layer#informational).
+
+### Actionable
+
+Actionable layers require the user to either accept/apply the prompt in the layer or cancel out.
+
+The following should cause an actionable layer to close:
+
+1. Clicking the close button in the layer's header.
+   - The exception to this rule is that actionable center layers should not include a close button in the layer's header. Because center layers generally present confirmations, the user should have to intentionally choose between accepting or cancelling the layer's prompt.
+1. Clicking the cancel button in the layer's footer.
+1. Pressing the Escape key, `onEsc`.
+
+Clicking outside of an actionable layer should not close the layer. The user should be intentionally choosing between accepting or cancelling the layer's prompt.
+
+Learn more about the specifics of [actionable center layers](/components/layer/center-layer#actionable), [actionable side drawer layers](/components/layer/side-drawer-layer#actionable), and [actionable fullscreen layers](/components/layer/fullscreen-layer#actionable).
+
+### When to use double confirmation
 
 When a user attempts to close out of a layer, the layer closing behavior should always avoid losing user's work.
 
-Therefore, when data has been edited or changed and the user tries to close the layer, a double confirmation should be shown.
+When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown.
 
 | Layer state                             | Confirmation type   | Notes                                                                                                                                                                                                                      |
 | --------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -106,8 +139,18 @@ A double confirmation appears as a center layer. This placement puts the confirm
 
 ### Double confirmation example
 
-<Example code="jkl">
-  <DoubleConfirmationExample />
+First, click "Add application" then click the close button in the layer header. Notice how the layer immediately closes.
+
+Next, click "Add application" again and this time type something into the "Title" input. Now, click the close button. Notice how a double confirmation appears.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'small' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
 </Example>
 
 ## Modal vs. non-modal

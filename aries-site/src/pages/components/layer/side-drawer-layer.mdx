@@ -41,8 +41,6 @@ The user should be able to close the informational layer by clicking on the clos
 
 For actionable layers, include the close button in the header and a "Cancel" button alongside footer actions so the user can efficiently leave the layer if desired.
 
-When a user has input or edited any data in the layer, show a double confirmation before closing the layer. See [double confirmation guidance](/components/layer#avoid-losing-users-work) for more details and examples.
-
 <Example plain>
   <SideDrawerLayerAnatomy />
 </Example>
@@ -52,7 +50,13 @@ When a user has input or edited any data in the layer, show a double confirmatio
 | **1** | **Close button**  | Closes the layer. | required  | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
 | **2** | **Cancel button** | Closes the layer. | required  | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
 
-## Overflow behavior
+### When to use double confirmation
+
+When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown. This helps avoid unintentional loss of work.
+
+Learn more about the anatomy and implementation of a [double confirmation](/components/layer#when-to-use-double-confirmation) on the main layer page since this behavior applies to all layer types.
+
+## Scroll behavior
 
 The default behavior of the layer is to allow all of the content to scroll, but this behavior can be modified depending on the layer's contents.
 
