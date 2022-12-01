@@ -36,6 +36,17 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  accordion: {
+    heading: {
+      // using level as a means of styling doesn't seem like the best...
+      // need to file an issue against Grommet
+      level: 3, // level: '4',
+      margin: {
+        vertical: 'medium',
+        horizontal: 'xsmall',
+      },
+    },
+  },
   formField: {
     disabled: {
       label: {
@@ -248,6 +259,12 @@ export const aries = deepMerge(hpe, {
       }
       return fontWeight;
     },
+  },
+  grommet: {
+    extend: `
+      font-size: 16px;
+      line-height: 20px;
+    `,
   },
   paragraph: {
     small: {
