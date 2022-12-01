@@ -57,7 +57,12 @@ CenterLayerAnatomy.propTypes = {
 
 const LayerContent = ({ informational, ...rest }) => (
   <LayerContainer {...rest}>
-    <LayerHeader informational={informational} />
+    <LayerHeader
+      informational={informational}
+      onClose={informational ? () => {} : undefined}
+      closeId={informational ? 'layer-close-button' : undefined}
+      subtitle="An optional, concise subtitle for added context."
+    />
     <Box
       border={{ style: 'dashed' }}
       height="small"
