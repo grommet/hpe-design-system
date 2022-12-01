@@ -28,6 +28,13 @@ export const aries = deepMerge(hpe, {
         light: '#BBBBBB',
       },
     },
+    input: {
+      font: {
+        size: '16px',
+        height: '20px',
+        weight: 500,
+      },
+    },
   },
   formField: {
     disabled: {
@@ -70,7 +77,7 @@ export const aries = deepMerge(hpe, {
     // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
     // because the color is being specified in theme.text.extend.
     extend: ({ theme }) => `
-      label { 
+      > label { 
         color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
       }
     `,
