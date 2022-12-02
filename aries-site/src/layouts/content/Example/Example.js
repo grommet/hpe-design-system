@@ -41,7 +41,7 @@ export const Example = ({
   background,
   bestPractice,
   caption,
-  children,
+  children: childrenProp,
   code, // github code link used to display code inline
   componentName,
   designer, // link to grommet designer example
@@ -69,7 +69,6 @@ export const Example = ({
   const [screen, setScreen] = useState(screens.laptop);
   const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
-  // const theme = useContext(ThemeContext);
   const theme = aries;
   const inlineRef = useRef();
   const layerRef = useRef();
@@ -77,6 +76,11 @@ export const Example = ({
     height: null,
     width: null,
   });
+
+  // Example children should use the product version of the theme
+  const children = (
+    <ThemeContext.Extend value={theme}>{childrenProp}</ThemeContext.Extend>
+  );
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
@@ -186,10 +190,10 @@ export const Example = ({
         width={screen === screens.mobile ? 'medium' : width}
         ref={inlineRef}
       >
-        {/* prevent theme from overriding the desired background color */}
         <ThemeContext.Extend
           value={{
             ...(scaledTheme || theme),
+            /* prevent theme from overriding the desired background color */
             background: 'background-front',
           }}
         >

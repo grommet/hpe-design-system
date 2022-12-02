@@ -299,6 +299,11 @@ export const aries = deepMerge(hpe, {
       line-height: 20px;
     `,
   },
+  pageHeader: {
+    title: {
+      size: 'medium', // size: 'small',
+    },
+  },
   paragraph: {
     small: {
       size: '14px', // '16px',
