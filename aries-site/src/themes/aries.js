@@ -47,6 +47,39 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  button: {
+    'cta-alternate': {
+      color: 'text', // 'text-strong',
+      font: {
+        weight: 700,
+      },
+    },
+    default: {
+      color: 'text', // 'text-strong',
+      border: undefined,
+      font: {
+        weight: 700,
+      },
+    },
+    secondary: {
+      color: 'text', // 'text-strong',
+      font: {
+        weight: 700,
+      },
+    },
+    toolbar: {
+      color: 'text', // 'text-strong',
+      font: {
+        weight: 700,
+      },
+    },
+    option: {
+      color: 'text-weak',
+      font: {
+        weight: 500,
+      },
+    },
+  },
   formField: {
     disabled: {
       label: {
@@ -295,6 +328,23 @@ export const aries = deepMerge(hpe, {
     },
     extend: ({ theme }) => `
       color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
+    `,
+  },
+  tab: {
+    active: {
+      color: 'text',
+    },
+    border: {
+      active: {
+        color: 'text',
+      },
+    },
+    extend: ({ theme }) => `
+      border-top-left-radius: ${theme.global.control.border.radius}; // should use radius property of border
+      border-top-right-radius: ${theme.global.control.border.radius}; // should use radius property of border
+      > span { 
+        font-weight: 700;
+      } 
     `,
   },
   text: {
