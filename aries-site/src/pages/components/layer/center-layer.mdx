@@ -47,7 +47,7 @@ For layers that require user actions, place a "Cancel" action alongside the othe
 | ----- | ------------------ | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **1** | **Footer actions** | Allows the user to confirm, apply, or cancel the layer's action. | required  | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
 
-To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled.
+To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, onEsc.
 
 ### When to use double confirmation
 
