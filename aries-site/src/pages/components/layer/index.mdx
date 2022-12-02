@@ -118,14 +118,14 @@ When a user attempts to close out of a layer, the layer closing behavior should 
 
 When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown.
 
-| Layer state                             | Confirmation type   | Notes                                                                                                                                                                                                                      |
-| --------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                                                           |
-| User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, clicks outside of the layer, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
+| Layer state                             | Confirmation type   | Notes                                                                                                                                                                                         |
+| --------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                              |
+| User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
 
 ### Double confirmation anatomy
 
-A double confirmation appears as a center layer. This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
+A double confirmation appears as a center [modal](#modal-vs-non-modal). This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
 
 <Example plain>
   <DoubleConfirmationAnatomy />
@@ -155,9 +155,19 @@ Next, click "Add application" again and this time type something into the "Title
 
 ## Modal vs. non-modal
 
+While layer is the component that drives the layout, elevation, positioning on the screen, modal vs. non-modal effects the behavior to dismiss the layer and interactivity of outside content.
+
+Modal is a specific HTML behavior that excludes interaction with outside elements until it is dismissed.
+
+Non-modal means that the outside content can still be interacted with while the layer is open.
+
+### Modal
+
 When a layer is modal, a translucent overlay appears behind the layer and covers the rest of the page content to block the user from interacting with the page until the layer is closed.
 
 Actionable layers should always be modal to ensure user focus is on the layer content and required actions. Modal is the default behavior of a layer.
+
+### Non-modal
 
 When a layer is non-modal, there is no translucent overlay that covers the page content, and the page can still be interacted with.
 

@@ -13,7 +13,6 @@ export * from './LayerExample';
 export * from './LayerCenterExample';
 export * from './LayerSideDrawerExample';
 export * from './LayerStickyExample';
-export * from './LayerStickyScrollExample';
 export * from './LayerTypes';
 export * from './MonitorFormExample';
 export * from './SideDrawerLayerAnatomy';

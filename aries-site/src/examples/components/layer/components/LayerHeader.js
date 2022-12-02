@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading, Paragraph } from 'grommet';
+import { Box, Button, Header, Heading, Paragraph } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
 export const LayerHeader = ({
@@ -11,14 +11,7 @@ export const LayerHeader = ({
   subtitle,
   ...rest
 }) => (
-  <Box
-    flex={false}
-    align="start"
-    direction="row"
-    gap="small"
-    justify="between"
-    {...rest}
-  >
+  <Header flex={false} align="start" gap="small" justify="between" {...rest}>
     <Box>
       <Heading id="layer-title" level={2} margin="none" size="small">
         {title}
@@ -30,7 +23,7 @@ export const LayerHeader = ({
     {onClose ? (
       <Button icon={<FormClose />} onClick={onClose} id={closeId} />
     ) : null}
-  </Box>
+  </Header>
 );
 
 LayerHeader.propTypes = {
