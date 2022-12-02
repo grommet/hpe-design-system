@@ -4,27 +4,9 @@ import { FullscreenLayerAnatomy, ConfigurationForm } from '../../../examples';
 
 ## Anatomy
 
-This diagram highlights details specific to fullscreen layers. See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
+See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
 
-Fullscreen layers fill the entire page. Therefore, there is no rounding or elevation visible.
-
-<Example plain>
-  <FullscreenLayerAnatomy />
-</Example>
-
-| Label | Region             | Purpose                                                           | Required?                                  | Notes                                                                                                                               |
-| ----- | ------------------ | ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**   | Closes the layer.                                                 | Required on layers with no footer actions. | Use "FormClose" icon.                                                                                                               |
-| **2** | **Footer actions** | Provides actions for user to accept layer consequences or cancel. | Required on actionable layers.             | The actions should be right-aligned with primary action on the right. One action should be a "Cancel" button that closes the layer. |
-
-See [layer closing behavior](/components/layer#layer-closing-behavior) for details.
-
-<Notification
-  status="info"
-  message="A layer should either have actions in the footer or a close button in the header, not both."
-  width="large"
-  margin={{ bottom: 'medium' }}
-/>
+Fullscreen layers fill the entire page. Therefore, there no rounding or elevation is visible.
 
 ### Grommet properties
 
@@ -33,6 +15,84 @@ Apply these [layer properties](https://v2.grommet.io/layer) for a fullscreen lay
 | Property                                 | Value |
 | ---------------------------------------- | ----- |
 | [full](https://v2.grommet.io/layer#full) | true  |
+
+## Layer closing behavior
+
+### Informational
+
+For informational side drawer layers that do not require any user actions, place a close button in the layer header.
+
+<Example plain>
+  <FullscreenLayerAnatomy informational />
+</Example>
+
+| Label | Region           | Purpose           | Required? | Notes                 |
+| ----- | ---------------- | ----------------- | --------- | --------------------- |
+| **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
+
+The user should be able to close the informational layer by clicking on the close button, clicking outside, the layer, or using the Escape key.
+
+### Actionable
+
+For actionable layers, include the close button in the header and a "Cancel" button alongside footer actions so the user can efficiently leave the layer if desired.
+
+<Example plain>
+  <FullscreenLayerAnatomy />
+</Example>
+
+| Label | Region            | Purpose           | Required? | Notes                                                                                                                                                                                                                                  |
+| ----- | ----------------- | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer. | required  | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
+| **2** | **Cancel button** | Closes the layer. | required  | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
+
+### When to use double confirmation
+
+When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown. This helps avoid unintentional loss of work.
+
+Learn more about the anatomy and implementation of a [double confirmation](/components/layer#when-to-use-double-confirmation) on the main layer page since this behavior applies to all layer types.
+
+## Scroll behavior
+
+The default behavior of the layer is to allow all of the content to scroll, but this behavior can be modified depending on the layer's contents.
+
+| Layer contents | Sticky region                                                                                         | Scroll region                   | Notes                                                                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Wizard**     | Header and footer                                                                                     | Body                            | A sticky footer ensures the user always has access to advance in the wizard. A sticky header maintains the wizard's context and provides persistent access to move a step back in the wizard or cancel out. |
+| **Form**       | None or header can be sticky/appear on scroll up if this added context is valueable for the use case. | All content, or body and footer | The footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.                                                                                      |
+
+### Sticky header
+
+If it would be valuable for the user to maintain the context of the layer's topic, the header can be made persistent or reappear when the user scrolls up.
+
+#### Persistent
+
+If it's necessary for the user to always be able to see the layer heading, make the heading persistent and sticky.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js',
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyExample />
+</Example>
+
+#### Scroll up
+
+In order to maximize screen real-estate when content is scrollable, the header may scroll away as the user scrolls down but reappear as the user scrolls up. This can be accomplished by applying `sticky="scrollup"` on Heading.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyScrollExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js',
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyScrollExample />
+</Example>
 
 ## Examples
 
