@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, Box, Layer } from 'grommet';
 import { LayerForm } from './ConfigurationForm';
 import {
@@ -10,34 +9,25 @@ import {
   useConfirmation,
 } from './components';
 
-export const LayerExample = ({ containerRef }) => (
+export const LayerExample = () => (
   <ConfirmationProvider>
     <ConfirmationContext.Consumer>
       {({ showLayer, showConfirmation, setShowLayer }) => (
         <>
-          <Box align="center" justify="center" fill>
+          <Box align="center">
             <Button
               label="Show me the layer"
               onClick={() => setShowLayer(true)}
               primary
             />
           </Box>
-          {showLayer ? <AddApplication target={containerRef?.current} /> : null}
-          {showConfirmation ? (
-            <DoubleConfirmation
-              title="application"
-              target={containerRef?.current}
-            />
-          ) : null}
+          {showLayer ? <AddApplication /> : null}
+          {showConfirmation ? <DoubleConfirmation title="application" /> : null}
         </>
       )}
     </ConfirmationContext.Consumer>
   </ConfirmationProvider>
 );
-
-LayerExample.propTypes = {
-  containerRef: PropTypes.node,
-};
 
 const AddApplication = ({ ...rest }) => {
   const { onClose } = useConfirmation();
