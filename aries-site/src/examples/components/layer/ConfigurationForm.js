@@ -35,28 +35,19 @@ const defaultFormValues = {
   'delivery-select': [],
 };
 
-export const ConfigurationForm = ({ containerRef }) => (
+export const ConfigurationForm = () => (
   <ConfirmationProvider>
     <ConfirmationContext.Consumer>
       {({ showLayer, showConfirmation }) => (
         <>
           <ApplicationsPage />
-          {showLayer ? <AddApplication target={containerRef?.current} /> : null}
-          {showConfirmation ? (
-            <DoubleConfirmation
-              title="application"
-              target={containerRef?.current}
-            />
-          ) : null}
+          {showLayer ? <AddApplication /> : null}
+          {showConfirmation ? <DoubleConfirmation title="application" /> : null}
         </>
       )}
     </ConfirmationContext.Consumer>
   </ConfirmationProvider>
 );
-
-ConfigurationForm.propTypes = {
-  containerRef: PropTypes.object,
-};
 
 const AddApplication = ({ ...rest }) => {
   const { onClose } = useConfirmation();

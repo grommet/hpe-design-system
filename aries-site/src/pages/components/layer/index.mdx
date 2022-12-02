@@ -5,6 +5,7 @@ import {
   ActionLabels,
   ActionLabelTitle,
   DoubleConfirmationAnatomy,
+  DoubleConfirmationBestPractice,
   ConfigurationForm,
   LayerAnatomy,
   LayerExample,
@@ -87,7 +88,7 @@ Depending on if a layer is informational or actionable, the elements and interac
 
 ### Informational
 
-Informational layers do not require any actions from the user, and therefore do not contain any footer actions.
+Informational layers do not require any actions from the user, and therefore do not contain any actions.
 
 The following should cause an informational layer to close:
 
@@ -136,6 +137,53 @@ A double confirmation appears as a center [modal](#modal-vs-non-modal). This pla
 | **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | required  | --                                                                                                         |
 | **1b** | **Subtitle** | To clarify that changes will not be saved.                           | required  | --                                                                                                         |
 | **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | required  | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Lead with the single action that needs to be confirmed. In most cases, this is "Discard" followed by a noun of what will be discarded.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t include unecessary introductions that create ambiguity around what will happen.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Align the primary action verb with the title.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t change the primary action to something generic like "Yes". The user should know the consequence of the button by the label alone.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice="badLabel" />
+  </Example>
+</BestPracticeGroup>
 
 ### Double confirmation example
 
