@@ -15,7 +15,7 @@ export const ContentDrivenLayout = ({ containerRef }) => {
     <Box align="center" justify="center" fill>
       <Button
         primary
-        label="Display Modal"
+        label="Display layer"
         onClick={() => setShowModal(true)}
       />
       {showModal ? (

@@ -21,7 +21,12 @@ export const LayerHeader = ({
       </Paragraph>
     </Box>
     {onClose ? (
-      <Button icon={<FormClose />} onClick={onClose} id={closeId} />
+      <Button
+        icon={<FormClose />}
+        onClick={onClose}
+        id={closeId}
+        a11yTitle="Close modal"
+      />
     ) : null}
   </Header>
 );

@@ -92,7 +92,7 @@ export const DestructiveConfirmation = ({
             </FormField>
           </ModalBody>
           <ModalFooter justify="end">
-            <Box direction="row" gap="xsmall">
+            <Box direction="row" gap="small">
               <Button label="Cancel" onClick={onClose} />
               <Button primary label="Delete" type="submit" />
             </Box>
