@@ -73,7 +73,6 @@ const useConfirmation = () => {
       setShowConfirmation(true);
     } else {
       setShowLayer(false);
-      // setFormValue(defaultFormValues);
     }
   };
 

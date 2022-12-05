@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -76,6 +76,9 @@ export const LayerForm = ({ ...rest }) => {
 
   const { setShowLayer, setTouched } = useConfirmation();
 
+  // setTouched to false when form dismounts
+  useEffect(() => () => setTouched(false), [setTouched]);
+
   return (
     <Form
       onSubmit={event => {
@@ -144,10 +147,6 @@ export const LayerForm = ({ ...rest }) => {
       </FormField>
     </Form>
   );
-};
-
-LayerForm.propTypes = {
-  setShowLayer: PropTypes.func.isRequired,
 };
 
 const ApplicationsPage = () => {
