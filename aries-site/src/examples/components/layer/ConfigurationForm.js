@@ -172,7 +172,6 @@ const ApplicationsPage = () => {
                   onClick={() => setShowLayer(true)}
                 />
               }
-              // layerProps={{ target: containerRef?.target }}
             />
             <ApplicationResults />
           </Box>
