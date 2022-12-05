@@ -60,47 +60,7 @@ The default behavior of the layer is to allow all of the content to scroll, but 
 | **Wizard**     | Header and footer                                                                                     | Body                            | A sticky footer ensures the user always has access to advance in the wizard. A sticky header maintains the wizard's context and provides persistent access to move a step back in the wizard or cancel out. |
 | **Form**       | None or header can be sticky/appear on scroll up if this added context is valueable for the use case. | All content, or body and footer | The footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.                                                                                      |
 
-### Sticky header
-
-If it would be valuable for the user to maintain the context of the layer's topic, the header can be made persistent or reappear when the user scrolls up.
-
-#### Persistent
-
-If it's necessary for the user to always be able to see the layer heading, make the heading persistent and sticky.
-
-<Example
-  docs="https://v2.grommet.io/layer?theme=hpe#props"
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js',
-  ]}
-  height={{ min: 'small' }}
->
-  <LayerStickyExample />
-</Example>
-
-#### Scroll up
-
-In order to maximize screen real-estate when content is scrollable, the header may scroll away as the user scrolls down but reappear as the user scrolls up. This can be accomplished by applying `sticky="scrollup"` on Heading.
-
-<Example
-  docs="https://v2.grommet.io/layer?theme=hpe#props"
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/LayerStickyScrollExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/MonitorFormExample.js',
-  ]}
-  height={{ min: 'small' }}
->
-  <LayerStickyScrollExample />
-</Example>
-
 ## Examples
-
-### Lengthy configuration form
-
-<Example template showResponsiveControls={[]}>
-  <ConfigurationForm fullscreen />
-</Example>
 
 ### Wizard
 
