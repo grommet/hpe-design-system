@@ -82,7 +82,7 @@ Different use cases and content warrant different layer types. Learn more about 
 
 ## Layer closing behavior
 
-Depending on if a layer is informational or actionable, the elements and interactions that will close a layer differ.
+Depending on whether a layer is [informational](#informational) or [actionable](#actionable), the elements and interactions that close a layer differ.
 
 ### Informational
 
@@ -90,7 +90,7 @@ Informational layers do not require any actions from the user, and therefore do 
 
 The following should cause an informational layer to close:
 
-1. Clicking on the close button in the layer's header.
+1. Clicking the [close icon](/foundation/icons#ui-actions) button the layer's header.
 1. Clicking outside of the layer, `onClickOutside`.
 1. Pressing the Escape key, `onEsc`.
 
@@ -98,31 +98,34 @@ Learn more about the specifics of [informational center layers](/components/laye
 
 ### Actionable
 
-Actionable layers require the user to either accept/apply the prompt in the layer or cancel out.
+Actionable layers require the user to either accept or apply the action prompt in the layer or cancel the action.
 
 The following should cause an actionable layer to close:
 
-1. Clicking the close button in the layer's header.
-   - The exception to this rule is that actionable center layers should not include a close button in the layer's header. Because center layers generally present confirmations, the user should have to intentionally choose between accepting or cancelling the layer's prompt.
+1. Clicking the [close icon](/foundation/icons#ui-actions) button in the layer's header.
+   - Note: Actionable center layers should not include a close button in the layer's header. Center layers generally present confirmations, therefor the user should intentionally choose between accepting or cancelling the layer's action prompt.
 1. Clicking the cancel button in the layer's footer.
 1. Pressing the Escape key, `onEsc`.
+1. Clicking an affirmative action such as "save" or "apply."
 
-Clicking outside of an actionable layer should not close the layer. The user should be intentionally choosing between accepting or cancelling the layer's prompt.
+Clicks outside of an actionable layer, `onClickOutside`, should not close the layer. Actionable layers present an 'apply' or 'do not apply' choice for which a user should make an intentional choice. Clicks outside of layer do not indicate intent and therefore should not close the layer.
+
+Use of a double confirmation may be desirable as part of the layer's closing behavior in some instances. See more detail about [when to use double confirmation](#when-to-use-double-confirmation).
 
 Learn more about the specifics of [actionable center layers](/components/layer/center-layer#actionable), [actionable side drawer layers](/components/layer/side-drawer-layer#actionable), and [actionable fullscreen layers](/components/layer/fullscreen-layer#actionable).
 
-### When to use double confirmation
+### Double confirmations
 
-When a user attempts to close out of a layer, the layer closing behavior should always avoid losing user's work.
+When closing out of an actionable layer containing editable or configurable information, the behavior should err on preventing a user's unintentional loss of work by presenting a double confirmation.
 
-When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown.
+A double confirmation should be shown when data has been edited or changed and the user closes the layer by using the close button, cancel button, or Escape key; a double confirmation is not needed upon affirmative actions like 'save' or 'apply'.
 
 | Layer state                             | Confirmation type   | Notes                                                                                                                                                                                         |
 | --------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                              |
 | User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
 
-### Double confirmation anatomy
+#### Double confirmation anatomy
 
 A double confirmation appears as a center [modal](#modal-vs-non-modal). This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
 
@@ -152,7 +155,7 @@ A double confirmation appears as a center [modal](#modal-vs-non-modal). This pla
     height={{ min: 'small' }}
     bestPractice={{
       type: 'dont',
-      message: `Don’t include unecessary introductions that create ambiguity around what will happen.`,
+      message: `Avoid unnecessary instructions which create uncertainty about what will happen. Avoid phrasing which question the user's intent; instead use phrasing which trusts the intent and confirms.`,
     }}
     width="100%"
   >
@@ -183,7 +186,9 @@ A double confirmation appears as a center [modal](#modal-vs-non-modal). This pla
   </Example>
 </BestPracticeGroup>
 
-### Double confirmation example
+#### Double confirmation example
+
+The example below demonstrates how a double confirmation is only used if the layer's content has been changed or edited. A double confirmation is not used if no changes have been made. This behavior errs on preventing unintentional loss of work that a user has done.
 
 First, click "Add application" then click the close button in the layer header. Notice how the layer immediately closes.
 

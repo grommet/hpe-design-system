@@ -25,65 +25,56 @@ export const LayerTypes = () => {
 
   return (
     <Grid columns={columns[breakpoint]} gap="large" pad={{ top: 'medium' }}>
-      <Type
-        title="Center"
-        description={`Use for concise task-flow oriented or informational 
-        content that should appear front and center to the user.`}
-        href="/components/layer/center-layer"
-      >
-        <Paragraph>Use cases include: confirmations. </Paragraph>
+      <Type title="Center" href="/components/layer/center-layer">
+        <Paragraph margin="none">
+          Use for concise, task-flow oriented or informational content that
+          should appear front and center to the user.
+        </Paragraph>
+        <Paragraph>Use cases include: confirmations.</Paragraph>
       </Type>
-      <Type
-        title="Side drawer"
-        description={`Use for manipulating data on a page or presenting 
-        additional information without navigating the user away from their 
-        current context.`}
-        href="/components/layer/side-drawer-layer"
-      >
+      <Type title="Side drawer" href="/components/layer/side-drawer-layer">
+        <Paragraph margin="none">
+          Use for manipulating data on a page or presenting additional
+          information without navigating the user away from their current
+          context.
+        </Paragraph>
         <Paragraph>
           Use cases include: filtering, editing objects, configuration flows.
         </Paragraph>
       </Type>
-      <Type
-        title="Fullscreen"
-        description={`Use when the layer content is dimensionally large or 
-        when it is an involved task flow.`}
-        href="/components/layer/fullscreen-layer"
-      >
+      <Type title="Fullscreen" href="/components/layer/fullscreen-layer">
+        <Paragraph margin="none">
+          Use when the layer content is dimensionally large or when it is an
+          involved task flow.
+        </Paragraph>
         <Paragraph>
           Use cases include: creating/editing an object with a lot of
           attributes, progressive forms revealing inputs based on preceding
-          values.
+          values, and wizards.
         </Paragraph>
       </Type>
     </Grid>
   );
 };
 
-const Type = ({ children, description, href, preview, title }) => (
+const Type = ({ children, href, preview, title }) => (
   <Box>
     <Box gap="xsmall">
       <Heading level={3} margin="none">
         {title}
       </Heading>
-      <Paragraph margin="none">{description}</Paragraph>
       {children}
-      {href ? (
-        <Link href={href} passHref>
-          <Button
-            a11yTitle={`Read ${title} guidance`}
-            alignSelf="start"
-            margin={{ vertical: 'small' }}
-            label="Read guidance"
-            icon={<FormNextLink aria-hidden="true" />}
-            // size="small"
-            reverse
-            secondary
-          />
-        </Link>
-      ) : (
-        <Paragraph margin="none">Guidance and examples coming soon.</Paragraph>
-      )}
+      <Link href={href} passHref>
+        <Button
+          a11yTitle={`Read ${title.toLowerCase()} guidance.`}
+          alignSelf="start"
+          margin={{ vertical: 'small' }}
+          label="Read guidance"
+          icon={<FormNextLink aria-hidden="true" />}
+          reverse
+          secondary
+        />
+      </Link>
     </Box>
     {preview && (
       <Example plain scale={0.5}>
@@ -97,6 +88,5 @@ Type.propTypes = {
   children: PropTypes.element,
   preview: PropTypes.element,
   title: PropTypes.string,
-  description: PropTypes.string,
   href: PropTypes.string,
 };

@@ -783,12 +783,12 @@ export const components = [
     name: 'Layer',
     category: 'Layouts',
     description:
-      'Layer is a component that displays content on top of the page the user is currently on.',
+      'Layer is a component allowing content to be displayed on top of the page the user is currently on.',
     previewComponent: {
       component: () => <LayerPreview />,
     },
     seoDescription:
-      'Layer is a component that displays content on top of the page the user is currently on. See how HPE implements side panels, center modals, dialogs, etc.',
+      'Layer is a component allowing content to be displayed on top of the page the user is currently on. See how HPE implements side panels, center modals, dialogs, etc.',
     sections: [
       'When to use',
       'Anatomy',
