@@ -1,0 +1,74 @@
+import { Example } from '../../../layouts';
+
+## When to use
+
+The managing child objects pattern may be used when creating, updating, or removing 
+child objects is part of a larger flow where a parent resource is being created or 
+configured. In these circumstances, the additional configuration inputs can crowd screens 
+and lead to quite lengthy forms.
+
+This pattern improves productivity by focusing a user's attention solely on the current object 
+of interest, and uses collapsible objects to show or hide detail as needed. The 
+intent is that collapsible objects reduce noise, clutter, and the resulting cognitive overload 
+by hiding extraneous detail &mdash; and an easy means to view detail when needed.
+
+## Anatomy
+
+The following illustrates the elements composing a child object in its collapsed and expanded 
+states. View the [use case examples](#use-case-examples) to see how child objects behave and are presented in a form 
+context.
+
+### Collapsed state
+
+[Diagram to be inserted]
+
+| Label | Region         | Purpose                                                    | Required? | Notes |
+| ----- | -------------- | ---------------------------------------------------------- | --------- | ----- |
+|       | Container      | Identfies the child and controls the show detail behavior. | Required  | The entirety of the container is focusable and shows detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Show and edit detail." |
+|       | Label          | Uniquely identifies each child object.                     | Required  | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
+|       | Expand icon    | Visual treatment indicating show detail behavior.          | Required  | Icon name is "FormDown". | 
+|       | Values summary | A preview summarizing the object's detail.                 | Optional  |       |
+|       | Border         | Provides visual distinction from other children.           | Required  |       |
+
+### Expanded state
+
+[Diagram to be inserted]
+
+| Label | Region        | Purpose                                                     | Required? | Notes |
+| ----- | ------------- | ----------------------------------------------------------- | --------- | ----- |
+|       | Header        | Identifies the child and controls the hide detail behavior. | Required  | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail." |
+|       | Label         | Uniquely identifies each child object.                      | Required  | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
+|       | Collapse icon | Visual treatment indicating hide detail behavior.           | Required  | Icon name is "FormUp". |
+|       | Body          | Flexible region for presenting an object's detail.          | Required  | Detail presentation may vary by the use case. |
+|       | Remove button | Removes/deletes the child from its parent.                  | Required  |       | 
+|       | Border        | Provides visual distinction from other children.            | Required  |       |
+
+## Use case examples
+
+### Create an AWS cluster
+
+[Example to be inserted]
+
+### Add or edit user permissions
+
+[Example to be inserted]
+
+### Add rule
+
+[Example to be inserted]
+
+### Create a compute group
+
+[Example to be inserted]
+
+### Selected roles
+
+[Example to be inserted]
+
+### Selected datasets
+
+[Example to be inserted]
+
+### Selected hosts
+
+[Example to be inserted]
