@@ -16,7 +16,9 @@ export const ContentDrivenLayout = ({ containerRef }) => {
       <Button
         primary
         label="Display layer"
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          setShowModal(true);
+        }}
       />
       {showModal ? (
         <DestructiveConfirmation

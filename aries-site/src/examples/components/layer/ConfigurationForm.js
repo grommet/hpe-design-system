@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -12,6 +12,7 @@ import {
   PageContent,
   TextInput,
   CheckBoxGroup,
+  AnnounceContext,
 } from 'grommet';
 import {
   useFilters,
@@ -51,6 +52,11 @@ export const ConfigurationForm = () => (
 
 const AddApplication = ({ ...rest }) => {
   const { onClose } = useConfirmation();
+  const announce = useContext(AnnounceContext);
+
+  useEffect(() => {
+    announce('Add application modal opened', 'assertive');
+  }, [announce]);
 
   return (
     <Sidedrawer onEsc={onClose} {...rest}>

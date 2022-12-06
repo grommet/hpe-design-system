@@ -804,7 +804,9 @@ export const components = [
       'Aligning to layer title',
       'Accessibility',
       'Layer titles',
-      'Close button',
+      'Announcing layer open and close',
+      'Modal layers',
+      'Non-modal layers',
     ],
     preview: {
       component: () => <LayerPreview />,
