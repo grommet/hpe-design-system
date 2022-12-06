@@ -7,7 +7,6 @@ export const CenterInformational = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
-
   return (
     <Box align="center" justify="center" fill>
       <Button
@@ -37,8 +36,8 @@ export const CenterInformational = ({ containerRef }) => {
               <Button
                 icon={<FormClose />}
                 onClick={() => setShowModal(false)}
-                a11yTitle={`You are in a layer containing a confirmation that 
-                the firmare update has been initiated. To close this layer, 
+                a11yTitle={`You are in a layer containing a confirmation that
+                the firmare update has been initiated. To close this layer,
                 press Enter.`}
                 autoFocus
               />

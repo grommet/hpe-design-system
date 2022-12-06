@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { AnnounceContext } from 'grommet';
 
 const ConfirmationContext = createContext({});
 
@@ -68,11 +69,15 @@ const useConfirmation = () => {
     setShowLayer(false);
   };
 
+  const announce = useContext(AnnounceContext);
+
   const onClose = () => {
     if (touched) {
       setShowConfirmation(true);
+      announce('Discard changes confirmation modal opened.', 'assertive');
     } else {
       setShowLayer(false);
+      announce('Modal closed.', 'assertive');
     }
   };
 
