@@ -216,7 +216,7 @@ export const templates = [
     name: 'Managing Child Objects',
     parentPage: 'Forms',
     available: true,
-    description: `How to present, interact with, and view details for child 
+    description: `How to show, hide, and edit details of child 
     objects related to a parent within a form context.`,
     preview: {
       image: {
@@ -228,8 +228,8 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: `HPE Design System guidance for how to present, interact with, 
-    and view details for child objects related to a parent within a form context.`,
+    seoDescription: `HPE Design System guidance for how to show, hide, and edit details of child 
+    objects related to a parent within a form context.`,
     sections: [],
     relatedContent: ['Forms'],
     tags: [],
