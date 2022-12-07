@@ -6,6 +6,7 @@ import {
   FilteringTable,
   LayerStickyExample,
 } from '../../../examples';
+import { Checkmark } from 'grommet-icons';
 
 ## Anatomy
 
@@ -30,9 +31,9 @@ For informational side drawer layers that do not require any user actions, place
   <SideDrawerLayerAnatomy informational />
 </Example>
 
-| Label | Region           | Purpose           | Required? | Notes                 |
-| ----- | ---------------- | ----------------- | --------- | --------------------- |
-| **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
+| Label | Region           | Purpose           |                  Required                   | Notes                 |
+| ----- | ---------------- | ----------------- | :-----------------------------------------: | --------------------- |
+| **1** | **Close button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Use "FormClose" icon. |
 
 The user should be able to dismiss the informational layer by clicking outside, onClickOutside, or using the Escape key, onEsc.
 
@@ -44,12 +45,12 @@ For actionable layers, include the [close icon](/foundation/icons#ui-actions) bu
   <SideDrawerLayerAnatomy />
 </Example>
 
-| Label | Region            | Purpose           | Required? | Notes                                                                                                                                                                                                                                  |
-| ----- | ----------------- | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**  | Closes the layer. | required  | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
-| **2** | **Cancel button** | Closes the layer. | required  | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
+| Label | Region            | Purpose           |                  Required                   | Notes                                                                                                                                                                                                                                  |
+| ----- | ----------------- | ----------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
+| **2** | **Cancel button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
 
-To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, onEsc.
+To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, `onEsc`.
 
 ### Double confirmations
 
@@ -61,11 +62,10 @@ Learn more about the anatomy and implementation of a [double confirmation](/comp
 
 The default behavior of the layer is to allow all of the content to scroll, but this behavior can be modified depending on the layer's contents.
 
-| Layer contents            | Sticky region                                                                                         | Scroll region   | Notes                                                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Filters**               | Footer                                                                                                | Header and body | A sticky footer ensures the user always has access to apply, reset, or cancel out of the filter view and return to the data set. |
-| **Form**                  | None or header can be sticky/appear on scroll up if this added context is valueable for the use case. | Body and footer | The footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.           |
-| **Informational content** | TBD                                                                                                   | TBD             | TBD                                                                                                                              |
+| Layer contents | Sticky region                                                                                         | Scroll region   | Notes                                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Filters**    | Footer                                                                                                | Header and body | A sticky footer ensures the user always has access to apply, reset, or cancel out of the filter view and return to the data set. |
+| **Form**       | None or header can be sticky/appear on scroll up if this added context is valueable for the use case. | Body and footer | The footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.           |
 
 ### Sticky header
 
@@ -107,7 +107,12 @@ In order to maximize screen real-estate when content is scrollable, the header m
 
 <Example
   docs="https://v2.grommet.io/layer?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/ConfigurationForm.js"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/ConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/components/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/components/ConfirmationContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/components/DoubleConfirmation.js',
+  ]}
   height={{ min: 'small' }}
   template
   showResponsiveControls={[]}

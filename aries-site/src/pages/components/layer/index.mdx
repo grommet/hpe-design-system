@@ -18,6 +18,7 @@ import {
   InformationalLayerClose,
   LayerTypes,
 } from '../../../examples';
+import { Checkmark } from 'grommet-icons';
 
 <Example
   componentName="Layer"
@@ -41,13 +42,13 @@ Basic anatomy and spacing that apply to all [layer types](#types-of-layers).
   <LayerAnatomy />
 </Example>
 
-| Label  | Region       | Purpose                                                | Required? | Notes                                                                      |
-| ------ | ------------ | ------------------------------------------------------ | --------- | -------------------------------------------------------------------------- |
-| **1**  | **Header**   | Identifies the layer.                                  | required  | --                                                                         |
-| **1a** | **Title**    | A short, descriptive title identifying the layer.      | required  | Implemented as a Heading level 2, size="small".                            |
-| **1b** | **Subtitle** | Any additional context or information about the layer. | optional  | --                                                                         |
-| **2**  | **Body**     | Any additional content.                                | optional  | --                                                                         |
-| **3**  | **Footer**   | Contains layer actions.                                | optional  | The ordering and alignment of footer actions depends on the type of layer. |
+| Label  | Region       | Purpose                                                |                  Required                   | Notes                                                                      |
+| ------ | ------------ | ------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------- |
+| **1**  | **Header**   | Identifies the layer.                                  | <Checkmark a11yTitle="true" size="small" /> | --                                                                         |
+| **1a** | **Title**    | A short, descriptive title identifying the layer.      | <Checkmark a11yTitle="true" size="small" /> | Implemented as a Heading level 2, size="small".                            |
+| **1b** | **Subtitle** | Any additional context or information about the layer. |                  Optional                   | --                                                                         |
+| **2**  | **Body**     | Any additional content.                                |                  Optional                   | --                                                                         |
+| **3**  | **Footer**   | Contains layer actions.                                |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. |
 
 <StyleTable
   data={[
@@ -133,11 +134,11 @@ A double confirmation appears as a center [modal](#modal-vs-non-modal). This pla
   <DoubleConfirmationAnatomy />
 </Example>
 
-| Label  | Region       | Purpose                                                              | Required? | Notes                                                                                                      |
-| ------ | ------------ | -------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
-| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | required  | --                                                                                                         |
-| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | required  | --                                                                                                         |
-| **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | required  | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | <Checkmark a11yTitle="true" size="small" /> | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
 
 <BestPracticeGroup>
   <Example
