@@ -12,7 +12,7 @@ import {
 import { getWidth } from './utils';
 import { Annotation } from '../../../layouts';
 import { StepOne } from './WizardValidationExample';
-import { connection } from '../../../utils/utils';
+import { connection } from '../../../utils';
 
 const connections = [
   connection('1a', 'wizard-title', 'vertical'),
