@@ -11,7 +11,7 @@ import {
   Paragraph,
 } from 'grommet';
 import { Annotation } from '../../../layouts';
-import { connection } from '../../../utils/utils';
+import { connection } from '../../../utils';
 
 const connections = [
   connection('1a-confirmation', 'confirmation-title'),

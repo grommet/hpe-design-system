@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, Page, PageContent, Stack } from 'grommet';
 import { FormClose } from 'grommet-icons/icons/FormClose';
 import { Annotation } from '../../../layouts';
-import { connection } from '../../../utils/utils';
+import { connection } from '../../../utils';
 import { LayerHeader } from './components/LayerHeader';
 
 export const FullscreenLayerAnatomy = ({ informational }) => {
