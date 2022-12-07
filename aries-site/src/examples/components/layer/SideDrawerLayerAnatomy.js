@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Card, CardBody, Diagram, Grid, Stack } from 'grommet';
 import { ThemeContext } from 'styled-components';
 import { Annotation } from '../../../layouts';
-import { connection } from '../../../utils/utils';
+import { connection } from '../../../utils';
 import { LayerHeader } from './components';
 
 export const SideDrawerLayerAnatomy = ({ informational }) => {

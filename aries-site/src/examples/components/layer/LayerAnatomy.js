@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Annotation } from '../../../layouts';
-import { connection } from '../../../utils/utils';
+import { connection } from '../../../utils';
 import { LayerHeader } from './components/LayerHeader';
 
 const connections = [
