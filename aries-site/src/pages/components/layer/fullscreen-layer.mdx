@@ -1,6 +1,7 @@
 import { Notification } from 'grommet';
 import { Example } from '../../../layouts';
 import { FullscreenLayerAnatomy } from '../../../examples';
+import { Checkmark } from 'grommet-icons';
 
 ## Anatomy
 
@@ -26,9 +27,9 @@ For informational side drawer layers that do not require any user actions, place
   <FullscreenLayerAnatomy informational />
 </Example>
 
-| Label | Region           | Purpose           | Required? | Notes                 |
-| ----- | ---------------- | ----------------- | --------- | --------------------- |
-| **1** | **Close button** | Closes the layer. | required  | Use "FormClose" icon. |
+| Label | Region           | Purpose           |                  Required                   | Notes                 |
+| ----- | ---------------- | ----------------- | :-----------------------------------------: | --------------------- |
+| **1** | **Close button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Use "FormClose" icon. |
 
 The user should be able to close the informational layer by clicking on the close button, clicking outside, the layer, or using the Escape key.
 
@@ -40,10 +41,10 @@ For actionable layers, include the [close icon](/foundation/icons#ui-actions) bu
   <FullscreenLayerAnatomy />
 </Example>
 
-| Label | Region            | Purpose           | Required? | Notes                                                                                                                                                                                                                                  |
-| ----- | ----------------- | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Close button**  | Closes the layer. | required  | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
-| **2** | **Cancel button** | Closes the layer. | required  | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
+| Label | Region            | Purpose           |                  Required                   | Notes                                                                                                                                                                                                                                  |
+| ----- | ----------------- | ----------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
+| **2** | **Cancel button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
 
 ### Double confirmations
 
