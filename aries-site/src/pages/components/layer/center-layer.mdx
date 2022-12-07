@@ -47,7 +47,7 @@ For layers that require user actions, place a "Cancel" action alongside the othe
 | ----- | ------------------ | ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **1** | **Footer actions** | Allows the user to confirm, apply, or cancel the layer's action. | required  | The actions should be right-aligned with primary action on the right. Right-alignment signals progress and forward momentum. One action should be a "Cancel" button that closes the layer, returning the user to the previous state. |
 
-To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, onEsc.
+To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, `onEsc`.
 
 ### Double confirmations
 
@@ -56,6 +56,19 @@ When data has been edited or changed and the user tries to close the layer, a do
 Learn more about the anatomy and implementation of a [double confirmation](/components/layer#double-confirmations) on the main layer page since this behavior applies to all layer types.
 
 ## Examples
+
+### Confirming next steps
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/CenterInformational.js"
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/CenterInformational.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <CenterInformational />
+</Example>
 
 ### Highly destructive confirmation
 
@@ -80,17 +93,4 @@ Highly destructive actions refer to use cases where large amounts of data will b
   width="100%"
 >
   <ContentDrivenLayout />
-</Example>
-
-### Confirming next steps
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/CenterInformational.js"
-  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/CenterInformational.js"
-  showResponsiveControls={['fullScreen']}
-  screenContainer
-  height="650px"
-  width="100%"
->
-  <CenterInformational />
 </Example>

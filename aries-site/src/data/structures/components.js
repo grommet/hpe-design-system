@@ -811,7 +811,14 @@ export const components = [
     preview: {
       component: () => <LayerPreview />,
     },
-    relatedContent: ['Forms', 'Button', 'Icons'],
+    relatedContent: [
+      'Center Layer',
+      'Side Drawer Layer',
+      'Fullscreen Layer',
+      'Forms',
+      'Button',
+      'Icons',
+    ],
     tags: [
       'slideout',
       'panels',
@@ -836,9 +843,15 @@ export const components = [
     seoDescription:
       'A center layer should be used for brief, concise confirmations or dialogs.',
     preview: {
-      component: () => <LayerPreview />,
+      component: () => <LayerPreview position="center" />,
     },
-    relatedContent: ['Forms', 'Filtering'],
+    relatedContent: [
+      'Layer',
+      'Side Drawer Layer',
+      'Fullscreen Layer',
+      'Forms',
+      'Filtering',
+    ],
     sections: [
       'Anatomy',
       'Layer closing behavior',
@@ -862,13 +875,19 @@ export const components = [
     parentPage: 'Layer',
     category: 'Layouts',
     description:
-      'Side drawer layers should be used for configuration of an object or filtering.',
+      "When you want to enable a user to maintain the context of their current page, side drawer layers may be used for quickly viewing an object's detail, configuring an object, or applying filter choices.",
     seoDescription:
-      'Side drawer layers should be used for configuration of an object or filtering.',
+      "When you want to enable a user to maintain the context of their current page, side drawer layers may be used for quickly viewing an object's detail, configuring an object, or applying filter choices.",
     preview: {
       component: () => <LayerPreview />,
     },
-    relatedContent: ['Forms', 'Filtering'],
+    relatedContent: [
+      'Layer',
+      'Center Layer',
+      'Fullscreen Layer',
+      'Forms',
+      'Filtering',
+    ],
     sections: [
       'Anatomy',
       'Grommet properties',
@@ -892,10 +911,13 @@ export const components = [
       'Fullscreen layers should be used for large or longer layer content.',
     seoDescription:
       'Fullscreen layers should be used for large or longer layer content.',
-    preview: {
-      component: () => <LayerPreview />,
-    },
-    relatedContent: ['Forms', 'Filtering'],
+    relatedContent: [
+      'Layer',
+      'Side Drawer Layer',
+      'Center Layer',
+      'Forms',
+      'Filtering',
+    ],
     sections: [
       'Anatomy',
       'Grommet properties',
