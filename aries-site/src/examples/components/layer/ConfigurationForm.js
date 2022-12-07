@@ -206,7 +206,7 @@ const ApplicationResults = ({ height = { max: 'medium' } }) => {
   const { filteredResults, selected, setSelected } = useFilters();
 
   return (
-    <Box height={height} overflow="auto">
+    <Box alignSelf="start" height={height} overflow="auto">
       <DataTable
         aria-describedby="applications-heading"
         data={filteredResults}
