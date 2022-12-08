@@ -82,6 +82,15 @@ export const nameToPath = name => {
   if (name === 'Navigational card') {
     return '/components/card/navigational-card';
   }
+  if (name === 'Center Layer') {
+    return '/components/layer/center-layer';
+  }
+  if (name === 'Side Drawer Layer') {
+    return '/components/layer/side-drawer-layer';
+  }
+  if (name === 'Fullscreen Layer') {
+    return '/components/layer/fullscreen-layer';
+  }
 
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
