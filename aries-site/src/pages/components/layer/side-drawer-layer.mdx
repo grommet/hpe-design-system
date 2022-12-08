@@ -14,7 +14,7 @@ See [general layer anatomy](/components/layer#anatomy) for specifications applyi
 
 ### Grommet properties
 
-Apply these [layer properties](https://v2.grommet.io/layer#props) for a side drawer layer.
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a side drawer layer.
 
 | Property                                         | Value    |
 | ------------------------------------------------ | -------- |
@@ -113,6 +113,7 @@ In order to maximize screen real-estate when content is scrollable, the header m
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/components/ConfirmationContext.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layer/components/DoubleConfirmation.js',
   ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/layer/ConfigurationForm.js"
   height={{ min: 'small' }}
   template
   showResponsiveControls={[]}
@@ -122,8 +123,24 @@ In order to maximize screen real-estate when content is scrollable, the header m
 
 ### Filtering
 
-Click the filter icon to see the layer. Notice the sticky footer on this layer. Refer to [overflow behavior](/components/layer#overflow-behavior) for added guidance.
+Click the filter icon to see the layer. Notice the sticky footer on this layer. Refer to [scroll behavior](#scroll-behavior) for added guidance.
 
-<Example template showResponsiveControls={[]}>
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/FilterServers.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/mockData.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable.js"
+  template
+  showResponsiveControls={[]}
+>
   <FilteringTable />
 </Example>

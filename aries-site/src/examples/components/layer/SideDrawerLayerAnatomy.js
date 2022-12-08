@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Box, Button, Card, CardBody, Diagram, Grid, Stack } from 'grommet';
 import { ThemeContext } from 'styled-components';
 import { Annotation } from '../../../layouts';
-import { connection } from '../../../utils';
+import { connection, useDarkMode } from '../../../utils';
 import { LayerHeader } from './components';
 
 export const SideDrawerLayerAnatomy = ({ informational }) => {
   const theme = useContext(ThemeContext);
+  const darkMode = useDarkMode();
 
   const closeId = informational ? 'informational-close' : 'actionable-close';
   const annotationId = informational
@@ -39,7 +40,10 @@ export const SideDrawerLayerAnatomy = ({ informational }) => {
   return (
     <Stack interactiveChild="first">
       <Box
-        background={{ color: theme.layer.overlay.background, dark: false }}
+        background={{
+          color: theme.layer.overlay.background,
+          dark: !!darkMode.value,
+        }}
         fill="horizontal"
       >
         <Grid

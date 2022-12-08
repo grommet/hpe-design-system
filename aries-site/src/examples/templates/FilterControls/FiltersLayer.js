@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-
+import { FormClose } from 'grommet-icons';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
@@ -50,27 +50,35 @@ export const FiltersLayer = () => {
         }}
         {...containerProps}
       >
-        <Header pad={{ horizontal: 'medium' }}>
-          <Heading margin="none" level={2} size="small">
-            Filters
-          </Heading>
-        </Header>
-        <Box
-          pad={{ horizontal: 'medium', bottom: 'medium' }}
-          flex
-          overflow="auto"
-          {...contentProps}
-        >
-          {filterAttributes &&
-            filterAttributes.map(attr => {
-              if (attr.filterType === 'CheckBoxGroup') {
-                return <FilterCheckBoxGroup key={attr.property} attr={attr} />;
-              }
-              if (attr.filterType === 'RangeSelector') {
-                return <FilterRangeSelector key={attr.property} attr={attr} />;
-              }
-              return null;
-            })}
+        <Box flex overflow="auto">
+          <Header
+            align="start"
+            pad={{ horizontal: 'medium', bottom: 'medium' }}
+          >
+            <Heading margin="none" level={2} size="small">
+              Filters
+            </Heading>
+            <Button icon={<FormClose />} onClick={() => closeLayer()} />
+          </Header>
+          <Box
+            pad={{ horizontal: 'medium', bottom: 'medium' }}
+            {...contentProps}
+          >
+            {filterAttributes &&
+              filterAttributes.map(attr => {
+                if (attr.filterType === 'CheckBoxGroup') {
+                  return (
+                    <FilterCheckBoxGroup key={attr.property} attr={attr} />
+                  );
+                }
+                if (attr.filterType === 'RangeSelector') {
+                  return (
+                    <FilterRangeSelector key={attr.property} attr={attr} />
+                  );
+                }
+                return null;
+              })}
+          </Box>
         </Box>
         <Footer
           justify="start"
