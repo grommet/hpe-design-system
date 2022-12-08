@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
+  AnnounceContext,
   Box,
   Button,
   Form,
@@ -24,6 +25,12 @@ export const DestructiveConfirmation = ({
   title,
   ...rest
 }) => {
+  // announce when the layer opens
+  const announce = useContext(AnnounceContext);
+  useEffect(() => {
+    announce(`${title} modal opened.`, 'assertive');
+  }, [announce, title]);
+
   const [value, setValue] = useState(defaultValues);
   const onClose = () => {
     setShowModal(false);
@@ -55,7 +62,14 @@ export const DestructiveConfirmation = ({
   ];
 
   return (
-    <ModalDialog title={title} onEsc={onClose} {...rest}>
+    <ModalDialog
+      title={title}
+      onEsc={() => {
+        announce(`${title} modal cancelled and closed.`, 'assertive');
+        onClose();
+      }}
+      {...rest}
+    >
       <Form
         value={value}
         onChange={onChange}
@@ -92,8 +106,14 @@ export const DestructiveConfirmation = ({
             </FormField>
           </ModalBody>
           <ModalFooter justify="end">
-            <Box direction="row" gap="xsmall">
-              <Button label="Cancel" onClick={onClose} />
+            <Box direction="row" gap="small">
+              <Button
+                label="Cancel"
+                onClick={() => {
+                  announce(`${title} modal cancelled and closed.`, 'assertive');
+                  onClose();
+                }}
+              />
               <Button primary label="Delete" type="submit" />
             </Box>
           </ModalFooter>
