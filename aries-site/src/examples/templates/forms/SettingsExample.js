@@ -99,6 +99,7 @@ export const SettingsExample = () => {
               htmlFor="doNotDisturbHours"
               name="doNotDisturbHours"
               label="Do not disturb hours"
+              disabled={!formValues.doNotDisturb}
             >
               <TextInput
                 id="doNotDisturbHours"

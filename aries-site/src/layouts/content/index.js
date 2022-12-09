@@ -9,6 +9,7 @@ export * from './Head';
 export * from './InPageNavigation';
 export * from './PageIntro';
 export * from './RelatedContent';
+export * from './StyleTable';
 export * from './Subsection';
 export * from './SubsectionHeader';
 export * from './UsageExample';
