@@ -129,14 +129,14 @@ export const PaginationServerTableExample = () => {
         </Box>
 
         {numberItems > limit && (
-          <Box direction="row-responsive" border="top" gap="large">
+          <Box
+            direction="row-responsive"
+            border="top"
+            gap="large"
+            pad={{ vertical: 'small' }}
+          >
             {!smallScreenSize && (
-              <Box
-                pad={{ vertical: 'small' }}
-                align="center"
-                direction="row-responsive"
-                gap="small"
-              >
+              <Box align="center" direction="row-responsive" gap="small">
                 <Text>Rows per page</Text>
                 <Box width="xsmall">
                   <Select
@@ -147,12 +147,7 @@ export const PaginationServerTableExample = () => {
                 </Box>
               </Box>
             )}
-            <Box
-              direction="row-responsive"
-              justify="end"
-              pad={{ vertical: 'xsmall' }}
-              align="center"
-            >
+            <Box direction="row-responsive" justify="end" align="center">
               {!smallScreenSize && (
                 <Text>
                   Showing {pageResultStart}-{pageResultEnd} of {numberItems}
