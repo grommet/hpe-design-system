@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -13,68 +13,88 @@ import {
 } from 'grommet';
 import { FormChildObject } from '../../../../examples/templates/FormChildObject';
 
-const hosts = [
-  {
-    name: 'worker 1',
-    host: 'mip-bd-vm257.mip.storage.hpecorp.net',
-    cpu: '4 cores',
-    memory: '32 GB',
-  },
-  {
-    name: 'worker 2',
-    host: 'mip-bd-vm257.mip.storage.hpecorp.net',
-    cpu: '4 cores',
-    memory: '32 GB',
-  },
-];
+// const hosts = [
+//   {
+//     name: 'worker 1',
+//     host: 'mip-bd-vm257.mip.storage.hpecorp.net',
+//     cpu: '4 cores',
+//     memory: '32 GB',
+//   },
+//   {
+//     name: 'worker 2',
+//     hostname: 'mip-bd-vm258.mip.storage.hpecorp.net',
+//     cpu: '4 cores',
+//     memory: '32 GB',
+//   },
+// ];
+
+const hostTemplate = {
+  name: '',
+  host: '',
+  cpu: '',
+  memory: '',
+};
 
 const INPUT_MAP = {
-  name: ({ key, ...rest }) => (
-    <FormField key={key} htmlFor="hostname" name="hostname" label="Host name">
-      <TextInput id="hostname" name="hostname" {...rest} />
-    </FormField>
-  ),
-  host: ({ key, ...rest }) => (
+  name: ({ key, index, ...rest }) => (
     <FormField
       key={key}
-      htmlFor="host"
-      name="host"
+      htmlFor={`hosts[${index}].name`}
+      name={`hosts[${index}].name`}
+      label="Host name"
+    >
+      <TextInput
+        id={`hosts[${index}].name`}
+        name={`hosts[${index}].name`}
+        {...rest}
+      />
+    </FormField>
+  ),
+  host: ({ key, index, ...rest }) => (
+    <FormField
+      key={key}
+      htmlFor={`hosts[${index}].host`}
+      name={`hosts[${index}].host`}
       label="Host address"
       required
       aria-required="true"
     >
-      <TextInput id="host" name="host" {...rest} />
+      <TextInput
+        id={`hosts[${index}].host`}
+        name={`hosts[${index}].host`}
+        {...rest}
+      />
     </FormField>
   ),
-  cpu: ({ key, ...rest }) => (
+  cpu: ({ key, index, ...rest }) => (
     <FormField
       key={key}
-      htmlFor="cpu"
-      name="cpu"
+      htmlFor={`hosts[${index}].cpu`}
+      name={`hosts[${index}].cpu`}
       label="CPU"
       required
       aria-required="true"
     >
       <Select
-        id="cpu"
-        name="cpu"
+        id={`hosts[${index}].cpu`}
+        name={`hosts[${index}].cpu`}
         options={['2 cores', '4 cores', '6 cores']}
         {...rest}
       />
     </FormField>
   ),
-  memory: ({ key, ...rest }) => (
+  memory: ({ key, index, ...rest }) => (
     <FormField
       key={key}
-      htmlFor="memory"
-      name="memory"
+      htmlFor={`hosts[${index}].memory`}
+      name={`hosts[${index}].memory`}
       label="Memory"
       required
       aria-required="true"
     >
       <Select
-        id="memory"
-        name="memory"
+        id={`hosts[${index}].memory`}
+        name={`hosts[${index}].memory`}
         options={['32 GB', '64 GB', '128 GB']}
         {...rest}
       />
@@ -88,11 +108,41 @@ export const CreateCluster = () => {
     'resource-manager': false,
     'automation-level': '',
     'migration-threshold': 15,
+    hosts: [{ ...hostTemplate }],
   });
+
+  const handleAdd = () => {
+    const nextHosts = [...formValues.hosts, { ...hostTemplate }];
+    setFormValues({ ...formValues, hosts: nextHosts });
+  };
+
+  const handleRemove = index => {
+    if (formValues.hosts?.length > 0) {
+      setFormValues({
+        ...formValues,
+        hosts: formValues.hosts.filter((value, i) => i !== index),
+      });
+    }
+  };
+
+  const handleRemoveAll = () => {
+    setFormValues({
+      ...formValues,
+      hosts: [],
+    });
+  };
 
   const onChange = value => {
     setFormValues(value);
   };
+
+  const onSubmit = event => {
+    console.log(event.value);
+  };
+
+  useEffect(() => {
+    console.log(formValues);
+  }, [formValues]);
 
   return (
     <>
@@ -100,7 +150,7 @@ export const CreateCluster = () => {
         Create Cluster
       </Heading>
       <Box width="medium">
-        <Form value={formValues} onChange={onChange}>
+        <Form value={formValues} onChange={onChange} onSubmit={onSubmit}>
           <Box gap="medium">
             <>
               <FormField
@@ -165,8 +215,8 @@ export const CreateCluster = () => {
                 Hosts
               </Heading>
               <>
-                {hosts &&
-                  hosts.map((host, index) => {
+                {formValues.hosts &&
+                  formValues.hosts.map((host, index) => {
                     return (
                       <FormChildObject
                         key={index}
@@ -174,17 +224,45 @@ export const CreateCluster = () => {
                         index={index}
                         level={4}
                         name={host.name}
-                        onRemove={() => {}}
+                        onRemove={handleRemove}
+                        open={host.host === ''}
                         values={host}
                       >
                         {Object.entries(host).map(([key, value]) => {
-                          return INPUT_MAP[key]({ key, value });
+                          return INPUT_MAP[key]({ key, value, index });
                         })}
                       </FormChildObject>
                     );
                   })}
               </>
-              <Button label="Add host" secondary alignSelf="end" />
+              <Box direction="row" justify="end" gap="xsmall">
+                {formValues.hosts?.length >= 2 && (
+                  <Button
+                    label="Remove all"
+                    aria-label="Remove all hosts"
+                    onClick={handleRemoveAll}
+                  />
+                )}
+                <Button
+                  label="Add host"
+                  a11yTitle="Add host to cluster"
+                  secondary
+                  onClick={handleAdd}
+                />
+              </Box>
+            </Box>
+            <Box direction="row" gap="xsmall">
+              <Button
+                label="Create"
+                a11yTitle="Create cluster"
+                primary
+                type="submit"
+              />
+              <Button
+                label="Cancel"
+                a11yTitle="Cancel cluster creation"
+                onClick={() => {}}
+              />
             </Box>
           </Box>
         </Form>
