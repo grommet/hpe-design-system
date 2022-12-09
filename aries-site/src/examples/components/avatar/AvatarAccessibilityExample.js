@@ -4,7 +4,7 @@ import { Avatar, Box, Button } from 'grommet';
 export const AvatarAccessibilityExample = () => {
   const handleClick = () => {
     // eslint-disable-next-line no-alert
-    alert(`Avatar containing initial letters J and S was clicked`);
+    alert('Avatar containing initial letters J and S was clicked');
   };
   return (
     <Box align="center">

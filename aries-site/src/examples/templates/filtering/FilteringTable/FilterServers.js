@@ -42,7 +42,11 @@ const filtersConfig = [
   },
 ];
 
-export const FilterServers = ({ bestPractice = true, height }) => (
+export const FilterServers = ({
+  bestPractice = true,
+  containerRef,
+  height,
+}) => (
   <FiltersProvider>
     <Box gap="medium">
       <FilterControls
@@ -54,6 +58,9 @@ export const FilterServers = ({ bestPractice = true, height }) => (
           <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
         }
         actions={bestPractice && <Button label="Add server" secondary />}
+        layerProps={{
+          target: containerRef?.current,
+        }}
       />
       <ServerResults height={height} />
     </Box>
@@ -62,6 +69,7 @@ export const FilterServers = ({ bestPractice = true, height }) => (
 
 FilterServers.propTypes = {
   bestPractice: PropTypes.bool,
+  containerRef: PropTypes.node,
   height: PropTypes.string,
 };
 

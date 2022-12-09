@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Footer,
-  Heading,
-  Header,
-  Layer,
-  Paragraph,
-} from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Box, Footer, Layer } from 'grommet';
+import { LayerHeader } from '../../components/layer/components/LayerHeader';
 
 export const ModalDialog = ({
   children,
@@ -19,21 +11,7 @@ export const ModalDialog = ({
 }) => (
   <Layer position="center" {...layerProps}>
     <Box gap="medium" pad="medium" width={{ min: 'medium' }} flex="grow">
-      <Header align="start">
-        <Box>
-          <Heading level={2} size="small" margin="none">
-            {title}
-          </Heading>
-          <Paragraph margin="none">{subtitle}</Paragraph>
-        </Box>
-        {onClose && (
-          <Button
-            a11yTitle="Close modal"
-            icon={<FormClose />}
-            onClick={onClose}
-          />
-        )}
-      </Header>
+      <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
     </Box>
   </Layer>
