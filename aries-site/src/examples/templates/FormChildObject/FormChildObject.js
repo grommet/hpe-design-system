@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -52,6 +53,7 @@ export const FormChildObject = ({
         <ChildHeader
           background={background}
           collectionName={collectionName}
+          height={{ min: 'xxsmall' }}
           index={index}
           level={level}
           name={name}
@@ -59,11 +61,20 @@ export const FormChildObject = ({
           summary={valuesSummary}
           onMouseEnter={() => setBackground('background-contrast')}
           onMouseLeave={() => setBackground(null)}
+          pad={{
+            horizontal: 'small',
+            vertical: 'small',
+          }}
         />
       </Button>
       <Collapsible open={open}>
-        <Box pad={{ horizontal: 'medium' }}>{children}</Box>
-        <Footer pad="small">
+        <Box pad={{ horizontal: 'small' }}>{children}</Box>
+        <Footer
+          pad={{
+            horizontal: 'xsmall',
+            vertical: 'small',
+          }}
+        >
           <></>
           <Button
             label="Remove"
@@ -76,6 +87,18 @@ export const FormChildObject = ({
   );
 };
 
+FormChildObject.propTypes = {
+  children: PropTypes.node.isRequired,
+  collectionName: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  level: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  onRemove: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  summarize: PropTypes.arrayOf(PropTypes.string),
+  values: PropTypes.object.isRequired,
+};
+
 const ChildHeader = ({
   collectionName,
   index,
@@ -86,15 +109,8 @@ const ChildHeader = ({
   ...rest
 }) => {
   return (
-    <Header
-      height={{ min: 'xxsmall' }}
-      pad={{
-        horizontal: 'medium',
-        vertical: 'small',
-      }}
-      {...rest}
-    >
-      <Box>
+    <Header {...rest}>
+      <>
         <Heading
           level={level}
           size="small"
@@ -105,7 +121,7 @@ const ChildHeader = ({
           {name || `${collectionName} ${index}`}
         </Heading>
         {summary && <Text truncate>{summary}</Text>}
-      </Box>
+      </>
       {open ? (
         <FormUp a11yTitle="Hide detail" />
       ) : (
@@ -113,4 +129,13 @@ const ChildHeader = ({
       )}
     </Header>
   );
+};
+
+ChildHeader.propTypes = {
+  collectionName: PropTypes.string,
+  index: PropTypes.number,
+  level: PropTypes.number,
+  name: PropTypes.string,
+  open: PropTypes.bool,
+  summary: PropTypes.string,
 };
