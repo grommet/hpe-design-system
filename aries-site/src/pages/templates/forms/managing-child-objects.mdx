@@ -1,5 +1,6 @@
 import { Checkmark } from 'grommet-icons';
 import { Example } from '../../../layouts';
+import { CollapsedStateAnatomy } from '../../../examples/templates/forms';
 
 This pattern improves productivity by focusing a user's attention solely on the current 
 object of interest, and uses collapsible objects to show or hide detail as needed. The 
@@ -9,8 +10,8 @@ by hiding extraneous detail &mdash; and an easy means to view detail when needed
 ## When to use
 
 Use when a user's primary task is to create or configure a parent resource, but creating, 
-updating, or removing child objects is a sub-task. This pattern provides users control 
-to easily show and hide detail as needed.
+updating, or removing child objects is a sub-task. This pattern provides users easy control 
+over displaying detail as needed.
 
 ## Anatomy
 
@@ -20,7 +21,9 @@ context.
 
 ### Collapsed state
 
-[Diagram to be inserted]
+<Example plain>
+  <CollapsedStateAnatomy />
+</Example>
 
 | Label | Region         | Purpose                                                    | Required | Notes |
 | ----- | -------------- | ---------------------------------------------------------- | :------: | ----- |
