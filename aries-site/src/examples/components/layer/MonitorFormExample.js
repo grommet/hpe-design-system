@@ -11,6 +11,7 @@ import {
   TextArea,
   Select,
 } from 'grommet';
+import { useConfirmation } from './components';
 
 const options = ['Any', 'None', 'Any Scheduled'];
 
@@ -29,18 +30,28 @@ export const MonitorFormExample = ({ sticky }) => {
     email: 'jane@hpe.com',
   });
 
-  const onFormChange = value => {
+  const { setTouched, onClose } = useConfirmation();
+
+  const onFormChange = (value, { touched }) => {
     setFormValues(value);
+    setTouched(Object.keys(touched).length);
   };
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
+    onClose();
   };
+
+  const contentProps = { width: 'medium' };
 
   return (
     // Having overflow set to auto is needed for the sticky header.
-    <Box pad={{ horizontal: 'medium' }} overflow={sticky ? 'auto' : undefined}>
+    <Box
+      pad={{ horizontal: 'medium', bottom: 'medium' }}
+      flex={sticky === true ? undefined : false}
+      overflow={sticky === true ? 'auto' : undefined}
+    >
       <Form
         onSubmit={({ value, touched }) => onSubmit({ value, touched })}
         value={formValues}
@@ -52,6 +63,7 @@ export const MonitorFormExample = ({ sticky }) => {
             htmlFor="monitorName"
             name="monitorName"
             label="Monitor name"
+            contentProps={contentProps}
           >
             <TextInput id="monitorName" name="monitorName" />
           </FormField>
@@ -59,6 +71,7 @@ export const MonitorFormExample = ({ sticky }) => {
             htmlFor="description"
             name="desc"
             label="Bussiness description"
+            contentProps={contentProps}
           >
             <TextArea id="description" name="monitorName" />
           </FormField>
@@ -73,10 +86,11 @@ export const MonitorFormExample = ({ sticky }) => {
             htmlFor="monitorType"
             name="monitorType"
             label="Monitor type"
+            contentProps={contentProps}
           >
             <TextInput id="monitorType" name="monitorType" />
           </FormField>
-          <FormField htmlFor="rules" name="rules">
+          <FormField htmlFor="rules" name="rules" contentProps={contentProps}>
             <CheckBox
               id="rules"
               name="rules"
@@ -87,19 +101,44 @@ export const MonitorFormExample = ({ sticky }) => {
               reverse
             />
           </FormField>
-          <FormField htmlFor="frameworks" name="frameworks" label="Frameworks">
+          <FormField
+            htmlFor="frameworks"
+            name="frameworks"
+            label="Frameworks"
+            contentProps={contentProps}
+          >
             <Select id="frameworks" options={options} name="frameworks" />
           </FormField>
-          <FormField htmlFor="severity" name="severity" label="Rule severity">
+          <FormField
+            htmlFor="severity"
+            name="severity"
+            label="Rule severity"
+            contentProps={contentProps}
+          >
             <Select id="severity" options={options} name="severity" />
           </FormField>
-          <FormField htmlFor="provider" name="provider" label="Provider">
+          <FormField
+            htmlFor="provider"
+            name="provider"
+            label="Provider"
+            contentProps={contentProps}
+          >
             <Select id="provider" options={options} name="provider" />
           </FormField>
-          <FormField htmlFor="account" name="account" label="Account">
+          <FormField
+            htmlFor="account"
+            name="account"
+            label="Account"
+            contentProps={contentProps}
+          >
             <Select id="account" options={options} name="account" />
           </FormField>
-          <FormField htmlFor="ruleName" name="ruleName" label="Rule name">
+          <FormField
+            htmlFor="ruleName"
+            name="ruleName"
+            label="Rule name"
+            contentProps={contentProps}
+          >
             <Select id="ruleName" options={options} name="ruleName" />
           </FormField>
           <Text
@@ -109,7 +148,11 @@ export const MonitorFormExample = ({ sticky }) => {
           >
             Email notification
           </Text>
-          <FormField htmlFor="notifications" name="notifications">
+          <FormField
+            htmlFor="notifications"
+            name="notifications"
+            contentProps={contentProps}
+          >
             <CheckBox
               name="notifications"
               id="notifications"
@@ -120,16 +163,17 @@ export const MonitorFormExample = ({ sticky }) => {
               reverse
             />
           </FormField>
-          <FormField htmlFor="email" name="email" label="Primary email">
+          <FormField
+            htmlFor="email"
+            name="email"
+            label="Primary email"
+            contentProps={contentProps}
+          >
             <TextInput id="email" name="email" />
           </FormField>
-          <Box
-            direction="row"
-            gap="small"
-            margin={{ top: 'medium', bottom: 'small' }}
-          >
+          <Box direction="row" gap="small" pad={{ top: 'medium' }}>
             <Button label="Add monitor" primary type="submit" />
-            <Button label="Cancel" />
+            <Button label="Cancel" onClick={onClose} />
           </Box>
         </Box>
       </Form>

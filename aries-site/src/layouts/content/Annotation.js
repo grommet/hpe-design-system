@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { Box, Text } from 'grommet';
 
-export const Annotation = ({ id, target, ...rest }) => {
+export const Annotation = ({ id, kind, target, ...rest }) => {
   const theme = useContext(ThemeContext);
 
   return (
     <Box
       id={id}
       align="center"
-      background="background-front"
+      background={kind === 'style' ? { color: 'purple!' } : 'background-front'}
       border={{ color: 'border-weak' }}
       height={theme.global.edgeSize.medium}
       justify="center"
       round
-      width={theme.global.edgeSize.medium}
+      width={kind === 'style' ? 'fit-content' : theme.global.edgeSize.medium}
+      pad={kind === 'style' ? { horizontal: 'small' } : undefined}
       {...rest}
     >
       <Text size="small" weight="bold">
@@ -27,5 +28,6 @@ export const Annotation = ({ id, target, ...rest }) => {
 
 Annotation.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  kind: PropTypes.oneOf(['style']),
   target: PropTypes.string,
 };
