@@ -11,22 +11,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormChildObject } from '../../../../examples/templates/FormChildObject';
-
-// const hosts = [
-//   {
-//     name: 'worker 1',
-//     host: 'mip-bd-vm257.mip.storage.hpecorp.net',
-//     cpu: '4 cores',
-//     memory: '32 GB',
-//   },
-//   {
-//     name: 'worker 2',
-//     hostname: 'mip-bd-vm258.mip.storage.hpecorp.net',
-//     cpu: '4 cores',
-//     memory: '32 GB',
-//   },
-// ];
+import { FormChildObjects } from '../../../../examples/templates/FormChildObject';
 
 const hostTemplate = {
   name: '',
@@ -56,6 +41,7 @@ const INPUT_MAP = {
       htmlFor={`hosts[${index}].host`}
       name={`hosts[${index}].host`}
       label="Host address"
+      // Nested required fields e.g. hosts[2].host is not being picked up by validation
       required
       aria-required="true"
     >
@@ -75,6 +61,7 @@ const INPUT_MAP = {
       required
       aria-required="true"
     >
+      {/* Make this a masked input */}
       <Select
         id={`hosts[${index}].cpu`}
         name={`hosts[${index}].cpu`}
@@ -92,6 +79,7 @@ const INPUT_MAP = {
       required
       aria-required="true"
     >
+      {/* Make this a masked input */}
       <Select
         id={`hosts[${index}].memory`}
         name={`hosts[${index}].memory`}
@@ -139,10 +127,6 @@ export const CreateCluster = () => {
   const onSubmit = event => {
     console.log(event.value);
   };
-
-  useEffect(() => {
-    console.log(formValues);
-  }, [formValues]);
 
   return (
     <>
@@ -214,42 +198,20 @@ export const CreateCluster = () => {
               <Heading level={3} margin="none">
                 Hosts
               </Heading>
-              <>
-                {formValues.hosts &&
-                  formValues.hosts.map((host, index) => {
-                    return (
-                      <FormChildObject
-                        key={index}
-                        collectionName="host"
-                        index={index}
-                        level={4}
-                        name={host.name}
-                        onRemove={handleRemove}
-                        open={host.host === ''}
-                        values={host}
-                      >
-                        {Object.entries(host).map(([key, value]) => {
-                          return INPUT_MAP[key]({ key, value, index });
-                        })}
-                      </FormChildObject>
-                    );
-                  })}
-              </>
-              <Box direction="row" justify="end" gap="xsmall">
-                {formValues.hosts?.length >= 2 && (
-                  <Button
-                    label="Remove all"
-                    aria-label="Remove all hosts"
-                    onClick={handleRemoveAll}
-                  />
-                )}
-                <Button
-                  label="Add host"
-                  a11yTitle="Add host to cluster"
-                  secondary
-                  onClick={handleAdd}
-                />
-              </Box>
+              <FormChildObjects
+                collection={{
+                  name: 'Hosts',
+                  itemName: 'host',
+                  parentName: 'cluster',
+                }}
+                fields={INPUT_MAP}
+                level={4}
+                onAdd={handleAdd}
+                onRemove={handleRemove}
+                onRemoveAll={handleRemoveAll}
+                primaryKey="host"
+                values={formValues.hosts}
+              />
             </Box>
             <Box direction="row" gap="xsmall">
               <Button
