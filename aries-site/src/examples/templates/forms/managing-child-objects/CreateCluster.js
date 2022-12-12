@@ -54,7 +54,7 @@ const INPUT_MAP = {
     </FormField>
   ),
   cpu: ({ key, index, ...rest }) => (
-    <Box width="xsmall" key={key}>
+    <Box key={key} width="xsmall">
       <FormField
         htmlFor={`hosts[${index}].cpu`}
         name={`hosts[${index}].cpu`}
@@ -62,6 +62,7 @@ const INPUT_MAP = {
         required
         aria-required="true"
       >
+        {/* Make this a masked input */}
         <Select
           id={`hosts[${index}].cpu`}
           name={`hosts[${index}].cpu`}
@@ -72,34 +73,20 @@ const INPUT_MAP = {
     </Box>
   ),
   memory: ({ key, index, ...rest }) => (
-    <Box width="xsmall" key={key}>
+    <Box key={key} width="xsmall">
       <FormField
+        key={key}
         htmlFor={`hosts[${index}].memory`}
         name={`hosts[${index}].memory`}
-        label="Memory"
+        label="Memory (GB)"
         required
         aria-required="true"
       >
-        <MaskedInput
+        {/* Make this a masked input */}
+        <Select
           id={`hosts[${index}].memory`}
           name={`hosts[${index}].memory`}
-          mask={[
-            {
-              length: [1, 4],
-              options: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
-              regexp: /^\d{1,4}$/,
-              placeholder: 'nnn',
-            },
-            {
-              fixed: ' ',
-            },
-            {
-              length: 2,
-              options: ['GB'],
-              regexp: /^[gt]b$|^[GT]B$|$/,
-              placeholder: 'gb',
-            },
-          ]}
+          options={['32', '64', '128', '256', '512']}
           {...rest}
         />
       </FormField>
