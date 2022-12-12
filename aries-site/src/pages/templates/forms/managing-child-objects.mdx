@@ -43,12 +43,22 @@ context.
 |       | Label         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
 |       | Collapse icon | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp". |
 |       | Body          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case. |
-|       | Remove button | Removes/deletes the child from its parent.                  | <Checkmark a11yTitle="true" size="small" /> |       | 
+|       | Remove button | Removes/deletes the child from its parent.                  | <Checkmark a11yTitle="true" size="small" /> | Use the verb "remove" when removing the association between parent and child. Reserve the verb "delete" for actions where the child will no longer exist. | 
 |       | Border        | Provides visual distinction from other children.            | <Checkmark a11yTitle="true" size="small" /> |       |
 
 ## Examples
 
-### Create cluster
+### Children optional
+
+Use cases where child objects are not required by the parent may use a semantically correct 
+heading, optional description, and a secondary button labelled with an add action to the form.
+
+[Example to be inserted]
+
+### Children requried
+
+For convenience, use cases where a parent can not be created without associating at least one 
+child (e.g. creating a cluster) may present the first child object in its expanded state.
 
 <Example 
   code={['', '']}
@@ -58,26 +68,17 @@ context.
   <CreateCluster />
 </Example>
 
-### Add or edit user permissions
+### Remove all action
+
+When multiple children are associated with the parent, consider including a "Remove all" button 
+to allow a user the ability to easily remove all associations with a single action.
 
 [Example to be inserted]
 
-### Add rule
-
-[Example to be inserted]
-
-### Create a compute group
-
-[Example to be inserted]
-
-### Selected roles
-
-[Example to be inserted]
-
-### Selected datasets
-
-[Example to be inserted]
-
-### Selected hosts
-
-[Example to be inserted]
+Potential use cases to use as demonstration for the above examples:
+- Add or edit user permissions
+- Add rule
+- Create a compute group
+- Selected roles
+- Selected datasets
+- Selected hosts

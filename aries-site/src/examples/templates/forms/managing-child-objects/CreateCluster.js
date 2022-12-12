@@ -129,106 +129,104 @@ export const CreateCluster = () => {
   };
 
   return (
-    <>
+    <Box alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
         Create Cluster
       </Heading>
-      <Box width="medium">
-        <Form value={formValues} onChange={onChange} onSubmit={onSubmit}>
-          <Box gap="medium">
-            <>
-              <FormField
-                htmlFor="cluster-name"
-                name="cluster-name"
-                label="Cluster name"
-                required
-                aria-required="true"
-              >
-                <TextInput id="cluster-name" name="cluster-name" />
-              </FormField>
-              <FormField
-                htmlFor="resource-manager"
+      <Form value={formValues} onChange={onChange} onSubmit={onSubmit}>
+        <Box gap="medium">
+          <>
+            <FormField
+              htmlFor="cluster-name"
+              name="cluster-name"
+              label="Cluster name"
+              required
+              aria-required="true"
+            >
+              <TextInput id="cluster-name" name="cluster-name" />
+            </FormField>
+            <FormField
+              htmlFor="resource-manager"
+              name="resource-manager"
+              label="Distributed resoure manager"
+            >
+              <CheckBox
+                id="resource-manager"
                 name="resource-manager"
-                label="Distributed resoure manager"
-              >
-                <CheckBox
-                  id="resource-manager"
-                  name="resource-manager"
-                  label="Use manager"
-                />
-              </FormField>
-              {formValues['resource-manager'] && (
-                <>
-                  <FormField
-                    htmlFor="automation-level"
+                label="Use manager"
+              />
+            </FormField>
+            {formValues['resource-manager'] && (
+              <>
+                <FormField
+                  htmlFor="automation-level"
+                  name="automation-level"
+                  label="Automation level"
+                >
+                  <Select
+                    id="automation-level"
                     name="automation-level"
-                    label="Automation level"
+                    options={['Smart (recommended)', 'High', 'Medium', 'Low']}
+                    placeholder="Select ..."
+                  />
+                </FormField>
+                <FormField
+                  htmlFor="migration-threshold"
+                  name="migration-threshold"
+                  label="Migration threshold"
+                >
+                  <Box
+                    direction="row"
+                    gap="small"
+                    pad={{ horizontal: 'small', vertical: 'xsmall' }}
                   >
-                    <Select
-                      id="automation-level"
-                      name="automation-level"
-                      options={['Smart (recommended)', 'High', 'Medium', 'Low']}
-                      placeholder="Select ..."
+                    <Text>0%</Text>
+                    <RangeInput
+                      id="migration-threshold"
+                      name="migration-threshold"
+                      min={0}
+                      max={50}
                     />
-                  </FormField>
-                  <FormField
-                    htmlFor="migration-threshold"
-                    name="migration-threshold"
-                    label="Migration threshold"
-                  >
-                    <Box
-                      direction="row"
-                      gap="small"
-                      pad={{ horizontal: 'small', vertical: 'xsmall' }}
-                    >
-                      <Text>0%</Text>
-                      <RangeInput
-                        id="migration-threshold"
-                        name="migration-threshold"
-                        min={0}
-                        max={50}
-                      />
-                      <Text>50%</Text>
-                    </Box>
-                  </FormField>
-                </>
-              )}
-            </>
-            <Box gap="small">
-              <Heading level={3} margin="none">
-                Hosts
-              </Heading>
-              <FormChildObjects
-                collection={{
-                  name: 'Hosts',
-                  itemName: 'host',
-                  parentName: 'cluster',
-                }}
-                fields={INPUT_MAP}
-                level={4}
-                onAdd={handleAdd}
-                onRemove={handleRemove}
-                onRemoveAll={handleRemoveAll}
-                primaryKey="host"
-                values={formValues.hosts}
-              />
-            </Box>
-            <Box direction="row" gap="xsmall">
-              <Button
-                label="Create"
-                a11yTitle="Create cluster"
-                primary
-                type="submit"
-              />
-              <Button
-                label="Cancel"
-                a11yTitle="Cancel cluster creation"
-                onClick={() => {}}
-              />
-            </Box>
+                    <Text>50%</Text>
+                  </Box>
+                </FormField>
+              </>
+            )}
+          </>
+          <Box gap="small">
+            <Heading level={3} margin="none">
+              Hosts
+            </Heading>
+            <FormChildObjects
+              collection={{
+                name: 'Hosts',
+                itemName: 'host',
+                parentName: 'cluster',
+              }}
+              fields={INPUT_MAP}
+              level={4}
+              onAdd={handleAdd}
+              onRemove={handleRemove}
+              onRemoveAll={handleRemoveAll}
+              primaryKey="host"
+              values={formValues.hosts}
+            />
           </Box>
-        </Form>
-      </Box>
-    </>
+          <Box direction="row" gap="xsmall">
+            <Button
+              label="Create"
+              a11yTitle="Create cluster"
+              primary
+              type="submit"
+            />
+            <Button
+              label="Cancel"
+              a11yTitle="Cancel cluster creation"
+              onClick={() => {}}
+            />
+          </Box>
+        </Box>
+      </Form>
+    </Box>
   );
 };
