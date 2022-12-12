@@ -60,9 +60,10 @@ const columns = [
     },
   },
 ];
+const options = [5, 10, 25, 50];
 
 export const PaginationServerTableExample = () => {
-  const size = useContext(ResponsiveContext);
+  const breakpoint = useContext(ResponsiveContext);
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
   const [numberItems, setNumberItems] = useState(0);
@@ -70,8 +71,7 @@ export const PaginationServerTableExample = () => {
   const [limit, setLimit] = useState(10);
   const pageResultStart = (page - 1) * limit + 1;
   const pageResultEnd = Math.min(page * limit, numberItems);
-  const options = [5, 10, 25, 50];
-  const smallScreenSize = ['xsmall', 'small'].includes(size);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -132,35 +132,35 @@ export const PaginationServerTableExample = () => {
           <Box
             direction="row-responsive"
             border="top"
-            gap="large"
+            gap="medium"
             pad={{ vertical: 'small' }}
+            align="center"
+            wrap
           >
-            {!smallScreenSize && (
-              <Box align="center" direction="row-responsive" gap="small">
-                <Text>Rows per page</Text>
-                <Box width="xsmall">
-                  <Select
-                    value={limit}
-                    options={options}
-                    onChange={({ option }) => setLimit(option)}
-                  />
-                </Box>
-              </Box>
-            )}
-            <Box direction="row-responsive" justify="end" align="center">
-              {!smallScreenSize && (
+            {!mobile && (
+              <Box direction="row-responsive" gap="medium" align="center">
                 <Text>
                   Showing {pageResultStart}-{pageResultEnd} of {numberItems}
                 </Text>
-              )}
-              <Pagination
-                step={limit}
-                numberItems={numberItems}
-                page={page}
-                onChange={opts => setPage(opts.page)}
-                direction="row"
-              />
-            </Box>
+                <Box direction="row-responsive" gap="small" align="center">
+                  <Text>Rows per page</Text>
+                  <Box width="xsmall" flex={false}>
+                    <Select
+                      value={limit}
+                      options={options}
+                      onChange={({ option }) => setLimit(option)}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            )}
+
+            <Pagination
+              step={limit}
+              numberItems={numberItems}
+              page={page}
+              onChange={opts => setPage(opts.page)}
+            />
           </Box>
         )}
       </Box>
