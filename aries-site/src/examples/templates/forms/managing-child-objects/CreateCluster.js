@@ -6,6 +6,7 @@ import {
   Form,
   FormField,
   Heading,
+  MaskedInput,
   RangeInput,
   Select,
   Text,
@@ -53,40 +54,56 @@ const INPUT_MAP = {
     </FormField>
   ),
   cpu: ({ key, index, ...rest }) => (
-    <FormField
-      key={key}
-      htmlFor={`hosts[${index}].cpu`}
-      name={`hosts[${index}].cpu`}
-      label="CPU"
-      required
-      aria-required="true"
-    >
-      {/* Make this a masked input */}
-      <Select
-        id={`hosts[${index}].cpu`}
+    <Box width="xsmall" key={key}>
+      <FormField
+        htmlFor={`hosts[${index}].cpu`}
         name={`hosts[${index}].cpu`}
-        options={['2 cores', '4 cores', '6 cores']}
-        {...rest}
-      />
-    </FormField>
+        label="CPU cores"
+        required
+        aria-required="true"
+      >
+        <Select
+          id={`hosts[${index}].cpu`}
+          name={`hosts[${index}].cpu`}
+          options={[2, 4, 6, 8]}
+          {...rest}
+        />
+      </FormField>
+    </Box>
   ),
   memory: ({ key, index, ...rest }) => (
-    <FormField
-      key={key}
-      htmlFor={`hosts[${index}].memory`}
-      name={`hosts[${index}].memory`}
-      label="Memory"
-      required
-      aria-required="true"
-    >
-      {/* Make this a masked input */}
-      <Select
-        id={`hosts[${index}].memory`}
+    <Box width="xsmall" key={key}>
+      <FormField
+        htmlFor={`hosts[${index}].memory`}
         name={`hosts[${index}].memory`}
-        options={['32 GB', '64 GB', '128 GB']}
-        {...rest}
-      />
-    </FormField>
+        label="Memory"
+        required
+        aria-required="true"
+      >
+        <MaskedInput
+          id={`hosts[${index}].memory`}
+          name={`hosts[${index}].memory`}
+          mask={[
+            {
+              length: [1, 4],
+              options: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+              regexp: /^\d{1,4}$/,
+              placeholder: 'nnn',
+            },
+            {
+              fixed: ' ',
+            },
+            {
+              length: 2,
+              options: ['GB'],
+              regexp: /^[gt]b$|^[GT]B$|$/,
+              placeholder: 'gb',
+            },
+          ]}
+          {...rest}
+        />
+      </FormField>
+    </Box>
   ),
 };
 
