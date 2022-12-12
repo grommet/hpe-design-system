@@ -14,6 +14,12 @@ body:
     options:
     - label: I have searched the existing issues
       required: true
+- type: input
+  attributes:
+    label: Link to bug
+    description: Please link to the most specific file, section of file, or element as possible.
+  validations:
+    required: true
 - type: textarea
   attributes:
     label: Current Behavior
