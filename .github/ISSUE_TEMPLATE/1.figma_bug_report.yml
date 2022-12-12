@@ -3,33 +3,33 @@ description: Create a bug report for the Design System Figma component library
 title: "[Figma bug]: "
 labels: ["bug", "design"]
 body:
-  - type: markdown
-    attributes:
-      value: Thank you for catching a bug in our Figma library! Please fill this out as completely as possible to help us troubleshoot.
-  - type: input
-    attributes:
-      label: What component does this relate to?
-      validations:
-        required: true
-   - type: textarea
-    attributes:
-      label: Describe the bug.
-      validations:
-        required: true
-   - type: textarea
-    attributes:
-      label: Describe the expected behavior.
-  - type: input
-    attributes:
-      label: Link to component file or section of file related to bug.
-      description: Please link to the most specific section or element in a file as possible.
-      validations:
-        required: true
-   - type: textarea
-    attributes:
-      label: Screenshot or recording of bug.
-      description: You can attach files by clicking in this area then dragging files in. 
-   - type: textarea
-    attributes:
-      label: Steps to reproduce
-      description: Please provide a clear description of how to reproduce the issue.
+- type: markdown
+  attributes:
+    value: Thank you for catching a bug in our Figma library! Please fill this out as completely as possible to help us troubleshoot.
+- type: input
+  attributes:
+    label: What component does this relate to?
+    validations:
+      required: true
+ - type: textarea
+  attributes:
+    label: Describe the bug.
+    validations:
+      required: true
+ - type: textarea
+  attributes:
+    label: Describe the expected behavior.
+- type: input
+  attributes:
+    label: Link to component file or section of file related to bug.
+    description: Please link to the most specific section or element in a file as possible.
+    validations:
+      required: true
+ - type: textarea
+  attributes:
+    label: Screenshot or recording of bug.
+    description: You can attach files by clicking in this area then dragging files in. 
+ - type: textarea
+  attributes:
+    label: Steps to reproduce
+    description: Please provide a clear description of how to reproduce the issue.
