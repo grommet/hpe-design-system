@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question in hpe-design-system Slack
+    url: https://github.com/vercel/next.js/discussions
+    about: Ask questions and discuss with others when you sign up for Grommet Slack with your HPE email.
