@@ -1,7 +1,3 @@
-name: Figma Bug Report
-description: Create a bug report for the HPE Design System Figma library.
-title: "[BUG]: <title that includes component name>"
-labels: [bug, design]
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"
