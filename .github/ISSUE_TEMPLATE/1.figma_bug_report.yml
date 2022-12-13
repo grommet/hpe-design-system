@@ -3,9 +3,6 @@ description: Create a bug report for the HPE Design System Figma library
 title: "[BUG] <title>"
 labels: [Bug, Needs Triage]
 body:
-- type: markdown
-   attributes:
-     value: Thank you for catching a bug in our Figma library! Please fill this form out as completely as possible to help us troubleshoot.
 - type: input
   attributes:
     label: Link to bug
