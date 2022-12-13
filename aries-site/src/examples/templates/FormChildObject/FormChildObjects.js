@@ -10,6 +10,7 @@ export const FormChildObjects = ({
   onRemove,
   onRemoveAll,
   primaryKey,
+  summarize,
   values,
 }) => {
   return (
@@ -25,6 +26,7 @@ export const FormChildObjects = ({
               name={obj.name}
               onRemove={onRemove}
               open={obj[primaryKey] === ''}
+              summarize={summarize}
               values={obj}
             >
               {Object.entries(obj).map(([key, value]) => {
@@ -62,4 +64,11 @@ FormChildObjects.propTypes = {
     parentName: PropTypes.string, // Name of parent object e.g. "group", "cluster"
   }).isRequired,
   fields: PropTypes.objectOf(PropTypes.func).isRequired,
+  level: PropTypes.number, // Semantic heading level 1-6
+  onAdd: PropTypes.func,
+  onRemove: PropTypes.func,
+  onRemoveAll: PropTypes.func,
+  primaryKey: PropTypes.string,
+  summarize: PropTypes.arrayOf(PropTypes.string),
+  values: PropTypes.object.isRequired,
 };
