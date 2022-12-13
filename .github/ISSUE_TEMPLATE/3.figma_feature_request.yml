@@ -1,6 +1,6 @@
 name: Figma Feature Request
 description: File a feature request for the HPE Design System Figma library
-title: "[New Figma feature] <title>"
+title: "[Figma feature]: <title>"
 labels: [design]
 body:
 - type: input
@@ -13,9 +13,9 @@ body:
     label: Describe the feature you'd like to request.
   validations:
     required: true
-- type: input
+- type: textarea
   attributes:
-    label: Link to Figma file with use cases or ideations from you.
+    label: Links to Figma files with use cases or ideations from you.
     description: Use cases and ideations help us understand the problem space. Please provide specific use cases when possible, and if you have any ideas or proposals we'd love to look at those too.
   validations:
     required: false
