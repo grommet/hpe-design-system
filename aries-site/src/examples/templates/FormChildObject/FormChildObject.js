@@ -70,11 +70,13 @@ export const FormChildObject = ({
           }}
         >
           <></>
-          <Button
-            label="Remove"
-            aria-label={`Remove ${name ? name : index}`}
-            onClick={() => onRemove(index)}
-          />
+          {onRemove && (
+            <Button
+              label="Remove"
+              aria-label={`Remove ${name ? name : index}`}
+              onClick={() => onRemove(index)}
+            />
+          )}
         </Footer>
       </Collapsible>
     </Box>
@@ -87,7 +89,7 @@ FormChildObject.propTypes = {
   index: PropTypes.number.isRequired,
   level: PropTypes.number.isRequired,
   name: PropTypes.string,
-  onRemove: PropTypes.func.isRequired,
+  onRemove: PropTypes.func,
   open: PropTypes.bool,
   summarize: PropTypes.arrayOf(PropTypes.string),
   values: PropTypes.object.isRequired,
