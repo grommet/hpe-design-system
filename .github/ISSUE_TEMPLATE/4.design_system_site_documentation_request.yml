@@ -6,7 +6,7 @@ body:
 - type: textarea
   attributes:
     label: What is the improvement or addition you'd like to see?
-    description: Example: I would like to see an example of how to build an accessible form. OR I would like more guidance on when to use a side drawer layer.
+    description: 'Example: I would like to see an example of how to build an accessible form. OR I would like more guidance on when to use a side drawer layer.'
   validations:
     required: true
 - type: textarea
