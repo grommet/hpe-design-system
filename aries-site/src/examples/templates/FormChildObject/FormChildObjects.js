@@ -10,6 +10,7 @@ export const FormChildObjects = ({
   onRemove,
   onRemoveAll,
   primaryKey,
+  required,
   summarize,
   values,
 }) => {
@@ -24,7 +25,8 @@ export const FormChildObjects = ({
               index={index}
               level={level}
               name={obj.name}
-              onRemove={onRemove}
+              // keep at least one child when child objects are required by parent
+              onRemove={required && values.length <= 1 ? null : onRemove}
               open={obj[primaryKey] === ''}
               summarize={summarize}
               values={obj}
@@ -36,7 +38,8 @@ export const FormChildObjects = ({
           );
         })}
       <Box direction="row" justify="end" gap="xsmall">
-        {values?.length >= 2 && (
+        {/* keep at least one child when child objects are required by parent */}
+        {values?.length >= 2 && !required && (
           <Button
             label="Remove all"
             // Move into messages map
@@ -69,6 +72,7 @@ FormChildObjects.propTypes = {
   onRemove: PropTypes.func,
   onRemoveAll: PropTypes.func,
   primaryKey: PropTypes.string,
+  required: PropTypes.bool,
   summarize: PropTypes.arrayOf(PropTypes.string),
-  values: PropTypes.object.isRequired,
+  values: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

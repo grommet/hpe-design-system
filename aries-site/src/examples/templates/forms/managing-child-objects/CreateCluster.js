@@ -213,6 +213,7 @@ export const CreateCluster = () => {
               onRemove={handleRemove}
               onRemoveAll={handleRemoveAll}
               primaryKey="host"
+              required
               summarize={['cpu', 'memory']}
               values={formValues.hosts}
             />
