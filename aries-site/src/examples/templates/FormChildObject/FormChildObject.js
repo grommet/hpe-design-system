@@ -15,7 +15,9 @@ const getSummaryString = (values, keys) => {
   let summary = '';
   Object.entries(values).forEach(([key, value]) => {
     summary +=
-      keys.includes(key) && value.length > 0 ? `${key}: ${value}, ` : '';
+      keys.includes(key) && (value.length > 0 || typeof value === 'number')
+        ? `${key}: ${value}, `
+        : '';
   });
   summary = summary.slice(0, -2);
   return summary;
@@ -102,7 +104,7 @@ const ChildHeader = ({
 }) => {
   return (
     <Header {...rest}>
-      <>
+      <Box>
         <Heading
           level={level}
           size="small"
@@ -113,7 +115,7 @@ const ChildHeader = ({
           {name || `${collectionName} ${index}`}
         </Heading>
         {summary && <Text truncate>{summary}</Text>}
-      </>
+      </Box>
       {open ? (
         <FormUp a11yTitle="Hide detail" />
       ) : (
