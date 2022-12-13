@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Heading } from 'grommet';
+import { Box, Button } from 'grommet';
 import { FormChildObject } from './FormChildObject';
 
 export const FormChildObjects = ({

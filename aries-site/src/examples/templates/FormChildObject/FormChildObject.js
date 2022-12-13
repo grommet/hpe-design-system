@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -9,7 +9,6 @@ import {
   Header,
   Text,
 } from 'grommet';
-import { useKeyboard } from 'grommet/utils';
 import { FormUp, FormDown } from 'grommet-icons';
 
 const getSummaryString = (values, keys) => {
@@ -35,20 +34,13 @@ export const FormChildObject = ({
 }) => {
   const [open, setOpen] = useState(openProp);
   const [background, setBackground] = useState(null);
-  const usingKeyboard = useKeyboard();
 
   const borderStyle = { side: 'top', color: 'border-weak' };
 
   const valuesSummary = summarize ? getSummaryString(values, summarize) : null;
 
   return (
-    <Box
-      border={borderStyle}
-      onBlur={event => {
-        if (usingKeyboard && !event.currentTarget.contains(event.relatedTarget))
-          setOpen(false);
-      }}
-    >
+    <Box border={borderStyle}>
       <Button onClick={() => setOpen(!open)}>
         <ChildHeader
           background={background}
