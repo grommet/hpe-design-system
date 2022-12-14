@@ -1,15 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Collapsible,
-  Footer,
-  Heading,
-  Header,
-  Text,
-} from 'grommet';
-import { FormUp, FormDown } from 'grommet-icons';
+import { Box, Button, Collapsible, Footer } from 'grommet';
+import { ChildHeader } from './ChildHeader';
 
 const getSummaryString = (values, keys) => {
   let summary = '';
@@ -29,36 +21,26 @@ export const FormChildObject = ({
   index,
   level,
   name,
+  onClick: onClickProp,
   onRemove,
   open: openProp = false,
   summarize,
   values,
 }) => {
   const [open, setOpen] = useState(openProp);
-  const [background, setBackground] = useState(null);
-
-  const borderStyle = { side: 'top', color: 'border-weak' };
-
   const valuesSummary = summarize ? getSummaryString(values, summarize) : null;
+  const onClick = () => onClickProp || setOpen(!open);
 
   return (
-    <Box border={borderStyle}>
-      <Button onClick={() => setOpen(!open)}>
+    <>
+      <Button onClick={onClick}>
         <ChildHeader
-          background={background}
           collectionName={collectionName}
-          height={{ min: 'xxsmall' }}
           index={index}
           level={level}
           name={name}
           open={open}
           summary={valuesSummary}
-          onMouseEnter={() => setBackground('background-contrast')}
-          onMouseLeave={() => setBackground(null)}
-          pad={{
-            horizontal: 'small',
-            vertical: 'small',
-          }}
         />
       </Button>
       <Collapsible open={open}>
@@ -79,7 +61,7 @@ export const FormChildObject = ({
           )}
         </Footer>
       </Collapsible>
-    </Box>
+    </>
   );
 };
 
@@ -93,45 +75,4 @@ FormChildObject.propTypes = {
   open: PropTypes.bool,
   summarize: PropTypes.arrayOf(PropTypes.string),
   values: PropTypes.object.isRequired,
-};
-
-const ChildHeader = ({
-  collectionName,
-  index,
-  level,
-  name,
-  open,
-  summary,
-  ...rest
-}) => {
-  return (
-    <Header {...rest}>
-      <Box>
-        <Heading
-          level={level}
-          size="small"
-          margin="none"
-          color="text"
-          weight={500}
-        >
-          {name || `${collectionName} ${index}`}
-        </Heading>
-        {summary && <Text truncate>{summary}</Text>}
-      </Box>
-      {open ? (
-        <FormUp a11yTitle="Hide detail" />
-      ) : (
-        <FormDown a11yTitle="Show detail and edit" />
-      )}
-    </Header>
-  );
-};
-
-ChildHeader.propTypes = {
-  collectionName: PropTypes.string,
-  index: PropTypes.number,
-  level: PropTypes.number,
-  name: PropTypes.string,
-  open: PropTypes.bool,
-  summary: PropTypes.string,
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -82,11 +82,10 @@ const INPUT_MAP = {
         required
         aria-required="true"
       >
-        {/* Make this a masked input */}
         <Select
           id={`hosts[${index}].memory`}
           name={`hosts[${index}].memory`}
-          options={['32', '64', '128', '256', '512']}
+          options={[32, 64, 128, 256, 512]}
           {...rest}
         />
       </FormField>
@@ -220,7 +219,7 @@ export const CreateCluster = () => {
           </Box>
           <Box direction="row" gap="xsmall">
             <Button
-              label="Create"
+              label="Create cluster"
               a11yTitle="Create cluster"
               primary
               type="submit"

@@ -27,11 +27,10 @@ context.
 
 | Label | Region         | Purpose                                                    | Required | Notes |
 | ----- | -------------- | ---------------------------------------------------------- | :------: | ----- |
-|       | Container      | Identfies the child and controls the show detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and expands to show detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Show and edit detail." |
-|       | Label          | Uniquely identifies each child object.                     | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
-|       | Expand icon    | Visual treatment indicating show detail behavior.          | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormDown". | 
-|       | Values summary | A preview summarizing the object's detail.                 | Optional |       |
-|       | Border         | Provides visual distinction from other children.           | <Checkmark a11yTitle="true" size="small" /> |       |
+| 1     | Container      | Identfies the child and controls the show detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and expands to show detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Show and edit detail." |
+| 2     | Label          | Uniquely identifies each child object.                     | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
+| 3     | Expand icon    | Visual treatment indicating show detail behavior.          | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormDown". | 
+| 4     | Values summary | A preview summarizing the object's detail.                 | Optional |       |
 
 ### Expanded state
 
@@ -39,12 +38,11 @@ context.
 
 | Label | Region        | Purpose                                                     | Required | Notes |
 | ----- | ------------- | ----------------------------------------------------------- | :------: | ----- |
-|       | Header        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail." |
-|       | Label         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
-|       | Collapse icon | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp". |
-|       | Body          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case. |
-|       | Remove button | Removes/deletes the child from its parent.                  | <Checkmark a11yTitle="true" size="small" /> | Use the verb "remove" when removing the association between parent and child. Reserve the verb "delete" for actions where the child will no longer exist. | 
-|       | Border        | Provides visual distinction from other children.            | <Checkmark a11yTitle="true" size="small" /> |       |
+| 1     | Header        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail." |
+| 2     | Label         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children. |
+| 3     | Collapse icon | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp". |
+| 4     | Body          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case. |
+| 5     | Remove button | Removes/deletes the child from its parent.                  | <Checkmark a11yTitle="true" size="small" /> | Use the verb "remove" when removing the association between parent and child. Reserve the verb "delete" for actions where the child will no longer exist. | 
 
 ## Examples
 
