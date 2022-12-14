@@ -135,13 +135,16 @@ export const PaginationServerTableExample = () => {
             gap="medium"
             pad={{ vertical: 'small' }}
             align="center"
-            wrap
           >
             {!mobile && (
-              <Box direction="row-responsive" gap="medium" align="center">
+              <Box>
                 <Text>
                   Showing {pageResultStart}-{pageResultEnd} of {numberItems}
                 </Text>
+              </Box>
+            )}
+            <Box direction="row-responsive" justify="between" gap="medium">
+              {!mobile && (
                 <Box direction="row-responsive" gap="small" align="center">
                   <Text>Rows per page</Text>
                   <Box width="xsmall" flex={false}>
@@ -152,15 +155,14 @@ export const PaginationServerTableExample = () => {
                     />
                   </Box>
                 </Box>
-              </Box>
-            )}
-
-            <Pagination
-              step={limit}
-              numberItems={numberItems}
-              page={page}
-              onChange={opts => setPage(opts.page)}
-            />
+              )}
+              <Pagination
+                step={limit}
+                numberItems={numberItems}
+                page={page}
+                onChange={opts => setPage(opts.page)}
+              />
+            </Box>
           </Box>
         )}
       </Box>
