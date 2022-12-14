@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
+import { ButtonGroup } from '../ButtonGroup';
 import { FormChildObject } from './FormChildObject';
 
 export const FormChildObjects = ({
@@ -37,7 +38,7 @@ export const FormChildObjects = ({
             </FormChildObject>
           );
         })}
-      <Box direction="row" justify="end" gap="xsmall">
+      <ButtonGroup justify="end">
         {/* keep at least one child when child objects are required by parent */}
         {values?.length >= 2 && !required && (
           <Button
@@ -55,7 +56,7 @@ export const FormChildObjects = ({
           secondary
           onClick={onAdd}
         />
-      </Box>
+      </ButtonGroup>
     </Box>
   );
 };

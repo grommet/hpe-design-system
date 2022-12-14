@@ -12,7 +12,8 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormChildObjects } from '../../../../examples/templates/FormChildObject';
+import { ButtonGroup } from '../../ButtonGroup';
+import { FormChildObjects } from '../../FormChildObject';
 
 const hostTemplate = {
   name: '',
@@ -93,14 +94,16 @@ const INPUT_MAP = {
   ),
 };
 
+const defaultValues = {
+  'cluster-name': '',
+  'resource-manager': false,
+  'automation-level': '',
+  'migration-threshold': 15,
+  hosts: [{ ...hostTemplate }],
+};
+
 export const CreateCluster = () => {
-  const [formValues, setFormValues] = useState({
-    'cluster-name': '',
-    'resource-manager': false,
-    'automation-level': '',
-    'migration-threshold': 15,
-    hosts: [{ ...hostTemplate }],
-  });
+  const [formValues, setFormValues] = useState(defaultValues);
 
   const handleAdd = () => {
     const nextHosts = [...formValues.hosts, { ...hostTemplate }];
@@ -217,7 +220,7 @@ export const CreateCluster = () => {
               values={formValues.hosts}
             />
           </Box>
-          <Box direction="row" gap="xsmall">
+          <ButtonGroup>
             <Button
               label="Create cluster"
               a11yTitle="Create cluster"
@@ -229,7 +232,7 @@ export const CreateCluster = () => {
               a11yTitle="Cancel cluster creation"
               onClick={() => {}}
             />
-          </Box>
+          </ButtonGroup>
         </Box>
       </Form>
     </Box>
