@@ -139,7 +139,12 @@ export const CreateCluster = () => {
       <Heading level={2} margin="none">
         Create Cluster
       </Heading>
-      <Form value={formValues} onChange={onChange} onSubmit={onSubmit}>
+      <Form
+        value={formValues}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        validate="blur"
+      >
         <Box gap="medium">
           <>
             <FormField
