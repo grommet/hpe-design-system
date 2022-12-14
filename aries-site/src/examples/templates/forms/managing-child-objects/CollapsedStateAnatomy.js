@@ -1,111 +1,113 @@
 import { useContext } from 'react';
-import {
-  Box,
-  FormField,
-  Grid,
-  ResponsiveContext,
-  Select,
-  Stack,
-  TextInput,
-} from 'grommet';
-import { FormChildObject } from '../../FormChildObject';
+import { Box, Diagram, Grid, ResponsiveContext, Stack, Text } from 'grommet';
+import { connection } from '../../../../utils';
+import { Annotation } from '../../../../layouts';
+import { ChildHeader } from '../../FormChildObject';
 
-const childObject = {
-  name: '',
-  host: 'mip-bd-vm257.mip.storage.hpecorp.net',
-  cpu: '4 cores',
-  memory: '32 GB',
+const annotations = {
+  container: { annotation: 'annotation-1', element: 'header-container' },
+  label: { annotation: 'annotation-2', element: 'header-label' },
+  icon: { annotation: 'annotation-3', element: 'header-icon' },
+  valuesSummary: { annotation: 'annotation-4', element: 'header-summary' },
+  border: { annotation: 'annotation-5', element: 'header-container' },
 };
-
-const INPUT_MAP = {
-  name: ({ key, ...rest }) => (
-    <FormField key={key} htmlFor="hostname" name="hostname" label="Host name">
-      <TextInput id="hostname" name="hostname" {...rest} />
-    </FormField>
+const connections = [
+  connection(
+    annotations.container.annotation,
+    annotations.container.element,
+    'vertical',
+    'rectilinear',
   ),
-  host: ({ key, ...rest }) => (
-    <FormField
-      key={key}
-      htmlFor="host"
-      name="host"
-      label="Host address"
-      required
-      aria-required="true"
-    >
-      <TextInput id="host" name="host" {...rest} />
-    </FormField>
+  connection(annotations.label.annotation, annotations.label.element),
+  connection(annotations.icon.annotation, annotations.icon.element),
+  connection(
+    annotations.valuesSummary.annotation,
+    annotations.valuesSummary.element,
   ),
-  cpu: ({ key, ...rest }) => (
-    <FormField
-      key={key}
-      htmlFor="cpu"
-      name="cpu"
-      label="CPU"
-      required
-      aria-required="true"
-    >
-      <Select
-        id="cpu"
-        name="cpu"
-        options={['2 cores', '4 cores', '6 cores']}
-        {...rest}
-      />
-    </FormField>
+  connection(
+    annotations.border.annotation,
+    annotations.border.element,
+    'vertical',
+    'rectilinear',
   ),
-  memory: ({ key, ...rest }) => (
-    <FormField
-      key={key}
-      htmlFor="memory"
-      name="memory"
-      label="Memory"
-      required
-      aria-required="true"
-    >
-      <Select
-        id="memory"
-        name="memory"
-        options={['32 GB', '64 GB', '128 GB']}
-        {...rest}
-      />
-    </FormField>
-  ),
-};
+];
 
 export const CollapsedStateAnatomy = () => {
   const breakpoint = useContext(ResponsiveContext);
-  const columns = ['auto'];
-  const rows = ['auto'];
-
-  const inputs = Object.entries(childObject).map(([key, value]) => {
-    return INPUT_MAP[key]({ key, value });
-  });
-
-  const handleRemove = () => {
-    console.log('Remove me!');
-  };
+  const columns = ['xsmall', 'small', 'small', 'xsmall', 'xsmall'];
+  const rows = ['auto', 'auto', 'auto', 'auto', 'auto'];
+  const areas = [
+    [
+      'empty-1',
+      annotations.container.annotation,
+      annotations.border.annotation,
+      annotations.border.annotation,
+      annotations.border.annotation,
+    ],
+    [annotations.label.annotation, 'header', 'header', 'empty-4', 'empty-4'],
+    ['empty-5', 'header', 'header', annotations.icon.annotation, 'empty-7'],
+    [
+      annotations.valuesSummary.annotation,
+      'header',
+      'header',
+      'empty-6',
+      'empty-8',
+    ],
+  ];
 
   return (
     <Stack interactiveChild="first">
-      <Grid
-        columns={columns}
-        rows={rows}
-        // areas={areas}
-      >
+      <Grid columns={columns} rows={rows} areas={areas} align="center">
+        <Annotation
+          gridArea={annotations.container.annotation}
+          id={annotations.container.annotation}
+          target="1"
+          margin={{ bottom: 'large', horizontal: 'auto' }}
+        />
+        <Annotation
+          gridArea={annotations.label.annotation}
+          id={annotations.label.annotation}
+          target="2"
+        />
+        <Annotation
+          gridArea={annotations.icon.annotation}
+          id={annotations.icon.annotation}
+          target="3"
+          margin={{ left: 'auto' }}
+        />
+        <Annotation
+          gridArea={annotations.valuesSummary.annotation}
+          id={annotations.valuesSummary.annotation}
+          target="4"
+        />
+        <Annotation
+          gridArea={annotations.border.annotation}
+          id={annotations.border.annotation}
+          kind="style"
+          target="border={{ side: 'top', color: 'border-weak' }}"
+          margin={{ bottom: 'large', horizontal: 'auto' }}
+        />
         {/* this Box is for defining the anatomy diagram */}
-        <Box background="background-front" width="medium">
-          <FormChildObject
-            collectionName="Host"
-            index={1}
+        <Box gridArea="header" background="background-front">
+          <ChildHeader
+            collectionName="Hosts"
+            index={0}
             level={3}
-            name={childObject.name}
-            onRemove={() => handleRemove()}
-            summarize={['cpu', 'memory']}
-            values={childObject}
-          >
-            {inputs}
-          </FormChildObject>
+            name="Object's name"
+            open={false}
+            summary={`Summary of select object values, truncated if needed`}
+            // disable hover interactivity for anatomy
+            onMouseEnter={() => null}
+            annotationIds={{
+              container: annotations.container.element,
+              label: annotations.label.element,
+              icon: annotations.icon.element,
+              valuesSummary: annotations.valuesSummary.element,
+            }}
+          />
         </Box>
       </Grid>
+      <Diagram connections={connections} />
     </Stack>
   );
 };
