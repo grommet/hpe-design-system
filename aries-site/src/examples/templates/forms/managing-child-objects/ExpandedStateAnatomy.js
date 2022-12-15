@@ -1,14 +1,14 @@
-import { Box, Diagram, Grid, Stack } from 'grommet';
+import { Box, Button, Diagram, Grid, Stack, Text } from 'grommet';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
 import { ChildHeader } from '../../FormChildObject';
 
 const annotations = {
-  container: { annotation: 'annotation-1', element: 'header-container' },
-  label: { annotation: 'annotation-2', element: 'header-label' },
-  icon: { annotation: 'annotation-3', element: 'header-icon' },
-  valuesSummary: { annotation: 'annotation-4', element: 'header-summary' },
-  border: { annotation: 'annotation-5', element: 'header-container' },
+  container: { annotation: 'expanded-1', element: 'expanded-container' },
+  label: { annotation: 'expanded-2', element: 'expanded-label' },
+  icon: { annotation: 'expanded-3', element: 'expanded-icon' },
+  body: { annotation: 'expanded-4', element: 'body' },
+  remove: { annotation: 'expanded-5', element: 'remove-button' },
 };
 
 const connections = [
@@ -16,42 +16,31 @@ const connections = [
     annotations.container.annotation,
     annotations.container.element,
     'vertical',
-    'rectilinear',
   ),
   connection(annotations.label.annotation, annotations.label.element),
   connection(annotations.icon.annotation, annotations.icon.element),
-  connection(
-    annotations.valuesSummary.annotation,
-    annotations.valuesSummary.element,
-  ),
-  connection(
-    annotations.border.annotation,
-    annotations.border.element,
-    'vertical',
-    'rectilinear',
-  ),
+  connection(annotations.body.annotation, annotations.body.element),
+  connection(annotations.remove.annotation, annotations.remove.element),
 ];
 
-export const CollapsedStateAnatomy = () => {
-  const columns = ['xsmall', 'small', 'small', 'xsmall', 'xsmall'];
-  const rows = ['auto', 'auto', 'auto', 'auto', 'auto'];
+export const ExpandedStateAnatomy = () => {
+  const columns = ['xsmall', 'small', 'small', 'xsmall'];
+  const rows = ['auto', 'auto', 'auto', 'auto'];
   const areas = [
     [
       'empty-1',
       annotations.container.annotation,
-      annotations.border.annotation,
-      'empty-3',
+      annotations.container.annotation,
       'empty-3',
     ],
-    [annotations.label.annotation, 'header', 'header', 'empty-4', 'empty-4'],
-    ['empty-5', 'header', 'header', annotations.icon.annotation, 'empty-7'],
     [
-      annotations.valuesSummary.annotation,
+      annotations.label.annotation,
       'header',
       'header',
-      'empty-6',
-      'empty-8',
+      annotations.icon.annotation,
     ],
+    [annotations.body.annotation, 'body', 'body', 'empty-4'],
+    ['empty-5', 'footer', 'footer', annotations.remove.annotation],
   ];
 
   return (
@@ -75,16 +64,15 @@ export const CollapsedStateAnatomy = () => {
           margin={{ left: 'auto' }}
         />
         <Annotation
-          gridArea={annotations.valuesSummary.annotation}
-          id={annotations.valuesSummary.annotation}
+          gridArea={annotations.body.annotation}
+          id={annotations.body.annotation}
           target="4"
         />
         <Annotation
-          gridArea={annotations.border.annotation}
-          id={annotations.border.annotation}
-          kind="style"
+          gridArea={annotations.remove.annotation}
+          id={annotations.remove.annotation}
           target="5"
-          margin={{ bottom: 'large', horizontal: 'auto' }}
+          margin={{ left: 'auto' }}
         />
         {/* this Box is for defining the anatomy diagram */}
         <Box gridArea="header" background="background-front">
@@ -93,16 +81,37 @@ export const CollapsedStateAnatomy = () => {
             index={0}
             level={3}
             name="Object's name"
-            open={false}
-            summary={`Summary of select object values, truncated if needed`}
+            open={true}
             // disable hover interactivity for anatomy
             onMouseEnter={() => null}
             annotationIds={{
               container: annotations.container.element,
               label: annotations.label.element,
               icon: annotations.icon.element,
-              valuesSummary: annotations.valuesSummary.element,
             }}
+          />
+        </Box>
+        <Box gridArea="body" background="background-front">
+          <Box
+            id={annotations.body.element}
+            align="center"
+            border={{ style: 'dashed' }}
+            height="small"
+            justify="center"
+            margin="small"
+          >
+            <Text>Body</Text>
+          </Box>
+        </Box>
+        <Box
+          gridArea="footer"
+          background="background-front"
+          pad={{ bottom: 'small' }}
+        >
+          <Button
+            id={annotations.remove.element}
+            label="Remove"
+            alignSelf="end"
           />
         </Box>
       </Grid>
