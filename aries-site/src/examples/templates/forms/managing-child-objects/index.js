@@ -1,4 +1,5 @@
 export * from './CollapsedStateAnatomy';
 export * from './CreateCluster';
-export * from './EditPermissions';
+export * from './CreateRole';
+export * from './EditRole';
 export * from './ExpandedStateAnatomy';
