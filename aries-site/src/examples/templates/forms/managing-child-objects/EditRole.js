@@ -28,7 +28,7 @@ const INPUT_MAP = {
       <Select
         id={`permissions[${index}].name`}
         name={`permissions[${index}].name`}
-        options={['Clusters', 'Hosts', 'Datasets']}
+        options={['Clusters', 'Hosts', 'Datasets', 'Tenant']}
         placeholder="Select a resource"
         {...rest}
       />
@@ -54,11 +54,20 @@ const INPUT_MAP = {
 };
 
 const defaultValues = {
-  'role-name': '',
-  permissions: [],
+  'role-name': 'Cluster admin',
+  permissions: [
+    {
+      name: 'Cluster',
+      access: 'Admin',
+    },
+    {
+      name: 'Tenant',
+      access: 'Write',
+    },
+  ],
 };
 
-export const EditPermissions = () => {
+export const EditRole = () => {
   const [formValues, setFormValues] = useState(defaultValues);
 
   const handleAdd = () => {
@@ -96,7 +105,7 @@ export const EditPermissions = () => {
   return (
     <Box alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
-        Create role
+        Edit role
       </Heading>
       <Form
         value={formValues}
@@ -137,10 +146,10 @@ export const EditPermissions = () => {
             />
           </Box>
           <ButtonGroup>
-            <Button label="Create role" primary type="submit" />
+            <Button label="Save role" primary type="submit" />
             <Button
               label="Cancel"
-              a11yTitle="Cancel role creation"
+              a11yTitle="Cancel role changes"
               onClick={() => {}}
             />
           </ButtonGroup>

@@ -3,8 +3,9 @@ import { Annotation, Example } from '../../../layouts';
 import {
   CollapsedStateAnatomy,
   CreateCluster,
-  EditPermissions,
+  CreateRole,
   ExpandedStateAnatomy,
+  EditRole,
 } from '../../../examples/templates/forms';
 
 This pattern improves productivity by focusing a user's attention solely on the current
@@ -21,7 +22,7 @@ over displaying detail as needed.
 ## Anatomy
 
 The following illustrates the elements composing a child object in its collapsed and expanded
-states. View the [use case examples](#use-case-examples) to see how child objects behave and are presented in a form
+states. View the [examples](#examples) to see how child objects behave and are presented in a form
 context.
 
 ### Collapsed state
@@ -59,8 +60,17 @@ context.
 Use cases where child objects are not required by the parent may use a semantically correct
 heading, optional description, and a secondary button labelled with an add action to the form.
 
-<Example code={['', '']} github="" showResponsiveControls={[]}>
-  <EditPermissions />
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/CreateRole.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObject.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/CreateRole.js"
+  showResponsiveControls={[]}
+>
+  <CreateRole />
 </Example>
 
 ### Required children
@@ -68,7 +78,16 @@ heading, optional description, and a secondary button labelled with an add actio
 For convenience, use cases where a parent can not be created without associating at least one
 child (e.g. creating a cluster) may present the first child object in its expanded state.
 
-<Example code={['', '']} github="" showResponsiveControls={[]}>
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/CreateCluster.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObject.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/CreateCluster.js"
+  showResponsiveControls={[]}
+>
   <CreateCluster />
 </Example>
 
@@ -77,13 +96,15 @@ child (e.g. creating a cluster) may present the first child object in its expand
 When multiple children are associated with the parent, consider including a "Remove all" button
 to allow a user the ability to easily remove all associations with a single action.
 
-[Example to be inserted]
-
-Potential use cases to use as demonstration for the above examples:
-
-- Add or edit user permissions
-- Add rule
-- Create a compute group
-- Selected roles
-- Selected datasets
-- Selected hosts
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObject.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js"
+  showResponsiveControls={[]}
+>
+  <EditRole />
+</Example>
