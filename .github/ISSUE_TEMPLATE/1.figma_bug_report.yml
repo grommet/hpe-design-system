@@ -1,6 +1,6 @@
 name: Figma Bug Report
 description: Create a bug report for the HPE Design System Figma library
-title: "[BUG] <title>"
+title: "[Figma bug]: <title>"
 labels: [bug, design]
 body:
 - type: input
