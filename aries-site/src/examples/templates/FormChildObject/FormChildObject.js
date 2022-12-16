@@ -55,7 +55,7 @@ export const FormChildObject = ({
           {onRemove && (
             <Button
               label="Remove"
-              aria-label={`Remove ${name ? name : index}`}
+              aria-label={`Remove ${name || index}`}
               onClick={() => onRemove(index)}
             />
           )}
@@ -71,6 +71,7 @@ FormChildObject.propTypes = {
   index: PropTypes.number.isRequired,
   level: PropTypes.number.isRequired,
   name: PropTypes.string,
+  onClick: PropTypes.func,
   onRemove: PropTypes.func,
   open: PropTypes.bool,
   summarize: PropTypes.arrayOf(PropTypes.string),
