@@ -1,6 +1,6 @@
 name: Design System Example Bug Report
 description: Create a bug report an example on the Design System documentation website.
-title: "[BUG] <title>"
+title: "[Site Example bug]: <title>"
 labels: [bug, design-system-site]
 body:
 - type: input
