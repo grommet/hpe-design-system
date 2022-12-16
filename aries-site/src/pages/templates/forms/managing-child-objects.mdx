@@ -1,9 +1,10 @@
 import { Checkmark } from 'grommet-icons';
-import { Example } from '../../../layouts';
+import { Annotation, Example } from '../../../layouts';
 import {
   CollapsedStateAnatomy,
   CreateCluster,
   EditPermissions,
+  ExpandedStateAnatomy,
 } from '../../../examples/templates/forms';
 
 This pattern improves productivity by focusing a user's attention solely on the current
@@ -29,24 +30,27 @@ context.
   <CollapsedStateAnatomy />
 </Example>
 
-| Label | Region         | Purpose                                                    |                  Required                   | Notes                                                                                                                                                                |
-| ----- | -------------- | ---------------------------------------------------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Container      | Identfies the child and controls the show detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and expands to show detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Show and edit detail." |
-| 2     | Label          | Uniquely identifies each child object.                     | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                   |
-| 3     | Expand icon    | Visual treatment indicating show detail behavior.          | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormDown".                                                                                                                                             |
-| 4     | Values summary | A preview summarizing the object's detail.                 |                  Optional                   |                                                                                                                                                                      |
+|                 Label                  | Region             | Purpose                                                    |                  Required                   | Notes                                                                                                                                                                |
+| :------------------------------------: | ------------------ | ---------------------------------------------------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                 **1**                  | **Container**      | Identfies the child and controls the show detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and expands to show detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Show and edit detail." |
+|                 **2**                  | **Label**          | Uniquely identifies each child object.                     | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                   |
+|                 **3**                  | **Expand icon**    | Visual treatment indicating show detail behavior.          | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormDown".                                                                                                                                             |
+|                 **4**                  | **Values summary** | A preview summarizing the object's detail.                 |                  Optional                   |                                                                                                                                                                      |
+| <Annotation target="5" kind="style" /> | **Border**         |                                                            | <Checkmark a11yTitle="true" size="small" /> | color="border-weak"                                                                                                                                                  |
 
 ### Expanded state
 
-[Diagram to be inserted]
+<Example plain>
+  <ExpandedStateAnatomy />
+</Example>
 
-| Label | Region        | Purpose                                                     |                  Required                   | Notes                                                                                                                                                     |
-| ----- | ------------- | ----------------------------------------------------------- | :-----------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Header        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail."         |
-| 2     | Label         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                        |
-| 3     | Collapse icon | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                                    |
-| 4     | Body          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                             |
-| 5     | Remove button | Removes/deletes the child from its parent.                  | <Checkmark a11yTitle="true" size="small" /> | Use the verb "remove" when removing the association between parent and child. Reserve the verb "delete" for actions where the child will no longer exist. |
+| Label | Region            | Purpose                                                     |                  Required                   | Notes                                                                                                                                                                                                                                                                                                     |
+| :---: | ----------------- | ----------------------------------------------------------- | :-----------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Header**        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail."                                                                                                                                                         |
+| **2** | **Label**         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                                                                                                                                                        |
+| **3** | **Collapse icon** | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                                                                                                                                                                                    |
+| **4** | **Body**          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                                                                                                                                                                             |
+| **5** | **Remove button** | Removes/deletes the child from its parent.                  |               Case depending                | <span>Always provide unless at least one child object is required by the parent. See [Required children](#required-children) for detail.</span> Use the verb "remove" when removing the association between parent and child. Reserve the verb "delete" for actions where the child will no longer exist. |
 
 ## Examples
 
@@ -59,7 +63,7 @@ heading, optional description, and a secondary button labelled with an add actio
   <EditPermissions />
 </Example>
 
-### Requried children
+### Required children
 
 For convenience, use cases where a parent can not be created without associating at least one
 child (e.g. creating a cluster) may present the first child object in its expanded state.
