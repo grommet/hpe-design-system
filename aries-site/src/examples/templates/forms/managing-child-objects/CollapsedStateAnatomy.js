@@ -87,14 +87,18 @@ export const CollapsedStateAnatomy = () => {
           margin={{ bottom: 'large', horizontal: 'auto' }}
         />
         {/* this Box is for defining the anatomy diagram */}
-        <Box gridArea="header" background="background-front">
+        <Box
+          gridArea="header"
+          background="background-front"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        >
           <ChildHeader
             collectionName="Hosts"
             index={0}
             level={3}
             name="Object's name"
             open={false}
-            summary={`Summary of select object values, truncated if needed`}
+            summary="Summary of select object values, truncated if needed"
             // disable hover interactivity for anatomy
             onMouseEnter={() => null}
             annotationIds={{

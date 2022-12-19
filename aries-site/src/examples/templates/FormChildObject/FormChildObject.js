@@ -45,18 +45,16 @@ export const FormChildObject = ({
         />
       </Button>
       <Collapsible open={open}>
-        <Box pad={{ horizontal: 'small', top: 'small', bottom: 'medium' }}>
-          {children}
-          <Box pad={{ top: 'small' }}>
-            {onRemove && (
-              <Button
-                alignSelf="end"
-                icon={<Trash />}
-                aria-label={`Remove ${name || index}`}
-                onClick={() => onRemove(index)}
-              />
-            )}
-          </Box>
+        <Box pad="small">{children}</Box>
+        <Box pad={{ bottom: 'medium' }}>
+          {onRemove && (
+            <Button
+              alignSelf="end"
+              icon={<Trash />}
+              aria-label={`Remove ${name || index}`}
+              onClick={() => onRemove(index)}
+            />
+          )}
         </Box>
       </Collapsible>
     </>
