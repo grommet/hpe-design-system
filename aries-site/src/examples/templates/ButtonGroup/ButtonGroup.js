@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, ThemeContext } from 'grommet';
 
 export const ButtonGroup = ({ children, ...rest }) => {
@@ -9,4 +10,8 @@ export const ButtonGroup = ({ children, ...rest }) => {
       {children}
     </Box>
   );
+};
+
+ButtonGroup.propTypes = {
+  children: PropTypes.node,
 };
