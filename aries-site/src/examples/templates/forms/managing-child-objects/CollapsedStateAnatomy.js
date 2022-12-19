@@ -1,4 +1,5 @@
-import { Box, Diagram, Grid, Stack } from 'grommet';
+import { useContext } from 'react';
+import { Box, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
 import { ChildHeader } from '../../FormChildObject';
@@ -33,7 +34,15 @@ const connections = [
 ];
 
 export const CollapsedStateAnatomy = () => {
-  const columns = ['xsmall', 'small', 'small', 'xsmall', 'xsmall'];
+  const breakpoint = useContext(ResponsiveContext);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
+  const columns = [
+    'xsmall',
+    !mobile ? 'small' : 'xsmall',
+    !mobile ? 'small' : 'xsmall',
+    'xsmall',
+    'xsmall',
+  ];
   const rows = ['auto', 'auto', 'auto', 'auto', 'auto'];
   const areas = [
     [

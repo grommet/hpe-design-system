@@ -1,4 +1,13 @@
-import { Box, Button, Diagram, Grid, Stack, Text } from 'grommet';
+import { useContext } from 'react';
+import {
+  Box,
+  Button,
+  Diagram,
+  Grid,
+  ResponsiveContext,
+  Stack,
+  Text,
+} from 'grommet';
 import { Trash } from 'grommet-icons';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
@@ -25,7 +34,14 @@ const connections = [
 ];
 
 export const ExpandedStateAnatomy = () => {
-  const columns = ['xsmall', 'small', 'small', 'xsmall'];
+  const breakpoint = useContext(ResponsiveContext);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
+  const columns = [
+    'xsmall',
+    !mobile ? 'small' : 'xsmall',
+    !mobile ? 'small' : 'xsmall',
+    'xsmall',
+  ];
   const rows = ['auto', 'auto', 'auto', 'auto'];
   const areas = [
     [
