@@ -6,7 +6,6 @@ import {
   Form,
   FormField,
   Heading,
-  MaskedInput,
   RangeInput,
   Select,
   Text,
@@ -43,7 +42,6 @@ const INPUT_MAP = {
       htmlFor={`hosts[${index}].host`}
       name={`hosts[${index}].host`}
       label="Host address"
-      // Nested required fields e.g. hosts[2].host is not being picked up by validation
       required
       aria-required="true"
     >
@@ -225,7 +223,7 @@ export const CreateCluster = () => {
               values={formValues.hosts}
             />
           </Box>
-          <ButtonGroup>
+          <ButtonGroup pad={{ top: 'medium' }}>
             <Button
               label="Create cluster"
               a11yTitle="Create cluster"

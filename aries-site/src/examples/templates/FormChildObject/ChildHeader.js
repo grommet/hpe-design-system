@@ -4,7 +4,9 @@ import { Box, Header, Heading, Text } from 'grommet';
 import { FormUp, FormDown } from 'grommet-icons';
 
 export const ChildHeader = ({
-  annotationIds, // For documentation demo purposes only. Remove from product implementation.
+  // annotationIds are for documentation demo purposes only.
+  // Remove from product implementation.
+  annotationIds,
   collectionName,
   index,
   level,
@@ -24,10 +26,7 @@ export const ChildHeader = ({
       height={{ min: 'xxsmall' }}
       onMouseEnter={() => setBackground('background-contrast')}
       onMouseLeave={() => setBackground(null)}
-      pad={{
-        horizontal: 'small',
-        vertical: 'small',
-      }}
+      pad="small"
       {...rest}
     >
       <Box>

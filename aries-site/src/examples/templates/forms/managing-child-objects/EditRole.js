@@ -145,7 +145,7 @@ export const EditRole = () => {
               values={formValues.permissions}
             />
           </Box>
-          <ButtonGroup>
+          <ButtonGroup pad={{ top: 'medium' }}>
             <Button label="Save role" primary type="submit" />
             <Button
               label="Cancel"

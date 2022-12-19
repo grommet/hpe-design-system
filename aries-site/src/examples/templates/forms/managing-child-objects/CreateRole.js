@@ -5,6 +5,7 @@ import {
   Form,
   FormField,
   Heading,
+  Paragraph,
   Select,
   TextInput,
 } from 'grommet';
@@ -117,9 +118,16 @@ export const CreateRole = () => {
             <TextInput id="role-name" name="role-name" />
           </FormField>
           <Box gap="small">
-            <Heading level={3} margin="none">
-              Permissions
-            </Heading>
+            <Box>
+              <Heading level={3} margin="none">
+                Permissions
+              </Heading>
+              {!formValues.permissions.length ? (
+                <Paragraph margin="none">
+                  Add permissions to the role.
+                </Paragraph>
+              ) : null}
+            </Box>
             <FormChildObjects
               collection={{
                 name: 'Permissions',
@@ -136,7 +144,7 @@ export const CreateRole = () => {
               values={formValues.permissions}
             />
           </Box>
-          <ButtonGroup>
+          <ButtonGroup pad={{ top: 'medium' }}>
             <Button label="Create role" primary type="submit" />
             <Button
               label="Cancel"
