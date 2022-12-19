@@ -4,6 +4,8 @@ import { Box, Button, Collapsible } from 'grommet';
 import { Trash } from 'grommet-icons';
 import { ChildHeader } from './ChildHeader';
 
+// using value names from summarize prop, builds the summary message
+// to be displayed beneath the heading
 const getSummaryString = (values, keys) => {
   let summary = '';
   Object.entries(values).forEach(([key, value]) => {
@@ -20,7 +22,7 @@ export const FormChildObject = ({
   children,
   collectionName,
   index,
-  level,
+  headingLevel,
   name,
   onClick: onClickProp,
   onRemove,
@@ -38,7 +40,7 @@ export const FormChildObject = ({
         <ChildHeader
           collectionName={collectionName}
           index={index}
-          level={level}
+          headingLevel={headingLevel}
           name={name}
           open={open}
           summary={valuesSummary}
@@ -65,7 +67,7 @@ FormChildObject.propTypes = {
   children: PropTypes.node.isRequired,
   collectionName: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
-  level: PropTypes.number.isRequired,
+  headingLevel: PropTypes.number.isRequired,
   name: PropTypes.string,
   onClick: PropTypes.func,
   onRemove: PropTypes.func,

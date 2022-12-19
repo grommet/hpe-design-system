@@ -102,11 +102,13 @@ const defaultValues = {
 export const CreateCluster = () => {
   const [formValues, setFormValues] = useState(defaultValues);
 
+  // add a host to the set of existing ones
   const handleAdd = () => {
     const nextHosts = [...formValues.hosts, { ...hostTemplate }];
     setFormValues({ ...formValues, hosts: nextHosts });
   };
 
+  // remove a host
   const handleRemove = index => {
     if (formValues.hosts?.length > 0) {
       setFormValues({
@@ -116,6 +118,7 @@ export const CreateCluster = () => {
     }
   };
 
+  // remove all hosts
   const handleRemoveAll = () => {
     setFormValues({
       ...formValues,

@@ -70,6 +70,7 @@ const defaultValues = {
 export const EditRole = () => {
   const [formValues, setFormValues] = useState(defaultValues);
 
+  // add a permission to the set of existing ones
   const handleAdd = () => {
     const nextPermissions = [
       ...formValues.permissions,
@@ -78,6 +79,7 @@ export const EditRole = () => {
     setFormValues({ ...formValues, permissions: nextPermissions });
   };
 
+  // remove a permission
   const handleRemove = index => {
     if (formValues.permissions?.length > 0) {
       setFormValues({
@@ -87,6 +89,7 @@ export const EditRole = () => {
     }
   };
 
+  // remove all permissions
   const handleRemoveAll = () => {
     setFormValues({
       ...formValues,

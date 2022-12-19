@@ -62,6 +62,7 @@ const defaultValues = {
 export const CreateRole = () => {
   const [formValues, setFormValues] = useState(defaultValues);
 
+  // add a new permission onto the existing ones
   const handleAdd = () => {
     const nextPermissions = [
       ...formValues.permissions,
@@ -70,6 +71,7 @@ export const CreateRole = () => {
     setFormValues({ ...formValues, permissions: nextPermissions });
   };
 
+  // remove a permission
   const handleRemove = index => {
     if (formValues.permissions?.length > 0) {
       setFormValues({
@@ -79,6 +81,7 @@ export const CreateRole = () => {
     }
   };
 
+  // remove all permissions
   const handleRemoveAll = () => {
     setFormValues({
       ...formValues,
