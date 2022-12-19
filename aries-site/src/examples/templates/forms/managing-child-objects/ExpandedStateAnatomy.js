@@ -1,4 +1,5 @@
 import { Box, Button, Diagram, Grid, Stack, Text } from 'grommet';
+import { Trash } from 'grommet-icons';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
 import { ChildHeader } from '../../FormChildObject';
@@ -81,7 +82,7 @@ export const ExpandedStateAnatomy = () => {
             index={0}
             level={3}
             name="Object's name"
-            open={true}
+            open
             // disable hover interactivity for anatomy
             onMouseEnter={() => null}
             annotationIds={{
@@ -98,7 +99,7 @@ export const ExpandedStateAnatomy = () => {
             border={{ style: 'dashed' }}
             height="small"
             justify="center"
-            margin="small"
+            margin={{ horizontal: 'small', top: 'medium', bottom: 'small' }}
           >
             <Text>Body</Text>
           </Box>
@@ -106,11 +107,12 @@ export const ExpandedStateAnatomy = () => {
         <Box
           gridArea="footer"
           background="background-front"
-          pad={{ bottom: 'small' }}
+          pad={{ bottom: 'medium' }}
+          border={{ side: 'bottom', color: 'border-weak' }}
         >
           <Button
             id={annotations.remove.element}
-            label="Remove"
+            icon={<Trash />}
             alignSelf="end"
           />
         </Box>
