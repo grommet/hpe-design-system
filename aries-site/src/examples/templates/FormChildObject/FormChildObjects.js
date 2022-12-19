@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button } from 'grommet';
 import { ButtonGroup } from '../ButtonGroup';
 import { FormChildObject } from './FormChildObject';
 
@@ -15,30 +15,32 @@ export const FormChildObjects = ({
   summarize,
   values,
 }) => (
-  <Box gap="small">
-    {values?.length ? (
-      values.map((obj, index) => (
-        <FormChildObject
-          key={index}
-          collectionName={collection.itemName}
-          index={index}
-          level={level}
-          name={obj.name}
-          // keep at least one child when child objects are required by parent
-          onRemove={required && values.length <= 1 ? null : onRemove}
-          open={obj[primaryKey] === ''}
-          summarize={summarize}
-          values={obj}
-        >
-          {Object.entries(obj).map(([key, value]) =>
-            fields[key]({ key, value, index }),
-          )}
-        </FormChildObject>
-      ))
-    ) : (
-      <Text>No {collection.itemName} has been added yet.</Text>
-    )}
-    <ButtonGroup justify="end">
+  <Box>
+    {values?.length
+      ? values.map((obj, index) => (
+          <FormChildObject
+            key={index}
+            collectionName={collection.itemName}
+            index={index}
+            level={level}
+            name={obj.name}
+            // keep at least one child when child objects are required by parent
+            onRemove={required && values.length <= 1 ? null : onRemove}
+            open={obj[primaryKey] === ''}
+            summarize={summarize}
+            values={obj}
+          >
+            {Object.entries(obj).map(([key, value]) =>
+              fields[key]({ key, value, index }),
+            )}
+          </FormChildObject>
+        ))
+      : null}
+    <ButtonGroup
+      justify="end"
+      border={{ side: 'top', color: 'border-weak' }}
+      pad={{ top: 'small' }}
+    >
       {/* keep at least one child when child objects are required by parent */}
       {values?.length >= 2 && !required && (
         <Button

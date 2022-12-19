@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Collapsible, Footer } from 'grommet';
+import { Box, Button, Collapsible } from 'grommet';
+import { Trash } from 'grommet-icons';
 import { ChildHeader } from './ChildHeader';
 
 const getSummaryString = (values, keys) => {
@@ -44,22 +45,19 @@ export const FormChildObject = ({
         />
       </Button>
       <Collapsible open={open}>
-        <Box pad={{ horizontal: 'small' }}>{children}</Box>
-        <Footer
-          justify="end"
-          pad={{
-            horizontal: 'xsmall',
-            vertical: 'small',
-          }}
-        >
-          {onRemove && (
-            <Button
-              label="Remove"
-              aria-label={`Remove ${name || index}`}
-              onClick={() => onRemove(index)}
-            />
-          )}
-        </Footer>
+        <Box pad={{ horizontal: 'small', top: 'small', bottom: 'medium' }}>
+          {children}
+          <Box pad={{ top: 'small' }}>
+            {onRemove && (
+              <Button
+                alignSelf="end"
+                icon={<Trash />}
+                aria-label={`Remove ${name || index}`}
+                onClick={() => onRemove(index)}
+              />
+            )}
+          </Box>
+        </Box>
       </Collapsible>
     </>
   );
