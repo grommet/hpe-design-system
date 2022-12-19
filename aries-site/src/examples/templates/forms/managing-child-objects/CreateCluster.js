@@ -61,7 +61,6 @@ const INPUT_MAP = {
         required
         aria-required="true"
       >
-        {/* Make this a masked input */}
         <Select
           id={`hosts[${index}].cpu`}
           name={`hosts[${index}].cpu`}
