@@ -6,7 +6,7 @@ import { FormChildObject } from './FormChildObject';
 export const FormChildObjects = ({
   collection,
   fields,
-  level,
+  headingLevel,
   onAdd,
   onRemove,
   onRemoveAll,
@@ -22,7 +22,7 @@ export const FormChildObjects = ({
             key={index}
             collectionName={collection.itemName}
             index={index}
-            level={level}
+            headingLevel={headingLevel}
             name={obj.name}
             // keep at least one child when child objects are required by parent
             onRemove={required && values.length <= 1 ? null : onRemove}
@@ -72,7 +72,7 @@ FormChildObjects.propTypes = {
     parentName: PropTypes.string,
   }).isRequired,
   fields: PropTypes.objectOf(PropTypes.func).isRequired,
-  level: PropTypes.number, // Semantic heading level 1-6
+  headingLevel: PropTypes.number, // Semantic heading headingLevel 1-6
   onAdd: PropTypes.func,
   onRemove: PropTypes.func,
   onRemoveAll: PropTypes.func,

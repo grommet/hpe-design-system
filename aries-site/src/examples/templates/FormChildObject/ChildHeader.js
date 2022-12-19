@@ -9,7 +9,7 @@ export const ChildHeader = ({
   annotationIds,
   collectionName,
   index,
-  level,
+  headingLevel,
   name,
   open,
   summary,
@@ -32,7 +32,7 @@ export const ChildHeader = ({
       <Box>
         <Heading
           id={annotationIds?.label}
-          level={level}
+          level={headingLevel}
           size="small"
           margin="none"
           color="text"
@@ -64,7 +64,7 @@ ChildHeader.propTypes = {
   }),
   collectionName: PropTypes.string,
   index: PropTypes.number,
-  level: PropTypes.number,
+  headingLevel: PropTypes.number,
   name: PropTypes.string,
   open: PropTypes.bool,
   summary: PropTypes.string,
