@@ -9,7 +9,6 @@
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",
-    "husky": "^8.0.2",
     "next-compose-plugins": "^2.2.0",
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.4.4"
