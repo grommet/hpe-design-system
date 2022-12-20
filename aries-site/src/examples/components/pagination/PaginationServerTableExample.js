@@ -103,40 +103,38 @@ export const PaginationServerTableExample = () => {
         Launches
       </Heading>
 
-      <Box>
-        <DataTable
-          aria-describedby="server-side-pagination-heading"
-          columns={columns}
-          data={data}
-          sort={{ ...sort, external: true }}
-          step={limit}
-          onSort={opts => setSort(opts)}
-          fill
-          gap="small"
-        />
+      <DataTable
+        aria-describedby="server-side-pagination-heading"
+        columns={columns}
+        data={data}
+        sort={{ ...sort, external: true }}
+        step={limit}
+        onSort={opts => setSort(opts)}
+        fill
+        gap="small"
+      />
 
-        {numberItems > limit && (
-          <Box
-            direction="row-responsive"
-            fill="horizontal"
-            border="top"
-            justify="end"
-            pad={{ vertical: 'xsmall' }}
-          >
-            <Text>
-              Showing {pageResultStart}-{pageResultEnd} of {numberItems}
-            </Text>
-            <Pagination
-              step={limit}
-              numberItems={numberItems}
-              page={page}
-              onChange={opts => setPage(opts.page)}
-              direction="row"
-              flex={false}
-            />
-          </Box>
-        )}
-      </Box>
+      {numberItems > limit && (
+        <Box
+          direction="row-responsive"
+          fill="horizontal"
+          border="top"
+          justify="end"
+          pad={{ vertical: 'xsmall' }}
+        >
+          <Text>
+            Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+          </Text>
+          <Pagination
+            step={limit}
+            numberItems={numberItems}
+            page={page}
+            onChange={opts => setPage(opts.page)}
+            direction="row"
+            flex={false}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
