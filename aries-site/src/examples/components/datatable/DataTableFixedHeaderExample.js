@@ -234,7 +234,7 @@ export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
       // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
       height={designSystemDemo ? undefined : 'medium'}
       // restricting width to demonstrate pinned column behavior
-      width={designSystemDemo ? undefined : { min: 'medium', max: 'large' }}
+      width={designSystemDemo ? undefined : { width: 'large', max: '100%' }}
       overflow="auto"
     >
       <DataTable
