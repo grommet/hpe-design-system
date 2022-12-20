@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Collapsible } from 'grommet';
+import { useKeyboard } from 'grommet/utils';
 import { Trash } from 'grommet-icons';
 import { ChildHeader } from './ChildHeader';
-
+import { FormChildObjectsContext } from './FormChildObjects';
 // using value names from summarize prop, builds the summary message
 // to be displayed beneath the heading
 const getSummaryString = (values, keys) => {
@@ -31,6 +32,21 @@ const getSummaryString = (values, keys) => {
   return summary;
 };
 
+// determine if focus is within a drop
+const dropContainsFocus = event => {
+  let dropParent;
+  let node = event.relatedTarget;
+  // if focused element is contained inside a drop, there will be a parent
+  // in the tree that has `data-g-portal-id`
+  while (!dropParent && node?.offsetParent) {
+    if (node?.attributes.getNamedItem('data-g-portal-id')) dropParent = true;
+    node = node.offsetParent;
+  }
+  if (node?.attributes.getNamedItem('data-g-portal-id')) dropParent = true;
+
+  return dropParent;
+};
+
 export const FormChildObject = ({
   children,
   collectionName,
@@ -43,12 +59,29 @@ export const FormChildObject = ({
   summarize,
   values,
 }) => {
+  const { setActiveIndex } = useContext(FormChildObjectsContext);
   const [open, setOpen] = useState(openProp);
+  useEffect(() => setOpen(openProp), [openProp]);
   const valuesSummary = summarize ? getSummaryString(values, summarize) : null;
-  const onClick = () => onClickProp || setOpen(!open);
+  const onClick = () => {
+    if (onClickProp) onClickProp();
+    else {
+      if (!open) setActiveIndex(index);
+      setOpen(!open);
+    }
+  };
+  const ref = useRef();
+  const usingKeyboard = useKeyboard();
 
   return (
-    <>
+    <Box
+      ref={ref}
+      onBlur={event => {
+        if (usingKeyboard && !ref.current.contains(event.relatedTarget)) {
+          setOpen(!!dropContainsFocus(event));
+        }
+      }}
+    >
       <Button onClick={onClick}>
         <ChildHeader
           collectionName={collectionName}
@@ -72,7 +105,7 @@ export const FormChildObject = ({
           )}
         </Box>
       </Collapsible>
-    </>
+    </Box>
   );
 };
 
