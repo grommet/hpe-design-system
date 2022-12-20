@@ -139,12 +139,12 @@ export const EditRole = () => {
                 parentName: 'role',
               }}
               fields={INPUT_MAP}
-              level={4}
+              headingLevel={4}
               onAdd={handleAdd}
               onRemove={handleRemove}
               onRemoveAll={handleRemoveAll}
               primaryKey="name"
-              summarize={['access']}
+              summarize={[{ name: 'access', showName: false }]}
               values={formValues.permissions}
             />
           </Box>

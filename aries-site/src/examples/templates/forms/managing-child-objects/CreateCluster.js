@@ -215,7 +215,7 @@ export const CreateCluster = () => {
                 parentName: 'cluster',
               }}
               fields={INPUT_MAP}
-              level={4}
+              headingLevel={4}
               onAdd={handleAdd}
               onRemove={handleRemove}
               onRemoveAll={handleRemoveAll}

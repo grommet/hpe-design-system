@@ -8,10 +8,23 @@ import { ChildHeader } from './ChildHeader';
 // to be displayed beneath the heading
 const getSummaryString = (values, keys) => {
   let summary = '';
+  const summarize = new Map();
+  for (let i = 0; i <= keys.length - 1; i += 1) {
+    if (typeof keys[i] === 'object') {
+      summarize.set(keys[i].name, keys[i].showName !== false);
+    } else {
+      summarize.set(keys[i], true);
+    }
+  }
+
+  // create flat array of just keys from Map
+  const flattenedKeys = [...summarize.keys()];
   Object.entries(values).forEach(([key, value]) => {
     summary +=
-      keys.includes(key) && (value.length > 0 || typeof value === 'number')
-        ? `${key}: ${value}, `
+      flattenedKeys.includes(key) &&
+      (value.length > 0 || typeof value === 'number')
+        ? // if the showName value for a key is true, include it
+          `${summarize.get(key) ? `${key}: ` : ''}${value}, `
         : '';
   });
   summary = summary.slice(0, -2);
@@ -72,6 +85,11 @@ FormChildObject.propTypes = {
   onClick: PropTypes.func,
   onRemove: PropTypes.func,
   open: PropTypes.bool,
-  summarize: PropTypes.arrayOf(PropTypes.string),
+  summarize: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({ name: PropTypes.string, showName: PropTypes.bool }),
+    ]),
+  ),
   values: PropTypes.object.isRequired,
 };
