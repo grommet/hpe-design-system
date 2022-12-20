@@ -8094,7 +8094,14 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.8.0, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.8.0.tgz#3c9922b3662d0b9e22913ecbaa7b1101031b554b"
+  integrity sha512-8cS1zVib88SIyLfsWFFazMzYz/8k5MvXZqopUjN/Bnl8HvQBUe0Z87F+JXRb1AMMYkuqXQW9Pg6XfBB3Ro9VdQ==
+  dependencies:
+    grommet-styles "^0.2.0"
+
+"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.8.0"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#40e660dae9f33cdc6c63fd776135f85503605bab"
   dependencies:
@@ -8607,11 +8614,6 @@ husky@^4.2.3:
     please-upgrade-node "^3.2.0"
     slash "^3.0.0"
     which-pm-runs "^1.0.0"
-
-husky@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.2.tgz#5816a60db02650f1f22c8b69b928fd6bcd77a236"
-  integrity sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==
 
 iconv-lite@0.4.24:
   version "0.4.24"
