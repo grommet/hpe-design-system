@@ -228,8 +228,8 @@ export const templates = [
         fit: 'contain',
       },
     },
-    seoDescription: `HPE Design System guidance for how to show, hide, and edit details of child 
-    objects related to a parent within a form context.`,
+    seoDescription: `HPE Design System guidance for how to show, hide, and
+    edit details of child objects related to a parent within a form context.`,
     sections: [],
     relatedContent: ['Forms'],
     tags: [],
