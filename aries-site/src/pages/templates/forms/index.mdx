@@ -15,11 +15,11 @@ import {
   SignUpExample,
   SingleFormFieldExample,
   SortExample,
-} from '../../examples';
-import { ExampleImagePreview } from '../../components';
+} from '../../../examples';
+import { ExampleImagePreview } from '../../../components';
 import { Image } from 'grommet';
-import { Example } from '../../layouts';
-import { formLayouts } from '../../data/structures';
+import { Example } from '../../../layouts';
+import { formLayouts } from '../../../data/structures';
 
 <Example
   code={[
@@ -296,7 +296,9 @@ on a dedicated page or within a fullscreen layer.
 
 ### Avoid using multiple column layouts
 
-Use Single-column layouts create clear paths for users. Multi-column layouts can inadvertently cause users to skip important fields, input data in the wrong field, or simply prevent progress; all of which can lead users to abandon forms.
+Using single-column layouts creates clear paths for users. Multi-column layouts can 
+inadvertently cause users to skip important fields, input data in the wrong field, 
+or simply prevent efficient progress; all of which can lead users to abandon forms.
 
 <BestPracticeGroup>
   <Example
@@ -317,3 +319,14 @@ Use Single-column layouts create clear paths for users. Multi-column layouts can
     <ColumnFormDont />
   </Example>
 </BestPracticeGroup>
+
+## Managing child objects within a form
+
+Applications often have scenarios where an object has multiple child objects, such as:
+- Creating an account with multiple contacts, each with their own contact detail.
+- Creating a cluster to perform a workload, dependent on setting and specifying 
+parameters for each resource composing the cluster.
+- Configuring permissions for a role, for which each permission has its own set of parameters.
+
+See [managing child objects](/templates/forms/managing-child-objects) to see how a user 
+can easily show and hide a child object's detail as needed.

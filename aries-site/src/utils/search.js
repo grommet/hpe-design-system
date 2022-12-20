@@ -91,6 +91,9 @@ export const nameToPath = name => {
   if (name === 'Fullscreen Layer') {
     return '/components/layer/fullscreen-layer';
   }
+  if (name === 'Managing Child Objects') {
+    return '/templates/forms/managing-child-objects';
+  }
 
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
