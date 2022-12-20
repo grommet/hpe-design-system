@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
-    "@testing-library/testcafe": "^4.4.0",
-    "axe-core": "^3.4.2",
+    "@testing-library/testcafe": "^5.0.0",
+    "axe-core": "^4.6.1",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
