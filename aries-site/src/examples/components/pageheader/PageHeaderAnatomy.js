@@ -6,8 +6,8 @@ import { PageHeaderContentRegions } from '.';
 
 // need to override the PageHeader theme values in order for our anatomy
 // to fit correctly on the page. Even though it is using the correct breakpoints
-// our anatomy are only taking up half the space on the page so layout different than
-// a PageHeader on a full page.
+// our anatomy are only taking up half the space on the page so layout
+// different than a PageHeader on a full page.
 const pageHeaderSiteTheme = {
   pageHeader: {
     large: {
@@ -95,11 +95,11 @@ export const PageHeaderAnatomy = ({ background }) => {
         <Annotation id="1b" target="1b" gridArea="annotation-1b" />
         <Annotation id={3} target="3" gridArea="annotation-3" />
         <ThemeContext.Extend value={pageHeaderSiteTheme}>
-        <PageHeaderContentRegions
-          gridArea="pageheader"
-          background={background}
-          pad="none" // removing pad from anatomy diagram
-        />
+          <PageHeaderContentRegions
+            gridArea="pageheader"
+            background={background}
+            pad="none" // removing pad from anatomy diagram
+          />
         </ThemeContext.Extend>
       </Grid>
       <Diagram connections={connections} />

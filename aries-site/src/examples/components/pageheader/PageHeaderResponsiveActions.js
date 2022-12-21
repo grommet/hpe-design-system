@@ -14,8 +14,8 @@ import { ActionMenu, ReverseAnchor } from '../../templates';
 
 // need to overrid the PageHeader theme values in order for our examples 
 // to fit their container page. Even though it is using the correct breakpoints
-// our examples are only taking up half the space on the page so layout different than
-// a PageHeader on a full page.
+// our examples are only taking up half the space on the page so layout
+// different than a PageHeader on a full page.
 const pageHeaderSiteTheme = {
   pageHeader: {
     medium: {
