@@ -11,11 +11,6 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-actions": "^5.2.6",
-    "@storybook/addon-links": "^5.2.6",
-    "@storybook/addon-storysource": "^5.2.6",
-    "@storybook/addons": "^5.2.6",
-    "@storybook/react": "^5.2.6",
     "babel-loader": "^8.2.5",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
@@ -30,8 +25,6 @@
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "release-stable": "babel-node ./tools/release-stable"
   },
   "keywords": [
