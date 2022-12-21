@@ -1,6 +1,7 @@
 export * from './do-dont';
 export * from './managing-child-objects';
 export * from './ChangePasswordExample';
+export * from './CharacterCounterExample';
 export * from './CustomizeExample';
 export * from './FilterExample';
 export * from './FormPresentationDecisionTree';
