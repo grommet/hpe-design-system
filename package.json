@@ -32,8 +32,8 @@
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
     "husky": "^4.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "styled-components": "^5.2.3"
   }
 }
