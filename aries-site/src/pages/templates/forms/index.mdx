@@ -1,5 +1,6 @@
 import {
   ChangePasswordExample,
+  CharacterCounterExample,
   ColumnFormDo,
   ColumnFormDont,
   CustomizeExample,
@@ -238,20 +239,36 @@ For standard forms, use an asterisk(\*) to indicate required field/controls.
 
 In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.
 
-**Guidance**
+In general, exceeding the character limit should be an infrequent experience for users. If users are constantly exceeding the character limit, this may be an indication that the design should be altered to accommodate the needs of the user.
 
-- Place the character counter at the bottom right of the field.
-- See guidance on [character limits for fields](/components/tag#anatomy). Note that your backend may have character limitations. When you can choose the character limits, however, set a generous number to avoid frustrating the user. A suggestion to ensure your limit is user-friendly is to check the analytics to see how long it is taking your users to complete this task. Longer than usual time could indicate the character limits are too low. Increase accordingly.
-- Use a numerator/denominator format. Ex. 0/128.
-- Show the progression in the numerator as the user is typing. Ex. 52/128 if the user has typed 52 characters, 53/128 when they type an extra character, 54/128, 55/128, etc.
-- Use default text styling.
-- Make the field roughly the same size as the character limit.
-- Red highlight the field when the user meets the character limitation.
+**Interaction guidance**
+
+- Allow the user to keep typing beyond the limit as opposed to cutting them off. This allows the user to decide which portion of content should be removed to meet the character limit.
+- Do not show character counter by default. Instead, display it once a threshold has been reached (e.g., 75% of limit has been reached). The threshold may vary depending on the size of the limit. For example, if the limit is small (such as 50 characters), then a threshold of 50% may be appropriate. If the limit is larger (2000 characters), then a larger threshold like 80% may be appropriate.
+- If the user has exceeded the limit and attempts to submit the form, the client-side validation will stop the form submission from proceeding.
+
+**Formatting**
+
+- Left-align the character counter beneath the input so it is consistent with the alignment of other contextual form field elements like label and help text.
+- If the 80% case of users won't run into the character limit, don’t use the help text beneath the form field label to state the limit. This adds unnecessary clutter to the screen. However, if it is valuable for the user to know the limit in advance (such as knowing a support request has a max of 1000 characters), the help text can be used.
+- When the max has not been reached, format the message as “X characters left". This message format removes the need for the user to compute how many characters are remaining.
+- When the max has been exceeded, format the message as “X characters over limit” and apply “error” validation to the form field.
 
 **Accessibility**
 
 - Announce the max character allowed before the user begins typing.
-- Announce when the user has typed 50% of the max allowed.
+- Announce when the user has typed beyond the threshold of the max allowed.
+
+**Example**
+
+For demonstration purposes, the character limit is 30 characters and a threshold of 50%. So, the character counter will be displayed when 15 or more characters have been entered.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/CharacterCounterExample.js"
+  figma="https://www.figma.com/file/3fkwBelW5UsCbfwdDCJkT8/HPE-Form-Templates?node-id=5942%3A12303"
+>
+  <CharacterCounterExample />
+</Example>
 
 ### Exceptions and how to address them
 
@@ -296,8 +313,8 @@ on a dedicated page or within a fullscreen layer.
 
 ### Avoid using multiple column layouts
 
-Using single-column layouts creates clear paths for users. Multi-column layouts can 
-inadvertently cause users to skip important fields, input data in the wrong field, 
+Using single-column layouts creates clear paths for users. Multi-column layouts can
+inadvertently cause users to skip important fields, input data in the wrong field,
 or simply prevent efficient progress; all of which can lead users to abandon forms.
 
 <BestPracticeGroup>
@@ -323,10 +340,11 @@ or simply prevent efficient progress; all of which can lead users to abandon for
 ## Managing child objects within a form
 
 Applications often have scenarios where an object has multiple child objects, such as:
+
 - Creating an account with multiple contacts, each with their own contact detail.
-- Creating a cluster to perform a workload, dependent on setting and specifying 
-parameters for each resource composing the cluster.
+- Creating a cluster to perform a workload, dependent on setting and specifying
+  parameters for each resource composing the cluster.
 - Configuring permissions for a role, for which each permission has its own set of parameters.
 
-See [managing child objects](/templates/forms/managing-child-objects) to see how a user 
+See [managing child objects](/templates/forms/managing-child-objects) to see how a user
 can easily show and hide a child object's detail as needed.
