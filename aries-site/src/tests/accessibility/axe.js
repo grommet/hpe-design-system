@@ -20,43 +20,43 @@ fixture('Axe accessibility tests')
     }
   });
 
-test('should check Home page', async t => {
-  // Only need to run in one browser
-  if (t.browser.name === 'Chrome') {
-    const axeContext = {
-      // excluding the HPE Global header since we don't maintain it
-      exclude: [['#hpehf-header']],
-    };
-    const axeOptions = {
-      rules: {
-        'color-contrast': { enabled: false },
-        region: { enabled: false },
-      },
-    };
-    const { violations } = await axeCheck(t, axeContext, axeOptions);
-    await t.expect(violations.length === 0).ok(createReport(violations));
-  }
-});
+// test('should check Home page', async t => {
+//   // Only need to run in one browser
+//   if (t.browser.name === 'Chrome') {
+//     const axeContext = {
+//       // excluding the HPE Global header since we don't maintain it
+//       exclude: [['#hpehf-header']],
+//     };
+//     const axeOptions = {
+//       rules: {
+//         'color-contrast': { enabled: false },
+//         region: { enabled: false },
+//       },
+//     };
+//     const { violations } = await axeCheck(t, axeContext, axeOptions);
+//     await t.expect(violations.length === 0).ok(createReport(violations));
+//   }
+// });
 
-test.before(async t => {
-  await t.navigateTo('/templates');
-})('should check Templates (NavPage)', async t => {
-  // Only need to run in one browser
-  if (t.browser.name === 'Chrome') {
-    const axeContext = {
-      // excluding the HPE Global header since we don't maintain it
-      exclude: [['#hpehf-header']],
-    };
-    const axeOptions = {
-      rules: {
-        'color-contrast': { enabled: false },
-        region: { enabled: false },
-      },
-    };
-    const { violations } = await axeCheck(t, axeContext, axeOptions);
-    await t.expect(violations.length === 0).ok(createReport(violations));
-  }
-});
+// test.before(async t => {
+//   await t.navigateTo('/templates');
+// })('should check Templates (NavPage)', async t => {
+//   // Only need to run in one browser
+//   if (t.browser.name === 'Chrome') {
+//     const axeContext = {
+//       // excluding the HPE Global header since we don't maintain it
+//       exclude: [['#hpehf-header']],
+//     };
+//     const axeOptions = {
+//       rules: {
+//         'color-contrast': { enabled: false },
+//         region: { enabled: false },
+//       },
+//     };
+//     const { violations } = await axeCheck(t, axeContext, axeOptions);
+//     await t.expect(violations.length === 0).ok(createReport(violations));
+//   }
+// });
 
 test.before(async t => {
   await t.navigateTo('/foundation/our-brand');
