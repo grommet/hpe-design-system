@@ -36,7 +36,6 @@
     "babel-plugin-styled-components": "^1.10.6",
     "browserstack": "^1.5.3",
     "eslint": "^8.13.0",
-    "jest": "^29.3.1",
     "next": "^11.1.4",
     "next-transpile-modules": "^2.3.1",
     "start-server-and-test": "^1.10.8",
