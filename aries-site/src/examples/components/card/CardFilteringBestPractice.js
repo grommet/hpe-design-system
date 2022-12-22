@@ -60,8 +60,8 @@ const statuses = [
 const FilterBar = ({ bestPractice }) => {
   const content = (
     <Box direction="row" gap="small">
-      {statuses.map(status => (
-        <Box round="xsmall" overflow="hidden" hoverIndicator>
+      {statuses.map((status, index) => (
+        <Box round="xsmall" overflow="hidden" key={index} hoverIndicator>
           <Button hoverIndicator>
             <Box
               align="center"
