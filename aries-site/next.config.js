@@ -1,5 +1,5 @@
 const withPlugins = require('next-compose-plugins');
-const withTM = require('next-transpile-modules');
+const withTM = require('next-transpile-modules')(['aries-core']);
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
@@ -71,23 +71,17 @@ const config = {
       },
     ];
   },
-  webpack5: false,
 };
 
 module.exports = withPlugins(
   [
-    [
-      withTM,
-      {
-        transpileModules: ['aries-core'],
-      },
-    ],
     [
       withMDX,
       {
         pageExtensions: ['js', 'jsx', 'md', 'mdx'],
       },
     ],
+    [withTM],
   ],
   config,
 );
