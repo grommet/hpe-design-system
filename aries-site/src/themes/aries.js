@@ -50,28 +50,16 @@ export const aries = deepMerge(hpe, {
   button: {
     'cta-alternate': {
       color: 'text', // 'text-strong',
-      font: {
-        weight: 700,
-      },
     },
     default: {
       color: 'text', // 'text-strong',
       border: undefined,
-      font: {
-        weight: 700,
-      },
     },
     secondary: {
       color: 'text', // 'text-strong',
-      font: {
-        weight: 700,
-      },
     },
     toolbar: {
       color: 'text', // 'text-strong',
-      font: {
-        weight: 700,
-      },
     },
     option: {
       color: 'text-weak',
@@ -121,7 +109,7 @@ export const aries = deepMerge(hpe, {
     // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
     // because the color is being specified in theme.text.extend.
     extend: ({ theme }) => `
-      > label { 
+      > label {
         color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
       }
     `,
@@ -294,6 +282,7 @@ export const aries = deepMerge(hpe, {
     },
   },
   grommet: {
+    // items like anchor, checkbox, just inherit Grommet's base font sizes
     extend: `
       font-size: 16px;
       line-height: 20px;
@@ -331,8 +320,14 @@ export const aries = deepMerge(hpe, {
       height: '40px', // '48px',
       maxWidth: '854px',
     },
-    extend: ({ theme }) => `
-      color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
+    extend: ({ colorProp, theme }) => `
+      ${
+        colorProp
+          ? ''
+          : `color: ${
+              theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
+            }`
+      };
     `,
   },
   tab: {
@@ -344,13 +339,7 @@ export const aries = deepMerge(hpe, {
         color: 'text',
       },
     },
-    extend: ({ theme }) => `
-      border-top-left-radius: ${theme.global.control.border.radius}; // should use radius property of border
-      border-top-right-radius: ${theme.global.control.border.radius}; // should use radius property of border
-      > span { 
-        font-weight: 700;
-      } 
-    `,
+    color: 'text',
   },
   text: {
     xsmall: {
@@ -384,8 +373,18 @@ export const aries = deepMerge(hpe, {
       height: '40px', // '48px',
       maxWidth: '854px',
     },
-    extend: ({ size, theme }) => `
-      color: ${theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']};
+    // applying the text color here is problematic because StyledText is used so many places.
+    // Since extend is the last CSS applied, it overrides any colorStyle which gets built up prior.
+    // So why the need to apply the color here? The new type ramp calls for Text and Paragraph to be
+    // #F6F6F6 which Chris has mapped to 'text-weak', but by default
+    extend: ({ size, theme, colorProp }) => `
+      ${
+        colorProp
+          ? ''
+          : `color: ${
+              theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
+            }`
+      };
       ${
         ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
           ? 'font-weight: 300;'
