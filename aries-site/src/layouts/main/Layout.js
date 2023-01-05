@@ -195,7 +195,10 @@ export const Layout = ({
                       </Box>
                     </>
                   ) : (
-                    children
+                    <>
+                      <SkipLinkTarget id="main" />
+                      {children}
+                    </>
                   )}
                 </Box>
               </Main>

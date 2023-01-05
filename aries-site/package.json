@@ -29,18 +29,16 @@
     "build-search": "node src/scripts/site-contents.mjs"
   },
   "devDependencies": {
-    "@applitools/eyes-testcafe": "1.11.1",
-    "@testing-library/testcafe": "^4.4.0",
-    "axe-core": "^3.4.2",
+    "@applitools/eyes-testcafe": "1.17.4",
+    "@testing-library/testcafe": "^5.0.0",
+    "axe-core": "^4.6.1",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "browserstack": "^1.5.3",
     "eslint": "^8.13.0",
     "next": "^11.1.4",
-    "next-transpile-modules": "^2.3.1",
+    "next-transpile-modules": "^8.0.0",
     "start-server-and-test": "^1.10.8",
-    "testcafe": "^1.16.0",
-    "testcafe-browser-provider-browserstack": "^1.11.0",
-    "testcafe-react-selectors": "^4.0.0"
+    "testcafe": "^2.1.0",
+    "testcafe-react-selectors": "^5.0.2"
   }
 }
