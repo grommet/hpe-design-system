@@ -116,6 +116,30 @@ export const PaginationServerTableExample = () => {
       </Heading>
 
       <Box>
+        {!mobile && numberItems > limit && (
+          <Box
+            flex={false}
+            direction="row"
+            gap="small"
+            align="center"
+            alignSelf="end"
+            pad={{ bottom: 'xsmall' }}
+          >
+            <Text>Rows per page</Text>
+            <Box width="xsmall" flex={false}>
+              <Select
+                value={limit}
+                options={options}
+                onChange={({ option }) => {
+                  setLimit(option);
+                  if (page * option > numberItems) {
+                    setPage(pageResultEnd / option);
+                  }
+                }}
+              />
+            </Box>
+          </Box>
+        )}
         <Box overflow="auto">
           <DataTable
             aria-describedby="server-side-pagination-heading"
@@ -127,7 +151,6 @@ export const PaginationServerTableExample = () => {
             gap="small"
           />
         </Box>
-
         {numberItems > limit && (
           <Box
             direction="row-responsive"
@@ -135,34 +158,22 @@ export const PaginationServerTableExample = () => {
             gap="medium"
             pad={{ vertical: 'small' }}
             align="center"
+            justify="between"
           >
             {!mobile && (
-              <Box>
+              <Box flex={false}>
                 <Text>
                   Showing {pageResultStart}-{pageResultEnd} of {numberItems}
                 </Text>
               </Box>
             )}
-            <Box direction="row-responsive" justify="between" gap="medium">
-              {!mobile && (
-                <Box direction="row-responsive" gap="small" align="center">
-                  <Text>Rows per page</Text>
-                  <Box width="xsmall" flex={false}>
-                    <Select
-                      value={limit}
-                      options={options}
-                      onChange={({ option }) => setLimit(option)}
-                    />
-                  </Box>
-                </Box>
-              )}
-              <Pagination
-                step={limit}
-                numberItems={numberItems}
-                page={page}
-                onChange={opts => setPage(opts.page)}
-              />
-            </Box>
+
+            <Pagination
+              step={limit}
+              numberItems={numberItems}
+              page={page}
+              onChange={opts => setPage(opts.page)}
+            />
           </Box>
         )}
       </Box>
