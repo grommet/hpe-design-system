@@ -1,5 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
+import React, { useEffect, useState, useContext } from 'react';
+import {
+  Box,
+  DataTable,
+  Heading,
+  Pagination,
+  ResponsiveContext,
+  Select,
+  Text,
+  Tip,
+} from 'grommet';
 import { StatusCritical } from 'grommet-icons';
 
 const columns = [
@@ -51,15 +60,18 @@ const columns = [
     },
   },
 ];
+const options = [5, 10, 25, 50];
 
 export const PaginationServerTableExample = () => {
+  const breakpoint = useContext(ResponsiveContext);
   const [sort, setSort] = useState({ property: 'name', direction: 'asc' });
   const [data, setData] = useState([]);
   const [numberItems, setNumberItems] = useState(0);
   const [page, setPage] = useState(1);
-  const limit = 10;
+  const [limit, setLimit] = useState(10);
   const pageResultStart = (page - 1) * limit + 1;
   const pageResultEnd = Math.min(page * limit, numberItems);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,7 +107,7 @@ export const PaginationServerTableExample = () => {
         .catch(error => console.error('Unable to get data:', error));
     };
     fetchData();
-  }, [sort, page]);
+  }, [sort, page, limit]);
 
   return (
     <Box pad="small" align="start">
@@ -103,38 +115,68 @@ export const PaginationServerTableExample = () => {
         Launches
       </Heading>
 
-      <DataTable
-        aria-describedby="server-side-pagination-heading"
-        columns={columns}
-        data={data}
-        sort={{ ...sort, external: true }}
-        step={limit}
-        onSort={opts => setSort(opts)}
-        fill
-        gap="small"
-      />
-
-      {numberItems > limit && (
-        <Box
-          direction="row-responsive"
-          fill="horizontal"
-          border="top"
-          justify="end"
-          pad={{ vertical: 'xsmall' }}
-        >
-          <Text>
-            Showing {pageResultStart}-{pageResultEnd} of {numberItems}
-          </Text>
-          <Pagination
-            step={limit}
-            numberItems={numberItems}
-            page={page}
-            onChange={opts => setPage(opts.page)}
-            direction="row"
+      <Box>
+        {!mobile && numberItems > limit && (
+          <Box
             flex={false}
+            direction="row"
+            gap="small"
+            align="center"
+            alignSelf="end"
+            pad={{ bottom: 'xsmall' }}
+          >
+            <Text>Rows per page</Text>
+            <Box width="xsmall" flex={false}>
+              <Select
+                value={limit}
+                options={options}
+                onChange={({ option }) => {
+                  setLimit(option);
+                  if (page * option > numberItems) {
+                    setPage(pageResultEnd / option);
+                  }
+                }}
+              />
+            </Box>
+          </Box>
+        )}
+        <Box overflow="auto">
+          <DataTable
+            aria-describedby="server-side-pagination-heading"
+            columns={columns}
+            data={data}
+            sort={{ ...sort, external: true }}
+            onSort={opts => setSort(opts)}
+            fill
+            gap="small"
           />
         </Box>
-      )}
+        {numberItems > limit && (
+          <Box
+            direction="row-responsive"
+            border="top"
+            gap="medium"
+            pad={{ vertical: 'small' }}
+            align="center"
+            justify="between"
+          >
+            {!mobile && (
+              <Box flex={false}>
+                <Text>
+                  Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+                </Text>
+              </Box>
+            )}
+
+            <Pagination
+              step={limit}
+              numberItems={numberItems}
+              page={page}
+              onChange={opts => setPage(opts.page)}
+            />
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 };
