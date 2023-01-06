@@ -161,6 +161,38 @@ export const templates = [
     ],
   },
   {
+    name: 'User Feedback Collection',
+    available: true,
+    cardOrder: 7,
+    description: `User feedback is information collected directly from
+    customers about their reactions to a product, service, or website
+    experience. Collection of user feedback helps to make impactful,
+    data-driven decisions about our digital products.    `,
+    preview: {
+      image: {
+        alt: 'HPE Filtering Preview',
+        fit: 'contain',
+        src: {
+          light: '/templateImages/template-preview-filtering.svg',
+          dark: '/templateImages/template-preview-filtering-invert.svg',
+        },
+      },
+    },
+    seoDescription: `User feedback is information collected directly from
+     customers about their reactions to a product, service, or website experience.
+     Collection of user feedback helps to make impactful, data-driven decisions
+     about our digital products.
+    `,
+    sections: [
+      'What makes up filtering',
+      'Filters',
+    ],
+    relatedContent: ['Forms'],
+    tags: [
+      'feedback',
+    ],
+  },
+  {
     name: 'Forms',
     available: true,
     cardOrder: 1,

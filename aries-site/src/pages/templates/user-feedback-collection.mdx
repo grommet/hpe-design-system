@@ -1,0 +1,57 @@
+import { PowerOnExample, SimpleFeedbackExample, SubscriptionOrderExample, UnSolicitedFeedbackExample } from '../../examples';
+import { Example } from '../../layouts';
+
+<Example
+  code=""
+  docs="https://v2.grommet.io/starrating?theme=hpe"
+>
+  <SimpleFeedbackExample />
+</Example>
+
+### When to use
+Consider using in app feedback collection for the following use cases:
+- Any location where customer insights can help us to improve our experiences.
+- To gather data to assist in advocating for changes to the user experience.
+- To evaluate the effectiveness of content.
+
+### When not to use
+Don’t collect feedback in the following use cases:
+- If it disrupts a user flow or is intrusive in any way.
+- There is no actionable plan for what to do with the data.
+- In locations where users do not have enough context to form a valid opinion. 
+- There are too many implementations of user feedback collection, as not to dilute their effectiveness.
+
+## Examples
+
+
+### Solicited Feedback
+Solicited feedback is a flow in which we are interupting the user at the end of a task flow for feedback on the task they just completed. 
+<Example
+  code=""
+>
+  <PowerOnExample />
+</Example>
+
+<Example
+  code=""
+>
+  <SubscriptionOrderExample />
+</Example>
+
+
+### UnSolicited Feedback
+Unsolicited feedback example would be where a user is provided a mechanism (like a “suggestions box”) to ask questions, make recommendations etc.
+
+<Example
+  code=""
+>
+  <UnSolicitedFeedbackExample />
+</Example>
+
+### Connecting to Qualtrics
+To iniate user feedback collection, please contact doris.singer@hpe.com for the following steps:
+
+1. Doris will set up the survey in Qualtrics.
+2. Doris will submit a TEST resposnse for developers to have to use for testing againts api.
+3. The dev uses the [Retrieve a Survey Response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response) (Survey ID, API Token, and the Response ID required) to pull in the metadata/schema for the test submission. This response is almost identical to what needs to be submitted.
+4. Dev uses [Create a New Response](https://api.qualtrics.com/f1cad92018d2b-create-a-new-response) call to send in data.
