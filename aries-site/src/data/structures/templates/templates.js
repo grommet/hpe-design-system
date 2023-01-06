@@ -1,6 +1,7 @@
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
 } from '../../../examples/cardPreviews';
@@ -167,16 +168,10 @@ export const templates = [
     description: `User feedback is information collected directly from
     customers about their reactions to a product, service, or website
     experience. Collection of user feedback helps to make impactful,
-    data-driven decisions about our digital products.    `,
+    data-driven decisions about our digital products.`,
     preview: {
-      image: {
-        alt: 'HPE Filtering Preview',
-        fit: 'contain',
-        src: {
-          light: '/templateImages/template-preview-filtering.svg',
-          dark: '/templateImages/template-preview-filtering-invert.svg',
-        },
-      },
+      component: () => <FeedbackPreview />,
+      background: 'background-front',
     },
     seoDescription: `User feedback is information collected directly from
      customers about their reactions to a product, service, or website experience.
