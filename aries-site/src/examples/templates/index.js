@@ -5,6 +5,7 @@ export * from './code-blocks';
 export * from './content-layouts';
 export * from './dashboards';
 export * from './drill-down-navigation';
+export * from './feedback';
 export * from './filtering';
 export * from './forms';
 export * from './global-banner-notifications';
