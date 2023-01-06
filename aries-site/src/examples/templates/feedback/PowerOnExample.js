@@ -31,6 +31,9 @@ export const PowerOnExample = () => {
   const onSubmit = useCallback(value => {
     const data = {
       // values that are needed for survey purposes to be sent back to api
+      // fullURL, deviceType, Q1D1, QID2_TEXT are the values that are given 
+      // by Qualtrics in the response call which is what needs to be submitted
+      // back with the values to send the data.
       values: {
         fullURL: `url`,
         deviceType: 'desktop',

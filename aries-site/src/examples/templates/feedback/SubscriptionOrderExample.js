@@ -24,11 +24,13 @@ export const SubscriptionOrderExample = () => {
 
   const onSubmit = useCallback(value => {
     const data = {
-      // values that are needed for survey purposes to be sent back to api
+      // fullURL, deviceType, Q1D1, QID2_TEXT are the values that are given
+      // by Qualtrics in the response call which is what needs to be submitted
+      // back with the values to send the data.
       values: {
         fullURL: `url`,
         deviceType: 'desktop',
-        QID1: (value.value['subscription-rating-example']),
+        QID1: value.value['subscription-rating-example'],
         QID2_TEXT: value.value['subscription-textArea-example'],
       },
     };
@@ -121,7 +123,7 @@ export const SubscriptionOrderExample = () => {
                 ) : (
                   <Footer
                     margin={{ top: 'medium', bottom: 'small' }}
-                    justify='end'
+                    justify="end"
                   >
                     <Text weight="bold" size="large">
                       Thank you for your response!

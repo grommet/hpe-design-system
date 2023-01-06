@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
 import {
   Box,
   Button,
@@ -14,12 +13,6 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Announce } from 'grommet-icons';
-
-// create a floating button for story example
-const PositionedFeedbackButton = styled(Button)`
-  border-radius: 6px;
-  z-index: 10;
-`;
 
 export const UnSolicitedFeedbackExample = () => {
   const size = useContext(ResponsiveContext);
@@ -37,7 +30,7 @@ export const UnSolicitedFeedbackExample = () => {
 
   return (
     <>
-      <PositionedFeedbackButton
+      <Button
         onClick={onOpen}
         margin={{ vertical: 'medium', horizontal: 'medium' }}
         elevation="large"
