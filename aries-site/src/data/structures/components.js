@@ -17,6 +17,7 @@ import {
   RadioButtonGroupPreview,
   RangeInputPreview,
   SearchPreview,
+  SkeletonPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
@@ -1189,6 +1190,30 @@ export const components = [
       'hpe style spinner',
       'hpe loading spinner',
       'spooling',
+    ],
+  },
+  {
+    name: 'Skeleton Loading',
+    category: 'Visualizations',
+    description:
+      'A component that provides users a place holder preview of the content before loaded onto the page. Loading patterns are used to communicate that data is loading which can improve a user experience.',
+      preview: {
+        component: () => <SkeletonPreview />,
+        background: 'background-front',
+      },
+    seoDescription:
+      'A component that provides users a place holder preview of the content before loaded onto the page. Loading patterns are used to communicate that data is loading which can improve a user experience.',
+    relatedContent: ['Box', 'DataTable', 'Spinner'],
+    sections: [
+      'When to use Spinner',
+      'Spinner within a list',
+      'Spinner with announcement on screen reader',
+      'Spinner loading content',
+    ],
+    tags: [
+      'loading',
+      'loading indicator',
+      'transition',
     ],
   },
   {

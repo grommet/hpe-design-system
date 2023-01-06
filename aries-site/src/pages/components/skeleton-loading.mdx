@@ -1,0 +1,34 @@
+import { Example } from '../../layouts';
+
+<Example
+  componentName="Stack"
+  docs="https://v2.grommet.io/skeleton?theme=hpe"
+  code=""
+  grommetSource=""
+>
+</Example>
+
+### When to use
+Consider using the Skeleton for the following use cases:
+- The data for your page might not be immediatley available.
+- Ensure the user that their request is in progresss.
+- Consider using Skeleton when a loading Spinner is not promient enough to the user.
+- Use on high-traffic pages, such as a user dashboard.
+
+### When not to use
+Don’t use Skeleton in the following use cases:
+- If the process is going to take more than a few minutes to load.
+- If the loading process is going to take less than 300ms.
+- For a small inline action consider using a spinner.
+
+### Anatomy
+
+
+### Accessibility
+When there is changes on the UI in which a user should be notifed for example a dashboard loading it is recemmended to notify the user of this change. 
+Skeletons should not be focusable however in order to notify a user that an application is loading, busy, or fails the message prop should be used properly. 
+Message can be provided as an object  `{ message: { start: 'Loading', end: 'Content Loaded' }`
+
+## Variants
+
+### DashBoard Skeleton
