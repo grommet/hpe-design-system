@@ -164,7 +164,6 @@ export const templates = [
   {
     name: 'User Feedback Collection',
     available: true,
-    cardOrder: 7,
     description: `User feedback is information collected directly from
     customers about their reactions to a product, service, or website
     experience. Collection of user feedback helps to make impactful,
