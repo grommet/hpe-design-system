@@ -177,7 +177,7 @@ export const templates = [
     ],
     relatedContent: ['Forms'],
     tags: [
-      'feedback',
+      'feedback', 'survey', 'customer experience', 'user experience', 'analytics', 'qualtrics',
     ],
   },
   {
