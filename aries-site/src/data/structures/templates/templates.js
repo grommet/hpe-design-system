@@ -170,10 +170,8 @@ export const templates = [
       component: () => <FeedbackPreview />,
       background: 'background-front',
     },
-    seoDescription: `User feedback is information collected directly from
-     customers about their reactions to a product, service, or website experience.
-     Collection of user feedback helps to make impactful, data-driven decisions
-     about our digital products.
+    seoDescription: `Improve customer experiences and make impactful,
+    data-driven decisions by collecting feedback directly from users.
     `,
     sections: [
     ],
