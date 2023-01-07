@@ -178,8 +178,6 @@ export const templates = [
      about our digital products.
     `,
     sections: [
-      'What makes up filtering',
-      'Filters',
     ],
     relatedContent: ['Forms'],
     tags: [
