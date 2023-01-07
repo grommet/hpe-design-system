@@ -4,6 +4,7 @@ import {
   components as componentsArr,
   extend as extendArr,
   foundation as foundationArr,
+  learn as learnArr,
   templates as templatesArr,
   Structure,
 } from './structures';
@@ -11,6 +12,7 @@ import {
 const components = Structure.from(componentsArr);
 const extend = Structure.from(extendArr);
 const foundation = Structure.from(foundationArr);
+const learn = Structure.from(learnArr);
 const templates = Structure.from(templatesArr);
 
 export const structure = [
@@ -44,6 +46,25 @@ export const structure = [
       .sortByCardOrder()
       .sortByCategory({ Assets: 1, Philosophy: 0 })
       .map(page => page.name),
+  },
+  {
+    name: 'Learn',
+    color: 'purple!',
+    description:
+      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
+    icon: (size, color) => <IconSquare size={size} color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    seoDescription:
+      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
+    pages: learn.map(page => page.name),
   },
   {
     name: 'Templates',
@@ -110,6 +131,7 @@ export const structure = [
   },
   components,
   foundation,
+  learn,
   templates,
   extend,
 ].flat();

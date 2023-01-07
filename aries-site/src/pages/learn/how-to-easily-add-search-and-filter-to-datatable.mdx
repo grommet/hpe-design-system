@@ -1,0 +1,365 @@
+import { Box, Image, Notification } from 'grommet';
+
+<Notification
+  status="info"
+  width="large"
+  margin={{ bottom: 'medium' }}
+  message='This guide uses a DataTable that is configured to fetch data from a REST API. If you’d like to learn more about how this configuration works, check out the guide on "How to fetch data from an API and render it in a DataTable."'
+  actions={[
+    {
+      label: 'Guide TBD',
+      href: '#',
+    },
+  ]}
+/>
+
+Let’s get started!
+
+Here's a [CodeSandbox template](https://codesandbox.io/s/hpe-design-system-template-lrdtpe?file=/index.js) with the required dependencies already installed.
+
+Copy and paste this paginated DataTable code into your CodeSandbox. You can replace all of the code.
+
+```
+import React, { useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+
+import { Box, DataTable, Grommet, Pagination, Text } from "grommet";
+import { hpe } from "grommet-theme-hpe";
+
+const fetchLaunches = async (view) => {
+  const sort = {
+    [view?.sort?.property || "name"]: view?.sort?.direction || "asc"
+  };
+
+  const body = {
+    options: {
+      populate: [
+        {
+          path: "rocket",
+          select: { name: 1 }
+        }
+      ],
+      sort,
+      select: ["name", "success"],
+      limit: view?.limit || 10,
+      page: view?.page || 1
+    }
+  };
+  return fetch("https://api.spacexdata.com/v4/launches/query", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  }).then((response) => response.json());
+};
+
+const columns = [
+  {
+    property: "name",
+    header: "Name",
+    size: "small",
+    primary: true
+  },
+  {
+    property: "rocket.name",
+    header: "Rocket",
+    size: "xsmall",
+    sortable: false
+  },
+  {
+    property: "success",
+    header: "Success",
+    size: "xsmall",
+    sortable: false,
+    render: (datum) => (datum.success ? "Successful" : "Failed")
+  }
+];
+
+const App = () => {
+  const [data, setData] = useState();
+  const docs = data?.docs || [];
+
+  // query parameters
+  const [sort, setSort] = useState({ property: "name", direction: "asc" });
+  const [page, setPage] = useState(1);
+  const limit = 10;
+
+  // pagination related variables
+  const numberItems = data?.totalDocs || 0;
+  const pageResultStart = (page - 1) * limit + 1;
+  const pageResultEnd = Math.min(page * limit, numberItems);
+
+  useEffect(() => {
+    fetchLaunches({
+      limit,
+      page,
+      sort
+    })
+      .then((d) => setData(d))
+      .catch((error) => `Unable to fetch data: ${error}`);
+  }, [limit, page, sort]);
+
+  return (
+    <Grommet theme={hpe}>
+      <Box align="start" pad="medium">
+        <Box>
+          <DataTable
+            columns={columns}
+            data={docs}
+            sort={{ ...sort, external: true }}
+            onSort={(opts) => setSort(opts)}
+          />
+          {numberItems > limit && (
+            <Box
+              direction="row-responsive"
+              align="center"
+              fill="horizontal"
+              border="top"
+              justify="end"
+              pad={{ vertical: "xsmall" }}
+            >
+              <Text>
+                Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+              </Text>
+              <Pagination
+                step={limit}
+                numberItems={numberItems}
+                page={page}
+                onChange={(opts) => setPage(opts.page)}
+                direction="row"
+                flex={false}
+              />
+            </Box>
+          )}
+        </Box>
+      </Box>
+    </Grommet>
+  );
+};
+
+const container = document.getElementById("root");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<App />);
+```
+
+## Set up Data provider
+
+Start by importing `Data` from grommet.
+
+Then, remove `data` property from DataTable and place it as a property on Data. This allows the Data component to control what data should be rendered in the DataTable.
+
+```
+import { Box, Data, DataTable, Grommet, Pagination, Text } from "grommet";
+
+...
+
+<Data data={docs}>
+    <DataTable
+    columns={columns}
+    sort={{ ...sort, external: true }}
+    onSort={(opts) => setSort(opts)}
+    />
+</Data>
+```
+
+## Add default search and filter capabilities
+
+Add `toolbar` as a boolean property on Data to display a search input, filter button, and results summary above the DataTable.
+
+Add `total={numberItems}` to inform Data the total number of records, even if only a subset have been fetched.
+
+```
+<Data data={docs} total={numberItems} toolbar>
+    <DataTable
+    columns={columns}
+    sort={{ ...sort, external: true }}
+    onSort={(opts) => setSort(opts)}
+    />
+</Data>
+```
+
+At this point, your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/data-simple-toolbar.png"
+    alt="Toolbar above a DataTable"
+    fit="contain"
+  />
+</Box>
+
+<Notification
+  status="learn"
+  width="large"
+  margin={{ bottom: 'medium' }}
+  message='If you type something into the search input and press "Enter", the data in the DataTable will be filtered to those that match the search term.'
+/>
+
+<Notification
+  status="learn"
+  width="large"
+  message="If you click on the filter button, Data has populated the filters to include all of the data attributes. The input type (Select, CheckBoxGroup, etc.) is determined based on the type of data and amount of results for that attribute."
+/>
+
+## Customize filtered attributes
+
+To control which attributes are filterable, we'll need to leverage `properties`, `view`, and `onView` properties on Data. In this case, we only want to filter by "rocket" and "success".
+
+To start, create the `view` state variable alongside the other existing ones, and add the following onto your Data component:
+
+```
+const [view, setView] = useState({ search: '' });
+
+...
+
+<Data
+	data={docs}
+    total={numberItems}
+    properties={{
+        // we will build rocketOptions in the next step, so don't worry that if it's flagged by your linter
+        rocket: { label: 'Rocket', options: rocketOptions },
+        success: { label: 'Success', options: ['Successful', 'Failed'] },
+    }}
+    view={view}
+    onView={(nextView) => {
+        setView(nextView);
+        setPage(1);
+    }}
+    toolbar
+>
+   <DataTable columns={columns} />
+</Data>
+```
+
+Next, let's create `rocketOptions` by fetching all possible rocket names from the API.
+
+```
+const [rockets, setRockets] = useState();
+useEffect(() => {
+const fetchRockets = async () => {
+    const body = {
+    options: {
+        sort: { name: 'asc' },
+        select: ['name', 'id'],
+    },
+    };
+    return fetch('https://api.spacexdata.com/v4/rockets/query', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+    })
+    .then((response) => response.json())
+    .then((d) => setRockets(d))
+    .catch((error) => `Unable to fetch data: ${error}`);
+};
+fetchRockets();
+}, []);
+
+// map through all rockets and build an array which will be used by Data
+const rocketOptions =
+    rockets?.docs?.map(({ name, id }) => ({ value: id, label: name })) || [];
+```
+
+Clicking on the filter button should open a drop that looks like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/data-simple-filters.png"
+    alt="Filters for a DataTable"
+    fit="contain"
+  />
+</Box>
+
+Next, update the `fetchLaunches` useEffect so that the launches will be fetched any time the search or filter values change:
+
+```
+useEffect(() => {
+    fetchLaunches({
+      limit,
+      page,
+      sort,
+      search: view.search,
+      properties: view.properties,
+    })
+      .then((d) => setData(d))
+      .catch((error) => `Unable to fetch data: ${error}`);
+}, [limit, page, sort, view.properties, view.search]);
+```
+
+In order for the search and properties to affect the API query, let's write a function that will build the query in the desired format. We're following the [query documentation](https://github.com/r-spacex/SpaceX-API/blob/master/docs/queries.md) for this API to build this function. Your application's API may differ.
+
+Paste this above the `fetchLaunces` function.
+
+```
+const buildQuery = (view) => {
+  const query = {};
+  const properties = view?.properties || [];
+  Object.keys(properties).forEach((property) => {
+    switch (property) {
+      case 'success':
+        if (properties.success.length === 1) {
+          query[property] = properties.success[0] === 'Successful';
+        }
+        break;
+      case 'rocket':
+        query.rocket = {
+          $in: properties.rocket,
+        };
+        break;
+      default:
+        query[property] = properties[property];
+    }
+  });
+  if (view?.search) query.$text = { $search: view.search };
+  return query;
+};
+```
+
+Lastly, we'll add the query to the fetch in `fetchLaunches`.
+
+```
+const fetchLaunches = async (view) => {
+  const query = buildQuery(view);
+  const sort = {
+    [view?.sort?.property || 'name']: view?.sort?.direction || 'asc',
+  };
+
+  const body = {
+    options: {
+      populate: [
+        {
+          path: 'rocket',
+          select: { name: 1 },
+        },
+      ],
+      sort,
+      select: ['name', 'success'],
+      limit: view?.limit || 10,
+      page: view?.page || 1,
+    },
+    query,
+  };
+  return fetch('https://api.spacexdata.com/v4/launches/query', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  }).then((response) => response.json());
+};
+```
+
+Congratulations! You’ve used Data to add search and filter controls to manage what data should be rendered in a DataTable.
