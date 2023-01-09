@@ -86,7 +86,7 @@ export const PowerOnExample = () => {
         QID2_TEXT: value.value['power-textArea-example'],
       },
     };
-    // dev uses POST https://api.qualtrics.com/f1cad92018d2b-create-a-new-response
+    // dev uses POST https://api.qualtrics.com/{survey-id}-create-a-new-response
     fetch(API_URL, {
       method: 'POST',
       headers: {
