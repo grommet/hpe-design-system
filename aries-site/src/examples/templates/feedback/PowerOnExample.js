@@ -108,6 +108,7 @@ export const PowerOnExample = () => {
           <Form
             method="post"
             validate="submit"
+            // kind="survey" provides specific HPE styling for survey questions. Possibly provide url to Grommet docs as well.
             kind="survey"
             onChange={(nextValue, { touched }) => {
               setRating(touched);
