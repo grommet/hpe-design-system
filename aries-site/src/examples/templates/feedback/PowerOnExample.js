@@ -51,7 +51,7 @@ export const PowerOnExample = () => {
     })
       .then(response => response.json())
       .catch(error => {
-        console.error('Error:', error);
+        // Error handling here
       });
   }, []);
 
