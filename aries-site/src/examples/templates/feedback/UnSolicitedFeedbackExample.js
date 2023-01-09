@@ -49,9 +49,7 @@ export const UnSolicitedFeedbackExample = () => {
             gap="medium"
           >
             <Header
-              direction="column"
               align="start"
-              gap="xxsmall"
               pad={{ horizontal: 'xxsmall' }}
             >
               <Heading level={4} size="small" margin="none">

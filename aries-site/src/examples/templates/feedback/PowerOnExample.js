@@ -1,10 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Anchor,
   Box,
   Button,
   Card,
+  Layer,
   Form,
+  Footer,
   FormField,
   Heading,
   Spinner,
@@ -14,11 +16,47 @@ import {
 } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 
+const FeedbackLayout = ({ children, onClick, onClose }) => (
+  <Layer>
+    <Box
+      fill="vertical"
+      overflow="auto"
+      //   width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
+      pad="medium"
+      gap="medium"
+    >
+      <Heading level={4} size="small" margin="none">
+        Feedback on powering devices
+      </Heading>
+      {children}
+      <Footer direction="row" justify="end" gap="small">
+        <Button onClick={onClose} label="Cancel" />
+        <Button
+          onClick={onClick}
+          label="Submit Feedback"
+          primary
+          type="submit"
+        />
+      </Footer>
+    </Box>
+  </Layer>
+);
+
 export const PowerOnExample = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
-  const [rating, setRating] = useState(undefined);
+  const [rating, setRating] = useState();
+  const [showFeedback, setShowFeedback] = useState(false);
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (isSuccessful) {
+        setShowFeedback(true);
+      }
+    }, 3000);
+  }, [isSuccessful]);
+
+  // simulating a call to a power on API call. Demo purposes
   const PowerOnLoading = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -100,25 +138,31 @@ export const PowerOnExample = () => {
           />
         </Box>
       )}
-      {isSuccessful && (
-        <Box width="large" gap="medium" justify="center" pad="small">
-          <Heading level={4} size="small" margin="none">
-            We'd love your feedback
-          </Heading>
-          <Form
-            method="post"
-            validate="submit"
-            // kind="survey" provides specific HPE styling for survey questions. Possibly provide url to Grommet docs as well.
-            kind="survey"
-            onChange={(nextValue, { touched }) => {
-              setRating(touched);
-            }}
-            onSubmit={value => {
-              console.log('submit', value.value);
-            }}
-          >
-            <Box gap="medium">
+      {isSuccessful && showFeedback && (
+        <FeedbackLayout
+          onClick={() => {
+            setIsSuccessful(false);
+            setRating(undefined);
+            setShowFeedback(false);
+          }}
+          onClose={() => {
+            setShowFeedback(false);
+          }}
+        >
+          <Box gap="medium">
+            <Form
+              method="post"
+              validate="submit"
+              kind="survey"
+              onChange={(nextValue, { touched }) => {
+                setRating(touched);
+              }}
+              onSubmit={value => {
+                console.log('submit', value.value);
+              }}
+            >
               <FormField
+                // remove border when using StarRating & ThumbRating
                 contentProps={{
                   border: false,
                 }}
@@ -141,22 +185,11 @@ export const PowerOnExample = () => {
                       placeholder="i.e. ideas, inspirations, or concerns"
                     />
                   </FormField>
-                  <Box align="end" justify="end">
-                    <Button
-                      onClick={() => {
-                        setIsSuccessful(false);
-                        setRating(undefined);
-                      }}
-                      label="Submit Feedback"
-                      primary
-                      type="submit"
-                    />
-                  </Box>
                 </Box>
               )}
-            </Box>
-          </Form>
-        </Box>
+            </Form>
+          </Box>
+        </FeedbackLayout>
       )}
     </Card>
   );
