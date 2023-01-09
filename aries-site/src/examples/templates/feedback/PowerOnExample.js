@@ -20,6 +20,7 @@ import { StatusGoodSmall } from 'grommet-icons';
 const FeedbackLayout = ({ children, onClick, onClose }) => {
   const breakpoint = useContext(ResponsiveContext);
   return (
+    // feedback layout
     <Layer>
       <Box
         fill="vertical"
