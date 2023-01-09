@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import {
   Anchor,
   Box,
@@ -11,36 +11,40 @@ import {
   Heading,
   Spinner,
   StarRating,
+  ResponsiveContext,
   Text,
   TextArea,
 } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 
-const FeedbackLayout = ({ children, onClick, onClose }) => (
-  <Layer>
-    <Box
-      fill="vertical"
-      overflow="auto"
-      //   width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-      pad="medium"
-      gap="medium"
-    >
-      <Heading level={4} size="small" margin="none">
-        Feedback on powering devices
-      </Heading>
-      {children}
-      <Footer direction="row" justify="end" gap="small">
-        <Button onClick={onClose} label="Cancel" />
-        <Button
-          onClick={onClick}
-          label="Submit Feedback"
-          primary
-          type="submit"
-        />
-      </Footer>
-    </Box>
-  </Layer>
-);
+const FeedbackLayout = ({ children, onClick, onClose }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  return (
+    <Layer>
+      <Box
+        fill="vertical"
+        overflow="auto"
+        width={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : undefined}
+        pad="medium"
+        gap="medium"
+      >
+        <Heading level={4} size="small" margin="none">
+          Feedback on powering devices
+        </Heading>
+        {children}
+        <Footer direction="row" justify="end" gap="small">
+          <Button onClick={onClose} label="Cancel" />
+          <Button
+            onClick={onClick}
+            label="Submit Feedback"
+            primary
+            type="submit"
+          />
+        </Footer>
+      </Box>
+    </Layer>
+  );
+};
 
 export const PowerOnExample = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +57,7 @@ export const PowerOnExample = () => {
       if (isSuccessful) {
         setShowFeedback(true);
       }
-    }, 3000);
+    }, 1000);
   }, [isSuccessful]);
 
   // simulating a call to a power on API call. Demo purposes
@@ -66,24 +70,28 @@ export const PowerOnExample = () => {
   };
 
   // fetch call to POST api should be in onSubmit
+  // for demo purposes disabling actual API call
+  // submitFeedback();
   const onSubmit = useCallback(value => {
     const data = {
       values: {
-        fullURL: `url`,
-        deviceType: 'desktop',
+        // url for the route which the feedback survey is presented
+        fullURL: url,
+        // type of device. Possible values 'desktop', 'tablet', 'mobile'.
+        deviceType: deviceType,
+        // QIDs are unique to each feedback instance and will be provided when
+        // coordinating with program manager, Doris Singer (doris.singer@hpe.com).
         QID1: value.value['power-rating-example'],
         QID2_TEXT: value.value['power-textArea-example'],
       },
     };
     // dev uses POST https://api.qualtrics.com/f1cad92018d2b-create-a-new-response
-    // call to send in the data collected.
-    // Contact Doris Singer for Survey ID, API Token, Response ID to use for testing
-    fetch(`https://api.qualtrics.com/f1cad92018d2b-create-a-new-response`, {
+    fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        'X-API-TOKEN': 'Contact Doris Singer for API Token',
+        'X-API-TOKEN': API_TOKEN,
       },
       body: JSON.stringify(data),
     })
