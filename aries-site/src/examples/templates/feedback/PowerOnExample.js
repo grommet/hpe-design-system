@@ -167,7 +167,7 @@ export const PowerOnExample = () => {
                 setRating(touched);
               }}
               onSubmit={value => {
-                console.log('submit', value.value);
+                console.log('submit', value);
               }}
             >
               <FormField
