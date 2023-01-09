@@ -1,8 +1,6 @@
 import React from 'react';
-import { Box, StarRating } from 'grommet';
+import { StarRating } from 'grommet';
 
 export const FeedbackPreview = () => (
-  <Box>
-    <StarRating aria-label="preview" tabIndex={-1} />
-  </Box>
+  <StarRating aria-label="preview" tabIndex={-1} />
 );
