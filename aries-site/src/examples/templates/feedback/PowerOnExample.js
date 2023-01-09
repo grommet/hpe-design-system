@@ -103,7 +103,7 @@ export const PowerOnExample = () => {
       {isSuccessful && (
         <Box width="large" gap="medium" justify="center" pad="small">
           <Heading level={4} size="small" margin="none">
-            Feedback on powering devices
+            We'd love your feedback
           </Heading>
           <Form
             method="post"
