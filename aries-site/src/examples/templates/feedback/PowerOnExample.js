@@ -138,7 +138,7 @@ export const PowerOnExample = () => {
           margin={{ top: 'medium', bottom: 'small' }}
           direction="row"
         >
-          <Button label="Cancel" />
+          <Button label="Dismiss" />
           <Button
             label="Power on 1 Device"
             onClick={PowerOnLoading}
