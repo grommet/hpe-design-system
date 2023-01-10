@@ -1,0 +1,167 @@
+import { Box, Image, Notification } from 'grommet';
+
+## Prerequisites
+
+Let’s get started!
+
+Use this [CodeSandbox template](https://codesandbox.io/s/hpe-design-system-template-lrdtpe?file=/index.js) to start. The template is populated with a paginated DataTable configured to display SpaceX data.
+
+<Notification
+  status="info"
+  width="large"
+  margin={{ bottom: 'medium' }}
+  message="If you’d like to learn more about how to configure a DataTable with a REST API, check out the guide."
+  actions={[
+    {
+      label: 'Guide TBD',
+      href: '#',
+    },
+  ]}
+/>
+
+## Set up Data provider
+
+Start by importing `Data` from grommet.
+
+Then, remove the `data` property from DataTable and place it as a property on Data. The Data component is now the data provider, controlling which data should be rendered in the DataTable.
+
+```
+import { Box, Data, DataTable, Grommet, Pagination, Text } from "grommet";
+
+...
+
+<Data data={data}>
+    <DataTable columns={columns} />
+</Data>
+```
+
+## Add default search and filter capabilities
+
+### Toolbar
+
+Add `toolbar` as a boolean property on Data to display a search input, filter button, and results summary above the DataTable.
+
+### Total
+
+We are only fetching one page of data at a time. Add `total={numberItems}` to inform Data of the total number of records.
+
+`numberItems` is defined in the starter template using a key from the API response that provides the total number of records in the table.
+
+```
+<Data data={data} total={numberItems} toolbar>
+    <DataTable columns={columns} />
+</Data>
+```
+
+### View and onView
+
+To ensure the data is updated to reflect changes to the filters, use `view` and `onView`.
+
+First, create a state variable called `view`.
+
+```
+const [view, setView] = useState();
+```
+
+Next, add `view` and `onView` as properties on Data. When the filter change, `onView` will provide the new values. Use this to update the `view` state variable and reset the page to 1.
+
+```
+<Data
+  data={data?.docs || []}
+  view={view}
+  onView={nextView => {
+    setView(nextView);
+    setPage(1);
+  }}
+  total={numberItems}
+  toolbar
+>
+```
+
+To fetch the data again when the value of `view` changes, pass `view` as a parameter in `fetchData` and include `view` as an item in the dependency array of the useEffect.
+
+```
+useEffect(() => {
+  const fetchData = fetchPayloads;
+  fetchData(page, view)
+    .then((d) => setData(d))
+    .catch((error) => console.log(`Unable to fetch data: ${error}`));
+}, [page, view]);
+```
+
+At this point, your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/data-simple-toolbar.png"
+    alt="Toolbar containing a search input and filter button located above a DataTable displaying SpaceX launch data."
+    fit="contain"
+  />
+</Box>
+
+<Notification
+  status="learn"
+  width="large"
+  margin={{ bottom: 'medium' }}
+  message='If you type something into the search input and press "Enter", the data in the DataTable will be filtered to those that match the search term.'
+/>
+
+<Notification
+  status="learn"
+  width="large"
+  message="If you click on the filter button, Data has populated the filters to include all of the data attributes. The input type (Select, CheckBoxGroup, etc.) is determined based on the type of data and amount of results for that attribute."
+/>
+
+## Customize filtered attributes
+
+To customize which attributes are filterable, use `properties` property on Data. In this case, let's only filter by "type" and "mass_lbs".
+
+For the ease of this guide, we've hardcoded the options for "type" and "mass_lbs", but handling this dynamically is recommended for applications in production.
+
+Add the following to Data:
+
+```
+<Data
+  data={data}
+  properties={{
+    type: {
+      label: 'Type',
+      options: [
+        'Dragon 1.0',
+        'Dragon 1.1',
+        'Dragon Boilerplate',
+        'Satellite',
+      ],
+    },
+    mass_lbs: {
+      label: 'Mass',
+      range: { min: 0, max: 1400 },
+    },
+  }}
+  toolbar
+>
+    <DataTable columns={columns} />
+</Data>
+```
+
+Now, your filters should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/data-simple-filters.png"
+    alt="Filters for type and mass displayed in a drop over a datatable presenting SpaceX data."
+    fit="contain"
+  />
+</Box>
+
+Congratulations! You’ve used Data to add search and filter controls to manage what data should be rendered in a DataTable.
