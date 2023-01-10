@@ -30,7 +30,7 @@ import { Box, Data, DataTable, Grommet, Pagination, Text } from "grommet";
 
 ...
 
-<Data data={data}>
+<Data data={data?.docs || []}>
     <DataTable columns={columns} />
 </Data>
 ```
@@ -48,7 +48,7 @@ We are only fetching one page of data at a time. Add `total={numberItems}` to in
 `numberItems` is defined in the starter template using a key from the API response that provides the total number of records in the table.
 
 ```
-<Data data={data} total={numberItems} toolbar>
+<Data data={data?.docs || []} total={numberItems} toolbar>
     <DataTable columns={columns} />
 </Data>
 ```
@@ -127,7 +127,7 @@ Add the following to Data:
 
 ```
 <Data
-  data={data}
+  data={data?.docs || []}
   properties={{
     type: {
       label: 'Type',
@@ -143,6 +143,12 @@ Add the following to Data:
       range: { min: 0, max: 1400 },
     },
   }}
+  view={view}
+  onView={nextView => {
+    setView(nextView);
+    setPage(1);
+  }}
+  total={numberItems}
   toolbar
 >
     <DataTable columns={columns} />
