@@ -100,7 +100,7 @@ const FeedbackContent = ({ ...rest }) => (
         Body of the feedback.
       </Box>
       <Box pad="small" id="layer-gap" />
-      <Box id="layer-footer" border={{ style: 'dashed' }} flex={false}>
+      <Box id="feedback-footer" border={{ style: 'dashed' }} flex={false}>
         <Box direction="row" gap="small" flex={false}>
           <Button label="Submit" primary />
           <Button label="Dismiss" />
