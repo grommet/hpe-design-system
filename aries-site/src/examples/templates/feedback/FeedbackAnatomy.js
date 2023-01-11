@@ -97,7 +97,7 @@ const FeedbackContent = ({ ...rest }) => (
         align="center"
         justify="center"
       >
-        Body of the feedback.
+        Body containing feedback questions.
       </Box>
       <Box pad="small" id="layer-gap" />
       <Box id="feedback-footer" border={{ style: 'dashed' }} flex={false}>
