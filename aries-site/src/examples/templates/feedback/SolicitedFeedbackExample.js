@@ -87,6 +87,7 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
                   setRating(undefined);
                   setShowFeedback(false);
                   setShowModal(false);
+                  setShowConfirmation(false);
                 }, 2000);
                 console.log('submit', value);
               }}
