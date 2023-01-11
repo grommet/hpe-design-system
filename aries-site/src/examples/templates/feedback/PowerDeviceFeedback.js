@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Box, Button, Form, FormField, TextArea, StarRating } from 'grommet';
+import {
+  Box,
+  Button,
+  Form,
+  FormField,
+  Text,
+  TextArea,
+  StarRating,
+} from 'grommet';
 import { ModalBody, ModalFooter } from '../ModalDialog';
 
 export const PowerDeviceFeedback = ({
+  showConfirmation,
   onChange,
   onSubmit,
   onClose,
@@ -46,10 +55,14 @@ export const PowerDeviceFeedback = ({
         )}
       </ModalBody>
       <ModalFooter justify="end">
-        <Box direction="row" gap="small">
-          <Button label="Cancel" onClick={onClose} />
-          <Button label="Submit Feedback" primary type="submit" />
-        </Box>
+        {!showConfirmation ? (
+          <Box direction="row" gap="small">
+            <Button label="Cancel" onClick={onClose} />
+            <Button label="Submit Feedback" primary type="submit" />
+          </Box>
+        ) : (
+          <Text weight='bold'>Thank you for your response!</Text>
+        )}
       </ModalFooter>
     </Box>
   </Form>
