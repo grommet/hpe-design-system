@@ -73,7 +73,7 @@ export const FeedbackAnatomy = () => {
   );
 };
 
-const LayerContent = ({ ...rest }) => (
+const FeedbackContent = ({ ...rest }) => (
   <Card
     id="layer-container"
     alignSelf="start"
