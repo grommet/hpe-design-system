@@ -1,4 +1,4 @@
-export * from './PowerOnExample';
+export * from './PowerDeviceFeedback';
+export * from './PowerOnBodyExample';
+export * from './SolicitedFeedbackExample';
 export * from './SimpleFeedbackExample';
-export * from './SubscriptionOrderExample';
-export * from './UnSolicitedFeedbackExample';
