@@ -1,34 +1,28 @@
 import { Example } from '../../layouts';
 
-<Example
-  componentName="Stack"
-  docs="https://v2.grommet.io/skeleton?theme=hpe"
-  code=""
-  grommetSource=""
->
-</Example>
 
 ### When to use
-Consider using the Skeleton for the following use cases:
-- The data for your page might not be immediatley available.
-- Ensure the user that their request is in progresss.
-- Consider using Skeleton when a loading Spinner is not promient enough to the user.
-- Use on high-traffic pages, such as a user dashboard.
+Skeletons are used when:
+- Loading elements are known ahead of time but are not immediately available.
+- All of the content on a page is loaded in at the same time.
+- Users are loading high-traffic pages, such as a user dashboard.
 
 ### When not to use
-Don’t use Skeleton in the following use cases:
-- If the process is going to take more than a few minutes to load.
-- If the loading process is going to take less than 300ms.
-- For a small inline action consider using a spinner.
+Skeletons should not be used if:
+- The data or elements being loaded are unknown.
+- The user is awaiting feedback for in-context actions such as submitting a form or fetching search results.
+  - The Spinner component may be more appropriate.
+- The loading process takes more than a few minutes to load.
+  - Pair with a message or notification to provide the user with better visibility of a system’s status.
+- The loading process is going to take less than 300ms consider not using a Skeleton.
 
 ### Anatomy
 
 
-### Accessibility
-When there is changes on the UI in which a user should be notifed for example a dashboard loading it is recemmended to notify the user of this change. 
-Skeletons should not be focusable however in order to notify a user that an application is loading, busy, or fails the message prop should be used properly. 
-Message can be provided as an object  `{ message: { start: 'Loading', end: 'Content Loaded' }`
-
-## Variants
-
-### DashBoard Skeleton
+| Label  | Region                      | Purpose                                           | Notes                                                                                                      |                                                                                            
+| ------ | --------------------------  | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**                   | Represents avatars, images, and icons.            |  A circlar shape is used for avatars and imagess. A rounded sqaure iss used for logos.                     |                                                                                    |
+| **2a** | **Text Skeleton (header)**  | Represents headings.                              |  --                                                                                                       |
+| **2b** | **Text Skeleton (body)**    | Represents texts, paragraphs, and anchors.        |  --                                                                                                              |
+| **3**  | **Button Skeleton**         | Represents buttons.                               |  Rounding=”Medium” is used.                                                                                |
+| **4**  | **Container Skeleton**      | Represents containers. Ex. Card, Box              |  Rounding and elevation is dependent on the component being loaded.                                        |
