@@ -101,9 +101,9 @@ const FeedbackContent = ({ ...rest }) => (
       </Box>
       <Box pad="small" id="layer-gap" />
       <Box id="layer-footer" border={{ style: 'dashed' }} flex={false}>
-        <Box direction="row" gap="small" justify="end" flex={false}>
-          <Button label="Cancel" />
+        <Box direction="row" gap="small" flex={false}>
           <Button label="Submit" primary />
+          <Button label="Dismiss" />
         </Box>
       </Box>
       <Box pad="small" id="bottom-pad" />
