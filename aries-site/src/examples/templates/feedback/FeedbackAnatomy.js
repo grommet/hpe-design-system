@@ -84,7 +84,7 @@ const FeedbackContent = ({ ...rest }) => (
     <CardBody pad={{ top: 'medium', horizontal: 'medium' }}>
       <Box border={{ style: 'dashed' }}>
         <Header flex={false} align="start" justify="between">
-          <Heading id="layer-title" level={2} margin="none" size="small">
+          <Heading id="feedback-title" level={2} margin="none" size="small">
             Feedback title
           </Heading>
         </Header>
