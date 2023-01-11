@@ -1,5 +1,6 @@
-import { SimpleFeedbackExample, SolicitedFeedbackExample } from '../../examples';
+import { FeedbackAnatomy, SimpleFeedbackExample, SolicitedFeedbackExample } from '../../examples';
 import { Example } from '../../layouts';
+import { Checkmark } from 'grommet-icons';
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/SimpleFeedbackExample.js"
@@ -20,6 +21,16 @@ Don’t collect feedback in the following use cases:
 - There is no actionable plan for what to do with the data.
 - In locations where users do not have enough context to form a valid opinion. 
 - There are too many implementations of user feedback collection, as not to dilute their effectiveness.
+
+<Example plain>
+  <FeedbackAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
+| **1**  | **Title**    | Title will inform user that their feedback or rating wou.            | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **2**  | **Body**     | The body may be populated as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> |  Question types can include starRating, thumbsRating, select all that apply (i.e checkbox group), choose one (i.e RadioButtonGroup), open ended (i.e textarea) |                                                             
+| **3**  | **Footer **  | Contains two actions: "Submit" and "Cancel"                          | <Checkmark a11yTitle="true" size="small" /> |  Submit button sends data to Qualtrics and initiates thank you message. Cancel button is optional for modal use cases. |
 
 ### Connecting to Qualtrics
 To iniate user feedback collection, please contact doris.singer@hpe.com for the following steps:
