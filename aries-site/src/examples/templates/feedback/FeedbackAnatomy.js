@@ -91,7 +91,7 @@ const FeedbackContent = ({ ...rest }) => (
       </Box>
       <Box pad="small" id="first-gap" />
       <Box
-        id="layer-body"
+        id="feedback-body"
         border={{ style: 'dashed' }}
         height="small"
         align="center"
