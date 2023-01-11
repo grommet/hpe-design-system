@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Box, Button, Form, FormField, TextArea, StarRating } from 'grommet';
 import { ModalBody, ModalFooter } from '../ModalDialog';
@@ -53,3 +54,10 @@ export const PowerDeviceFeedback = ({
     </Box>
   </Form>
 );
+
+PowerDeviceFeedback.propTypes = {
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  onClose: PropTypes.func,
+  rating: PropTypes.object,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Box, Button, Spinner, Text } from 'grommet';
 import { ModalBody, ModalFooter } from '../ModalDialog';
@@ -58,3 +59,11 @@ export const PowerOnBodyExample = ({
     </ModalFooter>
   </Box>
 );
+
+PowerOnBodyExample.propTypes = {
+  onClose: PropTypes.func,
+  onDismiss: PropTypes.func,
+  powerOnLoading: PropTypes.func,
+  isLoading: PropTypes.bool,
+  isSuccessful: PropTypes.bool,
+};
