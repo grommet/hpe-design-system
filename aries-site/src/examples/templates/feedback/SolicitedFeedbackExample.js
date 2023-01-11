@@ -10,6 +10,7 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
   const [showModal, setShowModal] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [rating, setRating] = useState();
   const [showFeedback, setShowFeedback] = useState(false);
   // announce when the layer opens
@@ -75,15 +76,19 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
         >
           {isSuccessful && showFeedback ? (
             <PowerDeviceFeedback
+              showConfirmation={showConfirmation}
               onChange={(nextValue, { touched }) => {
                 setRating(touched);
               }}
               onSubmit={value => {
+                setShowConfirmation(true);
+                setTimeout(() => {
+                  setIsSuccessful(false);
+                  setRating(undefined);
+                  setShowFeedback(false);
+                  setShowModal(false);
+                }, 2000);
                 console.log('submit', value);
-                setIsSuccessful(false);
-                setRating(undefined);
-                setShowFeedback(false);
-                setShowModal(false);
               }}
               rating={rating}
               onClose={() => {
