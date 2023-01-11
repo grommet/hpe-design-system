@@ -85,7 +85,7 @@ const LayerContent = ({ ...rest }) => (
       <Box border={{ style: 'dashed' }}>
         <Header flex={false} align="start" justify="between">
           <Heading id="layer-title" level={2} margin="none" size="small">
-            Feedback Title
+            Feedback title
           </Heading>
         </Header>
       </Box>
