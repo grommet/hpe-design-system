@@ -66,7 +66,7 @@ export const FeedbackAnatomy = () => {
           target="3"
           gridArea="annotation-3"
         />
-        <LayerContent gridArea="layer" />
+        <FeedbackContent gridArea="layer" />
       </Grid>
       <Diagram connections={connections} />
     </Stack>

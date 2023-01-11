@@ -10,26 +10,6 @@ export const aries = deepMerge(hpe, {
     // any Box props
     gap: 'small',
   },
-  starRating: {
-    color: 'green',
-  },
-  thumbsRating: {
-    like: {
-      color: 'purple!',
-    },
-    dislike: {
-      color: 'purple!',
-    },
-  },
-  formField: {
-    survey: {
-      label: {
-        margin: { bottom: 'none' },
-        size: 'medium',
-        weight: 400,
-      },
-    },
-  },
   feedback: {
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
