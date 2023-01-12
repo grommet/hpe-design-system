@@ -15,30 +15,22 @@ import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
 const connections = [
-  connection('1', 'layer-title'),
-  connection('2', 'layer-body'),
-  connection('3', 'layer-footer'),
+  connection('1', 'feedback-title'),
+  connection('2', 'feedback-body'),
+  connection('3', 'feedback-footer'),
 ];
 
 export const FeedbackAnatomy = () => {
   const breakpoint = useContext(ResponsiveContext);
-  let columns = ['36px', 'medium', 'auto'];
-  let rows = ['86px', '180px', '86px'];
+  let columns = ['36px', 'medium'];
+  let rows = ['86px', '148px', '48px'];
 
-  let areas = [
-    ['annotation-1', 'layer', 'empty'],
-    ['annotation-2', 'layer', 'empty-2'],
-    ['annotation-3', 'layer', 'empty-3'],
-  ];
+  let areas = [['annotation-1'], ['annotation-2'], ['annotation-3']];
 
   if (['xsmall', 'small'].includes(breakpoint)) {
     columns = ['36px', 'flex'];
     rows = ['60px', 'small', '60px'];
-    areas = [
-      ['annotation-1', 'layer'],
-      ['annotation-2', 'layer'],
-      ['annotation-3', 'layer'],
-    ];
+    areas = [['annotation-1'], ['annotation-2'], ['annotation-3']];
   }
   return (
     <Stack interactiveChild="first">
@@ -73,40 +65,35 @@ export const FeedbackAnatomy = () => {
   );
 };
 
-const FeedbackContent = ({ ...rest }) => (
-  <Card
-    id="feedback-container"
-    alignSelf="start"
-    round="small"
-    elevation="large"
-    {...rest}
-  >
-    <CardBody pad={{ top: 'medium', horizontal: 'medium' }}>
-      <Box border={{ style: 'dashed' }}>
-        <Header flex={false} align="start" justify="between">
-          <Heading id="feedback-title" level={2} margin="none" size="small">
-            Feedback title
-          </Heading>
-        </Header>
+const FeedbackContent = () => (
+  <>
+    <Box justify="center" border={{ style: 'dashed' }}>
+      <Header flex={false} align="center">
+        <Heading id="feedback-title" level={2} margin="none" size="small">
+          Feedback title
+        </Heading>
+      </Header>
+    </Box>
+    <Box
+      id="feedback-body"
+      border={{ style: 'dashed' }}
+      align="center"
+      justify="center"
+    >
+      Body containing feedback questions.
+    </Box>
+    <Box
+      height="xxsmall"
+      id="feedback-footer"
+      border={{ style: 'dashed' }}
+      flex={false}
+      justify="center"
+    >
+      <Box alignSelf="end" direction="row" gap="small" flex={false}>
+        <Button label="Submit" primary />
+        <Button label="Dismiss" />
       </Box>
-      <Box pad="small" id="first-gap" />
-      <Box
-        id="feedback-body"
-        border={{ style: 'dashed' }}
-        height="small"
-        align="center"
-        justify="center"
-      >
-        Body containing feedback questions.
-      </Box>
-      <Box pad="small" id="layer-gap" />
-      <Box id="feedback-footer" border={{ style: 'dashed' }} flex={false}>
-        <Box direction="row" gap="small" flex={false}>
-          <Button label="Submit" primary />
-          <Button label="Dismiss" />
-        </Box>
-      </Box>
-      <Box pad="small" id="bottom-pad" />
-    </CardBody>
-  </Card>
+    </Box>
+    <Box pad="small" id="bottom-pad" />
+  </>
 );
