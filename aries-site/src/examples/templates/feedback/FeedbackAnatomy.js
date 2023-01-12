@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import {
   Box,
   Button,
-  Card,
-  CardBody,
   Diagram,
   Grid,
   Header,
