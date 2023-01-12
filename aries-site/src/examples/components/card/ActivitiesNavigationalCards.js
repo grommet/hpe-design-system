@@ -12,7 +12,7 @@ const columns = {
   xlarge: ['auto', 'auto', 'auto'],
 };
 
-export const ActivitiesNavigationalCards = ({ heading = true }) => {
+export const ActivitiesNavigationalCards = ({ heading = true, skeleton }) => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
@@ -37,6 +37,7 @@ export const ActivitiesNavigationalCards = ({ heading = true }) => {
               />
             }
             level={3}
+            skeleton={skeleton}
           />
         ))}
       </Grid>

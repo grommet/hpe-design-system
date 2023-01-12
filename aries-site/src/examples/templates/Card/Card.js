@@ -14,6 +14,18 @@ import {
 } from 'grommet';
 import { adjustPad } from './utils';
 
+//  demo purposes to make a skeleton icon for loading
+const IconSkeleton = () => (
+  <Box
+    width="xxsmall"
+    height="xxsmall"
+    round="small"
+    skeleton
+    flex={false}
+    margin={{ bottom: 'small' }}
+  />
+);
+
 const DesignSystemCard = ({
   as,
   actions,
@@ -25,12 +37,16 @@ const DesignSystemCard = ({
   icon,
   level,
   media,
+  skeleton,
   subtitle,
   pretitle,
   title,
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
+
+  // demo purposes for using skeleton
+  const skeletonAlign = skeleton ? 'none' : 'start';
 
   return (
     <Box as={as}>
@@ -45,14 +61,18 @@ const DesignSystemCard = ({
           >
             {avatar && (
               <Avatar
-                 flex={false}
+                flex={false}
                 pad={{ bottom: 'small' }}
                 a11yTitle={`${title} icon`}
-                round='medium'
+                round="medium"
                 src={avatar}
               />
             )}
-            {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
+            {icon && skeleton ? (
+              <IconSkeleton />
+            ) : (
+              <Box pad={{ bottom: 'small' }}>{icon}</Box>
+            )}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
               <Heading level={level} margin="none" size="small">
@@ -67,12 +87,15 @@ const DesignSystemCard = ({
               </Box>
             )}
           </CardHeader>
-          <CardBody align="start" pad={adjustPad(direction, 'body', theme)}>
+          <CardBody
+            align={skeletonAlign}
+            pad={adjustPad(direction, 'body', theme)}
+          >
             <Paragraph margin="none">{description}</Paragraph>
           </CardBody>
         </Box>
         <CardFooter
-          align={alignActions || 'start'}
+          align={alignActions || skeletonAlign}
           pad={adjustPad(direction, 'footer', theme)}
         >
           <Box flex={false}>{actions}</Box>
