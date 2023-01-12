@@ -1,14 +1,6 @@
-import React, { useContext } from 'react';
-import {
-  Box,
-  Button,
-  Diagram,
-  Grid,
-  Header,
-  Heading,
-  Stack,
-  ResponsiveContext,
-} from 'grommet';
+import React from 'react';
+import { Box, Button, Diagram, Grid, Header, Heading, Stack } from 'grommet';
+import { ButtonGroup } from '../ButtonGroup';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
@@ -19,79 +11,72 @@ const connections = [
 ];
 
 export const FeedbackAnatomy = () => {
-  const breakpoint = useContext(ResponsiveContext);
-  let columns = ['36px', 'medium'];
-  let rows = ['86px', '148px', '48px'];
+  const columns = [
+    ['auto', 'xxsmall'],
+    ['auto', 'medium'],
+  ];
+  const areas = [
+    ['annotation-1', 'feedback-header'],
+    ['annotation-2', 'feedback-body'],
+    ['annotation-3', 'feedback-footer'],
+  ];
 
-  let areas = [['annotation-1'], ['annotation-2'], ['annotation-3']];
-
-  if (['xsmall', 'small'].includes(breakpoint)) {
-    columns = ['36px', 'flex'];
-    rows = ['60px', 'small', '60px'];
-    areas = [['annotation-1'], ['annotation-2'], ['annotation-3']];
-  }
   return (
-    <Stack interactiveChild="first">
-      <Grid
-        columns={columns}
-        rows={rows}
-        areas={areas}
-        gap={{ column: 'medium' }}
-      >
-        <Annotation
-          alignSelf="center"
-          id="1"
-          target="1"
-          gridArea="annotation-1"
-        />
-        <Annotation
-          alignSelf="center"
-          id="2"
-          target="2"
-          gridArea="annotation-2"
-        />
-        <Annotation
-          alignSelf="center"
-          id="3"
-          target="3"
-          gridArea="annotation-3"
-        />
-        <FeedbackContent gridArea="layer" />
-      </Grid>
-      <Diagram connections={connections} />
-    </Stack>
+    <section>
+      <Stack interactiveChild="first">
+        <Grid columns={columns} areas={areas}>
+          <Annotation
+            alignSelf="center"
+            id="1"
+            target="1"
+            gridArea="annotation-1"
+          />
+          <Annotation
+            alignSelf="center"
+            id="2"
+            target="2"
+            gridArea="annotation-2"
+          />
+          <Annotation
+            alignSelf="center"
+            id="3"
+            target="3"
+            gridArea="annotation-3"
+          />
+          <FeedbackContent />
+        </Grid>
+        <Diagram connections={connections} />
+      </Stack>
+    </section>
   );
 };
 
 const FeedbackContent = () => (
   <>
-    <Box justify="center" border={{ style: 'dashed' }}>
-      <Header flex={false} align="center">
-        <Heading id="feedback-title" level={2} margin="none" size="small">
-          Feedback title
-        </Heading>
-      </Header>
-    </Box>
+    <Header gridArea="feedback-header" border={{ style: 'dashed' }}>
+      <Heading id="feedback-title" level={2} margin="none" size="small">
+        Feedback title
+      </Heading>
+    </Header>
     <Box
+      gridArea="feedback-body"
       id="feedback-body"
       border={{ style: 'dashed' }}
       align="center"
       justify="center"
+      height="xsmall"
     >
       Body containing feedback questions.
     </Box>
     <Box
-      height="xxsmall"
+      gridArea="feedback-footer"
       id="feedback-footer"
       border={{ style: 'dashed' }}
-      flex={false}
-      justify="center"
     >
-      <Box alignSelf="end" direction="row" gap="small" flex={false}>
+      <ButtonGroup>
         <Button label="Submit" primary />
         <Button label="Dismiss" />
-      </Box>
+      </ButtonGroup>
     </Box>
-    <Box pad="small" id="bottom-pad" />
   </>
 );
