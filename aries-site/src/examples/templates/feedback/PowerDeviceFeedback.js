@@ -54,14 +54,14 @@ export const PowerDeviceFeedback = ({
           </Box>
         )}
       </ModalBody>
-      <ModalFooter justify="end">
+      <ModalFooter justify="start">
         {!showConfirmation ? (
           <Box direction="row" gap="small">
-            <Button label="Cancel" onClick={onClose} />
             <Button label="Submit Feedback" primary type="submit" />
+            <Button label="Cancel" onClick={onClose} />
           </Box>
         ) : (
-          <Text weight='bold'>Thank you for your response!</Text>
+          <Text weight="bold">Thank you for your response!</Text>
         )}
       </ModalFooter>
     </Box>
