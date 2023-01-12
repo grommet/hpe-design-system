@@ -1,6 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { Info } from 'grommet-icons';
+import { Info } from 'grommet-icons/icons/Info';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
