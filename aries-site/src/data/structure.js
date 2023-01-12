@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Grow } from 'grommet-icons';
+import { Grow } from 'grommet-icons/icons/Grow';
 import { IconCircle, IconDiamond, IconExtend, IconSquare } from '../components';
 import {
   components as componentsArr,
@@ -53,7 +53,7 @@ export const structure = [
     color: 'blue!',
     description:
       'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
-    icon: color => <Grow color={color} />,
+    icon: (_, color) => <Grow color={color} />,
     preview: {
       image: {
         src: {
