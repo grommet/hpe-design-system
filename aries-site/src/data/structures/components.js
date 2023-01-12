@@ -1196,13 +1196,13 @@ export const components = [
     name: 'Skeleton Loading',
     category: 'Visualizations',
     description:
-      'A component that provides users a place holder preview of the content before loaded onto the page. Loading patterns are used to communicate that data is loading which can improve a user experience.',
+      'Skeleton is used to provide a sense of the structure of the page and the ability to anticipate where certain pieces and types of content are loading. Loading patterns are used to communicate that data is loading which can improve a user experience.',
       preview: {
         component: () => <SkeletonPreview />,
         background: 'background-front',
       },
     seoDescription:
-      'A component that provides users a place holder preview of the content before loaded onto the page. Loading patterns are used to communicate that data is loading which can improve a user experience.',
+      'Skeleton is used to provide a sense of the structure of the page and the ability to anticipate where certain pieces and types of content are loading. Loading patterns are used to communicate that data is loading which can improve a user experience.',
     relatedContent: ['Box', 'DataTable', 'Spinner'],
     sections: [
       'When to use Spinner',
