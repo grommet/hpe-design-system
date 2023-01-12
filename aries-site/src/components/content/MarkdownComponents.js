@@ -32,7 +32,7 @@ export const components = {
     </Box>
   ),
   code: props => (
-    <Box width="large" round="xsmall" overflow="auto">
+    <Box width="large" round="xsmall" overflow="auto" height={{ max: 'large' }}>
       <SyntaxHighlighter
         style={prism.light}
         wrapLongLines

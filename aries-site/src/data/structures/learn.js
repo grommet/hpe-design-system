@@ -11,4 +11,14 @@ export const learn = [
     relatedContent: [],
     tags: [],
   },
+  {
+    name: 'How to set up a DataTable with an API',
+    description:
+      'This guide shows you how to fetch data from an API and render it in a DataTable.',
+    seoDescription:
+      'This guide shows you how to fetch data from an API and render it in a DataTable.',
+    sections: [],
+    relatedContent: [],
+    tags: [],
+  },
 ];
