@@ -32,13 +32,14 @@ const connections = [
 export const SkeletonAnatomy = () => (
   <Stack interactiveChild="first">
     <Grid
-      columns={['xsmall', 'medium']}
-      rows={['86px', '48px', '48px', '60px']}
+      columns={['xxsmall', 'medium', 'xxsmall']}
+      gap={{ column: 'medium' }}
+      rows={['90px', '54px', '80px', '60px']}
       areas={[
-        ['annotation-1', 'card-example'],
-        ['annotation-2a', 'card-example'],
-        ['annotation-2b', 'card-example'],
-        ['annotation-3', 'card-example'],
+        ['annotation-1', 'card-example', 'empty-1'],
+        ['annotation-2a', 'card-example', 'annotation-4'],
+        ['annotation-2b', 'card-example', 'empty-2'],
+        ['annotation-3', 'card-example', 'empty-3'],
       ]}
     >
       <Annotation
@@ -57,31 +58,37 @@ export const SkeletonAnatomy = () => (
         id="2b"
         target="2b"
         gridArea="annotation-2b"
-        margin={{ top: 'small' }}
+        margin={{ top: 'medium' }}
       />
       <Annotation
         id={3}
         target="3"
         gridArea="annotation-3"
-        margin={{ top: 'medium' }}
+        margin={{ top: 'small' }}
       />
       <CardExample gridArea="card-example" />
-      {/* <Annotation
+      <Annotation
         id={4}
         target="4"
         gridArea="annotation-4"
         margin={{ top: 'medium' }}
-      /> */}
+      />
     </Grid>
     <Diagram connections={connections} />
   </Stack>
 );
 
 const CardExample = ({ ...rest }) => (
-  <Card flex={false} width="medium" {...rest}>
+  <Card id="container" flex={false} width="medium" {...rest}>
     <CardBody align="start" gap="medium">
       <Box id="icon" margin={{ bottom: 'medium' }}>
-        <Box round='small' width="xxsmall" height="xxsmall" background="background-back" flex={false} />
+        <Box
+          round="small"
+          width="xxsmall"
+          height="xxsmall"
+          background="background-back"
+          flex={false}
+        />
       </Box>
       <Box flex={false} skeleton id="title">
         <Heading size="small" margin="none" level={3} />
