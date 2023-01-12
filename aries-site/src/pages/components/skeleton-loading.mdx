@@ -1,3 +1,4 @@
+import { Notification } from 'grommet';
 import { Example } from '../../layouts';
 import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 
@@ -22,6 +23,13 @@ Skeletons should not be used if:
   - The Spinner component may be more appropriate.
 
 ### Anatomy
+
+<Notification
+  status="info"
+  message={`Please note that this is a skeleton card which is one presentation but content may not always be laid out in Card.`}
+  width={{ min: 'medium', max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
 
 <Example plain>
   <SkeletonAnatomy />
