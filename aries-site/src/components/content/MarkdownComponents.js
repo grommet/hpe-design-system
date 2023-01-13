@@ -13,6 +13,8 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'grommet-theme-hpe';
 
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
@@ -30,14 +32,14 @@ export const components = {
     </Box>
   ),
   code: props => (
-    <Box
-      background="background-contrast"
-      width="large"
-      round="xsmall"
-      pad="medium"
-      overflow="auto"
-      {...props}
-    />
+    <Box width="large" round="xsmall" overflow="auto">
+      <SyntaxHighlighter
+        style={prism.light}
+        wrapLongLines
+        language="javascript"
+        {...props}
+      />
+    </Box>
   ),
   p: SubsectionText,
   a: props =>
