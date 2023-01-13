@@ -2,51 +2,82 @@ import { FeedbackAnatomy, SimpleFeedbackExample, SolicitedFeedbackExample } from
 import { Example } from '../../layouts';
 import { Checkmark } from 'grommet-icons';
 
+export const contact = {
+  name: 'Doris Singer',
+  email: 'doris.singer@hpe.com',
+};
+
+Feedback collected from users provides qualitative insights into users' perception of ease-of-use 
+and value delivered. Qualitative measures compliment quantitative usage and interaction data 
+to form a well-rounded analytic picture of the customer experience.
+
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/SimpleFeedbackExample.js"
   docs="https://v2.grommet.io/starrating?theme=hpe"
+  figma="https://www.figma.com/file/StvDVAzAJvZzzTNmd7TQVu/Feedback-components?node-id=1023%3A40808&t=mu8ZYNQhot1rkRHX-4"
 >
   <SimpleFeedbackExample />
 </Example>
 
-### When to use
-Consider using in app feedback collection for the following use cases:
-- Any location where customer insights can help us to improve our experiences.
-- To gather data to assist in advocating for changes to the user experience.
-- To evaluate the effectiveness of content.
+## When to use
+When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a>.
+This team will work with you to construct a questionare aligned with your objectives and 
+[provide implementation details](#feedback-setup-and-submission) such as API credentials and endpoints for submitting 
+feedback responses.
+
+In-app feedback collection should be considered where it aids the understanding of users' 
+perceptions around the ease-of-use and/or satisfaction with particular content, features, 
+or workflows.
+
+
+Feedback may be [actively solicited](#solicited-feedback) or [collected passively](#capturing-unsolicited-feedback).
 
 ### When not to use
 Don’t collect feedback in the following use cases:
 - If it disrupts a user flow or is intrusive in any way.
 - There is no actionable plan for what to do with the data.
 - In locations where users do not have enough context to form a valid opinion. 
-- There are too many implementations of user feedback collection, as not to dilute their effectiveness.
+- There are too many instances soliciting feedback which can [dilute feedback effectiveness](#sampling-frequency).
 
-### Anatomy
+### Sampling frequency
+Avoid over sampling and/or diluting effectiveness by limiting who is asked for feedback and 
+how often. Consider implementing "rules of engagement" specifying under what conditions an 
+individual user should be solicited for feedback. Example engagement rules might be:
+- Has not submitted response to this questionare in the last 90 days.
+- Has not been asked to complete this questionare in the last 30 days.
+- Has not been asked to complete any questionare in the last 7 days.
+
+## Anatomy
 <Example plain>
   <FeedbackAnatomy />
 </Example>
 
 | Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
 | ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
-| **1**  | **Title**    | Title prompting user for their feedback.            | <Checkmark a11yTitle="true" size="small" /> | "We'd love your feedback" is a nice, appreciative default title.       |
-| **2**  | **Body**     | The body may be populated as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> |  Question types can include StarRating, ThumbsRating, select all that apply (e.g. checkbox group), choose one (e.g. RadioButtonGroup), open ended (e.g. TextArea), or any other input types. |                                                             
+| **1**  | **Title**    | Title prompting user for their feedback.                             | <Checkmark a11yTitle="true" size="small" /> | <span>Use the [semantically correct heading level](/foundation/typography?q=semantically#semantic-usage-of-heading-levels) for the title. "We'd love your feedback" is a nice, appreciative default title.</span>       |
+| **2**  | **Body**     | The body may be populated as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> | <span>Question types can include [StarRating](https://v2.grommet.io/starrating), [ThumbsRating](https://v2.grommet.io/thumbsrating), select all that apply (e.g. checkbox group), choose one (e.g. RadioButtonGroup), open ended (e.g. TextArea), or any other input types.</span> |                                                             
 | **3**  | **Footer **  | Contains two actions: "Submit" and "Dismiss" if used in Layer modal. Otherwise only "Submit" is needed inline. | <Checkmark a11yTitle="true" size="small" /> |  Submit button sends survey responses to the HPE customer experience team and initiates thank you message. If presented in a modal, the Dismiss button allows the user to bypass the survey and continue their product experience. |
 
-### Connecting to Qualtrics
-To iniate user feedback collection, please contact doris.singer@hpe.com for the following steps:
+## Feedback setup and submission
+To iniate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a> for the following steps:
 
-1. Doris will set up the survey in Qualtrics.
-2. Doris will submit a TEST resposnse for developers to have to use for testing againts api.
-3. The dev uses the [Retrieve a Survey Response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response) (Survey ID, API Token, and the Response ID required) to pull in the metadata/schema for the test submission. This response is almost identical to what needs to be submitted.
-4. Dev uses [Create a New Response](https://api.qualtrics.com/f1cad92018d2b-create-a-new-response) call to send in data.
+1. A dedicated survey will be created for your use case. At that time, an API token, survey id, and response id will be provided.
+1. Obtain the survey response schema with the [retrieve a survey response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response). The properties in the "values" object represent the data which should be submitted with each new survey response.
+1. Survey responses are submitted using [create a new response](https://api.qualtrics.com/f1cad92018d2b-create-a-new-response).
 
-View in code examples to see example of `post` call that will send the data to Qualtrics.
+```
+const fasdf = () 
+```
 
 ## Examples
 
-### Solicited Feedback
-Solicited feedback is a flow in which we are interupting the user at the end of a task flow for feedback on the task they just completed. 
+### Solicited feedback
+Solicited feedback is an active method for asking users for their opinions and perspectives. 
+A feedback questionaire is presented after a user has completed a task or consumed a piece of 
+content. Solicited feedback should not interupt or impede a user from completing their intended 
+objective.
+
+#### Task flow in center-layer
 
 Click on "Power 1 Device" to see the progressive example of the feedback questions. 
 <Example
@@ -65,5 +96,8 @@ Click on "Power 1 Device" to see the progressive example of the feedback questio
 </Example>
 
 
-### UnSolicited Feedback
-Unsolicited feedback example would be where a user is provided a mechanism (like a “suggestions box”) to ask questions, make recommendations etc.
+### Capturing unsolicited feedback
+Unsolicited feedback provides users the opportunity to ask questions, provide ideas, or 
+make recommendations. Acting similar to a “suggestions box,” this mechanism is placed in 
+a persistent location, such as within a app-level menu or embedded with the application's
+page layout.

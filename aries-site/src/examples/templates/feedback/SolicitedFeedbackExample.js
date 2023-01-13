@@ -1,8 +1,15 @@
 import React, { useCallback, useContext, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Anchor, AnnounceContext, Box, Button } from 'grommet';
 import { ModalDialog } from '../ModalDialog';
 import { PowerDeviceFeedback } from './PowerDeviceFeedback';
 import { PowerOnBodyExample } from './PowerOnBodyExample';
+
+// These credentials will be supplied when working with unified
+// customer experience team and should likely be stored in an environment varible.
+const API_URL = process.env.FEEDBACK_API_URL;
+const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
+const deviceType = "will need to be determined with user agent"
 
 export const SolicitedFeedbackExample = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
@@ -16,24 +23,22 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
   // announce when the layer opens
   const announce = useContext(AnnounceContext);
 
-  // fetch call to POST api should be in onSubmit
-  // for demo purposes disabling actual API call
-  // submitFeedback();
+  const router = useRouter();
+  const url = `${router.route}`;
+
   const onSubmit = useCallback(value => {
     const data = {
+      // The properties in the value object will be specific to your
+      // product and instance within the product.
+      // These will be specified when working with the unified customer experience team (Doris Singer - doris.singer@hpe.com).
       values: {
-        // url for the route which the feedback survey is presented
         fullURL: url,
-        // type of device. Possible values 'desktop', 'tablet', 'mobile'.
         deviceType: deviceType,
-        // QIDs are unique to each feedback instance and will be provided when
-        // coordinating with program manager, Doris Singer (doris.singer@hpe.com).
         QID1: value.value['power-rating-example'],
         QID2_TEXT: value.value['power-textArea-example'],
       },
     };
-    // dev uses POST https://api.qualtrics.com/{survey-id}-create-a-new-response
-    fetch(API_URL, {
+    const submitResponse = fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,10 +47,19 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
       },
       body: JSON.stringify(data),
     })
-      .then(response => response.json())
+      .then(response => {
+        // Response handling here
+        // update state/routing as approiate based on response.json
+        setIsSuccessful(false);
+        setShowFeedback(false);
+        setShowModal(false);
+        setShowConfirmation(false);
+      })
       .catch(error => {
         // Error handling here
       });
+    //  preventing api call for demo purposes
+    //  submitResponse()
   }, []);
 
   return (
@@ -81,6 +95,9 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
                 setRating(touched);
               }}
               onSubmit={value => {
+                onSubmit();
+                // the following is for demo purposes
+                // these would typically be handeled in your response handling.
                 setShowConfirmation(true);
                 setTimeout(() => {
                   setIsSuccessful(false);
@@ -89,7 +106,6 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
                   setShowModal(false);
                   setShowConfirmation(false);
                 }, 2000);
-                console.log('submit', value);
               }}
               rating={rating}
               onClose={() => {
