@@ -1193,7 +1193,7 @@ export const components = [
     ],
   },
   {
-    name: 'Skeleton Loading',
+    name: 'Skeleton',
     category: 'Visualizations',
     description:
       'Skeleton is used to provide a sense of the structure of the page and the ability to anticipate where certain pieces and types of content are loading. Loading patterns are used to communicate that data is loading which can improve a user experience.',
