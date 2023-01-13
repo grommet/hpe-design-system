@@ -1196,7 +1196,7 @@ export const components = [
     name: 'Skeleton',
     category: 'Visualizations',
     description:
-      'Skeleton is used to provide a sense of the structure of the page and the ability to anticipate where certain pieces and types of content are loading. Loading patterns are used to communicate that data is loading which can improve a user experience.',
+      'Skeletons tell the user that data is loading and provide a general sense of the page elements and structure. Their subtle animation conveys a sense of forward progress which can improve the user experience.',
       preview: {
         component: () => <SkeletonPreview />,
         background: 'background-front',
