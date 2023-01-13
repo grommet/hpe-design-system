@@ -28,7 +28,7 @@ export const SelectMultipleSimpleExample = () => {
           options={options}
           value={selected}
           onChange={({ value: nextValue }) => setSelected(nextValue)}
-          onSearch={(text) => {
+          onSearch={text => {
             // The line below escapes regular expression special characters:
             // [ \ ^ $ . | ? * + ( )
             const escapedText = text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -37,8 +37,9 @@ export const SelectMultipleSimpleExample = () => {
             // handles escaping special characters. Without escaping special
             // characters, errors will appear in the console
             const exp = new RegExp(escapedText, 'i');
-            setOptions(defaultOptions.filter((o) => exp.test(o)));
+            setOptions(defaultOptions.filter(o => exp.test(o)));
           }}
+          onClose={() => setOptions(defaultOptions)}
         />
       </FormField>
     </Form>
