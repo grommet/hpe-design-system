@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Box, Button, Spinner, Text } from 'grommet';
-import { ModalBody, ModalFooter } from '../ModalDialog';
+import { ModalBody, ModalFooter } from '../../ModalDialog';
 import { StatusGoodSmall } from 'grommet-icons';
 
 export const PowerOnBodyExample = ({

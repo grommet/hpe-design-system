@@ -1,17 +1,16 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Anchor, AnnounceContext, Box, Button } from 'grommet';
-import { ModalDialog } from '../ModalDialog';
+import { ModalDialog } from '../../ModalDialog';
 import { PowerDeviceFeedback } from './PowerDeviceFeedback';
 import { PowerOnBodyExample } from './PowerOnBodyExample';
 
 // These credentials will be supplied when working with unified
-// customer experience team and should likely be stored in an environment varible.
+// customer experience team and should likely be stored in environment varibles.
 const API_URL = process.env.FEEDBACK_API_URL;
 const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
-const deviceType = "will need to be determined with user agent"
 
-export const SolicitedFeedbackExample = ({ containerRef }) => {
+export const ModalTaskFlowExample = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
@@ -22,7 +21,6 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
   const [showFeedback, setShowFeedback] = useState(false);
   // announce when the layer opens
   const announce = useContext(AnnounceContext);
-
   const router = useRouter();
   const url = `${router.route}`;
 
@@ -38,6 +36,7 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
         QID2_TEXT: value.value['power-textArea-example'],
       },
     };
+
     const submitResponse = fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -58,8 +57,9 @@ export const SolicitedFeedbackExample = ({ containerRef }) => {
       .catch(error => {
         // Error handling here
       });
+
     //  preventing api call for demo purposes
-    //  submitResponse()
+    //  submitResponse();
   }, []);
 
   return (

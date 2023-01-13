@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Box, Form, FormField, Heading, StarRating } from 'grommet';
+import { Form, FormField, Heading, StarRating } from 'grommet';
 
 export const SimpleFeedbackExample = () => (
-  <Box justify="center" pad="small">
-    <Heading level={4} size="small" margin="none">
+  <>
+    <Heading level={2} size="small" margin="none">
       We'd love your feedback
     </Heading>
     <Form kind="survey">
@@ -19,5 +19,5 @@ export const SimpleFeedbackExample = () => (
         <StarRating id="star-rating" name="rating" />
       </FormField>
     </Form>
-  </Box>
+  </>
 );

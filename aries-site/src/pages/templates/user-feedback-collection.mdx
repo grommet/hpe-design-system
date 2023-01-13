@@ -1,4 +1,4 @@
-import { FeedbackAnatomy, SimpleFeedbackExample, SolicitedFeedbackExample } from '../../examples';
+import { FeedbackAnatomy, SimpleFeedbackExample, ModalTaskFlowExample } from '../../examples';
 import { Example } from '../../layouts';
 import { Checkmark } from 'grommet-icons';
 
@@ -66,7 +66,21 @@ To iniate user feedback collection, please contact the <a href={`mailto:${contac
 1. Survey responses are submitted using [create a new response](https://api.qualtrics.com/f1cad92018d2b-create-a-new-response).
 
 ```
-const fasdf = () 
+// Submit survey response
+fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-TOKEN': API_TOKEN,
+  },
+  body: JSON.stringify(data),
+})
+.then(response => {
+  // Response handling here
+})
+.catch(error => {
+  // Error handling here
+});
 ```
 
 ## Examples
