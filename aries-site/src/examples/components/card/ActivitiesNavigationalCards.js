@@ -19,7 +19,7 @@ export const ActivitiesNavigationalCards = ({ heading = true, skeleton }) => {
     <Box gap="medium">
       {heading && (
         <Heading level={2} size="small" margin="none">
-          Activities & Tasks
+          Activities and tasks
         </Heading>
       )}
       <Grid columns={columns[breakpoint]} gap="medium">
