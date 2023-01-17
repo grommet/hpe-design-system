@@ -6,20 +6,8 @@ export const SkeletonAnatomy = ({ ...rest }) => (
   <Card id="container" flex={false} width="large" {...rest}>
     <CardBody align="start" gap="medium">
       <Box align="center" gap="small" direction="row">
-        <Skeleton
-          round="small"
-          width="xxsmall"
-          height="xxsmall"
-          background="background-back"
-          flex={false}
-        />
-        <Skeleton
-          round="large"
-          width="xxsmall"
-          height="xxsmall"
-          background="background-back"
-          flex={false}
-        />
+        <Skeleton round="small" width="xxsmall" height="xxsmall" flex={false} />
+        <Skeleton round="large" width="xxsmall" height="xxsmall" flex={false} />
         <Box skeleton flex={false}>
           <Button label="View Guides" secondary />
         </Box>
@@ -27,7 +15,6 @@ export const SkeletonAnatomy = ({ ...rest }) => (
           round="xsmall"
           width="small"
           height="24px" // match pixel size with button or text
-          background="background-back"
           flex={false}
         />
       </Box>
