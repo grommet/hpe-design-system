@@ -1203,17 +1203,15 @@ export const components = [
       },
     seoDescription:
       'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
-    relatedContent: ['Box', 'DataTable', 'Spinner'],
+    relatedContent: ['Box', 'Button', 'Spinner'],
     sections: [
-      'When to use Spinner',
-      'Spinner within a list',
-      'Spinner with announcement on screen reader',
-      'Spinner loading content',
+      'When to use',
+      'When not to use',
+      'Anatomy',
     ],
     tags: [
       'loading',
-      'loading indicator',
-      'transition',
+      'loading page',
     ],
   },
   {
