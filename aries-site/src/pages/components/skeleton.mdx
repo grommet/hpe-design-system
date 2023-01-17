@@ -11,23 +11,27 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 </Example>
 
 ### When to use
-Skeletons are used when:
-- Loading elements are known ahead of time but are not immediately available.
-- All of the content on a page is loaded in at the same time.
-- Users are loading high-traffic pages, such as a user dashboard.
+Skeletons are used on all pages to provide a visual layout of the content being loaded.  They help users perceive a loading period as being shorter in duration.
 
 ### When not to use
 Skeletons should not be used if:
 - The data or elements being loaded are unknown.
 - The user is awaiting feedback for in-context actions such as submitting a form or fetching search results.
   - The Spinner component may be more appropriate.
+- The loading process takes more than a few minutes to load.
+  - Pair with a message or notification to provide the user with better visibility of a system’s status.
 
 ### Anatomy
 
-| Label  | Region                      | Purpose                                           | Notes                                                                                                      |                                                                                            
-| ------ | --------------------------  | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **1a** | **Title**                   | Represents avatars, images, and icons.            |  A circlar shape is used for avatars and imagess. A rounded sqaure iss used for logos.                     |                                                                                    |
-| **2a** | **Text Skeleton (header)**  | Represents headings.                              |  --                                                                                                       |
-| **2b** | **Text Skeleton (body)**    | Represents texts, paragraphs, and anchors.        |  --                                                                                                              |
-| **3**  | **Button Skeleton**         | Represents buttons.                               |  --                                                                                |
-| **4**  | **Container Skeleton**      | Represents containers. Ex. Card, Box              |  Rounding and elevation is dependent on the component being loaded.                                        |
+<Example plain>
+  <SkeletonAnatomy />
+</Example>
+
+
+Skeletons come in three different shapes - circular, rounded, and rectangular. The shape, size, and elevation of a Skeleton are all dependent on the UI elements that are loading. 
+
+Some common components that may be skeletonized are:
+- Text, paragraph, heading
+- Avatar, image
+- Button, footer
+- Card, table, pageheader
