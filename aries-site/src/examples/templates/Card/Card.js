@@ -15,15 +15,17 @@ import {
 import { adjustPad } from './utils';
 
 //  demo purposes to make a skeleton icon for loading
-const IconSkeleton = () => (
+const IconSkeleton = ({ children, ...rest }) => (
   <Box
     width="xxsmall"
     height="xxsmall"
     round="small"
-    skeleton
+    background="background"
     flex={false}
-    margin={{ bottom: 'small' }}
-  />
+    {...rest}
+  >
+    {children}
+  </Box>
 );
 
 const DesignSystemCard = ({
@@ -68,10 +70,8 @@ const DesignSystemCard = ({
                 src={avatar}
               />
             )}
-            {icon && skeleton ? (
-              <IconSkeleton />
-            ) : (
-              <Box pad={{ bottom: 'small' }}>{icon}</Box>
+            {icon && (
+              <IconSkeleton pad={{ bottom: 'small' }}>{icon}</IconSkeleton>
             )}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
