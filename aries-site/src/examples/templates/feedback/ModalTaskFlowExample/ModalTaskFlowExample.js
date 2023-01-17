@@ -4,48 +4,52 @@ import { ModalDialog } from '../../ModalDialog';
 import { config, PowerOnFlow } from './PowerOnFlow';
 import { TaskFlowFeedback } from './TaskFlowFeedback';
 
+const showFeedback = () => {
+  let result = false;
+  // A check for whether the should be shown the feedback survey
+  // could be implemented here. Solicitation of users' feedback
+  // should respect users' time and be mindful to not over sample.
+
+  // always returning true for demo purposes
+  result = true;
+  return result;
+};
+
 export const ModalTaskFlowExample = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
-  const [showFeedback, setShowFeedback] = useState(false);
   // announce when the layer opens
   const announce = useContext(AnnounceContext);
-  const defaultTitle = config.title;
-  const defaultContent = (
+  const flowTitle = config.title;
+  const flowContent = (
     <PowerOnFlow
       onCancel={() => {
         announce(`Power on device modal cancelled and closed.`, 'assertive');
         setShowModal(false);
       }}
       onClose={() => {
-        setShowFeedback(true);
+        if (showFeedback()) {
+          setTitle(feedbackTitle);
+          setContents(feedbackContent);
+        } else {
+          setShowModal(false);
+        }
       }}
     />
   );
-  const [title, setTitle] = useState(defaultTitle);
-  const [contents, setContents] = useState(defaultContent);
-
-  // set modal contents
-  useEffect(() => {
-    let nextTitle = defaultTitle;
-    let nextContents = defaultContent;
-
-    if (showFeedback) {
-      nextTitle = `We'd love your feedback`;
-      nextContents = (
-        <TaskFlowFeedback
-          onClose={() => {
-            setShowFeedback(false);
-            setShowModal(false);
-          }}
-        />
-      );
-    }
-
-    setTitle(nextTitle);
-    setContents(nextContents);
-  }, [showFeedback]);
+  const feedbackTitle = `We'd love your feedback`;
+  const feedbackContent = (
+    <TaskFlowFeedback
+      onClose={() => {
+        setShowModal(false);
+        setTitle(flowTitle);
+        setContents(flowContent);
+      }}
+    />
+  );
+  const [title, setTitle] = useState(flowTitle);
+  const [contents, setContents] = useState(flowContent);
 
   return (
     <Box align="center" justify="center" fill>

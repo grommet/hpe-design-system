@@ -58,7 +58,28 @@ individual user should be solicited for feedback. Example engagement rules might
 | **2**  | **Body**     | The body may be populated as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> | <span>Question types can include [StarRating](https://v2.grommet.io/starrating), [ThumbsRating](https://v2.grommet.io/thumbsrating), select all that apply (e.g. checkbox group), choose one (e.g. RadioButtonGroup), open ended (e.g. TextArea), or any other input types.</span> |                                                             
 | **3**  | **Footer **  | Contains two actions: "Submit" and "Dismiss" if used in Layer modal. Otherwise only "Submit" is needed inline. | <Checkmark a11yTitle="true" size="small" /> |  Submit button sends survey responses to the HPE customer experience team and initiates thank you message. If presented in a modal, the Dismiss button allows the user to bypass the survey and continue their product experience. |
 
-## Feedback setup and submission
+## Implementation
+
+### Feedback question styling
+Feedback surveys are composed with Grommet Form and FormFields containing any input types. Add the 
+`kind="survey"` prop to Form to apply special survey styling to FormField labels and inputs.
+
+```
+<Form 
+  kind="survey" // Apply feedback styling to form field labels and inputs
+  ... 
+>
+  <FormField 
+    htmlFor="question-1" 
+    name="QID1" 
+    label="How was the experience deploying your workload?"
+  >
+    <ThumbsRating id="question-1" name="QID1" />
+  </FormField>
+</Form>
+```
+
+### Feedback setup and submission
 To iniate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a> for the following steps:
 
 1. A dedicated survey will be created for your use case. At that time, an API token, survey id, and response id will be provided.
@@ -93,14 +114,18 @@ objective.
 
 #### Task flow in center-layer
 
-Click on "Power 1 Device" to see the progressive example of the feedback questions. 
+Click on "Power 1 device" to see the feedback questions presented at the completion of the 
+power on task flow.
+
 <Example
   code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/PowerDeviceFeedback.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/SolicitedFeedbackExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/PowerOnBodyExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/ModalTaskFlowExample/ModalTaskFlowExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/ModalTaskFlowExample/PowerOnFlow.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/ModalTaskFlowExample/TaskFlowFeedback.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ModalDialog/ModalDialog.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ButtonGroup/ButtonGroup.js',
   ]}
-  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/SolicitedFeedbackExample.js"
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/ModalTaskFlowExample/ModalTaskFlowExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer
   height="650px"
