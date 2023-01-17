@@ -11,4 +11,15 @@ export const learn = [
     relatedContent: [],
     tags: [],
   },
+  {
+    name: 'The Box Model Part One',
+    render: 'The Box Model: Part One',
+    description:
+      'Build a hero section to learn about fundamental Box properties.',
+    seoDescription:
+      'Build a hero section to learn about fundamental Box properties.',
+    sections: [],
+    relatedContent: [],
+    tags: [],
+  },
 ];
