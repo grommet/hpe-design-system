@@ -1,18 +1,19 @@
 import React from 'react';
 import { Box, Button, Card, CardBody, Paragraph } from 'grommet';
+import { Skeleton } from 'grommet/components';
 
 export const SkeletonAnatomy = ({ ...rest }) => (
   <Card id="container" flex={false} width="large" {...rest}>
     <CardBody align="start" gap="medium">
       <Box align="center" gap="small" direction="row">
-        <Box
+        <Skeleton
           round="small"
           width="xxsmall"
           height="xxsmall"
           background="background-back"
           flex={false}
         />
-        <Box
+        <Skeleton
           round="large"
           width="xxsmall"
           height="xxsmall"
@@ -22,7 +23,7 @@ export const SkeletonAnatomy = ({ ...rest }) => (
         <Box skeleton flex={false}>
           <Button label="View Guides" secondary />
         </Box>
-        <Box
+        <Skeleton
           round="xsmall"
           width="small"
           height="24px" // match pixel size with button or text
@@ -31,10 +32,7 @@ export const SkeletonAnatomy = ({ ...rest }) => (
         />
       </Box>
       <Box skeleton width="medium" id="text-body">
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Paragraph>
+        <Paragraph />
       </Box>
     </CardBody>
   </Card>
