@@ -11,7 +11,7 @@ export const DashBoardSkeletonExample = () => {
   }, [loading]);
 
   return (
-    <Page skeleton={loading ? skeleton : undefined}>
+    <Page height='large' skeleton={loading ? skeleton : undefined}>
       <PageContent>
         <ActivitiesNavigationalCards skeleton={loading} />
       </PageContent>
