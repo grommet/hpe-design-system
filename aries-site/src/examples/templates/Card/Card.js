@@ -14,20 +14,6 @@ import {
 } from 'grommet';
 import { adjustPad } from './utils';
 
-//  demo purposes to make a skeleton icon for loading
-const IconSkeleton = ({ children, ...rest }) => (
-  <Box
-    width="xxsmall"
-    height="xxsmall"
-    round="small"
-    background="background"
-    flex={false}
-    {...rest}
-  >
-    {children}
-  </Box>
-);
-
 const DesignSystemCard = ({
   as,
   actions,
@@ -46,8 +32,18 @@ const DesignSystemCard = ({
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
-
   // demo purposes for using skeleton
+  const IconSkeleton = () => (
+    <Box
+      width="xxsmall"
+      height="xxsmall"
+      round="small"
+      background="background"
+      flex={false}
+      margin={{ bottom: 'small' }}
+    />
+  );
+
   const skeletonAlign = skeleton ? 'none' : 'start';
 
   return (
@@ -70,8 +66,10 @@ const DesignSystemCard = ({
                 src={avatar}
               />
             )}
-            {icon && (
-              <IconSkeleton pad={{ bottom: 'small' }}>{icon}</IconSkeleton>
+            {icon && skeleton ? (
+              <IconSkeleton />
+            ) : (
+              <Box pad={{ bottom: 'small' }}>{icon}</Box>
             )}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
