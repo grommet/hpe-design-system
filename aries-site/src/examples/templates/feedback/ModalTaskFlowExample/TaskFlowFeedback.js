@@ -21,7 +21,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
   const url = `${router.route}`;
   // The properties within the surveyValues object will be specific to your
   // product and instance within the product. These will be specified
-  // when working with the unified customer experience team.
+  // when working with the Unified Customer Experience team.
   const surveyValues = {
     fullURL: url,
     QID1: undefined,
@@ -59,7 +59,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
 
   return (
     <Form
-      kind="survey"
+      kind="survey" // kind="survey" provides specific HPE styling for survey questions(https://v2.grommet.io/form?theme=hpe#kind).
       value={formValue}
       onChange={nextValue => setFormValue(nextValue)}
       onSubmit={onSubmit}
