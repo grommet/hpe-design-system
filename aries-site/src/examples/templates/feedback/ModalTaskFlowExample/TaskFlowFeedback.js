@@ -11,8 +11,8 @@ import {
 } from 'grommet';
 import { ButtonGroup } from '../../ButtonGroup';
 
-// These credentials will be supplied when working with unified
-// customer experience team and should likely be stored in environment varibles.
+// These credentials will be supplied when working with Unified
+// Customer Experience team and should likely be stored in environment varibles.
 const API_URL = process.env.FEEDBACK_API_URL;
 const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
 
@@ -59,7 +59,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
 
   return (
     <Form
-      kind="survey"
+      kind="survey" // kind="survey" provides specific HPE styling for survey questions(https://v2.grommet.io/form?theme=hpe#kind).
       value={formValue}
       onChange={nextValue => setFormValue(nextValue)}
       onSubmit={onSubmit}
