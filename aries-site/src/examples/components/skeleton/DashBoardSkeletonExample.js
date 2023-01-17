@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box } from 'grommet';
+import { Box, Page, PageContent } from 'grommet';
 import { ActivitiesNavigationalCards } from '../card';
 
 const skeleton = { message: { start: 'Loading', end: 'Content Loaded' } };
@@ -11,10 +11,10 @@ export const DashBoardSkeletonExample = () => {
   }, [loading]);
 
   return (
-    <>
-      <Box width="large" skeleton={loading ? skeleton : undefined}>
+    <Page skeleton={loading ? skeleton : undefined}>
+      <PageContent>
         <ActivitiesNavigationalCards skeleton={loading} />
-      </Box>
-    </>
+      </PageContent>
+    </Page>
   );
 };
