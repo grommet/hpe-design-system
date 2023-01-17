@@ -14,14 +14,14 @@ to form a well-rounded analytic picture of the customer experience.
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/feedback/SimpleFeedbackExample.js"
   docs="https://v2.grommet.io/starrating?theme=hpe"
-  figma="https://www.figma.com/file/StvDVAzAJvZzzTNmd7TQVu/Feedback-components?node-id=1023%3A40808&t=mu8ZYNQhot1rkRHX-4"
+  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=5554%3A77765&t=TNCIYkwaIfFrdWxf-1"
 >
   <SimpleFeedbackExample />
 </Example>
 
 ## When to use
 When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a>.
-This team will work with you to construct a questionare aligned with your objectives and 
+This team will work with you to construct a questionnaire aligned with your objectives and 
 [provide implementation details](#feedback-setup-and-submission) such as API credentials and endpoints for submitting 
 feedback responses.
 
@@ -30,7 +30,7 @@ perceptions around the ease-of-use and/or satisfaction with particular content, 
 or workflows.
 
 
-Feedback may be [actively solicited](#solicited-feedback) or [collected passively](#capturing-unsolicited-feedback).
+Feedback may be [actively solicited](#solicited-feedback) or [passively collected](#capturing-unsolicited-feedback).
 
 ### When not to use
 Don’t collect feedback in the following use cases:
@@ -43,9 +43,9 @@ Don’t collect feedback in the following use cases:
 Avoid over sampling and/or diluting effectiveness by limiting who is asked for feedback and 
 how often. Consider implementing "rules of engagement" specifying under what conditions an 
 individual user should be solicited for feedback. Example engagement rules might be:
-- Has not submitted response to this questionare in the last 90 days.
-- Has not been asked to complete this questionare in the last 30 days.
-- Has not been asked to complete any questionare in the last 7 days.
+- Has not submitted response to this questionnaire in the last 90 days.
+- Has not been asked to complete this questionnaire in the last 30 days.
+- Has not been asked to complete any questionnaire in the last 7 days.
 
 ## Anatomy
 <Example plain>
@@ -80,7 +80,7 @@ Feedback surveys are composed with Grommet Form and FormFields containing any in
 ```
 
 ### Feedback setup and submission
-To iniate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a> for the following steps:
+To initiate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>unified customer experience team</a> for the following steps:
 
 1. A dedicated survey will be created for your use case. At that time, an API token, survey id, and response id will be provided.
 1. Obtain the survey response schema with the [retrieve a survey response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response). The properties in the "values" object represent the data which should be submitted with each new survey response.
@@ -107,12 +107,12 @@ fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
 ## Examples
 
 ### Solicited feedback
-Solicited feedback is an active method for asking users for their opinions and perspectives. 
-A feedback questionaire is presented after a user has completed a task or consumed a piece of 
-content. Solicited feedback should not interupt or impede a user from completing their intended 
+Solicited feedback is an active method of asking users for their opinions and perspectives. 
+A feedback questionnaire is presented after a user has completed a task or consumed a piece of 
+content. Solicited feedback should not interrupt or impede a user from completing their intended 
 objective.
 
-#### Task flow in center-layer
+#### Task flow in center layer
 
 Click on "Power 1 device" to see the feedback questions presented at the completion of the 
 power on task flow.
@@ -138,5 +138,5 @@ power on task flow.
 ### Capturing unsolicited feedback
 Unsolicited feedback provides users the opportunity to ask questions, provide ideas, or 
 make recommendations. Acting similar to a “suggestions box,” this mechanism is placed in 
-a persistent location, such as within a app-level menu or embedded with the application's
+a persistent location, such as within an app-level menu or embedded with the application's
 page layout.
