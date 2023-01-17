@@ -9,7 +9,7 @@ import {
   TextArea,
   StarRating,
 } from 'grommet';
-import { ModalBody, ModalFooter } from '../ModalDialog';
+import { ModalBody, ModalFooter } from '../../ModalDialog';
 
 export const PowerDeviceFeedback = ({
   showConfirmation,
