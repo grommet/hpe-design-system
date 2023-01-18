@@ -25,26 +25,12 @@ const DesignSystemCard = ({
   icon,
   level,
   media,
-  skeleton,
   subtitle,
   pretitle,
   title,
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
-  // demo purposes for using skeleton
-  const IconSkeleton = () => (
-    <Box
-      width="xxsmall"
-      height="xxsmall"
-      round="small"
-      background="background"
-      flex={false}
-      margin={{ bottom: 'small' }}
-    />
-  );
-
-  const skeletonAlign = skeleton ? 'none' : 'start';
 
   return (
     <Box as={as}>
@@ -66,11 +52,7 @@ const DesignSystemCard = ({
                 src={avatar}
               />
             )}
-            {icon && skeleton ? (
-              <IconSkeleton />
-            ) : (
-              <Box pad={{ bottom: 'small' }}>{icon}</Box>
-            )}
+            {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
               <Heading level={level} margin="none" size="small">
@@ -86,14 +68,14 @@ const DesignSystemCard = ({
             )}
           </CardHeader>
           <CardBody
-            align={skeletonAlign}
+            align='start'
             pad={adjustPad(direction, 'body', theme)}
           >
             <Paragraph margin="none">{description}</Paragraph>
           </CardBody>
         </Box>
         <CardFooter
-          align={alignActions || skeletonAlign}
+          align={alignActions || 'start'}
           pad={adjustPad(direction, 'footer', theme)}
         >
           <Box flex={false}>{actions}</Box>

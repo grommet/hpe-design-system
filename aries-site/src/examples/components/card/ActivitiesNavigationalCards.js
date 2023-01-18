@@ -12,14 +12,14 @@ const columns = {
   xlarge: ['auto', 'auto', 'auto'],
 };
 
-export const ActivitiesNavigationalCards = ({ heading = true, skeleton }) => {
+export const ActivitiesNavigationalCards = ({ heading = true }) => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
     <Box gap="medium">
       {heading && (
         <Heading level={2} size="small" margin="none">
-          Activities and tasks
+          Activities & Tasks
         </Heading>
       )}
       <Grid columns={columns[breakpoint]} gap="medium">
@@ -37,7 +37,6 @@ export const ActivitiesNavigationalCards = ({ heading = true, skeleton }) => {
               />
             }
             level={3}
-            skeleton={skeleton}
           />
         ))}
       </Grid>
