@@ -12,7 +12,7 @@ import {
 import { ButtonGroup } from '../../ButtonGroup';
 
 // These credentials will be supplied when working with Unified
-// Customer Experience team and should likely be stored in environment varibles.
+// Customer Experience team and should likely be stored in environment variables.
 const API_URL = process.env.FEEDBACK_API_URL;
 const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
 
