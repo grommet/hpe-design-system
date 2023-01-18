@@ -67,7 +67,7 @@ const DesignSystemCard = ({
               </Box>
             )}
           </CardHeader>
-          <CardBody align='start' pad={adjustPad(direction, 'body', theme)}>
+          <CardBody align="start" pad={adjustPad(direction, 'body', theme)}>
             <Paragraph margin="none">{description}</Paragraph>
           </CardBody>
         </Box>
