@@ -21,7 +21,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
   const url = `${router.route}`;
   // The properties within the surveyValues object will be specific to your
   // product and instance within the product. These will be specified
-  // when working with the Unified Customer Experience team.
+  // when working with the Unified customer experience team.
   const surveyValues = {
     fullURL: url,
     QID1: undefined,
