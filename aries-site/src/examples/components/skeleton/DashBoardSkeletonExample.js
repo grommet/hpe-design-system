@@ -31,13 +31,15 @@ export const DashBoardSkeletonExample = () => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
   const [loading, setLoading] = useState(true);
+  // needed for skeleton paragraph
   const skeletonAlign = loading ? 'none' : 'start';
-  const direction = 'row';
   useEffect(() => {
     setTimeout(() => setLoading(!loading), 3000);
   }, [loading]);
 
   return (
+    // passing skeleton to Page will skeletize all of the children that are
+    // text, button, box, paragraph, heading
     <Page skeleton={loading ? skeleton : undefined} height="large">
       <PageContent>
         <Grid columns={columns[breakpoint]} gap="medium">
@@ -51,6 +53,7 @@ export const DashBoardSkeletonExample = () => {
                     align="start"
                     pad={adjustPad('column', 'header', theme)}
                   >
+                    {/* when using icon need to create a box to simulate skeleton behavior */}
                     {loading ? (
                       <Box
                         width="xxsmall"
