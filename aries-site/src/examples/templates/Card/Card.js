@@ -45,10 +45,10 @@ const DesignSystemCard = ({
           >
             {avatar && (
               <Avatar
-                flex={false}
+                 flex={false}
                 pad={{ bottom: 'small' }}
                 a11yTitle={`${title} icon`}
-                round="medium"
+                round='medium'
                 src={avatar}
               />
             )}
@@ -67,10 +67,7 @@ const DesignSystemCard = ({
               </Box>
             )}
           </CardHeader>
-          <CardBody
-            align='start'
-            pad={adjustPad(direction, 'body', theme)}
-          >
+          <CardBody align='start' pad={adjustPad(direction, 'body', theme)}>
             <Paragraph margin="none">{description}</Paragraph>
           </CardBody>
         </Box>
