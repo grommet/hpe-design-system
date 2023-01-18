@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
 import PropTypes from 'prop-types';
-import { aries } from '../../themes/aries';
+import { ariesWeb } from '../../themes/aries';
 import { analytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
-  const { value } = useDarkMode(aries.defaultMode === 'dark');
+  const { value } = useDarkMode(ariesWeb.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
   const [mounted, setMounted] = React.useState(false);
@@ -22,7 +22,7 @@ export const ThemeMode = ({ children, ...rest }) => {
           singleId: true,
         },
       }}
-      theme={aries}
+      theme={ariesWeb}
       themeMode={themeMode}
       full="min"
       onAnalytics={analytics}
