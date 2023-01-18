@@ -1,6 +1,7 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { CircleAlert } from 'grommet-icons/icons/CircleAlert';
+import { Info } from 'grommet-icons/icons/Info';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -644,6 +645,22 @@ export const ariesWeb = deepMerge(aries, {
       )
         return 'font-weight: 300;';
       return '';
+    },
+  },
+  // this is producing a console warning because it's not a supported status
+  // proposing that notification should be more flexible to allow other statuses
+  notification: {
+    learn: {
+      icon: Info,
+      background: {
+        color: 'status-warning',
+        opacity: 'weak',
+      },
+      color: 'text',
+      // global: {},
+      toast: {
+        background: 'background-front',
+      },
     },
   },
 });
