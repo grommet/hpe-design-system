@@ -1,6 +1,6 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { CircleAlert } from 'grommet-icons/icons/CircleAlert';
+// import { CircleAlert } from 'grommet-icons/icons/CircleAlert';
 import { Info } from 'grommet-icons/icons/Info';
 
 export const aries = deepMerge(hpe, {
@@ -22,111 +22,109 @@ export const aries = deepMerge(hpe, {
     colors: {
       text: {
         dark: '#FFFFFFE6', // 90%
-        light: '#444444',
+        light: '#6F6F6F', // '#444444',
       },
       'text-strong': {
         dark: '#FFFFFFF5', // 96%
-        light: '#000000',
+        light: '#444444', // '#000000'
       },
       'text-weak': {
         dark: '#FFFFFF80', // 50%
-        light: '#6F6F6F', // light: '#757575',
+        light: '#757575',
       },
       'text-xweak': {
-        // light value may need to be revisited to allow enough differentiation
-        // from 'text' / 'text-weak'
         dark: '#FFFFFF33', // 20%
         light: '#BBBBBB',
       },
     },
-    input: {
-      font: {
-        size: '16px',
-        height: '20px',
-        weight: 500,
-      },
-    },
+    // input: {
+    //   font: {
+    //     size: '16px',
+    //     height: '20px',
+    //     weight: 500,
+    //   },
+    // },
   },
-  accordion: {
-    heading: {
-      // using level as a means of styling doesn't seem like the best...
-      // need to file an issue against Grommet
-      level: 3, // level: '4',
-      margin: {
-        vertical: 'medium',
-        horizontal: 'xsmall',
-      },
-    },
-  },
-  button: {
-    'cta-alternate': {
-      color: 'text', // 'text-strong',
-    },
-    default: {
-      color: 'text', // 'text-strong',
-      border: undefined,
-    },
-    secondary: {
-      color: 'text', // 'text-strong',
-    },
-    toolbar: {
-      color: 'text', // 'text-strong',
-    },
-    option: {
-      color: 'text-weak',
-      font: {
-        weight: 500,
-      },
-    },
-  },
-  formField: {
-    disabled: {
-      label: {
-        // this disabled label is getting overwritten by StyledText, presumably
-        // because the color is being specified in theme.text.extend.
-        color: 'text-xweak',
-      },
-    },
-    error: {
-      icon: (
-        <CircleAlert
-          size="small"
-          style={{
-            marginTop: '2px', // '4px',
-          }}
-        />
-      ),
-      size: 'small', // 'xsmall',
-      color: 'text',
-      margin: {
-        bottom: 'xsmall',
-        top: 'none',
-        horizontal: 'none',
-      },
-    },
-    help: {
-      size: 'small', // 'xsmall',
-    },
-    info: {
-      size: 'small', // 'xsmall',
-    },
-    label: {
-      // this label is getting overwritten by StyledText, presumably
-      // because the color is being specified in theme.text.extend.
-      color: 'text',
-      size: 'small', // 'xsmall',
-      weight: 500,
-    },
-    // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
-    // because the color is being specified in theme.text.extend.
-    extend: ({ theme }) => `
-      > label {
-        color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
-      }
-    `,
-  },
+  // accordion: {
+  //   heading: {
+  //     // using level as a means of styling doesn't seem like the best...
+  //     // need to file an issue against Grommet
+  //     level: 3, // level: '4',
+  //     margin: {
+  //       vertical: 'medium',
+  //       horizontal: 'xsmall',
+  //     },
+  //   },
+  // },
+  // button: {
+  //   'cta-alternate': {
+  //     color: 'text', // 'text-strong',
+  //   },
+  //   default: {
+  //     color: 'text', // 'text-strong',
+  //     border: undefined,
+  //   },
+  //   secondary: {
+  //     color: 'text', // 'text-strong',
+  //   },
+  //   toolbar: {
+  //     color: 'text', // 'text-strong',
+  //   },
+  //   option: {
+  //     color: 'text-weak',
+  //     font: {
+  //       weight: 500,
+  //     },
+  //   },
+  // },
+  // formField: {
+  //   disabled: {
+  //     label: {
+  //       // this disabled label is getting overwritten by StyledText, presumably
+  //       // because the color is being specified in theme.text.extend.
+  //       color: 'text-xweak',
+  //     },
+  //   },
+  //   error: {
+  //     icon: (
+  //       <CircleAlert
+  //         size="small"
+  //         style={{
+  //           marginTop: '2px', // '4px',
+  //         }}
+  //       />
+  //     ),
+  //     size: 'small', // 'xsmall',
+  //     color: 'text',
+  //     margin: {
+  //       bottom: 'xsmall',
+  //       top: 'none',
+  //       horizontal: 'none',
+  //     },
+  //   },
+  //   help: {
+  //     size: 'small', // 'xsmall',
+  //   },
+  //   info: {
+  //     size: 'small', // 'xsmall',
+  //   },
+  //   label: {
+  //     // this label is getting overwritten by StyledText, presumably
+  //     // because the color is being specified in theme.text.extend.
+  //     color: 'text',
+  //     size: 'small', // 'xsmall',
+  //     weight: 500,
+  //   },
+  //   // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
+  //   // because the color is being specified in theme.text.extend.
+  //   // extend: ({ theme }) => `
+  //   //   > label {
+  //   //     color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
+  //   //   }
+  //   // `,
+  // },
   heading: {
-    color: 'text',
+    color: 'text-strong',
     weight: 400,
     level: {
       1: {
@@ -294,10 +292,10 @@ export const aries = deepMerge(hpe, {
   },
   grommet: {
     // items like anchor, checkbox, just inherit Grommet's base font sizes
-    extend: `
-      font-size: 16px;
-      line-height: 20px;
-    `,
+    // extend: `
+    //   font-size: 16px;
+    //   line-height: 20px;
+    // `,
   },
   pageHeader: {
     title: {
@@ -306,82 +304,82 @@ export const aries = deepMerge(hpe, {
   },
   paragraph: {
     small: {
-      size: '14px', // '16px',
-      height: '16px', // '20px',
+      size: '16px',
+      height: '20px', // '22px',
       maxWidth: '379px',
     },
     medium: {
-      size: '16px', // '18px',
-      height: '20px', // '22px',
+      size: '18px',
+      height: '24px',
       maxWidth: '432px',
     },
     large: {
-      size: '20px', // '24px',
-      height: '22px', // '30px',
+      size: '20px', // '22px',
+      height: '27px', // '28px',
       maxWidth: '538px',
     },
     xlarge: {
-      size: '24px', // '36px',
-      height: '27px', // '42px',
+      size: '24px', // '27px',
+      height: '30px', // '33px',
       maxWidth: '643px',
     },
     // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '36px', // '42px',
-      height: '40px', // '48px',
-      maxWidth: '854px',
+      size: '24px', // '36px',
+      height: '30px', // '42px',
+      maxWidth: '643px', // '854px',
     },
-    extend: ({ colorProp, theme }) => `
-      ${
-        colorProp
-          ? ''
-          : `color: ${
-              theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
-            }`
-      };
-    `,
+    // extend: ({ colorProp, theme }) => `
+    //   ${
+    //     colorProp
+    //       ? ''
+    //       : `color: ${
+    //           theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
+    //         }`
+    //   };
+    // `,
   },
-  tab: {
-    active: {
-      color: 'text',
-    },
-    border: {
-      active: {
-        color: 'text',
-      },
-    },
-    color: 'text',
-  },
+  // tab: {
+  //   active: {
+  //     color: 'text',
+  //   },
+  //   border: {
+  //     active: {
+  //       color: 'text',
+  //     },
+  //   },
+  //   color: 'text',
+  // },
   text: {
     xsmall: {
-      size: '12px', // '14px',
-      height: '14px', // '18px',
+      size: '14px',
+      height: '18px', // '20px',
       maxWidth: '326px',
     },
     small: {
-      size: '14px', // '16px',
-      height: '16px', // '20px',
+      size: '16px',
+      height: '20px', // '22px',
       maxWidth: '379px',
     },
     medium: {
-      size: '16px', // '18px',
-      height: '20px', // '22px',
+      size: '18px',
+      height: '24px',
       maxWidth: '432px',
     },
     large: {
-      size: '20px', // '24px',
-      height: '22px', // '30px',
+      size: '21px', // '22px',
+      height: '27px', // '28px',
       maxWidth: '538px',
     },
     xlarge: {
-      size: '24px', // '36px',
-      height: '27px', // '42px',
+      size: '24px', // '27px',
+      height: '30px', // '33px',
       maxWidth: '643px',
     },
     // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '36px', // '42px',
-      height: '40px', // '48px',
+      size: '28px', // '36px',
+      height: '35px', // '42px',
       maxWidth: '854px',
     },
     // applying the text color here is problematic because StyledText is used so many places.
@@ -389,13 +387,6 @@ export const aries = deepMerge(hpe, {
     // So why the need to apply the color here? The new type ramp calls for Text and Paragraph to be
     // #F6F6F6 which Chris has mapped to 'text-weak', but by default
     extend: ({ size, theme, colorProp }) => `
-      ${
-        colorProp
-          ? ''
-          : `color: ${
-              theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
-            }`
-      };
       ${
         ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
           ? 'font-weight: 300;'
