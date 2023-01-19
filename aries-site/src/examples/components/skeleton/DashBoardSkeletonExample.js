@@ -37,16 +37,20 @@ export const DashBoardSkeletonExample = () => {
     setTimeout(() => setLoading(!loading), 3000);
   }, [loading]);
 
+  const placeholders = [{}, {}, {}];
+  const items = loading ? placeholders : activities;
+
   return (
-    // passing skeleton to Page will skeletize all of the children that are
+    // passing skeleton to Grid will skeletize all of the children that are
     // text, button, box, paragraph, heading
-    <Page skeleton={loading ? skeleton : undefined} height="large">
+    <Page height="large">
       <PageContent>
-        <Grid columns={columns[breakpoint]} gap="medium">
-          {activities.map((activity, index) => (
-            <Box>
-              <Card key={index} as="section">
-                <Box>
+        <Box skeleton={loading ? skeleton : undefined}>
+          <Grid columns={columns[breakpoint]} gap="medium">
+            {items.map((item, index) => {
+              console.log(item);
+              return (
+                <Card key={index}>
                   <CardHeader
                     direction="column"
                     gap="none"
@@ -54,45 +58,41 @@ export const DashBoardSkeletonExample = () => {
                     pad={adjustPad('column', 'header', theme)}
                   >
                     {/* when using icon need to create a box to simulate skeleton behavior */}
-                    {loading ? (
+                    {!item.icon ? (
                       <Box
-                        width="xxsmall"
-                        height="xxsmall"
-                        round="small"
+                        width="24px" // size of icon
+                        height="24px"
                         background="background"
-                        flex={false}
+                        flex="grow"
                         margin={{ bottom: 'small' }}
                       />
                     ) : (
-                      <Box pad={{ bottom: 'small' }}>{activity.icon}</Box>
+                      <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
                     )}
-                    <Heading level={3} margin="none" size="small">
-                      {activity.title}
+                    <Heading
+                      level={3}
+                      margin="none"
+                      size="small"
+                    >
+                      {item.title || ''}
                     </Heading>
                   </CardHeader>
                   <CardBody
                     align={skeletonAlign}
                     pad={adjustPad('column', 'body', theme)}
                   >
-                    <Paragraph margin="none">{activity.description}</Paragraph>
+                    <Paragraph margin="none">{item.description}</Paragraph>
                   </CardBody>
-                </Box>
-                <CardFooter
-                  align={skeletonAlign}
-                  pad={adjustPad('column', 'footer', theme)}
-                >
-                  <Box flex={false}>
-                    <Button
-                      label={activity.action.label}
-                      href={activity.action.href}
-                      secondary
-                    />
-                  </Box>
-                </CardFooter>
-              </Card>
-            </Box>
-          ))}
-        </Grid>
+                  <CardFooter pad={adjustPad('column', 'footer', theme)}>
+                    <Box flex={false}>
+                      <Button label={item?.action?.label} secondary />
+                    </Box>
+                  </CardFooter>
+                </Card>
+              );
+            })}
+          </Grid>
+        </Box>
       </PageContent>
     </Page>
   );
