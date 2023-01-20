@@ -23,7 +23,7 @@ ModalDialog.propTypes = {
     PropTypes.object,
   ]),
   title: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onClose: PropTypes.func,
 };
 
