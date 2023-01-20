@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
+  Data,
   DataTable,
   DropButton,
   Header,
@@ -9,6 +9,7 @@ import {
   Menu,
   Page,
   PageContent,
+  Toolbar,
 } from 'grommet';
 import { Splits } from 'grommet-icons';
 
@@ -95,84 +96,77 @@ const filtersConfig = [
   { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
 ];
 
-export const TableCustomizationExample = () => {
+export const TableCustomizationExample = () => (
+  <Page background="background" fill>
+    <PageContent>
+      <FiltersProvider>
+        <Box gap="medium">
+          <Header pad={{ top: 'medium' }}>
+            <Box gap="xsmall" fill="horizontal">
+              <Heading id="users-heading" level={2} margin="none">
+                Users
+              </Heading>
+            </Box>
+          </Header>
+          <Results />
+        </Box>
+      </FiltersProvider>
+    </PageContent>
+  </Page>
+);
+
+const Results = () => {
+  const [select, setSelect] = useState([]);
+  const { filteredResults } = useFilters();
+
   const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
   const [open, setOpen] = useState(false);
 
   return (
-    <Page background="background" fill>
-      <PageContent>
-        <FiltersProvider>
-          <Box gap="medium">
-            <Header pad={{ top: 'medium' }}>
-              <Box gap="xsmall" fill="horizontal">
-                <Heading id="users-heading" level={2} margin="none">
-                  Users
-                </Heading>
-                <Box direction="row" justify="between" align="start" wrap>
-                  <FilterControls
-                    // Table column configuration should be grouped on right
-                    // side with other actions to separate it from filtering.
-                    // If grouped to the left with the Filter control, it
-                    // becomes confusing what the "Clear filters" button will
-                    // do with regards to any column configurations that have
-                    // been applied.
-                    configure={
-                      <DropButton
-                        a11yTitle="Configure columns button"
-                        icon={<Splits />}
-                        kind="toolbar"
-                        dropAlign={{ top: 'bottom', right: 'right' }}
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
-                        dropContent={
-                          <ColumnSettings
-                            columns={COLUMNS}
-                            visibleColumns={visibleColumns}
-                            setVisibleColumns={setVisibleColumns}
-                            open={open}
-                          />
-                        }
-                        tip="Configure columns"
-                      />
-                    }
-                    actions={<Menu kind="toolbar" label="Actions" items={[]} />}
-                    data={allData}
-                    filters={filtersConfig}
-                    searchFilter={{ placeholder: 'Search' }}
-                  />
-                </Box>
-              </Box>
-            </Header>
-            <Results columns={visibleColumns} />
-          </Box>
-        </FiltersProvider>
-      </PageContent>
-    </Page>
-  );
-};
-
-const Results = ({ columns }) => {
-  const [select, setSelect] = useState([]);
-  const { filteredResults } = useFilters();
-
-  return (
     <Box fill overflow="auto">
-      <DataTable
-        aria-describedby="users-heading"
-        data={filteredResults}
-        background="background"
-        columns={columns}
-        select={select}
-        onSelect={setSelect}
-        pin
-      />
+      <Data data={filteredResults}>
+        <Toolbar>
+          <FilterControls
+            // Table column configuration should be grouped on right
+            // side with other actions to separate it from filtering.
+            // If grouped to the left with the Filter control, it
+            // becomes confusing what the "Clear filters" button will
+            // do with regards to any column configurations that have
+            // been applied.
+            configure={
+              <DropButton
+                a11yTitle="Configure columns button"
+                icon={<Splits />}
+                kind="toolbar"
+                dropAlign={{ top: 'bottom', right: 'right' }}
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+                dropContent={
+                  <ColumnSettings
+                    columns={COLUMNS}
+                    visibleColumns={visibleColumns}
+                    setVisibleColumns={setVisibleColumns}
+                    open={open}
+                  />
+                }
+                tip="Configure columns"
+              />
+            }
+            actions={<Menu kind="toolbar" label="Actions" items={[]} />}
+            data={allData}
+            filters={filtersConfig}
+            searchFilter={{ placeholder: 'Search' }}
+          />
+        </Toolbar>
+        <DataTable
+          aria-describedby="users-heading"
+          background="background"
+          columns={visibleColumns}
+          select={select}
+          onSelect={setSelect}
+          pin
+        />
+      </Data>
     </Box>
   );
-};
-
-Results.propTypes = {
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({ property: PropTypes.string, header: PropTypes.string }),
-  ),
 };
