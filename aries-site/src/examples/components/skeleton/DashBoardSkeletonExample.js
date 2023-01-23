@@ -47,50 +47,43 @@ export const DashBoardSkeletonExample = () => {
       <PageContent>
         <Box skeleton={loading ? skeleton : undefined}>
           <Grid columns={columns[breakpoint]} gap="medium">
-            {items.map((item, index) => {
-              console.log(item);
-              return (
-                <Card key={index}>
-                  <CardHeader
-                    direction="column"
-                    gap="none"
-                    align="start"
-                    pad={adjustPad('column', 'header', theme)}
-                  >
-                    {/* when using icon need to create a box to simulate skeleton behavior */}
-                    {!item.icon ? (
-                      <Box
-                        width="24px" // size of icon
-                        height="24px"
-                        background="background"
-                        flex="grow"
-                        margin={{ bottom: 'small' }}
-                      />
-                    ) : (
-                      <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
-                    )}
-                    <Heading
-                      level={3}
-                      margin="none"
-                      size="small"
-                    >
-                      {item.title || ''}
-                    </Heading>
-                  </CardHeader>
-                  <CardBody
-                    align={skeletonAlign}
-                    pad={adjustPad('column', 'body', theme)}
-                  >
-                    <Paragraph margin="none">{item.description}</Paragraph>
-                  </CardBody>
-                  <CardFooter pad={adjustPad('column', 'footer', theme)}>
-                    <Box flex={false}>
-                      <Button label={item?.action?.label} secondary />
-                    </Box>
-                  </CardFooter>
-                </Card>
-              );
-            })}
+            {items.map((item, index) => (
+              <Card flex="grow" key={index}>
+                <CardHeader
+                  direction="column"
+                  gap="none"
+                  align="start"
+                  pad={adjustPad('column', 'header', theme)}
+                >
+                  {/* when using icon need to create a box to simulate skeleton behavior */}
+                  {!item.icon ? (
+                    <Box
+                      width="24px" // size of icon
+                      height="24px"
+                      background="background"
+                      flex="grow"
+                      margin={{ bottom: 'small' }}
+                    />
+                  ) : (
+                    <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
+                  )}
+                  <Heading level={3} margin="none" size="small">
+                    {item.title || ''}
+                  </Heading>
+                </CardHeader>
+                <CardBody
+                  align={skeletonAlign}
+                  pad={adjustPad('column', 'body', theme)}
+                >
+                  <Paragraph margin="none">{item.description}</Paragraph>
+                </CardBody>
+                <CardFooter pad={adjustPad('column', 'footer', theme)}>
+                  <Box flex={false}>
+                    <Button label={item?.action?.label} secondary />
+                  </Box>
+                </CardFooter>
+              </Card>
+            ))}
           </Grid>
         </Box>
       </PageContent>
