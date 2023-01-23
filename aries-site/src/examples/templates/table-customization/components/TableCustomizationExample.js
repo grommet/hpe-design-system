@@ -3,7 +3,10 @@ import {
   Box,
   Data,
   DataTable,
-  DropButton,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  DataTableColumns,
   Header,
   Heading,
   Menu,
@@ -11,14 +14,6 @@ import {
   PageContent,
   Toolbar,
 } from 'grommet';
-import { Splits } from 'grommet-icons';
-
-import { ColumnSettings } from './ColumnSettings';
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 
 const COLUMNS = [
   { property: 'name', header: 'Name', primary: true, pin: true },
@@ -76,8 +71,9 @@ const allData = [
 // Define which attributes should be made available for the user
 // to filter upon
 const filtersConfig = [
-  { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
+  { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
   { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
+  { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
   {
     property: 'location',
     label: 'Location',
@@ -93,79 +89,57 @@ const filtersConfig = [
       valueRange: '0 - 40 hours',
     },
   },
-  { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
 ];
 
 export const TableCustomizationExample = () => (
   <Page background="background" fill>
     <PageContent>
-      <FiltersProvider>
-        <Box gap="medium">
-          <Header pad={{ top: 'medium' }}>
-            <Box gap="xsmall" fill="horizontal">
-              <Heading id="users-heading" level={2} margin="none">
-                Users
-              </Heading>
-            </Box>
-          </Header>
-          <Results />
-        </Box>
-      </FiltersProvider>
+      <Box gap="medium">
+        <Header pad={{ top: 'medium' }}>
+          <Box gap="xsmall" fill="horizontal">
+            <Heading id="users-heading" level={2} margin="none">
+              Users
+            </Heading>
+          </Box>
+        </Header>
+        <Results />
+      </Box>
     </PageContent>
   </Page>
 );
 
 const Results = () => {
   const [select, setSelect] = useState([]);
-  const { filteredResults } = useFilters();
-
-  const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
-  const [open, setOpen] = useState(false);
 
   return (
-    <Box fill overflow="auto">
-      <Data data={filteredResults}>
+    <Box fill>
+      <Data data={allData} updateOn="change" fill>
         <Toolbar>
-          <FilterControls
-            // Table column configuration should be grouped on right
-            // side with other actions to separate it from filtering.
-            // If grouped to the left with the Filter control, it
-            // becomes confusing what the "Clear filters" button will
-            // do with regards to any column configurations that have
-            // been applied.
-            configure={
-              <DropButton
-                a11yTitle="Configure columns button"
-                icon={<Splits />}
-                kind="toolbar"
-                dropAlign={{ top: 'bottom', right: 'right' }}
-                onClose={() => setOpen(false)}
-                onOpen={() => setOpen(true)}
-                dropContent={
-                  <ColumnSettings
-                    columns={COLUMNS}
-                    visibleColumns={visibleColumns}
-                    setVisibleColumns={setVisibleColumns}
-                    open={open}
-                  />
-                }
-                tip="Configure columns"
-              />
-            }
-            actions={<Menu kind="toolbar" label="Actions" items={[]} />}
-            data={allData}
-            filters={filtersConfig}
-            searchFilter={{ placeholder: 'Search' }}
-          />
+          <Box direction="column" fill>
+            <Box direction="row" gap="small">
+              <DataSearch />
+              <DataTableColumns drop options={filtersConfig} />
+              <DataFilters drop />
+              <Box fill />
+              <Box border flex={false} round="xsmall">
+                <Menu label="Actions" />
+              </Box>
+            </Box>
+            <Box>
+              <DataSummary />
+            </Box>
+          </Box>
         </Toolbar>
-        <DataTable
-          aria-describedby="users-heading"
-          background="background"
-          columns={visibleColumns}
-          select={select}
-          onSelect={setSelect}
-          pin
-        />
+        <Box overflow="auto" flex>
+          <DataTable
+            aria-describedby="users-heading"
+            background="background"
+            columns={COLUMNS}
+            select={select}
+            onSelect={setSelect}
+            pin
+          />
+        </Box>
       </Data>
     </Box>
   );
