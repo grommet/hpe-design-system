@@ -1,6 +1,7 @@
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
 } from '../../../examples/cardPreviews';
@@ -158,6 +159,25 @@ export const templates = [
       'pagination',
       'results',
       'filters',
+    ],
+  },
+  {
+    name: 'User Feedback Collection',
+    available: true,
+    description: `Improve customer experiences and make impactful,
+    data-driven decisions by collecting feedback directly from users.`,
+    preview: {
+      component: () => <FeedbackPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Improve customer experiences and make impactful,
+    data-driven decisions by collecting feedback directly from users.
+    `,
+    sections: [
+    ],
+    relatedContent: ['Forms'],
+    tags: [
+      'feedback', 'survey', 'customer experience', 'user experience', 'analytics', 'qualtrics',
     ],
   },
   {
