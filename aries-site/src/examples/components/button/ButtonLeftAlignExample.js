@@ -9,7 +9,7 @@ export const ButtonLeftAlignExample = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Text weight="bold" size="large">Left-aligned buttons</Text>
+      <Text>Left-aligned buttons</Text>
     </Header>
     <Box direction="row" gap="medium">
       <Button primary label="Primary" onClick={() => {}} />
