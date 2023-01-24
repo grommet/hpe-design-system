@@ -21,7 +21,7 @@ export const NameValueListDetailPage = () => {
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
           <Box gap="medium">
-            <Heading margin={{ bottom: 'small' }} level={2} size="small">
+            <Heading margin={{ bottom: 'small' }} level={2}>
               Details
             </Heading>
             <NameValueList>
