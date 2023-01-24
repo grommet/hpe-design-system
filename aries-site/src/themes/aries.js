@@ -125,125 +125,102 @@ export const aries = deepMerge(hpe, {
   // },
   heading: {
     color: 'text-strong',
-    weight: 400,
+    weight: 500,
     level: {
+      font: {
+        weight: 400,
+      },
       1: {
         small: {
-          size: '26px', // size: '36px',
-          height: '26px', // height: '42px',
-          maxWidth: '854px',
+          size: '24px',
+          height: '24px',
         },
         medium: {
-          size: '36px', // size: '53px',
-          height: '36px', // height: '59px',
-          maxWidth: '1277px',
+          size: '36px',
+          height: '36px',
         },
         large: {
-          size: '48px', // size: '96px', // size: '88px',
-          height: '48px', // height: '96px', // height: '94px',
-          maxWidth: '2122px',
+          size: '48px',
+          height: '48px',
         },
         xlarge: {
-          size: '60px', // size: '120px', // size: '124px',
-          height: '60px', // height: '120px', // height: '130px',
-          maxWidth: '2966px',
+          size: '60px',
+          height: '60px',
         },
       },
       2: {
         small: {
-          size: '18px', // size: '36px', // size: '31px',
-          height: '18px', // height: '36px', // height: '37px',
-          maxWidth: '749px',
+          size: '20px',
+          height: '20px',
         },
         medium: {
-          size: '26px', // size: '48px', // size: '44px',
-          height: '26px', // height: '48px', // height: '50px',
-          maxWidth: '1066px',
+          size: '24px',
+          height: '24px',
         },
         large: {
-          size: '36px', // size: '72px', // size: '58px',
-          height: '36px', // height: '72px', // height: '64px',
-          maxWidth: '1382px',
+          size: '36px',
+          height: '36px',
         },
         xlarge: {
-          size: '48px', // size: '96px', // size: '71px',
-          height: '48px', // height: '96px', // height: '77px',
-          maxWidth: '1699px',
+          size: '48px',
+          height: '48px',
         },
       },
       3: {
-        font: {
-          weight: 500,
-        },
         small: {
-          size: '16px', // size: '24px', // size: '27px',
-          height: '16px', // height: '24px', // height: '33px',
-          maxWidth: '643px',
+          size: '16px',
+          height: '16px',
         },
         medium: {
-          size: '18px', // size: '36px', // size: '36px',
-          height: '18px', // height: '36px', // height: '42px',
-          maxWidth: '854px',
+          size: '20px',
+          height: '20px',
         },
         large: {
-          size: '26px', // size: '48px', // size: '44px',
-          height: '26px', // height: '48px', // height: '50px',
-          maxWidth: '1066px',
+          size: '24px',
+          height: '24px',
         },
         xlarge: {
-          size: '36px', // size: '72px', // size: '53px',
-          height: '36px', // height: '72px', // height: '59px',
-          maxWidth: '1277px',
+          size: '36px',
+          height: '36px',
         },
       },
       4: {
-        font: {
-          weight: 500,
-        },
         small: {
-          size: '14px', // size: '18px', // size: '22px',
-          height: '14px', // height: '18px', // height: '28px',
-          maxWidth: '538px',
+          size: '12px',
+          height: '12px',
         },
         medium: {
-          size: '16px', // size: '24px', // size: '27px',
-          height: '16px', // height: '24px', // height: '33px',
-          maxWidth: '643px',
+          size: '16px',
+          height: '16px',
         },
         large: {
-          size: '18px', // size: '36px', // size: '31px',
-          height: '18px', // height: '36px', // height: '37px',
-          maxWidth: '749px',
+          size: '20px',
+          height: '20px',
         },
         xlarge: {
-          size: '24px', // size: '48px', // size: '36px',
-          height: '24px', // height: '48px', // height: '42px',
-          maxWidth: '854px',
+          size: '24px',
+          height: '24px',
         },
       },
       5: {
         font: {
-          weight: 500,
+          weight: 600,
         },
         small: {
-          size: '14px', // size: '16px', // size: '16px',
-          height: '14px', // height: '16px', // height: '22px',
-          maxWidth: '379px',
+          size: '12px',
+          height: '12px',
         },
         medium: {
-          size: '14px', // size: '18px', // size: '16px',
-          height: '14px', // height: '18px', // height: '22px',
-          maxWidth: '379px',
+          size: '12px',
+          height: '12px',
         },
         large: {
-          size: '16px', // size: '24px', // size: '16px',
-          height: '16px', // height: '24px', // height: '22px',
-          maxWidth: '379px',
+          size: '16px',
+          height: '16px',
         },
         xlarge: {
-          size: '18px', // size: '36px', // size: '16px',
-          height: '18px', // height: '36px', // height: '22px',
-          maxWidth: '379px',
+          size: '20px',
+          height: '20px',
         },
       },
       6: {
@@ -251,40 +228,34 @@ export const aries = deepMerge(hpe, {
           weight: 600,
         },
         small: {
-          size: '14px', // size: '14px',
-          height: '14px', // height: '20px',
-          maxWidth: '326px',
+          size: '12px',
+          height: '12px',
         },
         medium: {
-          size: '14px', // size: '16px', // size: '14px',
-          height: '14px', // height: '16px', // height: '20px',
-          maxWidth: '326px',
+          size: '12px',
+          height: '12px',
         },
         large: {
-          size: '14px', // size: '18px', // size: '14px',
-          height: '14px', // height: '18px', // height: '20px',
-          maxWidth: '326px',
+          size: '12px',
+          height: '12px',
         },
         xlarge: {
-          size: '16px', // size: '24px', // size: '14px',
-          height: '16px', // height: '24px', // height: '20px',
-          maxWidth: '326px',
+          size: '16px',
+          height: '16px',
         },
       },
     },
     extend: ({ level, size }) => {
       let fontWeight = '';
-      if ([1, 2].includes(level) && size === 'small') {
+      if (level === 1 && size === 'small') {
         fontWeight = 'font-weight: 500;';
-      } else if ([2, 3].includes(level) && size === 'medium') {
-        fontWeight = 'font-weight: 500;';
-      } else if (level === 3 && size === 'xlarge') {
+      } else if (level === 2 && ['large', 'xlarge'].includes(size)) {
         fontWeight = 'font-weight: 400;';
-      } else if (level === 4 && size === 'small') {
+      } else if (level === 3 && size === 'small') {
         fontWeight = 'font-weight: 600;';
-      } else if (level === 5 && ['small', 'medium'].includes(size)) {
+      } else if (level === 4 && ['small', 'medium'].includes(size)) {
         fontWeight = 'font-weight: 600;';
-      } else if (level === 6 && size === 'xlarge') {
+      } else if (level === 5 && size === 'xlarge') {
         fontWeight = 'font-weight: 500;';
       }
       return fontWeight;
