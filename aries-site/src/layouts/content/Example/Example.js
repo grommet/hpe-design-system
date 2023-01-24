@@ -41,7 +41,7 @@ export const Example = ({
   background,
   bestPractice,
   caption,
-  children: childrenProp,
+  children,
   code, // github code link used to display code inline
   componentName,
   designer, // link to grommet designer example
@@ -76,11 +76,6 @@ export const Example = ({
     height: null,
     width: null,
   });
-
-  // Example children should use the product version of the theme
-  const children = (
-    <ThemeContext.Extend value={theme}>{childrenProp}</ThemeContext.Extend>
-  );
 
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
@@ -348,15 +343,21 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {cloneElement(children, {
-                        containerRef: layerRef,
-                        designSystemDemo: fullscreen,
-                      })}
+                      {/* Example children should use the product version of the theme */}
+                      <ThemeContext.Extend value={theme}>
+                        {cloneElement(children, {
+                          containerRef: layerRef,
+                          designSystemDemo: fullscreen,
+                        })}
+                      </ThemeContext.Extend>
                     </ResponsiveContext.Provider>
                   </Box>
                 ) : (
                   <ResponsiveContext.Provider value={viewPort}>
-                    {children}
+                    {/* Example children should use the product version of the theme */}
+                    <ThemeContext.Extend value={theme}>
+                      {children}
+                    </ThemeContext.Extend>
                   </ResponsiveContext.Provider>
                 )}
               </Box>
