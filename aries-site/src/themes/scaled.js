@@ -16,6 +16,9 @@ const undefinedThemeProperties = {
   anchor: {
     extend: '',
   },
+  button: {
+    extend: '',
+  },
 };
 
 export const scaled = (scale = 1, baseSpacing = 24) => {
