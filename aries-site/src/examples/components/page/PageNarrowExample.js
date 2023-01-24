@@ -36,7 +36,11 @@ const FormSection = () => (
   <Form>
     <Box width="medium" gap="medium">
       <>
-        <Heading level={2} size="small" margin="none">
+        <Heading
+          level={2}
+          // size="small"
+          margin="none"
+        >
           A form section
         </Heading>
         <FormField
@@ -73,7 +77,11 @@ const FormSection = () => (
         </FormField>
       </>
       <>
-        <Heading level={2} size="small" margin="none">
+        <Heading
+          level={2}
+          // size="small"
+          margin="none"
+        >
           Another form section
         </Heading>
         {new Array(5).fill().map((_, index) => (

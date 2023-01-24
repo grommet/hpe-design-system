@@ -45,7 +45,11 @@ const Section1 = () => {
 
   return (
     <>
-      <Heading level={2} size="small" margin="none">
+      <Heading
+        level={2}
+        // size="small"
+        margin="none"
+      >
         A content section
       </Heading>
       <Grid
@@ -68,7 +72,11 @@ const Section1 = () => {
           </Paragraph>
           <Card>
             <CardBody>
-              <Heading level={3} size="small" margin="none">
+              <Heading
+                level={3}
+                // size="small"
+                margin="none"
+              >
                 Items
               </Heading>
               <List
@@ -127,7 +135,11 @@ const Section1 = () => {
 
 const Section2 = () => (
   <>
-    <Heading level={2} size="small" margin="none">
+    <Heading
+      level={2}
+      // size="small"
+      margin="none"
+    >
       Another content section
     </Heading>
     <Paragraph margin="none">

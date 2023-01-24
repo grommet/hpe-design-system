@@ -129,13 +129,13 @@ export const aries = deepMerge(hpe, {
     level: {
       1: {
         small: {
-          size: '26px', // size: '48px', // size: '36px',
-          height: '26px', // height: '48px', // height: '42px',
+          size: '26px', // size: '36px',
+          height: '26px', // height: '42px',
           maxWidth: '854px',
         },
         medium: {
-          size: '36px', // size: '72px', // size: '53px',
-          height: '36px', // height: '72px', // height: '59px',
+          size: '36px', // size: '53px',
+          height: '36px', // height: '59px',
           maxWidth: '1277px',
         },
         large: {
@@ -298,6 +298,12 @@ export const aries = deepMerge(hpe, {
     // `,
   },
   pageHeader: {
+    actions: {
+      pad: { vertical: 'none' }, // pad: { vertical: 'xxsmall' }, // aligns button height with heading font-size instead of line-height
+    },
+    subtitle: {
+      size: 'xlarge', // size: 'large',
+    },
     title: {
       size: 'medium', // size: 'small',
     },
@@ -325,8 +331,8 @@ export const aries = deepMerge(hpe, {
     },
     // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '24px', // '36px',
-      height: '30px', // '42px',
+      size: '28px', // '36px',
+      height: '35px', // '42px',
       maxWidth: '643px', // '854px',
     },
     // extend: ({ colorProp, theme }) => `
@@ -398,7 +404,7 @@ export const aries = deepMerge(hpe, {
 
 export const ariesWeb = deepMerge(aries, {
   heading: {
-    color: 'text',
+    color: 'text-strong',
     weight: 400,
     level: {
       1: {
