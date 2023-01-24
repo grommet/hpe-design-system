@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, FileInput, Heading, Layer, Text } from 'grommet';
+import { ButtonGroup } from '../../templates/ButtonGroup';
 
 export const FileInputConfirmRemoveExample = () => {
   const [numFiles, setNumFiles] = useState(0);
@@ -16,15 +17,15 @@ export const FileInputConfirmRemoveExample = () => {
           <Layer onClickOutside={onCancel} onEsc={onCancel}>
             <Box pad="medium" gap="medium" width={{ min: 'medium' }}>
               <Box gap="xsmall">
-                <Heading level={2} margin="none" size="small">
+                <Heading level={2} margin="none">
                   Remove file?
                 </Heading>
                 <Text>This action cannot be undone.</Text>
               </Box>
-              <Box direction="row" align="center" justify="end" gap="medium">
+              <ButtonGroup>
                 <Button label="Cancel" onClick={onCancel} />
                 <Button label="Remove file" onClick={onConfirm} primary />
-              </Box>
+              </ButtonGroup>
             </Box>
           </Layer>
         )}
