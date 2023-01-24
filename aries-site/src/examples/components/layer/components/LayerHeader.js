@@ -13,7 +13,7 @@ export const LayerHeader = ({
 }) => (
   <Header flex={false} align="start" gap="small" justify="between" {...rest}>
     <Box>
-      <Heading id="layer-title" level={2} margin="none" size="small">
+      <Heading id="layer-title" level={2} margin="none">
         {title}
       </Heading>
       <Paragraph id="layer-subtitle" margin="none">
