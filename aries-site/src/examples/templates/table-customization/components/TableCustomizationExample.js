@@ -96,11 +96,9 @@ export const TableCustomizationExample = () => (
     <PageContent>
       <Box gap="medium">
         <Header pad={{ top: 'medium' }}>
-          <Box gap="xsmall" fill="horizontal">
-            <Heading id="users-heading" level={2} margin="none">
-              Users
-            </Heading>
-          </Box>
+          <Heading id="users-heading" level={2} margin="none">
+            Users
+          </Heading>
         </Header>
         <Results />
       </Box>
@@ -112,35 +110,25 @@ const Results = () => {
   const [select, setSelect] = useState([]);
 
   return (
-    <Box fill>
-      <Data data={allData} updateOn="change" fill>
-        <Toolbar>
-          <Box direction="column" fill>
-            <Box direction="row" gap="small">
-              <DataSearch />
-              <DataTableColumns drop options={filtersConfig} />
-              <DataFilters drop />
-              <Box fill />
-              <Box border flex={false} round="xsmall">
-                <Menu label="Actions" />
-              </Box>
-            </Box>
-            <Box>
-              <DataSummary />
-            </Box>
-          </Box>
-        </Toolbar>
-        <Box overflow="auto" flex>
-          <DataTable
-            aria-describedby="users-heading"
-            background="background"
-            columns={COLUMNS}
-            select={select}
-            onSelect={setSelect}
-            pin
-          />
-        </Box>
-      </Data>
-    </Box>
+    <Data data={allData} updateOn="change" flex>
+      <Toolbar>
+        <DataSearch />
+        <DataTableColumns drop options={filtersConfig} />
+        <DataFilters drop />
+        <Box flex />
+        <Menu label="Actions" kind="toolbar" />
+      </Toolbar>
+      <DataSummary />
+      <Box overflow="auto" flex>
+        <DataTable
+          aria-describedby="users-heading"
+          background="background"
+          columns={COLUMNS}
+          select={select}
+          onSelect={setSelect}
+          pin
+        />
+      </Box>
+    </Data>
   );
 };
