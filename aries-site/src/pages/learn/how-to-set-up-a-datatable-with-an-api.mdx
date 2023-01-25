@@ -1,0 +1,502 @@
+import { Box, Image } from 'grommet';
+
+Let's get started! For this guide, we'll be using this [SpaceX dataset](https://api.spacexdata.com/v4/payloads).
+
+Use this [CodeSandbox template](https://codesandbox.io/s/how-to-set-up-a-datatable-with-an-api-3qrxn3?file=/index.js) to get started.
+
+## Create columns
+
+First, decide which attributes of the [dataset](https://api.spacexdata.com/v4/payloads) you'd like to render in the DataTable. In this case, let's render "name", "type", and "mass_lbs".
+
+In `index.js`, create a variable called `columns` and assign it to an array that details which properties should be included, how the property name should render in the header, and any custom rendering of that attribute's data in the table rows.
+
+```
+const columns = [
+    { property: 'name', header: 'Name', size: 'small' },
+    { property: 'type', header: 'Type' },
+    {
+    property: 'mass_lbs',
+    header: 'Mass',
+    units: 'lbs',
+    // Recommended for numerical data
+    align: 'end',
+    // Design System best practice for empty cells
+    render: (datum) => (
+        <Text a11yTitle={!datum.mass_lbs ? 'No value' : undefined}>
+        {datum.mass_lbs || '--'}
+        </Text>
+    ),
+    },
+];
+```
+
+Next, pass the `columns` variable to the `columns` property on DataTable.
+
+Add `alignSelf="start"` to the DataTable to ensure its width matches the width of its content rather than stretching to fill the screen.
+
+```
+<DataTable alignSelf="start" columns={columns} />
+```
+
+At this point, your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image src="/learnImages/datatable-columns.png" alt="TO DO" fit="contain" />
+</Box>
+
+## Fetch the data
+
+Next, let's [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) the data and store it in a state variable.
+
+First, create a state variable called `response`.
+
+```
+const [response, setResponse] = useState();
+```
+
+Next, create a `useEffect` that will fetch the data on mount.
+
+```
+useEffect(() => {
+    // fetch data function will go here
+}, []);
+```
+
+To fetch the data, take the following steps:
+
+1. Create an `async` function called `fetchData`.
+1. Provide the url to the fetch call.
+1. Provide any additional customizations to the fetch. In this case, to optimize the fetch performance, only fetch data for the attributes we will render in the table.
+1. Take the fetch response and parse the body text as JSON.
+1. Use `setResponse` to update the value of `response`.
+1. Add a `catch` in case the Promise doesn't resolve.
+1. Call `fetchData` at the end of the useEffect.
+
+```
+useEffect(() => {
+    // step 1
+    const fetchData = async () => {
+        // step 2
+        await fetch("https://api.spacexdata.com/v4/payloads/query", {
+            // step 3
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                options: {
+                    // only fetch these attributes
+                    select: ["name", "type", "mass_lbs"]
+                }
+            })
+        })
+        // step 4
+        .then((res) => res.json())
+        // step 5
+        .then((d) => setResponse(d))
+        // step 6
+        .catch((error) => console.log(`Unable to fetch data: ${error}`));
+    };
+
+    // step 7
+    fetchData();
+}, []);
+```
+
+At this point, you can `console.log(response)` to ensure the data has been fetched properly.
+
+## Pass the data to DataTable
+
+In the case of this API response, the response returns an object that contains a key, "docs", that holds the array of data we'd like to render in the DataTable.
+
+Create a new variable called `data` and assign it to `response?.docs || []`. See [optional chaining documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) for an explanation on the "?." syntax.
+
+```
+const data = response?.docs || [];
+```
+
+Next, pass `data` to the `data` property on DataTable.
+
+```
+<DataTable alignSelf="start" columns={columns} data={data} />
+```
+
+At this point your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/datatable-fetched-data.png"
+    alt="TO DO"
+    fit="contain"
+  />
+</Box>
+
+## Add pagination
+
+Fetching data incrementally will improve an application's performance. To add pagination, start by importing `Pagination` from grommet.
+
+Next, add the Pagination underneath the DataTable.
+
+```
+<Box pad="medium">
+    <DataTable alignSelf="start" columns={columns} data={data} />
+    <Pagination />
+</Box>
+```
+
+Now, your project should like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/datatable-pagination-start.png"
+    alt="TO DO"
+    fit="contain"
+  />
+</Box>
+
+### step
+
+Use the `step` property to inform pagination of how many records should be shown per page. This should align with the number of items returned by the fetch call.
+
+In the case of the SpaceX API, the limit for a fetch is 10 records. So, we should set a step of 10 on Pagination.
+
+Create a variable called `limit` and assign it a value of 10. Then, pass `limit` to `step`.
+
+```
+const limit = 10;
+
+...
+
+<Pagination step={limit} />
+```
+
+### numberItems
+
+To inform pagination how many total records exist in the dataset, use the `numberItems` property. The SpaceX API response includes a key "totalDocs" that holds the total number of records.
+
+First, create a new variable called `numberItems`. Then, pass that to the `numberItems` property on Pagination.
+
+```
+const numberItems = response?.totalDocs || 0;
+
+...
+
+<Pagination numberItems={numberItems} step={limit} />
+```
+
+At this point your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/datatable-pagination-total.png"
+    alt="TO DO"
+    fit="contain"
+  />
+</Box>
+
+### page and onChange
+
+To ensure a new page of data is fetched when the page changes, you'll need to be able to track when the page has changed.
+
+Create a state variable called `page` and give it a default value of 1. Then, pass `page` to the `page` property on Pagination.
+
+```
+const [page, setPage] = useState(1);
+
+...
+
+<Pagination numberItems={numberItems} page={page} step={limit} />
+```
+
+Next, use the `onChange` property on Pagination to update the value of `page`.
+
+```
+<Pagination
+    numberItems={numberItems}
+    onChange={(opts) => setPage(opts.page)}
+    page={page}
+    step={limit}
+/>
+```
+
+Lastly, add `page` to the body of the fetch call and the dependency array of the useEffect so new data is fetched with the updated page value.
+
+```
+useEffect(() => {
+    const fetchData = async () => {
+        await fetch("https://api.spacexdata.com/v4/payloads/query", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                options: {
+                    select: ["name", "type", "mass_lbs"],
+                    page
+                }
+            })
+        })
+        .then((res) => res.json())
+        .then((d) => setResponse(d))
+        .catch((error) => console.log(`Unable to fetch data: ${error}`));
+    };
+
+    fetchData();
+}, [page]);
+```
+
+### Add pagination summary
+
+Let's adjust the layout to include a pagination summary for the user that reads "Showing 1-10 of 205", for example.
+
+First, create variables that will calculate the start and end of the current page.
+
+```
+const pageResultStart = (page - 1) * limit + 1;
+const pageResultEnd = Math.min(page * limit, numberItems);
+```
+
+Now, render that in Text above the Pagination.
+
+```
+<Text>
+    Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+</Text>
+<Pagination
+    numberItems={numberItems}
+    onChange={(opts) => setPage(opts.page)}
+    page={page}
+    step={limit}
+/>
+```
+
+In order to render the summary and pagination controls in a row, make the following layout adjustments.
+
+```
+<Box
+    align="center"
+    border="top"
+    direction="row-responsive"
+    fill="horizontal"
+    justify="end"
+    pad={{ vertical: "xsmall" }}
+>
+    <Text>
+        Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+    </Text>
+    <Pagination
+        step={limit}
+        numberItems={numberItems}
+        page={page}
+        onChange={(opts) => setPage(opts.page)}
+        direction="row"
+        flex={false}
+    />
+</Box>
+```
+
+Now, your project should look like this:
+
+<Box width="large" round="xsmall" overflow="auto" margin={{ bottom: 'medium' }}>
+  <Image
+    src="/learnImages/datatable-pagination-wide.png"
+    alt="TO DO"
+    fit="contain"
+  />
+</Box>
+
+To ensure the pagination controls stay aligned with right edge of the DataTable, wrap the DataTable and the pagination summary/controls in a Box.
+
+Then, apply `align="start"` to the outermost Box.
+
+```
+<Box align="start" pad="medium">
+    <Box>
+        <DataTable
+            alignSelf="start"
+            columns={columns}
+            data={data}
+            onSort={(opts) => setSort(opts)}
+            sort={{ ...sort, external: true }}
+        />
+        <Box
+            align="center"
+            border="top"
+            direction="row-responsive"
+            fill="horizontal"
+            justify="end"
+            pad={{ vertical: "xsmall" }}
+        >
+            <Text>
+            Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+            </Text>
+            <Pagination
+                step={limit}
+                numberItems={numberItems}
+                page={page}
+                onChange={(opts) => setPage(opts.page)}
+                direction="row"
+                flex={false}
+            />
+        </Box>
+    </Box>
+</Box>
+```
+
+Now, your project should look like this:
+
+<Box
+  width="medium"
+  round="xsmall"
+  overflow="auto"
+  margin={{ bottom: 'medium' }}
+>
+  <Image
+    src="/learnImages/datatable-pagination-final.png"
+    alt="TO DO"
+    fit="contain"
+  />
+</Box>
+
+### Conditionally render pagination
+
+To simplify the user experience and remove clutter from the UI, only render pagination when the number of items is greater than the limit.
+
+```
+{numberItems > limit ? (
+    <Box
+        align="center"
+        border="top"
+        direction="row-responsive"
+        fill="horizontal"
+        justify="end"
+        pad={{ vertical: "xsmall" }}
+    >
+        <Text>
+        Showing {pageResultStart}-{pageResultEnd} of {numberItems}
+        </Text>
+        <Pagination
+        step={limit}
+        numberItems={numberItems}
+        page={page}
+        onChange={(opts) => setPage(opts.page)}
+        direction="row"
+        flex={false}
+        />
+    </Box>
+) : null}
+```
+
+## Add sorting
+
+To add sorting, you'll use the `sort` and `onSort` properties on DataTable.
+
+To store the current sort, create a state variable called `sort` and pass that to the `sort` property on DataTable.
+
+We will manage sorting in our fetch call so that the entire dataset is sorted as opposed to only the single page that is rendered. To indicate this to DataTable, add `external: true` to the `sort` property.
+
+```
+
+const [sort, setSort] = useState();
+
+...
+
+<DataTable
+  alignSelf="start"
+  columns={columns}
+  data={data}
+  sort={{ ...sort, external: true }}
+/>
+```
+
+Next, use `onSort` property on DataTable to update the value of `sort` when the user clicks on a header cell in the DataTable.
+
+```
+<DataTable
+    alignSelf="start"
+    columns={columns}
+    data={data}
+    onSort={(opts) => setSort(opts)}
+    sort={{...sort, external: true}}
+/>
+```
+
+Next, add `sort` to the body of the fetch call and include `sort` in the dependency array of the useEffect so data is fetched again when the sort changes.
+
+```
+useEffect(() => {
+    const fetchData = async () => {
+      await fetch("https://api.spacexdata.com/v4/payloads/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          options: {
+            select: ["name", "type", "mass_lbs"],
+            page,
+            sort: {
+                [sort?.property]: sort?.direction
+            }
+          }
+        })
+      })
+        .then((res) => res.json())
+        .then((d) => setResponse(d))
+        .catch((error) => console.log(`Unable to fetch data: ${error}`));
+    };
+
+    fetchData();
+  }, [page, sort]);
+```
+
+## Customize which columns are sortable
+
+By default, all columns will be sortable. To remove the ability to sort a specific attribute, add `sortable: false` to that column definition.
+
+Let's remove the ability to sort on "mass_lbs". In `columns`, add `sortable: false` to the "mass_lbs" definition.
+
+```
+const columns = [
+    { property: 'name', header: 'Name', size: 'small' },
+    { property: 'type', header: 'Type' },
+    {
+    property: 'mass_lbs',
+    header: 'Mass',
+    units: 'lbs',
+    // Recommended for numerical data
+    align: 'end',
+    // Design System best practice for empty cells
+    render: (datum) => (
+        <Text a11yTitle={!datum.mass_lbs ? 'No value' : undefined}>
+        {datum.mass_lbs || '--'}
+        </Text>
+    ),
+    sortable: false,
+    },
+];
+```
+
+Congratulations! You've built a DataTable that renders data from an API.
+
+To reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/how-to-set-up-a-datatable-with-an-api-completed-oi3dzr?file=/index.js:0-168).
