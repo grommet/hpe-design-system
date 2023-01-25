@@ -436,6 +436,60 @@ export const aries = deepMerge(hpe, {
       height: '72px',
     },
   },
+  tab: {
+    color: 'text',
+    active: {
+      background: undefined,
+      color: 'text-strong',
+    },
+    hover: {
+      background: 'transparent',
+      color: 'text',
+    },
+    border: {
+      side: 'bottom',
+      color: 'transparent',
+      size: 'medium',
+      active: {
+        color: 'green!',
+      },
+      disabled: {
+        color: undefined,
+      },
+      hover: {
+        color: 'border-weak',
+      },
+    },
+    disabled: {
+      color: 'text-xweak',
+    },
+    pad: {
+      // top and bottom pad need to be defined individually, specifying
+      // "vertical" only applies to top
+      bottom: 'small',
+      top: 'small',
+      horizontal: 'medium',
+    },
+    margin: {
+      // bring the overall tabs border behind invidual tab borders
+      vertical: '-2px',
+      horizontal: 'none',
+    },
+    extend: props => `
+      font-weight: ${
+        props.border.color === props.theme.global.colors['green!'] ? 700 : 400
+      };
+    `,
+  },
+  tabs: {
+    header: {
+      border: {
+        side: 'bottom',
+        size: 'small',
+        color: 'none',
+      },
+    },
+  },
   layer: {
     overlay: {
       background: {
