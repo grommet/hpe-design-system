@@ -19,11 +19,6 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   global: {
-    backgrounds: {
-      'brand-gradient-1':
-        // eslint-disable-next-line max-len
-        'linear-gradient(262.2deg, #008567 54.71%, #01A982 74.4%, #008968 93.29%, #00C781 105.8%);',
-    },
     colors: {
       'text-strong': {
         light: '#444444',
@@ -479,6 +474,11 @@ export const aries = deepMerge(hpe, {
       font-weight: ${
         props.border.color === props.theme.global.colors['green!'] ? 700 : 400
       };
+      // necessary to remove default line-height of 24px
+      // how will this behave if tab has an icon?
+      // is that allowed?
+      // grommet enhancement should be considered if so
+      > span { line-height: 18px; }
     `,
   },
   tabs: {
@@ -492,10 +492,7 @@ export const aries = deepMerge(hpe, {
   },
   layer: {
     overlay: {
-      background: {
-        color: '#0000001F',
-        extend: 'backdrop-filter: blur(8px);',
-      },
+      background: '#0000001F',
     },
   },
 });
