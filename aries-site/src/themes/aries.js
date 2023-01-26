@@ -11,11 +11,6 @@ export const aries = deepMerge(hpe, {
     // any Box props
     gap: 'small',
   },
-  heading: {
-    skeleton: {
-      width: { min: '150px', max: '200px' },
-    },
-  },
   feedback: {
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
