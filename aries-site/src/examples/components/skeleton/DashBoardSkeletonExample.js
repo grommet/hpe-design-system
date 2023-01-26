@@ -43,7 +43,7 @@ export const DashBoardSkeletonExample = () => {
   return (
     // passing skeleton to Grid will skeletize all of the children that are
     // text, button, box, paragraph, heading
-    <Page height="large">
+    <Page>
       <PageContent>
         <Box skeleton={loading ? skeleton : undefined}>
           <Grid columns={columns[breakpoint]} gap="medium">
