@@ -205,6 +205,17 @@ export const aries = deepMerge(hpe, {
       weight: 400,
       color: 'text-strong',
     },
+    pinned: {
+      header: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+      body: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+      footer: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+    },
   },
   heading: {
     color: 'text-strong',
