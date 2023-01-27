@@ -37,13 +37,6 @@ export const aries = deepMerge(hpe, {
         light: '#BBBBBB',
       },
     },
-    // input: {
-    //   font: {
-    //     size: '16px',
-    //     height: '20px',
-    //     weight: 500,
-    //   },
-    // },
   },
   // accordion: {
   //   heading: {
@@ -55,73 +48,6 @@ export const aries = deepMerge(hpe, {
   //       horizontal: 'xsmall',
   //     },
   //   },
-  // },
-  // button: {
-  //   'cta-alternate': {
-  //     color: 'text', // 'text-strong',
-  //   },
-  //   default: {
-  //     color: 'text', // 'text-strong',
-  //     border: undefined,
-  //   },
-  //   secondary: {
-  //     color: 'text', // 'text-strong',
-  //   },
-  //   toolbar: {
-  //     color: 'text', // 'text-strong',
-  //   },
-  //   option: {
-  //     color: 'text-weak',
-  //     font: {
-  //       weight: 500,
-  //     },
-  //   },
-  // },
-  // formField: {
-  //   disabled: {
-  //     label: {
-  //       // this disabled label is getting overwritten by StyledText, presumably
-  //       // because the color is being specified in theme.text.extend.
-  //       color: 'text-xweak',
-  //     },
-  //   },
-  //   error: {
-  //     icon: (
-  //       <CircleAlert
-  //         size="small"
-  //         style={{
-  //           marginTop: '2px', // '4px',
-  //         }}
-  //       />
-  //     ),
-  //     size: 'small', // 'xsmall',
-  //     color: 'text',
-  //     margin: {
-  //       bottom: 'xsmall',
-  //       top: 'none',
-  //       horizontal: 'none',
-  //     },
-  //   },
-  //   help: {
-  //     size: 'small', // 'xsmall',
-  //   },
-  //   info: {
-  //     size: 'small', // 'xsmall',
-  //   },
-  //   label: {
-  //     // this label is getting overwritten by StyledText, presumably
-  //     // because the color is being specified in theme.text.extend.
-  //     color: 'text',
-  //     size: 'small', // 'xsmall',
-  //     weight: 500,
-  //   },
-  //   // Ideally this is not needed. labels are getting overwritten by StyledText, presumably
-  //   // because the color is being specified in theme.text.extend.
-  //   // extend: ({ theme }) => `
-  //   //   > label {
-  //   //     color: ${theme.global.colors.text[theme.dark ? 'dark' : 'light']};
-  //   //   }
-  //   // `,
   // },
   heading: {
     color: 'text-strong',
@@ -261,22 +187,15 @@ export const aries = deepMerge(hpe, {
       return fontWeight;
     },
   },
-  grommet: {
-    // items like anchor, checkbox, just inherit Grommet's base font sizes
-    // extend: `
-    //   font-size: 16px;
-    //   line-height: 20px;
-    // `,
-  },
   pageHeader: {
     actions: {
-      pad: { vertical: 'none' }, // pad: { vertical: 'xxsmall' }, // aligns button height with heading font-size instead of line-height
+      pad: { vertical: 'none' }, // aligns button height with heading font-size instead of line-height
     },
     subtitle: {
-      size: 'xlarge', // size: 'large',
+      size: 'xlarge',
     },
     title: {
-      size: 'medium', // size: 'small',
+      size: 'medium',
     },
   },
   paragraph: {
@@ -308,17 +227,6 @@ export const aries = deepMerge(hpe, {
       ${['xlarge', 'xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
     `,
   },
-  // tab: {
-  //   active: {
-  //     color: 'text',
-  //   },
-  //   border: {
-  //     active: {
-  //       color: 'text',
-  //     },
-  //   },
-  //   color: 'text',
-  // },
   text: {
     xsmall: {
       size: '14px',
