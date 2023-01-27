@@ -39,6 +39,7 @@ export * from './rangeselector';
 export * from './search';
 export * from './select';
 export * from './selectmultiple';
+export * from './skeleton';
 export * from './tabs';
 export * from './tag';
 export * from './textarea';
