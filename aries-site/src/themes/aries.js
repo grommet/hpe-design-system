@@ -240,6 +240,8 @@ export const aries = deepMerge(hpe, {
     overlay: {
       background: '#0000001F',
     },
+    // temp CSS selector to target Layer overlay
+    extend: '> div { backdrop-filter: blur(12px); }',
   },
   calendar: {
     // using level as a means of styling doesn't seem like the best...
