@@ -21,7 +21,7 @@ export const NameValueListMultipleDefaultExample = () => {
         <Tab title="Overview">
           <Box gap="medium">
             <>
-              <Heading margin={{ bottom: 'small' }} level={2} size="small">
+              <Heading margin={{ bottom: 'small' }} level={2}>
                 Details
               </Heading>
               <NameValueList>
@@ -40,7 +40,7 @@ export const NameValueListMultipleDefaultExample = () => {
               </NameValueList>
             </>
             <>
-              <Heading margin={{ bottom: 'small' }} level={2} size="small">
+              <Heading margin={{ bottom: 'small' }} level={2}>
                 Kubernetes
               </Heading>
               <NameValueList>

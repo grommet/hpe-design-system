@@ -28,9 +28,7 @@ export const FooterComboExample = () => {
           align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
           gap="xsmall"
         >
-          <Text size="small">
-            &copy; {year} Hewlett Packard Enterprise Development LP
-          </Text>
+          <Text>&copy; {year} Hewlett Packard Enterprise Development LP</Text>
         </Box>
         <Box
           direction="row"

@@ -58,7 +58,7 @@ const Identifier = ({ title, subtitle, icon }) => (
   >
     {icon && <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>}
     <Box>
-      <Heading level={2} margin="none" size="small">
+      <Heading level={2} margin="none">
         {title}
       </Heading>
       <Text>{subtitle}</Text>

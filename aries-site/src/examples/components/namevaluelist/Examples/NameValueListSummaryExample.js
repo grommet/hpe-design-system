@@ -3,6 +3,7 @@ import {
   Card,
   CardBody,
   CardHeader,
+  Heading,
   NameValueList,
   NameValuePair,
   Text,
@@ -13,9 +14,9 @@ export const NameValueListSummaryExample = () => (
   <Card width="medium">
     <CardHeader gap="none" align="start" direction="column">
       <Text>Catalog Lifecyle Manager</Text>
-      <Text size="xxlarge" color="text-strong" weight="bold">
+      <Heading level={2} margin="none">
         Orders
-      </Text>
+      </Heading>
     </CardHeader>
     <CardBody>
       <NameValueList>

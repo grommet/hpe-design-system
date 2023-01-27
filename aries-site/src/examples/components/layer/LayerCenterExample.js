@@ -33,7 +33,7 @@ export const LayerCenterExample = () => {
                 <Box justify="center">
                   <MailOption />
                 </Box>
-                <Heading margin="none" size="small" level={2}>
+                <Heading margin="none" level={2}>
                   Modal dialog
                 </Heading>
               </Box>

@@ -9,9 +9,7 @@ export const ButtonRightAlignExample = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Text alignSelf="end" weight="bold" size="large">
-        Right-aligned buttons
-      </Text>
+      <Text alignSelf="end">Right-aligned buttons</Text>
     </Header>
     <Box direction="row" justify="end" gap="medium">
       <Button label="Default" onClick={() => {}} />

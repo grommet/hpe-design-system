@@ -42,7 +42,7 @@ export const MenuRecordActionsExample = () => {
     <>
       {' '}
       <Box gap="small" width="medium">
-        <Heading level={2} size="small" margin="none">
+        <Heading level={2} margin="none">
           Server Groups
         </Heading>
         <List
@@ -54,9 +54,9 @@ export const MenuRecordActionsExample = () => {
           {(datum, index) => (
             <Box direction="row" justify="between" align="start">
               <Box gap="xsmall" fill>
-                <Text weight="bold" size="large">
+                <Heading level={3} margin="none">
                   {datum.name}
-                </Text>
+                </Heading>
                 <Box gap="xxsmall">
                   <Text>{datum.servers.length} Servers</Text>
                   <Box direction="row" gap="xsmall" align="center">

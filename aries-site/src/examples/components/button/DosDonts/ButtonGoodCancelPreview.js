@@ -9,10 +9,10 @@ export const ButtonGoodCancelPreview = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Heading level={2} margin="none" size="small">
+      <Heading level={2} margin="none">
         Delete item?
       </Heading>
-      <Text size="large">
+      <Text>
         Deleting this role assignment will revoke access to the underlying
         resources.
       </Text>

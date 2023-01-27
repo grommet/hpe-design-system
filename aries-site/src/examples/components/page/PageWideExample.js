@@ -45,7 +45,7 @@ const Section1 = () => {
 
   return (
     <>
-      <Heading level={2} size="small" margin="none">
+      <Heading level={2} margin="none">
         A content section
       </Heading>
       <Grid
@@ -68,7 +68,7 @@ const Section1 = () => {
           </Paragraph>
           <Card>
             <CardBody>
-              <Heading level={3} size="small" margin="none">
+              <Heading level={3} margin="none">
                 Items
               </Heading>
               <List
@@ -81,7 +81,6 @@ const Section1 = () => {
                   <Box key={index} direction="row" align="center" gap="medium">
                     <Text
                       weight="bold"
-                      size="xsmall"
                       color={index % 3 === 0 ? 'text-weak' : null}
                     >
                       {index % 3 === 0 ? 'Inactive' : 'Active'}
@@ -127,7 +126,7 @@ const Section1 = () => {
 
 const Section2 = () => (
   <>
-    <Heading level={2} size="small" margin="none">
+    <Heading level={2} margin="none">
       Another content section
     </Heading>
     <Paragraph margin="none">

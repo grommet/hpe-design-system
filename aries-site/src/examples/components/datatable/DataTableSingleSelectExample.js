@@ -13,9 +13,9 @@ import { FormPrevious } from 'grommet-icons';
 const DetailsPage = ({ orderDetails, orderPageDetails, ...rest }) => (
   <Box direction="row" align="start" {...rest}>
     <Box width="small">
-      <Text size="small">{orderDetails}</Text>
+      <Text>{orderDetails}</Text>
     </Box>
-    <Text color="text-strong">{orderPageDetails}</Text>
+    <Text>{orderPageDetails}</Text>
   </Box>
 );
 
@@ -233,10 +233,9 @@ export const DataTableSingleSelectExample = () => {
         label="Orders"
       />
       <Box margin={{ horizontal: 'large' }} border="bottom">
-        <Heading size="small">Order Number: {pageDetails.id}</Heading>
+        <Heading>Order Number: {pageDetails.id}</Heading>
       </Box>
       <Heading
-        size="small"
         level={2}
         margin={{ horizontal: 'large', top: 'large', bottom: 'medium' }}
       >

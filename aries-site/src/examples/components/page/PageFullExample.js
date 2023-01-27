@@ -50,8 +50,8 @@ const ServerList = () => (
         >
           <Header align="start">
             <Box>
-              <Text weight="bold">{datum.displayName}</Text>{' '}
-              <Text size="xsmall">{datum.hardware.model?.toUpperCase()}</Text>
+              <Text>{datum.displayName}</Text>{' '}
+              <Text>{datum.hardware.model?.toUpperCase()}</Text>
             </Box>
             <Button icon={<Bookmark />} />
           </Header>

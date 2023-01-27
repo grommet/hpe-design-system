@@ -74,10 +74,10 @@ export const TopLevelPageHeaderExample = () => (
           >
             <CardHeader align="start" direction="column" gap="xsmall">
               {datum.icon}
-              <Heading level={2} size="small" margin="none">
+              <Heading level={2} margin="none">
                 {datum.title}
               </Heading>
-              <Text size="small">{datum.subtitle}</Text>
+              <Text>{datum.subtitle}</Text>
             </CardHeader>
           </Card>
         ))}

@@ -85,15 +85,15 @@ const CardExample = ({ ...rest }) => (
     <CardBody align="start" gap="medium">
       <Box gap="xsmall">
         <DashedBox id="cta-pretitle">
-          <Text size="small">{event.pretitle}</Text>
+          <Text>{event.pretitle}</Text>
         </DashedBox>
         <DashedBox id="cta-title">
-          <Heading level={3} margin="none" size="small">
+          <Heading level={3} margin="none">
             {event.title}
           </Heading>
         </DashedBox>
         <DashedBox id="cta-subtitle">
-          <Text size="small">{event.subtitle}</Text>
+          <Text>{event.subtitle}</Text>
         </DashedBox>
         <DashedBox id="cta-description">
           <Paragraph margin="none">{event.description}</Paragraph>

@@ -24,7 +24,7 @@ export const CenterInformational = ({ containerRef }) => {
           <Box pad="medium">
             <Box direction="row" align="start" gap="small">
               <Box>
-                <Heading level={2} size="small" margin="none">
+                <Heading level={2} margin="none">
                   Firmware update initiated
                 </Heading>
                 <Paragraph margin="none">
