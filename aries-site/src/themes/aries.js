@@ -55,6 +55,27 @@ export const aries = deepMerge(hpe, {
       level: 3,
     },
   },
+  anchor: {
+    textDecoration: 'none',
+    fontWeight: 700,
+    color: 'brand',
+    gap: 'xsmall',
+    hover: {
+      textDecoration: 'underline',
+    },
+    extend: ({ hasIcon, size, theme }) => `
+    ${
+      ['xsmall', 'small'].includes(size)
+        ? `color: ${theme.global.colors['text-strong'].light};`
+        : ''
+    };
+    ${
+      ['xsmall', 'small'].includes(size) && hasIcon !== true
+        ? `text-decoration: underline;`
+        : ''
+    };
+    `,
+  },
   calendar: {
     // using level as a means of styling doesn't seem like the best...
     // need to file an issue against Grommet
