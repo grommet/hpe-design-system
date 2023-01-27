@@ -37,6 +37,7 @@ export const screens = {
 };
 
 export const Example = ({
+  align,
   background,
   bestPractice,
   caption,
@@ -76,7 +77,6 @@ export const Example = ({
     width: null,
   });
 
-
   // ensure that when page loads or layer opens/closes that the ref value
   // is not null
   const [, updateState] = useState();
@@ -95,6 +95,7 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
+    align,
     bestPractice,
     caption,
     designer,
@@ -174,7 +175,10 @@ export const Example = ({
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   let content = !fullscreen && (
-    <ExampleContainer as="section" {...containerProps}>
+    <ExampleContainer
+      as="section"
+      {...containerProps}
+    >
       <ExampleWrapper
         background={
           ExampleWrapper === ResponsiveContainer && background
@@ -361,6 +365,7 @@ export const Example = ({
 };
 
 Example.propTypes = {
+  align: PropTypes.string,
   background: PropTypes.string,
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
