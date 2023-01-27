@@ -39,7 +39,6 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     source.button.secondary.border,
     source.button.toolbar.border,
     source.button.option.border,
-    source.button.disabled.primary.border,
     source.button.hover.secondary.border,
     source.button.size.small.border,
     source.button.size.small.pad,
