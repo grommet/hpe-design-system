@@ -280,41 +280,33 @@ export const aries = deepMerge(hpe, {
     },
   },
   paragraph: {
+    xsmall: {
+      size: '14px',
+      height: '16px',
+    },
     small: {
       size: '16px',
-      height: '20px', // '22px',
-      maxWidth: '379px',
+      height: '18px',
     },
     medium: {
       size: '18px',
       height: '24px',
-      maxWidth: '432px',
     },
     large: {
-      size: '20px', // '22px',
-      height: '27px', // '28px',
-      maxWidth: '538px',
+      size: '22px',
+      height: '26px',
     },
     xlarge: {
-      size: '24px', // '27px',
-      height: '30px', // '33px',
-      maxWidth: '643px',
+      size: '28px',
+      height: '32px',
     },
-    // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '28px', // '36px',
-      height: '35px', // '42px',
-      maxWidth: '643px', // '854px',
+      size: '32px',
+      height: '38px',
     },
-    // extend: ({ colorProp, theme }) => `
-    //   ${
-    //     colorProp
-    //       ? ''
-    //       : `color: ${
-    //           theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
-    //         }`
-    //   };
-    // `,
+    extend: ({ size }) => `
+      ${['xlarge', 'xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
+    `,
   },
   // tab: {
   //   active: {
@@ -330,42 +322,47 @@ export const aries = deepMerge(hpe, {
   text: {
     xsmall: {
       size: '14px',
-      height: '18px', // '20px',
-      maxWidth: '326px',
+      height: '16px',
     },
     small: {
       size: '16px',
-      height: '20px', // '22px',
-      maxWidth: '379px',
+      height: '20px',
     },
     medium: {
       size: '18px',
       height: '24px',
-      maxWidth: '432px',
     },
     large: {
-      size: '21px', // '22px',
-      height: '27px', // '28px',
-      maxWidth: '538px',
+      size: '24px',
+      height: '32px',
     },
     xlarge: {
-      size: '24px', // '27px',
-      height: '30px', // '33px',
-      maxWidth: '643px',
+      size: '30px',
+      height: '36px',
     },
-    // xxlarge is not part of Chris's type exploration
     xxlarge: {
-      size: '28px', // '36px',
-      height: '35px', // '42px',
-      maxWidth: '854px',
+      size: '36px',
+      height: '40px',
     },
-    // applying the text color here is problematic because StyledText is used so many places.
-    // Since extend is the last CSS applied, it overrides any colorStyle which gets built up prior.
-    // So why the need to apply the color here? The new type ramp calls for Text and Paragraph to be
-    // #F6F6F6 which Chris has mapped to 'text-weak', but by default
-    extend: ({ size, theme, colorProp }) => `
+    '3xl': {
+      size: '42px',
+      height: '46px',
+    },
+    '4xl': {
+      size: '48px',
+      height: '48px',
+    },
+    '5xl': {
+      size: '72px',
+      height: '72px',
+    },
+    '6xl': {
+      size: '72px',
+      height: '72px',
+    },
+    extend: ({ size }) => `
       ${
-        ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
+        ['xlarge', 'xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
           ? 'font-weight: 300;'
           : ''
       };
