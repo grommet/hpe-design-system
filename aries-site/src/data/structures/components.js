@@ -17,6 +17,7 @@ import {
   RadioButtonGroupPreview,
   RangeInputPreview,
   SearchPreview,
+  SkeletonPreview,
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
@@ -1189,6 +1190,28 @@ export const components = [
       'hpe style spinner',
       'hpe loading spinner',
       'spooling',
+    ],
+  },
+  {
+    name: 'Skeleton',
+    category: 'Visualizations',
+    description:
+      'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
+      preview: {
+        component: () => <SkeletonPreview />,
+        background: 'background-front',
+      },
+    seoDescription:
+      'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
+    relatedContent: ['Box', 'Button', 'Spinner'],
+    sections: [
+      'When to use',
+      'When not to use',
+      'Anatomy',
+    ],
+    tags: [
+      'loading',
+      'loading page',
     ],
   },
   {
