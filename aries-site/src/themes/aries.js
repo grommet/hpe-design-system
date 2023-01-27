@@ -200,13 +200,35 @@ export const aries = deepMerge(hpe, {
   },
   pageHeader: {
     actions: {
-      pad: { vertical: 'none' }, // aligns button height with heading font-size instead of line-height
+      // aligns button height with heading font-size instead of line-height
+      pad: { vertical: 'none' },
     },
     subtitle: {
       size: 'xlarge',
     },
     title: {
       size: 'medium',
+    },
+  },
+  pagination: {
+    button: {
+      border: {
+        radius: '100px',
+      },
+      font: {
+        weight: 700,
+      },
+      active: {
+        border: {
+          radius: '100px',
+        },
+        font: {
+          weight: 700,
+        },
+      },
+      disabled: {
+        color: 'text-xweak',
+      },
     },
   },
   paragraph: {
