@@ -199,7 +199,9 @@ export const aries = deepMerge(hpe, {
   },
   dataTable: {
     header: {
-      font: undefined,
+      font: {
+        weight: 500,
+      },
     },
     primary: {
       weight: 400,
@@ -347,6 +349,13 @@ export const aries = deepMerge(hpe, {
   layer: {
     overlay: {
       background: '#0000001F',
+    },
+  },
+  nameValuePair: {
+    name: {
+      // any text props
+      color: 'text-strong',
+      weight: '500',
     },
   },
   pageHeader: {
