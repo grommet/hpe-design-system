@@ -1,6 +1,5 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-// import { CircleAlert } from 'grommet-icons/icons/CircleAlert';
 import { Info } from 'grommet-icons/icons/Info';
 
 export const aries = deepMerge(hpe, {
@@ -22,11 +21,11 @@ export const aries = deepMerge(hpe, {
     colors: {
       text: {
         dark: '#FFFFFFE6', // 90%
-        light: '#6F6F6F', // '#444444',
+        light: '#6F6F6F',
       },
       'text-strong': {
         dark: '#FFFFFFF5', // 96%
-        light: '#444444', // '#000000'
+        light: '#444444',
       },
       'text-weak': {
         dark: '#FFFFFF80', // 50%
@@ -38,17 +37,18 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
-  // accordion: {
-  //   heading: {
-  //     // using level as a means of styling doesn't seem like the best...
-  //     // need to file an issue against Grommet
-  //     level: 3, // level: '4',
-  //     margin: {
-  //       vertical: 'medium',
-  //       horizontal: 'xsmall',
-  //     },
-  //   },
-  // },
+  accordion: {
+    heading: {
+      // using level as a means of styling doesn't seem like the best...
+      // need to file an issue against Grommet
+      level: 3,
+    },
+  },
+  calendar: {
+    // using level as a means of styling doesn't seem like the best...
+    // need to file an issue against Grommet
+    heading: { level: 3 },
+  },
   heading: {
     color: 'text-strong',
     weight: 500,
@@ -212,16 +212,16 @@ export const aries = deepMerge(hpe, {
       height: '24px',
     },
     large: {
-      size: '22px',
-      height: '26px',
-    },
-    xlarge: {
-      size: '28px',
+      size: '24px',
       height: '32px',
     },
+    xlarge: {
+      size: '30px',
+      height: '36px',
+    },
     xxlarge: {
-      size: '32px',
-      height: '38px',
+      size: '36px',
+      height: '40px',
     },
     extend: ({ size }) => `
       ${['xlarge', 'xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
@@ -460,7 +460,6 @@ export const ariesWeb = deepMerge(aries, {
       height: '42px',
       maxWidth: '643px',
     },
-    // xxlarge is not part of Chris's type exploration
     xxlarge: {
       size: '42px',
       height: '48px',
