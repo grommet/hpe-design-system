@@ -205,6 +205,17 @@ export const aries = deepMerge(hpe, {
       weight: 400,
       color: 'text-strong',
     },
+    pinned: {
+      header: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+      body: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+      footer: {
+        extend: 'backdrop-filter: blur(12px);',
+      },
+    },
   },
   heading: {
     color: 'text-strong',
@@ -348,6 +359,8 @@ export const aries = deepMerge(hpe, {
     overlay: {
       background: '#0000001F',
     },
+    // temp CSS selector to target Layer overlay
+    extend: '> div { backdrop-filter: blur(12px); }',
   },
   pageHeader: {
     actions: {
