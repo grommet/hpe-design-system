@@ -396,6 +396,27 @@ export const aries = deepMerge(hpe, {
       size: 'medium',
     },
   },
+  pagination: {
+    button: {
+      border: {
+        radius: '100px',
+      },
+      font: {
+        weight: 700,
+      },
+      active: {
+        border: {
+          radius: '100px',
+        },
+        font: {
+          weight: 700,
+        },
+      },
+      disabled: {
+        color: 'text-xweak',
+      },
+    },
+  },
   paragraph: {
     xsmall: {
       size: '14px',
