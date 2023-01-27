@@ -66,7 +66,9 @@ export const aries = deepMerge(hpe, {
     extend: ({ hasIcon, size, theme }) => `
     ${
       ['xsmall', 'small'].includes(size)
-        ? `color: ${theme.global.colors['text-strong'].light};`
+        ? `color: ${
+            theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+          };`
         : ''
     };
     ${
@@ -75,168 +77,379 @@ export const aries = deepMerge(hpe, {
         : ''
     };
     `,
-    // below is needed for brand refresh
-    button: {
-      default: {
-        color: 'text-strong',
-        border: {
-          radius: '100px',
-        },
-        font: {
-          weight: 700,
-        },
+  },
+  // below is needed for brand refresh
+  button: {
+    default: {
+      color: 'text-strong',
+      border: {
+        radius: '100px',
       },
+      font: {
+        weight: 700,
+      },
+    },
+    primary: {
+      border: {
+        radius: '100px',
+      },
+      color: 'text-primary-button',
+      font: { weight: 'bold' },
+      extend: props => primaryBackground(props),
+    },
+    secondary: {
+      border: {
+        color: 'brand',
+        width: '2px',
+        radius: '100px',
+      },
+      color: 'text-strong',
+      font: {
+        weight: 700,
+      },
+    },
+    'cta-primary': {
+      extend: props => primaryBackground(props),
+    },
+    hover: {
       primary: {
-        border: {
-          radius: '100px',
-        },
-        color: 'text-primary-button',
-        font: { weight: 'bold' },
-        extend: props => primaryBackground(props),
-      },
-      secondary: {
-        border: {
-          color: 'brand',
-          width: '2px',
-          radius: '100px',
-        },
-        color: 'text-strong',
-        font: {
-          weight: 700,
-        },
+        extend: props => primaryHoverBackground(props),
       },
       'cta-primary': {
-        extend: props => primaryBackground(props),
+        extend: props => primaryHoverBackground(props),
       },
-      hover: {
-        primary: {
-          extend: props => primaryHoverBackground(props),
+    },
+    disabled: {
+      opacity: 0.3,
+      // overriding what is currently in grommet-theme-hpe
+      background: undefined,
+      color: undefined,
+      primary: undefined,
+      secondary: undefined,
+      toolbar: undefined,
+      'cta-primary': undefined,
+      'cta-alternate': undefined,
+    },
+    extend: props => {
+      let style = '';
+      // icon only specific padding still in progress
+      if (!props.hasLabel && !props.plain && props.kind !== 'toolbar') {
+        if (props.sizeProp === 'medium' || !props.sizeProp) {
+          if (props.kind === 'secondary') style += 'padding: 4px;';
+          else style += 'padding: 6px;';
+        } else if (props.kind === 'secondary') style += 'padding: 10px;';
+        else style += 'padding: 12px;';
+      }
+      if (props.sizeProp === 'small') {
+        style += 'line-height: 24px;';
+      }
+      return style;
+    },
+    size: {
+      small: {
+        pad: {
+          vertical: '6px',
+          horizontal: '18px',
         },
-        'cta-primary': {
-          extend: props => primaryHoverBackground(props),
+        toolbar: {
+          pad: {
+            vertical: '4px',
+            horizontal: '8px',
+          },
         },
-      },
-      disabled: {
-        opacity: 0.3,
-        // overriding what is currently in grommet-theme-hpe
-        background: undefined,
-        color: undefined,
-        primary: undefined,
-        secondary: undefined,
-        toolbar: undefined,
         'cta-primary': undefined,
         'cta-alternate': undefined,
       },
-      extend: props => {
-        let style = '';
-        // icon only specific padding still in progress
-        if (!props.hasLabel && !props.plain && props.kind !== 'toolbar') {
-          if (props.sizeProp === 'medium' || !props.sizeProp) {
-            if (props.kind === 'secondary') style += 'padding: 4px;';
-            else style += 'padding: 6px;';
-          } else if (props.kind === 'secondary') style += 'padding: 10px;';
-          else style += 'padding: 12px;';
-        }
-        if (props.sizeProp === 'small') {
-          style += 'line-height: 24px;';
-        }
-        return style;
-      },
-      size: {
-        small: {
-          pad: {
-            vertical: '6px',
-            horizontal: '18px',
-          },
-          toolbar: {
-            pad: {
-              vertical: '4px',
-              horizontal: '8px',
-            },
-          },
-          'cta-primary': undefined,
-          'cta-alternate': undefined,
+      medium: {
+        pad: {
+          vertical: '6px',
+          horizontal: '18px',
         },
-        medium: {
-          pad: {
-            vertical: '6px',
-            horizontal: '18px',
-          },
 
-          toolbar: {
-            border: {
-              radius: '6px',
-            },
-            pad: {
-              vertical: '6px',
-              horizontal: '12px',
-            },
+        toolbar: {
+          border: {
+            radius: '6px',
+          },
+          pad: {
+            vertical: '6px',
+            horizontal: '12px',
           },
         },
-        large: {
+      },
+      large: {
+        pad: {
+          vertical: '8px',
+          horizontal: '24px',
+        },
+
+        toolbar: {
           pad: {
             vertical: '8px',
-            horizontal: '24px',
-          },
-
-          toolbar: {
-            pad: {
-              vertical: '8px',
-              horizontal: '16px',
-            },
+            horizontal: '16px',
           },
         },
       },
     },
-    dataTable: {
-      header: {
-        font: undefined,
-      },
-      primary: {
+  },
+  calendar: {
+    // using level as a means of styling doesn't seem like the best...
+    // need to file an issue against Grommet
+    heading: { level: 3 },
+  },
+  dataTable: {
+    header: {
+      font: undefined,
+    },
+    primary: {
+      weight: 400,
+      color: 'text-strong',
+    },
+  },
+  heading: {
+    color: 'text-strong',
+    weight: 500,
+    level: {
+      font: {
         weight: 400,
-        color: 'text-strong',
+      },
+      1: {
+        small: {
+          size: '24px',
+          height: '24px',
+        },
+        medium: {
+          size: '36px',
+          height: '36px',
+        },
+        large: {
+          size: '48px',
+          height: '48px',
+        },
+        xlarge: {
+          size: '60px',
+          height: '60px',
+        },
+      },
+      2: {
+        small: {
+          size: '20px',
+          height: '20px',
+        },
+        medium: {
+          size: '24px',
+          height: '24px',
+        },
+        large: {
+          size: '36px',
+          height: '36px',
+        },
+        xlarge: {
+          size: '48px',
+          height: '48px',
+        },
+      },
+      3: {
+        small: {
+          size: '16px',
+          height: '16px',
+        },
+        medium: {
+          size: '20px',
+          height: '20px',
+        },
+        large: {
+          size: '24px',
+          height: '24px',
+        },
+        xlarge: {
+          size: '36px',
+          height: '36px',
+        },
+      },
+      4: {
+        small: {
+          size: '12px',
+          height: '12px',
+        },
+        medium: {
+          size: '16px',
+          height: '16px',
+        },
+        large: {
+          size: '20px',
+          height: '20px',
+        },
+        xlarge: {
+          size: '24px',
+          height: '24px',
+        },
+      },
+      5: {
+        font: {
+          weight: 600,
+        },
+        small: {
+          size: '12px',
+          height: '12px',
+        },
+        medium: {
+          size: '12px',
+          height: '12px',
+        },
+        large: {
+          size: '16px',
+          height: '16px',
+        },
+        xlarge: {
+          size: '20px',
+          height: '20px',
+        },
+      },
+      6: {
+        font: {
+          weight: 600,
+        },
+        small: {
+          size: '12px',
+          height: '12px',
+        },
+        medium: {
+          size: '12px',
+          height: '12px',
+        },
+        large: {
+          size: '12px',
+          height: '12px',
+        },
+        xlarge: {
+          size: '16px',
+          height: '16px',
+        },
       },
     },
-    tab: {
-      color: 'text',
-      active: {
-        background: undefined,
-        color: 'text-strong',
-      },
-      hover: {
-        background: 'transparent',
-        color: 'text',
-      },
+    extend: ({ level, size }) => {
+      let fontWeight = '';
+      if (level === 1 && size === 'small') {
+        fontWeight = 'font-weight: 500;';
+      } else if (level === 2 && ['large', 'xlarge'].includes(size)) {
+        fontWeight = 'font-weight: 400;';
+      } else if (level === 3 && size === 'small') {
+        fontWeight = 'font-weight: 600;';
+      } else if (level === 4 && ['small', 'medium'].includes(size)) {
+        fontWeight = 'font-weight: 600;';
+      } else if (level === 5 && size === 'xlarge') {
+        fontWeight = 'font-weight: 500;';
+      }
+      return fontWeight;
+    },
+  },
+  layer: {
+    overlay: {
+      background: '#0000001F',
+    },
+  },
+  pageHeader: {
+    actions: {
+      // aligns button height with heading font-size instead of line-height
+      pad: { vertical: 'none' },
+    },
+    subtitle: {
+      size: 'xlarge',
+    },
+    title: {
+      size: 'medium',
+    },
+  },
+  pagination: {
+    button: {
       border: {
-        side: 'bottom',
-        color: 'transparent',
-        size: 'medium',
-        active: {
-          color: 'green!',
+        radius: '100px',
+      },
+      font: {
+        weight: 700,
+      },
+      active: {
+        border: {
+          radius: '100px',
         },
-        disabled: {
-          color: undefined,
-        },
-        hover: {
-          color: 'border-weak',
+        font: {
+          weight: 700,
         },
       },
       disabled: {
         color: 'text-xweak',
       },
-      pad: {
-        // top and bottom pad need to be defined individually, specifying
-        // "vertical" only applies to top
-        bottom: 'small',
-        top: 'small',
-        horizontal: 'medium',
+    },
+  },
+  paragraph: {
+    xsmall: {
+      size: '14px',
+      height: '16px',
+    },
+    small: {
+      size: '16px',
+      height: '18px',
+    },
+    medium: {
+      size: '18px',
+      height: '24px',
+    },
+    large: {
+      size: '24px',
+      height: '32px',
+    },
+    xlarge: {
+      size: '30px',
+      height: '36px',
+    },
+    xxlarge: {
+      size: '36px',
+      height: '40px',
+    },
+    extend: ({ size }) => `
+      ${['xlarge', 'xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
+    `,
+  },
+  tab: {
+    color: 'text',
+    active: {
+      background: undefined,
+      color: 'text-strong',
+    },
+    hover: {
+      background: 'transparent',
+      color: 'text',
+    },
+    border: {
+      side: 'bottom',
+      color: 'transparent',
+      size: 'medium',
+      active: {
+        color: 'green!',
       },
-      margin: {
-        // bring the overall tabs border behind invidual tab borders
-        vertical: '-2px',
-        horizontal: 'none',
+      disabled: {
+        color: undefined,
       },
-      extend: props => `
+      hover: {
+        color: 'border-weak',
+      },
+    },
+    disabled: {
+      color: 'text-xweak',
+    },
+    pad: {
+      // top and bottom pad need to be defined individually, specifying
+      // "vertical" only applies to top
+      bottom: 'small',
+      top: 'small',
+      horizontal: 'medium',
+    },
+    margin: {
+      // bring the overall tabs border behind invidual tab borders
+      vertical: '-2px',
+      horizontal: 'none',
+    },
+    extend: props => `
         font-weight: ${
           props.border.color === props.theme.global.colors['green!'] ? 700 : 400
         };
@@ -246,275 +459,64 @@ export const aries = deepMerge(hpe, {
         // grommet enhancement should be considered if so
         > span { line-height: 18px; }
       `,
-    },
-    tabs: {
-      header: {
-        border: {
-          side: 'bottom',
-          size: 'small',
-          color: 'none',
-        },
+  },
+  tabs: {
+    header: {
+      border: {
+        side: 'bottom',
+        size: 'small',
+        color: 'none',
       },
     },
-    layer: {
-      overlay: {
-        background: '#0000001F',
-      },
+  },
+  text: {
+    xsmall: {
+      size: '14px',
+      height: '16px',
     },
-    calendar: {
-      // using level as a means of styling doesn't seem like the best...
-      // need to file an issue against Grommet
-      heading: { level: 3 },
+    small: {
+      size: '16px',
+      height: '20px',
     },
-    heading: {
-      color: 'text-strong',
-      weight: 500,
-      level: {
-        font: {
-          weight: 400,
-        },
-        1: {
-          small: {
-            size: '24px',
-            height: '24px',
-          },
-          medium: {
-            size: '36px',
-            height: '36px',
-          },
-          large: {
-            size: '48px',
-            height: '48px',
-          },
-          xlarge: {
-            size: '60px',
-            height: '60px',
-          },
-        },
-        2: {
-          small: {
-            size: '20px',
-            height: '20px',
-          },
-          medium: {
-            size: '24px',
-            height: '24px',
-          },
-          large: {
-            size: '36px',
-            height: '36px',
-          },
-          xlarge: {
-            size: '48px',
-            height: '48px',
-          },
-        },
-        3: {
-          small: {
-            size: '16px',
-            height: '16px',
-          },
-          medium: {
-            size: '20px',
-            height: '20px',
-          },
-          large: {
-            size: '24px',
-            height: '24px',
-          },
-          xlarge: {
-            size: '36px',
-            height: '36px',
-          },
-        },
-        4: {
-          small: {
-            size: '12px',
-            height: '12px',
-          },
-          medium: {
-            size: '16px',
-            height: '16px',
-          },
-          large: {
-            size: '20px',
-            height: '20px',
-          },
-          xlarge: {
-            size: '24px',
-            height: '24px',
-          },
-        },
-        5: {
-          font: {
-            weight: 600,
-          },
-          small: {
-            size: '12px',
-            height: '12px',
-          },
-          medium: {
-            size: '12px',
-            height: '12px',
-          },
-          large: {
-            size: '16px',
-            height: '16px',
-          },
-          xlarge: {
-            size: '20px',
-            height: '20px',
-          },
-        },
-        6: {
-          font: {
-            weight: 600,
-          },
-          small: {
-            size: '12px',
-            height: '12px',
-          },
-          medium: {
-            size: '12px',
-            height: '12px',
-          },
-          large: {
-            size: '12px',
-            height: '12px',
-          },
-          xlarge: {
-            size: '16px',
-            height: '16px',
-          },
-        },
-      },
-      extend: ({ level, size }) => {
-        let fontWeight = '';
-        if (level === 1 && size === 'small') {
-          fontWeight = 'font-weight: 500;';
-        } else if (level === 2 && ['large', 'xlarge'].includes(size)) {
-          fontWeight = 'font-weight: 400;';
-        } else if (level === 3 && size === 'small') {
-          fontWeight = 'font-weight: 600;';
-        } else if (level === 4 && ['small', 'medium'].includes(size)) {
-          fontWeight = 'font-weight: 600;';
-        } else if (level === 5 && size === 'xlarge') {
-          fontWeight = 'font-weight: 500;';
-        }
-        return fontWeight;
-      },
+    medium: {
+      size: '18px',
+      height: '24px',
     },
-    pageHeader: {
-      actions: {
-        // aligns button height with heading font-size instead of line-height
-        pad: { vertical: 'none' },
-      },
-      subtitle: {
-        size: 'xlarge',
-      },
-      title: {
-        size: 'medium',
-      },
+    large: {
+      size: '24px',
+      height: '32px',
     },
-    pagination: {
-      button: {
-        border: {
-          radius: '100px',
-        },
-        font: {
-          weight: 700,
-        },
-        active: {
-          border: {
-            radius: '100px',
-          },
-          font: {
-            weight: 700,
-          },
-        },
-        disabled: {
-          color: 'text-xweak',
-        },
-      },
+    xlarge: {
+      size: '30px',
+      height: '36px',
     },
-    paragraph: {
-      xsmall: {
-        size: '14px',
-        height: '16px',
-      },
-      small: {
-        size: '16px',
-        height: '18px',
-      },
-      medium: {
-        size: '18px',
-        height: '24px',
-      },
-      large: {
-        size: '24px',
-        height: '32px',
-      },
-      xlarge: {
-        size: '30px',
-        height: '36px',
-      },
-      xxlarge: {
-        size: '36px',
-        height: '40px',
-      },
-      extend: ({ size }) => `
-      ${['xlarge', 'xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
-    `,
+    xxlarge: {
+      size: '36px',
+      height: '40px',
     },
-    text: {
-      xsmall: {
-        size: '14px',
-        height: '16px',
-      },
-      small: {
-        size: '16px',
-        height: '20px',
-      },
-      medium: {
-        size: '18px',
-        height: '24px',
-      },
-      large: {
-        size: '24px',
-        height: '32px',
-      },
-      xlarge: {
-        size: '30px',
-        height: '36px',
-      },
-      xxlarge: {
-        size: '36px',
-        height: '40px',
-      },
-      '3xl': {
-        size: '42px',
-        height: '46px',
-      },
-      '4xl': {
-        size: '48px',
-        height: '48px',
-      },
-      '5xl': {
-        size: '72px',
-        height: '72px',
-      },
-      '6xl': {
-        size: '72px',
-        height: '72px',
-      },
-      extend: ({ size }) => `
+    '3xl': {
+      size: '42px',
+      height: '46px',
+    },
+    '4xl': {
+      size: '48px',
+      height: '48px',
+    },
+    '5xl': {
+      size: '72px',
+      height: '72px',
+    },
+    '6xl': {
+      size: '72px',
+      height: '72px',
+    },
+    extend: ({ size }) => `
       ${
         ['xlarge', 'xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
           ? 'font-weight: 300;'
           : ''
       };
     `,
-    },
   },
 });
 
