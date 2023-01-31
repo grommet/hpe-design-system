@@ -114,7 +114,7 @@ const Results = () => {
       <Toolbar>
         <DataSearch />
         <DataTableColumns drop options={filtersConfig} />
-        <DataFilters drop />
+        <DataFilters layer />
         <Box flex />
         <Menu label="Actions" kind="toolbar" />
       </Toolbar>
