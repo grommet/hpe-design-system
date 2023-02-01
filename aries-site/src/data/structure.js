@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
 import { Grow } from 'grommet-icons/icons/Grow';
-import { IconCircle, IconDiamond, IconExtend, IconSquare } from '../components';
+import { IconCircle, IconDiamond, IconSquare } from '../components';
 import {
   components as componentsArr,
-  extend as extendArr,
   foundation as foundationArr,
   learn as learnArr,
   templates as templatesArr,
@@ -11,7 +10,6 @@ import {
 } from './structures';
 
 const components = Structure.from(componentsArr);
-const extend = Structure.from(extendArr);
 const foundation = Structure.from(foundationArr);
 const learn = Structure.from(learnArr);
 const templates = Structure.from(templatesArr);
@@ -21,7 +19,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates', 'Extend'],
+    pages: ['Foundation', 'Components', 'Templates', 'Learn'],
   },
   {
     name: 'Feedback',
@@ -33,7 +31,7 @@ export const structure = [
     name: 'Show More',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and its partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates', 'Extend'],
+    pages: ['Foundation', 'Components', 'Templates', 'Learn'],
   },
   {
     name: 'Foundation',
@@ -109,19 +107,6 @@ export const structure = [
     pages: components.sortByName().map(page => page.name),
   },
   {
-    name: 'Extend',
-    color: 'text-strong',
-    description:
-      'Why does HPE have a design system? All the aesthetics, best practices, and information about the platform and how to wield it.',
-    icon: (size, color) => <IconExtend size={size} color={color} />,
-    seoDescription:
-      'All the aesthetics, best practices, and information about the platform and how to wield it.',
-    pages: extend
-      .sortByName()
-      .sortByAvailability()
-      .map(page => page.name),
-  },
-  {
     name: 'Whats New',
     description:
       'Track Design System announcements, new template patterns, guidance, and released components.',
@@ -134,5 +119,4 @@ export const structure = [
   foundation,
   learn,
   templates,
-  extend,
 ].flat();
