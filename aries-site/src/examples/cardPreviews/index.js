@@ -20,6 +20,7 @@ export * from './page-layouts';
 export * from './radiobuttonGroup';
 export * from './rangeinput';
 export * from './SearchPreview';
+export * from './skeleton';
 export * from './status-indicator';
 export * from './tabs';
 export * from './textarea';
