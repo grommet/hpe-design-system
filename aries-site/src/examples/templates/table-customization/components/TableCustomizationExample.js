@@ -68,8 +68,7 @@ const allData = [
   },
 ];
 
-// Define which attributes should be made available for the user
-// to filter upon
+// Define which attributes are available for the user to filter upon
 const filtersConfig = [
   { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
   { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
