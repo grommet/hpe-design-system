@@ -3,24 +3,23 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Card,
+  Cards,
   CardBody,
+  Data,
+  DataFilter,
+  DataFilters,
+  DataSearch,
+  DataSummary,
   Grid,
   Heading,
   ResponsiveContext,
   Text,
+  Toolbar,
 } from 'grommet';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 import { users } from './mockData';
 
 export const FilteringCards = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
-
   const size = useContext(ResponsiveContext);
 
   // Define which attributes should be made available for the user
@@ -63,73 +62,83 @@ export const FilteringCards = ({ containerRef }) => {
       <Heading level={2} margin="none">
         Users
       </Heading>
-      <FiltersProvider>
-        <Box gap="medium">
-          <FilterControls
-            data={users}
-            filters={filtersConfig}
-            layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search' }}
-          />
+      <Box fill>
+        <Data
+          data={users}
+          updateOn="change"
+          height={{ min: 'medium', max: '100%' }}
+        >
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer>
+              <DataFilter property="role" label="Role" />
+              <DataFilter property="status" label="Status" />
+              <DataFilter property="location" label="Location" />
+              <DataFilter property="hoursAvailable" label="Hours Available" />
+              <DataFilter property="name" label="Name" />
+            </DataFilters>
+          </Toolbar>
+          <DataSummary />
           <Users />
-        </Box>
-      </FiltersProvider>
+        </Data>
+      </Box>
     </Box>
   );
 };
 
 const Users = () => {
   const size = useContext(ResponsiveContext);
-  const { filteredResults } = useFilters();
 
   return (
-    <Box overflow="auto" fill>
+    <Box flex overflow="auto">
       <Grid
         columns={
           !['xsmall', 'small'].includes(size)
-            ? 'small'
+            ? [['small', 'xlarge']]
             : { count: 2, size: 'auto' }
         }
         gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
-        {filteredResults.map(datum => (
-          <Card
-            key={datum.id}
-            background="background"
-            // margin ensures focus on cards is not cutoff
-            margin="xxsmall"
-            onClick={() => {
-              // eslint-disable-next-line no-alert
-              alert(`
+        <Cards>
+          {datum => (
+            <Card
+              key={datum.id}
+              background="background"
+              // margin ensures focus on cards is not cutoff
+              margin="xxsmall"
+              onClick={() => {
+                // eslint-disable-next-line no-alert
+                alert(`
                 Typically a click would route to a view with 
                 greater detail behind this summary information.
               `);
-            }}
-          >
-            <CardBody gap="xsmall" justify="between">
-              <Box flex={false}>
-                <Box align="center" direction="row" gap="xsmall">
-                  <Box
-                    background={
-                      datum.status === 'Online' ? 'brand' : 'text-weak'
-                    }
-                    pad="xsmall"
-                    round
-                  />
-                  <Text color="text-strong">{datum.status}</Text>
+              }}
+            >
+              <CardBody gap="xsmall" justify="between">
+                <Box flex={false}>
+                  <Box align="center" direction="row" gap="xsmall">
+                    <Box
+                      background={
+                        datum.status === 'Online' ? 'brand' : 'text-weak'
+                      }
+                      pad="xsmall"
+                      round
+                    />
+                    <Text color="text-strong">{datum.status}</Text>
+                  </Box>
+                  <Text color="text-strong" size="large" weight="bold">
+                    {datum.name}
+                  </Text>
+                  <Text color="text-strong">{datum.location}</Text>
                 </Box>
-                <Text color="text-strong" size="large" weight="bold">
-                  {datum.name}
-                </Text>
-                <Text color="text-strong">{datum.location}</Text>
-              </Box>
-              <Box>
-                <Text size="small">Role</Text>
-                <Text color="text-strong">{datum.role}</Text>
-              </Box>
-            </CardBody>
-          </Card>
-        ))}
+                <Box>
+                  <Text size="small">Role</Text>
+                  <Text color="text-strong">{datum.role}</Text>
+                </Box>
+              </CardBody>
+            </Card>
+          )}
+        </Cards>
       </Grid>
     </Box>
   );

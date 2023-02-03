@@ -1,13 +1,21 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Header, Heading, List, ResponsiveContext, Text } from 'grommet';
+import {
+  Box,
+  Data,
+  DataFilter,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  Header,
+  Heading,
+  List,
+  ResponsiveContext,
+  Text,
+  Toolbar,
+} from 'grommet';
 import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 import { orders } from './mockData';
 
 const statusIcons = {
@@ -88,17 +96,24 @@ export const FilteringLists = ({ containerRef }) => {
           Orders
         </Heading>
       </Header>
-      <FiltersProvider>
-        <Box gap="medium">
-          <FilterControls
-            data={orders}
-            filters={filtersConfig}
-            layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search' }}
-          />
+      <Box fill>
+        <Data
+          data={orders}
+          updateOn="change"
+          height={{ min: 'medium', max: '100%' }}
+        >
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer>
+              <DataFilter property="service" label="Service" />
+              <DataFilter property="status" label="Status" />
+              <DataFilter property="tenant" label="Tenant" />
+            </DataFilters>
+          </Toolbar>
+          <DataSummary />
           <Orders />
-        </Box>
-      </FiltersProvider>
+        </Data>
+      </Box>
     </Box>
   );
 };
@@ -109,11 +124,10 @@ FilteringLists.propTypes = {
 
 const Orders = () => {
   const size = useContext(ResponsiveContext);
-  const { filteredResults } = useFilters();
 
   return (
     <Box
-      fill
+      flex
       overflow="auto"
       // xxsmall pad allows for List to receive focus properly
       pad="xxsmall"
@@ -128,7 +142,6 @@ const Orders = () => {
           </Box>
         )}
         border="horizontal"
-        data={filteredResults}
         onClickItem={() => {
           // eslint-disable-next-line no-alert
           alert(`
