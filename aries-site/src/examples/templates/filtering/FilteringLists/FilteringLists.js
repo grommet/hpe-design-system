@@ -99,7 +99,7 @@ export const FilteringLists = ({ containerRef }) => {
       <Box fill>
         <Data
           data={orders}
-          updateOn="change"
+          updateOn="submit"
           height={{ min: 'medium', max: '100%' }}
         >
           <Toolbar>

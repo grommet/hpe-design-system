@@ -10,7 +10,6 @@ import {
   DataFilters,
   DataSearch,
   DataSummary,
-  Grid,
   Heading,
   ResponsiveContext,
   Text,
@@ -51,6 +50,8 @@ export const FilteringCards = ({ containerRef }) => {
     // containerRef is for demonstration purposes on this site. Most
     // implementations should likely remove.
     target: containerRef && containerRef.current,
+    position: 'right',
+    full: 'vertical',
   };
 
   return (
@@ -65,12 +66,13 @@ export const FilteringCards = ({ containerRef }) => {
       <Box fill>
         <Data
           data={users}
-          updateOn="change"
+          updateOn="submit"
           height={{ min: 'medium', max: '100%' }}
+          // add properties prop for filters - see data guide
         >
           <Toolbar>
             <DataSearch />
-            <DataFilters layer>
+            <DataFilters layer={layerProps}>
               <DataFilter property="role" label="Role" />
               <DataFilter property="status" label="Status" />
               <DataFilter property="location" label="Location" />
@@ -91,55 +93,49 @@ const Users = () => {
 
   return (
     <Box flex overflow="auto">
-      <Grid
-        columns={
-          !['xsmall', 'small'].includes(size)
-            ? [['small', 'xlarge']]
-            : { count: 2, size: 'auto' }
-        }
+      <Cards
+        columns={!['xsmall', 'small'].includes(size) ? 'small' : ['auto']}
         gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
       >
-        <Cards>
-          {datum => (
-            <Card
-              key={datum.id}
-              background="background"
-              // margin ensures focus on cards is not cutoff
-              margin="xxsmall"
-              onClick={() => {
-                // eslint-disable-next-line no-alert
-                alert(`
+        {datum => (
+          <Card
+            key={datum.id}
+            background="background"
+            // margin ensures focus on cards is not cutoff
+            margin="xxsmall"
+            onClick={() => {
+              // eslint-disable-next-line no-alert
+              alert(`
                 Typically a click would route to a view with 
                 greater detail behind this summary information.
               `);
-              }}
-            >
-              <CardBody gap="xsmall" justify="between">
-                <Box flex={false}>
-                  <Box align="center" direction="row" gap="xsmall">
-                    <Box
-                      background={
-                        datum.status === 'Online' ? 'brand' : 'text-weak'
-                      }
-                      pad="xsmall"
-                      round
-                    />
-                    <Text color="text-strong">{datum.status}</Text>
-                  </Box>
-                  <Text color="text-strong" size="large" weight="bold">
-                    {datum.name}
-                  </Text>
-                  <Text color="text-strong">{datum.location}</Text>
+            }}
+          >
+            <CardBody gap="xsmall" justify="between">
+              <Box flex={false}>
+                <Box align="center" direction="row" gap="xsmall">
+                  <Box
+                    background={
+                      datum.status === 'Online' ? 'brand' : 'text-weak'
+                    }
+                    pad="xsmall"
+                    round
+                  />
+                  <Text color="text-strong">{datum.status}</Text>
                 </Box>
-                <Box>
-                  <Text size="small">Role</Text>
-                  <Text color="text-strong">{datum.role}</Text>
-                </Box>
-              </CardBody>
-            </Card>
-          )}
-        </Cards>
-      </Grid>
+                <Text color="text-strong" size="large" weight="bold">
+                  {datum.name}
+                </Text>
+                <Text color="text-strong">{datum.location}</Text>
+              </Box>
+              <Box>
+                <Text size="small">Role</Text>
+                <Text color="text-strong">{datum.role}</Text>
+              </Box>
+            </CardBody>
+          </Card>
+        )}
+      </Cards>
     </Box>
   );
 };
