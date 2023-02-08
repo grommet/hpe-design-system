@@ -1,6 +1,17 @@
-import { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Button, DataTable, ResponsiveContext, Text } from 'grommet';
+import { useContext, useState } from 'react';
+import {
+  Box,
+  Button,
+  Data,
+  DataFilter,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  DataTable,
+  ResponsiveContext,
+  Text,
+  Toolbar,
+} from 'grommet';
 import {
   StatusWarningSmall,
   StatusCriticalSmall,
@@ -9,11 +20,6 @@ import {
   Splits,
 } from 'grommet-icons';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 import serverhealth from '../../../../data/mockData/serverhealth.json';
 
 // Define which attributes should be made available for the user
@@ -41,37 +47,6 @@ const filtersConfig = [
     filterType: 'CheckBoxGroup',
   },
 ];
-
-export const FilterServers = ({
-  bestPractice = true,
-  containerRef,
-  height,
-}) => (
-  <FiltersProvider>
-    <Box gap="medium">
-      <FilterControls
-        data={serverhealth}
-        filters={filtersConfig}
-        primaryKey="id"
-        searchFilter={{ placeholder: 'Search' }}
-        configure={
-          <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
-        }
-        actions={bestPractice && <Button label="Add server" secondary />}
-        layerProps={{
-          target: containerRef?.current,
-        }}
-      />
-      <ServerResults height={height} />
-    </Box>
-  </FiltersProvider>
-);
-
-FilterServers.propTypes = {
-  bestPractice: PropTypes.bool,
-  containerRef: PropTypes.node,
-  height: PropTypes.string,
-};
 
 const columns = [
   {
@@ -105,45 +80,59 @@ const statusIcons = {
   Unknown: <StatusUnknownSmall color="status-unknown" size="small" />,
 };
 
-const ServerResults = ({ height }) => {
+export const FilterServers = () => {
   const size = useContext(ResponsiveContext);
-  const { filteredResults, selected, setSelected } = useFilters();
+  const [selected, setSelected] = useState([]);
 
   return (
-    <Box height={height} overflow="auto">
-      <DataTable
-        aria-describedby="servers-heading"
-        data={filteredResults}
-        columns={[
-          {
-            property: 'hardware.health.summary',
-            header: 'Status',
-            render: datum =>
-              datum.hardware.health.summary
-                ? statusIcons[datum.hardware.health.summary]
-                : '-',
-            align: 'center',
-            sortable: false,
-          },
-          {
-            property: 'id',
-            header: 'Name',
-            pin: ['xsmall', 'small'].includes(size),
-            primary: true,
-            render: datum => datum.displayName,
-          },
-          ...columns,
-        ]}
-        pin
-        primaryKey="id"
-        sortable
-        onSelect={nextSelected => setSelected(nextSelected)}
-        select={selected}
-      />
+    <Box fill>
+      <Data
+        updateOn="submit"
+        data={serverhealth}
+        height={{ min: 'small', max: '100%' }}
+      >
+        <Toolbar>
+          <DataSearch />
+          <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
+          <DataFilters layer>
+            {/* TODO: fill out rest of filters with potential nesting */}
+            <DataFilter property="hardware.powerState" label="Power State" />
+          </DataFilters>
+          <Box flex />
+          <Button label="Add server" secondary />
+        </Toolbar>
+        <DataSummary />
+        <Box overflow="auto">
+          <DataTable
+            aria-describedby="servers-heading"
+            columns={[
+              {
+                property: 'hardware.health.summary',
+                header: 'Status',
+                render: datum =>
+                  datum.hardware.health.summary
+                    ? statusIcons[datum.hardware.health.summary]
+                    : '-',
+                align: 'center',
+                sortable: false,
+              },
+              {
+                property: 'id',
+                header: 'Name',
+                pin: ['xsmall', 'small'].includes(size),
+                primary: true,
+                render: datum => datum.displayName,
+              },
+              ...columns,
+            ]}
+            pin
+            primaryKey="id"
+            sortable
+            onSelect={nextSelected => setSelected(nextSelected)}
+            select={selected}
+          />
+        </Box>
+      </Data>
     </Box>
   );
-};
-
-ServerResults.propTypes = {
-  height: PropTypes.string,
 };

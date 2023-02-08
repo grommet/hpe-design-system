@@ -68,7 +68,6 @@ export const FilteringCards = ({ containerRef }) => {
           data={users}
           updateOn="submit"
           height={{ min: 'medium', max: '100%' }}
-          // add properties prop for filters - see data guide
         >
           <Toolbar>
             <DataSearch />

@@ -104,7 +104,7 @@ export const FilteringLists = ({ containerRef }) => {
         >
           <Toolbar>
             <DataSearch />
-            <DataFilters layer>
+            <DataFilters layer={layerProps}>
               <DataFilter property="service" label="Service" />
               <DataFilter property="status" label="Status" />
               <DataFilter property="tenant" label="Tenant" />
