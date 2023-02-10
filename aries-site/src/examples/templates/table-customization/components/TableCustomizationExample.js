@@ -111,7 +111,7 @@ const Results = () => {
   return (
     <Data data={allData} updateOn="change" flex>
       <Toolbar>
-        <DataSearch />
+        <DataSearch responsive />
         <DataTableColumns drop options={filtersConfig} />
         <DataFilters layer />
         <Box flex />
