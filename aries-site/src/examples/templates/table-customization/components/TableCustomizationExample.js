@@ -109,7 +109,7 @@ const Results = () => {
   const [select, setSelect] = useState([]);
 
   return (
-    <Data data={allData} updateOn="change" flex>
+    <Data data={allData} updateOn="submit" flex>
       <Toolbar>
         <DataSearch responsive />
         <DataTableColumns drop options={filtersConfig} />
