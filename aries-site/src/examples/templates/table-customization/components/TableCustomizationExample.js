@@ -114,6 +114,7 @@ const Results = () => {
         <DataSearch responsive />
         <DataTableColumns drop options={filtersConfig} />
         <DataFilters layer />
+        {/* Flex box for spacing between Data components and Actions button  */}
         <Box flex />
         <Menu label="Actions" kind="toolbar" />
       </Toolbar>
