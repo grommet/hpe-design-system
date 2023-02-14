@@ -68,25 +68,18 @@ const allData = [
   },
 ];
 
-// Define which attributes are available for the user to filter upon
-const filtersConfig = [
-  { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
-  { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
-  { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
+// Define which attributes are available for the user to sort columns on
+const columnsConfig = [
+  { property: 'name', label: 'Name' },
+  { property: 'status', label: 'Status' },
+  { property: 'role', label: 'Role' },
   {
     property: 'location',
     label: 'Location',
-    filterType: 'CheckBoxGroup',
   },
   {
     property: 'hoursAvailable',
-    label: 'Remaining hours available',
-    filterType: 'RangeSelector',
-    inputProps: {
-      min: 0,
-      max: 40,
-      valueRange: '0 - 40 hours',
-    },
+    label: 'Hours available',
   },
 ];
 
@@ -112,7 +105,7 @@ const Results = () => {
     <Data data={allData} updateOn="submit" flex>
       <Toolbar>
         <DataSearch responsive />
-        <DataTableColumns drop options={filtersConfig} />
+        <DataTableColumns drop options={columnsConfig} />
         <DataFilters layer />
         {/* Flex box for spacing between Data components and Actions button  */}
         <Box flex />
