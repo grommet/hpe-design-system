@@ -26,6 +26,8 @@ export const learn = [
     sections: [],
     relatedContent: [],
     tags: [],
+  },
+  {
     name: 'Roadmap',
     available: true,
     description:
