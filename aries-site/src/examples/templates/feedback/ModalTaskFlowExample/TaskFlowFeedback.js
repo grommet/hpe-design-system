@@ -108,7 +108,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
                 }, 2500);
               }}
             />
-            <Button label="Dismiss" onClick={onClose} />
+            <Button label="No thanks" onClick={onClose} />
           </ButtonGroup>
         )}
       </Box>

@@ -3,8 +3,8 @@ import { Example } from '../../layouts';
 import { Checkmark } from 'grommet-icons';
 
 export const contact = {
-  name: 'Unified Customer Experience team',
-  email: 'designsystem-staff@hpe.com',
+  name: 'HPE GreenLake Experience Management COE',
+  email: 'doris.singer@hpe.com',
 };
 
 Feedback collected from users provides qualitative insights into users' perception of ease-of-use 
@@ -20,7 +20,7 @@ to form a well-rounded analytic picture of the customer experience.
 </Example>
 
 ## When to use
-When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>Unified Customer Experience team</a>.
+When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</a>.
 This team will work with you to construct a questionnaire aligned with your objectives and 
 [provide implementation details](#feedback-setup-and-submission) such as API credentials and endpoints for submitting 
 feedback responses.
@@ -39,7 +39,7 @@ Don’t collect feedback in the following use cases:
 - In locations where users do not have enough context to form a valid opinion. 
 - There are too many instances soliciting feedback which can [dilute feedback effectiveness](#sampling-frequency).
 
-### Sampling frequency
+### Sampling frequency for actively solicited feedback
 Avoid over sampling and/or diluting effectiveness by limiting who is asked for feedback and 
 how often. Consider implementing "rules of engagement" specifying under what conditions an 
 individual user should be solicited for feedback. Example engagement rules might be:
@@ -55,7 +55,7 @@ individual user should be solicited for feedback. Example engagement rules might
 | Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
 | ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
 | **1**  | **Title**    | Title prompting user for their feedback.                             | <Checkmark a11yTitle="true" size="small" /> | <span>Use the [semantically correct heading level](/foundation/typography?q=semantically#semantic-usage-of-heading-levels) for the title. "We'd love your feedback" is a nice, appreciative default title.</span>       |
-| **2**  | **Body**     | The body may be populated with as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> | <span>Question types can include [StarRating](https://v2.grommet.io/starrating), [ThumbsRating](https://v2.grommet.io/thumbsrating), select all that apply (e.g. checkbox group), choose one (e.g. RadioButtonGroup), open ended (e.g. TextArea), or any other input types.</span> |                                                             
+| **2**  | **Body**     | The body may be populated with as many questions as appropriate.          | <Checkmark a11yTitle="true" size="small" /> | <span>Question types can include [StarRating](https://v2.grommet.io/starrating), [ThumbsRating](https://v2.grommet.io/thumbsrating), select all that apply (e.g. [CheckBoxGroup](https://design-system.hpe.design/components/checkboxgroup)), choose one (e.g. [RadioButtonGroup]https://design-system.hpe.design/components/radiobuttongroup)), open ended (e.g. [TextArea](https://design-system.hpe.design/components/textarea)), or any other input types.</span> |                                                             
 | **3**  | **Footer **  | Contains two actions: "Submit" and "Dismiss" if used in Layer modal. Otherwise only "Submit" is needed inline. | <Checkmark color='text-strong' a11yTitle="true" size="small" /> |  Submit button sends survey responses to the HPE Customer Experience team and initiates thank you message. If presented in a modal, the Dismiss button allows the user to bypass the survey and continue their product experience. |
 
 ## Implementation
@@ -80,7 +80,7 @@ Feedback surveys are composed with Grommet Form and FormFields containing any in
 ```
 
 ### Feedback setup and submission
-To initiate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>Unified Customer Experience team</a> for the following steps:
+To initiate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</a> for the following steps:
 
 1. The customer experience team will work with you to understand your needs and create a dedicated survey for your use case. At that time, an API token, survey id, and response id will be provided.
 1. Map UI survey implementation to the survey's response schema. Use the API token, survey Id, and response Id to obtain the survey response schema with the [retrieve a survey response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response). The properties in the "values" object represent the data which should be submitted with each new survey response.
