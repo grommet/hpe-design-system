@@ -68,21 +68,6 @@ const allData = [
   },
 ];
 
-// Define which attributes are available for the user to sort columns on
-const columnsConfig = [
-  { property: 'name', label: 'Name' },
-  { property: 'status', label: 'Status' },
-  { property: 'role', label: 'Role' },
-  {
-    property: 'location',
-    label: 'Location',
-  },
-  {
-    property: 'hoursAvailable',
-    label: 'Hours available',
-  },
-];
-
 export const TableCustomizationExample = () => (
   <Page background="background" fill>
     <PageContent>
@@ -98,14 +83,37 @@ export const TableCustomizationExample = () => (
   </Page>
 );
 
+// Define data structure for DataTableColumns sorting
+const options = COLUMNS.map(({ header, property }) => ({
+  property,
+  label: header,
+}));
+
+// Define a data structure built from options mapping for Data component
+const buildProperties = () => {
+  const dict = {};
+  for (let i = 0; i < options.length; i += 1) {
+    const { label } = options[i];
+    if (options[i].property === 'hoursAvailable') {
+      dict[options[i].property] = {
+        label,
+        range: { min: 0, max: 40 },
+      };
+    } else {
+      dict[options[i].property] = { label };
+    }
+  }
+  return dict;
+};
+
 const Results = () => {
   const [select, setSelect] = useState([]);
-
+  const properties = buildProperties();
   return (
-    <Data data={allData} updateOn="submit" flex>
+    <Data data={allData} flex properties={properties}>
       <Toolbar>
         <DataSearch responsive />
-        <DataTableColumns drop options={columnsConfig} />
+        <DataTableColumns drop options={options} />
         <DataFilters layer />
         {/* Flex box for spacing between Data components and Actions button  */}
         <Box flex />
