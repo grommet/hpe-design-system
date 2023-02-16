@@ -68,28 +68,13 @@ const allData = [
   },
 ];
 
-export const TableCustomizationExample = () => (
-  <Page background="background" fill>
-    <PageContent>
-      <Box gap="medium">
-        <Header pad={{ top: 'medium' }}>
-          <Heading id="users-heading" level={2} margin="none">
-            Users
-          </Heading>
-        </Header>
-        <Results />
-      </Box>
-    </PageContent>
-  </Page>
-);
-
 // Define data structure for DataTableColumns sorting
 const options = COLUMNS.map(({ header, property }) => ({
   property,
   label: header,
 }));
 
-// Define a data structure built from options mapping for Data component
+// Use options const to define data structure for Data component properties
 const buildProperties = () => {
   const dict = {};
   for (let i = 0; i < options.length; i += 1) {
@@ -105,6 +90,21 @@ const buildProperties = () => {
   }
   return dict;
 };
+
+export const TableCustomizationExample = () => (
+  <Page background="background" fill>
+    <PageContent>
+      <Box gap="medium">
+        <Header pad={{ top: 'medium' }}>
+          <Heading id="users-heading" level={2} margin="none">
+            Users
+          </Heading>
+        </Header>
+        <Results />
+      </Box>
+    </PageContent>
+  </Page>
+);
 
 const Results = () => {
   const [select, setSelect] = useState([]);
