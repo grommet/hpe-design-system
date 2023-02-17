@@ -104,6 +104,25 @@ fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
 });
 ```
 
+### Passing non-user data
+There may be non-user data that needs to passed as a parameter in the survey response. A good example of this can 
+be found in the code below in the TaskFlowFeedback.js. For example you may want to pass the currrent url with user collect data:
+
+```
+  const router = useRouter();
+  const url = `${router.route}`;
+  // The properties within the surveyValues object will be specific to your
+  // product and instance within the product. These will be specified
+  // when working with the HPE GreenLake Experience Management COE team.
+  const surveyValues = {
+    fullURL: url,
+    QID1: undefined,
+    QID2_TEXT: '',
+  };
+
+```
+
+
 ## Examples
 
 ### Solicited feedback
