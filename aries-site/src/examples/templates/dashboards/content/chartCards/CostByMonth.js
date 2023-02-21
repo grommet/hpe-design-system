@@ -69,7 +69,7 @@ export const CostByMonth = ({ period }) => {
   // Calculate cost stats
   useEffect(() => {
     const datapoints = [];
-    if (values) {
+    if (values?.length) {
       Object.keys(values).forEach(key => {
         datapoints.push({ x: values[key].key, y: values[key].value });
       });
@@ -106,8 +106,9 @@ export const CostByMonth = ({ period }) => {
       const costNextMonth =
         m *
           dateMap.get(
-            `${nextMonth.getMonth() +
-              1}/${nextMonth.getDate()}/${nextMonth.getFullYear()}`,
+            `${
+              nextMonth.getMonth() + 1
+            }/${nextMonth.getDate()}/${nextMonth.getFullYear()}`,
           ) +
         b;
       setProjectedCost(costNextMonth.toFixed(2));
