@@ -1,16 +1,16 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Card,
   Cards,
   CardBody,
   Data,
-  DataFilter,
   DataFilters,
   DataSearch,
   DataSummary,
   Heading,
+  Page,
+  PageContent,
   ResponsiveContext,
   Text,
   Toolbar,
@@ -18,74 +18,44 @@ import {
 
 import { users } from './mockData';
 
-export const FilteringCards = ({ containerRef }) => {
-  const size = useContext(ResponsiveContext);
-
-  // Define which attributes should be made available for the user
-  // to filter upon
-  const filtersConfig = [
-    { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
-    { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
-    {
-      property: 'location',
-      label: 'Location',
-      filterType: 'CheckBoxGroup',
-    },
-    {
-      property: 'hoursAvailable',
-      label: 'Remaining hours available',
-      filterType: 'RangeSelector',
-      inputProps: {
-        min: 0,
-        max: 40,
-        valueRange: '0 - 40 hours',
-      },
-    },
-    { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
-  ];
-
-  // Customize layer properties. Any Grommet Layer props, plus Box props
-  // for the Layer's container and contents.
-  const layerProps = {
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef && containerRef.current,
-    position: 'right',
-    full: 'vertical',
-  };
-
-  return (
-    <Box
-      background="background"
-      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-      gap="medium"
-    >
-      <Heading level={2} margin="none">
-        Users
-      </Heading>
-      <Box fill>
-        <Data
-          data={users}
-          updateOn="submit"
-          height={{ min: 'medium', max: '100%' }}
-        >
-          <Toolbar>
-            <DataSearch />
-            <DataFilters layer={layerProps}>
-              <DataFilter property="role" label="Role" />
-              <DataFilter property="status" label="Status" />
-              <DataFilter property="location" label="Location" />
-              <DataFilter property="hoursAvailable" label="Hours Available" />
-              <DataFilter property="name" label="Name" />
-            </DataFilters>
-          </Toolbar>
-          <DataSummary />
-          <Users />
-        </Data>
-      </Box>
-    </Box>
-  );
+// Define Data properties
+const properties = {
+  role: { label: 'Role' },
+  status: { label: 'Status' },
+  location: { label: 'Location' },
+  hoursAvailable: {
+    label: 'Remaining hours available',
+    range: { min: 0, max: 40 },
+  },
+  name: { label: 'Name' },
 };
+
+export const FilteringCards = () => (
+  <Page fill>
+    <PageContent>
+      <Box gap="medium">
+        <Heading level={2} margin="none">
+          Users
+        </Heading>
+        <Box fill>
+          <Data
+            data={users}
+            updateOn="submit"
+            height={{ min: 'medium', max: '100%' }}
+            properties={properties}
+          >
+            <Toolbar>
+              <DataSearch />
+              <DataFilters layer />
+            </Toolbar>
+            <DataSummary />
+            <Users />
+          </Data>
+        </Box>
+      </Box>
+    </PageContent>
+  </Page>
+);
 
 const Users = () => {
   const size = useContext(ResponsiveContext);
@@ -99,7 +69,6 @@ const Users = () => {
         {datum => (
           <Card
             key={datum.id}
-            background="background"
             // margin ensures focus on cards is not cutoff
             margin="xxsmall"
             onClick={() => {
@@ -137,8 +106,4 @@ const Users = () => {
       </Cards>
     </Box>
   );
-};
-
-FilteringCards.propTypes = {
-  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };

@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Data,
-  DataFilter,
   DataFilters,
   DataSearch,
   DataSummary,
-  Header,
   Heading,
   List,
+  Page,
+  PageContent,
   ResponsiveContext,
   Text,
   Toolbar,
@@ -25,102 +24,39 @@ const statusIcons = {
   'Ready to ship': <Package />,
 };
 
-export const FilteringLists = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
+// Define Data properties
+const properties = {
+  service: { label: 'Service' },
+  status: { label: 'Status' },
+  tenant: { label: 'Tenant' },
+};
 
-  const size = useContext(ResponsiveContext);
-  const formFieldProps = {
-    width: !['xsmall', 'small'].includes(size) ? 'small' : undefined,
-  };
-  // Define which attributes should be made available for the user
-  // to filter upon
-  const filtersConfig = [
-    {
-      property: 'service',
-      label: 'Service',
-      filterType: 'CheckBoxGroup',
-      // contentProps accept any Grommet Box props to customize the filter's
-      // FormField. https://v2.grommet.io/formfield#contentProps
-      contentProps: formFieldProps,
-    },
-    {
-      property: 'status',
-      label: 'Status',
-      filterType: 'CheckBoxGroup',
-      contentProps: formFieldProps,
-    },
-    {
-      property: 'tenant',
-      label: 'Tenant',
-      filterType: 'CheckBoxGroup',
-      contentProps: formFieldProps,
-    },
-  ];
-
-  // Customize layer properties. Any Grommet Layer props, plus Box props
-  // for the Layer's container and contents.
-  const layerProps = {
-    // containerProps accept any Grommet Box props to customize the Box
-    // containing the layer's header, main content, and footer
-    containerProps: {
-      fill: false,
-      pad: {
-        horizontal: ['xsmall', 'small'].includes(size) ? undefined : 'medium',
-        vertical: 'small',
-      },
-      width: { max: 'large' },
-    },
-    // contentProps accept any Grommet Box props to customize the Box
-    // containing the FormField filters.
-    contentProps: {
-      direction: ['xsmall', 'small'].includes(size) ? 'column' : 'row',
-      gap: ['xsmall', 'small'].includes(size) ? 'xsmall' : 'medium',
-      pad: { horizontal: 'medium', bottom: 'small' },
-    },
-    full: ['xsmall', 'small'].includes(size),
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef && containerRef.current,
-    position: ['xsmall', 'small'].includes(size) ? undefined : 'center',
-  };
-
-  return (
-    <Box
-      background="background"
-      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-      gap="medium"
-    >
-      <Header gap="small">
+export const FilteringLists = () => (
+  <Page fill>
+    <PageContent>
+      <Box gap="medium">
         <Heading level={2} margin="none">
           Orders
         </Heading>
-      </Header>
-      <Box fill>
-        <Data
-          data={orders}
-          updateOn="submit"
-          height={{ min: 'medium', max: '100%' }}
-        >
-          <Toolbar>
-            <DataSearch />
-            <DataFilters layer={layerProps}>
-              <DataFilter property="service" label="Service" />
-              <DataFilter property="status" label="Status" />
-              <DataFilter property="tenant" label="Tenant" />
-            </DataFilters>
-          </Toolbar>
-          <DataSummary />
-          <Orders />
-        </Data>
+        <Box fill>
+          <Data
+            data={orders}
+            updateOn="submit"
+            height={{ min: 'medium', max: '100%' }}
+            properties={properties}
+          >
+            <Toolbar>
+              <DataSearch />
+              <DataFilters layer />
+            </Toolbar>
+            <DataSummary />
+            <Orders />
+          </Data>
+        </Box>
       </Box>
-    </Box>
-  );
-};
-
-FilteringLists.propTypes = {
-  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
+    </PageContent>
+  </Page>
+);
 
 const Orders = () => {
   const size = useContext(ResponsiveContext);

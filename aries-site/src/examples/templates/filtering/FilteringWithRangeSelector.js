@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Box,
   Data,
-  DataFilter,
   DataFilters,
   DataSearch,
   DataSummary,
   List,
   Heading,
-  ResponsiveContext,
+  Page,
+  PageContent,
   Text,
   Toolbar,
 } from 'grommet';
@@ -48,41 +48,39 @@ const allData = [
   },
 ];
 
-export const FilteringWithRangeSelector = () => {
-  const size = useContext(ResponsiveContext);
-
-  return (
-    <Box
-      background="background"
-      gap="medium"
-      margin="auto"
-      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-      fill
-    >
-      <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-        Storage
-      </Heading>
-
-      <Box fill>
-        <Data
-          data={allData}
-          updateOn="submit"
-          height={{ min: 'medium', max: '100%' }}
-        >
-          <Toolbar>
-            <DataSearch />
-            <DataFilters layer>
-              <DataFilter property="availability" label="Availability" />
-              <DataFilter property="location" label="Location" />
-            </DataFilters>
-          </Toolbar>
-          <DataSummary />
-          <Results />
-        </Data>
-      </Box>
-    </Box>
-  );
+// Define Data properties
+const properties = {
+  availability: { label: 'Availability' },
+  location: { label: 'Location' },
 };
+
+export const FilteringWithRangeSelector = () => (
+  <Page fill>
+    <PageContent>
+      <Box gap="medium">
+        <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
+          Storage
+        </Heading>
+
+        <Box fill>
+          <Data
+            data={allData}
+            updateOn="submit"
+            height={{ min: 'medium', max: '100%' }}
+            properties={properties}
+          >
+            <Toolbar>
+              <DataSearch />
+              <DataFilters layer />
+            </Toolbar>
+            <DataSummary />
+            <Results />
+          </Data>
+        </Box>
+      </Box>
+    </PageContent>
+  </Page>
+);
 
 const Results = () => (
   <Box
