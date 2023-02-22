@@ -24,7 +24,7 @@ export const learn = [
     seoDescription:
       'Build a hero section to learn about fundamental Box properties.',
     sections: [],
-    relatedContent: [],
+    relatedContent: ['Box', 'Button', 'Typography'],
     tags: [],
   },
   {
