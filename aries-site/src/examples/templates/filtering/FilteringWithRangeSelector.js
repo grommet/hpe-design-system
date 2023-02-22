@@ -65,7 +65,6 @@ export const FilteringWithRangeSelector = () => (
         <Box fill>
           <Data
             data={allData}
-            updateOn="submit"
             height={{ min: 'medium', max: '100%' }}
             properties={properties}
           >

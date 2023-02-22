@@ -40,7 +40,6 @@ export const FilteringCards = () => (
         <Box fill>
           <Data
             data={users}
-            updateOn="submit"
             height={{ min: 'medium', max: '100%' }}
             properties={properties}
           >

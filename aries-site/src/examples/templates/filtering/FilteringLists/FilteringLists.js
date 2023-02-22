@@ -41,7 +41,6 @@ export const FilteringLists = () => (
         <Box fill>
           <Data
             data={orders}
-            updateOn="submit"
             height={{ min: 'medium', max: '100%' }}
             properties={properties}
           >
