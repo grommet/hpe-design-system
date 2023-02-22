@@ -1,8 +1,12 @@
-import { Box, Image } from 'grommet';
+import { Anchor, Box, Image, Notification, Text } from 'grommet';
+import Link from 'next/link';
 
-In this tutorial you will:
+In this tutorial you will use Box to build a hero section for a page and understand how to use some of its [properties](https://v2.grommet.io/box?theme=hpe#props) to:
 
-- Leverage various Box properties to build a hero section for a page.
+- Orient the direction of your layout.
+- Control the width of its content.
+- Add a background color.
+- Affect the amount of spacing between each of its child elements.
 
 At the end of this tutorial, you will have built this:
 
@@ -12,19 +16,20 @@ At the end of this tutorial, you will have built this:
 
 ## Prerequisites
 
-This tutorial can be completed by following the steps below but introductory knowledge of [React](https://reactjs.org/docs/getting-started.html) will help ensure the details of the syntax and concepts make sense.
+This tutorial can be completed in its entirety by following the steps below. However, because Grommet is a ReactJS-based UI library, introductory knowledge of [React](https://reactjs.org/docs/getting-started.html) may be helpful in understanding the syntax.
 
 ## Getting started
 
 Let’s get started. Use this [CodeSandbox template](https://codesandbox.io/s/hpe-design-system-tutorial-starter-be7kse?file=/src/App.js) as a starter.
 
-First, add the Box to your project by importing it from Grommet and add some placeholder text like “Hello world.”
+First, in `App.js` add the Box to your project by importing it from Grommet and placing it around the “hello world” text.
 
 ```
 import { Box, Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 ...
 return (
+    // full="min" causes Grommet to fill the entire viewport
     <Grommet theme={hpe} full="min">
 	    <Box>Hello world</Box>
     </Grommet>
@@ -39,9 +44,36 @@ Now, you'll add the content within the Box. Start by importing Button, Heading, 
 import { Box, Button, Heading, Image, Text } from 'grommet';
 ```
 
-Delete the placeholder “Hello world” and add in the following content as children of the Box.
+Replace “Hello world” with the following content as children of the Box.
 
-To learn more about the properties applied to these components, check out the API docs for [Heading](https://v2.grommet.io/heading), [Text](https://v2.grommet.io/text), and [Button](https://v2.grommet.io/button).
+<Notification
+  message={
+    <Text>
+      To learn more about the properties applied to these components, check out
+      the API docs for{' '}
+      <Anchor
+        href="https://v2.grommet.io/heading"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Heading"
+      />
+      , <Anchor
+        href="https://v2.grommet.io/text"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Text"
+      />, and <Anchor
+        href="https://v2.grommet.io/button"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Button"
+      />.
+    </Text>
+  }
+  width="large"
+  margin={{ bottom: 'medium' }}
+  status="learn"
+/>
 
 ```
 ...
@@ -49,17 +81,17 @@ To learn more about the properties applied to these components, check out the AP
   <Heading margin="none">
     New HPE ProLiant Servers Engineered for your Hybrid World
   </Heading>
-  <Text size="xlarge">
+  <Paragraph size="xlarge" margin="none">
     With a cloud operating experience, built-in security, and optimized
     performance for your workloads to drive your business forward.
-  </Text>
+  </Paragraph>
   <Button label="Learn more" kind="cta-primary" />
   <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
 </Box>
 ...
 ```
 
-At this point, your project should look something like this:
+At this point, your project should look like this:
 
 <Box width="large">
   <Image src="/learnImages/box-model-part-one/step-1.png" />
@@ -67,7 +99,8 @@ At this point, your project should look something like this:
 
 ## Use direction to affect content layout
 
-Now, we’d like to adjust the layout direction of the content in the Box. To do so, apply `direction="row"` to the Box. By default, the layout direction of Box is “column”.
+Now, we’d like to adjust the layout direction of the content so that the text appears on the left and the image on the right.
+Box has a [direction](https://v2.grommet.io/box?theme=hpe#direction) which specifies whether the Box's children are displayed vertically or horizontally. By default, the layout direction of Box is “column” which renders its children vertically. To adjust the direction, add `direction="row"` to the Box.
 
 ```
 ...
@@ -76,7 +109,7 @@ Now, we’d like to adjust the layout direction of the content in the Box. To do
 ...
 ```
 
-Notice how all the content is displayed in a row because each element was a direct child of the Box we added `direction` property to. However, we would like the heading, text, and button to be grouped and displayed in a column. To do so, wrap these elements in a Box of their own.
+Notice how the content is displayed in a row from left to right. That is because each element was a direct child of the Box to which we added the `direction` property. However, we would like the heading, paragraph, and button to be grouped and displayed in a column. To do so, wrap these elements in a Box of their own.
 
 ```
 <Box direction="row">
@@ -84,17 +117,17 @@ Notice how all the content is displayed in a row because each element was a dire
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Text size="xlarge">
+    <Paragraph size="xlarge">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
-    </Text>
+    </Paragraph>
     <Button label="Learn more" kind="cta-primary" />
   </Box>
   <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
 </Box>
 ```
 
-Now, the image and the Box containing the heading, text, and button are the only two direct children of the container Box, so only those elements are displayed in a row. For any content that we wanted to display in a column, we had to group it in its own Box.
+Now, the image and the Box containing the heading, paragraph, and button are the only direct children of the container Box, so only those two elements are displayed in a row. For any content we wanted displayed in a column, we had to group it in its own Box.
 
 At this point, your project should look like this:
 
@@ -116,7 +149,9 @@ Right now, the dimensions of the image file are determining how wide it is. In o
 
 ## Adjust width to manage content dimensions
 
-In order to ensure the text content remains a more readable width across wide screens, apply `width="large"` on the Box containing the heading, text, and button. To keep the button from stretching the full width of the box, apply `alignSelf="start"` on the Button. Notice how the button is no longer spanning the entire width of the Box.
+In order to ensure the text content remains a more readable width across wide screens, apply `width="large"` on the Box containing the heading, paragraph, and button.
+
+To keep the button from stretching the full width of the box, apply `alignSelf="start"` on the Button. Notice how the button is no longer spanning the entire width of the Box.
 
 ```
 <Box direction="row">
@@ -124,10 +159,10 @@ In order to ensure the text content remains a more readable width across wide sc
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Text size="xlarge">
+    <Paragraph size="xlarge">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
-    </Text>
+    </Paragraph>
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
@@ -136,9 +171,23 @@ In order to ensure the text content remains a more readable width across wide sc
 </Box>
 ```
 
-Note: Throughout this tutorial, we’ll be using t-shirt sizes. Make sure to read the [explanation on t-shirt sizes](/foundation/tshirt-sizing) for more information on what they are and their value in Grommet.
+<Notification
+  message={
+    <Text>
+      Throughout this tutorial, we’ll be using t-shirt sizes. Make sure to read
+      the{' '}
+      <Link href="/foundation/tshirt-sizing" passHref>
+        <Anchor label="explanation on t-shirt sizes" />
+      </Link>{' '}
+      for more information on what they are and their value in Grommet.
+    </Text>
+  }
+  width="large"
+  margin={{ bottom: 'medium' }}
+  status="learn"
+/>
 
-At this point, your project should look something like this:
+At this point, your project should look like this:
 
 <Box width="large">
   <Image src="/learnImages/box-model-part-one/step-3.png" />
@@ -148,7 +197,7 @@ At this point, your project should look something like this:
 
 Now, let’s add a background color to the hero section by adding `background="background-contrast"` to the outer Box. We also want some space added between the edge of the outer Box and the content. To do so, add `pad="large"` to the outer Box.
 
-Remember that `pad` (equivalent to CSS padding) applies space _inside_ of a given container while `margin` applies space **\*\*\***outside**\*\*\*** of a given container.
+Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500} color="text-strong" size="large">inside</Text> of a given container while `margin` applies space <Text weight={500} color="text-strong" size="large">outside</Text> of a given container.
 
 ```
 <Box direction="row" background="background-contrast" pad="large">
@@ -156,10 +205,10 @@ Remember that `pad` (equivalent to CSS padding) applies space _inside_ of a give
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Text size="xlarge">
+    <Paragraph size="xlarge">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
-    </Text>
+    </Paragraph>
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
@@ -168,7 +217,7 @@ Remember that `pad` (equivalent to CSS padding) applies space _inside_ of a give
 </Box>
 ```
 
-At this point, your project should look something like this. We’re getting closer, but we’re missing the space between the various content elements.
+At this point, your project should look like this. We’re getting closer, but we’re missing spacing between the various content elements, such as the space between heading and paragraph, paragraph and CTA button, and text and image.
 
 <Box width="large">
   <Image src="/learnImages/box-model-part-one/step-3.png" />
@@ -184,10 +233,10 @@ Now, let’s add the spacing between elements. Whenever space is needed between 
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Text size="xlarge">
+    <Paragraph size="xlarge">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
-    </Text>
+    </Paragraph>
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
@@ -196,12 +245,12 @@ Now, let’s add the spacing between elements. Whenever space is needed between 
 </Box>
 ```
 
-Notice how the gap only applies between the image and the heading/text/button group but not between the heading, text, and button. That’s because `gap` will only apply space between the direct children of a Box. In this case, the direct children were:
+Notice how the gap only applies between the image and the heading/paragraph/button group but not between the heading, paragraph, and button. That’s because `gap` will only apply space between the direct children of a Box. In this case, the direct children were:
 
-1. The Box containing the Heading, Text, and Button.
+1. The Box containing the Heading, Paragraph, and Button.
 2. The Box containing the Image.
 
-Now, add space between the heading, text, and button by applying `gap="medium"` to the Box that wraps those elements.
+Now, add space between the heading, paragraph, and button by applying `gap="medium"` to the Box that wraps those elements.
 
 ```
 ...
@@ -209,10 +258,10 @@ Now, add space between the heading, text, and button by applying `gap="medium"` 
     <Heading margin="none">
         New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Text size="xlarge">
+    <Paragraph size="xlarge">
         With a cloud operating experience, built-in security, and optimized
         performance for your workloads to drive your business forward.
-    </Text>
+    </Paragraph>
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
 </Box>
 ...
