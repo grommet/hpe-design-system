@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
 import PropTypes from 'prop-types';
-import { aries } from '../../themes/aries';
+// import { aries } from '../../themes/aries';
+import { audit as aries } from '../../themes/audit';
 import { analytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
