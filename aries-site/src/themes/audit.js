@@ -5,9 +5,16 @@ const { backgrounds, colors } = hpe.global;
 const backgroundTokens = Object.keys(backgrounds);
 const colorTokens = Object.keys(colors);
 
-const isColorToken = value => {
-  console.log(colorTokens.includes(value));
-  return colorTokens.includes(value);
+const isColorToken = function (value) {
+  let result;
+  if (typeof value === 'string') {
+    result = colorTokens.includes(value);
+  } else if (typeof value === 'object' && value.color) {
+    result = isColorToken(value.color);
+  } else if (value.dark && value.light) {
+    result = isColorToken(value.dark) && isColorToken(value.light);
+  }
+  return result;
 };
 
 const isBackgroundToken = value => {
@@ -37,44 +44,44 @@ const legend = {
       resolution: ``,
     },
   },
+  box: {
+    'border design token': {
+      rule: props => props.border && isColorToken(props.border) === false,
+      highlight: `border: blue 2px dotted;`,
+      issue: `border value is not a design token color`,
+      resolution: ``,
+    },
+    'background design token': {
+      rule: props =>
+        props.background &&
+        isColorToken(props.background) === false &&
+        isBackgroundToken(props.background) === false,
+      highlight: `
+        background-color: blue;
+        border: red dotted 2px;
+      `,
+      issue: `background value is not a design token color or background`,
+      resolution: ``,
+    },
+  },
   styleProp: {
     highlight: `
-    background-color: inherit;
-    animation: pulse 2s infinite;
-
-    @keyframes pulse {
-      0% {
-        background-color: red;
-      }
-    
-      20% {
-        background-color: pink;
-      }
-    
-      50% {
-        background-color: white;
-      }
-
-      70% {
-        background-color: pink;
-      }
-    
-      100% {
-        background-color: red;
-      }
-    }
+    background-color: yellowgreen !important;
     `,
   },
 };
 
-const runAudit = props => {
+const runAudit = (component, props) => {
   const result = [];
-  Object.entries(legend.anchor).forEach(([key, value]) => {
-    if (value.rule(props)) {
-      result.push(value.highlight);
-    }
-  });
+  if (legend[component]) {
+    Object.entries(legend[component]).forEach(([key, value]) => {
+      if (value.rule(props)) {
+        result.push(value.highlight);
+      }
+    });
+  }
   if (props.style) {
+    console.log('yo');
     result.push(legend.styleProp.highlight);
   }
   return result;
@@ -82,6 +89,9 @@ const runAudit = props => {
 
 export const audit = deepMerge(hpe, {
   anchor: {
-    extend: props => runAudit(props),
+    extend: props => runAudit('anchor', props),
+  },
+  box: {
+    extend: props => runAudit('box', props),
   },
 });
