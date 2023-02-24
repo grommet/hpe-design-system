@@ -5362,9 +5362,9 @@ grommet-styles@^0.2.0:
   resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-"grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
+"grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable":
   version "0.0.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#5c35e549b5749ea6832c4b9b0d0411bb14324252"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable#0fa9fb26ee54c7921d0e0e595044162888e92914"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.29.1"

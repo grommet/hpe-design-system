@@ -6,6 +6,7 @@ const backgroundTokens = Object.keys(backgrounds);
 const colorTokens = Object.keys(colors);
 
 const isColorToken = value => {
+  console.log(colorTokens.includes(value));
   return colorTokens.includes(value);
 };
 
@@ -15,16 +16,54 @@ const isBackgroundToken = value => {
 
 const legend = {
   anchor: {
-    'has icon': {
-      rule: props => props.hasIcon,
-      highlight: `background-color: aqua;`,
-      issue: `color prop value is not a design token color`,
-      resolution: '',
+    'color value': {
+      // rule: props => props.colorProp && !isColorToken(props.colorProp),
+      rule: props => props.colorProp,
+      highlight: `background-color: aquamarine;`,
+      // issue: `color prop value is not a design token color`,
+      issue: `color value is set by prop rather than theme`,
+      resolution: ``,
     },
-    'label is not string': {
-      rule: props => typeof props.label !== 'string',
-      highlight: `background-color: aquamarine`,
+    'size override': {
+      rule: props => props.size,
+      highlight: `background-color: blanchedalmond;`,
+      issue: `size value is set by prop; instead size should be inherited from its parent`,
+      resolution: ``,
     },
+    'weight override': {
+      rule: props => props.weight,
+      highlight: `background-color: blue;`,
+      issue: `weight value is set by prop rather than theme`,
+      resolution: ``,
+    },
+  },
+  styleProp: {
+    highlight: `
+    background-color: inherit;
+    animation: pulse 2s infinite;
+
+    @keyframes pulse {
+      0% {
+        background-color: red;
+      }
+    
+      20% {
+        background-color: pink;
+      }
+    
+      50% {
+        background-color: white;
+      }
+
+      70% {
+        background-color: pink;
+      }
+    
+      100% {
+        background-color: red;
+      }
+    }
+    `,
   },
 };
 
@@ -35,6 +74,9 @@ const runAudit = props => {
       result.push(value.highlight);
     }
   });
+  if (props.style) {
+    result.push(legend.styleProp.highlight);
+  }
   return result;
 };
 
