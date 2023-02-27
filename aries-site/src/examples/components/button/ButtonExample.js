@@ -106,7 +106,6 @@ import { Filter, Edit, Add, LinkNext } from 'grommet-icons';
 export const ButtonExample = () => (
   <Box direction="row" align="start" gap="medium" pad="medium">
     <Box align="start" gap="small">
-      <Add size="large" />
       <Button label="Default (small)" size="small" />
       <Button label="Default" />
       <Button label="Default (large)" size="large" />
