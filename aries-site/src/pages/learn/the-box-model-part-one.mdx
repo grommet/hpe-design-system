@@ -10,9 +10,9 @@ In this tutorial you will use Box to build a hero section for a page and underst
 
 At the end of this tutorial, you will have built this:
 
-<Box width="large">
+<ImageContainer>
   <Image src="/learnImages/box-model-part-one/box-model-final.png" />
-</Box>
+</ImageContainer>
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ return (
 Now, you'll add the content within the Box. Start by importing Button, Heading, Image, and Text.
 
 ```
-import { Box, Button, Heading, Image, Text } from 'grommet';
+import { Box, Button, Heading, Image, Paragraph } from 'grommet';
 ```
 
 Replace “Hello world” with the following content as children of the Box.
@@ -93,9 +93,9 @@ Replace “Hello world” with the following content as children of the Box.
 
 At this point, your project should look like this:
 
-<Box width="large">
+<ImageContainer>
   <Image src="/learnImages/box-model-part-one/step-1.png" />
-</Box>
+</ImageContainer>
 
 ## Use direction to affect content layout
 
@@ -117,7 +117,7 @@ Notice how the content is displayed in a row from left to right. That is because
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Paragraph size="xlarge">
+    <Paragraph size="xlarge" margin="none">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
     </Paragraph>
@@ -131,9 +131,9 @@ Now, the image and the Box containing the heading, paragraph, and button are the
 
 At this point, your project should look like this:
 
-<Box width="large">
-  <Image src="/learnImages/box-model-part-one/step-2.png" />
-</Box>
+<ImageContainer>
+  <Image src="/learnImages/box-model-part-one/box-model-row.png" />
+</ImageContainer>
 
 ## Use Box to manage an image's width
 
@@ -159,7 +159,7 @@ To keep the button from stretching the full width of the box, apply `alignSelf="
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Paragraph size="xlarge">
+    <Paragraph size="xlarge" margin="none">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
     </Paragraph>
@@ -189,9 +189,9 @@ To keep the button from stretching the full width of the box, apply `alignSelf="
 
 At this point, your project should look like this:
 
-<Box width="large">
-  <Image src="/learnImages/box-model-part-one/step-3.png" />
-</Box>
+<ImageContainer>
+  <Image src="/learnImages/box-model-part-one/box-model-alignself.png" />
+</ImageContainer>
 
 ## Add a background color and pad
 
@@ -205,7 +205,7 @@ Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500}
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Paragraph size="xlarge">
+    <Paragraph size="xlarge" margin="none">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
     </Paragraph>
@@ -219,21 +219,21 @@ Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500}
 
 At this point, your project should look like this. We’re getting closer, but we’re missing spacing between the various content elements, such as the space between heading and paragraph, paragraph and CTA button, and text and image.
 
-<Box width="large">
+<ImageContainer>
   <Image src="/learnImages/box-model-part-one/step-3.png" />
-</Box>
+</ImageContainer>
 
 ## Use gap to add space between elements
 
 Now, let’s add the spacing between elements. Whenever space is needed between elements, use `gap` on the parent Box of those elements. To add space between the image and the grouped content, add `gap="large"` to the outer Box.
 
 ```
-<Box direction="row" background="background-contrast" pad="large">
+<Box direction="row" background="background-contrast" pad="large" gap="large">
   <Box width="large">
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Paragraph size="xlarge">
+    <Paragraph size="xlarge" margin="none">
       With a cloud operating experience, built-in security, and optimized
       performance for your workloads to drive your business forward.
     </Paragraph>
@@ -258,7 +258,7 @@ Now, add space between the heading, paragraph, and button by applying `gap="medi
     <Heading margin="none">
         New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
-    <Paragraph size="xlarge">
+    <Paragraph size="xlarge" margin="none">
         With a cloud operating experience, built-in security, and optimized
         performance for your workloads to drive your business forward.
     </Paragraph>
@@ -274,3 +274,14 @@ Great job! You have built a hero section of a page using Box and its various pro
 </Box>
 
 If you'd like to reference a completed implentation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/the-box-model-part-one-completed-xbwg9u?file=/src/App.js).
+
+export const ImageContainer = ({ ...rest }) => (
+  <Box
+    width="large"
+    round="medium"
+    overflow="auto"
+    pad="medium"
+    background="background-front"
+    {...rest}
+  />
+);
