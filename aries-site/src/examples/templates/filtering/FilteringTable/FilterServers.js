@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, DataTable, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, DataTable, ResponsiveContext, Menu, Text } from 'grommet';
 import {
   StatusWarningSmall,
   StatusCriticalSmall,
@@ -57,7 +57,7 @@ export const FilterServers = ({
         configure={
           <Button icon={<Splits />} kind="toolbar" tip="Configure columns" />
         }
-        actions={bestPractice && <Button label="Add server" secondary />}
+        actions={bestPractice && <Menu label="Actions" kind="toolbar" />}
         layerProps={{
           target: containerRef?.current,
         }}

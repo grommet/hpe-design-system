@@ -118,7 +118,7 @@ const Users = () => {
                   />
                   <Text color="text-strong">{datum.status}</Text>
                 </Box>
-                <Text color="text-strong" size="large" weight="bold">
+                <Text color="text-strong" size="large" weight={500}>
                   {datum.name}
                 </Text>
                 <Text color="text-strong">{datum.location}</Text>

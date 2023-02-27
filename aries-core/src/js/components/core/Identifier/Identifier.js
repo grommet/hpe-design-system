@@ -7,7 +7,7 @@ export const Identifier = ({ children, title, subTitle, size, ...rest }) => (
   <Box align="center" {...rest}>
     {children}
     <Box>
-      <Text size={size} weight="bold" color="text-strong">
+      <Text size={size} weight={500} color="text-strong">
         {title}
       </Text>
       <Text size={size}>{subTitle}</Text>

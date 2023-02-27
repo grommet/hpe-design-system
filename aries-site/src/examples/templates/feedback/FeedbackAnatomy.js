@@ -54,7 +54,7 @@ export const FeedbackAnatomy = () => {
 const FeedbackContent = () => (
   <>
     <Header gridArea="feedback-header" border={{ style: 'dashed' }}>
-      <Heading id="feedback-title" level={2} margin="none" size="small">
+      <Heading id="feedback-title" level={2} margin="none">
         Feedback title
       </Heading>
     </Header>

@@ -203,7 +203,7 @@ const Filters = ({
 
   const content = (
     <Box gap="small" pad="medium" width="medium">
-      <Heading as="p" color="text-strong" margin="none" size="small">
+      <Heading as="p" color="text-strong" margin="none">
         Filters
       </Heading>
       <Form>

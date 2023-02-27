@@ -26,7 +26,7 @@ export const ListOrderExample = () => {
       role="application"
     >
       <Box gap="small" width="large">
-        <Heading level={2} size="small" margin="none">
+        <Heading level={2} margin="none">
           Favorite Movies
         </Heading>
         <Box direction="row" justify="end">

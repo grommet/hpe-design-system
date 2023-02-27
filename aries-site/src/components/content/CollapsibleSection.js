@@ -25,8 +25,14 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
         pad="medium"
         round={!open ? 'small' : { corner: 'top', size: 'small' }}
       >
-        {!open ? <FormDown /> : <FormUp />}
-        <Text weight="bold">{labelText}</Text>
+        {!open ? (
+          <FormDown color="text-strong" />
+        ) : (
+          <FormUp color="text-strong" />
+        )}
+        <Text weight={500} color="text-strong">
+          {labelText}
+        </Text>
       </Box>
       <Collapsible open={open}>
         <Box

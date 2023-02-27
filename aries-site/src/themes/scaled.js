@@ -96,7 +96,7 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
   scaleAttributes.forEach(attr => {
     Object.keys(attr).forEach(key => {
       /* eslint-disable no-param-reassign */
-      if (attr[key].value) {
+      if (attr[key]?.value) {
         // eslint-disable-next-line operator-assignment
         attr[key].value = Math.ceil(attr[key].value * scale);
       } else if (typeof attr[key] === 'string' && attr[key].includes('px')) {

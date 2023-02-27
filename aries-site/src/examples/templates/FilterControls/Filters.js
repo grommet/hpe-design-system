@@ -50,6 +50,7 @@ export const Filters = () => {
               : null
           }
           icon={<Filter />}
+          // label="Filters"
           tip={
             isFiltered
               ? `Open filters, ${filterCount} filters applied`

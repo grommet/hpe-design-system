@@ -23,7 +23,7 @@ export const SectionCards = ({ items, seeAllContent }) => {
                 >
                   <Icon size="large" />
                 </Box>
-                <Text color="text-strong" weight="bold" size="xlarge">
+                <Text color="text-strong" weight={500} size="xlarge">
                   {title}
                 </Text>
               </CardBody>

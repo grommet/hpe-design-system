@@ -23,7 +23,7 @@ const SectionHeader = ({ heading }) => (
     pad={{ bottom: 'small' }}
     flex={false}
   >
-    <Heading level={2} margin="none" size="small">
+    <Heading level={2} margin="none">
       {heading}
     </Heading>
   </Box>

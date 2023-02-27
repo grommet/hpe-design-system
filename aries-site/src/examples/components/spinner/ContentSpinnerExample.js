@@ -63,7 +63,7 @@ export const ContentSpinnerExample = () => {
           />
         )}
       </Header>
-      <Heading size="small"> MLOPS139906-82-11570</Heading>
+      <Heading> MLOPS139906-82-11570</Heading>
       <Box gap="xlarge" direction="row-responsive">
         <Box direction="column">
           <Text>Status</Text>

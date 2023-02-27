@@ -55,7 +55,7 @@ export const FiltersLayer = () => {
             align="start"
             pad={{ horizontal: 'medium', bottom: 'medium' }}
           >
-            <Heading margin="none" level={2} size="small">
+            <Heading margin="none" level={2}>
               Filters
             </Heading>
             <Button icon={<FormClose />} onClick={() => closeLayer()} />

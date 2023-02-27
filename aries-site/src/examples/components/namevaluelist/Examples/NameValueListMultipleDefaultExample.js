@@ -17,7 +17,7 @@ export const NameValueListMultipleDefaultExample = () => {
   return (
     <Box gap="medium">
       <PageHeader title="Demo_Cluster_5" />
-      <Tabs activeIndex={index} onActive={onActive} justify="start">
+      <Tabs activeIndex={index} onActive={onActive}>
         <Tab title="Overview">
           <Box gap="medium">
             <>
