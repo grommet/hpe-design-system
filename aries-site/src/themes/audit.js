@@ -1,14 +1,38 @@
 import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 
+const flatten = (obj, parent) => {
+  const flattened = {};
+  Object.keys(obj).forEach(key => {
+    const value = obj[key];
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      Object.assign(flattened, flatten(value, key));
+    } else {
+      flattened[parent + key] = value;
+    }
+  });
+  return flattened;
+};
+
 const { backgrounds, colors } = hpe.global;
 const backgroundTokens = Object.keys(backgrounds);
 const colorTokens = Object.keys(colors);
+const colorValues = Object.values(flatten(colors))
+  .reduce((previous, current) => {
+    if (current && !previous.includes(current)) {
+      previous.push(current);
+    }
+    return previous;
+  }, [])
+  .sort();
 
 const isColorToken = function (value) {
   let result;
   if (typeof value === 'string') {
-    result = colorTokens.includes(value);
+    result =
+      colorTokens.includes(value) ||
+      colorValues.includes(value) ||
+      ['none', 'transparent'].includes(value);
   } else if (typeof value === 'object' && value.color) {
     result = isColorToken(value.color);
   } else if (value.dark && value.light) {
@@ -18,7 +42,8 @@ const isColorToken = function (value) {
 };
 
 const isBackgroundToken = value => {
-  return backgroundTokens.includes(value) || colorTokens.includes(value);
+  return backgroundTokens.includes(value);
+  // || colorTokens.includes(value)
 };
 
 const legend = {
@@ -52,10 +77,13 @@ const legend = {
       resolution: ``,
     },
     'background design token': {
-      rule: props =>
-        props.background &&
-        isColorToken(props.background) === false &&
-        isBackgroundToken(props.background) === false,
+      rule: props => {
+        return (
+          props.background &&
+          isColorToken(props.background) === false &&
+          isBackgroundToken(props.background) === false
+        );
+      },
       highlight: `
         background-color: blue;
         border: red dotted 2px;
@@ -80,8 +108,10 @@ const runAudit = (component, props) => {
       }
     });
   }
-  if (props.style) {
-    console.log('yo');
+  if (
+    props.style
+    // && props.as !== 'a'
+  ) {
     result.push(legend.styleProp.highlight);
   }
   return result;

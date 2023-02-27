@@ -8,13 +8,7 @@ const AuditBox = ({ ...rest }) => {
 };
 
 export const BoxExample = () => (
-  <Grid
-    columns={{ size: 'small', count: 'fit' }}
-    rows="small"
-    gap="small"
-    fill
-    border
-  >
+  <Grid columns={{ size: 'small', count: 'fit' }} rows="small" gap="small">
     <AuditBox border={{ color: 'green', size: 'medium' }}>
       <Text>border.color 'green'</Text>
     </AuditBox>
