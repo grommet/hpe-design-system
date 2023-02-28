@@ -179,14 +179,14 @@ const legend = {
     },
   },
   text: {
-    'color value': {
-      rule: props => props.colorProp,
-      highlight: `
-        background-color: ${legendColors.colorProp};
-    `,
-      issue: `Color override - color value is set by prop rather than theme.`,
-      resolution: ``,
-    },
+    // 'color value': {
+    //   rule: props => props.colorProp,
+    //   highlight: `
+    //     background-color: ${legendColors.colorProp};
+    // `,
+    //   issue: `Color override - color value is set by prop rather than theme.`,
+    //   resolution: ``,
+    // },
     'color design token': {
       rule: props => props.colorProp && !isColorToken(props.colorProp),
       highlight: `
@@ -264,7 +264,7 @@ const runAudit = (component, props, options) => {
 };
 
 const annotationOptions = {
-  issue: true,
+  issue: false,
   resolution: false,
 };
 
