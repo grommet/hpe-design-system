@@ -51,20 +51,20 @@ const legend = {
     'color value': {
       // rule: props => props.colorProp && !isColorToken(props.colorProp),
       rule: props => props.colorProp,
-      highlight: `background-color: aquamarine;`,
+      highlight: `background-color: #E6B0AA;`,
       // issue: `color prop value is not a design token color`,
       issue: `color value is set by prop rather than theme`,
       resolution: ``,
     },
     'size override': {
       rule: props => props.size,
-      highlight: `background-color: blanchedalmond;`,
+      highlight: `background-color: #CD6155;`,
       issue: `size value is set by prop; instead size should be inherited from its parent`,
       resolution: ``,
     },
     'weight override': {
       rule: props => props.weight,
-      highlight: `background-color: blue;`,
+      highlight: `background-color: #A93226;`,
       issue: `weight value is set by prop rather than theme`,
       resolution: ``,
     },
@@ -72,7 +72,7 @@ const legend = {
   box: {
     'border design token': {
       rule: props => props.border && isColorToken(props.border) === false,
-      highlight: `border: blue 2px dotted;`,
+      highlight: `border: #C39BD3 2px dotted;`,
       issue: `border value is not a design token color`,
       resolution: ``,
     },
@@ -85,8 +85,8 @@ const legend = {
         );
       },
       highlight: `
-        background-color: blue;
-        border: red dotted 2px;
+        background-color: #76448A;
+        border: #9B59B6 dotted 2px;
       `,
       issue: `background value is not a design token color or background`,
       resolution: ``,
@@ -96,7 +96,7 @@ const legend = {
     'color value': {
       rule: props => props.colorValue,
       highlight: `
-        border: violet dotted 2px;
+        border: #A9CCE3 dotted 2px;
       `,
       issue: `color value is set by prop rather than theme`,
       resolution: ``,
@@ -104,7 +104,7 @@ const legend = {
     'custom button': {
       rule: props => (!props.hasIcon && !props.hasLabel) || props.plain,
       highlight: `
-        border: blueviolet dotted 2px;
+        border: #5499C7 dotted 2px;
       `,
       issue: `button is not a button supplied by the hpe theme`,
       resolution: ``,
@@ -114,7 +114,7 @@ const legend = {
     'color value': {
       rule: props => props.colorProp,
       highlight: `
-        background-color: cadetblue;
+        background-color: #A3E4D7;
     `,
       issue: `color value is set by prop rather than theme`,
       resolution: ``,
@@ -122,7 +122,7 @@ const legend = {
     'size value': {
       rule: props => props.size && props.size !== 'medium',
       highlight: `
-        background-color: chartreuse;
+        background-color: #48C9B0;
     `,
       issue: `size value is set by prop rather than theme`,
       resolution: ``,
@@ -130,7 +130,7 @@ const legend = {
     'weight value': {
       rule: props => props.weight,
       highlight: `
-        background-color: chocolate;
+        background-color: #17A589;
     `,
       issue: `weight value is set by prop rather than theme`,
       resolution: ``,
@@ -140,7 +140,7 @@ const legend = {
     'color value': {
       rule: props => props.colorProp,
       highlight: `
-        background-color: coral;
+        background-color: #F9E79F;
     `,
       issue: `color value is set by prop rather than theme`,
       resolution: ``,
@@ -148,7 +148,7 @@ const legend = {
     'color design token': {
       rule: props => props.colorProp && !isColorToken(props.colorProp),
       highlight: `
-        background-color: crimson;
+        background-color: #F4D03F;
     `,
       issue: `color value is not a design token color`,
       resolution: ``,
@@ -156,7 +156,7 @@ const legend = {
     'size value': {
       rule: props => props.size && props.size !== 'medium',
       highlight: `
-        background-color: cornflowerblue;
+        background-color: #D4AC0D;
     `,
       issue: `size value is set by prop rather than theme`,
       resolution: ``,
@@ -164,7 +164,41 @@ const legend = {
     'weight value': {
       rule: props => props.weight,
       highlight: `
-        background-color: chocolate;
+        background-color: #9A7D0A;
+    `,
+      issue: `weight value is set by prop rather than theme`,
+      resolution: `remove weight prop and use default weight provided by the HPE theme.`,
+    },
+  },
+  text: {
+    'color value': {
+      rule: props => props.colorProp,
+      highlight: `
+        background-color: #FAD7A0;
+    `,
+      issue: `color value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'color design token': {
+      rule: props => props.colorProp && !isColorToken(props.colorProp),
+      highlight: `
+        background-color: #F5B041;
+    `,
+      issue: `color value is not a design token color`,
+      resolution: ``,
+    },
+    'size value': {
+      rule: props => props.size && props.size !== 'medium',
+      highlight: `
+        background-color: #D68910;
+    `,
+      issue: `size value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'weight value': {
+      rule: props => props.weight,
+      highlight: `
+        background-color: #9C640C;
     `,
       issue: `weight value is set by prop rather than theme`,
       resolution: `remove weight prop and use default weight provided by the HPE theme.`,
@@ -172,7 +206,7 @@ const legend = {
   },
   styleProp: {
     highlight: `
-      background-color: yellowgreen !important;
+      background-color: #D4E6F1 !important;
     `,
   },
 };
@@ -183,15 +217,16 @@ const runAudit = (component, props, options) => {
     Object.entries(legend[component]).forEach(([key, value]) => {
       if (value.rule(props)) {
         result.push(value.highlight);
-        options?.issue &&
+        options?.rule &&
           result.push(`:after { 
           display: flex;
           content: 'Issue: ${value.issue}';
           background-color: black;
+          border-radius: 0.5em;
           color: white;
           font-size: 16px;
           margin: 6px;
-          padding: 3px 6px;
+          padding: 6px 12px;
           max-width: 100%;
         }
         `);
@@ -222,5 +257,8 @@ export const audit = deepMerge(hpe, {
   },
   paragraph: {
     extend: props => runAudit('paragraph', props, { issue: false }),
+  },
+  text: {
+    extend: props => runAudit('text', props, { issue: false }),
   },
 });

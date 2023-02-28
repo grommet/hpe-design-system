@@ -3,15 +3,11 @@ import { Box, Text } from 'grommet';
 
 export const TextSizeExample = () => (
   <Box direction="column" gap="medium">
-    <Text size="6xl">Text 6xl</Text>
-    <Text size="5xl">Text 5xl</Text>
-    <Text size="4xl">Text 4xl</Text>
-    <Text size="3xl">Text 3xl</Text>
-    <Text size="xxlarge">Text xxlarge</Text>
-    <Text size="xlarge">Text xlarge</Text>
-    <Text size="large">Text large</Text>
     <Text>Text default</Text>
-    <Text size="small">Text small</Text>
-    <Text size="xsmall">Text xsmall</Text>
+    <Text color="text-strong">colorProp</Text>
+    <Text color="black">color non design token</Text>
+    <Text size="small">sizeProp</Text>
+    <Text weight="bolder">weightProp</Text>
+    <Text style={{ fontStyle: 'italic' }}>styleProp</Text>
   </Box>
 );

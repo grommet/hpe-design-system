@@ -28,5 +28,8 @@ export const ParagraphExample = () => (
     <Paragraph margin="none" weight="bolder">
       Paragraph weight
     </Paragraph>
+    <Paragraph margin="none" style={{ fontFamily: 'serif' }}>
+      Paragraph style prop
+    </Paragraph>
   </Box>
 );
