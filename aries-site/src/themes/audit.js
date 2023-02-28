@@ -92,9 +92,27 @@ const legend = {
       resolution: ``,
     },
   },
+  button: {
+    'color value': {
+      rule: props => props.colorValue,
+      highlight: `
+        border: violet dotted 2px;
+      `,
+      issue: `color value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'custom button': {
+      rule: props => (!props.hasIcon && !props.hasLabel) || props.plain,
+      highlight: `
+        border: blueviolet dotted 2px;
+      `,
+      issue: `button is not a button supplied by the hpe theme`,
+      resolution: ``,
+    },
+  },
   styleProp: {
     highlight: `
-    background-color: yellowgreen !important;
+      background-color: yellowgreen !important;
     `,
   },
 };
@@ -123,5 +141,8 @@ export const audit = deepMerge(hpe, {
   },
   box: {
     extend: props => runAudit('box', props),
+  },
+  button: {
+    extend: props => runAudit('button', props),
   },
 });
