@@ -136,6 +136,40 @@ const legend = {
       resolution: ``,
     },
   },
+  paragraph: {
+    'color value': {
+      rule: props => props.colorProp,
+      highlight: `
+        background-color: coral;
+    `,
+      issue: `color value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'color design token': {
+      rule: props => props.colorProp && !isColorToken(props.colorProp),
+      highlight: `
+        background-color: crimson;
+    `,
+      issue: `color value is not a design token color`,
+      resolution: ``,
+    },
+    'size value': {
+      rule: props => props.size && props.size !== 'medium',
+      highlight: `
+        background-color: cornflowerblue;
+    `,
+      issue: `size value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'weight value': {
+      rule: props => props.weight,
+      highlight: `
+        background-color: chocolate;
+    `,
+      issue: `weight value is set by prop rather than theme`,
+      resolution: `remove weight prop and use default weight provided by the HPE theme.`,
+    },
+  },
   styleProp: {
     highlight: `
       background-color: yellowgreen !important;
@@ -143,12 +177,24 @@ const legend = {
   },
 };
 
-const runAudit = (component, props) => {
+const runAudit = (component, props, options) => {
   const result = [];
   if (legend[component]) {
     Object.entries(legend[component]).forEach(([key, value]) => {
       if (value.rule(props)) {
         result.push(value.highlight);
+        options?.issue &&
+          result.push(`:after { 
+          display: flex;
+          content: 'Issue: ${value.issue}';
+          background-color: black;
+          color: white;
+          font-size: 16px;
+          margin: 6px;
+          padding: 3px 6px;
+          max-width: 100%;
+        }
+        `);
       }
     });
   }
@@ -173,5 +219,8 @@ export const audit = deepMerge(hpe, {
   },
   heading: {
     extend: props => runAudit('heading', props),
+  },
+  paragraph: {
+    extend: props => runAudit('paragraph', props, { issue: false }),
   },
 });
