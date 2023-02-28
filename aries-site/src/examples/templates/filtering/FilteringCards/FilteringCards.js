@@ -8,6 +8,8 @@ import {
   DataFilters,
   DataSearch,
   DataSummary,
+  Grid,
+  Header,
   Heading,
   Page,
   PageContent,
@@ -31,39 +33,38 @@ const properties = {
 };
 
 export const FilteringCards = () => (
-  <Page fill>
-    <PageContent>
-      <Box gap="medium">
+  <Page>
+    <PageContent gap="medium">
+      <Header>
         <Heading level={2} margin="none">
           Users
         </Heading>
-        <Box fill>
-          <Data
-            data={users}
-            height={{ min: 'medium', max: '100%' }}
-            properties={properties}
-          >
-            <Toolbar>
-              <DataSearch />
-              <DataFilters layer />
-            </Toolbar>
-            <DataSummary />
-            <Users />
-          </Data>
-        </Box>
-      </Box>
+      </Header>
+      <Grid
+        // Use Grid with height prop for sticky header and scrollable results
+        height={{ min: 'medium' }}
+      >
+        <Data data={users} properties={properties}>
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+          </Toolbar>
+          <DataSummary />
+          <Users />
+        </Data>
+      </Grid>
     </PageContent>
   </Page>
 );
 
 const Users = () => {
-  const size = useContext(ResponsiveContext);
+  const breakpoint = useContext(ResponsiveContext);
 
   return (
     <Box flex overflow="auto">
       <Cards
-        columns={!['xsmall', 'small'].includes(size) ? 'small' : ['auto']}
-        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
+        columns={!['xsmall', 'small'].includes(breakpoint) ? 'small' : ['auto']}
+        gap={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'small'}
       >
         {datum => (
           <Card

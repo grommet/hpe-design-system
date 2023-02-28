@@ -6,6 +6,7 @@ import {
   DataSearch,
   DataSummary,
   List,
+  Grid,
   Heading,
   Page,
   PageContent,
@@ -55,28 +56,24 @@ const properties = {
 };
 
 export const FilteringWithRangeSelector = () => (
-  <Page fill>
-    <PageContent>
-      <Box gap="medium">
+  <Page>
+    <PageContent gap="medium">
+      <Grid
+        // Use Grid with height prop for sticky header and scrollable results
+        height={{ min: 'medium' }}
+      >
         <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
           Storage
         </Heading>
-
-        <Box fill>
-          <Data
-            data={allData}
-            height={{ min: 'medium', max: '100%' }}
-            properties={properties}
-          >
-            <Toolbar>
-              <DataSearch />
-              <DataFilters layer />
-            </Toolbar>
-            <DataSummary />
-            <Results />
-          </Data>
-        </Box>
-      </Box>
+        <Data data={allData} properties={properties}>
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+          </Toolbar>
+          <DataSummary />
+          <Results />
+        </Data>
+      </Grid>
     </PageContent>
   </Page>
 );
@@ -85,7 +82,7 @@ const Results = () => (
   <Box
     pad={{ horizontal: 'xxsmall', bottom: 'medium', top: 'xxsmall' }}
     overflow="auto"
-    fill
+    flex
   >
     <List
       border="horizontal"

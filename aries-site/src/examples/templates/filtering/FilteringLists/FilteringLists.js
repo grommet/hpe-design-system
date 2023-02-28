@@ -5,6 +5,7 @@ import {
   DataFilters,
   DataSearch,
   DataSummary,
+  Grid,
   Heading,
   List,
   Page,
@@ -32,33 +33,30 @@ const properties = {
 };
 
 export const FilteringLists = () => (
-  <Page fill>
-    <PageContent>
-      <Box gap="medium">
-        <Heading level={2} margin="none">
-          Orders
-        </Heading>
-        <Box fill>
-          <Data
-            data={orders}
-            height={{ min: 'medium', max: '100%' }}
-            properties={properties}
-          >
-            <Toolbar>
-              <DataSearch />
-              <DataFilters layer />
-            </Toolbar>
-            <DataSummary />
-            <Orders />
-          </Data>
-        </Box>
-      </Box>
+  <Page>
+    <PageContent gap="medium">
+      <Heading level={2} margin="none">
+        Orders
+      </Heading>
+      <Grid
+        // Use Grid with height prop for sticky header and scrollable results
+        height={{ min: 'medium' }}
+      >
+        <Data data={orders} properties={properties}>
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+          </Toolbar>
+          <DataSummary />
+          <Orders />
+        </Data>
+      </Grid>
     </PageContent>
   </Page>
 );
 
 const Orders = () => {
-  const size = useContext(ResponsiveContext);
+  const breakpoint = useContext(ResponsiveContext);
 
   return (
     <Box
@@ -70,7 +68,7 @@ const Orders = () => {
       <List
         action={(item, index) => (
           <Box key={index} align="center" direction="row" gap="small">
-            {!['xsmall', 'small'].includes(size) && (
+            {!['xsmall', 'small'].includes(breakpoint) && (
               <Text color="text-strong">{item.status}</Text>
             )}
             {statusIcons[item.status]}
