@@ -1,4 +1,4 @@
-import { hpe, hpeWeb } from 'grommet-theme-hpe';
+import { hpe, hpeMark } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Info } from 'grommet-icons/icons/Info';
 
@@ -33,10 +33,23 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  // proposal
+  button: {
+    badge: {
+      size: {
+        medium: '18px', // 24px
+      },
+      text: {
+        size: {
+          medium: 'xsmall',
+        },
+      },
+    },
+  },
 });
 
 export const ariesWeb = deepMerge(aries, {
-  ...hpeWeb,
+  ...hpeMark,
 });
 
 export const { colors } = aries.global;

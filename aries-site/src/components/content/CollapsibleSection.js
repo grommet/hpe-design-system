@@ -15,6 +15,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
     <>
       <Box
         background="background-contrast"
+        align="center"
         direction="row"
         gap="small"
         onClick={() => {
