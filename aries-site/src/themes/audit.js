@@ -110,6 +110,32 @@ const legend = {
       resolution: ``,
     },
   },
+  heading: {
+    'color value': {
+      rule: props => props.colorProp,
+      highlight: `
+        background-color: cadetblue;
+    `,
+      issue: `color value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'size value': {
+      rule: props => props.size && props.size !== 'medium',
+      highlight: `
+        background-color: chartreuse;
+    `,
+      issue: `size value is set by prop rather than theme`,
+      resolution: ``,
+    },
+    'weight value': {
+      rule: props => props.weight,
+      highlight: `
+        background-color: chocolate;
+    `,
+      issue: `weight value is set by prop rather than theme`,
+      resolution: ``,
+    },
+  },
   styleProp: {
     highlight: `
       background-color: yellowgreen !important;
@@ -144,5 +170,8 @@ export const audit = deepMerge(hpe, {
   },
   button: {
     extend: props => runAudit('button', props),
+  },
+  heading: {
+    extend: props => runAudit('heading', props),
   },
 });
