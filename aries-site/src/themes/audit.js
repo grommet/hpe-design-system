@@ -46,6 +46,15 @@ const isBackgroundToken = value => {
   // || colorTokens.includes(value)
 };
 
+const borderValues = [
+  'top',
+  'right',
+  'bottom',
+  'left',
+  'vertical',
+  'horizontal',
+];
+
 const legendColors = {
   backgroundToken: `${colors.purple.light}40`,
   buttonToken: colors.blue.light,
@@ -79,7 +88,10 @@ const legend = {
   },
   box: {
     'border design token': {
-      rule: props => props.border && isColorToken(props.border) === false,
+      rule: props =>
+        props.border &&
+        isColorToken(props.border) === false &&
+        !borderValues.includes(props.border),
       highlight: `border: ${legendColors.colorToken} 2px dotted;`,
       issue: `Color override - border value is not a design token color.`,
       resolution: ``,
@@ -110,7 +122,14 @@ const legend = {
       resolution: ``,
     },
     'custom button': {
-      rule: props => (!props.hasIcon && !props.hasLabel) || props.plain,
+      rule: props => {
+        return (
+          (!props.hasIcon &&
+            !props.hasLabel &&
+            !props.className?.includes('Header')) ||
+          (props.plain && props.className?.includes('Header') === false)
+        );
+      },
       highlight: `
         border: ${legendColors.buttonToken} dotted 2px;
       `,
@@ -124,7 +143,7 @@ const legend = {
       highlight: `
         background-color: ${legendColors.colorProp};
     `,
-      issue: `color value is set by prop rather than theme`,
+      issue: `Heading override - color value is set by prop rather than theme.`,
       resolution: ``,
     },
     'size value': {
@@ -132,7 +151,7 @@ const legend = {
       highlight: `
         background-color: ${legendColors.sizeProp};
     `,
-      issue: `size value is set by prop rather than theme`,
+      issue: `Heading override - size value is set by prop rather than theme.`,
       resolution: ``,
     },
     'weight value': {
@@ -140,7 +159,7 @@ const legend = {
       highlight: `
         background-color: ${legendColors.weightProp};
     `,
-      issue: `weight value is set by prop rather than theme`,
+      issue: `Heading override - weight value is set by prop rather than theme.`,
       resolution: ``,
     },
   },
@@ -216,75 +235,65 @@ const legend = {
     highlight: `
       background-color: ${legendColors.styleProp} !important;
     `,
-    issue: `Inline style override - Style prop is present on the component. Inline styles override styling provided by the HPE theme.`,
+    issue: `Inline style override - Style prop is present on the component. 
+    Inline styles override styling provided by the HPE theme.`,
   },
 };
 
-const runAudit = (component, props, options) => {
+const annotation = issue => `
+  :after { 
+    display: flex;
+    content: '${issue}';
+    background-color: ${colors['background-contrast'].light};
+    border-radius: 0.5em;
+    color: ${colors['text'].light};
+    font-size: 16px;
+    margin: 6px;
+    padding: 6px 12px;
+    max-width: 100%;
+    width: fit-content;
+  }
+`;
+
+const runAudit = (component, props, options = audit.auditAnnotations) => {
   const result = [];
+  const showAnnotations = Object.hasOwn(options, 'issue')
+    ? options.issue
+    : options;
+
   if (legend[component]) {
     Object.entries(legend[component]).forEach(([key, value]) => {
       if (value.rule(props)) {
         result.push(value.highlight);
-        options?.issue &&
-          result.push(`:after { 
-          display: flex;
-          content: '${value.issue}';
-          background-color: ${colors['background-contrast'].light};
-          border-radius: 0.5em;
-          color: ${colors['text'].light};
-          font-size: 16px;
-          margin: 6px;
-          padding: 6px 12px;
-          max-width: 100%;
-          width: fit-content;
-        }
-        `);
+        showAnnotations && result.push(annotation(value.issue));
       }
     });
   }
   if (props.style && props.as !== 'a') {
     result.push(legend.styleProp.highlight);
-    options?.issue &&
-      result.push(`:after { 
-          display: flex;
-          content: '${legend.styleProp.issue}';
-          background-color: ${colors['background-contrast'].light};
-          border-radius: 0.5em;
-          color: ${colors['text'].light};
-          font-size: 16px;
-          margin: 6px;
-          padding: 6px 12px;
-          max-width: 100%;
-          width: fit-content;
-        }
-        `);
+    showAnnotations && result.push(annotation(legend.styleProp.issue));
   }
   return result;
 };
 
-const annotationOptions = {
-  issue: false,
-  resolution: false,
-};
-
 export const audit = deepMerge(hpe, {
+  auditAnnotations: true,
   anchor: {
-    extend: props => runAudit('anchor', props, annotationOptions),
+    extend: props => runAudit('anchor', props, { issue: true }),
   },
   box: {
-    extend: props => runAudit('box', props, annotationOptions),
+    extend: props => runAudit('box', props),
   },
   button: {
-    extend: props => runAudit('button', props, annotationOptions),
+    extend: props => runAudit('button', props),
   },
   heading: {
-    extend: props => runAudit('heading', props, annotationOptions),
+    extend: props => runAudit('heading', props),
   },
   paragraph: {
-    extend: props => runAudit('paragraph', props, annotationOptions),
+    extend: props => runAudit('paragraph', props),
   },
   text: {
-    extend: props => runAudit('text', props, annotationOptions),
+    extend: props => runAudit('text', props),
   },
 });
