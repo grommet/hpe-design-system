@@ -26,7 +26,7 @@ const colorValues = Object.values(flatten(colors))
   }, [])
   .sort();
 
-const isColorToken = function (value) {
+function isColorToken(value) {
   let result;
   if (typeof value === 'string') {
     result =
@@ -39,12 +39,9 @@ const isColorToken = function (value) {
     result = isColorToken(value.dark) && isColorToken(value.light);
   }
   return result;
-};
+}
 
-const isBackgroundToken = value => {
-  return backgroundTokens.includes(value);
-  // || colorTokens.includes(value)
-};
+const isBackgroundToken = value => backgroundTokens.includes(value);
 
 const borderValues = [
   'top',
@@ -97,13 +94,10 @@ const legend = {
       resolution: ``,
     },
     'background design token': {
-      rule: props => {
-        return (
-          props.background &&
-          isColorToken(props.background) === false &&
-          isBackgroundToken(props.background) === false
-        );
-      },
+      rule: props =>
+        props.background &&
+        isColorToken(props.background) === false &&
+        isBackgroundToken(props.background) === false,
       highlight: `
         background-color: ${legendColors.backgroundToken};
         border: ${legendColors.colorToken} dotted 2px;
@@ -122,14 +116,11 @@ const legend = {
       resolution: ``,
     },
     'custom button': {
-      rule: props => {
-        return (
-          (!props.hasIcon &&
-            !props.hasLabel &&
-            !props.className?.includes('Header')) ||
-          (props.plain && props.className?.includes('Header') === false)
-        );
-      },
+      rule: props =>
+        (!props.hasIcon &&
+          !props.hasLabel &&
+          !props.className?.includes('Header')) ||
+        (props.plain && props.className?.includes('Header') === false),
       highlight: `
         border: ${legendColors.buttonToken} dotted 2px;
       `,
@@ -246,7 +237,7 @@ const annotation = issue => `
     content: '${issue}';
     background-color: ${colors['background-contrast'].light};
     border-radius: 0.5em;
-    color: ${colors['text'].light};
+    color: ${colors.text.light};
     font-size: 16px;
     margin: 6px;
     padding: 6px 12px;
@@ -255,29 +246,32 @@ const annotation = issue => `
   }
 `;
 
-const runAudit = (component, props, options = audit.auditAnnotations) => {
+const runAudit = (component, props, options = true) => {
   const result = [];
   const showAnnotations = Object.hasOwn(options, 'issue')
     ? options.issue
     : options;
 
   if (legend[component]) {
-    Object.entries(legend[component]).forEach(([key, value]) => {
+    Object.entries(legend[component]).forEach(([, value]) => {
       if (value.rule(props)) {
         result.push(value.highlight);
-        showAnnotations && result.push(annotation(value.issue));
+        if (showAnnotations) {
+          result.push(annotation(value.issue));
+        }
       }
     });
   }
   if (props.style && props.as !== 'a') {
     result.push(legend.styleProp.highlight);
-    showAnnotations && result.push(annotation(legend.styleProp.issue));
+    if (showAnnotations) {
+      result.push(annotation(legend.styleProp.issue));
+    }
   }
   return result;
 };
 
 export const audit = deepMerge(hpe, {
-  auditAnnotations: true,
   anchor: {
     extend: props => runAudit('anchor', props, { issue: true }),
   },
