@@ -90,7 +90,8 @@ import { Filter, Edit, Add, LinkNext } from 'grommet-icons';
 //       </Box>
 //       <Paragraph>
 //         Here is a block of text that has an{' '}
-//         <Anchor label="anchor embedded" size="medium" /> in it. The size needs
+//         <Anchor label="anchor embedded" size="medium" />
+// in it. The size needs
 //         to be 14pt (18.667px) on light mode.
 //       </Paragraph>
 //     </Box>
@@ -153,6 +154,8 @@ export const ButtonExample = () => (
       <Button label="Primary, disabled" disabled primary />
       <Button icon={<Edit />} primary />
       <Button icon={<Add />} primary size="large" />
+      <Button icon={<Add />} primary label="Label" size="xlarge" />
+      <Button icon={<Add />} primary size="xlarge" />
     </Box>
     <Box align="start" gap="small">
       <Button

@@ -106,7 +106,7 @@ export const FilterExample = () => {
               <CheckBoxGroup options={sellers} id="sellers" name="sellers" />
             </FormField>
           )}
-          <Box direction="row-responsive" gap="medium" pad={{ top: 'medium' }}>
+          <Box direction="row-responsive" gap="small" pad={{ top: 'medium' }}>
             <Button label="Apply filters" primary />
             <Button label="Reset filters" secondary />
             <Button label="Cancel" />
