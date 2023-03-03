@@ -4,7 +4,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Text,
+  Heading,
   ThemeContext,
 } from 'grommet';
 import { useContext } from 'react';
@@ -18,9 +18,9 @@ export const ActivityFeed = ({ children, title, footer: footerContent }) => {
       <CardHeader
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'small' }}
       >
-        <Text weight="bold" size="xlarge" color="text-strong">
+        <Heading margin="none" size="small" level={2}>
           {title}
-        </Text>
+        </Heading>
       </CardHeader>
       <CardBody gap="medium" pad={{ horizontal: body.pad, vertical: 'none' }}>
         {children}
