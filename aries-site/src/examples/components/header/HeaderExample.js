@@ -42,7 +42,7 @@ export const HeaderExample = () => {
           pad={{ vertical: 'small' }}
           responsive={false}
         >
-          <Hpe color="brand" />
+          <Hpe color="brand" height="medium" />
           {(!['xsmall', 'small'].includes(size) ||
             (['xsmall', 'small'].includes(size) && !focused)) && (
             <Box direction="row" gap="xsmall" wrap>
