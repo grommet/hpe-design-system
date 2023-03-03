@@ -27,7 +27,7 @@ export const ItemCountList = ({
       <CardHeader
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
       >
-        <DashboardCardHeader title={title} menuItems={menuItems} />
+        <DashboardCardHeader title={title} level={3} menuItems={menuItems} />
       </CardHeader>
       <CardBody pad={{ horizontal: body.pad, vertical: 'small' }}>
         <Box width={{ max: 'medium' }}>

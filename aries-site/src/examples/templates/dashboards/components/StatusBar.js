@@ -18,7 +18,7 @@ export const StatusBar = ({ children, title, menuItems, ...rest }) => {
       <CardHeader
         pad={{ horizontal: header.pad, top: header.pad, bottom: 'small' }}
       >
-        <DashboardCardHeader title={title} menuItems={menuItems} />
+        <DashboardCardHeader title={title} level={3} menuItems={menuItems} />
       </CardHeader>
       <CardBody>
         <NameValueList
