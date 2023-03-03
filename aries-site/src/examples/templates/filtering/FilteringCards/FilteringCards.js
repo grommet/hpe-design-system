@@ -1,101 +1,74 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Card,
+  Cards,
   CardBody,
+  Data,
+  DataFilters,
+  DataSearch,
+  DataSummary,
   Grid,
+  Header,
   Heading,
+  Page,
+  PageContent,
   ResponsiveContext,
   Text,
+  Toolbar,
 } from 'grommet';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 import { users } from './mockData';
 
-export const FilteringCards = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
-
-  const size = useContext(ResponsiveContext);
-
-  // Define which attributes should be made available for the user
-  // to filter upon
-  const filtersConfig = [
-    { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
-    { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
-    {
-      property: 'location',
-      label: 'Location',
-      filterType: 'CheckBoxGroup',
-    },
-    {
-      property: 'hoursAvailable',
-      label: 'Remaining hours available',
-      filterType: 'RangeSelector',
-      inputProps: {
-        min: 0,
-        max: 40,
-        valueRange: '0 - 40 hours',
-      },
-    },
-    { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
-  ];
-
-  // Customize layer properties. Any Grommet Layer props, plus Box props
-  // for the Layer's container and contents.
-  const layerProps = {
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef && containerRef.current,
-  };
-
-  return (
-    <Box
-      background="background"
-      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-      gap="medium"
-    >
-      <Heading level={2} margin="none">
-        Users
-      </Heading>
-      <FiltersProvider>
-        <Box gap="medium">
-          <FilterControls
-            data={users}
-            filters={filtersConfig}
-            layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search' }}
-          />
-          <Users />
-        </Box>
-      </FiltersProvider>
-    </Box>
-  );
+// Define Data properties
+const properties = {
+  role: { label: 'Role' },
+  status: { label: 'Status' },
+  location: { label: 'Location' },
+  hoursAvailable: {
+    label: 'Remaining hours available',
+    range: { min: 0, max: 40 },
+  },
+  name: { label: 'Name' },
 };
 
+export const FilteringCards = () => (
+  <Page>
+    <PageContent gap="medium">
+      <Header>
+        <Heading level={2} margin="none">
+          Users
+        </Heading>
+      </Header>
+      <Grid
+        // Use Grid with height prop for sticky header and scrollable results
+        height={{ min: 'medium' }}
+      >
+        <Data data={users} properties={properties}>
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+          </Toolbar>
+          <DataSummary />
+          <Users />
+        </Data>
+      </Grid>
+    </PageContent>
+  </Page>
+);
+
 const Users = () => {
-  const size = useContext(ResponsiveContext);
-  const { filteredResults } = useFilters();
+  const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Box overflow="auto" fill>
-      <Grid
-        columns={
-          !['xsmall', 'small'].includes(size)
-            ? 'small'
-            : { count: 2, size: 'auto' }
-        }
-        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
+    <Box flex overflow="auto">
+      <Cards
+        columns={!['xsmall', 'small'].includes(breakpoint) ? 'small' : ['auto']}
+        gap={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'small'}
       >
-        {filteredResults.map(datum => (
+        {datum => (
           <Card
             key={datum.id}
-            background="background"
             // margin ensures focus on cards is not cutoff
             margin="xxsmall"
             onClick={() => {
@@ -129,12 +102,8 @@ const Users = () => {
               </Box>
             </CardBody>
           </Card>
-        ))}
-      </Grid>
+        )}
+      </Cards>
     </Box>
   );
-};
-
-FilteringCards.propTypes = {
-  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
