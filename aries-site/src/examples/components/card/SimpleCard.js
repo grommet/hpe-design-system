@@ -6,7 +6,7 @@ export const SimpleCard = () => (
   <Card width="medium">
     <CardBody>
       <Box direction="row" gap="small">
-        <Hpe size="large" color="plain" />
+        <Hpe size="xxlarge" color="plain" />
         <Box>
           <Text color="text-strong" size="xxlarge" weight="bold">
             HPE
