@@ -5,7 +5,7 @@ import { MoreVertical } from 'grommet-icons';
 export const DashboardCardHeader = ({ title, level, subtitle, menuItems }) => (
   <Box direction="row" align="start" justify="between" fill>
     <Box>
-      <Heading margin="none" size="small" level={level}>
+      <Heading margin="none" level={level}>
         {title}
       </Heading>
       {subtitle && <Text>{subtitle}</Text>}
