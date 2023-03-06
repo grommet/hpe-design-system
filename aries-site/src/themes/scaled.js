@@ -16,6 +16,9 @@ const undefinedThemeProperties = {
   anchor: {
     extend: '',
   },
+  button: {
+    extend: '',
+  },
 };
 
 export const scaled = (scale = 1, baseSpacing = 24) => {
@@ -36,7 +39,6 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     source.button.secondary.border,
     source.button.toolbar.border,
     source.button.option.border,
-    source.button.disabled.primary.border,
     source.button.hover.secondary.border,
     source.button.size.small.border,
     source.button.size.small.pad,
@@ -94,7 +96,7 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
   scaleAttributes.forEach(attr => {
     Object.keys(attr).forEach(key => {
       /* eslint-disable no-param-reassign */
-      if (attr[key].value) {
+      if (attr[key]?.value) {
         // eslint-disable-next-line operator-assignment
         attr[key].value = Math.ceil(attr[key].value * scale);
       } else if (typeof attr[key] === 'string' && attr[key].includes('px')) {
