@@ -40,7 +40,7 @@ export const SingleFormFieldExample = () => {
         HTML section element and this is the first heading within the 
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
-          <Heading size="small" level={2} margin="none">
+          <Heading level={2} margin="none">
             Delete Cluster
           </Heading>
         </Header>
