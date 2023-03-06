@@ -8,7 +8,7 @@ export const DashboardCard = ({ card, ...rest }) => {
     <Card background={background || 'background'} fill {...rest}>
       <CardBody gap="small" align="start" flex="grow">
         {icon}
-        <Heading margin="none" size="xsmall" level={2}>
+        <Heading margin="none" level={2}>
           {title}
         </Heading>
         <Text color={descriptionColor}>{description}</Text>
