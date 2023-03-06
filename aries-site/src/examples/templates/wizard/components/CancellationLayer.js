@@ -16,9 +16,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
     >
       <Box pad="large" gap="medium" width="large">
         <>
-          <Heading color="text-strong" margin="none">
-            Cancel
-          </Heading>
+          <Heading margin="none">Cancel</Heading>
           <Text color="text-strong">Wizard Title</Text>
         </>
         <Text>
