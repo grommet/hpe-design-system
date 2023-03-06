@@ -22,8 +22,8 @@ const ViewMore = (data, max) => {
   return (
     <Box>
       {viewMore
-        ? data.map(item => <Text>{item}</Text>)
-        : data.slice(0, max).map(item => <Text>{item}</Text>)}
+        ? data.map(item => <Text key={item}>{item}</Text>)
+        : data.slice(0, max).map(item => <Text key={item}>{item}</Text>)}
 
       {data.length > max && (
         <Button
