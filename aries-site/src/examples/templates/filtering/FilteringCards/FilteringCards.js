@@ -43,7 +43,7 @@ export const FilteringCards = () => (
       >
         <Data data={users} properties={properties}>
           <Toolbar>
-            <DataSearch />
+            <DataSearch responsive />
             <DataFilters layer />
           </Toolbar>
           <DataSummary />

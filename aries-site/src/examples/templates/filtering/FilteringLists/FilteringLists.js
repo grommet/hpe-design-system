@@ -44,7 +44,7 @@ export const FilteringLists = () => (
       >
         <Data data={orders} properties={properties}>
           <Toolbar>
-            <DataSearch />
+            <DataSearch responsive />
             <DataFilters layer />
           </Toolbar>
           <DataSummary />
