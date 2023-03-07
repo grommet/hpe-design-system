@@ -15,7 +15,7 @@ export const NameValueListSummaryExample = () => (
     <CardHeader gap="none" align="start" direction="column">
       <Text>Catalog Lifecyle Manager</Text>
       {/* adjust level according to the correct 
-      semantic level for your layout */}
+      semantic heading level for your layout */}
       <Heading margin="none" level={3}>
         Orders
       </Heading>

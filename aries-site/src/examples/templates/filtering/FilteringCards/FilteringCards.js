@@ -88,14 +88,13 @@ const Users = () => {
             }
             title={datum.name}
             subtitle={datum.location}
-            actions={
-              <Box>
-                <Text size="small">Role</Text>
-                <Text color="text-strong">{datum.role}</Text>
-              </Box>
-            }
             level={2}
-          />
+          >
+            <Box flex justify="end">
+              <Text size="small">Role</Text>
+              <Text color="text-strong">{datum.role}</Text>
+            </Box>
+          </Card>
         )}
       </Cards>
     </Box>

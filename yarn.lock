@@ -5354,7 +5354,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.30.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#a80c81a196904547356d5bf446c7ffc53f7dfdef"
+  resolved "https://github.com/grommet/grommet/tarball/stable#51c3835af0453ac0ff3ef51aba73f206f800404c"
   dependencies:
     grommet-icons "^4.8.0"
     hoist-non-react-statics "^3.2.0"

@@ -29,7 +29,7 @@ const HighlightsLayout = () => {
         const href = nameToPath(name);
         return (
           <ContentPreviewCard key={name} href={href} pad="medium">
-            <Box direction="row" gap="medium">
+            <Box direction="row" align="center" gap="medium">
               <Box width="small" round="xsmall">
                 {image && (
                   <Image
@@ -43,8 +43,8 @@ const HighlightsLayout = () => {
                   />
                 )}
               </Box>
-              <Box fill gap="xsmall">
-                <Heading level={3} margin={{ top: 'small', bottom: 'none' }}>
+              <Box gap="xsmall">
+                <Heading level={3} margin="none">
                   {name}
                 </Heading>
                 <Paragraph margin="none">{summary}</Paragraph>

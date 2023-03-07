@@ -68,7 +68,7 @@ export const DashBoardSkeletonExample = () => {
                   ) : (
                     <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
                   )}
-                  {/* adjust level according to correct semantic level 
+                  {/* adjust level according to correct semantic heading level 
                   for your layout */}
                   <Heading level={3} margin="none" size="small">
                     {item.title || ''}
