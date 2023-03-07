@@ -12,6 +12,28 @@ export const aries = deepMerge(hpe, {
     gap: 'small',
   },
   feedback: {
+    container: {
+      pad: 'medium',
+      gap: 'small',
+      width: 'medium',
+    },
+    footer: {
+      direction: 'row-reverse',
+      justify: 'end',
+      gap: 'small',
+      pad: {
+        top: 'small',
+      },
+    },
+    heading: {
+      level: 2,
+      margin: 'none',
+    },
+    header: {
+      align: 'start',
+      direction: 'row',
+      gap: 'medium',
+    },
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
         To close this layer, press Enter.`,

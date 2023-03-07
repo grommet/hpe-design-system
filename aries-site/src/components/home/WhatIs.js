@@ -64,7 +64,7 @@ export const WhatIs = ({ ...rest }) => {
         {...rest}
       >
         <Box justify="center" align="center" width="large" alignSelf="center">
-          <Heading level={2} size="large">
+          <Heading level={2} size="large" textAlign="center">
             What is the HPE Design System?
           </Heading>
           <Paragraph size="xlarge" fill textAlign="center" margin="none">
