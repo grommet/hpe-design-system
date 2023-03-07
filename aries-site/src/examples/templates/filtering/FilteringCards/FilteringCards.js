@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import {
   Box,
-  Card,
   Cards,
-  CardBody,
   Data,
   DataFilters,
   DataSearch,
@@ -17,7 +15,7 @@ import {
   Text,
   Toolbar,
 } from 'grommet';
-
+import { Card } from '../../Card';
 import { users } from './mockData';
 
 // Define Data properties
@@ -78,30 +76,26 @@ const Users = () => {
                 greater detail behind this summary information.
               `);
             }}
-          >
-            <CardBody gap="xsmall" justify="between">
-              <Box flex={false}>
-                <Box align="center" direction="row" gap="xsmall">
-                  <Box
-                    background={
-                      datum.status === 'Online' ? 'brand' : 'text-weak'
-                    }
-                    pad="xsmall"
-                    round
-                  />
-                  <Text color="text-strong">{datum.status}</Text>
-                </Box>
-                <Text color="text-strong" size="large" weight="bold">
-                  {datum.name}
-                </Text>
-                <Text color="text-strong">{datum.location}</Text>
+            icon={
+              <Box align="center" direction="row" gap="xsmall">
+                <Box
+                  background={datum.status === 'Online' ? 'brand' : 'text-weak'}
+                  pad="xsmall"
+                  round
+                />
+                <Text color="text-strong">{datum.status}</Text>
               </Box>
+            }
+            title={datum.name}
+            subtitle={datum.location}
+            actions={
               <Box>
                 <Text size="small">Role</Text>
                 <Text color="text-strong">{datum.role}</Text>
               </Box>
-            </CardBody>
-          </Card>
+            }
+            level={2}
+          />
         )}
       </Cards>
     </Box>

@@ -61,7 +61,7 @@ const ShowMore = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cardOrder} />
+      <CardGrid cards={cardOrder} headingLevel={2} />
     </PageContent>
   </Layout>
 );

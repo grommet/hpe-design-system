@@ -46,6 +46,7 @@ const Components = () => (
             cards={cards.filter(
               card => card.category === 'Layouts' && !card.parentPage,
             )}
+            headingLevel={3}
           />
         </Subsection>
         <Subsection name="Controls">
@@ -53,6 +54,7 @@ const Components = () => (
             cards={cards.filter(
               card => card.category === 'Controls' && !card.parentPage,
             )}
+            headingLevel={3}
           />
         </Subsection>
         <Subsection name="Inputs">
@@ -60,6 +62,7 @@ const Components = () => (
             cards={cards.filter(
               card => card.category === 'Inputs' && !card.parentPage,
             )}
+            headingLevel={3}
           />
         </Subsection>
         <Subsection name="Visualizations">
@@ -67,6 +70,7 @@ const Components = () => (
             cards={cards.filter(
               card => card.category === 'Visualizations' && !card.parentPage,
             )}
+            headingLevel={3}
           />
         </Subsection>
         <Subsection name="All Components">
@@ -87,7 +91,10 @@ const Components = () => (
             Keyboard, and ResponsiveContext provide tremendous utility, but may
             not require specific HPE styling or guidance.
           </SubsectionText>
-          <CardGrid cards={cards.filter(card => card.category === 'All')} />
+          <CardGrid
+            cards={cards.filter(card => card.category === 'All')}
+            headingLevel={3}
+          />
         </Subsection>
       </ContentSection>
     </PageContent>

@@ -9,7 +9,7 @@ const title = 'Learn';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Templates = () => (
+const Learn = () => (
   <Layout title={title} isLanding>
     <Meta
       title={title}
@@ -21,9 +21,9 @@ const Templates = () => (
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
-      <CardGrid cards={cards} pad={{ bottom: 'large' }} />
+      <CardGrid cards={cards} pad={{ bottom: 'large' }} headingLevel={2} />
     </PageContent>
   </Layout>
 );
 
-export default Templates;
+export default Learn;

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import {
   Button,
-  Card,
   Header,
   Box,
   Grid,
@@ -9,9 +8,9 @@ import {
   Main,
   Paragraph,
   ResponsiveContext,
-  Text,
 } from 'grommet';
 import { AppIdentity } from '../../../components/content/AppIdentity';
+import { Card } from '../../templates/Card/Card';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export const BasicLayoutCardsExample = () => {
@@ -48,8 +47,6 @@ export const BasicLayoutCardsExample = () => {
             >
               {data.map((datum, index) => (
                 <Card
-                  align="center"
-                  justify="center"
                   background="background"
                   key={index}
                   onClick={() => {
@@ -60,9 +57,9 @@ export const BasicLayoutCardsExample = () => {
             `);
                   }}
                   height="small"
-                >
-                  <Text weight="bold">Card {datum + 1}</Text>
-                </Card>
+                  title={`Card ${datum + 1}`}
+                  level={2}
+                />
               ))}
             </Grid>
           </Box>

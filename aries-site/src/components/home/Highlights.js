@@ -8,7 +8,6 @@ import {
   PageContent,
   Paragraph,
   ResponsiveContext,
-  Text,
 } from 'grommet';
 
 import Link from 'next/link';
@@ -44,16 +43,11 @@ const HighlightsLayout = () => {
                   />
                 )}
               </Box>
-              <Box fill>
-                <Text
-                  weight="bold"
-                  size="large"
-                  margin={{ top: 'small' }}
-                  color="text-strong"
-                >
+              <Box fill gap="xsmall">
+                <Heading level={3} margin={{ top: 'small', bottom: 'none' }}>
                   {name}
-                </Text>
-                <Paragraph>{summary}</Paragraph>
+                </Heading>
+                <Paragraph margin="none">{summary}</Paragraph>
               </Box>
             </Box>
           </ContentPreviewCard>

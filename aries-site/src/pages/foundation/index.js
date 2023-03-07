@@ -43,10 +43,14 @@ const Foundation = () => (
         <Subsection level={2} name="Philosophy">
           <CardGrid
             cards={cards.filter(card => card.category === 'Philosophy')}
+            headingLevel={3}
           />
         </Subsection>
         <Subsection level={2} name="Assets">
-          <CardGrid cards={cards.filter(card => card.category === 'Assets')} />
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Assets')}
+            headingLevel={3}
+          />
         </Subsection>
       </ContentSection>
     </PageContent>
