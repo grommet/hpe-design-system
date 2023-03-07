@@ -9,7 +9,6 @@ import {
   DataSearch,
   DataSummary,
   Grid,
-  Header,
   Heading,
   Page,
   PageContent,
@@ -35,11 +34,9 @@ const properties = {
 export const FilteringCards = () => (
   <Page>
     <PageContent gap="medium">
-      <Header>
-        <Heading level={2} margin="none">
-          Users
-        </Heading>
-      </Header>
+      <Heading level={2} margin="none">
+        Users
+      </Heading>
       <Grid
         // Use Grid with height prop for sticky header and scrollable results
         height={{ min: 'medium' }}
