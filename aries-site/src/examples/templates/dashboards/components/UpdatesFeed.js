@@ -13,7 +13,7 @@ export const UpdatesFeed = ({ background, children, menuItems, title }) => {
         <CardHeader
           pad={{ horizontal: header.pad, top: header.pad, bottom: 'none' }}
         >
-          <DashboardCardHeader menuItems={menuItems} title={title} />
+          <DashboardCardHeader menuItems={menuItems} level={3} title={title} />
         </CardHeader>
         <CardBody
           gap="medium"
