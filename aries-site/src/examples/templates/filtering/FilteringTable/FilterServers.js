@@ -114,7 +114,7 @@ const ServerResults = () => {
       <DataTable
         aria-describedby="servers-heading"
         columns={[
-          // Add id column that uses breakpoint const
+          // Pin id column on mobile
           {
             property: 'id',
             header: 'Name',
