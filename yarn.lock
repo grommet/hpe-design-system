@@ -4145,9 +4145,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.3.723, electron-to-chromium@^1.4.284:
-  version "1.4.327"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.327.tgz#288b106518cfed0a60f7de8a0480432a9be45477"
-  integrity sha512-DIk2H4g/3ZhjgiABJjVdQvUdMlSABOsjeCm6gmUzIdKxAuFrGiJ8QXMm3i09grZdDBMC/d8MELMrdwYRC0+YHg==
+  version "1.4.328"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.328.tgz#b4565ffa502542b561cea16086d6d9b916c7095a"
+  integrity sha512-DE9tTy2PNmy1v55AZAO542ui+MLC2cvINMK4P2LXGsJdput/ThVG9t+QGecPuAZZSgC8XoI+Jh9M1OG9IoNSCw==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9568,11 +9568,6 @@ testcafe-safe-storage@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/testcafe-safe-storage/-/testcafe-safe-storage-1.1.3.tgz#739277455b23fee89231cbec5e6a2660585820cb"
   integrity sha512-i7m58FITilAGxBMtlB/8onmsLZTfGBv0gTKth1QNjUYSSKokq4uS3dVHGF5SlNakOkrK1BXT24ZoiS+QmaERIA==
-
-testcafe-selector-generator@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/testcafe-selector-generator/-/testcafe-selector-generator-0.1.0.tgz#852c86f71565e5d9320da625c2260d040cbed786"
-  integrity sha512-MTw+RigHsEYmFgzUFNErDxui1nTYUk6nm2bmfacQiKPdhJ9AHW/wue4J/l44mhN8x3E8NgOUkHHOI+1TDFXiLQ==
 
 testcafe-selector-generator@^0.1.0:
   version "0.1.0"
