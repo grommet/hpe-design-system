@@ -18,7 +18,7 @@ export const ActivitiesNavigationalCards = ({ heading = true }) => {
   return (
     <Box gap="medium">
       {heading && (
-        <Heading level={2} size="small" margin="none">
+        <Heading level={2} margin="none">
           Activities & Tasks
         </Heading>
       )}
