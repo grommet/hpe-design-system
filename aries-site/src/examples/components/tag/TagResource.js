@@ -23,14 +23,17 @@ const SectionHeader = ({ heading }) => (
     pad={{ bottom: 'small' }}
     flex={false}
   >
-    <Heading level={2} margin="none" size="small">
+    <Heading level={2} margin="none">
       {heading}
     </Heading>
   </Box>
 );
 
 const SectionDetails = ({ data }) => (
-  <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
+  <NameValueList
+    nameProps={{ width: ['xxsmall', 'xsmall'] }}
+    valueProps={{ width: ['auto', 'medium'] }}
+  >
     {Object.entries(data).map(([name, value]) => (
       <NameValuePair key={name} name={value.displayName}>
         {value.value}
