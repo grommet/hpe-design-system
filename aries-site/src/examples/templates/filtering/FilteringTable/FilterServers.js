@@ -36,7 +36,7 @@ const columns = [
     render: datum =>
       datum.hardware.health.summary
         ? statusIcons[datum.hardware.health.summary]
-        : '-',
+        : '--',
     align: 'center',
     sortable: false,
   },
@@ -95,7 +95,7 @@ export const FilterServers = () => (
         <DataSearch responsive />
         <DataTableColumns drop tip="Configure columns" options={options} />
         <DataFilters layer />
-        {/* Flex Box added for padding between Button */}
+        {/* Flex Box added for spacing between Button */}
         <Box flex />
         <Button secondary label="Add server" />
       </Toolbar>

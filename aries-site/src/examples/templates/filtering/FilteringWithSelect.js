@@ -7,7 +7,6 @@ import {
   DataView,
   Grid,
   List,
-  Header,
   Heading,
   Menu,
   Page,
@@ -31,11 +30,9 @@ const allData = [
 export const FilteringWithSelect = () => (
   <Page>
     <PageContent gap="medium">
-      <Header>
-        <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-          Hosts
-        </Heading>
-      </Header>
+      <Heading level={2} margin="none">
+        Hosts
+      </Heading>
       <Grid height={{ min: 'medium' }}>
         <Data
           data={allData}
