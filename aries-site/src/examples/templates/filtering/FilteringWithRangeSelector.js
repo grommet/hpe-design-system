@@ -58,16 +58,16 @@ const properties = {
 export const FilteringWithRangeSelector = () => (
   <Page>
     <PageContent gap="medium">
+      <Heading level={2} margin="none">
+        Storage
+      </Heading>
       <Grid
         // Use Grid with height prop for sticky header and scrollable results
         height={{ min: 'medium' }}
       >
-        <Heading level={2} margin={{ bottom: 'small', top: 'none' }}>
-          Storage
-        </Heading>
         <Data data={allData} properties={properties}>
           <Toolbar>
-            <DataSearch />
+            <DataSearch responsive />
             <DataFilters layer />
           </Toolbar>
           <DataSummary />
