@@ -39,7 +39,7 @@ const Templates = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cards} pad={{ bottom: 'large' }} />
+      <CardGrid cards={cards} pad={{ bottom: 'large' }} headingLevel={2} />
     </PageContent>
   </Layout>
 );

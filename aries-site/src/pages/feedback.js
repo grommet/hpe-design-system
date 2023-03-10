@@ -17,12 +17,12 @@ const Feedback = () => (
     />
     <Page>
       <PageContent gap="medium">
-        <Subsection name="Have feedback to share?" level={2}>
+        <Subsection name="Have feedback to share?" level={1}>
           <SubsectionText>
             Get in touch to help make the HPE Design System better.
           </SubsectionText>
         </Subsection>
-        <FeedbackOptions />
+        <FeedbackOptions level={2} />
       </PageContent>
     </Page>
   </Layout>
