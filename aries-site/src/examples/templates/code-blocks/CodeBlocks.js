@@ -39,6 +39,7 @@ export const CardExample = () => (
         title="Network Traffic"
         subtitle="Bandwidth Utilization - Last 30 Days"
         icon={<Wifi size="large" color="text-strong" />}
+        level={2}
       />
       <Box margin={{ top: 'medium' }}>
         <KPIChart id="metric-0" data={mockData} />

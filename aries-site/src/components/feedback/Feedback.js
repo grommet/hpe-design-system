@@ -59,8 +59,8 @@ export const Feedback = ({
   if (!successfulSubmit) {
     footerContent = (
       <Box {...theme?.feedback?.footer}>
-        <Button onClick={onClose} label={messages?.cancel || 'Cancel'} />
         <Button label={messages?.submit || 'Submit'} primary type="submit" />
+        <Button onClick={onClose} label={messages?.cancel || 'Cancel'} />
       </Box>
     );
   } else

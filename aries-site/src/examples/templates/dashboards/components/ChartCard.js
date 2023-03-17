@@ -31,7 +31,7 @@ export const ChartCard = ({
             : { horizontal: header.pad, top: header.pad, bottom: 'small' }
         }
       >
-        <DashboardCardHeader title={title} subtitle={subtitle} />
+        <DashboardCardHeader title={title} level={2} subtitle={subtitle} />
       </CardHeader>
       <CardBody
         pad={

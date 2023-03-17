@@ -33,7 +33,7 @@ export const PageHeaderContentRegions = ({ background, pad, ...rest }) => {
           border={{ style: 'dashed' }}
           round="xxsmall"
         >
-          <Heading margin="none">L2Pod-FTC02 Device</Heading>
+          <Heading margin="none">L2Pod-FTC02</Heading>
         </Box>
         <Box
           id="subtitle-region"

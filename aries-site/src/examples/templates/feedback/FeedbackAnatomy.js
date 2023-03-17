@@ -74,8 +74,8 @@ const FeedbackContent = () => (
       border={{ style: 'dashed' }}
     >
       <ButtonGroup>
-        <Button label="Submit" primary />
-        <Button label="Dismiss" />
+        <Button label="Submit feedback" primary />
+        <Button label="No thanks" />
       </ButtonGroup>
     </Box>
   </>

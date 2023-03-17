@@ -55,7 +55,8 @@ export const DashBoardSkeletonExample = () => {
                   align="start"
                   pad={adjustPad('column', 'header', theme)}
                 >
-                  {/* when using icon need to create a box to simulate skeleton behavior */}
+                  {/* when using icon need to create a box to 
+                  simulate skeleton behavior */}
                   {!item.icon ? (
                     <Box
                       width="24px" // size of icon
@@ -67,7 +68,9 @@ export const DashBoardSkeletonExample = () => {
                   ) : (
                     <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
                   )}
-                  <Heading level={3} margin="none">
+                  {/* adjust level according to correct semantic heading level 
+                  for your layout */}
+                  <Heading level={3} margin="none" size="small">
                     {item.title || ''}
                   </Heading>
                 </CardHeader>

@@ -1,4 +1,4 @@
-import { hpe, hpeMark } from 'grommet-theme-hpe';
+import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Info } from 'grommet-icons/icons/Info';
 
@@ -32,7 +32,8 @@ export const aries = deepMerge(hpe, {
     header: {
       align: 'start',
       direction: 'row',
-      gap: 'medium',
+      justify: 'start',
+      gap: 'xsmall',
     },
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
@@ -55,10 +56,18 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
+  button: {
+    badge: {
+      align: 'container',
+      container: {
+        background: 'status-unknown',
+      },
+    },
+  },
 });
 
 export const ariesWeb = deepMerge(aries, {
-  ...hpeMark,
+  ...hpePop,
 });
 
 export const { colors } = aries.global;

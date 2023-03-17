@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { Box, Menu, Text } from 'grommet';
+import { Box, Heading, Menu, Text } from 'grommet';
 import { MoreVertical } from 'grommet-icons';
 
-export const DashboardCardHeader = ({ title, subtitle, menuItems }) => (
+export const DashboardCardHeader = ({ title, level, subtitle, menuItems }) => (
   <Box direction="row" align="start" justify="between" fill>
     <Box>
-      <Text size="xlarge" color="text-strong" weight="bold">
+      <Heading margin="none" level={level}>
         {title}
-      </Text>
+      </Heading>
       {subtitle && <Text>{subtitle}</Text>}
     </Box>
     {menuItems && (

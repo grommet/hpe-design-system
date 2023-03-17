@@ -34,9 +34,9 @@ const DesignSystemCard = ({
 
   return (
     <Box as={as}>
-      <Card direction={direction} as="section" {...rest}>
+      <Card direction={direction} as="section" fill="vertical" {...rest}>
         {media}
-        <Box>
+        <Box flex>
           <CardHeader
             direction="column"
             gap="none"
@@ -69,14 +69,17 @@ const DesignSystemCard = ({
           </CardHeader>
           <CardBody align="start" pad={adjustPad(direction, 'body', theme)}>
             <Paragraph margin="none">{description}</Paragraph>
+            {children}
           </CardBody>
         </Box>
-        <CardFooter
-          align={alignActions || 'start'}
-          pad={adjustPad(direction, 'footer', theme)}
-        >
-          <Box flex={false}>{actions}</Box>
-        </CardFooter>
+        {actions ? (
+          <CardFooter
+            align={alignActions || 'start'}
+            pad={adjustPad(direction, 'footer', theme)}
+          >
+            <Box flex={false}>{actions}</Box>
+          </CardFooter>
+        ) : null}
       </Card>
     </Box>
   );

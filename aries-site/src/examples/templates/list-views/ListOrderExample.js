@@ -27,15 +27,14 @@ export const ListOrderExample = () => {
     >
       <Box gap="small" width="large">
         <Heading level={2} margin="none">
-          Favorite Movies
+          Favorite movies
         </Heading>
-        <Box direction="row" justify="end">
-          <Button
-            label={allowReorder ? 'Done' : 'Reorder items'}
-            primary
-            onClick={() => setAllowReorder(!allowReorder)}
-          />
-        </Box>
+        <Button
+          label={allowReorder ? 'Done' : 'Reorder items'}
+          primary
+          alignSelf="end"
+          onClick={() => setAllowReorder(!allowReorder)}
+        />
         <List
           defaultItemProps={{
             align: 'start',

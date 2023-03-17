@@ -3,22 +3,22 @@ import { Box, Heading } from 'grommet';
 
 export const HeadingSizingExample = () => (
   <Box gap="large">
-    <Box gap="small">
-      <Heading level={1} size="medium" margin="none">
+    <Box gap="medium">
+      <Heading level={1} margin="none">
         h1 default
       </Heading>
-      <Heading level={2} size="medium" margin="none">
+      <Heading level={2} margin="none">
         h2 default
       </Heading>
-      <Heading level={3} size="medium" margin="none">
+      <Heading level={3} margin="none">
         h3 default
       </Heading>
-      <Heading level={4} size="medium" margin="none">
+      <Heading level={4} margin="none">
         h4 default
       </Heading>
     </Box>
-    <Box gap="small">
-      <Heading level={1} size="xlarge" margin="none">
+    <Box gap="medium">
+      <Heading level={1} margin="none">
         h1 xlarge
       </Heading>
       <Heading level={2} size="xlarge" margin="none">
@@ -31,7 +31,7 @@ export const HeadingSizingExample = () => (
         h4 xlarge
       </Heading>
     </Box>
-    <Box gap="small">
+    <Box gap="medium">
       <Heading level={1} size="large" margin="none">
         h1 large
       </Heading>
@@ -45,7 +45,7 @@ export const HeadingSizingExample = () => (
         h4 large
       </Heading>
     </Box>
-    <Box gap="small">
+    <Box gap="medium">
       <Heading level={1} size="small" margin="none">
         h1 small
       </Heading>

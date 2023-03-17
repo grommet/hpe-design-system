@@ -165,7 +165,9 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
     >
       <Box gap="large" pad="large">
         <Header fill="horizontal" pad={{ left: 'medium' }}>
-          <Heading margin="none">App Filters</Heading>
+          <Heading level={2} margin="none">
+            App filters
+          </Heading>
           <Button
             icon={<Close />}
             tip="Close filters"

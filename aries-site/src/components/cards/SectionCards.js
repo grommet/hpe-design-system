@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Button, CardBody, Grid, Text } from 'grommet';
+import { Box, Button, CardBody, Heading, Grid } from 'grommet';
 import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
-export const SectionCards = ({ items, seeAllContent }) => {
+export const SectionCards = ({ items, headingLevel, seeAllContent }) => {
   const { buttonLabel, href } = seeAllContent;
 
   return (
@@ -23,9 +23,9 @@ export const SectionCards = ({ items, seeAllContent }) => {
                 >
                   <Icon size="large" />
                 </Box>
-                <Text color="text-strong" weight={500} size="xlarge">
+                <Heading level={headingLevel} margin="none">
                   {title}
-                </Text>
+                </Heading>
               </CardBody>
             </LinkCard>
           );
@@ -45,6 +45,7 @@ export const SectionCards = ({ items, seeAllContent }) => {
 };
 SectionCards.propTypes = {
   items: PropTypes.array,
+  headingLevel: PropTypes.number,
   seeAllContent: PropTypes.oneOfType([
     PropTypes.shape({
       buttonLabel: PropTypes.string,

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Heading, Header, Text } from 'grommet';
+import { Box, Button, Heading, Header, Paragraph } from 'grommet';
+import { ButtonGroup } from '../../../templates/ButtonGroup';
 
 export const ButtonBadCancelPreview = () => (
   <Box width="large" gap="medium" pad="small">
@@ -12,14 +13,14 @@ export const ButtonBadCancelPreview = () => (
       <Heading level={2} margin="none">
         Delete item?
       </Heading>
-      <Text>
+      <Paragraph>
         Deleting this role assignment will revoke access to the underlying
         resources.
-      </Text>
+      </Paragraph>
     </Header>
-    <Box direction="row" justify="end" gap="small">
+    <ButtonGroup alignSelf="end">
       <Button secondary label="Cancel" onClick={() => {}} />
       <Button primary label="Delete role assignment" onClick={() => {}} />
-    </Box>
+    </ButtonGroup>
   </Box>
 );

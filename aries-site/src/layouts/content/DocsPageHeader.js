@@ -12,11 +12,7 @@ export const DocsPageHeader = ({ title, topic, render }) => {
 
   return (
     <PageHeader
-      title={
-        <Heading size="medium" margin="none" fill>
-          {render || title}
-        </Heading>
-      }
+      title={render || title}
       parent={
         page.parentPage ? (
           <Link href={nameToPath(page.parentPage)} passHref>

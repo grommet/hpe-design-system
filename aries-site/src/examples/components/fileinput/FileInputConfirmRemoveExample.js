@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, FileInput, Heading, Layer, Text } from 'grommet';
+import { Box, Button, FileInput, Heading, Layer, Paragraph } from 'grommet';
 import { ButtonGroup } from '../../templates/ButtonGroup';
 
 export const FileInputConfirmRemoveExample = () => {
@@ -20,9 +20,11 @@ export const FileInputConfirmRemoveExample = () => {
                 <Heading level={2} margin="none">
                   Remove file?
                 </Heading>
-                <Text>This action cannot be undone.</Text>
+                <Paragraph margin="none">
+                  This action cannot be undone.
+                </Paragraph>
               </Box>
-              <ButtonGroup>
+              <ButtonGroup alignSelf="end">
                 <Button label="Cancel" onClick={onCancel} />
                 <Button label="Remove file" onClick={onConfirm} primary />
               </ButtonGroup>

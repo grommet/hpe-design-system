@@ -3,13 +3,15 @@ import {
   Box,
   Button,
   Header,
-  Heading,
   Menu,
   Tab,
   Tabs,
   Text,
   Spinner,
   ResponsiveContext,
+  NameValueList,
+  NameValuePair,
+  PageHeader,
 } from 'grommet';
 import {
   Hpe,
@@ -63,21 +65,20 @@ export const ContentSpinnerExample = () => {
           />
         )}
       </Header>
-      <Heading> MLOPS139906-82-11570</Heading>
-      <Box gap="xlarge" direction="row-responsive">
-        <Box direction="column">
-          <Text>Status</Text>
-          <Text>Appliance</Text>
-          <Text>Started on</Text>
-          <Text>Last updated</Text>
-        </Box>
-        <Box direction="column">
-          <Text>Active</Text>
-          <Text>MLOPS on HPE container Platform</Text>
-          <Text>2020-11-22 04:05:31.0</Text>
-          <Text>2020-11-22 04:05:31.0</Text>
-        </Box>
-      </Box>
+      <PageHeader title="MLOPS139906-82-11570" />
+      <NameValueList
+        nameProps={{
+          width: ['xxsmall', 'small'],
+        }}
+      >
+        <NameValuePair name="Status">Active</NameValuePair>
+        <NameValuePair name="Appliance">
+          MLOPS on HPE container Platform
+        </NameValuePair>
+        <NameValuePair name="Started on">2020-11-22 04:05:31.0</NameValuePair>
+        <NameValuePair name="Last updated">2020-11-22 04:05:31.0</NameValuePair>
+      </NameValueList>
+
       <Tabs
         margin={{ vertical: 'large' }}
         activeIndex={index}

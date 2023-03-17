@@ -109,10 +109,13 @@ export const ButtonExample = () => (
     <Box align="start" gap="small">
       <Button label="Default (small)" size="small" />
       <Button label="Default" />
+      <Button label="Default" badge={7} />
       <Button label="Default (large)" size="large" />
       <Button label="Default, active" active />
       <Button label="Default, disabled" disabled />
       <Button icon={<Edit />} />
+      <Button icon={<Edit />} badge />
+      <Button icon={<Edit />} badge={10} />
       <Button icon={<Add />} size="large" />
     </Box>
     <Box align="start" gap="small">
@@ -191,6 +194,7 @@ export const ButtonExample = () => (
       <Button label="Toolbar, active" active kind="toolbar" />
       <Button label="Toolbar, disabled" disabled kind="toolbar" />
       <Button icon={<Filter />} kind="toolbar" />
+      <Button icon={<Filter />} kind="toolbar" badge={3} />
     </Box>
   </Box>
 );
