@@ -34,7 +34,7 @@ export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {
           )}
         </Box>
         <Box>
-          <Text color="text-strong" weight="bold" id={titleId}>
+          <Text color="text-strong" weight={500} id={titleId}>
             {wizardTitle}
           </Text>
         </Box>

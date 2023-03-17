@@ -5330,14 +5330,7 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.10.0.tgz#a56bc083f7d52502a12871c031a6746c61164cce"
-  integrity sha512-f3Re6jFRh93n2Cn2hyrJUANG7wOsv3wlEuyW/A1kIYzamDWnNfoZLgDQZXbAmMUMb1NdN7OU/0JrINxTCUOAEA==
-  dependencies:
-    grommet-styles "^0.2.0"
-
-"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.10.0, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.10.0"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#befe804251ece7f90a39851e80d348be743e6115"
   dependencies:
@@ -5354,7 +5347,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.30.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#700bd14b94f4435afecf4a3e9805d76d1ceb4445"
+  resolved "https://github.com/grommet/grommet/tarball/stable#090b268d6d89cce5db226f2584e30396fdfa75a4"
   dependencies:
     grommet-icons "^4.10.0"
     hoist-non-react-statics "^3.2.0"
