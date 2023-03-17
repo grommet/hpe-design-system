@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, PageContent, Paragraph, Stack, Text } from 'grommet';
+import { Box, Grid, Heading, PageContent, Paragraph, Stack } from 'grommet';
 import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
@@ -12,18 +12,14 @@ const FeaturedLayout = ({ ...rest }) => (
         <ContentPreviewCard
           key={name}
           href={url || nameToPath(name)}
-          pad="medium">
+          pad="medium"
+        >
           <Box width="100%" round="xsmall">
             {icon}
           </Box>
-          <Text
-            weight="bold"
-            size="xlarge"
-            color="text-strong"
-            margin={{ top: 'small' }}
-          >
+          <Heading level={2} margin={{ top: 'small', bottom: 'none' }}>
             {name}
-          </Text>
+          </Heading>
           <Paragraph size="small">{description}</Paragraph>
         </ContentPreviewCard>
       ))}

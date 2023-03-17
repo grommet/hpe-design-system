@@ -101,7 +101,7 @@ const Content = () => {
         {['xsmall', 'small'].includes(size) && <RecentActivity />}
         <Box gap="large">
           <Box gap="small">
-            <Heading level={2} size="small" margin="none">
+            <Heading level={2} margin="none">
               Servers
             </Heading>
             <Grid
@@ -113,7 +113,7 @@ const Content = () => {
             </Grid>
           </Box>
           <Box gap="small">
-            <Heading level={2} size="small" margin="none">
+            <Heading level={2} margin="none">
               Firmware
             </Heading>
             <Grid
