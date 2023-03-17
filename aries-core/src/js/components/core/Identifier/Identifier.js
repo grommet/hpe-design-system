@@ -1,15 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Text } from 'grommet';
+import { Box, Heading, Text } from 'grommet';
 
-export const Identifier = ({ children, title, subTitle, size, ...rest }) => (
+export const Identifier = ({
+  children,
+  level,
+  title,
+  subTitle,
+  size,
+  ...rest
+}) => (
   <Box align="center" {...rest}>
     {children}
     <Box>
-      <Text size={size} weight="bold" color="text-strong">
-        {title}
-      </Text>
+      {level ? (
+        <Heading level={level} margin="none">
+          {title}
+        </Heading>
+      ) : (
+        <Text size={size} weight="bold" color="text-strong">
+          {title}
+        </Text>
+      )}
       <Text size={size}>{subTitle}</Text>
     </Box>
   </Box>
@@ -17,6 +30,7 @@ export const Identifier = ({ children, title, subTitle, size, ...rest }) => (
 
 Identifier.propTypes = {
   children: PropTypes.node,
+  level: PropTypes.number,
   title: PropTypes.string,
   size: PropTypes.string,
   subTitle: PropTypes.string,
@@ -24,6 +38,7 @@ Identifier.propTypes = {
 
 Identifier.defaultProps = {
   children: undefined,
+  level: undefined,
   size: 'medium',
   subTitle: undefined,
   title: undefined,

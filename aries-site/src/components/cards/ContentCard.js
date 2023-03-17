@@ -6,66 +6,69 @@ import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
 
-export const ContentCard = forwardRef(({ topic, minimal, ...rest }, ref) => {
-  const { description, name, parent, preview, render } = topic;
-  const darkMode = useDarkMode();
-  return (
-    <LinkCard fill pad="medium" ref={ref} {...rest}>
-      <CardBody gap="large">
-        {!minimal && (
-          <PreviewImageCard
-            pad={preview?.pad || 'none'}
-            background={preview?.background}
-          >
-            {preview &&
-              (preview.image && preview.image.src ? (
-                <Image
-                  src={
-                    darkMode.value
-                      ? preview.image.src.dark || preview.image.src
-                      : preview.image.src.light || preview.image.src
-                  }
-                  alt={preview.image.alt}
-                  fit={preview.image.fit || 'cover'}
-                />
-              ) : (
-                preview.component && (
-                  <Box
-                    style={{ pointerEvents: 'none' }}
-                    flex
-                    justify={preview.justify || 'center'}
-                    align="center"
-                  >
-                    {preview.component()}
-                  </Box>
-                )
-              ))}
-          </PreviewImageCard>
-        )}
-        <Box gap="small">
-          <Identifier
-            title={render || name}
-            align="start"
-            gap="xsmall"
-            size="xxlarge"
-          >
-            {parent && parent.icon && !minimal && (
-              <Box direction="row" align="center" gap="xsmall">
-                {parent.icon('small', parent.color)}
-                <Text>{parent.name}</Text>
-              </Box>
-            )}
-          </Identifier>
-          {description && <Text size="small">{description}</Text>}
-        </Box>
-      </CardBody>
-    </LinkCard>
-  );
-});
+export const ContentCard = forwardRef(
+  ({ level, topic, minimal, ...rest }, ref) => {
+    const { description, name, parent, preview, render } = topic;
+    const darkMode = useDarkMode();
+    return (
+      <LinkCard fill pad="medium" ref={ref} {...rest}>
+        <CardBody gap="large">
+          {!minimal && (
+            <PreviewImageCard
+              pad={preview?.pad || 'none'}
+              background={preview?.background}
+            >
+              {preview &&
+                (preview.image && preview.image.src ? (
+                  <Image
+                    src={
+                      darkMode.value
+                        ? preview.image.src.dark || preview.image.src
+                        : preview.image.src.light || preview.image.src
+                    }
+                    alt={preview.image.alt}
+                    fit={preview.image.fit || 'cover'}
+                  />
+                ) : (
+                  preview.component && (
+                    <Box
+                      style={{ pointerEvents: 'none' }}
+                      flex
+                      justify={preview.justify || 'center'}
+                      align="center"
+                    >
+                      {preview.component()}
+                    </Box>
+                  )
+                ))}
+            </PreviewImageCard>
+          )}
+          <Box gap="small">
+            <Identifier
+              title={render || name}
+              align="start"
+              gap="xsmall"
+              level={level}
+            >
+              {parent && parent.icon && !minimal && (
+                <Box direction="row" align="center" gap="xsmall">
+                  {parent.icon('small', parent.color)}
+                  <Text>{parent.name}</Text>
+                </Box>
+              )}
+            </Identifier>
+            {description && <Text size="small">{description}</Text>}
+          </Box>
+        </CardBody>
+      </LinkCard>
+    );
+  },
+);
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 ContentCard.propTypes = {
+  level: PropTypes.number,
   minimal: PropTypes.bool,
   topic: PropTypes.shape({
     description: PropTypes.string,
