@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Grommet } from 'grommet';
 import PropTypes from 'prop-types';
-import { hpePop } from 'grommet-theme-hpe';
+import { ariesPop } from '../../themes/aries';
 import { analytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
-  const { value } = useDarkMode(hpePop.defaultMode === 'dark');
+  const { value } = useDarkMode(ariesPop.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
   const [mounted, setMounted] = React.useState(false);
@@ -22,7 +22,7 @@ export const ThemeMode = ({ children, ...rest }) => {
           singleId: true,
         },
       }}
-      theme={hpePop}
+      theme={ariesPop}
       themeMode={themeMode}
       full="min"
       onAnalytics={analytics}
