@@ -17,7 +17,7 @@ import {
   ThemeContext,
 } from 'grommet';
 import { Contract } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe';
+import { aries } from '../../../themes/aries';
 import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
@@ -70,7 +70,7 @@ export const Example = ({
   const [screen, setScreen] = useState(screens.laptop);
   const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
-  const theme = hpe;
+  const theme = aries;
   const inlineRef = useRef();
   const layerRef = useRef();
   const [mockBrowserRect, setMockBrowserRect] = useState({

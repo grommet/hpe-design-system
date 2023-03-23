@@ -1,8 +1,8 @@
-import { hpePop } from 'grommet-theme-hpe';
+import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Info } from 'grommet-icons/icons/Info';
 
-export const aries = deepMerge(hpePop, {
+export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
