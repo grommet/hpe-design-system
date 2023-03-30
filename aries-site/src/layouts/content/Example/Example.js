@@ -419,3 +419,7 @@ Example.propTypes = {
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
+
+Example.defaultProps = {
+  align: 'center',
+};
