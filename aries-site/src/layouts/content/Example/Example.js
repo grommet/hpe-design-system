@@ -38,7 +38,6 @@ export const screens = {
 };
 
 export const Example = ({
-  align,
   background,
   bestPractice,
   caption,
@@ -96,7 +95,6 @@ export const Example = ({
   // These props control the styling of the example within the overall example
   // container
   const containerProps = {
-    align,
     bestPractice,
     caption,
     designer,
@@ -374,7 +372,6 @@ export const Example = ({
 };
 
 Example.propTypes = {
-  align: PropTypes.string,
   background: PropTypes.string,
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
@@ -420,8 +417,4 @@ Example.propTypes = {
   ]),
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
-
-Example.defaultProps = {
-  align: 'center',
 };
