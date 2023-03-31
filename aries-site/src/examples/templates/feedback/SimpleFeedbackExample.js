@@ -4,7 +4,7 @@ import { Form, FormField, Heading, StarRating } from 'grommet';
 
 export const SimpleFeedbackExample = () => (
   <>
-    <Heading level={2} size="small" margin="none">
+    <Heading level={2} margin="none">
       We'd love your feedback
     </Heading>
     <Form kind="survey">
