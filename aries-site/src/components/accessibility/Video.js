@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 
 import { AnnounceContext, Box, Button } from 'grommet';
-import { FormDown, FormUp } from 'grommet-icons';
+import { Down } from 'grommet-icons/icons/Down';
+import { Up } from 'grommet-icons/icons/Up';
 
 const desc = `The video shows Bill, a white man with blondish brown hair 
   and a mustache, in his office wearing a long-sleeved lavender-blue 
@@ -40,9 +41,9 @@ export const AccessVideo = () => {
           <Button
             icon={
               expanded ? (
-                <FormUp a11yTitle="Up icon" />
+                <Up a11yTitle="Up icon" />
               ) : (
-                <FormDown a11yTitle="Down icon" />
+                <Down a11yTitle="Down icon" />
               )
             }
             reverse

@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
-import { Aruba, Hpe } from 'grommet-icons';
+import { Aruba } from 'grommet-icons/icons/Aruba';
+import { Hpe } from 'grommet-icons/icons/Hpe';
 
 const brands = {
   hpe: {

@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Close } from 'grommet-icons/icons/Close';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
@@ -58,7 +58,7 @@ export const FiltersLayer = () => {
             <Heading margin="none" level={2} size="small">
               Filters
             </Heading>
-            <Button icon={<FormClose />} onClick={() => closeLayer()} />
+            <Button icon={<Close />} onClick={() => closeLayer()} />
           </Header>
           <Box
             pad={{ horizontal: 'medium', bottom: 'medium' }}

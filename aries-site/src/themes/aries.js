@@ -1,5 +1,6 @@
 import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { Close } from 'grommet-icons/icons/Close';
 import { Info } from 'grommet-icons/icons/Info';
 
 export const aries = deepMerge(hpe, {
@@ -43,6 +44,11 @@ export const aries = deepMerge(hpe, {
       color: 'text-strong',
       weight: 'bold',
       alignSelf: 'end',
+    },
+  },
+  notification: {
+    close: {
+      icon: Close,
     },
   },
 });

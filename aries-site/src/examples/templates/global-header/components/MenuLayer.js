@@ -11,7 +11,9 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Aruba, FormClose, Menu } from 'grommet-icons';
+import { Aruba } from 'grommet-icons/icons/Aruba';
+import { Close } from 'grommet-icons/icons/Close';
+import { Menu } from 'grommet-icons/icons/Menu';
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -41,7 +43,7 @@ export const MenuLayer = () => {
               <Button
                 a11yTitle={`You are in a navigation layer. To close this layer, 
                 press Enter`}
-                icon={<FormClose />}
+                icon={<Close />}
                 onClick={() => setShowLayer(false)}
                 autoFocus
               />
