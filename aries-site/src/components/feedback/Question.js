@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  FileInput,
   FormField,
+  RadioButtonGroup,
+  StarRating,
+  ThumbsRating,
   TextArea,
   Text,
-  RadioButtonGroup,
-  FileInput,
 } from 'grommet';
-import { StarRating } from './StarRating';
-import { ThumbsRating } from './ThumbsRating';
 
 export const Question = ({ formProps, label, inputProps, kind, name }) => {
   const accessibilityProps = {
