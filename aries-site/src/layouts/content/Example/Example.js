@@ -345,7 +345,8 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {/* Example children should use hpe theme (as opposed to hpePop) */}
+                      {/* Example children should use hpe theme 
+                      (as opposed to hpePop) */}
                       <ThemeContext.Extend value={theme}>
                         {cloneElement(children, {
                           containerRef: layerRef,
@@ -356,7 +357,8 @@ export const Example = ({
                   </Box>
                 ) : (
                   <ResponsiveContext.Provider value={viewPort}>
-                    {/* Example children should use hpe theme (as opposed to hpePop) */}
+                    {/* Example children should use hpe theme 
+                    (as opposed to hpePop) */}
                     <ThemeContext.Extend value={theme}>
                       {children}
                     </ThemeContext.Extend>
@@ -418,4 +420,8 @@ Example.propTypes = {
   ]),
   template: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
+
+Example.defaultProps = {
+  align: 'center',
 };
