@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
@@ -20,6 +21,12 @@ import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
 export const internalLink = RegExp('^/.*|^#.*');
+
+const StyledStrong = styled(Text)`
+  font-weight: 500;
+  font-size: inherit;
+  line-height: inherit;
+`;
 
 export const components = {
   blockquote: props => (
@@ -50,6 +57,7 @@ export const components = {
     ) : (
       <Anchor rel="noopener" target="_blank" {...props} />
     ),
+  strong: props => <StyledStrong weight={500} {...props} />,
   ol: props => (
     <SubsectionText
       as="ol"
