@@ -8,7 +8,9 @@ import {
   Text,
   Paragraph,
 } from 'grommet';
-import { Alert, MailOption, FormClose } from 'grommet-icons';
+import { Alert } from 'grommet-icons/icons/Alert';
+import { Close } from 'grommet-icons/icons/Close';
+import { MailOption } from 'grommet-icons/icons/MailOption';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);
@@ -38,7 +40,7 @@ export const LayerCenterExample = () => {
                 </Heading>
               </Box>
               <Box justify="center">
-                <Button icon={<FormClose />} onClick={onClose} />
+                <Button icon={<Close />} onClick={onClose} />
               </Box>
             </Box>
             <Text>A subtitle if needed</Text>

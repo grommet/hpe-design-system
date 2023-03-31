@@ -9,7 +9,7 @@ import {
   Pagination,
   Text,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Close } from 'grommet-icons/icons/Close';
 
 import { SearchInput, SearchResult } from '.';
 
@@ -90,7 +90,7 @@ export const SearchResults = ({
       fill="vertical"
       {...rest}
     >
-      <Button icon={<FormClose />} onClick={onClose} alignSelf="end" />
+      <Button icon={<Close />} onClick={onClose} alignSelf="end" />
       <Box
         background="background-contrast"
         flex={false}

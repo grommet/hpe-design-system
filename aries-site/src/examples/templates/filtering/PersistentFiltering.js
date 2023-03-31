@@ -26,7 +26,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, FormClose, Search } from 'grommet-icons';
+import { Filter, Close, Search } from 'grommet-icons';
 
 const allData = [
   {
@@ -335,7 +335,7 @@ const ActiveFilters = ({
                   <Button
                     key={index}
                     label={allFilters[key].name}
-                    icon={<FormClose />}
+                    icon={<Close />}
                     gap="xsmall"
                     onClick={() => {
                       const nextFilters = filters;
@@ -354,7 +354,7 @@ const ActiveFilters = ({
                 <Button
                   key={option}
                   label={option}
-                  icon={<FormClose />}
+                  icon={<Close />}
                   gap="xsmall"
                   onClick={() => {
                     const nextValue = value.filter(a => a !== option);
@@ -376,7 +376,7 @@ const ActiveFilters = ({
             <Button
               key={index}
               label={value}
-              icon={<FormClose />}
+              icon={<Close />}
               gap="xsmall"
               onClick={() => {
                 const nextFilters = filters;
@@ -523,7 +523,7 @@ const Filters = ({
                 Filters
               </Heading>
               <Button
-                icon={<FormClose />}
+                icon={<Close />}
                 onClick={() => {
                   filterData(allData, previousFilters);
                   restoreValues(previousValues);

@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { FormClose, FormPreviousLink } from 'grommet-icons';
+import { Close } from 'grommet-icons/icons/Close';
+import { LinkPrevious } from 'grommet-icons/icons/LinkPrevious';
 import { WizardContext } from '.';
 
 export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {
@@ -28,7 +29,7 @@ export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {
                     `Step ${activeStep - 1} title`
                   : undefined
               }
-              icon={<FormPreviousLink />}
+              icon={<LinkPrevious />}
               onClick={() => setActiveIndex(activeIndex - 1)}
             />
           )}
@@ -42,7 +43,7 @@ export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {
           <Button
             id={cancelId}
             label={!['xsmall', 'small'].includes(size) ? 'Cancel' : undefined}
-            icon={<FormClose />}
+            icon={<Close />}
             reverse
             onClick={() => setOpen(true)}
           />
