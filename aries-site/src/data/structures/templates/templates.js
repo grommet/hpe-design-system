@@ -173,11 +173,15 @@ export const templates = [
     seoDescription: `Improve customer experiences and make impactful,
     data-driven decisions by collecting feedback directly from users.
     `,
-    sections: [
-    ],
+    sections: [],
     relatedContent: ['Forms'],
     tags: [
-      'feedback', 'survey', 'customer experience', 'user experience', 'analytics', 'qualtrics',
+      'feedback',
+      'survey',
+      'customer experience',
+      'user experience',
+      'analytics',
+      'qualtrics',
     ],
   },
   {
@@ -559,6 +563,29 @@ export const templates = [
       're-order',
       'column order',
     ],
+  },
+  {
+    name: 'Inline Notifications',
+    available: true,
+    description: `Inline notifications help application users by delivering 
+    timely, contextual information and feedback related to their actions.`,
+    preview: {
+      component: () => (
+        <ToastPreview card title="Hooray" message="Your toast is done!" />
+      ),
+      background: 'background-back',
+    },
+    seoDescription: `Inline notifications help application users by delivering 
+    timely, contextual information and feedback related to their actions.`,
+    sections: [],
+    relatedContent: [
+      'Notification',
+      'Toast Notifications',
+      'Status Indicator',
+      'Global Banner Notifications',
+      'Stack',
+    ],
+    tags: ['inline', 'inline notification', 'inline notifications'],
   },
   {
     name: 'Toast Notifications',

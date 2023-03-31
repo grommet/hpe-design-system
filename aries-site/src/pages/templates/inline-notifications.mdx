@@ -1,0 +1,140 @@
+import { Example } from '../../layouts';
+import { InlineNotificationExample } from '../../examples';
+import { Checkmark } from 'grommet-icons';
+
+Inline notifications are messages that appear near the content to which they
+are related. They may be task or system generated, communicating information
+such as status updates, alerts to success or failure of an action, or call
+attention to a new feature in which a user may be interested.
+
+<Example
+  docs="https://v2.grommet.io/notification"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
+  figma="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=1965%3A3844"
+>
+  <InlineNotificationExample />
+</Example>
+
+## When to use
+
+Consider using an inline notification when:
+
+- **Feedback** &ndash; Providing feedback to users about their actions. For
+  example, if a user submits a form requiring server-side validation, an
+  inline notification should be used to display and summarize form-level errors.
+- **Status updates** &ndash; Delivering status updates about a task. For example,
+  if a user initiated an ansynchronous process such as a device update, a
+  notification might provide the status update upon. "Success - all devices have
+  updated to the latest version."
+- **Promotions** &ndash; Calling a user's attention to such as new features, tips,
+  best practices, or other announcements.
+
+## When to consider something else
+
+Inline notifications are quite flexible, however consider using the alternatives
+for the following scenarios:
+
+- **Low severity information** &ndash; If communicating low severity information
+  which does not need to persist or require the user's attention, consider using
+  a [toast notification](/templates/toast-notifications).
+- **High attention information** &ndash; Consider using [global banner notification](/templates/global-banner-notifications)
+  when communicating information which might result in loss of functionality or
+  requires the user's attention and/or action. Examples might include a system
+  outage, critical error, or expiring subscription or license. [Global banner notifications](/templates/global-banner-notifications)
+  are persistent and require user action to acknowledge or dismiss.
+- **Immediate feedback** &ndash; When providing immediate feedback to a user's
+  action, a variety of tools are likely more appropriate.
+
+  - When a user is awaiting a response after clicking an action button, use the
+    [busy button]() which provides in-progress and success animations. If the
+    response time exceeds expectations or the API call fails, then an inline
+    notification is appropriate for providing status updates.
+  - When validating form input client-side, use [field-level form validation]()
+    when possible. If validation results in a form-level error, using an inline
+    notification is appropriate.
+
+## Anatomy
+
+An inline notification consists of:
+
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the type of notification                           | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             |                                                                                                                        |
+| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
+| **4** | **Anchor**                   | Used to direct users to additional detail or related content |                                             |                                                                                                                        |
+| **5** | **Close button**             | Dismisses the notification                                   |                                             |                                                                                                                        |
+
+## Placement
+
+Inline notifications should be placed near the content to which they are
+related.
+
+- If the notification is related to a specific element or section of content,
+  it should be placed near that element or section of content.
+- If the notification is related to the entire page, it should be placed near
+  the top of the page.
+- In forms, notifications may be placed either at the top or bottom, depending
+  on the context. For example, a notification providing form-level
+  validation should be placed at the bottom of the form between the last input
+  and submit button. A notification indicating a new option or configuration is
+  available would be appropriate to place at the top of the form.
+
+## Format
+
+- Titles and messages should be brief and clear.
+- Messages should generally be no longer than two lines.
+- Longer messages should wrap on narrower screens; they should not be truncated.
+- Anchor links may be used to provide additional information about the
+  notification. The links should immediately follow the message and should be
+  limited to no more than two links.
+
+## Content guidelines
+
+Notifications reassure users that they are moving towards their goal. They should
+be relevant, timely, and informative providing assurance that their intended
+actions have been completed successfully. Or, if there is an issue, they should
+provide clear direction on how to resolve the issue.
+
+- **Relevant** &ndash; Notifications should be relevant to the user's current
+  task.
+- **Timely** &ndash; Deliver notifications in a timely manner and ensure they
+  are kept up to date with current status.
+- **Informative** &ndash; Messages shoud provide clear context and direction on
+  how to resolve any issues. Follow the [voice and tone guidelines](/guidelines/voice-and-tone) for writing
+  crisp and effective content.
+
+## Behavior
+
+- Never sticky and should scroll when there is other content.
+- The width and resizing behavior of an inline notification should scale alongside
+  related content. For example, when placed below the [PageHeader](/components/pageheader),
+  the inline notification should have the same width and responsive behavior as the
+  PageHeader.
+- Inline Notifications are not clickable. Instead use anchors to direct users to
+  take further action or to view the issue in full detail.
+- Do not place buttons within an inline notification.
+
+## Do's and dont's
+
+## Use cases
+
+### Status updates
+
+Inline notifications may be used to display okay, warning, and critical information.
+
+For example, an okay status might communicate a process is progressing
+without interuption, a warning status might communicate a resource is approaching
+a limit or threshold, and a critical status might communicate an action has failed.
+
+### Additional detail
+
+An inline notification may be used to provide additional detail or context,  
+offering a helpful hint or tip, or providing a link to additional information.
+
+### Promotion
+
+### Form validation
+
+An inline form validation appears above the form's footer, providing a summary of
+any errors and steps to resolve them.

@@ -11,6 +11,7 @@ export * from './forms';
 export * from './global-banner-notifications';
 export * from './global-header';
 export * from './hub-spoke-navigation';
+export * from './inline-notifications';
 export * from './list-views';
 export * from './page-layouts';
 export * from './table-customization';
