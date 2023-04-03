@@ -119,8 +119,10 @@ export const TagAnatomy = () => {
           to vertically align with item */}
         <Box
           margin={{
-            left: `${parseInt(theme.global.edgeSize.large, 10) -
-              parseInt(theme.global.edgeSize.xsmall, 10)}px`,
+            left: `${
+              parseInt(theme.global.edgeSize.large, 10) -
+              parseInt(theme.global.edgeSize.xsmall, 10)
+            }px`,
           }}
         >
           <Annotation id="value-annotation" target="2" />
