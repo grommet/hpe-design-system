@@ -2,9 +2,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Collapsible, Text, ResponsiveContext } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
-import { Hpe } from 'grommet-icons/icons/Hpe';
-import { Menu } from 'grommet-icons/icons/Menu';
+import { Close, Hpe, Menu } from 'grommet-icons';
 
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
