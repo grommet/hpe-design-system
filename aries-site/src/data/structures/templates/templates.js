@@ -616,6 +616,7 @@ export const templates = [
     relatedContent: [
       'Notification',
       'Status Indicator',
+      'Inline Notifications',
       'Global Banner Notifications',
       'Stack',
     ],
@@ -730,7 +731,12 @@ export const templates = [
       'Persistent Warning Banner',
       "Do's and Don'ts",
     ],
-    relatedContent: ['Notification', 'Toast Notifications', 'Status Indicator'],
+    relatedContent: [
+      'Notification',
+      'Inline Notifications',
+      'Toast Notifications',
+      'Status Indicator',
+    ],
     tags: [
       'notifications',
       'global',

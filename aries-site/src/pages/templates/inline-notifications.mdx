@@ -8,9 +8,12 @@ such as status updates, alerts to success or failure of an action, or call
 attention to a new feature in which a user may be interested.
 
 <Example
-  docs="https://v2.grommet.io/notification"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
-  figma="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=1965%3A3844"
+  code=""
+  github=""
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
 >
   <InlineNotificationExample />
 </Example>
@@ -60,7 +63,7 @@ An inline notification consists of:
 | Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
 | ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
 | **1** | **Icon or status indicator** | Indicates the type of notification                           | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
-| **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             |                                                                                                                        |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             | Titles should only be used for inline notifications presenting page level summaries.                                   |
 | **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
 | **4** | **Anchor**                   | Used to direct users to additional detail or related content |                                             |                                                                                                                        |
 | **5** | **Close button**             | Dismisses the notification                                   |                                             |                                                                                                                        |
