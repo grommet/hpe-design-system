@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Collapsible, Text } from 'grommet';
-import { Up } from 'grommet-icons/icons/Up';
-import { Down } from 'grommet-icons/icons/Down';
+import { Down, Up } from 'grommet-icons';
 
 export const CollapsibleSection = ({ label, onClick, ...rest }) => {
   const [open, setOpen] = useState(false);

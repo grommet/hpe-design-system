@@ -11,9 +11,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Aruba } from 'grommet-icons/icons/Aruba';
-import { Close } from 'grommet-icons/icons/Close';
-import { Menu } from 'grommet-icons/icons/Menu';
+import { Aruba, Close, Menu } from 'grommet-icons';
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);

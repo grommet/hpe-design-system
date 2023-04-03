@@ -9,7 +9,7 @@ import {
   Pagination,
   Text,
 } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from 'grommet-icons';
 
 import { SearchInput, SearchResult } from '.';
 

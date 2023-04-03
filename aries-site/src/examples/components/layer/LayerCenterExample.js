@@ -8,9 +8,7 @@ import {
   Text,
   Paragraph,
 } from 'grommet';
-import { Alert } from 'grommet-icons/icons/Alert';
-import { Close } from 'grommet-icons/icons/Close';
-import { MailOption } from 'grommet-icons/icons/MailOption';
+import { Alert, Close, MailOption } from 'grommet-icons';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);

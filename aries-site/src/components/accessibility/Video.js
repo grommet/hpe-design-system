@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import { AnnounceContext, Box, Button } from 'grommet';
-import { Down } from 'grommet-icons/icons/Down';
-import { Up } from 'grommet-icons/icons/Up';
+import { Down, Up } from 'grommet-icons';
 
 const desc = `The video shows Bill, a white man with blondish brown hair 
   and a mustache, in his office wearing a long-sleeved lavender-blue 

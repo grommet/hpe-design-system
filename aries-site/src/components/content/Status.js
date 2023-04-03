@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
-import { Figma } from 'grommet-icons/icons/Figma';
-import { Grommet } from 'grommet-icons/icons/Grommet';
+import { Figma, Grommet } from 'grommet-icons';
 import { IconCircle, IconTriangle } from '../icons';
 
 const types = {

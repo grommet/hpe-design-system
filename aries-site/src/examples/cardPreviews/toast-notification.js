@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from 'grommet-icons';
 
 export const ToastPreview = ({ card, message, title }) => {
   return (
