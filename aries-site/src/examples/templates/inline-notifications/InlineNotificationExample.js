@@ -18,21 +18,38 @@ const credentialName = 'fleetscale-qa-credentials';
 const DEMO_API_TOKEN =
   // eslint-disable-next-line max-len
   '.eyJjbGllbnRfaWQiOiJlMDIyN2FjMi05M2M2LTQyMTUtYWRkZS03YTNhMDYwMzA3YzYiLCJpc3MiOiJodHRwczovL3Nzby5jb21tb24uY2xvdWQuaHBlLmNvbSIsImF1ZCI6ImV4dGVybmFsX2FwaSIsInN1YiI6Im1hdHRoZXcuZ2xpc3NtYW5uQGhwZS5jb20iLCJ1c2VyX2N0eCI6IjE0NDFkMmJhMTI1MzExZWQ4YzY5ZWExNWMyNDcwYzczIiwiYXV0aF9zb3VyY2UiOiJjY3NfdG9rZW5fbWFuYWdlbWVudCIsInBsYXRmb3JtX2N1c3RvbWVyX2lkIjoiNDI3Mjc1ZmNkZGVmMTFlYmFlYWVhMjViMjA0ZTk0MzYiLCJpYXQiOjE2ODA1NTg3MDQsImFwcGxpY2F0aW9uX2luc3RhbmNlX2lkIjoiOTBjYTg5MjMtZjI4YS00OTkxLTg4NmItMTgyOWRhYWU4YWFjIiwiZXhwIjoxNjgwNTY1OTA0fQ.gvtafE--9t00JVBK7h-tsimNJIkzXhFa7uBarCOTF6djmxaqfNcQS5LT03WrWbFR9dOgnUao47m5kW9JyO1uNlE4QqeQ0-pJ8GU6pTB_h9rJlqotUl6aGa9omQNGbBDVZrwHrFvv_MYardKtYbq6E2NEP-ct01AV9RCHqHCq-_p_AXLbwY21dW2rS6_v91BonJqiz2nxA4JKgndxngy-dCUiQVRnerjIicJhtwnutLXtuNTdcZENTHmedK1HKBKRtftXPLz42GT6b3Zzui9Q6nMSW-SZood488uXXROQst8kx-mho9xeuxcvUbxuNG2mlGs4GlXmq_WY1ZnWN1Q6_w';
+const defaultCopyTip = 'Copy to clipboard';
 
 export const InlineNotificationExample = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [showModal, setShowModal] = useState(true);
+  const [accessToken, setAccessToken] = useState(DEMO_API_TOKEN);
+  const [copyTip, setCopyTip] = useState(defaultCopyTip);
+
+  const onOpen = () => {
+    setAccessToken(DEMO_API_TOKEN);
+    setShowModal(true);
+  };
+
+  const onClose = () => {
+    setAccessToken('');
+    setShowModal(false);
+  };
+
+  const onCopy = () => {
+    const duration = 2000;
+    navigator.clipboard.writeText(accessToken);
+    setCopyTip('Copied!');
+    const timer = setTimeout(() => {
+      setCopyTip(defaultCopyTip);
+    }, duration);
+    return () => clearTimeout(timer);
+  };
 
   return (
     <Box align="center" justify="center" fill>
-      <Button
-        primary
-        label="Display example"
-        onClick={() => {
-          setShowModal(true);
-        }}
-      />
+      <Button primary label="Display example" onClick={onOpen} />
       {showModal ? (
         <ModalDialog
           target={containerRef && containerRef.current}
@@ -50,13 +67,24 @@ export const InlineNotificationExample = ({ containerRef }) => {
               contentProps={{ border: false }}
             >
               <Box direction="row">
-                <TextInput
-                  id="access-token"
-                  fill
-                  readOnly
-                  value={DEMO_API_TOKEN}
+                <Box fill background="background-contrast">
+                  <TextInput
+                    id="access-token"
+                    fill
+                    readOnly
+                    value={accessToken}
+                    // plain
+                    // focusIndicator={false}
+                  />
+                </Box>
+                <Button
+                  label={<Copy />}
+                  kind="toolbar"
+                  onClick={onCopy}
+                  tip={{
+                    content: copyTip,
+                  }}
                 />
-                <Button label={<Copy />} kind="toolbar" onClick={() => {}} />
               </Box>
             </FormField>
             <Notification
@@ -67,11 +95,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
           </ModalBody>
           <ModalFooter justify="end">
             <ButtonGroup>
-              <Button
-                label="Close"
-                secondary
-                onClick={() => setShowModal(false)}
-              />
+              <Button label="Close" secondary onClick={onClose} />
             </ButtonGroup>
           </ModalFooter>
         </ModalDialog>
