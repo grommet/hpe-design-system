@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor } from 'grommet';
-import { Next } from 'grommet-icons/icons/Next';
+import { Next } from 'grommet-icons';
 
 export const AnchorCallToAction = forwardRef(
   ({ color, size, ...rest }, ref) => (
