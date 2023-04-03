@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, Page, PageContent, Stack } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 import { LayerHeader } from './components/LayerHeader';

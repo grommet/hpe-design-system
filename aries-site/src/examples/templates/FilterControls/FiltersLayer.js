@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from 'grommet-icons';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 

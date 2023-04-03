@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Grid, Diagram, Stack, Text, ThemeContext } from 'grommet';
-import { FormClose } from 'grommet-icons/icons/FormClose';
+import { FormClose } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Paragraph } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from 'grommet-icons';
 
 export const CenterInformational = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most

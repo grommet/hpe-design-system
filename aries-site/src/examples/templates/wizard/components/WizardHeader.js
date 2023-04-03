@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Header, ResponsiveContext, Text } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
-import { LinkPrevious } from 'grommet-icons/icons/LinkPrevious';
+import { Close, LinkPrevious } from 'grommet-icons';
 import { WizardContext } from '.';
 
 export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {

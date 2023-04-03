@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Diagram, Stack, Text } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
-import { StatusCriticalSmall } from 'grommet-icons/icons/StatusCriticalSmall';
+import { Close, StatusCriticalSmall } from 'grommet-icons';
 
 import { Annotation } from '../../../layouts';
 
