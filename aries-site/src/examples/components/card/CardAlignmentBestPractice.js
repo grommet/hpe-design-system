@@ -6,7 +6,7 @@ export const CardAlignmentBestPractice = ({ bestPractice = true }) => (
   <Card>
     <CardBody align={!bestPractice ? 'center' : 'start'} gap="medium">
       <Box align={!bestPractice ? 'center' : undefined} gap="small">
-        <Heading level={3} margin="none" size="small">
+        <Heading level={3} margin="none">
           HPE GreenLake Trial
         </Heading>
         <Paragraph
@@ -19,7 +19,7 @@ export const CardAlignmentBestPractice = ({ bestPractice = true }) => (
           business.
         </Paragraph>
       </Box>
-      <Button primary label="Request a trial" />
+      <Button kind="cta-primary" label="Request a trial" />
     </CardBody>
   </Card>
 );
