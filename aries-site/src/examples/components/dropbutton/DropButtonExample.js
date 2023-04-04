@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, DropButton, Heading, Text } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Box, Button, DropButton, Heading, Paragraph } from 'grommet';
+import { Close } from 'grommet-icons';
 
 export const DropButtonExample = () => {
   const [open, setOpen] = React.useState();
@@ -31,9 +31,9 @@ const DropContent = ({ onClose }) => (
       <Heading level={3} margin="none">
         Heading
       </Heading>
-      <Button icon={<FormClose />} onClick={onClose} />
+      <Button icon={<Close />} onClick={onClose} />
     </Box>
-    <Text>Here is some additional content.</Text>
+    <Paragraph margin="none">Here is some additional content.</Paragraph>
   </Box>
 );
 

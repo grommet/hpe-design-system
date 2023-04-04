@@ -1,42 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
-import { FormClose } from 'grommet-icons/icons/FormClose';
-
 import { Box, Text } from 'grommet';
+import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
+import { Close } from 'grommet-icons';
 
-export const ToastPreview = ({ card, message, title }) => (
-  <Box background="background-back">
-    <Box
-      elevation="medium"
-      round="xsmall"
-      width={card ? null : 'medium'}
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
-      background={{ color: 'background-front' }}
-    >
-      <Box direction="row">
-        <Box id="status-indicator" pad={{ right: 'small' }}>
-          <StatusGoodSmall color="status-ok" />
+export const ToastPreview = ({ card, message, title }) => {
+  return (
+    <Box background="background-back">
+      <Box
+        direction="row"
+        gap="medium"
+        elevation="medium"
+        round="xsmall"
+        width={card ? null : 'medium'}
+        pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        background={{ color: 'background-front' }}
+      >
+        <Box direction="row" gap="xsmall">
+          <StatusGoodSmall color="status-ok" height="medium" />
+          <Text>
+            {title}. {message}
+          </Text>
         </Box>
-        <Box
-          id="content"
-          gap="medium"
-          align="start"
-          direction="row"
-          justify="between"
-          fill
-        >
-          <Box>
-            <Text weight="bold">{title}</Text>
-            <Text>{message}</Text>
-          </Box>
-          <FormClose id="close-button" />
-        </Box>
+        <Close
+          id="close-button"
+          allyTitle="Dismiss notification"
+          height="medium"
+        />
       </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 ToastPreview.propTypes = {
   card: PropTypes.bool,
