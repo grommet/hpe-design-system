@@ -1,29 +1,22 @@
 import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card,
-  Cards,
+  Box,
+  Button,
+  Collapsible,
   Data,
-  DataChart,
   DataFilters,
   DataFilter,
-  DataSearch, // probably do not need
-  DataSummary,
   Grid,
   Page,
   PageContent,
   PageHeader,
   ResponsiveContext,
   ThemeContext,
-  // REMOVE ME LATER
-  Box,
-  List,
-  Text,
 } from 'grommet';
 
+import { FormDown, FormNext } from 'grommet-icons';
 import { AppResults } from './AppResults';
-import { FilterPanel } from './FilterPanel';
-// import allApps from '../../../../data/mockData/applications.json';
 
 const allApps = require('../../../../data/mockData/applications.json');
 
@@ -86,14 +79,13 @@ const properties = {
   categories: {
     label: 'Categories',
     options: [
+      { label: 'Machine Learning', value: 'Machine learning' },
       { label: 'Big Data', value: 'Big Data' },
-      // do the same as for below, but first need to show results
-      'Data Protection',
-      'Data analytics',
-      'Database',
-      'Developer tools',
-      'Machine learning',
-      'Monitoring',
+      { label: 'Data Analytics', value: 'Data analytics' },
+      { label: 'Developer Tools', value: 'Developer tools' },
+      { label: 'Monitoring', value: 'Monitoring' },
+      { label: 'Database', value: 'Database' },
+      { label: 'Data Protection', value: 'Data Protection' },
     ],
   },
   publisher: {
@@ -103,75 +95,76 @@ const properties = {
   pricing: { label: 'Pricing Models' },
 };
 
-const ContentLayout = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
+const ContentLayout = () => {
   const breakpoint = useContext(ResponsiveContext);
-  // const [filteredApps, setFilteredApps] = useState(allApps);
-  const [filters, setFilters] = useState({});
-
-  // apply filters
-  // useEffect(() => {
-  //   let results = [];
-  //   let numFilters = 0;
-  //   Object.values(filters).forEach(filter => (numFilters += filter.length));
-
-  //   if (numFilters === 0) {
-  //     results = allApps;
-  //   } else {
-  //     results = allApps.filter(app => {
-  //       let result = true;
-  //       Object.keys(filters).forEach(key => {
-  //         if (filters[key].length > 0) {
-  //           const match = filters[key].some(item => app[key].includes(item));
-  //           if (match === false) {
-  //             result = false;
-  //           }
-  //         }
-  //       });
-  //       return result;
-  //     });
-  //   }
-
-  //   setFilteredApps(
-  //     results.reduce((acc, cur) => {
-  //       if (!acc.includes(cur)) {
-  //         acc.push(cur);
-  //       }
-  //       return acc;
-  //     }, []),
-  //   );
-  // }, [filters, setFilteredApps]);
+  const [openCategories, setOpenCategories] = useState(false);
+  const [openPublishers, setOpenPublishers] = useState(false);
+  const [openDelivery, setOpenDelivery] = useState(false);
+  const [openPricing, setOpenPricing] = useState(false);
 
   let sidebar;
   if (breakpoint === 'small' || breakpoint === 'xsmall') {
-    sidebar = <DataFilters drop />;
+    sidebar = <DataFilters layer />;
   } else {
-    sidebar = <DataFilters />;
+    sidebar = (
+      <DataFilters>
+        <Box
+          align="start"
+          background="background-front"
+          gap="xsmall"
+          pad={{ vertical: 'small' }}
+        >
+          <Button
+            onClick={() => setOpenCategories(!openCategories)}
+            label="Categories"
+            icon={openCategories ? <FormDown /> : <FormNext />}
+            // id -> passed to datafilter
+          />
+          <Collapsible open={openCategories}>
+            <DataFilter property="categories" />
+          </Collapsible>
+          {/* datafilter api to wrap in form field or not (no label, no border) 
+          -> caller can pass aria-labelledby + id */}
+
+          <Button
+            onClick={() => setOpenPublishers(!openPublishers)}
+            label="Publishers"
+            icon={openPublishers ? <FormDown /> : <FormNext />}
+          />
+          <Collapsible open={openPublishers}>
+            <DataFilter property="publisher" />
+          </Collapsible>
+          <Button
+            onClick={() => setOpenDelivery(!openDelivery)}
+            label="Delivery methods"
+            icon={openDelivery ? <FormDown /> : <FormNext />}
+          />
+          <Collapsible open={openDelivery}>
+            <DataFilter property="delivery" />
+          </Collapsible>
+          <Button
+            onClick={() => setOpenPricing(!openPricing)}
+            label="Pricing models"
+            icon={openPricing ? <FormDown /> : <FormNext />}
+          />
+          <Collapsible open={openPricing}>
+            <DataFilter property="pricing" />
+          </Collapsible>
+        </Box>
+      </DataFilters>
+    );
   }
 
   return (
-    //   {/* <FilterPanel
-    //   data={allApps}
-    //   setFilters={setFilters}
-    //   containerRef={containerRef}
-    // /> */}
-
-    // keep the clear filters button to remove selected
     <Data data={allApps} properties={properties} updateOn="change">
       <Grid
         align="start"
         columns={pageContentGrid.columns[breakpoint]}
         gap={pageContentGrid.gap[breakpoint]}
       >
-        {/* <DataFilters drop /> */}
         {sidebar}
         <AppResults />
       </Grid>
     </Data>
   );
-};
-
-ContentLayout.propTypes = {
-  containerRef: PropTypes.object,
 };

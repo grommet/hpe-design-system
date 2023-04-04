@@ -1,13 +1,5 @@
 import { useContext } from 'react';
-import {
-  Box,
-  Card,
-  Cards,
-  Grid,
-  Text, // REMOVE ME LATER
-  Heading,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Card, Cards, List, Heading, ResponsiveContext } from 'grommet';
 
 const appGrid = {
   columns: {
@@ -32,7 +24,6 @@ export const AppResults = () => {
 
   return (
     <Box gap="medium">
-      {/* <Heading level={2} size="small" pad="small"> */}
       <Heading level={2} size="small">
         Apps
       </Heading>
@@ -41,9 +32,12 @@ export const AppResults = () => {
         rows={appGrid.rows}
         gap={appGrid.gap[breakpoint]}
       >
-        {app => <Card key={app.id} fill />}
+        {app => (
+          <Card key={app.id}>
+            <List data={app.categories} />
+          </Card>
+        )}
       </Cards>
-      {/* </Grid> */}
     </Box>
   );
 };
