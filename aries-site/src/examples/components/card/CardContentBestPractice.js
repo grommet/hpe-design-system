@@ -85,7 +85,7 @@ const LeftPanel = ({ bestPractice }) => {
           fit="contain"
         />
       </Box>
-      <Heading level={2} size="small" margin="none">
+      <Heading level={2} margin="none">
         Acme Corporation
       </Heading>
       <NameValueList pairProps={{ direction: 'column' }}>

@@ -4,7 +4,7 @@ import { Box, Button, Heading } from 'grommet';
 
 export const ActionLabelTitle = ({ bestPractice = true }) => (
   <Box gap="medium">
-    <Heading level={2} margin="none" size="small">
+    <Heading level={2} margin="none">
       Add pipeline
     </Heading>
     <Box pad="medium" border={{ style: 'dashed' }}>
