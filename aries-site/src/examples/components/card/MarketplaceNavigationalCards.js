@@ -16,7 +16,7 @@ export const MarketplaceNavigationalCards = () => {
 
   return (
     <Box gap="medium">
-      <Heading level={2} size="small" margin="none">
+      <Heading level={2} margin="none">
         My Products
       </Heading>
       <Grid columns={columns[breakpoint]} gap="medium">
