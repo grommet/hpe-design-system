@@ -8,7 +8,7 @@ import {
   Select,
   TextInput,
 } from 'grommet';
-import { ButtonGroup } from '../../ButtonGroup';
+import { ButtonGroup } from 'aries-core';
 import { FormChildObjects } from '../../FormChildObject';
 
 const permissionTemplate = {
