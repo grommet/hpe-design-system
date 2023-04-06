@@ -20,6 +20,5 @@ export * from './wizard';
 export * from './ActionMenu';
 export * from './DestructiveConfirmation';
 export * from './FilterControls';
-export * from './ModalDialog';
 export * from './ReverseAnchor';
 export * from './StatusIndicator';

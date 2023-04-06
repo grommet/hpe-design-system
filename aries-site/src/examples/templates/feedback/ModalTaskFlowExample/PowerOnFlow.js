@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Box, Button, Spinner, Text } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
+import { ModalBody, ModalFooter } from 'aries-core';
 import { ButtonGroup } from '../../ButtonGroup';
-import { ModalBody, ModalFooter } from '../../ModalDialog';
 
 const steps = {
   'confirm-power-on': {
