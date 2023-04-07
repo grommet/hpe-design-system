@@ -13,7 +13,7 @@ import { ActionMenu } from 'aries-core';
 import { groupActions } from './utils';
 import { ReverseAnchor } from '../../templates';
 
-// need to overrid the PageHeader theme values in order for our examples
+// need to override the PageHeader theme values in order for our examples
 // to fit their container page. Even though it is using the correct breakpoints
 // our examples are only taking up half the space on the page so layout
 // different than a PageHeader on a full page.

@@ -14,6 +14,7 @@ import {
   CheckBoxGroup,
   AnnounceContext,
 } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import {
   useFilters,
   FiltersProvider,
@@ -24,7 +25,6 @@ import {
   ConfirmationContext,
   ConfirmationProvider,
   DoubleConfirmation,
-  LayerHeader,
   Sidedrawer,
   useConfirmation,
 } from './components';
