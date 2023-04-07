@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
-import { LayerHeader } from './components';
+import { LayerHeader } from 'aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
   <Box round="small" elevation="large" pad="medium" gap="medium">
