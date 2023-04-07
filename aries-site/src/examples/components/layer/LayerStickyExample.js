@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, Layer, ResponsiveContext } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { MonitorFormExample } from './MonitorFormExample';
 import {
   DoubleConfirmation,
-  LayerHeader,
   ConfirmationProvider,
   ConfirmationContext,
   useConfirmation,

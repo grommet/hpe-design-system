@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Box,
@@ -9,7 +9,7 @@ import {
   Text,
   TextArea,
 } from 'grommet';
-import { ButtonGroup } from '../../ButtonGroup';
+import { ButtonGroup } from 'aries-core';
 
 // These credentials will be supplied when working with HPE GreenLake Experience Management COE team
 // and should likely be stored in environment variables.

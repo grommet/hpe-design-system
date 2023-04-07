@@ -11,8 +11,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-
-import { ModalBody, ModalDialog, ModalFooter } from '../ModalDialog';
+import { ModalBody, ModalDialog, ModalFooter } from 'aries-core';
 
 const defaultValues = { deletionPath: '' };
 
