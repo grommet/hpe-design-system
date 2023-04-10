@@ -6,13 +6,16 @@ import {
   FormField,
   Notification,
   Paragraph,
-  Text,
   TextInput,
 } from 'grommet';
 import { Copy } from 'grommet-icons';
-
-import { ModalDialog, ModalBody, ModalFooter } from '../ModalDialog';
-import { ButtonGroup } from '../ButtonGroup';
+import {
+  ButtonGroup,
+  ModalBody,
+  ModalDialog,
+  ModalFooter,
+  TextEmphasis,
+} from 'aries-core';
 
 const credentialName = 'fleetscale-qa-credentials';
 const DEMO_API_TOKEN =
@@ -58,40 +61,41 @@ export const InlineNotificationExample = ({ containerRef }) => {
           <ModalBody gap="small">
             <Paragraph margin="none">
               You successfully created an access token for{' '}
-              <Text weight={500}>{credentialName}</Text>. Please copy the access
-              token to a safe place.
+              <TextEmphasis>{credentialName}</TextEmphasis>.
             </Paragraph>
-            <FormField
-              htmlFor="access-token"
-              label="Access token"
-              contentProps={{ border: false }}
-            >
-              <Box direction="row">
-                <Box fill background="background-contrast">
-                  <TextInput
-                    id="access-token"
-                    fill
-                    readOnly
-                    value={accessToken}
-                    // plain
-                    // focusIndicator={false}
-                  />
-                </Box>
-                <Button
-                  label={<Copy />}
-                  kind="toolbar"
-                  onClick={onCopy}
-                  tip={{
-                    content: copyTip,
-                  }}
-                />
-              </Box>
-            </FormField>
             <Notification
               status="warning"
               message={`Note: We do not store your access token. 
               Copy this to a safe location.`}
             />
+            <Box direction="row" align="end">
+              <FormField
+                htmlFor="access-token"
+                label="Access token"
+                contentProps={{
+                  // border: false,
+                  background: 'background-contrast',
+                }}
+                flex
+              >
+                <TextInput
+                  id="access-token"
+                  readOnly
+                  value={accessToken}
+                  background="blue"
+                />
+              </FormField>
+              <Button
+                label={<Copy />}
+                kind="toolbar"
+                onClick={onCopy}
+                tip={{
+                  content: copyTip,
+                }}
+                // margin aligns button with form fields bottom margin
+                margin={{ bottom: 'xsmall' }}
+              />
+            </Box>
           </ModalBody>
           <ModalFooter justify="end">
             <ButtonGroup>
