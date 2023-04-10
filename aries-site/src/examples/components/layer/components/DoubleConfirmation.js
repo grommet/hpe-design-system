@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Layer } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { useConfirmation } from './ConfirmationContext';
-import { LayerHeader } from './LayerHeader';
 
 export const DoubleConfirmation = ({ title, ...rest }) => {
   const { acceptConfirmation, cancelConfirmation } = useConfirmation();

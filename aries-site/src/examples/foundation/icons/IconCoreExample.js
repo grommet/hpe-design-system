@@ -36,7 +36,7 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
     >
       <Icon />
       <Box>
-        <Heading level="4" size="small" margin="none">
+        <Heading level="4" margin="none">
           {name}
         </Heading>
         {aliases && (

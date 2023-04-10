@@ -75,7 +75,7 @@ const LayerContent = ({ ...rest }) => (
   >
     <CardBody pad={{ top: 'medium', horizontal: 'medium' }}>
       <Box>
-        <Heading id="confirmation-title" level={2} margin="none" size="small">
+        <Heading id="confirmation-title" level={2} margin="none">
           Discard "Add application"?
         </Heading>
         <Paragraph id="confirmation-subtitle" margin="none">

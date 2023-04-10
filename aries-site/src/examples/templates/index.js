@@ -18,9 +18,7 @@ export * from './table-customization';
 export * from './toast-notifications';
 export * from './wizard';
 /* Reusable templates */
-export * from './ActionMenu';
 export * from './DestructiveConfirmation';
 export * from './FilterControls';
-export * from './ModalDialog';
 export * from './ReverseAnchor';
 export * from './StatusIndicator';

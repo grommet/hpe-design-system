@@ -70,7 +70,7 @@ export const DashBoardSkeletonExample = () => {
                   )}
                   {/* adjust level according to correct semantic heading level 
                   for your layout */}
-                  <Heading level={3} margin="none" size="small">
+                  <Heading level={3} margin="none">
                     {item.title || ''}
                   </Heading>
                 </CardHeader>
