@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
-import { LayerHeader } from './components/LayerHeader';
 import { LayerContainer } from './components/LayerContainer';
 
 export const CenterLayerAnatomy = ({ informational }) => {

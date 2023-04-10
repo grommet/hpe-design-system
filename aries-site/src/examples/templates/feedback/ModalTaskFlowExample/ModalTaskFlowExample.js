@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { AnnounceContext, Box, Button } from 'grommet';
-import { ModalDialog } from '../../ModalDialog';
+import { ModalDialog } from 'aries-core';
 import { config, PowerOnFlow } from './PowerOnFlow';
 import { TaskFlowFeedback } from './TaskFlowFeedback';
 
@@ -38,6 +39,11 @@ export const ModalTaskFlowExample = ({ containerRef }) => {
       }}
     />
   );
+
+  ModalTaskFlowExample.propTypes = {
+    containerRef: PropTypes.shape({ current: PropTypes.any }),
+  };
+
   const feedbackTitle = `We'd love your feedback`;
   const feedbackContent = (
     <TaskFlowFeedback

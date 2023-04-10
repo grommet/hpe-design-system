@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, Footer, Layer } from 'grommet';
-import { LayerHeader } from '../../components/layer/components/LayerHeader';
+import { LayerHeader } from '../Layer';
 
 export const ModalDialog = ({
   children,
