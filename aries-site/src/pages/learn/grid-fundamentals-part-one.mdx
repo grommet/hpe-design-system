@@ -1,0 +1,106 @@
+import { Notification, Paragraph } from 'grommet';
+import {
+  StepOne,
+  StepTwo,
+} from '../../examples/learn/tutorials/grid-fundamentals-part-1';
+
+In this tutorial you will use Grid to display a collection of products, similar to
+that of an e-commerce website, and use its [properties](https://v2.grommet.io/grid?theme=hpe#props)
+to:
+
+- Present a collection of items in a grid.
+- Allow the number of grid columns to adapt to a variety of screen widths.
+- Allow the items to adapt and flex within the available space.
+
+At the end of this tutorial, you will have built this:
+
+<!-- show example of product cards in a grid -->
+
+## Prerequisites
+
+This tutorial can be completed in its entirety by following the steps below. However,
+because Grommet is a ReactJS-based UI library, introductory knowledge of
+[React](https://reactjs.org/docs/getting-started.html) may be helpful in understanding
+the syntax.
+
+## Getting started
+
+Let’s get started. Use this [CodeSandbox template]() as a starter.
+
+First, in `App.js` add the Grid to your project by importing it from Grommet and
+placing it around the “hello world” text.
+
+```js
+import { Grommet, Box, Text, Grid } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
+...
+return (
+  <Grommet theme={hpe}>
+    <Grid>
+      hello world
+    </Grid>
+  </Grommet>
+);
+```
+
+## Add placeholder content
+
+Now that you have the Grid in place, let's add some placeholder content. Replace the
+"hello world" text with the following:
+
+```js
+<Grid>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 1</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 2</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 3</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 4</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 5</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 6</Text>
+  </Box>
+  <Box background="blue" border pad="medium" align="center">
+    <Text size="large">Product 7</Text>
+  </Box>
+</Grid>
+```
+
+We now have a Grid with six boxes, each containing a product name. The Grid is
+displaying the boxes in a single column, which is the default behavior.
+
+## Add columns
+
+To display the boxes in a grid, we need to add columns. The Grid component has a
+`columns` property that allows you to specify the number and/or width of the
+columns you want to display. Let's add the `columns` property to the Grid and set
+it to `1/3`.
+
+```js
+<Grid columns="1/3">...</Grid>
+```
+
+Now the boxes are displayed in a grid with three columns.
+
+<StepOne />
+
+## Add product content
+
+Now that we have a grid with three columns, let's add some product content to the
+boxes. Replace the placeholder content with the following:
+
+```js
+
+```
+
+<StepTwo />
+
+## Responsive columns
