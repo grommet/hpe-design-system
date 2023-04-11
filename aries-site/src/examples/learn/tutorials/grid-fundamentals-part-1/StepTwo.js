@@ -2,8 +2,7 @@
 import { Grommet, Box, Heading, Text, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
-
-const productList = require('./product-list.json');
+import productList from './product-list.json';
 
 export const App = () => {
   return (

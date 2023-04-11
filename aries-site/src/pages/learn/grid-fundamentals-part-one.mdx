@@ -1,4 +1,4 @@
-import { Notification, Paragraph } from 'grommet';
+import { Anchor, Notification, Paragraph } from 'grommet';
 import {
   StepOne,
   StepTwo,
@@ -52,7 +52,7 @@ Let's also add a heading to the page.
 
 ```js
 <Grommet theme={hpe}>
-  <Heading level="1">Products</Heading>
+  <Heading level={1}>Products</Heading>
   <Grid>
     <Text>hello world</Text>
   </Grid>
@@ -111,16 +111,67 @@ Now the boxes are displayed in a grid with three columns.
 ## Add product content
 
 Now that we have a grid with three columns, let's add some product content to the
-boxes. Start by adding `ProductCard` and `productList` to App.js. `ProductCard` will be
-used to display the product image, name, and price. `productList` is a JSON file containing
-the product data.
+boxes. Start by adding `ProductCard` and `productList` to App.js. `ProductCard` is
+a template set up for ease of use and will be used to display the product image, name,
+and price. `productList` is a JSON file containing the product data.
+
+<Notification
+  message={
+    <Paragraph fill margin="none">
+      To learn more about the components used in ProductCard, check out the API
+      docs for{' '}
+      <Anchor
+        href="https://v2.grommet.io/card"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Card"
+      />
+      , <Anchor
+        href="https://v2.grommet.io/box"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Box"
+      />, <Anchor
+        href="https://v2.grommet.io/button"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Button"
+      />, <Anchor
+        href="https://v2.grommet.io/heading"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Heading"
+      />, <Anchor
+        href="https://v2.grommet.io/image"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Image"
+      />,{' '}
+      <Anchor
+        href="https://v2.grommet.io/paragraph"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Paragraph"
+      />
+      , and <Anchor
+        href="https://v2.grommet.io/text"
+        target="_blank"
+        rel="noopener noreferrer"
+        label="Text"
+      />.
+    </Paragraph>
+  }
+  width="large"
+  margin={{ bottom: 'medium' }}
+  status="learn"
+/>
 
 ```js
 // App.js
 import { Grommet, Box, Text, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
-const productList = require('./product-list.json');
+import productList from './product-list.json';
 ...
 ```
 
@@ -152,10 +203,10 @@ that the products appear squished when the browser window is narrow and stretche
 browser window is wide. This is because the Grid is not responsive. Let's fix that.
 
 To make the Grid responsive, we will adjust the `columns` property. Set the `columns` property
-to `{ count: 'fill', size: '250px' }`.
+to `250px`.
 
 ```js
-<Grid columns={{ count: 'fill', size: '250px' }}>...</Grid>
+<Grid columns="250px">...</Grid>
 ```
 
 Now the Grid will fit as many columns as will fit in the available space, with each column
@@ -172,7 +223,7 @@ Now that we have a responsive Grid, let's polish the layout. Let's add some spac
 between the products by adding `gap="medium"` to the Grid.
 
 ```js
-<Grid columns={{ count: 'fill', size: '250px' }} gap="medium">
+<Grid columns="250px" gap="medium">
   ...
 </Grid>
 ```
@@ -192,7 +243,7 @@ In this tutorial, you learned how to:
 - Use the `columns` property to specify the number and/or width of the columns.
 - Use the `columns.count` property to specify the number of columns.
 - Use the `colums.size` property to specify the width of the columns.
-- Use the `fill` value for the `count` property to make the Grid responsive.
+- Use the `columns` property to respond to the space available.
 - Use the `gap` property to add space between the items.
 
 If you'd like to reference a completed implentation, check out this [CodeSandbox with completed code]().

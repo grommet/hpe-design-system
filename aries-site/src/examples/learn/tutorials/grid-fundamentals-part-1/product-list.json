@@ -15,44 +15,37 @@
   },
   {
     "id": 6,
-    "name": "Electronic Cotton Car",
+    "name": "Electronic Lemon Car",
     "price": "812.00",
     "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    "image": "https://loremflickr.com/640/480/business"
+    "image": "/learnImages/grid-fundamentals-part-1/wolf-schram-19t6J2RVqQE-unsplash.jpg"
   },
   {
     "id": 7,
     "name": "Luxurious Soft Pizza",
     "price": "845.00",
     "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "image": "https://loremflickr.com/640/480/transport"
+    "image": "/learnImages/grid-fundamentals-part-1/alan-hardman-SU1LFoeEUkk-unsplash.jpg"
   },
   {
     "id": 8,
-    "name": "Handcrafted Concrete Hat",
+    "name": "Handcrafted Feather Hat",
     "price": "807.00",
     "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-    "image": "https://loremflickr.com/640/480/people"
+    "image": "/learnImages/grid-fundamentals-part-1/lakeisha-bennett-znBJkXzo8ik-unsplash.jpg"
   },
   {
     "id": 12,
-    "name": "Oriental Rubber Fish",
+    "name": "Exotic Rubber Fish",
     "price": "356.00",
     "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "image": "https://loremflickr.com/640/480/nature"
-  },
-  {
-    "id": 16,
-    "name": "Elegant Cotton Pants",
-    "price": "628.00",
-    "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    "image": "https://loremflickr.com/640/480/cats"
+    "image": "/learnImages/grid-fundamentals-part-1/david-clode-EDfZ0Sjmp_w-unsplash.jpg"
   },
   {
     "id": 19,
-    "name": "Small Granite Table",
+    "name": "Miniture Tea Set",
     "price": "899.00",
     "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "image": "https://loremflickr.com/640/480/animals"
+    "image": "/learnImages/grid-fundamentals-part-1/gabriella-clare-marino-EGXpSrG02sU-unsplash.jpg"
   }
 ]
