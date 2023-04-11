@@ -1,0 +1,48 @@
+{
+  "name": "grommet-theme-hpe",
+  "version": "5.0.1",
+  "main": "dist/index.js",
+  "module": "dist/es6/index.js",
+  "jsnext:main": "dist/es6/index.js",
+  "sideEffects": false,
+  "description": "Hewlett Packard Enterprise theme for grommet",
+  "authors": [
+    "Alan Souza",
+    "Bryan Jacquot",
+    "Chris Carlozzi",
+    "Eric Soderberg",
+    "Shimrit (Shimi) Yacobi"
+  ],
+  "bugs": "https://github.com/grommet/grommet-theme-hpe/issues",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grommet/grommet-theme-hpe.git"
+  },
+  "peerDependencies": {
+    "grommet": "^2.31.0",
+    "grommet-icons": "^4.10.0",
+    "react": "^16.13.1 || ^17.0.1 || ^18.0.0",
+    "styled-components": "^5.0.0"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build && npm run jsonify",
+    "build": "webpack --mode production && cross-env babel ./src/js/ --out-dir ./dist --copy-files && cross-env BABEL_ENV=es6 babel ./src/js/ --out-dir ./dist/es6 --copy-files",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "prettier": "pretty-quick --staged",
+    "release-stable": "babel-node ./tools/release-stable",
+    "release-next-stable": "babel-node ./tools/release-next-stable",
+    "release-audit-stable": "babel-node ./tools/release-audit-stable",
+    "jsonify": "babel-node ./tools/convert-to-json > dist/grommet-theme-hpe.json",
+    "release-gh-pages": "babel-node ./tools/release-gh-pages"
+  },
+  "pre-commit": [
+    "lint-fix",
+    "prettier"
+  ],
+  "dependencies": {
+    "hpe-design-tokens": "file:.yalc/hpe-design-tokens"
+  },
+  "yalcSig": "d543d1ed959f84c42ecd351ea19c7a3a"
+}

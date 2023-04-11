@@ -1,0 +1,3 @@
+{
+  "presets": ["./tools/grommet-babel-preset-env", "@babel/preset-react"]
+}

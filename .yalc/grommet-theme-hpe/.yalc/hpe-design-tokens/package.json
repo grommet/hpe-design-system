@@ -1,0 +1,26 @@
+{
+  "name": "hpe-design-tokens",
+  "version": "0.1.0",
+  "description": "a token library for grommet",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "authors": [
+    "Eric Soderberg",
+    "Taylor Seamans"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.mjs && rm -rf ./dist && rollup -c ./rollup.config.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grommet/hpe-design-tokens.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grommet/hpe-design-tokens/issues"
+  },
+  "homepage": "https://github.com/grommet/hpe-design-tokens#readme",
+  "yalcSig": "4ca9ec048ee7acb8ddd4666dccc7c51b"
+}
