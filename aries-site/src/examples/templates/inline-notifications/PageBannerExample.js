@@ -35,9 +35,7 @@ export const PageBannerExample = () => {
             status="critical"
             message={`Support for CentOS v7.5 ended on 04/04/021. One or 
           more applications require updates to a later version.`}
-            actions={[
-              { label: 'View details', onClick: () => setActive(2), href: '#' },
-            ]}
+            actions={[{ label: 'View details', onClick: () => setActive(2) }]}
           />
           <Tabs activeIndex={active}>
             <Tab title="Projects" onClick={() => setActive(0)}>
