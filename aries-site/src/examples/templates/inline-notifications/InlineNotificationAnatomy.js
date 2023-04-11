@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor, Box, Button, Diagram, Grid, Stack, Text } from 'grommet';
-import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { FormClose } from 'grommet-icons/icons/FormClose';
+import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
