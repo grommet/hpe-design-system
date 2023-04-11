@@ -1,9 +1,0 @@
-{
-  "version": "v1",
-  "packages": {
-    "grommet-theme-hpe": {
-      "signature": "d543d1ed959f84c42ecd351ea19c7a3a",
-      "file": true
-    }
-  }
-}

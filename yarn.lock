@@ -4160,9 +4160,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.3.723, electron-to-chromium@^1.4.284:
-  version "1.4.357"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.357.tgz#ad02bab69e696e9a122788da4460c86166a98a01"
-  integrity sha512-UTkCbNTAcGXABmEnQrGcW4m3cG6fcyBfD4KDF0iyEAlbrGZiY9dmslyDAGOD1Kr5biN2F743Y30aRCOtau35Vw==
+  version "1.4.358"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.358.tgz#301afde62c1bbe36aeec3155b11f7db1c5b01c78"
+  integrity sha512-dbqpWy662dGVwq27q8i6+t5FPcQiFPs/VExXJ+/T9Xp9KUV0b5bvG+B/i07FNNr7PgcN3GhZQCZoYJ9EUfnIOg==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -5348,19 +5348,16 @@ grommet-icons@^4.10.0:
 
 "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.10.0"
-  resolved "https://github.com/grommet/grommet-icons/tarball/stable#00ffe2d248b95768e7ac5425eaeb6145a378c983"
-  dependencies:
-    grommet-styles "^0.2.0"
+  resolved "https://github.com/grommet/grommet-icons/tarball/stable#13a515a599d4a9da4384ef3158f24c140c2b874c"
 
 grommet-styles@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-"grommet-theme-hpe@file:.yalc/grommet-theme-hpe":
-  version "5.0.1"
-  dependencies:
-    hpe-design-tokens "file:../../Library/Caches/Yarn/v6/npm-grommet-theme-hpe-5.0.1-bc1debd4-06a6-462d-a3b6-f7aca7c2e1f3-1681227424229/node_modules/grommet-theme-hpe/.yalc/hpe-design-tokens"
+"grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/TOKENS-stable":
+  version "0.0.0"
+  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/TOKENS-stable#6c127869fb572383e210237358f14f0e0a7a94c2"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.31.0"
@@ -5559,8 +5556,9 @@ hpack.js@^2.1.6:
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
 
-"hpe-design-tokens@file:.yalc/grommet-theme-hpe/.yalc/hpe-design-tokens":
-  version "0.1.0"
+"hpe-design-tokens@https://github.com/grommet/hpe-design-tokens/tarball/stable":
+  version "0.0.0"
+  resolved "https://github.com/grommet/hpe-design-tokens/tarball/stable#1ae7746191f9526574eb958acc01dcda8741fcfd"
 
 html-encoding-sniffer@^2.0.1:
   version "2.0.1"
