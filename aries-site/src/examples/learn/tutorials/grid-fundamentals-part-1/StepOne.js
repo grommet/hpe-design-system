@@ -1,10 +1,12 @@
-import { Grommet, Box, Text, Grid } from 'grommet';
+// App.js
+import { Grommet, Box, Heading, Text, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 
 export const App = () => {
   return (
     <Grommet theme={hpe}>
-      <Grid columns="1/3">
+      <Heading level="1">Products</Heading>
+      <Grid columns={{ count: 3, size: 'auto' }}>
         <Box background="blue" border pad="medium" align="center">
           <Text size="large">Product 1</Text>
         </Box>

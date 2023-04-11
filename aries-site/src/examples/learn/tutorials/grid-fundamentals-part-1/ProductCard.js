@@ -21,22 +21,28 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
 export const ProductCard = ({ level, product, ...rest }) => {
   return (
     <Card as="section" level={level} {...rest}>
-      <CardHeader>
+      <CardHeader pad={{ horizontal: 'medium', top: 'medium' }}>
         <Box />
         <Favorite />
       </CardHeader>
-      <CardBody gap="small">
-        <Box height="small">
-          <Image src={product.image} alt={product.name} fit="cover" />
+      <CardBody justify="between" gap="medium">
+        <Box gap="medium">
+          <Box height="small">
+            <Image src={product.image} alt={product.name} fit="cover" />
+          </Box>
+          <Box gap="small">
+            <Heading level={level} margin="none">
+              {product.name}
+            </Heading>
+            <Paragraph margin="none">{product.description}</Paragraph>
+          </Box>
         </Box>
-        <Heading level={level} margin="none">
-          {product.name}
-        </Heading>
-        <Paragraph margin="none">{product.description}</Paragraph>
-        <Text weight="bolder">{currencyFormatter.format(product.price)}</Text>
+        <Text weight={500} color="text-strong">
+          {currencyFormatter.format(product.price)}
+        </Text>
       </CardBody>
-      <CardFooter>
-        <Button label="Add to Cart" secondary />
+      <CardFooter pad={{ horizontal: 'medium', bottom: 'medium' }}>
+        <Button label="Add to cart" secondary />
       </CardFooter>
     </Card>
   );

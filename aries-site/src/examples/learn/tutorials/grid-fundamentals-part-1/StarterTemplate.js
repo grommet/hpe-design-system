@@ -1,4 +1,5 @@
-import { Grommet, Box, Text } from 'grommet';
+// App.js
+import { Grommet, Box, Heading, Text } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 
 export const App = () => {

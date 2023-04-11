@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <Grommet theme={hpe}>
       <Heading level="1">Products</Heading>
-      <Grid columns={{ count: 3, size: 'auto' }}>
+      <Grid columns={{ count: 'fill', size: '250px' }}>
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}
