@@ -173,11 +173,15 @@ export const templates = [
     seoDescription: `Improve customer experiences and make impactful,
     data-driven decisions by collecting feedback directly from users.
     `,
-    sections: [
-    ],
+    sections: [],
     relatedContent: ['Forms'],
     tags: [
-      'feedback', 'survey', 'customer experience', 'user experience', 'analytics', 'qualtrics',
+      'feedback',
+      'survey',
+      'customer experience',
+      'user experience',
+      'analytics',
+      'qualtrics',
     ],
   },
   {
@@ -714,6 +718,36 @@ export const templates = [
       'expiration',
       'feature release',
       'updates',
+    ],
+  },
+  {
+    name: 'Empty State',
+    available: true,
+    cardOrder: 10,
+    description: `An empty state refers to when the UI is 
+    devoid of any data or information.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-banner-notification.svg',
+          // eslint-disable-next-line max-len
+          dark: '/templateImages/template-preview-banner-notification-invert.svg',
+        },
+        alt: 'Banner notification under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `An empty state refers to when the UI is devoid of any 
+    data or information.`,
+    sections: [],
+    relatedContent: [],
+    tags: [
+      'day zero',
+      'empty',
+      'empty',
+      'no data',
+      'error management',
+      'error',
     ],
   },
 ];
