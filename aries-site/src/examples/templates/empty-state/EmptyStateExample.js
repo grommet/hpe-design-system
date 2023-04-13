@@ -7,7 +7,7 @@ export const EmptyStateExample = () => {
   return (
     <EmptyState
       title="No items exist"
-      description={`Once you have created an item, 
+      description={`Once an item is created, 
         it will be displayed here.`}
       icon={<CircleInformation size="xlarge" />}
       actions={<Button label="Create item" primary />}

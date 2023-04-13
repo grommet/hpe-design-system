@@ -2,6 +2,7 @@ export * from './AccessDenied';
 export * from './ActionEmptyState';
 export * from './CardEmptyState';
 export * from './EmptyStateExample';
+export * from './EmptyStateAnatomy';
 export * from './ErrorManagementEmptyState';
 export * from './LayerEmptyState';
 export * from './ListingEmptyState';
