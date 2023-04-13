@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { EmptyState } from 'aries-core';
-import { Anchor, Box, Button, Grid } from 'grommet';
+import { Anchor, Box, Button, Grid, ResponsiveContext } from 'grommet';
 import { Checkmark, Search } from 'grommet-icons';
 
 export const ActionEmptyState = () => {
+  const breakpoint = useContext(ResponsiveContext);
   return (
-    <Grid columns={{ count: 2, size: 'small' }} gap="xlarge" fill>
+    <Grid
+      columns={
+        ['xsmall', 'small'].includes(breakpoint)
+          ? ['auto']
+          : { count: 2, size: 'small' }
+      }
+      gap="xlarge"
+      fill
+    >
       <EmptyState
         title="Success"
         description="Your message was successfully delivered."
