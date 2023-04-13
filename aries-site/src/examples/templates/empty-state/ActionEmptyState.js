@@ -13,7 +13,6 @@ export const ActionEmptyState = () => {
           : { count: 2, size: 'small' }
       }
       gap="xlarge"
-      fill
     >
       <EmptyState
         title="Success"

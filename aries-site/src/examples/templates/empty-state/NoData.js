@@ -13,7 +13,6 @@ export const NoData = () => {
           : { count: 2, size: 'small' }
       }
       gap="xlarge"
-      fill
     >
       <ListingEmptyState />
       <AccessDenied />
