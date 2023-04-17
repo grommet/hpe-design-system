@@ -1,23 +1,31 @@
 // App.js
 import React from 'react';
-import { Grommet, Box, Heading, Text, Grid, ThemeContext } from 'grommet';
+import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
 import { midSize } from './utils';
 
-export const App = () => {
+const ProductsPage = () => {
   const themeContext = React.useContext(ThemeContext);
   const minColumnWidth = midSize('small', 'medium', themeContext);
 
   return (
-    <Grommet theme={hpe}>
-      <Heading level="1">Products</Heading>
+    <>
+      <Heading level={1}>Products</Heading>
       <Grid columns={minColumnWidth} gap="small">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}
       </Grid>
+    </>
+  );
+};
+
+export const App = () => {
+  return (
+    <Grommet theme={hpe}>
+      <ProductsPage />
     </Grommet>
   );
 };

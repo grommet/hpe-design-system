@@ -28,22 +28,20 @@ the syntax.
 
 ## Getting started
 
-Let’s get started. Use this [CodeSandbox template]() as a starter.
+Let’s get started. Use this [CodeSandbox template](https://codesandbox.io/s/grid-fundamentals-part-one-starter-ljmks2?file=/src/App.js) as a starter.
 
 First, in `App.js` add the Grid to your project by importing it from Grommet and
 placing it around the “hello world” text.
 
 ```js
 // App.js
-import { Grommet, Box, Heading, Text, Grid } from 'grommet';
+import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 ...
 return (
-  <Grommet theme={hpe}>
-    <Grid>
-      <Text>hello world</Text>
-    </Grid>
-  </Grommet>
+  <Grid>
+    <Text>hello world</Text>
+  </Grid>
 );
 ```
 
@@ -52,12 +50,12 @@ return (
 Let's also add a heading to the page.
 
 ```js
-<Grommet theme={hpe}>
+<>
   <Heading level={1}>Products</Heading>
   <Grid>
     <Text>hello world</Text>
   </Grid>
-</Grommet>
+</>
 ```
 
 ## Add placeholder content
@@ -167,7 +165,7 @@ and price. `productList` is a JSON file containing the product data.
 
 ```js
 // App.js
-import { Grommet, Box, Text, Grid } from 'grommet';
+import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
@@ -211,6 +209,19 @@ to `"small"`.
 Now the Grid will fit as many columns as will fit in the available space, with each column
 being a minimum width of the t-shirt size 'medium'.
 
+<Notification
+  message={
+    <Paragraph fill margin="none">
+      Did you know that Grommet uses "t-shirt sizes" to make implementing
+      consistent layouts easy? Learn more about{' '}
+      <Anchor href="/foundation/tshirt-sizing" label="t-shirt sizing" />.
+    </Paragraph>
+  }
+  width="large"
+  margin={{ bottom: 'medium' }}
+  status="learn"
+/>
+
 Notice how the number of columns changes as the browser window is resized. The Grid is now
 responsive.
 
@@ -251,7 +262,7 @@ utilities file, add two additional lines of code which calculate a column width 
 import productList from './product-list.json';
 import { midSize } from './utils';
 
-export const App = () => {
+const ProductsPage = () => {
   const themeContext = React.useContext(ThemeContext);
   const minColumnWidth = midSize('small', 'medium', themeContext);
   ...
@@ -276,8 +287,4 @@ In this tutorial, you learned how to:
 - Use the `columns` property to respond to the space available.
 - Use the `gap` property to add space between the items.
 
-If you'd like to reference a completed implentation, check out this [CodeSandbox with completed code]().
-
-```
-
-```
+If you'd like to reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/grid-fundamentals-part-one-complete-h9zc75?file=/src/App.js).
