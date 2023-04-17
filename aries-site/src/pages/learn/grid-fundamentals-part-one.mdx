@@ -1,4 +1,4 @@
-import { Anchor, Notification, Paragraph } from 'grommet';
+import { Anchor, Box, Image, Notification, Paragraph } from 'grommet';
 import {
   StepOne,
   StepTwo,
@@ -17,7 +17,13 @@ to:
 
 At the end of this tutorial, you will have built this:
 
-<!-- show example of product cards in a grid -->
+<Box align="start" height="large">
+  <Image
+    a11yTitle="Image of a web page display product cards arranged in a grid."
+    src="/learnImages/grid-fundamentals-part-1/what-we-are-building.png"
+    fit="contain"
+  />
+</Box>
 
 ## Prerequisites
 
@@ -252,8 +258,8 @@ the `columns` property to `"small"`.
 </Grid>
 ```
 
-Now we are able to display more products in each row, but they become too narrow for my
-taste. Let's make our final modifications by importing the function `midSize` from a
+Now we are able to display more products in each row, but they become too narrow.
+Let's make our final modifications by importing the function `midSize` from a
 utilities file, add two additional lines of code which calculate a column width between
 'small' and 'medium', and then use that value in the `columns` property.
 
