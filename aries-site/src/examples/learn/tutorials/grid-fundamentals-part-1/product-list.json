@@ -3,49 +3,49 @@
     "id": 0,
     "name": "Handmade Wooden Chair",
     "price": "117.00",
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "description": "Sit and relax on a seat made from a real tree. Crafted by hand, by a real live person. This chair is made from a tree that was cut down and then carved.",
     "image": "/learnImages/grid-fundamentals-part-1/unsplash-wooden-chair.avif"
   },
   {
     "id": 1,
     "name": "Gorgeous Fluffy Towels",
     "price": "360.00",
-    "description": "The Football Is Good For Training And Recreational Purposes",
+    "description": "These towels are so fluffy, you'll want to take a nap on them. They're so fluffy, I'm gonna die!",
     "image": "/learnImages/grid-fundamentals-part-1/denny-muller-s9zGsWDiFO4-unsplash.jpg"
   },
   {
     "id": 6,
     "name": "Electronic Lemon Car",
     "price": "812.00",
-    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "description": "It's electronic. It's lemon in color. It's a car. What more do you need to know? It's almost as if two adjectives and a noun were chosen at random to describe this product.",
     "image": "/learnImages/grid-fundamentals-part-1/wolf-schram-19t6J2RVqQE-unsplash.jpg"
   },
   {
     "id": 7,
     "name": "Luxurious Soft Pizza",
     "price": "845.00",
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "description": "Luxurious melty cheese. Soft, chewy crust. Freshly baked. Mmmm... pizza.",
     "image": "/learnImages/grid-fundamentals-part-1/alan-hardman-SU1LFoeEUkk-unsplash.jpg"
   },
   {
     "id": 8,
     "name": "Handcrafted Feather Hat",
     "price": "807.00",
-    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "description": "This entire hat is made from real feathers. Yankee-Doodle would be jealous.",
     "image": "/learnImages/grid-fundamentals-part-1/lakeisha-bennett-znBJkXzo8ik-unsplash.jpg"
   },
   {
     "id": 12,
     "name": "Exotic Rubber Fish",
     "price": "356.00",
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "description": "This rubber fish is guaranteed to float and guaranteed to make your aquarium look more exotic.",
     "image": "/learnImages/grid-fundamentals-part-1/david-clode-EDfZ0Sjmp_w-unsplash.jpg"
   },
   {
     "id": 19,
     "name": "Miniture Tea Set",
     "price": "899.00",
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "description": "Oooooh. So tiny. So cute. This miniture tea set will put a smile on your face.",
     "image": "/learnImages/grid-fundamentals-part-1/gabriella-clare-marino-EGXpSrG02sU-unsplash.jpg"
   }
 ]

@@ -4,6 +4,7 @@ import {
   StepTwo,
   StepThree,
   StepFour,
+  StepFive,
 } from '../../examples/learn/tutorials/grid-fundamentals-part-1';
 
 In this tutorial you will use Grid to display a collection of products, similar to
@@ -146,14 +147,12 @@ and price. `productList` is a JSON file containing the product data.
         target="_blank"
         rel="noopener noreferrer"
         label="Image"
-      />,{' '}
-      <Anchor
+      />, <Anchor
         href="https://v2.grommet.io/paragraph"
         target="_blank"
         rel="noopener noreferrer"
         label="Paragraph"
-      />
-      , and <Anchor
+      />, and <Anchor
         href="https://v2.grommet.io/text"
         target="_blank"
         rel="noopener noreferrer"
@@ -203,14 +202,14 @@ that the products appear squished when the browser window is narrow and stretche
 browser window is wide. This is because the Grid is not responsive. Let's fix that.
 
 To make the Grid responsive, we will adjust the `columns` property. Set the `columns` property
-to `250px`.
+to `"small"`.
 
 ```js
-<Grid columns="250px">...</Grid>
+<Grid columns="medium">...</Grid>
 ```
 
 Now the Grid will fit as many columns as will fit in the available space, with each column
-being a minimum of 250px wide.
+being a minimum width of the t-shirt size 'medium'.
 
 Notice how the number of columns changes as the browser window is resized. The Grid is now
 responsive.
@@ -220,20 +219,51 @@ responsive.
 ## Polishing the layout
 
 Now that we have a responsive Grid, let's polish the layout. Let's add some space
-between the products by adding `gap="medium"` to the Grid.
+between the products by adding `gap="small"` to the Grid.
 
 ```js
-<Grid columns="250px" gap="medium">
+<Grid columns="medium" gap="small">
   ...
 </Grid>
 ```
 
+<StepFour />
+
 <br />
+
+Finally, let's refine the column width to be a bit more efficient with our screen's
+real-estate. A minimum column width of `"medium"` feels too wide. Let's try setting
+the `columns` property to `"small"`.
+
+```js
+<Grid columns="small" gap="small">
+  ...
+</Grid>
+```
+
+Now we are able to display more products in each row, but they become too narrow for my
+taste. Let's make our final modifications by importing the function `midSize` from a
+utilities file, add two additional lines of code which calculate a column width between
+'small' and 'medium', and then use that value in the `columns` property.
+
+```js
+...
+import productList from './product-list.json';
+import { midSize } from './utils';
+
+export const App = () => {
+  const themeContext = React.useContext(ThemeContext);
+  const minColumnWidth = midSize('small', 'medium', themeContext);
+  ...
+  <Grid columns={minColumnWidth} gap="small">
+    ...
+  </Grid>
+```
 
 Congratulations! You have completed the tutorial and have a great start on a very
 respectable product catalog.
 
-<StepFour />
+<StepFive />
 
 ## Summary
 
@@ -247,3 +277,7 @@ In this tutorial, you learned how to:
 - Use the `gap` property to add space between the items.
 
 If you'd like to reference a completed implentation, check out this [CodeSandbox with completed code]().
+
+```
+
+```
