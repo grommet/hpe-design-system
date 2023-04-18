@@ -1,5 +1,9 @@
 /* eslint-disable max-len */
-import { BoxPreview, DataHowTo } from '../../examples/cardPreviews';
+import {
+  BoxPreview,
+  DataHowTo,
+  GridPreview,
+} from '../../examples/cardPreviews';
 
 export const learn = [
   {
@@ -16,6 +20,21 @@ export const learn = [
     sections: [],
     relatedContent: ['Box', 'Button', 'Typography'],
     tags: ['Box', 'layout', 'fundamentals'],
+  },
+  {
+    name: 'Grid Fundamentals Part One',
+    render: 'Grid Fundamentals: Part One',
+    description:
+      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
+    preview: {
+      component: () => <GridPreview />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
+    sections: [],
+    relatedContent: ['Grid', 'Box'],
+    tags: ['grid', 'layout', 'fundamentals'],
   },
   {
     name: 'How to add search and filter to DataTable with Data',
