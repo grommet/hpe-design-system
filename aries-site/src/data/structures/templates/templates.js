@@ -744,7 +744,6 @@ export const templates = [
     tags: [
       'day zero',
       'empty',
-      'empty',
       'no data',
       'error management',
       'error',
