@@ -2,6 +2,7 @@ import { Example } from '../../layouts';
 import {
   InlineNotificationAnatomy,
   InlineNotificationExample,
+  PageBannerExample,
   PromotionExample,
 } from '../../examples';
 import { Checkmark } from 'grommet-icons';
@@ -141,6 +142,18 @@ a limit or threshold, and a critical status might communicate an action has fail
 
 An inline notification may be used to provide additional detail or context,
 offering a helpful hint or tip, or providing a link to additional information.
+
+In this example, the page-level banner informs the user that an action is required on a set of resources and provides a way for the user to navigate to the affected section for more details. Click "View details" to see the section-level notification with additional information.
+
+<Example
+  code=""
+  github=""
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  width="100%"
+>
+  <PageBannerExample />
+</Example>
 
 ### Promotion
 
