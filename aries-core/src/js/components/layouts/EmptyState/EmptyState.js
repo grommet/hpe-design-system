@@ -32,7 +32,7 @@ EmptyState.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
-  align: PropTypes.oneOf(['start']),
+  align: PropTypes.oneOf(['start', 'center']),
   description: PropTypes.string,
   icon: PropTypes.element,
   level: PropTypes.number,
