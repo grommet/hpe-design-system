@@ -88,7 +88,7 @@ const CardExample = ({ ...rest }) => (
           <Text size="small">{event.pretitle}</Text>
         </DashedBox>
         <DashedBox id="cta-title">
-          <Heading level={3} margin="none" size="small">
+          <Heading level={3} margin="none">
             {event.title}
           </Heading>
         </DashedBox>

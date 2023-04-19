@@ -11,7 +11,10 @@ In this tutorial you will use Box to build a hero section for a page and underst
 At the end of this tutorial, you will have built this:
 
 <ImageContainer>
-  <Image src="/learnImages/box-model-part-one/box-model-final.png" />
+  <Image
+    src="/learnImages/box-model-part-one/box-model-final.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </ImageContainer>
 
 ## Prerequisites
@@ -86,7 +89,10 @@ Replace “Hello world” with the following content as children of the Box.
     performance for your workloads to drive your business forward.
   </Paragraph>
   <Button label="Learn more" kind="cta-primary" />
-  <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+  <Image
+    alt="Two IT professionals inspecting a server rack."
+    src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+  />
 </Box>
 ...
 ```
@@ -94,7 +100,10 @@ Replace “Hello world” with the following content as children of the Box.
 At this point, your project should look like this:
 
 <ImageContainer>
-  <Image src="/learnImages/box-model-part-one/step-1.png" />
+  <Image
+    src="/learnImages/box-model-part-one/step-1.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </ImageContainer>
 
 ## Use direction to affect content layout
@@ -123,7 +132,10 @@ Notice how the content is displayed in a row from left to right. That is because
     </Paragraph>
     <Button label="Learn more" kind="cta-primary" />
   </Box>
-  <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+  <Image
+    alt="Two IT professionals inspecting a server rack."
+    src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+  />
 </Box>
 ```
 
@@ -132,7 +144,10 @@ Now, the image and the Box containing the heading, paragraph, and button are the
 At this point, your project should look like this:
 
 <ImageContainer>
-  <Image src="/learnImages/box-model-part-one/box-model-row.png" />
+  <Image
+    src="/learnImages/box-model-part-one/box-model-row.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </ImageContainer>
 
 ## Use Box to manage an image's width
@@ -142,7 +157,10 @@ Right now, the dimensions of the image file are determining how wide it is. In o
 ```
 ...
 <Box>
-  <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+  <Image
+    alt="Two IT professionals inspecting a server rack."
+    src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+  />
 </Box>
 ...
 ```
@@ -166,7 +184,10 @@ To keep the button from stretching the full width of the box, apply `alignSelf="
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
-    <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+    <Image
+      alt="Two IT professionals inspecting a server rack."
+      src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+    />
   </Box>
 </Box>
 ```
@@ -190,7 +211,10 @@ To keep the button from stretching the full width of the box, apply `alignSelf="
 At this point, your project should look like this:
 
 <ImageContainer>
-  <Image src="/learnImages/box-model-part-one/box-model-alignself.png" />
+  <Image
+    src="/learnImages/box-model-part-one/box-model-alignself.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </ImageContainer>
 
 ## Add a background color and pad
@@ -212,7 +236,10 @@ Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500}
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
-    <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+    <Image
+      alt="Two IT professionals inspecting a server rack."
+      src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+    />
   </Box>
 </Box>
 ```
@@ -220,7 +247,10 @@ Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500}
 At this point, your project should look like this. We’re getting closer, but we’re missing spacing between the various content elements, such as the space between heading and paragraph, paragraph and CTA button, and text and image.
 
 <ImageContainer>
-  <Image src="/learnImages/box-model-part-one/step-3.png" />
+  <Image
+    src="/learnImages/box-model-part-one/step-3.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </ImageContainer>
 
 ## Use gap to add space between elements
@@ -240,7 +270,10 @@ Now, let’s add the spacing between elements. Whenever space is needed between 
     <Button alignSelf="start" label="Learn more" kind="cta-primary" />
   </Box>
   <Box>
-    <Image src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg" />
+    <Image
+      alt="Two IT professionals inspecting a server rack."
+      src="https://www.insight.com/content/insight-web/en_US/shop/partner/hewlett-packard-enterprise/product-portfolio/servers/jcr%3Acontent/top-inner-full-width/column_layout/-column-1/image_0.img.jpg/1566699651505.jpg"
+    />
   </Box>
 </Box>
 ```
@@ -270,10 +303,13 @@ Now, add space between the heading, paragraph, and button by applying `gap="medi
 Great job! You have built a hero section of a page using Box and its various properties. Your project should look like this:
 
 <Box width="large" margin={{ bottom: 'medium' }}>
-  <Image src="/learnImages/box-model-part-one/box-model-final.png" />
+  <Image
+    src="/learnImages/box-model-part-one/box-model-final.png"
+    alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
+  />
 </Box>
 
-If you'd like to reference a completed implentation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/the-box-model-part-one-completed-xbwg9u?file=/src/App.js).
+If you'd like to reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/the-box-model-part-one-completed-xbwg9u?file=/src/App.js).
 
 export const ImageContainer = ({ ...rest }) => (
   <Box

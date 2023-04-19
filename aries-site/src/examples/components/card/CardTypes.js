@@ -60,7 +60,7 @@ export const CardTypes = () => {
 const Type = ({ description, href, preview, title }) => (
   <Box>
     <Box gap="xsmall">
-      <Heading level={3} size="small" margin="none">
+      <Heading level={3} margin="none">
         {title}
       </Heading>
       <Paragraph margin="none">{description}</Paragraph>
@@ -72,7 +72,6 @@ const Type = ({ description, href, preview, title }) => (
             margin={{ vertical: 'small' }}
             label="Read guidance"
             icon={<FormNextLink aria-hidden="true" />}
-            // size="small"
             reverse
             secondary
           />

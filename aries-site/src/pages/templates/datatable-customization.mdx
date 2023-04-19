@@ -28,18 +28,17 @@ which columns should appear in the DataTable and another for ordering the column
 
 ## Anatomy of a customizable DataTable
 
-### An action to display column visibility and order controls
+### An action to manage column visibility and order controls
 
-Place a button with an `Edit` icon next to the `Actions` menu for the data table on the
-right side above the data table. The `Actions` menu is mainly for actions which modify
-items in the data table. Controls like the search and filter controls change what items
-are shown in the data table or how they are presented rather than changing the items
-themselves. Since we want to customize the data table itself, we have separate controls
-for changing which columns are shown in the data table and their order.
+Since we want to customize the data table itself, we have separate controls for changing
+which columns are shown in the data table and their order. Place a button with a `Manage columns`
+icon between the search and filter controls on the left. These view controls change what items
+are shown in the data table or how they are presented rather than changing the items themselves.
+The right aligned `Actions` menu is mainly for actions which modify items in the data table.
 
 ### Column visibility
 
-Clicking on the `Edit` button opens a dropdown which has two tabs. The first tab should
+Clicking on the `Manage columns` button opens a dropdown which has two tabs. The first tab should
 be active and labeled "Select columns." The tab content should consist of a Search input
 and a CheckBoxGroup that lists all possible table columns.
 

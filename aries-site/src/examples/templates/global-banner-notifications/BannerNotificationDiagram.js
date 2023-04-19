@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Diagram, Stack, Text } from 'grommet';
-import { FormClose, StatusCriticalSmall } from 'grommet-icons';
+import { Close, StatusCriticalSmall } from 'grommet-icons';
+
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -97,7 +98,7 @@ export const BannerNotificationDiagram = () => (
       </AnatomyBox>
       <AnatomyBox />
       <AnatomyBox align="center">
-        <FormClose id="close-button" />
+        <Close id="close-button" />
       </AnatomyBox>
     </AnatomyGrid>
     <Diagram connections={connections} />

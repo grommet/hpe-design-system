@@ -55,7 +55,7 @@ const DesignSystemCard = ({
             {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
-              <Heading level={level} margin="none" size="small">
+              <Heading level={level} margin="none">
                 {title}
               </Heading>
             ) : (

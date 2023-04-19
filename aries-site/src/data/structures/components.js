@@ -101,7 +101,6 @@ export const components = [
       'Primary Button',
       'Secondary Button',
       'Toolbar Button',
-      'Color Button',
       'Button with Icon',
       'Button States',
       'Button Sizes',
@@ -1197,22 +1196,15 @@ export const components = [
     category: 'Visualizations',
     description:
       'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
-      preview: {
-        component: () => <SkeletonPreview />,
-        background: 'background-front',
-      },
+    preview: {
+      component: () => <SkeletonPreview />,
+      background: 'background-front',
+    },
     seoDescription:
       'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
     relatedContent: ['Box', 'Button', 'Spinner'],
-    sections: [
-      'When to use',
-      'When not to use',
-      'Anatomy',
-    ],
-    tags: [
-      'loading',
-      'loading page',
-    ],
+    sections: ['When to use', 'When not to use', 'Anatomy'],
+    tags: ['loading', 'loading page'],
   },
   {
     name: 'DataTable',

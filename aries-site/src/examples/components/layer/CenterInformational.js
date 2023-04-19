@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Paragraph } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Close } from 'grommet-icons';
 
 export const CenterInformational = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
@@ -23,8 +23,8 @@ export const CenterInformational = ({ containerRef }) => {
         >
           <Box pad="medium">
             <Box direction="row" align="start" gap="small">
-              <Box>
-                <Heading level={2} size="small" margin="none">
+              <Box gap="medium">
+                <Heading level={2} margin="none">
                   Firmware update initiated
                 </Heading>
                 <Paragraph margin="none">
@@ -34,7 +34,7 @@ export const CenterInformational = ({ containerRef }) => {
                 </Paragraph>
               </Box>
               <Button
-                icon={<FormClose />}
+                icon={<Close />}
                 onClick={() => setShowModal(false)}
                 a11yTitle={`You are in a layer containing a confirmation that
                 the firmare update has been initiated. To close this layer,
