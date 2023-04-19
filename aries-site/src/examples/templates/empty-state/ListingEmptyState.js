@@ -11,7 +11,7 @@ export const ListingEmptyState = ({ alignEmptyState }) => {
       title="Start a listing"
       description={`Provide a listing overview to help users 
         learn more about your product.`}
-      icon={<Note size="xlarge" />}
+      icon={<Note />}
       actions={<Button label="Start a listing" primary />}
       level={2}
     />

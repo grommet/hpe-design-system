@@ -9,7 +9,7 @@ export const EmptyStateExample = () => {
       title="No items exist"
       description={`Once an item is created, 
         it will be displayed here.`}
-      icon={<CircleInformation size="xlarge" />}
+      icon={<CircleInformation />}
       actions={<Button label="Create item" primary />}
       level={2}
     />

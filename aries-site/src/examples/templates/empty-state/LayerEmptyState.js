@@ -30,11 +30,11 @@ export const LayerEmptyState = ({ containerRef }) => {
           target={containerRef?.current}
         >
           <EmptyState
-            icon={<Lock size="xlarge" />}
+            icon={<Lock />}
             title="Access denied"
             description={`You do not have access to this action. Please 
               contact the administrator to request access.`}
-            actions={<Button label="Contact administration" primary />}
+            actions={<Button label="Request access" primary />}
             level={3}
           />
         </ModalDialog>

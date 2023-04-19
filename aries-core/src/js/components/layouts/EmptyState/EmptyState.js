@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, Paragraph } from 'grommet';
 
 export const EmptyState = ({
   actions,
-  align,
+  align = 'center',
   description,
-  icon,
+  icon: iconProp,
   level,
   title,
 }) => {
+  let icon = iconProp;
+  if (iconProp && !iconProp.props.size)
+    icon = cloneElement(iconProp, {
+      size: 'xlarge',
+    });
+
   return (
-    <Box gap="medium" align={align || 'center'} flex={false}>
+    <Box gap="medium" align={align} flex={false}>
       {icon}
-      <Box align={align || 'center'} gap="xsmall">
+      <Box align={align} gap="xsmall">
         <Heading margin="none" level={level}>
           {title}
         </Heading>
-        <Paragraph margin="none" textAlign={align || 'center'}>
+        <Paragraph margin="none" textAlign={align}>
           {description}
         </Paragraph>
       </Box>

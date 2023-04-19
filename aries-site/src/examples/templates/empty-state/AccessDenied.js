@@ -9,7 +9,7 @@ export const AccessDenied = () => {
       title="Access denied"
       description={`You do not have access to this resource. 
     Please contact the administrator to request access.`}
-      icon={<Lock size="xlarge" />}
+      icon={<Lock />}
       actions={<Button label="Contact administator" primary />}
       level={2}
     />
