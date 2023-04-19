@@ -1,12 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Box,
-  Button,
-  Collapsible,
   Data,
   DataFilters,
-  DataFilter,
   Grid,
   Page,
   PageContent,
@@ -15,7 +11,6 @@ import {
   ThemeContext,
 } from 'grommet';
 
-import { FormDown, FormNext } from 'grommet-icons';
 import { AppResults } from './AppResults';
 
 const allApps = require('../../../../data/mockData/applications.json');
@@ -97,66 +92,15 @@ const properties = {
 
 const ContentLayout = () => {
   const breakpoint = useContext(ResponsiveContext);
-  const [openCategories, setOpenCategories] = useState(false);
-  const [openPublishers, setOpenPublishers] = useState(false);
-  const [openDelivery, setOpenDelivery] = useState(false);
-  const [openPricing, setOpenPricing] = useState(false);
-
-  let sidebar;
-  if (breakpoint === 'small' || breakpoint === 'xsmall') {
-    sidebar = <DataFilters layer />;
-  } else {
-    sidebar = (
-      <DataFilters>
-        <Box
-          align="start"
-          background="background-front"
-          gap="xsmall"
-          pad={{ vertical: 'small' }}
-        >
-          <Button
-            onClick={() => setOpenCategories(!openCategories)}
-            label="Categories"
-            icon={openCategories ? <FormDown /> : <FormNext />}
-            // id -> passed to datafilter
-          />
-          <Collapsible open={openCategories}>
-            <DataFilter property="categories" />
-          </Collapsible>
-          {/* datafilter api to wrap in form field or not (no label, no border) 
-          -> caller can pass aria-labelledby + id */}
-
-          <Button
-            onClick={() => setOpenPublishers(!openPublishers)}
-            label="Publishers"
-            icon={openPublishers ? <FormDown /> : <FormNext />}
-          />
-          <Collapsible open={openPublishers}>
-            <DataFilter property="publisher" />
-          </Collapsible>
-          <Button
-            onClick={() => setOpenDelivery(!openDelivery)}
-            label="Delivery methods"
-            icon={openDelivery ? <FormDown /> : <FormNext />}
-          />
-          <Collapsible open={openDelivery}>
-            <DataFilter property="delivery" />
-          </Collapsible>
-          <Button
-            onClick={() => setOpenPricing(!openPricing)}
-            label="Pricing models"
-            icon={openPricing ? <FormDown /> : <FormNext />}
-          />
-          <Collapsible open={openPricing}>
-            <DataFilter property="pricing" />
-          </Collapsible>
-        </Box>
-      </DataFilters>
-    );
-  }
+  const showFiltersButton = breakpoint === 'small' || breakpoint === 'xsmall';
+  const sidebar = <DataFilters layer={showFiltersButton ? true : undefined} />;
 
   return (
-    <Data data={allApps} properties={properties} updateOn="change">
+    <Data
+      data={allApps}
+      properties={properties}
+      updateOn={showFiltersButton ? undefined : 'change'}
+    >
       <Grid
         align="start"
         columns={pageContentGrid.columns[breakpoint]}
