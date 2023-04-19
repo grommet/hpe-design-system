@@ -45,7 +45,7 @@ Basic anatomy and spacing that apply to all [layer types](#types-of-layers).
 | Label  | Region       | Purpose                                                |                  Required                   | Notes                                                                      |
 | ------ | ------------ | ------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------- |
 | **1**  | **Header**   | Identifies the layer.                                  | <Checkmark a11yTitle="true" size="small" /> | --                                                                         |
-| **1a** | **Title**    | A short, descriptive title identifying the layer.      | <Checkmark a11yTitle="true" size="small" /> | Implemented as a Heading level 2, size="small".                            |
+| **1a** | **Title**    | A short, descriptive title identifying the layer.      | <Checkmark a11yTitle="true" size="small" /> | Implemented as a Heading level 2.                                          |
 | **1b** | **Subtitle** | Any additional context or information about the layer. |                  Optional                   | --                                                                         |
 | **2**  | **Body**     | Any additional content.                                |                  Optional                   | --                                                                         |
 | **3**  | **Footer**   | Contains layer actions.                                |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. |
@@ -336,7 +336,7 @@ For example, implementation of this "Close" button for a Layer would be:
 <Button
   a11yTitle={`You are in a layer containing a form to add new hosts.
   To close this layer, press Enter.`}
-  icon={<FormClose />}
+  icon={<Close />}
   onClick={() => setShowLayer(false)}
   autoFocus
 />

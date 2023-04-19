@@ -6,7 +6,7 @@ import { Box, Button } from 'grommet';
 const PositionedBox = styled(Box)`
   position: fixed;
   bottom: 0px;
-  border-radius: 6px;
+  border-radius: 2em;
   right: 0px;
   z-index: 10;
 `;

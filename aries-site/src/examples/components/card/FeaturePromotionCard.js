@@ -18,7 +18,7 @@ export const FeaturePromotionCard = () => (
           clip: 'text',
         }}
       >
-        <Heading level={2} size="small" margin="none">
+        <Heading level={2} margin="none">
           GreenLake Cloud Platform announces new ML Ops service
         </Heading>
       </Box>

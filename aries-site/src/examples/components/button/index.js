@@ -5,7 +5,6 @@ export * from './ButtonLeftAlignExample';
 export * from './ButtonRightAlignExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';
-export * from './ColorButtonExample';
 export * from './CTAButtonExample';
 export * from './DefaultButtonExample';
 export * from './DosDonts';

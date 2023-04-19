@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Box, Layer } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { LayerForm } from './ConfigurationForm';
 import {
   ConfirmationProvider,
   ConfirmationContext,
   DoubleConfirmation,
-  LayerHeader,
   useConfirmation,
 } from './components';
 

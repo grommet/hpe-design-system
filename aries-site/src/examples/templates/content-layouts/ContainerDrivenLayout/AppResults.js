@@ -24,7 +24,7 @@ export const AppResults = () => {
 
   return (
     <Box gap="medium">
-      <Heading level={2} size="small">
+      <Heading level={2} margin="none">
         Apps
       </Heading>
       <Cards

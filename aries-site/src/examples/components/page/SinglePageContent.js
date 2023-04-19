@@ -108,9 +108,7 @@ Datasets.propTypes = {
 const Category = ({ category }) => (
   <>
     <Header>
-      <Heading level={2} size="small">
-        {category.title}
-      </Heading>
+      <Heading level={2}>{category.title}</Heading>
       <Text>
         <Anchor href="#" label="See all" />
       </Text>

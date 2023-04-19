@@ -1,6 +1,6 @@
-import { hpe } from 'grommet-theme-hpe';
+import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
-import { Info } from 'grommet-icons/icons/Info';
+import { Close, Info } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -26,7 +26,6 @@ export const aries = deepMerge(hpe, {
       gap: 'xsmall',
     },
     heading: {
-      size: 'small',
       level: 2,
       margin: {
         vertical: 'none',
@@ -46,6 +45,22 @@ export const aries = deepMerge(hpe, {
       alignSelf: 'end',
     },
   },
+  notification: {
+    close: {
+      icon: Close,
+    },
+  },
+});
+
+export const ariesPop = deepMerge(aries, {
+  ...hpePop,
+  anchor: {
+    // rely on base anchor styling to meet color contrast on background-back
+    size: {
+      large: undefined,
+      xlarge: undefined,
+    },
+  },
   // this is producing a console warning because it's not a supported status
   // proposing that notification should be more flexible to allow other statuses
   notification: {
@@ -56,7 +71,6 @@ export const aries = deepMerge(hpe, {
         opacity: 'weak',
       },
       color: 'text',
-      // global: {},
       toast: {
         background: 'background-front',
       },

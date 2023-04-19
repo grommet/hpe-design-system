@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, Page, PageContent, Stack } from 'grommet';
-import { FormClose } from 'grommet-icons/icons/FormClose';
+import { LayerHeader } from 'aries-core';
+import { Close } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
-import { LayerHeader } from './components/LayerHeader';
 
 export const FullscreenLayerAnatomy = ({ informational }) => {
   const closeId = informational
@@ -83,7 +83,7 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
       <Box round pad="xsmall" background="green" />
     </Box>
     <Page background="background-front" id="layer-container">
-      <Button alignSelf="end" icon={<FormClose />} id={closeId} />
+      <Button alignSelf="end" icon={<Close />} id={closeId} />
       <PageContent
         gap="medium"
         pad={{ horizontal: 'medium', bottom: 'medium' }}

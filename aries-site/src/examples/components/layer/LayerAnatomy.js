@@ -8,9 +8,9 @@ import {
   Stack,
   ResponsiveContext,
 } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
-import { LayerHeader } from './components/LayerHeader';
 
 const connections = [
   connection('1a', 'layer-title'),
