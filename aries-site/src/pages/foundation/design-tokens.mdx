@@ -1,0 +1,118 @@
+import { Example } from '../../layouts';
+import { HeadingToken, SimpleToken } from '../../examples';
+
+Implementing design tokens are an efficient way for HPE’s design system teams, product teams, and users of HPE’s design tools, to maintain consistency across digital products.
+
+## What are design tokens?
+
+Design tokens are a way to standardize and centralize design language used in creating digital products. Tokens use self-explanatory names to represent values, including but not limited to: colors, typography, spacing.
+
+By using design tokens, designers and developers can ensure consistency in the look and feel of all elements across various platforms and devices.
+
+An HPE Design Token consists of two main components:
+
+1. A self-explanatory name that represents the coded value: “color.background”.
+2. An associated value: #01A982.
+
+<Example>
+  <SimpleToken />
+</Example>
+
+## Why are design tokens important?
+
+Tokens provide consistency throughout the brand and are a single source of truth for designers and developers. It provides a tech-stack agnostic way for a variety of teams to quickly get “on brand”.
+
+Implementing design tokens allows designers and developers to quickly and efficiently make system-wide updates and changes to design elements, without having to do it manually.
+
+Because design tokens provide a common language for designers and developers, it promotes communication, collaboration, and reduces the risk of errors. As products and services grow at HPE, tokens allow for ease of scalability, providing a flexible framework that can adapt to changing needs and requirements.
+
+## How to read tokens
+
+The hierarchy of a token is read in a left-to-right order, going from general to specific.
+
+### Token naming structure
+
+The structure of the token naming schema intends to:
+
+1. First, establish the subject of the token (a color, a dimension such as spacing, a component such as button)
+2. Specify the variant and state of the subject
+3. Identify the CSS property to be affected and any breakpoint-specifications
+
+### Possible facets of a token name
+
+| Facet              | Definition                                                                                                            | Examples                                          |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 1. Group/Component | The subject of the token.                                                                                             | color, input, anchor, button                      |
+| 2. Element         | A sub-component or specific element in a component.                                                                   | icon, label                                       |
+| 3. Concept         | A semantic concept, often used to define categories of color tokens.                                                  | background, border, validation                    |
+| 4. Size            | The t-shirt size of the component.                                                                                    | xsmall, small, medium                             |
+| 5. Variant         | A specific variant of a component.                                                                                    | For button, primary/secondary. For heading, 1/2/3 |
+| 6. State           | The interaction state of the component. "Enabled" is considered the default state and is not included in token names. | disabled, hover, focus                            |
+| 7. Breakpoint      | The specific breakpoint to apply the style.                                                                           | mobile, tablet, desktop                           |
+| 8. CSS Property    | The specific CSS property to be styled. Use camelCase.                                                                | color, fontSize, borderRadius                     |
+| 9. Mode            | The theme mode. Mode should be defined on "color" tokens only.                                                        | light, dark                                       |
+
+### Example token names
+
+| Token                                 | Group/Component | Element | Concept    | Size  | Variant | State | Breakpoint | CSS Property | Mode  |
+| ------------------------------------- | --------------- | ------- | ---------- | ----- | ------- | ----- | ---------- | ------------ | ----- |
+| **color.background.front.light**      | color           | --      | background | --    | front   | --    | --         | --           | light |
+| **radius.full**                       | radius          | --      | --         | --    | full    | --    | --         | --           | --    |
+| **input.borderRadius**                | input           | --      | --         | --    | --      | --    | --         | borderRadius | --    |
+| **anchor.icon.color**                 | anchor          | icon    | --         | --    | --      | --    | --         | color        | --    |
+| **button.large.primary.borderRadius** | button          | --      | --         | large | primary | --    | --         | borderRadius | --    |
+| **heading.1.mobile.fontSize**         | heading         | --      | --         | --    | 1       | --    | mobile     | fontSize     | --    |
+| **button.default.hover.background**   | button          | --      | --         | --    | default | hover | --         | background   | --    |
+
+### Rules and best practices
+
+1. The “Group/Component” is required to establish the subject of the token.
+1. For component tokens, the “CSS property” is required to establish what style is affected.
+1. “Mode” should only be used on raw “color” tokens. When referencing colors at the component level, the component token should reference a color token.
+1. A token does not need to include a value for every possible facet. In fact, you should use the minimum number of facets possible.
+1. For “State”, “enabled” is considered the default state and should not be included in the token name. Only modifiers like “hover”, “disabled”, “focus”, etc. should be used.
+
+## Current progress
+
+We’re excited to announce that we’re implementing design tokens as part of the HPE Design System. We would appreciate any feedback you might have, visit our [Github]() and [Slack channel]() to leave us any comments or questions.
+
+### Global tokens
+
+Global tokens define the base for all components styles by establishing the available breakpoints, colors, elevation, rounding, spacing, and sizing values.
+
+#### H1 fontSize tokens
+
+| Token                          | Value | Example                              |
+| ------------------------------ | ----- | ------------------------------------ |
+| **heading.1.desktop.fontSize** | 36px  | <HeadingToken />                     |
+| **heading.1.tablet.fontSize**  | 24px  | <HeadingToken breakpoint="tablet" /> |
+| **heading.1.mobile.fontSize**  | 20px  | <HeadingToken breakpoint="mobile" /> |
+
+The full set of global tokens can be found in the [hpe-design-tokens global.json](https://github.com/grommet/hpe-design-tokens/blob/main/global.json) file.
+
+### Component tokens
+
+Component tokens define specific styling for aspects of a component.
+
+#### Anchor tokens
+
+| Token                     | Value                  |
+| ------------------------- | ---------------------- |
+| **anchor.color**          | color.text.strong      |
+| **anchor.textDecoration** | underline              |
+| **anchor.fontWeight**     | font.medium.fontWeight |
+| **anchor.icon.color**     | color.brand            |
+
+The full set of component tokens can be found in the [hpe-design-tokens components.json](https://github.com/grommet/hpe-design-tokens/blob/main/components.json) file.
+
+## How to use tokens
+
+### Figma
+
+TBD.
+
+### Code
+
+If you are building with grommet-theme-hpe and Grommet, no changes are need on your end. You're getting the tokens out of the box because grommet-theme-hpe is built using HPE Design Tokens.
+
+If you are not building with grommet-theme-hpe and Grommet, you can access the design tokens on Github under [hpe-design-tokens](). This repository exports a variety of versions of the tokens for ease-of-use depending on your styling approach. For example, a [JSON file with resolved token values]() is exported as well as a file with [CSS variables]().

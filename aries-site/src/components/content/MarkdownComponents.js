@@ -95,13 +95,13 @@ export const components = {
     />
   ),
   table: props => (
-    <Box
-      align="start"
-      width={{ max: 'xlarge' }}
-      margin={{ bottom: 'medium' }}
-      overflow="auto"
-    >
-      <Box background="background-front" pad="medium" round="small">
+    <Box align="start" width={{ max: 'xlarge' }} margin={{ bottom: 'medium' }}>
+      <Box
+        background="background-front"
+        pad="medium"
+        round="small"
+        overflow="auto"
+      >
         <Table {...props} />
       </Box>
     </Box>
@@ -121,9 +121,10 @@ export const components = {
     <TableCell
       scope="col"
       pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      verticalAlign="bottom"
       {...props}
     >
-      <Text color="text-strong" weight="bold">
+      <Text color="text-strong" weight={500}>
         {props.children}
       </Text>
     </TableCell>

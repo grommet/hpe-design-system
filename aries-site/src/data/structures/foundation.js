@@ -1,4 +1,5 @@
 import { Box } from 'grommet';
+import { DesignTokens } from '../../examples';
 
 export const foundation = [
   {
@@ -469,5 +470,22 @@ export const foundation = [
       'casing',
       'capitilization',
     ],
+  },
+  {
+    name: 'Design Tokens',
+    category: 'Assets',
+    cardOrder: 4,
+    description: `Design tokens are the single source of truth between the 
+    design system and code. Tokens store values like colors and fonts so 
+    that those values can be used across designs, code, tools, and platforms.`,
+    preview: {
+      component: () => <DesignTokens />,
+    },
+    seoDescription: `Design tokens are the single source of truth between the 
+    design system and code. Tokens store values like colors and fonts so 
+    that those values can be used across designs, code, tools, and platforms.`,
+    sections: [],
+    relatedContent: [],
+    tags: [],
   },
 ];
