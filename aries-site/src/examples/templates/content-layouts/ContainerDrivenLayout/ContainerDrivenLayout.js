@@ -1,7 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+  Box,
+  Button,
+  Collapsible,
   Data,
+  DataFilter,
   DataFilters,
   Grid,
   Page,
@@ -10,6 +14,8 @@ import {
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
+
+import { FormDown, FormNext } from 'grommet-icons';
 
 import { AppResults } from './AppResults';
 
@@ -92,8 +98,66 @@ const properties = {
 
 const ContentLayout = () => {
   const breakpoint = useContext(ResponsiveContext);
-  const showFiltersButton = breakpoint === 'small' || breakpoint === 'xsmall';
-  const sidebar = <DataFilters layer={showFiltersButton ? true : undefined} />;
+  const showFiltersButton = ['xsmall', 'small'].includes(breakpoint);
+
+  const [expandCategory, setExpandCategory] = useState(false);
+  const [expandPublishers, setExpandPublishers] = useState(false);
+  const [expandDelivery, setExpandDelivery] = useState(false);
+  const [expandPricing, setExpandPricing] = useState(false);
+
+  const sidebar = showFiltersButton ? (
+    <DataFilters layer />
+  ) : (
+    <Box
+      direction="column"
+      align="start"
+      gap="small"
+      background="background-front"
+      pad={{ right: 'small', vertical: 'small' }}
+      round="xsmall"
+    >
+      <>
+        <Button
+          label="Categories"
+          icon={expandCategory ? <FormDown /> : <FormNext />}
+          onClick={() => setExpandCategory(!expandCategory)}
+        />
+        <Collapsible open={expandCategory}>
+          <DataFilter property="categories" />
+        </Collapsible>
+      </>
+      <>
+        <Button
+          label="Publishers"
+          icon={expandPublishers ? <FormDown /> : <FormNext />}
+          onClick={() => setExpandPublishers(!expandPublishers)}
+        />
+        <Collapsible open={expandPublishers}>
+          <DataFilter property="publisher" />
+        </Collapsible>
+      </>
+      <>
+        <Button
+          label="Delivery methods"
+          icon={expandDelivery ? <FormDown /> : <FormNext />}
+          onClick={() => setExpandDelivery(!expandDelivery)}
+        />
+        <Collapsible open={expandDelivery}>
+          <DataFilter property="delivery" />
+        </Collapsible>
+      </>
+      <>
+        <Button
+          label="Pricing models"
+          icon={expandPricing ? <FormDown /> : <FormNext />}
+          onClick={() => setExpandPricing(!expandPricing)}
+        />
+        <Collapsible open={expandPricing}>
+          <DataFilter property="pricing" />
+        </Collapsible>
+      </>
+    </Box>
+  );
 
   return (
     <Data
