@@ -740,13 +740,7 @@ export const templates = [
     seoDescription: `An empty state refers to when the UI is devoid of any 
     data or information.`,
     sections: [],
-    relatedContent: [],
-    tags: [
-      'day zero',
-      'empty',
-      'no data',
-      'error management',
-      'error',
-    ],
+    relatedContent: ['Notification', 'Toast Notifications', 'Status Indicator'],
+    tags: ['day zero', 'empty', 'no data', 'error management', 'error'],
   },
 ];
