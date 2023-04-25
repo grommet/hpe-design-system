@@ -92,7 +92,7 @@ DesignSystemCard.propTypes = {
   ]),
   as: PropTypes.string,
   alignActions: PropTypes.oneOf(['end']),
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
