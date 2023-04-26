@@ -89,7 +89,7 @@ const CardExample = ({ ...rest }) => (
             <Notes color="blue" />
           </DashedBox>
           <DashedBox id="title">
-            <Heading level={3} margin="none" size="small">
+            <Heading level={3} margin="none">
               Helpful Guides
             </Heading>
           </DashedBox>

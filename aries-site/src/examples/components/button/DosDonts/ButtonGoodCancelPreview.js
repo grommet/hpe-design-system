@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Heading, Header, Text } from 'grommet';
+import { Box, Button, Heading, Header, Paragraph } from 'grommet';
+import { ButtonGroup } from 'aries-core';
 
 export const ButtonGoodCancelPreview = () => (
   <Box width="large" gap="medium" pad="small">
@@ -9,17 +10,17 @@ export const ButtonGoodCancelPreview = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Heading level={2} margin="none" size="small">
+      <Heading level={2} margin="none">
         Delete item?
       </Heading>
-      <Text size="large">
+      <Paragraph>
         Deleting this role assignment will revoke access to the underlying
         resources.
-      </Text>
+      </Paragraph>
     </Header>
-    <Box direction="row" justify="end" gap="small">
+    <ButtonGroup alignSelf="end">
       <Button label="Cancel" onClick={() => {}} />
       <Button primary label="Delete role assignment" onClick={() => {}} />
-    </Box>
+    </ButtonGroup>
   </Box>
 );

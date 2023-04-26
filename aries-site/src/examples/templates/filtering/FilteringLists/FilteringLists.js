@@ -1,13 +1,21 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Header, Heading, List, ResponsiveContext, Text } from 'grommet';
+import {
+  Box,
+  Data,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  Grid,
+  Heading,
+  List,
+  Page,
+  PageContent,
+  ResponsiveContext,
+  Text,
+  Toolbar,
+} from 'grommet';
 import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 import { orders } from './mockData';
 
 const statusIcons = {
@@ -17,103 +25,42 @@ const statusIcons = {
   'Ready to ship': <Package />,
 };
 
-export const FilteringLists = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
+// Define Data properties
+const properties = {
+  service: { label: 'Service' },
+  status: { label: 'Status' },
+  tenant: { label: 'Tenant' },
+};
 
-  const size = useContext(ResponsiveContext);
-  const formFieldProps = {
-    width: !['xsmall', 'small'].includes(size) ? 'small' : undefined,
-  };
-  // Define which attributes should be made available for the user
-  // to filter upon
-  const filtersConfig = [
-    {
-      property: 'service',
-      label: 'Service',
-      filterType: 'CheckBoxGroup',
-      // contentProps accept any Grommet Box props to customize the filter's
-      // FormField. https://v2.grommet.io/formfield#contentProps
-      contentProps: formFieldProps,
-    },
-    {
-      property: 'status',
-      label: 'Status',
-      filterType: 'CheckBoxGroup',
-      contentProps: formFieldProps,
-    },
-    {
-      property: 'tenant',
-      label: 'Tenant',
-      filterType: 'CheckBoxGroup',
-      contentProps: formFieldProps,
-    },
-  ];
-
-  // Customize layer properties. Any Grommet Layer props, plus Box props
-  // for the Layer's container and contents.
-  const layerProps = {
-    // containerProps accept any Grommet Box props to customize the Box
-    // containing the layer's header, main content, and footer
-    containerProps: {
-      fill: false,
-      pad: {
-        horizontal: ['xsmall', 'small'].includes(size) ? undefined : 'medium',
-        vertical: 'small',
-      },
-      width: { max: 'large' },
-    },
-    // contentProps accept any Grommet Box props to customize the Box
-    // containing the FormField filters.
-    contentProps: {
-      direction: ['xsmall', 'small'].includes(size) ? 'column' : 'row',
-      gap: ['xsmall', 'small'].includes(size) ? 'xsmall' : 'medium',
-      pad: { horizontal: 'medium', bottom: 'small' },
-    },
-    full: ['xsmall', 'small'].includes(size),
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef && containerRef.current,
-    position: ['xsmall', 'small'].includes(size) ? undefined : 'center',
-  };
-
-  return (
-    <Box
-      background="background"
-      pad={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-      gap="medium"
-    >
-      <Header gap="small">
-        <Heading level={2} margin="none">
-          Orders
-        </Heading>
-      </Header>
-      <FiltersProvider>
-        <Box gap="medium">
-          <FilterControls
-            data={orders}
-            filters={filtersConfig}
-            layerProps={layerProps}
-            searchFilter={{ placeholder: 'Search' }}
-          />
+export const FilteringLists = () => (
+  <Page>
+    <PageContent gap="medium">
+      <Heading level={2} margin="none">
+        Orders
+      </Heading>
+      <Grid
+        // Use Grid with height prop for sticky header and scrollable results
+        height={{ min: 'medium' }}
+      >
+        <Data data={orders} properties={properties}>
+          <Toolbar>
+            <DataSearch responsive />
+            <DataFilters layer />
+          </Toolbar>
+          <DataSummary />
           <Orders />
-        </Box>
-      </FiltersProvider>
-    </Box>
-  );
-};
-
-FilteringLists.propTypes = {
-  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
+        </Data>
+      </Grid>
+    </PageContent>
+  </Page>
+);
 
 const Orders = () => {
-  const size = useContext(ResponsiveContext);
-  const { filteredResults } = useFilters();
+  const breakpoint = useContext(ResponsiveContext);
 
   return (
     <Box
-      fill
+      flex
       overflow="auto"
       // xxsmall pad allows for List to receive focus properly
       pad="xxsmall"
@@ -121,14 +68,13 @@ const Orders = () => {
       <List
         action={(item, index) => (
           <Box key={index} align="center" direction="row" gap="small">
-            {!['xsmall', 'small'].includes(size) && (
+            {!['xsmall', 'small'].includes(breakpoint) && (
               <Text color="text-strong">{item.status}</Text>
             )}
             {statusIcons[item.status]}
           </Box>
         )}
         border="horizontal"
-        data={filteredResults}
         onClickItem={() => {
           // eslint-disable-next-line no-alert
           alert(`

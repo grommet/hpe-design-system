@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, PageHeader, ResponsiveContext } from 'grommet';
-import { ActionMenu, ReverseAnchor } from '../../templates';
+import { ActionMenu } from 'aries-core';
+import { ReverseAnchor } from '../../templates';
 
 const actions = [
   {

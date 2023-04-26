@@ -7,6 +7,7 @@ import {
   IconResourceActionsExample,
   IconUIActionsExample,
   IconControlsExample,
+  IconHeightExample,
   IconPlainExample,
   IconSizeExample,
   IconTextExample,
@@ -81,6 +82,18 @@ The default icon color is 'text-strong' for the corresponding light/dark mode. F
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconPlainExample.js">
   <IconPlainExample />
+</Example>
+
+### Icon height
+
+In instances where icons are presented alongside text in a row with `align="start"`, it is necessary to add a `height` property to the icon. The value of the height property should match the t-shirt size of the accompanying text. For example, an icon should receive `height="medium"` when presented alongside `medium` (default) text.
+
+The `height` property on icon is only necessary when a row uses `align="start"`.
+
+HPE theme icons are sized to match font-sizes, as opposed to line-heights, in order for a more balanced presentation of icons and text. Applying the `height` property to an icon ensures the necessary top and bottom padding is applied to the icon to align with the line-height of the text.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconHeightExample.js">
+  <IconHeightExample />
 </Example>
 
 ## Core icons

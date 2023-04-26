@@ -83,10 +83,9 @@ export const Layout = ({
     value => {
       const data = {
         values: {
-          fullURL: `https://design-system.hpe.design${router.route}`,
-          deviceType: 'desktop',
           QID1: parseInt(value.value['like-rating'], 10),
           QID2_TEXT: value.value['text-area'],
+          Q_URL: `https://design-system.hpe.design${router.route}`,
         },
       };
       // using next js env variables for url & api token

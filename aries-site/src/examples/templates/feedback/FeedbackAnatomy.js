@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Diagram, Grid, Header, Heading, Stack } from 'grommet';
-import { ButtonGroup } from '../ButtonGroup';
+import { ButtonGroup } from 'aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
@@ -74,8 +74,8 @@ const FeedbackContent = () => (
       border={{ style: 'dashed' }}
     >
       <ButtonGroup>
-        <Button label="Submit" primary />
-        <Button label="Dismiss" />
+        <Button label="Submit feedback" primary />
+        <Button label="No thanks" />
       </ButtonGroup>
     </Box>
   </>

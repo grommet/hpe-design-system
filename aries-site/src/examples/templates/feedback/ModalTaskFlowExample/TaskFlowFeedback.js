@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Box,
@@ -9,10 +9,10 @@ import {
   Text,
   TextArea,
 } from 'grommet';
-import { ButtonGroup } from '../../ButtonGroup';
+import { ButtonGroup } from 'aries-core';
 
-// These credentials will be supplied when working with Unified
-// Customer Experience team and should likely be stored in environment variables.
+// These credentials will be supplied when working with HPE GreenLake Experience Management COE team
+// and should likely be stored in environment variables.
 const API_URL = process.env.FEEDBACK_API_URL;
 const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
 
@@ -21,7 +21,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
   const url = `${router.route}`;
   // The properties within the surveyValues object will be specific to your
   // product and instance within the product. These will be specified
-  // when working with the Unified Customer Experience team.
+  // when working with the HPE GreenLake Experience Management COE team.
   const surveyValues = {
     fullURL: url,
     QID1: undefined,
@@ -108,7 +108,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
                 }, 2500);
               }}
             />
-            <Button label="Dismiss" onClick={onClose} />
+            <Button label="No thanks" onClick={onClose} />
           </ButtonGroup>
         )}
       </Box>

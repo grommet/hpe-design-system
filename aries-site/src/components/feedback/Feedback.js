@@ -11,7 +11,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Close } from 'grommet-icons/icons/Close';
 
 const Announcer = ({ announce, message, mode, role }) => {
   const theme = useContext(ThemeContext);
@@ -59,8 +59,8 @@ export const Feedback = ({
   if (!successfulSubmit) {
     footerContent = (
       <Box {...theme?.feedback?.footer}>
-        <Button onClick={onClose} label={messages?.cancel || 'Cancel'} />
         <Button label={messages?.submit || 'Submit'} primary type="submit" />
+        <Button onClick={onClose} label={messages?.cancel || 'Cancel'} />
       </Box>
     );
   } else
@@ -80,7 +80,7 @@ export const Feedback = ({
         {modal && (
           <Button
             onClick={onClose}
-            icon={<FormClose />}
+            icon={<Close />}
             autoFocus
             {...theme?.feedback?.closeButton}
           />
