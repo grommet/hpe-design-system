@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Footer } from 'grommet';
-import { FormPrevious, FormNext } from 'grommet-icons';
+import { Previous, Next } from 'grommet-icons';
 
 export const FooterPageExample = () => (
   <Footer fill="horizontal">
-    <Button label="Go back" icon={<FormPrevious />} />
-    <Button label="Next" icon={<FormNext />} reverse />
+    <Button label="Go back" icon={<Previous />} />
+    <Button label="Next" icon={<Next />} reverse />
   </Footer>
 );
