@@ -20,12 +20,13 @@ const StyledHeader = ({ ...rest }) => {
       pad={{
         vertical: 'medium',
       }}
+      data-analytics="header"
       {...rest}
     >
       <Link href="/" passHref>
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
-      <Box direction="row" align="center" gap="xsmall">
+      <Box direction="row" align="center" gap="xsmall" data-analytics="nav">
         {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
             <Link key={item.name} href={nameToPath(item.name)} passHref>
@@ -33,6 +34,7 @@ const StyledHeader = ({ ...rest }) => {
                 key={item.name}
                 label={item.name}
                 active={router.pathname === nameToPath(item.name)}
+                data-analytics={item.name}
               />
             </Link>
           ))}
@@ -40,6 +42,7 @@ const StyledHeader = ({ ...rest }) => {
           id="search-button"
           icon={<SearchIcon />}
           onClick={() => setShowSearch(true)}
+          data-analytics="search-button"
         />
         {showSearch && <Search setOpen={setShowSearch} />}
         <ThemeModeToggle />
