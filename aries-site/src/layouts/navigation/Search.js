@@ -232,6 +232,7 @@ export const Search = ({ setOpen }) => {
       onEsc={onClose}
       onClickOutside={onClose}
       position="top"
+      data-analytics="search-results"
     >
       <SearchResults
         allSuggestions={allSuggestions}

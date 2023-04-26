@@ -45,6 +45,7 @@ export const Layout = ({
   title: titleProp,
   topic,
   isLanding,
+  ...rest
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -137,7 +138,7 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <Page>
+        <Page data-analytics={`page-${title}`}>
           {/* I think Head is redundant at this point, 
               but left it as is for now */}
           <Head title={title} />

@@ -69,6 +69,7 @@ export const Subsection = ({
       onMouseOut={() => setOver(false)}
       onFocus={() => setOver(true)}
       onBlur={() => setOver(false)}
+      data-analytics={name}
       {...rest}
     >
       {/* This condition for gap is needed because the link icon has padding

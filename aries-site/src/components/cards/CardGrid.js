@@ -20,6 +20,7 @@ export const CardGrid = ({ cards, minimal, ...rest }) => (
         return (
           <ContentCard
             key={topic.name}
+            id={`card-${topic.name}`}
             href={href}
             topic={topic}
             minimal={minimal}
