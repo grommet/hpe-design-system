@@ -31,7 +31,7 @@ export const ChildHeader = ({
     >
       <Box>
         <Heading id={annotationIds?.label} level={headingLevel} margin="none">
-          {name || `New ${collectionName} name 'undefined'`}
+          {name || `New ${collectionName} (undefined)`}
         </Heading>
         {summary && (
           <Text id={annotationIds?.valuesSummary} truncate>
