@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading, Text } from 'grommet';
-import { FormUp, FormDown } from 'grommet-icons';
+import { Up, Down } from 'grommet-icons';
 
 export const ChildHeader = ({
   // annotationIds are for documentation demo purposes only.
@@ -30,15 +30,8 @@ export const ChildHeader = ({
       {...rest}
     >
       <Box>
-        <Heading
-          id={annotationIds?.label}
-          level={headingLevel}
-          size="small"
-          margin="none"
-          color="text"
-          weight={500}
-        >
-          {name || `${collectionName} ${index}`}
+        <Heading id={annotationIds?.label} level={headingLevel} margin="none">
+          {name || `New ${collectionName} (undefined)`}
         </Heading>
         {summary && (
           <Text id={annotationIds?.valuesSummary} truncate>
@@ -47,9 +40,9 @@ export const ChildHeader = ({
         )}
       </Box>
       {open ? (
-        <FormUp id={annotationIds?.icon} a11yTitle="Hide detail" />
+        <Up id={annotationIds?.icon} a11yTitle="Hide detail" />
       ) : (
-        <FormDown id={annotationIds?.icon} a11yTitle="Show detail and edit" />
+        <Down id={annotationIds?.icon} a11yTitle="Show detail and edit" />
       )}
     </Header>
   );
