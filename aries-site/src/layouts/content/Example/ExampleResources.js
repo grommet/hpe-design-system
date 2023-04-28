@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, ThemeContext } from 'grommet';
-import { Github } from 'grommet-icons';
+import { Box, Button, Stack, ThemeContext } from 'grommet';
+import { Copy, Github } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 import {
@@ -18,6 +18,16 @@ const getFileName = file => {
   const adjustedFileName = file.split('/');
   return adjustedFileName[adjustedFileName.length - 1];
 };
+
+const CopyCodeButton = ({ activeCode, code }) => (
+  <Button
+    tip="Copy code to clipboard"
+    icon={<Copy />}
+    onClick={() => {
+      navigator.clipboard.writeText(`// ${getFileName(activeCode)}\n${code}`);
+    }}
+  />
+);
 
 export const ExampleResources = ({
   code,
@@ -58,19 +68,22 @@ export const ExampleResources = ({
   if (horizontalLayout && code) {
     return (
       <Box height={{ max: 'medium' }} {...rest}>
-        <SyntaxHighlighter
-          tabIndex="0"
-          style={theme.dark ? prism.dark : prism.light}
-          codeTagProps={{
-            style: {
-              fontSize: theme.text.small.size,
-            },
-          }}
-          wrapLongLines
-          language="javascript"
-        >
-          {codeText || 'loading...'}
-        </SyntaxHighlighter>
+        <Stack anchor="top-right">
+          <SyntaxHighlighter
+            tabIndex="0"
+            style={theme.dark ? prism.dark : prism.light}
+            codeTagProps={{
+              style: {
+                fontSize: theme.text.small.size,
+              },
+            }}
+            wrapLongLines
+            language="javascript"
+          >
+            {codeText || 'loading...'}
+          </SyntaxHighlighter>
+          <CopyCodeButton activeCode={activeCode} code={codeText} />
+        </Stack>
       </Box>
     );
   }
@@ -112,19 +125,22 @@ export const ExampleResources = ({
               )}
             </Box>
           )}
-          <SyntaxHighlighter
-            tabIndex="0"
-            style={theme.dark ? prism.dark : prism.light}
-            codeTagProps={{
-              style: {
-                fontSize: theme.text.small.size,
-              },
-            }}
-            wrapLongLines
-            language="javascript"
-          >
-            {codeText || 'loading...'}
-          </SyntaxHighlighter>
+          <Stack anchor="top-right">
+            <SyntaxHighlighter
+              tabIndex="0"
+              style={theme.dark ? prism.dark : prism.light}
+              codeTagProps={{
+                style: {
+                  fontSize: theme.text.small.size,
+                },
+              }}
+              wrapLongLines
+              language="javascript"
+            >
+              {codeText || 'loading...'}
+            </SyntaxHighlighter>
+            <CopyCodeButton activeCode={activeCode} code={codeText} />
+          </Stack>
         </CollapsibleSection>
       )}
       {relevantComponents && (
@@ -152,4 +168,9 @@ ExampleResources.propTypes = {
   horizontalLayout: PropTypes.bool,
   github: PropTypes.string,
   relevantComponents: PropTypes.arrayOf(PropTypes.string),
+};
+
+CopyCodeButton.propTypes = {
+  activeCode: PropTypes.string,
+  code: PropTypes.string,
 };

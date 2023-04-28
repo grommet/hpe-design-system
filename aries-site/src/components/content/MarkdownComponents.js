@@ -5,8 +5,10 @@ import Link from 'next/link';
 import {
   Anchor,
   Box,
+  Button,
   Heading,
   Paragraph,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -14,6 +16,7 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { Copy } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
@@ -38,14 +41,25 @@ export const components = {
       />
     </Box>
   ),
-  code: props => (
+  code: ({ children: code, ...rest }) => (
     <Box width="large" round="xsmall" overflow="auto">
-      <SyntaxHighlighter
-        style={prism.light}
-        wrapLongLines
-        language="javascript"
-        {...props}
-      />
+      <Stack anchor="top-right">
+        <SyntaxHighlighter
+          style={prism.light}
+          wrapLongLines
+          language="javascript"
+          {...rest}
+        >
+          {code}
+        </SyntaxHighlighter>
+        <Button
+          tip="Copy code to clipboard"
+          icon={<Copy />}
+          onClick={() => {
+            navigator.clipboard.writeText(code.toString());
+          }}
+        />
+      </Stack>
     </Box>
   ),
   p: SubsectionText,
