@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Box, Main, ResponsiveContext, Text } from 'grommet';
+import { Header, Box, Main, ResponsiveContext } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const HeaderOnlyExample = () => (
   <AppContainer>
@@ -14,9 +15,7 @@ export const HeaderOnlyExample = () => (
           // remove height="xxsmall" in prod, for demo purposes only
           height="xxsmall"
         >
-          <Text weight="bold" color="text-strong">
-            Header
-          </Text>
+          <TextEmphasis color="text-strong">Header</TextEmphasis>
         </Header>
         <Main
           fill={undefined}
@@ -27,9 +26,7 @@ export const HeaderOnlyExample = () => (
           // remove height="xlarge" in prod, for demo purposes only
           height="xlarge"
         >
-          <Text weight="bold" color="text-strong">
-            Main
-          </Text>
+          <TextEmphasis color="text-strong">Main</TextEmphasis>
         </Main>
       </Box>
     </Box>

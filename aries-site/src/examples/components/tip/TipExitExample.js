@@ -1,13 +1,14 @@
 import React from 'react';
-import { Box, Button, Paragraph, Tip, Text } from 'grommet';
+import { Box, Button, Paragraph } from 'grommet';
 import { Close } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 export const TipExitExample = () => (
   <Box gap="small" direction="row" align="start">
     <Box width="small">
-      <Text color="text-strong" size="large" weight="bold">
+      <TextEmphasis color="text-strong" size="large">
         Add service
-      </Text>
+      </TextEmphasis>
       <Paragraph margin="none">
         Visit the HPE catalog to start adding all of your favorite services.
       </Paragraph>

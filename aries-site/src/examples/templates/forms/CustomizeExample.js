@@ -51,11 +51,7 @@ export const CustomizeExample = () => {
           method="post"
         >
           <FormField
-            label={
-              <Text size="large" weight="bold">
-                Memory
-              </Text>
-            }
+            label="Memory"
             help={
               <Anchor href="#" size="xsmall">
                 How much memory does my server need?
@@ -74,11 +70,7 @@ export const CustomizeExample = () => {
             />
           </FormField>
           <FormField
-            label={
-              <Text size="large" weight="bold">
-                CPU
-              </Text>
-            }
+            label="CPU"
             help={
               <Anchor href="#" size="xsmall">
                 What is the right processor for my workload?

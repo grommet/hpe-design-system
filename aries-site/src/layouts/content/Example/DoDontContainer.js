@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Paragraph, Text, ResponsiveContext } from 'grommet';
+import { Box, Paragraph, ResponsiveContext } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { Container } from '.';
 
 export const DoDontContainer = ({
@@ -31,9 +32,9 @@ export const DoDontContainer = ({
           round="xxsmall"
         />
         <Box>
-          <Text color="text-strong" weight="bold" size="large">
+          <TextEmphasis color="text-strong" size="large">
             {label}
-          </Text>
+          </TextEmphasis>
           <Paragraph size="small" margin="none">
             {bestPracticeProp.message}
           </Paragraph>

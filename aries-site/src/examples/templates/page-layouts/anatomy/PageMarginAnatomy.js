@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Grid, Text, ThemeContext } from 'grommet';
 import PropTypes from 'prop-types';
+import { TextEmphasis } from 'aries-core';
 
 const MarginText = ({ label }) => (
   <Box border="bottom">
@@ -38,9 +39,7 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
         background="status-unknown"
         border={{ style: 'dashed' }}
       >
-        <Text color="text-strong" weight="bold">
-          {label}
-        </Text>
+        <TextEmphasis color="text-strong">{label}</TextEmphasis>
       </Box>
       <Box gridArea="bottom-gap" background="background-front" />
     </Grid>

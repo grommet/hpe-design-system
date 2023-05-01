@@ -11,6 +11,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { NameValueListFormField, NameValueListFormLabel } from './components';
 import { formattedData } from '../data';
 
@@ -66,7 +67,7 @@ export const NameValueListEditHorizontalExample = () => {
       <Wrapper {...wrapperProps}>
         <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
           {Object.entries(currentData).map(([name, value]) => {
-            let nameRender = <Text weight="bold">{value.displayName}</Text>;
+            let nameRender = <TextEmphasis>{value.displayName}</TextEmphasis>;
             let valueRender = currentData[name].render ? (
               currentData[name].render(value.value || '--')
             ) : (
