@@ -19,6 +19,7 @@ import { More } from 'grommet-icons';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.
+import { TextEmphasis } from 'aries-core';
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (
@@ -79,13 +80,12 @@ const Section1 = () => {
                 pad={{ vertical: 'small' }}
                 action={(item, index) => (
                   <Box key={index} direction="row" align="center" gap="medium">
-                    <Text
-                      weight="bold"
+                    <TextEmphasis
                       size="xsmall"
                       color={index % 3 === 0 ? 'text-weak' : null}
                     >
                       {index % 3 === 0 ? 'Inactive' : 'Active'}
-                    </Text>
+                    </TextEmphasis>
                     <Menu
                       icon={<More />}
                       hoverIndicator
@@ -102,13 +102,12 @@ const Section1 = () => {
                     justify="between"
                   >
                     <Box>
-                      <Text
-                        weight="bold"
+                      <TextEmphasis
                         color={index % 3 === 0 ? 'text-weak' : null}
                       >
                         {datum.label}
                         {index}
-                      </Text>
+                      </TextEmphasis>
                       <Text color={index % 3 === 0 ? 'text-weak' : null}>
                         {datum.description}
                       </Text>

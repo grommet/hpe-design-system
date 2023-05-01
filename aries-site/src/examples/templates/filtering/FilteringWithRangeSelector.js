@@ -14,6 +14,7 @@ import {
   Toolbar,
 } from 'grommet';
 import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const allData = [
   {
@@ -108,9 +109,7 @@ const Results = () => (
     >
       {(datum, index) => (
         <>
-          <Text weight="bold" key={index}>
-            {datum.name}
-          </Text>
+          <TextEmphasis key={index}>{datum.name}</TextEmphasis>
           <Text size="small">{datum.location}</Text>
         </>
       )}

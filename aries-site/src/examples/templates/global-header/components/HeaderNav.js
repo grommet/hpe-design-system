@@ -9,6 +9,7 @@ import {
   Text,
 } from 'grommet';
 import { HelpOption, HomeRounded } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { UserContext } from '.';
 
 export const HeaderNav = () => {
@@ -60,9 +61,9 @@ const UserDetails = () => {
           <Avatar src={user.image} size="large" />
         )}
         <Box pad={{ vertical: 'small' }}>
-          <Text color="text-strong" size="large" weight="bold">
+          <TextEmphasis size="large" color="text-strong">
             {`${user.firstName} ${user.lastName}`}
-          </Text>
+          </TextEmphasis>
           <Text size="small">{user.email}</Text>
         </Box>
       </Box>

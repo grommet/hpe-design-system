@@ -25,6 +25,7 @@ import {
   Subtract,
   Trash,
 } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const CoreIcon = ({ Icon, name, aliases, guidance }) => (
   <Card elevation={false}>
@@ -44,9 +45,7 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
             <Text>or</Text>
             {aliases.map((a, i) => (
               <>
-                <Text weight="bold" color="text-strong">
-                  {a}
-                </Text>
+                <TextEmphasis color="text-strong">{a}</TextEmphasis>
                 {i < aliases.length - 1 && ', '}
               </>
             ))}

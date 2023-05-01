@@ -24,11 +24,11 @@ export const PageExample = () => (
     >
       <ContentArea title="Page header" border background="purple!" />
       <ContentArea title="Other content" border background="orange">
-        <Paragraph margin={{ bottom: 'none' }}>
+        <Paragraph color="text-strong" margin={{ bottom: 'none' }}>
           Page is a container providing context (i.e. instructions) for how
           content should be laid out on a page.
         </Paragraph>
-        <Paragraph margin={{ bottom: 'none' }}>
+        <Paragraph color="text-strong" margin={{ bottom: 'none' }}>
           PageContent is a container for content within a page and executes
           Page's instructions. In this particular example, Page's "kind" is set
           to "narrow" instructing PageContent to have a specified maximum-width,
@@ -36,7 +36,7 @@ export const PageExample = () => (
           horizontal padding surrounding PageContent's content across responsive
           breakpoints.
         </Paragraph>
-        <Paragraph>
+        <Paragraph color="text-strong">
           Resize your browser window to see how Page and PageContent affect this
           example's layout across various screen widths.
         </Paragraph>

@@ -126,7 +126,7 @@ export const SearchResults = ({
               <Text
                 color="text-strong"
                 size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
-                weight="bold"
+                weight={500}
               >
                 Similar to '{query}'
               </Text>

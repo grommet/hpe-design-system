@@ -9,6 +9,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { useDarkMode } from '../../utils';
 
 export const Quote = () => {
@@ -43,9 +44,9 @@ export const Quote = () => {
       >
         <Avatar src="/static/images/t_harms_bio_image.png" size="149px" />
         <Box align="center">
-          <Text size="xlarge" weight="bold" color="text-strong">
+          <TextEmphasis color="text-strong" size="xlarge">
             Tim Harms
-          </Text>
+          </TextEmphasis>
           <Text size="xlarge">Creative Director, HPE Global Brand</Text>
         </Box>
       </Box>

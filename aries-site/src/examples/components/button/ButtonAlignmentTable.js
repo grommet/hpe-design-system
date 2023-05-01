@@ -11,6 +11,7 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -84,9 +85,7 @@ export const ButtonAlignmentTable = () => (
               scope="col"
               pad={{ vertical: 'small' }}
             >
-              <Text color="text-strong" weight="bold">
-                {c.label}
-              </Text>
+              <TextEmphasis color="text-strong">{c.label}</TextEmphasis>
             </TableCell>
           ))}
         </TableRow>

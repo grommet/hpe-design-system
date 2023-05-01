@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Header, Text } from 'grommet';
+import { Box, Button, Header } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const ButtonRightAlignExample = () => (
   <Box width="large" gap="medium" pad="small">
@@ -9,9 +10,9 @@ export const ButtonRightAlignExample = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Text alignSelf="end" weight="bold" size="large">
+      <TextEmphasis alignSelf="end" size="large">
         Right-aligned buttons
-      </Text>
+      </TextEmphasis>
     </Header>
     <Box direction="row" justify="end" gap="medium">
       <Button label="Default" onClick={() => {}} />
