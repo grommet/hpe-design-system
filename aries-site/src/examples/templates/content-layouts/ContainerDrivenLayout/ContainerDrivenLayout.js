@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -38,9 +37,7 @@ const pageContentGrid = {
   },
 };
 
-export const ContainerDrivenLayout = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
+export const ContainerDrivenLayout = () => {
   const theme = useContext(ThemeContext);
 
   return (
@@ -66,14 +63,10 @@ export const ContainerDrivenLayout = ({ containerRef }) => {
         />
       </PageContent>
       <PageContent>
-        <ContentLayout containerRef={containerRef} />
+        <ContentLayout />
       </PageContent>
     </Page>
   );
-};
-
-ContainerDrivenLayout.propTypes = {
-  containerRef: PropTypes.object,
 };
 
 const properties = {
