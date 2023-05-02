@@ -1,45 +1,71 @@
-import React, { useContext, useState } from 'react';
-import {
-  Button,
-  Box,
-  Header,
-  Heading,
-  Layer,
-  ResponsiveContext,
-} from 'grommet';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Button, Box, Layer, ResponsiveContext } from 'grommet';
+import { LayerHeader } from 'aries-core';
 import { MonitorFormExample } from './MonitorFormExample';
+import {
+  DoubleConfirmation,
+  ConfirmationProvider,
+  ConfirmationContext,
+  useConfirmation,
+} from './components';
 
-export const LayerStickyExample = () => {
-  const [open, setOpen] = useState(false);
+export const LayerStickyExample = ({ sticky = true }) => (
+  <ConfirmationProvider>
+    <ConfirmationContext.Consumer>
+      {({ setShowLayer, showLayer, showConfirmation }) => (
+        <>
+          <Box align="start">
+            <Button
+              label="Show me the layer"
+              onClick={() => setShowLayer(true)}
+              primary
+            />
+          </Box>
+          {showLayer ? <AddMonitor sticky={sticky} /> : null}
+          {showConfirmation ? <DoubleConfirmation title="monitor" /> : null}
+        </>
+      )}
+    </ConfirmationContext.Consumer>
+  </ConfirmationProvider>
+);
+
+LayerStickyExample.propTypes = {
+  sticky: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+};
+
+const AddMonitor = ({ sticky }) => {
+  const { onClose } = useConfirmation();
   const size = useContext(ResponsiveContext);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
+
+  const containerProps =
+    sticky === 'scrollup'
+      ? {
+          fill: 'vertical',
+          overflow: 'auto',
+        }
+      : {};
 
   return (
-    <>
-      <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
+    <Layer
+      position="right"
+      full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
+      onEsc={onClose}
+    >
+      <Box {...containerProps}>
+        <LayerHeader
+          title="Add monitor"
+          onClose={onClose}
+          background="background"
+          pad="medium"
+          sticky="scrollup"
+        />
+        <MonitorFormExample sticky={sticky === true} />
       </Box>
-      {open && (
-        <Layer
-          position="right"
-          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
-          modal
-          onClickOutside={onClose}
-          onEsc={onClose}
-        >
-          <Box
-            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-          >
-            <Header pad={{ vertical: 'medium', horizontal: 'medium' }}>
-              <Heading margin="none" level={2} size="small">
-                Add Monitor
-              </Heading>
-            </Header>
-            <MonitorFormExample sticky />
-          </Box>
-        </Layer>
-      )}
-    </>
+    </Layer>
   );
+};
+
+AddMonitor.propTypes = {
+  sticky: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };

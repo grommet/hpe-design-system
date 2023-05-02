@@ -23,7 +23,7 @@ export const MenuHeaderExample = () => {
           pad={{ vertical: 'small' }}
           responsive={false}
         >
-          <Hpe color="brand" />
+          <Hpe color="brand" height="medium" />
           {!['xsmall', 'small'].includes(size) && (
             <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
@@ -34,7 +34,7 @@ export const MenuHeaderExample = () => {
           )}
         </Box>
       </Button>
-      <Menu label="Account Information" items={items} width="medium" />
+      <Menu label="Account information" items={items} width="medium" />
     </Header>
   );
 };

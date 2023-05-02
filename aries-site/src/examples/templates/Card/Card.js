@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
+  Avatar,
   Box,
   Card,
   CardBody,
@@ -17,6 +18,7 @@ const DesignSystemCard = ({
   as,
   actions,
   alignActions,
+  avatar,
   children,
   description,
   direction,
@@ -32,19 +34,28 @@ const DesignSystemCard = ({
 
   return (
     <Box as={as}>
-      <Card direction={direction} as="section" {...rest}>
+      <Card direction={direction} as="section" fill="vertical" {...rest}>
         {media}
-        <Box>
+        <Box flex>
           <CardHeader
             direction="column"
             gap="none"
             align="start"
             pad={adjustPad(direction, 'header', theme)}
           >
+            {avatar && (
+              <Avatar
+                flex={false}
+                pad={{ bottom: 'small' }}
+                a11yTitle={`${title} icon`}
+                round="medium"
+                src={avatar}
+              />
+            )}
             {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
-              <Heading level={level} margin="none" size="small">
+              <Heading level={level} margin="none">
                 {title}
               </Heading>
             ) : (
@@ -58,14 +69,17 @@ const DesignSystemCard = ({
           </CardHeader>
           <CardBody align="start" pad={adjustPad(direction, 'body', theme)}>
             <Paragraph margin="none">{description}</Paragraph>
+            {children}
           </CardBody>
         </Box>
-        <CardFooter
-          align={alignActions || 'start'}
-          pad={adjustPad(direction, 'footer', theme)}
-        >
-          <Box flex={false}>{actions}</Box>
-        </CardFooter>
+        {actions ? (
+          <CardFooter
+            align={alignActions || 'start'}
+            pad={adjustPad(direction, 'footer', theme)}
+          >
+            <Box flex={false}>{actions}</Box>
+          </CardFooter>
+        ) : null}
       </Card>
     </Box>
   );
@@ -78,12 +92,13 @@ DesignSystemCard.propTypes = {
   ]),
   as: PropTypes.string,
   alignActions: PropTypes.oneOf(['end']),
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
   description: PropTypes.string,
   direction: PropTypes.oneOf(['column', 'row']),
+  avatar: PropTypes.element,
   icon: PropTypes.element,
   level: PropTypes.number,
   media: PropTypes.element,

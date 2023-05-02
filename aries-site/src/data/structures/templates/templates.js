@@ -1,6 +1,7 @@
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
 } from '../../../examples/cardPreviews';
@@ -161,6 +162,29 @@ export const templates = [
     ],
   },
   {
+    name: 'User Feedback Collection',
+    available: true,
+    description: `Improve customer experiences and make impactful,
+    data-driven decisions by collecting feedback directly from users.`,
+    preview: {
+      component: () => <FeedbackPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Improve customer experiences and make impactful,
+    data-driven decisions by collecting feedback directly from users.
+    `,
+    sections: [],
+    relatedContent: ['Forms'],
+    tags: [
+      'feedback',
+      'survey',
+      'customer experience',
+      'user experience',
+      'analytics',
+      'qualtrics',
+    ],
+  },
+  {
     name: 'Forms',
     available: true,
     cardOrder: 1,
@@ -178,25 +202,29 @@ export const templates = [
     },
     seoDescription: 'HPE Design System form examples and templates.',
     sections: [
-      'Required vs. optional fields',
-      'Using help text',
-      'Capitalization in forms',
-      'Button placement and labeling',
-      'User-Entered Input',
-      'Form submission',
+      'When to use',
+      'When not to use',
+      'Accessibility',
       'Terms and Conditions',
-      'Sign In',
-      'Sign Up',
-      'Change Password',
-      'Pay',
-      'Settings',
+      'Single field forms',
+      'Use cases',
+      'Sign up',
+      'Sign in',
       'Filter',
       'Sort',
+      'Change Password',
+      'Settings',
+      'Pay',
       'Shipping',
       'Customize',
-      'Required and Optional Fields',
-      'Full-page form',
+      'Required vs. optional fields',
+      'Single required FormField',
+      'Fields with character limits',
+      'Exceptions and how to address them',
+      'Where to present a form',
+      'Full-page forms',
       'Avoid using multiple column layouts',
+      'Managing child objects',
     ],
     relatedContent: [
       'TextInput',
@@ -207,6 +235,28 @@ export const templates = [
       'RadioButtonGroup',
     ],
     tags: ['forms', 'validation', 'messaging', 'form examples'],
+  },
+  {
+    name: 'Managing Child Objects',
+    parentPage: 'Forms',
+    available: true,
+    description: `How to show, hide, and edit details of child 
+    objects related to a parent within a form context.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-form.svg',
+          dark: '/templateImages/template-preview-form-invert.svg',
+        },
+        alt: 'HPE Forms Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `HPE Design System guidance for how to show, hide, and
+    edit details of child objects related to a parent within a form context.`,
+    sections: [],
+    relatedContent: ['Forms'],
+    tags: [],
   },
   {
     name: 'Global Header',
@@ -582,6 +632,11 @@ export const templates = [
       'Cancellation',
       'Single Column vs Two Column Wizards',
       'Two-column Wizard',
+      'Alignment',
+      'Previous step button',
+      'Cancel button',
+      'Title',
+      'Next step button',
     ],
     relatedContent: ['Forms'],
     tags: [
@@ -664,5 +719,28 @@ export const templates = [
       'feature release',
       'updates',
     ],
+  },
+  {
+    name: 'Empty State',
+    available: true,
+    cardOrder: 10,
+    description: `An empty state refers to when the UI is 
+    devoid of any data or information.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-banner-notification.svg',
+          // eslint-disable-next-line max-len
+          dark: '/templateImages/template-preview-banner-notification-invert.svg',
+        },
+        alt: 'Banner notification under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `An empty state refers to when the UI is devoid of any 
+    data or information.`,
+    sections: [],
+    relatedContent: ['Notification', 'Toast Notifications', 'Status Indicator'],
+    tags: ['day zero', 'empty', 'no data', 'error management', 'error'],
   },
 ];

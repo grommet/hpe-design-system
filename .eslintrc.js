@@ -4,6 +4,9 @@ module.exports = {
   parser: '@babel/eslint-parser',
   parserOptions: {
     requireConfigFile: false,
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
   },
   extends: [
     'airbnb',
@@ -70,5 +73,6 @@ module.exports = {
     'global-require': 0,
     'import/no-dynamic-require': 0,
     quotes: [2, 'single', { avoidEscape: true }],
+    'arrow-body-style': 0,
   },
 };

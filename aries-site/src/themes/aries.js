@@ -1,11 +1,16 @@
-import { hpe } from 'grommet-theme-hpe';
+import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+import { Close, Info } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
-  // To be stripped out once theme changes are made in grommet-theme-hpe
+  // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  buttonGroup: {
+    // any Box props
+    gap: 'small',
+  },
   feedback: {
     closeButton: {
       a11yTitle: `You are in a dialog containing a form to submit feedback.
@@ -21,7 +26,6 @@ export const aries = deepMerge(hpe, {
       gap: 'xsmall',
     },
     heading: {
-      size: 'small',
       level: 2,
       margin: {
         vertical: 'none',
@@ -32,13 +36,44 @@ export const aries = deepMerge(hpe, {
         top: 'medium',
       },
       direction: 'row',
-      justify: 'end',
+      justify: 'start',
       gap: 'xsmall',
     },
     success: {
       color: 'text-strong',
       weight: 'bold',
       alignSelf: 'end',
+    },
+  },
+  notification: {
+    close: {
+      icon: Close,
+    },
+  },
+});
+
+export const ariesPop = deepMerge(aries, {
+  ...hpePop,
+  anchor: {
+    // rely on base anchor styling to meet color contrast on background-back
+    size: {
+      large: undefined,
+      xlarge: undefined,
+    },
+  },
+  // this is producing a console warning because it's not a supported status
+  // proposing that notification should be more flexible to allow other statuses
+  notification: {
+    learn: {
+      icon: Info,
+      background: {
+        color: 'status-warning',
+        opacity: 'weak',
+      },
+      color: 'text',
+      toast: {
+        background: 'background-front',
+      },
     },
   },
 });

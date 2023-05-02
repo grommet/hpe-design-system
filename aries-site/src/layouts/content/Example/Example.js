@@ -17,6 +17,7 @@ import {
   ThemeContext,
 } from 'grommet';
 import { Contract } from 'grommet-icons';
+import { aries } from '../../../themes/aries';
 import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
@@ -68,7 +69,7 @@ export const Example = ({
   const [screen, setScreen] = useState(screens.laptop);
   const [fullscreen, setFullscreen] = useState(false);
   const size = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
+  const theme = aries;
   const inlineRef = useRef();
   const layerRef = useRef();
   const [mockBrowserRect, setMockBrowserRect] = useState({
@@ -184,9 +185,12 @@ export const Example = ({
         width={screen === screens.mobile ? 'medium' : width}
         ref={inlineRef}
       >
-        {/* prevent theme from overriding the desired background color */}
         <ThemeContext.Extend
-          value={{ ...(scaledTheme || theme), background: 'background-front' }}
+          value={{
+            ...(scaledTheme || theme),
+            /* prevent theme from overriding the desired background color */
+            background: 'background-front',
+          }}
         >
           <ResponsiveContext.Provider value={viewPort}>
             {cloneElement(children, {
@@ -339,15 +343,23 @@ export const Example = ({
                     ref={layerRef}
                   >
                     <ResponsiveContext.Provider value={viewPort}>
-                      {cloneElement(children, {
-                        containerRef: layerRef,
-                        designSystemDemo: fullscreen,
-                      })}
+                      {/* Example children should use hpe theme 
+                      (as opposed to hpePop) */}
+                      <ThemeContext.Extend value={theme}>
+                        {cloneElement(children, {
+                          containerRef: layerRef,
+                          designSystemDemo: fullscreen,
+                        })}
+                      </ThemeContext.Extend>
                     </ResponsiveContext.Provider>
                   </Box>
                 ) : (
                   <ResponsiveContext.Provider value={viewPort}>
-                    {children}
+                    {/* Example children should use hpe theme 
+                    (as opposed to hpePop) */}
+                    <ThemeContext.Extend value={theme}>
+                      {children}
+                    </ThemeContext.Extend>
                   </ResponsiveContext.Provider>
                 )}
               </Box>

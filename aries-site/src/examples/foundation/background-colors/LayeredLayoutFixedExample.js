@@ -28,9 +28,7 @@ export const LayeredLayoutFixedExample = () => {
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
           <Main background="background-back" flex pad="medium">
-            <Heading color="text-strong" margin="none">
-              Page title
-            </Heading>
+            <Heading margin="none">Page title</Heading>
             <Paragraph>
               In a layered layout, background-back is used for the app
               background, and background-front is used on the foreground

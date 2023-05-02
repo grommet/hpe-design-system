@@ -78,34 +78,36 @@ export const Layout = ({
     }, 2000);
   };
 
-  const onSubmit = useCallback(value => {
-    const data = {
-      values: {
-        fullURL: `https://design-system.hpe.design${router.route}`,
-        deviceType: 'desktop',
-        QID1: parseInt(value.value['like-rating']),
-        QID2_TEXT: value.value['text-area'],
-      },
-    };
-    // using next js env variables for url & api token
-    // https://nextjs.org/docs/basic-features/environment-variables
-    fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'X-API-TOKEN': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(result => {
-        closeFeedbackModal();
+  const onSubmit = useCallback(
+    value => {
+      const data = {
+        values: {
+          QID1: parseInt(value.value['like-rating'], 10),
+          QID2_TEXT: value.value['text-area'],
+          Q_URL: `https://design-system.hpe.design${router.route}`,
+        },
+      };
+      // using next js env variables for url & api token
+      // https://nextjs.org/docs/basic-features/environment-variables
+      fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'X-API-TOKEN': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
+        },
+        body: JSON.stringify(data),
       })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }, []);
+        .then(response => response.json())
+        .then(() => {
+          closeFeedbackModal();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    },
+    [router.route],
+  );
 
   const match = siteContents.find(item =>
     item?.name === 'Index'
@@ -192,7 +194,10 @@ export const Layout = ({
                       </Box>
                     </>
                   ) : (
-                    children
+                    <>
+                      <SkipLinkTarget id="main" />
+                      {children}
+                    </>
                   )}
                 </Box>
               </Main>
@@ -204,7 +209,7 @@ export const Layout = ({
               color="purple!"
               label="Feedback"
               primary
-              a11yTitle={`This button launches a modal to give feedback.`}
+              a11yTitle="This button launches a modal to give feedback."
             />
             <Feedback
               show={open}
@@ -228,7 +233,8 @@ export const Layout = ({
                 kind="textArea"
                 label="Any additional comments?"
                 formProps={{
-                  help: `Here's your chance to tell us your thoughts about this page.`,
+                  help: `Here's your chance to tell us your thoughts 
+                  about this page.`,
                 }}
               />
             </Feedback>

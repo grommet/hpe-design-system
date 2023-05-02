@@ -127,7 +127,7 @@ export const RecentActivity = () => {
 
 const FeedFooter = () => (
   <Button
-    label="View All"
+    label="View all"
     icon={<FormNext />}
     onClick={() => {
       // eslint-disable-next-line no-alert

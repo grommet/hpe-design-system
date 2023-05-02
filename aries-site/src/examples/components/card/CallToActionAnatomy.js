@@ -12,7 +12,6 @@ import {
   Stack,
   Text,
 } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 import { event } from './data';
 
@@ -89,7 +88,7 @@ const CardExample = ({ ...rest }) => (
           <Text size="small">{event.pretitle}</Text>
         </DashedBox>
         <DashedBox id="cta-title">
-          <Heading level={3} margin="none" size="small">
+          <Heading level={3} margin="none">
             {event.title}
           </Heading>
         </DashedBox>
@@ -103,8 +102,7 @@ const CardExample = ({ ...rest }) => (
       <DashedBox id="cta-action" flex={false}>
         <Button
           label="Register now"
-          icon={<FormNextLink />}
-          primary
+          kind="cta-primary"
           reverse
           // tabIndex is -1 because entire card is clickable
           tabIndex={-1}

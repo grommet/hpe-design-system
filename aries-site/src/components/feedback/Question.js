@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  FileInput,
   FormField,
+  RadioButtonGroup,
+  StarRating,
+  ThumbsRating,
   TextArea,
   Text,
-  RadioButtonGroup,
-  FileInput,
 } from 'grommet';
-import { StarRating } from './StarRating';
-import { ThumbsRating } from './ThumbsRating';
 
 export const Question = ({ formProps, label, inputProps, kind, name }) => {
   const accessibilityProps = {
@@ -38,7 +38,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
       contentProps={{
         border: formats[kind].border ?? true,
       }}
-      label={formats[kind].label || <Text>{label}</Text> }
+      label={formats[kind].label || <Text>{label}</Text>}
       name={name}
       htmlFor={name}
       {...formProps}
@@ -49,6 +49,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
 };
 
 Question.propTypes = {
+  formProps: PropTypes.shape({}),
   label: PropTypes.string.isRequired,
   inputProps: PropTypes.object,
   kind: PropTypes.string,

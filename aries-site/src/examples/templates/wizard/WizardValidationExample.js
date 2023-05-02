@@ -39,7 +39,7 @@ const stepOneInputs = [
   setValid => (
     <>
       <FormField
-        label="First Name"
+        label="First name"
         htmlFor="firstname-validation"
         name="firstname-validation"
         required
@@ -52,7 +52,7 @@ const stepOneInputs = [
         />
       </FormField>
       <FormField
-        label="Last Name"
+        label="Last name"
         htmlFor="lastname-validation"
         name="lastname-validation"
       >
@@ -98,7 +98,7 @@ const stepOneInputs = [
   ),
 ];
 
-const StepOne = () => {
+export const StepOne = () => {
   const { valid, setValid } = useContext(WizardContext);
   const size = useContext(ResponsiveContext);
 
@@ -178,7 +178,7 @@ const StepThree = () => (
       )}
     </List>
     <Text color="text-strong">
-      Include guidance to what will occur when “Finish Wizard" is clicked.
+      Include guidance to what will occur when “Finish wizard" is clicked.
     </Text>
   </Box>
 );
@@ -188,18 +188,18 @@ export const steps = [
     description: `Step one description. Keep each step simple and in chunks 
     easy enough to fit on a single page.`,
     inputs: <StepOne />,
-    title: 'Step 1 Title',
+    title: 'Step 1 title',
   },
   {
     description: `Step 2 description. Even though this step is single-column, 
     the width of the footer should be consistent across all steps.`,
     inputs: <StepTwo />,
-    title: 'Step 2 Title',
+    title: 'Step 2 title',
   },
   {
     description: 'Review your configuration details.',
     inputs: <StepThree />,
-    title: 'Review & Create',
+    title: 'Review & create',
   },
 ];
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Button, FileInput, Heading, Layer, Text } from 'grommet';
+import { Box, Button, FileInput, Heading, Layer, Paragraph } from 'grommet';
+import { ButtonGroup } from 'aries-core';
 
 export const FileInputConfirmRemoveExample = () => {
   const [numFiles, setNumFiles] = useState(0);
@@ -9,22 +10,24 @@ export const FileInputConfirmRemoveExample = () => {
       <FileInput
         messages={{
           dropPromptMultiple: 'Drag and drop',
-          browse: numFiles > 0 ? 'Select More Files' : 'Select Files',
+          browse: numFiles > 0 ? 'Select more files' : 'Select files',
         }}
         onChange={(event, { files }) => setNumFiles(files.length)}
         confirmRemove={({ onConfirm, onCancel }) => (
           <Layer onClickOutside={onCancel} onEsc={onCancel}>
             <Box pad="medium" gap="medium" width={{ min: 'medium' }}>
               <Box gap="xsmall">
-                <Heading level={2} margin="none" size="small">
+                <Heading level={2} margin="none">
                   Remove file?
                 </Heading>
-                <Text>This action cannot be undone.</Text>
+                <Paragraph margin="none">
+                  This action cannot be undone.
+                </Paragraph>
               </Box>
-              <Box direction="row" align="center" justify="end" gap="medium">
+              <ButtonGroup alignSelf="end">
                 <Button label="Cancel" onClick={onCancel} />
-                <Button label="Remove File" onClick={onConfirm} primary />
-              </Box>
+                <Button label="Remove file" onClick={onConfirm} primary />
+              </ButtonGroup>
             </Box>
           </Layer>
         )}

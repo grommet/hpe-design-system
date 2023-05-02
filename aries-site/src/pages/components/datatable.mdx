@@ -3,6 +3,7 @@ import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   PaginationTableExample,
+  PaginationServerTableExample,
   DataTableAnatomy,
   DataTableExample,
   DataTableEmptyCellExample,
@@ -231,7 +232,7 @@ Wrapping should be used when:
 - The entirety of the content must be available at all times.
 - Long numerical values need to be displayed.
 
-### Handling Empty Cells
+### Handling empty cells
 
 If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaing the scanablility across rows and columns.
 
@@ -262,7 +263,7 @@ For example, if on the Heading you apply `id="storage-pools-heading"`, on the Da
 <DataTable aria-describedBy="storage-pools-heading" />
 ```
 
-### Status and State within a DataTable
+### Status and state
 
 Statuses within a DataTable should always have these accompanying elements:
 
@@ -354,7 +355,7 @@ dragging the right side of its header to the left or to the right to expand the 
   <DataTableResizeColumnsExample />
 </Example>
 
-### Searching and filtering DataTables
+### Searching and filtering
 
 Complimenatary elements such as search or filters should be guided by the task the user
 is setting out to accomplish.
@@ -407,6 +408,22 @@ With long sets of data, pagination can help to create a more efficient means of 
   <PaginationTableExample />
 </Example>
 
+### Server-side paginated table
+
+In this example, data is dynamically fetched using an API call and rendered as a paginated DataTable.
+This approach is preferred for DataTables that may have large amounts of records because,
+by loading only a page worth of data at a time, it ensures the DOM doesn't become overloaded.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationServerTableExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+  height="auto"
+>
+  <PaginationServerTableExample />
+</Example>
+
 ### Fixing header row and/or columns
 
 Fixing or pinning header rows, columns, or footers allow users to track and
@@ -432,7 +449,7 @@ maintain context across long and wide data sets.
   <DataTableSummaryExample />
 </Example>
 
-### Use pagination or infinite scroll with DataTables
+### Use pagination or infinite scroll
 
 Should be guided by the task the user is setting out to accomplish.
 

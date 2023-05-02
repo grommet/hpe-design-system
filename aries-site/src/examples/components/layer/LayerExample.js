@@ -1,62 +1,54 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
+import { Button, Box, Layer } from 'grommet';
+import { LayerHeader } from 'aries-core';
+import { LayerForm } from './ConfigurationForm';
 import {
-  Button,
-  Box,
-  Header,
-  Heading,
-  Layer,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
-import { FormClose } from 'grommet-icons';
+  ConfirmationProvider,
+  ConfirmationContext,
+  DoubleConfirmation,
+  useConfirmation,
+} from './components';
 
-export const LayerExample = () => {
-  const [open, setOpen] = useState(false);
-  const size = useContext(ResponsiveContext);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
-  return (
-    <>
-      <Box align="start">
-        <Button label="Show me the Layer" onClick={onOpen} primary />
-      </Box>
-      {open && (
-        <Layer
-          position="right"
-          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
-          modal
-          onClickOutside={onClose}
-          onEsc={onClose}
-        >
-          <Box
-            fill="vertical"
-            overflow="auto"
-            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-            pad="medium"
-          >
-            <Header>
-              <Heading level={2} margin="none">
-                This is a Layer.
-              </Heading>
-              <Button
-                a11yTitle={`You are on a Close button in a layer containing
-                a text description. To close the layer 
-                and return to the primary content, press Enter.`}
-                autoFocus
-                icon={<FormClose />}
-                onClick={onClose}
-              />
-            </Header>
-            <Box overflow="auto" pad={{ vertical: 'medium' }}>
-              <Text>
-                This layer is set to appear on the right and fill the screen
-                vertically. You can add content in here such as a Form or a
-                Chart.
-              </Text>
-            </Box>
+export const LayerExample = () => (
+  <ConfirmationProvider>
+    <ConfirmationContext.Consumer>
+      {({ showLayer, showConfirmation, setShowLayer }) => (
+        <>
+          <Box align="center">
+            <Button
+              label="Show me the layer"
+              onClick={() => setShowLayer(true)}
+              primary
+            />
           </Box>
-        </Layer>
+          {showLayer ? <AddApplication /> : null}
+          {showConfirmation ? <DoubleConfirmation title="application" /> : null}
+        </>
       )}
-    </>
+    </ConfirmationContext.Consumer>
+  </ConfirmationProvider>
+);
+
+const AddApplication = ({ ...rest }) => {
+  const { onClose } = useConfirmation();
+
+  return (
+    <Layer position="right" full="vertical" onEsc={onClose} {...rest}>
+      <Box pad="medium" gap="medium" overflow="auto">
+        <LayerHeader title="Add application" onClose={onClose} />
+        <Box flex={false}>
+          <LayerForm />
+        </Box>
+        <Box direction="row" gap="small" flex={false}>
+          <Button
+            label="Add application"
+            primary
+            type="submit"
+            form="application-form"
+          />
+          <Button label="Cancel" onClick={onClose} />
+        </Box>
+      </Box>
+    </Layer>
   );
 };

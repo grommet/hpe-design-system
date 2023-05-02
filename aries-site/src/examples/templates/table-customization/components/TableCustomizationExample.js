@@ -1,30 +1,26 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
+  Data,
   DataTable,
-  DropButton,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  DataTableColumns,
   Header,
   Heading,
   Menu,
   Page,
   PageContent,
+  Toolbar,
 } from 'grommet';
-import { Splits } from 'grommet-icons';
-
-import { ColumnSettings } from './ColumnSettings';
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../FilterControls';
 
 const COLUMNS = [
   { property: 'name', header: 'Name', primary: true, pin: true },
   { property: 'status', header: 'Status' },
   { property: 'role', header: 'Role' },
   { property: 'location', header: 'Location' },
-  { property: 'hoursAvailable', header: 'Hours Available', align: 'end' },
+  { property: 'hoursAvailable', header: 'Hours available', align: 'end' },
 ];
 
 const allData = [
@@ -72,107 +68,68 @@ const allData = [
   },
 ];
 
-// Define which attributes should be made available for the user
-// to filter upon
-const filtersConfig = [
-  { property: 'role', label: 'Role', filterType: 'CheckBoxGroup' },
-  { property: 'status', label: 'Status', filterType: 'CheckBoxGroup' },
-  {
-    property: 'location',
-    label: 'Location',
-    filterType: 'CheckBoxGroup',
-  },
-  {
-    property: 'hoursAvailable',
-    label: 'Remaining Hours Available',
-    filterType: 'RangeSelector',
-    inputProps: {
-      min: 0,
-      max: 40,
-      valueRange: '0 - 40 hours',
-    },
-  },
-  { property: 'name', label: 'Name', filterType: 'CheckBoxGroup' },
-];
+// Define data structure for DataTableColumns sorting
+const options = COLUMNS.map(({ header, property }) => ({
+  property,
+  label: header,
+}));
 
-export const TableCustomizationExample = () => {
-  const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
-  const [open, setOpen] = useState(false);
-
-  return (
-    <Page background="background" fill>
-      <PageContent>
-        <FiltersProvider>
-          <Box gap="medium">
-            <Header pad={{ top: 'medium' }}>
-              <Box gap="xsmall" fill="horizontal">
-                <Heading id="users-heading" level={2} margin="none">
-                  Users
-                </Heading>
-                <Box direction="row" justify="between" align="start" wrap>
-                  <FilterControls
-                    // Table column configuration should be grouped on right
-                    // side with other actions to separate it from filtering.
-                    // If grouped to the left with the Filter control, it
-                    // becomes confusing what the "Clear filters" button will
-                    // do with regards to any column configurations that have
-                    // been applied.
-                    configure={
-                        <DropButton
-                          a11yTitle="Configure columns button"
-                          icon={<Splits />}
-                          kind="toolbar"
-                          dropAlign={{ top: 'bottom', right: 'right' }}
-                          onClose={() => setOpen(false)}
-                          onOpen={() => setOpen(true)}
-                          dropContent={
-                            <ColumnSettings
-                              columns={COLUMNS}
-                              visibleColumns={visibleColumns}
-                              setVisibleColumns={setVisibleColumns}
-                              open={open}
-                            />
-                          }
-                          tip="Configure columns"
-                        />
-                    }
-                    actions={<Menu kind="toolbar" label="Actions" items={[]} />}
-                    data={allData}
-                    filters={filtersConfig}
-                    searchFilter={{ placeholder: 'Search' }}
-                  />
-                </Box>
-              </Box>
-            </Header>
-            <Results columns={visibleColumns} />
-          </Box>
-        </FiltersProvider>
-      </PageContent>
-    </Page>
-  );
+// Use options const to define data structure for Data component properties
+const buildProperties = () => {
+  const dict = {};
+  for (let i = 0; i < options.length; i += 1) {
+    const { label } = options[i];
+    if (options[i].property === 'hoursAvailable') {
+      dict[options[i].property] = {
+        label,
+        range: { min: 0, max: 40 },
+      };
+    } else {
+      dict[options[i].property] = { label };
+    }
+  }
+  return dict;
 };
 
-const Results = ({ columns }) => {
+export const TableCustomizationExample = () => (
+  <Page background="background" fill>
+    <PageContent>
+      <Box gap="medium">
+        <Header pad={{ top: 'medium' }}>
+          <Heading id="users-heading" level={2} margin="none">
+            Users
+          </Heading>
+        </Header>
+        <Results />
+      </Box>
+    </PageContent>
+  </Page>
+);
+
+const Results = () => {
   const [select, setSelect] = useState([]);
-  const { filteredResults } = useFilters();
-
+  const properties = buildProperties();
   return (
-    <Box fill overflow="auto">
-      <DataTable
-        aria-describedby="users-heading"
-        data={filteredResults}
-        background="background"
-        columns={columns}
-        select={select}
-        onSelect={setSelect}
-        pin
-      />
-    </Box>
+    <Data data={allData} flex properties={properties}>
+      <Toolbar>
+        <DataSearch responsive />
+        <DataTableColumns drop options={options} />
+        <DataFilters layer />
+        {/* Flex box for spacing between Data components and Actions button  */}
+        <Box flex />
+        <Menu label="Actions" kind="toolbar" />
+      </Toolbar>
+      <DataSummary />
+      <Box overflow="auto" flex>
+        <DataTable
+          aria-describedby="users-heading"
+          background="background"
+          columns={COLUMNS}
+          select={select}
+          onSelect={setSelect}
+          pin
+        />
+      </Box>
+    </Data>
   );
-};
-
-Results.propTypes = {
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({ property: PropTypes.string, header: PropTypes.string }),
-  ),
 };

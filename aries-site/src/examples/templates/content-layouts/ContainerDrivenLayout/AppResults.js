@@ -25,7 +25,7 @@ export const AppResults = ({ apps }) => {
 
   return (
     <Box gap="medium">
-      <Heading level={2} size="small" margin="none">
+      <Heading level={2} margin="none">
         Apps
       </Heading>
       <Grid

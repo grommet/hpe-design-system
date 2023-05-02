@@ -6,11 +6,11 @@ import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
 export const ContactInformation = ({ name }) => (
   <Box>
     <Text size="large" margin={{ vertical: 'small' }}>
-      Contact Information
+      Contact information
     </Text>
     <FormField
       contentProps={{ width: 'medium' }}
-      label="Full Name"
+      label="Full name"
       required
       htmlFor={`full-name-${name}`}
       name="full-name"
@@ -21,7 +21,7 @@ export const ContactInformation = ({ name }) => (
       contentProps={{ width: 'medium' }}
       htmlFor={`phone-shipping-${name}}`}
       name="phone-shipping"
-      label="Phone Number"
+      label="Phone number"
     >
       <MaskedInput
         id={`phone-shipping-${name}}`}
@@ -34,7 +34,7 @@ export const ContactInformation = ({ name }) => (
       htmlFor={`email-ship-${name}`}
       name="email-shipping"
       required
-      label="Email Address"
+      label="Email address"
       validate={emailValidation}
     >
       <MaskedInput

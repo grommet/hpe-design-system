@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
@@ -13,11 +14,19 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'grommet-theme-hpe';
 
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
 export const internalLink = RegExp('^/.*|^#.*');
+
+const StyledStrong = styled(Text)`
+  font-weight: 500;
+  font-size: inherit;
+  line-height: inherit;
+`;
 
 export const components = {
   blockquote: props => (
@@ -30,13 +39,14 @@ export const components = {
     </Box>
   ),
   code: props => (
-    <Box
-      background="background-contrast"
-      width="large"
-      round="xsmall"
-      pad="medium"
-      {...props}
-    />
+    <Box width="large" round="xsmall" overflow="auto">
+      <SyntaxHighlighter
+        style={prism.light}
+        wrapLongLines
+        language="javascript"
+        {...props}
+      />
+    </Box>
   ),
   p: SubsectionText,
   a: props =>
@@ -47,6 +57,7 @@ export const components = {
     ) : (
       <Anchor rel="noopener" target="_blank" {...props} />
     ),
+  strong: props => <StyledStrong weight={500} {...props} />,
   ol: props => (
     <SubsectionText
       as="ol"
@@ -84,12 +95,13 @@ export const components = {
     />
   ),
   table: props => (
-    <Box align="start" width={{ max: 'xlarge' }}>
-      <Box
-        background="background-front"
-        pad={{ horizontal: 'medium', top: 'medium', bottom: 'large' }}
-        round="xsmall"
-      >
+    <Box
+      align="start"
+      width={{ max: 'xlarge' }}
+      margin={{ bottom: 'medium' }}
+      overflow="auto"
+    >
+      <Box background="background-front" pad="medium" round="small">
         <Table {...props} />
       </Box>
     </Box>
@@ -100,6 +112,8 @@ export const components = {
     <TableCell
       border={{ side: 'bottom', color: 'border-weak' }}
       verticalAlign="top"
+      width={{ max: 'medium' }}
+      pad={{ vertical: 'small', horizontal: 'small' }}
       {...props}
     />
   ),

@@ -1,30 +1,25 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Card, Grid, Pagination, ResponsiveContext, Text } from 'grommet';
+import { Box, Grid, Pagination, ResponsiveContext, Text } from 'grommet';
+import { Card } from '../../templates/Card/Card';
 
-const data = [];
-
-for (let i = 0; i < 95; i += 1) {
-  data.push({
-    entry: `entry-${i + 1}`,
-  });
-}
+const MOCK_DATA = require('../../../data/mockData/applications.json');
 
 const CardResult = ({ item }) => (
-  <Card fill pad="medium">
-    {item.entry}
-  </Card>
+  <Card title={item.title} subtitle={item.publisher} level={3} fill />
 );
 
 CardResult.propTypes = {
   item: PropTypes.shape({
-    entry: PropTypes.string,
+    publisher: PropTypes.string,
+    title: PropTypes.string,
   }),
 };
 
 export const PaginationCardsExample = () => {
   const size = useContext(ResponsiveContext);
+  const data = MOCK_DATA;
   const [currentData, setCurrentData] = useState(data.slice(0, 10));
   const [indices, setIndices] = useState([0, 10]);
 
@@ -37,13 +32,7 @@ export const PaginationCardsExample = () => {
   return (
     <Box gap="medium" overflow="auto" pad="xsmall">
       <Box flex={false} pad="xsmall">
-        <Grid
-          columns="small"
-          rows="small"
-          gap="medium"
-          justify="center"
-          width="medium"
-        >
+        <Grid columns="medium" gap="medium">
           {currentData.map(datum => (
             <CardResult item={datum} key={datum.entry} />
           ))}

@@ -10,19 +10,19 @@ export const TipSizeExample = () => (
         </Box>
       }
     >
-      <Button a11yTitle="small tip" label="Small Tip" secondary />
+      <Button a11yTitle="small tip" label="Small tip" secondary />
     </Tip>
     <Tip
       content={
         <Box width={{ max: 'small' }} round="xsmall">
           <Text>
-            This is a larger tip which displays
-            more content upon hover or focus.
+            This is a larger tip which displays more content upon hover or
+            focus.
           </Text>
         </Box>
       }
     >
-      <Button a11yTitle="large tip" label="Large Tip" secondary />
+      <Button a11yTitle="large tip" label="Large tip" secondary />
     </Tip>
   </Box>
 );

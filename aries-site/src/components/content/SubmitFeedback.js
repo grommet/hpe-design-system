@@ -1,94 +1,117 @@
-import React, { useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { Box, Button, Grid, Layer, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, Grid, Heading, Layer, ResponsiveContext } from 'grommet';
 import { ChatOption, Contact, Close, Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
-const Subscribe = () => (
-  <Box gap="small">
-    <Contact size="large" />
-    <Text weight="bold" size="large">
-      Stay up-to-date
-    </Text>
-    <SubsectionText>
-      Get the latest updates on the HPE Design System by suscribing to our
-      process mailbox.
-    </SubsectionText>
-    <Box align="start">
-      <Button
-        label="Subscribe"
-        href="https://announce.now.hpe.com/home/NewsLetter/OpenSubscription/254?u=1"
-        target="_blank"
-        rel="noreferrer noopener"
-        primary
-      />
-    </Box>
-  </Box>
-);
+const HeadingContext = createContext({});
 
-const JoinConversation = () => (
-  <Box gap="small">
-    <ChatOption size="large" />
-    <Text weight="bold" size="large">
-      Join the conversation
-    </Text>
-    <SubsectionText>
-      Specific questions? Want feedback or advice? Generally curious? Join the
-      #hpe-design-system channel on Grommet Slack by signing up with an HPE
-      email.
-    </SubsectionText>
-    <Box align="start">
-      <Button
-        label="Join us on Slack"
-        href="https://slack-invite.grommet.io/"
-        target="_blank"
-        rel="noreferrer noopener"
-        primary
-      />
-    </Box>
-  </Box>
-);
-
-const Contribute = () => (
-  <Box gap="small">
-    <Github size="large" />
-    <Text weight="bold" size="large">
-      Contribute
-    </Text>
-    <SubsectionText>
-      Have suggestions? Improvement ideas? Submit a bug, feature request, or
-      better yet, make your impact for all by submitting your own contribution.
-    </SubsectionText>
-    <Box align="start">
-      <Button
-        label="Submit to Github"
-        href="https://github.com/hpe-design/aries/issues"
-        target="_blank"
-        rel="noreferrer noopener"
-        primary
-      />
-    </Box>
-  </Box>
-);
-
-export const FeedbackOptions = () => {
-  const size = useContext(ResponsiveContext);
+const Subscribe = () => {
+  const { level } = useContext(HeadingContext);
   return (
-    <Box flex={false} width="xlarge">
-      <Grid
-        columns={
-          !['xsmall', 'small'].includes(size)
-            ? { count: 'fit', size: 'small' }
-            : 'auto'
-        }
-        gap="large"
-      >
-        <JoinConversation />
-        <Contribute />
-        <Subscribe />
-      </Grid>
+    <Box gap="small">
+      <Contact size="large" />
+      <Heading level={level} margin="none">
+        Stay up-to-date
+      </Heading>
+      <SubsectionText>
+        Get the latest updates on the HPE Design System by suscribing to our
+        process mailbox.
+      </SubsectionText>
+      <Box align="start">
+        <Button
+          label="Subscribe"
+          href="https://announce.now.hpe.com/home/NewsLetter/OpenSubscription/254?u=1"
+          target="_blank"
+          rel="noreferrer noopener"
+          primary
+        />
+      </Box>
     </Box>
   );
+};
+
+const JoinConversation = () => {
+  const { level } = useContext(HeadingContext);
+
+  return (
+    <Box gap="small">
+      <ChatOption size="large" />
+      <Heading level={level} margin="none">
+        Join the conversation
+      </Heading>
+      <SubsectionText>
+        Specific questions? Want feedback or advice? Generally curious? Join the
+        #hpe-design-system channel on Grommet Slack by signing up with an HPE
+        email.
+      </SubsectionText>
+      <Box align="start">
+        <Button
+          label="Join us on Slack"
+          href="https://slack-invite.grommet.io/"
+          target="_blank"
+          rel="noreferrer noopener"
+          primary
+        />
+      </Box>
+    </Box>
+  );
+};
+
+const Contribute = () => {
+  const { level } = useContext(HeadingContext);
+
+  return (
+    <Box gap="small">
+      <Github size="large" />
+      <Heading level={level} margin="none">
+        Contribute
+      </Heading>
+      <SubsectionText>
+        Have suggestions? Improvement ideas? Submit a bug, feature request, or
+        better yet, make your impact for all by submitting your own
+        contribution.
+      </SubsectionText>
+      <Box align="start">
+        <Button
+          label="Submit to Github"
+          href="https://github.com/hpe-design/aries/issues"
+          target="_blank"
+          rel="noreferrer noopener"
+          primary
+        />
+      </Box>
+    </Box>
+  );
+};
+
+export const FeedbackOptions = ({ level }) => {
+  const size = useContext(ResponsiveContext);
+  const contextValue = useMemo(() => ({ level }), [level]);
+
+  return (
+    <HeadingContext.Provider value={contextValue}>
+      <Box flex={false} width="xlarge">
+        <Grid
+          columns={
+            !['xsmall', 'small'].includes(size)
+              ? { count: 'fit', size: 'small' }
+              : 'auto'
+          }
+          gap="large"
+        >
+          <JoinConversation />
+          <Contribute />
+          <Subscribe />
+        </Grid>
+      </Box>
+    </HeadingContext.Provider>
+  );
+};
+
+FeedbackOptions.propTypes = {
+  level: PropTypes.number,
 };
 
 export const SubmitFeedback = () => {

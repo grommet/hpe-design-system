@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Button, Heading } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
 import { Card } from '../../templates';
 
 export const FeaturePromotionCard = () => (
   <Card
+    background="white"
     pretitle="Feature update"
     title={
       <Box
@@ -18,7 +18,7 @@ export const FeaturePromotionCard = () => (
           clip: 'text',
         }}
       >
-        <Heading level={2} size="small" margin="none">
+        <Heading level={2} margin="none">
           GreenLake Cloud Platform announces new ML Ops service
         </Heading>
       </Box>
@@ -26,8 +26,7 @@ export const FeaturePromotionCard = () => (
     actions={
       <Button
         label="Launch demo"
-        icon={<FormNextLink />}
-        primary
+        kind="cta-primary"
         reverse
         // tabIndex is -1 because the entire card is clickable
         tabIndex={-1}

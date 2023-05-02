@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Button, PageHeader, ResponsiveContext } from 'grommet';
-import { ActionMenu, ReverseAnchor } from '../../templates';
+import { ActionMenu } from 'aries-core';
+import { ReverseAnchor } from '../../templates';
 
 const actions = [
   {
-    label: 'Export Devices',
+    label: 'Export devices',
     secondary: true,
   },
 ];
@@ -19,7 +20,7 @@ export const PageHeaderIntroExample = () => {
       parent={<ReverseAnchor label="Dashboard" />}
       actions={
         breakpoint !== 'xsmall' ? (
-          <Button label="Export Devices" secondary />
+          <Button label="Export devices" secondary />
         ) : (
           <ActionMenu items={actions} />
         )

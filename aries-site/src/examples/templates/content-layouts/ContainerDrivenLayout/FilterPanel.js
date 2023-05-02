@@ -124,7 +124,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       </>
       <>
         <Button
-          label="Delivery Methods"
+          label="Delivery methods"
           icon={expandDelivery ? <FormDown /> : <FormNext />}
           onClick={() => setExpandDelivery(!expandDelivery)}
         />
@@ -140,7 +140,7 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
       </>
       <>
         <Button
-          label="Pricing Models"
+          label="Pricing models"
           icon={expandPricing ? <FormDown /> : <FormNext />}
           onClick={() => setExpandPricing(!expandPricing)}
         />
@@ -165,8 +165,8 @@ export const FilterPanel = ({ containerRef, data, setFilters }) => {
     >
       <Box gap="large" pad="large">
         <Header fill="horizontal" pad={{ left: 'medium' }}>
-          <Heading size="small" margin="none">
-            App Filters
+          <Heading level={2} margin="none">
+            App filters
           </Heading>
           <Button
             icon={<Close />}

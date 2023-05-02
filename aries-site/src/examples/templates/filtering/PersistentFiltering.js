@@ -26,7 +26,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, FormClose, Search } from 'grommet-icons';
+import { Filter, Close, Search } from 'grommet-icons';
 
 const allData = [
   {
@@ -119,7 +119,7 @@ const allFilters = {
     defaultValue: [0, 2000],
   },
   locationType: {
-    name: 'Location Type',
+    name: 'Location type',
     options: ['Customer Center', 'Office'],
     defaultValue: [],
   },
@@ -335,7 +335,7 @@ const ActiveFilters = ({
                   <Button
                     key={index}
                     label={allFilters[key].name}
-                    icon={<FormClose />}
+                    icon={<Close />}
                     gap="xsmall"
                     onClick={() => {
                       const nextFilters = filters;
@@ -354,7 +354,7 @@ const ActiveFilters = ({
                 <Button
                   key={option}
                   label={option}
-                  icon={<FormClose />}
+                  icon={<Close />}
                   gap="xsmall"
                   onClick={() => {
                     const nextValue = value.filter(a => a !== option);
@@ -376,7 +376,7 @@ const ActiveFilters = ({
             <Button
               key={index}
               label={value}
-              icon={<FormClose />}
+              icon={<Close />}
               gap="xsmall"
               onClick={() => {
                 const nextFilters = filters;
@@ -523,7 +523,7 @@ const Filters = ({
                 Filters
               </Heading>
               <Button
-                icon={<FormClose />}
+                icon={<Close />}
                 onClick={() => {
                   filterData(allData, previousFilters);
                   restoreValues(previousValues);
@@ -537,7 +537,7 @@ const Filters = ({
             </Box>
             <Box align="center" direction="row" gap="small">
               <Button
-                label="Apply Filters"
+                label="Apply filters"
                 onClick={() => {
                   const nextData = filterData(allData, filters);
                   setData(nextData);
@@ -546,7 +546,7 @@ const Filters = ({
                 primary
               />
               <Button
-                label="Reset Filters"
+                label="Reset filters"
                 onClick={() => {
                   resetFilters();
                   setShowLayer(!showLayer);
@@ -612,7 +612,7 @@ const LocationTypeFilter = ({
   setFilterValues,
 }) => (
   <FormField
-    label="Location Type"
+    label="Location type"
     htmlFor="location-type-b"
     name="location-type-b"
   >
@@ -856,7 +856,7 @@ const Results = ({ data }) => {
                 <Text color="text-strong">{datum.address}</Text>
               </Box>
               <Box>
-                <Text size="small">Location Type</Text>
+                <Text size="small">Location type</Text>
                 <Text color="text-strong">{datum.locationType}</Text>
               </Box>
             </CardBody>

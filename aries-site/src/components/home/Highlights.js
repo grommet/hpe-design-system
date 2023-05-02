@@ -8,7 +8,6 @@ import {
   PageContent,
   Paragraph,
   ResponsiveContext,
-  Text,
 } from 'grommet';
 
 import Link from 'next/link';
@@ -30,7 +29,7 @@ const HighlightsLayout = () => {
         const href = nameToPath(name);
         return (
           <ContentPreviewCard key={name} href={href} pad="medium">
-            <Box direction="row" gap="medium">
+            <Box direction="row" align="center" gap="medium">
               <Box width="small" round="xsmall">
                 {image && (
                   <Image
@@ -44,16 +43,11 @@ const HighlightsLayout = () => {
                   />
                 )}
               </Box>
-              <Box fill>
-                <Text
-                  weight="bold"
-                  size="large"
-                  margin={{ top: 'small' }}
-                  color="text-strong"
-                >
+              <Box gap="xsmall">
+                <Heading level={3} margin="none">
                   {name}
-                </Text>
-                <Paragraph>{summary}</Paragraph>
+                </Heading>
+                <Paragraph margin="none">{summary}</Paragraph>
               </Box>
             </Box>
           </ContentPreviewCard>

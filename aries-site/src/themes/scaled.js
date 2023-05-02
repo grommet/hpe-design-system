@@ -16,6 +16,12 @@ const undefinedThemeProperties = {
   anchor: {
     extend: '',
   },
+  button: {
+    extend: '',
+  },
+  checkBox: {
+    extend: '',
+  },
 };
 
 export const scaled = (scale = 1, baseSpacing = 24) => {
@@ -36,7 +42,6 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     source.button.secondary.border,
     source.button.toolbar.border,
     source.button.option.border,
-    source.button.disabled.primary.border,
     source.button.hover.secondary.border,
     source.button.size.small.border,
     source.button.size.small.pad,
@@ -94,7 +99,7 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
   scaleAttributes.forEach(attr => {
     Object.keys(attr).forEach(key => {
       /* eslint-disable no-param-reassign */
-      if (attr[key].value) {
+      if (attr[key]?.value) {
         // eslint-disable-next-line operator-assignment
         attr[key].value = Math.ceil(attr[key].value * scale);
       } else if (typeof attr[key] === 'string' && attr[key].includes('px')) {
@@ -109,6 +114,15 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
   // and scale accordingly.
   scaledTheme.anchor.extend = `
     ${source.anchor.extend} 
+    font-size: ${Math.ceil(18 * scale)}px;
+    line-height: ${Math.ceil(24 * scale)}px;
+  `;
+
+  // CheckBox typically inherits its font-size from its parent and does not have
+  // a theme property to adjust. Therefore use checkBox.extend, assume 'medium'
+  // and scale accordingly.
+  scaledTheme.checkBox.extend = `
+    ${source.checkBox.extend} 
     font-size: ${Math.ceil(18 * scale)}px;
     line-height: ${Math.ceil(24 * scale)}px;
   `;
