@@ -82,7 +82,7 @@ export const NameValueListScaleTable = () => (
               scope="col"
               pad={{ vertical: 'small' }}
             >
-              <TextEmphasis color="text-strong">{c.label}</TextEmphasis>
+              <TextEmphasis>{c.label}</TextEmphasis>
             </TableCell>
           ))}
         </TableRow>

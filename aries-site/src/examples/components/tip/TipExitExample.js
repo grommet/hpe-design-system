@@ -6,9 +6,7 @@ import { TextEmphasis } from 'aries-core';
 export const TipExitExample = () => (
   <Box gap="small" direction="row" align="start">
     <Box width="small">
-      <TextEmphasis color="text-strong" size="large">
-        Add service
-      </TextEmphasis>
+      <TextEmphasis size="large">Add service</TextEmphasis>
       <Paragraph margin="none">
         Visit the HPE catalog to start adding all of your favorite services.
       </Paragraph>

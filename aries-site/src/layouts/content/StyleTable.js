@@ -40,7 +40,7 @@ export const StyleTable = ({ data }) => {
                 scope="col"
                 pad={{ vertical: 'small' }}
               >
-                <TextEmphasis color="text-strong">{c.render}</TextEmphasis>
+                <TextEmphasis>{c.render}</TextEmphasis>
               </TableCell>
             ))}
           </TableRow>

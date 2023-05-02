@@ -86,9 +86,7 @@ const Orders = () => {
       >
         {(datum, index) => (
           <Box gap="xsmall" justify="between" key={index}>
-            <TextEmphasis color="text-strong" size="large">
-              {datum.name}
-            </TextEmphasis>
+            <TextEmphasis size="large">{datum.name}</TextEmphasis>
             <Text color="text-strong">
               {datum.tenant} | {datum.service}
             </Text>

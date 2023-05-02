@@ -44,9 +44,7 @@ export const Quote = () => {
       >
         <Avatar src="/static/images/t_harms_bio_image.png" size="149px" />
         <Box align="center">
-          <TextEmphasis color="text-strong" size="xlarge">
-            Tim Harms
-          </TextEmphasis>
+          <TextEmphasis size="xlarge">Tim Harms</TextEmphasis>
           <Text size="xlarge">Creative Director, HPE Global Brand</Text>
         </Box>
       </Box>

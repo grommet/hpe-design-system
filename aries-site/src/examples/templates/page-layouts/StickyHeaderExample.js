@@ -14,7 +14,7 @@ export const StickyHeaderExample = () => (
         // remove height="xxsmall" in prod, for demo purposes only
         height="xxsmall"
       >
-        <TextEmphasis color="text-strong">Header</TextEmphasis>
+        <TextEmphasis>Header</TextEmphasis>
       </Header>
       <Box flex overflow="auto">
         <Main
@@ -26,7 +26,7 @@ export const StickyHeaderExample = () => (
           // remove height="xlarge" in prod, for demo purposes only
           height="xlarge"
         >
-          <TextEmphasis color="text-strong">Main</TextEmphasis>
+          <TextEmphasis>Main</TextEmphasis>
         </Main>
         <Footer
           background="background-front"
@@ -37,7 +37,7 @@ export const StickyHeaderExample = () => (
           // remove height="xxmsmall" in prod, for demo purposes only
           height="xxsmall"
         >
-          <TextEmphasis color="text-strong">Footer</TextEmphasis>
+          <TextEmphasis>Footer</TextEmphasis>
         </Footer>
       </Box>
     </Box>

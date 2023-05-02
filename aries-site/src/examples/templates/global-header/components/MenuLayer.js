@@ -76,7 +76,7 @@ const SidebarHeader = () => (
       >
         <Text size="large">A</Text>
       </Avatar>
-      <TextEmphasis color="text-strong">AT&T Corporation</TextEmphasis>
+      <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
     </Box>
     <Button label="Switch Account" secondary />
@@ -114,9 +114,7 @@ const SidebarFooter = () => (
             <Aruba color="background" />
           </Box>
           <Box>
-            <TextEmphasis color="text-strong" size="xsmall">
-              Aruba Network Manager
-            </TextEmphasis>
+            <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>
             <Text size="xsmall">US West</Text>
           </Box>
         </Box>

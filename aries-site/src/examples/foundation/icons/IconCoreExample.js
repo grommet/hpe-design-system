@@ -45,7 +45,7 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
             <Text>or</Text>
             {aliases.map((a, i) => (
               <>
-                <TextEmphasis color="text-strong">{a}</TextEmphasis>
+                <TextEmphasis>{a}</TextEmphasis>
                 {i < aliases.length - 1 && ', '}
               </>
             ))}

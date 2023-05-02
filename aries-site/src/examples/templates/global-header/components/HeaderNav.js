@@ -61,7 +61,7 @@ const UserDetails = () => {
           <Avatar src={user.image} size="large" />
         )}
         <Box pad={{ vertical: 'small' }}>
-          <TextEmphasis size="large" color="text-strong">
+          <TextEmphasis size="large">
             {`${user.firstName} ${user.lastName}`}
           </TextEmphasis>
           <Text size="small">{user.email}</Text>

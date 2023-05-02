@@ -31,14 +31,10 @@ export const ContentArea = ({
       {icon ? (
         <Box align="center" gap="small" direction="row">
           <Hpe color="brand" />
-          <TextEmphasis color="text-strong" size="small">
-            {title}
-          </TextEmphasis>
+          <TextEmphasis size="small">{title}</TextEmphasis>
         </Box>
       ) : (
-        <TextEmphasis color="text-strong" size="small">
-          {title}
-        </TextEmphasis>
+        <TextEmphasis size="small">{title}</TextEmphasis>
       )}
       {children}
     </Box>

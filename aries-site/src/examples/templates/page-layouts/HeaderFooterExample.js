@@ -15,7 +15,7 @@ export const HeaderFooterExample = () => (
           // remove dashed border in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
         >
-          <TextEmphasis color="text-strong">Header</TextEmphasis>
+          <TextEmphasis>Header</TextEmphasis>
         </Header>
         <Main
           fill={undefined}
@@ -26,7 +26,7 @@ export const HeaderFooterExample = () => (
           // remove dashed border in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
         >
-          <TextEmphasis color="text-strong">Main</TextEmphasis>
+          <TextEmphasis>Main</TextEmphasis>
         </Main>
         <Footer
           background="background-front"
@@ -37,7 +37,7 @@ export const HeaderFooterExample = () => (
           // remove height="xxsmall" in prod, for demo purposes only
           height="xxsmall"
         >
-          <TextEmphasis color="text-strong">Footer</TextEmphasis>
+          <TextEmphasis>Footer</TextEmphasis>
         </Footer>
       </Box>
     </Box>
