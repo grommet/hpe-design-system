@@ -39,7 +39,7 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
         background="status-unknown"
         border={{ style: 'dashed' }}
       >
-        <TextEmphasis color="text-strong">{label}</TextEmphasis>
+        <TextEmphasis>{label}</TextEmphasis>
       </Box>
       <Box gridArea="bottom-gap" background="background-front" />
     </Grid>

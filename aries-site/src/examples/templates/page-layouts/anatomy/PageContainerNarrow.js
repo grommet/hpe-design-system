@@ -45,7 +45,7 @@ export const PageContainerNarrow = () => {
         pad={{ horizontal: 'xsmall' }}
         background="orange"
       >
-        <TextEmphasis color="text-strong">{PAGE_CONTAINER_WIDTH}</TextEmphasis>
+        <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="narrow-right-edge" color="text-strong" />
     </Box>

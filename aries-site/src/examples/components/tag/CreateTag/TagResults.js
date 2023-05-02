@@ -4,7 +4,7 @@ import { TextEmphasis } from 'aries-core';
 export const TagResults = ({ ...rest }) => (
   <Box flex={false}>
     <Box border="bottom" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-      <TextEmphasis color="text-strong">Assigned tags</TextEmphasis>
+      <TextEmphasis>Assigned tags</TextEmphasis>
     </Box>
     <Box
       direction="row"

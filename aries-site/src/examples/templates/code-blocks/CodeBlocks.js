@@ -60,9 +60,9 @@ const Identifier = ({ title, subtitle, icon }) => (
   >
     <Box pad={{ vertical: 'xsmall' }}>{icon}</Box>
     <Box>
-      <Text color="text-strong" size="xxlarge" weight={500}>
+      <TextEmphasis size="xxlarge">
         {title}
-      </Text>
+      </TextEmphasis>
       <Text>{subtitle}</Text>
     </Box>
   </Box>

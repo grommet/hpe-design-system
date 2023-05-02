@@ -124,7 +124,7 @@ export const components = {
       pad={{ horizontal: 'small', vertical: 'xsmall' }}
       {...props}
     >
-      <TextEmphasis color="text-strong">{props.children}</TextEmphasis>
+      <TextEmphasis>{props.children}</TextEmphasis>
     </TableCell>
   ),
   tr: props => <TableRow {...props} />,

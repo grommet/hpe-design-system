@@ -99,35 +99,35 @@ const data = [
 export const columns = [
   {
     property: 'type',
-    header: <TextEmphasis color="text-strong">Type</TextEmphasis>,
+    header: <TextEmphasis>Type</TextEmphasis>,
   },
   {
     property: 'state',
-    header: <TextEmphasis color="text-strong">State</TextEmphasis>,
+    header: <TextEmphasis>State</TextEmphasis>,
   },
   {
     property: 'status',
-    header: <TextEmphasis color="text-strong">Status</TextEmphasis>,
+    header: <TextEmphasis>Status</TextEmphasis>,
   },
   {
     property: 'attentionLevel',
-    header: <TextEmphasis color="text-strong">Attention level</TextEmphasis>,
+    header: <TextEmphasis>Attention level</TextEmphasis>,
   },
   {
     property: 'actions',
-    header: <TextEmphasis color="text-strong">Actions</TextEmphasis>,
+    header: <TextEmphasis>Actions</TextEmphasis>,
   },
   {
     property: 'persistence',
-    header: <TextEmphasis color="text-strong">Persistence</TextEmphasis>,
+    header: <TextEmphasis>Persistence</TextEmphasis>,
   },
   {
     property: 'placement',
-    header: <TextEmphasis color="text-strong">Placement</TextEmphasis>,
+    header: <TextEmphasis>Placement</TextEmphasis>,
   },
   {
     property: 'insight',
-    header: <TextEmphasis color="text-strong">Insight</TextEmphasis>,
+    header: <TextEmphasis>Insight</TextEmphasis>,
   },
 ];
 

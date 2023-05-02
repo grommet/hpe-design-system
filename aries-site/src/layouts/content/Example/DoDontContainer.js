@@ -32,9 +32,7 @@ export const DoDontContainer = ({
           round="xxsmall"
         />
         <Box>
-          <TextEmphasis color="text-strong" size="large">
-            {label}
-          </TextEmphasis>
+          <TextEmphasis size="large">{label}</TextEmphasis>
           <Paragraph size="small" margin="none">
             {bestPracticeProp.message}
           </Paragraph>

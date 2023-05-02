@@ -15,7 +15,7 @@ export const HeaderOnlyExample = () => (
           // remove height="xxsmall" in prod, for demo purposes only
           height="xxsmall"
         >
-          <TextEmphasis color="text-strong">Header</TextEmphasis>
+          <TextEmphasis>Header</TextEmphasis>
         </Header>
         <Main
           fill={undefined}
@@ -26,7 +26,7 @@ export const HeaderOnlyExample = () => (
           // remove height="xlarge" in prod, for demo purposes only
           height="xlarge"
         >
-          <TextEmphasis color="text-strong">Main</TextEmphasis>
+          <TextEmphasis>Main</TextEmphasis>
         </Main>
       </Box>
     </Box>

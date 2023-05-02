@@ -64,9 +64,7 @@ export const LayerCenterExample = () => {
               background="background-contrast"
             >
               <Alert color="status-critical" />
-              <TextEmphasis color="text-strong">
-                Footer if you need it
-              </TextEmphasis>
+              <TextEmphasis>Footer if you need it</TextEmphasis>
             </Box>
           </Box>
         </Layer>
