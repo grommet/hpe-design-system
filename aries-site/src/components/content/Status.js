@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { Figma, Grommet } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { IconCircle, IconTriangle } from '../icons';
 
 const types = {
@@ -34,7 +35,7 @@ const StatusBadge = ({ status, type }) => (
     >
       <Box direction="row" gap="xsmall" align="center">
         {types[type].icon}
-        <Text weight="bold">{type && types[type].name}</Text>
+        <TextEmphasis>{type && types[type].name}</TextEmphasis>
       </Box>
     </Box>
     <Box

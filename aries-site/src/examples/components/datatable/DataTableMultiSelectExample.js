@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {
   Box,
   Button,
@@ -259,11 +258,6 @@ export const DataTableMultiSelectExample = () => {
   );
 };
 
-const ActionsMenu = styled(Menu)`
-  border: 1px solid
-    ${({ theme }) => theme.global.colors.border[theme.dark ? 'dark' : 'light']};
-`;
-
 const TableControls = ({ selected }) => {
   const demoActionHandler = records => {
     // eslint-disable-next-line no-alert
@@ -282,12 +276,14 @@ const TableControls = ({ selected }) => {
       fill="horizontal"
       justify="between"
       pad={{ vertical: 'small' }}
+      flex={false}
     >
       <Box justify="center">
         <SelectionSummary selected={selected} data={data} />
       </Box>
-      <ActionsMenu
+      <Menu
         label="Actions"
+        kind="toolbar"
         items={[
           {
             label: 'Apply Batch Update',
@@ -319,23 +315,11 @@ TableControls.propTypes = {
 
 const SelectionSummary = ({ selected }) =>
   selected.length ? (
-    <Box direction="row" gap="xxsmall">
-      <Text size="small" weight="bold">
-        {selected.length}
-      </Text>
-      <Text size="small">of</Text>
-      <Text size="small" weight="bold">
-        {data.length}
-      </Text>
-      <Text size="small">items selected</Text>
-    </Box>
+    <Text>
+      {selected.length} of {data.length} items selected
+    </Text>
   ) : (
-    <Box direction="row" gap="xxsmall">
-      <Text size="small" weight="bold">
-        {data.length}
-      </Text>
-      <Text size="small">items</Text>
-    </Box>
+    <Text>{data.length} items</Text>
   );
 
 SelectionSummary.propTypes = {
