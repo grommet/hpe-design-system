@@ -18,3 +18,4 @@ jobs:
           urls: ${{ steps.netlify.outputs.url }}
           budgetPath: ./budget.json
           uploadArtifacts: true
+          temporaryPublicStorage: true
