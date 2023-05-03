@@ -11,6 +11,7 @@ import {
 } from 'grommet';
 import { Close } from 'grommet-icons';
 
+import { TextEmphasis } from 'aries-core';
 import { SearchInput, SearchResult } from '.';
 
 const defaultPage = { begin: 0, end: 4 };
@@ -123,13 +124,11 @@ export const SearchResults = ({
               gap="xsmall"
               pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
             >
-              <Text
-                color="text-strong"
+              <TextEmphasis
                 size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
-                weight="bold"
               >
                 Similar to '{query}'
-              </Text>
+              </TextEmphasis>
               <Text
                 size={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
               >

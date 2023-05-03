@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Page, PageContent, PageHeader, Text } from 'grommet';
+import { Box, Button, Page, PageContent, PageHeader } from 'grommet';
 import { Pin } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
 
 export const PageHeaderActions = ({ bestPractice = true }) => (
   <Page>
     <Box align="center" pad="small" elevation="small">
-      <Text weight="bold">Global Header</Text>
+      <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
       <PageHeader

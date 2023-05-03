@@ -14,6 +14,7 @@ import {
   Text,
   Toolbar,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
 
 import { orders } from './mockData';
@@ -85,9 +86,7 @@ const Orders = () => {
       >
         {(datum, index) => (
           <Box gap="xsmall" justify="between" key={index}>
-            <Text color="text-strong" size="large" weight="bold">
-              {datum.name}
-            </Text>
+            <TextEmphasis size="large">{datum.name}</TextEmphasis>
             <Text color="text-strong">
               {datum.tenant} | {datum.service}
             </Text>

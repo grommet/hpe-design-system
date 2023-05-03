@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { Box, NameValueList, NameValuePair } from 'grommet';
 import { StatusGood, InProgress } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { iconNameData } from '../data';
 
 export const NameValueListIconNamePreview = () => (
@@ -18,7 +19,7 @@ export const NameValueListIconNamePreview = () => (
             name={
               <Box align="center" direction="row" gap="xsmall">
                 {icon}
-                <Text weight="bold">{name}</Text>
+                <TextEmphasis>{name}</TextEmphasis>
               </Box>
             }
           >
