@@ -12,6 +12,7 @@ jobs:
         id: netlify
         with:
           site_name: 'keen-mayer-a86c8b'
+          max_timeout: 320
       - name: Audit using Lighthouse
         uses: treosh/lighthouse-ci-action@v10
         with:
