@@ -26,6 +26,7 @@ import {
   ShieldSecurity,
   UnorderedList,
 } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 // Mock application page data
 const pages = [
@@ -314,7 +315,7 @@ const ListLayout = ({ items, setCurrentPage }) => (
               <>
                 <Box direction="row" align="center" gap="xsmall">
                   {icon}
-                  <Text weight="bold">{name}</Text>
+                  <TextEmphasis>{name}</TextEmphasis>
                 </Box>
                 {status && (
                   <Box direction="row" align="center" gap="xsmall">

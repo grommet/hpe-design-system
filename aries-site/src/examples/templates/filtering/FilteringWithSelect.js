@@ -16,6 +16,7 @@ import {
   Toolbar,
 } from 'grommet';
 import { More, StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const allData = [
   { name: 'Apex-Server', status: 'Ready' },
@@ -87,9 +88,7 @@ const Results = () => {
         )}
       >
         {(datum, index) => (
-          <Text weight="bold" key={index}>
-            {datum.name}
-          </Text>
+          <TextEmphasis key={index}>{datum.name}</TextEmphasis>
         )}
       </List>
     </Box>

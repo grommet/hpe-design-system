@@ -76,9 +76,7 @@ export const CorePrinciples = () => {
             alt={item.imageAlt}
           />
           <Box pad={{ top: 'medium' }}>
-            <Text size="xlarge" weight="bold">
-              {item.name}
-            </Text>
+            <Text size="xlarge">{item.name}</Text>
             <Paragraph margin={{ top: 'xsmall' }}>{item.description}</Paragraph>
           </Box>
         </Box>
