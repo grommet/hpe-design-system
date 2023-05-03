@@ -4,18 +4,17 @@ on: pull_request
 jobs:
   audit:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Waiting for Netlify Preview
-        uses: josephduffy/wait-for-netlify-action@v1
-        id: wait-for-netflify-preview
+      - uses: actions/checkout@v3
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1.4
+        id: netlify
         with:
           site_name: 'keen-mayer-a86c8b'
-          max_timeout: 320
-      - name: Lighthouse audit Netlify deploy preview
-        uses: jakejarvis/lighthouse-action@master
+      - name: Audit using Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
         with:
-          netlify_site: 'keen-mayer-a86c8b.netlify.com'
-      - uses: actions/upload-artifact@master
-        with:
-          name: report
-          path: './report'
+          urls: ${{ steps.netlify.outputs.url }}
+          budgetPath: ./budget.json
+          uploadArtifacts: true
