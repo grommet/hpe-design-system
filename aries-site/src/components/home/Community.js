@@ -49,7 +49,7 @@ const Roadmap = () => (
       <Text>Stay in the loop and checkout what's next!</Text>
     </Box>
     <LinkButton
-      label="View Roadmap"
+      label="View roadmap"
       href="https://github.com/orgs/grommet/projects/11?fullscreen=true"
       secondary
     />
@@ -66,7 +66,7 @@ const Backlog = () => (
       <Text>Eager to know what's marinating in the back?</Text>
     </Box>
     <LinkButton
-      label="View Backlog"
+      label="View backlog"
       href="https://github.com/orgs/grommet/projects/10"
       secondary
     />

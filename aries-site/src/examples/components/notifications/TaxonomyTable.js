@@ -1,6 +1,7 @@
 /* eslint-disable grommet/datatable-aria-describedby */
 import React from 'react';
-import { Box, DataTable, Text } from 'grommet';
+import { Box, DataTable } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -98,67 +99,35 @@ const data = [
 export const columns = [
   {
     property: 'type',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Type
-      </Text>
-    ),
+    header: <TextEmphasis>Type</TextEmphasis>,
   },
   {
     property: 'state',
-    header: (
-      <Text color="text-strong" weight="bold">
-        State
-      </Text>
-    ),
+    header: <TextEmphasis>State</TextEmphasis>,
   },
   {
     property: 'status',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Status
-      </Text>
-    ),
+    header: <TextEmphasis>Status</TextEmphasis>,
   },
   {
     property: 'attentionLevel',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Attention level
-      </Text>
-    ),
+    header: <TextEmphasis>Attention level</TextEmphasis>,
   },
   {
     property: 'actions',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Actions
-      </Text>
-    ),
+    header: <TextEmphasis>Actions</TextEmphasis>,
   },
   {
     property: 'persistence',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Persistence
-      </Text>
-    ),
+    header: <TextEmphasis>Persistence</TextEmphasis>,
   },
   {
     property: 'placement',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Placement
-      </Text>
-    ),
+    header: <TextEmphasis>Placement</TextEmphasis>,
   },
   {
     property: 'insight',
-    header: (
-      <Text color="text-strong" weight="bold">
-        Insight
-      </Text>
-    ),
+    header: <TextEmphasis>Insight</TextEmphasis>,
   },
 ];
 

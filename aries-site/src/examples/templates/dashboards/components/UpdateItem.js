@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Anchor, Box, Paragraph, Text } from 'grommet';
+import { Anchor, Box, Paragraph } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const UpdateItem = ({ title, description }) => {
   // HPE Design System guidance for string length
@@ -10,7 +11,7 @@ export const UpdateItem = ({ title, description }) => {
 
   return (
     <Box>
-      <Text weight="bold">{`${title} is available.`}</Text>
+      <TextEmphasis>{`${title} is available.`}</TextEmphasis>
       <Box gap="xsmall">
         {description.length <= MAX_STRING_LENGTH ? (
           <Paragraph size="small" margin="none">

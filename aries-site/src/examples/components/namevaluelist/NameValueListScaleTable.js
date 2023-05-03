@@ -10,6 +10,7 @@ import {
   Text,
 } from 'grommet';
 import { Checkmark } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const CheckmarkIcon = () => <Checkmark size="small" color="text-strong" />;
 
@@ -81,9 +82,7 @@ export const NameValueListScaleTable = () => (
               scope="col"
               pad={{ vertical: 'small' }}
             >
-              <Text color="text-strong" weight="bold">
-                {c.label}
-              </Text>
+              <TextEmphasis>{c.label}</TextEmphasis>
             </TableCell>
           ))}
         </TableRow>

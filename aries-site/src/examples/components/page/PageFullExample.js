@@ -13,6 +13,7 @@ import {
 } from 'grommet';
 import { Bookmark } from 'grommet-icons';
 
+import { TextEmphasis } from 'aries-core';
 import serverhealth from '../../../data/mockData/serverhealth.json';
 import { StatusIndicator } from '../../templates';
 // `demoStyle` is specific for the Design System site and is used
@@ -50,7 +51,7 @@ const ServerList = () => (
         >
           <Header align="start">
             <Box>
-              <Text weight="bold">{datum.displayName}</Text>{' '}
+              <TextEmphasis>{datum.displayName}</TextEmphasis>{' '}
               <Text size="xsmall">{datum.hardware.model?.toUpperCase()}</Text>
             </Box>
             <Button icon={<Bookmark />} />
