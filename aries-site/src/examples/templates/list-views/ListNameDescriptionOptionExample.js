@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, List, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -38,9 +39,7 @@ export const ListNameDescriptionOptionExample = () => (
     >
       {(datum, index) => (
         <Box key={index}>
-          <Text weight="bold" size="small">
-            {datum.name}
-          </Text>
+          <TextEmphasis size="small">{datum.name}</TextEmphasis>
           <Text size="small">{datum.description}</Text>
         </Box>
       )}

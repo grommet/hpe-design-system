@@ -11,7 +11,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { ModalBody, ModalDialog, ModalFooter } from 'aries-core';
+import { ModalBody, ModalDialog, ModalFooter, TextEmphasis } from 'aries-core';
 
 const defaultValues = { deletionPath: '' };
 
@@ -88,7 +88,7 @@ export const DestructiveConfirmation = ({
             />
             <>
               <Paragraph margin="none">{message}</Paragraph>
-              <Text weight="bold">{path}</Text>
+              <TextEmphasis>{path}</TextEmphasis>
             </>
             <FormField
               htmlFor="deletionPath"

@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, Meter, Text } from 'grommet';
 import { Calendar } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { ChartCard, Measure, MeterGroup } from '../../components';
 import { defaultWindow, DEMO_DATE, REPORT_WINDOW_MAP } from './utils';
 
@@ -104,14 +105,14 @@ export const RulesAudit = ({ period }) => {
       <Text>
         <Calendar size="small" color="text-strong" />
       </Text>
-      <Text size="small" weight="bold">
+      <TextEmphasis size="small">
         Next audit will be performed in{' '}
         {Math.round(
           (new Date(nextAudit.scheduledDate) - new Date()) /
             (1000 * 60 * 60 * 24), // milliseconds to days
         )}{' '}
         days.
-      </Text>
+      </TextEmphasis>
     </Box>
   );
 
@@ -168,7 +169,7 @@ const AuditResultsChart = ({ data, ...rest }) => (
           thickness="small"
         />
         <Box align="end">
-          <Text weight="bold">{datum.count}</Text>
+          <Text>{datum.count}</Text>
         </Box>
       </Fragment>
     ))}
