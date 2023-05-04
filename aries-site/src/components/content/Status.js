@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box } from 'grommet';
 import { Figma, Grommet } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { IconCircle, IconTriangle } from '../icons';
@@ -47,7 +47,7 @@ const StatusBadge = ({ status, type }) => (
       gap="small"
     >
       {statuses[status[type]].icon}
-      <Text weight="bold">{status[type]}</Text>
+      <TextEmphasis>{status[type]}</TextEmphasis>
     </Box>
   </Box>
 );
