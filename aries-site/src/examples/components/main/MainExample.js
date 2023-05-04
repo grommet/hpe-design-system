@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Grid, Text } from 'grommet';
+import { Box, Grid } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const MainExample = () => (
   <Grid
@@ -18,7 +19,7 @@ export const MainExample = () => (
       justify="center"
       pad="small"
     >
-      <Text weight="bold">Header</Text>
+      <TextEmphasis>Header</TextEmphasis>
     </Box>
     <Box
       background="background-contrast"
@@ -26,7 +27,7 @@ export const MainExample = () => (
       gridArea="main"
       pad="small"
     >
-      <Text weight="bold">Main</Text>
+      <TextEmphasis>Main</TextEmphasis>
     </Box>
     <Box
       border={{ color: 'border', style: 'dashed' }}
@@ -34,7 +35,7 @@ export const MainExample = () => (
       justify="center"
       pad="small"
     >
-      <Text weight="bold">Footer</Text>
+      <TextEmphasis>Footer</TextEmphasis>
     </Box>
   </Grid>
 );

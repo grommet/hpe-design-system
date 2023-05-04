@@ -11,6 +11,7 @@ import {
   Text,
 } from 'grommet';
 import { Monitor, More, User, System, Hpe } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -67,13 +68,12 @@ const StyledList = () => {
       action={(item, index) => (
         <Box key={index} direction="row" align="center" gap="medium">
           {!['xsmall', 'small'].includes(size) && (
-            <Text
-              weight="bold"
+            <TextEmphasis
               size="xsmall"
               color={!item.active ? 'text-weak' : null}
             >
               {item.active ? 'Active' : 'Inactive'}
-            </Text>
+            </TextEmphasis>
           )}
           <Menu
             icon={<More />}
@@ -99,9 +99,9 @@ const StyledList = () => {
           </Box>
           <Box align="center" gap="medium">
             <Box>
-              <Text weight="bold" color={!datum.active ? 'text-weak' : null}>
+              <TextEmphasis color={!datum.active ? 'text-weak' : null}>
                 {datum.user}
-              </Text>
+              </TextEmphasis>
               <Text color={!datum.active ? 'text-weak' : null}>{datum.ip}</Text>
             </Box>
           </Box>
@@ -121,9 +121,9 @@ const AppHeaderExample = () => (
         pad={{ vertical: 'small' }}
         responsive={false}
       >
-        <Hpe color="plain" />
+        <Hpe color="plain" height="medium" />
         <Box direction="row" gap="xsmall" wrap>
-          <Text weight="bold" size="medium" color="text-strong">
+          <Text weight="bold" color="text-strong">
             HPE
           </Text>
           <Text size="medium" color="text-strong">

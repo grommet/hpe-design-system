@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Header,
-  Heading,
   Menu,
   Tab,
   Tabs,

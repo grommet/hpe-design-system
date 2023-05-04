@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Box, Footer, Main, ResponsiveContext, Text } from 'grommet';
+import { Header, Box, Footer, Main, ResponsiveContext } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const StickyHeaderExample = () => (
   <AppContainer>
@@ -13,9 +14,7 @@ export const StickyHeaderExample = () => (
         // remove height="xxsmall" in prod, for demo purposes only
         height="xxsmall"
       >
-        <Text weight="bold" color="text-strong">
-          Header
-        </Text>
+        <TextEmphasis>Header</TextEmphasis>
       </Header>
       <Box flex overflow="auto">
         <Main
@@ -27,9 +26,7 @@ export const StickyHeaderExample = () => (
           // remove height="xlarge" in prod, for demo purposes only
           height="xlarge"
         >
-          <Text weight="bold" color="text-strong">
-            Main
-          </Text>
+          <TextEmphasis>Main</TextEmphasis>
         </Main>
         <Footer
           background="background-front"
@@ -40,9 +37,7 @@ export const StickyHeaderExample = () => (
           // remove height="xxmsmall" in prod, for demo purposes only
           height="xxsmall"
         >
-          <Text weight="bold" color="text-strong">
-            Footer
-          </Text>
+          <TextEmphasis>Footer</TextEmphasis>
         </Footer>
       </Box>
     </Box>

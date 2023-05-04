@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, Heading, PageHeader } from 'grommet';
+import { Anchor, PageHeader } from 'grommet';
 import { FormPrevious } from 'grommet-icons';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Status, SubsectionText } from '../../components';

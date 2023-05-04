@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Page, PageContent, PageHeader, Text } from 'grommet';
-
+import { Box, Page, PageContent, PageHeader } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
 
 export const ChildPageHeaderExample = () => (
   <Page>
     <Box align="center" pad="small" elevation="small">
-      <Text weight="bold">Global Header</Text>
+      <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
       <PageHeader

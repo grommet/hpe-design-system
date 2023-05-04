@@ -3,7 +3,7 @@ import { Text } from 'grommet';
 
 export const TextEmphasis = ({ children, ...rest }) => {
   return (
-    <Text weight={500} {...rest}>
+    <Text weight={500} color="text-strong" {...rest}>
       {children}
     </Text>
   );
