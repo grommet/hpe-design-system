@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { Box, NameValueList, NameValuePair } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 import { serverData } from '../data';
 
@@ -17,7 +17,7 @@ export const NameValueListWeightGoodExample = () => (
           );
         }
         return (
-          <NameValuePair key={name} name={<Text weight="bold">{name}</Text>}>
+          <NameValuePair key={name} name={name}>
             {val}
           </NameValuePair>
         );

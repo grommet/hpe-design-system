@@ -1,4 +1,5 @@
-import { Box, Meter, Stack, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
+import { Box, Meter, Stack } from 'grommet';
 
 export const MeterExample = () => {
   const meterValue = 30;
@@ -13,9 +14,7 @@ export const MeterExample = () => {
           size="small"
         />
         <Box align="center" pad={{ bottom: 'xsmall' }}>
-          <Text size="3xl" weight="bold">
-            {meterValue}%
-          </Text>
+          <TextEmphasis size="3xl">{meterValue}%</TextEmphasis>
         </Box>
       </Stack>
     </Box>

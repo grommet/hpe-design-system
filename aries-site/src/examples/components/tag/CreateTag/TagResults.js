@@ -1,11 +1,10 @@
-import { Box, Text } from 'grommet';
+import { Box } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const TagResults = ({ ...rest }) => (
   <Box flex={false}>
     <Box border="bottom" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-      <Text color="text-strong" weight="bold">
-        Assigned tags
-      </Text>
+      <TextEmphasis>Assigned tags</TextEmphasis>
     </Box>
     <Box
       direction="row"

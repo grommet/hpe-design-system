@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Image, List, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -60,9 +61,7 @@ export const ListImageIdentifierExample = () => (
             <Image alt={datum.alt} src={datum.image} fit="cover" />
           </Box>
           <Box>
-            <Text weight="bold" size="large">
-              {datum.name}
-            </Text>
+            <TextEmphasis size="large">{datum.name}</TextEmphasis>
             <Text size="small">{datum.description}</Text>
           </Box>
         </Box>
