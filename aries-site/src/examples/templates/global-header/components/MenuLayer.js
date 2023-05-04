@@ -12,6 +12,7 @@ import {
   Text,
 } from 'grommet';
 import { Aruba, Close, Menu } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -75,9 +76,7 @@ const SidebarHeader = () => (
       >
         <Text size="large">A</Text>
       </Avatar>
-      <Text color="text-strong" weight="bold">
-        AT&T Corporation
-      </Text>
+      <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
     </Box>
     <Button label="Switch Account" secondary />
@@ -115,9 +114,7 @@ const SidebarFooter = () => (
             <Aruba color="background" />
           </Box>
           <Box>
-            <Text weight="bold" color="text-strong" size="xsmall">
-              Aruba Network Manager
-            </Text>
+            <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>
             <Text size="xsmall">US West</Text>
           </Box>
         </Box>

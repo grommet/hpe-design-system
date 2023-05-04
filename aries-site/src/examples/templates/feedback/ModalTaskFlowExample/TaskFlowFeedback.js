@@ -1,18 +1,11 @@
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  StarRating,
-  Text,
-  TextArea,
-} from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { Box, Button, Form, FormField, StarRating, TextArea } from 'grommet';
+import { ButtonGroup, TextEmphasis } from 'aries-core';
 
-// These credentials will be supplied when working with HPE GreenLake Experience Management COE team
-// and should likely be stored in environment variables.
+// These credentials will be supplied when working with HPE GreenLake
+// Experience Management COE team and should likely be stored in
+// environment variables.
 const API_URL = process.env.FEEDBACK_API_URL;
 const API_TOKEN = process.env.FEEDBACK_API_TOKEN;
 
@@ -94,7 +87,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
           )}
         </>
         {thankyou ? (
-          <Text weight="bold">Thank you for your response!</Text>
+          <TextEmphasis>Thank you for your response!</TextEmphasis>
         ) : (
           <ButtonGroup>
             <Button

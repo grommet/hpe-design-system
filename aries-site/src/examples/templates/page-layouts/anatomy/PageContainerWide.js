@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { Box, Diagram, Stack, Text, ThemeContext } from 'grommet';
+import { Box, Diagram, Stack, ThemeContext } from 'grommet';
 import { LinkPrevious, LinkNext } from 'grommet-icons';
-
+import { TextEmphasis } from 'aries-core';
 import { ContentArea } from './components';
 
 const connections = [
@@ -26,8 +26,9 @@ export const PageContainerWide = () => {
   const theme = useContext(ThemeContext);
   const diagramHeight = theme.global.size.medium;
   const diagramWidth = `${(diagramHeight.replace('px', '') * 4) / 3}px`;
-  const annotationMargin = `${(100 - PAGE_CONTAINER_SCALE.replace('%', '')) /
-    1.65}%`;
+  const annotationMargin = `${
+    (100 - PAGE_CONTAINER_SCALE.replace('%', '')) / 1.65
+  }%`;
 
   const widthAnnnotation = (
     <Box
@@ -40,9 +41,7 @@ export const PageContainerWide = () => {
     >
       <LinkPrevious id="left-edge" color="text-strong" />
       <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
-        <Text color="text-strong" weight="bold">
-          {PAGE_CONTAINER_WIDTH}
-        </Text>
+        <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="right-edge" color="text-strong" />
     </Box>

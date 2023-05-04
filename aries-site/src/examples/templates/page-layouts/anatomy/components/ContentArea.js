@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { Box, Text, ThemeContext } from 'grommet';
+import { Box, ThemeContext } from 'grommet';
 import { Hpe } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 import { aries } from '../../../../../themes/aries';
 
 export const ContentArea = ({
@@ -30,14 +31,10 @@ export const ContentArea = ({
       {icon ? (
         <Box align="center" gap="small" direction="row">
           <Hpe color="brand" />
-          <Text color="text-strong" size="small" weight="bold">
-            {title}
-          </Text>
+          <TextEmphasis size="small">{title}</TextEmphasis>
         </Box>
       ) : (
-        <Text color="text-strong" size="small" weight="bold">
-          {title}
-        </Text>
+        <TextEmphasis size="small">{title}</TextEmphasis>
       )}
       {children}
     </Box>

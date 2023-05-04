@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, List, Menu, Text } from 'grommet';
 import { More, StatusGoodSmall, StatusCriticalSmall } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -54,11 +55,7 @@ export const ListNameOptionActionExample = () => (
         </Box>
       )}
     >
-      {(datum, index) => (
-        <Text weight="bold" key={index}>
-          {datum.name}
-        </Text>
-      )}
+      {(datum, index) => <TextEmphasis key={index}>{datum.name}</TextEmphasis>}
     </List>
   </Box>
 );

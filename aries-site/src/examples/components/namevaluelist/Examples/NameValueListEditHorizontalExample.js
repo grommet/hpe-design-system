@@ -66,7 +66,7 @@ export const NameValueListEditHorizontalExample = () => {
       <Wrapper {...wrapperProps}>
         <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
           {Object.entries(currentData).map(([name, value]) => {
-            let nameRender = <Text weight="bold">{value.displayName}</Text>;
+            let nameRender = value.displayName;
             let valueRender = currentData[name].render ? (
               currentData[name].render(value.value || '--')
             ) : (

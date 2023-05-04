@@ -8,6 +8,7 @@ import {
 } from 'grommet-icons';
 import { useState } from 'react';
 
+import { TextEmphasis } from 'aries-core';
 import { DestructiveConfirmation } from '../../templates';
 
 const serverGroups = require('../../../data/mockData/serverGroups.json').groups;
@@ -40,7 +41,6 @@ export const MenuRecordActionsExample = () => {
 
   return (
     <>
-      {' '}
       <Box gap="small" width="medium">
         <Heading level={2} size="small" margin="none">
           Server Groups
@@ -54,9 +54,7 @@ export const MenuRecordActionsExample = () => {
           {(datum, index) => (
             <Box direction="row" justify="between" align="start">
               <Box gap="xsmall" fill>
-                <Text weight="bold" size="large">
-                  {datum.name}
-                </Text>
+                <TextEmphasis>{datum.name}</TextEmphasis>
                 <Box gap="xxsmall">
                   <Text>{datum.servers.length} Servers</Text>
                   <Box direction="row" gap="xsmall" align="center">
