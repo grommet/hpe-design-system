@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, PageHeader, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const TagPageHeader = ({ description }) => (
   <Box gap="medium" flex={false}>
@@ -13,7 +14,7 @@ export const TagPageHeader = ({ description }) => (
       />
     </Box>
     <Text size="large">
-      Tags will be assigned to <Text weight="bold">1</Text> selected device.
+      Tags will be assigned to <TextEmphasis>1</TextEmphasis> selected device.
     </Text>
   </Box>
 );

@@ -1,6 +1,7 @@
 import { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, NameValuePair, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
   const { icon: iconProp, label } = name;
@@ -28,9 +29,7 @@ export const Measure = ({ name, value: valueProp, onClick, ...rest }) => {
         </Box>
       }
     >
-      <Text weight="bold" size={valueSize}>
-        {value}
-      </Text>
+      <TextEmphasis size={valueSize}>{value}</TextEmphasis>
     </NameValuePair>
   );
 

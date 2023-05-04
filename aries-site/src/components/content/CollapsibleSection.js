@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Collapsible, Text } from 'grommet';
+import { Box, Collapsible } from 'grommet';
 import { Down, Up } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 export const CollapsibleSection = ({ label, onClick, ...rest }) => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
         round={!open ? 'small' : { corner: 'top', size: 'small' }}
       >
         {!open ? <Down /> : <Up />}
-        <Text weight="bold">{labelText}</Text>
+        <TextEmphasis>{labelText}</TextEmphasis>
       </Box>
       <Collapsible open={open}>
         <Box

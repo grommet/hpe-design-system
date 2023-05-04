@@ -10,6 +10,7 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { Annotation } from './Annotation';
 
 const columns = [
@@ -39,9 +40,7 @@ export const StyleTable = ({ data }) => {
                 scope="col"
                 pad={{ vertical: 'small' }}
               >
-                <Text color="text-strong" weight="bold">
-                  {c.render}
-                </Text>
+                <TextEmphasis>{c.render}</TextEmphasis>
               </TableCell>
             ))}
           </TableRow>

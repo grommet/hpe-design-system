@@ -1,4 +1,4 @@
-import { Box, Text } from 'grommet';
+import { Text } from 'grommet';
 
 import { useFilters } from '.';
 
@@ -7,34 +7,22 @@ export const ResultsSummary = () => {
   const textSize = 'small';
 
   return selected.length ? (
-    <Box direction="row" gap="xxsmall">
-      <Text size={textSize} weight="bold">
-        {selected.length}
-      </Text>
-      <Text size={textSize}>of</Text>
-      <Text size={textSize} weight="bold">
-        {isFiltered ? filteredResults.length : data.length}
-      </Text>
-      <Text size={textSize}>items selected</Text>
-    </Box>
+    <Text size={textSize}>
+      {/* eslint-disable-next-line max-len */}
+      {selected.length} of {isFiltered ? filteredResults.length : data.length}{' '}
+      items selected
+    </Text>
   ) : (
-    <Box direction="row" gap="xxsmall">
-      <Text size={textSize} weight="bold">
-        {isFiltered ? filteredResults.length : data.length}
-      </Text>
-      <Text size={textSize}>
-        {isFiltered
-          ? `result${filteredResults.length > 1 ? 's' : ''} of `
-          : 'items'}
-      </Text>
+    <Text size={textSize}>
+      {isFiltered ? filteredResults.length : data.length}{' '}
+      {isFiltered
+        ? `result${filteredResults.length > 1 ? 's' : ''} of `
+        : 'items'}{' '}
       {isFiltered && (
-        <Box direction="row" gap="xxsmall">
-          <Text size={textSize} weight="bold">
-            {data.length}
-          </Text>
-          <Text size={textSize}>{`item${data.length > 1 ? 's' : ''}`}</Text>
-        </Box>
+        <Text size={textSize}>
+          {data.length} {`item${data.length > 1 ? 's' : ''}`}
+        </Text>
       )}
-    </Box>
+    </Text>
   );
 };
