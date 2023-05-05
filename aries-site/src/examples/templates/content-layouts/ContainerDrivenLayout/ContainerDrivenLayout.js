@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -15,7 +16,6 @@ import {
 } from 'grommet';
 
 import { Down, Next } from 'grommet-icons';
-
 import { AppResults } from './AppResults';
 
 const allApps = require('../../../../data/mockData/applications.json');
@@ -89,7 +89,7 @@ const properties = {
   pricing: { label: 'Pricing Models' },
 };
 
-const filterButton = (label, expand, setExpand, property) => {
+const Filter = ({ label, expand, setExpand, property }) => {
   return (
     <>
       <Button
@@ -98,12 +98,19 @@ const filterButton = (label, expand, setExpand, property) => {
         onClick={() => setExpand(!expand)}
       />
       <Collapsible open={expand}>
-        <Box pad={{ left: 'medium' }}>
+        <Box pad={{ left: 'medium', top: 'xsmall' }}>
           <DataFilter property={property} />
         </Box>
       </Collapsible>
     </>
   );
+};
+
+Filter.propTypes = {
+  label: PropTypes.string.isRequired,
+  expand: PropTypes.bool.isRequired,
+  setExpand: PropTypes.func.isRequired,
+  property: PropTypes.string.isRequired,
 };
 
 const ContentLayout = () => {
@@ -126,30 +133,30 @@ const ContentLayout = () => {
       pad={{ right: 'small', vertical: 'small' }}
       round="xsmall"
     >
-      {filterButton(
-        'Categories',
-        expandCategory,
-        setExpandCategory,
-        'categories',
-      )}
-      {filterButton(
-        'Publishers',
-        expandPublishers,
-        setExpandPublishers,
-        'publisher',
-      )}
-      {filterButton(
-        'Delivery methods',
-        expandDelivery,
-        setExpandDelivery,
-        'delivery',
-      )}
-      {filterButton(
-        'Pricing models',
-        expandPricing,
-        setExpandPricing,
-        'pricing',
-      )}
+      <Filter
+        label="Categories"
+        expand={expandCategory}
+        setExpand={setExpandCategory}
+        property="categories"
+      />
+      <Filter
+        label="Publishers"
+        expand={expandPublishers}
+        setExpand={setExpandPublishers}
+        property="publisher"
+      />
+      <Filter
+        label="Delivery Methods"
+        expand={expandDelivery}
+        setExpand={setExpandDelivery}
+        property="delivery"
+      />
+      <Filter
+        label="Pricing Models"
+        expand={expandPricing}
+        setExpand={setExpandPricing}
+        property="pricing"
+      />
     </Box>
   );
 
