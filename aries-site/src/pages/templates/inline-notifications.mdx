@@ -32,11 +32,11 @@ Consider using an inline notification when presenting:
   example, if a user submits a form requiring server-side validation, an
   inline notification should be used to display and summarize form-level errors.
 - **Significant status updates** &ndash; Delivering significant status updates
-  about a task. For example, if a user initiated an ansynchronous process such
+  about a task. For example, if a user initiated an asynchronous process such
   as a device update, a notification might provide the status update upon.
   "Success - all devices have updated to the latest version."
 - **Promotions** &ndash; Calling a user's attention to such as new features, tips,
-  best practices, or other announcements.
+  best practices, or other announcements. Use these sparingly.
 
 ## When to consider something else
 
@@ -76,17 +76,16 @@ An inline notification consists of:
 | **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             | Titles should only be used for inline notifications presenting page level summaries.                                   |
 | **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
 | **4** | **Anchor**                   | Used to direct users to additional detail or related content |                                             |                                                                                                                        |
-| **5** | **Close button**             | Dismisses the notification                                   |                                             |                                                                                                                        |
+| **5** | **Close button**             | Dismisses the notification                                   |                                             | Critical notifications should not be dismissible.                                                                      |
 
 ## Placement
 
 Inline notifications should be placed near the content to which they are
 related.
 
+- If the notification is related to the entire page, it should be placed underneath the page header.
 - If the notification is related to a specific element or section of content,
-  it should be placed near that element or section of content.
-- If the notification is related to the entire page, it should be placed near
-  the top of the page.
+  it should be placed above that element or section of content. The exception to this is forms.
 - In forms, notifications may be placed either at the top or bottom, depending
   on the context. For example, a notification providing form-level
   validation should be placed at the bottom of the form between the last input
@@ -134,9 +133,9 @@ provide clear direction on how to resolve the issue.
 
 ### Status updates
 
-Inline notifications may be used to display okay, warning, and critical information.
+Inline notifications may be used to display normal, warning, and critical information.
 
-For example, an okay status might communicate a process is progressing
+For example, a normal status might communicate a process is progressing
 without interruption, a warning status might communicate a resource is approaching
 a limit or threshold, and a critical status might communicate an action has failed.
 
