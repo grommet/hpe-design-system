@@ -16,8 +16,13 @@ such as significant status updates, alerts to success or failure of an action,
 or call attention to a new feature in which a user may be interested.
 
 <Example
-  code=""
-  github=""
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/InlineNotificationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/typography/TextEmphasis.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/InlineNotificationExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer
   width="100%"
@@ -59,8 +64,8 @@ for the following scenarios:
     [busy button]() which provides in-progress and success animations. If the
     response time exceeds expectations or the API call fails, then an inline
     notification is appropriate for providing status updates.
-  - When validating form input client-side, use [field-level form validation]()
-    when possible. If validation results in a form-level error, using an inline
+  - When validating form input client-side, use [field-level form validation](https://design-system.hpe.design/components/textinput#validation)
+    when possible. If validation results in a [form-level error](#form-validation), using an inline
     notification is appropriate.
 
 ## Anatomy
@@ -131,8 +136,6 @@ provide clear direction on how to resolve the issue.
   take further action or to view the issue in full detail.
 - Do not place buttons within an inline notification.
 
-## Do's and dont's
-
 ## Use cases
 
 ### Status updates
@@ -143,7 +146,13 @@ For example, a normal status might communicate a process is progressing
 without interruption, a warning status might communicate a resource is approaching
 a limit or threshold, and a critical status might communicate an action has failed.
 
-<Example code="" github="">
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/StatusUpdateExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/dashboards/content/chartCards/CostByService.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/StatusUpdateExample.js"
+>
   <StatusUpdateExample />
 </Example>
 
@@ -155,8 +164,11 @@ offering a helpful hint or tip, or providing a link to additional information.
 In this example, the page-level banner informs the user that an action is required on a set of resources and provides a way for the user to navigate to the affected section for more details. Click "View details" to see the section-level notification with additional information.
 
 <Example
-  code=""
-  github=""
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/PageBannerExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/Card/Card.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/PageBannerExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer
   width="100%"
@@ -171,8 +183,11 @@ It is desirable for users to stay up-to-date on the latest version. Place the no
 In this case, placing the upgrade notification above the launch action informs the user of an action they might want to take prior to launching the application.
 
 <Example
-  code=""
-  github=""
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/PromotionExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/Card/Card.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/PromotionExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer
   width="100%"
@@ -185,6 +200,9 @@ In this case, placing the upgrade notification above the launch action informs t
 An inline form validation appears above the form's footer, providing a summary of
 any errors and steps to resolve them.
 
-<Example code="" github="">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/InlineFormValidation.js"
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/InlineFormValidation.js"
+>
   <FormValidation />
 </Example>
