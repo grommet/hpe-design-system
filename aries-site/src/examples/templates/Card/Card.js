@@ -25,6 +25,7 @@ const DesignSystemCard = ({
   icon,
   level,
   media,
+  notification,
   subtitle,
   pretitle,
   title,
@@ -74,10 +75,15 @@ const DesignSystemCard = ({
         </Box>
         {actions ? (
           <CardFooter
-            align={alignActions || 'start'}
+            align="stretch"
+            direction="column"
+            gap="small"
             pad={adjustPad(direction, 'footer', theme)}
           >
-            <Box flex={false}>{actions}</Box>
+            {notification}
+            <Box flex={false} align="start">
+              {actions}
+            </Box>
           </CardFooter>
         ) : null}
       </Card>
@@ -102,6 +108,7 @@ DesignSystemCard.propTypes = {
   icon: PropTypes.element,
   level: PropTypes.number,
   media: PropTypes.element,
+  notification: PropTypes.element,
   title: PropTypes.string,
   pretitle: PropTypes.string,
   subtitle: PropTypes.string,

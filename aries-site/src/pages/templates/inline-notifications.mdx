@@ -84,13 +84,16 @@ Inline notifications should be placed near the content to which they are
 related.
 
 - If the notification is related to the entire page, it should be placed underneath the page header.
-- If the notification is related to a specific element or section of content,
-  it should be placed above that element or section of content. The exception to this is forms.
-- In forms, notifications may be placed either at the top or bottom, depending
-  on the context. For example, a notification providing form-level
-  validation should be placed at the bottom of the form between the last input
-  and submit button. A notification indicating a new option or configuration is
-  available would be appropriate to place at the top of the form.
+- If the notification is related to a specific element, section of content, or action, it should be placed above that element, section of content, or action.
+
+Examples of inline notifications relating to a specific section of content:
+
+- A notification indicating a new option or configuration is available would be appropriate to place at the top of the form.
+
+Examples of inline notifications relating to an action element:
+
+- A notification providing form-level validation should be placed above the submit button, between the last input and the submit button. See [form validation example](#form-validation).
+- An notification indicating a service has an available upgrade should be placed above the launch action for that service. See [promotion example](#promotion).
 
 ## Format
 
@@ -157,6 +160,10 @@ In this example, the page-level banner informs the user that an action is requir
 </Example>
 
 ### Promotion
+
+It is desirable for users to stay up-to-date on the latest version. Place the notification above the card action.
+
+In this case, placing the upgrade notification above the launch action informs the user of an action they might want to take prior to launching the application.
 
 <Example
   code=""
