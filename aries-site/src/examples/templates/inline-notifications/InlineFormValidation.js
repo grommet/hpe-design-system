@@ -31,7 +31,7 @@ export const FormValidation = () => {
             label="Use manager"
           />
         </FormField>
-        <Box gap="medium" pad={{ top: 'medium' }}>
+        <Box gap="small" pad={{ top: 'medium' }}>
           <Notification
             status="critical"
             message={`That cluster name is already being used. 
