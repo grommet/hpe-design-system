@@ -34,7 +34,7 @@ export const FormValidation = () => {
         <Box gap="medium" pad={{ top: 'medium' }}>
           <Notification
             status="critical"
-            message={`The name of your cluster is already being used. 
+            message={`That cluster name is already being used. 
               Please provide a different name.`}
           />
           <Button

@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Determined AI",
+    "author": "HPE",
+    "description": "World-class capabilities to support training at enterprise-scale.",
+    "category": "AI/ML",
+    "src": "/logos/determined-ai.svg"
+  },
+  {
+    "title": "HPE Networking Services",
+    "author": "HPE",
+    "description": "World-class capabilities to support training at enterprise-scale.",
+    "src": "/logos/networking-services.svg"
+  },
+  {
+    "title": "Dataiku DSS",
+    "author": "Dataiku",
+    "description": "Bring data analysts, engineers, and scientists together. ",
+    "category": "AI/ML",
+    "src": "/logos/dataiku.svg"
+  },
+  {
+    "title": "Flywheel",
+    "author": "Flywheel",
+    "description": "Bring data analysts, engineers, and scientists together.",
+    "category": "AI/ML",
+    "src": "/logos/flywheel.svg"
+  },
+  {
+    "title": "H20 Driverless AI",
+    "author": "H20",
+    "description": "Bring data analysts, engineers, and scientists together.",
+    "category": "AI/ML",
+    "src": "/logos/h2o.svg"
+  },
+  {
+    "title": "Apache Spark",
+    "author": "Apache",
+    "description": "Open source analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing.",
+    "category": "Analytics",
+    "src": "/logos/apache.svg"
+  },
+  {
+    "title": "Dremio",
+    "author": "Dremio",
+    "description": "Open source analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing.",
+    "category": "Analytics",
+    "src": "/logos/dremio.svg"
+  },
+  {
+    "title": "Joulica",
+    "author": "Joulica",
+    "description": "Open source analytics engine for big data processing, with built-in modules for streaming, SQL, machine learning and graph processing.",
+    "category": "Analytics",
+    "src": "/logos/joulica.svg"
+  },
+  {
+    "title": "Singlestore",
+    "author": "Singlestore",
+    "description": "Built for data-intensive applications, SingleStore enables low-latency analytics without any compromises.",
+    "category": "Big Data",
+    "src": "/logos/singlestore.svg"
+  },
+  {
+    "title": "StreamSets",
+    "author": "StreamSets Data Collector",
+    "description": "StreamSets speeds data integration for data lakes and data warehouses for hybrid and multi-cloud environments.",
+    "category": "Big Data",
+    "src": "/logos/streamsets.svg"
+  }
+]
