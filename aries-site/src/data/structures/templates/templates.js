@@ -583,7 +583,6 @@ export const templates = [
       'Toast Notifications',
       'Status Indicator',
       'Global Banner Notifications',
-      'Stack',
     ],
     tags: ['inline', 'inline notification', 'inline notifications'],
   },

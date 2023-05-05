@@ -32,13 +32,13 @@ const ServiceCard = ({ service, upgrade }) => {
   return (
     <Card
       notification={
-        upgrade && (
+        upgrade ? (
           <Notification
             message="Versions 12.0.3 is available."
             actions={[{ label: 'Upgrade' }]}
             status="info"
           />
-        )
+        ) : null
       }
       title={service.title}
       description={service.description}
