@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Text } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 
 export const Activity = ({
   icon,
@@ -14,7 +15,7 @@ export const Activity = ({
       <Box justify="center" pad={{ right: 'xsmall' }}>
         {icon}
       </Box>
-      <Text weight="bold">{title}</Text>
+      <TextEmphasis>{title}</TextEmphasis>
       <Box />
       <Box>
         <Text>

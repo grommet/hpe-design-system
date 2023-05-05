@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Card, Grid, Heading, ResponsiveContext } from 'grommet';
+import { Box, Card, Cards, Heading, ResponsiveContext } from 'grommet';
 
 const appGrid = {
   columns: {
@@ -20,7 +19,7 @@ const appGrid = {
   },
 };
 
-export const AppResults = ({ apps }) => {
+export const AppResults = () => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
@@ -28,19 +27,13 @@ export const AppResults = ({ apps }) => {
       <Heading level={2} margin="none">
         Apps
       </Heading>
-      <Grid
+      <Cards
         columns={appGrid.columns[breakpoint]}
         rows={appGrid.rows}
         gap={appGrid.gap[breakpoint]}
       >
-        {apps?.map(app => (
-          <Card key={app.id} fill />
-        ))}
-      </Grid>
+        {app => <Card key={app.id} />}
+      </Cards>
     </Box>
   );
-};
-
-AppResults.propTypes = {
-  apps: PropTypes.arrayOf(PropTypes.object),
 };
