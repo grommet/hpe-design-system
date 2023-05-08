@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import {
+  Anchor,
   Box,
   Grid,
   Notification,
   Page,
   PageContent,
   PageHeader,
+  Paragraph,
   Tab,
   Tabs,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { ReverseAnchor } from '../ReverseAnchor';
 import { Card } from '../Card';
 
@@ -63,9 +66,22 @@ export const PageBannerExample = () => {
               <Box pad={{ vertical: 'medium' }} gap="medium">
                 <Notification
                   status="critical"
-                  message={<Paragraph>
-                  <TextEmphasis>DemoSite2</TextEmphasis>, <TextEmphasis>BLR2-setup1</TextEmphasis>, and <TextEmphasis>DemoSite4</TextEmphasis> require 
-                  updates to <Anchor href="" target="_blank" rel="noopener noreferrer" >CentOS v8.1</Anchor>. <Anchor>Apply updates</Anchor> to CentOS.</Paragraph>`}
+                  message={
+                    <Paragraph margin="none">
+                      <TextEmphasis>DemoSite2</TextEmphasis>,{' '}
+                      <TextEmphasis>BLR2-setup1</TextEmphasis>, and{' '}
+                      {/* eslint-disable-next-line max-len */}
+                      <TextEmphasis>DemoSite4</TextEmphasis> require updates to{' '}
+                      <Anchor
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        CentOS v8.1
+                      </Anchor>
+                      . <Anchor href="#">Apply updates</Anchor> to CentOS.
+                    </Paragraph>
+                  }
                 />
                 <Grid columns="medium" gap="medium">
                   {sites.map((site, index) => (
