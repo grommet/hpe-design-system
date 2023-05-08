@@ -1,5 +1,6 @@
 import {
   BannerNotificationCritical,
+  InlineNotificationExample,
   StateVsStatusDiagram,
   TaxonomyTable,
   ToastNotificationExample,
@@ -30,7 +31,7 @@ To standardize language for notifications across HPE projects, be sure to famili
 
 A state is the current stage of a process.
 
-A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health.” At HPE we tend to use the two terms interchangeably, but the end users don't know that. To avoid confusion for the end user, do not use the word "health" in your user interfaces. Always use "status" instead.  
+A status is the condition of the state. Status can also be thought of as a pointer to a state’s “health.” At HPE we tend to use the two terms interchangeably, but the end users don't know that. To avoid confusion for the end user, do not use the word "health" in your user interfaces. Always use "status" instead.
 
 Here is an example of a toast notification that illustrates their differences:
 
@@ -75,6 +76,25 @@ Global banner notifications are system-generated alerts that attract the user's 
   width="100%"
 >
   <BannerNotificationCritical />
+</Example>
+
+### Inline notification
+
+Inline notifications are messages that appear near the content to which they are related. For more thorough guidance, read [inline notifications documentation](/templates/inline-notifications).
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/inline-notifications/InlineNotificationExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/typography/TextEmphasis.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/InlineNotificationExample.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  width="100%"
+>
+  <InlineNotificationExample />
 </Example>
 
 ### Roadmap
