@@ -42,14 +42,16 @@ export const ButtonBusyExample = ({ containerRef }) => {
               onValidate={() => {
                 // in production, replace timeout with
                 // conditionals based on API responses
-                setBusy(true);
-                setTimeout(() => {
-                  setBusy(false);
-                  setSuccess(true);
-                }, 2000);
-                setTimeout(() => {
-                  onClose();
-                }, 3000);
+                if (success === false) {
+                  setBusy(true);
+                  setTimeout(() => {
+                    setBusy(false);
+                    setSuccess(true);
+                  }, 2000);
+                  setTimeout(() => {
+                    onClose();
+                  }, 3000);
+                }
               }}
             >
               <FormField label="Name" name="Name" htmlFor="name" required>
