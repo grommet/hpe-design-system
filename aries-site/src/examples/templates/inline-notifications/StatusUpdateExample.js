@@ -10,7 +10,18 @@ export const StatusUpdateExample = () => {
         notification={
           <Notification
             status="warning"
-            message="You've reached 95% of your spending goal."
+            title="Nearing allotted budget."
+            message="You've reached 85% of your spending goal with seven days remaining."
+            actions={[
+            {
+              label: 'Adjust budget',
+              href: '/',
+            },
+            {
+              label: 'View consumption saving opportunities',
+              href: '/',
+            },
+            ]}
           />
         }
       />
