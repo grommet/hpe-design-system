@@ -52,8 +52,8 @@ export const ButtonBusyExample = ({ containerRef }) => {
                 }, 3000);
               }}
             >
-              <FormField label="Name" required>
-                <TextInput value="Cluster 1" />
+              <FormField label="Name" name="Name" htmlFor="name" required>
+                <TextInput value="Cluster 1" name="Name" id="name" />
               </FormField>
               <FormField label="Cluster resource manager">
                 <CheckBox label="Use manager" />
