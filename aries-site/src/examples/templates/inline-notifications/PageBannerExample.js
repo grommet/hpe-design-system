@@ -63,11 +63,9 @@ export const PageBannerExample = () => {
               <Box pad={{ vertical: 'medium' }} gap="medium">
                 <Notification
                   status="critical"
-                  message={`DemoSite2, BLR2-setup1, and DemoSite4 require 
-                  updates to CentOS v8.1. Initiate an update for a site 
-                  from the action menu in a site detail page in the ML 
-                  Ops service. Prior to updating, review the prerequisites 
-                  for deployed resources.`}
+                  message={<Paragraph>
+                  <TextEmphasis>DemoSite2</TextEmphasis>, <TextEmphasis>BLR2-setup1</TextEmphasis>, and <TextEmphasis>DemoSite4</TextEmphasis> require 
+                  updates to <Anchor href="" target="_blank" rel="noopener noreferrer" >CentOS v8.1</Anchor>. <Anchor>Apply updates</Anchor> to CentOS.</Paragraph>`}
                 />
                 <Grid columns="medium" gap="medium">
                   {sites.map((site, index) => (
