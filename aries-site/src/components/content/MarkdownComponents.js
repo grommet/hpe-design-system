@@ -20,6 +20,7 @@ import { Copy } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
+import { TextEmphasis } from 'aries-core';
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
@@ -137,9 +138,7 @@ export const components = {
       pad={{ horizontal: 'small', vertical: 'xsmall' }}
       {...props}
     >
-      <Text color="text-strong" weight="bold">
-        {props.children}
-      </Text>
+      <TextEmphasis>{props.children}</TextEmphasis>
     </TableCell>
   ),
   tr: props => <TableRow {...props} />,

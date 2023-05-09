@@ -10,6 +10,7 @@ import {
   Text,
   ThemeContext,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { DashboardCardHeader } from '.';
 
 export const ItemCountList = ({
@@ -49,7 +50,7 @@ export const ItemCountList = ({
 const ItemCount = ({ title, description, count, ...rest }) => (
   <Box direction="row" justify="between" gap="medium" {...rest}>
     <Box>
-      <Text weight="bold">{title}</Text>
+      <TextEmphasis>{title}</TextEmphasis>
       <Paragraph size="small" margin="none">
         {description}
       </Paragraph>

@@ -80,7 +80,7 @@ export const Highlights = ({ ...rest }) => (
         pad={{ vertical: 'medium' }}
       >
         <Link href="/showmore" passHref>
-          <Button primary label="Show Me More" />
+          <Button primary label="Show me more" />
         </Link>
       </Box>
     </Box>

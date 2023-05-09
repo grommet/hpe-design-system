@@ -125,6 +125,7 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     ${source.checkBox.extend} 
     font-size: ${Math.ceil(18 * scale)}px;
     line-height: ${Math.ceil(24 * scale)}px;
+    width: auto;
   `;
 
   return scaledTheme;

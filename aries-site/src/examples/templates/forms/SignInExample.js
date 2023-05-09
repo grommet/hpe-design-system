@@ -45,9 +45,9 @@ const ResetPassword = ({ closeLayer, email }) => {
         margin={{ horizontal: 'xlarge', bottom: 'xlarge', top: 'large' }}
         width="medium"
       >
-        <Text size="xxlarge" weight="bold">
+        <Heading level={2} margin="none">
           Reset Password
-        </Text>
+        </Heading>
         <Form
           validate="blur"
           value={formValues}
@@ -73,7 +73,7 @@ const ResetPassword = ({ closeLayer, email }) => {
                 placeholder="your.email@company.com"
               />
             </FormField>
-            <Button label="Send Password Reset" primary type="submit" />
+            <Button label="Send password reset" primary type="submit" />
           </Box>
         </Form>
       </Box>

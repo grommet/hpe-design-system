@@ -1,5 +1,7 @@
 export * from './ButtonAlignmentTable';
 export * from './ButtonExample';
+export * from './ButtonBusyExample';
+export * from './ButtonBusySimpleExample';
 export * from './ButtonIconExample';
 export * from './ButtonLeftAlignExample';
 export * from './ButtonRightAlignExample';
