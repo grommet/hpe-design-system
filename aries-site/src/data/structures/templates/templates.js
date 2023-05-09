@@ -1,3 +1,4 @@
+import { Notification } from 'grommet';
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
@@ -571,7 +572,10 @@ export const templates = [
     timely, contextual information and feedback related to their actions.`,
     preview: {
       component: () => (
-        <ToastPreview card title="Hooray" message="Your toast is done!" />
+        <Notification
+          message="Nearing your allotted budget."
+          status="warning"
+        />
       ),
       background: 'background-back',
     },
