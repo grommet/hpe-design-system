@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Header, Text } from 'grommet';
+import { Box, Button, Header } from 'grommet';
+import { ButtonGroup, TextEmphasis } from 'aries-core';
 
 export const ButtonLeftAlignExample = () => (
   <Box width="large" gap="medium" pad="small">
@@ -9,12 +10,12 @@ export const ButtonLeftAlignExample = () => (
       gap="xsmall"
       pad={{ horizontal: 'xxsmall' }}
     >
-      <Text weight="bold" size="large">Left-aligned buttons</Text>
+      <TextEmphasis size="large">Left-aligned buttons</TextEmphasis>
     </Header>
-    <Box direction="row" gap="medium">
+    <ButtonGroup>
       <Button primary label="Primary" onClick={() => {}} />
       <Button secondary label="Secondary" onClick={() => {}} />
       <Button label="Default" onClick={() => {}} />
-    </Box>
+    </ButtonGroup>
   </Box>
 );

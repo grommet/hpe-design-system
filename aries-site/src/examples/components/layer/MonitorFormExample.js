@@ -6,11 +6,11 @@ import {
   CheckBox,
   Form,
   FormField,
-  Text,
   TextInput,
   TextArea,
   Select,
 } from 'grommet';
+import { TextEmphasis } from 'aries-core';
 import { useConfirmation } from './components';
 
 const options = ['Any', 'None', 'Any Scheduled'];
@@ -75,13 +75,9 @@ export const MonitorFormExample = ({ sticky }) => {
           >
             <TextArea id="description" name="monitorName" />
           </FormField>
-          <Text
-            margin={{ vertical: 'medium' }}
-            weight="bold"
-            color="text-strong"
-          >
+          <TextEmphasis margin={{ vertical: 'medium' }}>
             Monitor detail
-          </Text>
+          </TextEmphasis>
           <FormField
             htmlFor="monitorType"
             name="monitorType"
@@ -141,13 +137,9 @@ export const MonitorFormExample = ({ sticky }) => {
           >
             <Select id="ruleName" options={options} name="ruleName" />
           </FormField>
-          <Text
-            margin={{ vertical: 'medium' }}
-            weight="bold"
-            color="text-strong"
-          >
+          <TextEmphasis margin={{ vertical: 'medium' }}>
             Email notification
-          </Text>
+          </TextEmphasis>
           <FormField
             htmlFor="notifications"
             name="notifications"
