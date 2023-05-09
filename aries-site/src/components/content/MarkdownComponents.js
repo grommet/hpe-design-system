@@ -32,6 +32,28 @@ const StyledStrong = styled(Text)`
   line-height: inherit;
 `;
 
+const defaultCopyTip = 'Copy code to clipboard';
+
+const CopyCodeButton = ({ code }) => {
+  const [copyTip, setCopyTip] = React.useState(defaultCopyTip);
+
+  const onCopy = () => {
+    const duration = 2000;
+    navigator.clipboard.writeText(code.toString());
+    setCopyTip('Copied!');
+    const timer = setTimeout(() => {
+      setCopyTip(defaultCopyTip);
+    }, duration);
+    return () => clearTimeout(timer);
+  };
+
+  return <Button tip={copyTip} icon={<Copy />} onClick={onCopy} />;
+};
+
+CopyCodeButton.propTypes = {
+  code: PropTypes.string.isRequired,
+};
+
 export const components = {
   blockquote: props => (
     <Box width="large">
@@ -53,13 +75,7 @@ export const components = {
         >
           {code}
         </SyntaxHighlighter>
-        <Button
-          tip="Copy code to clipboard"
-          icon={<Copy />}
-          onClick={() => {
-            navigator.clipboard.writeText(code.toString());
-          }}
-        />
+        <CopyCodeButton code={code} />
       </Stack>
     </Box>
   ),
