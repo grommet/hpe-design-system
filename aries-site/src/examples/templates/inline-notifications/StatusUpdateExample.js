@@ -18,7 +18,7 @@ export const StatusUpdateExample = () => {
                 href: '/',
               },
               {
-                label: 'View consumption saving opportunities',
+                label: 'View saving ideas',
                 href: '/',
               },
             ]}
