@@ -1062,6 +1062,7 @@ export const components = [
       'Status Indicator',
       'Toast Notifications',
       'Global Banner Notifications',
+      'Inline Notifications',
       'Stack',
     ],
     tags: [
