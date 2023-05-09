@@ -19,15 +19,23 @@ const getFileName = file => {
   return adjustedFileName[adjustedFileName.length - 1];
 };
 
-const CopyCodeButton = ({ activeCode, code }) => (
-  <Button
-    tip="Copy code to clipboard"
-    icon={<Copy />}
-    onClick={() => {
-      navigator.clipboard.writeText(`// ${getFileName(activeCode)}\n${code}`);
-    }}
-  />
-);
+const defaultCopyTip = 'Copy code to clipboard';
+
+const CopyCodeButton = ({ activeCode, code }) => {
+  const [copyTip, setCopyTip] = React.useState(defaultCopyTip);
+
+  const onCopy = () => {
+    const duration = 2000;
+    navigator.clipboard.writeText(`// ${getFileName(activeCode)}\n${code}`);
+    setCopyTip('Copied!');
+    const timer = setTimeout(() => {
+      setCopyTip(defaultCopyTip);
+    }, duration);
+    return () => clearTimeout(timer);
+  };
+
+  return <Button tip={copyTip} icon={<Copy />} onClick={onCopy} />;
+};
 
 export const ExampleResources = ({
   code,
