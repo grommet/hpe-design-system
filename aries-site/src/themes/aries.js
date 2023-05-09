@@ -46,8 +46,12 @@ export const aries = deepMerge(hpe, {
     },
   },
   notification: {
-    close: {
-      icon: Close,
+    direction: 'column',
+    global: {
+      direction: 'row',
+      close: {
+        icon: Close,
+      },
     },
   },
 });
