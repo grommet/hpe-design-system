@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
-import { Button, PageHeader, ResponsiveContext } from 'grommet';
+import React, { useState, useContext } from 'react';
+import { Box, Button, ResponsiveContext, PageHeader } from 'grommet';
 import { ActionMenu } from 'aries-core';
+
+import { ExportDataContainer } from '../../templates/export-data';
+
 import { ReverseAnchor } from '../../templates';
 
 const actions = [
@@ -12,6 +15,7 @@ const actions = [
 
 export const PageHeaderIntroExample = () => {
   const breakpoint = useContext(ResponsiveContext);
+  const [showDataExport, setShowDataExport] = useState(false);
 
   return (
     <PageHeader
@@ -20,7 +24,24 @@ export const PageHeaderIntroExample = () => {
       parent={<ReverseAnchor label="Dashboard" />}
       actions={
         breakpoint !== 'xsmall' ? (
-          <Button label="Export devices" secondary />
+          <Box>
+            <Button
+              label="Export devices"
+              secondary
+              onClick={() => {
+                setShowDataExport(true);
+              }}
+            />
+            {showDataExport ? (
+              <ExportDataContainer
+                title="Export devices"
+                setShowModal={setShowDataExport}
+                onSubmit={() => {
+                  // Your submission logic here
+                }}
+              />
+            ) : null}
+          </Box>
         ) : (
           <ActionMenu items={actions} />
         )
