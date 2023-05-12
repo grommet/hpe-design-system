@@ -16,9 +16,6 @@ const undefinedThemeProperties = {
   anchor: {
     extend: '',
   },
-  button: {
-    extend: '',
-  },
   checkBox: {
     extend: '',
   },
@@ -39,10 +36,12 @@ export const scaled = (scale = 1, baseSpacing = 24) => {
     source.global.drop.border,
     source.global.input.padding,
     source.global.input.font,
-    source.button.secondary.border,
+    // temporarily disable this, as it is affect the border size improperly
+    // source.button.secondary.border,
     source.button.toolbar.border,
     source.button.option.border,
-    source.button.hover.secondary.border,
+    // temporarily disable this, as it is affect the border size improperly
+    // source.button.hover.secondary.border,
     source.button.size.small.border,
     source.button.size.small.pad,
     source.button.size.medium.border,
