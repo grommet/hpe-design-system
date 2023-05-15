@@ -1,5 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Box, Button, ResponsiveContext, PageHeader } from 'grommet';
+import {
+  AnnounceContext,
+  Box,
+  Button,
+  ResponsiveContext,
+  PageHeader,
+} from 'grommet';
 import { ActionMenu } from 'aries-core';
 
 import { ExportDataContainer } from '../../templates/export-data';
@@ -16,6 +22,11 @@ const actions = [
 export const PageHeaderIntroExample = () => {
   const breakpoint = useContext(ResponsiveContext);
   const [showDataExport, setShowDataExport] = useState(false);
+
+  const announce = useContext(AnnounceContext);
+  const onClose = () => {
+    setShowDataExport(false);
+  };
 
   return (
     <PageHeader
@@ -35,10 +46,8 @@ export const PageHeaderIntroExample = () => {
             {showDataExport ? (
               <ExportDataContainer
                 title="Export devices"
-                setShowModal={setShowDataExport}
-                onSubmit={() => {
-                  // Your submission logic here
-                }}
+                onClose={onClose}
+                announce={announce}
               />
             ) : null}
           </Box>

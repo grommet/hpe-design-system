@@ -1,33 +1,23 @@
-import React, { useEffect, useState, useContext } from 'react';
-import {
-  AnnounceContext,
-  Box,
-  Button,
-  Form,
-  FormField,
-  RadioButtonGroup,
-  Paragraph,
-} from 'grommet';
-import { ModalBody, ModalDialog, ModalFooter } from 'aries-core';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Form, FormField, RadioButtonGroup } from 'grommet';
+import { ButtonGroup, ModalBody, ModalDialog, ModalFooter } from 'aries-core';
 
 import PropTypes from 'prop-types';
 
+const defaultFormats = ['CSV', 'JSON', 'PDF'];
+
 export const ExportDataContainer = ({
-  onSubmit: onSubmitProp,
-  setShowModal,
+  onClose: onCloseProp,
   title,
+  announce,
+  formats,
 }) => {
   // announce when the layer opens
-  const announce = useContext(AnnounceContext);
   useEffect(() => {
     announce(`${title} modal opened.`, 'assertive');
   }, [announce, title]);
 
   const [value, setValue] = useState('');
-  const onClose = () => {
-    setShowModal(false);
-    setValue('');
-  };
   const onChange = nextValue => {
     setValue(nextValue);
   };
@@ -37,7 +27,7 @@ export const ExportDataContainer = ({
       title={title}
       onEsc={() => {
         announce(`${title} modal cancelled and closed.`, 'assertive');
-        onClose();
+        onCloseProp();
       }}
     >
       <Form
@@ -45,33 +35,37 @@ export const ExportDataContainer = ({
         onChange={onChange}
         validate="blur"
         // eslint-disable-next-line no-unused-vars
-        onSubmit={({ value: formValue, touched }) => {
-          if (onSubmitProp) onSubmitProp(formValue, touched);
-          onClose();
+        onSubmit={({ value: formValue }) => {
+          // caller should specify what to do with formValue prop
+          onCloseProp();
         }}
       >
         <Box gap="medium">
           <ModalBody gap="small">
-            <Paragraph margin="none">Select file type.</Paragraph>
-            <FormField htmlFor="exportData" name="exportData">
+            <FormField
+              htmlFor="exportFormat"
+              name="exportFormat"
+              label="File type"
+              required
+            >
               <RadioButtonGroup
-                id="exportData"
-                name="exportData"
-                options={['CSV', 'JSON', 'PDF']}
+                id="exportFormat"
+                name="exportFormat"
+                options={formats || defaultFormats}
               />
             </FormField>
           </ModalBody>
           <ModalFooter justify="end">
-            <Box direction="row" gap="small">
+            <ButtonGroup>
               <Button
                 label="Cancel"
                 onClick={() => {
                   announce(`${title} modal cancelled and closed.`, 'assertive');
-                  onClose();
+                  onCloseProp();
                 }}
               />
               <Button primary label={title} type="submit" />
-            </Box>
+            </ButtonGroup>
           </ModalFooter>
         </Box>
       </Form>
@@ -80,7 +74,8 @@ export const ExportDataContainer = ({
 };
 
 ExportDataContainer.propTypes = {
-  onSubmit: PropTypes.func,
-  setShowModal: PropTypes.func,
+  onClose: PropTypes.func,
   title: PropTypes.string,
+  announce: PropTypes.object,
+  formats: PropTypes.array,
 };
