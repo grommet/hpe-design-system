@@ -2166,9 +2166,9 @@
   integrity sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==
 
 "@types/node@*":
-  version "20.1.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.1.4.tgz#83f148d2d1f5fe6add4c53358ba00d97fc4cdb71"
-  integrity sha512-At4pvmIOki8yuwLtd7BNHl3CiWNbtclUbNtScGx4OHfBd4/oWoJC8KRCIxXwkdndzhxOsPXihrsOoydxBjlE9Q==
+  version "20.1.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.1.7.tgz#ce10c802f7731909d0a44ac9888e8b3a9125eb62"
+  integrity sha512-WCuw/o4GSwDGMoonES8rcvwsig77dGCMbZDrZr2x4ZZiNW4P/gcoZXe/0twgtobcTkmg9TuKflxYL/DuwDyJzg==
 
 "@types/node@^12.20.10":
   version "12.20.55"
@@ -4165,9 +4165,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.3.723, electron-to-chromium@^1.4.284:
-  version "1.4.395"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.395.tgz#0d1abcd410a28737145bd4c117f26ea8195bf671"
-  integrity sha512-r8IgVPlJsCs7yezgmuBTaOMuu8lgU0mzg+wcLLo0xVy5s+rpuFTI9tEKhHVaMIPgeJPjxwTDHUZqoBEsNMDbCQ==
+  version "1.4.397"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.397.tgz#82a7e26c657538d59bb713b97ac22f97ea3a90ea"
+  integrity sha512-jwnPxhh350Q/aMatQia31KAIQdhEsYS0fFZ0BQQlN9tfvOEwShu6ZNwI4kL/xBabjcB/nTy6lSt17kNIluJZ8Q==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -5367,7 +5367,7 @@ grommet-styles@^0.2.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.32.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#40d7ea9656c5387d719f1a03301e70a00bcbeb6b"
+  resolved "https://github.com/grommet/grommet/tarball/stable#396d6553e681ba568d3381c0db952921658b4927"
   dependencies:
     grommet-icons "^4.10.0"
     hoist-non-react-statics "^3.2.0"
@@ -5977,9 +5977,9 @@ is-ci@^1.0.10:
     ci-info "^1.5.0"
 
 is-core-module@^2.11.0, is-core-module@^2.9.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.12.0.tgz#36ad62f6f73c8253fd6472517a12483cf03e7ec4"
-  integrity sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.12.1.tgz#0c0b6885b6f80011c71541ce15c8d66cf5a4f9fd"
+  integrity sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==
   dependencies:
     has "^1.0.3"
 
@@ -9488,9 +9488,9 @@ terser-webpack-plugin@^5.3.7:
     terser "^5.16.8"
 
 terser@^5.16.8:
-  version "5.17.3"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.17.3.tgz#7f908f16b3cdf3f6c0f8338e6c1c674837f90d25"
-  integrity sha512-AudpAZKmZHkG9jueayypz4duuCFJMMNGRMwaPvQKWfxKedh8Z2x3OCoDqIIi1xx5+iwx1u6Au8XQcc9Lke65Yg==
+  version "5.17.4"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.17.4.tgz#b0c2d94897dfeba43213ed5f90ed117270a2c696"
+  integrity sha512-jcEKZw6UPrgugz/0Tuk/PVyLAPfMBJf5clnGueo45wTweoV8yh7Q7PEkhkJ5uuUbC7zAxEcG3tqNr1bstkQ8nw==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"
@@ -10293,9 +10293,9 @@ vm-browserify@1.1.2, vm-browserify@^1.0.1:
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
 vm2@^3.9.17:
-  version "3.9.18"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.18.tgz#d919848bee191a0410c5cc1c5aac58adfd03ce9a"
-  integrity sha512-iM7PchOElv6Uv6Q+0Hq7dcgDtWWT6SizYqVcvol+1WQc+E9HlgTCnPozbQNSP3yDV9oXHQOEQu530w2q/BCVZg==
+  version "3.9.19"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.19.tgz#be1e1d7a106122c6c492b4d51c2e8b93d3ed6a4a"
+  integrity sha512-J637XF0DHDMV57R6JyVsTak7nIL8gy5KH4r1HiwWLf/4GBbb5MKL5y7LpmF4A8E2nR6XmzpmMFQ7V7ppPTmUQg==
   dependencies:
     acorn "^8.7.0"
     acorn-walk "^8.2.0"
