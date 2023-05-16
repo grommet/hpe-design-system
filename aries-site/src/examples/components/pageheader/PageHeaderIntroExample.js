@@ -12,12 +12,7 @@ import { ExportDataContainer } from '../../templates/export-data';
 
 import { ReverseAnchor } from '../../templates';
 
-const actions = [
-  {
-    label: 'Export devices',
-    secondary: true,
-  },
-];
+const label = 'Export Report';
 
 export const PageHeaderIntroExample = () => {
   const breakpoint = useContext(ResponsiveContext);
@@ -28,6 +23,20 @@ export const PageHeaderIntroExample = () => {
     setShowDataExport(false);
   };
 
+  const ExportContainer = (
+    <ExportDataContainer title={label} onClose={onClose} announce={announce} />
+  );
+
+  const actions = [
+    {
+      label,
+      secondary: true,
+      onClick: () => {
+        setShowDataExport(true);
+      },
+    },
+  ];
+
   return (
     <PageHeader
       title="Devices"
@@ -37,22 +46,19 @@ export const PageHeaderIntroExample = () => {
         breakpoint !== 'xsmall' ? (
           <Box>
             <Button
-              label="Export devices"
+              label={label}
               secondary
               onClick={() => {
                 setShowDataExport(true);
               }}
             />
-            {showDataExport ? (
-              <ExportDataContainer
-                title="Export devices"
-                onClose={onClose}
-                announce={announce}
-              />
-            ) : null}
+            {showDataExport ? ExportContainer : null}
           </Box>
         ) : (
-          <ActionMenu items={actions} />
+          <Box>
+            <ActionMenu items={actions} />
+            {showDataExport ? ExportContainer : null}
+          </Box>
         )
       }
     />
