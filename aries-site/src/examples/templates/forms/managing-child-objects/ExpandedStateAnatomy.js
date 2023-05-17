@@ -1,14 +1,5 @@
 import { useContext } from 'react';
-import {
-  Box,
-  Button,
-  Diagram,
-  Grid,
-  ResponsiveContext,
-  Stack,
-  Text,
-} from 'grommet';
-import { Trash } from 'grommet-icons';
+import { Box, Diagram, Grid, ResponsiveContext, Stack, Text } from 'grommet';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
 import { ChildHeader } from '../../FormChildObject';
@@ -85,12 +76,6 @@ export const ExpandedStateAnatomy = () => {
           id={annotations.body.annotation}
           target="4"
         />
-        <Annotation
-          gridArea={annotations.remove.annotation}
-          id={annotations.remove.annotation}
-          target="5"
-          margin={{ left: 'auto' }}
-        />
         {/* this Box is for defining the anatomy diagram */}
         <Box gridArea="header" background="background-front">
           <ChildHeader
@@ -125,13 +110,7 @@ export const ExpandedStateAnatomy = () => {
           background="background-front"
           pad={{ bottom: 'medium' }}
           border={{ side: 'bottom', color: 'border-weak' }}
-        >
-          <Button
-            id={annotations.remove.element}
-            icon={<Trash />}
-            alignSelf="end"
-          />
-        </Box>
+        />
       </Grid>
       <Diagram connections={connections} />
     </Stack>

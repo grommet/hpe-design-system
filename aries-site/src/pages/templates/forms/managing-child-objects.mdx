@@ -6,6 +6,8 @@ import {
   CreateRole,
   ExpandedStateAnatomy,
   EditRole,
+  NestedPlacement,
+  TopLevelPlacement,
 } from '../../../examples/templates/forms';
 
 This pattern improves productivity by focusing a user's attention solely on the current
@@ -45,13 +47,12 @@ context.
   <ExpandedStateAnatomy />
 </Example>
 
-| Label | Region            | Purpose                                                     |                  Required                   | Notes                                                                                                                                                                 |
-| :---: | ----------------- | ----------------------------------------------------------- | :-----------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Header**        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail."                     |
-| **2** | **Label**         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                    |
-| **3** | **Collapse icon** | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                                                |
-| **4** | **Body**          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                                         |
-| **5** | **Remove button** | Removes/deletes the child from its parent.                  |               Case depending                | <span>Always provide unless at least one child object is required by the parent. See [Required children](#required-children) for detail.</span> Icon name is "Trash". |
+| Label | Region            | Purpose                                                     |                  Required                   | Notes                                                                                                                                             |
+| :---: | ----------------- | ----------------------------------------------------------- | :-----------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Header**        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail." |
+| **2** | **Label**         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                |
+| **3** | **Collapse icon** | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                            |
+| **4** | **Body**          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                     |
 
 ## Examples
 
@@ -110,4 +111,47 @@ to allow a user the ability to easily remove all associations with a single acti
   showResponsiveControls={[]}
 >
   <EditRole />
+
+</Example>
+
+### Remove parent object
+
+For use cases where the user needs the ability to remove the parent object entirely, there are two options available; the nested placement and top-level placement.
+
+#### Nested placement
+
+The nested placement is the standard option for removing a parent object. It avoids competing with the visual anchor of the object header and prevents users from accidentally removing the object.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObject.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js"
+  showResponsiveControls={[]}
+>
+  <NestedPlacement />
+
+</Example>
+
+#### Top-level placement
+
+This is an alternate option to be used for specific use cases. Consider using this option when you are concerned that the nesting of the remove action can be lost in the user experience. This can occur if the user is expecting the remove action to be higher in the visual hierarchy due to it being an expected/priority action, such as when editing and manipulating a collection of objects. It can also occur when an object body has a large amount of content and the remove action can get lost below the complexity. Note: if this is the case, ensure that the accordion is the best pattern to be using in this context. Accordion best practices can be found here.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObject.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/EditRole.js"
+  showResponsiveControls={[]}
+>
+  <TopLevelPlacement />
+
 </Example>
