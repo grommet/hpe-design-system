@@ -84,7 +84,7 @@ export const ExpandedStateAnatomy = () => {
           gridArea={annotations.body.annotation}
           id={annotations.body.annotation}
           target="4"
-        />{' '}
+        />
         <Annotation
           gridArea={annotations.remove.annotation}
           id={annotations.remove.annotation}
