@@ -49,7 +49,7 @@ export const HorizontalExample = ({
       >
         {content}
       </Box>
-      <Box width={{ min: 'medium' }}>
+      <Box width={{ min: 'medium' }} overflow="auto">
         {resources}
         {controls}
       </Box>
