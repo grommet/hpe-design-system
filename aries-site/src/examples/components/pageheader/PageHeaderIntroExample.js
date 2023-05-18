@@ -12,7 +12,7 @@ import { ExportDataContainer } from '../../templates/export-data';
 
 import { ReverseAnchor } from '../../templates';
 
-const label = 'Export Report';
+const label = 'Export report';
 
 export const PageHeaderIntroExample = () => {
   const breakpoint = useContext(ResponsiveContext);
