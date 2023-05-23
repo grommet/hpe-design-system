@@ -6,7 +6,7 @@ import { ChildHeader } from './ChildHeader';
 
 // using value names from summarize prop, builds the summary message
 // to be displayed beneath the heading
-const getSummaryString = (values, keys) => {
+export const getSummaryString = (values, keys) => {
   let summary = '';
   const summarize = new Map();
   for (let i = 0; i <= keys.length - 1; i += 1) {
