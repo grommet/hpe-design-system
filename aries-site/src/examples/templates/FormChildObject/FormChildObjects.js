@@ -28,7 +28,8 @@ export const FormChildObjects = ({
                 index={index}
                 headingLevel={headingLevel}
                 name={obj.name}
-                // keep at least one child when child objects are required by parent
+                // keep at least one child when child objects are required
+                // by parent
                 onRemove={required && values.length <= 1 ? null : onRemove}
                 open={obj[primaryKey] === ''}
                 summarize={summarize}
@@ -45,7 +46,8 @@ export const FormChildObjects = ({
                 index={index}
                 headingLevel={headingLevel}
                 name={obj.name}
-                // keep at least one child when child objects are required by parent
+                // keep at least one child when child objects are required
+                // by parent
                 onRemove={required && values.length <= 1 ? null : onRemove}
                 open={obj[primaryKey] === ''}
                 summarize={summarize}
@@ -63,7 +65,8 @@ export const FormChildObjects = ({
         border={{ side: 'top', color: 'border-weak' }}
         pad={{ top: 'small' }}
       >
-        {/* keep at least one child when child objects are required by parent */}
+        {/* keep at least one child when child objects are required 
+        by parent */}
         {values?.length >= 2 && !required && (
           <Button
             label="Remove all"
@@ -100,6 +103,7 @@ FormChildObjects.propTypes = {
   onRemove: PropTypes.func,
   onRemoveAll: PropTypes.func,
   primaryKey: PropTypes.string,
+  removeAlternate: PropTypes.bool,
   required: PropTypes.bool,
   summarize: PropTypes.arrayOf(PropTypes.string),
   values: PropTypes.arrayOf(PropTypes.object).isRequired,
