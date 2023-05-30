@@ -6,6 +6,7 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
+    "@docsearch/react": "^3.4.0",
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",

@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { DocSearch } from '@docsearch/react';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
 import { getPageDetails, nameToPath } from '../../utils';
-import { Search } from '../navigation';
 
 const StyledHeader = ({ ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
-  const [showSearch, setShowSearch] = useState(false);
   const size = useContext(ResponsiveContext);
   const router = useRouter();
 
@@ -36,12 +34,11 @@ const StyledHeader = ({ ...rest }) => {
               />
             </Link>
           ))}
-        <Button
-          id="search-button"
-          icon={<SearchIcon />}
-          onClick={() => setShowSearch(true)}
+        <DocSearch
+          appId={process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}
+          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
+          apiKey={process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY}
         />
-        {showSearch && <Search setOpen={setShowSearch} />}
         <ThemeModeToggle />
       </Box>
     </Header>
