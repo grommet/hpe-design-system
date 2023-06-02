@@ -37,9 +37,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo '[Husky] pre-commit'"
-    }
+  "scripts": {
+    "prepare": "husky install"
   }
 }
