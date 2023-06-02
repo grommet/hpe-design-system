@@ -14,7 +14,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, FormNext, CircleAlert } from 'grommet-icons';
+import { Close, Next, CircleAlert } from 'grommet-icons';
 import { emailValidation } from './utils/FormValidation';
 
 const ResetPassword = ({ closeLayer, email }) => {
@@ -194,7 +194,7 @@ export const SignInExample = () => {
           >
             <Button
               label="Sign In"
-              icon={<FormNext />}
+              icon={<Next />}
               reverse
               primary
               type="submit"

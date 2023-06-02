@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Anchor, PageHeader } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Status, SubsectionText } from '../../components';
 
@@ -16,7 +16,7 @@ export const DocsPageHeader = ({ title, topic, render }) => {
       parent={
         page.parentPage ? (
           <Link href={nameToPath(page.parentPage)} passHref>
-            <Anchor label={parent.name} icon={<FormPrevious />} />
+            <Anchor label={parent.name} icon={<Previous />} />
           </Link>
         ) : (
           <Link href={`/${topic.toLowerCase()}`} passHref>
