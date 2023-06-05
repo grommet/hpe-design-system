@@ -16,4 +16,4 @@ cd aries-core
 echo "....Linting checks for aries-core"
 npm run lint-fix
 cd ${__rootDir}
-echo 'Pre-commit checks completed.
+echo "Pre-commit checks completed."
