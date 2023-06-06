@@ -9,6 +9,7 @@ import {
   Paragraph,
 } from 'grommet';
 import { Alert, Close, MailOption } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);
@@ -63,9 +64,7 @@ export const LayerCenterExample = () => {
               background="background-contrast"
             >
               <Alert color="status-critical" />
-              <Text color="text-strong" weight="bold">
-                Footer if you need it
-              </Text>
+              <TextEmphasis>Footer if you need it</TextEmphasis>
             </Box>
           </Box>
         </Layer>

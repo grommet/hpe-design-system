@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import { FormPrevious, FormNext } from 'grommet-icons';
+import { Previous, Next } from 'grommet-icons';
 
 export const ButtonIconExample = () => {
   const size = React.useContext(ResponsiveContext);
@@ -15,29 +15,24 @@ export const ButtonIconExample = () => {
         gap="medium"
         align="center"
       >
-        <Button label="Button" icon={<FormPrevious />} onClick={() => {}} />
-        <Button label="Button" icon={<FormNext />} reverse onClick={() => {}} />
-        <Button icon={<FormNext />} onClick={() => {}} />
+        <Button label="Button" icon={<Previous />} onClick={() => {}} />
+        <Button label="Button" icon={<Next />} reverse onClick={() => {}} />
+        <Button icon={<Next />} onClick={() => {}} />
       </Box>
       <Box
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
         gap="medium"
         align="center"
       >
+        <Button label="Button" icon={<Previous />} primary onClick={() => {}} />
         <Button
           label="Button"
-          icon={<FormPrevious />}
-          primary
-          onClick={() => {}}
-        />
-        <Button
-          label="Button"
-          icon={<FormNext />}
+          icon={<Next />}
           primary
           reverse
           onClick={() => {}}
         />
-        <Button icon={<FormNext />} primary onClick={() => {}} />
+        <Button icon={<Next />} primary onClick={() => {}} />
       </Box>
     </Box>
   );

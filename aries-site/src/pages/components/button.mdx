@@ -3,6 +3,8 @@ import {
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
   ButtonBadSignUpCTAsPreview,
+  ButtonBusyExample,
+  ButtonBusySimpleExample,
   ButtonAlignmentTable,
   ButtonExample,
   ButtonGoodCancelPreview,
@@ -271,6 +273,33 @@ A button's visual state may be specified as appropriate in the application's con
   height={{ min: 'small' }}
 >
   <ButtonStatesExample />
+</Example>
+
+#### Busy button
+
+The busy and success states of button can be used when an action may take a couple of seconds to complete or validate. A common example is when a form requires server side validation.
+
+If the action will likely take longer than a few seconds to complete, allow the user to leave the form and do not use the busy button state. Instead, consider notifying them with another kind of notification when the task completes.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonBusySimpleExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonBusySimpleExample />
+</Example>
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonBusyExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+  ]}
+  screenContainer
+  showResponsiveControls={[]}
+  height="600px"
+>
+  <ButtonBusyExample />
 </Example>
 
 ### Button sizes

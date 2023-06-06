@@ -12,7 +12,7 @@ import {
 
 const MOCK_DATA = require('../../../../../data/mockData/consumption.json');
 
-export const CostByService = ({ period }) => {
+export const CostByService = ({ period, notification }) => {
   const [values, setValues] = useState(null);
   const [totalCost, setTotalCost] = useState(null);
   const [reportWindow, setReportWindow] = useState(defaultWindow);
@@ -127,46 +127,52 @@ export const CostByService = ({ period }) => {
 
   return (
     <ChartCard title="Cost by Service" subtitle={period}>
-      {values && (
-        <Grid
-          columns={grid.columns}
-          rows={grid.rows}
-          areas={grid.areas[size]}
-          gap={grid.gap[size]}
-        >
-          <Box
-            gridArea="chart"
-            alignSelf="start"
-            height={{
-              max: `${parseMetricToNum(theme.global.size.small) +
-                parseMetricToNum(theme.global.size.xsmall)}px`,
-            }}
+      <Box gap="medium">
+        {notification}
+        {values && (
+          <Grid
+            columns={grid.columns}
+            rows={grid.rows}
+            areas={grid.areas[size]}
+            gap={grid.gap[size]}
           >
-            <Meter
-              values={values.map(value => ({
-                label: value.label,
-                value: value.value,
-              }))}
-              type="pie"
-              size="full"
+            <Box
+              gridArea="chart"
+              alignSelf="start"
+              height={{
+                max: `${
+                  parseMetricToNum(theme.global.size.small) +
+                  parseMetricToNum(theme.global.size.xsmall)
+                }px`,
+              }}
+            >
+              <Meter
+                values={values.map(value => ({
+                  label: value.label,
+                  value: value.value,
+                }))}
+                type="pie"
+                size="full"
+              />
+            </Box>
+            <Measure
+              gridArea="measure"
+              alignSelf="center"
+              name={{ label: { label: 'Total Cost', size: 'medium' } }}
+              value={{
+                value: formatCurrency(totalCost),
+                size: 'xlarge',
+              }}
             />
-          </Box>
-          <Measure
-            gridArea="measure"
-            alignSelf="center"
-            name={{ label: { label: 'Total Cost', size: 'medium' } }}
-            value={{
-              value: formatCurrency(totalCost),
-              size: 'xlarge',
-            }}
-          />
-          <Legend gridArea="legend" values={values} />
-        </Grid>
-      )}
+            <Legend gridArea="legend" values={values} />
+          </Grid>
+        )}
+      </Box>
     </ChartCard>
   );
 };
 
 CostByService.propTypes = {
   period: PropTypes.oneOf(['Last 30 Days', 'Last Year']),
+  notification: PropTypes.element,
 };

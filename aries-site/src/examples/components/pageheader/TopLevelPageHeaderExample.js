@@ -20,6 +20,7 @@ import {
   Tag,
   User,
 } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -57,7 +58,7 @@ const data = [
 export const TopLevelPageHeaderExample = () => (
   <Page>
     <Box align="center" pad="small" elevation="small">
-      <Text weight="bold">Global Header</Text>
+      <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
       <PageHeader

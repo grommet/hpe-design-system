@@ -14,7 +14,7 @@
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-grommet": "^0.1.1",
+    "eslint-plugin-grommet": "https://github.com/grommet/eslint-plugin-grommet/tarball/stable",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx": "^0.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",

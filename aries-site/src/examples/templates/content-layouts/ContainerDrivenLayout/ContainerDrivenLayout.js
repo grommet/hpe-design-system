@@ -1,6 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+  Box,
+  Button,
+  Collapsible,
+  Data,
+  DataFilter,
+  DataFilters,
   Grid,
   Page,
   PageContent,
@@ -9,8 +15,8 @@ import {
   ThemeContext,
 } from 'grommet';
 
+import { Down, Next } from 'grommet-icons';
 import { AppResults } from './AppResults';
-import { FilterPanel } from './FilterPanel';
 
 const allApps = require('../../../../data/mockData/applications.json');
 
@@ -31,9 +37,7 @@ const pageContentGrid = {
   },
 };
 
-export const ContainerDrivenLayout = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
+export const ContainerDrivenLayout = () => {
   const theme = useContext(ThemeContext);
 
   return (
@@ -59,72 +63,117 @@ export const ContainerDrivenLayout = ({ containerRef }) => {
         />
       </PageContent>
       <PageContent>
-        <ContentLayout containerRef={containerRef} />
+        <ContentLayout />
       </PageContent>
     </Page>
   );
 };
 
-ContainerDrivenLayout.propTypes = {
-  containerRef: PropTypes.object,
+const properties = {
+  categories: {
+    label: 'Categories',
+    options: [
+      { label: 'Machine Learning', value: 'Machine learning' },
+      { label: 'Big Data', value: 'Big Data' },
+      { label: 'Data Analytics', value: 'Data analytics' },
+      { label: 'Developer Tools', value: 'Developer tools' },
+      { label: 'Monitoring', value: 'Monitoring' },
+      { label: 'Database', value: 'Database' },
+      { label: 'Data Protection', value: 'Data Protection' },
+    ],
+  },
+  publisher: {
+    label: 'Publishers',
+  },
+  delivery: { label: 'Delivery Methods' },
+  pricing: { label: 'Pricing Models' },
 };
 
-const ContentLayout = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
-  const breakpoint = useContext(ResponsiveContext);
-  const [filteredApps, setFilteredApps] = useState(allApps);
-  const [filters, setFilters] = useState({});
-
-  // apply filters
-  useEffect(() => {
-    let results = [];
-    let numFilters = 0;
-    Object.values(filters).forEach(filter => (numFilters += filter.length));
-
-    if (numFilters === 0) {
-      results = allApps;
-    } else {
-      results = allApps.filter(app => {
-        let result = true;
-        Object.keys(filters).forEach(key => {
-          if (filters[key].length > 0) {
-            const match = filters[key].some(item => app[key].includes(item));
-            if (match === false) {
-              result = false;
-            }
-          }
-        });
-        return result;
-      });
-    }
-
-    setFilteredApps(
-      results.reduce((acc, cur) => {
-        if (!acc.includes(cur)) {
-          acc.push(cur);
-        }
-        return acc;
-      }, []),
-    );
-  }, [filters, setFilteredApps]);
-
+const Filter = ({ label, expand, setExpand, property }) => {
   return (
-    <Grid
-      align="start"
-      columns={pageContentGrid.columns[breakpoint]}
-      gap={pageContentGrid.gap[breakpoint]}
-    >
-      <FilterPanel
-        data={allApps}
-        setFilters={setFilters}
-        containerRef={containerRef}
+    <>
+      <Button
+        label={label}
+        icon={expand ? <Down /> : <Next />}
+        onClick={() => setExpand(!expand)}
       />
-      <AppResults apps={filteredApps} />
-    </Grid>
+      <Collapsible open={expand}>
+        <Box pad={{ left: 'medium', top: 'xsmall' }}>
+          <DataFilter property={property} />
+        </Box>
+      </Collapsible>
+    </>
   );
 };
 
-ContentLayout.propTypes = {
-  containerRef: PropTypes.object,
+Filter.propTypes = {
+  label: PropTypes.string.isRequired,
+  expand: PropTypes.bool.isRequired,
+  setExpand: PropTypes.func.isRequired,
+  property: PropTypes.string.isRequired,
+};
+
+const ContentLayout = () => {
+  const breakpoint = useContext(ResponsiveContext);
+  const showFiltersButton = ['xsmall', 'small'].includes(breakpoint);
+
+  const [expandCategory, setExpandCategory] = useState(false);
+  const [expandPublishers, setExpandPublishers] = useState(false);
+  const [expandDelivery, setExpandDelivery] = useState(false);
+  const [expandPricing, setExpandPricing] = useState(false);
+
+  const sidebar = showFiltersButton ? (
+    <DataFilters layer />
+  ) : (
+    <Box
+      direction="column"
+      align="start"
+      gap="small"
+      background="background-front"
+      pad={{ right: 'small', vertical: 'small' }}
+      round="xsmall"
+    >
+      <Filter
+        label="Categories"
+        expand={expandCategory}
+        setExpand={setExpandCategory}
+        property="categories"
+      />
+      <Filter
+        label="Publishers"
+        expand={expandPublishers}
+        setExpand={setExpandPublishers}
+        property="publisher"
+      />
+      <Filter
+        label="Delivery Methods"
+        expand={expandDelivery}
+        setExpand={setExpandDelivery}
+        property="delivery"
+      />
+      <Filter
+        label="Pricing Models"
+        expand={expandPricing}
+        setExpand={setExpandPricing}
+        property="pricing"
+      />
+    </Box>
+  );
+
+  return (
+    <Data
+      data={allApps}
+      properties={properties}
+      updateOn={showFiltersButton ? undefined : 'change'}
+    >
+      <Grid
+        align="start"
+        columns={pageContentGrid.columns[breakpoint]}
+        gap={pageContentGrid.gap[breakpoint]}
+      >
+        {sidebar}
+        <AppResults />
+      </Grid>
+    </Data>
+  );
 };

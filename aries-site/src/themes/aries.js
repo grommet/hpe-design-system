@@ -41,13 +41,17 @@ export const aries = deepMerge(hpe, {
     },
     success: {
       color: 'text-strong',
-      weight: 'bold',
+      weight: 500,
       alignSelf: 'end',
     },
   },
   notification: {
-    close: {
-      icon: Close,
+    direction: 'column',
+    global: {
+      direction: 'row',
+      close: {
+        icon: Close,
+      },
     },
   },
 });

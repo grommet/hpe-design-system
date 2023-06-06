@@ -1,3 +1,4 @@
+import { Notification } from 'grommet';
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
@@ -565,6 +566,31 @@ export const templates = [
     ],
   },
   {
+    name: 'Inline Notifications',
+    available: true,
+    description: `Inline notifications help application users by delivering 
+    timely, contextual information and feedback related to their actions.`,
+    preview: {
+      component: () => (
+        <Notification
+          message="Nearing your allotted budget."
+          status="warning"
+        />
+      ),
+      background: 'background-back',
+    },
+    seoDescription: `Inline notifications help application users by delivering 
+    timely, contextual information and feedback related to their actions.`,
+    sections: [],
+    relatedContent: [
+      'Notification',
+      'Toast Notifications',
+      'Status Indicator',
+      'Global Banner Notifications',
+    ],
+    tags: ['inline', 'inline notification', 'inline notifications'],
+  },
+  {
     name: 'Toast Notifications',
     available: true,
     description: `Toast notifications are used to communicate low severity 
@@ -593,6 +619,7 @@ export const templates = [
     relatedContent: [
       'Notification',
       'Status Indicator',
+      'Inline Notifications',
       'Global Banner Notifications',
       'Stack',
     ],
@@ -707,7 +734,12 @@ export const templates = [
       'Persistent Warning Banner',
       "Do's and Don'ts",
     ],
-    relatedContent: ['Notification', 'Toast Notifications', 'Status Indicator'],
+    relatedContent: [
+      'Notification',
+      'Inline Notifications',
+      'Toast Notifications',
+      'Status Indicator',
+    ],
     tags: [
       'notifications',
       'global',

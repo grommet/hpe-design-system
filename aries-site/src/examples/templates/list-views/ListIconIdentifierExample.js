@@ -7,6 +7,7 @@ import {
   User,
   System,
 } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
@@ -50,7 +51,7 @@ export const ListIconIdentifierExample = () => (
       {datum => (
         <Box key={datum.name} direction="row" gap="small" align="center">
           {datum.icon}
-          <Text weight="bold">{datum.name}</Text>
+          <TextEmphasis>{datum.name}</TextEmphasis>
         </Box>
       )}
     </List>

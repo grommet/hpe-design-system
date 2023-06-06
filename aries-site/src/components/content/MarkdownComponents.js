@@ -5,8 +5,10 @@ import Link from 'next/link';
 import {
   Anchor,
   Box,
+  Button,
   Heading,
   Paragraph,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -14,9 +16,11 @@ import {
   TableRow,
   Text,
 } from 'grommet';
+import { Copy } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
+import { TextEmphasis } from 'aries-core';
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 
@@ -28,6 +32,28 @@ const StyledStrong = styled(Text)`
   line-height: inherit;
 `;
 
+const defaultCopyTip = 'Copy code to clipboard';
+
+const CopyCodeButton = ({ code }) => {
+  const [copyTip, setCopyTip] = React.useState(defaultCopyTip);
+
+  const onCopy = () => {
+    const duration = 2000;
+    navigator.clipboard.writeText(code.toString());
+    setCopyTip('Copied!');
+    const timer = setTimeout(() => {
+      setCopyTip(defaultCopyTip);
+    }, duration);
+    return () => clearTimeout(timer);
+  };
+
+  return <Button tip={copyTip} icon={<Copy />} onClick={onCopy} />;
+};
+
+CopyCodeButton.propTypes = {
+  code: PropTypes.string.isRequired,
+};
+
 export const components = {
   blockquote: props => (
     <Box width="large">
@@ -38,14 +64,19 @@ export const components = {
       />
     </Box>
   ),
-  code: props => (
+  code: ({ children: code, ...rest }) => (
     <Box width="large" round="xsmall" overflow="auto">
-      <SyntaxHighlighter
-        style={prism.light}
-        wrapLongLines
-        language="javascript"
-        {...props}
-      />
+      <Stack anchor="top-right">
+        <SyntaxHighlighter
+          style={prism.light}
+          wrapLongLines
+          language="javascript"
+          {...rest}
+        >
+          {code}
+        </SyntaxHighlighter>
+        <CopyCodeButton code={code} />
+      </Stack>
     </Box>
   ),
   p: SubsectionText,
@@ -123,9 +154,7 @@ export const components = {
       pad={{ horizontal: 'small', vertical: 'xsmall' }}
       {...props}
     >
-      <Text color="text-strong" weight="bold">
-        {props.children}
-      </Text>
+      <TextEmphasis>{props.children}</TextEmphasis>
     </TableCell>
   ),
   tr: props => <TableRow {...props} />,
