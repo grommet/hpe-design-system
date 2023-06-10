@@ -82,7 +82,7 @@ function App({ Component, pageProps, router }) {
   return (
     <ThemeMode>
       <Layout
-        title={title}
+        title={title || ''}
         topic={topic}
         isLanding={!topic}
         // applies card images to the "hub" pages

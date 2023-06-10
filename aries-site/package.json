@@ -10,7 +10,7 @@
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.4",
-    "next": "12.3.4",
+    "next": "13.4.4",
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.4.4",
     "remark-gfm": "^3.0.1"
@@ -36,7 +36,7 @@
     "axe-core": "^4.6.1",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "next-transpile-modules": "^9.1.0",
+    "next-transpile-modules": "^10.0.0",
     "start-server-and-test": "^1.10.8",
     "testcafe": "^2.1.0",
     "testcafe-react-selectors": "^5.0.2"
