@@ -2,7 +2,7 @@ import React from 'react';
 import { Anchor, Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta, SubsectionText } from '../../components';
-import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
+import { ContentSection, PageIntro, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Components';
@@ -10,22 +10,7 @@ const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
 const Components = () => (
-  <Layout
-    backgroundImage={{
-      src: {
-        dark: '/components-dark.svg',
-        light: '/components-light.svg',
-      },
-      alt: 'HPE Design System',
-      fit: 'contain',
-      margin: { top: '-200px', left: '-75px' },
-      small: {
-        margin: { top: '-250px' },
-      },
-    }}
-    title={title}
-    isLanding
-  >
+  <>
     <Meta
       title={title}
       description={pageDetails.seoDescription}
@@ -98,7 +83,7 @@ const Components = () => (
         </Subsection>
       </ContentSection>
     </PageContent>
-  </Layout>
+  </>
 );
 
 export default Components;

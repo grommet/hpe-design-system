@@ -6,6 +6,43 @@ import { components } from '../components';
 
 const slugToText = str => str.split('-').join(' ');
 
+const backgroundImages = {
+  components: {
+    src: {
+      dark: '/components-dark.svg',
+      light: '/components-light.svg',
+    },
+    alt: 'HPE Design System Components',
+    fit: 'contain',
+    margin: { top: '-200px', left: '-75px' },
+    small: {
+      margin: { top: '-250px' },
+    },
+  },
+  foundation: {
+    src: {
+      dark: '/foundation-dark.svg',
+      light: '/foundation-light.svg',
+    },
+    alt: 'HPE Design System Foundation',
+    margin: { left: '-280px', top: '-175px' },
+    small: {
+      margin: { left: '0', top: '-300px' },
+    },
+  },
+  templates: {
+    src: {
+      dark: '/templates-dark.svg',
+      light: '/templates-light.svg',
+    },
+    alt: 'HPE Design System Templates',
+    margin: { left: '-300px', top: '-125px' },
+    small: {
+      margin: { left: '-25px', top: '-175px' },
+    },
+  },
+};
+
 /* _app.js allows for customizing Next.js's default <App> component
  * Details: https://nextjs.org/docs/advanced-features/custom-app
  *
@@ -42,23 +79,19 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
 
-  // for mdx pages, we need to wrap the content in Layout and MDX provider
-  if (Component.isMDXComponent) {
-    return (
-      <ThemeMode>
-        <Layout title={title} topic={topic}>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
-      </ThemeMode>
-    );
-  }
-
-  // for all other pages, we build the page with Layout in the .js file
   return (
     <ThemeMode>
-      <Component {...pageProps} />
+      <Layout
+        title={title}
+        topic={topic}
+        isLanding={!topic}
+        // applies card images to the "hub" pages
+        backgroundImage={backgroundImages[title]}
+      >
+        <MDXProvider components={components}>
+          <Component {...pageProps} />
+        </MDXProvider>
+      </Layout>
     </ThemeMode>
   );
 }

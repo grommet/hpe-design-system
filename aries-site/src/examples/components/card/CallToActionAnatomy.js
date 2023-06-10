@@ -79,7 +79,6 @@ const DashedBox = ({ ...rest }) => (
 const CardExample = ({ ...rest }) => (
   <Card width="medium" onClick={() => {}} {...rest}>
     <Box id="cta-image" height="small">
-      {/* eslint-disable-next-line grommet/image-alt-text */}
       <Image {...event.image} />
     </Box>
     <CardBody align="start" gap="medium">

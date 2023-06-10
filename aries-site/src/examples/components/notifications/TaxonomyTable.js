@@ -1,4 +1,3 @@
-/* eslint-disable grommet/datatable-aria-describedby */
 import React from 'react';
 import { Box, DataTable } from 'grommet';
 import { TextEmphasis } from 'aries-core';
