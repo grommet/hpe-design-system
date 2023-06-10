@@ -19,6 +19,10 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   // Any other Next.js config options
   reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
+  swcMinify: true,
 };
 
 const plugins = [withTM, withMDX];
