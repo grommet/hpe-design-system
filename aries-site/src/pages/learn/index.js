@@ -11,7 +11,6 @@ import {
   Paragraph,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
-import { Layout } from '../../layouts';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
 
 const title = 'Learn';
@@ -19,7 +18,7 @@ const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
 const Learn = () => (
-  <Layout title={title} isLanding>
+  <>
     <Meta
       title={title}
       description={pageDetails.seoDescription}
@@ -93,7 +92,7 @@ const Learn = () => (
         </DataContext.Consumer>
       </Data>
     </PageContent>
-  </Layout>
+  </>
 );
 
 export default Learn;

@@ -41,6 +41,16 @@ const backgroundImages = {
       margin: { left: '-25px', top: '-175px' },
     },
   },
+  showmore: {
+    src: { dark: '/cards-dark.svg', light: '/cards.svg' },
+    alt: 'HPE Design System',
+    margin: { top: '50px', left: '-150px' },
+    style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
+    small: {
+      margin: { left: '-75px', top: '-75px' },
+    },
+    useGrid: true,
+  },
 };
 
 /* _app.js allows for customizing Next.js's default <App> component
@@ -84,7 +94,8 @@ function App({ Component, pageProps, router }) {
       <Layout
         title={title || ''}
         topic={topic}
-        isLanding={!topic}
+        // What's new page is MDX
+        isLanding={!topic && title !== 'whats new'}
         // applies card images to the "hub" pages
         backgroundImage={backgroundImages[title]}
       >
