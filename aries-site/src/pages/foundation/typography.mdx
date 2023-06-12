@@ -50,7 +50,7 @@ If heading levels are not implemented in the correct hierarchy, users of screen 
 - The main page sections following the page title should receive `level={2}`.
 - Any sub-topics of sections with `level={2}` should receive `level={3}`.
 - Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`.
-- Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading, then adjust the size by means of Heading's `size` prop.
+- Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading and let the size of the heading be determined by the theme.
 - It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
 - Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
 - Treat Layers as if they were their own page with the exceptions that the first heading in a Layer would be a Heading with `level={2}`.
@@ -74,7 +74,7 @@ Below is an example of how Heading levels should be implemented for a page calle
 
 ```
 
-When implementing heading levels, always begin with the correct heading level, then apply `size` adjustments to fit your styling needs. This allows for flexibility in design while maintaining well structured HTML documents needed by assistive technologies.
+When implementing heading levels, always use the correct semantic heading level. This maintains a well structured HTML document, needed by assistive technologies.
 
 ## Paragraph
 
