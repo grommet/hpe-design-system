@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Footer, ResponsiveContext } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
+import { LinkNext } from 'grommet-icons';
 import { WizardContext } from '.';
 
 export const StepFooter = ({ nextId, ...rest }) => {
@@ -31,7 +31,7 @@ export const StepFooter = ({ nextId, ...rest }) => {
       >
         <Button
           id={nextId}
-          icon={<FormNextLink />}
+          icon={<LinkNext />}
           primary
           reverse
           label={activeIndex === steps.length - 1 ? 'Finish wizard' : 'Next'}
