@@ -11,7 +11,7 @@ import {
   Page,
   PageContent,
 } from 'grommet';
-import { FormPrevious } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 import { PageHeader } from 'grommet/components';
 import { details, tags } from '.';
 
@@ -48,7 +48,7 @@ export const TagResource = () => (
       <PageHeader
         title="Store C-3P0"
         subtitle="Aruba 530 32930F"
-        parent={<Anchor icon={<FormPrevious />} label="Devices" />}
+        parent={<Anchor icon={<Previous />} label="Devices" />}
         actions={<Button label="Edit" primary />}
       />
       <Box gap="large" flex={false}>
