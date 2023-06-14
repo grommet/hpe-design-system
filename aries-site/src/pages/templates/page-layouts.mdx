@@ -1,5 +1,5 @@
 import { Box, Button, Text } from 'grommet';
-import { Clock, Figma, FormNext } from 'grommet-icons';
+import { Clock, Figma, Next } from 'grommet-icons';
 import Link from 'next/link';
 
 import { Example } from '../../layouts';
@@ -208,10 +208,11 @@ each [page content width's](#page-kinds) maximum width,
 contents padding, and alignment gracefully adjust across screens ranging from very narrow
 to very wide.
 
+{/* height value chosen to best visually represent the page layout diagram concept */}
+
 <Example
   screenContainer={{ scale: 0.5 }}
   showResponsiveControls={['fullScreen']}
-  // height value chosen to best visually represent the page layout diagram concept
   height={{ min: '625px' }}
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/page-layouts/PageContainerInteractive.js',
@@ -232,7 +233,7 @@ For specific guidelines and templates regarding page content, see [Content Layou
   <Button
     primary
     label="See Content Layouts"
-    icon={<FormNext />}
+    icon={<Next />}
     alignSelf="start"
     reverse
     size="large"

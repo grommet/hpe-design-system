@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import {
   Cluster,
-  FormPrevious,
+  Previous,
   Group,
   Hpe,
   List as ListIcon,
@@ -178,7 +178,7 @@ export const HubSpokeCardsExample = () => {
       {typeof parent !== 'undefined' && parent !== 'Home' && (
         <Button
           alignSelf="start"
-          icon={<FormPrevious />}
+          icon={<Previous />}
           gap="xxsmall"
           label={parent}
           onClick={() => setCurrentPage(getPageDetails(parent))}

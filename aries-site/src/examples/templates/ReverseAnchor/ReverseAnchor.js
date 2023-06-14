@@ -1,10 +1,10 @@
 import { Anchor } from 'grommet';
 import PropTypes from 'prop-types';
-import { FormPrevious } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 
 export const ReverseAnchor = ({ label, href, onClick, ...rest }) => (
   <Anchor
-    icon={<FormPrevious />}
+    icon={<Previous />}
     label={label}
     href={href || '#'} // placeholder href to ensure it appears in tab flow
     onClick={onClick}

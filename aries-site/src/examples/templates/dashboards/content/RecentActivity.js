@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'grommet';
-import { CircleInformation, FormNext } from 'grommet-icons';
+import { CircleInformation, Next } from 'grommet-icons';
 import { Activity, ActivityFeed } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/activities.json');
@@ -128,7 +128,7 @@ export const RecentActivity = () => {
 const FeedFooter = () => (
   <Button
     label="View all"
-    icon={<FormNext />}
+    icon={<Next />}
     onClick={() => {
       // eslint-disable-next-line no-alert
       alert(`

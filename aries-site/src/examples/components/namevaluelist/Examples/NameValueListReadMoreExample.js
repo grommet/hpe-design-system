@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Button, NameValueList, NameValuePair } from 'grommet';
-import { FormDown, FormUp } from 'grommet-icons';
+import { Down, Up } from 'grommet-icons';
 import { contentTruncationData } from '../data';
 
 export const NameValueListReadMoreExample = () => {
@@ -94,7 +94,7 @@ const TruncateButton = ({ showAll, setShowAll }) => (
     size="small"
     label={`Show ${!showAll ? 'all' : 'less'}`}
     onClick={() => setShowAll(!showAll)}
-    icon={!showAll ? <FormDown /> : <FormUp />}
+    icon={!showAll ? <Down /> : <Up />}
     reverse
   />
 );

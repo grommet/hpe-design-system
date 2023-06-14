@@ -9,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
+import { LinkNext } from 'grommet-icons';
 import { Example } from '../../../layouts';
 
 const columns = {
@@ -70,7 +70,7 @@ const Type = ({ children, href, preview, title }) => (
           alignSelf="start"
           margin={{ vertical: 'small' }}
           label="Read guidance"
-          icon={<FormNextLink aria-hidden="true" />}
+          icon={<LinkNext aria-hidden="true" />}
           reverse
           secondary
         />
@@ -85,7 +85,10 @@ const Type = ({ children, href, preview, title }) => (
 );
 
 Type.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   preview: PropTypes.element,
   title: PropTypes.string,
   href: PropTypes.string,

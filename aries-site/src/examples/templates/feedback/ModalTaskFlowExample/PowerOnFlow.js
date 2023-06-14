@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, Spinner, Text } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
 import { ButtonGroup, ModalBody, ModalFooter } from 'aries-core';
@@ -39,7 +40,7 @@ const steps = {
     ),
     footer: ({ onClose }) => (
       <ButtonGroup>
-        <Button label="Close" disabled={true} onClick={onClose} primary />
+        <Button label="Close" disabled onClick={onClose} primary />
       </ButtonGroup>
     ),
   },
@@ -77,6 +78,11 @@ export const PowerOnFlow = ({ onCancel, onClose }) => {
       </ModalFooter>
     </Box>
   );
+};
+
+PowerOnFlow.propTypes = {
+  onCancel: PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 export const config = {

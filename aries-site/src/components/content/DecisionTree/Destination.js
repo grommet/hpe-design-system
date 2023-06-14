@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { FormDown, FormUp } from 'grommet-icons';
+import { Down, Up } from 'grommet-icons';
 
 export const Destination = ({ children, detail, id, useCases, ...rest }) => {
   const [showMore, setShowMore] = useState(false);
@@ -67,7 +67,7 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
           <Button
             alignSelf="start"
             label={showMore ? 'Show less' : 'Show all'}
-            icon={showMore ? <FormUp /> : <FormDown />}
+            icon={showMore ? <Up /> : <Down />}
             onClick={() => setShowMore(!showMore)}
             margin={{ left: 'xsmall' }} // align button label with text above
             reverse
