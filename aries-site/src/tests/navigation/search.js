@@ -17,13 +17,10 @@ test(`should navigate to correct page after user types and clicks suggestion
 with mouse`, async t => {
   const page = 'Templates';
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
-  const suggestion = screen.getAllByRole('option').withText(page);
+  const suggestion = screen.getByRole('option', { name: page });
 
   navbar.searchFor(page);
-  await t
-    .click(suggestion)
-    .expect(getLocation())
-    .contains(expectedPath);
+  await t.click(suggestion).expect(getLocation()).contains(expectedPath);
 });
 
 test(`should navigate to correct page after user types page name and hits 
@@ -32,25 +29,18 @@ enter`, async t => {
   const expectedPath = `${baseUrl}/${page.toLowerCase()}`;
 
   navbar.searchFor(page);
-  await t
-    .pressKey('enter')
-    .expect(getLocation())
-    .contains(expectedPath);
+  await t.pressKey('enter').expect(getLocation()).contains(expectedPath);
 });
 
 test(`should navigate to correct hash after user clicks a suggestion that leads 
 to a page subsection`, async t => {
   const query = 'elevat';
-  const expectedPath = `${baseUrl}/foundation/color?q=${query}#elevation`;
+  const expectedPath = `${baseUrl}/foundation/color#elevation`;
   const page = 'Color';
   const suggestion = screen.getAllByRole('option').withText(page);
 
   navbar.searchFor(query);
-  await t
-    .setTestSpeed(0.1)
-    .click(suggestion)
-    .expect(getLocation())
-    .eql(expectedPath);
+  await t.click(suggestion).expect(getLocation()).eql(expectedPath);
 });
 
 // commenting out until https://github.com/grommet/grommet/issues/4875

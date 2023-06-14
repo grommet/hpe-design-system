@@ -1,11 +1,13 @@
 import { Selector, t } from 'testcafe';
-import { ReactSelector } from 'testcafe-react-selectors';
-import { repeatKeyPress, tabToSearch, SearchInput } from '../../tests/utils';
+import { repeatKeyPress, tabToSearch } from '../../tests/utils';
 
 export default class Navbar {
   constructor() {
-    this.searchButton = Selector('#search-button');
-    this.searchInput = ReactSelector(SearchInput);
+    this.searchButton = Selector('button').withAttribute(
+      'aria-label',
+      'Search',
+    );
+    this.searchInput = Selector('#docsearch-input');
   }
 
   async searchFor(text, options) {

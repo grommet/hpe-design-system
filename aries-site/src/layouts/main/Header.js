@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { DocSearch } from '@docsearch/react';
 import { ThemeModeToggle, AppIdentity } from '../../components';
+import { DocSearch } from '../navigation';
 
 import { getPageDetails, nameToPath } from '../../utils';
 
@@ -34,11 +34,7 @@ const StyledHeader = ({ ...rest }) => {
               />
             </Link>
           ))}
-        <DocSearch
-          appId={process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}
-          indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME}
-          apiKey={process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY}
-        />
+        <DocSearch />
         <ThemeModeToggle />
       </Box>
     </Header>
