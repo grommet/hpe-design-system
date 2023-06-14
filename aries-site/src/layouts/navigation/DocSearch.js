@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-// import { Anchor } from 'grommet';
 import { DocSearch } from '@docsearch/react';
-
-// Let DocSearch css drive the result styles
-// const StyledAnchor = styled(Anchor)`
-//   font-weight: inherit;
-// `;
 
 const DocSearchHit = ({ children, hit }) => (
   <Link href={hit.as || ''} passHref>
