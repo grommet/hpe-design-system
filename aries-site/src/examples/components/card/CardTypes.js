@@ -9,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { FormNextLink } from 'grommet-icons';
+import { LinkNext } from 'grommet-icons';
 import { Example } from '../../../layouts';
 import { EventPromotionCard, NavigationalCardPreview } from '.';
 
@@ -71,7 +71,7 @@ const Type = ({ description, href, preview, title }) => (
             alignSelf="start"
             margin={{ vertical: 'small' }}
             label="Read guidance"
-            icon={<FormNextLink aria-hidden="true" />}
+            icon={<LinkNext aria-hidden="true" />}
             reverse
             secondary
           />

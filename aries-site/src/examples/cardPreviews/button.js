@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { FormNext } from 'grommet-icons';
+import { Next } from 'grommet-icons';
 
 export const ButtonPreview = () => (
-  <Button label="Button" icon={<FormNext />} reverse tabIndex={-1} />
+  <Button label="Button" icon={<Next />} reverse tabIndex={-1} />
 );

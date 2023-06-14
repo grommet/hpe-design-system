@@ -46,10 +46,10 @@ export const StyleTable = ({ data }) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map(datum => (
-            <TableRow>
+          {data.map((datum, index) => (
+            <TableRow key={index}>
               {columns.map(c => (
-                <TableCell pad={{ vertical: 'xsmall' }}>
+                <TableCell key={c.property} pad={{ vertical: 'xsmall' }}>
                   {c.property === 'label' ? (
                     <Annotation target={datum[c.property]} kind="style" />
                   ) : (

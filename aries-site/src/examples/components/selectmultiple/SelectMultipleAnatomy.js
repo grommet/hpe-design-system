@@ -9,7 +9,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { FormUp } from 'grommet-icons';
+import { Up } from 'grommet-icons';
 
 const options = [];
 for (let i = 1; i <= 10; i += 1) options.push(`User ${i}`);
@@ -61,7 +61,7 @@ export const SelectMultipleInput = ({ id, ...rest }) => (
           round="xxsmall"
         >
           <Text>{`${selected.length} selected`}</Text>
-          <FormUp />
+          <Up />
         </Box>
       </FormField>
     </Form>

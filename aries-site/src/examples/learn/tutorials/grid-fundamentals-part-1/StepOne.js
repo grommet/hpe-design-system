@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
+import { Grommet, Box, Heading, Text, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 
 const ProductsPage = () => {
