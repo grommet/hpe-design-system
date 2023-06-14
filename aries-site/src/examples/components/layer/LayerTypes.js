@@ -85,7 +85,10 @@ const Type = ({ children, href, preview, title }) => (
 );
 
 Type.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   preview: PropTypes.element,
   title: PropTypes.string,
   href: PropTypes.string,

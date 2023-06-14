@@ -22,7 +22,6 @@ import {
   Video,
   WhatIs,
 } from '../components/home';
-import { Layout } from '../layouts';
 import { getPageDetails } from '../utils';
 
 const title = 'Home';
@@ -76,7 +75,7 @@ Intro.propTypes = {
 };
 
 const Index = () => (
-  <Layout title={title} isLanding pad={{}} width={{}}>
+  <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
       <Intro>
@@ -101,7 +100,7 @@ const Index = () => (
       <Quote />
       <Community {...widthProps} />
     </Box>
-  </Layout>
+  </>
 );
 
 export default Index;
