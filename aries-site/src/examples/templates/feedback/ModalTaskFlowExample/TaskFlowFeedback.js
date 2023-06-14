@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Box, Button, Form, FormField, StarRating, TextArea } from 'grommet';
 import { ButtonGroup, TextEmphasis } from 'aries-core';
@@ -28,6 +29,7 @@ export const TaskFlowFeedback = ({ onClose }) => {
       values: value,
     };
 
+    // eslint-disable-next-line no-unused-vars
     const submitResponse = () =>
       fetch(API_URL, {
         method: 'POST',
@@ -38,10 +40,12 @@ export const TaskFlowFeedback = ({ onClose }) => {
         },
         body: JSON.stringify(data),
       })
+        // eslint-disable-next-line no-unused-vars
         .then(response => {
           // Response handling here
           // update state/routing as approiate based on response.json
         })
+        // eslint-disable-next-line no-unused-vars
         .catch(error => {
           // Error handling here
         });
@@ -107,4 +111,8 @@ export const TaskFlowFeedback = ({ onClose }) => {
       </Box>
     </Form>
   );
+};
+
+TaskFlowFeedback.propTypes = {
+  onClose: PropTypes.func,
 };

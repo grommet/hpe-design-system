@@ -21,6 +21,7 @@ export const DashboardCardHeader = ({ title, level, subtitle, menuItems }) => (
 );
 
 DashboardCardHeader.propTypes = {
+  level: PropTypes.number,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   menuItems: PropTypes.arrayOf(
