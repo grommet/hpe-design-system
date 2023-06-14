@@ -42,7 +42,8 @@ const StyledHeader = ({ ...rest }) => {
           id="search-button"
           icon={<SearchIcon />}
           onClick={() => setShowSearch(true)}
-          data-analytics="search-button"
+          data-analytics=
+            "search_button,prop-Component Type=button,prop-Component Label=Search"
         />
         {showSearch && <Search setOpen={setShowSearch} />}
         <ThemeModeToggle />

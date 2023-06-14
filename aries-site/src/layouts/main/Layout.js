@@ -137,7 +137,7 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <Page data-analytics={`page-${title}`}>
+        <Page data-analytics={`page-${title},prop-BU=HPE Experience Studio`}>
           {/* I think Head is redundant at this point, 
               but left it as is for now */}
           <Head title={title} />

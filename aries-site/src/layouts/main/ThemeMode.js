@@ -2,11 +2,13 @@ import React from 'react';
 import { Box, Grommet } from 'grommet';
 import PropTypes from 'prop-types';
 import { ariesPop } from '../../themes/aries';
-import { analytics, useDarkMode } from '../../utils';
+import { useAnalytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
   const { value } = useDarkMode(ariesPop.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
+
+  const analytics = useAnalytics();
 
   const [mounted, setMounted] = React.useState(false);
 

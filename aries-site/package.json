@@ -6,6 +6,7 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
+    "@amplitude/analytics-browser": "^1.10.7",
     "@mdx-js/loader": "^1.6.1",
     "@next/mdx": "^9.4.4",
     "aries-core": "*",
