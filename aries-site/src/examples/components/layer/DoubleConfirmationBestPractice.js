@@ -21,5 +21,8 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
 );
 
 DoubleConfirmationBestPractice.propTypes = {
-  bestPractice: PropTypes.bool,
+  bestPractice: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['badLabel']),
+  ]),
 };

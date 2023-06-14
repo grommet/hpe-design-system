@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../components';
-import { Layout, PageIntro } from '../layouts';
+import { PageIntro } from '../layouts';
 import { getCards, getPageDetails } from '../utils';
 
 const title = 'Show More';
@@ -36,20 +36,7 @@ featuredCards.sort(
 cardOrder.splice(0, 0, ...featuredCards);
 
 const ShowMore = () => (
-  <Layout
-    backgroundImage={{
-      src: { dark: '/cards-dark.svg', light: '/cards.svg' },
-      alt: 'HPE Design System',
-      margin: { top: '50px', left: '-150px' },
-      style: { transform: 'scale(1.4)', transformOrigin: 'top left' },
-      small: {
-        margin: { left: '-75px', top: '-75px' },
-      },
-      useGrid: true,
-    }}
-    title={title}
-    isLanding
-  >
+  <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <PageContent gap="large">
       <PageIntro>
@@ -63,7 +50,7 @@ const ShowMore = () => (
       </PageIntro>
       <CardGrid cards={cardOrder} headingLevel={2} />
     </PageContent>
-  </Layout>
+  </>
 );
 
 export default ShowMore;

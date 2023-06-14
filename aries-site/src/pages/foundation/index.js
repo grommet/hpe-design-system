@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
-import { ContentSection, Layout, PageIntro, Subsection } from '../../layouts';
+import { ContentSection, PageIntro, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Foundation';
@@ -10,21 +10,7 @@ const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
 const Foundation = () => (
-  <Layout
-    backgroundImage={{
-      src: {
-        dark: '/foundation-dark.svg',
-        light: '/foundation-light.svg',
-      },
-      alt: 'HPE Design System Foundation',
-      margin: { left: '-280px', top: '-175px' },
-      small: {
-        margin: { left: '0', top: '-300px' },
-      },
-    }}
-    title={title}
-    isLanding
-  >
+  <>
     <Meta
       title={title}
       description={pageDetails.seoDescription}
@@ -54,7 +40,7 @@ const Foundation = () => (
         </Subsection>
       </ContentSection>
     </PageContent>
-  </Layout>
+  </>
 );
 
 export default Foundation;
