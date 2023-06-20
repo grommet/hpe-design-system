@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { waitForReact } from 'testcafe-react-selectors';
 import { screen } from '@testing-library/testcafe';
-
+import { Selector } from 'testcafe';
 import { baseUrl, getLocation } from '../utils';
 import Navbar from '../../page-objects/components/Navbar';
 
@@ -32,15 +32,19 @@ enter`, async t => {
   await t.pressKey('enter').expect(getLocation()).contains(expectedPath);
 });
 
-test(`should navigate to correct hash after user clicks a suggestion that leads 
-to a page subsection`, async t => {
+test.only(`should navigate to correct hash after user clicks a 
+suggestion that leads to a page subsection`, async t => {
   const query = 'elevat';
   const expectedPath = `${baseUrl}/foundation/color#elevation`;
   const page = 'Color';
   const suggestion = screen.getAllByRole('option').withText(page);
-
+  const pageSection = Selector('#elevation');
   navbar.searchFor(query);
   await t.click(suggestion).expect(getLocation()).eql(expectedPath);
+  // check that page has scrolled to subsection
+  await t
+    .expect(pageSection.getBoundingClientRectProperty('top'))
+    .within(-150, 150);
 });
 
 // commenting out until https://github.com/grommet/grommet/issues/4875
