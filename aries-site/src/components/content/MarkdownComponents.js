@@ -64,7 +64,7 @@ export const components = {
       />
     </Box>
   ),
-  code: ({ children: code, ...rest }) => (
+  pre: ({ children, ...rest }) => (
     <Box width="large" round="xsmall" overflow="auto">
       <Stack anchor="top-right">
         <SyntaxHighlighter
@@ -73,9 +73,9 @@ export const components = {
           language="javascript"
           {...rest}
         >
-          {code}
+          {children?.props?.children}
         </SyntaxHighlighter>
-        <CopyCodeButton code={code} />
+        <CopyCodeButton code={children?.props?.children} />
       </Stack>
     </Box>
   ),
