@@ -32,7 +32,7 @@ enter`, async t => {
   await t.pressKey('enter').expect(getLocation()).contains(expectedPath);
 });
 
-test.only(`should navigate to correct hash after user clicks a 
+test(`should navigate to correct hash after user clicks a 
 suggestion that leads to a page subsection`, async t => {
   const query = 'elevat';
   const expectedPath = `${baseUrl}/foundation/color#elevation`;
