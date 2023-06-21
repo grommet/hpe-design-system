@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Anchor, Diagram, Grid, ResponsiveContext, Stack, Text } from 'grommet';
 import { Answer, Decision, Destination } from '../../../components';
 
-const connection = (fromTarget, toTarget, { ...rest }) => ({
+const connection = (fromTarget, toTarget, rest) => ({
   fromTarget,
   toTarget,
   color: 'border',
