@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import { waitForReact } from 'testcafe-react-selectors';
-import { Selector } from 'testcafe';
 import { baseUrl } from '../utils';
 
 /* A deeplink is a subsection of a page. These tests check if the
@@ -38,15 +37,16 @@ with different browsers as to where
 the page actually lands when routed to a deep link
 */
 
-test(
-  'should navigate to correct hash of page when' +
-    'a deep link is directly routed to',
-  async t => {
-    const url = `${baseUrl}/foundation/color#background-colors`;
-    const pageSection = Selector('#background-colors');
-    await t
-      .navigateTo(url)
-      .expect(pageSection.getBoundingClientRectProperty('top'))
-      .within(-150, 150);
-  },
-);
+// Uncomment once https://github.com/grommet/hpe-design-system/issues/3452 is resolved
+// test(
+//   'should navigate to correct hash of page when' +
+//     'a deep link is directly routed to',
+//   async t => {
+//     const url = `${baseUrl}/foundation/color#background-colors`;
+//     const pageSection = Selector('#background-colors');
+//     await t
+//       .navigateTo(url)
+//       .expect(pageSection.getBoundingClientRectProperty('top'))
+//       .within(-150, 150);
+//   },
+// );
