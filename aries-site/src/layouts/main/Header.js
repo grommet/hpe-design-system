@@ -28,7 +28,15 @@ const StyledHeader = ({ ...rest }) => {
       <Box direction="row" align="center" gap="xsmall">
         {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
-            <Link key={item.name} href={nameToPath(item.name)} passHref>
+            <Link
+              key={item.name}
+              href={nameToPath(item.name)}
+              passHref
+              // Opting into legacy behavior bc passHref is not working
+              // in next v13.4.4
+              // https://github.com/vercel/next.js/issues/41973
+              legacyBehavior
+            >
               <Button
                 key={item.name}
                 label={item.name}
