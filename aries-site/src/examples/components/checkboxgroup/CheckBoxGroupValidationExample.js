@@ -17,7 +17,7 @@ export const CheckBoxGroupValidationExample = () => {
           required
         >
           <CheckBoxGroup
-            name="checkbox"
+            name="required-field"
             id="required-field"
             onChange={event => {
               // Demonstrating error message behavior

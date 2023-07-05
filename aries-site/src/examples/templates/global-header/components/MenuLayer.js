@@ -24,7 +24,11 @@ export const MenuLayer = () => {
   };
   return (
     <>
-      <Button icon={<Menu />} onClick={() => setShowLayer(true)} />
+      <Button
+        a11yTitle="Open menu"
+        icon={<Menu />}
+        onClick={() => setShowLayer(true)}
+      />
       {showLayer && (
         <Layer
           full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}

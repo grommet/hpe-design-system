@@ -20,6 +20,8 @@ export const SelectSearchExample = () => {
 
   return (
     <Form>
+      {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
         htmlFor="select-with-search__input"
         name="select-with-search"

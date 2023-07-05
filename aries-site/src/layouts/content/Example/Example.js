@@ -307,7 +307,8 @@ export const Example = ({
                   />
                 )}
                 <Button
-                  tip="Leave Fullscreen"
+                  a11yTitle="Leave fullscreen"
+                  tip="Leave fullscreen"
                   icon={<Contract />}
                   onClick={() => {
                     setFullscreen(false);

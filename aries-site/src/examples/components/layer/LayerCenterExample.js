@@ -39,7 +39,7 @@ export const LayerCenterExample = () => {
                 </Heading>
               </Box>
               <Box justify="center">
-                <Button icon={<Close />} onClick={onClose} />
+                <Button a11yTitle="Close" icon={<Close />} onClick={onClose} />
               </Box>
             </Box>
             <Text>A subtitle if needed</Text>

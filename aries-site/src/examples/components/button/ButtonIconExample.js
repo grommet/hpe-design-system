@@ -17,7 +17,7 @@ export const ButtonIconExample = () => {
       >
         <Button label="Button" icon={<Previous />} onClick={() => {}} />
         <Button label="Button" icon={<Next />} reverse onClick={() => {}} />
-        <Button icon={<Next />} onClick={() => {}} />
+        <Button a11yTitle="Next" icon={<Next />} onClick={() => {}} />
       </Box>
       <Box
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
@@ -32,7 +32,7 @@ export const ButtonIconExample = () => {
           reverse
           onClick={() => {}}
         />
-        <Button icon={<Next />} primary onClick={() => {}} />
+        <Button a11yTitle="Next" icon={<Next />} primary onClick={() => {}} />
       </Box>
     </Box>
   );

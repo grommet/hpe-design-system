@@ -79,6 +79,7 @@ export const Feedback = ({
       <FeedbackHeader title={title}>
         {modal && (
           <Button
+            a11yTitle="Close"
             onClick={onClose}
             icon={<Close />}
             autoFocus
