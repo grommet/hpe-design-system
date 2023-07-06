@@ -92,7 +92,7 @@ export const RequiredFieldsExample = () => {
           >
             <Select options={superPower} id="superPower" name="superPower" />
           </FormField>
-          {/* TO DO - enhance formfield-htmlfor-id to support Select */}
+          {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
           {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
           <FormField
             required
