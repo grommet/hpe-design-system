@@ -109,7 +109,12 @@ export const InPageNavigation = ({ headings }) => {
           else if (level.length === 3) subsectionPad = 'medium';
 
           return (
-            <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
+            <Link
+              key={index}
+              href={`#${nameToSlug(headingTitle)}`}
+              passHref
+              legacyBehavior
+            >
               <SectionButton theme={theme} hoverIndicator>
                 <Box border={borderLeft}>
                   <Box

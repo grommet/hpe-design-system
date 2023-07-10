@@ -22,7 +22,7 @@ const StyledHeader = ({ ...rest }) => {
       }}
       {...rest}
     >
-      <Link href="/" passHref>
+      <Link href="/" passHref legacyBehavior>
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
       <Box direction="row" align="center" gap="xsmall">
