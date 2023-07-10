@@ -1,13 +1,6 @@
-import React, {
-  Fragment,
-  useEffect,
-  useContext,
-  useCallback,
-  useState,
-} from 'react';
+import React, { Fragment, useContext, useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { initialize, pageview } from 'react-ga';
 import {
   Box,
   Main,
@@ -35,7 +28,6 @@ import {
   Feedback,
   Question,
 } from '../../components';
-import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 
@@ -46,13 +38,6 @@ export const Layout = ({
   topic,
   isLanding,
 }) => {
-  useEffect(() => {
-    if (Config.gaId) {
-      initialize(Config.gaId);
-      pageview(document.location.pathname);
-    }
-  }, []);
-
   const router = useRouter();
   // const announce = useContext(AnnounceContext);
   const relatedContent = titleProp && getRelatedContent(titleProp);
