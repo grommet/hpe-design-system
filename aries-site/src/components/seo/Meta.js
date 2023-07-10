@@ -22,7 +22,7 @@ export const Meta = ({
   connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://ca1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/;
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/;
   img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/;
-  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://netlify-cdp-loader.netlify.app/netlify.js ${
+  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://netlify-cdp-loader.netlify.app/netlify.js ${
     // in dev mode, we allow unsafe-eval to work with react hot reloader
     process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
   };

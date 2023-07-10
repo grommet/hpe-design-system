@@ -1,8 +1,10 @@
 import { MDXProvider } from '@mdx-js/react';
+import Script from 'next/script';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
+import * as gtag from '../utils/analytics';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -65,7 +67,8 @@ function App({ Component, pageProps, router }) {
   // necessary to ensure SkipLinks can receive first tab focus
   // after a route change
   useEffect(() => {
-    const handleRouteChange = () => {
+    const handleRouteChange = url => {
+      gtag.pageview(url);
       const skipLinks = document.querySelector('#skip-links');
       skipLinks.focus();
     };
@@ -90,20 +93,35 @@ function App({ Component, pageProps, router }) {
     slugToText(route[route.length - 2]);
 
   return (
-    <ThemeMode>
-      <Layout
-        title={title || ''}
-        topic={topic}
-        // What's new page is MDX
-        isLanding={!topic && title !== 'whats new'}
-        // applies card images to the "hub" pages
-        backgroundImage={backgroundImages[title]}
-      >
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </Layout>
-    </ThemeMode>
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '${gtag.GA_TRACKING_ID}');
+`}
+      </Script>
+      <ThemeMode>
+        <Layout
+          title={title || ''}
+          topic={topic}
+          // What's new page is MDX
+          isLanding={!topic && title !== 'whats new'}
+          // applies card images to the "hub" pages
+          backgroundImage={backgroundImages[title]}
+        >
+          <MDXProvider components={components}>
+            <Component {...pageProps} />
+          </MDXProvider>
+        </Layout>
+      </ThemeMode>
+    </>
   );
 }
 
