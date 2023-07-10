@@ -11,7 +11,6 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { Layout } from '../layouts';
 import { Meta } from '../components';
 
 const title = 'Page Not Found';
@@ -52,7 +51,7 @@ const Custom404 = () => {
   const second = !['xsmall', 'small'].includes(size) ? <Visual /> : <Message />;
 
   return (
-    <Layout title={title} isLanding>
+    <>
       <Meta title={title} />
       <PageContent>
         <Grid
@@ -67,7 +66,7 @@ const Custom404 = () => {
           {second}
         </Grid>
       </PageContent>
-    </Layout>
+    </>
   );
 };
 

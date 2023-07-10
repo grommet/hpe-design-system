@@ -7,12 +7,14 @@
   "private": true,
   "dependencies": {
     "@amplitude/analytics-browser": "^1.10.7",
-    "@mdx-js/loader": "^1.6.1",
-    "@next/mdx": "^9.4.4",
     "aries-core": "*",
-    "next-compose-plugins": "^2.2.0",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.4.4",
+    "next": "13.4.4",
     "react-ga": "^2.7.0",
-    "react-syntax-highlighter": "^15.4.4"
+    "react-syntax-highlighter": "^15.4.4",
+    "remark-gfm": "^3.0.1"
   },
   "scripts": {
     "build": "yarn build-search && next build",
@@ -35,9 +37,7 @@
     "axe-core": "^4.6.1",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "eslint": "^8.13.0",
-    "next": "^11.1.4",
-    "next-transpile-modules": "^8.0.0",
+    "next-transpile-modules": "^10.0.0",
     "start-server-and-test": "^1.10.8",
     "testcafe": "^2.1.0",
     "testcafe-react-selectors": "^5.0.2"

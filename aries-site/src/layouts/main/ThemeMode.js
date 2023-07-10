@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grommet } from 'grommet';
+import { Grommet } from 'grommet';
 import PropTypes from 'prop-types';
 import { ariesPop } from '../../themes/aries';
 import { useAnalytics, useDarkMode } from '../../utils';
@@ -34,13 +34,9 @@ export const ThemeMode = ({ children, ...rest }) => {
     </Grommet>
   );
 
-  // prevents ssr flash for mismatched dark mode
-  // and responsive layout differences
-  if (!mounted) {
-    return <Box style={{ visibility: 'hidden' }}>{body}</Box>;
-  }
+  // prevents ssr flash for mismatched dark mode and ensures no hydration errors
 
-  return body;
+  return mounted && body;
 };
 
 ThemeMode.propTypes = {

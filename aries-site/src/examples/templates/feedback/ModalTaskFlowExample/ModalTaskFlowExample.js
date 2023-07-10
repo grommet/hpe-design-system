@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnnounceContext, Box, Button } from 'grommet';
@@ -26,7 +27,7 @@ export const ModalTaskFlowExample = ({ containerRef }) => {
   const flowContent = (
     <PowerOnFlow
       onCancel={() => {
-        announce(`Power on device modal cancelled and closed.`, 'assertive');
+        announce('Power on device modal cancelled and closed.', 'assertive');
         setShowModal(false);
       }}
       onClose={() => {
@@ -44,7 +45,7 @@ export const ModalTaskFlowExample = ({ containerRef }) => {
     containerRef: PropTypes.shape({ current: PropTypes.any }),
   };
 
-  const feedbackTitle = `We'd love your feedback`;
+  const feedbackTitle = "We'd love your feedback";
   const feedbackContent = (
     <TaskFlowFeedback
       onClose={() => {
@@ -72,7 +73,7 @@ export const ModalTaskFlowExample = ({ containerRef }) => {
           title={title}
           onEsc={() => {
             announce(
-              `Power on device modal cancelled and closed.`,
+              'Power on device modal cancelled and closed.',
               'assertive',
             );
             setShowModal(false);
