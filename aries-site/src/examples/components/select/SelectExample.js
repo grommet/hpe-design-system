@@ -15,6 +15,8 @@ export const SelectExample = () => {
 
   return (
     <Form>
+      {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
         htmlFor="select-example__input"
         name="select-example"

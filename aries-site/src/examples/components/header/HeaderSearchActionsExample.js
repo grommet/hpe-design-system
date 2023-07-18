@@ -34,6 +34,7 @@ const Search = () => {
 
   return !focused && ['xsmall', 'small'].includes(size) ? (
     <Button
+      a11yTitle="Search"
       icon={<SearchIcon />}
       hoverIndicator
       onClick={() => setFocused(true)}
@@ -78,9 +79,9 @@ export const HeaderSearchActionsExample = () => (
     </Button>
     <Search />
     <Box direction="row">
-      <Button icon={<Notification />} />
-      <Button icon={<Chat />} />
-      <Button icon={<User />} />
+      <Button a11yTitle="Notifications" icon={<Notification />} />
+      <Button a11yTitle="Support chat" icon={<Chat />} />
+      <Button a11yTitle="Account" icon={<User />} />
     </Box>
   </Header>
 );

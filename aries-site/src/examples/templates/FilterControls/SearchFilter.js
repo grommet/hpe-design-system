@@ -41,6 +41,7 @@ export const SearchFilter = ({ placeholder }) => {
     </Box>
   ) : (
     <Button
+      a11yTitle="Search"
       id="search-button"
       kind="toolbar"
       icon={<Search />}

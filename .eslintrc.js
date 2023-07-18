@@ -11,9 +11,8 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:jsx-a11y/recommended',
+    'plugin:grommet/recommended',
     'prettier',
-    // TO DO resolve why definitions weren't found
-    // 'plugin:grommet/recommended',
   ],
   plugins: ['react', 'jsx', 'jsx-a11y', 'react-hooks', 'prettier'],
   env: {
