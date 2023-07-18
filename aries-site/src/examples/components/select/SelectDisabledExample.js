@@ -17,6 +17,8 @@ export const SelectDisabledExample = () => {
   return (
     <Box width="medium">
       <Form>
+        {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
         <FormField
           htmlFor="disabled-example__input"
           name="disabled-example"

@@ -18,6 +18,8 @@ export const SelectValidationExample = () => {
 
   return (
     <Form>
+      {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
         htmlFor="validation-example__input"
         name="validation-example"

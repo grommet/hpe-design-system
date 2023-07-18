@@ -84,7 +84,7 @@ export const ButtonGoodSignUpCTAPreview = () => {
               value="password"
             />
           </FormField>
-          <FormField htmlFor="terms-and-privacy-good">
+          <FormField htmlFor="terms-and-privacy-good" name="termsAndPrivacy">
             <CheckBox
               id="terms-and-privacy-good"
               name="termsAndPrivacy"

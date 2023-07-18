@@ -17,6 +17,9 @@ export const FilterRangeSelector = ({ attr }) => {
 
   return (
     <>
+      {/* https://github.com/grommet/eslint-plugin-grommet/issues/47 */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id, 
+    grommet/formfield-htmlfor-id, grommet/formfield-name */}
       <FormField
         htmlFor={property}
         name={property}
