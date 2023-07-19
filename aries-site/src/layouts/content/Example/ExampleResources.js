@@ -34,7 +34,14 @@ const CopyCodeButton = ({ activeCode, code }) => {
     return () => clearTimeout(timer);
   };
 
-  return <Button tip={copyTip} icon={<Copy />} onClick={onCopy} />;
+  return (
+    <Button
+      a11yTitle={copyTip}
+      tip={copyTip}
+      icon={<Copy />}
+      onClick={onCopy}
+    />
+  );
 };
 
 export const ExampleResources = ({

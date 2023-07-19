@@ -81,6 +81,7 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
           )}
           {closeId && (
             <Button
+              a11yTitle="Remove"
               id={closeId}
               icon={<FormClose />}
               hoverIndicator

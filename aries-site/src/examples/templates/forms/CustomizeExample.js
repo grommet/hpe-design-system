@@ -61,6 +61,7 @@ export const CustomizeExample = () => {
             name="memory"
           >
             <RadioButtonGroup
+              id="memory"
               name="memory"
               options={[
                 '8GB (1x8GB) DDR4-2400 ECC memory',
@@ -80,6 +81,7 @@ export const CustomizeExample = () => {
             name="cpu"
           >
             <RadioButtonGroup
+              id="cpu"
               name="cpu"
               options={[
                 'AMD Opteron™ 1.6GHz (Turbo Boost 2.8GHz), 4 cores, 6 ' +

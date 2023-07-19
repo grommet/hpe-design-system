@@ -57,6 +57,7 @@ export const HeaderExample = () => {
       <>
         {!focused && ['xsmall', 'small'].includes(size) && (
           <Button
+            a11yTitle="Search"
             icon={<SearchIcon />}
             hoverIndicator
             onClick={() => setFocused(true)}

@@ -71,6 +71,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
             <Box direction="row" align="end">
               <FormField
                 htmlFor="access-token"
+                name="access-token"
                 label="Access token"
                 contentProps={{
                   // border: false,
@@ -79,6 +80,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
                 flex
               >
                 <TextInput
+                  name="access-token"
                   id="access-token"
                   readOnly
                   value={accessToken}

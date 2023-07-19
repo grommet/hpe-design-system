@@ -67,6 +67,7 @@ export const Nav = ({
                 }))
           ) : (
             <Button
+              a11yTitle={!open ? 'Open menu' : 'Close'}
               icon={!open ? <Menu /> : <Close />}
               onClick={() => setOpen(!open)}
               plain
