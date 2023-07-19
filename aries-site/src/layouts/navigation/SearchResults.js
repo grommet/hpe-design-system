@@ -91,7 +91,12 @@ export const SearchResults = ({
       fill="vertical"
       {...rest}
     >
-      <Button icon={<Close />} onClick={onClose} alignSelf="end" />
+      <Button
+        a11yTitle="Close search results"
+        icon={<Close />}
+        onClick={onClose}
+        alignSelf="end"
+      />
       <Box
         background="background-contrast"
         flex={false}

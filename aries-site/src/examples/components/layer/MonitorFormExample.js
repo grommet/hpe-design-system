@@ -73,7 +73,7 @@ export const MonitorFormExample = ({ sticky }) => {
             label="Bussiness description"
             contentProps={contentProps}
           >
-            <TextArea id="description" name="monitorName" />
+            <TextArea id="description" name="desc" />
           </FormField>
           <TextEmphasis margin={{ vertical: 'medium' }}>
             Monitor detail

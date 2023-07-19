@@ -15,6 +15,8 @@ export const SelectMultipleSimpleExample = () => {
   const [selected, setSelected] = useState(defaultOptions.slice(0, 3));
   return (
     <Form>
+      {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
         htmlFor="multi-select-example__input"
         name="multi-select-example"

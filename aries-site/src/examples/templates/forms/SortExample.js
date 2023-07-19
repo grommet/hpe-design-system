@@ -48,6 +48,8 @@ export const SortExample = () => {
         pad={{ horizontal: 'xxsmall' }}
       >
         <Form value={formValues} onChange={onFormChange} method="post">
+          {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
           <FormField htmlFor="sortBy__input" name="sortBy" label="Sort by">
             <Select
               id="sortBy"

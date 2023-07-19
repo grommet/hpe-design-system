@@ -170,7 +170,7 @@ export const SignInExample = () => {
               type="password"
             />
           </FormField>
-          <FormField htmlFor="remember-me">
+          <FormField htmlFor="remember-me" name="rememberMe">
             <CheckBox id="remember-me" name="rememberMe" label="Remember me" />
           </FormField>
           {credentialError && (
