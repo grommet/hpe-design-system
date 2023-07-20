@@ -1,3 +1,4 @@
+import contributorCommitMessages from '../content/ContributerCommitMessages';
 import React, {
   Fragment,
   useEffect,
@@ -34,10 +35,12 @@ import {
   FeedbackButton,
   Feedback,
   Question,
+  components,
 } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
+import { UpdateTag } from '../content/UpdateTag';
 
 export const Layout = ({
   backgroundImage,
@@ -64,6 +67,13 @@ export const Layout = ({
     render,
   } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
+
+  let currentFileName = title?.toLowerCase().replace(/\s+/g, '').trim() + ".mdx";
+  let newUpdate = true; 
+  //^^ currently keeping this as true for running purposes
+  //the actual logic to solve this is stored in pageVisitTracker.js but it hasn't been connected yet
+  //let newUpdate = pageVisitTracker(title, currentFileName, topic);
+  //^^it will be this instead
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
@@ -182,8 +192,14 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
+                          {newUpdate &&
+                          //newUpdate solved in above logic, determines if updateTag should be shown
+                            <UpdateTag topic={topic} currentFileName={currentFileName}/>
+                            //<UpdateTag currentFileName={currentFileName} topic={topic}/>
+                          }
                           {children}
                         </ContentSection>
+                        {/* <ChangeLog topic={topic} currentFileName={currentFileName}/> */}
                         {relatedContent.length > 0 && (
                           <RelatedContent
                             relatedContent={relatedContent}
