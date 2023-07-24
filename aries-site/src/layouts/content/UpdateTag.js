@@ -1,17 +1,37 @@
-import { Anchor, Notification } from 'grommet';
+import { Anchor, Text, Notification } from 'grommet';
 import { CircleInformation } from 'grommet-icons';
-import contributorCommitMessages from './ContributerCommitMessages';
 
-export const UpdateTag = ({ topic, currentFileName }) => {
-    // I had to re-run the fetch in this file because the API wasn't being called when I refreshed/changed guidances it in the parent Layout page
-    // It only seems to work when it is being re-ran here per page change? Hopefully I dont jinx it?
-    // Right now, I just grab the most recent commit, and send it out in the Notification component
-    const updateLog = contributorCommitMessages(topic, currentFileName);
-    if(updateLog.length > 0){
-        const newDate = new Date(updateLog[0].date).toDateString();
-        const description = updateLog[0].string;
-        return(
-            <Notification width='large' title={newDate} message={description} margin={{ bottom: 'medium' }} icon={<CircleInformation/>}/>
-        );
+export const UpdateTag = ({name}) => {
+    const history = JSON.parse(window.localStorage.getItem("update-history"));
+    let newUpdate;
+    if(name in history){
+      newUpdate = history[name].update;
+    }else{
+      newUpdate = false;
     }
+    let link = history[name].action;
+    return(
+        <>
+        {newUpdate && 
+            <Notification width='large'
+            title={new Date(history[name].date).toDateString()} 
+            message={
+                <>
+                <Text>{history[name].description}</Text>
+                {history[name].action && 
+                    <Anchor label='See section here' href={link}/> 
+                    //WARNING!! depending on what the devs tell us, this is assuming they give us a link to the section
+                    //this will re-route them to the actual HPE site and not the local host so it's a little funky right now on a localHost
+                    //another way we could do an action button: they give us the name of the section changed, and i write a little function
+                    //to turn it into proper href formatting and I can take them there from that
+                    //however, this would rely on the devs perfect spelling/spacing of the title for it to work properly
+                    //and i think accuracy is more achievable from a link
+                }
+                </>
+            } 
+            margin={{ bottom: 'medium' }} icon={<CircleInformation/>}
+            />
+        }
+        </>
+    );
 };
