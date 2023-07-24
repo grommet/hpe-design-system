@@ -19,7 +19,6 @@ import {
   SkipLinks,
   Stack,
 } from 'grommet';
-import contributorCommitMessages from '../content/ContributerCommitMessages';
 import {
   ContentSection,
   DocsPageHeader,
@@ -41,6 +40,7 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateTag } from '../content/UpdateTag';
+import fetchData from '../content/fetchData';
 
 export const Layout = ({
   backgroundImage,
@@ -67,13 +67,6 @@ export const Layout = ({
     render,
   } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
-
-  const currentFileName = `${title?.toLowerCase().replace(/\s+/g, '').trim()  }.mdx`;
-  const newUpdate = true; 
-  // ^^ currently keeping this as true for running purposes
-  // the actual logic to solve this is stored in pageVisitTracker.js but it hasn't been connected yet
-  // let newUpdate = pageVisitTracker(title, currentFileName, topic);
-  // ^^it will be this instead
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
@@ -137,6 +130,7 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
+  fetchData();
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -192,11 +186,7 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {newUpdate &&
-                          // newUpdate solved in above logic, determines if updateTag should be shown
-                            <UpdateTag topic={topic} currentFileName={currentFileName}/>
-                            // <UpdateTag currentFileName={currentFileName} topic={topic}/>
-                          }
+                          <UpdateTag name={title} />
                           {children}
                         </ContentSection>
                         {/* <ChangeLog topic={topic} currentFileName={currentFileName}/> */}

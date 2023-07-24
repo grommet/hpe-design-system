@@ -13,16 +13,15 @@ export const Identifier = ({
   subTitle,
   size,
   updates,
+  type,
   ...rest
 }) => { 
   const darkMode = useDarkMode();
-  
-  //possible new spot to explore -> how to read if the entire component is new? AKA how to solve for that "new" variable on line 38
   return(
   <Box align="center" {...rest}>
     <Box direction='row' justify='between' fill='horizontal'>
       {children}
-        {updates &&
+        {updates && (type === "Update") &&
             <Tag 
             size='small' 
             border={{
@@ -32,10 +31,10 @@ export const Identifier = ({
               side: "all"
             }}  
             background='#117B82'
-            value="Updates"
+            value="Updated"
             a11yTitle={`There's been updates for ${title}`}/>
         }
-        {/* {new &&
+        {updates && (type === "New") &&
             <Tag 
             size='small' 
             border={{
@@ -47,7 +46,7 @@ export const Identifier = ({
             background='#6633BC'
             value="New!"
             a11yTitle={`There's a new item called ${title}`}/>
-        } */}
+        }
     </Box>
     <Box
     direction='row'

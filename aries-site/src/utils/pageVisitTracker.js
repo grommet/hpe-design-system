@@ -1,5 +1,5 @@
 import contributorCommitMessages from '../layouts/content/ContributerCommitMessages';
-
+//NOT FUNCTIONAL WITH THE PR METHOD YET, THIS IS WHAT I'M WORKING ON NOW
 // I haven't connected it just yet, but I would implement this in the ContentCard.js and Layout.js for the updateTag
 const pageVisitTracker = function(title, currentFileName, topic){
   const dateTime = new Date().getTime();
@@ -20,7 +20,11 @@ const pageVisitTracker = function(title, currentFileName, topic){
     if(window.localStorage.getItem(tokenName) > new Date(now.getTime() - 5*1000)){ // if the most recent token is older than 5 seconds ago then set it, otherwise dont. this covers cases of the page refreshing a few times
       window.localStorage.setItem(tokenName, dateTime);
     }
-  }else{ // in the case that they do not have the token
+  }else if(updateLog.length === 0){
+    console.log("here!");
+    newUpdate=false;
+  }
+  else{ // in the case that they do not have the token
     if(new Date(updateLog[0].date).getTime() > new Date(new Date().setDate(dateTime.getDate() - 30))){ // if it is been less than 30 days since the commit
       newUpdate = true;
     }else{ // if the most recent commit isn't new anymore

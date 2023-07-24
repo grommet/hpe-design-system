@@ -5,33 +5,18 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
-import contributorCommitMessages from '../../layouts/content/ContributerCommitMessages';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
-    const currentFileName = `${name?.toLowerCase().replace(/\s+/g, '').trim()  }.mdx`;
-    // console.log("content card calling: ");
-    // console.log(topic.parent.name.toLowerCase());
-
-    // I recall the fetch so that all the components/templates/foundations and their commits are currently available as they load up
-    const cardUpdateLog = contributorCommitMessages(topic.parent.name.toLowerCase(), currentFileName);
-    const aYearAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1)).getTime();
-    let newUpdate;
-
-    // I'm at a point where the localStorage logic isn't implemented yet
-    // so this is temporarily checking if it has been a year since the commit
-    // if it has happened within a year, then it will show the "updated" tag on the page
-    // once pageVisitTracker.js is embedded the function will be solved here to find "newUpdates"
-    // let newUpdates = pageVisitTracker(name?, currentFileName, topic.parent.name.toLowerCase());
-    // I would then be able to delete lines 19 & 20
-    if(cardUpdateLog[0]){
-      if(aYearAgo < new Date(cardUpdateLog[0].date).getTime()){
-        newUpdate = true;
-      }else{
-        newUpdate = false;
-      }
+    const history = JSON.parse(window.localStorage.getItem("update-history"));
+    let newUpdate, type;
+    if(name in history){
+      newUpdate = history[name].update;
+      type = history[name].type;
+    }else{
+      newUpdate = false;
     }
 
     return (
@@ -74,6 +59,7 @@ export const ContentCard = forwardRef(
               gap="xsmall"
               level={level}
               updates={newUpdate}
+              type={type}
             >
               {parent && parent.icon && !minimal && (
                 <Box direction="row" align="center" gap="xsmall">

@@ -5,8 +5,7 @@ import {
     Text,
 } from 'grommet';
 
-
-// I set up if we wanted to go ahead with it in the future!
+//NEED TO FIX ACCORDING TO NEW PR METHOD
 export const ChangeLog = ({ currentFileName, topic } ) => {
     const updateLog = contributorCommitMessages(topic, currentFileName);
     // console.log(updateLog);
