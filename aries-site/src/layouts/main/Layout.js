@@ -40,7 +40,8 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateTag } from '../content/UpdateTag';
-import fetchData from '../content/fetchData';
+import pageVisitTracker from '../../utils/pageVisitTracker';
+import { createMemoryHistory } from "history";
 
 export const Layout = ({
   backgroundImage,
@@ -49,6 +50,16 @@ export const Layout = ({
   topic,
   isLanding,
 }) => {
+
+  // let history = createMemoryHistory();
+  // console.log(history.location);
+  // history.listen(({ action, location }) => {
+  //   console.log(
+  //     `The current URL is ${location.pathname}${location.search}${location.hash}`
+  //   );
+  //   console.log(`The last navigation action was ${action}`);
+  // });
+
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -130,7 +141,10 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  fetchData();
+  if(window.localStorage.getItem("update-history")){
+    pageVisitTracker(title);  
+  }
+  //console.log(title + " " + window.localStorage.getItem(`${title?.toLowerCase().replace(/\s+/g,'-')}-last-visited`))
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -168,7 +182,7 @@ export const Layout = ({
                       {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
                           <SkipLinkTarget id="toc" />
-                          <InPageNavigation headings={headings} />
+                          <InPageNavigation title={title} headings={headings} />
                         </Box>
                       ) : undefined}
                       <Box

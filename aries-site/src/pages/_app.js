@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
+import fetchData from '../layouts/content/fetchData';
+import { createMemoryHistory } from 'history';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -53,6 +55,7 @@ const backgroundImages = {
   },
 };
 
+
 /* _app.js allows for customizing Next.js's default <App> component
  * Details: https://nextjs.org/docs/advanced-features/custom-app
  *
@@ -61,6 +64,19 @@ const backgroundImages = {
  */
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  // let history = createMemoryHistory();
+  // console.log(history.location);
+  // history.listen(({ action, location }) => {
+  //   console.log(
+  //     `The current URL is ${location.pathname}${location.search}${location.hash}`
+  //   );
+  //   console.log(`The last navigation action was ${action}`);
+  // });
 
   // necessary to ensure SkipLinks can receive first tab focus
   // after a route change
@@ -88,7 +104,6 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2] &&
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
-
   return (
     <ThemeMode>
       <Layout

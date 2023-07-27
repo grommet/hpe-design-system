@@ -5,6 +5,7 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
+import pageVisitTracker from '../../utils/pageVisitTracker';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
@@ -12,11 +13,13 @@ export const ContentCard = forwardRef(
     const darkMode = useDarkMode();
     const history = JSON.parse(window.localStorage.getItem("update-history"));
     let newUpdate, type;
-    if(name in history){
-      newUpdate = history[name].update;
-      type = history[name].type;
-    }else{
-      newUpdate = false;
+    if(history){
+      if(name in history){
+        newUpdate = pageVisitTracker(name);
+        type = history[name].type;
+      }else{
+        newUpdate = false;
+      }
     }
 
     return (

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
 import { nameToSlug } from '../../utils';
+import { Upgrade } from 'grommet-icons';
 
 const SectionButton = styled(Button)`
   border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
@@ -44,7 +45,7 @@ const useActiveHeadingId = (headings, options) => {
   return activeHeadingId;
 };
 
-export const InPageNavigation = ({ headings }) => {
+export const InPageNavigation = ({ headings, title }) => {
   const theme = useContext(ThemeContext);
 
   let { large, medium } = theme.global.edgeSize;
@@ -60,6 +61,8 @@ export const InPageNavigation = ({ headings }) => {
 
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
+
+  const history = JSON.parse(window.localStorage.getItem("update-history"));
 
   return (
     <Box
@@ -108,6 +111,24 @@ export const InPageNavigation = ({ headings }) => {
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
 
+          //LOGIC FOR UPDATED SECTION TAGS
+          let sectionList;
+          let newUpdate = false;
+
+          if(history){
+            if(title in history){
+              if(history[title].update && (history[title].sections[0].length > 0)){ 
+              //to see if the update should be shown and if there are sections reported
+                sectionList = history[title].sections;
+                Object.values(sectionList).forEach(val => {
+                  if(val === headingTitle){ //since we are already mapping through the section titles, for each title, check if there is one with a reported update in the history
+                    newUpdate = true;
+                  }
+                });
+              } 
+            }
+          }
+          //console.log("here");
           return (
             <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
               <SectionButton theme={theme} hoverIndicator>
@@ -123,10 +144,14 @@ export const InPageNavigation = ({ headings }) => {
                         ? undefined
                         : { left: theme.global.borderSize.small }
                     }
+                    direction='row'
+                    align='center'
+                    gap='small'
                   >
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
+                    {newUpdate && <Upgrade color='#117B82'/>}
                   </Box>
                 </Box>
               </SectionButton>
