@@ -153,13 +153,7 @@ export const RequiredFieldsExample = () => {
               direction="row"
               gap="xsmall"
             >
-              <Box
-                flex={false}
-                margin={{ top: 'hair' }}
-                pad={{ top: 'xxsmall' }}
-              >
-                <CircleAlert size="small" />
-              </Box>
+              <CircleAlert size="small" />
               <Text size="xsmall">
                 The name of the superhero is already being used. Provide a
                 unique name.
