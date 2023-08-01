@@ -91,20 +91,13 @@ Use your best judgement around which input type is appropriate for the data you 
   becomes limited, use a single filter button that opens a Layer containing the filters.
 - **Is there more than one filter?** Use a single button with filter icon that
   [opens a Layer containing the filters](/templates/filtering).
-- **Is the user going to be selecting multiple options?** Filter with
+- **When only one item can be selected from a list, use the [Select](/components/select) component.
+- **Is the user going to be selecting from 4 or fewer multiple selection options?** Filter with
   [CheckBoxGroup](#filters-in-a-center-layer).
+- **If the filter set requires multiple selections can be made in a list that contains 5 or more items, use [SelectMultiple](/components/SelectMultiple).
+- **When the data list contains 10 or more items, consider including search in your [SelectMultiple](/components/SelectMultiple) implementation.
 - **Is the user aiming to filter based on a range?** Filter with
   [RangeSelector](#filtering-with-rangeselector).
-- **Does your filter have a large number of options (>10)?** Filter with
-  [CheckBoxGroup in a side-anchored Layer](/templates/filtering). Present a prioritized subset of
-  the options to the user first and provide an accompanying "Show more" anchor that will reveal
-  the rest of the options when clicked. When utilizing the "Show more", your filters should be
-  displayed in a side-anchored modal since it provides an intuitive vertical scrolling behavior.
-- **Does your filter have a massive number of options (>100)?** First consider if you are able
-  to break this filter into more manageable groupings. However, if you are unable to break up the
-  filter options into smaller groups, consider using a [scrollable CheckBoxGroup](/components/checkboxgroup#scroll).
-  This approach should be used as a last resort since research demonstrates that
-  [this pattern is not ideal for user experience](https://baymard.com/blog/inline-scroll-areas).
 
 ## More examples of filtering
 
