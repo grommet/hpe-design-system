@@ -88,7 +88,8 @@ export const InlineNotificationExample = ({ containerRef }) => {
                 />
               </FormField>
               <Button
-                label={<Copy />}
+                a11yTitle={copyTip}
+                icon={<Copy />}
                 kind="toolbar"
                 onClick={onCopy}
                 tip={{
