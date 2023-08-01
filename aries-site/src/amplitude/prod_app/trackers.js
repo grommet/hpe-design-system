@@ -1,15 +1,15 @@
 /* eslint-disable max-classes-per-file */
-// import { 
-//   init,
-//   track as trackAmplitude
-// } from '@amplitude/analytics-browser';
+import { 
+   init,
+   track as trackAmplitude,
+} from '@amplitude/analytics-browser';
 import { buildDatalayerCommon } from './datalayer/common';
 
 import {
-  // AMPLITUDE_APIKEY_DEV,
-  // AMPLITUDE_APIKEY_PROD,
-  GREENLAKE_DEV_SITE,
-  GREENLAKE_PROD_SITE,
+  AMPLITUDE_APIKEY_DEV,
+  AMPLITUDE_APIKEY_PROD,
+  // GREENLAKE_DEV_SITE,
+  // GREENLAKE_PROD_SITE,
   PAGE_EVENT_NAME,
 } from './constants';
 
@@ -41,26 +41,25 @@ export class AbstractTracker {
 
 export class AmplitudeTracker extends AbstractTracker {
   setup() {
-    const { hostname } = window.location;
-    // const isProd = process.env.NODE_ENV !== 'production' 
-    //   ? AMPLITUDE_APIKEY_DEV
-    //   : AMPLITUDE_APIKEY_PROD;
-    const isProd =
-      GREENLAKE_PROD_SITE.test(hostname) && !GREENLAKE_DEV_SITE.test(hostname);
-    console.log('NODE', process.env.NODE_ENV, isProd);
-    // const apiKey = isProd ? AMPLITUDE_APIKEY_DEV : AMPLITUDE_APIKEY_PROD;
-    if (this.oktaId) {
-      this.log.info(
-        // eslint-disable-next-line max-len
-        `***FOUND: Okta ID=${this.oktaId}, initializing Amplitude with known user setup`,
-      );
-      // init(apiKey, this.oktaId);
-    } else {
-      this.log.info(
-        // eslint-disable-next-line max-len
-        '***NOT FOUND: No Okta ID, initializing Amplitude with anonymous data collection',
-      );
-      // init(apiKey);
+    // const { hostname } = window.location;
+    const isProd = process.env.NODE_ENV === 'production';
+    // const isProd =
+    // GREENLAKE_PROD_SITE.test(hostname) && !GREENLAKE_DEV_SITE.test(hostname);
+    const apiKey = isProd ? AMPLITUDE_APIKEY_PROD : AMPLITUDE_APIKEY_DEV;
+    if (apiKey) {
+      if (this.oktaId) {
+        this.log.info(
+          // eslint-disable-next-line max-len
+          `***FOUND: Okta ID=${this.oktaId}, initializing Amplitude with known user setup`,
+        );
+        init(apiKey, this.oktaId);
+      } else {
+        this.log.info(
+          // eslint-disable-next-line max-len
+          '***NOT FOUND: No Okta ID, initializing Amplitude with anonymous data collection',
+        );
+        init(apiKey);
+      }
     }
   }
 
@@ -79,7 +78,7 @@ export class AmplitudeTracker extends AbstractTracker {
     const dataLayerToUse =
       datalayer !== undefined ? datalayer : this.buildDatalayer(ruleLabel);
     console.log('TRACK', eventName, dataLayerToUse);
-    // trackAmplitude(eventName, dataLayerToUse); // Amplitude Track
+    trackAmplitude(eventName, dataLayerToUse); // Amplitude Track
     this.log.info(
       // eslint-disable-next-line max-len
       `***Amplitude:-${ruleLabel}:track event_name=${eventName}, ${JSON.stringify(

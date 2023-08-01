@@ -19,10 +19,10 @@ export const Meta = ({
   const pageContent = 'products';
   const csp = `default-src 'self' 'unsafe-eval'; 
   style-src 'self' *.hpe.com/hfws-static/5/css/ 'unsafe-inline';
-  connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://ca1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/;
+  connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://ca1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/ https://api2.amplitude.com/2/httpapi;
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/;
   img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/;
-  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://netlify-cdp-loader.netlify.app/netlify.js ${
+  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://netlify-cdp-loader.netlify.app/netlify.js https://api2.amplitude.com/2/httpapi ${
     // in dev mode, we allow unsafe-eval to work with react hot reloader
     process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
   };

@@ -45,7 +45,6 @@ export const Layout = ({
   title: titleProp,
   topic,
   isLanding,
-  ...rest
 }) => {
   useEffect(() => {
     if (Config.gaId) {

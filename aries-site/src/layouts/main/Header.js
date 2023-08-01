@@ -43,6 +43,7 @@ const StyledHeader = ({ ...rest }) => {
           icon={<SearchIcon />}
           onClick={() => setShowSearch(true)}
           data-analytics=
+            // eslint-disable-next-line max-len
             "search_button,prop-Component Type=button,prop-Component Label=Search"
         />
         {showSearch && <Search setOpen={setShowSearch} />}

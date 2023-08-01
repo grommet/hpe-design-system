@@ -1,6 +1,6 @@
 // (C) Copyright 2022 Hewlett Packard Enterprise Development LP.
 
-import { PAGE_EVENT_NAME } from "../amplitude/prod_app/constants";
+import { PAGE_EVENT_NAME } from '../amplitude/prod_app/constants';
 
 const DATA_ANALYTICS = 'data-analytics';
 
@@ -97,7 +97,7 @@ const doClick = (event) => ({
   eventName: PAGE_EVENT_NAME,
   data: {
     grommet: getAnalyticsAttrData(event),
-  }
+  },
 });
 
 const EVENT_MAP = {
