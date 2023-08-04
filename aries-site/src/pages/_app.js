@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
-import fetchData from '../layouts/content/fetchData';
-import { createMemoryHistory } from 'history';
+import pageVisitTracker from '../utils/pageVisitTracker';
+import { createContext } from 'react';
+import { useState } from 'react';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -62,29 +63,131 @@ const backgroundImages = {
  * The `Component` prop is the active `page`, so whenever you
  * navigate between routes, `Component` will change to the new `page`.
  */
+
+
+export const ViewContext = createContext(undefined);
+
+
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
+  
+  //state that holds the update information within the last 30 days
+  const [wholeViewHistory, setWholeViewHistory] = useState({});
+  //state that holds boolean for whether or not update info is ready to be rendered
+  const [status, setStatus] = useState(false);
 
+  //this effect is only for the first time a page loads
   useEffect(() => {
-    fetchData();
+      let name = router.asPath;
+      let nameArray = name.split("/");
+      name = nameArray[Object.keys(nameArray).length - 1];
+      name = name.charAt(0).toUpperCase() +  name.slice(1);
+      name = name.split("#")[0];
+      
+      //imported and put fetchData in here so that it can access the setWholeViewHistory function
+      let thirtyDaysAgo = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
+      fetch(`https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`)
+      .then(response => response.json())
+      .then(data => {
+          let tempHistory = {};
+          let tokenName;
+          for(let i=0; i<Object.keys(data).length; i++){
+              if(new Date(data[i].merged_at).getTime() < thirtyDaysAgo){ //if it is older than thirty days ago
+                  break;
+              }
+              let tempString = data[i].body;
+              if(tempString.includes("#### Notifications")){
+                  console.log(data[i].number);
+                  const indexOfFirstComponent = tempString.search("#### Notifications") + 22; 
+                  const notifSection = tempString.slice(indexOfFirstComponent);
+                  const notifList = notifSection.split("\r\n\r\n"); //splits them into an array jumping b/w name, sections, and description
+                  const regExp = /\[([^)]+)\]/;
+                  for (let j=0; j < Object.keys(notifList).length; j+=3){
+                      let tempName = notifList[j].trim();
+                      let temp = regExp.exec(tempName);
+                      let typeChange = temp[1].trim();
+                      let justName;
+                      if(typeChange === 'Update'){
+                        justName = tempName.slice('8').trim();
+                      }else if(typeChange === 'New'){
+                        justName = tempName.slice('5').trim();
+                      }
+                      if(!(justName in tempHistory)){ 
+                          let sectionArray = notifList[j+1].slice(1, -1).split("][");
+                          let finalSectionlist = [];
+                          let action = "";
+                          if(Object.keys(sectionArray).length === 1){ //add an active link if only one section has been updated
+                              action = "#" + sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
+                          }
+                          for(let i=0; i< Object.keys(sectionArray).length; i++){
+                              finalSectionlist[i] = sectionArray[i].charAt(0).toUpperCase() + sectionArray[i].slice(1).toLowerCase();
+                          }
+                          let newUpdate;
+                          tokenName = `${justName?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
+                          if(window.localStorage.getItem(tokenName)){ 
+                              if(window.localStorage.getItem(tokenName) > new Date(data[i].merged_at).getTime()){
+                                //history of them visiting the page before, and that visit was after the newest update was sent  
+                                newUpdate = false;
+                              }else{
+                                //history of them visiting the page before, but that visit was before the newest update was sent
+                                newUpdate = true;
+                              }
+                          }else{
+                              //have never seen the page before
+                              newUpdate = true;
+                          }
+                          tempHistory[justName] = 
+                              {"type": typeChange,
+                              "description": notifList[j+2].slice(1, -1),
+                              "date": data[i].merged_at,
+                              "sections": sectionArray,
+                              "action": action,
+                              "update": newUpdate,
+                              };
+                      }
+                  }
+              }
+          }
+          window.localStorage.setItem("update-history",JSON.stringify(tempHistory));
+          setWholeViewHistory(tempHistory);
+      }).then(() => {
+          if(name){
+              let tokenName = `${name?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
+              let dateNow = new Date().getTime();
+              window.localStorage.setItem(tokenName, dateNow);
+          }
+      })
+      .catch(error => console.error(error));
   }, [])
 
-  // let history = createMemoryHistory();
-  // console.log(history.location);
-  // history.listen(({ action, location }) => {
-  //   console.log(
-  //     `The current URL is ${location.pathname}${location.search}${location.hash}`
-  //   );
-  //   console.log(`The last navigation action was ${action}`);
-  // });
-
-  // necessary to ensure SkipLinks can receive first tab focus
-  // after a route change
   useEffect(() => {
     const handleRouteChange = () => {
       const skipLinks = document.querySelector('#skip-links');
       skipLinks.focus();
-    };
+      console.log("routing");
+      
+      if(typeof(window) !== "undefined"){
+        let viewHistory = JSON.parse(window.localStorage.getItem("update-history"));
+        let name = router.asPath;
+          let nameArray = name.split("/");
+          name = nameArray[Object.keys(nameArray).length - 1];
+          name = name.charAt(0).toUpperCase() +  name.slice(1);
+        let tokenName = `${name?.toLowerCase().replace(/\s+/g,'-')  }-last-visited`;
+        let dateTime = new Date().getTime();
+         
+        //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
+        //then check if it should be shown (T/F), and set that in local storage and the state variable
+        if(name in viewHistory){
+          viewHistory[name].update = pageVisitTracker(name);
+                        
+          window.localStorage.setItem("update-history", JSON.stringify(viewHistory));
+          window.localStorage.setItem(tokenName, dateTime);
+            
+          setWholeViewHistory(viewHistory);
+          setStatus(true);
+        }
+      };
+    }
 
     router.events.on('routeChangeComplete', handleRouteChange);
 
@@ -95,6 +198,8 @@ function App({ Component, pageProps, router }) {
     };
   }, [router.events]);
 
+  useEffect(() => {console.log(status)}, [status]);
+
   // final array item from the route is the title of page we are on
   const title =
     route[route.length - 1].length && slugToText(route[route.length - 1]);
@@ -104,20 +209,24 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2] &&
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
+
+   
   return (
     <ThemeMode>
-      <Layout
-        title={title || ''}
-        topic={topic}
-        // What's new page is MDX
-        isLanding={!topic && title !== 'whats new'}
-        // applies card images to the "hub" pages
-        backgroundImage={backgroundImages[title]}
-      >
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </Layout>
+      <ViewContext.Provider value={{wholeViewHistory, status, setStatus}}>
+        <Layout
+          title={title || ''}
+          topic={topic}
+          // What's new page is MDX
+          isLanding={!topic && title !== 'whats new'}
+          // applies card images to the "hub" pages
+          backgroundImage={backgroundImages[title]}
+        >
+          <MDXProvider components={components}>
+            <Component {...pageProps} />
+          </MDXProvider>
+        </Layout>
+      </ViewContext.Provider>
     </ThemeMode>
   );
 }

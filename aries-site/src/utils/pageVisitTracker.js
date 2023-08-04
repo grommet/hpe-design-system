@@ -6,18 +6,14 @@ const pageVisitTracker = function(title){
   if(title in history){ //there has been a reported update within the last 30 days
     if(window.localStorage.getItem(tokenName)){ //there has been a guaranteed update and we've seen this page before
       if(window.localStorage.getItem(tokenName) > new Date(history[title].date).getTime()){ //when we've seen this page, has it been after the update?
-        //console.log("A");
         newUpdate = false; //this means that the page has a reported update within 30 days, it has been seen before, but they have already seen this update
       }else{
-        //console.log("B");
         newUpdate = true; //this means that the page has a reported update within 30 days, it has been seen before, and when it has been seen, it was before the update
       }
     }else{ //it's within 30 days but we have never seen the page before
-      //console.log("C");
       newUpdate = true;
     }
   }else{
-    //console.log("D");
     newUpdate = false; //definitely no update, nothing reported in the PRs
   }
   return newUpdate;
