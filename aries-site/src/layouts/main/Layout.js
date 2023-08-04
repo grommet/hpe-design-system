@@ -4,6 +4,7 @@ import React, {
   useContext,
   useCallback,
   useState,
+  useLayoutEffect,
 } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -40,8 +41,7 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateTag } from '../content/UpdateTag';
-import pageVisitTracker from '../../utils/pageVisitTracker';
-import { createMemoryHistory } from "history";
+import { ViewContext } from '../../pages/_app';
 
 export const Layout = ({
   backgroundImage,
@@ -51,16 +51,8 @@ export const Layout = ({
   isLanding,
 }) => {
 
-  // let history = createMemoryHistory();
-  // console.log(history.location);
-  // history.listen(({ action, location }) => {
-  //   console.log(
-  //     `The current URL is ${location.pathname}${location.search}${location.hash}`
-  //   );
-  //   console.log(`The last navigation action was ${action}`);
-  // });
-
   useEffect(() => {
+    //console.log("useEffect in the layout")
     if (Config.gaId) {
       initialize(Config.gaId);
       pageview(document.location.pathname);
@@ -141,10 +133,13 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  if(window.localStorage.getItem("update-history")){
-    pageVisitTracker(title);  
-  }
-  //console.log(title + " " + window.localStorage.getItem(`${title?.toLowerCase().replace(/\s+/g,'-')}-last-visited`))
+  const {wholeViewHistory, status, setStatus} = useContext(ViewContext) || undefined;
+
+  //every time a new page loads, initalize ready state to false, until app.js declares otherwise
+  useEffect(() => {
+    setStatus(false);
+  }, [title]);
+
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -200,10 +195,11 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          <UpdateTag name={title} />
+                          {status && wholeViewHistory[title].update &&
+                            <UpdateTag name={title} />
+                          }
                           {children}
                         </ContentSection>
-                        {/* <ChangeLog topic={topic} currentFileName={currentFileName}/> */}
                         {relatedContent.length > 0 && (
                           <RelatedContent
                             relatedContent={relatedContent}
