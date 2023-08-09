@@ -97,7 +97,6 @@ function App({ Component, pageProps, router }) {
               }
               let tempString = data[i].body;
               if(tempString.includes("#### Notifications")){
-                  console.log(data[i].number);
                   const indexOfFirstComponent = tempString.search("#### Notifications") + 22; 
                   const notifSection = tempString.slice(indexOfFirstComponent);
                   const notifList = notifSection.split("\r\n\r\n"); //splits them into an array jumping b/w name, sections, and description
@@ -150,6 +149,7 @@ function App({ Component, pageProps, router }) {
           }
           window.localStorage.setItem("update-history",JSON.stringify(tempHistory));
           setWholeViewHistory(tempHistory);
+          setStatus(true);
       }).then(() => {
           if(name){
               let tokenName = `${name?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
@@ -164,7 +164,6 @@ function App({ Component, pageProps, router }) {
     const handleRouteChange = () => {
       const skipLinks = document.querySelector('#skip-links');
       skipLinks.focus();
-      console.log("routing");
       
       if(typeof(window) !== "undefined"){
         let viewHistory = JSON.parse(window.localStorage.getItem("update-history"));
@@ -197,8 +196,6 @@ function App({ Component, pageProps, router }) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
-
-  useEffect(() => {console.log(status)}, [status]);
 
   // final array item from the route is the title of page we are on
   const title =

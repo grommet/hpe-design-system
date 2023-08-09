@@ -16,7 +16,6 @@ export const Identifier = ({
   type,
   ...rest
 }) => { 
-  const darkMode = useDarkMode();
   return(
   <Box align="center" {...rest}>
     <Box direction='row' justify='between' fill='horizontal'>
@@ -30,7 +29,7 @@ export const Identifier = ({
               style: "solid",
               side: "all"
             }}  
-            background='#117B82'
+            background={{ dark: true, color: "teal" }}
             value="Updated"
             a11yTitle={`There's been updates for ${title}`}/>
         }
@@ -43,7 +42,7 @@ export const Identifier = ({
               style: "solid",
               side: "all"
             }}  
-            background='#6633BC'
+            background={{ dark: true, color: "purple" }}
             value="New!"
             a11yTitle={`There's a new item called ${title}`}/>
         }
