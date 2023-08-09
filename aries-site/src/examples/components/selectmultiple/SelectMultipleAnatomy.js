@@ -47,6 +47,9 @@ export const AnatomyGrid = ({ ...rest }) => (
 export const SelectMultipleInput = ({ id, ...rest }) => (
   <Box width="medium" {...rest}>
     <Form>
+      {/* Disbable for anatomy diagram */}
+      {/* eslint-disable-next-line grommet/formfield-name, 
+      grommet/formfield-htmlfor-id */}
       <FormField
         htmlFor="multi-select-anayomy-example__input"
         name="multi-select-anatomy-example"

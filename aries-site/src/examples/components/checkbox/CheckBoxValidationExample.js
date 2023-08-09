@@ -19,7 +19,7 @@ export const CheckBoxValidationExample = () => {
             required
           >
             <CheckBox
-              name="checkbox"
+              name="required-field"
               id="required-field"
               onChange={event => {
                 // Demonstrating error message state

@@ -25,10 +25,11 @@ CheckBoxGroup should be used to present a group of options to the user. The user
 
 ### Best practices
 
-- CheckBoxGroup should be used to select zero or more of options from a list.
+- CheckBoxGroup should be used to select zero or more options from a list.
 - In a CheckBoxGroup, options are independent from one another.
 - Settings changed by checkboxes should not take effect until the user clicks to proceed.
-- It is recommended to have only 10 or fewer options in a CheckBoxGroup. Use multiple CheckboxGroups if necessary.
+- It is recommended to have only 4 or fewer options in a CheckBoxGroup.
+- Use [SelectMultiple](/components/selectmultiple#best-practices) when multiple selections can be made in a list containing 5-9 items; use [SelectMultiple](/components/selectmultiple#best-practices) with search when containing 10 or more items.
 
 ### Usage
 
@@ -43,7 +44,8 @@ CheckBoxGroup should be used to present a group of options to the user. The user
 **The don'ts for CheckBoxGroup:**
 
 - Don’t align checkboxes horizontally in a group.
-- Refrain from using CheckboxGroup when only one item can be selected from a list.
+- When only one item can be selected from a list, use the [Select](/components/select) component instead.
+- When multiple selections can be made in a list that contains 5 or more items, use [SelectMultiple](/components/SelectMultiple).
 
 ### Accessibility
 

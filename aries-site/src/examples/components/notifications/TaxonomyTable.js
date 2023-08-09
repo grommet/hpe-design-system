@@ -132,6 +132,7 @@ export const columns = [
 
 export const TaxonomyTable = () => (
   <Box pad="small" background="background-front" round="small" overflow="auto">
+    {/* eslint-disable-next-line grommet/datatable-aria-describedby */}
     <DataTable columns={columns} data={data} primaryKey={false} />
   </Box>
 );

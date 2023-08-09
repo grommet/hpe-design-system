@@ -34,6 +34,9 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
 
   const Input = formats[kind].render;
   return (
+    // https://github.com/grommet/eslint-plugin-grommet/issues/48
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
     <FormField
       contentProps={{
         border: formats[kind].border ?? true,

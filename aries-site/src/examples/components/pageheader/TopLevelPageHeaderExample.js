@@ -64,7 +64,9 @@ export const TopLevelPageHeaderExample = () => (
       <PageHeader
         title="Manage Account"
         subtitle="Manage your HPE Common Cloud Account."
-        actions={<Button icon={<ChapterAdd />} tip="Add cards" />}
+        actions={
+          <Button a11yTitle="Add cards" icon={<ChapterAdd />} tip="Add cards" />
+        }
       />
       <Grid columns={{ count: 'fit', size: 'medium' }} gap="medium">
         {data.map((datum, index) => (
