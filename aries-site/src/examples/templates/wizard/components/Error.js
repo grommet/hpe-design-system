@@ -13,9 +13,7 @@ export const Error = ({ children, ...rest }) => (
     width="medium"
   >
     <Box direction="row" gap="xsmall" {...rest}>
-      <Box flex={false} margin={{ top: 'hair' }} pad={{ top: 'xxsmall' }}>
-        <CircleAlert size="small" />
-      </Box>
+      <CircleAlert size="small" />
       <Text size="xsmall">{children}</Text>
     </Box>
   </Box>

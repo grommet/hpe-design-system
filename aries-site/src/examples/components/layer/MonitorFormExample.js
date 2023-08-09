@@ -18,9 +18,10 @@ const options = ['Any', 'None', 'Any Scheduled'];
 export const MonitorFormExample = ({ sticky }) => {
   const [formValues, setFormValues] = useState({
     monitorName: 'C2 Monitor',
-    desc: `Sustainable neutra echo park helvetica freegan
-    forage hashtag meditation kogi activated charcoal
-    pitchfork`,
+    // disabling max-len to ensure a new line isn't added in the
+    // textarea in browser
+    // eslint-disable-next-line max-len
+    desc: 'Sustainable neutra echo park helvetica freegan forage hashtag meditation kogi activated charcoal pitchfork',
     monitorType: 'Rule',
     frameworks: 'Any Scheduled',
     severity: 'Any',
@@ -70,10 +71,10 @@ export const MonitorFormExample = ({ sticky }) => {
           <FormField
             htmlFor="description"
             name="desc"
-            label="Bussiness description"
+            label="Business description"
             contentProps={contentProps}
           >
-            <TextArea id="description" name="monitorName" />
+            <TextArea id="description" name="desc" />
           </FormField>
           <TextEmphasis margin={{ vertical: 'medium' }}>
             Monitor detail

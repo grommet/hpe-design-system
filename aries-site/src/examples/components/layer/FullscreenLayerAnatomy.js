@@ -83,7 +83,7 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
       <Box round pad="xsmall" background="green" />
     </Box>
     <Page background="background-front" id="layer-container">
-      <Button alignSelf="end" icon={<Close />} id={closeId} />
+      <Button alignSelf="end" a11yTitle="Close" icon={<Close />} id={closeId} />
       <PageContent
         gap="medium"
         pad={{ horizontal: 'medium', bottom: 'medium' }}

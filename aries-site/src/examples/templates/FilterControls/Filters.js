@@ -40,6 +40,7 @@ export const Filters = () => {
     <>
       <Box direction="row" align="center" gap="small" flex={false}>
         <Button
+          a11yTitle="Filter"
           kind="toolbar"
           badge={
             filterCount > 0

@@ -77,6 +77,8 @@ export const FilterExample = () => {
               placeholder="server_name"
             />
           </FormField>
+          {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
           <FormField
             htmlFor="locationType__input"
             name="locationType"

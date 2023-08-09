@@ -127,6 +127,7 @@ export const ExpandedStateAnatomy = () => {
           border={{ side: 'bottom', color: 'border-weak' }}
         >
           <Button
+            a11yTitle="Delete item"
             id={annotations.remove.element}
             icon={<Trash />}
             alignSelf="end"
