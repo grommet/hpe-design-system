@@ -52,7 +52,6 @@ export const Layout = ({
 }) => {
 
   useEffect(() => {
-    //console.log("useEffect in the layout")
     if (Config.gaId) {
       initialize(Config.gaId);
       pageview(document.location.pathname);
@@ -195,7 +194,7 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {status && wholeViewHistory[title].update &&
+                          {status && wholeViewHistory[title]?.update &&
                             <UpdateTag name={title} />
                           }
                           {children}
