@@ -4,7 +4,6 @@ import React, {
   useContext,
   useCallback,
   useState,
-  useLayoutEffect,
 } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -40,7 +39,7 @@ import {
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
-import { UpdateTag } from '../content/UpdateTag';
+import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
 
 export const Layout = ({
@@ -195,7 +194,7 @@ export const Layout = ({
                             render={render}
                           />
                           {status && wholeViewHistory[title]?.update &&
-                            <UpdateTag name={title} />
+                            <UpdateNotification name={title} />
                           }
                           {children}
                         </ContentSection>
