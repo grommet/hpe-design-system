@@ -1,0 +1,249 @@
+import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  AbbreviatedDateExample,
+  DateTimeNotificationExample,
+  RelativeTimeExample,
+  TimezoneExample,
+  ZeroPaddingExample,
+} from '../../examples';
+
+Date and time can appear in a wide variety of contexts:
+
+- DataTables
+- Inline with paragraph text
+- NameValueLists
+- [Notifications](#notifications)
+- [Log files](#log-files)
+
+Depending on the context, date and time may be presented as:
+
+| Format                          | When to use                                                                        | Examples                | Notes                                                                                                 |
+| ------------------------------- | ---------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| [Absolute time](#absolute-time) | When it's important for the user to know the precise date of an event.             | 5/13/2023, May 13, 2023 | The granularity and formatting of this time stamp depends on the context. See absolute time guidance. |
+| [Relative time]()               | To display how long ago something occurred or how long until something will occur. | in 5 days, 3 days ago   | --                                                                                                    |
+
+Timestamps should always be stored in UTC, the universal standard. These UTC timestamps will then get converted to local time, if necessary, by the UI for display.
+
+## Absolute time
+
+Absolute time stamps display the precise date and time an action has occurred, is occurring, or will occur.
+
+May be presented as:
+
+- Date
+- Date and time
+- Including seconds (and fractional seconds)
+- Including timezone
+
+In most cases, absolute time should be presented in [locale-specific format](#locale-formatting) and according to the timezone, indicating the timezone in the output.
+
+When displaying, avoid using numeric date formats when space is available. Numeric dates are ordered differently depending on the region. In some areas the month, day, or year may come first. Even if the date is translated by the UI based on the user’s locale, numeric dates can still cause confusion for users. Instead, write out the date when space is available.
+
+| Formats                        | Example                  | When to use                                                               |
+| ------------------------------ | ------------------------ | ------------------------------------------------------------------------- |
+| Written format                 | September 15, 2023       | When space is available.                                                  |
+| Numeric locale-specific format | 09/15/2023               | When the user needs to compare across dates, such as in a column or list. |
+| ISO 8601 format                | 2023-09-15T10:00:00.000Z | Log files                                                                 |
+
+### Locale formatting
+
+Date and time are formatted differently depending on the language and region. Some aspects that might change depending on locale include date and time ordering, separators, and 12-hour vs 24-hour clocks.
+
+Other than log files, date and time should be presented according to the user's locale.
+
+Common use cases include:
+
+- Last activity/modified
+- Object creation
+- Duration
+- Upcoming updates
+
+There are various [Javascript Date methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) that can be leveraged to convert from UTC to the user's locale.
+
+### Timezones
+
+Display the timezone alongside the time stamp for clarity. Ensure the time stamp and timezone reflects the user's current locale.
+
+In instances when a user's timezone cannot be determined, output the date and time in UTC+0.
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Utilize the browser locale to format and update the date and time for users, providing a personalized experience.',
+    }}
+  >
+    <TimezoneExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don't present a date in a different timezone than that of the user. This leads to confusion, increased cognitive load, and sets users up for failure.`,
+    }}
+  >
+    <TimezoneExample bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+### ISO 8601 Formatting
+
+To be filled in.
+
+## Relative time
+
+Relative time stamps display:
+
+1. How recently an event has occurred.
+1. How far in the future an event will occur.
+
+Relative time stamps remove the need for the user to perform mental calculations by presenting timestamps in written form like "2 days ago".
+
+When displaying relative time:
+
+- Adapt and show the appropriate unit of time. For example, after 60 minutes, display hours.
+- Unless required, displaying the time for anything less than a second and more than a week is generally not needed.
+- For older events, anything that happened more than a week ago, consider using [absolute time](#absolute-time) instead.
+- Consider whether or not it's important for users to be able to see the absolute time as well. This could be placed within a tooltip or displayed on a detail page.
+
+| Description            | Display                          | Display when space is limited   |
+| ---------------------- | -------------------------------- | ------------------------------- |
+| Within the last minute | Just now; a minute ago           | now; a min ago                  |
+| 1 day ago              | yesterday                        | yesterday                       |
+| < 1 week ago           | x days, hour, minute, second ago | x days, hr, min, sec ago        |
+| >= 1 week ago          | [Absolute time](#absolute-time)  | [Absolute time](#absolute-time) |
+| In 1 day               | tomorrow                         | tomorrow                        |
+| < 1 week from now      | in x days, hour, minute, second  | in x days, hr, min sec          |
+| In >= 1 week           | [Absolute time](#absolute-time)  | [Absolute time](#absolute-time) |
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Provide users with only relevant information. In this use case, users do not need to know how many seconds ago an activity was last performed or the exact time activities older than a month were performed.',
+    }}
+  >
+    <RelativeTimeExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don't include additional information if it isn't needed. This will hurt readability and cause issues with layouts at smaller breakpoints.`,
+    }}
+  >
+    <RelativeTimeExample bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Abbreviating date and time
+
+When space in the UI is limited, units of time, days of the week, and months can be abbreviated.
+
+Some contexts in which abbreviations may be needed are:
+
+- Within cells of a data table
+- At smaller breakpoints
+
+| Units of time  | Abbreviation |
+| -------------- | ------------ |
+| millisecond(s) | ms           |
+| second(s)      | sec          |
+| minute(s)      | min          |
+| hour(s)        | hr           |
+| day(s)         | day, days    |
+| week(s)        | wk           |
+| month(s)       | mo           |
+| year(s)        | yr           |
+
+To abbreviate days of the week or months, use the [Javascript toLocaleDateString method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString).
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/date-and-time/AbbreviatedDateExample.js"
+  horizontalLayout
+  height="none"
+>
+  <AbbreviatedDateExample />
+</Example>
+
+## Zero-padding
+
+When a user needs to compare time stamps such as in a list or column, zero-padding ensures units are uniform and aligned for easy readability and comparison. When applicable, a leading zero should be included within both the date and time.
+
+Zero-padding is not needed when context contains only one time stamp, see [notification example](#notification).
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Zero-pad both date and timestamps for easier comparison across rows.',
+    }}
+  >
+    <ZeroPaddingExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don't omit the leading zero for the date or time. This causes issues with alignment and layout which prevents users from being able to quickly scan and compare the information.`,
+    }}
+  >
+    <ZeroPaddingExample bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Alignment
+
+To be filled in.
+
+## Examples
+
+### Log files
+
+For log files, there are two options:
+
+1. Always output timestamps in UTC, indicating UTC in the output.
+1. Allow the user to specify a default timezone and always output timestamps in that timezone, specifying the timezone in the output.
+
+Example To be filled in.
+
+### Run times
+
+Example To be filled in.
+
+### Notifications
+
+When displaying future events such as upcoming updates, expiration dates, and ongoing processes:
+
+- Use the friendlier, more conversational [relative time]() phrasing, such as “in x days”.
+- Provide the date, exact time, and timezone alongside the relative time to remove any ambiguity.
+
+<BestPracticeGroup columns={['auto']}>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Accompany the relative time with the exact date, time, and timezone in which the event will occur.',
+    }}
+    width="100%"
+  >
+    <DateTimeNotificationExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t omit write ambiguous messages that may lead users to question when exactly an event will occur. In this example, this message doesn’t tell the user whether or not their license would be expiring in the morning, during the day, or in the evening. `,
+    }}
+    width="100%"
+  >
+    <DateTimeNotificationExample bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
