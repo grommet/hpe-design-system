@@ -7,20 +7,20 @@ export const AbbreviatedDateExample = () => {
   return (
     <Box gap="medium">
       <Text>
-        {date.toLocaleDateString('en-US', {
+        {Intl.DateTimeFormat('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
           weekday: 'long',
-        })}
+        }).format(date)}
       </Text>
       <Text>
-        {date.toLocaleDateString('en-US', {
+        {Intl.DateTimeFormat('en-US', {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
           weekday: 'short',
-        })}
+        }).format(date)}
       </Text>
     </Box>
   );
