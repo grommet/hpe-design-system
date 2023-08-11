@@ -40,6 +40,15 @@ const getRelativeTime = (date1, date2, locale = 'en') => {
   if (minutes) return rtf.format(minutes, 'minute');
 };
 
+const badPracticesTimes = [
+  '1 mo 2 wk 4 days 10 hr 5 min 8 sec ago',
+  '8 days 5 hr 12 min 6 sec ago',
+  '1 wk 6 days 3 hr 18 min 2 sec ago',
+  '1 day 2 hr 5 min 30 sec ago',
+  '2 hr 3 min 12 sec ago',
+  '3 min 25 sec ago',
+];
+
 export const RelativeTimeExample = ({ bestPractice = true }) => {
   // in production, this should just be new Date();
   const mockNow = new Date('2023-05-20T08:32:00.000Z');
@@ -50,28 +59,36 @@ export const RelativeTimeExample = ({ bestPractice = true }) => {
           property: 'lastActivity',
           header: 'Last activity',
           render: datum => {
-            return getRelativeTime(new Date(datum.lastActivity), mockNow);
+            return bestPractice
+              ? getRelativeTime(new Date(datum.lastActivity), mockNow)
+              : badPracticesTimes[datum.id];
           },
         },
       ]}
       sort={{ property: 'lastActivity', direction: 'desc' }}
       data={[
         {
+          id: 0,
           lastActivity: '2023-04-18T06:57:00.000Z',
         },
         {
+          id: 1,
           lastActivity: '2023-05-12T06:57:00.000Z',
         },
         {
+          id: 2,
           lastActivity: '2023-05-03T06:57:00.000Z',
         },
         {
+          id: 3,
           lastActivity: '2023-05-19T06:57:00.000Z',
         },
         {
+          id: 4,
           lastActivity: '2023-05-20T06:57:00.000Z',
         },
         {
+          id: 5,
           lastActivity: '2023-05-20T08:29:00.000Z',
         },
       ]}

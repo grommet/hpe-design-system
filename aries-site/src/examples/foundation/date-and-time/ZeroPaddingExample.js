@@ -24,7 +24,9 @@ export const ZeroPaddingExample = ({ bestPractice = true }) => {
           property: 'createdOn',
           header: 'Created on',
           render: datum =>
-            new Date(datum.createdOn).toLocaleDateString(undefined, options),
+            Intl.DateTimeFormat(undefined, options).format(
+              new Date(datum.createdOn),
+            ),
         },
       ]}
       data={dates.map(date => {
