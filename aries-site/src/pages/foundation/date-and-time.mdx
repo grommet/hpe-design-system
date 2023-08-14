@@ -44,9 +44,9 @@ export const date = new Date('2023-08-12');
 
 | Formats                        | Example                                                                                                           | When to use                                                                                                                                                                                                                                                                            | Code snippet (where date is a Javascript Date object)                                                                        |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Long written format            | {Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }).format(date)} | When space is available and displaying the day of week is beneficial to the user.                                                                                                                                                                                                      | <Box>`Intl.DateTimeFormat('en-US', { weekday: 'short',  day: 'numeric',month: 'long', year: 'numeric' }).format(date)`</Box> |
-| Medium written format          | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}                                                | When space is available.                                                                                                                                                                                                                                                               | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)`</Box>                                                |
-| Short written format           | {Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)}                                              | When space is limited.                                                                                                                                                                                                                                                                 | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)`</Box>                                              |
+| Full written format            | {Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }).format(date)} | When space is available and displaying the day of week is beneficial to the user.                                                                                                                                                                                                      | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)`</Box> |
+| Long written format          | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}                                                | When space is available.                                                                                                                                                                                                                                                               | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)`</Box>                                                |
+| Medium written format           | {Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)}                                              | When space is limited.                                                                                                                                                                                                                                                                 | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)`</Box>                                              |
 | Numeric locale-specific format | {Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)}                | When the user needs to compare across dates, such as in a column or list. Otherwise, use written format. Numeric format can differ depending on the region, so even if the date is translated by the UI based on the user's locale, numeric dates can still cause confusion for users. | <Box>`Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)`</Box>                |
 | ISO 8601 format                | {date.toISOString()}                                                                                              | Log files; trigger times.                                                                                                                                                                                                                                                              | <Box>`date.toISOString()`</Box>                                                                                              |
 
@@ -59,6 +59,8 @@ For log files, there are two options:
 
 ### Locale formatting
 
+Applying the user experience principles of "personalization" and "don't make me think," in most cases dates and times should be presented based on the user's locale as specified in their browser and system preferences.
+
 Date and time are formatted differently depending on the language and region. Some aspects that are locale-dependent include date and time ordering, separators, and 12-hour vs 24-hour clocks.
 
 There are various [Javascript Date methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) that can be leveraged to convert from UTC to the user's locale.
@@ -68,10 +70,7 @@ Whenever possible, present date and time according to the user's locale.
 export const localeDate = new Date('2023-09-15T12:00:00.000Z');
 
 export const localeFormat = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  weekday: 'long',
+  dateStyle: 'full'
 };
 
 | Locale | Date                                                            |
