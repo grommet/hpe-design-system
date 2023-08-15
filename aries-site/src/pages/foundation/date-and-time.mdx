@@ -42,13 +42,20 @@ In most cases, absolute time should be presented according to the user's [locale
 
 Absolute time can be presented in a variety of formats:
 
-| Formats                        | Example                                                                                            | When to use                                                                                              | Code snippet (where date is a Javascript Date object)                                                           |
-| ------------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Full written format            | {Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)}                                 | When space is available and displaying the day of week is beneficial to the user.                        | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)`</Text>                                 |
-| Long written format            | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}                                 | When space is available.                                                                                 | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)`</Text>                                 |
-| Medium written format          | {Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)}                               | When space is limited.                                                                                   | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)`</Text>                               |
-| Numeric locale-specific format | {Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)} | When the user needs to compare across dates, such as in a column or list. Otherwise, use written format. | <Text>`Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)`</Text> |
-| ISO 8601 format                | <Text style={{whiteSpace: 'nowrap'}}>{date.toISOString()}</Text>                                   | Log files; trigger times.                                                                                | <Text>`date.toISOString()`</Text>                                                                               |
+<Notification
+  status="info"
+  message="Passing `undefined` to Intl.DateTimeFormat means the browser's default locale will be used."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+| Formats                        | Example                                                                                              | When to use                                                                                              | Code snippet (where date is a Javascript Date object)                                                             |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Full written format            | {Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date)}                                 | When space is available and displaying the day of week is beneficial to the user.                        | <Text>`Intl.DateTimeFormat(undefined, { dateStyle: 'full' }).format(date)`</Text>                                 |
+| Long written format            | {Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(date)}                                 | When space is available.                                                                                 | <Text>`Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(date)`</Text>                                 |
+| Medium written format          | {Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(date)}                               | When space is limited.                                                                                   | <Text>`Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(date)`</Text>                               |
+| Numeric locale-specific format | {Intl.DateTimeFormat(undefined, { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)} | When the user needs to compare across dates, such as in a column or list. Otherwise, use written format. | <Text>`Intl.DateTimeFormat(undefined, { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)`</Text> |
+| ISO 8601 format                | <Text style={{whiteSpace: 'nowrap'}}>{date.toISOString()}</Text>                                     | Log files; trigger times.                                                                                | <Text>`date.toISOString()`</Text>                                                                                 |
 
 Other than log files, date and time should be presented according to the [user's locale](#locale-formatting) and [timezone](#timezones).
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DataTable } from 'grommet';
 
 // this gives a rough estimate
@@ -38,6 +39,7 @@ const getRelativeTime = (date1, date2, locale = 'en') => {
   if (days) return rtf.format(days, 'day');
   if (hours) return rtf.format(hours, 'hour');
   if (minutes) return rtf.format(minutes, 'minute');
+  return undefined;
 };
 
 const badPracticesTimes = [
@@ -94,4 +96,8 @@ export const RelativeTimeExample = ({ bestPractice = true }) => {
       ]}
     />
   );
+};
+
+RelativeTimeExample.propTypes = {
+  bestPractice: PropTypes.bool,
 };
