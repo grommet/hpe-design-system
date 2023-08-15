@@ -1,11 +1,10 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, createContext, useState } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 import pageVisitTracker from '../utils/pageVisitTracker';
-import { createContext } from 'react';
-import { useState } from 'react';
+
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -64,9 +63,7 @@ const backgroundImages = {
  * navigate between routes, `Component` will change to the new `page`.
  */
 
-
 export const ViewContext = createContext(undefined);
-
 
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
@@ -74,7 +71,7 @@ function App({ Component, pageProps, router }) {
   //state that holds the update information within the last 30 days
   const [wholeViewHistory, setWholeViewHistory] = useState({});
   //state that holds boolean for whether or not update info is ready to be rendered
-  const [status, setStatus] = useState(false);
+  const [pageUpdateReady, setPageUpdateReady] = useState(false);
 
   //this effect is only for the first time a page loads
   useEffect(() => {
@@ -149,7 +146,7 @@ function App({ Component, pageProps, router }) {
           }
           window.localStorage.setItem("update-history",JSON.stringify(tempHistory));
           setWholeViewHistory(tempHistory);
-          setStatus(true);
+          setPageUpdateReady(true);
       }).then(() => {
           if(name){
               let tokenName = `${name?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
@@ -183,7 +180,7 @@ function App({ Component, pageProps, router }) {
           window.localStorage.setItem(tokenName, dateTime);
             
           setWholeViewHistory(viewHistory);
-          setStatus(true);
+          setPageUpdateReady(true);
         }
       };
     }
@@ -210,7 +207,7 @@ function App({ Component, pageProps, router }) {
    
   return (
     <ThemeMode>
-      <ViewContext.Provider value={{wholeViewHistory, status, setStatus}}>
+      <ViewContext.Provider value={{wholeViewHistory, pageUpdateReady, setPageUpdateReady}}>
         <Layout
           title={title || ''}
           topic={topic}
