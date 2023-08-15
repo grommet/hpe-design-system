@@ -6,7 +6,9 @@ import {
   TimezoneExample,
   ZeroPaddingExample,
 } from '../../examples';
-import { Box, Notification } from 'grommet';
+import { Notification, Text } from 'grommet';
+
+export const date = new Date('2023-08-12T12:15:03.054Z');
 
 Date and time can appear in a wide variety of contexts:
 
@@ -18,10 +20,10 @@ Date and time can appear in a wide variety of contexts:
 
 Depending on the context, date and time may be presented as:
 
-| Format                          | Purpose                                                                         | Examples                      | Notes                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------- |
-| [Absolute time](#absolute-time) | To provide the precise date and/or time of an event.                            | September 15, 2023; 3/27/2023 | The granularity and formatting depends on the context. See absolute time guidance. |
-| [Relative time](#relative-time) | To display how long ago something occurred or in how long something will occur. | in 5 days, 3 days ago         | --                                                                                 |
+| Format                          | Purpose                                                                         | Examples                                                                                                                                                               | Notes                                                                                                             |
+| ------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| [Absolute time](#absolute-time) | To provide the precise date and/or time of an event.                            | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}; {Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)} | <span>The granularity and formatting depends on the context. See [absolute time guidance](#absolute-time).</span> |
+| [Relative time](#relative-time) | To display how long ago something occurred or in how long something will occur. | in 5 days, 3 days ago                                                                                                                                                  | --                                                                                                                |
 
 Timestamps should always be stored in UTC, the universal standard. These UTC timestamps will then get converted to local time, if necessary, by the UI for display.
 
@@ -40,15 +42,13 @@ In most cases, absolute time should be presented according to the user's [locale
 
 Absolute time can be presented in a variety of formats:
 
-export const date = new Date('2023-08-12');
-
-| Formats                        | Example                                                                                                           | When to use                                                                                                                                                                                                                                                                            | Code snippet (where date is a Javascript Date object)                                                                        |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Full written format            | {Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' }).format(date)} | When space is available and displaying the day of week is beneficial to the user.                                                                                                                                                                                                      | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)`</Box> |
-| Long written format          | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}                                                | When space is available.                                                                                                                                                                                                                                                               | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)`</Box>                                                |
-| Medium written format           | {Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)}                                              | When space is limited.                                                                                                                                                                                                                                                                 | <Box>`Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)`</Box>                                              |
-| Numeric locale-specific format | {Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)}                | When the user needs to compare across dates, such as in a column or list. Otherwise, use written format. Numeric format can differ depending on the region, so even if the date is translated by the UI based on the user's locale, numeric dates can still cause confusion for users. | <Box>`Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)`</Box>                |
-| ISO 8601 format                | {date.toISOString()}                                                                                              | Log files; trigger times.                                                                                                                                                                                                                                                              | <Box>`date.toISOString()`</Box>                                                                                              |
+| Formats                        | Example                                                                                            | When to use                                                                                              | Code snippet (where date is a Javascript Date object)                                                           |
+| ------------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Full written format            | {Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)}                                 | When space is available and displaying the day of week is beneficial to the user.                        | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)`</Text>                                 |
+| Long written format            | {Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}                                 | When space is available.                                                                                 | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)`</Text>                                 |
+| Medium written format          | {Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)}                               | When space is limited.                                                                                   | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date)`</Text>                               |
+| Numeric locale-specific format | {Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)} | When the user needs to compare across dates, such as in a column or list. Otherwise, use written format. | <Text>`Intl.DateTimeFormat('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).format(date)`</Text> |
+| ISO 8601 format                | <Text style={{whiteSpace: 'nowrap'}}>{date.toISOString()}</Text>                                   | Log files; trigger times.                                                                                | <Text>`date.toISOString()`</Text>                                                                               |
 
 Other than log files, date and time should be presented according to the [user's locale](#locale-formatting) and [timezone](#timezones).
 
@@ -70,14 +70,14 @@ Whenever possible, present date and time according to the user's locale.
 export const localeDate = new Date('2023-09-15T12:00:00.000Z');
 
 export const localeFormat = {
-  dateStyle: 'full'
+  dateStyle: 'full',
 };
 
-| Locale | Date                                                            |
-| ------ | --------------------------------------------------------------- |
-| en-US  | {Intl.DateTimeFormat('en-US', localeFormat).format(localeDate)} |
-| en-AU  | {Intl.DateTimeFormat('en-AU', localeFormat).format(localeDate)} |
-| de     | {Intl.DateTimeFormat('de', localeFormat).format(localeDate)}    |
+| Locale | Date                                                            | Code snippet (where date is a Javascript Date object)                           |
+| ------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| en-US  | {Intl.DateTimeFormat('en-US', localeFormat).format(localeDate)} | <Text>`Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date)`</Text> |
+| en-AU  | {Intl.DateTimeFormat('en-AU', localeFormat).format(localeDate)} | <Text>`Intl.DateTimeFormat('en-AU', { dateStyle: 'full' }).format(date)`</Text> |
+| de     | {Intl.DateTimeFormat('de', localeFormat).format(localeDate)}    | <Text>`Intl.DateTimeFormat('de', { dateStyle: 'full' }).format(date)`</Text>    |
 
 ### Timezones
 
