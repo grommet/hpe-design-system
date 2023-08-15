@@ -49,6 +49,7 @@ const badPracticesTimes = [
   '1 day 2 hr 5 min 30 sec ago',
   '2 hr 3 min 12 sec ago',
   '3 min 25 sec ago',
+  '7 min 15 sec ago',
 ];
 
 export const RelativeTimeExample = ({ bestPractice = true }) => {
@@ -65,6 +66,7 @@ export const RelativeTimeExample = ({ bestPractice = true }) => {
               ? getRelativeTime(new Date(datum.lastActivity), mockNow)
               : badPracticesTimes[datum.id];
           },
+          align: 'end',
         },
       ]}
       sort={{ property: 'lastActivity', direction: 'desc' }}
@@ -92,6 +94,10 @@ export const RelativeTimeExample = ({ bestPractice = true }) => {
         {
           id: 5,
           lastActivity: '2023-05-20T08:29:00.000Z',
+        },
+        {
+          id: 6,
+          lastActivity: '2023-05-20T08:25:00.000Z',
         },
       ]}
     />

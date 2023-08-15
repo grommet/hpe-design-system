@@ -11,7 +11,7 @@ const options = {
 };
 
 export const TimezoneExample = ({ bestPractice = true }) => {
-  const date = new Date('2021-11-12');
+  const date = bestPractice ? new Date('2021-05-12') : new Date('2021-08-24');
   const PST = new Intl.DateTimeFormat('en-US', {
     ...options,
     timeZone: 'America/Los_Angeles',
