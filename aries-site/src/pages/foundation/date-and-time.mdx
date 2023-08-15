@@ -1,6 +1,7 @@
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   AbbreviatedDateExample,
+  DateAlignmentExample,
   DateTimeNotificationExample,
   RelativeTimeExample,
   TimezoneExample,
@@ -148,6 +149,7 @@ When displaying relative time:
 
 - Adapt and show the appropriate unit of time. For example, after 60 minutes, display hours.
 - Unless required, displaying the time for anything less than a second and more than a week is generally not needed.
+- Zero values should not be included as this will cause issues with alignment. For example, do not show when something is at "0 minutes".
 - For older events, such as anything that happened more than a week ago, consider using [absolute time](#absolute-time) instead.
 - Consider whether or not it's important for users to be able to see the absolute time as well. This could be placed within a tooltip or displayed on a detail page.
 
@@ -215,10 +217,10 @@ To abbreviate days of the week or months, use the [Javascript Intl.DateTimeForma
 
 ## Alignment
 
-When presenting dates in a column, right-align [relative times](#relative-time) to bring units of the same magnitude into alignment.
+By default, left-align dates and times. When presenting dates in a column, right-align [relative times](#relative-time) to bring units of the same magnitude into alignment.
 
 <Example>
-  <RelativeTimeExample />
+  <DateAlignmentExample />
 </Example>
 
 ## Zero-padding
