@@ -46,8 +46,7 @@ export const aries = deepMerge(hpe, {
     },
   },
   notification: {
-    // TO DO -- is this correct?
-    // direction: 'column',
+    direction: 'column',
     global: {
       direction: 'row',
       close: {
