@@ -32,7 +32,7 @@ export const SearchResult = ({ query, result }) => {
           </Box>
         )}
         {result.title && (
-          <Box direction="row" gap="40px" align="center">
+          <Box direction="row" gap="medium" align="center">
             <Text size="large" color="text-strong">
               <HighlightPhrase phrase={query} fade={false} size="large">
                 {result.title}

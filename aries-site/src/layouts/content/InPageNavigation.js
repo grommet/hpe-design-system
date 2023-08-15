@@ -63,8 +63,7 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const {wholeViewHistory, status, setStatus} = useContext(ViewContext) || undefined;
-
+  const { wholeViewHistory } = useContext(ViewContext) || undefined;
 
   return (
     <Box
@@ -116,19 +115,20 @@ export const InPageNavigation = ({ headings, title }) => {
           let sectionList;
           let newUpdate = false;
 
-          if(wholeViewHistory){
-            if(title in wholeViewHistory){
-              if(wholeViewHistory[title].update && (wholeViewHistory[title].sections[0].length > 0)){ 
-              //to see if the update should be shown and if there are sections reported
-                sectionList = wholeViewHistory[title].sections;
-                Object.values(sectionList).forEach(val => {
-                  if(val === headingTitle){ 
-                    newUpdate = true;
-                  }
-                });
-              } 
-            }
+          if (
+            wholeViewHistory &&
+            title in wholeViewHistory &&
+            wholeViewHistory[title].update &&
+            wholeViewHistory[title].sections[0].length > 0
+          ) {
+            sectionList = wholeViewHistory[title].sections;
+            Object.values(sectionList).forEach(val => {
+              if (val === headingTitle) {
+                newUpdate = true;
+              }
+            });
           }
+
           return (
             <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
               <SectionButton theme={theme} hoverIndicator>
@@ -144,18 +144,20 @@ export const InPageNavigation = ({ headings, title }) => {
                         ? undefined
                         : { left: theme.global.borderSize.small }
                     }
-                    direction='row'
-                    align='top'
-                    gap='small'
+                    direction="row"
+                    align="top"
+                    gap="small"
                   >
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
-                    {newUpdate &&
-                      <Box height={'24px'} justify='center'>
-                        <StatusGoodSmall size='11px' color='#117B82'/>
+                    {newUpdate && (
+                      <Box justify="top">
+                        <Text>
+                          <StatusGoodSmall size="10px" color="#117B82" />
+                        </Text>
                       </Box>
-                    }
+                    )}
                   </Box>
                 </Box>
               </SectionButton>
