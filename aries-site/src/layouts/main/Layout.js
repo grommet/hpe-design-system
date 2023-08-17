@@ -39,7 +39,7 @@ import {
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
-import { UpdateTag } from '../content/UpdateTag';
+import { UpdateNotification } from '../content/UpdateNotification';
 import { InPageChangeLog } from '../content/InPageChangeLog.js';
 import { ViewContext } from '../../pages/_app';
 
@@ -50,9 +50,7 @@ export const Layout = ({
   topic,
   isLanding,
 }) => {
-
   useEffect(() => {
-    //console.log("useEffect in the layout")
     if (Config.gaId) {
       initialize(Config.gaId);
       pageview(document.location.pathname);
@@ -122,7 +120,7 @@ export const Layout = ({
   );
   const regexp = new RegExp(/ #{1,3} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
-  headings?.push(["## Change Log ~~", "Change Log"]);
+  headings?.push(['## Change Log ~~', 'Change Log']);
   const showInPageNav =
     !['xsmall', 'small'].includes(breakpoint) && headings?.length > 0;
 
@@ -134,11 +132,12 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  const {wholeViewHistory, status, setStatus, changeLog} = useContext(ViewContext) || undefined;
-  
+  const { wholeViewHistory, pageUpdateReady, setPageUpdateReady, changeLog } =
+    useContext(ViewContext) || undefined;
+
   //every time a new page loads, initalize ready state to false, until app.js declares otherwise
   useEffect(() => {
-    setStatus(false);
+    setPageUpdateReady(false);
   }, [title]);
 
   return (
@@ -196,11 +195,12 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {status && wholeViewHistory[title]?.update &&
-                            <UpdateTag name={title} />
-                          }
+                          {pageUpdateReady &&
+                            wholeViewHistory[title]?.update && (
+                              <UpdateNotification name={title} />
+                            )}
                           {children}
-                          <InPageChangeLog id='change-log' name={title}/>
+                          <InPageChangeLog id="change-log" name={title} />
                         </ContentSection>
                         {relatedContent.length > 0 && (
                           <RelatedContent

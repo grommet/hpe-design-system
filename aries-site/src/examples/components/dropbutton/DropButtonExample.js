@@ -31,7 +31,7 @@ const DropContent = ({ onClose }) => (
       <Heading level={3} margin="none">
         Heading
       </Heading>
-      <Button icon={<Close />} onClick={onClose} />
+      <Button a11yTitle="Close" icon={<Close />} onClick={onClose} />
     </Box>
     <Paragraph margin="none">Here is some additional content.</Paragraph>
   </Box>

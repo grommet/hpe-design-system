@@ -5,18 +5,18 @@ import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
 import pageVisitTracker from '../../utils/pageVisitTracker';
-import { ThemeContext } from 'styled-components';
+import { NotifTag } from '../content/NotifTag';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
-  const history = JSON.parse(window.localStorage.getItem("update-history"));
+  const history = JSON.parse(window.localStorage.getItem('update-history'));
   let newUpdate, type;
-  if(result.title in history){
+  if (result.title in history) {
     newUpdate = pageVisitTracker(result.title);
     type = history[result.title].type;
-  }else{
+  } else {
     newUpdate = false;
   }
 
@@ -32,49 +32,29 @@ export const SearchResult = ({ query, result }) => {
           </Box>
         )}
         {result.title && (
-        <Box direction='row' gap='40px' align='center'>
-          <Text size="large" color="text-strong">
-            <HighlightPhrase phrase={query} fade={false} size="large">
-              {result.title}
-            </HighlightPhrase>
-          </Text>
-          {newUpdate && (type === 'New') &&
-              <Tag 
-              size='xsmall' 
-              border={{
-                color: 'border-weak',
-                size: "xsmall",
-                style: "solid",
-                side: "all"
-              }} 
-              pad={
-                {
-                  vertical: 'none',
-                }
-              } 
-              background='#6633BC'
-              value="New!"
-              a11yTitle={`There's a new item called ${result.title}`}/>
-            }
-            {newUpdate && (type === 'Update') &&
-              <Tag 
-              size='xsmall' 
-              border={{
-                color: 'border-weak',
-                size: "xsmall",
-                style: "solid",
-                side: "all"
-              }}  
-              pad={
-                {
-                  vertical: 'none',
-                }
-              }
-              background='#117B82'
-              value="Updated"
-              a11yTitle={`There's been updates for ${result.title}`}/>
-            }
-        </Box>
+          <Box direction="row" gap="medium" align="center">
+            <Text size="large" color="text-strong">
+              <HighlightPhrase phrase={query} fade={false} size="large">
+                {result.title}
+              </HighlightPhrase>
+            </Text>
+            {newUpdate && type === 'New' && (
+              <NotifTag
+                size="xsmall"
+                color="purple"
+                textVal="New!"
+                allyDes={`There's a new item called ${result.title}`}
+              />
+            )}
+            {newUpdate && type === 'Update' && (
+              <NotifTag
+                size="xsmall"
+                color="teal"
+                textVal="Updated"
+                allyDes={`There's been updates for ${result.title}`}
+              />
+            )}
+          </Box>
         )}
       </>
       {result.matches?.length > 0 ? (
