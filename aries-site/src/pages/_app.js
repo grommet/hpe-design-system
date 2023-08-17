@@ -207,7 +207,6 @@ function App({ Component, pageProps, router }) {
           'update-history',
           JSON.stringify(tempHistory),
         );
-        window.localStorage.setItem('changeLog', JSON.stringify(tempLog));
         setWholeViewHistory(tempHistory);
         setChangeLog(tempLog);
         setPageUpdateReady(true);
