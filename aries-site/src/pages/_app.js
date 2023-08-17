@@ -73,6 +73,7 @@ function App({ Component, pageProps, router }) {
   
   //state that holds the update information within the last 30 days
   const [wholeViewHistory, setWholeViewHistory] = useState({});
+  const [changeLog, setChangeLog] = useState({});
   //state that holds boolean for whether or not update info is ready to be rendered
   const [status, setStatus] = useState(false);
 
@@ -86,70 +87,82 @@ function App({ Component, pageProps, router }) {
       
       //imported and put fetchData in here so that it can access the setWholeViewHistory function
       let thirtyDaysAgo = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
-      fetch(`https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`)
+      let threeMonthsAgo = new Date().getTime() - (90 * 24 * 60 * 60 * 1000)
+
+      fetch(`https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed&per_page=100`)
       .then(response => response.json())
       .then(data => {
           let tempHistory = {};
+          let tempLog = {};
           let tokenName;
           for(let i=0; i<Object.keys(data).length; i++){
-              if(new Date(data[i].merged_at).getTime() < thirtyDaysAgo){ //if it is older than thirty days ago
-                  break;
+              if(new Date(data[i].merged_at).getTime() < threeMonthsAgo){ //if it is older than thirty days ago
+                break;
               }
               let tempString = data[i].body;
               if(tempString.includes("#### Notifications")){
-                  console.log(data[i].number);
                   const indexOfFirstComponent = tempString.search("#### Notifications") + 22; 
                   const notifSection = tempString.slice(indexOfFirstComponent);
                   const notifList = notifSection.split("\r\n\r\n"); //splits them into an array jumping b/w name, sections, and description
                   const regExp = /\[([^)]+)\]/;
                   for (let j=0; j < Object.keys(notifList).length; j+=3){
-                      let tempName = notifList[j].trim();
-                      let temp = regExp.exec(tempName);
-                      let typeChange = temp[1].trim();
-                      let justName;
-                      if(typeChange === 'Update'){
+                    let tempName = notifList[j].trim();
+                    let temp = regExp.exec(tempName);
+                    let typeChange = temp[1].trim();
+                    let justName, tempDescription;
+                    if(typeChange === 'Update'){
                         justName = tempName.slice('8').trim();
-                      }else if(typeChange === 'New'){
+                    }else if(typeChange === 'New'){
                         justName = tempName.slice('5').trim();
-                      }
-                      if(!(justName in tempHistory)){ 
-                          let sectionArray = notifList[j+1].slice(1, -1).split("][");
-                          let finalSectionlist = [];
-                          let action = "";
-                          if(Object.keys(sectionArray).length === 1){ //add an active link if only one section has been updated
+                    }
+                    if(notifList[j+2].slice(1, -1) === ''){
+                      tempDescription = justName + " was added.";
+                    }else{
+                      tempDescription = notifList[j+2].slice(1, -1);
+                    }
+                    if(!(justName in tempHistory) && (new Date(data[i].merged_at).getTime() > thirtyDaysAgo)){ 
+                        let sectionArray = notifList[j+1].slice(1, -1).split("][");
+                        let finalSectionlist = [];
+                        let action = "";
+                        if(Object.keys(sectionArray).length === 1){ //add an active link if only one section has been updated
                               action = "#" + sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
-                          }
-                          for(let i=0; i< Object.keys(sectionArray).length; i++){
+                        }
+                        for(let i=0; i< Object.keys(sectionArray).length; i++){
                               finalSectionlist[i] = sectionArray[i].charAt(0).toUpperCase() + sectionArray[i].slice(1).toLowerCase();
-                          }
-                          let newUpdate;
-                          tokenName = `${justName?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
-                          if(window.localStorage.getItem(tokenName)){ 
-                              if(window.localStorage.getItem(tokenName) > new Date(data[i].merged_at).getTime()){
+                        }
+                        let newUpdate;
+                        tokenName = `${justName?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
+                        if(window.localStorage.getItem(tokenName)){ 
+                            if(window.localStorage.getItem(tokenName) > new Date(data[i].merged_at).getTime()){
                                 //history of them visiting the page before, and that visit was after the newest update was sent  
                                 newUpdate = false;
-                              }else{
+                            }else{
                                 //history of them visiting the page before, but that visit was before the newest update was sent
                                 newUpdate = true;
-                              }
-                          }else{
+                            }
+                        }else{
                               //have never seen the page before
                               newUpdate = true;
-                          }
+                        }
                           tempHistory[justName] = 
                               {"type": typeChange,
-                              "description": notifList[j+2].slice(1, -1),
+                              "description": tempDescription,
                               "date": data[i].merged_at,
                               "sections": sectionArray,
                               "action": action,
                               "update": newUpdate,
                               };
-                      }
+                            tempLog[justName] = [{"date": new Date (data[i].merged_at).toDateString().split(' ').slice(1).join(' '), "description": tempDescription}];
+                    }else{ //the case where it's not the components newest update and/or it more than 30 days ago
+                      tempLog[justName].push({"date": new Date (data[i].merged_at).toDateString().split(' ').slice(1).join(' '), "description": tempDescription});
+                    }
                   }
               }
           }
           window.localStorage.setItem("update-history",JSON.stringify(tempHistory));
           setWholeViewHistory(tempHistory);
+          setChangeLog(tempLog);
+          setStatus(true);
       }).then(() => {
           if(name){
               let tokenName = `${name?.toLowerCase().replace(/\s+/g,'-')}-last-visited`;
@@ -210,10 +223,9 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
 
-   
   return (
     <ThemeMode>
-      <ViewContext.Provider value={{wholeViewHistory, status, setStatus}}>
+      <ViewContext.Provider value={{wholeViewHistory, status, setStatus, changeLog}}>
         <Layout
           title={title || ''}
           topic={topic}

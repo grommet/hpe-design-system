@@ -4,7 +4,6 @@ import React, {
   useContext,
   useCallback,
   useState,
-  useLayoutEffect,
 } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -41,6 +40,7 @@ import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateTag } from '../content/UpdateTag';
+import { InPageChangeLog } from '../content/InPageChangeLog.js';
 import { ViewContext } from '../../pages/_app';
 
 export const Layout = ({
@@ -122,6 +122,7 @@ export const Layout = ({
   );
   const regexp = new RegExp(/ #{1,3} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
+  headings?.push(["## Change Log ~~", "Change Log"]);
   const showInPageNav =
     !['xsmall', 'small'].includes(breakpoint) && headings?.length > 0;
 
@@ -133,8 +134,8 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  const {wholeViewHistory, status, setStatus} = useContext(ViewContext) || undefined;
-
+  const {wholeViewHistory, status, setStatus, changeLog} = useContext(ViewContext) || undefined;
+  
   //every time a new page loads, initalize ready state to false, until app.js declares otherwise
   useEffect(() => {
     setStatus(false);
@@ -195,10 +196,11 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {status && wholeViewHistory[title].update &&
+                          {status && wholeViewHistory[title]?.update &&
                             <UpdateTag name={title} />
                           }
                           {children}
+                          <InPageChangeLog id='change-log' name={title}/>
                         </ContentSection>
                         {relatedContent.length > 0 && (
                           <RelatedContent

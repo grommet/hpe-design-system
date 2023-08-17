@@ -18,7 +18,7 @@ const nextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   // Any other Next.js config options
-  reactStrictMode: true,
+  reactStrictMode: false,
   compiler: {
     styledComponents: true,
   },
