@@ -19,10 +19,20 @@ export const Identifier = ({
       <Box direction="row" justify="between" fill="horizontal">
         {children}
         {updates && type === 'Update' && (
-          <NotifTag color='teal' allyDes={`There's been updates for ${title}`} textVal='Updated' size='small'/>
+          <NotifTag
+            color="teal"
+            allyDes={`There's been updates for ${title}`}
+            textVal="Updated"
+            size="small"
+          />
         )}
         {updates && type === 'New' && (
-          <NotifTag color='purple' allyDes={`There's a new item called ${title}`} textVal='New!' size='small' />
+          <NotifTag
+            color="purple"
+            allyDes={`There's a new item called ${title}`}
+            textVal="New!"
+            size="small"
+          />
         )}
       </Box>
       <Box direction="row" align="center" justify="center" gap="xsmall">
