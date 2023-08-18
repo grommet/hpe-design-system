@@ -11,10 +11,10 @@ export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
-    const history = JSON.parse(window.localStorage.getItem("update-history"));
+    const history = JSON.parse(window.localStorage.getItem('update-history'));
     let newUpdate = false;
     let type;
-    if(history && name in history){
+    if (history && name in history) {
       newUpdate = pageVisitTracker(name);
       type = history[name].type;
     }

@@ -1,8 +1,8 @@
-import { Tag } from "grommet";
+import { Tag } from 'grommet';
 
 export const NotifTag = ({ size, color, allyDes, textVal }) => {
-    return(
-      <Tag
+  return (
+    <Tag
       size={size}
       border={{
         color: 'border-weak',
@@ -14,5 +14,5 @@ export const NotifTag = ({ size, color, allyDes, textVal }) => {
       value={textVal}
       a11yTitle={allyDes}
     />
-    )
-}
+  );
+};

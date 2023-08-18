@@ -49,7 +49,6 @@ export const Layout = ({
   topic,
   isLanding,
 }) => {
-
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -131,7 +130,8 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  const {wholeViewHistory, pageUpdateReady, setPageUpdateReady} = useContext(ViewContext) || undefined;
+  const { wholeViewHistory, pageUpdateReady, setPageUpdateReady } =
+    useContext(ViewContext) || undefined;
 
   //every time a new page loads, initalize ready state to false, until app.js declares otherwise
   useEffect(() => {
@@ -193,9 +193,10 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {pageUpdateReady && wholeViewHistory[title]?.update &&
-                            <UpdateNotification name={title} />
-                          }
+                          {pageUpdateReady &&
+                            wholeViewHistory[title]?.update && (
+                              <UpdateNotification name={title} />
+                            )}
                           {children}
                         </ContentSection>
                         {relatedContent.length > 0 && (

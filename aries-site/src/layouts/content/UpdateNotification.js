@@ -3,15 +3,21 @@ import { CircleInformation } from 'grommet-icons';
 import { ViewContext } from '../../pages/_app';
 import { useContext } from 'react';
 
-
 export const UpdateNotification = ({ name }) => {
   const { wholeViewHistory } = useContext(ViewContext) || undefined;
 
-  function InlineNotif({dateText, message}) {
+  function InlineNotif({ dateText, message }) {
     return (
       <Notification
         width="large"
-        title={dateText + new Date(wholeViewHistory[name]?.date).toDateString().split(' ').slice(1).join(' ')}
+        title={
+          dateText +
+          new Date(wholeViewHistory[name]?.date)
+            .toDateString()
+            .split(' ')
+            .slice(1)
+            .join(' ')
+        }
         message={message}
         margin={{ bottom: 'medium' }}
         icon={<CircleInformation />}
@@ -23,25 +29,28 @@ export const UpdateNotification = ({ name }) => {
     return (
       <>
         {wholeViewHistory[name]?.type === 'Update' && (
-        <InlineNotif 
-        dateText='Updated ' 
-        message={        
-            <Text>
+          <InlineNotif
+            dateText="Updated "
+            message={
+              <Text>
                 {wholeViewHistory[name]?.description + '    '}
                 {wholeViewHistory[name]?.action?.length > 1 && (
-                    <Anchor label="Link" href={wholeViewHistory[name]?.action} />
+                  <Anchor label="Link" href={wholeViewHistory[name]?.action} />
                 )}
-            </Text>} 
-        />
+              </Text>
+            }
+          />
         )}
         {wholeViewHistory[name]?.type === 'New' && (
-        <InlineNotif 
-        dateText='Added on ' 
-        message={        
-            <Text>
-                This item is new. Let the Design System team know if you have any feedback.
-            </Text>} 
-        />
+          <InlineNotif
+            dateText="Added on "
+            message={
+              <Text>
+                This item is new. Let the Design System team know if you have
+                any feedback.
+              </Text>
+            }
+          />
         )}
       </>
     );
