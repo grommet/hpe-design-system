@@ -5,7 +5,7 @@ import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
 import pageVisitTracker from '../../utils/pageVisitTracker';
-import { NotifTag } from '../content/NotifTag';
+import { NotificationTag } from '../content/NotificationTag';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
@@ -39,19 +39,19 @@ export const SearchResult = ({ query, result }) => {
               </HighlightPhrase>
             </Text>
             {newUpdate && type === 'New' && (
-              <NotifTag
+              <NotificationTag
                 size="xsmall"
                 color="purple"
-                textVal="New!"
-                allyDes={`There's a new item called ${result.title}`}
+                textValue="New!"
+                allyTitle={`There's a new item called ${result.title}`}
               />
             )}
             {newUpdate && type === 'Update' && (
-              <NotifTag
+              <NotificationTag
                 size="xsmall"
                 color="teal"
-                textVal="Updated"
-                allyDes={`There's been updates for ${result.title}`}
+                textValue="Updated"
+                allyTitle={`There's been updates for ${result.title}`}
               />
             )}
           </Box>

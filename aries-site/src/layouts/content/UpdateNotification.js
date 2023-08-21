@@ -6,7 +6,7 @@ import { useContext } from 'react';
 export const UpdateNotification = ({ name }) => {
   const { wholeViewHistory } = useContext(ViewContext) || undefined;
 
-  function InlineNotif({ dateText, message }) {
+  function InlineNotification({ dateText, message }) {
     return (
       <Notification
         width="large"
@@ -29,7 +29,7 @@ export const UpdateNotification = ({ name }) => {
     return (
       <>
         {wholeViewHistory[name]?.type === 'Update' && (
-          <InlineNotif
+          <InlineNotification
             dateText="Updated "
             message={
               <Text>
@@ -42,7 +42,7 @@ export const UpdateNotification = ({ name }) => {
           />
         )}
         {wholeViewHistory[name]?.type === 'New' && (
-          <InlineNotif
+          <InlineNotification
             dateText="Added on "
             message={
               <Text>

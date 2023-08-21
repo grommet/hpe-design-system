@@ -1,6 +1,6 @@
 import { Tag } from 'grommet';
 
-export const NotifTag = ({ size, color, allyDes, textVal }) => {
+export const NotificationTag = ({ size, color, allyTitle, textValue }) => {
   return (
     <Tag
       size={size}
@@ -11,8 +11,8 @@ export const NotifTag = ({ size, color, allyDes, textVal }) => {
         side: 'all',
       }}
       background={{ dark: true, color: color }}
-      value={textVal}
-      a11yTitle={allyDes}
+      value={textValue}
+      a11yTitle={allyTitle}
     />
   );
 };
