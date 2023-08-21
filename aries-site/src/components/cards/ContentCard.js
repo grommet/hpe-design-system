@@ -6,6 +6,7 @@ import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
 import pageVisitTracker from '../../utils/pageVisitTracker';
+import { NotificationTag } from '../../layouts/content/NotificationTag';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
@@ -58,13 +59,35 @@ export const ContentCard = forwardRef(
               align="start"
               gap="xsmall"
               level={level}
-              updates={newUpdate}
               type={type}
             >
               {parent && parent.icon && !minimal && (
-                <Box direction="row" align="center" gap="xsmall">
-                  {parent.icon('small', parent.color)}
-                  <Text>{parent.name}</Text>
+                <Box
+                  direction="row"
+                  align="center"
+                  fill="horizontal"
+                  justify="between"
+                >
+                  <Box gap="xsmall" direction="row" align="center">
+                    {parent.icon('small', parent.color)}
+                    <Text>{parent.name}</Text>
+                  </Box>
+                  {newUpdate && type === 'Update' && (
+                    <NotificationTag
+                      color="teal"
+                      allyTitle={`There's been updates for ${render || name}`}
+                      textValue="Updated"
+                      size="small"
+                    />
+                  )}
+                  {newUpdate && type === 'New' && (
+                    <NotificationTag
+                      color="purple"
+                      allyTitle={`There's a new item called ${render || name}`}
+                      textValue="New!"
+                      size="small"
+                    />
+                  )}
                 </Box>
               )}
             </Identifier>
