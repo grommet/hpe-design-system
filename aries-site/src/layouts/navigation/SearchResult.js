@@ -12,10 +12,10 @@ export const SearchResult = ({ query, result }) => {
   const parent = getPageDetails(hub);
 
   const history = JSON.parse(window.localStorage.getItem('update-history'));
-  let newUpdate, type;
+  let newUpdate, changeKind;
   if (result.title in history) {
     newUpdate = pageVisitTracker(result.title);
-    type = history[result.title].type;
+    changeKind = history[result.title].changeKind;
   } else {
     newUpdate = false;
   }
@@ -38,20 +38,20 @@ export const SearchResult = ({ query, result }) => {
                 {result.title}
               </HighlightPhrase>
             </Text>
-            {newUpdate && type === 'New' && (
+            {newUpdate && changeKind === 'New' && (
               <NotificationTag
                 size="xsmall"
                 color="purple"
-                textValue="New!"
-                allyTitle={`There's a new item called ${result.title}`}
+                value="New!"
+                a11yTitle={`There's a new item called ${result.title}`}
               />
             )}
-            {newUpdate && type === 'Update' && (
+            {newUpdate && changeKind === 'Update' && (
               <NotificationTag
                 size="xsmall"
                 color="teal"
-                textValue="Updated"
-                allyTitle={`There's been updates for ${result.title}`}
+                value="Updated"
+                a11yTitle={`There's been updates for ${result.title}`}
               />
             )}
           </Box>

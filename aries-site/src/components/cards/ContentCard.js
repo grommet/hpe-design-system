@@ -12,12 +12,14 @@ export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
-    const history = JSON.parse(window.localStorage.getItem('update-history'));
+    const updateHistory = JSON.parse(
+      window.localStorage.getItem('update-history'),
+    );
     let newUpdate = false;
-    let type;
-    if (history && name in history) {
+    let changeKind;
+    if (updateHistory && name in updateHistory) {
       newUpdate = pageVisitTracker(name);
-      type = history[name].type;
+      changeKind = updateHistory[name].changeKind;
     }
 
     return (
@@ -59,7 +61,6 @@ export const ContentCard = forwardRef(
               align="start"
               gap="xsmall"
               level={level}
-              type={type}
             >
               {parent && parent.icon && !minimal && (
                 <Box
@@ -72,19 +73,19 @@ export const ContentCard = forwardRef(
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
-                  {newUpdate && type === 'Update' && (
+                  {newUpdate && changeKind === 'Update' && (
                     <NotificationTag
                       color="teal"
-                      allyTitle={`There's been updates for ${render || name}`}
-                      textValue="Updated"
+                      a11yTitle={`There's been updates for ${render || name}`}
+                      value="Updated"
                       size="small"
                     />
                   )}
-                  {newUpdate && type === 'New' && (
+                  {newUpdate && changeKind === 'New' && (
                     <NotificationTag
                       color="purple"
-                      allyTitle={`There's a new item called ${render || name}`}
-                      textValue="New!"
+                      a11yTitle={`There's a new item called ${render || name}`}
+                      value="New!"
                       size="small"
                     />
                   )}

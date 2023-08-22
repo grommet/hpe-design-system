@@ -8,7 +8,6 @@ export const Identifier = ({
   title,
   subTitle,
   size,
-  type,
   ...rest
 }) => {
   return (

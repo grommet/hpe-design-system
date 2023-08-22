@@ -63,7 +63,7 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const { wholeViewHistory } = useContext(ViewContext) || undefined;
+  const { contentHistory } = useContext(ViewContext) || undefined;
 
   return (
     <Box
@@ -116,12 +116,12 @@ export const InPageNavigation = ({ headings, title }) => {
           let newUpdate = false;
 
           if (
-            wholeViewHistory &&
-            title in wholeViewHistory &&
-            wholeViewHistory[title].update &&
-            wholeViewHistory[title].sections[0].length > 0
+            contentHistory &&
+            title in contentHistory &&
+            contentHistory[title].update &&
+            contentHistory[title].sections[0].length > 0
           ) {
-            sectionList = wholeViewHistory[title].sections;
+            sectionList = contentHistory[title].sections;
             Object.values(sectionList).forEach(val => {
               if (val === headingTitle) {
                 newUpdate = true;

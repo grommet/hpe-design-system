@@ -67,7 +67,7 @@ function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
 
   //state that holds the update information within the last 30 days
-  const [wholeViewHistory, setWholeViewHistory] = useState({});
+  const [contentHistory, setContentHistory] = useState({});
   //state that holds boolean for whether or not update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
 
@@ -80,81 +80,82 @@ function App({ Component, pageProps, router }) {
     name = name.split('#')[0];
     name = name.split('?')[0];
 
-    //imported and put fetchData in here so that it can access the setWholeViewHistory function
+    //imported and put fetchData in here so that it can access the contentHistory function
+    //thirtyDaysAgo calculated in milliseconds
     let thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
     fetch(
       `https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`,
     )
       .then(response => response.json())
       .then(data => {
-        let temporaryHistory = {};
-        let tokenName;
+        let nextHistory = {};
+        let localStorageKey;
         for (let i = 0; i < Object.keys(data).length; i++) {
           if (new Date(data[i].merged_at).getTime() < thirtyDaysAgo) {
             //if it is older than thirty days ago
             break;
           }
-          let temporaryString = data[i].body;
-          if (temporaryString.includes('#### Notifications')) {
+          let prDescription = data[i].body;
+          if (prDescription.includes('#### Notifications')) {
             const indexOfFirstComponent =
-              temporaryString.search('#### Notifications') + 22;
-            const notificationSection = temporaryString.slice(
-              indexOfFirstComponent,
-            );
-            const notificationList = notificationSection.split('\r\n\r\n'); //splits them into an array jumping b/w name, sections, and description
+              prDescription.search('#### Notifications') + 22;
+            //the position of the first bracket containing either new/updates is 22 characters away
+            //this includes the notification header and the \r\n\r\n that follow
+            const notificationList = prDescription
+              .slice(indexOfFirstComponent)
+              .split('\r\n\r\n');
+            //splits them into an array jumping between name, sections, and description
+            //like: ['[New]Header', ['Usage', 'Some Section'], '[The description for header]', '[Update]Button', ['Dos and Donts'], '[Description for button]']
             const regExp = /\[([^)]+)\]/;
             for (let j = 0; j < Object.keys(notificationList).length; j += 3) {
-              let temporaryName = notificationList[j].trim();
-              let temporary = regExp.exec(temporaryName);
-              let typeChange = temporary[1].trim();
-              let justName;
+              //+= 3 so it can jump between component descriptions
+              let typeChangeAndName = notificationList[j].trim();
+              let typeChange = regExp.exec(typeChangeAndName)[1].trim();
+              let pageName;
               if (typeChange === 'Update') {
-                justName = temporaryName.slice('8').trim();
+                pageName = typeChangeAndName.slice('8').trim();
               } else if (typeChange === 'New') {
-                justName = temporaryName.slice('5').trim();
+                pageName = typeChangeAndName.slice('5').trim();
               }
-              if (justName && !(justName in temporaryHistory)) {
+              if (pageName && !(pageName in nextHistory)) {
                 let sectionArray = notificationList[j + 1]
                   .slice(1, -1)
                   .split('][');
-                let finalSectionlist = [];
-                let action = '';
-                if (Object.keys(sectionArray).length === 1) {
-                  //add an active link if only one section has been updated
-                  action =
-                    '#' +
-                    sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
-                }
+                //to ensure there is proper capitlization for the section headers
                 for (let i = 0; i < Object.keys(sectionArray).length; i++) {
-                  finalSectionlist[i] =
+                  sectionArray[i] =
                     sectionArray[i].charAt(0).toUpperCase() +
                     sectionArray[i].slice(1).toLowerCase();
                 }
+
+                let anchorLink = '';
+                if (Object.keys(sectionArray).length === 1) {
+                  //add an active link if only one section has been updated
+                  anchorLink =
+                    '#' +
+                    sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
+                }
+
                 let newUpdate;
-                tokenName = `${justName
+                localStorageKey = `${pageName
                   ?.toLowerCase()
                   .replace(/\s+/g, '-')}-last-visited`;
-                if (window.localStorage.getItem(tokenName)) {
-                  if (
-                    window.localStorage.getItem(tokenName) >
+                if (window.localStorage.getItem(localStorageKey)) {
+                  newUpdate =
+                    window.localStorage.getItem(localStorageKey) >
                     new Date(data[i].merged_at).getTime()
-                  ) {
-                    //history of them visiting the page before, and that visit was after the newest update was sent
-                    newUpdate = false;
-                  } else {
-                    //history of them visiting the page before, but that visit was before the newest update was sent
-                    newUpdate = true;
-                  }
+                      ? false //if the last visit is more recent than the reported update, dont show it
+                      : true;
                 } else {
-                  //have never seen the page before
+                  //have never visited the page before
                   newUpdate = true;
                 }
-                temporaryHistory[justName] = {
-                  type: typeChange,
+                nextHistory[pageName] = {
+                  changeKind: typeChange,
                   description: notificationList[j + 2].slice(1, -1),
                   date: data[i].merged_at,
                   sections: sectionArray,
-                  action: action,
+                  action: anchorLink,
                   update: newUpdate,
                 };
               }
@@ -163,18 +164,16 @@ function App({ Component, pageProps, router }) {
         }
         window.localStorage.setItem(
           'update-history',
-          JSON.stringify(temporaryHistory),
+          JSON.stringify(nextHistory),
         );
-        setWholeViewHistory(temporaryHistory);
+        setContentHistory(nextHistory);
         setPageUpdateReady(true);
-      })
-      .then(() => {
         if (name) {
-          let tokenName = `${name
+          let localStorageKey = `${name
             ?.toLowerCase()
             .replace(/\s+/g, '-')}-last-visited`;
           let dateNow = new Date().getTime();
-          window.localStorage.setItem(tokenName, dateNow);
+          window.localStorage.setItem(localStorageKey, dateNow);
         }
       })
       .catch(error => console.error(error));
@@ -194,22 +193,23 @@ function App({ Component, pageProps, router }) {
         name = nameArray[Object.keys(nameArray).length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
 
-        let noQueryName = name.split('?')[0];
-        let tokenName = `${noQueryName
+        //to cover cases where they navigate via the search function
+        let pageName = name.split('?')[0];
+        let localStorageKey = `${pageName
           ?.toLowerCase()
           .replace(/\s+/g, '-')}-last-visited`;
-        let dateTime = new Date().getTime();
+        const dateTime = new Date().getTime();
 
         //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
         //then check if it should be shown (T/F), and set that in local storage and the state variable
-        if (viewHistory && noQueryName in viewHistory) {
-          viewHistory[noQueryName].update = pageVisitTracker(name);
+        if (viewHistory && pageName in viewHistory) {
+          viewHistory[pageName].update = pageVisitTracker(pageName);
           window.localStorage.setItem(
             'update-history',
             JSON.stringify(viewHistory),
           );
-          window.localStorage.setItem(tokenName, dateTime);
-          setWholeViewHistory(viewHistory);
+          window.localStorage.setItem(localStorageKey, dateTime);
+          setContentHistory(viewHistory);
           setPageUpdateReady(true);
         }
       }
@@ -237,7 +237,7 @@ function App({ Component, pageProps, router }) {
   return (
     <ThemeMode>
       <ViewContext.Provider
-        value={{ wholeViewHistory, pageUpdateReady, setPageUpdateReady }}
+        value={{ contentHistory, pageUpdateReady, setPageUpdateReady }}
       >
         <Layout
           title={title || ''}
