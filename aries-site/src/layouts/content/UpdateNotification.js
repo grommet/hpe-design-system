@@ -3,56 +3,50 @@ import { CircleInformation } from 'grommet-icons';
 import { ViewContext } from '../../pages/_app';
 import { useContext } from 'react';
 
+function InlineNotification({ dateText, message, updateDate }) {
+  return (
+    <Notification
+      width="large"
+      title={
+        dateText +
+        new Date(updateDate).toDateString().split(' ').slice(1).join(' ')
+      }
+      message={message}
+      margin={{ bottom: 'medium' }}
+      icon={<CircleInformation />}
+    />
+  );
+}
+
 export const UpdateNotification = ({ name }) => {
-  const { wholeViewHistory } = useContext(ViewContext) || undefined;
+  const { contentHistory } = useContext(ViewContext) || undefined;
+  const updateDate = contentHistory[name]?.date;
 
-  function InlineNotification({ dateText, message }) {
+  if (contentHistory && name in contentHistory) {
     return (
-      <Notification
-        width="large"
-        title={
-          dateText +
-          new Date(wholeViewHistory[name]?.date)
-            .toDateString()
-            .split(' ')
-            .slice(1)
-            .join(' ')
+      <InlineNotification
+        dateText={
+          contentHistory[name]?.changeKind === 'Update'
+            ? 'Updated '
+            : 'Added on '
         }
-        message={message}
-        margin={{ bottom: 'medium' }}
-        icon={<CircleInformation />}
+        message={
+          contentHistory[name]?.changeKind === 'Update' ? (
+            <Text>
+              {contentHistory[name]?.description + '    '}
+              {contentHistory[name]?.action?.length > 1 && (
+                <Anchor label="Link" href={contentHistory[name]?.action} />
+              )}
+            </Text>
+          ) : (
+            <Text>
+              This item is new. Let the Design System team know if you have any
+              feedback.
+            </Text>
+          )
+        }
+        updateDate={updateDate}
       />
-    );
-  }
-
-  if (wholeViewHistory && name in wholeViewHistory) {
-    return (
-      <>
-        {wholeViewHistory[name]?.type === 'Update' && (
-          <InlineNotification
-            dateText="Updated "
-            message={
-              <Text>
-                {wholeViewHistory[name]?.description + '    '}
-                {wholeViewHistory[name]?.action?.length > 1 && (
-                  <Anchor label="Link" href={wholeViewHistory[name]?.action} />
-                )}
-              </Text>
-            }
-          />
-        )}
-        {wholeViewHistory[name]?.type === 'New' && (
-          <InlineNotification
-            dateText="Added on "
-            message={
-              <Text>
-                This item is new. Let the Design System team know if you have
-                any feedback.
-              </Text>
-            }
-          />
-        )}
-      </>
     );
   }
 };

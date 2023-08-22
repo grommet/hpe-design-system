@@ -130,7 +130,7 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  const { wholeViewHistory, pageUpdateReady, setPageUpdateReady } =
+  const { contentHistory, pageUpdateReady, setPageUpdateReady } =
     useContext(ViewContext) || undefined;
 
   //every time a new page loads, initalize ready state to false, until app.js declares otherwise
@@ -193,10 +193,9 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
-                          {pageUpdateReady &&
-                            wholeViewHistory[title]?.update && (
-                              <UpdateNotification name={title} />
-                            )}
+                          {pageUpdateReady && contentHistory[title]?.update && (
+                            <UpdateNotification name={title} />
+                          )}
                           {children}
                         </ContentSection>
                         {relatedContent.length > 0 && (
