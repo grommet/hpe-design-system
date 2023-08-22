@@ -236,15 +236,17 @@ function App({ Component, pageProps, router }) {
         let nameArray = name.split('/');
         name = nameArray[Object.keys(nameArray).length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
-        let tokenName = `${name
+
+        let noQueryName = name.split('?')[0];
+        let tokenName = `${noQueryName
           ?.toLowerCase()
           .replace(/\s+/g, '-')}-last-visited`;
         let dateTime = new Date().getTime();
 
         //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
         //then check if it should be shown (T/F), and set that in local storage and the state variable
-        if (name in viewHistory) {
-          viewHistory[name].update = pageVisitTracker(name);
+        if (viewHistory && noQueryName in viewHistory) {
+          viewHistory[noQueryName].update = pageVisitTracker(noQueryName);
 
           window.localStorage.setItem(
             'update-history',
