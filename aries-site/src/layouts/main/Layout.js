@@ -131,7 +131,7 @@ export const Layout = ({
   ].filter(link => link !== undefined);
 
   const { contentHistory, pageUpdateReady, setPageUpdateReady } =
-    useContext(ViewContext) || undefined;
+    useContext(ViewContext);
 
   //every time a new page loads, initalize ready state to false, until app.js declares otherwise
   useEffect(() => {

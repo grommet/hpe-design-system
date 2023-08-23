@@ -1,35 +1,17 @@
 import { Anchor, Text, Notification } from 'grommet';
-import { CircleInformation } from 'grommet-icons';
 import { ViewContext } from '../../pages/_app';
 import { useContext } from 'react';
 
-function InlineNotification({ dateText, message, updateDate }) {
-  return (
-    <Notification
-      width="large"
-      title={
-        dateText +
-        new Date(updateDate).toDateString().split(' ').slice(1).join(' ')
-      }
-      message={message}
-      margin={{ bottom: 'medium' }}
-      icon={<CircleInformation />}
-    />
-  );
-}
-
 export const UpdateNotification = ({ name }) => {
-  const { contentHistory } = useContext(ViewContext) || undefined;
+  const { contentHistory } = useContext(ViewContext);
   const updateDate = contentHistory[name]?.date;
 
   if (contentHistory && name in contentHistory) {
     return (
-      <InlineNotification
-        dateText={
-          contentHistory[name]?.changeKind === 'Update'
-            ? 'Updated '
-            : 'Added on '
-        }
+      <Notification
+        status="info"
+        margin={{ bottom: 'medium' }}
+        width="large"
         message={
           contentHistory[name]?.changeKind === 'Update' ? (
             <Text>
@@ -45,7 +27,11 @@ export const UpdateNotification = ({ name }) => {
             </Text>
           )
         }
-        updateDate={updateDate}
+        title={`${
+          contentHistory[name]?.changeKind === 'Update'
+            ? 'Updated '
+            : 'Added on '
+        } ${new Date(updateDate).toDateString().split(' ').slice(1).join(' ')}`}
       />
     );
   }

@@ -1,16 +1,15 @@
 import { Tag } from 'grommet';
 
-export const NotificationTag = ({ size, color, ...rest }) => {
+export const NotificationTag = ({ backgroundColor, ...rest }) => {
   return (
     <Tag
-      size={size}
       border={{
         color: 'border-weak',
         size: 'xsmall',
         style: 'solid',
         side: 'all',
       }}
-      background={{ dark: true, color: color }}
+      background={{ dark: true, color: backgroundColor }}
       {...rest}
     />
   );
