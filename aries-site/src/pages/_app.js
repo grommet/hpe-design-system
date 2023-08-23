@@ -96,9 +96,11 @@ function App({ Component, pageProps, router }) {
             break;
           }
           let prDescription = data[i].body;
-          if (prDescription.includes('#### Notifications')) {
+          const notificationHeader = '#### Notifications\r\n';
+          if (prDescription.includes(notificationHeader)) {
             const indexOfFirstComponent =
-              prDescription.search('#### Notifications') + 22;
+              prDescription.search(notificationHeader) +
+              notificationHeader.length;
             //the position of the first bracket containing either new/updates is 22 characters away
             //this includes the notification header and the \r\n\r\n that follow
             const notificationList = prDescription
