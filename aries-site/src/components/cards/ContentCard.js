@@ -75,7 +75,7 @@ export const ContentCard = forwardRef(
                   </Box>
                   {newUpdate && changeKind === 'Update' && (
                     <NotificationTag
-                      color="teal"
+                      backgroundColor="teal"
                       a11yTitle={`There's been updates for ${render || name}`}
                       value="Updated"
                       size="small"
@@ -83,7 +83,7 @@ export const ContentCard = forwardRef(
                   )}
                   {newUpdate && changeKind === 'New' && (
                     <NotificationTag
-                      color="purple"
+                      backgroundColor="purple"
                       a11yTitle={`There's a new item called ${render || name}`}
                       value="New!"
                       size="small"

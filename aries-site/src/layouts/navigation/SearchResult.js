@@ -41,7 +41,7 @@ export const SearchResult = ({ query, result }) => {
             {newUpdate && changeKind === 'New' && (
               <NotificationTag
                 size="xsmall"
-                color="purple"
+                backgroundColor="purple"
                 value="New!"
                 a11yTitle={`There's a new item called ${result.title}`}
               />
@@ -49,7 +49,7 @@ export const SearchResult = ({ query, result }) => {
             {newUpdate && changeKind === 'Update' && (
               <NotificationTag
                 size="xsmall"
-                color="teal"
+                backgroundColor="teal"
                 value="Updated"
                 a11yTitle={`There's been updates for ${result.title}`}
               />

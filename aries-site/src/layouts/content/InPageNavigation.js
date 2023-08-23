@@ -63,7 +63,7 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const { contentHistory } = useContext(ViewContext) || undefined;
+  const { contentHistory } = useContext(ViewContext);
 
   return (
     <Box
