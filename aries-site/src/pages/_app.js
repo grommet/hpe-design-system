@@ -70,6 +70,7 @@ function App({ Component, pageProps, router }) {
   const [contentHistory, setContentHistory] = useState({});
   //state that holds boolean for whether or not update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
+  const [currentPage, setCurrentPage] = useState('');
 
   //this effect is only for the first time a page loads
   useEffect(() => {
@@ -168,6 +169,7 @@ function App({ Component, pageProps, router }) {
           'update-history',
           JSON.stringify(nextHistory),
         );
+        setCurrentPage(name);
         setContentHistory(nextHistory);
         setPageUpdateReady(true);
         if (name) {
@@ -202,6 +204,7 @@ function App({ Component, pageProps, router }) {
           .replace(/\s+/g, '-')}-last-visited`;
         const dateTime = new Date().getTime();
 
+        setCurrentPage(pageName);
         //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
         //then check if it should be shown (T/F), and set that in local storage and the state variable
         if (viewHistory && pageName in viewHistory) {
@@ -239,7 +242,12 @@ function App({ Component, pageProps, router }) {
   return (
     <ThemeMode>
       <ViewContext.Provider
-        value={{ contentHistory, pageUpdateReady, setPageUpdateReady }}
+        value={{
+          contentHistory,
+          pageUpdateReady,
+          setPageUpdateReady,
+          currentPage,
+        }}
       >
         <Layout
           title={title || ''}
