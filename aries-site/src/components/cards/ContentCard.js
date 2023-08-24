@@ -5,11 +5,20 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
+import pageVisitTracker from '../../utils/pageVisitTracker';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
+    const history = JSON.parse(window.localStorage.getItem('update-history'));
+    let newUpdate = false;
+    let type;
+    if (history && name in history) {
+      newUpdate = pageVisitTracker(name);
+      type = history[name].type;
+    }
+
     return (
       <LinkCard fill pad="medium" ref={ref} {...rest}>
         <CardBody gap="large">
@@ -49,6 +58,8 @@ export const ContentCard = forwardRef(
               align="start"
               gap="xsmall"
               level={level}
+              updates={newUpdate}
+              type={type}
             >
               {parent && parent.icon && !minimal && (
                 <Box direction="row" align="center" gap="xsmall">

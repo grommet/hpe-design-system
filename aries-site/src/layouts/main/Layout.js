@@ -34,10 +34,14 @@ import {
   FeedbackButton,
   Feedback,
   Question,
+  components,
 } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
+import { UpdateNotification } from '../content/UpdateNotification';
+import { InPageChangeLog } from '../content/InPageChangeLog.js';
+import { ViewContext } from '../../pages/_app';
 
 export const Layout = ({
   backgroundImage,
@@ -116,6 +120,7 @@ export const Layout = ({
   );
   const regexp = new RegExp(/ #{1,3} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
+  headings?.push(['## Change Log ~~', 'Change Log']);
   const showInPageNav =
     !['xsmall', 'small'].includes(breakpoint) && headings?.length > 0;
 
@@ -126,6 +131,14 @@ export const Layout = ({
     showInPageNav ? { id: 'toc', label: 'Table of Contents' } : undefined,
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
+
+  const { wholeViewHistory, pageUpdateReady, setPageUpdateReady, changeLog } =
+    useContext(ViewContext) || undefined;
+
+  //every time a new page loads, initalize ready state to false, until app.js declares otherwise
+  useEffect(() => {
+    setPageUpdateReady(false);
+  }, [title]);
 
   return (
     <>
@@ -164,7 +177,7 @@ export const Layout = ({
                       {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
                           <SkipLinkTarget id="toc" />
-                          <InPageNavigation headings={headings} />
+                          <InPageNavigation title={title} headings={headings} />
                         </Box>
                       ) : undefined}
                       <Box
@@ -182,7 +195,12 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
+                          {pageUpdateReady &&
+                            wholeViewHistory[title]?.update && (
+                              <UpdateNotification name={title} />
+                            )}
                           {children}
+                          <InPageChangeLog id="change-log" name={title} />
                         </ContentSection>
                         {relatedContent.length > 0 && (
                           <RelatedContent

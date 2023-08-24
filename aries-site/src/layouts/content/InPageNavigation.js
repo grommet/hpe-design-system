@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
 import { nameToSlug } from '../../utils';
+import { StatusGoodSmall } from 'grommet-icons';
+import { ViewContext } from '../../pages/_app';
 
 const SectionButton = styled(Button)`
   border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
@@ -44,7 +46,7 @@ const useActiveHeadingId = (headings, options) => {
   return activeHeadingId;
 };
 
-export const InPageNavigation = ({ headings }) => {
+export const InPageNavigation = ({ headings, title }) => {
   const theme = useContext(ThemeContext);
 
   let { large, medium } = theme.global.edgeSize;
@@ -60,6 +62,8 @@ export const InPageNavigation = ({ headings }) => {
 
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
+
+  const { wholeViewHistory } = useContext(ViewContext) || undefined;
 
   return (
     <Box
@@ -108,6 +112,23 @@ export const InPageNavigation = ({ headings }) => {
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
 
+          let sectionList;
+          let newUpdate = false;
+
+          if (
+            wholeViewHistory &&
+            title in wholeViewHistory &&
+            wholeViewHistory[title].update &&
+            wholeViewHistory[title].sections[0].length > 0
+          ) {
+            sectionList = wholeViewHistory[title].sections;
+            Object.values(sectionList).forEach(val => {
+              if (val === headingTitle) {
+                newUpdate = true;
+              }
+            });
+          }
+
           return (
             <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
               <SectionButton theme={theme} hoverIndicator>
@@ -123,10 +144,20 @@ export const InPageNavigation = ({ headings }) => {
                         ? undefined
                         : { left: theme.global.borderSize.small }
                     }
+                    direction="row"
+                    align="top"
+                    gap="small"
                   >
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
+                    {newUpdate && (
+                      <Box justify="top">
+                        <Text>
+                          <StatusGoodSmall size="10px" color="#117B82" />
+                        </Text>
+                      </Box>
+                    )}
                   </Box>
                 </Box>
               </SectionButton>
