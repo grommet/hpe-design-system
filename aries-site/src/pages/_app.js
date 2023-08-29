@@ -82,7 +82,7 @@ function App({ Component, pageProps, router }) {
 
     //imported and put fetchData in here so that it can access the contentHistory function
     //thirtyDaysAgo calculated in milliseconds
-    let thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
+    const thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
     fetch(
       `https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`,
     )
@@ -111,31 +111,28 @@ function App({ Component, pageProps, router }) {
             const regExp = /\[([^)]+)\]/;
             for (let j = 0; j < Object.keys(notificationList).length; j += 3) {
               //+= 3 so it can jump between component descriptions
-              let typeChangeAndName = notificationList[j].trim();
-              let typeChange = regExp.exec(typeChangeAndName)[1].trim();
+              const changeKindAndName = notificationList[j].trim();
+              const changeKind = regExp.exec(changeKindAndName)[1].trim();
               let pageName;
-              if (typeChange === 'Update') {
-                pageName = typeChangeAndName.slice('8').trim();
-              } else if (typeChange === 'New') {
-                pageName = typeChangeAndName.slice('5').trim();
+              if (changeKind === 'Update') {
+                pageName = changeKindAndName.slice('8').trim();
+              } else if (changeKind === 'New') {
+                pageName = changeKindAndName.slice('5').trim();
               }
               if (pageName && !(pageName in nextHistory)) {
-                let sectionArray = notificationList[j + 1]
-                  .slice(1, -1)
-                  .split('][');
+                let sections = notificationList[j + 1].slice(1, -1).split('][');
                 //to ensure there is proper capitlization for the section headers
-                for (let i = 0; i < Object.keys(sectionArray).length; i++) {
-                  sectionArray[i] =
-                    sectionArray[i].charAt(0).toUpperCase() +
-                    sectionArray[i].slice(1).toLowerCase();
+                for (let i = 0; i < Object.keys(sections).length; i++) {
+                  sections[i] =
+                    sections[i].charAt(0).toUpperCase() +
+                    sections[i].slice(1).toLowerCase();
                 }
 
                 let anchorLink = '';
-                if (Object.keys(sectionArray).length === 1) {
+                if (Object.keys(sections).length === 1) {
                   //add an active link if only one section has been updated
                   anchorLink =
-                    '#' +
-                    sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
+                    '#' + sections[0].trim().replace(/\s+/g, '-').toLowerCase();
                 }
 
                 let newUpdate;
@@ -153,10 +150,10 @@ function App({ Component, pageProps, router }) {
                   newUpdate = true;
                 }
                 nextHistory[pageName] = {
-                  changeKind: typeChange,
+                  changeKind: changeKind,
                   description: notificationList[j + 2].slice(1, -1),
                   date: data[i].merged_at,
-                  sections: sectionArray,
+                  sections: sections,
                   action: anchorLink,
                   update: newUpdate,
                 };
