@@ -4,7 +4,7 @@ import { Box, Paragraph, Text, Tag } from 'grommet';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../content/NotificationTag';
 
 export const SearchResult = ({ query, result }) => {

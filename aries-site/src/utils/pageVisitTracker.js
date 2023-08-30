@@ -1,8 +1,9 @@
+export const getLocalStorageKey = title =>
+  `${title?.toLowerCase().replace(/\s+/g, '-')}-last-visited`;
+
 // determines whether or not the update should be shown given the most recent commit and last-visit records
-const pageVisitTracker = function (title) {
-  const localStorageKey = `${title
-    ?.toLowerCase()
-    .replace(/\s+/g, '-')}-last-visited`; // the name associated with the values in localStorage
+export const pageVisitTracker = function (title) {
+  const localStorageKey = getLocalStorageKey(title); // the name associated with the values in localStorage
   let newUpdate;
   let history = JSON.parse(window.localStorage.getItem('update-history'));
   if (title in history) {
@@ -28,5 +29,3 @@ const pageVisitTracker = function (title) {
   }
   return newUpdate;
 };
-
-export default pageVisitTracker;

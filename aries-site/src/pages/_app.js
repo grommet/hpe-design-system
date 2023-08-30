@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import React, { useEffect, createContext, useState } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
-import pageVisitTracker from '../utils/pageVisitTracker';
+import {
+  pageVisitTracker,
+  getLocalStorageKey,
+} from '../utils/pageVisitTracker';
+import { nameToSlug } from '../utils';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -63,6 +67,10 @@ const backgroundImages = {
 
 export const ViewContext = createContext(undefined);
 
+//thirtyDaysAgo calculated in milliseconds
+const thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
+const notificationHeading = '#### Notifications\r\n';
+
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
 
@@ -71,18 +79,12 @@ function App({ Component, pageProps, router }) {
   //state that holds boolean for whether or not update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
 
-  //this effect is only for the first time a page loads
+  // this effect is only for the first time _app mounts
   useEffect(() => {
-    let name = router.asPath;
-    let nameArray = name.split('/');
-    name = nameArray[Object.keys(nameArray).length - 1];
+    const route = router.route;
+    let name = route[route.length - 1].length && route[route.length - 1];
+    console.log(name);
     name = name.charAt(0).toUpperCase() + name.slice(1);
-    name = name.split('#')[0];
-    name = name.split('?')[0];
-
-    //imported and put fetchData in here so that it can access the contentHistory function
-    //thirtyDaysAgo calculated in milliseconds
-    const thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
     fetch(
       `https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`,
     )
@@ -90,72 +92,83 @@ function App({ Component, pageProps, router }) {
       .then(data => {
         let nextHistory = {};
         let localStorageKey;
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          if (new Date(data[i].merged_at).getTime() < thirtyDaysAgo) {
-            //if it is older than thirty days ago
-            break;
-          }
-          let prDescription = data[i].body;
-          const notificationHeader = '#### Notifications\r\n';
-          if (prDescription.includes(notificationHeader)) {
+
+        for (let i = 0; i < data.length; i++) {
+          const prDescription = data[i].body;
+          const mergedAt = data[i].merged_at;
+          // PR was merged within the last 30 days and a notification
+          // is flagged in the PR descrription
+          if (
+            new Date(mergedAt).getTime() > thirtyDaysAgo &&
+            prDescription &&
+            prDescription.includes(notificationHeading)
+          ) {
             const indexOfFirstComponent =
-              prDescription.search(notificationHeader) +
-              notificationHeader.length;
+              prDescription.search(notificationHeading) +
+              notificationHeading.length;
             //the position of the first bracket containing either new/updates is 22 characters away
             //this includes the notification header and the \r\n\r\n that follow
-            const notificationList = prDescription
+            const notificationsParts = prDescription
               .slice(indexOfFirstComponent)
+              //splits them into an array jumping between name, sections, and description
+              //like: ['[New]Header', ['Usage', 'Some Section'], '[The description for header]', '[Update]Button', ['Dos and Donts'], '[Description for button]']
               .split('\r\n\r\n');
-            //splits them into an array jumping between name, sections, and description
-            //like: ['[New]Header', ['Usage', 'Some Section'], '[The description for header]', '[Update]Button', ['Dos and Donts'], '[Description for button]']
+
             const regExp = /\[([^)]+)\]/;
-            for (let j = 0; j < Object.keys(notificationList).length; j += 3) {
-              //+= 3 so it can jump between component descriptions
-              const changeKindAndName = notificationList[j].trim();
-              const changeKind = regExp.exec(changeKindAndName)[1].trim();
-              let pageName;
-              if (changeKind === 'Update') {
-                pageName = changeKindAndName.slice('8').trim();
-              } else if (changeKind === 'New') {
-                pageName = changeKindAndName.slice('5').trim();
-              }
+            //+= 3 so it can jump between component descriptions
+            for (
+              let j = 0;
+              j < Object.keys(notificationsParts).length;
+              j += 3
+            ) {
+              // changeKindAndName is in format: [Update]Button or [New]Button
+              // where Button is the page name
+              const changeKindAndName = notificationsParts[j].trim();
+              const changeKind = regExp.exec(changeKindAndName)[0];
+
+              // removes the [Update] or [New]
+              const pageName =
+                changeKindAndName &&
+                // [Update]
+                changeKind &&
+                changeKindAndName.slice(changeKind.length).trim();
+
               if (pageName && !(pageName in nextHistory)) {
-                let sections = notificationList[j + 1].slice(1, -1).split('][');
+                let sections = notificationsParts[j + 1]
+                  .slice(1, -1)
+                  .split('][');
+
+                // TO DO -- why is this necessary?
                 //to ensure there is proper capitlization for the section headers
-                for (let i = 0; i < Object.keys(sections).length; i++) {
+                for (let i = 0; i < sections.length; i++) {
                   sections[i] =
                     sections[i].charAt(0).toUpperCase() +
                     sections[i].slice(1).toLowerCase();
                 }
 
-                let anchorLink = '';
-                if (Object.keys(sections).length === 1) {
-                  //add an active link if only one section has been updated
-                  anchorLink =
-                    '#' + sections[0].trim().replace(/\s+/g, '-').toLowerCase();
+                let href;
+                if (sections.length === 1) {
+                  // add an active link if only one section has been updated
+                  href = '#' + nameToSlug(sections[0].trim());
                 }
 
-                let newUpdate;
-                localStorageKey = `${pageName
-                  ?.toLowerCase()
-                  .replace(/\s+/g, '-')}-last-visited`;
+                let showUpdate;
+                localStorageKey = getLocalStorageKey(pageName);
                 if (window.localStorage.getItem(localStorageKey)) {
-                  newUpdate =
-                    window.localStorage.getItem(localStorageKey) >
-                    new Date(data[i].merged_at).getTime()
-                      ? false //if the last visit is more recent than the reported update, dont show it
-                      : true;
+                  showUpdate =
+                    window.localStorage.getItem(localStorageKey) <
+                    new Date(mergedAt).getTime();
                 } else {
-                  //have never visited the page before
-                  newUpdate = true;
+                  // user has never visited the page before
+                  showUpdate = true;
                 }
                 nextHistory[pageName] = {
-                  changeKind: changeKind,
-                  description: notificationList[j + 2].slice(1, -1),
-                  date: data[i].merged_at,
+                  changeKind: regExp.exec(changeKindAndName)[1].trim(),
+                  description: notificationsParts[j + 2].slice(1, -1),
+                  date: mergedAt,
                   sections: sections,
-                  action: anchorLink,
-                  update: newUpdate,
+                  action: href,
+                  update: showUpdate,
                 };
               }
             }
@@ -168,9 +181,7 @@ function App({ Component, pageProps, router }) {
         setContentHistory(nextHistory);
         setPageUpdateReady(true);
         if (name) {
-          let localStorageKey = `${name
-            ?.toLowerCase()
-            .replace(/\s+/g, '-')}-last-visited`;
+          let localStorageKey = getLocalStorageKey(name);
           let dateNow = new Date().getTime();
           window.localStorage.setItem(localStorageKey, dateNow);
         }
@@ -184,31 +195,25 @@ function App({ Component, pageProps, router }) {
       skipLinks.focus();
 
       if (typeof window !== 'undefined') {
-        let viewHistory = JSON.parse(
+        const updateHistory = JSON.parse(
           window.localStorage.getItem('update-history'),
         );
-        let name = router.asPath;
-        let nameArray = name.split('/');
-        name = nameArray[Object.keys(nameArray).length - 1];
+        const routeParts = router.route.split('/');
+        let name = routeParts[routeParts.length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
+        let localStorageKey = getLocalStorageKey(name);
+        const now = new Date().getTime();
 
-        //to cover cases where they navigate via the search function
-        let pageName = name.split('?')[0];
-        let localStorageKey = `${pageName
-          ?.toLowerCase()
-          .replace(/\s+/g, '-')}-last-visited`;
-        const dateTime = new Date().getTime();
-
-        //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
+        //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in updateHistory)
         //then check if it should be shown (T/F), and set that in local storage and the state variable
-        if (viewHistory && pageName in viewHistory) {
-          viewHistory[pageName].update = pageVisitTracker(pageName);
+        if (updateHistory && name in updateHistory) {
+          updateHistory[name].update = pageVisitTracker(name);
           window.localStorage.setItem(
             'update-history',
-            JSON.stringify(viewHistory),
+            JSON.stringify(updateHistory),
           );
-          window.localStorage.setItem(localStorageKey, dateTime);
-          setContentHistory(viewHistory);
+          window.localStorage.setItem(localStorageKey, now);
+          setContentHistory(updateHistory);
           setPageUpdateReady(true);
         }
       }

@@ -5,7 +5,7 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../../layouts/content/NotificationTag';
 
 export const ContentCard = forwardRef(

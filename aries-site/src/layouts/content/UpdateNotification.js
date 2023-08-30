@@ -1,6 +1,7 @@
 import { Anchor, Text, Notification } from 'grommet';
 import { ViewContext } from '../../pages/_app';
 import { useContext } from 'react';
+import Link from 'next/link';
 
 export const UpdateNotification = ({ name }) => {
   const { contentHistory } = useContext(ViewContext);
@@ -17,7 +18,9 @@ export const UpdateNotification = ({ name }) => {
             <Text>
               {contentHistory[name]?.description + '    '}
               {contentHistory[name]?.action?.length > 1 && (
-                <Anchor label="Link" href={contentHistory[name]?.action} />
+                <Link href={contentHistory[name]?.action} passHref>
+                  <Anchor label="Jump to update" />
+                </Link>
               )}
             </Text>
           ) : (
@@ -31,7 +34,9 @@ export const UpdateNotification = ({ name }) => {
           contentHistory[name]?.changeKind === 'Update'
             ? 'Updated '
             : 'Added on '
-        } ${new Date(updateDate).toDateString().split(' ').slice(1).join(' ')}`}
+        } ${new Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(
+          new Date(updateDate),
+        )}`}
       />
     );
   }

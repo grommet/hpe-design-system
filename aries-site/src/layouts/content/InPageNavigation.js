@@ -131,7 +131,7 @@ export const InPageNavigation = ({ headings, title }) => {
 
           return (
             <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
-              <SectionButton theme={theme} hoverIndicator>
+              <SectionButton theme={theme} hoverIndicator fill="horizontal">
                 <Box border={borderLeft}>
                   <Box
                     pad={{
@@ -145,17 +145,20 @@ export const InPageNavigation = ({ headings, title }) => {
                         : { left: theme.global.borderSize.small }
                     }
                     direction="row"
-                    align="top"
+                    align="center"
+                    justify="between"
                     gap="small"
                   >
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
                     {newUpdate && (
-                      <Box justify="top">
-                        <Text>
-                          <StatusGoodSmall size="10px" color="#117B82" />
-                        </Text>
+                      <Box background={{ dark: true }}>
+                        <StatusGoodSmall
+                          size="10px"
+                          color="teal"
+                          height="small"
+                        />
                       </Box>
                     )}
                   </Box>
