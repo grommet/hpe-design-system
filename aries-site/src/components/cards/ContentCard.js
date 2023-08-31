@@ -5,7 +5,7 @@ import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../../layouts/content/NotificationTag';
 
 export const ContentCard = forwardRef(
@@ -15,10 +15,10 @@ export const ContentCard = forwardRef(
     const updateHistory = JSON.parse(
       window.localStorage.getItem('update-history'),
     );
-    let newUpdate = false;
+    let showUpdate = false;
     let changeKind;
     if (updateHistory && name in updateHistory) {
-      newUpdate = pageVisitTracker(name);
+      showUpdate = pageVisitTracker(name);
       changeKind = updateHistory[name].changeKind;
     }
 
@@ -73,7 +73,7 @@ export const ContentCard = forwardRef(
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
-                  {newUpdate && changeKind === 'Update' && (
+                  {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
                       backgroundColor="teal"
                       a11yTitle={`There's been updates for ${render || name}`}
@@ -81,7 +81,7 @@ export const ContentCard = forwardRef(
                       size="small"
                     />
                   )}
-                  {newUpdate && changeKind === 'New' && (
+                  {showUpdate && changeKind === 'New' && (
                     <NotificationTag
                       backgroundColor="purple"
                       a11yTitle={`There's a new item called ${render || name}`}

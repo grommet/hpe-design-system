@@ -4,20 +4,20 @@ import { Box, Paragraph, Text, Tag } from 'grommet';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../content/NotificationTag';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
-  const history = JSON.parse(window.localStorage.getItem('update-history'));
-  let newUpdate, changeKind;
-  if (result.title in history) {
-    newUpdate = pageVisitTracker(result.title);
-    changeKind = history[result.title].changeKind;
+  const updateHistory = JSON.parse(window.localStorage.getItem('update-history'));
+  let showUpdate, changeKind;
+  if (result.title in updateHistory) {
+    showUpdate = pageVisitTracker(result.title);
+    changeKind = updateHistory[result.title].changeKind;
   } else {
-    newUpdate = false;
+    showUpdate = false;
   }
 
   return (
@@ -38,7 +38,7 @@ export const SearchResult = ({ query, result }) => {
                 {result.title}
               </HighlightPhrase>
             </Text>
-            {newUpdate && changeKind === 'New' && (
+            {showUpdate && changeKind === 'New' && (
               <NotificationTag
                 size="xsmall"
                 backgroundColor="purple"
@@ -46,7 +46,7 @@ export const SearchResult = ({ query, result }) => {
                 a11yTitle={`There's a new item called ${result.title}`}
               />
             )}
-            {newUpdate && changeKind === 'Update' && (
+            {showUpdate && changeKind === 'Update' && (
               <NotificationTag
                 size="xsmall"
                 backgroundColor="teal"

@@ -113,7 +113,7 @@ export const InPageNavigation = ({ headings, title }) => {
           else if (level.length === 3) subsectionPad = 'medium';
 
           let sectionList;
-          let newUpdate = false;
+          let showUpdate = false;
 
           if (
             contentHistory &&
@@ -123,8 +123,8 @@ export const InPageNavigation = ({ headings, title }) => {
           ) {
             sectionList = contentHistory[title].sections;
             Object.values(sectionList).forEach(val => {
-              if (val === headingTitle) {
-                newUpdate = true;
+              if (val.toLowerCase() === headingTitle.toLowerCase()) {
+                showUpdate = true;
               }
             });
           }
@@ -151,10 +151,14 @@ export const InPageNavigation = ({ headings, title }) => {
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
-                    {newUpdate && (
+                    {showUpdate && (
                       <Box justify="top">
                         <Text>
-                          <StatusGoodSmall size="10px" color="#117B82" />
+                          <StatusGoodSmall
+                            a11yTitle="section has been updated"
+                            size="10px"
+                            color="#117B82"
+                          />
                         </Text>
                       </Box>
                     )}
