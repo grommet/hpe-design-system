@@ -26,7 +26,7 @@ export const Meta = ({
     // in dev mode, we allow unsafe-eval to work with react hot reloader
     process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
   };
-  font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/;
+  font-src 'self' *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/;
   object-src 'none';`;
 
   /*

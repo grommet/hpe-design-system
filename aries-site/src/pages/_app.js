@@ -1,8 +1,32 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import localFont from 'next/font/local';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
+
+const metric = localFont({
+  src: [
+    {
+      path: '../../public/fonts/metric-2-regular.woff2',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/metric-2-medium.woff2',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/metric-2-light.woff2',
+      weight: '300',
+    },
+    {
+      path: '../../public/fonts/metric-2-bold.woff2',
+      weight: '700',
+    },
+  ],
+  // src: '../../public/fonts/metric-2-regular.woff2',
+  variable: '--font-metric',
+});
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -91,18 +115,20 @@ function App({ Component, pageProps, router }) {
 
   return (
     <ThemeMode>
-      <Layout
-        title={title || ''}
-        topic={topic}
-        // What's new page is MDX
-        isLanding={!topic && title !== 'whats new'}
-        // applies card images to the "hub" pages
-        backgroundImage={backgroundImages[title]}
-      >
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </Layout>
+      <div className={metric.className}>
+        <Layout
+          title={title || ''}
+          topic={topic}
+          // What's new page is MDX
+          isLanding={!topic && title !== 'whats new'}
+          // applies card images to the "hub" pages
+          backgroundImage={backgroundImages[title]}
+        >
+          <MDXProvider components={components}>
+            <Component {...pageProps} />
+          </MDXProvider>
+        </Layout>
+      </div>
     </ThemeMode>
   );
 }
