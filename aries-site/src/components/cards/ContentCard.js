@@ -76,7 +76,9 @@ export const ContentCard = forwardRef(
                   {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
                       backgroundColor="teal"
-                      a11yTitle={`There's been updates for ${render || name}`}
+                      a11yTitle={`There have been updates for ${
+                        render || name
+                      }`}
                       value="Updated"
                       size="small"
                     />

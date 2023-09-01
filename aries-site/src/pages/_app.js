@@ -196,7 +196,6 @@ function App({ Component, pageProps, router }) {
         name = name.charAt(0).toUpperCase() + name.slice(1);
         let localStorageKey = getLocalStorageKey(name);
         const now = new Date().getTime();
-
         //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in updateHistory)
         //then check if it should be shown (T/F), and set that in local storage and the state variable
         if (updateHistory && name in updateHistory) {

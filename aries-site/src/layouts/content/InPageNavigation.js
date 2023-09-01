@@ -152,14 +152,13 @@ export const InPageNavigation = ({ headings, title }) => {
                       {headingTitle}
                     </Text>
                     {showUpdate && (
-                      <Box justify="top">
-                        <Text>
+                      <Box background={{dark: true}} justify="top">
                           <StatusGoodSmall
-                            a11yTitle="section has been updated"
+                            a11yTitle="Section has been updated"
                             size="10px"
-                            color="#117B82"
+                            color="teal"
+                            height={'small'}
                           />
-                        </Text>
                       </Box>
                     )}
                   </Box>
