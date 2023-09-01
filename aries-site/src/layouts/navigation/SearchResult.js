@@ -11,8 +11,11 @@ export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
-  const updateHistory = JSON.parse(window.localStorage.getItem('update-history'));
-  let showUpdate, changeKind;
+  const updateHistory = JSON.parse(
+    window.localStorage.getItem('update-history'),
+  );
+  let showUpdate;
+  let changeKind;
   if (result.title in updateHistory) {
     showUpdate = pageVisitTracker(result.title);
     changeKind = updateHistory[result.title].changeKind;
