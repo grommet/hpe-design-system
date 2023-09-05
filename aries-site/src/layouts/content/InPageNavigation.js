@@ -63,7 +63,7 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const { contentHistory } = useContext(ViewContext);
+  const { pageUpdateReady, contentHistory } = useContext(ViewContext);
 
   return (
     <Box
@@ -151,14 +151,14 @@ export const InPageNavigation = ({ headings, title }) => {
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
-                    {showUpdate && (
-                      <Box background={{dark: true}} justify="top">
-                          <StatusGoodSmall
-                            a11yTitle="Section has been updated"
-                            size="10px"
-                            color="teal"
-                            height={'small'}
-                          />
+                    {showUpdate && pageUpdateReady && (
+                      <Box background={{ dark: true }} justify="top">
+                        <StatusGoodSmall
+                          a11yTitle="Section has been updated"
+                          size="10px"
+                          color="teal"
+                          height={'small'}
+                        />
                       </Box>
                     )}
                   </Box>

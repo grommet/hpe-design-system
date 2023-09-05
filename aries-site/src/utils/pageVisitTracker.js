@@ -2,17 +2,16 @@ export const getLocalStorageKey = title =>
   `${title?.toLowerCase().replace(/\s+/g, '-')}-last-visited`;
 
 // determines whether or not the update should be shown given the most recent commit and last-visit records
-export const pageVisitTracker = function (title) {
+export const pageVisitTracker = function (title, contentHistory) {
   const localStorageKey = getLocalStorageKey(title); // the name associated with the values in localStorage
   let showUpdate;
-  let updateHistory = JSON.parse(window.localStorage.getItem('update-history'));
-  if (title in updateHistory) {
+  if (contentHistory && title in contentHistory) {
     //there has been a reported update within the last 30 days
     if (window.localStorage.getItem(localStorageKey)) {
       //there has been a guaranteed update and we've seen this page before
       if (
         window.localStorage.getItem(localStorageKey) >
-        new Date(updateHistory[title].date).getTime()
+        new Date(contentHistory[title].date).getTime()
       ) {
         //if when they saw the page is after the update, dont show it
         showUpdate = false;

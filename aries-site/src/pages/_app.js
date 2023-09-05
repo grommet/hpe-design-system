@@ -172,6 +172,7 @@ function App({ Component, pageProps, router }) {
           JSON.stringify(nextHistory),
         );
         setContentHistory(nextHistory);
+        // set page status as ready since all calculations are complete now
         setPageUpdateReady(true);
         if (name) {
           const localStorageKey = getLocalStorageKey(name);
@@ -188,24 +189,17 @@ function App({ Component, pageProps, router }) {
       skipLinks.focus();
 
       if (typeof window !== 'undefined') {
-        const updateHistory = JSON.parse(
-          window.localStorage.getItem('update-history'),
-        );
         const routeParts = router.route.split('/');
         let name = routeParts[routeParts.length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
         let localStorageKey = getLocalStorageKey(name);
         const now = new Date().getTime();
         //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in updateHistory)
-        //then check if it should be shown (T/F), and set that in local storage and the state variable
-        if (updateHistory && name in updateHistory) {
-          updateHistory[name].update = pageVisitTracker(name);
-          window.localStorage.setItem(
-            'update-history',
-            JSON.stringify(updateHistory),
-          );
+        //then check if it should be shown (T/F), and set that in the state variable
+        if (contentHistory && name in contentHistory) {
+          contentHistory[name].update = pageVisitTracker(name, contentHistory);
           window.localStorage.setItem(localStorageKey, now);
-          setContentHistory(updateHistory);
+          setContentHistory(contentHistory);
           setPageUpdateReady(true);
         }
       }
@@ -218,7 +212,7 @@ function App({ Component, pageProps, router }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, contentHistory]);
 
   // final array item from the route is the title of page we are on
   const title =
