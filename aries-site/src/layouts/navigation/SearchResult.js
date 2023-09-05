@@ -6,19 +6,19 @@ import { HighlightPhrase } from '../../components';
 
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../content/NotificationTag';
+import { useContext } from 'react';
+import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
-  const updateHistory = JSON.parse(
-    window.localStorage.getItem('update-history'),
-  );
+  const { contentHistory } = useContext(ViewContext);
   let showUpdate;
   let changeKind;
-  if (result.title in updateHistory) {
-    showUpdate = pageVisitTracker(result.title);
-    changeKind = updateHistory[result.title].changeKind;
+  if (result.title in contentHistory) {
+    showUpdate = pageVisitTracker(result.title, contentHistory);
+    changeKind = contentHistory[result.title].changeKind;
   } else {
     showUpdate = false;
   }

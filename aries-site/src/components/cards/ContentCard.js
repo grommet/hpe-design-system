@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
@@ -7,19 +7,19 @@ import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../../layouts/content/NotificationTag';
+import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
-    const updateHistory = JSON.parse(
-      window.localStorage.getItem('update-history'),
-    );
+
+    const { contentHistory } = useContext(ViewContext);
     let showUpdate = false;
     let changeKind;
-    if (updateHistory && name in updateHistory) {
-      showUpdate = pageVisitTracker(name);
-      changeKind = updateHistory[name].changeKind;
+    if (contentHistory && name in contentHistory) {
+      showUpdate = pageVisitTracker(name, contentHistory); //still run pageVisitTracker on it
+      changeKind = contentHistory[name].changeKind;
     }
 
     return (
