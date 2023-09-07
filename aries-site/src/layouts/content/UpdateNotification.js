@@ -17,7 +17,7 @@ export const UpdateNotification = ({ name }) => {
             <Text>
               {contentHistory[name]?.description + '    '}
               {contentHistory[name]?.action?.length > 1 && (
-                <Anchor label="Link" href={contentHistory[name]?.action} />
+                <Anchor label="Jump to section" href={contentHistory[name]?.action} />
               )}
             </Text>
           ) : (
