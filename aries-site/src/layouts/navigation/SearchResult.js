@@ -54,7 +54,7 @@ export const SearchResult = ({ query, result }) => {
                 size="xsmall"
                 backgroundColor="teal"
                 value="Updated"
-                a11yTitle={`There's been updates for ${result.title}`}
+                a11yTitle={`There have been updates for ${result.title}`}
               />
             )}
           </Box>

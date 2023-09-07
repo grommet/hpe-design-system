@@ -31,7 +31,9 @@ export const UpdateNotification = ({ name }) => {
           contentHistory[name]?.changeKind === 'Update'
             ? 'Updated '
             : 'Added on '
-        } ${new Date(updateDate).toDateString().split(' ').slice(1).join(' ')}`}
+        }${Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(
+          new Date(updateDate),
+        )}`}
       />
     );
   }
