@@ -167,10 +167,6 @@ function App({ Component, pageProps, router }) {
             }
           }
         }
-        window.localStorage.setItem(
-          'update-history',
-          JSON.stringify(nextHistory),
-        );
         setContentHistory(nextHistory);
         // set page status as ready since all calculations are complete now
         setPageUpdateReady(true);
