@@ -56,6 +56,7 @@ export const RelativeTimeExample = ({ bestPractice = true }) => {
   // in production, this should just be new Date();
   const mockNow = new Date('2023-05-20T08:32:00.000Z');
   return (
+    // eslint-disable-next-line grommet/datatable-aria-describedby
     <DataTable
       columns={[
         {

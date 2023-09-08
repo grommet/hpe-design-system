@@ -474,7 +474,8 @@ export const foundation = [
     name: 'Date and Time',
     category: 'Philosophy',
     cardOrder: 3,
-    description: `General guidelines on how to display and format date and time.`,
+    description:
+      'General guidelines on how to display and format date and time.',
     preview: {
       component: () => (
         <Text size="large">
@@ -488,7 +489,8 @@ export const foundation = [
         </Text>
       ),
     },
-    seoDescription: `General guidelines on how to display and format date and time.`,
+    seoDescription:
+      'General guidelines on how to display and format date and time.',
     sections: [],
     tags: [
       'date time formatting',

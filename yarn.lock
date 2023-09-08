@@ -2806,9 +2806,9 @@ available-typed-arrays@^1.0.5:
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
 axe-core@^4.6.1, axe-core@^4.6.2:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.0.tgz#038c9e586732c791c0d9cecf7ed6434c4e8d497b"
-  integrity sha512-ZtlVZobOeDQhb/y2lMK6mznDw7TJHDNcKx5/bbBkFvArIQ5CVFhSI6hWWQnMx9I8cNmNmZ30wpDyOC2E2nvgbQ==
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.1.tgz#6948854183ee7e7eae336b9877c5bafa027998ea"
+  integrity sha512-9l850jDDPnKq48nbad8SiEelCv4OrUWrKab/cPj0GScVg6cb6NbCCt/Ulk26QEq5jP9NnGr04Bit1BHyV6r5CQ==
 
 axe-testcafe@^3.0.0:
   version "3.0.0"
