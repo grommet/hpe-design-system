@@ -9,25 +9,23 @@ export const Identifier = ({
   subTitle,
   size,
   ...rest
-}) => {
-  return (
-    <Box align="center" {...rest}>
-      {children}
-      <Box direction="row" align="center" justify="center" gap="xsmall">
-        {level ? (
-          <Heading level={level} margin="none">
-            {title}
-          </Heading>
-        ) : (
-          <Text size={size} weight="bold" color="text-strong">
-            {title}
-          </Text>
-        )}
-        <Text size={size}>{subTitle}</Text>
-      </Box>
+}) => (
+  <Box align="center" {...rest}>
+    {children}
+    <Box direction="row" align="center" justify="center" gap="xsmall">
+      {level ? (
+        <Heading level={level} margin="none">
+          {title}
+        </Heading>
+      ) : (
+        <Text size={size} weight="bold" color="text-strong">
+          {title}
+        </Text>
+      )}
+      <Text size={size}>{subTitle}</Text>
     </Box>
-  );
-};
+  </Box>
+);
 
 Identifier.propTypes = {
   children: PropTypes.node,

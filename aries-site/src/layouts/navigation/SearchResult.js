@@ -1,23 +1,26 @@
 import PropTypes from 'prop-types';
-import { Box, Paragraph, Text, Tag } from 'grommet';
+import { Box, Paragraph, Text } from 'grommet';
 
+import { useContext } from 'react';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../content/NotificationTag';
+import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
 
-  const history = JSON.parse(window.localStorage.getItem('update-history'));
-  let newUpdate, changeKind;
-  if (result.title in history) {
-    newUpdate = pageVisitTracker(result.title);
-    changeKind = history[result.title].changeKind;
+  const { contentHistory } = useContext(ViewContext);
+  let showUpdate;
+  let changeKind;
+  if (result.title in contentHistory) {
+    showUpdate = pageVisitTracker(result.title, contentHistory);
+    changeKind = contentHistory[result.title].changeKind;
   } else {
-    newUpdate = false;
+    showUpdate = false;
   }
 
   return (
@@ -38,7 +41,7 @@ export const SearchResult = ({ query, result }) => {
                 {result.title}
               </HighlightPhrase>
             </Text>
-            {newUpdate && changeKind === 'New' && (
+            {showUpdate && changeKind === 'New' && (
               <NotificationTag
                 size="xsmall"
                 backgroundColor="purple"
@@ -46,12 +49,12 @@ export const SearchResult = ({ query, result }) => {
                 a11yTitle={`There's a new item called ${result.title}`}
               />
             )}
-            {newUpdate && changeKind === 'Update' && (
+            {showUpdate && changeKind === 'Update' && (
               <NotificationTag
                 size="xsmall"
                 backgroundColor="teal"
                 value="Updated"
-                a11yTitle={`There's been updates for ${result.title}`}
+                a11yTitle={`There have been updates for ${result.title}`}
               />
             )}
           </Box>

@@ -34,7 +34,6 @@ import {
   FeedbackButton,
   Feedback,
   Question,
-  components,
 } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
@@ -133,10 +132,11 @@ export const Layout = ({
   const { contentHistory, pageUpdateReady, setPageUpdateReady } =
     useContext(ViewContext);
 
-  //every time a new page loads, initalize ready state to false, until app.js declares otherwise
+  // every time a new page loads, initalize ready
+  // state to false, until app.js declares otherwise
   useEffect(() => {
     setPageUpdateReady(false);
-  }, [title]);
+  }, [setPageUpdateReady, title]);
 
   return (
     <>

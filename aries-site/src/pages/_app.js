@@ -1,9 +1,13 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
-import React, { useEffect, createContext, useState } from 'react';
+import React, { useEffect, createContext, useState, useMemo } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
-import pageVisitTracker from '../utils/pageVisitTracker';
+import {
+  pageVisitTracker,
+  getLocalStorageKey,
+} from '../utils/pageVisitTracker';
+import { nameToSlug } from '../utils';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -63,125 +67,124 @@ const backgroundImages = {
 
 export const ViewContext = createContext(undefined);
 
+// thirtyDaysAgo calculated in milliseconds
+const thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
+const notificationHeading = '#### Notifications\r\n';
+
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
 
-  //state that holds the update information within the last 30 days
+  // state that holds the update information within the last 30 days
   const [contentHistory, setContentHistory] = useState({});
-  //state that holds boolean for whether or not update info is ready to be rendered
+  // state that holds boolean for whether or not
+  // update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
 
-  //this effect is only for the first time a page loads
+  // this effect is only for the first time _app mounts
   useEffect(() => {
-    let name = router.asPath;
-    let nameArray = name.split('/');
-    name = nameArray[Object.keys(nameArray).length - 1];
+    const routeParts = router.route.split('/');
+    let name = routeParts[routeParts.length - 1].split('#')[0];
     name = name.charAt(0).toUpperCase() + name.slice(1);
-    name = name.split('#')[0];
-    name = name.split('?')[0];
 
-    //imported and put fetchData in here so that it can access the contentHistory function
-    //thirtyDaysAgo calculated in milliseconds
-    let thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
     fetch(
-      `https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`,
+      'https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed',
     )
       .then(response => response.json())
       .then(data => {
-        let nextHistory = {};
+        const nextHistory = {};
         let localStorageKey;
-        for (let i = 0; i < Object.keys(data).length; i++) {
-          if (new Date(data[i].merged_at).getTime() < thirtyDaysAgo) {
-            //if it is older than thirty days ago
-            break;
-          }
-          let prDescription = data[i].body;
-          const notificationHeader = '#### Notifications\r\n';
-          if (prDescription.includes(notificationHeader)) {
+
+        for (let i = 0; i < data.length; i += 1) {
+          const prDescription = data[i].body;
+          const mergedAt = data[i].merged_at;
+          // PR was merged within the last 30 days and a notification
+          // is flagged in the PR descrription
+          if (
+            new Date(mergedAt).getTime() > thirtyDaysAgo &&
+            prDescription &&
+            prDescription.includes(notificationHeading)
+          ) {
             const indexOfFirstComponent =
-              prDescription.search(notificationHeader) +
-              notificationHeader.length;
-            //the position of the first bracket containing either new/updates is 22 characters away
-            //this includes the notification header and the \r\n\r\n that follow
-            const notificationList = prDescription
+              prDescription.search(notificationHeading) +
+              notificationHeading.length;
+            // the position of the first bracket containing
+            // either new/updates is 22 characters away
+            // this includes the notification header
+            // and the \r\n\r\n that follow
+            const notificationsParts = prDescription
               .slice(indexOfFirstComponent)
+              // splits them into an array jumping between name,
+              // sections, and description like: ['[New]Header', ['Usage',
+              // 'Some Section'], '[The description for header]',
+              // '[Update]Button', ['Dos and Donts'], '[Description
+              // for button]']
               .split('\r\n\r\n');
-            //splits them into an array jumping between name, sections, and description
-            //like: ['[New]Header', ['Usage', 'Some Section'], '[The description for header]', '[Update]Button', ['Dos and Donts'], '[Description for button]']
+
             const regExp = /\[([^)]+)\]/;
-            for (let j = 0; j < Object.keys(notificationList).length; j += 3) {
-              //+= 3 so it can jump between component descriptions
-              let typeChangeAndName = notificationList[j].trim();
-              let typeChange = regExp.exec(typeChangeAndName)[1].trim();
-              let pageName;
-              if (typeChange === 'Update') {
-                pageName = typeChangeAndName.slice('8').trim();
-              } else if (typeChange === 'New') {
-                pageName = typeChangeAndName.slice('5').trim();
-              }
+            // += 3 so it can jump between component descriptions
+            for (
+              let j = 0;
+              j < Object.keys(notificationsParts).length;
+              j += 3
+            ) {
+              // changeKindAndName is in format: [Update]Button or [New]Button
+              // where Button is the page name
+              const changeKindAndName = notificationsParts[j].trim();
+              const changeKind = regExp.exec(changeKindAndName)[0];
+
+              // removes the [Update] or [New]
+              const pageName =
+                changeKindAndName &&
+                // [Update]
+                changeKind &&
+                changeKindAndName.slice(changeKind.length).trim();
+
               if (pageName && !(pageName in nextHistory)) {
-                let sectionArray = notificationList[j + 1]
+                const sections = notificationsParts[j + 1]
                   .slice(1, -1)
                   .split('][');
-                //to ensure there is proper capitlization for the section headers
-                for (let i = 0; i < Object.keys(sectionArray).length; i++) {
-                  sectionArray[i] =
-                    sectionArray[i].charAt(0).toUpperCase() +
-                    sectionArray[i].slice(1).toLowerCase();
+
+                let href;
+                if (sections.length === 1) {
+                  // add an active link if only one section has been updated
+                  href = `#${nameToSlug(sections[0].trim())}`;
                 }
 
-                let anchorLink = '';
-                if (Object.keys(sectionArray).length === 1) {
-                  //add an active link if only one section has been updated
-                  anchorLink =
-                    '#' +
-                    sectionArray[0].trim().replace(/\s+/g, '-').toLowerCase();
-                }
-
-                let newUpdate;
-                localStorageKey = `${pageName
-                  ?.toLowerCase()
-                  .replace(/\s+/g, '-')}-last-visited`;
+                let showUpdate;
+                localStorageKey = getLocalStorageKey(pageName);
                 if (window.localStorage.getItem(localStorageKey)) {
-                  newUpdate =
-                    window.localStorage.getItem(localStorageKey) >
-                    new Date(data[i].merged_at).getTime()
-                      ? false //if the last visit is more recent than the reported update, dont show it
-                      : true;
+                  showUpdate =
+                    window.localStorage.getItem(localStorageKey) <
+                    new Date(mergedAt).getTime();
                 } else {
-                  //have never visited the page before
-                  newUpdate = true;
+                  // user has never visited the page before
+                  showUpdate = true;
                 }
                 nextHistory[pageName] = {
-                  changeKind: typeChange,
-                  description: notificationList[j + 2].slice(1, -1),
-                  date: data[i].merged_at,
-                  sections: sectionArray,
-                  action: anchorLink,
-                  update: newUpdate,
+                  changeKind: regExp.exec(changeKindAndName)[1].trim(),
+                  description: notificationsParts[j + 2].slice(1, -1),
+                  date: mergedAt,
+                  sections,
+                  action: href,
+                  update: showUpdate,
                 };
               }
             }
           }
         }
-        window.localStorage.setItem(
-          'update-history',
-          JSON.stringify(nextHistory),
-        );
-        setCurrentPage(name);
+        setCurrentPage(name)
         setContentHistory(nextHistory);
+        // set page status as ready since all calculations are complete now
         setPageUpdateReady(true);
         if (name) {
-          let localStorageKey = `${name
-            ?.toLowerCase()
-            .replace(/\s+/g, '-')}-last-visited`;
-          let dateNow = new Date().getTime();
+          localStorageKey = getLocalStorageKey(name);
+          const dateNow = new Date().getTime();
           window.localStorage.setItem(localStorageKey, dateNow);
         }
       })
       .catch(error => console.error(error));
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -189,32 +192,20 @@ function App({ Component, pageProps, router }) {
       skipLinks.focus();
 
       if (typeof window !== 'undefined') {
-        let viewHistory = JSON.parse(
-          window.localStorage.getItem('update-history'),
-        );
-        let name = router.asPath;
-        let nameArray = name.split('/');
-        name = nameArray[Object.keys(nameArray).length - 1];
+        const routeParts = router.route.split('/');
+        let name = routeParts[routeParts.length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
-
-        //to cover cases where they navigate via the search function
-        let pageName = name.split('?')[0];
-        let localStorageKey = `${pageName
-          ?.toLowerCase()
-          .replace(/\s+/g, '-')}-last-visited`;
-        const dateTime = new Date().getTime();
-
-        setCurrentPage(pageName);
-        //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in viewHistory)
-        //then check if it should be shown (T/F), and set that in local storage and the state variable
-        if (viewHistory && pageName in viewHistory) {
-          viewHistory[pageName].update = pageVisitTracker(pageName);
-          window.localStorage.setItem(
-            'update-history',
-            JSON.stringify(viewHistory),
-          );
-          window.localStorage.setItem(localStorageKey, dateTime);
-          setContentHistory(viewHistory);
+        const localStorageKey = getLocalStorageKey(name);
+        const now = new Date().getTime();
+        // every time it re-routes, see if the given page has a
+        // reported update in the last 30 days (what's reported in
+        // updateHistory) then check if it should be shown (T/F), and
+        // set that in the state variable
+        setCurrentPage(name);
+        if (contentHistory && name in contentHistory) {
+          contentHistory[name].update = pageVisitTracker(name, contentHistory);
+          window.localStorage.setItem(localStorageKey, now);
+          setContentHistory(contentHistory);
           setPageUpdateReady(true);
         }
       }
@@ -227,7 +218,7 @@ function App({ Component, pageProps, router }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, contentHistory, router.route]);
 
   // final array item from the route is the title of page we are on
   const title =
@@ -239,16 +230,13 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
 
+  const viewContextValue = useMemo(() => {
+    return { currentPage, contentHistory, pageUpdateReady, setPageUpdateReady };
+  }, [currentPage, contentHistory, pageUpdateReady]);
+
   return (
     <ThemeMode>
-      <ViewContext.Provider
-        value={{
-          contentHistory,
-          pageUpdateReady,
-          setPageUpdateReady,
-          currentPage,
-        }}
-      >
+      <ViewContext.Provider value={viewContextValue}>
         <Layout
           title={title || ''}
           topic={topic}

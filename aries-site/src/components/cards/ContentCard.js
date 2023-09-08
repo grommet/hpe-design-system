@@ -1,25 +1,26 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
-import pageVisitTracker from '../../utils/pageVisitTracker';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../../layouts/content/NotificationTag';
+import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
-    const updateHistory = JSON.parse(
-      window.localStorage.getItem('update-history'),
-    );
-    let newUpdate = false;
+
+    const { contentHistory } = useContext(ViewContext);
+    let showUpdate = false;
     let changeKind;
-    if (updateHistory && name in updateHistory) {
-      newUpdate = pageVisitTracker(name);
-      changeKind = updateHistory[name].changeKind;
+    if (contentHistory && name in contentHistory) {
+      // still run pageVisitTracker on it
+      showUpdate = pageVisitTracker(name, contentHistory);
+      changeKind = contentHistory[name].changeKind;
     }
 
     return (
@@ -73,15 +74,17 @@ export const ContentCard = forwardRef(
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
-                  {newUpdate && changeKind === 'Update' && (
+                  {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
                       backgroundColor="teal"
-                      a11yTitle={`There's been updates for ${render || name}`}
+                      a11yTitle={`There have been updates for ${
+                        render || name
+                      }`}
                       value="Updated"
                       size="small"
                     />
                   )}
-                  {newUpdate && changeKind === 'New' && (
+                  {showUpdate && changeKind === 'New' && (
                     <NotificationTag
                       backgroundColor="purple"
                       a11yTitle={`There's a new item called ${render || name}`}

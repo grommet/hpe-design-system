@@ -3,8 +3,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
-import { nameToSlug } from '../../utils';
 import { StatusGoodSmall } from 'grommet-icons';
+import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
 const SectionButton = styled(Button)`
@@ -63,7 +63,7 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const { contentHistory } = useContext(ViewContext);
+  const { pageUpdateReady, contentHistory } = useContext(ViewContext);
 
   return (
     <Box
@@ -113,7 +113,7 @@ export const InPageNavigation = ({ headings, title }) => {
           else if (level.length === 3) subsectionPad = 'medium';
 
           let sectionList;
-          let newUpdate = false;
+          let showUpdate = false;
 
           if (
             contentHistory &&
@@ -123,8 +123,8 @@ export const InPageNavigation = ({ headings, title }) => {
           ) {
             sectionList = contentHistory[title].sections;
             Object.values(sectionList).forEach(val => {
-              if (val === headingTitle) {
-                newUpdate = true;
+              if (val.toLowerCase() === headingTitle.toLowerCase()) {
+                showUpdate = true;
               }
             });
           }
@@ -151,11 +151,14 @@ export const InPageNavigation = ({ headings, title }) => {
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
-                    {newUpdate && (
-                      <Box justify="top">
-                        <Text>
-                          <StatusGoodSmall size="10px" color="#117B82" />
-                        </Text>
+                    {showUpdate && pageUpdateReady && (
+                      <Box background={{ dark: true }} justify="top">
+                        <StatusGoodSmall
+                          a11yTitle="Section has been updated"
+                          size="10px"
+                          color="teal"
+                          height="small"
+                        />
                       </Box>
                     )}
                   </Box>
@@ -171,4 +174,5 @@ export const InPageNavigation = ({ headings, title }) => {
 
 InPageNavigation.propTypes = {
   headings: PropTypes.arrayOf(PropTypes.array),
+  title: PropTypes.string,
 };
