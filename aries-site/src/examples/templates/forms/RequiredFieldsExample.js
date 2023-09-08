@@ -82,6 +82,8 @@ export const RequiredFieldsExample = () => {
           >
             <TextInput id="name" name="name" />
           </FormField>
+          {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
           <FormField
             required
             htmlFor="superPower__input"
@@ -90,6 +92,8 @@ export const RequiredFieldsExample = () => {
           >
             <Select options={superPower} id="superPower" name="superPower" />
           </FormField>
+          {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
           <FormField
             required
             htmlFor="weakness__input"
@@ -107,13 +111,15 @@ export const RequiredFieldsExample = () => {
             name="nemesis"
             label="Nemesis"
           >
-            <CheckBox name="nemesis" label="Bring it on" toggle reverse />
+            <CheckBox
+              id="nemesis"
+              name="nemesis"
+              label="Bring it on"
+              toggle
+              reverse
+            />
           </FormField>
-          <FormField
-            htmlFor="comments"
-            name="comments"
-            label="Comments"
-          >
+          <FormField htmlFor="comments" name="comments" label="Comments">
             <TextArea
               id="comments"
               name="comments"
@@ -147,13 +153,7 @@ export const RequiredFieldsExample = () => {
               direction="row"
               gap="xsmall"
             >
-              <Box
-                flex={false}
-                margin={{ top: 'hair' }}
-                pad={{ top: 'xxsmall' }}
-              >
-                <CircleAlert size="small" />
-              </Box>
+              <CircleAlert size="small" />
               <Text size="xsmall">
                 The name of the superhero is already being used. Provide a
                 unique name.

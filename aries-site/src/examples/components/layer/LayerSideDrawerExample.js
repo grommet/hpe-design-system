@@ -54,6 +54,8 @@ const LayerForm = ({ setOpen }) => {
             resize="vertical"
           />
         </FormField>
+        {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
         <FormField label="Select" htmlFor="select-one__input" name="selectOne">
           <Select
             id="select-one"
@@ -62,6 +64,8 @@ const LayerForm = ({ setOpen }) => {
             placeholder="Select item"
           />
         </FormField>
+        {/* TO DO - enhance formfield-htmlfor-id to support Select */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
         <FormField label="Select" htmlFor="select-two__input" name="selectTwo">
           <Select
             id="select-two"

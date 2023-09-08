@@ -1,4 +1,4 @@
-import { Box } from 'grommet';
+import { Box, Text } from 'grommet';
 
 export const foundation = [
   {
@@ -468,6 +468,40 @@ export const foundation = [
       'sentence case',
       'casing',
       'capitilization',
+    ],
+  },
+  {
+    name: 'Date and Time',
+    category: 'Philosophy',
+    cardOrder: 3,
+    description:
+      'General guidelines on how to display and format date and time.',
+    preview: {
+      component: () => (
+        <Text size="large">
+          {new Date().toLocaleDateString(undefined, {
+            hour: 'numeric',
+            minute: 'numeric',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </Text>
+      ),
+    },
+    seoDescription:
+      'General guidelines on how to display and format date and time.',
+    sections: [],
+    tags: [
+      'date time formatting',
+      'date',
+      'time',
+      'date format',
+      'time format',
+      'UTC',
+      'ISO8601',
+      'locale',
+      'timezone',
     ],
   },
 ];

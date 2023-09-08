@@ -57,8 +57,16 @@ export const ButtonBusyExample = ({ containerRef }) => {
               <FormField label="Name" name="Name" htmlFor="name" required>
                 <TextInput value="Cluster 1" name="Name" id="name" />
               </FormField>
-              <FormField label="Cluster resource manager">
-                <CheckBox label="Use manager" />
+              <FormField
+                label="Cluster resource manager"
+                name="resource-manager"
+                htmlFor="resource-manager"
+              >
+                <CheckBox
+                  label="Use manager"
+                  name="resource-manager"
+                  id="resource-manager"
+                />
               </FormField>
               <ButtonGroup pad={{ top: 'medium' }}>
                 <Button

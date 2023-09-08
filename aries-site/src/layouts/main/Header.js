@@ -45,6 +45,7 @@ const StyledHeader = ({ ...rest }) => {
             </Link>
           ))}
         <Button
+          a11yTitle="Search"
           id="search-button"
           icon={<SearchIcon />}
           onClick={() => setShowSearch(true)}

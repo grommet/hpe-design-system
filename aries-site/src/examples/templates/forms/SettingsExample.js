@@ -57,10 +57,12 @@ export const SettingsExample = () => {
           <Box margin={{ bottom: 'small' }}>
             <FormField
               name="notifications"
+              htmlFor="notifications"
               label="Key feature"
               help="Description of feature"
             >
               <CheckBox
+                id="notifications"
                 name="notifications"
                 label="Notifications"
                 toggle
@@ -85,10 +87,12 @@ export const SettingsExample = () => {
           <Box>
             <FormField
               name="doNotDisturb"
+              htmlFor="doNotDisturb"
               label="Key feature"
               help="Description of feature"
             >
               <CheckBox
+                id="doNotDisturb"
                 name="doNotDisturb"
                 label="Do not disturb"
                 reverse

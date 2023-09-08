@@ -58,7 +58,11 @@ export const FiltersLayer = () => {
             <Heading margin="none" level={2} size="small">
               Filters
             </Heading>
-            <Button icon={<Close />} onClick={() => closeLayer()} />
+            <Button
+              a11yTitle="Close filter layer"
+              icon={<Close />}
+              onClick={() => closeLayer()}
+            />
           </Header>
           <Box
             pad={{ horizontal: 'medium', bottom: 'medium' }}
