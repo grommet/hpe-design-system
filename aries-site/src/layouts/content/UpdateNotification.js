@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { Anchor, Text, Notification } from 'grommet';
-import { ViewContext } from '../../pages/_app';
 import { useContext } from 'react';
+import { ViewContext } from '../../pages/_app';
 
 export const UpdateNotification = ({ name }) => {
   const { contentHistory } = useContext(ViewContext);
@@ -15,9 +16,12 @@ export const UpdateNotification = ({ name }) => {
         message={
           contentHistory[name]?.changeKind === 'Update' ? (
             <Text>
-              {contentHistory[name]?.description + '    '}
+              {`${contentHistory[name]?.description}    `}
               {contentHistory[name]?.action?.length > 1 && (
-                <Anchor label="Jump to section" href={contentHistory[name]?.action} />
+                <Anchor
+                  label="Jump to section"
+                  href={contentHistory[name]?.action}
+                />
               )}
             </Text>
           ) : (
@@ -37,4 +41,9 @@ export const UpdateNotification = ({ name }) => {
       />
     );
   }
+  return null;
+};
+
+UpdateNotification.propTypes = {
+  name: PropTypes.string,
 };

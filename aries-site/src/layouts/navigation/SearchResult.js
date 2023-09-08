@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { Box, Paragraph, Text, Tag } from 'grommet';
+import { Box, Paragraph, Text } from 'grommet';
 
+import { useContext } from 'react';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
 
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../content/NotificationTag';
-import { useContext } from 'react';
 import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {

@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
-import React, { useEffect, createContext, useState } from 'react';
+import React, { useEffect, createContext, useState, useMemo } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 import {
@@ -67,34 +67,34 @@ const backgroundImages = {
 
 export const ViewContext = createContext(undefined);
 
-//thirtyDaysAgo calculated in milliseconds
+// thirtyDaysAgo calculated in milliseconds
 const thirtyDaysAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
 const notificationHeading = '#### Notifications\r\n';
 
 function App({ Component, pageProps, router }) {
   const route = router.route.split('/');
 
-  //state that holds the update information within the last 30 days
+  // state that holds the update information within the last 30 days
   const [contentHistory, setContentHistory] = useState({});
-  //state that holds boolean for whether or not update info is ready to be rendered
+  // state that holds boolean for whether or not
+  // update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
 
   // this effect is only for the first time _app mounts
   useEffect(() => {
-    const route = router.route;
-    const nameArray = route.split('/');
-    let name = nameArray[nameArray.length - 1].split('#')[0];
+    const routeParts = router.route.split('/');
+    let name = routeParts[routeParts.length - 1].split('#')[0];
     name = name.charAt(0).toUpperCase() + name.slice(1);
 
     fetch(
-      `https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed`,
+      'https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed',
     )
       .then(response => response.json())
       .then(data => {
-        let nextHistory = {};
+        const nextHistory = {};
         let localStorageKey;
 
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i += 1) {
           const prDescription = data[i].body;
           const mergedAt = data[i].merged_at;
           // PR was merged within the last 30 days and a notification
@@ -107,16 +107,21 @@ function App({ Component, pageProps, router }) {
             const indexOfFirstComponent =
               prDescription.search(notificationHeading) +
               notificationHeading.length;
-            //the position of the first bracket containing either new/updates is 22 characters away
-            //this includes the notification header and the \r\n\r\n that follow
+            // the position of the first bracket containing
+            // either new/updates is 22 characters away
+            // this includes the notification header
+            // and the \r\n\r\n that follow
             const notificationsParts = prDescription
               .slice(indexOfFirstComponent)
-              //splits them into an array jumping between name, sections, and description
-              //like: ['[New]Header', ['Usage', 'Some Section'], '[The description for header]', '[Update]Button', ['Dos and Donts'], '[Description for button]']
+              // splits them into an array jumping between name,
+              // sections, and description like: ['[New]Header', ['Usage',
+              // 'Some Section'], '[The description for header]',
+              // '[Update]Button', ['Dos and Donts'], '[Description
+              // for button]']
               .split('\r\n\r\n');
 
             const regExp = /\[([^)]+)\]/;
-            //+= 3 so it can jump between component descriptions
+            // += 3 so it can jump between component descriptions
             for (
               let j = 0;
               j < Object.keys(notificationsParts).length;
@@ -135,14 +140,14 @@ function App({ Component, pageProps, router }) {
                 changeKindAndName.slice(changeKind.length).trim();
 
               if (pageName && !(pageName in nextHistory)) {
-                let sections = notificationsParts[j + 1]
+                const sections = notificationsParts[j + 1]
                   .slice(1, -1)
                   .split('][');
 
                 let href;
                 if (sections.length === 1) {
                   // add an active link if only one section has been updated
-                  href = '#' + nameToSlug(sections[0].trim());
+                  href = `#${nameToSlug(sections[0].trim())}`;
                 }
 
                 let showUpdate;
@@ -159,7 +164,7 @@ function App({ Component, pageProps, router }) {
                   changeKind: regExp.exec(changeKindAndName)[1].trim(),
                   description: notificationsParts[j + 2].slice(1, -1),
                   date: mergedAt,
-                  sections: sections,
+                  sections,
                   action: href,
                   update: showUpdate,
                 };
@@ -171,13 +176,13 @@ function App({ Component, pageProps, router }) {
         // set page status as ready since all calculations are complete now
         setPageUpdateReady(true);
         if (name) {
-          const localStorageKey = getLocalStorageKey(name);
+          localStorageKey = getLocalStorageKey(name);
           const dateNow = new Date().getTime();
           window.localStorage.setItem(localStorageKey, dateNow);
         }
       })
       .catch(error => console.error(error));
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -188,11 +193,14 @@ function App({ Component, pageProps, router }) {
         const routeParts = router.route.split('/');
         let name = routeParts[routeParts.length - 1];
         name = name.charAt(0).toUpperCase() + name.slice(1);
-        let localStorageKey = getLocalStorageKey(name);
+        const localStorageKey = getLocalStorageKey(name);
         const now = new Date().getTime();
-        //every time it re-routes, see if the given page has a reported update in the last 30 days (what's reported in updateHistory)
-        //then check if it should be shown (T/F), and set that in the state variable
+        // every time it re-routes, see if the given page has a
+        // reported update in the last 30 days (what's reported in
+        // updateHistory) then check if it should be shown (T/F), and
+        // set that in the state variable
         if (contentHistory && name in contentHistory) {
+          console.log('hello');
           contentHistory[name].update = pageVisitTracker(name, contentHistory);
           window.localStorage.setItem(localStorageKey, now);
           setContentHistory(contentHistory);
@@ -208,7 +216,7 @@ function App({ Component, pageProps, router }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events, contentHistory]);
+  }, [router.events, contentHistory, router.route]);
 
   // final array item from the route is the title of page we are on
   const title =
@@ -220,11 +228,13 @@ function App({ Component, pageProps, router }) {
     route[route.length - 2].length &&
     slugToText(route[route.length - 2]);
 
+  const viewContextValue = useMemo(() => {
+    return { contentHistory, pageUpdateReady, setPageUpdateReady };
+  }, [contentHistory, pageUpdateReady]);
+
   return (
     <ThemeMode>
-      <ViewContext.Provider
-        value={{ contentHistory, pageUpdateReady, setPageUpdateReady }}
-      >
+      <ViewContext.Provider value={viewContextValue}>
         <Layout
           title={title || ''}
           topic={topic}

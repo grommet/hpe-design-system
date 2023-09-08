@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Tag } from 'grommet';
 
 export const NotificationTag = ({ backgroundColor, ...rest }) => {
@@ -13,4 +14,8 @@ export const NotificationTag = ({ backgroundColor, ...rest }) => {
       {...rest}
     />
   );
+};
+
+NotificationTag.propTypes = {
+  backgroundColor: PropTypes.string,
 };

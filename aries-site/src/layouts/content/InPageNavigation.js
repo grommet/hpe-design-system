@@ -3,8 +3,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
-import { nameToSlug } from '../../utils';
 import { StatusGoodSmall } from 'grommet-icons';
+import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
 const SectionButton = styled(Button)`
@@ -174,4 +174,5 @@ export const InPageNavigation = ({ headings, title }) => {
 
 InPageNavigation.propTypes = {
   headings: PropTypes.arrayOf(PropTypes.array),
+  title: PropTypes.string,
 };
