@@ -200,7 +200,6 @@ function App({ Component, pageProps, router }) {
         // updateHistory) then check if it should be shown (T/F), and
         // set that in the state variable
         if (contentHistory && name in contentHistory) {
-          console.log('hello');
           contentHistory[name].update = pageVisitTracker(name, contentHistory);
           window.localStorage.setItem(localStorageKey, now);
           setContentHistory(contentHistory);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DataTable } from 'grommet';
 
 const dates = [
@@ -18,6 +19,7 @@ export const ZeroPaddingExample = ({ bestPractice = true }) => {
   };
 
   return (
+    // eslint-disable-next-line grommet/datatable-aria-describedby
     <DataTable
       columns={[
         {
@@ -36,4 +38,8 @@ export const ZeroPaddingExample = ({ bestPractice = true }) => {
       })}
     />
   );
+};
+
+ZeroPaddingExample.propTypes = {
+  bestPractice: PropTypes.bool,
 };

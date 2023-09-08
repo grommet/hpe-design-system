@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Notification, Text } from 'grommet';
 
 const options = {
@@ -47,4 +48,8 @@ export const TimezoneExample = ({ bestPractice = true }) => {
       </Box>
     </Box>
   );
+};
+
+TimezoneExample.propTypes = {
+  bestPractice: PropTypes.bool,
 };
