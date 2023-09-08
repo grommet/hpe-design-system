@@ -7,7 +7,7 @@ import {
   pageVisitTracker,
   getLocalStorageKey,
 } from '../utils/pageVisitTracker';
-import { nameToSlug } from '../utils';
+import { nameToSlug, getPageDetails } from '../utils';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -191,7 +191,8 @@ function App({ Component, pageProps, router }) {
 
       if (typeof window !== 'undefined') {
         const routeParts = router.route.split('/');
-        let name = routeParts[routeParts.length - 1];
+        let name = routeParts[routeParts.length - 1].split('-').join(' ');
+        const { name: pageName } = getPageDetails(name);
         name = name.charAt(0).toUpperCase() + name.slice(1);
         const localStorageKey = getLocalStorageKey(name);
         const now = new Date().getTime();
@@ -199,8 +200,11 @@ function App({ Component, pageProps, router }) {
         // reported update in the last 30 days (what's reported in
         // updateHistory) then check if it should be shown (T/F), and
         // set that in the state variable
-        if (contentHistory && name in contentHistory) {
-          contentHistory[name].update = pageVisitTracker(name, contentHistory);
+        if (contentHistory && pageName in contentHistory) {
+          contentHistory[pageName].update = pageVisitTracker(
+            pageName,
+            contentHistory,
+          );
           window.localStorage.setItem(localStorageKey, now);
           setContentHistory(contentHistory);
           setPageUpdateReady(true);
