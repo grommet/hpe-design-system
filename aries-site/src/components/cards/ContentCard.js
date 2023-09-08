@@ -18,7 +18,8 @@ export const ContentCard = forwardRef(
     let showUpdate = false;
     let changeKind;
     if (contentHistory && name in contentHistory) {
-      showUpdate = pageVisitTracker(name, contentHistory); //still run pageVisitTracker on it
+      // still run pageVisitTracker on it
+      showUpdate = pageVisitTracker(name, contentHistory);
       changeKind = contentHistory[name].changeKind;
     }
 
