@@ -4,7 +4,9 @@ import { waitForReact } from 'testcafe-react-selectors';
 import Eyes from '@applitools/eyes-testcafe';
 import { baseUrl, startResponsiveSnapshots } from '../utils';
 
-const testAllDisplays = async (eyes, t) => {
+const eyes = new Eyes();
+
+const testAllDisplays = async t => {
   const fullScreenButton = Selector('button').withAttribute(
     'aria-label',
     'See Fullscreen',
@@ -21,26 +23,21 @@ fixture(title)
   .page(`${baseUrl}/components/button`)
   .beforeEach(async () => {
     await waitForReact();
+  })
+  .afterEach(async () => eyes.close())
+  .after(async () => {
+    // Wait and collect all test results
+    await eyes.waitForResults();
   });
 
 test(`should display Button properly inline and fullscreen on 
 desktop`, async t => {
-  const eyes = new Eyes();
-
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
-  await testAllDisplays(eyes, t);
-
-  await eyes.close();
-  await eyes.waitForResults();
+  await testAllDisplays(t);
 });
 
 test(`should display Button properly inline and fullscreen on 
 mobile`, async t => {
-  const eyes = new Eyes();
-
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
-  await testAllDisplays(eyes, t);
-
-  await eyes.close();
-  await eyes.waitForResults();
+  await testAllDisplays(t);
 });

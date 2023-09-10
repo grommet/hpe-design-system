@@ -10,15 +10,20 @@ import {
 
 const title = 'All Components';
 
+const eyes = new Eyes();
+
 fixture(title)
   .page(`${baseUrl}/components/all-components`)
   .beforeEach(async () => {
     await waitForReact();
+  })
+  .afterEach(async () => eyes.close())
+  .after(async () => {
+    // Wait and collect all test results
+    await eyes.waitForResults();
   });
 
 test('should render all components and theme properly on desktop', async t => {
-  const eyes = new Eyes();
-
   await startResponsiveSnapshots(title, 'desktop', eyes, t);
 
   // Applitools window capture has a max height of 15000px.
@@ -56,14 +61,9 @@ test('should render all components and theme properly on desktop', async t => {
       width: DESKTOP_WIDTH,
     },
   });
-
-  await eyes.close();
-  await eyes.waitForResults();
 });
 
 test('should render all components and theme properly on mobile', async t => {
-  const eyes = new Eyes();
-
   await startResponsiveSnapshots(title, 'mobile', eyes, t);
   // capture page regions, height is ~32000px
   await eyes.checkWindow({
@@ -96,7 +96,4 @@ test('should render all components and theme properly on mobile', async t => {
       width: MOBILE_WIDTH,
     },
   });
-
-  await eyes.close();
-  await eyes.waitForResults();
 });
