@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Notification } from 'grommet';
 
 export const DateTimeNotificationExample = ({ bestPractice = true }) => {
@@ -28,4 +29,8 @@ export const DateTimeNotificationExample = ({ bestPractice = true }) => {
       actions={[{ label: 'Renew subscription' }]}
     />
   );
+};
+
+DateTimeNotificationExample.propTypes = {
+  bestPractice: PropTypes.bool,
 };
