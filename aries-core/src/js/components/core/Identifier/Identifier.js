@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Box, Heading, Text } from 'grommet';
 
 export const Identifier = ({
@@ -13,7 +12,7 @@ export const Identifier = ({
 }) => (
   <Box align="center" {...rest}>
     {children}
-    <Box>
+    <Box direction="row" align="center" justify="center" gap="xsmall">
       {level ? (
         <Heading level={level} margin="none">
           {title}
