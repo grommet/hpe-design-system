@@ -69,7 +69,7 @@ export const EmptyStateAnatomy = () => {
             </Paragraph>
           </Box>
           <Box align="center" gap="small">
-            <Button id="action" label="Create item" primary />
+            <Button id="action" label="New item" primary />
             <Anchor id="anchor" label="What is an item?" />
           </Box>
         </Box>
