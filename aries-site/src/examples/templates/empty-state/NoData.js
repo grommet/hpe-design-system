@@ -22,7 +22,7 @@ export const NoData = () => {
         in this repository.`}
         actions={
           <Box align="center" gap="small">
-            <Button label="Create branch" primary />
+            <Button label="New branch" primary />
             <Anchor label="What is a branch?" />
           </Box>
         }
