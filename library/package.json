@@ -1,0 +1,51 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Design System for HPE",
+  "license": "Apache-2.0",
+  "main": "src/js/index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/node": "^7.20.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "del": "^6.1.1",
+    "dotenv": "^8.2.0",
+    "fs-extra": "^11.1.0",
+    "simple-git": "^3.15.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "build": "webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "test": "jest",
+    "release-stable": "babel-node ./tools/release-stable"
+  },
+  "keywords": [
+    "aries",
+    "library",
+    "accessibility",
+    "component",
+    "design system",
+    "framework",
+    "graphical user interface",
+    "grommet",
+    "grommet.io",
+    "gui",
+    "keyboard navigation",
+    "layout",
+    "library",
+    "react",
+    "screen reader tags",
+    "typography",
+    "ui",
+    "user interface",
+    "WCAG 2.1"
+  ]
+}

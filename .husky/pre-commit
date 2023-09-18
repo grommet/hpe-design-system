@@ -4,14 +4,14 @@
 __dirname="$(CDPATH= cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __rootDir="$(CDPATH= cd "$($__dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "..Running aries-site checks"
-cd aries-site
-echo "....Linting checks for aries-site"
+echo "..Running site checks"
+cd site
+echo "....Linting checks for site"
 npm run lint-fix
 cd ${__rootDir}
-echo "..Running aries-core checks"
-cd aries-core
-echo "....Linting checks for aries-core"
+echo "..Running library checks"
+cd library
+echo "....Linting checks for library"
 npm run lint-fix
 cd ${__rootDir}
 echo "Pre-commit checks completed."

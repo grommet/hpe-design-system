@@ -26,8 +26,8 @@
     "husky": "^8.0.0"
   },
   "workspaces": [
-    "aries-core",
-    "aries-site"
+    "library",
+    "site"
   ],
   "dependencies": {
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
