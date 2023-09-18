@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import {
   Box,
-  Button,
   Data,
   DataFilters,
   DataSearch,
@@ -9,7 +8,9 @@ import {
   DataTable,
   DataTableColumns,
   Grid,
+  Menu,
   ResponsiveContext,
+  Pagination,
   Text,
   Toolbar,
 } from 'grommet';
@@ -97,7 +98,14 @@ export const FilterServers = () => (
         <DataFilters layer />
         {/* Flex Box added for spacing between Button */}
         <Box flex />
-        <Button secondary label="Add server" />
+        <Menu
+          label="Actions"
+          kind="toolbar"
+          items={[
+            [{ label: 'New server' }, { label: 'Edit server groups' }],
+            [{ label: 'Delete server' }],
+          ]}
+        />
       </Toolbar>
       <DataSummary />
       <ServerResults />
@@ -110,7 +118,7 @@ const ServerResults = () => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <Box flex overflow="auto">
+    <Box gap="small">
       <DataTable
         aria-describedby="servers-heading"
         columns={[
@@ -124,12 +132,14 @@ const ServerResults = () => {
           },
           ...columns,
         ]}
-        pin
         primaryKey="id"
         sortable
         onSelect={nextSelected => setSelected(nextSelected)}
         select={selected}
       />
+      <Box pad={{ vertical: 'small' }} border={{ side: 'top' }}>
+        <Pagination alignSelf="end" numberItems={serverhealth.length + 1} />
+      </Box>
     </Box>
   );
 };
