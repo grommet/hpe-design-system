@@ -9,7 +9,7 @@
 This is a monorepo built from two modules.
 
 1. **site**: This is the documentation site for the HPE Design System.
-2. **library**: This library contains templates that demonstrate best practices for how to compose atomic components together into resuable patterns. In some cases, the templates may graduate into formalized Grommet components. This library is a work in progress, and we'd greatly accept feedback about which templates are valuable.
+2. **library**: This library contains templates that demonstrate best practices for how to compose atomic components together into reusable patterns. In some cases, the templates may graduate into formalized Grommet components. This library is a work in progress, and we'd greatly accept feedback about which templates are valuable.
 
 The monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
 
