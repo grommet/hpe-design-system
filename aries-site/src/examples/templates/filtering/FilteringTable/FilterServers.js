@@ -138,7 +138,7 @@ const ServerResults = () => {
         select={selected}
       />
       <Box pad={{ vertical: 'small' }} border={{ side: 'top' }}>
-        <Pagination alignSelf="end" numberItems={serverhealth.length + 1} />
+        <Pagination alignSelf="end" />
       </Box>
     </Box>
   );
