@@ -79,6 +79,7 @@ function App({ Component, pageProps, router }) {
   // state that holds boolean for whether or not
   // update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
+  const [currentPage, setCurrentPage] = useState('');
 
   // this effect is only for the first time _app mounts
   useEffect(() => {
@@ -172,6 +173,7 @@ function App({ Component, pageProps, router }) {
             }
           }
         }
+        setCurrentPage(name);
         setContentHistory(nextHistory);
         // set page status as ready since all calculations are complete now
         setPageUpdateReady(true);
@@ -200,6 +202,7 @@ function App({ Component, pageProps, router }) {
         // reported update in the last 30 days (what's reported in
         // updateHistory) then check if it should be shown (T/F), and
         // set that in the state variable
+        setCurrentPage(pageName);
         if (contentHistory && pageName in contentHistory) {
           contentHistory[pageName].update = pageVisitTracker(
             pageName,
@@ -232,8 +235,8 @@ function App({ Component, pageProps, router }) {
     slugToText(route[route.length - 2]);
 
   const viewContextValue = useMemo(() => {
-    return { contentHistory, pageUpdateReady, setPageUpdateReady };
-  }, [contentHistory, pageUpdateReady]);
+    return { currentPage, contentHistory, pageUpdateReady, setPageUpdateReady };
+  }, [currentPage, contentHistory, pageUpdateReady]);
 
   return (
     <ThemeMode>
