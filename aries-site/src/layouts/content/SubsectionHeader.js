@@ -37,7 +37,7 @@ export const SubsectionHeader = ({ children, level }) => {
         sectionsSlug?.includes(id) && (
           <Box pad={{ left: 'small' }}>
             <NotificationTag
-              size={'small'}
+              size="small"
               value="Updated"
               backgroundColor="teal"
               a11yTitle={`There's been updates for ${children}`}
