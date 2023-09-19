@@ -12,6 +12,10 @@ export const SubsectionHeader = ({ children, level }) => {
   const [over, setOver] = useState(false);
   const id = nameToSlug(children);
   const { contentHistory, currentPage } = useContext(ViewContext);
+  const sectionsSlug = contentHistory[currentPage]?.sections?.map(i =>
+    nameToSlug(i),
+  );
+
   return (
     <Box
       direction="row"
@@ -29,8 +33,8 @@ export const SubsectionHeader = ({ children, level }) => {
       </Heading>
       {contentHistory &&
         currentPage in contentHistory &&
-        contentHistory[currentPage].update &&
-        contentHistory[currentPage].sections.includes(children) && (
+        contentHistory[currentPage]?.update &&
+        sectionsSlug?.includes(id) && (
           <Box pad={{ left: 'small' }}>
             <NotificationTag
               size={'small'}
