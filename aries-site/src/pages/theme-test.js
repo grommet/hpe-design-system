@@ -174,6 +174,18 @@ const ThemeTest = () => (
             </Container>
 
             <Container>
+              <ButtonGroup>
+                <Button label="Small" size="small" secondary />
+                <Button label="Medium" secondary />
+              </ButtonGroup>
+              <ThemeContext.Extend value={aries}>
+                <ButtonGroup>
+                  <Button label="Small" size="small" secondary />
+                  <Button label="Medium" secondary />
+                </ButtonGroup>
+              </ThemeContext.Extend>
+            </Container>
+            <Container>
               <Heading margin="none">Heading 1</Heading>
               <ThemeContext.Extend value={aries}>
                 <Heading margin="none">Heading 1</Heading>
