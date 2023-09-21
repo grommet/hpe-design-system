@@ -45,107 +45,6 @@ export const aries = deepMerge(hpe, {
       alignSelf: 'end',
     },
   },
-  global: {
-    colors: {
-      text: {
-        dark: '#FFFFFF',
-        light: '#555555',
-      },
-      'text-strong': {
-        dark: '#FFFFFF',
-        light: '#333333',
-      },
-    },
-  },
-  button: {
-    default: {
-      font: {
-        weight: 600,
-      },
-    },
-    secondary: {
-      font: {
-        weight: 500,
-      },
-    },
-    toolbar: {
-      border: {
-        radius: '6px',
-        width: '1px',
-        color: 'border',
-      },
-      font: {
-        weight: 500,
-      },
-    },
-  },
-  dataTable: {
-    primary: {
-      weight: 500,
-      color: 'text-strong',
-    },
-  },
-  heading: {
-    level: {
-      1: {
-        font: {
-          weight: 500,
-        },
-      },
-    },
-  },
-  pagination: {
-    button: {
-      font: {
-        weight: 600,
-      },
-      active: {
-        font: {
-          weight: 600,
-        },
-      },
-    },
-  },
-  paragraph: {
-    large: {
-      size: '22px',
-      height: '28px',
-      maxWidth: '25em',
-    },
-    xlarge: {
-      size: '24px',
-      height: '30px',
-      maxWidth: '25em',
-    },
-    // This block applies size-specific weights to paragraph to ensure
-    // that as paragraph sizes get larger, the weight decreases.
-    // This block can be removed once grommet theme structure is enhanced
-    // to support size-specific weights.
-    extend: ({ size }) => `
-      ${['xxlarge'].includes(size) ? 'font-weight: 400;' : ''};
-    `,
-  },
-  tabs: {
-    header: {
-      alignSelf: undefined,
-    },
-  },
-  text: {
-    large: {
-      size: '22px',
-      height: '28px',
-    },
-    xlarge: {
-      size: '24px',
-      height: '30px',
-    },
-  },
-  pageHeader: {
-    // Needs to be removed after Grommet upgrade
-    responsive: {
-      breakpoints: ['xsmall', 'small'],
-    },
-  },
   notification: {
     direction: 'column',
     global: {
@@ -159,18 +58,6 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
-  global: {
-    colors: {
-      text: {
-        dark: '#FFFFFF',
-        light: '#555555',
-      },
-      'text-strong': {
-        dark: '#FFFFFF',
-        light: '#333333',
-      },
-    },
-  },
   anchor: {
     // rely on base anchor styling to meet color contrast on background-back
     size: {

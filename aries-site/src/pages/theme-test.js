@@ -9,30 +9,18 @@ import {
   Page,
   PageContent,
   PageHeader,
-  Tabs,
-  Tab,
   ThemeContext,
   Paragraph,
 } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import { hpe } from 'grommet-theme-hpe-current';
+import { hpeNext } from 'grommet-theme-hpe';
 import { ButtonGroup } from 'aries-core';
 import { Meta } from '../components';
 import { aries } from '../themes/aries';
 import { FilterServers, ReverseAnchor } from '../examples';
 import servers from '../data/mockData/servers.json';
-// import { getPageDetails } from '../utils';
 
 const title = 'ThemeTest';
-// const page = getPageDetails(title);
-
-const Container = ({ ...rest }) => (
-  <Box
-    gap="medium"
-    pad={{ bottom: 'large' }}
-    border={{ color: 'border-weak', side: 'bottom' }}
-    {...rest}
-  />
-);
 
 const MockPage = () => (
   <Page background="background-front" pad={{ bottom: 'xlarge' }}>
@@ -115,113 +103,27 @@ const MockDetailPage = () => {
   );
 };
 
-const ButtonChanges = () => (
-  <Box direction="row" align="start" gap="small">
-    <Button label="Default button" />
-    <Button label="Toolbar button" kind="toolbar" />
-    <Button label="Secondary button" secondary />
-    <Button label="Primary button" primary />
-  </Box>
-);
-
-const TabsChanges = () => (
-  <Tabs justify="start">
-    <Tab title="General" />
-    <Tab title="Account" />
-    <Tab title="Billing" />
-  </Tabs>
-);
-
-const currentTheme = {
-  ...hpe,
-  button: {
-    toolbar: {
-      border: {
-        width: undefined,
-      },
-    },
-  },
-};
-
 const ThemeTest = () => (
-  <>
+  <ThemeContext.Extend value={aries}>
     <Meta
       title={title}
       canonicalUrl="https://design-system.hpe.design/theme-test"
     />
     <Box gap="medium">
-      <ThemeContext.Extend value={currentTheme}>
+      <ThemeContext.Extend value={hpe}>
         <MockPage />
       </ThemeContext.Extend>
-      <ThemeContext.Extend value={aries}>
+      <ThemeContext.Extend value={hpeNext}>
         <MockPage />
       </ThemeContext.Extend>
-      <ThemeContext.Extend value={currentTheme}>
+      <ThemeContext.Extend value={hpe}>
         <MockDetailPage />
       </ThemeContext.Extend>
-      <ThemeContext.Extend value={aries}>
+      <ThemeContext.Extend value={hpeNext}>
         <MockDetailPage />
-      </ThemeContext.Extend>
-      <ThemeContext.Extend value={currentTheme}>
-        <Page background="background-front" pad={{ vertical: 'large' }}>
-          <PageContent gap="large">
-            <Heading margin="none">Before and after</Heading>
-            <Container>
-              <ButtonChanges />
-              <ThemeContext.Extend value={aries}>
-                <ButtonChanges />
-              </ThemeContext.Extend>
-            </Container>
-
-            <Container>
-              <ButtonGroup>
-                <Button label="Small" size="small" secondary />
-                <Button label="Medium" secondary />
-              </ButtonGroup>
-              <ThemeContext.Extend value={aries}>
-                <ButtonGroup>
-                  <Button label="Small" size="small" secondary />
-                  <Button label="Medium" secondary />
-                </ButtonGroup>
-              </ThemeContext.Extend>
-            </Container>
-            <Container>
-              <Heading margin="none">Heading 1</Heading>
-              <ThemeContext.Extend value={aries}>
-                <Heading margin="none">Heading 1</Heading>
-              </ThemeContext.Extend>
-            </Container>
-            <Container>
-              <TabsChanges />
-              <ThemeContext.Extend value={aries}>
-                <TabsChanges />
-              </ThemeContext.Extend>
-            </Container>
-            <Container>
-              <Box direction="row" gap="medium">
-                {['large', 'xlarge'].map(size => (
-                  <Paragraph size={size} key={size} margin="none">
-                    Here is a sample paragraph of text. It has a max-width
-                    depending on the size.
-                  </Paragraph>
-                ))}
-              </Box>
-              <ThemeContext.Extend value={aries}>
-                <Box direction="row" gap="medium">
-                  {['large', 'xlarge'].map(size => (
-                    <Paragraph size={size} key={size} margin="none">
-                      Here is a sample paragraph of text. It has a max-width
-                      depending on the size.
-                    </Paragraph>
-                  ))}
-                </Box>
-              </ThemeContext.Extend>
-            </Container>
-          </PageContent>
-        </Page>
       </ThemeContext.Extend>
     </Box>
-  </>
+  </ThemeContext.Extend>
 );
 
 export default ThemeTest;
