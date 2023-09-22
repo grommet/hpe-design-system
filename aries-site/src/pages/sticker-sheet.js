@@ -8,6 +8,7 @@ import {
   Button,
   Menu,
   Page,
+  Heading,
   PageContent,
   PageHeader,
   Text,
@@ -23,8 +24,7 @@ import {
   Select,
   FormField,
 } from 'grommet';
-import { hpe } from 'grommet-theme-hpe-current';
-import { hpeNext } from 'grommet-theme-hpe';
+import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
 import { User } from 'grommet-icons';
 import { Meta } from '../components';
 import { aries } from '../themes/aries';
@@ -69,7 +69,7 @@ const Compare = ({ children, ...rest }) => {
   const { mode } = React.useContext(ModeContext);
   return (
     <Stack {...rest}>
-      <ThemeContext.Extend value={hpe}>
+      <ThemeContext.Extend value={hpeCurrent}>
         <Box
           align="start"
           style={
@@ -85,14 +85,12 @@ const Compare = ({ children, ...rest }) => {
         </Box>
       </ThemeContext.Extend>
 
-      <ThemeContext.Extend value={hpeNext}>
-        <Box
-          align="start"
-          style={mode === 'v5.0' ? { visibility: 'hidden' } : {}}
-        >
-          {children}
-        </Box>
-      </ThemeContext.Extend>
+      <Box
+        align="start"
+        style={mode === 'v5.0' ? { visibility: 'hidden' } : {}}
+      >
+        {children}
+      </Box>
     </Stack>
   );
 };
@@ -169,6 +167,24 @@ const StickerSheet = () => {
                 ),
               )}
             </Box>
+            <Box gap="medium">
+              {[1, 2, 3, 4, 5, 6].map(level => (
+                <Box gap="small">
+                  {['small', 'medium', 'large', 'xlarge'].map(size => (
+                    <Compare guidingChild="last">
+                      <Heading
+                        size={size}
+                        key={`${level} ${size}`}
+                        level={level}
+                        margin="none"
+                      >
+                        Heading {level} {size}
+                      </Heading>
+                    </Compare>
+                  ))}
+                </Box>
+              ))}
+            </Box>
             <Box gap="small">
               {kinds.map(kind =>
                 sizes.map(size =>
@@ -241,15 +257,12 @@ const StickerSheet = () => {
             <Compare>
               <CheckBoxGroupSimpleExample />
             </Compare>
-
             <Compare>
               <DateInput format="mm/dd/yyyy" inline />
             </Compare>
-
             <Compare>
               <MaskedPhoneExample />
             </Compare>
-
             <Compare>
               <Menu
                 label="Menu"

@@ -12,8 +12,7 @@ import {
   ThemeContext,
   Paragraph,
 } from 'grommet';
-import { hpe } from 'grommet-theme-hpe-current';
-import { hpeNext } from 'grommet-theme-hpe';
+import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
 import { ButtonGroup } from 'aries-core';
 import { Meta } from '../components';
 import { aries } from '../themes/aries';
@@ -110,18 +109,14 @@ const ThemeTest = () => (
       canonicalUrl="https://design-system.hpe.design/theme-test"
     />
     <Box gap="medium">
-      <ThemeContext.Extend value={hpe}>
+      <ThemeContext.Extend value={hpeCurrent}>
         <MockPage />
       </ThemeContext.Extend>
-      <ThemeContext.Extend value={hpeNext}>
         <MockPage />
-      </ThemeContext.Extend>
-      <ThemeContext.Extend value={hpe}>
+      <ThemeContext.Extend value={hpeCurrent}>
         <MockDetailPage />
       </ThemeContext.Extend>
-      <ThemeContext.Extend value={hpeNext}>
         <MockDetailPage />
-      </ThemeContext.Extend>
     </Box>
   </ThemeContext.Extend>
 );
