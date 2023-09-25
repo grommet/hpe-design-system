@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -21,9 +22,25 @@ import servers from '../data/mockData/servers.json';
 
 const title = 'ThemeTest';
 
+const Banner = ({ updated }) => (
+  <Box
+    background="background-front"
+    fill="horizontal"
+    pad="medium"
+    border={{ side: 'bottom' }}
+  >
+    <Heading level={2} margin="none">
+      {`v5.${updated ? 1 : 0}.0`}
+    </Heading>
+  </Box>
+);
+
+Banner.propTypes = {
+  updated: PropTypes.bool,
+};
+
 const MockPage = () => (
   <Page background="background-front" pad={{ bottom: 'xlarge' }}>
-    <hpe-global-header kind="glcp" />
     <PageContent gap="medium">
       <PageHeader
         title="Devices"
@@ -46,7 +63,6 @@ const MockDetailPage = () => {
 
   return (
     <Page background="background-front" pad={{ bottom: 'xlarge' }}>
-      <hpe-global-header kind="glcp" />
       <PageContent gap="medium">
         <PageHeader
           parent={<ReverseAnchor label="Servers" />}
@@ -110,13 +126,21 @@ const ThemeTest = () => (
     />
     <Box gap="medium">
       <ThemeContext.Extend value={hpeCurrent}>
+        <Banner />
         <MockPage />
       </ThemeContext.Extend>
+      <Box>
+        <Banner updated />
         <MockPage />
+      </Box>
       <ThemeContext.Extend value={hpeCurrent}>
+        <Banner />
         <MockDetailPage />
       </ThemeContext.Extend>
+      <Box>
+        <Banner updated />
         <MockDetailPage />
+      </Box>
     </Box>
   </ThemeContext.Extend>
 );
