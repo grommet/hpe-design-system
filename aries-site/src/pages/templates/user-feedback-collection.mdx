@@ -114,6 +114,9 @@ fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
   // Error handling here
 });
 ```
+**Notes**:
+- During testing, please use the endpoint `https://iad1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses` instead
+
 
 ### Passing non-user data
 
@@ -134,6 +137,10 @@ For example you may want to pass the currrent url with user collect data:
   };
 
 ```
+**Notes**:
+- The structure of the `surveyValues` object needs to exactly match the fields associated with a given survey.  These fields (QID-type fields) are NOT free-form entry fields and will be ignored if they do not match the survey in question.  They cannot be shared between surveys and may differ even for two identical surveys.
+- Review the response structure within the XM tool and validate they survey field structure using a tool (like Postman) and verfiy that all responses are collected correctly.
+
 
 ## Examples
 
