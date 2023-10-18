@@ -30,6 +30,10 @@ jobs:
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
         run: yarn test:ci
         working-directory: aries-site
+      - name: Build and run Applitools tests on Chrome
+        if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
+        run: yarn test:applitools
+        working-directory: aries-site
       # Forked repo does not have access to APPLITOOLS_API_KEY
       # Just run e2e tests but not snapshots
       - name: Build and run e2e tests on Chrome, forked repo
