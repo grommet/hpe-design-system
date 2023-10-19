@@ -101,114 +101,110 @@ function App({ Component, pageProps, router }) {
   const [contentHistory, setContentHistory] = useState({});
   // state that holds boolean for whether or not
   // update info is ready to be rendered
-  const [pageUpdateReady, setPageUpdateReady] = useState(
-    !!process.env.GITHUB_ACTIONS,
-  );
+  const [pageUpdateReady, setPageUpdateReady] = useState(false);
 
   // this effect is only for the first time _app mounts
   useEffect(() => {
-    if (!process.env.GITHUB_ACTIONS) {
-      const routeParts = router.route.split('/');
-      let name = routeParts[routeParts.length - 1].split('#')[0];
-      name = name.charAt(0).toUpperCase() + name.slice(1);
+    const routeParts = router.route.split('/');
+    let name = routeParts[routeParts.length - 1].split('#')[0];
+    name = name.charAt(0).toUpperCase() + name.slice(1);
 
-      fetch(
-        'https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed',
-      )
-        .then(response => response.json())
-        .then(data => {
-          const nextHistory = {};
-          let localStorageKey;
+    fetch(
+      'https://api.github.com/repos/grommet/hpe-design-system/pulls?state=closed',
+    )
+      .then(response => response.json())
+      .then(data => {
+        const nextHistory = {};
+        let localStorageKey;
 
-          for (let i = 0; i < data.length; i += 1) {
-            const prDescription = data[i].body;
-            const mergedAt = data[i].merged_at;
-            // PR was merged within the last 30 days and a notification
-            // is flagged in the PR descrription
-            if (
-              new Date(mergedAt).getTime() > thirtyDaysAgo &&
-              prDescription &&
-              prDescription.includes(notificationHeading)
+        for (let i = 0; i < data.length; i += 1) {
+          const prDescription = data[i].body;
+          const mergedAt = data[i].merged_at;
+          // PR was merged within the last 30 days and a notification
+          // is flagged in the PR descrription
+          if (
+            new Date(mergedAt).getTime() > thirtyDaysAgo &&
+            prDescription &&
+            prDescription.includes(notificationHeading)
+          ) {
+            const indexOfFirstComponent =
+              prDescription.search(notificationHeading) +
+              notificationHeading.length;
+            // the position of the first bracket containing
+            // either new/updates is 22 characters away
+            // this includes the notification header
+            // and the \r\n\r\n that follow
+            const notificationsParts = prDescription
+              .slice(indexOfFirstComponent)
+              // splits them into an array jumping between name,
+              // sections, and description like: ['[New]Header', ['Usage',
+              // 'Some Section'], '[The description for header]',
+              // '[Update]Button', ['Dos and Donts'], '[Description
+              // for button]']
+              .split('\r\n\r\n');
+
+            const regExp = /\[([^)]+)\]/;
+            // += 3 so it can jump between component descriptions
+            for (
+              let j = 0;
+              j < Object.keys(notificationsParts).length;
+              j += 3
             ) {
-              const indexOfFirstComponent =
-                prDescription.search(notificationHeading) +
-                notificationHeading.length;
-              // the position of the first bracket containing
-              // either new/updates is 22 characters away
-              // this includes the notification header
-              // and the \r\n\r\n that follow
-              const notificationsParts = prDescription
-                .slice(indexOfFirstComponent)
-                // splits them into an array jumping between name,
-                // sections, and description like: ['[New]Header', ['Usage',
-                // 'Some Section'], '[The description for header]',
-                // '[Update]Button', ['Dos and Donts'], '[Description
-                // for button]']
-                .split('\r\n\r\n');
+              // changeKindAndName is in format: [Update]Button or [New]Button
+              // where Button is the page name
+              const changeKindAndName = notificationsParts[j].trim();
+              const changeKind = regExp.exec(changeKindAndName)[0];
 
-              const regExp = /\[([^)]+)\]/;
-              // += 3 so it can jump between component descriptions
-              for (
-                let j = 0;
-                j < Object.keys(notificationsParts).length;
-                j += 3
-              ) {
-                // changeKindAndName is in format: [Update]Button or [New]Button
-                // where Button is the page name
-                const changeKindAndName = notificationsParts[j].trim();
-                const changeKind = regExp.exec(changeKindAndName)[0];
+              // removes the [Update] or [New]
+              const pageName =
+                changeKindAndName &&
+                // [Update]
+                changeKind &&
+                changeKindAndName.slice(changeKind.length).trim();
 
-                // removes the [Update] or [New]
-                const pageName =
-                  changeKindAndName &&
-                  // [Update]
-                  changeKind &&
-                  changeKindAndName.slice(changeKind.length).trim();
+              if (pageName && !(pageName in nextHistory)) {
+                const sections = notificationsParts[j + 1]
+                  .slice(1, -1)
+                  .split('][');
 
-                if (pageName && !(pageName in nextHistory)) {
-                  const sections = notificationsParts[j + 1]
-                    .slice(1, -1)
-                    .split('][');
-
-                  let href;
-                  if (sections.length === 1) {
-                    // add an active link if only one section has been updated
-                    href = `#${nameToSlug(sections[0].trim())}`;
-                  }
-
-                  let showUpdate;
-                  localStorageKey = getLocalStorageKey(pageName);
-                  if (window.localStorage.getItem(localStorageKey)) {
-                    showUpdate =
-                      window.localStorage.getItem(localStorageKey) <
-                      new Date(mergedAt).getTime();
-                  } else {
-                    // user has never visited the page before
-                    showUpdate = true;
-                  }
-                  nextHistory[pageName] = {
-                    changeKind: regExp.exec(changeKindAndName)[1].trim(),
-                    description: notificationsParts[j + 2].slice(1, -1),
-                    date: mergedAt,
-                    sections,
-                    action: href,
-                    update: showUpdate,
-                  };
+                let href;
+                if (sections.length === 1) {
+                  // add an active link if only one section has been updated
+                  href = `#${nameToSlug(sections[0].trim())}`;
                 }
+
+                let showUpdate;
+                localStorageKey = getLocalStorageKey(pageName);
+                if (window.localStorage.getItem(localStorageKey)) {
+                  showUpdate =
+                    window.localStorage.getItem(localStorageKey) <
+                    new Date(mergedAt).getTime();
+                } else {
+                  // user has never visited the page before
+                  showUpdate = true;
+                }
+                nextHistory[pageName] = {
+                  changeKind: regExp.exec(changeKindAndName)[1].trim(),
+                  description: notificationsParts[j + 2].slice(1, -1),
+                  date: mergedAt,
+                  sections,
+                  action: href,
+                  update: showUpdate,
+                };
               }
             }
           }
-          setContentHistory(nextHistory);
-          // set page status as ready since all calculations are complete now
-          setPageUpdateReady(true);
-          if (name) {
-            localStorageKey = getLocalStorageKey(name);
-            const dateNow = new Date().getTime();
-            window.localStorage.setItem(localStorageKey, dateNow);
-          }
-        })
-        .catch(error => console.error(error));
-    }
+        }
+        setContentHistory(nextHistory);
+        // set page status as ready since all calculations are complete now
+        setPageUpdateReady(true);
+        if (name) {
+          localStorageKey = getLocalStorageKey(name);
+          const dateNow = new Date().getTime();
+          window.localStorage.setItem(localStorageKey, dateNow);
+        }
+      })
+      .catch(error => console.error(error));
   }, [router]);
 
   useEffect(() => {
@@ -216,7 +212,7 @@ function App({ Component, pageProps, router }) {
       const skipLinks = document.querySelector('#skip-links');
       skipLinks.focus();
 
-      if (typeof window !== 'undefined' && !process.env.GITHUB_ACTIONS) {
+      if (typeof window !== 'undefined') {
         const routeParts = router.route.split('/');
         let name = routeParts[routeParts.length - 1].split('-').join(' ');
         const { name: pageName } = getPageDetails(name);
