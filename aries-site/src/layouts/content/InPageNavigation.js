@@ -3,9 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import styled, { ThemeContext } from 'styled-components';
-import { StatusGoodSmall } from 'grommet-icons';
 import { nameToSlug } from '../../utils';
-import { ViewContext } from '../../pages/_app';
 
 const SectionButton = styled(Button)`
   border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
@@ -46,7 +44,7 @@ const useActiveHeadingId = (headings, options) => {
   return activeHeadingId;
 };
 
-export const InPageNavigation = ({ headings, title }) => {
+export const InPageNavigation = ({ headings }) => {
   const theme = useContext(ThemeContext);
 
   let { large, medium } = theme.global.edgeSize;
@@ -62,8 +60,6 @@ export const InPageNavigation = ({ headings, title }) => {
 
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
-
-  const { pageUpdateReady, contentHistory } = useContext(ViewContext);
 
   return (
     <Box
@@ -112,23 +108,6 @@ export const InPageNavigation = ({ headings, title }) => {
           if (level.length > 3) subsectionPad = 'large';
           else if (level.length === 3) subsectionPad = 'medium';
 
-          let sectionList;
-          let showUpdate = false;
-
-          if (
-            contentHistory &&
-            title in contentHistory &&
-            contentHistory[title].update &&
-            contentHistory[title].sections[0].length > 0
-          ) {
-            sectionList = contentHistory[title].sections;
-            Object.values(sectionList).forEach(val => {
-              if (val.toLowerCase() === headingTitle.toLowerCase()) {
-                showUpdate = true;
-              }
-            });
-          }
-
           return (
             <Link
               key={index}
@@ -156,16 +135,6 @@ export const InPageNavigation = ({ headings, title }) => {
                     <Text color="text-strong" size="small" weight="normal">
                       {headingTitle}
                     </Text>
-                    {showUpdate && pageUpdateReady && (
-                      <Box background={{ dark: true }} justify="top">
-                        <StatusGoodSmall
-                          a11yTitle="Section has been updated"
-                          size="10px"
-                          color="teal"
-                          height="small"
-                        />
-                      </Box>
-                    )}
                   </Box>
                 </Box>
               </SectionButton>
@@ -179,5 +148,4 @@ export const InPageNavigation = ({ headings, title }) => {
 
 InPageNavigation.propTypes = {
   headings: PropTypes.arrayOf(PropTypes.array),
-  title: PropTypes.string,
 };

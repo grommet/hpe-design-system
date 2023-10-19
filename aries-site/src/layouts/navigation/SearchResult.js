@@ -1,27 +1,12 @@
 import PropTypes from 'prop-types';
 import { Box, Paragraph, Text } from 'grommet';
 
-import { useContext } from 'react';
 import { getPageDetails } from '../../utils';
 import { HighlightPhrase } from '../../components';
-
-import { pageVisitTracker } from '../../utils/pageVisitTracker';
-import { NotificationTag } from '../content/NotificationTag';
-import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1];
   const parent = getPageDetails(hub);
-
-  const { contentHistory } = useContext(ViewContext);
-  let showUpdate;
-  let changeKind;
-  if (result.title in contentHistory) {
-    showUpdate = pageVisitTracker(result.title, contentHistory);
-    changeKind = contentHistory[result.title].changeKind;
-  } else {
-    showUpdate = false;
-  }
 
   return (
     <Box gap="xsmall" pad={{ vertical: 'xxsmall' }} width="large">
@@ -35,29 +20,11 @@ export const SearchResult = ({ query, result }) => {
           </Box>
         )}
         {result.title && (
-          <Box direction="row" gap="medium" align="center">
-            <Text size="large" color="text-strong">
-              <HighlightPhrase phrase={query} fade={false} size="large">
-                {result.title}
-              </HighlightPhrase>
-            </Text>
-            {showUpdate && changeKind === 'New' && (
-              <NotificationTag
-                size="xsmall"
-                backgroundColor="purple"
-                value="New!"
-                a11yTitle={`There's a new item called ${result.title}`}
-              />
-            )}
-            {showUpdate && changeKind === 'Update' && (
-              <NotificationTag
-                size="xsmall"
-                backgroundColor="teal"
-                value="Updated"
-                a11yTitle={`There have been updates for ${result.title}`}
-              />
-            )}
-          </Box>
+          <Text size="large" color="text-strong">
+            <HighlightPhrase phrase={query} fade={false} size="large">
+              {result.title}
+            </HighlightPhrase>
+          </Text>
         )}
       </>
       {result.matches?.length > 0 ? (
