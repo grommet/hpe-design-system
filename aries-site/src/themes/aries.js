@@ -2,20 +2,11 @@ import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Close, Info } from 'grommet-icons';
 
-const global = {
-  global: {
-    font: {
-      family: "'var(--font-metric)', Arial, sans-serif",
-    },
-  },
-};
-
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
-  ...global,
   buttonGroup: {
     // any Box props
     gap: 'small',
@@ -67,7 +58,6 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
-  ...global,
   anchor: {
     // rely on base anchor styling to meet color contrast on background-back
     size: {
