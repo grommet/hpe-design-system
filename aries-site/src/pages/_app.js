@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
 import React, { useEffect, createContext, useState, useMemo } from 'react';
+import localFont from 'next/font/local';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
 import {
@@ -8,6 +9,28 @@ import {
   getLocalStorageKey,
 } from '../utils/pageVisitTracker';
 import { nameToSlug, getPageDetails } from '../utils';
+
+const metric = localFont({
+  src: [
+    {
+      path: '../../public/fonts/MetricHPE-Web-Regular.woff2',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/MetricHPE-Web-Medium.woff2',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/MetricHPE-Web-Light.woff2',
+      weight: '300',
+    },
+    {
+      path: '../../public/fonts/MetricHPE-Web-Bold.woff2',
+      weight: '700',
+    },
+  ],
+  variable: '--font-metric',
+});
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -241,20 +264,22 @@ function App({ Component, pageProps, router }) {
 
   return (
     <ThemeMode>
-      <ViewContext.Provider value={viewContextValue}>
-        <Layout
-          title={title || ''}
-          topic={topic}
-          // What's new page is MDX
-          isLanding={!topic && title !== 'whats new'}
-          // applies card images to the "hub" pages
-          backgroundImage={backgroundImages[title]}
-        >
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
-      </ViewContext.Provider>
+      <div className={metric.className}>
+        <ViewContext.Provider value={viewContextValue}>
+          <Layout
+            title={title || ''}
+            topic={topic}
+            // What's new page is MDX
+            isLanding={!topic && title !== 'whats new'}
+            // applies card images to the "hub" pages
+            backgroundImage={backgroundImages[title]}
+          >
+            <MDXProvider components={components}>
+              <Component {...pageProps} />
+            </MDXProvider>
+          </Layout>
+        </ViewContext.Provider>
+      </div>
     </ThemeMode>
   );
 }
