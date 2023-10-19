@@ -22,7 +22,7 @@
     "start": "yarn build-search && next",
     "start-server": "yarn build && yarn next start -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
-    "test:local": "start-server-and-test start-server 3030 'testcafe all'",
+    "test:local": "start-server-and-test start-server 3030 'testcafe chrome'",
     "test:fork": "start-server-and-test start-server 3030 'testcafe chrome:headless'",
     "test:ci": "start-server-and-test start-server 3030 'testcafe chrome:headless src/tests/'",
     "test:applitools": "start-server-and-test start-server 3030 'testcafe chrome:headless src/applitools/'",

@@ -35,15 +35,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preconnect"
-            href="https://www.hpe.com/h41225/hfws-static/fonts/"
-          />
-          <link
-            rel="preconnect"
-            href="https://www.hpe.com/h41225/hfws-static/fonts/"
-            crossOrigin="true"
-          />
           <script
             id="hpe-global-header"
             type="text/javascript"
