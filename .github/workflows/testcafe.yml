@@ -11,7 +11,7 @@ env:
   APPLITOOLS_DONT_CLOSE_BATCHES: true
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,36 +25,24 @@ jobs:
         working-directory: aries-site
       - name: Log Git Repository
         run: echo "$GITHUB_REPOSITORY"
-      - name: Create production build
-        run: yarn build
-        working-directory: aries-site
-  test-e2e:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-      - name: Run e2e tests on Chrome
+      # Tests are only run on headless Chrome
+      - name: Build and run e2e tests on Chrome
+        if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
         run: yarn test:ci
         working-directory: aries-site
-  test-applitools:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-      - name: Run Applitools tests on Chrome
+      - name: Build and run Applitools tests on Chrome
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
         run: yarn test:applitools
         working-directory: aries-site
+      # Forked repo does not have access to APPLITOOLS_API_KEY
+      # Just run e2e tests but not snapshots
+      - name: Build and run e2e tests on Chrome, forked repo
+        if: ${{ github.event.pull_request.head.repo.full_name != 'grommet/hpe-design-system' }}
+        run: yarn test:fork
+        working-directory: aries-site
+
   batch-completion-notification:
-    needs: test-applitools
+    needs: build-and-test
     if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
     runs-on: ubuntu-latest
     steps:
