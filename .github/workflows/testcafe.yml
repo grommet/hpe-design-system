@@ -32,7 +32,9 @@ jobs:
       - name: Run e2e tests on Chrome
         run: yarn test:ci
         working-directory: aries-site
-      - name: Run Applitools tests on Chrome
+      # Don't run snapshots on forked repos which don't
+      # have access to APPLITOOLS_API_KEY
+      - name: Run Applitools tests
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
         run: yarn test:applitools
         working-directory: aries-site
