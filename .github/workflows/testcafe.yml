@@ -27,6 +27,7 @@ jobs:
         run: echo "$GITHUB_REPOSITORY"
       - name: Create production build
         run: yarn build
+        working-directory: aries-site
       # Tests are only run on headless Chrome
       - name: Run e2e tests on Chrome
         run: yarn test:ci
