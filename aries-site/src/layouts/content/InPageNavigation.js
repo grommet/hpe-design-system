@@ -130,7 +130,12 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Link key={index} href={`#${nameToSlug(headingTitle)}`} passHref>
+            <Link
+              key={index}
+              href={`#${nameToSlug(headingTitle)}`}
+              passHref
+              legacyBehavior
+            >
               <SectionButton theme={theme} hoverIndicator>
                 <Box border={borderLeft}>
                   <Box

@@ -31,7 +31,7 @@ export const ComingSoon = () => {
           web, and digital experiences to answer your customers needs—Look
           behind the element!
         </SubsectionText>
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <Anchor label="Take me back to the Homepage" alignSelf="start" />
         </Link>
       </ContentSection>
