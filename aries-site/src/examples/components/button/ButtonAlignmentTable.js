@@ -106,7 +106,7 @@ export const ButtonAlignmentTable = () => (
                     {datum[c.property].map((item, index) => (
                       <Fragment key={index}>
                         {item.href ? (
-                          <Link href={item.href} passHref>
+                          <Link href={item.href} passHref legacyBehavior>
                             <Anchor label={item.label} href={item.href} />
                           </Link>
                         ) : (

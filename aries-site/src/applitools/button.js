@@ -2,7 +2,7 @@
 import { Selector } from 'testcafe';
 import { waitForReact } from 'testcafe-react-selectors';
 import Eyes from '@applitools/eyes-testcafe';
-import { baseUrl, startResponsiveSnapshots } from '../utils';
+import { baseUrl, startResponsiveSnapshots } from '../tests/utils';
 
 const testAllDisplays = async (eyes, t) => {
   const fullScreenButton = Selector('button').withAttribute(
