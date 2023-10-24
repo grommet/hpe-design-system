@@ -77,43 +77,50 @@ export const Subsection = ({
        * removes that extra space.
        */}
       <Box gap={level !== 3 ? 'small' : undefined}>
-        {showHeading && (
-          <Header>
-            <Box align="start" gap="small">
-              {level === 1 && topic && (
-                <Link href={`/${topic.toLowerCase()}`} passHref>
-                  <Button {...rest}>
-                    <Box align="center" direction="row" gap="small">
-                      {parent.icon('small', parent.color)}
-                      <Text color="text">{parent.name}</Text>
-                    </Box>
-                  </Button>
-                </Link>
-              )}
-              <Subheading
-                level={level}
-                headingSize={headingSize || HEADING_SIZE[level]}
-              >
-                {name}
-              </Subheading>
-            </Box>
-            {level > 1 && (
-              <Button
-                tip='Copy link to clipboard'
-                a11yTitle={`Jump to section titled ${name} 
+        {
+          showHeading && (
+            <Header>
+              <Box align="start" gap="small">
+                {level === 1 && topic && (
+                  <Link
+                    href={`/${topic.toLowerCase()}`}
+                    passHref
+                    legacyBehavior
+                  >
+                    <Button {...rest}>
+                      <Box align="center" direction="row" gap="small">
+                        {parent.icon('small', parent.color)}
+                        <Text color="text">{parent.name}</Text>
+                      </Box>
+                    </Button>
+                  </Link>
+                )}
+                <Subheading
+                  level={level}
+                  headingSize={headingSize || HEADING_SIZE[level]}
+                >
+                  {name}
+                </Subheading>
+              </Box>
+              {level > 1 && (
+                <Button
+                  tip="Copy link to clipboard"
+                  a11yTitle={`Jump to section titled ${name} 
                             and copy link to clipboard`}
-                icon={<LinkIcon color={over ? 'text-xweak' : 'transparent'} />}
-                onClick={() => {
-                  window.location.href = `#${id}`;
-                  navigator.clipboard.writeText(window.location.href);
-              }}
-            />
-            )}
-          </Header>
-        )
-        /* Isolates the first child to ensure the gap between heading and
-         * first child is correct size. See comment on line 33 for reasoning.
-         */
+                  icon={
+                    <LinkIcon color={over ? 'text-xweak' : 'transparent'} />
+                  }
+                  onClick={() => {
+                    window.location.href = `#${id}`;
+                    navigator.clipboard.writeText(window.location.href);
+                  }}
+                />
+              )}
+            </Header>
+          )
+          /* Isolates the first child to ensure the gap between heading and
+           * first child is correct size. See comment on line 33 for reasoning.
+           */
         }
         {firstChild}
       </Box>
