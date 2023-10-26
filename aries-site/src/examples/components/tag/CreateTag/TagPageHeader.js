@@ -6,7 +6,7 @@ export const TagPageHeader = ({ description }) => (
   <Box gap="medium" flex={false}>
     <Box gap="xsmall" flex={false}>
       <PageHeader
-        title="Create and Assign Tags"
+        title="Create and assign tags"
         subtitle={
           description ||
           'Tags are name-value pairs that can be assigned to resources.'

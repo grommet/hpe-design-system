@@ -224,7 +224,7 @@ export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
       level={3}
       margin={{ bottom: 'medium', top: 'none' }}
     >
-      Connected Devices
+      Connected devices
     </Heading>
     <Box
       align="start"

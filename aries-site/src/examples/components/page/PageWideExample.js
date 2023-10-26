@@ -25,7 +25,7 @@ import { demoStyle } from './demoStyle';
 export const PageWideExample = () => (
   <Page flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
-      <PageHeader title="Wide Page" />
+      <PageHeader title="Wide page" />
       <SummaryMetrics />
       <Section1 />
       <Section2 />

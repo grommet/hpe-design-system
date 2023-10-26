@@ -90,19 +90,19 @@ const CardExample = ({ ...rest }) => (
           </DashedBox>
           <DashedBox id="title">
             <Heading level={3} margin="none">
-              Helpful Guides
+              Helpful guides
             </Heading>
           </DashedBox>
         </>
         <DashedBox id="description">
           <Paragraph margin="none">
-            Access step by step guides on getting the most out of your Greenlake
-            console.
+            Access step by step guides on getting the most out of your HPE
+            GreenLake console.
           </Paragraph>
         </DashedBox>
       </Box>
       <DashedBox id="action" flex={false}>
-        <Button label="View Guides" secondary />
+        <Button label="View guides" secondary />
       </DashedBox>
     </CardBody>
   </Card>
