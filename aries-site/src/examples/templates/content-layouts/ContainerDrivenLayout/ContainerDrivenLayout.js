@@ -56,7 +56,7 @@ export const ContainerDrivenLayout = () => {
         }}
       >
         <PageHeader
-          title="App Catalog"
+          title="App catalog"
           subtitle={`Browse, search, and discover all the wonderful apps we 
           have for you.`}
           pad={{ vertical: 'large' }}

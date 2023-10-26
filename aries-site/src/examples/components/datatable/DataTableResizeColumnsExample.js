@@ -182,7 +182,7 @@ export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
       level={3}
       margin={{ bottom: 'medium', top: 'none' }}
     >
-      Contact Information
+      Contact information
     </Heading>
     <Box
       align="start"

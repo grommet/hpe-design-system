@@ -88,7 +88,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
-        Server Groups
+        Server groups
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.

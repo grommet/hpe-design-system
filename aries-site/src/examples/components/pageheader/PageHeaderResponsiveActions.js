@@ -86,7 +86,7 @@ export const PageHeaderResponsiveActions = ({
     <PageContent>
       <ThemeContext.Extend value={pageHeaderSiteTheme}>
         <PageHeader
-          title="L2Pod-FTC02 Device"
+          title="L2Pod-FTC02 device"
           subtitle="View and edit details about this device."
           parent={<ReverseAnchor label="Devices" />}
           actions={
