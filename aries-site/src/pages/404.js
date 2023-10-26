@@ -38,7 +38,7 @@ const Message = () => (
     <Paragraph margin={{ bottom: 'medium', top: 'none' }} size="large">
       Error Type: 404.
     </Paragraph>
-    <Link href="/" passHref>
+    <Link href="/" passHref legacyBehavior>
       <Button label="Back to Home" primary />
     </Link>
   </Box>

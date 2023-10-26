@@ -2,12 +2,12 @@
 import { Selector } from 'testcafe';
 import { waitForReact } from 'testcafe-react-selectors';
 import Eyes from '@applitools/eyes-testcafe';
-import { baseUrl, startResponsiveSnapshots } from '../utils';
+import { baseUrl, startResponsiveSnapshots } from '../tests/utils';
 
 const testAllDisplays = async (eyes, t) => {
   const fullScreenButton = Selector('button').withAttribute(
     'aria-label',
-    'See Fullscreen',
+    'Interact in fullscreen',
   );
   const laptopButton = Selector('button').withText('Laptop');
   const mobileButton = Selector('button').withText('Mobile');
