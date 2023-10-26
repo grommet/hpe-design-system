@@ -1,5 +1,5 @@
 {
-  "src": ["src/tests/**/*.js", "!src/tests/examples/*.js"],
+  "src": ["src/tests/**/*.js"],
   "clientScripts": [
     {
       "module": "@testing-library/dom/dist/@testing-library/dom.umd.js"

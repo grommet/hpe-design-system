@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { waitForReact } from 'testcafe-react-selectors';
 import Eyes from '@applitools/eyes-testcafe';
-import { baseUrl, startResponsiveSnapshots } from '../utils';
+import { baseUrl, startResponsiveSnapshots } from '../tests/utils';
 
 const title = 'Forms';
 

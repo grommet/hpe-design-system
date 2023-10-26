@@ -89,7 +89,7 @@ export const components = {
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
-      <Link href={props.href} passHref>
+      <Link href={props.href} passHref legacyBehavior>
         <Anchor {...props} />
       </Link>
     ) : (
