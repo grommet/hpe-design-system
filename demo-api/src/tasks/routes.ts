@@ -1,14 +1,14 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
-import { Task } from '../models/task';
+import { Task } from './model'
 
 const router = Router();
 let tasks: Task[] = [];
 
 const taskValidationRules = [
-  body('title').notEmpty().isString().withMessage('Title is required'),
+  body('title').notEmpty().isString().withMessage('Title is required.'),
   body('description').isString(),
-  body('completed').isBoolean().withMessage('Completed must be either true or false'),
+  body('completed').isBoolean().withMessage('Completed must be either true or false.'),
 ];
 
 router.post('/', taskValidationRules, (req: Request, res: Response) => {
