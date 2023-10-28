@@ -8,11 +8,12 @@ const port = process.env.PORT || 8000;
 
 // Log all requests
 app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(logger(req, res, {}));
+  console.log(logger(req, res, {body: true}));
   next();
 });
 
 app.use(cors())
+app.use(express.json());
 
 // Routes
 app.use('/', routes);
