@@ -1,7 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import { PrismaClient } from '@prisma/client';
-import { User } from './model';
 
 const prisma = new PrismaClient();
 const router = Router();
