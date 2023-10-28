@@ -12,8 +12,18 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+// Middleware
 app.use(cors())
 app.use(express.json());
+
+// Authenticaion middleware
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.split(' ')[1];
+
+  // TODO: Implement authentication middleware  
+  next();
+});
 
 // Routes
 app.use('/', routes);
