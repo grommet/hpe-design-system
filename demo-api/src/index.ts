@@ -1,22 +1,14 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import routes from './routes';
+import { logger } from './utils/logger';
 
 const app = express();
 const port = process.env.PORT || 8000;
 
 // Log all requests
 app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(`${req.method} ${req.url}`);
-  console.log('Method: ', req.method);
-  console.log('URL: ', req.url);
-  // console.log('Headers: ', req.headers);
-  console.log('BaseUrl: ', req.baseUrl);
-  console.log('OriginalUrl: ', req.originalUrl);
-  console.log('Path: ', req.path);
-  console.log('Query: ', req.query);
-  console.log('Params: ', req.params);
-  console.log('Referrer: ', req.headers.referer);
+  console.log(logger(req, res, {}));
   next();
 });
 
