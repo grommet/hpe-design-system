@@ -1,17 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
+import { DocSearch } from '../navigation';
 
 import { getPageDetails, nameToPath } from '../../utils';
-import { Search } from '../navigation';
 
 const StyledHeader = ({ ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
-  const [showSearch, setShowSearch] = useState(false);
   const size = useContext(ResponsiveContext);
   const router = useRouter();
 
@@ -41,13 +39,7 @@ const StyledHeader = ({ ...rest }) => {
               />
             </Link>
           ))}
-        <Button
-          a11yTitle="Search"
-          id="search-button"
-          icon={<SearchIcon />}
-          onClick={() => setShowSearch(true)}
-        />
-        {showSearch && <Search setOpen={setShowSearch} />}
+        <DocSearch />
         <ThemeModeToggle />
       </Box>
     </Header>

@@ -3,11 +3,11 @@ import { repeatKeyPress, tabToSearch } from '../../tests/utils';
 
 export default class Navbar {
   constructor() {
-    this.searchButton = Selector('#search-button');
-    this.searchInput = Selector('input').withAttribute(
-      'aria-labelledby',
-      'search-icon',
+    this.searchButton = Selector('button').withAttribute(
+      'aria-label',
+      'Search',
     );
+    this.searchInput = Selector('#docsearch-input');
   }
 
   async searchFor(text, options) {

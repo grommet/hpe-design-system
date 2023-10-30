@@ -41,6 +41,7 @@ export default class MyDocument extends Document {
             async=""
             src="https://storage.googleapis.com/hpe-global-header-assets/hpe-global-header.js"
           />
+          <link rel="stylesheet" href="/style.css" />
         </Head>
         <body>
           <div id="header" className="header" />
