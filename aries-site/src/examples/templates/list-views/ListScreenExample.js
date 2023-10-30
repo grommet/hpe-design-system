@@ -171,7 +171,7 @@ export const ListScreenExample = ({ ...rest }) => (
   <ScreenContainer {...rest}>
     <AppHeaderExample />
     <PageHeader
-      title="User Controls"
+      title="User controls"
       actions={<Button label="Manage" primary />}
       pad={{ vertical: 'medium' }}
     />

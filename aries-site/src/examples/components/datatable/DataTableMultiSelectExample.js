@@ -232,7 +232,7 @@ export const DataTableMultiSelectExample = () => {
   return (
     <>
       <Heading id="orders-heading" level={3} margin="none">
-        Manage Orders
+        Manage orders
       </Heading>
       <TableControls selected={selected} />
       <Box height={{ max: 'large' }} overflow="auto">

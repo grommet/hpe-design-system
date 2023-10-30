@@ -30,7 +30,7 @@ export const ApplicationsNavigationalCards = () => {
                 <Button
                   label={application.actions.button.label}
                   href={application.actions.button.href}
-                  primary
+                  secondary
                 />
                 <Anchor
                   label={application.actions.anchor.label}

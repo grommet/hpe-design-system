@@ -122,7 +122,7 @@ export const DataTableSummaryExample = ({ designSystemDemo }) => {
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
-        Service Adoption
+        Service adoption
       </Heading>
       <Box
         align="start"
