@@ -123,13 +123,13 @@ export const LayerForm = ({ ...rest }) => {
       <FormField
         label="Pricing"
         contentProps={{ width: 'medium' }}
-        name="pricing-select"
-        htmlFor="pricing-select__input"
+        name="pricing"
+        htmlFor="pricing"
         required
       >
         <CheckBoxGroup
-          id="pricing-select"
-          name="pricing-select"
+          id="pricing"
+          name="pricing"
           options={[
             'Annual license',
             'Free',
@@ -141,13 +141,13 @@ export const LayerForm = ({ ...rest }) => {
       <FormField
         label="Delivery"
         contentProps={{ width: 'medium' }}
-        name="delivery-select"
-        htmlFor="delivery-select__input"
+        name="delivery"
+        htmlFor="delivery"
         required
       >
         <CheckBoxGroup
-          id="delivery-select"
-          name="delivery-select"
+          id="delivery"
+          name="delivery"
           options={['License key', 'Package manager', 'Web application']}
         />
       </FormField>

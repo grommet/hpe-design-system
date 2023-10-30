@@ -249,6 +249,7 @@ export const PersistentFiltering = ({ containerRef }) => {
               </Box>
             ) : (
               <Button
+                a11yTitle="Search"
                 kind="toolbar"
                 id="search-button"
                 icon={<Search />}
@@ -484,6 +485,7 @@ const Filters = ({
     <>
       <Box align="center" direction="row" gap="small">
         <Button
+          a11yTitle="Filter"
           kind="toolbar"
           icon={<Filter />}
           onClick={() => {
@@ -523,6 +525,7 @@ const Filters = ({
                 Filters
               </Heading>
               <Button
+                a11yTitle="Close filter layer"
                 icon={<Close />}
                 onClick={() => {
                   filterData(allData, previousFilters);
@@ -735,6 +738,9 @@ const EmployeeCountFilter = ({
   setFilterValues,
 }) => (
   <Box flex={false}>
+    {/* https://github.com/grommet/eslint-plugin-grommet/issues/47 */}
+    {/* eslint-disable-next-line grommet/formfield-htmlfor-id, 
+    grommet/formfield-htmlfor-id, grommet/formfield-name */}
     <FormField
       label="Employee Count"
       htmlFor="employee-count-b"

@@ -38,6 +38,8 @@ import {
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
+import { UpdateNotification } from '../content/UpdateNotification';
+import { ViewContext } from '../../pages/_app';
 
 export const Layout = ({
   backgroundImage,
@@ -127,6 +129,15 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
+  const { contentHistory, pageUpdateReady, setPageUpdateReady } =
+    useContext(ViewContext);
+
+  // every time a new page loads, initalize ready
+  // state to false, until app.js declares otherwise
+  useEffect(() => {
+    setPageUpdateReady(false);
+  }, [setPageUpdateReady, title]);
+
   return (
     <>
       {/* When a backgroundImage is present, the main page content becomes 
@@ -164,7 +175,7 @@ export const Layout = ({
                       {showInPageNav ? (
                         <Box pad={{ left: 'large' }}>
                           <SkipLinkTarget id="toc" />
-                          <InPageNavigation headings={headings} />
+                          <InPageNavigation title={title} headings={headings} />
                         </Box>
                       ) : undefined}
                       <Box
@@ -182,6 +193,9 @@ export const Layout = ({
                             topic={topic}
                             render={render}
                           />
+                          {pageUpdateReady && contentHistory[title]?.update && (
+                            <UpdateNotification name={title} />
+                          )}
                           {children}
                         </ContentSection>
                         {relatedContent.length > 0 && (

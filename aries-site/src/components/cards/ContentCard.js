@@ -1,15 +1,28 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CardBody, Image, Text } from 'grommet';
 import { Identifier } from 'aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';
+import { pageVisitTracker } from '../../utils/pageVisitTracker';
+import { NotificationTag } from '../../layouts/content/NotificationTag';
+import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
+
+    const { contentHistory } = useContext(ViewContext);
+    let showUpdate = false;
+    let changeKind;
+    if (contentHistory && name in contentHistory) {
+      // still run pageVisitTracker on it
+      showUpdate = pageVisitTracker(name, contentHistory);
+      changeKind = contentHistory[name].changeKind;
+    }
+
     return (
       <LinkCard fill pad="medium" ref={ref} {...rest}>
         <CardBody gap="large">
@@ -51,9 +64,34 @@ export const ContentCard = forwardRef(
               level={level}
             >
               {parent && parent.icon && !minimal && (
-                <Box direction="row" align="center" gap="xsmall">
-                  {parent.icon('small', parent.color)}
-                  <Text>{parent.name}</Text>
+                <Box
+                  direction="row"
+                  align="center"
+                  fill="horizontal"
+                  justify="between"
+                >
+                  <Box gap="xsmall" direction="row" align="center">
+                    {parent.icon('small', parent.color)}
+                    <Text>{parent.name}</Text>
+                  </Box>
+                  {showUpdate && changeKind === 'Update' && (
+                    <NotificationTag
+                      backgroundColor="teal"
+                      a11yTitle={`There have been updates for ${
+                        render || name
+                      }`}
+                      value="Updated"
+                      size="small"
+                    />
+                  )}
+                  {showUpdate && changeKind === 'New' && (
+                    <NotificationTag
+                      backgroundColor="purple"
+                      a11yTitle={`There's a new item called ${render || name}`}
+                      value="New!"
+                      size="small"
+                    />
+                  )}
                 </Box>
               )}
             </Identifier>

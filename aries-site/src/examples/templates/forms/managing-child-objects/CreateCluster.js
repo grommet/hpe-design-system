@@ -137,7 +137,7 @@ export const CreateCluster = () => {
   return (
     <Box alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
-        Create Cluster
+        Create cluster
       </Heading>
       <Form
         value={formValues}
@@ -181,6 +181,9 @@ export const CreateCluster = () => {
                     placeholder="Select ..."
                   />
                 </FormField>
+                {/* https://github.com/grommet/eslint-plugin-grommet/issues/47 */}
+                {/* eslint-disable-next-line grommet/formfield-htmlfor-id, 
+                grommet/formfield-name */}
                 <FormField
                   htmlFor="migration-threshold"
                   name="migration-threshold"

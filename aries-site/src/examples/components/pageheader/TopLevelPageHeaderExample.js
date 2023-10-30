@@ -25,7 +25,7 @@ import { TextEmphasis } from 'aries-core';
 const data = [
   {
     icon: <Organization />,
-    title: 'Account Details',
+    title: 'Account details',
     subtitle: 'View and edit your company account information.',
   },
   {
@@ -62,9 +62,11 @@ export const TopLevelPageHeaderExample = () => (
     </Box>
     <PageContent>
       <PageHeader
-        title="Manage Account"
+        title="Manage account"
         subtitle="Manage your HPE Common Cloud Account."
-        actions={<Button icon={<ChapterAdd />} tip="Add cards" />}
+        actions={
+          <Button a11yTitle="Add cards" icon={<ChapterAdd />} tip="Add cards" />
+        }
       />
       <Grid columns={{ count: 'fit', size: 'medium' }} gap="medium">
         {data.map((datum, index) => (

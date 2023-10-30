@@ -24,7 +24,7 @@ import { demoStyle } from './demoStyle';
 export const PageFullExample = () => (
   <Page kind="full" flex="grow" {...demoStyle}>
     <PageContent fill {...demoStyle}>
-      <PageHeader title="Full Page" />
+      <PageHeader title="Full page" />
       <Grid columns={['medium', 'flex']} rows={['large']} border>
         <ServerList />
         <Box
@@ -54,7 +54,7 @@ const ServerList = () => (
               <TextEmphasis>{datum.displayName}</TextEmphasis>{' '}
               <Text size="xsmall">{datum.hardware.model?.toUpperCase()}</Text>
             </Box>
-            <Button icon={<Bookmark />} />
+            <Button a11yTitle="Save" icon={<Bookmark />} />
           </Header>
           <Footer>
             <StatusIndicator status={datum.hardware.health.summary} />

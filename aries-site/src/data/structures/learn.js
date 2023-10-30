@@ -8,8 +8,8 @@ import {
 
 export const learn = [
   {
-    name: 'The Box Model Part One',
-    render: 'The Box Model: Part One',
+    name: 'The Box model part one',
+    render: 'The Box model: part one',
     type: 'Getting started',
     description:
       'Build a hero section to learn about fundamental Box properties.',
@@ -24,8 +24,8 @@ export const learn = [
     tags: ['Box', 'layout', 'fundamentals'],
   },
   {
-    name: 'Grid Fundamentals Part One',
-    render: 'Grid Fundamentals: Part One',
+    name: 'Grid fundamentals part one',
+    render: 'Grid fundamentals: part one',
     type: 'Getting started',
     description:
       'Use Grid to display a collection of products, similar to that of an e-commerce website.',
@@ -74,7 +74,7 @@ export const learn = [
     href: '/foundation/tshirt-sizing',
   },
   {
-    name: 'Grommet API Docs',
+    name: 'Grommet API docs',
     type: 'References',
     available: true,
     description:

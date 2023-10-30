@@ -276,7 +276,7 @@ export const DataTableExample = ({ designSystemDemo }) => {
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
-        Storage Pools
+        Storage pools
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.

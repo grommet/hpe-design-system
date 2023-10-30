@@ -24,7 +24,7 @@ export const PageNarrowExample = () => (
   <Page kind="narrow" flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
       <PageHeader
-        title="Narrow Page"
+        title="Narrow page"
         actions={[<Button key="Action A" secondary label="Action A" />]}
       />
       <FormSection />
@@ -51,6 +51,8 @@ const FormSection = () => (
             placeholder="Enter a description ..."
           />
         </FormField>
+        {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
         <FormField htmlFor="field2__input" name="field2" label="Field 2">
           <Select
             id="field2"

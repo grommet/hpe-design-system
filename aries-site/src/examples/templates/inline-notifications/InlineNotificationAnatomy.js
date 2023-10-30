@@ -45,6 +45,7 @@ const NotificationContent = ({ ...rest }) => (
         </Box>
       </Box>
       <Button
+        a11yTitle="Close notification"
         id="close-button"
         alignSelf="start"
         hoverIndicator

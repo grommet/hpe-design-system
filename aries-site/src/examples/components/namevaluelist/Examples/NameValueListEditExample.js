@@ -24,7 +24,7 @@ export const NameValueListEditExample = () => {
   return (
     <Box gap="medium">
       <PageHeader
-        title="Profile Details"
+        title="Profile details"
         actions={
           !edit && (
             <Button
@@ -56,6 +56,9 @@ export const NameValueListEditExample = () => {
       ) : (
         <Form>
           {Object.entries(currentData).map(([name]) => (
+            // https://github.com/grommet/eslint-plugin-grommet/issues/48
+            // eslint-disable-next-line max-len
+            // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
             <FormField
               label={name}
               htmlFor={name}

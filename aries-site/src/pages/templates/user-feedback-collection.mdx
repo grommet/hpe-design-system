@@ -1,3 +1,4 @@
+import { Anchor } from 'grommet';
 import {
   FeedbackAnatomy,
   SimpleFeedbackExample,
@@ -25,7 +26,7 @@ to form a well-rounded analytic picture of the customer experience.
 
 ## When to use
 
-When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</a>.
+When and where to collect feedback from users should be a collaborative effort working with the <Anchor href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</Anchor>.
 This team will work with you to construct a questionnaire aligned with your objectives and
 [provide implementation details](#feedback-setup-and-submission) such as API credentials and endpoints for submitting
 feedback responses.
@@ -115,6 +116,10 @@ fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
 });
 ```
 
+**Notes**:
+
+- During testing, please use the endpoint `https://iad1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses` instead
+
 ### Passing non-user data
 
 There may be non-user data that needs to passed as a parameter in the survey response. A good example of this can
@@ -134,6 +139,11 @@ For example you may want to pass the currrent url with user collect data:
   };
 
 ```
+
+**Notes**:
+
+- The structure of the `surveyValues` object needs to exactly match the fields associated with a given survey. These fields (QID-type fields) are NOT free-form entry fields and will be ignored if they do not match the survey in question. They cannot be shared between surveys and may differ even for two identical surveys.
+- Review the response structure within the XM tool and validate they survey field structure using a tool (like Postman) and verfiy that all responses are collected correctly.
 
 ## Examples
 

@@ -47,7 +47,14 @@ const CopyCodeButton = ({ code }) => {
     return () => clearTimeout(timer);
   };
 
-  return <Button tip={copyTip} icon={<Copy />} onClick={onCopy} />;
+  return (
+    <Button
+      a11yTitle={copyTip}
+      tip={copyTip}
+      icon={<Copy />}
+      onClick={onCopy}
+    />
+  );
 };
 
 CopyCodeButton.propTypes = {
@@ -64,7 +71,7 @@ export const components = {
       />
     </Box>
   ),
-  code: ({ children: code, ...rest }) => (
+  pre: ({ children, ...rest }) => (
     <Box width="large" round="xsmall" overflow="auto">
       <Stack anchor="top-right">
         <SyntaxHighlighter
@@ -73,16 +80,16 @@ export const components = {
           language="javascript"
           {...rest}
         >
-          {code}
+          {children?.props?.children}
         </SyntaxHighlighter>
-        <CopyCodeButton code={code} />
+        <CopyCodeButton code={children?.props?.children} />
       </Stack>
     </Box>
   ),
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
-      <Link href={props.href} passHref>
+      <Link href={props.href} passHref legacyBehavior>
         <Anchor {...props} />
       </Link>
     ) : (

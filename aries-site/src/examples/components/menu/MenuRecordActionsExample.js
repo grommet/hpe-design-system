@@ -43,7 +43,7 @@ export const MenuRecordActionsExample = () => {
     <>
       <Box gap="small" width="medium">
         <Heading level={2} size="small" margin="none">
-          Server Groups
+          Server groups
         </Heading>
         <List
           data={serverGroups}
@@ -102,7 +102,7 @@ export const MenuRecordActionsExample = () => {
           title="Delete server group"
           message={`This will permanently delete ${active.id} 
           server group, including all history, located at:`}
-          path={`${active.path}`}
+          path={active.path}
           setShowModal={setShowModal}
           setToast={setToast}
           onSubmit={() => {

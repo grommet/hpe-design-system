@@ -41,7 +41,7 @@ export const CardContentBestPractice = ({ bestPractice = true }) => {
     <Page>
       <PageContent>
         <PageHeader
-          title="Manage Account"
+          title="Manage account"
           subtitle="Manage your HPE Common Cloud account"
         />
         <Grid align="start" columns={columns[breakpoint]} gap="large">

@@ -12,7 +12,7 @@ import { Notification } from 'grommet';
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabsExample.js"
   designer="https://designer.grommet.io/tabs?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/tabs?theme=hpe#props"
-  figma="https://www.figma.com/file/Kp4dWyhUTnKIJ1Cg5CoL9o/HPE-Tabs-Component?node-id=112%3A510"
+  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=9153-108547&t=KjhQZHbAZR51Nmwu-11"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tabs/Tabs.js"
   template
   height={{ min: 'small' }}
@@ -73,6 +73,16 @@ When horizontal space is limited, only the Tabs that fit will be displayed. The 
 >
   <TabResponsiveExample />
 </Example>
+
+### Avoid vertical tabs
+
+Considering the UX principles of consistency, simplicity, hierarchy, and responsiveness, the HPE Design System does not support or recommend the use of vertical tabs because they:
+
+- Break general layout conventions which aim to give the main content priority of horizontal screen real estate over navigational regions.
+- Create unneccessary complexity in a page layout by nesting navigation alongside content, introducing a more complex information hierarchy than needed.
+- Respond poorly at smaller resolutions, requiring them to reflow horizontally or collapse into a menu.
+
+Instead, it is recommended to use horizontal tabs already implemented in the Design System as they allow for a more simple page layout and information architecture and respond better on smaller resolutions.
 
 ### Accessibility
 

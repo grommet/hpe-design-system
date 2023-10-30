@@ -6,7 +6,7 @@ import {
   startResponsiveSnapshots,
   DESKTOP_WIDTH,
   MOBILE_WIDTH,
-} from '../utils';
+} from '../tests/utils';
 
 const title = 'All Components';
 

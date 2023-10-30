@@ -120,13 +120,18 @@ export const SubmitFeedback = () => {
   const onClose = () => setOpen(undefined);
   const router = useRouter();
 
+  // needed for nested routes that leverage index.mdx
+  let { pathname } = router;
+  if (pathname === '/components/layer' || pathname === '/components/card')
+    pathname = `${router.pathname}/index`;
+
   return (
     <>
       <Box direction="row" gap="small">
         <Button label="Leave feedback" onClick={onOpen} primary />
         <Button
           alignSelf="start"
-          href={`https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/pages${router.pathname}.mdx`}
+          href={`https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/pages${pathname}.mdx`}
           label="Edit this page"
           rel="noopener"
           target="_blank"
