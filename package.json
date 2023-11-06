@@ -30,12 +30,12 @@
     "aries-site"
   ],
   "dependencies": {
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
+    "grommet": "^2.35.0-alpha.1",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "prepare": "husky install"
