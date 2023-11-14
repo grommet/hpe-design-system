@@ -6,7 +6,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Diagram,
+//   Diagram,
   Grid,
   Heading,
   Notification,
@@ -17,21 +17,21 @@ import {
 import { LinkNext } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 
-const connection = (fromTarget, toTarget) => ({
-  color: 'border',
-  anchor: 'horizontal',
-  thickness: 'hair',
-  type: 'direct',
-  fromTarget,
-  toTarget,
-});
+// const connection = (fromTarget, toTarget) => ({
+//   color: 'border',
+//   anchor: 'horizontal',
+//   thickness: 'hair',
+//   type: 'direct',
+//   fromTarget,
+//   toTarget,
+// });
 
-const connections = [
-  connection('1a', 'title'),
-  connection('1b', 'subtitle'),
-  connection('3', 'body'),
-  connection('4', 'notification'),
-];
+// const connections = [
+//   connection('1a', 'title'),
+//   connection('1b', 'subtitle'),
+//   connection('3', 'body'),
+//   connection('4', 'notification'),
+// ];
 
 export const StatusbasedNavigationAnatomy = () => (
   <Stack interactiveChild="first">
