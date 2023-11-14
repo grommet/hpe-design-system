@@ -279,6 +279,32 @@ export const components = [
     ],
   },
   {
+    name: 'Status based navigation card',
+    parentPage: 'Card',
+    category: 'Layouts',
+    description:
+      'Quickly assist the user to navigate to resources, tasks, or processes requiring their attention and/or action.',
+    seoDescription:
+      'Quickly assist the user to navigate to resources, tasks, or processes requiring their attention and/or action.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-cards.svg',
+          dark: '/templateImages/template-preview-cards-invert.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    relatedContent: ['Card', 'Lists', 'Dashboards'],
+    sections: [
+      'Anatomy',
+      'Presentation',
+      'Examples',
+    ],
+    tags: [
+    ],
+  },
+  {
     name: 'Tabs',
     category: 'Controls',
     description:
