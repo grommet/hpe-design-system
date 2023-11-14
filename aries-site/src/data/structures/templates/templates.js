@@ -9,7 +9,7 @@ import {
 
 export const templates = [
   {
-    name: 'Ascending Navigation',
+    name: 'Ascending navigation',
     available: true,
     cardOrder: 101,
     description: `The Ascending Button for Navigation allows
@@ -31,14 +31,14 @@ export const templates = [
     sections: ['Guidance', 'When to use', 'Ascending Navigation Example'],
     relatedContent: [
       'Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
-      'Drill Down Navigation',
+      'Side to side navigation',
+      'Matrix navigation',
+      'Drill down navigation',
     ],
     tags: [],
   },
   {
-    name: 'Content Layouts',
+    name: 'Content layouts',
     available: true,
     cardOrder: 3,
     description: `Creating responsive, adaptable content layouts is central to 
@@ -79,7 +79,7 @@ export const templates = [
       'display layout',
       'information composition',
     ],
-    relatedContent: ['Page Layouts', 'Grid'],
+    relatedContent: ['Page layouts', 'Grid'],
   },
   {
     name: 'Dashboards',
@@ -101,8 +101,8 @@ export const templates = [
     sections: [],
     relatedContent: [
       'Grid',
-      'Page Layouts',
-      'Content Layouts',
+      'Page layouts',
+      'Content layouts',
       'Card',
       'Lists',
     ],
@@ -122,7 +122,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Drill Down Navigation',
+    name: 'Drill down navigation',
     available: true,
     cardOrder: 100,
     description: `Allows users to progressively descend 'down'
@@ -146,8 +146,8 @@ export const templates = [
     sections: ['When to Use', 'Guidelines', 'Drill Down Navigation Examples'],
     relatedContent: [
       'Navigation',
-      'Side to Side Navigation',
-      'Matrix Navigation',
+      'Side to side navigation',
+      'Matrix navigation',
     ],
     tags: [
       'drill down navigation',
@@ -222,7 +222,7 @@ export const templates = [
     ],
   },
   {
-    name: 'User Feedback Collection',
+    name: 'User feedback collection',
     available: true,
     description: `Improve customer experiences and make impactful,
     data-driven decisions by collecting feedback directly from users.`,
@@ -346,7 +346,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Managing Child Objects',
+    name: 'Managing child objects',
     parentPage: 'Forms',
     available: true,
     description: `How to show, hide, and edit details of child 
@@ -368,7 +368,7 @@ export const templates = [
     tags: [],
   },
   {
-    name: 'Global Header',
+    name: 'Global header',
     available: true,
     cardOrder: 8,
     description: `A standardized header for use when building applications and 
@@ -399,7 +399,7 @@ export const templates = [
       'Ad Choices and Cookies Link',
       'Do Not Sell My Personal Information Link',
     ],
-    relatedContent: ['Page Layouts', 'Header', 'Navigation'],
+    relatedContent: ['Page layouts', 'Header', 'Navigation'],
     tags: [
       'common header',
       'CHFWS',
@@ -475,7 +475,7 @@ export const templates = [
         fit: 'contain',
       },
     },
-    relatedContent: ['Dashboards', 'Card', 'Page Layouts', 'Pagination'],
+    relatedContent: ['Dashboards', 'Card', 'Page layouts', 'Pagination'],
     seoDescription:
       'HPE Design System template for providing a list of information.',
     sections: [
@@ -524,8 +524,8 @@ export const templates = [
     ],
   },
   {
-    name: 'Matrix Navigation',
-    description: `Matrix Navigation is not a path 
+    name: 'Matrix navigation',
+    description: `Matrix navigation is not a path 
     that you can define for the user,
     rather the user defines it themselves.`,
     available: true,
@@ -594,7 +594,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Page Layouts',
+    name: 'Page layouts',
     available: true,
     cardOrder: 2,
     description: `Choosing a layout is an important first step in designing 
@@ -611,10 +611,10 @@ export const templates = [
       },
     },
     relatedContent: [
-      'Content Layouts',
+      'Content layouts',
       'Navigation',
       'Dashboards',
-      'Global Header',
+      'Global header',
       'Header',
       'Footer',
     ],
@@ -651,7 +651,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Side to Side Navigation',
+    name: 'Side to side navigation',
     available: true,
     cardOrder: 100,
     description: `Allows users to access sibling screens sequentially from
@@ -671,8 +671,8 @@ export const templates = [
     the same level of the hierarchy.`,
     relatedContent: [
       'Navigation',
-      'Drill Down Navigation',
-      'Matrix Navigation',
+      'Drill down navigation',
+      'Matrix navigation',
       'Tabs',
     ],
     sections: [
@@ -697,7 +697,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Status Indicator',
+    name: 'Status indicator',
     available: true,
     description: `Quickly provide peace-of-mind or call attention to items 
       requiring a user's action.`,
@@ -709,7 +709,7 @@ export const templates = [
       require a user's attention. Status indicators provide peace-of-mind 
       when all is well or call attention to items when a user needs to take 
       action`,
-    relatedContent: ['Notification', 'Toast Notifications', 'Stack'],
+    relatedContent: ['Notification', 'Toast notifications', 'Stack'],
     sections: ['What makes up a status indicator', 'Icons and Shapes'],
     tags: [
       'displaying status',
@@ -720,7 +720,7 @@ export const templates = [
     ],
   },
   {
-    name: 'DataTable Customization',
+    name: 'DataTable customization',
     available: true,
     cardOrder: 100,
     description: `Allows users to customize which columns are visible in a data 
@@ -763,7 +763,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Inline Notifications',
+    name: 'Inline notifications',
     available: true,
     description: `Inline notifications help application users by delivering 
     timely, contextual information and feedback related to their actions.`,
@@ -781,9 +781,9 @@ export const templates = [
     sections: [],
     relatedContent: [
       'Notification',
-      'Toast Notifications',
-      'Status Indicator',
-      'Global Banner Notifications',
+      'Toast notifications',
+      'Status indicator',
+      'Global banner notifications',
     ],
     tags: [
       'inline',
@@ -798,7 +798,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Toast Notifications',
+    name: 'Toast notifications',
     available: true,
     description: `Toast notifications are used to communicate low severity 
       level information to users in an unobtrusive way.`,
@@ -825,9 +825,9 @@ export const templates = [
     ],
     relatedContent: [
       'Notification',
-      'Status Indicator',
-      'Inline Notifications',
-      'Global Banner Notifications',
+      'Status indicator',
+      'Inline notifications',
+      'Global banner notifications',
       'Stack',
     ],
     tags: [
@@ -903,7 +903,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Code Blocks',
+    name: 'Code blocks',
     available: true,
     cardOrder: 100,
     description: 'A standardized style for displaying code.',
@@ -932,7 +932,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Scrolling and Pagination',
+    name: 'Scrolling and pagination',
     available: false,
     cardOrder: 100,
     description: `When and how to apply techniques such as scrollable regions 
@@ -943,10 +943,10 @@ export const templates = [
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {
-    name: 'Global Banner Notifications',
+    name: 'Global banner notifications',
     available: true,
     cardOrder: 10,
-    description: `Global Banner Notifications are system generated alerts that
+    description: `Global banner notifications are system generated alerts that
     attract user's attention to system conditions and updates.`,
     preview: {
       image: {
@@ -981,9 +981,9 @@ export const templates = [
     ],
     relatedContent: [
       'Notification',
-      'Inline Notifications',
-      'Toast Notifications',
-      'Status Indicator',
+      'Inline notifications',
+      'Toast notifications',
+      'Status indicator',
     ],
     tags: [
       'notifications',
@@ -1010,7 +1010,7 @@ export const templates = [
     ],
   },
   {
-    name: 'Empty State',
+    name: 'Empty state',
     available: true,
     cardOrder: 10,
     description: `An empty state refers to when the UI is 
@@ -1029,7 +1029,7 @@ export const templates = [
     seoDescription: `An empty state refers to when the UI is devoid of any 
     data or information.`,
     sections: [],
-    relatedContent: ['Notification', 'Toast Notifications', 'Status Indicator'],
+    relatedContent: ['Notification', 'Toast notifications', 'Status indicator'],
     tags: [
       'day zero',
       'empty',

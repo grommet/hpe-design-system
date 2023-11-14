@@ -531,7 +531,7 @@ export const components = [
       'Layer',
       'Button',
       'Header',
-      'Side to Side Navigation',
+      'Side to side navigation',
       'DataTable',
     ],
     tags: [
@@ -989,7 +989,7 @@ export const components = [
       'Template',
       'Container',
     ],
-    relatedContent: ['Content Layouts', 'Page Layouts', 'Box'],
+    relatedContent: ['Content layouts', 'Page layouts', 'Box'],
   },
   {
     name: 'Layer',
@@ -1024,9 +1024,9 @@ export const components = [
       component: () => <LayerPreview />,
     },
     relatedContent: [
-      'Center Layer',
-      'Side Drawer Layer',
-      'Fullscreen Layer',
+      'Center layer',
+      'Side drawer layer',
+      'Fullscreen layer',
       'Forms',
       'Button',
       'Icons',
@@ -1066,7 +1066,7 @@ export const components = [
     ],
   },
   {
-    name: 'Center Layer',
+    name: 'Center layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
@@ -1078,8 +1078,8 @@ export const components = [
     },
     relatedContent: [
       'Layer',
-      'Side Drawer Layer',
-      'Fullscreen Layer',
+      'Side drawer layer',
+      'Fullscreen layer',
       'Forms',
       'Filtering',
     ],
@@ -1102,7 +1102,7 @@ export const components = [
     ],
   },
   {
-    name: 'Side Drawer Layer',
+    name: 'Side drawer layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
@@ -1114,8 +1114,8 @@ export const components = [
     },
     relatedContent: [
       'Layer',
-      'Center Layer',
-      'Fullscreen Layer',
+      'Center layer',
+      'Fullscreen layer',
       'Forms',
       'Filtering',
     ],
@@ -1135,7 +1135,7 @@ export const components = [
     tags: ['side drawer', 'slide out drawer', 'collapsible', 'drawer'],
   },
   {
-    name: 'Fullscreen Layer',
+    name: 'Fullscreen layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
@@ -1144,8 +1144,8 @@ export const components = [
       'Fullscreen layers should be used for large or longer layer content.',
     relatedContent: [
       'Layer',
-      'Side Drawer Layer',
-      'Center Layer',
+      'Side drawer layer',
+      'Center layer',
       'Forms',
       'Filtering',
     ],
@@ -1313,10 +1313,10 @@ export const components = [
       'Global Banner Notification',
     ],
     relatedContent: [
-      'Status Indicator',
-      'Toast Notifications',
-      'Global Banner Notifications',
-      'Inline Notifications',
+      'Status indicator',
+      'Toast notifications',
+      'Global banner notifications',
+      'Inline notifications',
       'Stack',
     ],
     tags: [
@@ -1695,7 +1695,7 @@ export const components = [
     seoDescription:
       'Page is a container providing consistent layouts across HPE apps. See examples of standard HPE page sizes and their use cases.',
     sections: ['Guidance', 'Page Content'],
-    relatedContent: ['Page Layouts', 'Content Layouts', 'Box', 'Main'],
+    relatedContent: ['Page layouts', 'Content layouts', 'Box', 'Main'],
     tags: [
       'page',
       'page content',
@@ -1741,7 +1741,7 @@ export const components = [
       'Page-Level Actions',
       'Responsive Behavior of Actions',
     ],
-    relatedContent: ['Page Layouts', 'Content Layouts', 'Page'],
+    relatedContent: ['Page layouts', 'Content layouts', 'Page'],
     tags: [
       'page header',
       'header',
@@ -1773,7 +1773,7 @@ export const components = [
     ],
   },
   {
-    name: 'All Components',
+    name: 'All components',
     available: true,
     category: 'All',
     description:

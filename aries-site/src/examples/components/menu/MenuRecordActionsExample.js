@@ -43,7 +43,7 @@ export const MenuRecordActionsExample = () => {
     <>
       <Box gap="small" width="medium">
         <Heading level={2} size="small" margin="none">
-          Server Groups
+          Server groups
         </Heading>
         <List
           data={serverGroups}

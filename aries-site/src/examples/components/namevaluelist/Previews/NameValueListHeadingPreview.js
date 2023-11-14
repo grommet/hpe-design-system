@@ -5,7 +5,7 @@ import { simpleData } from '../data';
 export const NameValueListHeadingPreview = () => (
   <Box pad="small" gap="medium">
     <Heading level={2} margin="none">
-      Name Value List Heading
+      NameValueList heading
     </Heading>
     <NameValueList>
       {Object.entries(simpleData).map(([name, value]) => {

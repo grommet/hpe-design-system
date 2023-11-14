@@ -32,41 +32,41 @@ export const data = [
   },
   {
     cta: 'Explore guides',
-    title: 'Guides & Resources',
+    title: 'Guides and resources',
     description:
       'Stay informed with how-to guides, resources, and documentation.',
     icon: <Support color="purple!" />,
   },
   {
     cta: 'Send an invite',
-    title: 'Invite Users ',
+    title: 'Invite users ',
     description:
       'Send a sign-up link to users so you can collaborate with your team.',
     icon: <Group color="orange!" />,
   },
   {
     cta: 'Assign roles',
-    title: 'Assign User Access',
+    title: 'Assign user access',
     description: 'Assign a custom role or built-in roles to your account.',
     icon: <UserAdd color="yellow!" />,
   },
   {
     cta: 'Set up SAML SSO',
-    title: 'Add a SSO/SAML Connection',
+    title: 'Add a SSO/SAML connection',
     description: `Easily add extra protection to your HPE Account by connecting 
     to your company's IDP.`,
     icon: <ShieldSecurity color="blue!" />,
   },
   {
     cta: 'Enable MFA',
-    title: 'Setup Multi-Factor Authentication  ',
+    title: 'Set up multi-factor authentication  ',
     description:
       'Easily add extra protection by requiring access to your phone.',
     icon: <PhoneVertical color="purple!" />,
   },
   {
     cta: 'Release notes',
-    title: 'Get Release Notes',
+    title: 'Get release notes',
     description:
       'Stay up to date with the latest release notes from HPE Common Cloud.',
     icon: <DocumentUpdate color="blue!" />,
