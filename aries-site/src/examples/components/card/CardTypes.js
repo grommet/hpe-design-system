@@ -42,6 +42,7 @@ export const CardTypes = () => {
         title="Status-based navigation"
         description={`Quickly assist the user to navigate to resources, tasks, 
       or processes requiring their attention and/or action.`}
+        href="/components/card/navigational-card"
       />
       <Type
         title="Resource"

@@ -1,0 +1,50 @@
+import { Example } from '../../../layouts';
+import { ExampleImagePreview } from '../../../components';
+import {
+  EmptyStateCard,
+  StatusbasedNavigationAnatomy,s
+} from '../../../examples';
+
+<Example
+  componentName="Card"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+>
+  <EmptyStateCard />
+</Example>
+
+## Example use cases
+
+- Request a trial
+- Register for an event
+- Launch a demo for an upcoming feature release
+- Upgrade software version
+  - This encourages users to stay on the latest version to avoid bugs, legacy software.
+
+## Anatomy
+
+<Example plain>
+  <StatusbasedNavigationAnatomy />
+</Example>
+
+1. **Card identifier**: This region is intended to provide the user with context on what the card is about.
+   - a. **Title** (required): For Status based navigation cards, this should be a unique, enticing headline to capture the user's attention to what the content of the card is displaying.
+   - b. **Subtitle** (optional): Any concise, additional supportive text to help establish the card's identity and context.
+2. **Actions** (required): Card-level actions.
+3. **body** The body content.
+4. **notification** (optional): A status notification to inform the user.
+
+## Presentation
+
+- Status-based navigation cards may be presented in a grid of other status-based navigation cards.
+- The cards should show a notification with the associated card status and link to the notification call to action.
+
+## Examples
+
+<Example
+  componentName="Card"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+>
+  <EmptyStateCard />
+</Example>
