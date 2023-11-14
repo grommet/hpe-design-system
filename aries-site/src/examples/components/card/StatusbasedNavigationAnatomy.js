@@ -67,7 +67,7 @@ export const StatusbasedNavigationAnatomy = () => (
       <Annotation id={4} target="4" gridArea="annotation-4" />
       <CardExample gridArea="card-example" />
     </Grid>
-    <Diagram connections={connections} />
+    {/* <Diagram connections={connections} /> */}
   </Stack>
 );
 
