@@ -57,44 +57,44 @@ router.get('/', async (req: Request, res: Response) => {
   await prisma.$disconnect();
 });
 
-// router.get('/:id', async (req: Request, res: Response) => {
-//   const id = parseInt(req.params.id);
-//   const post = await prisma.post.findUnique({
-//     where: {
-//       id: id,
-//     },
-//   });
+router.get('/:id', async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const post = await prisma.post.findUnique({
+    where: {
+      id: id,
+    },
+  });
 
-//   res.json(post);
-//   await prisma.$disconnect();
-// });
+  res.json(post);
+  await prisma.$disconnect();
+});
 
-// router.put('/', updatePostValidationRules, async (req: Request, res: Response) => {
-//   const post = await prisma.post.update({
-//     where: {
-//       id: parseInt(req.body.id),
-//     },
-//     data: {
-//       title: req.body.title,
-//       content: req.body.content,
-//     },
-//   });
+router.put('/', updatePostValidationRules, async (req: Request, res: Response) => {
+  const post = await prisma.post.update({
+    where: {
+      id: req.body.id,
+    },
+    data: {
+      title: req.body.title,
+      content: req.body.content,
+    },
+  });
 
-//   res.json(post);
-//   await prisma.$disconnect();
-// });
+  res.json(post);
+  await prisma.$disconnect();
+});
 
-// router.delete('/:id', async (req: Request, res: Response) => {
-//   const id = parseInt(req.params.id);
-//   const post = await prisma.post.delete({
-//     where: {
-//       id: id,
-//     },
-//   });
+router.delete('/:id', async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const post = await prisma.post.delete({
+    where: {
+      id: id,
+    },
+  });
 
-//   res.json(post);
-//   await prisma.$disconnect();
-// });
+  res.json(post);
+  await prisma.$disconnect();
+});
 
 const postsRouter = router;
 export default postsRouter;
