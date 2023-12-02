@@ -44,12 +44,12 @@ export const foundation = [
     ],
   },
   {
-    name: 'Accessibility Transcript File',
-    description: 'Transcription for Accessibility at HPE with Bill Tipton',
+    name: 'Accessibility transcript file',
+    description: 'Transcription for accessibility at HPE with Bill Tipton',
     searchable: false,
   },
   {
-    name: 'Our Brand',
+    name: 'Our brand',
     category: 'Assets',
     cardOrder: 4,
     description: `The Element is about focus. It creates momentum and 
@@ -68,7 +68,7 @@ export const foundation = [
     tags: ['logos', 'brand icons'],
   },
   {
-    name: 'Distinctive Brand Assets',
+    name: 'Distinctive brand assets',
     category: 'Assets',
     cardOrder: 5,
     description: `Our distinctive brand assets are comprised of 
@@ -108,7 +108,7 @@ export const foundation = [
     ],
   },
   {
-    name: 'Developer Guidance',
+    name: 'Developer guidance',
     category: 'Philosophy',
     cardOrder: 1,
     description: `Resources for setting up your application
@@ -132,7 +132,7 @@ export const foundation = [
     tags: ['react tutorial', 'grommet', 'getting started with grommet'],
   },
   {
-    name: 'Designer Guidance',
+    name: 'Designer guidance',
     category: 'Philosophy',
     cardOrder: 2,
     description: `Starter files, patterns, interactions, and workflows on
@@ -203,7 +203,7 @@ export const foundation = [
       'Light Mode',
       'Dark Mode',
     ],
-    relatedContent: ['Background Colors Guidance', 'Typography', 'Icons'],
+    relatedContent: ['Background colors guidance', 'Typography', 'Icons'],
     tags: [
       'theme mode',
       'color contrast',
@@ -213,7 +213,7 @@ export const foundation = [
     ],
   },
   {
-    name: 'Human Centered',
+    name: 'Human centered',
     cardOrder: 2,
     category: 'Philosophy',
     description: `The starting point of the design system is human 
@@ -304,7 +304,7 @@ export const foundation = [
     ],
   },
   {
-    name: 'Philosophy and Principles',
+    name: 'Philosophy and principles',
     category: 'Philosophy',
     cardOrder: 0,
     description: 'What the HPE Design System is and why we’re creating it.',
@@ -334,7 +334,7 @@ export const foundation = [
     tags: ['human centered design', 'design principles', 'design philosophy'],
   },
   {
-    name: 'Background Colors Guidance',
+    name: 'Background colors guidance',
     category: 'Assets',
     cardOrder: 6,
     description: `Leverage HPE background colors to seamlessly style 
@@ -371,8 +371,8 @@ export const foundation = [
     ],
   },
   {
-    name: 'Tshirt Sizing',
-    render: 'T-shirt Sizing',
+    name: 'Tshirt sizing',
+    render: 'T-shirt sizing',
     category: 'Philosophy',
     cardOrder: 4,
     description:
@@ -416,7 +416,7 @@ export const foundation = [
     ],
   },
   {
-    name: 'Voice and Tone',
+    name: 'Voice and tone',
     category: 'Philosophy',
     cardOrder: 6,
     description: `Deliver clear, consistent experiences to HPE customers by 
@@ -458,8 +458,8 @@ export const foundation = [
     ],
     relatedContent: [
       'Accessibility',
-      'Designer Guidance',
-      'Developer Guidance',
+      'Designer guidance',
+      'Developer guidance',
     ],
     tags: [
       'message',
@@ -471,7 +471,7 @@ export const foundation = [
     ],
   },
   {
-    name: 'Date and Time',
+    name: 'Date and time',
     category: 'Philosophy',
     cardOrder: 3,
     description:

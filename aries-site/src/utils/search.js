@@ -82,16 +82,16 @@ export const nameToPath = name => {
   if (name === 'Navigational card') {
     return '/components/card/navigational-card';
   }
-  if (name === 'Center Layer') {
+  if (name === 'Center layer') {
     return '/components/layer/center-layer';
   }
-  if (name === 'Side Drawer Layer') {
+  if (name === 'Side drawer layer') {
     return '/components/layer/side-drawer-layer';
   }
-  if (name === 'Fullscreen Layer') {
+  if (name === 'Fullscreen layer') {
     return '/components/layer/fullscreen-layer';
   }
-  if (name === 'Managing Child Objects') {
+  if (name === 'Managing child objects') {
     return '/templates/forms/managing-child-objects';
   }
 
