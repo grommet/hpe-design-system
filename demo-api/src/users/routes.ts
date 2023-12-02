@@ -52,54 +52,54 @@ router.get('/', async (req: Request, res: Response) => {
   await prisma.$disconnect();
 });
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const id = parseInt(req.params.id);
-  const user = await prisma.user.findUnique({
-    where: {
-      id: id,
-    },
-  });
+// router.get('/:id', async (req: Request, res: Response) => {
+//   const id = parseInt(req.params.id);
+//   const user = await prisma.user.findUnique({
+//     where: {
+//       id: id,
+//     },
+//   });
 
-  if (!user) {
-    res.status(404).send('User not found');
-  } else {
-    res.json(user);
-  }
+//   if (!user) {
+//     res.status(404).send('User not found');
+//   } else {
+//     res.json(user);
+//   }
 
-  await prisma.$disconnect();
-});
+//   await prisma.$disconnect();
+// });
 
-router.put('/:id', updateUserValidationRules, async (req: Request, res: Response) => {
-  const id = parseInt(req.params.id);
-  const user = await prisma.user.findUnique({
-    where: {
-      id: id,
-    },
-  });
-  const errors = validationResult(req);
+// router.put('/:id', updateUserValidationRules, async (req: Request, res: Response) => {
+//   const id = parseInt(req.params.id);
+//   const user = await prisma.user.findUnique({
+//     where: {
+//       id: id,
+//     },
+//   });
+//   const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
+//   if (!errors.isEmpty()) {
+//     return res.status(422).json({ errors: errors.array() });
+//   }
 
-  if (!user) {
-    res.status(404).send('User not found');
-  } else {
-    const updatedUser = await prisma.user.update({
-      where: {
-        id: id,
-      },
-      data: {
-        email: req.body.email || user.email,
-        name: req.body.name || user.name
-      },
-    });
+//   if (!user) {
+//     res.status(404).send('User not found');
+//   } else {
+//     const updatedUser = await prisma.user.update({
+//       where: {
+//         id: id,
+//       },
+//       data: {
+//         email: req.body.email || user.email,
+//         name: req.body.name || user.name
+//       },
+//     });
 
-    res.json(updatedUser);
-  }
+//     res.json(updatedUser);
+//   }
 
-  await prisma.$disconnect();
-});
+//   await prisma.$disconnect();
+// });
 
 const usersRouter = router;
 export default usersRouter;

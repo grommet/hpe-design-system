@@ -5,7 +5,6 @@ import usersRouter from './users/routes';
 
 const router = Router();
 
-
 router.get('/', (req: Request, res: Response) => {
   res.send('Hello World');
 });
