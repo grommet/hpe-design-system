@@ -28,7 +28,8 @@
   "workspaces": [
     "aries-core",
     "aries-site",
-    "demo-api"
+    "demo-api",
+    "design-system-manager"
   ],
   "dependencies": {
     "grommet": "^2.35.0-alpha.1",
