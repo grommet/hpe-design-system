@@ -69,21 +69,37 @@ router.get('/:id', async (req: Request, res: Response) => {
   await prisma.$disconnect();
 });
 
-router.put('/', updateComponentValidationRules, async (req: Request, res: Response) => {
+router.put('/:id', updateComponentValidationRules, async (req: Request, res: Response) => {
   const { id, name, description, keywords } = req.body;
 
-  const component = await prisma.component.update({
+  const component = await prisma.component.findUnique({
     where: {
       id: id,
     },
-    data: {
-      name: name,
-      description: description,
-      keywords: keywords,
-    },
   });
+  const errors = validationResult(req);
 
-  res.json(component);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  if (!component) {
+    res.status(404).send('Component not found');
+  } else {
+    const updatedComponent = await prisma.component.update({
+      where: {
+        id: id,
+      },
+      data: {
+        name: name || component.name,
+        description: description || component.description,
+        keywords: keywords || component.keywords,
+      },
+    });
+
+    res.json(updatedComponent);
+  }
+
   await prisma.$disconnect();
 });
 
