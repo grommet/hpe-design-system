@@ -19,6 +19,6 @@ export const ReverseAnchor = React.forwardRef(
 );
 
 ReverseAnchor.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   label: PropTypes.string.isRequired,
 };
