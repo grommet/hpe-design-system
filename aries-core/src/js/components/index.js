@@ -1,3 +1,4 @@
+export * from './controls';
 export * from './core';
 export * from './helpers';
 export * from './layouts';
