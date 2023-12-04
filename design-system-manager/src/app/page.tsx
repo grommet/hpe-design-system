@@ -7,7 +7,7 @@ export default function Home() {
       <PageContent> 
       <PageHeader title="Home" />
         <Box align='start'>
-          <Link href="/components" passHref legacyBehavior>
+          <Link href="/components" passHref legacyBehavior >
             <Card background="background-front">
               <CardHeader>
                 <Heading level={2}>Manage components</Heading>
