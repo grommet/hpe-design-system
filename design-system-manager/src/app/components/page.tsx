@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { Box, Data, Heading, PageHeader } from 'grommet';
+import { Data, Heading, PageHeader } from 'grommet';
 import { ReverseAnchor } from 'aries-core';
-
-import { ComponentList, CardGroup } from './DataCollections';
-import Head from 'next/head';
+import { Collection } from './Collection'
+import { Insights } from './Insights';
 
 async function getComponents() {
   const res = await fetch(`${process.env.API_URL}/components`);
@@ -23,17 +22,8 @@ const Page = async () => {
           </Link>
         }
       />
-      <Heading level={2}>Insights</Heading>
-      <Box direction='row' gap='medium'>
-        <Box pad="medium" background="orange-yellow" round>KPI a</Box>
-        <Box pad="medium" background="purple-blue" round>KPI b</Box>
-        <Box pad="medium" background="purple-blue-yellow" round>KPI c</Box>
-      </Box>
-      <Heading level={2}>Manage</Heading>
-      <Data data={components} toolbar >
-        {/* <ComponentList /> */}
-        <CardGroup />
-      </Data>
+      <Insights level={2} />
+      <Collection data={components} level={2} />
     </>
 )};
 

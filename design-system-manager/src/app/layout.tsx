@@ -21,11 +21,7 @@ export default function RootLayout({
         <Grommet theme={hpe} themeMode="auto" full background="background-back">
           <Header background="background-front" pad="small">My header</Header>
           <Main>
-            {/* <Page>
-              <PageContent> */}
-                {children}
-              {/* </PageContent>
-            </Page> */}
+            {children}
           </Main>
           <Footer background="background-contrast" pad="small">My footer</Footer>
         </Grommet>
