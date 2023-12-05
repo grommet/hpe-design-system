@@ -10,10 +10,8 @@ async function getComponent(id: string) {
 
 const Component = async ({
   params,
-  searchParams,
 }: {
   params: { id: string };
-  searchParams: { name: string };
 }) => {
   const component: ComponentType = await getComponent(params.id);
   const {name, description, keywords} = component;
@@ -30,7 +28,9 @@ const Component = async ({
       <NameValueList>
         <NameValuePair name="Description">{description}</NameValuePair>
         <NameValuePair name="Keywords">
-          {keywords?.map((keyword) => (<Text>{keyword}</Text>) )}
+          {typeof keywords !== 'undefined' ? 
+            keywords.map((keyword) => (<Text>{keyword}</Text>) ) : 
+            '--'}
         </NameValuePair>
       </NameValueList>
       <Heading level={2}>Resources</Heading>

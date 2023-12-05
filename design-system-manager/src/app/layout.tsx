@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Grommet theme={hpe} themeMode="auto" full background="background-back">
+        <Grommet theme={hpe} themeMode="auto" full="min" background="background-back">
           <Header background="background-front" pad="small">My header</Header>
           <Main>
             {children}
