@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Box, Button, Form, FormField, Heading, Layer, NameValueList, NameValuePair, Page, PageContent, PageHeader, Select, TextArea, TextInput } from 'grommet';
-import { ButtonGroup, ReverseAnchor } from 'aries-core';
+import { ButtonGroup, ContentContainer, ReverseAnchor } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
 
 export const Detail = ({ component } : {component: ComponentType}) => {
@@ -15,11 +15,9 @@ export const Detail = ({ component } : {component: ComponentType}) => {
     <>
       <PageHeader
         title={component.name}
-        parent={
-          <Link href="/components" passHref legacyBehavior>
-            <ReverseAnchor label="Components" />
-          </Link>}
-        actions={<Button label="Edit" secondary onClick={() => {setEdit(true)}} />}
+        level={2}
+        actions={<Button label="Edit" onClick={() => setEdit(true)} />}
+        pad={{bottom: 'medium'}}
       />
       {!edit ? (
         <NameValueList>
@@ -85,22 +83,6 @@ export const Detail = ({ component } : {component: ComponentType}) => {
         </Layer>
       )
       }
-      <PageHeader title="Resources" level={2} actions={<Button label="Edit" />} />
-      <Heading level={3}>Design</Heading>
-      <Heading level={3}>Code</Heading>
-    <Heading level={2}>Design</Heading>
-      <Heading level={3}>Anatomy</Heading>
-      <Heading level={3}>Interactive states</Heading>
-      <Heading level={3}>Color</Heading>
-      <Heading level={3}>Behaviors</Heading>
-    <Heading level={2}>Usage</Heading>
-      <Heading level={3}>Modifiers and configurations</Heading>
-      <Heading level={3}>Use case examples</Heading>
-    <Heading level={2}>References</Heading>
-      <Heading level={3}>Documentation</Heading>
-      <Heading level={3}>Research</Heading>
-      <Heading level={3}>Design criteria</Heading>
-      <Heading level={3}>Design rationale</Heading>
     </>
   );
 };
