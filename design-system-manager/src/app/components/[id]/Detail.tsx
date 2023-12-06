@@ -1,24 +1,59 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Box, Button, Form, FormField, Heading, Layer, NameValueList, NameValuePair, Page, PageContent, PageHeader, Select, TextArea, TextInput } from 'grommet';
 import { ButtonGroup, ContentContainer, ReverseAnchor } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
+
+async function updateComponent(component: ComponentType) {
+  console.log('component', component);
+  try {
+    const res = await fetch(`http://localhost:8000/components/${component.id}`, {
+      // const res = await fetch(`${process.env.API_URL}/components/${component.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(component),
+    });
+    console.log('res', res);
+    return await res.json();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
 
 export const Detail = ({ component } : {component: ComponentType}) => {
   const [currentData, setCurrentData] = useState(component);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
 
+  useEffect(() => {
+    console.log('tempData', tempData);
+  }, [tempData]);
+
+  const handleSave = async (formValue: ComponentType) => {
+    console.log('formValue', formValue);
+    const updatedComponent = await updateComponent(formValue);
+    console.log('updatedComponent', updatedComponent);
+    setCurrentData(updatedComponent);
+    setEdit(false);
+  }
+
+  const handleCancel = () => {
+    setTempData(currentData);
+    setEdit(false);
+  }
+
   return (
     <>
       <PageHeader
-        title={component.name}
+        title="Detail"
         level={2}
         actions={<Button label="Edit" onClick={() => setEdit(true)} />}
-        pad={{bottom: 'medium'}}
+        pad="none"
       />
+      <ContentContainer>
       {!edit ? (
         <NameValueList>
           {Object.entries(currentData).map(([name, value]) => (
@@ -47,7 +82,7 @@ export const Detail = ({ component } : {component: ComponentType}) => {
                           <TextInput
                             id={name}
                             name={name}
-                            value={value}
+                            value={tempData[name]}
                             onChange={(event) => {
                               setTempData({ ...tempData, [name]: event.target.value });
                             }}
@@ -57,7 +92,7 @@ export const Detail = ({ component } : {component: ComponentType}) => {
                             id={name}
                             name={name}
                             options={value}
-                            value={value}
+                            value={tempData[name]}
                             onChange={({ option }) => {
                               setTempData({ ...tempData, [name]: option });
                             }}
@@ -67,14 +102,8 @@ export const Detail = ({ component } : {component: ComponentType}) => {
                     ))}
                 </>
               <ButtonGroup>
-                <Button label="Save changes" primary onClick={() => {
-                  setCurrentData(tempData);
-                  setEdit(false);
-                }} />
-                <Button label="Cancel" onClick={() => {
-                  setTempData(currentData);
-                  setEdit(false);
-                }} />
+                <Button label="Save changes" primary onClick={() => {handleSave(tempData)}} />
+                <Button label="Cancel" onClick={handleCancel} />
               </ButtonGroup>
               </Box>
             </Form>
@@ -83,6 +112,7 @@ export const Detail = ({ component } : {component: ComponentType}) => {
         </Layer>
       )
       }
+      </ContentContainer>
     </>
   );
 };

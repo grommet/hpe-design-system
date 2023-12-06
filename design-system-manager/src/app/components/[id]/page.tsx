@@ -17,22 +17,29 @@ const Component = async ({
   const component: ComponentType = await getComponent(params.id);
 
   return (
-  <Box gap='medium'>
+    <>
+    
     <PageHeader
-        title={component.name}
-        parent={
-          <Link href="/components" passHref legacyBehavior>
-            <ReverseAnchor label="Components" />
-          </Link>}
+    title={component.name}
+    parent={
+      <Link href="/components" passHref legacyBehavior>
+        <ReverseAnchor label="Components" />
+      </Link>}
+  />
+  <Box gap='large'>
+    <Detail component={component} />
+    <Box>
+      <PageHeader
+        title="Resources"
+        level={2}
+        actions={<Button label="Edit" />}
+        pad="none"
       />
-    <ContentContainer>
-      <Detail component={component} />
-    </ContentContainer>
-    <ContentContainer>
-      <PageHeader title="Resources" level={2} actions={<Button label="Edit" />} />
-      <Heading level={3}>Design</Heading>
-      <Heading level={3}>Code</Heading>
-    </ContentContainer>
+      <ContentContainer>
+        <Heading level={3}>Design</Heading>
+        <Heading level={3}>Code</Heading>
+      </ContentContainer>
+    </Box>
     <ContentContainer>
     <Heading level={2}>Design</Heading>
     <Heading level={3}>Anatomy</Heading>
@@ -52,7 +59,9 @@ const Component = async ({
     <Heading level={3}>Design criteria</Heading>
     <Heading level={3}>Design rationale</Heading>
     </ContentContainer>
-  </Box>);
+  </Box>
+  </>
+  );
 };
 
 export default Component;

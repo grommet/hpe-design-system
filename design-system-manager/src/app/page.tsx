@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Page>
       <PageContent> 
-      <PageHeader title="Home" />
+      <PageHeader title="HPE Design System Manager" />
         <Box align='start'>
           <Link href="/components" passHref legacyBehavior >
             <Card background="background-front">
