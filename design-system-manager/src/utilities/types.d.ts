@@ -3,6 +3,7 @@ export interface ComponentType {
   name: string;
   description?: string;
   keywords?: string[];
+  state?: string;
 }
 
 export type LevelType = 1 | 2 | 3 | 4 | 5 | 6;
