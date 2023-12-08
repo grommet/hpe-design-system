@@ -1,24 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Box, Button, Form, FormField, Heading, Layer, NameValueList, NameValuePair, Page, PageContent, PageHeader, Select, TextArea, TextInput } from 'grommet';
 import { ButtonGroup, ContentContainer } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
-import { update } from './actions';
+import { updateComponent } from './actions';
 
 export const Detail = ({ component } : {component: ComponentType}) => {
   const [currentData, setCurrentData] = useState(component);
   const [tempData, setTempData] = useState(currentData);
   const [edit, setEdit] = useState(false);
 
-  useEffect(() => {
-    console.log('tempData', tempData);
-  }, [tempData]);
-
   const handleSave = async (formValue: ComponentType) => {
-    console.log('formValue', formValue);
-    const updatedComponent = await update(formValue);
-    console.log('updatedComponent', updatedComponent);
+    const updatedComponent = await updateComponent(formValue);
     setCurrentData(updatedComponent);
     setEdit(false);
   }
