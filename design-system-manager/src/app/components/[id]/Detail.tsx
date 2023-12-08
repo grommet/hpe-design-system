@@ -1,27 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { Box, Button, Form, FormField, Heading, Layer, NameValueList, NameValuePair, Page, PageContent, PageHeader, Select, TextArea, TextInput } from 'grommet';
-import { ButtonGroup, ContentContainer, ReverseAnchor } from 'aries-core';
+import { ButtonGroup, ContentContainer } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
-
-async function updateComponent(component: ComponentType) {
-  console.log('component', component);
-  try {
-    const res = await fetch(`http://localhost:8000/components/${component.id}`, {
-      // const res = await fetch(`${process.env.API_URL}/components/${component.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(component),
-    });
-    console.log('res', res);
-    return await res.json();
-  }
-  catch (error) {
-    console.error(error);
-  }
-}
+import { update } from './actions';
 
 export const Detail = ({ component } : {component: ComponentType}) => {
   const [currentData, setCurrentData] = useState(component);
@@ -34,7 +17,7 @@ export const Detail = ({ component } : {component: ComponentType}) => {
 
   const handleSave = async (formValue: ComponentType) => {
     console.log('formValue', formValue);
-    const updatedComponent = await updateComponent(formValue);
+    const updatedComponent = await update(formValue);
     console.log('updatedComponent', updatedComponent);
     setCurrentData(updatedComponent);
     setEdit(false);
