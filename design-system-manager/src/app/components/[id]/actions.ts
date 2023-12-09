@@ -1,6 +1,7 @@
 'use server'
 
 import { ComponentType } from "@/utilities/types";
+import { revalidatePath } from "next/cache";
 
 export async function getComponent(id: string) {
   const url = `${process.env.API_URL}/components/${id}`;
@@ -19,7 +20,8 @@ export async function getComponent(id: string) {
 }
 
 export async function updateComponent(component: ComponentType) {
-  const url = `${process.env.API_URL}/components/${component.id}`;
+  const path = `/components/${component.id}`;
+  const url = `${process.env.API_URL}${path}`;
   const options = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -28,6 +30,7 @@ export async function updateComponent(component: ComponentType) {
   
   try {
     const res = await fetch(url, options);
+    revalidatePath(path);
     return res.json();
   }
   catch (error) {
