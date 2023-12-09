@@ -1,8 +1,10 @@
-import { PropertyList } from "./PropertyList";
-import { Properties } from './Properties';
+import { Properties } from "./Properties";
+import { Editable } from './Editable';
 
 export const Detail = ({id}:{id: string}) => {
   return (
-    <Properties id={id} view={<PropertyList id={id} />} />
+    <Editable id={id}>
+      <Properties id={id} />
+    </Editable>
   );
 }

@@ -5,15 +5,27 @@ import { Box, Button, Form, FormField, Select, TextInput } from 'grommet';
 import { ButtonGroup } from 'aries-core';
 import { ComponentType } from "@/utilities/types";
 import { updateComponent } from "../actions";
+import { on } from 'events';
 
 export const Edit = ({ component, onClose } : { component: ComponentType, onClose: () => void }) => {
   const [currentData, setCurrentData] = useState(component);
   const [tempData, setTempData] = useState(currentData);
+  const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleSave = async (formValue: ComponentType) => {
-    const updatedComponent = await updateComponent(formValue);
-    setCurrentData(updatedComponent);
-    onClose();
+    const SUCCESS_ANIMATION_DELAY = 500;
+    
+    setSaving(true);
+    updateComponent(formValue)
+      .then((updatedComponent) => { setCurrentData(updatedComponent); })
+      .then(() => { 
+        setSaving(false); 
+        setSuccess(true);
+      })
+      .then(() => { 
+        setTimeout(() => { onClose(); }, SUCCESS_ANIMATION_DELAY);
+      });
   }
 
   const handleCancel = () => {
@@ -53,7 +65,7 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
           )): null}
         </Box>
         <ButtonGroup>
-          <Button label="Save" primary onClick={() => handleSave(tempData)} 
+          <Button label="Save" primary busy={saving} success={success} onClick={() => handleSave(tempData)} 
           />
           <Button label="Cancel" onClick={handleCancel} />
         </ButtonGroup>

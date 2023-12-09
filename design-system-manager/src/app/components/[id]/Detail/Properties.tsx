@@ -2,7 +2,7 @@ import { NameValueList, NameValuePair } from "grommet";
 import { ComponentType } from "@/utilities/types";
 import { getComponent } from "../actions";
 
-export const PropertyList = async ({ id } : { id: string }) => {
+export const Properties = async ({ id } : { id: string }) => {
   const component: ComponentType = await getComponent(id);
 
   return (

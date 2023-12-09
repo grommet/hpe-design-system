@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button, PageHeader } from 'grommet';
+import { Box, Button, PageHeader } from 'grommet';
 import { ContentContainer } from 'aries-core';
 import { Edit } from './Edit';
 import { getComponent } from '../actions';
 
-export const Properties = ({ id, view }) => {
+export const Editable = ({ children, id }) => {
   const [data, setData] = useState({});
   const [edit, setEdit] = useState(false);
 
@@ -20,6 +20,12 @@ export const Properties = ({ id, view }) => {
     }
   }, [id, edit]);
 
+  const content = !edit ? (
+    children
+  ) : (
+    <Edit component={data} onClose={() => setEdit(false)} />
+  );
+
   return (
     <>
       <PageHeader
@@ -28,13 +34,7 @@ export const Properties = ({ id, view }) => {
         actions={<Button label="Edit" onClick={() => setEdit(true)} />}
         pad="none"
       />
-      <ContentContainer>
-        {!edit ? (
-          view
-        ) : (
-          <Edit component={data} onClose={() => setEdit(false)} />
-        )}
-      </ContentContainer>
+      <ContentContainer>{content}</ContentContainer>
     </>
   );
 };
