@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Data, Heading, PageHeader } from 'grommet';
+import { PageHeader } from 'grommet';
 import { ReverseAnchor } from 'aries-core';
 import { Collection } from './Collection'
 import { Insights } from './Insights';

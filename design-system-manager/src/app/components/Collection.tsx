@@ -10,7 +10,7 @@ export const Collection = (
       <Heading level={level}>Manage</Heading>
       <Data data={data} toolbar >
         {/* <ComponentList /> */}
-        <CardGroup />
+        <CardGroup level={level + 1} />
       </Data>
     </>
   );

@@ -47,7 +47,11 @@ router.post('/', createComponentValidationRules, async (req: Request, res: Respo
 });
 
 router.get('/', async (req: Request, res: Response) => {
-  const components = await prisma.component.findMany();
+  const components = await prisma.component.findMany({
+    orderBy: {
+      name: 'asc',
+    },
+  });
   res.json(components);
   await prisma.$disconnect();
 });
