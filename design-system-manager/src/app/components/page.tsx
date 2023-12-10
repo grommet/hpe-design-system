@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PageHeader } from 'grommet';
+import { Box, PageHeader } from 'grommet';
 import { ReverseAnchor } from 'aries-core';
 import { Collection } from './Collection'
 import { Insights } from './Insights';
@@ -22,8 +22,11 @@ const Page = async () => {
           </Link>
         }
       />
-      <Insights level={2} />
-      <Collection data={components} level={2} />
+      <Box gap='medium'>
+        <Insights level={2} />
+        <Collection data={components} level={2} />
+      </Box>
+      <Box pad="large"/>
     </>
 )};
 

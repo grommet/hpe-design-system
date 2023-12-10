@@ -25,7 +25,7 @@ const Component = async ({
             <ReverseAnchor label="Components" />
           </Link>}
       />
-      <Box gap='large'>
+      <Box gap='large' alignSelf='start'>
         <Detail id={params.id} />
         <Box>
           <PageHeader

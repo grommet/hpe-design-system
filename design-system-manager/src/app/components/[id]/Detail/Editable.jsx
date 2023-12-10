@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Box, Button, PageHeader } from 'grommet';
+import { Button, PageHeader } from 'grommet';
+import { Close, Edit as EditIcon } from 'grommet-icons';
 import { ContentContainer } from 'aries-core';
 import { Edit } from './Edit';
 import { getComponent } from '../actions';
@@ -31,7 +32,13 @@ export const Editable = ({ children, id }) => {
       <PageHeader
         title="Detail"
         level={2}
-        actions={<Button label="Edit" onClick={() => setEdit(true)} />}
+        actions={
+          <Button
+            a11yTitle={!edit ? `Edit ${data.name} detail` : 'Cancel editing'}
+            icon={!edit ? <EditIcon /> : <Close />}
+            onClick={() => setEdit(!edit)}
+          />
+        }
         pad="none"
       />
       <ContentContainer>{content}</ContentContainer>

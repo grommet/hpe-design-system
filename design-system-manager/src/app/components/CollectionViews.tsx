@@ -29,7 +29,7 @@ function delay(item, ms: number) {
 </Link>)}, ms);
 }
 
-export const CardGroup = ({level, ...rest} : {level: LevelType | number}) => {
+export const CardGroup = ({level, ...rest} : {level: LevelType}) => {
   return (
     <Cards {...rest}>
       {(item, index) => {
