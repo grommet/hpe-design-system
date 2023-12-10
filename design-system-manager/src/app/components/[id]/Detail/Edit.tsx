@@ -1,11 +1,36 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, Button, Form, FormField, Select, TextInput } from 'grommet';
+import { Box, Button, Form, FormField, Select, TextArea, TextInput } from 'grommet';
 import { ButtonGroup } from 'aries-core';
 import { ComponentType } from "@/utilities/types";
 import { updateComponent } from "../actions";
-import { on } from 'events';
+
+interface InputMap {
+  [key: string]: ({ ...rest }: { [x: string]: any }) => JSX.Element | null;
+}
+
+const INPUT_MAP: InputMap = {
+  id: ({...rest}) => <TextInput readOnly {...rest} />,
+  description: ({...rest}) => <TextArea rows={4} {...rest} />,
+  keywords: ({...rest}) => <TextArea {...rest} />,
+  status: ({...rest}) => <Select options={['draft', 'beta', 'published']} {...rest} />,
+  createdAt: ({...rest}) => <TextInput readOnly {...rest} />,
+  updatedAt: ({...rest}) => <TextInput readOnly {...rest} />,
+};
+
+const DATATYPE_MAP: InputMap = {
+  string: ({...rest}) => <TextInput {...rest} />,
+  number: ({...rest}) => <TextInput {...rest} />,
+  object: ({value, ...rest}) => {
+    console.log('typeof value', typeof value);
+    let result = <TextInput {...rest} />;
+    if (Array.isArray(value)) {
+      result = <Select options={value} value={value} {...rest} />
+    }
+    return result;
+  },
+};
 
 export const Edit = ({ component, onClose } : { component: ComponentType, onClose: () => void }) => {
   const [currentData, setCurrentData] = useState(component);
@@ -45,7 +70,21 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
               name={name}
               contentProps={{ width: 'medium' }}
               >
-              {typeof value === 'string' ? (
+              {INPUT_MAP[name] ? 
+                INPUT_MAP[name]({ 
+                  id: name, 
+                  name, 
+                  value: tempData[name], 
+                  onChange: (e) => setTempData({ ...tempData, [name]: e.target.value }) 
+                }) :
+                 DATATYPE_MAP[typeof value]({
+                  id: name,
+                  name,
+                  value: tempData[name],
+                  onChange: (e) => setTempData({ ...tempData, [name]: e.target.value })
+                }) 
+              }
+              {/* {typeof value === 'string' ? (
                 <TextInput
                   id={name}
                   name={name}
@@ -60,7 +99,7 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
                   value={tempData[name]}
                   onChange={({ option }) => setTempData({ ...tempData, [name]: option })}
                 />
-              )}
+              )} */}
             </FormField>
           )): null}
         </Box>

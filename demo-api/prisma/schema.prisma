@@ -33,6 +33,7 @@ model Post {
 model Component {
   id             String           @id @default(auto()) @map("_id") @db.ObjectId
   name           String
+  status         String?
   description    String?
   keywords       String[]
   resources      Resource[]

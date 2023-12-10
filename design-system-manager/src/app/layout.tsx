@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Grommet theme={hpe} themeMode="auto" full="min" background="background-back">
-          <Header background="background-front" pad="small">My header</Header>
+          <Header background="background-front" border={{side: 'bottom', color: 'border-weak'}} pad="small" sticky='scrollup'>My header</Header>
           <Main>
             {children}
           </Main>

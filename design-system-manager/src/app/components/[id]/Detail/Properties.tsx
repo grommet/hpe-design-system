@@ -9,7 +9,7 @@ export const Properties = async ({ id } : { id: string }) => {
     <NameValueList>
       {component ? Object.entries(component).map(([name, value]) => (
         <NameValuePair key={name} name={name}>
-          {`${typeof value} ${typeof value === 'object' ? JSON.stringify(value) : value}`}
+          {`${typeof value === 'object' ? JSON.stringify(value) : value}`}
         </NameValuePair>
       ))
       : null}

@@ -24,6 +24,7 @@ const createComponent = async (req: Request, res: Response) => {
       name: req.body.name,
       description: req.body.description,
       keywords: req.body.keywords,
+      status: req.body.status,
     },
   });
 
@@ -74,7 +75,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 router.put('/:id', updateComponentValidationRules, async (req: Request, res: Response) => {
-  const { id, name, description, keywords } = req.body;
+  const { id, name, description, keywords, status } = req.body;
 
   const component = await prisma.component.findUnique({
     where: {
@@ -98,6 +99,7 @@ router.put('/:id', updateComponentValidationRules, async (req: Request, res: Res
         name: name || component.name,
         description: description || component.description,
         keywords: keywords || component.keywords,
+        status: status || component.status, 
       },
     });
 
