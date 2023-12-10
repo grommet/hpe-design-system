@@ -23,7 +23,6 @@ const DATATYPE_MAP: InputMap = {
   string: ({...rest}) => <TextInput {...rest} />,
   number: ({...rest}) => <TextInput {...rest} />,
   object: ({value, ...rest}) => {
-    console.log('typeof value', typeof value);
     let result = <TextInput {...rest} />;
     if (Array.isArray(value)) {
       result = <Select options={value} value={value} {...rest} />

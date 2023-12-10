@@ -11,7 +11,6 @@ async function getComponents() {
 
 const Page = async () => {
   const components = await getComponents();
-  console.log('components', components); 
 
   return (
     <>
