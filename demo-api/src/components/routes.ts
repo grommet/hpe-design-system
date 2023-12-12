@@ -1,37 +1,13 @@
 import { Router, Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
+import { validationResult } from 'express-validator';
 import { PrismaClient } from '@prisma/client';
+import { createComponent, updateComponent } from './actions';
+import { createRules, updateRules } from './validation-rules';
 
 const prisma = new PrismaClient();
 const router = Router();
 
-const componentValidationRules = [
-  body('name').notEmpty().withMessage('Name is required.'),
-];
-
-const createComponentValidationRules = [
-  ...componentValidationRules,
-];
-
-const updateComponentValidationRules = [
-  body('id').notEmpty().withMessage('ID is required.'),
-  ...componentValidationRules,
-];
-
-const createComponent = async (req: Request, res: Response) => {
-  const component = await prisma.component.create({
-    data: {
-      name: req.body.name,
-      description: req.body.description,
-      keywords: req.body.keywords,
-      status: req.body.status,
-    },
-  });
-
-  return component;
-}
-
-router.post('/', createComponentValidationRules, async (req: Request, res: Response) => {
+router.post('/', createRules, async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -74,39 +50,20 @@ router.get('/:id', async (req: Request, res: Response) => {
   await prisma.$disconnect();
 });
 
-router.put('/:id', updateComponentValidationRules, async (req: Request, res: Response) => {
-  const { id, name, description, keywords, status } = req.body;
-
-  const component = await prisma.component.findUnique({
-    where: {
-      id: id,
-    },
-  });
+router.put('/:id', updateRules, async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
 
-  if (!component) {
-    res.status(404).send('Component not found');
-  } else {
-    const updatedComponent = await prisma.component.update({
-      where: {
-        id: id,
-      },
-      data: {
-        name: name || component.name,
-        description: description || component.description,
-        keywords: keywords || component.keywords,
-        status: status || component.status, 
-      },
-    });
-
-    res.json(updatedComponent);
-  }
-
-  await prisma.$disconnect();
+  updateComponent(req, res).then(async (component) => {
+    res.json(component);
+    await prisma.$disconnect();
+  }).catch(async (error) => {
+    console.error(error);
+    await prisma.$disconnect();
+  });
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
