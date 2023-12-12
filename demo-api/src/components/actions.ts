@@ -50,4 +50,90 @@ const updateComponent = async (req: Request, res: Response) => {
   }
 }
 
-export { createComponent, updateComponent }
+const createAndAddResource = async (req: Request, res: Response) => {
+  const { name, type, url, componentId } = req.body;
+
+  const resource = await prisma.resource.create({
+    data: {
+      name,
+      type,
+      url,
+      component: {
+        connect: {
+          id: componentId,
+        },
+      },
+    },
+  });
+
+  return res.json(resource);
+}
+
+const addResource = async (req: Request, res: Response) => {
+  const { id, resourceId } = req.body;
+
+  const component = await prisma.component.findUnique({
+    where: {
+      id: id,
+    },
+  });
+
+  if (!component) {
+    res.status(404).send('Component not found');
+  } else {
+    const updatedComponent = await prisma.component.update({
+      where: {
+        id: id,
+      },
+      data: {
+        resources: {
+          connect: {
+            id: resourceId,
+          },
+        },
+      },
+    });
+
+    return res.json(updatedComponent);
+  }
+}
+
+const removeResource = async (req: Request, res: Response) => {
+  const { id, resourceId } = req.body;
+
+  const component = await prisma.component.findUnique({
+    where: {
+      id: id,
+    },
+  });
+
+  if (!component) {
+    res.status(404).send('Component not found');
+  } else {
+    const updatedComponent = await prisma.component.update({
+      where: {
+        id: id,
+      },
+      data: {
+        resources: {
+          disconnect: {
+            id: resourceId,
+          },
+        },
+      },
+      include: {
+        resources: true,
+      },
+    });
+
+    return res.json(updatedComponent);
+  }
+}
+
+export { 
+  createComponent, 
+  updateComponent,
+  addResource, 
+  createAndAddResource,
+  removeResource
+}

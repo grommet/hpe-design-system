@@ -73,15 +73,14 @@ model Configuration {
 
 // Resource is a file or link that is associated with a component
 model Resource {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   // types may include: design, code/implementation, documentation, demo, example use cases, 
   // research, design criteria, design rationale, etc.
   type        String
   url         String
-  status      String
-  component   Component @relation(fields: [componentId], references: [id])
-  componentId String    @db.ObjectId
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  component   Component? @relation(fields: [componentId], references: [id])
+  componentId String     @db.ObjectId
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 }
