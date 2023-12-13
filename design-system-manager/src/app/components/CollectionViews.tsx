@@ -16,19 +16,6 @@ export const ComponentList = () => {
     </List>
 )};
 
-function delay(item, ms: number) {
-  return setTimeout(() => 
-  {
-  return (<Link href={`/components/${item.id}`} passHref legacyBehavior>
-  <Card animation="fadeIn">
-    <CardBody>
-      <Heading level={3} margin="none">{item.name}</Heading>
-      <Paragraph>{item.description}</Paragraph>
-    </CardBody>
-  </Card>
-</Link>)}, ms);
-}
-
 export const CardGroup = ({level, ...rest} : {level: LevelType}) => {
   return (
     <Cards {...rest}>

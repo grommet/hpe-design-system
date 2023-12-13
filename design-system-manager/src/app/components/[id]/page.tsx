@@ -3,11 +3,9 @@ import { Box, Button, Heading, PageHeader } from 'grommet';
 import { ContentContainer, ReverseAnchor } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
 import { Detail } from './Detail';
-
-async function getComponent(id: string) {
-  const res = await fetch(`${process.env.API_URL}/components/${id}`);
-  return res.json();
-}
+import { Resources } from './Resources';
+import { getComponent, getResources } from './actions';
+import { Suspense } from 'react';
 
 const Component = async ({
   params,
@@ -27,18 +25,9 @@ const Component = async ({
       />
       <Box gap='large' alignSelf='start'>
         <Detail id={params.id} />
-        <Box>
-          <PageHeader
-            title="Resources"
-            level={2}
-            actions={<Button label="Edit" />}
-            pad="none"
-          />
-          <ContentContainer>
-            <Heading level={3}>Design</Heading>
-            <Heading level={3}>Code</Heading>
-          </ContentContainer>
-        </Box>
+        <Suspense>
+          <Resources id={params.id} level={2} />
+        </Suspense>
         <ContentContainer>
           <Heading level={2}>Design</Heading>
           <Heading level={3}>Anatomy</Heading>

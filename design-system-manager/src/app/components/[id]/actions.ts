@@ -38,3 +38,19 @@ export async function updateComponent(component: ComponentType) {
   }
   
 }
+
+export async function getResources(id: string) {
+  const url = `${process.env.API_URL}/components/${id}/resources`;
+  const options = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  };
+  
+  try {
+    const res = await fetch(url, options);
+    return res.json();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
