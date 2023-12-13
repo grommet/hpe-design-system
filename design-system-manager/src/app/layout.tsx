@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Avatar, Footer, Grommet, Header, Main, Page, PageContent, Text } from 'grommet'
+import { Avatar, Footer, Grommet, Header, Main, SkipLink, SkipLinkTarget, SkipLinks, Text } from 'grommet';
 import { hpe } from '../themes/hpe'
 
 export const metadata: Metadata = {
@@ -25,6 +25,9 @@ export default function RootLayout({
           background="background-back" 
           style={{ display: 'flex', flexDirection: 'column' }}
         >
+          <SkipLinks>
+            <SkipLink id="main" label="Skip to main content" />
+          </SkipLinks>
           <Header 
             pad={{ horizontal: 'large', vertical: 'small' }}
             sticky='scrollup'
@@ -34,6 +37,7 @@ export default function RootLayout({
             <Avatar background="background-contrast" size='36px' src="https://avatars.githubusercontent.com/u/1756948?v=4" />
           </Header>
           <Main>
+            <SkipLinkTarget id="main" />
             {children}
           </Main>
           <Footer background="background-contrast" pad="small">My footer</Footer>
