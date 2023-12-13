@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Footer, Grommet, Header, Main, Page, PageContent } from 'grommet'
+import { Avatar, Footer, Grommet, Header, Main, Page, PageContent, Text } from 'grommet'
 import { hpe } from '../themes/hpe'
 
 export const metadata: Metadata = {
@@ -18,8 +18,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Grommet theme={hpe} themeMode="auto" full="min" background="background-back">
-          <Header background="background-front" border={{side: 'bottom', color: 'border-weak'}} pad="small" sticky='scrollup'>My header</Header>
+        <Grommet 
+          theme={hpe} 
+          themeMode="auto" 
+          full="min" 
+          background="background-back" 
+          style={{ display: 'flex', flexDirection: 'column' }}
+        >
+          <Header 
+            pad={{ horizontal: 'large', vertical: 'small' }}
+            sticky='scrollup'
+            style={{ backdropFilter: 'blur(12px)'}}
+          >
+            <Text weight={300}><Text weight="bold">HPE</Text> Design System Manager</Text>
+            <Avatar background="background-contrast" size='36px' src="https://avatars.githubusercontent.com/u/1756948?v=4" />
+          </Header>
           <Main>
             {children}
           </Main>

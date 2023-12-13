@@ -1,16 +1,33 @@
 import Link from 'next/link'
-import { Box, Card, CardHeader, Heading, Page, PageContent, PageHeader } from 'grommet'
+import { Box, Card, CardHeader, Heading, Page, PageContent, PageHeader, Text } from 'grommet'
 
 export default function Home() {
   return (
-    <Page>
+    <Page 
+      // background={{
+      //   image: "purple-magenta-yellow",
+      //   opacity: "strong"
+      // }} 
+      flex
+    >
       <PageContent> 
-       <PageHeader title="HPE Design System Manager" />
+       <PageHeader title="HPE Design System Manager"/>
         <Box align='start'>
           <Link href="/components" passHref legacyBehavior >
             <Card background="background-front">
-              <CardHeader>
-                <Heading level={2}>Manage components</Heading>
+              <CardHeader
+                background={{
+                  image: "purple-magenta-yellow",
+                  clip: "text",
+                  rotate: 285,
+                }}
+              >
+                <Heading level={2}>
+                  <Box align='end'>
+                    <Text weight="bold" size='4rem' margin="none">Manage</Text>
+                    <Text weight="lighter" size="2rem" margin="none">components</Text>
+                  </Box>
+                </Heading>
               </CardHeader>
             </Card>
           </Link>
