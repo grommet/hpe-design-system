@@ -2,15 +2,60 @@ import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Close, Info } from 'grommet-icons';
 
+const pxToRem = px => `${px / 16}rem`;
+
 const global = {
   global: {
     font: {
       family: "'var(--font-metric)', Arial, sans-serif",
+      size: pxToRem(16),
+      height: pxToRem(24),
     },
   },
 };
 
-const pxToRem = px => `${px / 16}rem`;
+const text = {
+  xsmall: {
+    size: pxToRem(12),
+    height: pxToRem(16),
+  },
+  small: {
+    size: pxToRem(14),
+    height: pxToRem(20),
+  },
+  medium: {
+    size: pxToRem(16),
+    height: pxToRem(24),
+  },
+  large: {
+    size: pxToRem(20),
+    height: pxToRem(28),
+  },
+  xlarge: {
+    size: pxToRem(21),
+    height: pxToRem(30),
+  },
+  xxlarge: {
+    size: pxToRem(31),
+    height: pxToRem(40),
+  },
+  '3xl': {
+    size: pxToRem(37),
+    height: pxToRem(46),
+  },
+  '4xl': {
+    size: pxToRem(42),
+    height: pxToRem(48),
+  },
+  '5xl': {
+    size: pxToRem(64),
+    height: pxToRem(64),
+  },
+  '6xl': {
+    size: pxToRem(64),
+    height: pxToRem(64),
+  },
+};
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -21,42 +66,39 @@ export const aries = deepMerge(hpe, {
   heading: {
     level: {
       1: {
-        font: {
-          weight: 400,
-        },
         small: {
-          size: pxToRem(24),
-          height: pxToRem(24),
+          size: pxToRem(21),
+          height: pxToRem(21),
         },
         medium: {
-          size: pxToRem(36),
-          height: pxToRem(36),
+          size: pxToRem(34),
+          height: pxToRem(34),
         },
         large: {
-          size: pxToRem(48),
-          height: pxToRem(48),
+          size: pxToRem(42),
+          height: pxToRem(42),
         },
         xlarge: {
-          size: pxToRem(60),
-          height: pxToRem(60),
+          size: pxToRem(52),
+          height: pxToRem(52),
         },
       },
       2: {
         small: {
-          size: pxToRem(20),
-          height: pxToRem(20),
+          size: pxToRem(18),
+          height: pxToRem(18),
         },
         medium: {
-          size: pxToRem(24),
-          height: pxToRem(24),
+          size: pxToRem(21),
+          height: pxToRem(21),
         },
         large: {
-          size: pxToRem(36),
-          height: pxToRem(36),
+          size: pxToRem(31),
+          height: pxToRem(31),
         },
         xlarge: {
-          size: pxToRem(48),
-          height: pxToRem(48),
+          size: pxToRem(42),
+          height: pxToRem(42),
         },
       },
       3: {
@@ -64,20 +106,20 @@ export const aries = deepMerge(hpe, {
           weight: 500,
         },
         small: {
-          size: pxToRem(16),
-          height: pxToRem(16),
+          size: pxToRem(14),
+          height: pxToRem(14),
         },
         medium: {
-          size: pxToRem(20),
-          height: pxToRem(20),
+          size: pxToRem(18),
+          height: pxToRem(18),
         },
         large: {
-          size: pxToRem(24),
-          height: pxToRem(24),
+          size: pxToRem(21),
+          height: pxToRem(21),
         },
         xlarge: {
-          size: pxToRem(36),
-          height: pxToRem(36),
+          size: pxToRem(31),
+          height: pxToRem(31),
         },
       },
       4: {
@@ -89,16 +131,16 @@ export const aries = deepMerge(hpe, {
           height: pxToRem(12),
         },
         medium: {
-          size: pxToRem(16),
-          height: pxToRem(16),
+          size: pxToRem(14),
+          height: pxToRem(14),
         },
         large: {
-          size: pxToRem(20),
-          height: pxToRem(20),
+          size: pxToRem(18),
+          height: pxToRem(18),
         },
         xlarge: {
-          size: pxToRem(24),
-          height: pxToRem(24),
+          size: pxToRem(21),
+          height: pxToRem(21),
         },
       },
       5: {
@@ -114,12 +156,12 @@ export const aries = deepMerge(hpe, {
           height: pxToRem(12),
         },
         large: {
-          size: pxToRem(16),
-          height: pxToRem(16),
+          size: pxToRem(14),
+          height: pxToRem(14),
         },
         xlarge: {
-          size: pxToRem(20),
-          height: pxToRem(20),
+          size: pxToRem(18),
+          height: pxToRem(18),
         },
       },
       6: {
@@ -139,95 +181,20 @@ export const aries = deepMerge(hpe, {
           height: pxToRem(12),
         },
         xlarge: {
-          size: pxToRem(16),
-          height: pxToRem(16),
+          size: pxToRem(14),
+          height: pxToRem(14),
         },
       },
     },
   },
+  anchor: {
+    ...text,
+  },
   paragraph: {
-    xsmall: {
-      size: pxToRem(14),
-      height: pxToRem(16), // 16px
-    },
-    small: {
-      size: pxToRem(16), // 16px
-      height: pxToRem(20), // 20px
-    },
-    medium: {
-      size: pxToRem(18),
-      height: pxToRem(24),
-    },
-    large: {
-      size: pxToRem(24),
-      height: pxToRem(32),
-    },
-    xlarge: {
-      size: pxToRem(30),
-      height: pxToRem(36),
-    },
-    xxlarge: {
-      size: pxToRem(36),
-      height: pxToRem(40),
-    },
-    '3xl': {
-      size: pxToRem(42),
-      height: pxToRem(46),
-    },
-    '4xl': {
-      size: pxToRem(48),
-      height: pxToRem(48),
-    },
-    '5xl': {
-      size: pxToRem(72),
-      height: pxToRem(72),
-    },
-    '6xl': {
-      size: pxToRem(72),
-      height: pxToRem(72),
-    },
+    ...text,
   },
   text: {
-    xsmall: {
-      size: pxToRem(14),
-      height: pxToRem(16), // 16px
-    },
-    small: {
-      size: pxToRem(16), // 16px
-      height: pxToRem(20), // 20px
-    },
-    medium: {
-      size: pxToRem(18),
-      height: pxToRem(24),
-    },
-    large: {
-      size: pxToRem(24),
-      height: pxToRem(32),
-    },
-    xlarge: {
-      size: pxToRem(30),
-      height: pxToRem(36),
-    },
-    xxlarge: {
-      size: pxToRem(36),
-      height: pxToRem(40),
-    },
-    '3xl': {
-      size: pxToRem(42),
-      height: pxToRem(46),
-    },
-    '4xl': {
-      size: pxToRem(48),
-      height: pxToRem(48),
-    },
-    '5xl': {
-      size: pxToRem(72),
-      height: pxToRem(72),
-    },
-    '6xl': {
-      size: pxToRem(72),
-      height: pxToRem(72),
-    },
+    ...text,
   },
   buttonGroup: {
     // any Box props
