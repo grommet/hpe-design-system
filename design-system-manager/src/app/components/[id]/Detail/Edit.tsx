@@ -103,7 +103,12 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
           )): null}
         </Box>
         <ButtonGroup>
-          <Button label="Save" primary busy={saving} success={success} onClick={() => handleSave(tempData)} 
+          <Button 
+            label="Save" 
+            primary 
+            busy={saving} 
+            success={success} 
+            onClick={() => handleSave(tempData)} 
           />
           <Button label="Cancel" onClick={handleCancel} />
         </ButtonGroup>

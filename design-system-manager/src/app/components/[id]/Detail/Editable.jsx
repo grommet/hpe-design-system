@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Button, PageHeader } from 'grommet';
 import { Close, Edit as EditIcon } from 'grommet-icons';
-import { ContentContainer } from 'aries-core';
+import { Panel } from 'aries-core';
 import { Edit } from './Edit';
 import { getComponent } from '../actions';
 
@@ -41,7 +41,7 @@ export const Editable = ({ children, id }) => {
         }
         pad="none"
       />
-      <ContentContainer>{content}</ContentContainer>
+      <Panel>{content}</Panel>
     </>
   );
 };

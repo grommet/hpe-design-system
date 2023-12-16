@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Box, Button, Heading, PageHeader } from 'grommet';
-import { ContentContainer, ReverseAnchor } from 'aries-core';
+import { Box, Heading, PageHeader } from 'grommet';
+import { Panel, ReverseAnchor } from 'aries-core';
 import { ComponentType } from '@/utilities/types';
 import { Detail } from './Detail';
 import { Resources } from './Resources';
@@ -28,25 +28,25 @@ const Component = async ({
         <Suspense>
           <Resources id={params.id} level={2} />
         </Suspense>
-        <ContentContainer>
+        <Panel>
           <Heading level={2}>Design</Heading>
           <Heading level={3}>Anatomy</Heading>
           <Heading level={3}>Interactive states</Heading>
           <Heading level={3}>Color</Heading>
           <Heading level={3}>Behaviors</Heading>
-        </ContentContainer>
-        <ContentContainer>
+        </Panel>
+        <Panel>
           <Heading level={2}>Usage</Heading>
           <Heading level={3}>Modifiers and configurations</Heading>
           <Heading level={3}>Use case examples</Heading>
-        </ContentContainer>
-        <ContentContainer>
+        </Panel>
+        <Panel>
           <Heading level={2}>References</Heading>
           <Heading level={3}>Documentation</Heading>
           <Heading level={3}>Research</Heading>
           <Heading level={3}>Design criteria</Heading>
           <Heading level={3}>Design rationale</Heading>
-        </ContentContainer>
+        </Panel>
       </Box>
     </>
   );
