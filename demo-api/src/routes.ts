@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import componentsRouter from './components/routes';
 import postsRouter from './posts/routes';
+import resourcesRouter from './resources/routes';
 import tasksRouter from './tasks/routes';
 import usersRouter from './users/routes';
 
@@ -12,6 +13,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.use('/components', componentsRouter);
 router.use('/posts', postsRouter);
+router.use('/resources', resourcesRouter);
 router.use('/tasks', tasksRouter);
 router.use('/users', usersRouter);
 

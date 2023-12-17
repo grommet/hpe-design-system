@@ -131,6 +131,26 @@ router.put('/:id/resources/:resourceId', async (req: Request, res: Response) => 
   });
 });
 
+router.put('/:id/resources', async (req: Request, res: Response) => {
+  const resources = req.body;
+  const id = req.params.id;
+
+  const component = await prisma.component.update({
+    where: {
+      id: id,
+    },
+    data: {
+      resources: {
+        deleteMany: {},
+        create: resources,
+      },
+    },
+  });
+
+  res.json(component);
+  await prisma.$disconnect();
+});
+
 router.delete('/:id/resources/:resourceId', async (req: Request, res: Response) => {
   removeResource(req, res).then(async (component) => {
     res.json(component);

@@ -45,7 +45,7 @@ export const FormChildObjects = ({
         <ButtonGroup
           justify="end"
           border={{ side: 'top', color: 'border-weak' }}
-          pad={{ top: 'small' }}
+          pad={{ vertical: 'small' }}
         >
           {values?.length >= 2 && !required && (
             <Button
@@ -53,6 +53,7 @@ export const FormChildObjects = ({
               // Move into messages map
               aria-label={`Remove all ${collection.name}`}
               onClick={onRemoveAll}
+              size="small"
             />
           )}
           <Button
@@ -62,14 +63,13 @@ export const FormChildObjects = ({
             a11yTitle={`Add ${collection.itemName} to ${collection.parentName}`}
             secondary
             onClick={onAdd}
+            size="small"
           />
         </ButtonGroup>
       ) : null}
     </Box>
   );
 };
-
-// export const FormChildObjects = ({}) => 'yo';
 
 FormChildObjects.propTypes = {
   collection: PropTypes.shape({

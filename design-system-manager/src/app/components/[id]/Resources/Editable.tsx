@@ -1,23 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { 
-  Box, 
   Button, 
   Form, 
   FormField, 
   Header, 
   Heading, 
   Select, 
-  Text, 
   TextArea, 
   TextInput 
 } from 'grommet';
-import { BackgroundType, BorderType } from 'grommet/utils';
-import { Up, Down } from 'grommet-icons';
 import { Add, Close, Edit } from 'grommet-icons';
-import { ButtonGroup, FormChildObjects, Panel, Test } from 'aries-core';
+import { ButtonGroup, FormChildObjects, Panel } from 'aries-core';
 import { LevelType, ResourceType } from '@/utilities/types';
+import { updateResources } from '../actions';
 
 const RESOURCE_TYPES = [
   { label: 'Code', value: 'code' },
@@ -62,16 +59,17 @@ const INPUT_MAP = {
   ),
 }
 
-export const Editable = (
-  { children, level, resources: resourcesProp } :
-  { children: any, level: LevelType, resources: ResourceType[] }
-) => {
-    const resources: { [key: string]: ResourceType } = {};
-    resourcesProp.forEach((resource, index) => {
-      resources[index] = resource;
-    });
+const resourceTemplate = {
+  name: '',
+  type: '',
+  url: '',
+};
 
-    const [formValue, setFormValue] = useState({resources: resourcesProp});
+export const Editable = (
+  { children, level, componentId, resources } :
+  { children: any, level: LevelType, componentId: string, resources: ResourceType[] }
+) => {
+    const [formValue, setFormValue] = useState({resources: resources});
     const [saving, setSaving] = useState(false);
     const [success, setSuccess] = useState(false);
     const [create, setCreate] = useState(false);
@@ -80,30 +78,51 @@ export const Editable = (
     const toggleEdit = () => setEdit(!edit);
 
     const handleAdd = () => {
-      console.log('handleadd');
-      // const nextHosts = [...formValues.hosts, { ...hostTemplate }];
-      // setFormValues({ ...formValues, hosts: nextHosts });
+      const nextResources = [...formValue.resources, { ...resourceTemplate }];
+      setFormValue({ ...formValue, resources: nextResources });
     };
 
-    const handleRemove = (id) => {
-      console.log(id);
+    const handleRemove = (index: number) => {
+      if (formValue.resources?.length > 0) {
+        const nextResources = [...formValue.resources];
+        nextResources.splice(index, 1);
+        setFormValue({ ...formValue, resources: nextResources });
+      }
     };
-
 
     const handleRemoveAll = () => {
-      setFormValue({});
-    };
+      setFormValue({ ...formValue, resources: [] });
+    }
 
-    const onChange = (value: ResourceType) => {
-      console.log(value);
+    const onChange = (value: { resources: ResourceType[] }) => {
       setFormValue(value);
     };
-  
-    const onSubmit = (event) => {
-      console.log(event.value);
+
+    const onSubmit = ({ value } : { value: { resources: ResourceType[] } }) => {
+      const SUCCESS_ANIMATION_DELAY = 1000;
+
+      setSaving(true);
+      updateResources(value.resources)
+        .then((updatedResources) => { setFormValue(updatedResources); })
+        .then(() => { 
+          setSaving(false); 
+          setSuccess(true);
+        })
+        .then(() => { 
+          setTimeout(() => { setEdit(false) }, SUCCESS_ANIMATION_DELAY);
+        }).catch((error) => {
+          console.log(error);
+        }).finally(() => {
+          setSaving(false);
+          setSuccess(false);
+        }
+      );
     };
-  
-    console.log(formValue);
+
+    const onReset = () => {
+      setFormValue({resources: resources});
+      setEdit(false);
+    }
     
     const content = !edit ? 
       children
@@ -111,7 +130,7 @@ export const Editable = (
       <Form
         value={formValue}
         onChange={onChange}
-        onSubmit={onSubmit}
+        onSubmit={(onSubmit)}
       >
         <FormChildObjects 
           collection={{
@@ -126,8 +145,23 @@ export const Editable = (
           onRemoveAll={handleRemoveAll}
           primaryKey="id"
           required={false}
-          values={formValue.resources}
+          values={formValue?.resources}
         />
+        <ButtonGroup>
+          <Button 
+            type="submit" 
+            primary 
+            label="Save resources" 
+            busy={saving} 
+            success={success}
+          />
+          <Button 
+            type="reset" 
+            label="Cancel"
+            a11yTitle="Cancel resources changes"
+            onClick={onReset}
+          />
+        </ButtonGroup>
       </Form>
     );
 
@@ -156,58 +190,3 @@ export const Editable = (
     );
 }
 
-
-// {Object.entries(resources).map(([id, resource]) => {
-//   return (
-//     <Box key={id}>
-//       <Header
-//         background={background || undefined}
-//         border={borderStyle}
-//         height={{ min: 'xxsmall' }}
-//         onMouseEnter={() => setBackground('background-contrast')}
-//         onMouseLeave={() => setBackground(null)}
-//         pad="small"
-//       >
-//         <Box>
-//           <Heading level={level + 1} margin="none">
-//             {formValue[id].name}
-//           </Heading>
-//           <Text truncate>Type: {formValue[id].type}</Text>
-//         </Box>
-//           {open ? (
-//             <Up a11yTitle="Hide detail" />
-//           ) : (
-//             <Down a11yTitle="Show detail and edit" />
-//           )}
-//       </Header>
-//       <FormField 
-//         htmlFor={`${id}.name`} 
-//         name={`${id}.name`} 
-//         label="Name"
-//         contentProps={{ width: 'medium' }}
-//       >
-//         <TextInput id={`${id}.name`} name={`${id}.name`} />
-//       </FormField>
-//       <FormField 
-//         htmlFor={`${id}.type`} 
-//         name={`${id}.type`} 
-//         label="Type" 
-//         contentProps={{ width: 'medium' }}
-//       >
-//         <Select 
-//           id={`${id}.type`} 
-//           name={`${id}.type`} 
-//           options={RESOURCE_TYPES}
-//         />
-//       </FormField>
-//       <FormField 
-//         htmlFor={`${id}.url`} 
-//         name={`${id}.url`} 
-//         label="URL"
-//         contentProps={{ width: 'medium' }}
-//       >
-//         <TextArea id={`${id}.url`} name={`${id}.url`} />
-//       </FormField>
-//     </Box>
-//   );
-// })}

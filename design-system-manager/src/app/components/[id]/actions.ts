@@ -1,6 +1,6 @@
 'use server'
 
-import { ComponentType } from "@/utilities/types";
+import { ComponentType, ResourceType } from "@/utilities/types";
 import { revalidatePath } from "next/cache";
 
 export async function getComponent(id: string) {
@@ -54,3 +54,72 @@ export async function getResources(id: string) {
     console.error(error);
   }
 }
+
+export async function addResource(id: string, resource: ResourceType) {
+  const url = `${process.env.API_URL}/components/${id}/resources`;
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(resource),
+  };
+  
+  try {
+    const res = await fetch(url, options);
+    return res.json();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateResource(resource: ResourceType) {
+  const url = `${process.env.API_URL}/resources/${resource.id}`;
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(resource),
+  };
+  
+  try {
+    const res = await fetch(url, options);
+    return res.json();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateResources(resources: ResourceType[]) {
+  const url = `${process.env.API_URL}/resources`;
+
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(resources),
+  };
+  
+  try {
+    const res = await fetch(url, options);
+    return res.json();
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
+// export async function deleteResource(id: string, resourceId: string) {
+//   const url = `${process.env.API_URL}/components/${id}/resources/${resourceId}`;
+//   const options = {
+//     method: 'DELETE',
+//     headers: { 'Content-Type': 'application/json' },
+//   };
+  
+//   try {
+//     const res = await fetch(url, options);
+//     return res.json();
+//   }
+//   catch (error) {
+//     console.error(error);
+//   }
+// }
+

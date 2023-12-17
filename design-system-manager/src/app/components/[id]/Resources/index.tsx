@@ -11,7 +11,7 @@ export const Resources = async (
   const resources = await getResources(id);
 
   return (
-    <Editable level={level} resources={resources} >
+    <Editable level={level} componentId={id} resources={resources} >
       <ResourcesList data={resources} />
     </Editable>
   );

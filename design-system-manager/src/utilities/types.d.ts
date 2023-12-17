@@ -10,8 +10,8 @@ export interface ComponentType {
 export type LevelType = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface ResourceType {
-  id: string;
+  id?: string;
   name: string;
-  type?: 'Code' | 'Design kit' | 'Documentation';
+  type?: 'Code' | 'Design kit' | 'Documentation' | string;
   url?: string;
 }
