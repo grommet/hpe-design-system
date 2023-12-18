@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button, PageHeader } from 'grommet';
+import { Button, Heading, Header } from 'grommet';
 import { Close, Edit as EditIcon } from 'grommet-icons';
 import { Panel } from 'aries-core';
 import { Edit } from './Edit';
@@ -28,20 +28,18 @@ export const Editable = ({ children, id }) => {
   );
 
   return (
-    <>
-      <PageHeader
-        title="Detail"
-        level={2}
-        actions={
-          <Button
-            a11yTitle={!edit ? `Edit ${data.name} detail` : 'Cancel editing'}
-            icon={!edit ? <EditIcon /> : <Close />}
-            onClick={() => setEdit(!edit)}
-          />
-        }
-        pad="none"
-      />
-      <Panel>{content}</Panel>
-    </>
+    <Panel>
+      <Header pad={{ bottom: 'medium' }}>
+        <Heading level={2} margin="none">
+          Detail
+        </Heading>
+        <Button
+          a11yTitle={!edit ? `Edit ${data.name} detail` : 'Cancel editing'}
+          icon={!edit ? <EditIcon /> : <Close />}
+          onClick={() => setEdit(!edit)}
+        />
+      </Header>
+      {content}
+    </Panel>
   );
 };
