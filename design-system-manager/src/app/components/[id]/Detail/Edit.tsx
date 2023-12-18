@@ -73,32 +73,16 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
                 INPUT_MAP[name]({ 
                   id: name, 
                   name, 
-                  value: tempData[name], 
+                  value: tempData[name as keyof ComponentType], 
                   onChange: (e) => setTempData({ ...tempData, [name]: e.target.value }) 
                 }) :
                  DATATYPE_MAP[typeof value]({
                   id: name,
                   name,
-                  value: tempData[name],
+                  value: tempData[name as keyof ComponentType],
                   onChange: (e) => setTempData({ ...tempData, [name]: e.target.value })
                 }) 
               }
-              {/* {typeof value === 'string' ? (
-                <TextInput
-                  id={name}
-                  name={name}
-                  value={tempData[name]}
-                  onChange={(e) => setTempData({ ...tempData, [name]: e.target.value })}
-                />
-              ) : (
-                <Select
-                  id={name}
-                  name={name}
-                  options={value}
-                  value={tempData[name]}
-                  onChange={({ option }) => setTempData({ ...tempData, [name]: option })}
-                />
-              )} */}
             </FormField>
           )): null}
         </Box>
