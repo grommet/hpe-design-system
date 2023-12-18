@@ -91,9 +91,18 @@ export async function updateResource(resource: ResourceType) {
   }
 }
 
-export async function updateResources(resources: ResourceType[]) {
+export async function updateResources(resourcesProp: ResourceType[], componentId: string) {
   const path = `/resources`;
   const url = `${process.env.API_URL}${path}`;
+
+  const resources = resourcesProp.map(resource => {
+    return {
+      id: resource.id,
+      name: resource.name,
+      type: typeof resource.type === "object" ? resource.type.value : resource.type,
+      url: resource.url,
+    }
+  });
 
   const options = {
     method: 'PUT',
@@ -104,6 +113,7 @@ export async function updateResources(resources: ResourceType[]) {
   try {
     const res = await fetch(url, options);
     revalidatePath(path);
+    componentId && revalidatePath(`/components/${componentId}/resources`);
     return res.json();
   }
   catch (error) {
