@@ -73,8 +73,6 @@ router.put('/', updateManyRules, async (req: Request, res: Response) => {
 
   console.log(errors);
 
-  console.log(req.body);
-
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }

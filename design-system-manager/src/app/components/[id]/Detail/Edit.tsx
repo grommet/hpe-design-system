@@ -37,7 +37,7 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSave = async (formValue: ComponentType) => {
+  const handleSave = (formValue: ComponentType) => {
     const SUCCESS_ANIMATION_DELAY = 1000;
 
     setSaving(true);

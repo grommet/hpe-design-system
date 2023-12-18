@@ -73,7 +73,8 @@ export async function addResource(id: string, resource: ResourceType) {
 }
 
 export async function updateResource(resource: ResourceType) {
-  const url = `${process.env.API_URL}/resources/${resource.id}`;
+  const path = `/resources/${resource.id}`;
+  const url = `${process.env.API_URL}${path}`;
   const options = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -82,6 +83,7 @@ export async function updateResource(resource: ResourceType) {
   
   try {
     const res = await fetch(url, options);
+    revalidatePath(path);
     return res.json();
   }
   catch (error) {
@@ -90,7 +92,8 @@ export async function updateResource(resource: ResourceType) {
 }
 
 export async function updateResources(resources: ResourceType[]) {
-  const url = `${process.env.API_URL}/resources`;
+  const path = `/resources`;
+  const url = `${process.env.API_URL}${path}`;
 
   const options = {
     method: 'PUT',
@@ -100,26 +103,11 @@ export async function updateResources(resources: ResourceType[]) {
   
   try {
     const res = await fetch(url, options);
+    revalidatePath(path);
     return res.json();
   }
   catch (error) {
     console.error(error);
   }
 }
-
-// export async function deleteResource(id: string, resourceId: string) {
-//   const url = `${process.env.API_URL}/components/${id}/resources/${resourceId}`;
-//   const options = {
-//     method: 'DELETE',
-//     headers: { 'Content-Type': 'application/json' },
-//   };
-  
-//   try {
-//     const res = await fetch(url, options);
-//     return res.json();
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// }
 

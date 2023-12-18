@@ -112,9 +112,6 @@ export const Editable = (
           setTimeout(() => { setEdit(false) }, SUCCESS_ANIMATION_DELAY);
         }).catch((error) => {
           console.log(error);
-        }).finally(() => {
-          setSaving(false);
-          setSuccess(false);
         }
       );
     };
