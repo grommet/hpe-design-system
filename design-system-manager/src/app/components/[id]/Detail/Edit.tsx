@@ -1,7 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, Button, Form, FormField, Select, TextArea, TextInput } from 'grommet';
+import { 
+  Box, 
+  Button, 
+  Form, 
+  FormField, 
+  Header,
+  Heading,
+  Layer, 
+  Select, 
+  TextArea, 
+  TextInput 
+} from 'grommet';
+import { Close } from 'grommet-icons';
 import { ButtonGroup } from 'aries-core';
 import { ComponentType } from "@/utilities/types";
 import { updateComponent } from "../actions";
@@ -58,45 +70,56 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
   }
 
   return (
-    <Form>
-      <Box gap="medium">
-        <Box>
-          {currentData ? Object.entries(currentData).map(([name, value]) => (
-            <FormField 
-              key={name} 
-              label={name}
-              htmlFor={name}
-              name={name}
-              contentProps={{ width: 'medium' }}
-              >
-              {INPUT_MAP[name] ? 
-                INPUT_MAP[name]({ 
-                  id: name, 
-                  name, 
-                  value: tempData[name as keyof ComponentType], 
-                  onChange: (e) => setTempData({ ...tempData, [name]: e.target.value }) 
-                }) :
-                 DATATYPE_MAP[typeof value]({
-                  id: name,
-                  name,
-                  value: tempData[name as keyof ComponentType],
-                  onChange: (e) => setTempData({ ...tempData, [name]: e.target.value })
-                }) 
-              }
-            </FormField>
-          )): null}
+    <Layer full>
+      <Box overflow="auto" pad="small">
+        <Header>
+          <></>
+          <Button tip="Cancel editing" icon={<Close aria-hidden="true" />} onClick={handleCancel} />
+        </Header>
+        <Box alignSelf='center' gap="medium" flex={false} pad="large">
+        <Heading level={2} margin="none">Edit {component.name} detail</Heading>
+        <Form>
+          <Box gap="medium">
+            <Box>
+              {currentData ? Object.entries(currentData).map(([name, value]) => (
+                <FormField 
+                  key={name} 
+                  label={name}
+                  htmlFor={name}
+                  name={name}
+                  contentProps={{ width: 'medium' }}
+                  >
+                  {INPUT_MAP[name] ? 
+                    INPUT_MAP[name]({ 
+                      id: name, 
+                      name, 
+                      value: tempData[name as keyof ComponentType], 
+                      onChange: (e) => setTempData({ ...tempData, [name]: e.target.value }) 
+                    }) :
+                    DATATYPE_MAP[typeof value]({
+                      id: name,
+                      name,
+                      value: tempData[name as keyof ComponentType],
+                      onChange: (e) => setTempData({ ...tempData, [name]: e.target.value })
+                    }) 
+                  }
+                </FormField>
+              )): null}
+            </Box>
+            <ButtonGroup>
+              <Button 
+                label="Save" 
+                primary 
+                busy={saving} 
+                success={success} 
+                onClick={() => handleSave(tempData)} 
+              />
+              <Button label="Cancel" onClick={handleCancel} />
+            </ButtonGroup>
+          </Box>
+        </Form>
         </Box>
-        <ButtonGroup>
-          <Button 
-            label="Save" 
-            primary 
-            busy={saving} 
-            success={success} 
-            onClick={() => handleSave(tempData)} 
-          />
-          <Button label="Cancel" onClick={handleCancel} />
-        </ButtonGroup>
       </Box>
-    </Form>
+    </Layer>
   );
 }

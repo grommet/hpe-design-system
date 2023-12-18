@@ -34,8 +34,14 @@ export const Editable = ({ children, id }) => {
           Detail
         </Heading>
         <Button
-          a11yTitle={!edit ? `Edit ${data.name} detail` : 'Cancel editing'}
-          icon={!edit ? <EditIcon /> : <Close />}
+          tip={!edit ? `Edit ${data.name} detail` : 'Cancel editing'}
+          icon={
+            !edit ? (
+              <EditIcon aria-hidden="true" />
+            ) : (
+              <Close aria-hidden="true" />
+            )
+          }
           onClick={() => setEdit(!edit)}
         />
       </Header>
