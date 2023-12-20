@@ -24,9 +24,9 @@ Pagination is particularly effective for displaying large sets of results in com
 
 ### Number of results per page
 
-By default, 20 results should show at once. The examples on this page have been modified to show less results per page so that the pagination control is viewable in the single screen.
+A reasonable starting point for page size is 20 records. This is the default "step" (page size) on Grommet DataTable, List, and Pagination. This size strikes a balance between providing a user enough information to consume or find records of interest without being too much information leading to cognitive overload.That said, the default number of records per page should be tailored to the data set and determined by the UX designer. For example, a data collection displaying log files or notifications may choose a large page size as it allows a user to scan and understand activity in a efficient manner. Whereas as data collection presenting items in a news feed may only need to present a handful of records at a time.
 
-If the user has performed a search resulting in less than 20 results, the pagination component should no longer be displayed.
+If there is only one page of items, it is optional to display the pagination component and summary of results.
 
 ### Placement of pagination component
 
@@ -34,7 +34,7 @@ The pagination component should be placed underneath and justified to the end of
 
 ### Showing summary of results
 
-It may be beneficial to provide users with a summary of what range of results they are viewing. This should take the format of "Showing 1-20 of 1000" and should be aligned in a row with the pagination component.
+It may be beneficial to provide users with a summary of what range of results they are viewing. This should take the format of "Showing x-y of z" where x is the start of the page, y is the end of the page, and z is the total number of records. This should be left-aligned in a row with the pagination component.
 
 The results summary should be justified to the start of the row and the pagination component should remain justified to the end of the row.
 
