@@ -19,6 +19,7 @@ interface InputMap {
 const INPUT_MAP = {
   name: ({ key, index, ...rest } : InputMap) => (
     <FormField 
+      key={key}
       htmlFor={`resources[${index}].name`} 
       name={`resources[${index}].name`} 
       label="Name"
@@ -29,6 +30,7 @@ const INPUT_MAP = {
   ),
   type: ({ key, index, ...rest } : InputMap) => (
     <FormField 
+      key={key}
       htmlFor={`resources[${index}].type`} 
       name={`resources[${index}].type`} 
       label="Type" 
@@ -43,6 +45,7 @@ const INPUT_MAP = {
   ),
   url: ({ key, index, ...rest } : InputMap) => (
     <FormField 
+      key={key}
       htmlFor={`resources[${index}].url`} 
       name={`resources[${index}].url`} 
       label="URL"
@@ -59,6 +62,16 @@ const resourceTemplate = {
   url: '',
 };
 
+const touchedValues = (curr: { [key: string]: any }, acc: { [key: string]: any }, keys: string[], index: number) => {
+  if (index === keys.length - 1) {
+    acc[keys[index]] = curr[keys[index]];
+  } else {
+    acc[keys[index]] = { ...acc[keys[index]] };
+    touchedValues(curr[keys[index]], acc[keys[index]], keys, index + 1);
+  }
+  return acc;
+}
+
 export const Edit = (
   {
     resources, 
@@ -71,7 +84,7 @@ export const Edit = (
     onClose: () => void,
     level: LevelType
   }) => {
-  const [formValue, setFormValue] = useState({resources: resources});
+    const [formValue, setFormValue] = useState({resources: resources});
     const [saving, setSaving] = useState(false);
     const [success, setSuccess] = useState(false);
 
@@ -96,12 +109,29 @@ export const Edit = (
       setFormValue(value);
     };
 
-    const onSubmit = ({ value } : { value: { resources: ResourceType[] } }) => {
+    const onSubmit = ({ 
+      value, 
+      touched 
+    } : { 
+      value: {resources: ResourceType[]}, 
+      touched: {} 
+    }) => {
       const SUCCESS_ANIMATION_DELAY = 1000;
 
+      let modifiedValues = {};
+      Object.keys(touched).map((key) => {
+        const keys = key.split(/\[(.*?)\]\./);
+        return touchedValues(value, modifiedValues, keys, 0);
+      });
+      console.log('modifiedValues', modifiedValues);
+
       setSaving(true);
+      // TODO: use modifiedValues instead of value.resources
+      // Need to add resource id to the modifiedValues object.
       updateResources(value.resources, componentId)
-        .then((updatedResources) => { setFormValue(updatedResources); })
+        .then((updatedResources) => { 
+          setFormValue({...formValue, resources: updatedResources}); 
+        })
         .then(() => { 
           setSaving(false); 
           setSuccess(true);
