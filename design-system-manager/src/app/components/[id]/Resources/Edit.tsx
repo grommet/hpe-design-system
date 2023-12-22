@@ -118,11 +118,23 @@ export const Edit = (
     }) => {
       const SUCCESS_ANIMATION_DELAY = 1000;
 
-      let modifiedValues = {};
+      let modifiedValues = {
+        resources: [] as ResourceType[]
+      };
+
+      // Isolate touched values from untouched.
       Object.keys(touched).map((key) => {
-        const keys = key.split(/\[(.*?)\]\./);
+        // Split the key by '[]' and '.'.
+        const regex =/\[(.*?)\]\./;
+        const keys = key.split(regex);
         return touchedValues(value, modifiedValues, keys, 0);
       });
+
+      // Add the resource id to the modifiedValues object.
+      Object.keys(modifiedValues.resources).forEach((resource, index) => {
+        modifiedValues.resources[index].id = value.resources[index].id;
+      });
+
       console.log('modifiedValues', modifiedValues);
 
       setSaving(true);
