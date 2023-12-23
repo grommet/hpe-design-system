@@ -7,9 +7,9 @@ import { LevelType, ResourceType } from '@/utilities/types';
 import { updateResources } from '../actions';
 
 const RESOURCE_TYPES = [
-  { label: 'Code', value: 'code' },
-  { label: 'Documentation', value: 'documentation' },
-  { label: 'Design kit', value: 'design' }
+  'Code',
+  'Documentation',
+  'Design'
 ];
 
 interface InputMap {
@@ -62,7 +62,12 @@ const resourceTemplate = {
   url: '',
 };
 
-const touchedValues = (curr: { [key: string]: any }, acc: { [key: string]: any }, keys: string[], index: number) => {
+const touchedValues = (
+  curr: { [key: string]: any }, 
+  acc: { [key: string]: any }, 
+  keys: string[], 
+  index: number
+) => {
   if (index === keys.length - 1) {
     acc[keys[index]] = curr[keys[index]];
   } else {
@@ -123,24 +128,24 @@ export const Edit = (
       };
 
       // Isolate touched values from untouched.
-      Object.keys(touched).map((key) => {
+      Object.keys(touched).forEach((key) => {
         // Split the key by '[]' and '.'.
         const regex =/\[(.*?)\]\./;
         const keys = key.split(regex);
-        return touchedValues(value, modifiedValues, keys, 0);
+        touchedValues(value, modifiedValues, keys, 0);
       });
 
-      // Add the resource id to the modifiedValues object.
-      Object.keys(modifiedValues.resources).forEach((resource, index) => {
-        modifiedValues.resources[index].id = value.resources[index].id;
-      });
-
-      console.log('modifiedValues', modifiedValues);
+      // Add the resource id to the modifiedValues object and convert to an array.
+      modifiedValues.resources = Object.entries(modifiedValues.resources)
+        .map((resource) => {
+          const index = parseInt(resource[0]);
+          modifiedValues.resources[index].id = value.resources[index].id;
+          return resource[1];
+        });
 
       setSaving(true);
-      // TODO: use modifiedValues instead of value.resources
-      // Need to add resource id to the modifiedValues object.
-      updateResources(value.resources, componentId)
+
+      updateResources(modifiedValues.resources, componentId)
         .then((updatedResources) => { 
           setFormValue({...formValue, resources: updatedResources}); 
         })
@@ -163,7 +168,6 @@ export const Edit = (
       setFormValue({resources: resources});
       onClose();
     }
-
 
   return (
     <Form
