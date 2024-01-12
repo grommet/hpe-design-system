@@ -3,6 +3,7 @@ import {
   Box,
   Data,
   DataSearch,
+  DataFilters,
   DataSummary,
   DataView,
   Grid,
@@ -42,9 +43,16 @@ export const FilteringWithSelect = () => (
             { name: 'Paused', properties: { status: ['Paused'] } },
             { name: 'Ready', properties: { status: ['Ready'] } },
           ]}
+          properties={{
+            name: { label: 'Name' },
+            status: { label: 'Status' },
+          }}
         >
-          <Toolbar>
-            <DataSearch responsive />
+          <Toolbar gap="medium">
+            <Toolbar>
+              <DataSearch responsive />
+              <DataFilters layer />
+            </Toolbar>
             <DataView />
           </Toolbar>
           <DataSummary />
