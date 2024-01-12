@@ -6,7 +6,7 @@ import { ThemeContext } from 'styled-components';
 import { Annotation } from '../../../layouts';
 import { connection, useDarkMode } from '../../../utils';
 
-export const SideDrawerLayerAnatomy = ({ informational }) => {
+export const SideDrawerLayerAnatomy = ({ informational, filter }) => {
   const theme = useContext(ThemeContext);
   const darkMode = useDarkMode();
 
@@ -71,6 +71,7 @@ export const SideDrawerLayerAnatomy = ({ informational }) => {
             gridArea="layer"
             closeId={closeId}
             informational={informational}
+            filter={filter}
           />
         </Grid>
       </Box>
@@ -81,9 +82,10 @@ export const SideDrawerLayerAnatomy = ({ informational }) => {
 
 SideDrawerLayerAnatomy.propTypes = {
   informational: PropTypes.bool,
+  filter: PropTypes.bool,
 };
 
-const LayerContent = ({ closeId, informational, ...rest }) => (
+const LayerContent = ({ closeId, informational, filter, ...rest }) => (
   <Card
     id="layer-container"
     alignSelf="start"
@@ -114,7 +116,7 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
       {!informational ? (
         <Box direction="row" gap="small" flex={false}>
           <Button label="Confirm action" primary />
-          <Button label="Cancel" id="layer-actions" />
+          {!filter ? <Button label="Cancel" id="layer-actions" /> : null}
         </Box>
       ) : null}
     </CardBody>
@@ -124,4 +126,5 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
 LayerContent.propTypes = {
   closeId: PropTypes.string,
   informational: PropTypes.bool,
+  filter: PropTypes.bool,
 };
