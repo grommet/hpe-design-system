@@ -58,6 +58,22 @@ When data has been edited or changed and the user tries to close the layer, a do
 
 Learn more about the anatomy and implementation of a [double confirmation](/components/layer#double-confirmations) on the main layer page since this behavior applies to all layer types.
 
+### Filter Layer
+
+Filter side drawer layer even though requires action from the user it is not essential that the user fills out the filtering form. Since this is the case 
+we can have the `onClickOutside` functionality enabled for the user to click outsiide to close the filter layer in addtion to the include the [close icon](/foundation/icons#ui-actions) next to the Header.
+
+
+<Example plain>
+  <SideDrawerLayerAnatomy filter />
+</Example>
+
+| Label | Region           | Purpose           |                  Required                   | Notes             |
+| ----- | ---------------- | ----------------- | :-----------------------------------------: | ----------------- |
+| **1** | **Close button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Use "Close" icon. |
+| **2** | **Apply button**| Apply filtered items. | <Checkmark a11yTitle="true" size="small" /> | The footer action should be left aligned with primary action on the left. Having the `onClickOutside` provides the user a way to exit if they do not wish to have filters applied. |
+
+
 ## Scroll behavior
 
 The default behavior of the layer is to allow all of the content to scroll, but this behavior can be modified depending on the layer's contents.
