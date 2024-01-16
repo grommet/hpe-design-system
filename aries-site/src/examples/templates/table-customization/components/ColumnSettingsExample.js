@@ -1,22 +1,17 @@
-import { useState } from 'react';
-import { ColumnSettings } from './ColumnSettings';
+import { Data, DataTableColumns } from 'grommet';
 
 const COLUMNS = [
-  { property: 'name', header: 'Name', primary: true },
-  { property: 'status', header: 'Status' },
-  { property: 'role', header: 'Role' },
-  { property: 'location', header: 'Location' },
-  { property: 'hoursAvailable', header: 'Hours available', align: 'end' },
+  { property: 'name', label: 'Name' },
+  { property: 'status', label: 'Status' },
+  { property: 'role', label: 'Role' },
+  { property: 'location', label: 'Location' },
+  { property: 'hoursAvailable', label: 'Hours available' },
 ];
 
-export const ColumnSettingsExample = props => {
-  const [visibleColumns, setVisibleColumns] = useState(COLUMNS);
+export const ColumnSettingsExample = () => {
   return (
-    <ColumnSettings
-      columns={COLUMNS}
-      visibleColumns={visibleColumns}
-      setVisibleColumns={setVisibleColumns}
-      {...props}
-    />
+    <Data data={[]}>
+      <DataTableColumns options={COLUMNS} />
+    </Data>
   );
 };
