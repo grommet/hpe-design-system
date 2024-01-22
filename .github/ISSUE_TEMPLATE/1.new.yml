@@ -1,11 +1,10 @@
-name: Figma Feature Request
-description: File a feature request for the HPE Design System Figma library
-title: 'Figma feature: <insert title>'
-labels: [design]
+name: New
+description: Request a new component, feature, or capability
+title: 'New: <insert title>'
 body:
   - type: input
     attributes:
-      label: What component does this request relate to?
+      label: What does this request relate to? If you are proposing a new component, what would you call it?
     validations:
       required: true
   - type: textarea
