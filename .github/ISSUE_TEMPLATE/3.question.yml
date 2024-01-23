@@ -4,6 +4,6 @@ title: '<insert title>'
 body:
   - type: textarea
     attributes:
-      label: What are you curious about?
+      label: How can we help?
     validations:
       required: true
