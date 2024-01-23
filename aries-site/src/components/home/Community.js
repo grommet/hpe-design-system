@@ -10,7 +10,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ChatOption, Github, Info, Map, Slack } from 'grommet-icons';
+import { ChatOption, Info, Slack } from 'grommet-icons';
 
 const LinkButton = props => (
   <Button
@@ -39,39 +39,39 @@ const SlackOption = () => (
   </Box>
 );
 
-const Roadmap = () => (
-  <Box gap="medium">
-    <Map size="large" color="text-strong" />
-    <Box>
-      <Heading level={3} margin="none" size="small">
-        Roadmap
-      </Heading>
-      <Text>Stay in the loop and checkout what's next!</Text>
-    </Box>
-    <LinkButton
-      label="View roadmap"
-      href="https://github.com/orgs/grommet/projects/11?fullscreen=true"
-      secondary
-    />
-  </Box>
-);
+// const Roadmap = () => (
+//   <Box gap="medium">
+//     <Map size="large" color="text-strong" />
+//     <Box>
+//       <Heading level={3} margin="none" size="small">
+//         Roadmap
+//       </Heading>
+//       <Text>Stay in the loop and checkout what's next!</Text>
+//     </Box>
+//     <LinkButton
+//       label="View roadmap"
+//       href="https://github.com/orgs/grommet/projects/11?fullscreen=true"
+//       secondary
+//     />
+//   </Box>
+// );
 
-const Backlog = () => (
-  <Box gap="medium">
-    <Github size="large" color="text-strong" />
-    <Box>
-      <Heading level={3} margin="none" size="small">
-        Backlog
-      </Heading>
-      <Text>Eager to know what's marinating in the back?</Text>
-    </Box>
-    <LinkButton
-      label="View backlog"
-      href="https://github.com/orgs/grommet/projects/10"
-      secondary
-    />
-  </Box>
-);
+// const Backlog = () => (
+//   <Box gap="medium">
+//     <Github size="large" color="text-strong" />
+//     <Box>
+//       <Heading level={3} margin="none" size="small">
+//         Backlog
+//       </Heading>
+//       <Text>Eager to know what's marinating in the back?</Text>
+//     </Box>
+//     <LinkButton
+//       label="View backlog"
+//       href="https://github.com/orgs/grommet/projects/10"
+//       secondary
+//     />
+//   </Box>
+// );
 
 const Feedback = () => (
   <Box gap="medium">
@@ -115,8 +115,8 @@ export const Community = ({ ...rest }) => {
           fill
         >
           <SlackOption />
-          <Roadmap />
-          <Backlog />
+          {/* <Roadmap />
+          <Backlog /> */}
           <Feedback />
         </Grid>
       </Box>
