@@ -1,12 +1,12 @@
-name: Design System Example Bug Report
-description: Create a bug report for an example on the HPE Design System website
-title: 'Site Example bug: <insert title>'
-labels: [bug, design system site]
+name: Fix
+description: Something is not working as expected
+title: '<insert title>'
+labels: [bug]
 body:
   - type: input
     attributes:
       label: Link to bug
-      description: Please link to the subsection of page if possible.
+      description: Please link to a Figma file, documentation page, or Codesandbox that demonstrates the bug.
     validations:
       required: true
   - type: textarea
