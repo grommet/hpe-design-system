@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Search as SearchIcon, CircleQuestion } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
 import { getPageDetails, nameToPath } from '../../utils';
@@ -48,6 +48,13 @@ const StyledHeader = ({ ...rest }) => {
           onClick={() => setShowSearch(true)}
         />
         {showSearch && <Search setOpen={setShowSearch} />}
+        <Button
+          tip="File an issue or request"
+          icon={<CircleQuestion />}
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/grommet/hpe-design-system/issues/new/choose"
+        />
         <ThemeModeToggle />
       </Box>
     </Header>
