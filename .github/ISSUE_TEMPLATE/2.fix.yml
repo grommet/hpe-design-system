@@ -1,5 +1,5 @@
 name: Fix
-description: Something is not working as expected or there is a problem, be it a component, color, or typo.
+description: Something is not working as expected or there is a problem, be it a component, color, typo, etc.
 title: '<insert title>'
 labels: [bug]
 body:

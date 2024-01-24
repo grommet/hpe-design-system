@@ -1,5 +1,5 @@
 name: New
-description: Request a new feature, variant, component, guideline, color, capability or anything else you have in mind
+description: Request a new feature, variant, component, guideline, capability or anything else you have in mind
 title: 'New: <insert title>'
 body:
   - type: input
