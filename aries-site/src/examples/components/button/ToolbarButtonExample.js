@@ -1,17 +1,15 @@
 import React from 'react';
-import { Menu } from 'grommet';
-import {
-  FilterControls,
-  FiltersProvider,
-} from '../../templates/FilterControls';
+import { Box, Data, Toolbar, DataSearch, DataFilters, Menu } from 'grommet';
 
 export const ToolbarButtonExample = () => (
-  <FiltersProvider>
-    <FilterControls
-      actions={<Menu label="Actions" kind="toolbar" />}
-      data={[]}
-      filters={[]}
-      searchFilter={{ placeholder: 'Search' }}
-    />
-  </FiltersProvider>
+  <Box width="large">
+    <Data>
+      <Toolbar>
+        <DataSearch />
+        <DataFilters layer />
+        <Box flex />
+        <Menu label="Actions" kind="toolbar" />
+      </Toolbar>
+    </Data>
+  </Box>
 );
