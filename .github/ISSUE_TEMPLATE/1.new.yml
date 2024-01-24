@@ -1,10 +1,11 @@
 name: New
-description: Request a new component, feature, or capability
+description: Request a new feature, variant, component, guideline, color, capability or anything else you have in mind
 title: 'New: <insert title>'
 body:
   - type: input
     attributes:
-      label: What does this request relate to? If you are proposing a new component, what would you call it?
+      label: What does this request relate to?
+      description: Please let us know what this request relates to, whether it's Figma, Grommet, theming, code, documentation/guidelines, a component, or a specific HPE product.
     validations:
       required: true
   - type: textarea
@@ -16,5 +17,21 @@ body:
     attributes:
       label: Links to Figma files with use cases or ideations from you.
       description: Use cases and ideations help us understand the problem space. Please provide specific use cases when possible, and if you have any ideas or proposals we'd love to look at those too.
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: How urgent is this request?
+      description: Urgency helps us understand how to prioritize the request.
+      multiple: false
+      options:
+        - Not urgent
+        - Fairly urgent
+        - Very urgent
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Is there anything else you would like to mention?
     validations:
       required: false
