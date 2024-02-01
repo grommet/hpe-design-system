@@ -20,7 +20,11 @@ export const SearchPlaceholder = ({ bestPractice = true }) => {
     <Box width="medium">
       <StyledTextInput
         icon={<SearchIcon id="search-icon-placeholder" color="placeholder" />}
-        placeholder={bestPractice ? 'Search' : 'Search users...'}
+        placeholder={
+          bestPractice
+            ? 'Search'
+            : 'Search first name, last name, role, location, or status'
+        }
         reverse
         value={value}
         onChange={event => setValue(event.target.value)}
