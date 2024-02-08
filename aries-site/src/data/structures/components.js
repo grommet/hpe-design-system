@@ -1747,6 +1747,27 @@ export const components = [
     ],
   },
   {
+    name: 'Data',
+    available: true,
+    category: 'All',
+    description:
+      'A wrapper component to enable turn-key presentation and management of data collections.',
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'Purple playing cards representing HPE Design System components',
+        fit: 'contain',
+      },
+    },
+    seoDescription:
+      'A wrapper component to enable turn-key presentation and management of data collections.',
+    sections: [],
+    relatedContent: [],
+  },
+  {
     name: 'All components',
     available: true,
     category: 'All',
