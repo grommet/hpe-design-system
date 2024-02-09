@@ -21,6 +21,7 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
@@ -1749,18 +1750,11 @@ export const components = [
   {
     name: 'Data',
     available: true,
-    category: 'All',
+    category: 'Data',
     description:
       'A wrapper component to enable turn-key presentation and management of data collections.',
     preview: {
-      image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
-        alt: 'Purple playing cards representing HPE Design System components',
-        fit: 'contain',
-      },
+      component: () => <DataHowTo />,
     },
     seoDescription:
       'A wrapper component to enable turn-key presentation and management of data collections.',
