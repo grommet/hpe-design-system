@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useContext, useState, useEffect } from 'react';
 import {
   Box,
@@ -20,7 +21,18 @@ import {
 
 const { servers } = require('../../../data/mockData/servers.json');
 
-export const MenuBatchActionsExample = () => {
+export const MenuBatchActionsExample = ({ containerRef }) => {
+  // containerRef is for demonstration purposes on this site. Most
+  // implementations should likely remove.
+
+  const layerProps = {
+    // containerRef is for demonstration purposes on this site. Most
+    // implementations should likely remove.
+    target: containerRef?.current,
+    position: 'right',
+    full: 'vertical',
+  };
+
   return (
     <Data
       data={servers.items.slice(3, 12)}
@@ -33,7 +45,8 @@ export const MenuBatchActionsExample = () => {
       <Toolbar gap="medium">
         <Toolbar>
           <DataSearch responsive />
-          <DataFilters layer />
+          {/* layer props only needed for site demo */}
+          <DataFilters layer={layerProps} />
         </Toolbar>
         {/* Flex Box added for spacing between Button */}
         <Box flex />
@@ -57,6 +70,10 @@ export const MenuBatchActionsExample = () => {
       <ServerResults />
     </Data>
   );
+};
+
+MenuBatchActionsExample.propTypes = {
+  containerRef: PropTypes.object,
 };
 
 const columns = [
