@@ -10,7 +10,6 @@ import {
   DataSummary,
   DataTable,
   DataTableColumns,
-  DataView,
   Text,
   Toolbar,
   Menu,
@@ -27,7 +26,6 @@ const columns = [
   {
     property: 'publisher',
     header: 'Publisher',
-    size: 'small',
   },
   {
     property: 'delivery',
@@ -64,21 +62,6 @@ export const DataExample = () => {
           delivery: { label: 'Delivery' },
           rating: { label: 'Rating', range: { min: 0, max: 5 } },
         }}
-        views={[
-          {
-            name: 'Most popular',
-            properties: {
-              rating: { min: 4, max: 5 },
-              pricing: ['Free'],
-            },
-          },
-          {
-            name: 'Needs attention',
-            properties: {
-              rating: { min: 3, max: 4 },
-            },
-          },
-        ]}
       >
         <Toolbar gap="medium">
           <Toolbar>
@@ -86,7 +69,6 @@ export const DataExample = () => {
             <DataSort drop />
             <DataFilters layer />
           </Toolbar>
-          <DataView />
           <DataTableColumns options={options} drop />
           <Box flex align="end">
             <Menu
@@ -104,41 +86,57 @@ export const DataExample = () => {
           </Box>
         </Toolbar>
         <DataSummary />
-        <DataTable
-          alignSelf="start"
-          aria-describedby="application-heading"
-          columns={columns}
-          sortable
-        />
-        <Pagination />
+        <ResultsWrapper>
+          <DataTable
+            aria-describedby="application-heading"
+            columns={columns}
+            sortable
+          />
+          <Pagination />
+        </ResultsWrapper>
       </Data>
     </Box>
   );
 };
 
-const step = 10;
+const ResultsWrapper = ({ ...rest }) => (
+  // style needed to ensure pagination controls stay aligned with datatable
+  <Box align="start">
+    <Box style={{ display: 'inline-block' }} {...rest} />
+  </Box>
+);
 
+const step = 10;
 const Pagination = () => {
   const { view, total } = useContext(DataContext);
   const page = view?.page || 1;
 
   return (
-    <Box
-      align="center"
-      border="top"
-      direction="row"
-      justify="between"
-      gap="small"
-      pad={{ vertical: 'xsmall', start: 'small' }}
-      wrap
-    >
-      <Box flex>
-        <Text>{`Showing ${(page - 1) * step + 1}-${Math.min(
-          page * step,
-          total,
-        )} of ${total}`}</Text>
+    <Box direction="row">
+      <Box
+        align="center"
+        border="top"
+        direction="row"
+        justify="between"
+        gap="small"
+        pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        // in order to align with DataTable
+        flex="grow"
+        width="0"
+        wrap
+      >
+        <Box flex="grow">
+          <Text>
+            {`Showing ${(page - 1) * step + 1}-${Math.min(
+              page * step,
+              total,
+            )} of ${total} items`}
+          </Text>
+        </Box>
+        <Box direction="row" justify="center">
+          <GrommetPagination />
+        </Box>
       </Box>
-      <GrommetPagination alignSelf="end" />
     </Box>
   );
 };
