@@ -43,10 +43,10 @@ Filter controls should live above the data content and facilitate a user's abili
 
 The way filters are displayed is dependent on the number of filters, data types of the content, and the use case.
 
-- In most cases when there are many available filters, they should be [presented in a layer](#filters-in-a-layer).
+- In most cases, filters should be [presented in a side-drawer layer](#filters-in-a-layer) that can be opened by a button with Filter icon.
 - At times, it may be helpful to expose a [frequently used filter in the toolbar](#exposed-filter-in-toolbar) directly.
 
-Different types of inputs may be better suited for filtering different types of data.
+Filter types should suit both the type of data and number of options available. For example, rendering numeric data as a RangeSelector is more beneficial than rendering it as a CheckBoxGroup because it allows the user to more efficiently define a desired range.
 
 When building with [Data and friends](/components/data), a smart default input for a given property will be determined based on the type of data and the number of options. For details on which/how the default input type is chosen, see [DataFilter documentation](/components/data#datafilter).
 
@@ -54,9 +54,22 @@ While the default input types are intended as smart defaults for the 80% case, o
 
 ## Results
 
-Results should live below the controls and display any records that meet filter criteria.
+Results should live below the controls and display any records that meet the filter criteria.
 Depending on the data types and use case, results may be represented by a
 [List](/templates/lists), [Cards](/components/card), or [DataTable](/components/datatable).
+
+## Data summary
+
+The summary displayed beneath the filter controls should always reflect the user's actions. When [filtering is combined with selection](#selectable-results), the summary text should adjust for the following scenarios.
+
+| State                                | Summary                        | Notes                                                                                                  |
+| ------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **No filters, no selections**        | Y items                        | Y is the total number of items in the dataset.                                                         |
+| **Filters applied, no selections**   | X results of Y items           | X is the number of items that meet the filter criteria. Y is the total number of items in the dataset. |
+| **No filters, selections made**      | <DataSummaryExample />         | Z is the total number of items selected.                                                               |
+| **Filters applied, selections made** | <DataSummaryExample filters /> | Z is the total number of items selected.                                                               |
+
+When building with Grommet, [DataSummary](/components/data#datasummary) manages these messages automatically.
 
 ## Pagination
 
@@ -82,7 +95,7 @@ When applying many filters at once, it is helpful to present them in a consolida
 
 ### Exposed filter in toolbar
 
-If it's expected that a specific filter will be most frequently used, it can be useful to expose it in the toolbar.
+If it's expected that a specific filter or filters will be most frequently used, the filter can be exposed in the toolbar. Use your understanding of the use case to determine if this will aid the user's goal.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/QuickFilterToolbar.js"
@@ -95,17 +108,6 @@ If it's expected that a specific filter will be most frequently used, it can be 
 </Example>
 
 ### Selectable results
-
-The summary displayed beneath the toolbar should always reflect the user's actions. When filtering is combined with selection, the summary text should adjust for the following scenarios.
-
-| State                                | Summary                        | Notes                                                                                                  |
-| ------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| **No filters, no selections**        | Y items                        | Y is the total number of items in the dataset.                                                         |
-| **Filters applied, no selections**   | X results of Y items           | X is the number of items that meet the filter criteria. Y is the total number of items in the dataset. |
-| **No filters, selections made**      | <DataSummaryExample />         | Z is the total number of items selected.                                                               |
-| **Filters applied, selections made** | <DataSummaryExample filters /> | Z is the total number of items selected.                                                               |
-
-When building with Grommet, [DataSummary](/components/data#datasummary) manages these messages automatically.
 
 <Example
   code={[
