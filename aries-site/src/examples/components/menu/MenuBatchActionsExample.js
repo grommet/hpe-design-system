@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext, useState, useEffect } from 'react';
 import {
   Box,
@@ -21,60 +20,43 @@ import {
 
 const { servers } = require('../../../data/mockData/servers.json');
 
-export const MenuBatchActionsExample = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
-
-  const layerProps = {
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef?.current,
-    position: 'right',
-    full: 'vertical',
-  };
-
-  return (
-    <Data
-      data={servers.items.slice(3, 12)}
-      views={[
-        { name: 'All', properties: { status: ['Ready', 'Paused'] } },
-        { name: 'Paused', properties: { status: ['Paused'] } },
-        { name: 'Ready', properties: { status: ['Ready'] } },
-      ]}
-    >
-      <Toolbar gap="medium">
-        <Toolbar>
-          <DataSearch responsive />
-          {/* layer props only needed for site demo */}
-          <DataFilters layer={layerProps} />
-        </Toolbar>
-        {/* Flex Box added for spacing between Button */}
-        <Box flex />
-        <Menu
-          label="Actions"
-          kind="toolbar"
-          open
-          items={[
-            [
-              { label: 'Power on', onClick: () => {} },
-              { label: 'Power off', onClick: () => {} },
-              { label: 'Reset', onClick: () => {} },
-              { label: 'Update firmware', onClick: () => {} },
-            ],
-            [{ label: 'Add to group', onClick: () => {} }],
-          ]}
-          dropAlign={{ top: 'bottom', right: 'right' }}
-        />
+export const MenuBatchActionsExample = () => (
+  <Data
+    data={servers.items.slice(3, 12)}
+    views={[
+      { name: 'All', properties: { status: ['Ready', 'Paused'] } },
+      { name: 'Paused', properties: { status: ['Paused'] } },
+      { name: 'Ready', properties: { status: ['Ready'] } },
+    ]}
+  >
+    <Toolbar gap="medium">
+      <Toolbar>
+        <DataSearch responsive />
+        <DataFilters layer />
       </Toolbar>
-      <DataSummary />
-      <ServerResults />
-    </Data>
-  );
-};
+      {/* Flex Box added for spacing between Button */}
+      <Box flex />
+      <Menu
+        label="Actions"
+        kind="toolbar"
+        open
+        items={[
+          [
+            { label: 'Power on', onClick: () => {} },
+            { label: 'Power off', onClick: () => {} },
+            { label: 'Reset', onClick: () => {} },
+            { label: 'Update firmware', onClick: () => {} },
+          ],
+          [{ label: 'Add to group', onClick: () => {} }],
+        ]}
+        dropAlign={{ top: 'bottom', right: 'right' }}
+      />
+    </Toolbar>
+    <DataSummary />
+    <ServerResults />
+  </Data>
+);
 
-MenuBatchActionsExample.propTypes = {
-  containerRef: PropTypes.object,
-};
 
 const columns = [
   {
