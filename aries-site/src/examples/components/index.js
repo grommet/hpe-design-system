@@ -9,6 +9,7 @@ export * from './chart';
 export * from './checkbox';
 export * from './checkboxgroup';
 export * from './clock';
+export * from './data';
 export * from './datatable';
 export * from './diagram';
 export * from './dateinput';
