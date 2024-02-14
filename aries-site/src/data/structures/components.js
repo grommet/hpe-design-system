@@ -21,6 +21,7 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { StackExample } from '../../examples/components/layouts';
@@ -1745,6 +1746,20 @@ export const components = [
       'Intro Banner',
       'Cover',
     ],
+  },
+  {
+    name: 'Data',
+    available: true,
+    category: 'Data',
+    description:
+      'A wrapper component to enable turn-key presentation and management of data collections.',
+    preview: {
+      component: () => <DataHowTo />,
+    },
+    seoDescription:
+      'A wrapper component to enable turn-key presentation and management of data collections.',
+    sections: [],
+    relatedContent: [],
   },
   {
     name: 'All components',

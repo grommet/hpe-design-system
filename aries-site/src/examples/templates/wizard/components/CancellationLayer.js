@@ -33,13 +33,13 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
           justify="end"
         >
           <Button
-            label="No, Stay"
+            label="No, stay"
             onClick={() => onSetOpen(false)}
             secondary
             fill={!['xsmall', 'small'].includes(size) ? false : 'horizontal'}
           />
           <Button
-            label="Yes, Exit"
+            label="Yes, exit"
             fill={!['xsmall', 'small'].includes(size) ? false : 'horizontal'}
             onClick={() => {
               onSetOpen(false);
