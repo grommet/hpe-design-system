@@ -27,7 +27,7 @@
       },
       "front": {
         "$type": "color",
-        "$value": "{color.neutral.600}",
+        "$value": "{color.neutral.800}",
         "$description": "Background color applied on top of background-back.",
         "$extensions": {
           "com.figma": {
