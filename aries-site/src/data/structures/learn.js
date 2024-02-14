@@ -3,6 +3,7 @@ import { Grommet } from 'grommet-icons';
 import {
   BoxPreview,
   DataHowTo,
+  DataHowToAddAdditionalControls,
   GridPreview,
 } from '../../examples/cardPreviews';
 
@@ -50,6 +51,21 @@ export const learn = [
     },
     seoDescription:
       'This how-to guide shows you how to use the Data component to easily add searching and filtering to a DataTable.',
+    sections: [],
+    relatedContent: [],
+    tags: [],
+  },
+  {
+    name: 'How to add additional controls to a toolbar',
+    description:
+      'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',
+    type: 'How-to guides',
+    preview: {
+      component: () => <DataHowToAddAdditionalControls />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',
     sections: [],
     relatedContent: [],
     tags: [],
