@@ -15,16 +15,19 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
   <DashBoardSkeletonExample />
 </Example>
 
+### Guidance
+Page skeletons are used in scenarios where the content is being fetched asynchronously and may take some time to load. A skeleton's anatomy is based on the UI element it is rendering and should be responsive.
+
 ### When to use
-Skeletons are used on all pages to provide a visual layout of the content being loaded.  They help users perceive a loading period as being shorter in duration.
+- The interface is content-rich, with numerous elements such as images, text, and other media that take time to load and are known.
+- The content is fetched asynchronously, especially from different sources or APIs. Using a skeleton can maintain the structure of the page and prevent layout shifts when content starts loading in multiple regions.
+- The expected response time is greater than ~300ms.
 
 ### When not to use
-Skeletons should not be used if:
-- The data or elements being loaded are unknown.
-- The user is awaiting feedback for in-context actions such as submitting a form or fetching search results.
-  - The Spinner component may be more appropriate.
-- The loading process takes more than a few minutes to load.
-  - Pair with a message or notification to provide the user with better visibility of a system’s status.
+- The data or elements being loaded are dynamic. Use a [Spinner] (/components/spinner) instead.
+- The user is awaiting feedback for in-context actions such as fetching search results. Use a [Spinner] (/components/spinner) instead.
+- The user is awaiting feedback on a submission process, like submitting a form. Use a [Busy Button] (/components/button#busy-button) instead. 
+- The loading process takes more than a few seconds to load. In that case, pair it with a notification to provide the user with better visibility of a system’s status.
 
 ### Anatomy
 
@@ -39,3 +42,4 @@ The components that currently support skeleton are:
 - Text, Paragraph, Heading
 - Button
 - Box, Card, Pageheader, Footer, Header
+- DataSearch
