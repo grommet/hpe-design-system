@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Box,
   Button,
+  Data,
   DataTable,
   Form,
   FormField,
@@ -13,13 +13,12 @@ import {
   TextInput,
   CheckBoxGroup,
   AnnounceContext,
+  Toolbar,
+  DataSearch,
+  DataFilters,
+  DataSummary,
 } from 'grommet';
 import { LayerHeader } from 'aries-core';
-import {
-  useFilters,
-  FiltersProvider,
-  FilterControls,
-} from '../../templates/FilterControls';
 import applications from '../../../data/mockData/applications.json';
 import {
   ConfirmationContext,
@@ -155,37 +154,6 @@ export const LayerForm = ({ ...rest }) => {
   );
 };
 
-const ApplicationsPage = () => {
-  const { setShowLayer } = useConfirmation();
-  return (
-    <FiltersProvider>
-      <Page>
-        <PageContent>
-          <Box gap="medium">
-            <Heading id="applications-heading" level={2} margin="none">
-              Applications
-            </Heading>
-            <FilterControls
-              data={applications}
-              filters={[]}
-              primaryKey="title"
-              searchFilter={{ placeholder: 'Search' }}
-              actions={
-                <Button
-                  label="Add application"
-                  secondary
-                  onClick={() => setShowLayer(true)}
-                />
-              }
-            />
-            <ApplicationResults />
-          </Box>
-        </PageContent>
-      </Page>
-    </FiltersProvider>
-  );
-};
-
 const columns = [
   {
     property: 'title',
@@ -201,26 +169,39 @@ const columns = [
   },
 ];
 
-const ApplicationResults = ({ height = { max: 'medium' } }) => {
-  // const breakpoint = useContext(ResponsiveContext);
-  const { filteredResults, selected, setSelected } = useFilters();
-
+const ApplicationsPage = () => {
+  const { setShowLayer } = useConfirmation();
   return (
-    <Box alignSelf="start" height={height} overflow="auto">
-      <DataTable
-        aria-describedby="applications-heading"
-        data={filteredResults}
-        columns={columns}
-        pin
-        primaryKey="title"
-        sortable
-        onSelect={nextSelected => setSelected(nextSelected)}
-        select={selected}
-      />
-    </Box>
+      <Page>
+        <PageContent>
+          <Box gap="medium">
+            <Heading id="applications-heading" level={2} margin="none">
+              Applications
+            </Heading>
+            <Data data={applications}>
+              <Toolbar>
+                <DataSearch />
+                <DataFilters layer />
+                <Box flex />
+                <Button
+                  label="Add application"
+                  secondary
+                  onClick={() => setShowLayer(true)}
+                />
+              </Toolbar>
+              <DataSummary />
+              <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
+                <DataTable
+                  aria-describedby="applications-heading"
+                  columns={columns}
+                  pin
+                  primaryKey="title"
+                  sortable
+                />
+              </Box>
+            </Data>
+          </Box>
+        </PageContent>
+      </Page>
   );
-};
-
-ApplicationResults.propTypes = {
-  height: PropTypes.string,
 };
