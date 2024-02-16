@@ -16,7 +16,7 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 </Example>
 
 ### Guidance
-Page skeletons are used in scenarios where the content is being fetched asynchronously and may take some time to load. A skeleton's anatomy is based on the UI element it is rendering and should be responsive.
+Page skeletons are used in scenarios where the content is being fetched asynchronously and may take some time to load. A skeleton's anatomy is based on the UI element it is rendering and should be responsive. If the loading process takes more than a few seconds to load pair the skeleton with a notification to provide the user with better visibility of a system’s status.
 
 ### When to use
 - The interface is content-rich, with numerous elements such as images, text, and other media that take time to load and are known.
@@ -27,7 +27,6 @@ Page skeletons are used in scenarios where the content is being fetched asynchro
 - The data or elements being loaded are dynamic. Use a [Spinner] (/components/spinner) instead.
 - The user is awaiting feedback for in-context actions such as fetching search results. Use a [Spinner] (/components/spinner) instead.
 - The user is awaiting feedback on a submission process, like submitting a form. Use a [Busy Button] (/components/button#busy-button) instead. 
-- The loading process takes more than a few seconds to load. In that case, pair it with a notification to provide the user with better visibility of a system’s status.
 
 ### Anatomy
 
