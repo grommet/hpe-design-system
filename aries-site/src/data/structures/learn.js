@@ -67,7 +67,7 @@ export const learn = [
     seoDescription:
       'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',
     sections: [],
-    relatedContent: [],
+    relatedContent: ['Data', 'Filtering'],
     tags: [],
   },
   {
