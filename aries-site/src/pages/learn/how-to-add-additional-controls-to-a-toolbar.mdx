@@ -1,4 +1,5 @@
-import { Box, Image } from 'grommet';
+import { Example } from '../../layouts';
+import { Completed } from '../../examples/learn/how-to';
 
 ## Prerequisites
 
@@ -13,15 +14,25 @@ Use this [CodeSandbox template](https://codesandbox.io/p/devbox/how-to-add-addit
 In `App.js`, start by importing the Toolbar component and the Data controls you'll include in your toolbar.
 
 ```
-import { Box, Data, DataTable, Grommet, DataFilters, DataSearch, DataSort, DataSummary, DataTableColumns, Toolbar } from "grommet";
-
+import {
+  Box,
+  Data,
+  DataTable,
+  DataFilters,
+  DataSearch,
+  DataSort,
+  DataSummary,
+  DataTableColumns,
+  Grommet,
+  Toolbar,
+} from 'grommet';
 ```
 
 ## Compose the toolbar
 
 ### Render the controls in the toolbar
 
-Remove the `toolbar` property from Data. Insert the Toolbar and Data controls above the DataTable.
+Remove the `toolbar` property from Data. Insert the Toolbar and Data controls ([DataSearch](https://v2.grommet.io/datasearch), [DataSort](https://v2.grommet.io/datasort), [DataFilters](https://v2.grommet.io/datafilters)) above the DataTable.
 
 Apply `drop` to DataSort to render the sort controls in a drop and `layer` to DataFilters to render the filters in a side drawer layer.
 
@@ -59,7 +70,7 @@ Apply `drop` to DataSort to render the sort controls in a drop and `layer` to Da
 
 ### Allow user to define column visibility and order
 
-Create a variable, `options`, which defines which properties should be part of the DataTableColumns experience. In this case, we'll dynamically generate these options based on the `columns` of the DataTable.
+Create a variable, `options`, which defines which properties should be part of the [DataTableColumns](https://v2.grommet.io/datatablecolumns) experience. In this case, we'll dynamically generate these options based on the `columns` of the DataTable.
 
 ```
 const options = columns.map(column => ({
@@ -105,7 +116,7 @@ Next, add DataTableColumns to the toolbar, passing the `options` variable you cr
 
 ### Group controls into sections
 
-Next, create subsections of the toolbar controls in alignment with [data collection toolbar guidance]().
+Next, create subsections of the toolbar controls in alignment with data collection toolbar guidance.
 
 First, group all of the "find" controls (DataSearch, DataSort, and DataFilters) together by wrapping them in their own Toolbar.
 
@@ -148,7 +159,7 @@ Then, add `gap="medium"` to the outermost Toolbar to create more distinction bet
 
 ### Add the data summary
 
-Lastly, add the DataSummary below the toolbar.
+Lastly, add the DataSummary below the outermost Toolbar.
 
 ```
 <Data
@@ -185,6 +196,12 @@ Lastly, add the DataSummary below the toolbar.
   <Pagination />
 </Data>
 ```
+
+Your project should look like this:
+
+<Example height="auto" showResponsiveControls={['fullScreen']} template>
+  <Completed />
+</Example>
 
 Congratulations! You’ve used Data subcomponents to compose a toolbar with a variety of controls.
 
