@@ -1,6 +1,16 @@
-import PropTypes from 'prop-types';
-import { useContext, useEffect } from 'react';
-import { Box, DataTable, Menu, ResponsiveContext, Text } from 'grommet';
+import { useContext, useState, useEffect } from 'react';
+import {
+  Box,
+  Data,
+  DataFilters,
+  DataTable,
+  DataSearch,
+  DataSummary,
+  Menu,
+  ResponsiveContext,
+  Text,
+  Toolbar,
+} from 'grommet';
 import {
   StatusWarningSmall,
   StatusCriticalSmall,
@@ -8,62 +18,45 @@ import {
   StatusUnknownSmall,
 } from 'grommet-icons';
 
-import {
-  FilterControls,
-  FiltersProvider,
-  useFilters,
-} from '../../templates/FilterControls';
-
 const { servers } = require('../../../data/mockData/servers.json');
 
-const filtersConfig = [];
+export const MenuBatchActionsExample = () => (
+  <Data
+    data={servers.items.slice(3, 12)}
+    views={[
+      { name: 'All', properties: { status: ['Ready', 'Paused'] } },
+      { name: 'Paused', properties: { status: ['Paused'] } },
+      { name: 'Ready', properties: { status: ['Ready'] } },
+    ]}
+  >
+    <Toolbar gap="medium">
+      <Toolbar>
+        <DataSearch responsive />
+        <DataFilters layer />
+      </Toolbar>
+      {/* Flex Box added for spacing between Button */}
+      <Box flex />
+      <Menu
+        label="Actions"
+        kind="toolbar"
+        open
+        items={[
+          [
+            { label: 'Power on', onClick: () => {} },
+            { label: 'Power off', onClick: () => {} },
+            { label: 'Reset', onClick: () => {} },
+            { label: 'Update firmware', onClick: () => {} },
+          ],
+          [{ label: 'Add to group', onClick: () => {} }],
+        ]}
+        dropAlign={{ top: 'bottom', right: 'right' }}
+      />
+    </Toolbar>
+    <DataSummary />
+    <ServerResults />
+  </Data>
+);
 
-export const MenuBatchActionsExample = ({ containerRef }) => {
-  // containerRef is for demonstration purposes on this site. Most
-  // implementations should likely remove.
-
-  const layerProps = {
-    // containerRef is for demonstration purposes on this site. Most
-    // implementations should likely remove.
-    target: containerRef && containerRef.current,
-  };
-
-  return (
-    <FiltersProvider>
-      <Box gap="medium">
-        <FilterControls
-          // only need a subset of records for this example
-          data={servers.items.slice(3, 12)}
-          filters={filtersConfig}
-          layerProps={layerProps}
-          searchFilter={{ placeholder: 'Search' }}
-          actions={
-            <Menu
-              label="Actions"
-              kind="toolbar"
-              open
-              items={[
-                [
-                  { label: 'Power on', onClick: () => {} },
-                  { label: 'Power off', onClick: () => {} },
-                  { label: 'Reset', onClick: () => {} },
-                  { label: 'Update firmware', onClick: () => {} },
-                ],
-                [{ label: 'Add to group', onClick: () => {} }],
-              ]}
-              dropAlign={{ top: 'bottom', right: 'right' }}
-            />
-          }
-        />
-        <ServerResults />
-      </Box>
-    </FiltersProvider>
-  );
-};
-
-MenuBatchActionsExample.propTypes = {
-  containerRef: PropTypes.object,
-};
 
 const columns = [
   {
@@ -95,7 +88,7 @@ const statusIcons = {
 
 const ServerResults = () => {
   const breakpoint = useContext(ResponsiveContext);
-  const { filteredResults, selected, setSelected } = useFilters();
+  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     setSelected([
@@ -109,7 +102,6 @@ const ServerResults = () => {
     <Box height="medium" overflow="auto">
       <DataTable
         aria-describedby="servers-heading"
-        data={filteredResults}
         columns={[
           {
             property: 'hardware.health.summary',
