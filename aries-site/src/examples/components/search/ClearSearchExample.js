@@ -2,16 +2,14 @@ import React from 'react';
 import { TextInput } from 'grommet';
 import { Search as SearchIcon } from 'grommet-icons';
 
-export const SearchIconPositionExample = () => {
-  const [value, setValue] = React.useState();
-
+export const ClearSearchExample = () => {
   return (
     <TextInput
-      aria-label="search"
+      aria-label="Search"
       icon={<SearchIcon />}
       placeholder="Search"
-      value={value}
-      onChange={event => setValue(event.target.value)}
+      reverse
+      defaultValue="sample search term"
       type="search"
     />
   );

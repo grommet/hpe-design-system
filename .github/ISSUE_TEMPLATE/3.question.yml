@@ -1,0 +1,9 @@
+name: Question
+description: Help, curiosities, questions, wonderings
+title: '<insert title>'
+body:
+  - type: textarea
+    attributes:
+      label: How can we help?
+    validations:
+      required: true

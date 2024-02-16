@@ -1,0 +1,40 @@
+name: Fix
+description: Something is not working as expected or there is a problem, be it a component, color, typo, etc.
+title: '<insert title>'
+labels: [bug]
+body:
+  - type: input
+    attributes:
+      label: Link to problem
+      description: Please link to a Figma file, documentation page, or Codesandbox that demonstrates the problem.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current problem
+      description: A concise description of what is currently wrong.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior or solution
+      description: A concise description of what you expected to happen or how you think it could be solved.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Screenshot or recording of problem
+      description: |
+        You can attach images or files by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: If it is a bug with a component or working example, how can we reproduce the bug?
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: false

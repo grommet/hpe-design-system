@@ -2,6 +2,7 @@ import { Notification } from 'grommet';
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  EmptyStatePreview,
   FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
@@ -1016,15 +1017,8 @@ export const templates = [
     description: `An empty state refers to when the UI is 
     devoid of any data or information.`,
     preview: {
-      image: {
-        src: {
-          light: '/templateImages/template-preview-banner-notification.svg',
-          // eslint-disable-next-line max-len
-          dark: '/templateImages/template-preview-banner-notification-invert.svg',
-        },
-        alt: 'Banner notification under HPE Global Application header.',
-        fit: 'contain',
-      },
+      component: () => <EmptyStatePreview />,
+      background: 'background-back',
     },
     seoDescription: `An empty state refers to when the UI is devoid of any 
     data or information.`,

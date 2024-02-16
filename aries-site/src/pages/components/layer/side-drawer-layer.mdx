@@ -1,7 +1,7 @@
-import { Notification } from 'grommet';
 import { Example } from '../../../layouts';
 import {
   ConfigurationForm,
+  DataFiltersAnatomy,
   SideDrawerLayerAnatomy,
   FilteringTable,
   LayerStickyExample,
@@ -57,6 +57,19 @@ To prevent the user from losing progress due to accidental clicks outside of a l
 When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown. This helps avoid unintentional loss of work.
 
 Learn more about the anatomy and implementation of a [double confirmation](/components/layer#double-confirmations) on the main layer page since this behavior applies to all layer types.
+
+### Filters
+
+A filter layer is an exception to the above rules. Even though filtering requires action from the user, it is not essential that the user fills out the filtering form. Because of this, a filter layer can be closed by the following interactions:
+
+1. Clicking the "Apply filters" button, which will apply the current filter selections and close the layer.
+1. Clicking the close button in the layer header.
+1. Clicking outside of the layer, `onClickOutside`.
+1. Pressing the Escape key, `onEsc`.
+
+<Example height="auto">
+  <DataFiltersAnatomy />
+</Example>
 
 ## Scroll behavior
 
