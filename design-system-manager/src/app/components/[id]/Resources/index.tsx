@@ -1,7 +1,7 @@
-import { LevelType } from '@/utilities/types';
-import { getResources } from '../actions';
-import { Editable } from './Editable';
-import { ResourcesList } from './ResourcesList';
+import type { LevelType } from '@/utilities/types';
+import { getResources } from '../actions.ts';
+import { Editable } from './Editable.tsx';
+import { ResourcesList } from './ResourcesList.tsx';
 
 
 export const Resources = async (

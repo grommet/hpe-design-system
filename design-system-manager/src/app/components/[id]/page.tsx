@@ -1,11 +1,12 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { Box, Heading, PageHeader } from 'grommet';
 import { Panel, ReverseAnchor } from 'aries-core';
-import { ComponentType } from '@/utilities/types';
-import { Detail } from './Detail';
-import { Resources } from './Resources';
-import { getComponent, getResources } from './actions';
-import { Suspense } from 'react';
+import type { ComponentType } from '@/utilities/types';
+import { Detail } from './Detail/index.tsx';
+import { Resources } from './Resources/index.tsx';
+import { getComponent } from './actions.ts';
+
 
 const Component = async ({
   params,

@@ -4,10 +4,7 @@ import { Box, Card, CardHeader, Heading, Page, PageContent, PageHeader, Text } f
 export default function Home() {
   return (
     <Page 
-      // background={{
-      //   image: "purple-magenta-yellow",
-      //   opacity: "strong"
-      // }} 
+      pad={{bottom: 'large'}}
       flex
     >
       <PageContent> 

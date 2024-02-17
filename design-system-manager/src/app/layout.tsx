@@ -1,6 +1,7 @@
+import React from 'react'
 import type { Metadata } from 'next'
 import { Avatar, Footer, Grommet, Header, Main, SkipLink, SkipLinkTarget, SkipLinks, Text } from 'grommet';
-import { hpe } from '../themes/hpe'
+import { hpe } from '../themes/hpe.ts'
 
 export const metadata: Metadata = {
   title: {

@@ -1,11 +1,7 @@
-import { Page, PageContent } from 'grommet';
+import React from 'react';
 
 const ComponentLayout = ({ children }: { children: React.ReactNode }) => (
-  // <Page>
-    // <PageContent>
-      children
-    // </PageContent>
-  // </Page>
+  children
 );
 
 export default ComponentLayout;
