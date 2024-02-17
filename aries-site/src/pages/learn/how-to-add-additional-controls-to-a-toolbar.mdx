@@ -1,0 +1,208 @@
+import { Example } from '../../layouts';
+import { Completed } from '../../examples/learn/how-to';
+
+## Prerequisites
+
+This guide builds off the ["How to add search and filter to DataTable" how-to guide](/learn/how-to-add-search-and-filter-to-datatable-with-data). While it's not necessary to complete that guide first, it may be helpful for additional context.
+
+Let’s get started!
+
+Use this [CodeSandbox template](https://codesandbox.io/p/devbox/how-to-add-additional-controls-to-a-toolbar-gn9q9j?file=%2Fsrc%2FApp.js%3A46%2C20) to start. The template is populated with a paginated DataTable configured to display SpaceX data with search and filter controls.
+
+## Importing the components
+
+In `App.js`, start by importing the Toolbar component and the Data controls you'll include in your toolbar.
+
+```
+import {
+  Box,
+  Data,
+  DataTable,
+  DataFilters,
+  DataSearch,
+  DataSort,
+  DataSummary,
+  DataTableColumns,
+  Grommet,
+  Toolbar,
+} from 'grommet';
+```
+
+## Compose the toolbar
+
+### Render the controls in the toolbar
+
+Remove the `toolbar` property from Data. Insert the Toolbar and Data controls ([DataSearch](https://v2.grommet.io/datasearch), [DataSort](https://v2.grommet.io/datasort), [DataFilters](https://v2.grommet.io/datafilters)) above the DataTable.
+
+Apply `drop` to DataSort to render the sort controls in a drop and `layer` to DataFilters to render the filters in a side drawer layer.
+
+```
+<Data
+  data={data}
+  properties={{
+    type: {
+      label: "Type",
+      options: [
+        "Dragon 1.0",
+        "Dragon 1.1",
+        "Dragon Boilerplate",
+        "Satellite",
+      ],
+    },
+    mass_lbs: {
+      label: "Mass",
+      range: { min: 0, max: 1400 },
+    },
+  }}
+  view={view}
+  onView={setView}
+  total={numberItems}
+>
+  <Toolbar>
+    <DataSearch />
+    <DataSort drop />
+    <DataFilters layer />
+  </Toolbar>
+  <DataTable columns={columns} />
+  <Pagination />
+</Data>
+```
+
+### Allow user to define column visibility and order
+
+Create a variable, `options`, which defines which properties should be part of the [DataTableColumns](https://v2.grommet.io/datatablecolumns) experience. In this case, we'll dynamically generate these options based on the `columns` of the DataTable.
+
+```
+const options = columns.map(column => ({
+  property: column.property,
+  label: column.header
+}));
+```
+
+Next, add DataTableColumns to the toolbar, passing the `options` variable you created to the `options` property. Similar to the other controls, specify `drop` to render the control in a drop.
+
+```
+<Data
+  data={data}
+  properties={{
+    type: {
+      label: "Type",
+      options: [
+        "Dragon 1.0",
+        "Dragon 1.1",
+        "Dragon Boilerplate",
+        "Satellite",
+      ],
+    },
+    mass_lbs: {
+      label: "Mass",
+      range: { min: 0, max: 1400 },
+    },
+  }}
+  view={view}
+  onView={setView}
+  total={numberItems}
+>
+  <Toolbar>
+    <DataSearch />
+    <DataSort drop />
+    <DataFilters layer />
+    <DataTableColumns options={options} drop />
+  </Toolbar>
+  <DataTable columns={columns} />
+  <Pagination />
+</Data>
+```
+
+### Group controls into sections
+
+Next, create subsections of the toolbar controls in alignment with data collection toolbar guidance.
+
+First, group all of the "find" controls (DataSearch, DataSort, and DataFilters) together by wrapping them in their own Toolbar.
+
+Then, add `gap="medium"` to the outermost Toolbar to create more distinction between toolbar sections.
+
+```
+<Data
+  data={data}
+  properties={{
+    type: {
+      label: "Type",
+      options: [
+        "Dragon 1.0",
+        "Dragon 1.1",
+        "Dragon Boilerplate",
+        "Satellite",
+      ],
+    },
+    mass_lbs: {
+      label: "Mass",
+      range: { min: 0, max: 1400 },
+    },
+  }}
+  view={view}
+  onView={setView}
+  total={numberItems}
+>
+  <Toolbar gap="medium">
+    <Toolbar>
+      <DataSearch />
+      <DataSort drop />
+      <DataFilters layer />
+    </Toolbar>
+    <DataTableColumns options={options} drop />
+  </Toolbar>
+  <DataTable columns={columns} />
+  <Pagination />
+</Data>
+```
+
+### Add the data summary
+
+Lastly, add the DataSummary below the outermost Toolbar.
+
+```
+<Data
+  data={data}
+  properties={{
+    type: {
+      label: "Type",
+      options: [
+        "Dragon 1.0",
+        "Dragon 1.1",
+        "Dragon Boilerplate",
+        "Satellite",
+      ],
+    },
+    mass_lbs: {
+      label: "Mass",
+      range: { min: 0, max: 1400 },
+    },
+  }}
+  view={view}
+  onView={setView}
+  total={numberItems}
+>
+  <Toolbar gap="medium">
+    <Toolbar>
+      <DataSearch />
+      <DataSort drop />
+      <DataFilters layer />
+    </Toolbar>
+    <DataTableColumns options={options} drop />
+  </Toolbar>
+  <DataSummary />
+  <DataTable columns={columns} />
+  <Pagination />
+</Data>
+```
+
+Your project should look like this:
+
+<Example height="auto" showResponsiveControls={['fullScreen']} template>
+  <Completed />
+</Example>
+
+Congratulations! You’ve used Data subcomponents to compose a toolbar with a variety of controls.
+
+To reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/p/devbox/how-to-add-additional-controls-to-a-toolbar-completed-l5nr54?file=%2Fsrc%2FApp.js%3A14%2C15).
