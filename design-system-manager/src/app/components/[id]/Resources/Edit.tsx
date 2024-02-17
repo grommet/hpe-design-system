@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Button, Form, FormField, Select, TextArea, TextInput } from 'grommet';
+import { useState, JSX } from 'react';
+import { Box, Button, Form, FormField, Notification, Select, TextArea, TextInput } from 'grommet';
 import { ButtonGroup, FormChildObjects } from 'aries-core';
-import { LevelType, ResourceType } from '@/utilities/types';
+import type { LevelType, ResourceType } from '@/utilities/types.d.ts';
 import { updateResources } from '../actions';
 
 const RESOURCE_TYPES = [
@@ -89,9 +89,10 @@ export const Edit = (
     onClose: () => void,
     level: LevelType
   }) => {
-    const [formValue, setFormValue] = useState({resources: resources});
+    const [formValue, setFormValue] = useState({resources});
     const [saving, setSaving] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [validationError, setValidationError] = useState({title: '', message: {}});
 
     const handleAdd = () => {
       const nextResources = [...formValue.resources, { ...resourceTemplate }];
@@ -123,7 +124,7 @@ export const Edit = (
     }) => {
       const SUCCESS_ANIMATION_DELAY = 1000;
 
-      let modifiedValues = {
+      const modifiedValues = {
         resources: [] as ResourceType[]
       };
 
@@ -138,7 +139,7 @@ export const Edit = (
       // Add the resource id to the modifiedValues object and convert to an array.
       modifiedValues.resources = Object.entries(modifiedValues.resources)
         .map((resource) => {
-          const index = parseInt(resource[0]);
+          const index = parseInt(resource[0], 10);
           modifiedValues.resources[index].id = value.resources[index].id;
           return resource[1];
         });
@@ -147,6 +148,9 @@ export const Edit = (
 
       updateResources(modifiedValues.resources, componentId)
         .then((updatedResources) => { 
+          if (updatedResources.errors) {
+            throw new Error('Validation rules were not met.', {cause: updatedResources});
+          }
           setFormValue({...formValue, resources: updatedResources}); 
         })
         .then(() => { 
@@ -159,13 +163,16 @@ export const Edit = (
             setSuccess(false);
           }, SUCCESS_ANIMATION_DELAY);
         }).catch((error) => {
-          console.log(error);
+          console.error(error, 'Validation rules:', error.cause.errors);
+          setValidationError({title: error.message, message: error.cause.errors});
+          setSaving(false);
+          setSuccess(false);
         }
       );
     };
 
     const onReset = () => {
-      setFormValue({resources: resources});
+      setFormValue({resources});
       onClose();
     }
 
@@ -175,6 +182,7 @@ export const Edit = (
         onChange={onChange}
         onSubmit={(onSubmit)}
       >
+        <Box gap='medium'>
         <FormChildObjects 
           collection={{
             name: 'Resources',
@@ -190,6 +198,14 @@ export const Edit = (
           required={false}
           values={formValue?.resources}
         />
+        {validationError.title.length > 0 ? 
+          <Notification 
+            status='critical' 
+            title={validationError.title} 
+            message={JSON.stringify(validationError.message)} 
+          /> : 
+          null
+        }
         <ButtonGroup>
           <Button 
             type="submit" 
@@ -205,6 +221,7 @@ export const Edit = (
             onClick={onReset}
           />
         </ButtonGroup>
+        </Box>
       </Form>
   );
 }

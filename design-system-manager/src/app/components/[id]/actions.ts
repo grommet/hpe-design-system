@@ -1,7 +1,17 @@
-'use server'
+'use server';
 
-import { ComponentType, ResourceType } from "@/utilities/types";
-import { revalidatePath } from "next/cache";
+import { revalidatePath } from 'next/cache';
+import type { ComponentType, ResourceType } from '@/utilities/types.d.ts';
+
+class ValidationError extends Error {
+  validation: { errors: any; };
+
+  constructor(message: string, validation: { errors: any }) {
+    super(message);
+    this.name = 'ValidationError';
+    this.validation = validation;
+  }
+}
 
 export async function getComponent(id: string) {
   const url = `${process.env.API_URL}/components/${id}`;
@@ -16,6 +26,7 @@ export async function getComponent(id: string) {
   }
   catch (error) {
     console.error(error);
+    return null;
   }
 }
 
@@ -35,6 +46,7 @@ export async function updateComponent(component: ComponentType) {
   }
   catch (error) {
     console.error(error);
+    return null;
   }
   
 }
@@ -52,6 +64,7 @@ export async function getResources(id: string) {
   }
   catch (error) {
     console.error(error);
+    return null;
   }
 }
 
@@ -69,6 +82,7 @@ export async function addResource(id: string, resource: ResourceType) {
   }
   catch (error) {
     console.error(error);
+    return null;
   }
 }
 
@@ -88,20 +102,25 @@ export async function updateResource(resource: ResourceType) {
   }
   catch (error) {
     console.error(error);
+    return null;
   }
 }
 
-export async function updateResources(resourcesProp: ResourceType[], componentId: string) {
-  const path = `/resources`;
+export async function updateResources(
+  resourcesProp: ResourceType[], 
+  componentId: string) 
+  {
+  const path = '/resources';
   const url = `${process.env.API_URL}${path}`;
 
   const resources = resourcesProp.map(resource => {
     return {
       id: resource.id,
       name: resource.name,
-      type: typeof resource.type === "object" ? resource.type.value : resource.type,
+      type: typeof resource.type === 'object' ? 
+        resource.type.value : resource.type,
       url: resource.url,
-    }
+    };
   });
 
   const options = {
@@ -112,12 +131,17 @@ export async function updateResources(resourcesProp: ResourceType[], componentId
   
   try {
     const res = await fetch(url, options);
+    if (res.status === 422) {
+      const validation = await res.json();
+      throw new ValidationError('Validation error', validation);
+    }
     revalidatePath(path);
-    componentId && revalidatePath(`/components/${componentId}/resources`);
+    if (componentId) revalidatePath(`/components/${componentId}/resources`);
     return res.json();
   }
-  catch (error) {
+  catch (error: any) {
     console.error(error);
+    return error.validation;
   }
 }
 

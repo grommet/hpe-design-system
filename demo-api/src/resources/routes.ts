@@ -71,8 +71,6 @@ router.put('/:id', updateRules, async (req: Request, res: Response) => {
 router.put('/', updateManyRules, async (req: Request, res: Response) => {
   const errors = validationResult(req);
 
-  console.log(errors);
-
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
