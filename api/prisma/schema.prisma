@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  name      String?
+  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Component {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  status         String?
+  description    String?
+  keywords       String[]
+  resources      Resource[]
+  anatomy        Anatomy[]
+  states         ComponentState[]
+  configurations Configuration[]
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+// Anatomy is the physical structure of a component and describes the parts from which it is made
+model Anatomy {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  component   Component @relation(fields: [componentId], references: [id])
+  componentId String    @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ComponentState represent various interactive states of a component
+model ComponentState {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  component   Component @relation(fields: [componentId], references: [id])
+  componentId String    @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Configuration is a variant or flavor of a component which can be modified via its properties
+model Configuration {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  component   Component @relation(fields: [componentId], references: [id])
+  componentId String    @db.ObjectId
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Resource is a file or link that is associated with a component
+model Resource {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  // types may include: design, code/implementation, documentation, demo, example use cases, 
+  // research, design criteria, design rationale, etc.
+  type        String
+  url         String
+  component   Component? @relation(fields: [componentId], references: [id])
+  componentId String     @db.ObjectId
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}

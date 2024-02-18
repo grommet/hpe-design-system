@@ -6,7 +6,7 @@ export const ButtonGroup = ({ children, ...rest }) => {
   const { buttonGroup } = useContext(ThemeContext);
 
   return (
-    <Box direction="row" {...buttonGroup} {...rest}>
+    <Box direction="row" gap="small" {...buttonGroup} {...rest}>
       {children}
     </Box>
   );

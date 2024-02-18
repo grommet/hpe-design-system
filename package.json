@@ -27,7 +27,9 @@
   },
   "workspaces": [
     "aries-core",
-    "aries-site"
+    "aries-site",
+    "demo-api",
+    "design-system-manager"
   ],
   "dependencies": {
     "grommet": "https://github.com/grommet/grommet/tarball/stable",

@@ -1,0 +1,136 @@
+'use client';
+
+import { useState, ReactNode } from 'react';
+import { 
+  Box, 
+  Button, 
+  Form, 
+  FormField, 
+  Header,
+  Heading,
+  Layer, 
+  Select, 
+  TextArea, 
+  TextInput 
+} from 'grommet';
+import { Close } from 'grommet-icons';
+import { ButtonGroup } from 'aries-core';
+import type { ComponentType } from "@/utilities/types";
+import { updateComponent } from "../actions.ts";
+
+interface InputMap {
+  // eslint-disable-next-line no-unused-vars
+  [key: string]: ({ ...rest }: { [x: string]: any }) => ReactNode | null;
+}
+
+const INPUT_MAP: InputMap = {
+  id: ({...rest}) => <TextInput readOnly {...rest} />,
+  description: ({...rest}) => <TextArea rows={4} {...rest} />,
+  keywords: ({...rest}) => <TextArea {...rest} />,
+  status: ({...rest}) => <Select options={['draft', 'beta', 'published']} {...rest} />,
+  createdAt: ({...rest}) => <TextInput readOnly {...rest} />,
+  updatedAt: ({...rest}) => <TextInput readOnly {...rest} />,
+};
+
+const DATATYPE_MAP: InputMap = {
+  string: ({...rest}) => <TextInput {...rest} />,
+  number: ({...rest}) => <TextInput {...rest} />,
+  object: ({value, ...rest}) => {
+    let result = <TextInput {...rest} />;
+    if (Array.isArray(value)) {
+      result = <Select options={value} value={value} {...rest} />
+    }
+    return result;
+  },
+};
+
+export const Edit = ({ component, onClose } : { component: ComponentType, onClose: () => void }) => {
+  const [currentData, setCurrentData] = useState(component);
+  const [tempData, setTempData] = useState(currentData);
+  const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSave = (formValue: ComponentType) => {
+    const SUCCESS_ANIMATION_DELAY = 1000;
+
+    setSaving(true);
+    updateComponent(formValue)
+      .then((updatedComponent) => { setCurrentData(updatedComponent); })
+      .then(() => { 
+        setSaving(false); 
+        setSuccess(true);
+      })
+      .then(() => { 
+        setTimeout(() => { onClose(); }, SUCCESS_ANIMATION_DELAY);
+      });
+  }
+
+  const handleCancel = () => {
+    setTempData(currentData);
+    onClose();
+  }
+
+  return (
+    <Layer full>
+      <Box overflow="auto" pad="small">
+        <Header>
+          {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+          <></>
+          <Button tip="Cancel editing" icon={<Close aria-hidden="true" />} onClick={handleCancel} />
+        </Header>
+        <Box alignSelf='center' gap="medium" flex={false} pad="large">
+        <Heading level={2} margin="none">Edit {component.name} detail</Heading>
+        <Form>
+          <Box gap="medium">
+            <Box>
+              {currentData ? Object.entries(currentData).map(([name, value]) => (
+                // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
+                <FormField 
+                  key={name} 
+                  label={name}
+                  htmlFor={name}
+                  name={name}
+                  contentProps={{ width: 'medium' }}
+                  >
+                  {INPUT_MAP[name] ? 
+                    INPUT_MAP[name]({ 
+                      id: name, 
+                      name, 
+                      value: tempData[name as keyof ComponentType], 
+                      onChange: (e : Event) => {
+                        if (e.target) {
+                          setTempData({ ...tempData, [name]: (e.target as HTMLInputElement).value });
+                        }
+                      }
+                    }) :
+                    DATATYPE_MAP[typeof value]({
+                      id: name,
+                      name,
+                      value: tempData[name as keyof ComponentType],
+                      onChange: (e: Event) => {
+                        if (e.target) {
+                          setTempData({ ...tempData, [name]: (e.target as HTMLInputElement).value })
+                        }
+                      }
+                    })
+                  }
+                </FormField>
+              )): null}
+            </Box>
+            <ButtonGroup>
+              <Button 
+                label="Save" 
+                primary 
+                busy={saving} 
+                success={success} 
+                onClick={() => handleSave(tempData)} 
+              />
+              <Button label="Cancel" onClick={handleCancel} />
+            </ButtonGroup>
+          </Box>
+        </Form>
+        </Box>
+      </Box>
+    </Layer>
+  );
+}
