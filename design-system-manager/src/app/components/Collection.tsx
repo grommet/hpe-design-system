@@ -1,17 +1,17 @@
-import { Box, Data, Heading } from 'grommet';
-import { LevelType } from '@/utilities/types';
-import { CardGroup } from './CollectionViews';
+import { Data } from 'grommet';
+import type { LevelType } from '@/utilities/types';
+import { Pane } from '../../components/Pane.tsx';
+import { CardGroup } from './CollectionViews.tsx';
 
 export const Collection = (
   {data, level}: {data: [], level: LevelType}
 ) => {
   return (
-    <Box>
-      <Heading level={level}>Manage</Heading>
+    <Pane heading="Manage" level={level}>
       <Data data={data} toolbar >
         {/* <ComponentList /> */}
-        <CardGroup level={level + 1} />
+        <CardGroup level={level + 1} />        
       </Data>
-    </Box>
+    </Pane>
   );
 }

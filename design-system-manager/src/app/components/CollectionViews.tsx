@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { Box, Card, CardBody, Cards, List, Heading, Paragraph } from "grommet";
-import { ComponentType, LevelType } from "@/utilities/types";
-import { use, useEffect } from "react";
+import type { LevelType } from "@/utilities/types";
 
 export const ComponentList = () => {
   return (
@@ -20,11 +19,12 @@ export const CardGroup = ({level, ...rest} : {level: LevelType}) => {
   return (
     <Cards {...rest}>
       {(item, index) => {
-        const DELAY = 50;
+        const DELAY = 75;
+        const DURATION = 750;
 
         return(
           <Link href={`/components/${item.id}`} passHref legacyBehavior>
-            <Card animation={{ type: 'fadeIn', delay: index * DELAY }}>
+            <Card animation={{ type: 'fadeIn', delay: index * DELAY, duration: DURATION }}>
               <CardBody>
                 <Heading level={level} margin="none">{item.name}</Heading>
                 <Paragraph>{item.description}</Paragraph>

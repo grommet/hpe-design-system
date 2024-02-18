@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Box, PageHeader } from 'grommet';
+import { Grid, PageHeader } from 'grommet';
 import { ReverseAnchor } from 'aries-core';
-import { Collection } from './Collection'
-import { Insights } from './Insights';
+import { Collection } from './Collection.tsx'
+import { Insights } from './Insights.tsx';
 
 async function getComponents() {
   const res = await fetch(`${process.env.API_URL}/components`);
@@ -22,11 +22,14 @@ const Page = async () => {
           </Link>
         }
       />
-      <Box gap='medium'>
+      <Grid 
+        columns={{count: 'fit', size: ['20vw', 'auto']}}
+        gap='large'
+        align='start'
+      >
         <Insights level={2} />
         <Collection data={components} level={2} />
-      </Box>
-      <Box pad="large"/>
+      </Grid>
     </>
 )};
 
