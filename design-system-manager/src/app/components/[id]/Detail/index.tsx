@@ -1,5 +1,5 @@
-import { Properties } from "./Properties";
-import { Editable } from './Editable';
+import { Properties } from "./Properties.tsx";
+import { Editable } from './Editable.tsx';
 
 export const Detail = ({id}:{id: string}) => {
   return (

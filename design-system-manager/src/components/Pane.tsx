@@ -3,12 +3,14 @@ import { Box, Header, Heading } from 'grommet';
 import type { LevelType } from '@/utilities/types';
 
 export const Pane = ({
+  actions,
   children, 
   heading, 
   level,
   skeleton,
   ...boxProps
 }: {
+  actions?: React.ReactNode,
   children: React.ReactNode, 
   heading: string | React.ReactNode, 
   level: LevelType,
@@ -24,6 +26,7 @@ export const Pane = ({
     >
       <Header>
         <Heading level={level}>{heading}</Heading>
+        {actions}
       </Header>
       <Box skeleton={skeleton}>
         {children}

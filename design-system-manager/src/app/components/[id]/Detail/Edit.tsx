@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { 
   Box, 
   Button, 
@@ -15,11 +15,12 @@ import {
 } from 'grommet';
 import { Close } from 'grommet-icons';
 import { ButtonGroup } from 'aries-core';
-import { ComponentType } from "@/utilities/types";
-import { updateComponent } from "../actions";
+import type { ComponentType } from "@/utilities/types";
+import { updateComponent } from "../actions.ts";
 
 interface InputMap {
-  [key: string]: ({ ...rest }: { [x: string]: any }) => JSX.Element | null;
+  // eslint-disable-next-line no-unused-vars
+  [key: string]: ({ ...rest }: { [x: string]: any }) => ReactNode | null;
 }
 
 const INPUT_MAP: InputMap = {
@@ -73,6 +74,7 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
     <Layer full>
       <Box overflow="auto" pad="small">
         <Header>
+          {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
           <></>
           <Button tip="Cancel editing" icon={<Close aria-hidden="true" />} onClick={handleCancel} />
         </Header>
@@ -82,6 +84,7 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
           <Box gap="medium">
             <Box>
               {currentData ? Object.entries(currentData).map(([name, value]) => (
+                // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
                 <FormField 
                   key={name} 
                   label={name}
@@ -94,14 +97,22 @@ export const Edit = ({ component, onClose } : { component: ComponentType, onClos
                       id: name, 
                       name, 
                       value: tempData[name as keyof ComponentType], 
-                      onChange: (e) => setTempData({ ...tempData, [name]: e.target.value }) 
+                      onChange: (e : Event) => {
+                        if (e.target) {
+                          setTempData({ ...tempData, [name]: (e.target as HTMLInputElement).value });
+                        }
+                      }
                     }) :
                     DATATYPE_MAP[typeof value]({
                       id: name,
                       name,
                       value: tempData[name as keyof ComponentType],
-                      onChange: (e) => setTempData({ ...tempData, [name]: e.target.value })
-                    }) 
+                      onChange: (e: Event) => {
+                        if (e.target) {
+                          setTempData({ ...tempData, [name]: (e.target as HTMLInputElement).value })
+                        }
+                      }
+                    })
                   }
                 </FormField>
               )): null}
