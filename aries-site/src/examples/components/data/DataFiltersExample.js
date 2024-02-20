@@ -1,5 +1,5 @@
 import React from 'react';
-import { Data, DataFilters } from 'grommet';
+import { Data, DataFilters, Toolbar } from 'grommet';
 import applications from '../../../data/mockData/applications.json';
 
 export const DataFiltersExample = () => {
@@ -21,7 +21,9 @@ export const DataFiltersExample = () => {
         rating: { label: 'Rating', range: { min: 0, max: 5 } },
       }}
     >
-      <DataFilters layer />
+      <Toolbar>
+        <DataFilters layer />
+      </Toolbar>
     </Data>
   );
 };
