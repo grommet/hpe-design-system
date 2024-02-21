@@ -2,7 +2,7 @@
   "color": {
     "brand": {
       "$type": "color",
-      "$value": "{color.green.500}",
+      "$value": "#01A982",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15,8 +15,8 @@
     "background": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.900}",
-        "$description": "Abc",
+        "$value": "#1C1C1C",
+        "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -27,8 +27,8 @@
       },
       "front": {
         "$type": "color",
-        "$value": "{color.neutral.700}",
-        "$description": "Background color applied on top of background-back.",
+        "$value": "#222222",
+        "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -39,7 +39,7 @@
       },
       "back": {
         "$type": "color",
-        "$value": "{color.neutral.900}",
+        "$value": "#1C1C1C",
         "$description": "Background color applied to the base layer of the application.",
         "$extensions": {
           "com.figma": {
@@ -51,7 +51,7 @@
       },
       "contrast": {
         "$type": "color",
-        "$value": "#0000000a",
+        "$value": "#FFFFFF0F",
         "$description": "abc",
         "$extensions": {
           "com.figma": {
@@ -88,7 +88,7 @@
       "validation": {
         "critical": {
           "$type": "color",
-          "$value": "#fc61613d",
+          "$value": "#CC1F1A4D",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -100,7 +100,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "#ffbc443d",
+          "$value": "#D891284D",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -112,7 +112,7 @@
         },
         "ok": {
           "$type": "color",
-          "$value": "#17eba03d",
+          "$value": "#17D0A64D",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -127,7 +127,7 @@
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.300}",
+        "$value": "#FFFFFF5C",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -139,7 +139,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.neutral.400}",
+        "$value": "#FFFFFFB8",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -151,7 +151,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.neutral.200}",
+        "$value": "#FFFFFF1F",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -178,7 +178,7 @@
       "status": {
         "critical": {
           "$type": "color",
-          "$value": "{color.red.500}",
+          "$value": "#D04F4E",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -190,7 +190,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.yellow.500}",
+          "$value": "#9B6310",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -202,7 +202,7 @@
         },
         "ok": {
           "$type": "color",
-          "$value": "{color.green.400}",
+          "$value": "#008567",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -214,7 +214,7 @@
         },
         "unknown": {
           "$type": "color",
-          "$value": "{color.neutral.300}",
+          "$value": "#555555",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -229,7 +229,7 @@
     "text": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.500}",
+        "$value": "#FFFFFF",
         "$description": "Default text color.",
         "$extensions": {
           "com.figma": {
@@ -241,7 +241,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.neutral.600}",
+        "$value": "#FFFFFF",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -253,7 +253,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.neutral.400}",
+        "$value": "#FFFFFF80",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -265,7 +265,7 @@
       },
       "xweak": {
         "$type": "color",
-        "$value": "{color.neutral.300}",
+        "$value": "#FFFFFF33",
         "$description": "",
         "$extensions": {
           "com.figma": {
