@@ -4,6 +4,7 @@ const resolveTokens = (tokens, primitives) => {
   const result = tokens;
 
   const descend = (node, path = []) => {
+    // eslint-disable-next-line consistent-return
     Object.keys(node).forEach(key => {
       const value = node[key];
       const keyPath = [...path, key];
