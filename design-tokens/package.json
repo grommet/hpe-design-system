@@ -7,7 +7,8 @@
     "prettier:check": "prettier --check src/",
     "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
     "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/sync_figma_to_tokens.ts",
-    "build": "rm -rf ./dist && node src/build.js",
+    "build-style-dictionary": "node src/build-style-dictionary.js",
+    "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary",
     "test": "jest"
   },
   "dependencies": {
@@ -21,6 +22,8 @@
     "@types/node": "^20.4.5",
     "jest": "^29.6.2",
     "prettier": "3.0.0",
+    "style-dictionary": "^3.9.2",
+    "style-dictionary-utils": "^2.0.7",
     "ts-jest": "^29.1.1"
   }
 }

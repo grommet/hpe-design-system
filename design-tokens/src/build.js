@@ -49,12 +49,12 @@ const light = JSON.parse(rawLight);
 const resolvedLight = resolveTokens(light, primitives);
 
 // desktop dimensions
-const rawDesktop = readFileSync('./tokens/dimension.desktop.json');
+const rawDesktop = readFileSync('./tokens/dimension.large.json');
 const desktop = JSON.parse(rawDesktop);
 const resolvedDesktop = resolveTokens(desktop, primitives);
 
 // mobile dimensions
-const rawMobile = readFileSync('./tokens/dimension.desktop.json');
+const rawMobile = readFileSync('./tokens/dimension.small.json');
 const mobile = JSON.parse(rawMobile);
 const resolvedMobile = resolveTokens(mobile, primitives);
 
@@ -78,12 +78,12 @@ writeFileSync(
 );
 
 writeFileSync(
-  './dist/dimension.desktop.js',
+  './dist/dimension.large.js',
   `export default ${JSON.stringify(resolvedDesktop, null, 2)}`,
 );
 
 writeFileSync(
-  './dist/dimension.mobile.js',
+  './dist/dimension.small.js',
   `export default ${JSON.stringify(resolvedMobile, null, 2)}`,
 );
 
@@ -91,8 +91,8 @@ writeFileSync(
   './dist/index.js',
   `export { default as dark } from './color.dark.js';
 export { default as light } from './color.light.js';
-export { default as desktop } from './dimension.desktop.js';
-export { default as mobile } from './dimension.mobile.js';`,
+export { default as desktop } from './dimension.large.js';
+export { default as mobile } from './dimension.small.js';`,
 );
 
 // const [light, dark] = splitTheme(resolved);
