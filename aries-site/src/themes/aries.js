@@ -97,7 +97,8 @@ const global = {
     },
   },
   colors: {
-    brand: dark.color.brand.$value, // same in light and dark mode, how to handle?
+    // same in light and dark mode, how to handle? is this fine?
+    brand: dark.color.brand.$value,
     background: {
       dark: dark.color.background.default.$value,
       light: light.color.background.default.$value,
