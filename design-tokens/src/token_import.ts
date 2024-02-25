@@ -9,10 +9,10 @@ import {
   ApiGetLocalVariablesResponse,
   VariableChange,
   VariableCodeSyntax,
-} from './figma_api.js'
-import { colorApproximatelyEqual, parseColor } from './color.js'
-import { areSetsEqual } from './utils.js'
-import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js'
+} from './figma_api.ts'
+import { colorApproximatelyEqual, parseColor } from './color.ts'
+import { areSetsEqual } from './utils.ts'
+import { Token, TokenOrTokenGroup, TokensFile } from './token_types.ts'
 
 export type FlattenedTokensByFile = {
   [fileName: string]: {

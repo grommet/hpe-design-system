@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
     "module": "Node16",
-    "target": "es2015",
-    "sourceMap": true,
+    "target": "es2022",
     "moduleResolution": "Node16",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "noEmitOnError": false,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "noUnusedParameters": true,
-    "noEmitOnError": true,
-    "removeComments": true,
-    "skipLibCheck": true
+    "removeComments": true
   },
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -21,12 +22,12 @@ import { Card as TemplateCard } from '../examples';
 
 const title = 'Design Tokens Demo';
 
-const BriefCard = ({ description, title, icon, ...rest }) => (
+const BriefCard = ({ description, title: titleProp, icon, ...rest }) => (
   <Card onClick={() => {}} {...rest}>
     <CardBody direction="row" align="center" justify="between" gap="medium">
       <Box gap="xsmall">
         <Heading level={3} margin="none">
-          {title}
+          {titleProp}
         </Heading>
         <Text margin="none" size="small" weight={500}>
           {description}
@@ -36,6 +37,12 @@ const BriefCard = ({ description, title, icon, ...rest }) => (
     </CardBody>
   </Card>
 );
+
+BriefCard.propTypes = {
+  description: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 const MeterCard = () => (
   <TemplateCard title="Issues" level={3}>
@@ -69,6 +76,7 @@ const MeterCard = () => (
 );
 
 const Demo = () => {
+  // eslint-disable-next-line no-unused-vars
   const size = useContext(ResponsiveContext);
 
   return (

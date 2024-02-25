@@ -1,4 +1,4 @@
-import { colorApproximatelyEqual, parseColor, rgbToHex } from './color.js'
+import { colorApproximatelyEqual, parseColor, rgbToHex } from './color.ts'
 
 describe('colorApproximatelyEqual', () => {
   it('compares by hex value', () => {

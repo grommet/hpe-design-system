@@ -3,7 +3,7 @@ import {
   FlattenedTokensByFile,
   generatePostVariablesPayload,
   readJsonFiles,
-} from './token_import.js'
+} from './token_import.ts'
 
 jest.mock('fs', () => {
   const MOCK_FILE_INFO: { [fileName: string]: string } = {
