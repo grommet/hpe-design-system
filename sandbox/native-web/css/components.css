@@ -1,0 +1,142 @@
+/* ------ Component styles ------ */
+
+/* Anchor */
+a {
+  font-weight: 500;
+  color: var(--color-text-strong);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+button {
+  --button-backgroundColor: transparent;
+  --button-borderWidth: 0px;
+  --button-borderColor: var(--button-backgroundColor);
+  --button-lineHeight: 24px;
+  --button-label-color: var(--color-text-strong);
+  --button-label-fontWeight: 600;
+  --button-label-fontSize: 19px;
+  --button-borderRadius: 2rem;
+  --button-paddingVertical: calc(6px - var(--button-borderWidth));
+  --button-paddingHorizontal: calc(18px - var(--button-borderWidth));
+
+  border-radius: var(--button-borderRadius);
+  background-color: var(--button-backgroundColor);
+  border: var(--button-borderWidth) solid var(--button-borderColor);
+  color: var(--button-label-color);
+  padding: var(--button-paddingVertical) var(--button-paddingHorizontal);
+  font-size: var(--button-label-fontSize);
+  line-height: var(--button-lineHeight);
+  font-weight: var(--button-label-fontWeight);
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color, background-color 0.25s;
+}
+button:hover {
+  --button-backgroundColor: var(--color-background-contrast);
+}
+/* button:focus, */
+button:focus-visible {
+  outline: 2px solid var(--color-focus);
+}
+button.primary {
+  --button-backgroundColor: var(--color-brand);
+  --button-label-color: var(--color-foreground-selected);
+  --button-label-fontWeight: bold;
+}
+button.secondary {
+  --button-borderColor: var(--color-brand);
+  --button-borderWidth: 2px;
+}
+button.secondary:hover {
+  --button-backgroundColor: transparent;
+  --button-borderWidth: 3px;
+}
+button.iconOnly {
+  --button-paddingVertical: 9px;
+  --button-paddingHorizontal: 9px;
+  --button-lineHeight: 0;
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--color-background-front);
+  border-radius: var(--radius-xlarge);
+  padding: var(--spacing-medium);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+.card.interactive:hover {
+  box-shadow: var(--spacing-none) var(--spacing-xsmall) var(--spacing-small)
+    #0000001f;
+  cursor: pointer;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  box-sizing: border-box;
+  grid-gap: var(--spacing-medium) var(--spacing-medium);
+}
+
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-strong);
+  margin: 0;
+  font-weight: 500;
+  line-height: 1;
+}
+h1 {
+  font-size: 2.25rem; /* 36px */
+}
+h2 {
+  font-size: 1.5rem; /* 24px */
+}
+
+/* Page, PageContent */
+.page {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-self: center;
+  max-width: 1536px; /* these shouldn't be responsive */
+  min-width: 384px;
+  width: 100%;
+  padding-inline: var(--spacing-large);
+}
+
+/* PageHeader */
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--spacing-medium) 0 var(--spacing-large) 0;
+}
+
+/* Text  */
+span,
+p {
+  font-size: 18px;
+  line-height: 24px;
+}

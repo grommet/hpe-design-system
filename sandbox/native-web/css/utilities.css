@@ -1,0 +1,38 @@
+/* ------ Utility classes ------- */
+
+.gap-xsmall {
+  gap: var(--spacing-xsmall);
+}
+
+.gap-medium {
+  gap: var(--spacing-medium);
+}
+
+.text-xsmall {
+  font-size: 14px;
+  line-height: 16px;
+}
+.text-small {
+  font-size: 16px;
+  line-height: 20px;
+}
+.text-medium {
+  font-size: 18px;
+  line-height: 24px;
+}
+.text-large {
+  font-size: 22px;
+  line-height: 28px;
+}
+.text-xlarge {
+  font-size: 24px;
+  line-height: 30px;
+}
+.text-xxlarge {
+  font-size: 36px;
+  line-height: 40px;
+}
+.text-3xl {
+  font-size: 42px;
+  line-height: 46px;
+}

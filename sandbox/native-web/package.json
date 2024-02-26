@@ -1,0 +1,18 @@
+{
+  "name": "native-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "design-tokens": "file:.yalc/design-tokens",
+    "grommet-icons": "^4.12.0"
+  }
+}

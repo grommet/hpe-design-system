@@ -1,0 +1,63 @@
+:root {
+  font-family: Metric, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: var(--color-background-back);
+  color: var(--color-text-default);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+#app {
+  margin: 0 auto;
+}
+
+/* ------- Layout styles --------- */
+
+img.icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* card */
+.description {
+  font-weight: 500;
+}
+
+.container {
+  container: pageSection / inline-size;
+}
+
+.outer {
+  grid-template-columns: 1fr var(--content-medium);
+}
+.flex-flex {
+  grid-template-columns: 1fr 1fr;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+@container pageSection (max-width: 768px) {
+  .outer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container pageSection (max-width: 576px) {
+  .flex-flex {
+    grid-template-columns: 1fr;
+  }
+}
