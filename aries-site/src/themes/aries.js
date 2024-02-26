@@ -3,15 +3,13 @@ import { deepMerge } from 'grommet/utils';
 import { Info } from 'grommet-icons';
 import { light, dark, desktop, mobile } from 'design-tokens';
 
-// TO DO can we use typescript in token exports to help enforce expected values?
-
 const global = {
   borderSize: {
     xsmall: desktop.border.xsmall.$value,
     small: desktop.border.small.$value,
-    medium: desktop.border.medium.$value, // 4
-    large: desktop.border.large.$value, // 12
-    xlarge: desktop.border.xlarge.$value, // 24
+    medium: desktop.border.medium.$value,
+    large: desktop.border.large.$value,
+    xlarge: desktop.border.xlarge.$value,
   },
   edgeSize: {
     none: desktop.spacing.none.$value,
@@ -39,9 +37,9 @@ const global = {
       borderSize: {
         xsmall: mobile.border.xsmall.$value,
         small: mobile.border.small.$value,
-        medium: mobile.border.medium.$value, // 4
-        large: mobile.border.large.$value, // 12
-        xlarge: mobile.border.xlarge.$value, // 24
+        medium: mobile.border.medium.$value,
+        large: mobile.border.large.$value,
+        xlarge: mobile.border.xlarge.$value,
       },
       edgeSize: {
         none: mobile.spacing.none.$value,
@@ -69,9 +67,9 @@ const global = {
       borderSize: {
         xsmall: mobile.border.xsmall.$value,
         small: mobile.border.small.$value,
-        medium: mobile.border.medium.$value, // 4
-        large: mobile.border.large.$value, // 12
-        xlarge: mobile.border.xlarge.$value, // 24
+        medium: mobile.border.medium.$value,
+        large: mobile.border.large.$value,
+        xlarge: mobile.border.xlarge.$value,
       },
       edgeSize: {
         none: mobile.spacing.none.$value,
@@ -152,32 +150,32 @@ const global = {
       light: light.color.foreground.selected.$value,
     }, // necessary to meet color contrast on HPE green background
     'status-critical': {
-      dark: dark.color.foreground.status.critical.$value,
-      light: light.color.foreground.status.critical.$value,
+      dark: dark.color.status.critical.$value,
+      light: light.color.status.critical.$value,
     },
     'status-warning': {
-      dark: dark.color.foreground.status.warning.$value,
-      light: light.color.foreground.status.warning.$value,
+      dark: dark.color.status.warning.$value,
+      light: light.color.status.warning.$value,
     },
     'status-ok': {
-      dark: dark.color.foreground.status.ok.$value,
-      light: light.color.foreground.status.ok.$value,
+      dark: dark.color.status.ok.$value,
+      light: light.color.status.ok.$value,
     },
     'status-unknown': {
-      dark: dark.color.foreground.status.unknown.$value,
-      light: light.color.foreground.status.unknown.$value,
+      dark: dark.color.status.unknown.$value,
+      light: light.color.status.unknown.$value,
     },
     'validation-critical': {
-      light: light.color.background.validation.critical.$value,
-      dark: dark.color.background.validation.critical.$value, // 30%
+      light: light.color.validation.critical.$value,
+      dark: dark.color.validation.critical.$value, // 30%
     },
     'validation-ok': {
-      light: light.color.background.validation.ok.$value,
-      dark: dark.color.background.validation.ok.$value,
+      light: light.color.validation.ok.$value,
+      dark: dark.color.validation.ok.$value,
     },
     'validation-warning': {
-      light: light.color.background.validation.warning.$value,
-      dark: dark.color.background.validation.critical.$value,
+      light: light.color.validation.warning.$value,
+      dark: dark.color.validation.critical.$value,
     },
     // TO DO do we want these as tokens?
     'background-layer-overlay': '#00000080',

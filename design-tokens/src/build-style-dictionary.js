@@ -5,16 +5,17 @@ StyleDictionary.registerFormat({
   name: 'css/variables-themed',
   formatter({ dictionary, file, options }) {
     const { outputReferences, theme } = options;
+    const darkTokens = StyleDictionary.formatHelpers.formattedVariables({
+      format: 'css',
+      dictionary,
+      outputReferences,
+    });
     return `${StyleDictionary.formatHelpers.fileHeader({
       file,
       // eslint-disable-next-line max-len
-    })}:root[data-theme=${theme}] {\n${StyleDictionary.formatHelpers.formattedVariables(
-      {
-        format: 'css',
-        dictionary,
-        outputReferences,
-      },
-    )}\n}\n`;
+    })}:root[data-theme=${theme}] {\n${darkTokens}\n}\n
+@media (prefers-color-scheme: dark) {\n:root {\n${darkTokens}\n}\n}\n
+    `;
   },
 });
 

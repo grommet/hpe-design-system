@@ -10,6 +10,7 @@
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.4",
     "aries-core": "*",
+    "design-tokens": "*",
     "next": "13.4.4",
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.4.4",
