@@ -1466,7 +1466,7 @@ export const components = [
     name: 'Skeleton',
     category: 'Visualizations',
     description:
-      'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
+      'Skeletons are simplified placeholders that mimic the layout of the content being loaded, providing users with a visual preview while reducing perceived loading time.',
     preview: {
       component: () => <SkeletonPreview />,
       background: 'background-front',
