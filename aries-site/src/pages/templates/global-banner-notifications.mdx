@@ -51,13 +51,13 @@ For low-severity notifications that do not require user action or user attention
 
 1. **Status Indicator** is an icon made of a shape and color to capture the user’s attention.
 2. **Message** is a short description explaining the issue.
-3. **Anchors (optional)** are used to direct users to links related to the notification.
+3. **Links (optional)** are used to direct users to links related to the notification.
 4. **Close Button (optional)** is used to dismiss the notification.
 
 ## Best practices
 
 - Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
-- Also when applicable, Global Banners should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
+- Also when applicable, Global Banners should always have a relevant link(s) to direct users to further actions or to view more about the issue in full detail.
 - Do not use `onClose` when information is important and needs to remain persistent. Also, global banners may remain persistent across multiple sessions until they are dismissed.
 
 ### Placement
@@ -70,8 +70,8 @@ For low-severity notifications that do not require user action or user attention
 - Only show one banner at a time.
 - Global Banners should stay within the 192 character limit.
 - Long text is not truncated but instead will wrap on smaller screen sizes.
-- Anchors are left-aligned and will wrap alongisde the text.
-- Use only two or fewer anchors.
+- Links are left-aligned and will wrap alongisde the text.
+- Use only two or fewer links.
 - Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language.
 
 ### Behavior
@@ -81,7 +81,7 @@ For low-severity notifications that do not require user action or user attention
 
 ### Things to avoid
 
-- Global Banners are not clickable. Instead use anchors to direct users to take further action or to view the issue in full detail.
+- Global Banners are not clickable. Instead use links to direct users to take further action or to view the issue in full detail.
 - Do not allow messages to exceed 192 characters.
 
 ## Variants
@@ -159,7 +159,7 @@ One possible use case is a **session timeout**. A warning status should be used 
     bestPractice={{
       type: 'do',
       message:
-        'Global Banners should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.',
+        'Global Banners should always have a link (or links) that is relevant to resolving the notification. It is not recommended to use more than two links. Also, low-severity notifications should be dismissible.',
     }}
     height={{ min: 'small' }}
     pad="large"
@@ -172,7 +172,7 @@ One possible use case is a **session timeout**. A warning status should be used 
     pad="large"
     bestPractice={{
       type: 'dont',
-      message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`,
+      message: `Overloading notifications with long messages and links can lead to clutter and confusion.`,
     }}
     width="100%"
   >
