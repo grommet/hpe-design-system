@@ -49,10 +49,14 @@ For low-severity notifications that do not require user action or user attention
   <BannerNotificationDiagram />
 </Example>
 
-1. **Status Indicator** is an icon made of a shape and color to capture the user’s attention.
-2. **Message** is a short description explaining the issue.
-3. **Links (optional)** are used to direct users to links related to the notification.
-4. **Close Button (optional)** is used to dismiss the notification.
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the type of notification                           | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
+| **3** | **Link**                   | Used to direct users to additional detail or related content |                                             |                                                                                                                        |
+| **4** | **Close button**             | Dismisses the notification                                   |                                             | Critical notifications should not be dismissible.                                                                      |
+
+                                                             |
 
 ## Best practices
 
