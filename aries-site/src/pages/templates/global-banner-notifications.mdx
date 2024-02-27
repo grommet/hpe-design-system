@@ -21,7 +21,7 @@ import { Checkmark } from 'grommet-icons';
   width="100%"
   docs="https://v2.grommet.io/notification?theme=hpe"
   figma="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=3597%3A16611"
-  caption="An example of a dashboard with a Global Banner warning the user that their subscription is expiring. The user can either dismiss the notification or click on the anchor to renew their subscription."
+  caption="An example of a dashboard with a Global notification warning the user that their subscription is expiring. The user can either dismiss the notification or click on the anchor to renew their subscription."
   screenContainer={{ scale: 0.57 }}
 >
   <BannerContentLayoutExample />
@@ -31,7 +31,7 @@ import { Checkmark } from 'grommet-icons';
 
 Global banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
 
-Global banners are used to showcase warning and critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
+Global notifications are used to showcase warning and critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
 
 ## When not to use
 
@@ -44,7 +44,7 @@ For low-severity notifications that do not require user action or user attention
 ## Anatomy
 
 <Example
-  caption="Diagram illustrating the four parts composing of a Banner Notification."
+  caption="Diagram illustrating the four parts composing of a Global Notification."
   plain
 >
   <BannerNotificationDiagram />
@@ -72,7 +72,7 @@ For low-severity notifications that do not require user action or user attention
 ### Format
 
 - Only show one banner at a time.
-- Global Banners should stay within the 192 character limit.
+- Global Notifications should stay within the 192 character limit.
 - Long text is not truncated but instead will wrap on smaller screen sizes.
 - Links are left-aligned and will wrap alongisde the text.
 - Use only two or fewer links.
