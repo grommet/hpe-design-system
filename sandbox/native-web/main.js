@@ -1,5 +1,5 @@
-import 'design-tokens/dist/css/colors-dark.css';
 import 'design-tokens/dist/css/colors.css';
+import 'design-tokens/dist/css/colors-dark.css';
 import 'design-tokens/dist/css/dimensions-large.css';
 import 'design-tokens/dist/css/dimensions-small.css';
 import './css/components.css';
