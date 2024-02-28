@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "name": "HPE GreenLake Flex Solutions",
+      "category": "Workloads",
+      "subscription": true
+    },
+    {
+      "name": "Aruba Networking",
+      "category": "Networking",
+      "subscription": true
+    },
+    {
+      "name": "Compute Ops Management",
+      "category": "Compute",
+      "subscription": true
+    },
+    {
+      "name": "Wellness Dashboard",
+      "category": "Governance",
+      "subscription": true
+    },
+    {
+      "name": "Backup and Recovery",
+      "category": "Compute",
+      "subscription": true
+    }
+  ]
+}
