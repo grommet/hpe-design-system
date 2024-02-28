@@ -19,7 +19,7 @@ export const ToastPreview = ({ card, message, title }) => {
         <Box direction="row" gap="xsmall">
           <StatusGoodSmall color="status-ok" height="medium" 
         id="status-indicator"/>
-          <Box>
+          <Box  direction="row">
             <Text weight="500" id="title">
             {title}
           </Text>
