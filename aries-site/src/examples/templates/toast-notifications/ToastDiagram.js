@@ -76,7 +76,7 @@ export const ToastDiagram = () => (
           round="full"
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
-          3
+          4
         </Box>
       </Box>
       <ToastPreview title="Status title" message="This is a status message" />
