@@ -21,7 +21,7 @@ export const ToastPreview = ({ card, message, title }) => {
           <Text weight="500" id="title">
             {title}
           </Text>
-          <Text>
+          <Text id="message">
             {message}
           </Text>
         </Box>
