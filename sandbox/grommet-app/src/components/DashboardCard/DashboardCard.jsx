@@ -1,4 +1,5 @@
 // import { useContext } from 'react';
+import PropTypes from 'prop-types';
 import {
   Box,
   Heading,
@@ -17,7 +18,6 @@ export const DashboardCard = ({
   title,
   subtitle,
   children,
-  href,
   footer,
   ...rest
 }) => {
@@ -51,4 +51,16 @@ export const DashboardCard = ({
       <CardFooter>{footer}</CardFooter>
     </Card>
   );
+};
+
+DashboardCard.propTypes = {
+  icon: PropTypes.element,
+  level: PropTypes.number,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
+  footer: PropTypes.element,
 };

@@ -141,11 +141,7 @@ const EnergyCost = () => (
 export const SustainabilityInsights = () => {
   return (
     <Data data={mockData.sustainability}>
-      <Grid
-        columns={['flex', 'flex', 'flex']}
-        gap="medium"
-        pad={{ vertical: 'small' }}
-      >
+      <Grid columns="medium" gap="medium" pad={{ vertical: 'small' }}>
         <CarbonEmissions />
         <EnergyConsumption />
         <EnergyCost />

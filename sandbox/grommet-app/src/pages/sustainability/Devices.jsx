@@ -1,4 +1,4 @@
-import { Data, DataTable, Pagination, Box } from 'grommet';
+import { Data, DataTable, Pagination, Box, Text } from 'grommet';
 
 const columns = [
   {
@@ -30,10 +30,12 @@ const columns = [
   {
     property: 'city',
     header: 'City',
+    render: datum => <Text truncate="tip">{datum.city}</Text>,
   },
   {
     property: 'model',
     header: 'Model',
+    render: datum => <Text truncate="tip">{datum.model}</Text>,
   },
   {
     property: 'totalEnergy',
@@ -1082,7 +1084,14 @@ const data = [
 export const Devices = () => {
   return (
     <Data data={data} toolbar>
-      <DataTable columns={columns} sortable verticalAlign={{ body: 'top' }} />
+      <Box overflow={{ horizontal: 'auto' }}>
+        <DataTable
+          alignSelf="start"
+          columns={columns}
+          sortable
+          verticalAlign={{ body: 'top' }}
+        />
+      </Box>
       <Box border="top" pad={{ vertical: 'xsmall' }}>
         <Pagination alignSelf="end" />
       </Box>

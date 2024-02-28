@@ -1,45 +1,10 @@
 import { useState } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box, Button, Grommet, Image } from 'grommet';
 import { tokensTheme } from './theme';
 import { Moon, Sun } from 'grommet-icons';
-
-const pages = import.meta.glob('./pages/**/*.jsx', { eager: true });
-
-const routes = [];
-for (const path of Object.keys(pages)) {
-  const fileName = path.match(/\.\/pages\/(.*)\.jsx$/)?.[1];
-  if (!fileName) {
-    continue;
-  }
-
-  const normalizedPathName = fileName.includes('$')
-    ? fileName.replace('$', ':')
-    : fileName.replace(/\/index/, '');
-
-  console.log(routes, normalizedPathName);
-  routes.push({
-    path: fileName === 'index' ? '/' : `/${normalizedPathName.toLowerCase()}`,
-    // @ts-ignore
-    Element: pages[path].default,
-    // @ts-ignore
-    loader: pages[path]?.loader | undefined,
-    // @ts-ignore
-    action: pages[path]?.action | undefined,
-    // @ts-ignore
-    ErrorBoundary: pages[path]?.ErrorBoundary,
-  });
-}
-
-const router = createBrowserRouter(
-  routes.map(({ Element, ErrorBoundary, ...rest }) => ({
-    ...rest,
-    // @ts-ignore
-    element: <Element />,
-    // @ts-ignore
-    ...(ErrorBoundary && { errorElement: <ErrorBoundary /> }),
-  })),
-);
+import Sustainability from './pages/sustainability/index';
+import Home from './pages/index';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -69,7 +34,12 @@ const App = () => {
           onClick={() => setDarkMode(!darkMode)}
         />
       </Box>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+        </Routes>
+      </BrowserRouter>
     </Grommet>
   );
 };
