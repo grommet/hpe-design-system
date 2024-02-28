@@ -1,4 +1,5 @@
 import React from 'react';
+import { CircleInformation } from 'grommet-icons';
 import {
   Box,
   Button,
