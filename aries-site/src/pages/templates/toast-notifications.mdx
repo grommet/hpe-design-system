@@ -9,6 +9,7 @@ import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
 import { Box } from 'grommet';
+import { Checkmark } from 'grommet-icons';
 
 <Example
   docs="https://v2.grommet.io/notification"
@@ -74,9 +75,12 @@ Toasts are automatically dismissed after 8 seconds. Because they contain low-att
 
 Toasts are compromised of three main elements:
 
-1. Status Indicator
-2. Content (Title + Message)
-3. Close button
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the status of notification                           | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             | Titles should only be used for inline notifications presenting page level summaries.                                   |
+| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
+| **4** | **Close button**             | Dismisses the notification                                   |                                             | Critical notifications should not be dismissible.                                                                      |
 
 All toasts have a fixed width size at "medium" (384px) but the height is driven by the amount of content.
 
