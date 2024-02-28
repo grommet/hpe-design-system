@@ -21,13 +21,13 @@ export const ToastPreview = ({ card, message, title }) => {
           <StatusGoodSmall color="status-ok" height="medium" 
         id="status-indicator"/>
         <Box>
-          <TextEmphasis id="title" alignSelf="start">
+          <Text id="title" alignSelf="start">
             {title}
-          </TextEmphasis>
+          </Text>
           <Box direction="row" gap="xsmall">
-            <Paragraph id="message" margin="none">
+            <Text id="message" margin="none">
               {message}
-            </Paragraph>
+            </Text>
           </Box>        
         </Box>
         <Close
