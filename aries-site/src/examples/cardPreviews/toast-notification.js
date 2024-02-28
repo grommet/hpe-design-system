@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text, Paragraph } from 'grommet';
+import { Box, Text } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { Close } from 'grommet-icons';
-import { TextEmphasis } from 'aries-core';
 
 export const ToastPreview = ({ card, message, title }) => {
   return (
@@ -21,7 +20,7 @@ export const ToastPreview = ({ card, message, title }) => {
           <StatusGoodSmall color="status-ok" height="medium" 
         id="status-indicator"/>
         <Box>
-          <Text id="title" alignSelf="start">
+          <Text id="title">
             {title}
           </Text>
           <Box direction="row" gap="xsmall">
