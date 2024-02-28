@@ -8,6 +8,7 @@ export * from './code-blocks';
 export * from './content-layouts';
 export * from './emptystate';
 export * from './data-how-to';
+export * from './data-how-to-add-additional-controls';
 export * from './dateinput';
 export * from './feedback';
 export * from './footer';
