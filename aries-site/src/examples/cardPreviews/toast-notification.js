@@ -18,12 +18,12 @@ export const ToastPreview = ({ card, message, title }) => {
       >
         <Box direction="row" gap="xsmall">
           <StatusGoodSmall color="status-ok" height="medium" />
-          <Text weight="bold">
+          <Text weight="bold" id="title">
             {title} 
           </Text>
-<Text>
-{message}
- </Text>
+          <Text id="message">
+            {message}
+          </Text>
         </Box>
         <Close
           id="close-button"
