@@ -2,7 +2,7 @@
   "color": {
     "brand": {
       "$type": "color",
-      "$value": "{color.green.30}",
+      "$value": "#6533b8",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -45,7 +45,7 @@
       },
       "back": {
         "$type": "color",
-        "$value": "{color.grey.10}",
+        "$value": "#f5f7fb",
         "$description": "Background color applied to the base layer of the application.",
         "$extensions": {
           "com.figma": {
@@ -205,7 +205,7 @@
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{color.black.36}",
+        "$value": "#ccd2de",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -219,7 +219,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.black.72}",
+        "$value": "#bac1d1",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -233,7 +233,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.black.12}",
+        "$value": "#dee2ea",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -337,7 +337,7 @@
     "text": {
       "default": {
         "$type": "color",
-        "$value": "{color.grey.50}",
+        "$value": "#2f3647",
         "$description": "Default text color.",
         "$extensions": {
           "com.figma": {
@@ -351,7 +351,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.grey.60}",
+        "$value": "#2f3647",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -365,7 +365,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.grey.40}",
+        "$value": "#3f495f",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -379,7 +379,7 @@
       },
       "xweak": {
         "$type": "color",
-        "$value": "{color.grey.30}",
+        "$value": "#3f495f",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -482,7 +482,7 @@
         },
         "30": {
           "$type": "color",
-          "$value": "{color.purple.20}",
+          "$value": "#9b54f3",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -496,7 +496,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{color.teal.10}",
+          "$value": "#33b983",
           "$description": "",
           "$extensions": {
             "com.figma": {
