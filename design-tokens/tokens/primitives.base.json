@@ -156,6 +156,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "20-12pc": {
+        "$type": "color",
+        "$value": "#ff83001f",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "yellow": {
@@ -260,6 +274,34 @@
       "10-24pc": {
         "$type": "color",
         "$value": "#ffbc443d",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "20-12pc": {
+        "$type": "color",
+        "$value": "#ffeb591f",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "30-12pc": {
+        "$type": "color",
+        "$value": "#fec9011f",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -400,6 +442,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "10-12pc": {
+        "$type": "color",
+        "$value": "#82fff21f",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "blue": {
@@ -458,6 +514,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "20-12pc": {
+        "$type": "color",
+        "$value": "#00739d1f",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "purple": {
@@ -492,6 +562,34 @@
       "30": {
         "$type": "color",
         "$value": "#6633bc",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "10-12pc": {
+        "$type": "color",
+        "$value": "#f740ff1f",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "20 -12pc": {
+        "$type": "color",
+        "$value": "#7630ea1f",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -812,7 +910,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -826,7 +924,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -840,7 +938,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -854,7 +952,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -868,7 +966,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -882,7 +980,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -896,7 +994,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -910,7 +1008,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -924,7 +1022,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -938,7 +1036,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -952,7 +1050,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -966,7 +1064,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -980,7 +1078,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -994,7 +1092,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "ALL_SCOPES"
           ],
