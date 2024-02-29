@@ -17,14 +17,15 @@ export const ToastPreview = ({ card, message, title }) => {
         background={{ color: 'background-front' }}
       >
         <Box direction="row" gap="xsmall">
-          <StatusGoodSmall color="status-ok" height="medium" 
-        id="status-indicator" />
+          <StatusGoodSmall
+            color="status-ok"
+            height="medium"
+            id="status-indicator"
+          />
           <Text weight="500" id="title">
             {title}
           </Text>
-          <Text id="message">
-            {message}
-          </Text>
+          <Text id="message">{message}</Text>
         </Box>
         <Close
           id="close-button"
