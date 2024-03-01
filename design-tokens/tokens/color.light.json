@@ -434,6 +434,22 @@
         }
       }
     },
+    "shadow": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.black.12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    },
     "chart": {
       "qualitative": {
         "10": {
@@ -523,6 +539,104 @@
         "70": {
           "$type": "color",
           "$value": "{color.blue.10}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "10-secondary": {
+          "$type": "color",
+          "$value": "{color.blue.20-12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "20-secondary": {
+          "$type": "color",
+          "$value": "{color.orange.20-12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "30-secondary": {
+          "$type": "color",
+          "$value": "{color.purple.20 -12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "40-secondary": {
+          "$type": "color",
+          "$value": "{color.teal.10-12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "50-secondary": {
+          "$type": "color",
+          "$value": "{color.yellow.30-12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "60-secondary": {
+          "$type": "color",
+          "$value": "{color.purple.10-12pc}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "70-secondary": {
+          "$type": "color",
+          "$value": "{color.blue.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
