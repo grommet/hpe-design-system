@@ -22,7 +22,7 @@ export const ToastPreview = ({ card, message, title }) => {
             height="medium"
             id="status-indicator"
           />
-          <Text weight="500" id="title">
+          <Text weight={500} id="title">
             {title}
           </Text>
           <Text id="message">{message}</Text>
