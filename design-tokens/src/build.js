@@ -60,6 +60,11 @@ const resolvedMobile = resolveTokens(mobile, primitives);
 
 mkdirSync('./dist');
 
+writeFileSync(
+  './dist/primitives.base.js',
+  `export default ${JSON.stringify(primitives, null, 2)}`,
+);
+
 // do we only want to export resolved ones?
 // is there any value to having the references (for example, figma uses it)
 writeFileSync(
@@ -89,7 +94,8 @@ writeFileSync(
 
 writeFileSync(
   './dist/index.js',
-  `export { default as dark } from './color.dark.js';
+  `export { default as primitives } from './primitives.base.js';
+export { default as dark } from './color.dark.js';
 export { default as light } from './color.light.js';
 export { default as desktop } from './dimension.large.js';
 export { default as mobile } from './dimension.small.js';`,

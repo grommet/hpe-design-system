@@ -1,4 +1,16 @@
-import { Data, DataTable, Pagination, Box, Text } from 'grommet';
+import {
+  Data,
+  DataTable,
+  Pagination,
+  Box,
+  Text,
+  Toolbar,
+  DataSearch,
+  DataSort,
+  DataFilters,
+  DataSummary,
+  DataView,
+} from 'grommet';
 
 const columns = [
   {
@@ -1083,7 +1095,25 @@ const data = [
 
 export const Devices = () => {
   return (
-    <Data data={data} toolbar>
+    <Data
+      data={data}
+      views={[
+        {
+          name: 'My devices',
+          properties: {
+            type: 'Compute',
+            city: 'San Francisco',
+          },
+        },
+      ]}
+    >
+      <Toolbar>
+        <DataSearch />
+        <DataSort drop />
+        <DataFilters layer />
+        <DataView />
+      </Toolbar>
+      <DataSummary />
       <Box overflow={{ horizontal: 'auto' }}>
         <DataTable
           alignSelf="start"

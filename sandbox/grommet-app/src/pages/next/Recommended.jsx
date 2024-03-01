@@ -1,5 +1,5 @@
 import { Box, Heading } from 'grommet';
-import { DashboardCard } from '../components';
+import { DashboardCard } from '../../components';
 import { Tree, History, Robot } from 'grommet-icons';
 
 export const Recommended = () => {

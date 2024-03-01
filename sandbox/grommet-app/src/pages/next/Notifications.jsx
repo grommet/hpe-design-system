@@ -5,8 +5,8 @@ import {
   StatusGood,
   CircleInformation,
 } from 'grommet-icons';
-import { DashboardCard, NotificationMetric } from '../components';
-import notifications from '../mockData/notifications.json';
+import { DashboardCard, NotificationMetric } from '../../components';
+import notifications from '../../mockData/notifications.json';
 
 const statuses = {
   critical: {

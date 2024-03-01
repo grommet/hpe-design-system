@@ -35,20 +35,22 @@ export const DashboardCard = ({
     <Card {...rest}>
       <CardHeader align="start">
         <Box direction="row" gap="small" align="start">
-          {icon}
-          <Box gap="xsmall">
+          <Box flex={false}>{icon}</Box>
+          <Box gap="xsmall" flex={false}>
             <Heading level={level} margin="none">
               {title}
             </Heading>
-
             <Text size="small">{subtitle}</Text>
           </Box>
         </Box>
-
-        <LinkNext a11yTitle={`Go to ${title}`} color="brand" />
+        <Box flex={false}>
+          <LinkNext a11yTitle={`Go to ${title}`} color="brand" />
+        </Box>
       </CardHeader>
-      <CardBody pad={{ horizontal: 'medium' }}>{children}</CardBody>
-      <CardFooter>{footer}</CardFooter>
+      {children && (
+        <CardBody pad={{ horizontal: 'medium' }}>{children}</CardBody>
+      )}
+      {footer && <CardFooter>{footer}</CardFooter>}
     </Card>
   );
 };

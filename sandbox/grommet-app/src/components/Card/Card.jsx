@@ -102,7 +102,9 @@ const DesignSystemCard = ({
             align="start"
             pad={{ bottom: 'medium', horizontal: 'medium' }}
           >
-            <Paragraph margin="none">{description}</Paragraph>
+            <Paragraph margin="none" maxLines={4}>
+              {description}
+            </Paragraph>
             {children}
           </CardBody>
         </Box>

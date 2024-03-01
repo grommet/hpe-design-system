@@ -3,27 +3,63 @@
     {
       "name": "HPE GreenLake Flex Solutions",
       "category": "Workloads",
+      "description": "Manage your cloud services and view usage, cost, and more.",
+      "subscription": true
+    },
+    {
+      "name": "Sustainability Insight Center",
+      "category": "Common",
+      "description": "Monitor your estate carbon footprint and energy consumption.",
+      "href": "/sustainability",
       "subscription": true
     },
     {
       "name": "Aruba Networking",
       "category": "Networking",
+      "description": "Manage campus, branch, SD-WAN & data center networks with AI, automation & security.",
       "subscription": true
     },
     {
       "name": "Compute Ops Management",
       "category": "Compute",
-      "subscription": true
-    },
-    {
-      "name": "Wellness Dashboard",
-      "category": "Governance",
+      "description": "Modern compute management that simplifies provisioning and automates key lifecycle tasks.",
       "subscription": true
     },
     {
       "name": "Backup and Recovery",
-      "category": "Compute",
+      "category": "Storage",
+      "description": "Data protection as a service that’s effortless, efficient, and secure.",
       "subscription": true
+    },
+    {
+      "name": "Block Storage",
+      "category": "Storage",
+      "description": "Simple self-service storage for any workload with AI-driven cloud management."
+    },
+    {
+      "name": "ML Ops",
+      "category": "Workloads",
+      "description": "Bring DevOps features to the machine learning lifecycle with containerized clusters for testing and development environments."
+    },
+    {
+      "name": "Private Cloud",
+      "category": "Private Cloud",
+      "description": "Cloud solutions that scale to any workload supporting vms, storage, containers and bare metal in your private environment."
+    },
+    {
+      "name": "Data Ops Management",
+      "category": "Storage",
+      "description": "Cloud solutions that scale to any workload supporting vms, storage, containers and bare metal in your private environment."
+    },
+    {
+      "name": "Containers",
+      "category": "Workloads",
+      "description": "Self-service management of containers across edge, data center and hybrid cloud."
+    },
+    {
+      "name": "High Performace Computing",
+      "category": "Workloads",
+      "description": "Solve big problems with systems optimized for high performance workloads and AI."
     }
   ]
 }

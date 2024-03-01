@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Box, DataChart, Grid, Notification, Text } from 'grommet';
-import { DashboardCard } from '../components';
-import sustainability from '../mockData/sustainability.json';
+import { DashboardCard } from '../../components';
+import sustainability from '../../mockData/sustainability.json';
 
 const SustainabilityMetric = ({ label, value, unit, options }) => (
   <Box>

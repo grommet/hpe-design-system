@@ -1,67 +1,30 @@
 import { useContext } from 'react';
-import {
-  Box,
-  PageHeader,
-  Page,
-  PageContent,
-  Button,
-  Grid,
-  ResponsiveContext,
-} from 'grommet';
-import { Configure } from 'grommet-icons';
-import { DashboardCard } from '../components';
-import { Recommended } from './Recommended';
-import { Learn } from './Learn';
-import { QuickActions } from './QuickActions';
-import { MyServices } from './MyServices';
-import { SustainabilityOverview } from './SustainabilityOverview';
-import { Notifications } from './Notifications';
+import { Box, Grid, Page, PageContent, ResponsiveContext } from 'grommet';
 
-function Index() {
+import { GetStarted } from './GetStarted';
+import { RecentServices } from './RecentServices';
+import { Learn } from './next/Learn';
+import { QuickActions } from './next/QuickActions';
+import { FeaturedServices } from './FeaturedServices';
+
+function Home() {
   const size = useContext(ResponsiveContext);
   return (
-    <Page pad={{ bottom: 'large', top: 'medium' }}>
+    <Page pad={{ vertical: 'large' }}>
       <PageContent gap="medium">
         <Grid
           columns={
-            ['xlarge', 'large', 'medium'].includes(size)
-              ? ['flex', 'medium']
-              : ['auto']
+            ['small', 'xsmall'].includes(size) ? ['auto'] : ['flex', 'medium']
           }
-          gap="large"
+          gap={size === 'medium' ? 'large' : 'xlarge'}
         >
-          <Box gap="medium">
-            <PageHeader
-              title="Home"
-              actions={
-                <Button
-                  label="Customize"
-                  icon={<Configure color="brand" />}
-                  reverse
-                  kind="subtle"
-                />
-              }
-              pad="none"
-            />
-            <Grid
-              columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
-              gap="medium"
-            >
-              <MyServices />
-              <SustainabilityOverview />
-            </Grid>
-            <Notifications />
-            <Grid
-              columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
-              gap="medium"
-            >
-              <DashboardCard title="Wireless clients" level={2} />
-              <DashboardCard title="Device summary" level={2} />
-            </Grid>
+          <Box gap="large">
+            <GetStarted />
+            <RecentServices />
+            <FeaturedServices />
           </Box>
           <Box gap="medium">
-            <QuickActions />
-            <Recommended />
+            <QuickActions edit={false} />
             <Learn />
           </Box>
         </Grid>
@@ -70,4 +33,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Home;
