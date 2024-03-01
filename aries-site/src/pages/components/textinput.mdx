@@ -4,6 +4,7 @@ import {
   TextInputDisabledExample,
   TextInputLabeledByExample,
   TextInputPasswordExample,
+  TextInputReadOnlyExample,
   TextInputSuggestionsExample,
   TextInputValidationExample,
 } from '../../examples';
@@ -93,7 +94,7 @@ Used to indicate that a TextInput does not meet the validation requirements of i
 
 ### Disabled
 
-Used to indicate that a TextInput cannot be interacted with.
+Used to indicate that a TextInput cannot be interacted with. When an input is disabled, it will not receive tab focus and will not be submitted with form data.
 
 <Example
   docs="https://v2.grommet.io/textinput?theme=hpe#props"
@@ -101,4 +102,16 @@ Used to indicate that a TextInput cannot be interacted with.
   height={{ min: 'small' }}
 >
   <TextInputDisabledExample />
+</Example>
+
+### Readonly
+
+Used to indicate that a TextInput cannot be edited. When an input is readonly, it will receive tab focus and be submittied with form data.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textinput/TextInputReadOnlyExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputReadOnlyExample />
 </Example>
