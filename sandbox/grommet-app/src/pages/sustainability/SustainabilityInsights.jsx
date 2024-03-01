@@ -6,7 +6,7 @@ const CarbonEmissions = () => (
   <Card title="Carbon emissions" level={2}>
     <Box gap="medium" pad={{ top: 'small' }}>
       <Metric value={132000} unit="MTCO2e" />
-      <Legend label="MTCO2e" color="graph-4" />
+      <Legend label="MTCO2e" color="chart-qualitative-70" />
       <DataChart
         data={mockData.sustainability.slice(0, 10)}
         series={[
@@ -25,14 +25,13 @@ const CarbonEmissions = () => (
             property: 'emissions',
             type: 'area',
             thickness: 'xsmall',
-            color: 'graph-4',
-            opacity: 'medium',
+            color: 'chart-qualitative-70-weak',
           },
           {
             property: 'emissions',
             type: 'line',
             thickness: 'xxsmall',
-            color: 'graph-4',
+            color: 'chart-qualitative-70',
             round: true,
           },
         ]}
@@ -50,7 +49,7 @@ const EnergyConsumption = () => (
   <Card title="Energy consumption" level={2}>
     <Box gap="medium" pad={{ top: 'medium' }}>
       <Metric value={325000} unit="kWh" />
-      <Legend label="Energy consumption (kWh)" color="graph-0" />
+      <Legend label="Energy consumption (kWh)" color="chart-qualitative-20" />
       <DataChart
         data={mockData.sustainability.slice(0, 10)}
         series={[
@@ -69,14 +68,13 @@ const EnergyConsumption = () => (
             property: 'energy',
             type: 'area',
             thickness: 'xsmall',
-            color: 'graph-0',
-            opacity: 'medium',
+            color: 'chart-qualitative-20-weak',
           },
           {
             property: 'energy',
             type: 'line',
             thickness: 'xxsmall',
-            color: 'graph-0',
+            color: 'chart-qualitative-20',
             round: true,
           },
         ]}
@@ -98,7 +96,7 @@ const EnergyCost = () => (
         unit="USD"
         options={{ style: 'currency', currency: 'USD' }}
       />
-      <Legend label="Energy cost (USD)" color="graph-2" />
+      <Legend label="Energy cost (USD)" color="chart-qualitative-30" />
       <DataChart
         data={mockData.sustainability.slice(0, 10)}
         series={[
@@ -117,14 +115,13 @@ const EnergyCost = () => (
             property: 'cost',
             type: 'area',
             thickness: 'xsmall',
-            color: 'graph-2',
-            opacity: 'medium',
+            color: 'chart-qualitative-30-weak',
           },
           {
             property: 'cost',
             type: 'line',
             thickness: 'xxsmall',
-            color: 'graph-2',
+            color: 'chart-qualitative-30',
             round: true,
           },
         ]}

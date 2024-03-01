@@ -2,98 +2,102 @@ import { hpe } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { dark, light, desktop, mobile } from 'design-tokens';
 
+const dimensions = {
+  borderSize: {
+    xsmall: desktop.border.xsmall.$value,
+    small: desktop.border.small.$value,
+    medium: desktop.border.medium.$value,
+    large: desktop.border.large.$value,
+    xlarge: desktop.border.xlarge.$value,
+  },
+  edgeSize: {
+    none: desktop.spacing.none.$value,
+    hair: desktop.spacing.hair.$value,
+    xxsmall: desktop.spacing.xxsmall.$value,
+    xsmall: desktop.spacing.xsmall.$value,
+    small: desktop.spacing.small.$value,
+    medium: desktop.spacing.medium.$value,
+    large: desktop.spacing.large.$value,
+    xlarge: desktop.spacing.xlarge.$value,
+    responsiveBreakpoint: 'small',
+  },
+  size: {
+    xxsmall: desktop.content.xxsmall.$value,
+    xsmall: desktop.content.xsmall.$value,
+    small: desktop.content.small.$value,
+    medium: desktop.content.medium.$value,
+    large: desktop.content.large.$value,
+    xlarge: desktop.content.xlarge.$value,
+    xxlarge: desktop.content.xxlarge.$value,
+    full: '100%',
+  },
+  breakpoints: {
+    xsmall: {
+      borderSize: {
+        xsmall: mobile.border.xsmall.$value,
+        small: mobile.border.small.$value,
+        medium: mobile.border.medium.$value,
+        large: mobile.border.large.$value,
+        xlarge: mobile.border.xlarge.$value,
+      },
+      edgeSize: {
+        none: mobile.spacing.none.$value,
+        hair: mobile.spacing.hair.$value,
+        xxsmall: mobile.spacing.xxsmall.$value,
+        xsmall: mobile.spacing.xsmall.$value,
+        small: mobile.spacing.small.$value,
+        medium: mobile.spacing.medium.$value,
+        large: mobile.spacing.large.$value,
+        xlarge: mobile.spacing.xlarge.$value,
+        responsiveBreakpoint: 'small',
+      },
+      size: {
+        xxsmall: mobile.content.xxsmall.$value,
+        xsmall: mobile.content.xsmall.$value,
+        small: mobile.content.small.$value,
+        medium: mobile.content.medium.$value,
+        large: mobile.content.large.$value,
+        xlarge: mobile.content.xlarge.$value,
+        xxlarge: mobile.content.xxlarge.$value,
+        full: '100%',
+      },
+    },
+    small: {
+      borderSize: {
+        xsmall: mobile.border.xsmall.$value,
+        small: mobile.border.small.$value,
+        medium: mobile.border.medium.$value,
+        large: mobile.border.large.$value,
+        xlarge: mobile.border.xlarge.$value,
+      },
+      edgeSize: {
+        none: mobile.spacing.none.$value,
+        hair: mobile.spacing.hair.$value,
+        xxsmall: mobile.spacing.xxsmall.$value,
+        xsmall: mobile.spacing.xsmall.$value,
+        small: mobile.spacing.small.$value,
+        medium: mobile.spacing.medium.$value,
+        large: mobile.spacing.large.$value,
+        xlarge: mobile.spacing.xlarge.$value,
+        responsiveBreakpoint: 'small',
+      },
+      size: {
+        xxsmall: mobile.content.xxsmall.$value,
+        xsmall: mobile.content.xsmall.$value,
+        small: mobile.content.small.$value,
+        medium: mobile.content.medium.$value,
+        large: mobile.content.large.$value,
+        xlarge: mobile.content.xlarge.$value,
+        xxlarge: mobile.content.xxlarge.$value,
+        full: '100%',
+      },
+    },
+  },
+};
+
 export const tokensTheme = deepMerge(hpe, {
   global: {
-    borderSize: {
-      xsmall: desktop.border.xsmall.$value,
-      small: desktop.border.small.$value,
-      medium: desktop.border.medium.$value,
-      large: desktop.border.large.$value,
-      xlarge: desktop.border.xlarge.$value,
-    },
-    edgeSize: {
-      none: desktop.spacing.none.$value,
-      hair: desktop.spacing.hair.$value,
-      xxsmall: desktop.spacing.xxsmall.$value,
-      xsmall: desktop.spacing.xsmall.$value,
-      small: desktop.spacing.small.$value,
-      medium: desktop.spacing.medium.$value,
-      large: desktop.spacing.large.$value,
-      xlarge: desktop.spacing.xlarge.$value,
-      responsiveBreakpoint: 'small',
-    },
-    size: {
-      xxsmall: desktop.content.xxsmall.$value,
-      xsmall: desktop.content.xsmall.$value,
-      small: desktop.content.small.$value,
-      medium: desktop.content.medium.$value,
-      large: desktop.content.large.$value,
-      xlarge: desktop.content.xlarge.$value,
-      xxlarge: desktop.content.xxlarge.$value,
-      full: '100%',
-    },
-    breakpoints: {
-      xsmall: {
-        borderSize: {
-          xsmall: mobile.border.xsmall.$value,
-          small: mobile.border.small.$value,
-          medium: mobile.border.medium.$value,
-          large: mobile.border.large.$value,
-          xlarge: mobile.border.xlarge.$value,
-        },
-        edgeSize: {
-          none: mobile.spacing.none.$value,
-          hair: mobile.spacing.hair.$value,
-          xxsmall: mobile.spacing.xxsmall.$value,
-          xsmall: mobile.spacing.xsmall.$value,
-          small: mobile.spacing.small.$value,
-          medium: mobile.spacing.medium.$value,
-          large: mobile.spacing.large.$value,
-          xlarge: mobile.spacing.xlarge.$value,
-          responsiveBreakpoint: 'small',
-        },
-        size: {
-          xxsmall: mobile.content.xxsmall.$value,
-          xsmall: mobile.content.xsmall.$value,
-          small: mobile.content.small.$value,
-          medium: mobile.content.medium.$value,
-          large: mobile.content.large.$value,
-          xlarge: mobile.content.xlarge.$value,
-          xxlarge: mobile.content.xxlarge.$value,
-          full: '100%',
-        },
-      },
-      small: {
-        borderSize: {
-          xsmall: mobile.border.xsmall.$value,
-          small: mobile.border.small.$value,
-          medium: mobile.border.medium.$value,
-          large: mobile.border.large.$value,
-          xlarge: mobile.border.xlarge.$value,
-        },
-        edgeSize: {
-          none: mobile.spacing.none.$value,
-          hair: mobile.spacing.hair.$value,
-          xxsmall: mobile.spacing.xxsmall.$value,
-          xsmall: mobile.spacing.xsmall.$value,
-          small: mobile.spacing.small.$value,
-          medium: mobile.spacing.medium.$value,
-          large: mobile.spacing.large.$value,
-          xlarge: mobile.spacing.xlarge.$value,
-          responsiveBreakpoint: 'small',
-        },
-        size: {
-          xxsmall: mobile.content.xxsmall.$value,
-          xsmall: mobile.content.xsmall.$value,
-          small: mobile.content.small.$value,
-          medium: mobile.content.medium.$value,
-          large: mobile.content.large.$value,
-          xlarge: mobile.content.xlarge.$value,
-          xxlarge: mobile.content.xxlarge.$value,
-          full: '100%',
-        },
-      },
-    },
+    ...dimensions,
     colors: {
       brand: {
         dark: dark.color.brand.$value,
@@ -195,6 +199,62 @@ export const tokensTheme = deepMerge(hpe, {
         light: light.color.background.validation.warning.$value,
         dark: dark.color.background.validation.critical.$value,
       },
+      'chart-qualitative-10': {
+        light: light.color.chart.qualitative[10].$value,
+        dark: dark.color.chart.qualitative[10].$value,
+      },
+      'chart-qualitative-10-weak': {
+        light: light.color.chart.qualitative['10-secondary'].$value,
+        dark: dark.color.chart.qualitative['10-secondary'].$value,
+      },
+      'chart-qualitative-20': {
+        light: light.color.chart.qualitative[20].$value,
+        dark: dark.color.chart.qualitative[20].$value,
+      },
+      'chart-qualitative-20-weak': {
+        light: light.color.chart.qualitative['20-secondary'].$value,
+        dark: dark.color.chart.qualitative['20-secondary'].$value,
+      },
+      'chart-qualitative-30': {
+        light: light.color.chart.qualitative[30].$value,
+        dark: dark.color.chart.qualitative[30].$value,
+      },
+      'chart-qualitative-30-weak': {
+        light: light.color.chart.qualitative['30-secondary'].$value,
+        dark: dark.color.chart.qualitative['30-secondary'].$value,
+      },
+      'chart-qualitative-40': {
+        light: light.color.chart.qualitative[40].$value,
+        dark: dark.color.chart.qualitative[40].$value,
+      },
+      'chart-qualitative-40-weak': {
+        light: light.color.chart.qualitative['40-secondary'].$value,
+        dark: dark.color.chart.qualitative['40-secondary'].$value,
+      },
+      'chart-qualitative-50': {
+        light: light.color.chart.qualitative[50].$value,
+        dark: dark.color.chart.qualitative[50].$value,
+      },
+      'chart-qualitative-50-weak': {
+        light: light.color.chart.qualitative['50-secondary'].$value,
+        dark: dark.color.chart.qualitative['50-secondary'].$value,
+      },
+      'chart-qualitative-60': {
+        light: light.color.chart.qualitative[60].$value,
+        dark: dark.color.chart.qualitative[60].$value,
+      },
+      'chart-qualitative-60-weak': {
+        light: light.color.chart.qualitative['60-secondary'].$value,
+        dark: dark.color.chart.qualitative['60-secondary'].$value,
+      },
+      'chart-qualitative-70': {
+        light: light.color.chart.qualitative[70].$value,
+        dark: dark.color.chart.qualitative[70].$value,
+      },
+      'chart-qualitative-70-weak': {
+        light: light.color.chart.qualitative['70-secondary'].$value,
+        dark: dark.color.chart.qualitative['70-secondary'].$value,
+      },
       // TO DO do we want these as tokens?
       'background-layer-overlay': '#00000080',
       control: 'brand',
@@ -213,41 +273,6 @@ export const tokensTheme = deepMerge(hpe, {
       placeholder: 'text-weak',
       'text-primary-button': '#FFFFFF',
       'background-cta-alternate': '#F2F2F2',
-      // blue: {
-      //   dark: '#00567A',
-      //   light: '#00C8FF',
-      // },
-      // 'blue!': '#00739D',
-      // green: {
-      //   dark: '#008567',
-      //   light: '#17EBA0',
-      // },
-      // 'green!': '#01A982',
-      // teal: {
-      //   dark: '#117B82',
-      //   light: '#82FFF2',
-      // },
-      // 'teal!': '#00E8CF',
-      // purple: {
-      //   dark: '#6633BC',
-      //   light: '#F740FF',
-      // },
-      // 'purple!': '#7630EA',
-      // red: {
-      //   dark: '#A2423D',
-      //   light: '#FC6161',
-      // },
-      // 'red!': '#C54E4B',
-      // orange: {
-      //   dark: '#9B6310',
-      //   light: '#FFBC44',
-      // },
-      // 'orange!': '#FF8300',
-      // yellow: {
-      //   dark: '#8D741C',
-      //   light: '#FFEB59',
-      // },
-      // 'yellow!': '#FEC901',
     },
   },
   button: {
@@ -262,7 +287,7 @@ export const tokensTheme = deepMerge(hpe, {
   card: {
     container: {
       extend: '',
-      elevation: 'small',
+      // elevation: 'small',
     },
   },
   notification: {

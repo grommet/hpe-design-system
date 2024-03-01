@@ -1,5 +1,5 @@
 import { Box, Heading } from 'grommet';
-import { DashboardCard } from '../components';
+import { DashboardCard } from '../../components';
 
 export const Learn = () => {
   return (
