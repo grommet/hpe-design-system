@@ -29,7 +29,7 @@ import { Checkmark } from 'grommet-icons';
 
 ## When to use
 
-Global banners are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
+Global notifications are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
 
 Global notifications are used to showcase warning and critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
 
@@ -60,9 +60,9 @@ For low-severity notifications that do not require user action or user attention
                                                             
 ## Best practices
 
-- Since Global Banners take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
-- Also when applicable, Global Banners should always have a relevant link(s) to direct users to further actions or to view more about the issue in full detail.
-- Do not use `onClose` when information is important and needs to remain persistent. Also, global banners may remain persistent across multiple sessions until they are dismissed.
+- Since Global notifications take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
+- Also when applicable, Global notifications should always have a relevant link(s) to direct users to further actions or to view more about the issue in full detail.
+- Do not use `onClose` when information is important and needs to remain persistent. Also, global notifications may remain persistent across multiple sessions until they are dismissed.
 
 ### Placement
 
@@ -85,7 +85,7 @@ For low-severity notifications that do not require user action or user attention
 
 ### Things to avoid
 
-- Global Banners are not clickable. Instead use links to direct users to take further action or to view the issue in full detail.
+- Global notifications are not clickable. Instead use links to direct users to take further action or to view the issue in full detail.
 - Do not allow messages to exceed 192 characters.
 
 ## Variants
@@ -163,7 +163,7 @@ One possible use case is a **session timeout**. A warning status should be used 
     bestPractice={{
       type: 'do',
       message:
-        'Global Banners should always have a link (or links) that is relevant to resolving the notification. It is not recommended to use more than two links. Also, low-severity notifications should be dismissible.',
+        'Global notifications should always have a link (or links) that is relevant to resolving the notification. It is not recommended to use more than two links. Also, low-severity notifications should be dismissible.',
     }}
     height={{ min: 'small' }}
     pad="large"
