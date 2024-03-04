@@ -71,7 +71,7 @@ For low-severity notifications that do not require user action or user attention
 
 ### Format
 
-- Only show one banner at a time.
+- Only show one Global notification at a time.
 - Global Notifications should stay within the 192 character limit.
 - Long text is not truncated but instead will wrap on smaller screen sizes.
 - Links are left-aligned and will wrap alongisde the text.
@@ -90,9 +90,9 @@ For low-severity notifications that do not require user action or user attention
 
 ## Variants
 
-### Dismissible info banner
+### Dismissible info notification
 
-Some possible use cases are when **new features are available** or a **new release is coming**. Informational banners should be dismissible.
+Some possible use cases are when **new features are available** or a **new release is coming**. Informational notifications should be dismissible.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationInfo.js"
@@ -104,7 +104,7 @@ Some possible use cases are when **new features are available** or a **new relea
   <BannerNotificationInfo />
 </Example>
 
-### Dismissible critical banner
+### Dismissible critical notification
 
 One possible use case is **scheduled maintenance**. A critical status should be used and the notification should be dismissible.
 
@@ -117,7 +117,7 @@ One possible use case is **scheduled maintenance**. A critical status should be 
   <BannerNotificationCriticalClose />
 </Example>
 
-### Persistent critical banner
+### Persistent critical notification
 
 One possible use case is when **platform access is unavailable due to the system**. A critical status should be used and should not be dismissible.
 
@@ -130,7 +130,7 @@ One possible use case is when **platform access is unavailable due to the system
   <BannerNotificationCritical />
 </Example>
 
-### Dismissible warning banner
+### Dismissible warning notification
 
 One possible use case is when **subscriptions about to expire**. A warning status should be used and the notification should be dismissible.
 
@@ -143,7 +143,7 @@ One possible use case is when **subscriptions about to expire**. A warning statu
   <BannerNotificationWarningClose />
 </Example>
 
-### Persistent warning banner
+### Persistent warning notification
 
 One possible use case is a **session timeout**. A warning status should be used and should not be dismissible. The notification should also contain a relevant link to refresh.
 
