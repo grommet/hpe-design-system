@@ -8,11 +8,13 @@ const resolveTokens = (tokens, primitives) => {
       const value = node[key];
       const keyPath = [...path, key];
       if (typeof value === 'object') return descend(value, keyPath);
+      // resolve reference to primitive, e.g. {color.green.30}
       if (key === '$value' && /^{.*}$/.test(value)) {
         let parts = value.slice(1, -1).split('.');
         let obj = primitives;
         while (obj && parts.length) obj = obj[parts.shift()];
-        // referencing something already in semantic set
+        // did not exist in primitives, so must be referencing something
+        // already in semantic set
         if (!obj) {
           parts = value.slice(1, -1).split('.');
           obj = tokens;
@@ -20,11 +22,13 @@ const resolveTokens = (tokens, primitives) => {
         }
         // reassign value
         let original = result;
-        keyPath.pop();
+        keyPath.pop(); // remove $value
         while (original && keyPath.length) original = original[keyPath.shift()];
-        if (typeof obj?.$value === 'number')
+        if (typeof obj?.$value === 'number') {
           original.$value = `${obj?.$value}px`;
-        else original.$value = obj?.$value;
+        } else {
+          original.$value = obj?.$value;
+        }
       }
     });
   };
@@ -34,48 +38,72 @@ const resolveTokens = (tokens, primitives) => {
   return result;
 };
 
+// for now, convert from number (which Figma wants) to dimension with units
+const numberToDimension = primitives => {
+  const result = primitives;
+
+  const descend = (node, path = []) => {
+    Object.keys(node).forEach(key => {
+      const value = node[key];
+      const keyPath = [...path, key];
+      if (typeof value === 'object') return descend(value, keyPath);
+      if (key === '$value') {
+        let obj = primitives;
+
+        if (typeof value === 'number') {
+          keyPath.pop(); // remove $value
+          while (obj && keyPath.length) obj = obj[keyPath.shift()];
+          obj.$value = `${obj.$value}px`;
+          obj.$type = 'dimension';
+        }
+      }
+    });
+  };
+  descend(primitives);
+  return result;
+};
+
 // primitives
 const rawPrimitives = readFileSync('./tokens/primitives.base.json');
 const primitives = JSON.parse(rawPrimitives);
+const dimensionPrimitives = numberToDimension(primitives);
 
 // dark colors
 const rawDark = readFileSync('./tokens/color.dark.json');
 const dark = JSON.parse(rawDark);
-const resolvedDark = resolveTokens(dark, primitives);
+const resolvedDark = resolveTokens(dark, dimensionPrimitives);
 
 // light colors
 const rawLight = readFileSync('./tokens/color.light.json');
 const light = JSON.parse(rawLight);
-const resolvedLight = resolveTokens(light, primitives);
+const resolvedLight = resolveTokens(light, dimensionPrimitives);
 
 // desktop dimensions
 const rawDesktop = readFileSync('./tokens/dimension.large.json');
 const desktop = JSON.parse(rawDesktop);
-const resolvedDesktop = resolveTokens(desktop, primitives);
+const resolvedDesktop = resolveTokens(desktop, dimensionPrimitives);
 
 // mobile dimensions
 const rawMobile = readFileSync('./tokens/dimension.small.json');
 const mobile = JSON.parse(rawMobile);
-const resolvedMobile = resolveTokens(mobile, primitives);
+const resolvedMobile = resolveTokens(mobile, dimensionPrimitives);
 
 mkdirSync('./dist');
 
 writeFileSync(
   './dist/primitives.base.js',
-  `export default ${JSON.stringify(primitives, null, 2)}`,
+  `export default ${JSON.stringify(dimensionPrimitives, null, 2)}`,
 );
 
-// do we only want to export resolved ones?
-// is there any value to having the references (for example, figma uses it)
+writeFileSync(
+  './dist/primitives.base.json',
+  `${JSON.stringify(dimensionPrimitives, null, 2)}`,
+);
+
 writeFileSync(
   './dist/color.dark.js',
   `export default ${JSON.stringify(resolvedDark, null, 2)}`,
 );
-// //
-// writeFileSync(
-//   './dist/color.dark-resolved.js',
-//   `export default ${JSON.stringify(resolved, null, 2)}`,
-// );
 
 writeFileSync(
   './dist/color.light.js',
@@ -100,25 +128,3 @@ export { default as light } from './color.light.js';
 export { default as desktop } from './dimension.large.js';
 export { default as mobile } from './dimension.small.js';`,
 );
-
-// const [light, dark] = splitTheme(resolved);
-
-// const stringified = stringifyTokens(light);
-
-// writeFileSync(
-//   './structured-tokens.ts',
-//   `export default ${JSON.stringify(stringified, null, 2)}`,
-// );
-
-// const stringifiedDark = stringifyTokens(dark);
-
-// writeFileSync(
-//   './structured-tokens-dark.ts',
-//   `export default ${JSON.stringify(stringifiedDark, null, 2)}`,
-// );
-
-// writeFileSync('./dist/tokens.json', JSON.stringify(flat, null, 2));
-
-// const [cssVars, cssDarkVars] = generateCssVars(flat);
-// writeFileSync('./dist/tokens.css', cssVars);
-// writeFileSync('./dist/tokens-dark.css', cssDarkVars);

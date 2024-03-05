@@ -19,6 +19,7 @@ export const DashboardCard = ({
   subtitle,
   children,
   footer,
+  inline,
   ...rest
 }) => {
   //   const { heading } = useContext(ThemeContext);
@@ -31,11 +32,19 @@ export const DashboardCard = ({
   //     5: heading.level[2],
   //     6: heading.level[2],
   //   };
+  const inlineProps = inline
+    ? {
+        pad: 'none',
+        elevation: 'none',
+        round: 'none',
+      }
+    : {};
+
   return (
-    <Card {...rest}>
-      <CardHeader align="start">
+    <Card {...inlineProps} {...rest}>
+      <CardHeader align="start" {...inlineProps}>
         <Box direction="row" gap="small" align="start">
-          <Box flex={false}>{icon}</Box>
+          {icon && <Box flex={false}>{icon}</Box>}
           <Box gap="xsmall" flex={false}>
             <Heading level={level} margin="none">
               {title}
@@ -48,9 +57,14 @@ export const DashboardCard = ({
         </Box>
       </CardHeader>
       {children && (
-        <CardBody pad={{ horizontal: 'medium' }}>{children}</CardBody>
+        <CardBody
+          pad={{ horizontal: 'medium', bottom: !footer ? 'medium' : undefined }}
+          {...inlineProps}
+        >
+          {children}
+        </CardBody>
       )}
-      {footer && <CardFooter>{footer}</CardFooter>}
+      {footer && <CardFooter {...inlineProps}>{footer}</CardFooter>}
     </Card>
   );
 };
@@ -59,6 +73,7 @@ DashboardCard.propTypes = {
   icon: PropTypes.element,
   level: PropTypes.number,
   title: PropTypes.string,
+  inline: PropTypes.bool,
   subtitle: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),

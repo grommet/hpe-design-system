@@ -6,7 +6,7 @@ export const MyServices = () => {
   return (
     <DashboardCard title="My services" level={2}>
       <List
-        data={services.services}
+        data={services.services.slice(0, 5)}
         defaultItemProps={{
           pad: { horizontal: 'none', vertical: 'small' },
         }}

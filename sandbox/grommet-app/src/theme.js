@@ -148,29 +148,29 @@ export const tokensTheme = deepMerge(hpe, {
         light: light.color.text.strong.$value,
       },
       'text-weak': {
-        dark: dark.color.text.weak.$value, // 50%
+        dark: dark.color.text.weak.$value,
         light: light.color.text.weak.$value,
       },
       'text-xweak': {
-        dark: dark.color.text.xweak.$value, // 20%
+        dark: dark.color.text.xweak.$value,
         light: light.color.text.xweak.$value,
       },
       border: {
-        dark: dark.color.border.default.$value, // 36%
-        light: light.color.border.default.$value, // 36%
+        dark: dark.color.border.default.$value,
+        light: light.color.border.default.$value,
       },
       'border-strong': {
-        dark: dark.color.border.strong.$value, // 72%
-        light: light.color.border.strong.$value, // 72%
+        dark: dark.color.border.strong.$value,
+        light: light.color.border.strong.$value,
       },
       'border-weak': {
-        dark: dark.color.border.weak.$value, // 12%
-        light: light.color.border.weak.$value, // 12%
+        dark: dark.color.border.weak.$value,
+        light: light.color.border.weak.$value,
       },
       'selected-text': {
         dark: dark.color.foreground.selected.$value,
         light: light.color.foreground.selected.$value,
-      }, // necessary to meet color contrast on HPE green background
+      },
       'status-critical': {
         dark: dark.color.foreground.status.critical.$value,
         light: light.color.foreground.status.critical.$value,
@@ -189,7 +189,7 @@ export const tokensTheme = deepMerge(hpe, {
       },
       'validation-critical': {
         light: light.color.background.validation.critical.$value,
-        dark: dark.color.background.validation.critical.$value, // 30%
+        dark: dark.color.background.validation.critical.$value,
       },
       'validation-ok': {
         light: light.color.background.validation.ok.$value,
@@ -303,5 +303,9 @@ export const tokensTheme = deepMerge(hpe, {
     info: {
       background: 'background-status-info',
     },
+  },
+  text: {
+    // allow weight on large text to come through
+    extend: ``,
   },
 });

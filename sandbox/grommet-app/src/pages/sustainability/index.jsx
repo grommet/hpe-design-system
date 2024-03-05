@@ -1,34 +1,30 @@
-import {
-  Anchor,
-  PageHeader,
-  Page,
-  PageContent,
-  Heading,
-  Button,
-} from 'grommet';
+import { Anchor, Box, PageHeader, Page, PageContent, Button } from 'grommet';
 import { Link } from 'react-router-dom';
 import { Devices } from './Devices';
 import { SustainabilityInsights } from './SustainabilityInsights';
 import { Previous } from 'grommet-icons';
+import ContentPane from '../../components/ContentPane';
 
 function Sustainability() {
   return (
     <Page pad={{ bottom: 'large' }}>
-      <PageContent gap="medium">
+      <PageContent>
         <PageHeader
           title="Sustainability Insight Center"
-          parent={
-            <Link to="/">
-              <Anchor label="Home" icon={<Previous />} />
-            </Link>
-          }
+          parent={<Anchor as={Link} to="/" label="Home" icon={<Previous />} />}
           actions={<Button label="Export report" secondary />}
         />
-        <SustainabilityInsights />
-        <Heading level={2} margin="none">
-          Devices
-        </Heading>
-        <Devices />
+        <Box gap="medium">
+          <SustainabilityInsights />
+          <ContentPane
+            heading="Devices"
+            level={2}
+            contain
+            actions={<Box>Density</Box>}
+          >
+            <Devices />
+          </ContentPane>
+        </Box>
       </PageContent>
     </Page>
   );

@@ -1,10 +1,10 @@
 import { Anchor, Box, Button, Heading } from 'grommet';
 import PropTypes from 'prop-types';
-import { Edit } from 'grommet-icons';
+import { ChapterAdd, Cloud, Edit, MapLocation, User } from 'grommet-icons';
 
-export const QuickActions = ({ edit = true }) => {
+export const QuickActions = ({ edit = true, icons }) => {
   return (
-    <Box>
+    <Box gap="medium">
       <Box direction="row" align="center" justify="between">
         <Heading level={2} margin="none">
           Quick Actions
@@ -18,16 +18,33 @@ export const QuickActions = ({ edit = true }) => {
           />
         )}
       </Box>
-      <Box pad="medium" gap="xsmall">
-        <Anchor label="Add devices" href="#" />
-        <Anchor label="Add service subscriptions" href="#" />
-        <Anchor label="Add users / Assign roles" href="#" />
-        <Anchor label="Create location" href="#" />
+      <Box gap="xsmall">
+        <Anchor
+          icon={icons && <ChapterAdd color="brand" />}
+          label="Add devices"
+          href="#"
+        />
+        <Anchor
+          icon={icons && <Cloud color="brand" />}
+          label="Add service subscriptions"
+          href="#"
+        />
+        <Anchor
+          icon={icons && <User color="brand" />}
+          label="Add users / Assign roles"
+          href="#"
+        />
+        <Anchor
+          icon={icons && <MapLocation color="brand" />}
+          label="Create location"
+          href="#"
+        />
       </Box>
     </Box>
   );
 };
 
 QuickActions.propTypes = {
+  icons: PropTypes.bool,
   edit: PropTypes.bool,
 };

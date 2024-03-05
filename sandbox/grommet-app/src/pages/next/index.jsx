@@ -13,10 +13,16 @@ import { DashboardCard } from '../../components';
 import { Recommended } from './Recommended';
 import { Learn } from './Learn';
 import { QuickActions } from './QuickActions';
-import { MyServices } from './MyServices';
 import { SustainabilityOverview } from './SustainabilityOverview';
 import { Notifications } from './Notifications';
 import { BillingSummary } from './BillingSummary';
+import { RecentServices } from '../RecentServices';
+import ContentPane from '../../components/ContentPane';
+import { GetStarted } from '../GetStarted';
+import { DeviceSummary } from './DeviceSummary';
+import { UserOverview } from './UserOverview';
+
+const Divider = () => <Box border={{ side: 'bottom', color: 'brand' }} />;
 
 function Index() {
   const size = useContext(ResponsiveContext);
@@ -44,28 +50,48 @@ function Index() {
               }
               pad="none"
             />
-            <Grid
-              columns={size === 'xlarge' ? ['flex', 'flex', 'flex'] : ['auto']}
-              gap="medium"
-            >
-              <BillingSummary />
-              <MyServices />
-              <SustainabilityOverview />
-            </Grid>
-            <Notifications />
-            <Grid
-              columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
-              gap="medium"
-            >
-              <DashboardCard title="Wireless clients" level={2} />
-              <DashboardCard title="Device summary" level={2} />
-            </Grid>
+            <Box gap="large">
+              <ContentPane background="background-contrast" contain>
+                <GetStarted heading={false} />
+              </ContentPane>
+              <Grid
+                columns={
+                  size === 'xlarge' ? ['flex', 'flex', 'flex'] : ['auto']
+                }
+                gap="medium"
+              >
+                <BillingSummary />
+                <DeviceSummary />
+                <SustainabilityOverview />
+              </Grid>
+              <ContentPane contain>
+                <RecentServices />
+              </ContentPane>
+              <Grid
+                columns={size === 'xlarge' ? ['medium', 'flex'] : ['auto']}
+                gap="medium"
+              >
+                <UserOverview />
+                <Notifications />
+              </Grid>
+              <Grid
+                columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
+                gap="medium"
+              >
+                <DashboardCard title="Monthly charges" level={2} />
+                <DashboardCard title="Expiring subscriptions" level={2} />
+              </Grid>
+            </Box>
           </Box>
-          <Box gap="medium">
-            <QuickActions />
-            <Recommended />
-            <Learn />
-          </Box>
+          <ContentPane alignSelf="start" pad="large" contain>
+            <Box gap="large">
+              <QuickActions icons />
+              <Divider />
+              <Recommended inline />
+              <Divider />
+              <Learn inline />
+            </Box>
+          </ContentPane>
         </Grid>
       </PageContent>
     </Page>

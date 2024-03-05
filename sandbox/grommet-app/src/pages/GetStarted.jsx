@@ -1,20 +1,22 @@
+import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Heading, ResponsiveContext } from 'grommet';
 import { DashboardCard } from '../components';
 import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
 
-export const GetStarted = () => {
+export const GetStarted = ({ heading = true }) => {
   const size = useContext(ResponsiveContext);
   return (
     <Box gap="medium">
-      <Box direction="row" justify="between">
-        {/* TO DO is this the h1? */}
-        <Heading level={2} margin="none">
-          Get started
-        </Heading>
-        {/* TO DO this should semantically be a button */}
-        <Anchor label="Dismiss" />
-      </Box>
+      {heading && (
+        <Box direction="row" justify="between">
+          <Heading level={1} size="small" margin="none">
+            Get started
+          </Heading>
+          {/* TO DO this should semantically be a button */}
+          <Anchor label="Dismiss" />
+        </Box>
+      )}
       <Grid
         columns={
           ['medium', 'small', 'xsmall'].includes(size)
@@ -43,4 +45,8 @@ export const GetStarted = () => {
       </Grid>
     </Box>
   );
+};
+
+GetStarted.propTypes = {
+  heading: PropTypes.bool,
 };
