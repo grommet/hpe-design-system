@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "title": "Machine Learning",
+      "subtitle": "Bring DevOps features to the machine learning lifecycle.",
+      "recommended": true
+    },
+    {
+      "title": "Backup & Recovery",
+      "subtitle": "Data protection as a service that's secure & reliable.",
+      "recommended": true
+    },
+    {
+      "title": "Data Fabric",
+      "subtitle": "Accelerate configuring, monitoring, and managing storage fabrics.",
+      "recommended": true
+    }
+  ],
+  "learn": [
+    {
+      "title": "Explore GreenLake",
+      "subtitle": "Learn more about what the GreenLake platform has to offer."
+    },
+    {
+      "title": "HPE GreenLake Developer Portal",
+      "subtitle": "Integrate apps and services."
+    }
+  ]
+}

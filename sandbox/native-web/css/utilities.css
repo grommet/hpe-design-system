@@ -1,11 +1,24 @@
 /* ------ Utility classes ------- */
+.background-contrast {
+  background: var(--color-background-contrast);
+}
 
 .gap-xsmall {
   gap: var(--spacing-xsmall);
 }
-
+.gap-small {
+  gap: var(--spacing-small);
+}
 .gap-medium {
   gap: var(--spacing-medium);
+}
+
+.pad-large {
+  padding: var(--spacing-large);
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .text-xsmall {

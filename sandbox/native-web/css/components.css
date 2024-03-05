@@ -55,6 +55,9 @@ button.secondary:hover {
   --button-backgroundColor: transparent;
   --button-borderWidth: 3px;
 }
+button.subtle {
+  --button-backgroundColor: var(--color-background-contrast);
+}
 button.iconOnly {
   --button-paddingVertical: 9px;
   --button-paddingHorizontal: 9px;
@@ -67,7 +70,7 @@ button.iconOnly {
   flex-direction: column;
   align-items: flex-start;
   background-color: var(--color-background-front);
-  border-radius: var(--radius-xlarge);
+  border-radius: var(--radius-large);
   padding: var(--spacing-medium);
   transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,6 +116,7 @@ h2 {
   box-sizing: border-box;
   max-width: 100%;
   width: 100%;
+  padding-block: var(--spacing-large);
 }
 
 .pageContent {
@@ -129,9 +133,10 @@ h2 {
 /* PageHeader */
 .pageHeader {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: var(--spacing-medium) 0 var(--spacing-large) 0;
+  /* padding: var(--spacing-medium) 0 var(--spacing-large) 0; */
 }
 
 /* Text  */

@@ -10,6 +10,7 @@ import {
   DataFilters,
   DataSummary,
   DataView,
+  DataTableColumns,
 } from 'grommet';
 
 const columns = [
@@ -55,6 +56,11 @@ const columns = [
     units: 'kWh',
   },
 ];
+
+const options = columns.map(column => ({
+  property: column.property,
+  label: column.header,
+}));
 
 const data = [
   {
@@ -1107,11 +1113,14 @@ export const Devices = () => {
         },
       ]}
     >
-      <Toolbar>
-        <DataSearch />
-        <DataSort drop />
-        <DataFilters layer />
+      <Toolbar gap="medium">
+        <Toolbar>
+          <DataSearch />
+          <DataSort drop />
+          <DataFilters layer />
+        </Toolbar>
         <DataView />
+        <DataTableColumns drop options={options} />
       </Toolbar>
       <DataSummary />
       <Box overflow={{ horizontal: 'auto' }}>

@@ -1,6 +1,9 @@
 :root {
   font-family: Metric, Arial, sans-serif;
-  line-height: 1.5;
+  /* TO DO this blocks rem */
+  font-size: 18px;
+  line-height: 24px;
+  /* line-height: 1.5; */
   font-weight: 400;
   color-scheme: light dark;
   background-color: var(--color-background-back);
@@ -22,6 +25,11 @@ body {
   margin: 0 auto;
 }
 
+div {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
 /* ------- Layout styles --------- */
 
 img.icon {
@@ -44,12 +52,35 @@ img.icon {
 .flex-flex {
   grid-template-columns: 1fr 1fr;
 }
+.medium-flex {
+  grid-template-columns: 384px 1fr;
+}
+.columns-medium {
+  /* TO DO revisit */
+  grid-template-columns: repeat(auto-fill, minmax(min(288px, 100%), 1fr));
+}
 .column {
-  display: flex;
-  flex-direction: column;
   gap: var(--spacing-medium);
 }
+.contentPane {
+  background: var(--color-background-front);
+  padding: var(--spacing-medium);
+  border-radius: var(--radius-xlarge);
+}
 
+/* DashboardCard */
+.inline {
+  padding: 0;
+  border-radius: 0;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  height: var(--border-small);
+  background: var(--color-brand);
+  margin-block: var(--spacing-large);
+}
 @container pageSection (max-width: 768px) {
   .outer {
     grid-template-columns: 1fr;

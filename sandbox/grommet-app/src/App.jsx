@@ -6,7 +6,6 @@ import { Moon, Sun } from 'grommet-icons';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import NextDashboard from './pages/next/index';
-import VisionDashboard from './pages/vision/index';
 import { Login } from './Login';
 
 const App = () => {
@@ -25,6 +24,11 @@ const App = () => {
       // background="background-back"
       full="min"
       themeMode={darkMode ? 'dark' : 'light'}
+      options={{
+        box: {
+          cssGap: true,
+        },
+      }}
     >
       {authenticated ? (
         <>
@@ -52,7 +56,6 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/sustainability" element={<Sustainability />} />
               <Route path="/next" element={<NextDashboard />} />
-              <Route path="/vision" element={<VisionDashboard />} />
             </Routes>
           </BrowserRouter>
         </>

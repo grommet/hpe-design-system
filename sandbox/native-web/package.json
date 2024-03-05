@@ -12,7 +12,7 @@
     "vite": "^5.1.4"
   },
   "dependencies": {
-    "design-tokens": "file:.yalc/design-tokens",
+    "design-tokens": "*",
     "grommet-icons": "^4.12.0"
   }
 }

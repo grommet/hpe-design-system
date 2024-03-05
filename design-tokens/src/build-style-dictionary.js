@@ -21,7 +21,7 @@ StyleDictionary.registerFormat({
 
 // light mode
 StyleDictionary.extend({
-  source: ['tokens/primitives.base.json', 'tokens/color.light.json'],
+  source: ['dist/primitives.base.json', 'tokens/color.light.json'],
   platforms: {
     css: {
       transformGroup: 'css',
@@ -46,7 +46,7 @@ StyleDictionary.extend({
 
 // dark mode
 StyleDictionary.extend({
-  source: ['tokens/primitives.base.json', 'tokens/color.dark.json'],
+  source: ['dist/primitives.base.json', 'tokens/color.dark.json'],
   platforms: {
     css: {
       transformGroup: 'css',
@@ -102,7 +102,7 @@ const dimensions = ['dimension', 'content', 'spacing', 'border', 'radius'];
 
 // small
 StyleDictionary.extend({
-  source: ['tokens/primitives.base.json', 'tokens/dimension.small.json'],
+  source: ['dist/primitives.base.json', 'tokens/dimension.small.json'],
   platforms: {
     css: {
       transformGroup: 'css',
@@ -123,7 +123,7 @@ StyleDictionary.extend({
 
 // large
 StyleDictionary.extend({
-  source: ['tokens/primitives.base.json', 'tokens/dimension.large.json'],
+  source: ['dist/primitives.base.json', 'tokens/dimension.large.json'],
   platforms: {
     css: {
       transformGroup: 'css',
