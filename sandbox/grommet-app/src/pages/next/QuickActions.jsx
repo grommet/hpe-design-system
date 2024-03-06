@@ -1,6 +1,13 @@
 import { Anchor, Box, Button, Heading } from 'grommet';
 import PropTypes from 'prop-types';
-import { ChapterAdd, Cloud, Edit, MapLocation, User } from 'grommet-icons';
+import {
+  ChapterAdd,
+  Cloud,
+  Edit,
+  MapLocation,
+  Stakeholder,
+  UserAdd,
+} from 'grommet-icons';
 
 export const QuickActions = ({ edit = true, icons }) => {
   return (
@@ -18,7 +25,7 @@ export const QuickActions = ({ edit = true, icons }) => {
           />
         )}
       </Box>
-      <Box gap="xsmall">
+      <Box gap="small">
         <Anchor
           icon={icons && <ChapterAdd color="brand" />}
           label="Add devices"
@@ -30,8 +37,13 @@ export const QuickActions = ({ edit = true, icons }) => {
           href="#"
         />
         <Anchor
-          icon={icons && <User color="brand" />}
-          label="Add users / Assign roles"
+          icon={icons && <UserAdd color="brand" />}
+          label="Add users"
+          href="#"
+        />
+        <Anchor
+          icon={icons && <Stakeholder color="brand" />}
+          label="Assign roles"
           href="#"
         />
         <Anchor

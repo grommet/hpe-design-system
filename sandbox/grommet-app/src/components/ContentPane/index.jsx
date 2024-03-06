@@ -1,17 +1,21 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading } from 'grommet';
-
+import { BackgroundContext } from '../../App';
 // import { skeleton as skeletonAnimation } from '../../dashboard/components/utils/animations'
 
 const ContentPane = ({
   actions,
   children,
-  contain,
+  contain: containProp,
   heading,
   level,
   skeleton,
   ...rest
 }) => {
+  const { backgroundBack } = useContext(BackgroundContext);
+  const contain = containProp || backgroundBack;
+
   return (
     <Box
       gap="medium"

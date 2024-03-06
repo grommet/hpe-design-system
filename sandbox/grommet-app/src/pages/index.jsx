@@ -6,6 +6,7 @@ import { RecentServices } from './RecentServices';
 import { Learn } from './next/Learn';
 import { QuickActions } from './next/QuickActions';
 import { FeaturedServices } from './FeaturedServices';
+import ContentPane from '../components/ContentPane';
 
 function Home() {
   const size = useContext(ResponsiveContext);
@@ -24,7 +25,9 @@ function Home() {
             <FeaturedServices />
           </Box>
           <Box gap="medium">
-            <QuickActions edit={false} />
+            <ContentPane>
+              <QuickActions edit={false} />
+            </ContentPane>
             <Learn />
           </Box>
         </Grid>

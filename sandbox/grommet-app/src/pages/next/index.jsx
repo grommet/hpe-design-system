@@ -45,7 +45,6 @@ function Index() {
                   label="Customize"
                   icon={<Configure color="brand" />}
                   reverse
-                  kind="subtle"
                 />
               }
               pad="none"
@@ -64,9 +63,7 @@ function Index() {
                 <DeviceSummary />
                 <SustainabilityOverview />
               </Grid>
-              <ContentPane contain>
-                <RecentServices />
-              </ContentPane>
+              <RecentServices />
               <Grid
                 columns={size === 'xlarge' ? ['medium', 'flex'] : ['auto']}
                 gap="medium"
@@ -83,7 +80,7 @@ function Index() {
               </Grid>
             </Box>
           </Box>
-          <ContentPane alignSelf="start" pad="large" contain>
+          <ContentPane alignSelf="start" pad="large">
             <Box gap="large">
               <QuickActions icons />
               <Divider />
