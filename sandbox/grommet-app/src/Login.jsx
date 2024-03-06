@@ -30,10 +30,16 @@ export const Login = ({ setAuthenticated }) => {
             name="password"
             htmlFor="password"
             contentProps={{ width: 'medium' }}
+            required
           >
             <TextInput type="password" name="password" id="password" />
           </FormField>
-          <Button label="Submit" type="submit" kind="primary" />
+          <Button
+            label="Submit"
+            type="submit"
+            kind="primary"
+            margin={{ top: 'small' }}
+          />
         </Form>
       </PageContent>
     </Page>
