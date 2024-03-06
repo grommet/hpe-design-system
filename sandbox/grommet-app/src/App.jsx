@@ -51,7 +51,7 @@ const App = () => {
                 fit="contain"
               />
             </Box>
-            <Box direction="row" gap="small">
+            <Box align="center" direction="row" gap="small">
               <FormField>
                 <CheckBox
                   label="background-back"
