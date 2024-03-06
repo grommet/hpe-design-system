@@ -103,6 +103,10 @@ export const tokensTheme = deepMerge(hpe, {
         dark: dark.color.brand.$value,
         light: light.color.brand.$value,
       },
+      primary: {
+        dark: dark.color.primary.$value,
+        light: light.color.primary.$value,
+      },
       background: {
         dark: dark.color.background.default.$value,
         light: light.color.background.default.$value,

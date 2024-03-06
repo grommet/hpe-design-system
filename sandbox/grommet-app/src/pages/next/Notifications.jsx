@@ -50,35 +50,37 @@ export const Notifications = () => {
           <NotificationMetric status="ok" value={86} />
           <NotificationMetric status="info" value={17} />
         </Box>
-        <Heading level={3} margin="none">
-          Recents
-        </Heading>
-        <List
-          data={notifications.notifications}
-          defaultItemProps={{
-            border: { side: 'top', color: 'border-weak' },
-            pad: 'small',
-          }}
-        >
-          {datum => (
-            <Box direction="row" justify="between" gap="medium">
-              <Box direction="row" gap="small">
-                {statuses[datum.status].iconCompact}
-                <Box flex={false}>
-                  <Text weight={500} color="text-strong">
-                    {datum.service}
-                  </Text>
+        <Box gap="small">
+          <Heading level={3} margin="none">
+            Recents
+          </Heading>
+          <List
+            data={notifications.notifications}
+            defaultItemProps={{
+              border: { side: 'top', color: 'border-weak' },
+              pad: 'small',
+            }}
+          >
+            {datum => (
+              <Box direction="row" justify="between" gap="medium">
+                <Box direction="row" gap="small">
+                  {statuses[datum.status].iconCompact}
+                  <Box flex={false}>
+                    <Text weight={500} color="text-strong">
+                      {datum.service}
+                    </Text>
+                  </Box>
+                  <Text truncate>{datum.message}</Text>
                 </Box>
-                <Text truncate>{datum.message}</Text>
+                <Box flex={false}>
+                  {Intl.DateTimeFormat(undefined, {
+                    timeStyle: 'short',
+                  }).format(new Date(datum.createdAt))}
+                </Box>
               </Box>
-              <Box flex={false}>
-                {Intl.DateTimeFormat(undefined, {
-                  timeStyle: 'short',
-                }).format(new Date(datum.createdAt))}
-              </Box>
-            </Box>
-          )}
-        </List>
+            )}
+          </List>
+        </Box>
       </Box>
     </DashboardCard>
   );

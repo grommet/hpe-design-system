@@ -4,8 +4,23 @@ import { DashboardCard } from '../components';
 import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
 
-export const GetStarted = ({ heading = true }) => {
+export const GetStarted = ({ heading = true, kind }) => {
   const size = useContext(ResponsiveContext);
+
+  let kindStyles = {};
+  if (kind === 'next')
+    kindStyles = {
+      container: {
+        background: { color: 'background-contrast' },
+        pad: 'xsmall',
+        border: true,
+        round: 'xsmall',
+      },
+      icon: {
+        size: 'xlarge',
+        color: 'primary',
+      },
+    };
   return (
     <Box gap="medium">
       {heading && (
@@ -29,9 +44,12 @@ export const GetStarted = ({ heading = true }) => {
           title="Find services"
           subtitle="Discover and launch services from our catalog."
           icon={
-            // TO DO is this override fine?
-            <Box background={{ dark: true }}>
-              <AppsRounded size="xxlarge" color="green" />
+            <Box background={{ dark: true }} {...kindStyles.container}>
+              <AppsRounded
+                size="xxlarge"
+                color="primary"
+                {...kindStyles.icon}
+              />
             </Box>
           }
           level={3}
@@ -40,7 +58,11 @@ export const GetStarted = ({ heading = true }) => {
           title="Manage workspace"
           level={3}
           subtitle="Set up this workspace, users, access, and more."
-          icon={<UserAdd color="purple" size="xxlarge" />}
+          icon={
+            <Box {...kindStyles.container}>
+              <UserAdd color="purple" size="xxlarge" {...kindStyles.icon} />
+            </Box>
+          }
         />
       </Grid>
     </Box>
@@ -49,4 +71,5 @@ export const GetStarted = ({ heading = true }) => {
 
 GetStarted.propTypes = {
   heading: PropTypes.bool,
+  kind: PropTypes.oneOfType(['next', 'push']),
 };

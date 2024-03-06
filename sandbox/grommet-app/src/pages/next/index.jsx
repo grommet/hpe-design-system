@@ -23,7 +23,7 @@ import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
 
-const Divider = () => <Box border={{ side: 'bottom', color: 'brand' }} />;
+const Divider = () => <Box border={{ side: 'bottom', color: 'primary' }} />;
 
 function Index() {
   const size = useContext(ResponsiveContext);
@@ -44,16 +44,16 @@ function Index() {
               actions={
                 <Button
                   label="Customize"
-                  icon={<Configure color="brand" />}
+                  icon={<Configure color="primary" />}
                   reverse
                 />
               }
               pad="none"
             />
             <Box gap="large">
-              <ContentPane background="background-contrast" contain>
-                <GetStarted heading={false} />
-              </ContentPane>
+              {/* <ContentPane background="background-contrast" contain> */}
+              <GetStarted heading={false} kind="next" />
+              {/* </ContentPane> */}
               <Grid
                 columns={
                   size === 'xlarge' ? ['flex', 'flex', 'flex'] : ['auto']
