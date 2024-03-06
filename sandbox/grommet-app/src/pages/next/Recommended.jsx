@@ -15,6 +15,7 @@ export const Recommended = ({ inline }) => {
         subtitle="Bring DevOps features to the machine learning lifecycle."
         level={3}
         inline={inline}
+        hideCta={inline}
       />
       <DashboardCard
         title="Backup & Recovery"
@@ -22,6 +23,7 @@ export const Recommended = ({ inline }) => {
         subtitle="Data protection as a service that’s secure & reliable."
         level={3}
         inline={inline}
+        hideCta={inline}
       />
       <DashboardCard
         title="Data Fabric"
@@ -29,6 +31,7 @@ export const Recommended = ({ inline }) => {
         subtitle="Accelerate configuring, monitoring, and managing storage fabrics."
         level={3}
         inline={inline}
+        hideCta={inline}
       />
     </Box>
   );

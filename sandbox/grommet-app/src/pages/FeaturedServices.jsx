@@ -13,7 +13,7 @@ const TabContent = ({ data, ...rest }) => (
         title={service.name}
         subtitle={service.category}
         description={service.description || 'hi'}
-        actions={<LinkNext color="brand" />}
+        actions={<LinkNext color="primary" />}
         level={3}
       />
     ))}
