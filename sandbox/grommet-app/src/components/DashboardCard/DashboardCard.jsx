@@ -70,7 +70,14 @@ export const DashboardCard = ({
           {children}
         </CardBody>
       )}
-      {footer && <CardFooter {...inlineProps}>{footer}</CardFooter>}
+      {footer && (
+        <CardFooter
+          pad={{ horizontal: 'medium', bottom: 'medium' }}
+          {...inlineProps}
+        >
+          {footer}
+        </CardFooter>
+      )}
     </Card>
   );
 };

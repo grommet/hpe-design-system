@@ -3,6 +3,9 @@ import {
   StatusCritical,
   StatusWarning,
   StatusGood,
+  StatusCriticalSmall,
+  StatusWarningSmall,
+  StatusGoodSmall,
   CircleInformation,
 } from 'grommet-icons';
 import { DashboardCard, NotificationMetric } from '../../components';
@@ -12,21 +15,27 @@ const statuses = {
   critical: {
     background: 'background-status-critical',
     icon: <StatusCritical color="status-critical" height="medium" />,
+    iconCompact: (
+      <StatusCriticalSmall color="status-critical" height="medium" />
+    ),
     label: 'Critical',
   },
   warning: {
     background: 'background-status-warning',
     icon: <StatusWarning color="status-warning" height="medium" />,
+    iconCompact: <StatusWarningSmall color="status-warning" height="medium" />,
     label: 'Warning',
   },
   ok: {
     background: 'background-status-ok',
     icon: <StatusGood color="status-ok" height="medium" />,
+    iconCompact: <StatusGoodSmall color="status-ok" height="medium" />,
     label: 'Ok',
   },
   info: {
     background: 'background-status-info',
     icon: <CircleInformation color="blue" height="medium" />,
+    iconCompact: <StatusGoodSmall color="blue" height="medium" />,
     label: 'Information',
   },
 };
@@ -48,12 +57,13 @@ export const Notifications = () => {
           data={notifications.notifications}
           defaultItemProps={{
             border: { side: 'top', color: 'border-weak' },
+            pad: 'small',
           }}
         >
           {datum => (
             <Box direction="row" justify="between" gap="medium">
               <Box direction="row" gap="small">
-                {statuses[datum.status].icon}
+                {statuses[datum.status].iconCompact}
                 <Box flex={false}>
                   <Text weight={500} color="text-strong">
                     {datum.service}

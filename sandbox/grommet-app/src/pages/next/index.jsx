@@ -9,7 +9,6 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Configure } from 'grommet-icons';
-import { DashboardCard } from '../../components';
 import { Recommended } from './Recommended';
 import { Learn } from './Learn';
 import { QuickActions } from './QuickActions';
@@ -21,6 +20,8 @@ import ContentPane from '../../components/ContentPane';
 import { GetStarted } from '../GetStarted';
 import { DeviceSummary } from './DeviceSummary';
 import { UserOverview } from './UserOverview';
+import { ExpiringSubscriptions } from './ExpiringSubscriptions';
+import { MonthlyCharges } from './MonthlyCharges';
 
 const Divider = () => <Box border={{ side: 'bottom', color: 'brand' }} />;
 
@@ -75,8 +76,8 @@ function Index() {
                 columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
                 gap="medium"
               >
-                <DashboardCard title="Monthly charges" level={2} />
-                <DashboardCard title="Expiring subscriptions" level={2} />
+                <MonthlyCharges />
+                <ExpiringSubscriptions />
               </Grid>
             </Box>
           </Box>
