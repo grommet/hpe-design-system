@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Box, Button, Grommet, Image } from 'grommet';
+import { Box, Button, Grommet, Image, CheckBox, FormField } from 'grommet';
 import { tokensTheme } from './theme';
 import { Moon, Sun } from 'grommet-icons';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import NextDashboard from './pages/next/index';
 import { Login } from './Login';
+
+export const BackgroundContext = createContext({});
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,10 +20,13 @@ const App = () => {
     if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
   }, []);
 
+  const [backgroundBack, setBackgroundBack] = useState(false);
+  const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
+
   return (
     <Grommet
       theme={tokensTheme}
-      // background="background-back"
+      background={backgroundBack ? 'background-back' : undefined}
       full="min"
       themeMode={darkMode ? 'dark' : 'light'}
       options={{
@@ -31,7 +36,7 @@ const App = () => {
       }}
     >
       {authenticated ? (
-        <>
+        <BackgroundContext.Provider value={contextValue}>
           <Box
             direction="row"
             justify="between"
@@ -46,10 +51,19 @@ const App = () => {
                 fit="contain"
               />
             </Box>
-            <Button
-              icon={darkMode ? <Moon /> : <Sun />}
-              onClick={() => setDarkMode(!darkMode)}
-            />
+            <Box direction="row" gap="small">
+              <FormField>
+                <CheckBox
+                  label="background-back"
+                  toggle
+                  onChange={event => setBackgroundBack(event.target.checked)}
+                />
+              </FormField>
+              <Button
+                icon={darkMode ? <Moon /> : <Sun />}
+                onClick={() => setDarkMode(!darkMode)}
+              />
+            </Box>
           </Box>
           <BrowserRouter>
             <Routes>
@@ -58,7 +72,7 @@ const App = () => {
               <Route path="/next" element={<NextDashboard />} />
             </Routes>
           </BrowserRouter>
-        </>
+        </BackgroundContext.Provider>
       ) : (
         <Login setAuthenticated={setAuthenticated} />
       )}
