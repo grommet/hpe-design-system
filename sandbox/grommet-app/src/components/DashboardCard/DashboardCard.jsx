@@ -35,6 +35,7 @@ export const DashboardCard = ({
   //   };
   const inlineProps = inline
     ? {
+        background: undefined,
         pad: 'none',
         elevation: 'none',
         round: 'none',
