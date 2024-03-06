@@ -10,10 +10,11 @@ import {
   //   ThemeContext,
   Text,
 } from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { LinkNext, ShareRounded } from 'grommet-icons';
 
 export const DashboardCard = ({
   icon,
+  external,
   level,
   title,
   subtitle,
@@ -53,7 +54,11 @@ export const DashboardCard = ({
           </Box>
         </Box>
         <Box flex={false}>
-          <LinkNext a11yTitle={`Go to ${title}`} color="brand" />
+          {external ? (
+            <ShareRounded a11yTitle={`Go to ${title}`} color="brand" />
+          ) : (
+            <LinkNext a11yTitle={`Go to ${title}`} color="brand" />
+          )}
         </Box>
       </CardHeader>
       {children && (
@@ -71,6 +76,7 @@ export const DashboardCard = ({
 
 DashboardCard.propTypes = {
   icon: PropTypes.element,
+  external: PropTypes.bool,
   level: PropTypes.number,
   title: PropTypes.string,
   inline: PropTypes.bool,
