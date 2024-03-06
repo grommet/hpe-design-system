@@ -287,7 +287,7 @@ export const tokensTheme = deepMerge(hpe, {
   card: {
     container: {
       extend: '',
-      // elevation: 'small',
+      elevation: 'small',
     },
   },
   notification: {

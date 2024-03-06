@@ -1,4 +1,5 @@
 import { Box, Text } from 'grommet';
+import PropTypes from 'prop-types';
 import {
   StatusCritical,
   StatusWarning,
@@ -36,8 +37,8 @@ export const NotificationMetric = ({ status, value }) => {
     <Box
       background={background}
       direction="row"
-      gap="small"
-      align="center"
+      gap={{ column: 'small', row: 'xsmall' }}
+      align="start"
       pad={{ vertical: 'small', horizontal: 'medium' }}
       round="small"
     >
@@ -50,4 +51,9 @@ export const NotificationMetric = ({ status, value }) => {
       </Text>
     </Box>
   );
+};
+
+NotificationMetric.propTypes = {
+  status: PropTypes.string,
+  value: PropTypes.number,
 };

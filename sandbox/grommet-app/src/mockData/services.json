@@ -3,38 +3,45 @@
     {
       "name": "HPE GreenLake Flex Solutions",
       "category": "Workloads",
-      "description": "Manage your cloud services and view usage, cost, and more.",
-      "subscription": true
+      "description": "Manage your cloud services and view usage, cost, and more."
     },
     {
       "name": "Sustainability Insight Center",
       "category": "Common",
       "description": "Monitor your estate carbon footprint and energy consumption.",
-      "href": "/sustainability",
-      "subscription": true
+      "href": "/sustainability"
     },
     {
-      "name": "Aruba Networking",
+      "name": "Aruba NetInsight",
       "category": "Networking",
       "description": "Manage campus, branch, SD-WAN & data center networks with AI, automation & security.",
-      "subscription": true
+      "subscription": {
+        "name": "Aruba NetInsight 90 Day Eval Subscription",
+        "expiration": "2024-01-31T10:00:00.0000Z"
+      }
     },
     {
       "name": "Compute Ops Management",
       "category": "Compute",
-      "description": "Modern compute management that simplifies provisioning and automates key lifecycle tasks.",
-      "subscription": true
+      "description": "Modern compute management that simplifies provisioning and automates key lifecycle tasks."
     },
     {
       "name": "Backup and Recovery",
       "category": "Storage",
       "description": "Data protection as a service that’s effortless, efficient, and secure.",
-      "subscription": true
+      "subscription": {
+        "name": "Backup and Recovery 90 Day Eval Subscription",
+        "expiration": "2024-04-31T10:00:00.0000Z"
+      }
     },
     {
       "name": "Block Storage",
       "category": "Storage",
-      "description": "Simple self-service storage for any workload with AI-driven cloud management."
+      "description": "Simple self-service storage for any workload with AI-driven cloud management.",
+      "subscription": {
+        "name": "Block Storage 90 Day Eval Subscription",
+        "expiration": "2024-05-15T10:00:00.0000Z"
+      }
     },
     {
       "name": "ML Ops",
