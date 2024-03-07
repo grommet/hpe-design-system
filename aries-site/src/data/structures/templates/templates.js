@@ -6,6 +6,7 @@ import {
   FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
+  SkeletonPreview,
 } from '../../../examples/cardPreviews';
 
 export const templates = [
@@ -1040,6 +1041,30 @@ export const templates = [
       'initial state',
       'no information state',
       'blank screen',
+    ],
+  },
+  {
+    name: 'Loading indicators',
+    available: true,
+    cardOrder: 3,
+    description: `Loading indicators keep users informed and engaged during 
+    data retrieval processes, avoiding confusion about the status of the page.`,
+    preview: {
+      component: () => <SkeletonPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `Loading indicators keep users informed and engaged during 
+    data retrieval processes, avoiding confusion about the status of the page.`,
+    sections: [],
+    relatedContent: ['Spinner', 'Skeleton'],
+    tags: [
+      'spinner',
+      'skeleton',
+      'loading',
+      'progress',
+      'progress bar',
+      'loading state',
+      'system status',
     ],
   },
 ];
