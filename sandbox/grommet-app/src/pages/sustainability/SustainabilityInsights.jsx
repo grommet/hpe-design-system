@@ -205,7 +205,13 @@ export const SustainabilityInsights = () => {
             />
           </Toolbar>
         </Toolbar>
-        <Grid columns="medium" gap="medium" pad={{ vertical: 'medium' }}>
+        <Grid
+          columns="medium"
+          gap="medium"
+          pad={{ vertical: 'medium' }}
+          // helps to smooth collapse transition
+          style={{ maxHeight: '450px' }}
+        >
           <CarbonEmissions />
           <EnergyConsumption />
           <EnergyCost />
