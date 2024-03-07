@@ -1,7 +1,15 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Box, Button, Grommet, Image, CheckBox, FormField } from 'grommet';
-import { tokensTheme } from './theme';
+import {
+  Box,
+  Button,
+  Grommet,
+  Image,
+  CheckBox,
+  FormField,
+  Select,
+} from 'grommet';
+import { current, warm } from './theme';
 import { Moon, Sun } from 'grommet-icons';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
@@ -22,10 +30,15 @@ const App = () => {
 
   const [backgroundBack, setBackgroundBack] = useState(false);
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
+  const [activeTheme, setActiveTheme] = useState('Current theme');
+  const theme = useMemo(
+    () => (activeTheme === 'Current theme' ? current : warm),
+    [activeTheme],
+  );
 
   return (
     <Grommet
-      theme={tokensTheme}
+      theme={theme}
       background={backgroundBack ? 'background-back' : undefined}
       full="min"
       themeMode={darkMode ? 'dark' : 'light'}
@@ -51,8 +64,24 @@ const App = () => {
                 fit="contain"
               />
             </Box>
-            <Box align="center" direction="row" gap="small">
-              <FormField>
+            <Box align="end" direction="row" gap="small">
+              <FormField
+                // label="Theme"
+                contentProps={{
+                  margin: { bottom: 'none', top: 'none' },
+                  width: 'small',
+                }}
+              >
+                <Select
+                  options={['Current theme', 'Warm theme']}
+                  value={activeTheme}
+                  onChange={({ value }) => setActiveTheme(value)}
+                />
+              </FormField>
+              <FormField
+                // label="Background style"
+                contentProps={{ margin: { bottom: 'none', top: 'none' } }}
+              >
                 <CheckBox
                   label="background-back"
                   toggle

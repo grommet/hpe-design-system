@@ -16,7 +16,7 @@ function Sustainability() {
         />
         <Box gap="medium">
           <SustainabilityInsights />
-          <ContentPane heading="Devices" level={2} actions={<Box>Density</Box>}>
+          <ContentPane heading="Devices" level={2}>
             <Devices />
           </ContentPane>
         </Box>

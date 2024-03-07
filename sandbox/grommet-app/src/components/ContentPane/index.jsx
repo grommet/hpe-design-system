@@ -21,6 +21,7 @@ const ContentPane = ({
       gap="medium"
       background={contain ? 'background-front' : undefined}
       pad={contain ? { horizontal: 'medium', vertical: 'medium' } : undefined}
+      elevation={contain ? 'small' : undefined}
       round={contain}
       {...rest}
     >
