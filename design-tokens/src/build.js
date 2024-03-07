@@ -68,6 +68,8 @@ const rawPrimitives = readFileSync('./tokens/primitives.base.json');
 const primitives = JSON.parse(rawPrimitives);
 const dimensionPrimitives = numberToDimension(primitives);
 
+// --------- COLORS ------------ //
+
 // dark colors
 const rawDark = readFileSync('./tokens/color.dark.json');
 const dark = JSON.parse(rawDark);
@@ -77,6 +79,18 @@ const resolvedDark = resolveTokens(dark, dimensionPrimitives);
 const rawLight = readFileSync('./tokens/color.light.json');
 const light = JSON.parse(rawLight);
 const resolvedLight = resolveTokens(light, dimensionPrimitives);
+
+// warm dark colors
+const rawWarmDark = readFileSync('./tokens/color.exploration-dark.json');
+const warmDark = JSON.parse(rawWarmDark);
+const resolvedWarmDark = resolveTokens(warmDark, dimensionPrimitives);
+
+// warm light colors
+const rawWarmLight = readFileSync('./tokens/color.exploration-light.json');
+const warmlight = JSON.parse(rawWarmLight);
+const resolvedWarmLight = resolveTokens(warmlight, dimensionPrimitives);
+
+// --------- BREAKPOINTS ------------ //
 
 // desktop dimensions
 const rawDesktop = readFileSync('./tokens/dimension.large.json');
@@ -95,6 +109,7 @@ writeFileSync(
   `export default ${JSON.stringify(dimensionPrimitives, null, 2)}`,
 );
 
+// currently used by style-dictionary
 writeFileSync(
   './dist/primitives.base.json',
   `${JSON.stringify(dimensionPrimitives, null, 2)}`,
@@ -108,6 +123,16 @@ writeFileSync(
 writeFileSync(
   './dist/color.light.js',
   `export default ${JSON.stringify(resolvedLight, null, 2)}`,
+);
+
+writeFileSync(
+  './dist/color.warm-dark.js',
+  `export default ${JSON.stringify(resolvedWarmDark, null, 2)}`,
+);
+
+writeFileSync(
+  './dist/color.warm-light.js',
+  `export default ${JSON.stringify(resolvedWarmLight, null, 2)}`,
 );
 
 writeFileSync(
@@ -125,6 +150,8 @@ writeFileSync(
   `export { default as primitives } from './primitives.base.js';
 export { default as dark } from './color.dark.js';
 export { default as light } from './color.light.js';
+export { default as warmLight } from './color.warm-light.js';
+export { default as warmDark } from './color.warm-dark.js';
 export { default as desktop } from './dimension.large.js';
 export { default as mobile } from './dimension.small.js';`,
 );

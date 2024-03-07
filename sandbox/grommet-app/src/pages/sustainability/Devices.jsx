@@ -11,7 +11,11 @@ import {
   DataSummary,
   DataView,
   DataTableColumns,
+  ResponsiveContext,
+  DropButton,
 } from 'grommet';
+import { More } from 'grommet-icons';
+import { useContext } from 'react';
 
 const columns = [
   {
@@ -54,6 +58,10 @@ const columns = [
     property: 'totalEnergy',
     header: 'Total energy',
     units: 'kWh',
+    align: 'end',
+    render: datum => (
+      <Text>{Intl.NumberFormat().format(datum.totalEnergy)}</Text>
+    ),
   },
 ];
 
@@ -73,6 +81,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_0',
+    totalEnergy: 11677,
+    cpuUtil: 51,
   },
   {
     serialNumber: 'ljyyfpc02tlgpnls3',
@@ -83,6 +93,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 36997,
+    cpuUtil: 72,
   },
   {
     serialNumber: 'erwnuo001ruh3s74q',
@@ -93,6 +105,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 26790,
+    cpuUtil: 44,
   },
   {
     serialNumber: 'dwjtzpc0p6rnexjs',
@@ -103,6 +117,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 46867,
+    cpuUtil: 75,
   },
   {
     serialNumber: 'dwjtzpc0tj092j29',
@@ -113,6 +129,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 38820,
+    cpuUtil: 63,
   },
   {
     serialNumber: 'fg4agao0omfitumg',
@@ -124,6 +142,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_5',
+    totalEnergy: 47226,
+    cpuUtil: 73,
   },
   {
     serialNumber: 'fg4agao02cf6arety',
@@ -135,6 +155,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_6_test',
+    totalEnergy: 54496,
+    cpuUtil: 36,
   },
   {
     serialNumber: 'fg4agao01qe4macw7',
@@ -145,6 +167,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 26410,
+    cpuUtil: 65,
   },
   {
     serialNumber: 'ljyyfpc01u9d5etcr',
@@ -155,6 +179,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 7542,
+    cpuUtil: 42,
   },
   {
     serialNumber: 'jqspeyo029fhmklcq',
@@ -166,6 +192,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'MyDevice_local',
+    totalEnergy: 36386,
+    cpuUtil: 56,
   },
   {
     serialNumber: 'jqspeyo015yq2h50b',
@@ -177,6 +205,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_10',
+    totalEnergy: 45766,
+    cpuUtil: 45,
   },
   {
     serialNumber: 'fg4agao02h8juiosf',
@@ -187,6 +217,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 6795,
+    cpuUtil: 69,
   },
   {
     serialNumber: 'ljyyfpc033l0fal80',
@@ -198,6 +230,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_12_test',
+    totalEnergy: 13733,
+    cpuUtil: 58,
   },
   {
     serialNumber: 'ljyyfpc02vu079llx',
@@ -208,6 +242,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 4439,
+    cpuUtil: 15,
   },
   {
     serialNumber: 'erwnuo0023apx8ykf',
@@ -218,6 +254,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 24101,
+    cpuUtil: 45,
   },
   {
     serialNumber: 'fg4agao01pjdri61w',
@@ -229,6 +267,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_15',
+    totalEnergy: 13578,
+    cpuUtil: 49,
   },
   {
     serialNumber: 'fg4agao02ukw569p7',
@@ -239,6 +279,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 7578,
+    cpuUtil: 71,
   },
   {
     serialNumber: 'ljyyfpc01i5bhy9y5',
@@ -249,6 +291,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 5177,
+    cpuUtil: 40,
   },
   {
     serialNumber: 'ljyyfpc01mt2kkowg',
@@ -260,6 +304,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_18_test',
+    totalEnergy: 37974,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'ljyyfpc032xr7fiym',
@@ -270,6 +316,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 6615,
+    cpuUtil: 75,
   },
   {
     serialNumber: 'erwnuo002su2qh7sl',
@@ -281,6 +329,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_20',
+    totalEnergy: 18664,
+    cpuUtil: 39,
   },
   {
     serialNumber: 'fg4agao0y7vnahc7',
@@ -291,6 +341,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 21247,
+    cpuUtil: 40,
   },
   {
     serialNumber: 'dwjtzpc01mio3vvlt',
@@ -301,6 +353,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 27810,
+    cpuUtil: 48,
   },
   {
     serialNumber: 'jqspeyo023eg0dnfk',
@@ -311,6 +365,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 31963,
+    cpuUtil: 63,
   },
   {
     serialNumber: 'jqspeyo021i8p7av3',
@@ -322,6 +378,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_24_test',
+    totalEnergy: 49808,
+    cpuUtil: 13,
   },
   {
     serialNumber: 'fg4agao02lap1wyfx',
@@ -333,6 +391,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_25',
+    totalEnergy: 49454,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'fg4agao0rr0qp5mx',
@@ -343,6 +403,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 11754,
+    cpuUtil: 15,
   },
   {
     serialNumber: 'jqspeyo025r11dy47',
@@ -353,6 +415,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 58613,
+    cpuUtil: 33,
   },
   {
     serialNumber: 'fg4agao01156u2fa6',
@@ -363,6 +427,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 44880,
+    cpuUtil: 41,
   },
   {
     serialNumber: 'jqspeyo02gixjl6nc',
@@ -373,6 +439,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 31669,
+    cpuUtil: 41,
   },
   {
     serialNumber: 'dwjtzpc0kbp821tq',
@@ -384,6 +452,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_30',
+    totalEnergy: 12334,
+    cpuUtil: 28,
   },
   {
     serialNumber: 'jqspeyo018zcwokes',
@@ -394,6 +464,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 43085,
+    cpuUtil: 67,
   },
   {
     serialNumber: 'ljyyfpc019xfmtlfr',
@@ -404,6 +476,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 33590,
+    cpuUtil: 72,
   },
   {
     serialNumber: 'jqspeyo02t1pwq4vf',
@@ -414,6 +488,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 8855,
+    cpuUtil: 41,
   },
   {
     serialNumber: 'dwjtzpc01gywd6vm3',
@@ -424,6 +500,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 43545,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'erwnuo0030wd5x8bk',
@@ -435,6 +513,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_35',
+    totalEnergy: 26379,
+    cpuUtil: 10,
   },
   {
     serialNumber: 'jqspeyo03cxzw9hqh',
@@ -446,6 +526,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'DEV_36_test',
+    totalEnergy: 28025,
+    cpuUtil: 66,
   },
   {
     serialNumber: 'erwnuo00380sakjtz',
@@ -456,6 +538,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 33686,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'erwnuo001pag2g80t',
@@ -466,6 +550,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 20059,
+    cpuUtil: 56,
   },
   {
     serialNumber: 'ljyyfpc0183l9a89y',
@@ -476,6 +562,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 31362,
+    cpuUtil: 62,
   },
   {
     serialNumber: 'dwjtzpc013txgh3yu',
@@ -487,6 +575,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_40',
+    totalEnergy: 34988,
+    cpuUtil: 66,
   },
   {
     serialNumber: 'jqspeyo02tzq272eq',
@@ -497,6 +587,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 25614,
+    cpuUtil: 72,
   },
   {
     serialNumber: 'ljyyfpc0ls7nphbc',
@@ -508,6 +600,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_42_test',
+    totalEnergy: 29673,
+    cpuUtil: 48,
   },
   {
     serialNumber: 'ljyyfpc016sn9e733',
@@ -518,6 +612,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 10130,
+    cpuUtil: 74,
   },
   {
     serialNumber: 'dwjtzpc0s4yypjjx',
@@ -528,6 +624,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 45059,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'erwnuo001b4hj6edg',
@@ -539,6 +637,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_45',
+    totalEnergy: 4181,
+    cpuUtil: 34,
   },
   {
     serialNumber: 'dwjtzpc0yha23okg',
@@ -549,6 +649,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 28874,
+    cpuUtil: 73,
   },
   {
     serialNumber: 'ljyyfpc026d6z6jmp',
@@ -559,6 +661,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 28250,
+    cpuUtil: 18,
   },
   {
     serialNumber: 'fg4agao02rr8catp5',
@@ -570,6 +674,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_48_test',
+    totalEnergy: 11084,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'fg4agao01m2fvyepf',
@@ -580,6 +686,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 48545,
+    cpuUtil: 51,
   },
   {
     serialNumber: 'fg4agao01bq8g5pjj',
@@ -591,6 +699,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_50',
+    totalEnergy: 56454,
+    cpuUtil: 19,
   },
   {
     serialNumber: 'ljyyfpc0hil3mp1g',
@@ -601,6 +711,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 10630,
+    cpuUtil: 41,
   },
   {
     serialNumber: 'erwnuo001sakqrpnl',
@@ -611,6 +723,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 3521,
+    cpuUtil: 36,
   },
   {
     serialNumber: 'jqspeyo0t29p4pmw',
@@ -621,6 +735,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 11854,
+    cpuUtil: 45,
   },
   {
     serialNumber: 'fg4agao01oarlitf6',
@@ -632,6 +748,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_54_test',
+    totalEnergy: 28209,
+    cpuUtil: 57,
   },
   {
     serialNumber: 'dwjtzpc025oj5og46',
@@ -643,6 +761,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_55',
+    totalEnergy: 7425,
+    cpuUtil: 49,
   },
   {
     serialNumber: 'erwnuo0015zh8wsn2',
@@ -653,6 +773,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 48764,
+    cpuUtil: 39,
   },
   {
     serialNumber: 'jqspeyo0ggy6ftaa',
@@ -663,6 +785,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 28373,
+    cpuUtil: 44,
   },
   {
     serialNumber: 'fg4agao03bum8d73v',
@@ -673,6 +797,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 26472,
+    cpuUtil: 56,
   },
   {
     serialNumber: 'dwjtzpc02iyugxsng',
@@ -683,6 +809,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 21278,
+    cpuUtil: 60,
   },
   {
     serialNumber: 'jqspeyo0y4o1i77z',
@@ -694,6 +822,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_60',
+    totalEnergy: 17517,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'fg4agao0hom4bsld',
@@ -704,6 +834,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 16544,
+    cpuUtil: 50,
   },
   {
     serialNumber: 'jqspeyo02e2g8b57u',
@@ -714,6 +846,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 40984,
+    cpuUtil: 39,
   },
   {
     serialNumber: 'erwnuo002rqunlm04',
@@ -724,6 +858,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 5573,
+    cpuUtil: 54,
   },
   {
     serialNumber: 'fg4agao02oo43m2rs',
@@ -734,6 +870,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 50650,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'dwjtzpc0184dj81o9',
@@ -745,6 +883,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_65',
+    totalEnergy: 21619,
+    cpuUtil: 71,
   },
   {
     serialNumber: 'jqspeyo03e59w0n26',
@@ -756,6 +896,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_66_test',
+    totalEnergy: 11198,
+    cpuUtil: 28,
   },
   {
     serialNumber: 'dwjtzpc0160ov31si',
@@ -766,6 +908,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 37949,
+    cpuUtil: 74,
   },
   {
     serialNumber: 'erwnuo002sarjhtwd',
@@ -776,6 +920,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 15759,
+    cpuUtil: 62,
   },
   {
     serialNumber: 'jqspeyo034nct3btw',
@@ -786,6 +932,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 18697,
+    cpuUtil: 46,
   },
   {
     serialNumber: 'ljyyfpc028sof6g7s',
@@ -797,6 +945,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_70',
+    totalEnergy: 37998,
+    cpuUtil: 20,
   },
   {
     serialNumber: 'erwnuo002rvtqkase',
@@ -807,6 +957,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 26827,
+    cpuUtil: 66,
   },
   {
     serialNumber: 'erwnuo001ngq5jhe0',
@@ -818,6 +970,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_72_test',
+    totalEnergy: 9329,
+    cpuUtil: 32,
   },
   {
     serialNumber: 'dwjtzpc01sd1jajyn',
@@ -828,6 +982,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 53374,
+    cpuUtil: 69,
   },
   {
     serialNumber: 'fg4agao01cvf0dy4q',
@@ -838,6 +994,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 18248,
+    cpuUtil: 32,
   },
   {
     serialNumber: 'jqspeyo01ald75it1',
@@ -849,6 +1007,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_75',
+    totalEnergy: 32848,
+    cpuUtil: 10,
   },
   {
     serialNumber: 'jqspeyo01kizuiud6',
@@ -859,6 +1019,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 23681,
+    cpuUtil: 31,
   },
   {
     serialNumber: 'ljyyfpc0ufdrh7lh',
@@ -869,6 +1031,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 22410,
+    cpuUtil: 13,
   },
   {
     serialNumber: 'ljyyfpc01pw6tsuzr',
@@ -880,6 +1044,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_78_test',
+    totalEnergy: 45665,
+    cpuUtil: 23,
   },
   {
     serialNumber: 'fg4agao02o9gnvte6',
@@ -890,6 +1056,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 50708,
+    cpuUtil: 34,
   },
   {
     serialNumber: 'erwnuo001totx0ppy',
@@ -901,6 +1069,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_80',
+    totalEnergy: 20950,
+    cpuUtil: 10,
   },
   {
     serialNumber: 'jqspeyo021dpm7pb9',
@@ -911,6 +1081,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 52385,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'ljyyfpc01v73ey0s2',
@@ -921,6 +1093,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 56279,
+    cpuUtil: 44,
   },
   {
     serialNumber: 'dwjtzpc0v4elga55',
@@ -931,6 +1105,8 @@ const data = [
     type: 'Storage',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 15573,
+    cpuUtil: 19,
   },
   {
     serialNumber: 'jqspeyo02zmshl9vo',
@@ -942,6 +1118,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_84_test',
+    totalEnergy: 10385,
+    cpuUtil: 74,
   },
   {
     serialNumber: 'erwnuo00vep4luyx',
@@ -953,6 +1131,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_85',
+    totalEnergy: 31707,
+    cpuUtil: 36,
   },
   {
     serialNumber: 'ljyyfpc01dd9951lj',
@@ -963,6 +1143,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 54640,
+    cpuUtil: 27,
   },
   {
     serialNumber: 'ljyyfpc01v6j56193',
@@ -973,6 +1155,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 14396,
+    cpuUtil: 53,
   },
   {
     serialNumber: 'fg4agao02p7ygk01r',
@@ -983,6 +1167,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 26479,
+    cpuUtil: 12,
   },
   {
     serialNumber: 'erwnuo001ph5mczzq',
@@ -993,6 +1179,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 44088,
+    cpuUtil: 24,
   },
   {
     serialNumber: 'ljyyfpc0yptxqdup',
@@ -1004,6 +1192,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'PROD_90',
+    totalEnergy: 10178,
+    cpuUtil: 47,
   },
   {
     serialNumber: 'jqspeyo01v7t08u86',
@@ -1014,6 +1204,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 44084,
+    cpuUtil: 73,
   },
   {
     serialNumber: 'dwjtzpc02j948b3k7',
@@ -1024,6 +1216,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 13110,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'fg4agao0nasbwzph',
@@ -1034,6 +1228,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 52876,
+    cpuUtil: 21,
   },
   {
     serialNumber: 'erwnuo001avl6i8mq',
@@ -1044,6 +1240,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 24920,
+    cpuUtil: 48,
   },
   {
     serialNumber: 'ljyyfpc01qozicw35',
@@ -1055,6 +1253,8 @@ const data = [
     make: 'Dell',
     country: 'USA',
     name: 'PROD_95',
+    totalEnergy: 34523,
+    cpuUtil: 30,
   },
   {
     serialNumber: 'jqspeyo031tez0vfi',
@@ -1066,6 +1266,8 @@ const data = [
     make: 'HPE',
     country: 'USA',
     name: 'DEV_96_test',
+    totalEnergy: 14379,
+    cpuUtil: 14,
   },
   {
     serialNumber: 'fg4agao02r2t60f2m',
@@ -1076,6 +1278,8 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 50808,
+    cpuUtil: 63,
   },
   {
     serialNumber: 'fg4agao02m711ifle',
@@ -1086,6 +1290,8 @@ const data = [
     type: 'Compute',
     make: 'Dell',
     country: 'USA',
+    totalEnergy: 15257,
+    cpuUtil: 58,
   },
   {
     serialNumber: 'fg4agao01h70sl67k',
@@ -1096,10 +1302,13 @@ const data = [
     type: 'Compute',
     make: 'HPE',
     country: 'USA',
+    totalEnergy: 40586,
+    cpuUtil: 16,
   },
 ];
 
 export const Devices = () => {
+  const size = useContext(ResponsiveContext);
   return (
     <Data
       data={data}
@@ -1107,22 +1316,50 @@ export const Devices = () => {
         {
           name: 'My devices',
           properties: {
-            type: 'Compute',
-            city: 'San Francisco',
+            type: ['Compute'],
+            make: ['HPE'],
           },
         },
       ]}
+      properties={{
+        serialNumber: { filter: false },
+        name: { filter: false },
+        type: { label: 'Type' },
+        make: { label: 'Make' },
+        country: { label: 'Country' },
+        state: { label: 'State' },
+        city: { label: 'City' },
+        model: { label: 'Model' },
+        totalEnergy: { label: 'Total energy' },
+      }}
     >
       <Toolbar gap="medium">
         <Toolbar>
-          <DataSearch />
+          <DataSearch placeholder="Search" />
           <DataSort drop />
           <DataFilters layer />
         </Toolbar>
-        <DataView />
-        <DataTableColumns drop options={options} />
+        {!['xsmall', 'small', 'medium'].includes(size) ? (
+          <>
+            <DataView />
+            <DataTableColumns drop options={options} />
+          </>
+        ) : undefined}
+        {['xsmall', 'small', 'medium'].includes(size) ? (
+          <DropButton
+            kind="toolbar"
+            icon={<More />}
+            dropAlign={{ top: 'bottom', left: 'left' }}
+            dropContent={
+              <Box align="start" gap="small" pad="small">
+                <DataView />
+                <DataTableColumns drop options={options} />
+              </Box>
+            }
+          />
+        ) : undefined}
       </Toolbar>
-      <DataSummary />
+      <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
       <Box overflow={{ horizontal: 'auto' }}>
         <DataTable
           alignSelf="start"
