@@ -19,16 +19,16 @@ import { Login } from './Login';
 export const BackgroundContext = createContext({});
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem('design-tokens-demo') || false,
   );
-
   useEffect(() => {
     if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
   }, []);
 
+  const [darkMode, setDarkMode] = useState(false);
   const [backgroundBack, setBackgroundBack] = useState(false);
+
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
   const [activeTheme, setActiveTheme] = useState('Current theme');
   const theme = useMemo(

@@ -41,6 +41,7 @@ export const NotificationMetric = ({ status, value }) => {
       align="start"
       pad={{ vertical: 'small', horizontal: 'medium' }}
       round="small"
+      wrap
     >
       {icon}
       <Text>
