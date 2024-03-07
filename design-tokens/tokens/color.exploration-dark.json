@@ -31,7 +31,7 @@
       },
       "front": {
         "$type": "color",
-        "$value": "{color.grey.70}",
+        "$value": "#193c3b",
         "$description": "Background color applied on top of background-back.",
         "$extensions": {
           "com.figma": {
@@ -45,7 +45,7 @@
       },
       "back": {
         "$type": "color",
-        "$value": "{color.grey.80}",
+        "$value": "#132e2d",
         "$description": "Background color applied to the base layer of the application.",
         "$extensions": {
           "com.figma": {
