@@ -1,3 +1,4 @@
+import { Checkmark } from 'grommet-icons';
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import { PaginationCardsExample, PaginationExample } from '../../examples';
@@ -14,11 +15,29 @@ import { PaginationCardsExample, PaginationExample } from '../../examples';
 
 ## When to use pagination
 
-Use pagination when a user’s goal is to find a specific item rather than to peruse the full set of data. By breaking the data up into smaller, consistently sized groups, the user is more easily able to jump to specific sections of the data.
+{/* WHY - Describe the user problem being solved and the benefit here. */}
 
-If you expect the user will be scrolling and perusing large amounts of the data set, consider using [Infinite Scroll](https://v2.grommet.io/infinitescroll).
+Use pagination when a user's goal is to find a specific item rather than to browse 
+the full set of data. Breaking the data up into smaller, consistently sized groups, 
+allow users to examine subsets or easily jump to specific sections of the data.
 
-Pagination is particularly effective for displaying large sets of results in components such as [Table](#paginated-table), [List](#paginated-list), and [Cards](#paginated-cards).
+If the user will be scrolling and browsing large amounts of the data set, consider 
+using [Infinite Scroll](https://v2.grommet.io/infinitescroll).
+
+Pagination is particularly effective for displaying large data collections presented
+as [tables](#paginated-table), [lists](#paginated-list), or [cards](#paginated-cards).
+
+## Anatomy
+
+{/* WHAT - Specify the parts of the component or pattern (i.e. what makes up) and why 
+they exist (i.e. purpose / benefit to the user). */}
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | ------ | ------- | :------: | ----- |
+| **1** | **Container** | Organizes the pagination regions, their placement, spacing, and how they respond when space is limited. <br /><br /> Provides visual containment for functionally related elements via proximity, background, borders, etc.. | <Checkmark a11yTitle="true" size="small" /> | |
+| **2** | **Pagination summary** | Context region displaying the range of results being viewed. Provides the user assurance by communicating the subset of results displayed. | Optional | |
+| **3** | **Step size selector** | Customization region allowing users to modify the number of items per page to their preferenc. | Optional | Step size options may be customized using [stepOptions](https://v2.grommet.io/pagination#stepOptions). |
+| **4** | **Pagination controls** | Navigation region allowing user to jump to records of interest. | <Checkmark a11yTitle="true" size="small" /> | The number of middle and edge pages are configurable using [Pagination props](https://v2.grommet.io/pagination#props). Useful for scenarios when horizontal real-estate may be limited. |
 
 ## Guidelines
 
