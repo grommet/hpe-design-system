@@ -13,13 +13,13 @@ import { PaginationCardsExample, PaginationExample } from '../../examples';
   <PaginationExample />
 </Example>
 
-## When to use pagination
+## When to use
 
 {/* WHY - Describe the user problem being solved and the benefit here. */}
 
 Use pagination when a user's goal is to find a specific item rather than to browse 
-the full set of data. Breaking the data up into smaller, consistently sized groups, 
-allow users to examine subsets or easily jump to specific sections of the data.
+the full set of data. Breaking the data up into smaller, consistently sized chunks 
+allow users to easily jump to specific sections of the data or examine subsets.
 
 If the user will be scrolling and browsing large amounts of the data set, consider 
 using [Infinite Scroll](https://v2.grommet.io/infinitescroll).
@@ -32,46 +32,90 @@ as [tables](#paginated-table), [lists](#paginated-list), or [cards](#paginated-c
 {/* WHAT - Specify the parts of the component or pattern (i.e. what makes up) and why 
 they exist (i.e. purpose / benefit to the user). */}
 
+```js
+provide anatomy diagram here
+```
+
 | Label | Region | Purpose | Required | Notes |
 | :---: | ------ | ------- | :------: | ----- |
 | **1** | **Container** | Organizes the pagination regions, their placement, spacing, and how they respond when space is limited. <br /><br /> Provides visual containment for functionally related elements via proximity, background, borders, etc.. | <Checkmark a11yTitle="true" size="small" /> | |
-| **2** | **Pagination summary** | Context region displaying the range of results being viewed. Provides the user assurance by communicating the subset of results displayed. | Optional | |
+| **2** | **Page summary** | Context region displaying the range of results being viewed. Provides the user assurance by communicating the subset of results displayed. | Optional | |
 | **3** | **Step size selector** | Customization region allowing users to modify the number of items per page to their preferenc. | Optional | Step size options may be customized using [stepOptions](https://v2.grommet.io/pagination#stepOptions). |
 | **4** | **Pagination controls** | Navigation region allowing user to jump to records of interest. | <Checkmark a11yTitle="true" size="small" /> | The number of middle and edge pages are configurable using [Pagination props](https://v2.grommet.io/pagination#props). Useful for scenarios when horizontal real-estate may be limited. |
 
-## Guidelines
+## Behaviors
 
-### Number of results per page
+{/* HOW - Describe how this component behaves considering interactive states, data 
+states, available real-estate, and motion. */}
 
-A reasonable starting point for page size is 20 records. This is the default "step" (page size) on Grommet DataTable, List, and Pagination. This size strikes a balance between providing a user enough information to consume or find records of interest without being too much information leading to cognitive overload.That said, the default number of records per page should be tailored to the data set and determined by the UX designer. For example, a data collection displaying log files or notifications may choose a large page size as it allows a user to scan and understand activity in a efficient manner. Whereas as data collection presenting items in a news feed may only need to present a handful of records at a time.
+{/* Interactivity - focus, hover, selection, down, drag, disabled, etc. */}
 
-If there is only one page of items, it is optional to display the pagination component and summary of results.
+{/* Data states - loading, error, empty, has value, missing values, etc. */}
 
-### Placement of pagination component
+{/* Real-estate - responsive, fluid, fixed, overflow, truncation, etc. */}
+### Responsive
 
-The pagination component should be placed underneath and justified to the end of the content it is paginating.
+```javascript
+add responsive example here
+```
+
+{/* Motion - speed, easing, delay, etc. */}
+
+{/* Animation - duration, easing, direction, etc. */}
+
+## Usage
+
+{/* HOW - Describe how to use this component or pattern and when and how its variants 
+can/should be applied. */}
+
+### Options
+
+{/* How this component may be configured by variants, styles, sizing, orientation, 
+states, decoration, placement, etc. */}
+
+#### Number of results per page
+
+The default number of records per page should be tailored to the data set and determined 
+by the UX designer. For example, a data collection displaying log files or notifications 
+may choose a large page size allowing a user to scan and understand activity in an 
+efficient manner. Whereas, a data collection presenting items in a news feed or 
+resource cards presenting products and services may only need to present a handful of 
+records at a time.
+
+The UX objective is to find a balance between providing a user enough information to 
+consume and/or find records of interest without being too much information leading to 
+cognitive overload.
+
+- Choose a reasonable default page size. For tables, a reasonable starting point is 20-25 records.
+- Let users choose their own page size preference by providing a step size selector.
+- If there is only one page of items expected, it is optional to display the pagination 
+component and page summary.
+
+```javascript
+add stepOptions example here
+```
 
 ### Showing summary of results
 
-It may be beneficial to provide users with a summary of what range of results they are viewing. This should take the format of "Showing x-y of z" where x is the start of the page, y is the end of the page, and z is the total number of records. This should be left-aligned in a row with the pagination component.
+{/* revisit content from here and below */}
+It may be beneficial to provide users with a summary of what range of results 
+they are viewing. This should take the format of "Showing x-y of z" where x is 
+the start of the page, y is the end of the page, and z is the total number of 
+records. This should be left-aligned in a row with the pagination component.
 
-The results summary should be justified to the start of the row and the pagination component should remain justified to the end of the row.
+The results summary should be justified to the start of the row and the pagination 
+component should remain justified to the end of the row.
 
-## Accessibility
+```javascript
+add summary example here
+```
 
-Below are some accessibility requirements that ensure pagination is accessible for screen readers and keyboard navigation.
+### Placement of pagination component
 
-If your team is developing with Grommet, these considerations are already handled, so no further action is required from your team.
+The pagination component should be placed underneath and justified to the end of the 
+content it is paginating.
 
-1. Wrap pagination links in a `<nav>` element.
-1. Provide an `aria-label="pagination navigaton"` and `role="navigation"`.
-1. Individual page buttons should have an `aria-label` that reads "Go to page X", where X is the page that will be navigated to upon selection.
-1. The active page button should have `aria-current="true"`.
-1. The next/previous arrow buttons should have `aria-label` that reads "Go to next page" and "Go to previous page", respectively.
-
-For more detailed documentation on these requirements, you can read more about [accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
-
-## Variants
+## Use case examples
 
 In addition to [DataTable](/components/datatable#paginated) and [List](/templates/lists#paginated), here is another way pagination can be implemented.
 
@@ -107,3 +151,25 @@ Lists often contain large amounts of data. To improve the efficiency that a user
 >
   <PaginationCardsExample />
 </Example>
+
+## Accessibility
+
+{/* List and describe relevant keyboard interations, announcements, ARIA attributes, 
+internationalization considerations and/or requirements. */}
+
+Below are some accessibility requirements that ensure pagination is accessible 
+for assisstive technologies and keyboard navigation.
+
+If your team is developing with Grommet, these considerations are already handled, 
+so no further action is required from your team.
+
+1. Wrap pagination links in a `<nav>` element.
+1. Provide an `aria-label="pagination navigaton"` and `role="navigation"`.
+1. Individual page buttons should have an `aria-label` that reads "Go to page X", 
+where X is the page that will be navigated to upon selection.
+1. The active page button should have `aria-current="true"`.
+1. The next/previous arrow buttons should have `aria-label` that reads "Go to next page" 
+and "Go to previous page", respectively.
+
+For more detailed documentation on these requirements, you can read more about 
+[accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
