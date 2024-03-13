@@ -1408,7 +1408,7 @@ export const components = [
       },
     },
     seoDescription:
-      'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
+      'Spinner is an small motion graphic element loading state for quick asynchronous tasks.',
     relatedContent: ['Lists', 'DataTable', 'Forms'],
     sections: [
       'When to use Spinner',
