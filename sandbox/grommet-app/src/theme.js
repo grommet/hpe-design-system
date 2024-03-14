@@ -268,6 +268,34 @@ const buildTheme = tokens => {
           light: light.color.chart.qualitative['70-secondary'].$value,
           dark: dark.color.chart.qualitative['70-secondary'].$value,
         },
+        'background-brand-weak': {
+          light: light.color.background.brand.weak.$value,
+          dark: dark.color.background.brand.weak.$value,
+        },
+        'foreground-brand-default': {
+          light: light.color.foreground.brand.default.$value,
+          dark: dark.color.foreground.brand.default.$value,
+        },
+        'foreground-status-critical': {
+          light: light.color.foreground.status.critical.$value,
+          dark: dark.color.foreground.status.critical.$value,
+        },
+        'foreground-status-warning': {
+          light: light.color.foreground.status.warning.$value,
+          dark: dark.color.foreground.status.warning.$value,
+        },
+        'foreground-status-ok': {
+          light: light.color.foreground.status.ok.$value,
+          dark: dark.color.foreground.status.ok.$value,
+        },
+        'foreground-status-info': {
+          light: light.color.foreground.status.info.$value,
+          dark: dark.color.foreground.status.info.$value,
+        },
+        'button-secondary-border-default': {
+          light: light.color.button.secondary.border.default.$value,
+          dark: dark.color.button.secondary.border.default.$value,
+        },
         // TO DO do we want these as tokens?
         'background-layer-overlay': '#00000080',
         control: 'brand',
@@ -289,6 +317,11 @@ const buildTheme = tokens => {
       },
     },
     button: {
+      secondary: {
+        border: {
+          color: 'button-secondary-border-default',
+        },
+      },
       subtle: {
         background: 'background-contrast',
         color: 'text-strong',
@@ -296,11 +329,31 @@ const buildTheme = tokens => {
           weight: 600,
         },
       },
+      tab: {
+        color: 'text-strong',
+        font: {
+          weight: 400,
+        },
+        border: {
+          // TO DO token
+          radius: '8px',
+          width: '0px',
+          color: 'none',
+        },
+        extend: ({ active }) =>
+          // TO DO token
+          `${active ? 'box-shadow: 0px 2px 4px #0000001F;' : ''}`,
+      },
+      active: {
+        tab: {
+          background: 'background-front',
+        },
+      },
     },
     card: {
       container: {
-        extend: '',
-        elevation: 'small',
+        extend: 'transition: border 0.2s ease-in;',
+        // elevation: 'small',
       },
     },
     notification: {

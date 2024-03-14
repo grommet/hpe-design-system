@@ -58,9 +58,15 @@ export const DashboardCard = ({
         {!hideCta ? (
           <Box flex={false}>
             {external ? (
-              <ShareRounded a11yTitle={`Go to ${title}`} color="primary" />
+              <ShareRounded
+                a11yTitle={`Go to ${title}`}
+                color="foreground-brand-default"
+              />
             ) : (
-              <LinkNext a11yTitle={`Go to ${title}`} color="primary" />
+              <LinkNext
+                a11yTitle={`Go to ${title}`}
+                color="foreground-brand-default"
+              />
             )}
           </Box>
         ) : undefined}

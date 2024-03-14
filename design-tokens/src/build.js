@@ -81,12 +81,12 @@ const light = JSON.parse(rawLight);
 const resolvedLight = resolveTokens(light, dimensionPrimitives);
 
 // warm dark colors
-const rawWarmDark = readFileSync('./tokens/color.exploration-dark.json');
+const rawWarmDark = readFileSync('./tokens/color.warm-dark.json');
 const warmDark = JSON.parse(rawWarmDark);
 const resolvedWarmDark = resolveTokens(warmDark, dimensionPrimitives);
 
 // warm light colors
-const rawWarmLight = readFileSync('./tokens/color.exploration-light.json');
+const rawWarmLight = readFileSync('./tokens/color.warm-light.json');
 const warmlight = JSON.parse(rawWarmLight);
 const resolvedWarmLight = resolveTokens(warmlight, dimensionPrimitives);
 

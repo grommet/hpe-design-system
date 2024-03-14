@@ -15,6 +15,10 @@ function Sustainability() {
           actions={<Button label="Export report" secondary />}
         />
         <Box gap="medium">
+          <Box direction="row" gap="small">
+            <Button label="Insights" kind="tab" active />
+            <Button label="Manage" kind="tab" />
+          </Box>
           <SustainabilityInsights />
           <ContentPane heading="Devices" level={2}>
             <Devices />

@@ -14,28 +14,34 @@ import notifications from '../../mockData/notifications.json';
 const statuses = {
   critical: {
     background: 'background-status-critical',
-    icon: <StatusCritical color="status-critical" height="medium" />,
+    icon: <StatusCritical color="foreground-status-critical" height="medium" />,
     iconCompact: (
-      <StatusCriticalSmall color="status-critical" height="medium" />
+      <StatusCriticalSmall color="foreground-status-critical" height="medium" />
     ),
     label: 'Critical',
   },
   warning: {
     background: 'background-status-warning',
-    icon: <StatusWarning color="status-warning" height="medium" />,
-    iconCompact: <StatusWarningSmall color="status-warning" height="medium" />,
+    icon: <StatusWarning color="foreground-status-warning" height="medium" />,
+    iconCompact: (
+      <StatusWarningSmall color="foreground-status-warning" height="medium" />
+    ),
     label: 'Warning',
   },
   ok: {
     background: 'background-status-ok',
-    icon: <StatusGood color="status-ok" height="medium" />,
-    iconCompact: <StatusGoodSmall color="status-ok" height="medium" />,
+    icon: <StatusGood color="foreground-status-ok" height="medium" />,
+    iconCompact: (
+      <StatusGoodSmall color="foreground-status-ok" height="medium" />
+    ),
     label: 'Ok',
   },
   info: {
     background: 'background-status-info',
-    icon: <CircleInformation color="blue" height="medium" />,
-    iconCompact: <StatusGoodSmall color="blue" height="medium" />,
+    icon: <CircleInformation color="foreground-status-info" height="medium" />,
+    iconCompact: (
+      <StatusGoodSmall color="foreground-status-info" height="medium" />
+    ),
     label: 'Information',
   },
 };

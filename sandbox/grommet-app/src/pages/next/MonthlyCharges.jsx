@@ -37,9 +37,21 @@ export const MonthlyCharges = () => (
       chart={[
         {
           property: [
-            { property: 'storage', thickness: 'small', color: 'graph-2' },
-            { property: 'compute', thickness: 'small', color: 'graph-4' },
-            { property: 'networking', thickness: 'small', color: 'graph-0' },
+            {
+              property: 'storage',
+              thickness: 'small',
+              color: 'chart-qualitative-30',
+            },
+            {
+              property: 'compute',
+              thickness: 'small',
+              color: 'chart-qualitative-70',
+            },
+            {
+              property: 'networking',
+              thickness: 'small',
+              color: 'chart-qualitative-50',
+            },
           ],
           type: 'bars',
         },
@@ -48,9 +60,9 @@ export const MonthlyCharges = () => (
       guide={{ y: { granularity: 'fine' } }}
     />
     <Box direction="row" alignSelf="center" gap="medium">
-      <Legend label="Storage" color="graph-2" />
-      <Legend label="Compute" color="graph-4" />
-      <Legend label="Networking" color="graph-0" />
+      <Legend label="Storage" color="chart-qualitative-30" />
+      <Legend label="Compute" color="chart-qualitative-70" />
+      <Legend label="Networking" color="chart-qualitative-50" />
     </Box>
   </DashboardCard>
 );

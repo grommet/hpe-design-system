@@ -1,3 +1,5 @@
+import { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import {
   Data,
   DataTable,
@@ -13,8 +15,10 @@ import {
   DataTableColumns,
   ResponsiveContext,
   DropButton,
+  ThemeContext,
+  Menu,
 } from 'grommet';
-import { More } from 'grommet-icons';
+import { More, BladesVertical } from 'grommet-icons';
 import { useContext } from 'react';
 
 const columns = [
@@ -53,6 +57,7 @@ const columns = [
     property: 'model',
     header: 'Model',
     render: datum => <Text truncate="tip">{datum.model}</Text>,
+    size: 'medium',
   },
   {
     property: 'totalEnergy',
@@ -1307,70 +1312,129 @@ const data = [
   },
 ];
 
+const DensityControl = ({ density, setDensity }) => (
+  <Menu
+    icon={<BladesVertical />}
+    tip="Change density"
+    kind="toolbar"
+    items={[
+      {
+        label: 'Compact',
+        active: density === 'Compact',
+        onClick: () => setDensity('Compact'),
+      },
+      {
+        label: 'Comfortable',
+        active: density === 'Comfortable',
+        onClick: () => setDensity('Comfortable'),
+      },
+      {
+        label: 'Spacious',
+        active: density === 'Spacious',
+        onClick: () => setDensity('Spacious'),
+      },
+    ]}
+  />
+);
+
+DensityControl.propTypes = {
+  density: PropTypes.string,
+  setDensity: PropTypes.func,
+};
 export const Devices = () => {
   const size = useContext(ResponsiveContext);
+  const [density, setDensity] = useState('Comfortable');
+
+  const pad = useMemo(() => {
+    let res = 'small';
+    if (density === 'Compact') res = 'xsmall';
+    else if (density === 'Spacious') res = 'medium';
+    return res;
+  }, [density]);
+
   return (
-    <Data
-      data={data}
-      views={[
-        {
-          name: 'My devices',
-          properties: {
-            type: ['Compute'],
-            make: ['HPE'],
+    <ThemeContext.Extend
+      value={{
+        table: {
+          body: {
+            pad: {
+              vertical: pad,
+            },
           },
         },
-      ]}
-      properties={{
-        serialNumber: { filter: false },
-        name: { filter: false },
-        type: { label: 'Type' },
-        make: { label: 'Make' },
-        country: { label: 'Country' },
-        state: { label: 'State' },
-        city: { label: 'City' },
-        model: { label: 'Model' },
-        totalEnergy: { label: 'Total energy' },
       }}
     >
-      <Toolbar gap="medium">
-        <Toolbar>
-          <DataSearch placeholder="Search" />
-          <DataSort drop />
-          <DataFilters layer />
-        </Toolbar>
-        {!['xsmall', 'small', 'medium'].includes(size) ? (
-          <>
-            <DataView />
-            <DataTableColumns drop options={options} />
-          </>
-        ) : undefined}
-        {['xsmall', 'small', 'medium'].includes(size) ? (
-          <DropButton
-            kind="toolbar"
-            icon={<More />}
-            dropAlign={{ top: 'bottom', left: 'left' }}
-            dropContent={
-              <Box align="start" gap="small" pad="small">
-                <DataView />
+      <Data
+        data={data}
+        views={[
+          {
+            name: 'My devices',
+            properties: {
+              type: ['Compute'],
+              make: ['HPE'],
+            },
+          },
+        ]}
+        properties={{
+          serialNumber: { filter: false },
+          name: { filter: false },
+          type: { label: 'Type' },
+          make: { label: 'Make' },
+          country: { label: 'Country' },
+          state: { label: 'State' },
+          city: { label: 'City' },
+          model: { label: 'Model' },
+          totalEnergy: { label: 'Total energy' },
+        }}
+      >
+        <Toolbar gap="medium">
+          <Toolbar>
+            <DataSearch placeholder="Search" />
+            <DataSort drop />
+            <DataFilters layer />
+          </Toolbar>
+          {!['xsmall', 'small', 'medium'].includes(size) ? (
+            <>
+              <DataView />
+              <Toolbar>
                 <DataTableColumns drop options={options} />
-              </Box>
-            }
+                <DensityControl density={density} setDensity={setDensity} />
+              </Toolbar>
+            </>
+          ) : undefined}
+          {['xsmall', 'small', 'medium'].includes(size) ? (
+            <DropButton
+              kind="toolbar"
+              icon={<More />}
+              dropAlign={{ top: 'bottom', left: 'left' }}
+              dropContent={
+                <Box align="start" gap="small" pad="small">
+                  <DataView />
+                  <Toolbar>
+                    <DataTableColumns drop options={options} />
+                    <DensityControl density={density} setDensity={setDensity} />
+                  </Toolbar>
+                </Box>
+              }
+            />
+          ) : undefined}
+        </Toolbar>
+        <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
+
+        <Box overflow={{ horizontal: 'auto' }}>
+          <DataTable
+            columns={columns}
+            sortable
+            verticalAlign={{ body: 'top' }}
           />
-        ) : undefined}
-      </Toolbar>
-      <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
-      <Box overflow={{ horizontal: 'auto' }}>
-        <DataTable
-          alignSelf="start"
-          columns={columns}
-          sortable
-          verticalAlign={{ body: 'top' }}
+        </Box>
+        <Pagination
+          summary
+          stepOptions
+          border="top"
+          pad={{ vertical: 'xsmall' }}
         />
-      </Box>
-      <Box border="top" pad={{ vertical: 'xsmall' }}>
-        <Pagination alignSelf="end" />
-      </Box>
-    </Data>
+      </Data>
+    </ThemeContext.Extend>
   );
 };
