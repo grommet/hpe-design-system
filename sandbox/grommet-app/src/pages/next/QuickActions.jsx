@@ -19,7 +19,7 @@ export const QuickActions = ({ edit = true, icons }) => {
         {edit && (
           <Button
             label="Edit"
-            icon={<Edit color="primary" />}
+            icon={<Edit color="foreground-brand-default" />}
             kind="subtle"
             reverse
           />
@@ -27,27 +27,27 @@ export const QuickActions = ({ edit = true, icons }) => {
       </Box>
       <Box gap="small">
         <Anchor
-          icon={icons && <ChapterAdd color="primary" />}
+          icon={icons && <ChapterAdd color="foreground-brand-default" />}
           label="Add devices"
           href="#"
         />
         <Anchor
-          icon={icons && <Cloud color="primary" />}
+          icon={icons && <Cloud color="foreground-brand-default" />}
           label="Add service subscriptions"
           href="#"
         />
         <Anchor
-          icon={icons && <UserAdd color="primary" />}
+          icon={icons && <UserAdd color="foreground-brand-default" />}
           label="Add users"
           href="#"
         />
         <Anchor
-          icon={icons && <Stakeholder color="primary" />}
+          icon={icons && <Stakeholder color="foreground-brand-default" />}
           label="Assign roles"
           href="#"
         />
         <Anchor
-          icon={icons && <MapLocation color="primary" />}
+          icon={icons && <MapLocation color="foreground-brand-default" />}
           label="Create location"
           href="#"
         />

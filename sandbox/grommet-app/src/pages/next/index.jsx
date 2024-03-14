@@ -28,7 +28,7 @@ const Divider = () => <Box border={{ side: 'bottom', color: 'primary' }} />;
 function Index() {
   const size = useContext(ResponsiveContext);
   return (
-    <Page pad={{ bottom: 'large', top: 'medium' }}>
+    <Page pad={{ top: 'large', bottom: 'xlarge' }}>
       <PageContent gap="medium">
         <Grid
           columns={

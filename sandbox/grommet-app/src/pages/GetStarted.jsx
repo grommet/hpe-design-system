@@ -11,14 +11,14 @@ export const GetStarted = ({ heading = true, kind }) => {
   if (kind === 'next')
     kindStyles = {
       container: {
-        background: { color: 'background-contrast' },
+        background: { color: 'background-brand-weak' },
         pad: 'xsmall',
         border: true,
         round: 'xsmall',
       },
       icon: {
         size: 'xlarge',
-        color: 'primary',
+        color: 'foreground-brand-default',
       },
     };
   return (
@@ -71,5 +71,5 @@ export const GetStarted = ({ heading = true, kind }) => {
 
 GetStarted.propTypes = {
   heading: PropTypes.bool,
-  kind: PropTypes.oneOfType(['next', 'push']),
+  kind: PropTypes.oneOf(['next', 'push']),
 };
