@@ -20,6 +20,7 @@ export const ToggleGroup = ({ options, value, setValue }) => {
         options={options}
         border
         round="6px"
+        overflow="hidden"
         value={value}
         onChange={event =>
           setValue(event.target.value === 'true' ? true : false)
