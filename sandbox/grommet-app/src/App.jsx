@@ -7,6 +7,7 @@ import Home from './pages/index';
 import NextDashboard from './pages/next/index';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
+import { FloatingActionButton } from './components';
 
 export const BackgroundContext = createContext({});
 
@@ -39,6 +40,7 @@ const App = () => {
           cssGap: true,
         },
       }}
+      style={{ display: 'relative' }}
     >
       {authenticated ? (
         <BackgroundContext.Provider value={contextValue}>
@@ -56,6 +58,9 @@ const App = () => {
               <Route path="/next" element={<NextDashboard />} />
             </Routes>
           </BrowserRouter>
+          {window.location.pathname === '/next' ? (
+            <FloatingActionButton label="Ask HPE" />
+          ) : undefined}
         </BackgroundContext.Provider>
       ) : (
         <Login setAuthenticated={setAuthenticated} />
