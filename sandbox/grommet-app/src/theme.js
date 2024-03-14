@@ -268,6 +268,10 @@ const buildTheme = tokens => {
           light: light.color.chart.qualitative['70-secondary'].$value,
           dark: dark.color.chart.qualitative['70-secondary'].$value,
         },
+        'background-brand-default': {
+          light: light.color.background.brand.default.$value,
+          dark: dark.color.background.brand.default.$value,
+        },
         'background-brand-weak': {
           light: light.color.background.brand.weak.$value,
           dark: dark.color.background.brand.weak.$value,
@@ -291,6 +295,11 @@ const buildTheme = tokens => {
         'foreground-status-info': {
           light: light.color.foreground.status.info.$value,
           dark: dark.color.foreground.status.info.$value,
+        },
+
+        'foreground-onBrand': {
+          light: light.color.foreground.onBrand.$value,
+          dark: dark.color.foreground.onBrand.$value,
         },
         'button-secondary-border-default': {
           light: light.color.button.secondary.border.default.$value,
@@ -325,6 +334,13 @@ const buildTheme = tokens => {
       subtle: {
         background: 'background-contrast',
         color: 'text-strong',
+        font: {
+          weight: 600,
+        },
+      },
+      fab: {
+        background: 'background-brand-default',
+        color: 'foreground-onBrand',
         font: {
           weight: 600,
         },
