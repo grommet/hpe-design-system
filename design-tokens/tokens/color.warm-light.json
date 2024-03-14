@@ -17,7 +17,7 @@
     "background": {
       "default": {
         "$type": "color",
-        "$value": "{color.grey.80}",
+        "$value": "{color.white.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -31,7 +31,7 @@
       },
       "front": {
         "$type": "color",
-        "$value": "#193c3b",
+        "$value": "{color.white.100}",
         "$description": "Background color applied on top of background-back.",
         "$extensions": {
           "com.figma": {
@@ -45,7 +45,7 @@
       },
       "back": {
         "$type": "color",
-        "$value": "#132e2d",
+        "$value": "{color.greyWarm.10}",
         "$description": "Background color applied to the base layer of the application.",
         "$extensions": {
           "com.figma": {
@@ -59,7 +59,7 @@
       },
       "contrast": {
         "$type": "color",
-        "$value": "{color.white.6}",
+        "$value": "{color.black.4}",
         "$description": "abc",
         "$extensions": {
           "com.figma": {
@@ -73,7 +73,7 @@
       },
       "active": {
         "$type": "color",
-        "$value": "{color.background.contrast}",
+        "$value": "{color.greyWarm.20}",
         "$description": "abc",
         "$extensions": {
           "com.figma": {
@@ -102,7 +102,7 @@
       "brand": {
         "default": {
           "$type": "color",
-          "$value": "{color.brand}",
+          "$value": "#85f26a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -116,7 +116,7 @@
         },
         "weak": {
           "$type": "color",
-          "$value": "{color.blue.n-blue30}",
+          "$value": "#c6ffb9",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -132,7 +132,7 @@
       "status": {
         "critical": {
           "$type": "color",
-          "$value": "#5e2d2b",
+          "$value": "{color.red.20-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -146,7 +146,7 @@
         },
         "ok": {
           "$type": "color",
-          "$value": "#13483c",
+          "$value": "{color.green.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -160,7 +160,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "#443c20",
+          "$value": "{color.yellow.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -174,7 +174,7 @@
         },
         "info": {
           "$type": "color",
-          "$value": "#133644",
+          "$value": "{color.blue.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -190,7 +190,7 @@
       "validation": {
         "critical": {
           "$type": "color",
-          "$value": "{color.red.70}",
+          "$value": "{color.red.20-24pc}",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -204,7 +204,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.yellow.70}",
+          "$value": "{color.yellow.10-24pc}",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -218,7 +218,7 @@
         },
         "ok": {
           "$type": "color",
-          "$value": "{color.green.50}",
+          "$value": "{color.green.10-24pc}",
           "$description": "abc",
           "$extensions": {
             "com.figma": {
@@ -236,7 +236,7 @@
       "status": {
         "critical": {
           "$type": "color",
-          "$value": "{color.red.20}",
+          "$value": "{color.red.30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -250,7 +250,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.yellow.30}",
+          "$value": "{color.yellow.40}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -278,7 +278,7 @@
         },
         "unknown": {
           "$type": "color",
-          "$value": "{color.grey.10}",
+          "$value": "{color.grey.20}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -322,7 +322,7 @@
       "brand": {
         "default": {
           "$type": "color",
-          "$value": "{color.brand}",
+          "$value": "#0b867f",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -353,7 +353,7 @@
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{color.white.36}",
+        "$value": "{color.greyCool.50}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -367,7 +367,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.white.72}",
+        "$value": "{color.greyCool.60}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -381,7 +381,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.white.12}",
+        "$value": "{color.greyCool.40}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -397,7 +397,7 @@
     "text": {
       "default": {
         "$type": "color",
-        "$value": "{color.white.100}",
+        "$value": "{color.greyCool.120}",
         "$description": "Default text color.",
         "$extensions": {
           "com.figma": {
@@ -411,7 +411,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.white.100}",
+        "$value": "{color.greyCool.120}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -425,7 +425,7 @@
       },
       "weak": {
         "$type": "color",
-        "$value": "{color.white.50}",
+        "$value": "{color.greyCool.110}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -439,7 +439,7 @@
       },
       "xweak": {
         "$type": "color",
-        "$value": "{color.white.20}",
+        "$value": "{color.greyCool.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -498,7 +498,7 @@
       "qualitative": {
         "10": {
           "$type": "color",
-          "$value": "{color.blue.30}",
+          "$value": "{color.blue.20}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -512,7 +512,7 @@
         },
         "20": {
           "$type": "color",
-          "$value": "{color.orange.30}",
+          "$value": "{color.orange.20}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -526,7 +526,7 @@
         },
         "30": {
           "$type": "color",
-          "$value": "{color.purple.30}",
+          "$value": "#7f90ed",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -540,7 +540,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{color.teal.30}",
+          "$value": "#33b983",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -554,7 +554,7 @@
         },
         "50": {
           "$type": "color",
-          "$value": "{color.yellow.50}",
+          "$value": "{color.yellow.30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -568,7 +568,7 @@
         },
         "60": {
           "$type": "color",
-          "$value": "{color.purple.30}",
+          "$value": "{color.purple.10}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -582,7 +582,7 @@
         },
         "70": {
           "$type": "color",
-          "$value": "{color.blue.30}",
+          "$value": "#91e77c",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -624,7 +624,7 @@
         },
         "30-secondary": {
           "$type": "color",
-          "$value": "{color.purple.20 -12pc}",
+          "$value": "#7f90ed1f",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -638,7 +638,7 @@
         },
         "40-secondary": {
           "$type": "color",
-          "$value": "{color.teal.30}",
+          "$value": "{color.teal.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -666,7 +666,7 @@
         },
         "60-secondary": {
           "$type": "color",
-          "$value": "{color.purple.20 -12pc}",
+          "$value": "{color.purple.10-12pc}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -680,7 +680,7 @@
         },
         "70-secondary": {
           "$type": "color",
-          "$value": "{color.blue.20-12pc}",
+          "$value": "#91e77c1f",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -697,7 +697,7 @@
     "shadow": {
       "default": {
         "$type": "color",
-        "$value": "{color.white.6}",
+        "$value": "{color.greyCool.125-4pc}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -729,7 +729,7 @@
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{color.white.12}",
+            "$value": "#bac1d1",
             "$description": "",
             "$extensions": {
               "com.figma": {

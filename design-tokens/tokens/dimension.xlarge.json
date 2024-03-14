@@ -30,7 +30,7 @@
     },
     "xxsmall": {
       "$type": "number",
-      "$value": "{dimension.3}",
+      "$value": "{dimension.4}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -44,7 +44,7 @@
     },
     "xsmall": {
       "$type": "number",
-      "$value": "{dimension.6}",
+      "$value": "{dimension.12}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -58,7 +58,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{dimension.12}",
+      "$value": "{dimension.24}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -72,7 +72,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{dimension.24}",
+      "$value": "{dimension.48}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -86,7 +86,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{dimension.48}",
+      "$value": "{dimension.96}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -158,7 +158,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{dimension.12}",
+      "$value": "{dimension.6}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -172,7 +172,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{dimension.24}",
+      "$value": "{dimension.12}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -188,7 +188,7 @@
   "content": {
     "xxsmall": {
       "$type": "number",
-      "$value": "{dimension.48}",
+      "$value": "{dimension.24}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -202,7 +202,7 @@
     },
     "xsmall": {
       "$type": "number",
-      "$value": "{dimension.96}",
+      "$value": "{dimension.48}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -216,7 +216,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{dimension.192}",
+      "$value": "{dimension.96}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -230,7 +230,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{dimension.384}",
+      "$value": "{dimension.192}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -244,7 +244,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{dimension.768}",
+      "$value": "{dimension.384}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -258,7 +258,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{dimension.1152}",
+      "$value": "{dimension.768}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -272,7 +272,7 @@
     },
     "xxlarge": {
       "$type": "number",
-      "$value": "{dimension.1536}",
+      "$value": "{dimension.1152}",
       "$description": "",
       "$extensions": {
         "com.figma": {
