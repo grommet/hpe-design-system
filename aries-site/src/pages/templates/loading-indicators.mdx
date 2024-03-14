@@ -1,0 +1,62 @@
+import { Example } from '../../layouts';
+import {
+  DashBoardSkeletonExample,
+  SkeletonAnatomy,
+  ButtonBusySimpleExample,
+} from '../../examples';
+import { SpinnerExample } from '../../examples';
+
+## Best Practices
+
+- Use Loading Indicators only when the page takes more than a few seconds to load, otherwise simply display the content.
+- Choose the variant according to the use case and apply only one at a time.
+- Avoid displaying multiple instances of the same loading indicator.
+- Do not artificially prolong loading times for the sake of animation.
+- Whenever possible, allow uninterrupted system usage during lengthy processes.
+
+## Variants
+
+Different loading indicators can be used for specific use cases.
+
+### Skeleton
+
+Skeletons are used for content-rich interfaces, with asynchronous loading, to stabilize layout and prevent shifts during content retrieval. The most common use case is for full page loads. For more information, access [Skeleton](/components/skeleton).
+
+<Example
+  componentName="Skeleton"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/skeleton/DashBoardSkeletonExample.js"
+  grommetSource="https://github.com/grommet/grommet/tree/master/src/js/components/Skeleton/Skeleton.js"
+  docs="https://v2.grommet.io/skeleton?theme=hpe#props"
+  height="500px"
+  align="start"
+  overflow="auto"
+  width="100%"
+>
+  <DashBoardSkeletonExample />
+</Example>
+
+### Spinner
+
+Spinners are used for in-context operations, like to notify the user that a task is being processed or that data is being fetched. For more information, access [Spinner](/components/spinner).
+
+<Example
+  componentName="Spinner"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
+  docs="https://v2.grommet.io/spinner?theme=hpe"
+  figma="https://www.figma.com/file/feIeYk1zX36y9E7e7rprc2/HPE-Loading-Indicator-Component?node-id=0%3A1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Spinner/Spinner.js"
+>
+  <SpinnerExample />
+</Example>
+
+### Busy Button
+
+Busy Buttons are used to notify the user that the submission of a form is being processed. For more information, access [Busy Button](/components/button?q=button#busy-button).
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonBusySimpleExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonBusySimpleExample />
+</Example>
