@@ -15,11 +15,11 @@ import {
   DataTableColumns,
   ResponsiveContext,
   DropButton,
-  ThemeContext,
   Menu,
 } from 'grommet';
 import { More, BladesVertical } from 'grommet-icons';
 import { useContext } from 'react';
+import { ThemeContext } from 'grommet/contexts/ThemeContext/ThemeContext';
 
 const columns = [
   {
