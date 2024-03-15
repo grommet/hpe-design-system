@@ -1,2 +1,2 @@
-export * from './DashboardCard';
-export * from './PageHeader';
+export * from './common';
+export * from './dashboard';
