@@ -13,7 +13,7 @@ export const toggleThemeMode = element => {
     }
   };
 
-  element.addEventListener('click', () => handleChange());
+  element?.addEventListener('click', () => handleChange());
 };
 
 export const toggleTheme = element => {
@@ -29,5 +29,5 @@ export const toggleTheme = element => {
     }
   };
 
-  element.addEventListener('click', () => handleChange());
+  element?.addEventListener('click', () => handleChange());
 };
