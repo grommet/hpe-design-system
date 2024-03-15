@@ -195,6 +195,23 @@ h3 {
   fill: var(--color-text-strong);
 }
 
+/* FormField */
+label {
+  font-weight: 500;
+  color: var(--color-text-strong);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xsmall);
+}
+
+input {
+  padding-block: var(--spacing-xsmall);
+  padding-inline: var(--spacing-small);
+  border-radius: var(--radius-medium);
+  border: var(--border-xsmall) solid var(--color-border-default);
+  font-size: 18px;
+  line-height: 24px;
+  background: transparent;
+}
 /* Notification */
 .notification {
   --notification-backgroundColor: var(--color-background-status-info);
