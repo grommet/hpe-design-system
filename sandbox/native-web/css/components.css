@@ -1,13 +1,27 @@
 /* ------ Component styles ------ */
 
+/* Text  */
+a,
+span,
+p {
+  color: inherit;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 /* Anchor */
 a {
   font-weight: 500;
   color: var(--color-text-strong);
-  text-decoration: none;
-}
-a:hover {
   text-decoration: underline;
+}
+
+/* Box */
+div {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 /* Button */
@@ -33,7 +47,7 @@ button {
   font-weight: var(--button-label-fontWeight);
   font-family: inherit;
   cursor: pointer;
-  transition: border-color, background-color 0.25s;
+  transition: background-color 0.2s;
 }
 button:hover {
   --button-backgroundColor: var(--color-background-contrast);
@@ -66,21 +80,22 @@ button.iconOnly {
 
 /* Card */
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   background-color: var(--color-background-front);
   border-radius: var(--radius-large);
+  /* TO DO use token */
+  box-shadow: 0px 6px 12px #0000001f;
   padding: var(--spacing-medium);
-  transition-property: box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+  transition: box-shadow 0.25s ease-in;
 }
 
 .card.interactive:hover {
-  box-shadow: var(--spacing-none) var(--spacing-xsmall) var(--spacing-small)
+  box-shadow: var(--spacing-none) var(--spacing-small) var(--spacing-medium)
     #0000001f;
   cursor: pointer;
+}
+
+.card-body {
+  flex-grow: 1;
 }
 
 /* Grid */
@@ -103,10 +118,97 @@ h6 {
   line-height: 1;
 }
 h1 {
-  font-size: 2.25rem; /* 36px */
+  font-size: 36px;
 }
 h2 {
-  font-size: 1.5rem; /* 24px */
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+
+/* Icons */
+.icon-medium {
+  display: flex;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding-block: 3px;
+}
+.icon-xlarge {
+  display: flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.icon.primary > path {
+  stroke: var(--color-primary);
+  stroke-width: 2px;
+}
+.icon.foreground-brand-default > path {
+  stroke: var(--color-foreground-brand-default);
+  stroke-width: 2px;
+}
+.icon.foreground-status-warning > path {
+  stroke: none;
+  fill: var(--color-foreground-status-warning);
+}
+.icon.foreground-status-critical > path {
+  stroke: none;
+  fill: var(--color-foreground-status-critical);
+}
+.icon.foreground-status-ok > circle {
+  stroke: none;
+  fill: var(--color-foreground-status-ok);
+}
+.icon.foreground-status-info > circle {
+  stroke: none;
+  fill: var(--color-foreground-status-info);
+}
+.icon.stroke-foreground-status-warning > path {
+  stroke-width: 2px;
+  stroke: var(--color-foreground-status-warning);
+}
+.icon.stroke-foreground-status-critical > path {
+  stroke-width: 2px;
+  stroke: var(--color-foreground-status-critical);
+}
+.icon.stroke-foreground-status-ok > path {
+  stroke-width: 2px;
+  stroke: var(--color-foreground-status-ok);
+}
+.icon.stroke-foreground-status-info > path {
+  stroke-width: 2px;
+  stroke: var(--color-foreground-status-info);
+}
+.icon.stroke-text-strong > path {
+  stroke-width: 2px;
+  stroke: var(--color-text-strong);
+}
+.icon.pad-none {
+  padding: 0;
+}
+.fill-text-strong {
+  /* TO DO should be full black */
+  fill: var(--color-text-strong);
+}
+
+/* Notification */
+.notification {
+  --notification-backgroundColor: var(--color-background-status-info);
+  background: var(--notification-backgroundColor);
+  padding: var(--spacing-small);
+  border-radius: var(--radius-large);
+  gap: var(--spacing-small);
+}
+.notification.warning {
+  --notification-backgroundColor: var(--color-background-status-warning);
+}
+.notification.critical {
+  --notification-backgroundColor: var(--color-background-status-critical);
+}
+.notification.ok {
+  --notification-backgroundColor: var(--color-background-status-ok);
 }
 
 /* Page, PageContent */
@@ -124,7 +226,7 @@ h2 {
   flex-direction: column;
   box-sizing: border-box;
   align-self: center;
-  max-width: 1536px; /* these shouldn't be responsive */
+  max-width: 1536px;
   min-width: 384px;
   width: 100%;
   padding-inline: var(--spacing-large);
@@ -139,9 +241,7 @@ h2 {
   /* padding: var(--spacing-medium) 0 var(--spacing-large) 0; */
 }
 
-/* Text  */
-span,
-p {
-  font-size: 18px;
-  line-height: 24px;
+.text-emphasis {
+  color: var(--color-text-strong);
+  font-weight: 500;
 }
