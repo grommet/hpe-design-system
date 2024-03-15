@@ -1,5 +1,7 @@
 import 'design-tokens/dist/css/colors.css';
 import 'design-tokens/dist/css/colors-dark.css';
+import 'design-tokens/dist/css/colors-warm-light.css';
+import 'design-tokens/dist/css/colors-warm-dark.css';
 import 'design-tokens/dist/css/dimensions-large.css';
 import 'design-tokens/dist/css/dimensions-small.css';
 import './css/fonts.css';
@@ -7,7 +9,7 @@ import './css/components.css';
 import './css/app.css';
 import './css/utilities.css';
 
-import { toggleTheme } from './utils';
+import { toggleThemeMode, toggleTheme } from './utils';
 import {
   DashboardCard,
   PageHeader,
@@ -30,9 +32,17 @@ document.querySelector('#app').innerHTML = `
       <div class="greenlake-badge">
       ${HPEGreenLakeBadge()}
       </div>
+      <div class="row gap-small">
+      <div role="group" class="row border-weak border-xsmall radius-medium">
+        <button role="radio" id="currentTheme" 
+          class="active radius-medium">Current theme</button>
+        <button role="radio" id="warmTheme" 
+          class="radius-medium">Warm theme</button>
+      </div>
       <button class="iconOnly" id="themeToggle">
         ${Sun({ color: 'stroke-text-strong', size: 'medium' })}
       </button>
+      </div>
   </div>
   <div class="page">
     <div class="pageContent">
@@ -97,4 +107,6 @@ document.querySelector('#app').innerHTML = `
   </div> 
 `;
 
-toggleTheme(document.querySelector('#themeToggle'));
+toggleThemeMode(document.querySelector('#themeToggle'));
+toggleTheme(document.querySelector('#currentTheme'));
+toggleTheme(document.querySelector('#warmTheme'));
