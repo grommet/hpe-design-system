@@ -47,7 +47,6 @@ button {
   font-weight: var(--button-label-fontWeight);
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 button:hover {
   --button-backgroundColor: var(--color-background-contrast);
@@ -62,7 +61,7 @@ button.primary {
   --button-label-fontWeight: bold;
 }
 button.secondary {
-  --button-borderColor: var(--color-brand);
+  --button-borderColor: var(--color-button-secondary-border-default);
   --button-borderWidth: 2px;
 }
 button.secondary:hover {
@@ -76,6 +75,9 @@ button.iconOnly {
   --button-paddingVertical: 9px;
   --button-paddingHorizontal: 9px;
   --button-lineHeight: 0;
+}
+button.active {
+  --button-backgroundColor: var(--color-background-active);
 }
 
 /* Card */

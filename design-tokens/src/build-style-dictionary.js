@@ -1,20 +1,23 @@
+/* eslint-disable max-len */
 import StyleDictionary from 'style-dictionary-utils';
 
 // color theme mode
 StyleDictionary.registerFormat({
   name: 'css/variables-themed',
   formatter({ dictionary, file, options }) {
-    const { outputReferences, theme } = options;
+    const { outputReferences, theme, mode } = options;
     const darkTokens = StyleDictionary.formatHelpers.formattedVariables({
       format: 'css',
       dictionary,
       outputReferences,
     });
+    const dataTheme = theme ? `[data-theme=${theme}]` : '';
+    const dataMode = mode ? `[data-mode=${mode}]` : '';
     return `${StyleDictionary.formatHelpers.fileHeader({
       file,
       // eslint-disable-next-line max-len
-    })}:root[data-theme=${theme}] {\n${darkTokens}\n}\n
-@media (prefers-color-scheme: dark) {\n:root {\n${darkTokens}\n}\n}\n
+    })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
+@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n
     `;
   },
 });
@@ -57,7 +60,60 @@ StyleDictionary.extend({
           format: 'css/variables-themed',
           options: {
             outputReferences: true,
-            theme: 'dark',
+            mode: 'dark',
+          },
+          filter: {
+            attributes: {
+              category: 'color',
+            },
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+// warm light mode
+StyleDictionary.extend({
+  source: ['dist/primitives.base.json', 'tokens/color.warm-light.json'],
+  platforms: {
+    css: {
+      transformGroup: 'css',
+      buildPath: 'dist/css/',
+      files: [
+        {
+          destination: 'colors-warm-light.css',
+          format: 'css/variables-themed',
+          options: {
+            outputReferences: true,
+            theme: 'warm',
+          },
+          filter: {
+            attributes: {
+              category: 'color',
+            },
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+// warm dark mode
+StyleDictionary.extend({
+  source: ['dist/primitives.base.json', 'tokens/color.warm-dark.json'],
+  platforms: {
+    css: {
+      transformGroup: 'css',
+      buildPath: 'dist/css/',
+      files: [
+        {
+          destination: 'colors-warm-dark.css',
+          format: 'css/variables-themed',
+          options: {
+            outputReferences: true,
+            theme: 'warm',
+            mode: 'dark',
           },
           filter: {
             attributes: {
