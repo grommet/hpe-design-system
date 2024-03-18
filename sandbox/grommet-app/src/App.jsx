@@ -19,8 +19,21 @@ const App = () => {
     if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
   }, []);
 
-  const [darkMode, setDarkMode] = useState(false);
-  const [backgroundBack, setBackgroundBack] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem('darkMode') === 'true' || false,
+  );
+  useEffect(() => {
+    if (darkMode) localStorage.setItem('darkMode', 'true');
+    else localStorage.setItem('darkMode', 'false');
+  }, [darkMode]);
+
+  const [backgroundBack, setBackgroundBack] = useState(
+    localStorage.getItem('backgroundBack') === 'true' || false,
+  );
+  useEffect(() => {
+    if (backgroundBack) localStorage.setItem('backgroundBack', 'true');
+    else localStorage.setItem('backgroundBack', 'false');
+  }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
   const [activeTheme, setActiveTheme] = useState('Current theme');
@@ -49,6 +62,7 @@ const App = () => {
             setDarkMode={setDarkMode}
             setActiveTheme={setActiveTheme}
             activeTheme={activeTheme}
+            backgroundBack={backgroundBack}
             setBackgroundBack={setBackgroundBack}
           />
           <BrowserRouter>

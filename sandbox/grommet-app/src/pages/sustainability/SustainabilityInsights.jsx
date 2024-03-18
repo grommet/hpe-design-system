@@ -29,7 +29,7 @@ const CarbonEmissions = () => {
         size: !open ? 'medium' : 'none',
       }}
     >
-      <Box gap="medium" pad={{ top: 'small' }}>
+      <Box gap="medium" pad={{ top: 'small' }} flex={false}>
         <Metric value={132000} unit="MTCO2e" />
 
         <Collapsible open={open}>
@@ -92,7 +92,7 @@ const EnergyConsumption = () => {
         size: !open ? 'medium' : 'none',
       }}
     >
-      <Box gap="medium" pad={{ top: 'medium' }}>
+      <Box gap="medium" pad={{ top: 'medium' }} flex={false}>
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
@@ -153,7 +153,7 @@ const EnergyCost = () => {
         size: !open ? 'medium' : 'none',
       }}
     >
-      <Box gap="medium" pad={{ top: 'medium' }}>
+      <Box gap="medium" pad={{ top: 'medium' }} flex={false}>
         <Metric
           value={48750}
           unit="USD"

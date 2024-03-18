@@ -372,6 +372,10 @@ const buildTheme = tokens => {
         // elevation: 'small',
       },
     },
+    collapsible: {
+      minSpeed: 400,
+      baseline: 300,
+    },
     notification: {
       critical: {
         background: 'background-status-critical',

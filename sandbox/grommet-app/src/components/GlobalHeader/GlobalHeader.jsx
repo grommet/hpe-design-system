@@ -19,6 +19,7 @@ export const GlobalHeader = ({
   setDarkMode,
   setActiveTheme,
   activeTheme,
+  backgroundBack,
   setBackgroundBack,
 }) => {
   const theme = useContext(ThemeContext);
@@ -90,6 +91,7 @@ export const GlobalHeader = ({
                 label="background-back"
                 toggle
                 onChange={event => setBackgroundBack(event.target.checked)}
+                checked={backgroundBack}
               />
             </FormField>
             <Button
@@ -108,5 +110,6 @@ GlobalHeader.propTypes = {
   setDarkMode: PropTypes.func,
   setActiveTheme: PropTypes.func,
   activeTheme: PropTypes.string,
+  backgroundBack: PropTypes.bool,
   setBackgroundBack: PropTypes.func,
 };
