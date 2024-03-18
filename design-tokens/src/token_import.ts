@@ -374,20 +374,18 @@ export function generatePostVariablesPayload(
       );
       const differences = tokenAndVariableDifferences(token, variable);
 
+      const resolvedType = variableResolvedTypeFromToken(token);
       // Add a new variable if it doesn't exist in the Figma file,
       // and we haven't added it already in another mode
-      if (!variable && !variableInPayload) {
-        const resolvedType = variableResolvedTypeFromToken(token);
-        if (resolvedType) {
-          postVariablesPayload.variables!.push({
-            action: 'CREATE',
-            id: variableId,
-            name: tokenName,
-            variableCollectionId,
-            resolvedType: variableResolvedTypeFromToken(token),
-            ...differences,
-          });
-        }
+      if (!variable && !variableInPayload && resolvedType !== undefined) {
+        postVariablesPayload.variables!.push({
+          action: 'CREATE',
+          id: variableId,
+          name: tokenName,
+          variableCollectionId,
+          resolvedType: variableResolvedTypeFromToken(token),
+          ...differences,
+        });
       } else if (variable && Object.keys(differences).length > 0) {
         postVariablesPayload.variables!.push({
           action: 'UPDATE',
@@ -405,8 +403,9 @@ export function generatePostVariablesPayload(
 
       // Only include the variable mode value in the payload if it's different from the existing value
       if (
-        existingVariableValue === null ||
-        !compareVariableValues(existingVariableValue, newVariableValue)
+        resolvedType &&
+        (existingVariableValue === null ||
+          !compareVariableValues(existingVariableValue, newVariableValue))
       ) {
         postVariablesPayload.variableModeValues!.push({
           variableId,
