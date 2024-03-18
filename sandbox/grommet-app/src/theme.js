@@ -8,6 +8,7 @@ import {
   warmLight,
   warmDark,
   elevationLight,
+  primitives,
 } from 'design-tokens';
 
 const dimensions = {
@@ -380,6 +381,23 @@ const buildTheme = tokens => {
         // elevation: 'small',
       },
     },
+    checkBox: {
+      toggle: {
+        knob: {
+          extend: ({ theme }) => `
+          box-shadow: ${
+            theme.global.elevation[theme.dark ? 'dark' : 'light'].small
+          };
+          border: 1px solid ${
+            theme.global.colors.border[theme.dark ? 'dark' : 'light']
+          };
+          transition: all ${primitives.motion.duration.short[2]} ${
+            primitives.motion.easing.simple.decelerate
+          };
+       `,
+        },
+      },
+    },
     collapsible: {
       minSpeed: 400,
       baseline: 300,
@@ -404,7 +422,7 @@ const buildTheme = tokens => {
     },
     tab: {
       extend: `
-        transition: border 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: border ${primitives.motion.duration.short[1]} ${primitives.motion.easing.simple.default};
       `,
     },
   });

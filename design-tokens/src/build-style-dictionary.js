@@ -259,7 +259,14 @@ StyleDictionary.extend({
   source: ['dist/primitives.base.json'],
   platforms: {
     js: {
-      transformGroup: 'js',
+      // includes JS transformGroup + shadow
+      transforms: [
+        'attribute/cti',
+        'name/cti/pascal',
+        'size/rem',
+        'color/hex',
+        'cubicBezier/css',
+      ],
       buildPath: 'dist/json/',
       files: [
         {
@@ -270,6 +277,49 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
+// StyleDictionary.extend({
+//   source: ['tokens/animation.base.json'],
+//   platforms: {
+//     js: {
+//       // includes JS transformGroup + shadow
+//       transforms: [
+//         'attribute/cti',
+//         'name/cti/pascal',
+//         'size/rem',
+//         'color/hex',
+//         'cubicBezier/css',
+//       ],
+//       buildPath: 'dist/json/',
+//       files: [
+//         {
+//           destination: 'animation.base.json',
+//           format: 'json/nested',
+//         },
+//       ],
+//     },
+//     css: {
+//       // includes css transformGroup + shadow
+//       // includes css transformGroup + shadow
+//       transforms: [
+//         'attribute/cti',
+//         'name/cti/kebab',
+//         'time/seconds',
+//         'content/icon',
+//         'size/rem',
+//         'color/css',
+//         'cubicBezier/css',
+//       ],
+//       buildPath: 'dist/css/',
+//       files: [
+//         {
+//           destination: 'animation-base.css',
+//           format: 'css/variables',
+//         },
+//       ],
+//     },
+//   },
+// }).buildAllPlatforms();
 
 console.log('✅ CSS and JSON files have been generated.');
 
