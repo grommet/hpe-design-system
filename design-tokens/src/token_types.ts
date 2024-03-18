@@ -1,4 +1,4 @@
-import { VariableCodeSyntax, VariableScope } from './figma_api.js'
+import { VariableCodeSyntax, VariableScope } from './figma_api.js';
 
 /**
  * This file defines what design tokens and design token files look like in the codebase.
@@ -13,28 +13,29 @@ export interface Token {
    * The [type](https://tr.designtokens.org/format/#type-0) of the token.
    *
    * We allow `string` and `boolean` types in addition to the draft W3C spec's `color` and `number` types
-   * to align with the resolved types for Figma variables.
+   * to align with the resolved types for Figma variables. cubicBezier/duration is not support yet by Figma Variables
+   * so it will be sifted out by sync_tokens_to_figma
    */
-  $type: 'color' | 'number' | 'string' | 'boolean'
-  $value: string | number | boolean
-  $description?: string
+  $type: 'color' | 'number' | 'string' | 'boolean' | 'cubicBezier' | 'duration';
+  $value: string | number | boolean;
+  $description?: string;
   $extensions?: {
     /**
      * The `com.figma` namespace stores Figma-specific variable properties
      */
     'com.figma'?: {
-      hiddenFromPublishing?: boolean
-      scopes?: VariableScope[]
-      codeSyntax?: VariableCodeSyntax
-    }
-  }
+      hiddenFromPublishing?: boolean;
+      scopes?: VariableScope[];
+      codeSyntax?: VariableCodeSyntax;
+    };
+  };
 }
 
 export type TokenOrTokenGroup =
   | Token
   | ({
-      [tokenName: string]: Token
-    } & { $type?: never; $value?: never })
+      [tokenName: string]: Token;
+    } & { $type?: never; $value?: never });
 
 /**
  * Defines what we expect a Design Tokens file to look like in the codebase.
@@ -51,5 +52,5 @@ export type TokenOrTokenGroup =
  * Follow this discussion for updates: https://github.com/design-tokens/community-group/issues/210
  */
 export type TokensFile = {
-  [key: string]: TokenOrTokenGroup
-}
+  [key: string]: TokenOrTokenGroup;
+};
