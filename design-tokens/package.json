@@ -2,7 +2,7 @@
   "name": "design-tokens",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/js/index.js",
   "scripts": {
     "prettier:check": "prettier --check src/",
     "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",

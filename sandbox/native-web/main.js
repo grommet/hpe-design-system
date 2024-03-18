@@ -1,4 +1,4 @@
-import 'design-tokens/dist/css/colors.css';
+import 'design-tokens/dist/css/colors-light.css';
 import 'design-tokens/dist/css/colors-dark.css';
 import 'design-tokens/dist/css/colors-warm-light.css';
 import 'design-tokens/dist/css/colors-warm-dark.css';

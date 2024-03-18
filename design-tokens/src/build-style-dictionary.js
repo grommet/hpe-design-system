@@ -1,7 +1,20 @@
 /* eslint-disable max-len */
 import StyleDictionary from 'style-dictionary-utils';
+import * as fs from 'fs';
 
-// color theme mode
+const getThemeAndMode = file => {
+  const parts = file.split('.');
+  const themeAndMode = parts[parts.length - 2];
+  let theme;
+  let mode;
+  if (themeAndMode.includes('-')) [theme, mode] = themeAndMode.split('-');
+  else mode = themeAndMode;
+
+  return [theme, mode];
+};
+
+// ---- Custom StyleDictionary formatters for color modes and breakpoints ------- //
+// color modes
 StyleDictionary.registerFormat({
   name: 'css/variables-themed',
   formatter({ dictionary, file, options }) {
@@ -17,116 +30,15 @@ StyleDictionary.registerFormat({
       file,
       // eslint-disable-next-line max-len
     })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
-@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n
+${
+  dataMode
+    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n`
+    : ''
+}
     `;
   },
 });
-
-// light mode
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/color.light.json'],
-  platforms: {
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'colors.css',
-          format: 'css/variables',
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-          options: {
-            outputReferences: true,
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-// dark mode
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/color.dark.json'],
-  platforms: {
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'colors-dark.css',
-          format: 'css/variables-themed',
-          options: {
-            outputReferences: true,
-            mode: 'dark',
-          },
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-// warm light mode
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/color.warm-light.json'],
-  platforms: {
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'colors-warm-light.css',
-          format: 'css/variables-themed',
-          options: {
-            outputReferences: true,
-            theme: 'warm',
-          },
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-// warm dark mode
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/color.warm-dark.json'],
-  platforms: {
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'colors-warm-dark.css',
-          format: 'css/variables-themed',
-          options: {
-            outputReferences: true,
-            theme: 'warm',
-            mode: 'dark',
-          },
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-// small
+// breakpoints
 StyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
   formatter({ dictionary, file, options }) {
@@ -145,13 +57,61 @@ StyleDictionary.registerFormat({
   },
 });
 
-StyleDictionary.registerFilter({
-  name: 'isDimension',
-  matcher(prop) {
-    return ['dimension', 'content', 'spacing', 'border', 'radius'].includes(
-      prop.attributes.category,
-    );
-  },
+const primitiveColors = fs.readFileSync('dist/primitives.base.json');
+const rawPrimitives = JSON.parse(primitiveColors);
+const primitiveColorNames = Object.keys(rawPrimitives.color);
+
+const TOKENS_DIR = 'tokens';
+const colorFiles = fs
+  .readdirSync(TOKENS_DIR)
+  .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
+  .filter(file => file);
+
+colorFiles.forEach(file => {
+  const [theme, mode] = getThemeAndMode(file);
+
+  StyleDictionary.extend({
+    source: ['dist/primitives.base.json', file],
+    platforms: {
+      js: {
+        transformGroup: 'js',
+        buildPath: 'dist/json/',
+        files: [
+          {
+            destination: `colors.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.json`,
+            format: 'json/nested',
+            filter: token =>
+              token.attributes.category === 'color' &&
+              !primitiveColorNames.includes(token.attributes.type),
+          },
+        ],
+      },
+      css: {
+        transformGroup: 'css',
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: `colors-${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.css`,
+            format: 'css/variables-themed',
+            options: {
+              outputReferences: true,
+              mode: mode === 'dark' ? 'dark' : undefined,
+              theme,
+            },
+            filter: {
+              attributes: {
+                category: 'color',
+              },
+            },
+          },
+        ],
+      },
+    },
+  }).buildAllPlatforms();
 });
 
 const dimensions = ['dimension', 'content', 'spacing', 'border', 'radius'];
@@ -160,6 +120,20 @@ const dimensions = ['dimension', 'content', 'spacing', 'border', 'radius'];
 StyleDictionary.extend({
   source: ['dist/primitives.base.json', 'tokens/dimension.small.json'],
   platforms: {
+    js: {
+      transformGroup: 'js',
+      buildPath: 'dist/json/',
+      files: [
+        {
+          destination: 'dimension.small.json',
+          format: 'json/nested',
+          filter: token =>
+            ['content', 'spacing', 'border', 'radius'].includes(
+              token.attributes.category,
+            ),
+        },
+      ],
+    },
     css: {
       transformGroup: 'css',
       buildPath: 'dist/css/',
@@ -181,6 +155,20 @@ StyleDictionary.extend({
 StyleDictionary.extend({
   source: ['dist/primitives.base.json', 'tokens/dimension.large.json'],
   platforms: {
+    js: {
+      transformGroup: 'js',
+      buildPath: 'dist/json/',
+      files: [
+        {
+          destination: 'dimension.large.json',
+          format: 'json/nested',
+          filter: token =>
+            ['content', 'spacing', 'border', 'radius'].includes(
+              token.attributes.category,
+            ),
+        },
+      ],
+    },
     css: {
       transformGroup: 'css',
       buildPath: 'dist/css/',
@@ -197,3 +185,126 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
+const elevationFiles = fs
+  .readdirSync(TOKENS_DIR)
+  .map(file =>
+    file.includes('elevation') ? `${TOKENS_DIR}/${file}` : undefined,
+  )
+  .filter(file => file);
+
+elevationFiles.forEach(file => {
+  const [theme, mode] = getThemeAndMode(file);
+  StyleDictionary.extend({
+    source: ['dist/primitives.base.json', `tokens/color.${mode}.json`, file],
+    platforms: {
+      js: {
+        // includes JS transformGroup + shadow
+        transforms: [
+          'attribute/cti',
+          'name/cti/pascal',
+          'size/rem',
+          'color/hex',
+          'shadow/css',
+        ],
+        buildPath: 'dist/json/',
+        files: [
+          {
+            destination: `elevation.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.json`,
+            format: 'json/nested',
+            filter: {
+              attributes: {
+                category: 'elevation',
+              },
+            },
+          },
+        ],
+      },
+      css: {
+        // includes css transformGroup + shadow
+        transforms: [
+          'attribute/cti',
+          'name/cti/kebab',
+          'time/seconds',
+          'content/icon',
+          'size/rem',
+          'color/css',
+          'shadow/css',
+        ],
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: `elevation-${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.css`,
+            format: 'css/variables',
+            filter: {
+              attributes: {
+                category: 'elevation',
+              },
+            },
+            // options: {
+            //   outputReferences: true,
+            // },
+          },
+        ],
+      },
+    },
+  }).buildAllPlatforms();
+});
+
+StyleDictionary.extend({
+  source: ['dist/primitives.base.json'],
+  platforms: {
+    js: {
+      transformGroup: 'js',
+      buildPath: 'dist/json/',
+      files: [
+        {
+          destination: 'primitives.base.json',
+          format: 'json/nested',
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+console.log('✅ CSS and JSON files have been generated.');
+
+const JSON_DIR = 'dist/json';
+const jsonFiles = fs.readdirSync(JSON_DIR).map(file => `${JSON_DIR}/${file}`);
+const JS_DIR = 'dist/js';
+fs.mkdirSync(`./${JS_DIR}`);
+jsonFiles.forEach(file => {
+  const raw = fs.readFileSync(file);
+  const parsed = JSON.parse(raw);
+  let formattedName = file.replace(JSON_DIR, '');
+  formattedName = formattedName.replace('json', 'js');
+  fs.writeFileSync(
+    `./dist/js${formattedName}`,
+    `export default ${JSON.stringify(parsed, null, 2)}`,
+  );
+});
+
+const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
+
+const jsFiles = fs.readdirSync(JS_DIR).map(file => `${JS_DIR}/${file}`);
+fs.writeFileSync(
+  './dist/js/index.js',
+  `${jsFiles
+    .map(file => {
+      const fileName = file.replace(JS_DIR, '.');
+      const [theme, mode] = getThemeAndMode(fileName);
+      const exportName = file.includes('elevation')
+        ? `${camelCase(
+            `elevation-${camelCase(`${theme ? `${theme}-` : ''}${mode}`)}`,
+          )}`
+        : camelCase(`${theme ? `${theme}-` : ''}${mode}`);
+      return `export { default as ${exportName} } from '${fileName}';\n`;
+    })
+    .join('')}export { default as primitives } from './primitives.base.js';\n`,
+);
+
+console.log('✅ Javascript files have been generated.');
