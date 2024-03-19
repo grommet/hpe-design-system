@@ -24,7 +24,6 @@ import {
   DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
-import { StackExample } from '../../examples/components/layouts';
 import { TagPreview } from '../../examples/cardPreviews/tag';
 
 export const components = [
@@ -1292,7 +1291,6 @@ export const components = [
       'Toast notifications',
       'Global banner notifications',
       'Inline notifications',
-      'Stack',
     ],
     tags: [
       'banner',
@@ -1393,20 +1391,6 @@ export const components = [
       'Numeric Range Selector',
       'Slide Input',
     ],
-  },
-  {
-    name: 'Stack',
-    category: 'Layouts',
-    description:
-      'A Stack component is a container that stacks content on top of each other.',
-    preview: {
-      component: () => <StackExample />,
-      background: 'background-front',
-    },
-    seoDescription:
-      'A Stack component is a container that stacks content on top of each other. See HPE styling and example code.',
-    sections: [],
-    tags: ['containers', 'layers', 'z-index'],
   },
   {
     name: 'Spinner',
