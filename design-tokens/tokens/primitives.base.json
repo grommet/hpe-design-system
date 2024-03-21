@@ -1468,16 +1468,54 @@
           "$value": [0, 0, 0, 1],
           "$type": "cubicBezier"
         }
+      },
+      "emphasized": {
+        "decelerate": {
+          "$value": [0.05, 0.7, 0.1, 1.0],
+          "$type": "cubicBezier"
+        }
       }
     },
     "duration": {
       "short": {
         "1": {
-          "$value": "220ms",
+          "$value": "100ms",
+          "$type": "duration"
+        },
+        "2": {
+          "$value": "150ms",
+          "$type": "duration"
+        },
+        "3": {
+          "$value": "200ms",
+          "$type": "duration"
+        }
+      },
+      "medium": {
+        "1": {
+          "$value": "250ms",
           "$type": "duration"
         },
         "2": {
           "$value": "300ms",
+          "$type": "duration"
+        },
+        "3": {
+          "$value": "400ms",
+          "$type": "duration"
+        }
+      },
+      "long": {
+        "1": {
+          "$value": "450ms",
+          "$type": "duration"
+        },
+        "2": {
+          "$value": "500ms",
+          "$type": "duration"
+        },
+        "3": {
+          "$value": "600ms",
           "$type": "duration"
         }
       }

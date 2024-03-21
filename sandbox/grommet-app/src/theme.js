@@ -1,4 +1,5 @@
 import { hpe } from 'grommet-theme-hpe';
+import { css, keyframes } from 'styled-components';
 import { deepMerge } from 'grommet/utils';
 import {
   dark,
@@ -103,6 +104,28 @@ const dimensions = {
     },
   },
 };
+
+const dropKeyFrames = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(1, 0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+`;
+
+const standardDrop = keyframes`
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 const buildTheme = tokens => {
   const [light, dark, elevationLight] = tokens;
@@ -333,6 +356,24 @@ const buildTheme = tokens => {
           large: elevationLight.elevation.large,
         },
       },
+      drop: {
+        // TO DO just want this for Select/Menu, but it also
+        // currently affects Tip
+        extend: ({ animate }) =>
+          animate === 'select'
+            ? css`
+                animation: ${dropKeyFrames}
+                  ${primitives.motion.duration.short[3]}
+                  cubic-bezier(0, 0, 0.58, 1) forwards;
+                animation-delay: 0.01s;
+              `
+            : css`
+                animation: ${standardDrop}
+                  ${primitives.motion.duration.medium[1]}
+                  ${primitives.motion.easing.emphasized.decelerate} forwards;
+                animation-delay: 0.01s;
+              `,
+      },
     },
     button: {
       secondary: {
@@ -354,21 +395,6 @@ const buildTheme = tokens => {
           weight: 600,
         },
       },
-      tab: {
-        color: 'text-strong',
-        font: {
-          weight: 400,
-        },
-        border: {
-          // TO DO token
-          radius: '8px',
-          width: '0px',
-          color: 'none',
-        },
-        extend: ({ active }) =>
-          // TO DO token
-          `${active ? 'box-shadow: 0px 2px 4px #0000001F;' : ''}`,
-      },
       active: {
         tab: {
           background: 'background-front',
@@ -377,11 +403,26 @@ const buildTheme = tokens => {
     },
     card: {
       container: {
-        extend: 'transition: border 0.2s ease-in;',
-        // elevation: 'small',
+        extend: `transition: border ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.decelerate}, box-shadow ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.default};`,
+        elevation: 'small',
+      },
+      hover: {
+        container: {
+          elevation: 'medium',
+        },
       },
     },
     checkBox: {
+      hover: {
+        extend: ({ disabled, pad, theme, toggle }) => css`
+          ${!disabled &&
+          pad === 'none' &&
+          !toggle &&
+          `border: 2px solid ${
+            theme.global.colors['border-strong'][theme.dark ? 'dark' : 'light']
+          };`}
+        `,
+      },
       toggle: {
         knob: {
           extend: ({ theme }) => `
@@ -391,7 +432,7 @@ const buildTheme = tokens => {
           border: 1px solid ${
             theme.global.colors.border[theme.dark ? 'dark' : 'light']
           };
-          transition: all ${primitives.motion.duration.short[2]} ${
+          transition: all ${primitives.motion.duration.short[3]} ${
             primitives.motion.easing.simple.decelerate
           };
        `,

@@ -85,14 +85,13 @@ button.active {
   background-color: var(--color-background-front);
   border-radius: var(--radius-large);
   /* TO DO use token */
-  box-shadow: 0px 6px 12px #0000001f;
+  box-shadow: var(--elevation-small);
   padding: var(--spacing-medium);
   transition: box-shadow 0.25s ease-in;
 }
 
 .card.interactive:hover {
-  box-shadow: var(--spacing-none) var(--spacing-small) var(--spacing-medium)
-    #0000001f;
+  box-shadow: var(--elevation-medium);
   cursor: pointer;
 }
 

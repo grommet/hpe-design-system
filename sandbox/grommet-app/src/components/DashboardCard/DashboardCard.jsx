@@ -41,7 +41,9 @@ export const DashboardCard = ({
         elevation: 'none',
         round: 'none',
       }
-    : {};
+    : {
+        onClick: () => {},
+      };
 
   return (
     <Card {...inlineProps} {...rest}>

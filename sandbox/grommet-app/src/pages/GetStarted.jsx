@@ -52,11 +52,11 @@ export const GetStarted = ({ heading = true, kind }) => {
               />
             </Box>
           }
-          level={3}
+          level={2}
         />
         <DashboardCard
           title="Manage workspace"
-          level={3}
+          level={2}
           subtitle="Set up this workspace, users, access, and more."
           icon={
             <Box {...kindStyles.container}>

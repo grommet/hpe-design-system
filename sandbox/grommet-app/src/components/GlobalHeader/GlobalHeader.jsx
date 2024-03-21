@@ -1,9 +1,9 @@
-import { useContext, useMemo } from 'react';
-import { ThemeContext } from 'styled-components';
+import { useContext, useMemo, useState } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
   Box,
-  Button,
+  Heading,
   CheckBox,
   Image,
   FormField,
@@ -11,8 +11,18 @@ import {
   Page,
   PageContent,
   Text,
+  DropButton,
 } from 'grommet';
-import { Moon, Sun } from 'grommet-icons';
+import { Down, User } from 'grommet-icons';
+import { primitives } from 'design-tokens';
+import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
+
+const StyledDown = styled(Down)`
+  transition: all ${primitives.motion.duration.short[3]}
+    ${primitives.motion.easing.simple.decelerate};
+  transform: ${props => (props.open ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transform-origin: center;
+`;
 
 export const GlobalHeader = ({
   darkMode,
@@ -23,7 +33,7 @@ export const GlobalHeader = ({
   setBackgroundBack,
 }) => {
   const theme = useContext(ThemeContext);
-
+  const [open, setOpen] = useState(false);
   const boxProps = useMemo(
     () =>
       window.location.pathname !== '/'
@@ -59,46 +69,72 @@ export const GlobalHeader = ({
               />
             </Box>
             <Select
-              options={['Acme Production']}
+              options={['Acme Production', 'Workspace B', 'Workspace C']}
               value="Acme Production"
               valueLabel={label => (
                 <Box {...theme.global.input} pad={theme.global.input.padding}>
                   <Text color="text-strong">{label}</Text>
                 </Box>
               )}
+              icon={<StyledDown open={open} />}
+              onOpen={() => setOpen(true)}
+              onClose={() => setOpen(false)}
+              dropProps={{ animate: 'select' }}
               plain
             />
           </Box>
-          <Box align="end" direction="row" gap="small">
-            <FormField
-              // label="Theme"
-              contentProps={{
-                margin: { bottom: 'none', top: 'none' },
-                width: 'small',
-              }}
-            >
-              <Select
-                options={['Current theme', 'Warm theme']}
-                value={activeTheme}
-                onChange={({ value }) => setActiveTheme(value)}
-              />
-            </FormField>
-            <FormField
-              // label="Background style"
-              contentProps={{ margin: { bottom: 'none', top: 'none' } }}
-            >
-              <CheckBox
-                label="background-back"
-                toggle
-                onChange={event => setBackgroundBack(event.target.checked)}
-                checked={backgroundBack}
-              />
-            </FormField>
-            <Button
-              icon={darkMode ? <Moon /> : <Sun />}
-              onClick={() => setDarkMode(!darkMode)}
-            />
-          </Box>
+          <DropButton
+            icon={<User />}
+            dropContent={
+              <Box pad="medium" gap="medium" width="medium">
+                <Heading level={2} margin="none">
+                  Change theme
+                </Heading>
+                <CheckBox
+                  label="background-back"
+                  toggle
+                  onChange={event => setBackgroundBack(event.target.checked)}
+                  checked={backgroundBack}
+                  pad="none"
+                />
+                <Box
+                  border={{ side: 'bottom', color: 'border-weak' }}
+                  width="100%"
+                />
+                <FormField label="Mode">
+                  <ToggleGroup
+                    options={[
+                      { label: 'Light', value: 'light' },
+                      { label: 'Dark', value: 'dark' },
+                    ]}
+                    border={{ size: 'none' }}
+                    value={darkMode ? 'dark' : 'light'}
+                    onChange={e =>
+                      setDarkMode(e.target.value === 'light' ? false : true)
+                    }
+                  />
+                </FormField>
+                <FormField label="Theme">
+                  <ToggleGroup
+                    options={[
+                      { label: 'Current', value: 'current' },
+                      { label: 'Warm', value: 'warm' },
+                    ]}
+                    border={{ size: 'none' }}
+                    value={activeTheme === 'Warm theme' ? 'warm' : 'current'}
+                    onChange={e =>
+                      setActiveTheme(
+                        e.target.value === 'warm'
+                          ? 'Warm theme'
+                          : 'Current theme',
+                      )
+                    }
+                  />
+                </FormField>
+              </Box>
+            }
+            dropAlign={{ top: 'bottom', right: 'right' }}
+          />
         </Box>
       </PageContent>
     </Page>
