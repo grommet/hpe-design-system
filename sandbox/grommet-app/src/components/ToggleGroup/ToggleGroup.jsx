@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types';
-import { RadioButtonGroup, ThemeContext, Box } from 'grommet';
+import { ThemeContext as SCThemeContext } from 'styled-components';
+import { RadioButtonGroup, ThemeContext, Box, Text } from 'grommet';
+import { useContext } from 'react';
 
-export const ToggleGroup = ({ options, value, setValue }) => {
+export const ToggleGroup = ({ options, value, setValue, ...rest }) => {
+  const theme = useContext(SCThemeContext);
   return (
     <ThemeContext.Extend
       value={{
         radioButton: {
           container: {
-            extend: ``,
+            extend: `
+              flex-grow: 1;
+            `,
           },
-          extend: ``,
+          extend: `
+          flex-grow: 1;
+        `,
         },
       }}
     >
@@ -25,15 +32,31 @@ export const ToggleGroup = ({ options, value, setValue }) => {
         onChange={event =>
           setValue(event.target.value === 'true' ? true : false)
         }
+        {...rest}
       >
         {(option, { checked }) => {
           return (
             <Box
               background={checked ? 'active-background' : undefined}
-              pad={{ horizontal: '9px', vertical: '9px' }}
+              pad={
+                typeof option.label === 'string'
+                  ? { ...theme.button.size.medium.toolbar.pad }
+                  : { horizontal: '9px', vertical: '9px' }
+              }
               border={option.id < options.length - 1 && { side: 'right' }}
+              fill="horizontal"
+              align="center"
             >
-              {option.label}
+              {typeof option.label === 'string' ? (
+                <Text
+                  {...theme.button.default.font}
+                  {...theme.button.default.color}
+                >
+                  {option.label}
+                </Text>
+              ) : (
+                option.label
+              )}
             </Box>
           );
         }}

@@ -2,6 +2,7 @@ import 'design-tokens/dist/css/colors-light.css';
 import 'design-tokens/dist/css/colors-dark.css';
 import 'design-tokens/dist/css/colors-warm-light.css';
 import 'design-tokens/dist/css/colors-warm-dark.css';
+import 'design-tokens/dist/css/elevation-light.css';
 import 'design-tokens/dist/css/dimensions-large.css';
 import 'design-tokens/dist/css/dimensions-small.css';
 import './css/fonts.css';

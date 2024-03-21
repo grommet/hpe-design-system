@@ -14,6 +14,7 @@ const getThemeAndMode = file => {
 };
 
 // ---- Custom StyleDictionary formatters for color modes and breakpoints ------- //
+
 // color modes
 StyleDictionary.registerFormat({
   name: 'css/variables-themed',
@@ -38,6 +39,7 @@ ${
     `;
   },
 });
+
 // breakpoints
 StyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
@@ -57,16 +59,15 @@ StyleDictionary.registerFormat({
   },
 });
 
-const primitiveColors = fs.readFileSync('dist/primitives.base.json');
-const rawPrimitives = JSON.parse(primitiveColors);
-const primitiveColorNames = Object.keys(rawPrimitives.color);
-
 const TOKENS_DIR = 'tokens';
 const colorFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
+const primitiveColors = fs.readFileSync('dist/primitives.base.json');
+const rawPrimitives = JSON.parse(primitiveColors);
+const primitiveColorNames = Object.keys(rawPrimitives.color);
 colorFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
 
