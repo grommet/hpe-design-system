@@ -5944,22 +5944,27 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.10.0, grommet-icons@^4.12.0, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.10.0, grommet-icons@^4.12.0:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.1.tgz#780aa7cd59c5586f642f221bdb5c6becd04ad000"
+  integrity sha512-LhOP6BkDAGiSNcUOfsGGRo+AKD6zWOXeNeusY1WYvKplAR6mKCAQfH7Nig2Buc/v5zadKSko2NDtCQqwJaME0Q==
+
+"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.12.1"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#9db6e11af31eb08b70b6b545a761e0d925676197"
 
 grommet-theme-hpe@^5.2.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.3.0.tgz#cd5f9924178d82e40bf26a534c2f4caad9fc3755"
-  integrity sha512-Zpva1kjv/4rKzzfmp+H4du7y/Vv5tfW+QAdx9N0Wir8yUSRrZGEQG6AbKcimIcWIF8CrGgPjC/qNAguJz0H8zg==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.3.1.tgz#80b8da567c926483babc074cb077187c7a868381"
+  integrity sha512-JwoQVa4kxAuB418xnAXVIGBdaMiQlGWn4kmIqw/fdhG/qvzUK6q70Gwln25SWl4wB9x+y6nevPF2xwwiRB1Erw==
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
   version "0.0.0"
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#9fd086a4b6a0840a0ad33678ea690b20b42010fc"
 
 grommet@^2.35.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.36.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#9cc80f5d542a35f21a31f0a9145c46af43464fad"
+  version "2.36.1"
+  resolved "https://github.com/grommet/grommet/tarball/stable#3110bc543401b8a36bf9b85110f8ba4dfa21551c"
   dependencies:
     grommet-icons "^4.10.0"
     hoist-non-react-statics "^3.2.0"
@@ -11346,9 +11351,9 @@ typed-array-byte-offset@^1.0.2:
     is-typed-array "^1.1.13"
 
 typed-array-length@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/typed-array-length/-/typed-array-length-1.0.5.tgz#57d44da160296d8663fd63180a1802ebf25905d5"
-  integrity sha512-yMi0PlwuznKHxKmcpoOdeLwxBoVPkqZxd7q2FgMkmD3bNwvF5VW0+UlUQ1k1vmktTu4Yu13Q0RIxEP8+B+wloA==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/typed-array-length/-/typed-array-length-1.0.6.tgz#57155207c76e64a3457482dfdc1c9d1d3c4c73a3"
+  integrity sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==
   dependencies:
     call-bind "^1.0.7"
     for-each "^0.3.3"
