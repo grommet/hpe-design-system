@@ -5,12 +5,13 @@ import 'design-tokens/dist/css/colors-warm-dark.css';
 import 'design-tokens/dist/css/elevation-light.css';
 import 'design-tokens/dist/css/dimensions-large.css';
 import 'design-tokens/dist/css/dimensions-small.css';
+import 'design-tokens/dist/css/motion.css';
 import './css/fonts.css';
 import './css/components.css';
 import './css/app.css';
 import './css/utilities.css';
 
-import { toggleThemeMode, toggleTheme } from './utils';
+import { toggleThemeMode, toggleTheme, toggleDrop } from './utils';
 import {
   DashboardCard,
   PageHeader,
@@ -26,23 +27,39 @@ import {
   ExpiringSubscriptions,
   MonthlyCharges,
 } from './components';
-import { AppsRounded, Sun, UserAdd, HPEGreenLakeBadge } from './icons';
+import { AppsRounded, UserAdd, HPEGreenLakeBadge } from './icons';
+import { User } from './icons/User';
 
 document.querySelector('#app').innerHTML = `
   <div class="globalHeader">
       <div class="greenlake-badge">
       ${HPEGreenLakeBadge()}
       </div>
-      <div class="row gap-small">
-      <div role="group" class="row border-weak border-xsmall radius-medium">
-        <button role="radio" id="currentTheme" 
-          class="active radius-medium">Current theme</button>
-        <button role="radio" id="warmTheme" 
-          class="radius-medium">Warm theme</button>
-      </div>
-      <button class="iconOnly" id="themeToggle">
-        ${Sun({ color: 'stroke-text-strong', size: 'medium' })}
-      </button>
+      <div class="row gap-small align-center">
+        <div class="dropParent">
+        <button class="iconOnly" id="userDrop">
+          ${User({ color: 'stroke-text-strong', size: 'medium' })}
+        </button>
+        <div id="userDropContent" class="dropContent">
+        <div class="gap-medium  width-medium">
+          <h2>Change theme</h2>
+          <div role="group" class="row  border-weak border-xsmall 
+          radius-medium">
+            <button role="radio" id="lightMode" 
+              class="active radius-medium width-full">Light</button>
+            <button role="radio" id="darkMode" 
+              class="radius-medium width-full">Dark</button>
+          </div>
+          <div role="group" class="row  border-weak border-xsmall 
+          radius-medium">
+            <button role="radio" id="currentTheme" 
+              class="active radius-medium width-full">Current theme</button>
+            <button role="radio" id="warmTheme" 
+              class="radius-medium width-full">Warm theme</button>
+          </div>
+        </div>
+        </div>
+        </div>
       </div>
   </div>
   <div class="page">
@@ -108,6 +125,11 @@ document.querySelector('#app').innerHTML = `
   </div> 
 `;
 
-toggleThemeMode(document.querySelector('#themeToggle'));
+toggleThemeMode(document.querySelector('#lightMode'));
+toggleThemeMode(document.querySelector('#darkMode'));
 toggleTheme(document.querySelector('#currentTheme'));
 toggleTheme(document.querySelector('#warmTheme'));
+toggleDrop(
+  document.querySelector('#userDrop'),
+  document.querySelector('#userDropContent'),
+);

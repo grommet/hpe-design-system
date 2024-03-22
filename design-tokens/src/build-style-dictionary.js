@@ -276,6 +276,30 @@ StyleDictionary.extend({
         },
       ],
     },
+    css: {
+      // includes CSS transformGroup + cubic-bezier
+      transforms: [
+        'attribute/cti',
+        'name/cti/kebab',
+        'time/seconds',
+        'content/icon',
+        'size/rem',
+        'color/css',
+        'cubicBezier/css',
+      ],
+      buildPath: 'dist/css/',
+      files: [
+        {
+          destination: 'motion.css',
+          format: 'css/variables',
+          filter: {
+            attributes: {
+              category: 'motion',
+            },
+          },
+        },
+      ],
+    },
   },
 }).buildAllPlatforms();
 

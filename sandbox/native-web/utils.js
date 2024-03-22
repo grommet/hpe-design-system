@@ -1,15 +1,13 @@
 export const toggleThemeMode = element => {
   const handleChange = () => {
-    const currentMode = document.documentElement.getAttribute('data-mode');
-    // On page load or when changing themes,
-    // best to add inline in `head` to avoid FOUC
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // TO DO double check this
-    } else {
-      document.documentElement.setAttribute(
-        'data-mode',
-        !currentMode ? 'dark' : '',
-      );
+    if (element.getAttribute('id') === 'lightMode') {
+      element.classList.add('active');
+      document.querySelector('#darkMode').classList.remove('active');
+      document.documentElement.setAttribute('data-mode', '');
+    } else if (element.getAttribute('id') === 'darkMode') {
+      element.classList.add('active');
+      document.querySelector('#lightMode').classList.remove('active');
+      document.documentElement.setAttribute('data-mode', 'dark');
     }
   };
 
@@ -30,4 +28,30 @@ export const toggleTheme = element => {
   };
 
   element?.addEventListener('click', () => handleChange());
+};
+
+export const toggleDrop = (dropButton, dropContent) => {
+  const handleChange = () => {
+    if (dropContent.getAttribute('class').includes('open')) {
+      dropContent.classList.remove('open');
+    } else {
+      dropContent.classList.add('open');
+    }
+  };
+
+  const handleDocumentClick = e => {
+    if (
+      e.target !== dropContent &&
+      !dropContent.contains(e.target) &&
+      dropContent.getAttribute('class').includes('open') &&
+      e.target !== dropButton &&
+      !dropButton.contains(e.target)
+    ) {
+      dropContent.classList.remove('open');
+    } else if (e.target === dropButton || dropButton.contains(e.target)) {
+      handleChange();
+    }
+  };
+
+  document?.addEventListener('click', e => handleDocumentClick(e));
 };

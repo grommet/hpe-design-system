@@ -99,6 +99,36 @@ button.active {
   flex-grow: 1;
 }
 
+/* Drop */
+.dropParent {
+  position: relative;
+}
+
+.dropContent {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--color-background-front);
+  padding: var(--spacing-medium);
+  box-shadow: var(--elevation-medium);
+  border-radius: var(--radius-large);
+  margin-top: var(--spacing-xsmall);
+  transform-origin: top right;
+  animation: var(--motion-duration-medium-1)
+    var(--motion-easing-emphasized-decelerate) forwards grow;
+}
+
+@keyframes grow {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /* Grid */
 .grid {
   display: grid;
