@@ -6,7 +6,7 @@ export const DeviceSummary = () =>
   `${DashboardCard({
     title: 'Device summary',
     body: `<div class="gap-medium"><svg width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg" class="align-self-center">
-            <circle cx="78" cy="78" r="70" stroke="#00C8FF" stroke-width="16" />
+            <circle cx="78" cy="78" r="70" stroke="#00C8FF" stroke-width="16" class="color-chart-qualitative-70" />
             <path d="M8 78C8 98.7099 16.9936 117.319 31.2882 130.135" stroke="#FEC901" stroke-width="16" class="color-chart-qualitative-50"/>
             <path d="M148 78C148 39.3401 116.66 8 78 8" stroke="#00C8FF" stroke-width="16"  class="color-chart-qualitative-70"/>
             <path d="M8 78C8 73.5139 8.422 69.1264 9.22846 64.875C14.5885 36.6187 36.9318 14.3742 65.2396 9.16031C69.3771 8.39824 73.642 8 78 8" stroke="#7630EA" stroke-width="16" class="color-chart-qualitative-30" />
@@ -22,12 +22,12 @@ export const DeviceSummary = () =>
             ${Legend({
               label: 'Require subscriptions',
               background: 'chart-qualitative-50',
-              value: 68,
+              value: 34,
             })}
             ${Legend({
               label: 'Assigned & subscribed',
               background: 'chart-qualitative-70',
-              value: 68,
+              value: 245,
             })}
             </div>
             </div>

@@ -158,3 +158,11 @@
 path.text-text-strong {
   fill: var(--color-text-strong);
 }
+
+.width-medium {
+  width: var(--content-medium);
+}
+
+.width-full {
+  width: 100%;
+}

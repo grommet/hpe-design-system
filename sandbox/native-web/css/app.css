@@ -64,9 +64,10 @@ body {
   justify-content: space-between;
   padding-block: var(--spacing-small);
   padding-inline: var(--spacing-medium);
-  max-width: 1584px;
+  max-width: 1536px;
   margin: auto;
   width: 100%;
+  align-items: center;
 }
 
 /* DashboardCard */
@@ -92,6 +93,12 @@ path.color-chart-qualitative-40 {
 }
 path.color-chart-qualitative-50 {
   stroke: var(--color-chart-qualitative-50);
+}
+path.color-chart-qualitative-70 {
+  stroke: var(--color-chart-qualitative-70);
+}
+circle.color-chart-qualitative-70 {
+  stroke: var(--color-chart-qualitative-70);
 }
 .fill-chart-qualitative-30 {
   fill: var(--color-chart-qualitative-30);
@@ -127,6 +134,13 @@ svg .border-weak {
 }
 .services-list:not(:last-child) {
   border-bottom: var(--border-xsmall) solid var(--color-border-weak);
+}
+
+#userDropContent {
+  display: none;
+}
+#userDropContent.open {
+  display: block;
 }
 
 @container pageSection (max-width: 1200px) {
