@@ -15,12 +15,11 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
   <DashBoardSkeletonExample />
 </Example>
 
-### When to use
-- The interface is content-rich and has asynchronous loading, in order to provide the user with a sense of the page structure and to minimize layout shifts when content is loaded in.
+### Use When
+- Waiting for content to be returned and displayed to a user, to provide a sense of page structure and minimize layout shifts.
 
-#### When not to use
-- The user is awaiting feedback for in-context actions such as fetching search results. Use a [Spinner](/components/spinner) instead.
-- The user is awaiting feedback on a submission process, like submitting a form. Use a [Busy Button](/components/button#busy-button) instead.
+#### Don't Use When
+- Indicating the status for an ongoing activity where the result will be success or failure. Use [Busy Button](/components/button?q=button#busy-buttonn), [Spinner](/components/spinner) or Progress Bar (coming soon) instead.
 
 ### Anatomy
 
