@@ -3,7 +3,7 @@ svg.greenLakeBadge {
 }
 .shrink {
   transform-origin: top right;
-  transform: scale(2.25);
+  transform: scale(1.9);
   animation: 450ms cubic-bezier(0.05, 0.7, 0.1, 1) 2.5s forwards shrink;
 }
 
