@@ -357,8 +357,6 @@ const buildTheme = tokens => {
         },
       },
       drop: {
-        // TO DO just want this for Select/Menu, but it also
-        // currently affects Tip
         extend: ({ animate }) =>
           animate === 'select'
             ? css`
@@ -456,6 +454,25 @@ const buildTheme = tokens => {
       info: {
         background: 'background-status-info',
       },
+    },
+    table: {
+      extend: css`
+        tbody th,
+        tbody td {
+          transition: padding-block ${primitives.motion.duration.medium[3]}
+            ${primitives.motion.easing.simple.decelerate};
+        }
+
+        &.compact tbody th,
+        &.compact tbody td {
+          padding-block: ${props => props.theme.global.edgeSize.xxsmall};
+        }
+
+        &.spacious tbody th,
+        &.spacious tbody td {
+          padding-block: ${props => props.theme.global.edgeSize.medium};
+        }
+      `,
     },
     text: {
       // allow weight on large text to come through
