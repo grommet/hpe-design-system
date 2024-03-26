@@ -9,8 +9,8 @@ import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
-import './app.css';
 import { useLoading } from './utils/skeleton';
+import './app.css';
 
 export const BackgroundContext = createContext({});
 
@@ -38,7 +38,7 @@ const App = () => {
     else localStorage.setItem('backgroundBack', 'false');
   }, [backgroundBack]);
 
-  const loading = useLoading(4000);
+  const loading = useLoading(6000);
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
   const [activeTheme, setActiveTheme] = useState('Current theme');
   const theme = useMemo(
@@ -46,6 +46,7 @@ const App = () => {
     [activeTheme],
   );
 
+  const [workspace, setWorkspace] = useState('Acme Next');
   return (
     <Grommet
       theme={theme}
@@ -67,7 +68,7 @@ const App = () => {
             justify="center"
             height="100vh"
             // wait for badge animation to complete
-            animation={{ type: 'fadeOut', delay: 3500, duration: 350 }}
+            animation={{ type: 'fadeOut', delay: 5500, duration: 350 }}
           >
             <HPEGreenLakeBadge />
           </Box>
@@ -80,12 +81,22 @@ const App = () => {
               activeTheme={activeTheme}
               backgroundBack={backgroundBack}
               setBackgroundBack={setBackgroundBack}
+              workspace={workspace}
+              setWorkspace={setWorkspace}
             />
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route
+                  path="/"
+                  element={
+                    workspace === 'Acme Production' ? (
+                      <Home />
+                    ) : (
+                      <NextDashboard />
+                    )
+                  }
+                />
                 <Route path="/sustainability" element={<Sustainability />} />
-                <Route path="/next" element={<NextDashboard />} />
               </Routes>
             </BrowserRouter>
             {window.location.pathname === '/next' ? (

@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Anchor, List, Grid, Text, Box, Button } from 'grommet';
+import { Anchor, List, Grid, Text, Box, Button, Skeleton } from 'grommet';
 import { Link } from 'react-router-dom';
 import services from '../mockData/services.json';
 import { Apps, List as ListIcon } from 'grommet-icons';
 import { Card } from '../components';
 import ContentPane from '../components/ContentPane';
+import { useLoading, skeleton as skeletonAnimation } from '../utils/skeleton';
 
 const dates = [
   '2024-02-28T20:04:00.000Z',
@@ -17,6 +18,7 @@ const dates = [
 export const RecentServices = () => {
   const [cards, setCards] = useState(false);
   const recentServices = services.services.slice(0, 5);
+  const skeleton = useLoading(1000);
 
   return (
     <ContentPane
@@ -32,60 +34,68 @@ export const RecentServices = () => {
         </Box>
       }
     >
-      {cards ? (
-        <Grid columns="small" gap="medium">
-          {recentServices.map(service => (
-            <Card
-              key={service.name}
-              title={service.name}
-              subtitle={service.category}
-              description={service.description}
-              level={3}
-              actions={<Button label="Launch" secondary />}
-            />
-          ))}
-        </Grid>
-      ) : (
-        <List
-          data={recentServices}
-          defaultItemProps={{
-            border: { color: 'border-weak', side: 'bottom' },
-            pad: { vertical: 'small', horizontal: 'none' },
-          }}
-        >
-          {datum => (
-            <Grid
-              columns={['flex', 'flex', 'flex', 'auto']}
-              align="center"
-              gap="small"
-            >
-              <Box>
-                <Text weight={500} color="text-strong">
-                  {datum.name}
-                </Text>
-              </Box>
-              <Box>
-                <Text>{datum.category}</Text>
-              </Box>
-              <Text>
-                {Intl.DateTimeFormat(undefined, {
-                  timeStyle: 'short',
-                  dateStyle: 'medium',
-                }).format(
-                  new Date(dates[Math.floor(Math.random() * dates.length)]),
+      <Box skeleton={skeleton ? skeletonAnimation : undefined}>
+        {cards ? (
+          <Grid columns="small" gap="medium">
+            {recentServices.map(service => (
+              <Card
+                key={service.name}
+                title={service.name}
+                subtitle={service.category}
+                description={service.description}
+                level={3}
+                actions={<Button label="Launch" secondary />}
+              />
+            ))}
+          </Grid>
+        ) : (
+          <List
+            data={recentServices}
+            defaultItemProps={{
+              border: { color: 'border-weak', side: 'bottom' },
+              pad: { vertical: 'small', horizontal: 'none' },
+            }}
+          >
+            {datum => (
+              <Grid
+                columns={['flex', 'flex', 'flex', 'auto']}
+                align="center"
+                gap="small"
+              >
+                <Box>
+                  <Text weight={500} color="text-strong">
+                    {datum.name}
+                  </Text>
+                </Box>
+                <Box>
+                  <Text>{datum.category}</Text>
+                </Box>
+                <Box>
+                  <Text>
+                    {Intl.DateTimeFormat(undefined, {
+                      timeStyle: 'short',
+                      dateStyle: 'medium',
+                    }).format(
+                      new Date(dates[Math.floor(Math.random() * dates.length)]),
+                    )}
+                  </Text>
+                </Box>
+                {skeleton ? (
+                  <Skeleton height="100%" width="xsmall" />
+                ) : (
+                  <Link to={datum.href}>
+                    <Button
+                      label="Launch"
+                      a11yTitle={`Launch ${datum.name}`}
+                      secondary
+                    />
+                  </Link>
                 )}
-              </Text>
-              <Link to={datum.href}>
-                <Button
-                  label="Launch"
-                  a11yTitle={`Launch ${datum.name}`}
-                  secondary
-                />
-              </Link>
-            </Grid>
-          )}
-        </List>
-      )}
+              </Grid>
+            )}
+          </List>
+        )}
+      </Box>
     </ContentPane>
   );
 };

@@ -7,10 +7,12 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  //   ThemeContext,
+  Skeleton,
   Text,
 } from 'grommet';
 import { LinkNext, ShareRounded } from 'grommet-icons';
+import { useContext } from 'react';
+import { SkeletonContext } from '../SkeletonContext';
 
 export const DashboardCard = ({
   icon,
@@ -34,6 +36,7 @@ export const DashboardCard = ({
   //     5: heading.level[2],
   //     6: heading.level[2],
   //   };
+  const skeleton = useContext(SkeletonContext);
   const inlineProps = inline
     ? {
         background: undefined,
@@ -42,14 +45,25 @@ export const DashboardCard = ({
         round: 'none',
       }
     : {
-        onClick: () => {},
+        // TO DO -- this is just to demo hover state
+        onClick: !skeleton ? () => {} : undefined,
       };
 
+  const skeletonProps = skeleton
+    ? {
+        elevation: 'none',
+      }
+    : {};
+
   return (
-    <Card {...inlineProps} {...rest}>
+    <Card {...inlineProps} {...skeletonProps} {...rest}>
       <CardHeader align="start" {...inlineProps}>
         <Box direction="row" gap="small" align="start">
-          {icon && <Box flex={false}>{icon}</Box>}
+          {icon && (
+            <Box flex={false}>
+              {skeleton ? <Skeleton height="xxsmall" width="xxsmall" /> : icon}
+            </Box>
+          )}
           <Box gap="xsmall" flex={false}>
             <Heading level={level} margin="none">
               {title}
@@ -59,7 +73,9 @@ export const DashboardCard = ({
         </Box>
         {!hideCta ? (
           <Box flex={false}>
-            {external ? (
+            {skeleton ? (
+              <Skeleton pad="small" />
+            ) : external ? (
               <ShareRounded
                 a11yTitle={`Go to ${title}`}
                 color="foreground-brand-default"
@@ -83,10 +99,10 @@ export const DashboardCard = ({
       )}
       {footer && (
         <CardFooter
-          pad={{ horizontal: 'medium', bottom: 'medium' }}
+          pad={{ horizontal: 'medium', bottom: 'medium', top: 'medium' }}
           {...inlineProps}
         >
-          {footer}
+          {skeleton ? <Skeleton height="xxsmall" /> : footer}
         </CardFooter>
       )}
     </Card>

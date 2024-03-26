@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import { Anchor, Box, Grid, Heading, ResponsiveContext } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { DashboardCard } from '../components';
 import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
+import { SkeletonContext } from '../components';
 
-export const GetStarted = ({ heading = true, kind }) => {
+export const GetStarted = ({ kind }) => {
   const size = useContext(ResponsiveContext);
-
+  const skeleton = useContext(SkeletonContext);
   let kindStyles = {};
   if (kind === 'next')
     kindStyles = {
@@ -22,28 +23,19 @@ export const GetStarted = ({ heading = true, kind }) => {
       },
     };
   return (
-    <Box gap="medium">
-      {heading && (
-        <Box direction="row" justify="between">
-          <Heading level={1} size="small" margin="none">
-            Get started
-          </Heading>
-          {/* TO DO this should semantically be a button */}
-          <Anchor label="Dismiss" />
-        </Box>
-      )}
-      <Grid
-        columns={
-          ['medium', 'small', 'xsmall'].includes(size)
-            ? ['auto']
-            : ['flex', 'flex']
-        }
-        gap="medium"
-      >
-        <DashboardCard
-          title="Find services"
-          subtitle="Discover and launch services from our catalog."
-          icon={
+    <Grid
+      columns={
+        ['medium', 'small', 'xsmall'].includes(size)
+          ? ['auto']
+          : ['flex', 'flex']
+      }
+      gap="medium"
+    >
+      <DashboardCard
+        title="Find services"
+        subtitle="Discover and launch services from our catalog."
+        icon={
+          !skeleton ? (
             <Box background={{ dark: true }} {...kindStyles.container}>
               <AppsRounded
                 size="xxlarge"
@@ -51,25 +43,26 @@ export const GetStarted = ({ heading = true, kind }) => {
                 {...kindStyles.icon}
               />
             </Box>
-          }
-          level={2}
-        />
-        <DashboardCard
-          title="Manage workspace"
-          level={2}
-          subtitle="Set up this workspace, users, access, and more."
-          icon={
+          ) : undefined
+        }
+        level={2}
+      />
+      <DashboardCard
+        title="Manage workspace"
+        level={2}
+        subtitle="Set up this workspace, users, access, and more."
+        icon={
+          !skeleton ? (
             <Box {...kindStyles.container}>
               <UserAdd color="purple" size="xxlarge" {...kindStyles.icon} />
             </Box>
-          }
-        />
-      </Grid>
-    </Box>
+          ) : undefined
+        }
+      />
+    </Grid>
   );
 };
 
 GetStarted.propTypes = {
-  heading: PropTypes.bool,
   kind: PropTypes.oneOf(['next', 'push']),
 };

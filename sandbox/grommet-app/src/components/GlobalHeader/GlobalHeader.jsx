@@ -31,12 +31,14 @@ export const GlobalHeader = ({
   activeTheme,
   backgroundBack,
   setBackgroundBack,
+  workspace,
+  setWorkspace,
 }) => {
   const theme = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
   const boxProps = useMemo(
     () =>
-      window.location.pathname !== '/'
+      workspace === 'Acme Next'
         ? {
             elevation: 'small',
             round: {
@@ -47,7 +49,7 @@ export const GlobalHeader = ({
         : {
             border: { color: 'border-weak', side: 'bottom' },
           },
-    [],
+    [workspace],
   );
 
   return (
@@ -69,13 +71,14 @@ export const GlobalHeader = ({
               />
             </Box>
             <Select
-              options={['Acme Production', 'Workspace B', 'Workspace C']}
-              value="Acme Production"
+              options={['Acme Production', 'Acme Next']}
+              value={workspace}
               valueLabel={label => (
                 <Box {...theme.global.input} pad={theme.global.input.padding}>
                   <Text color="text-strong">{label}</Text>
                 </Box>
               )}
+              onChange={({ value }) => setWorkspace(value)}
               icon={<StyledDown open={open} />}
               onOpen={() => setOpen(true)}
               onClose={() => setOpen(false)}
@@ -148,4 +151,6 @@ GlobalHeader.propTypes = {
   activeTheme: PropTypes.string,
   backgroundBack: PropTypes.bool,
   setBackgroundBack: PropTypes.func,
+  workspace: PropTypes.string,
+  setWorkspace: PropTypes.func,
 };
