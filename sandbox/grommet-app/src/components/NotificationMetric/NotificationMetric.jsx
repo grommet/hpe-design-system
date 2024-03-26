@@ -6,6 +6,8 @@ import {
   StatusGood,
   CircleInformation,
 } from 'grommet-icons';
+import { useContext } from 'react';
+import { SkeletonContext } from '../SkeletonContext';
 
 const statuses = {
   critical: {
@@ -32,7 +34,7 @@ const statuses = {
 
 export const NotificationMetric = ({ status, value }) => {
   const { icon, label, background } = statuses[status] || {};
-
+  const skeleton = useContext(SkeletonContext);
   return (
     <Box
       background={background}
@@ -42,8 +44,9 @@ export const NotificationMetric = ({ status, value }) => {
       pad={{ vertical: 'small', horizontal: 'medium' }}
       round="small"
       wrap
+      skeleton={skeleton ? { depth: 2 } : undefined}
     >
-      {icon}
+      {!skeleton && icon}
       <Text>
         <Text weight={500} color="text-strong">
           {value}

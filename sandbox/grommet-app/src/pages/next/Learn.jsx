@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
 import { DashboardCard } from '../../components';
+import { useContext } from 'react';
+import { SkeletonContext } from '../../components';
 
 const data = [
   {
@@ -24,14 +26,22 @@ const data = [
 ];
 
 export const Learn = ({ inline }) => {
+  const skeleton = useContext(SkeletonContext);
   return (
     <Box gap="medium">
       <Heading level={2} margin="none">
         Learn
       </Heading>
-      {data.map(datum => (
-        <DashboardCard key={datum.title} {...datum} level={3} inline={inline} />
-      ))}
+      <Box gap="medium" skeleton={skeleton}>
+        {data.map(datum => (
+          <DashboardCard
+            key={datum.title}
+            {...datum}
+            level={3}
+            inline={inline}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };

@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading } from 'grommet';
 import { BackgroundContext } from '../../App';
-// import { skeleton as skeletonAnimation } from '../../utils/skeleton';
 
 const ContentPane = ({
   actions,
@@ -33,7 +32,7 @@ const ContentPane = ({
         </Header>
       )}
       <Box
-        // skeleton={skeleton ? true : undefined}
+        skeleton={skeleton ? true : undefined}
         height={skeleton && skeleton.height}
       >
         {children}

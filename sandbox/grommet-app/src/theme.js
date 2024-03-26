@@ -459,7 +459,7 @@ const buildTheme = tokens => {
       extend: css`
         tbody th,
         tbody td {
-          transition: padding-block ${primitives.motion.duration.medium[3]}
+          transition: padding-block ${primitives.motion.duration.medium[2]}
             ${primitives.motion.easing.simple.decelerate};
         }
 

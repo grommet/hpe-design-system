@@ -1,4 +1,4 @@
-import { Anchor, Box, Button, Heading } from 'grommet';
+import { Anchor, Box, Button, Heading, Skeleton } from 'grommet';
 import PropTypes from 'prop-types';
 import {
   ChapterAdd,
@@ -8,8 +8,13 @@ import {
   Stakeholder,
   UserAdd,
 } from 'grommet-icons';
+import { useContext } from 'react';
+import { SkeletonContext } from '../../components';
+import { ThemeContext } from 'styled-components';
 
 export const QuickActions = ({ edit = true, icons }) => {
+  const theme = useContext(ThemeContext);
+  const skeleton = useContext(SkeletonContext);
   return (
     <Box gap="medium">
       <Box direction="row" align="center" justify="between">
@@ -26,31 +31,51 @@ export const QuickActions = ({ edit = true, icons }) => {
         )}
       </Box>
       <Box gap="small">
-        <Anchor
-          icon={icons && <ChapterAdd color="foreground-brand-default" />}
-          label="Add devices"
-          href="#"
-        />
-        <Anchor
-          icon={icons && <Cloud color="foreground-brand-default" />}
-          label="Add service subscriptions"
-          href="#"
-        />
-        <Anchor
-          icon={icons && <UserAdd color="foreground-brand-default" />}
-          label="Add users"
-          href="#"
-        />
-        <Anchor
-          icon={icons && <Stakeholder color="foreground-brand-default" />}
-          label="Assign roles"
-          href="#"
-        />
-        <Anchor
-          icon={icons && <MapLocation color="foreground-brand-default" />}
-          label="Create location"
-          href="#"
-        />
+        {skeleton ? (
+          <Skeleton height={theme.text.medium.size} />
+        ) : (
+          <Anchor
+            icon={icons && <ChapterAdd color="foreground-brand-default" />}
+            label="Add devices"
+            href="#"
+          />
+        )}
+        {skeleton ? (
+          <Skeleton height={theme.text.medium.size} />
+        ) : (
+          <Anchor
+            icon={icons && <Cloud color="foreground-brand-default" />}
+            label="Add service subscriptions"
+            href="#"
+          />
+        )}
+        {skeleton ? (
+          <Skeleton height={theme.text.medium.size} />
+        ) : (
+          <Anchor
+            icon={icons && <UserAdd color="foreground-brand-default" />}
+            label="Add users"
+            href="#"
+          />
+        )}
+        {skeleton ? (
+          <Skeleton height={theme.text.medium.size} />
+        ) : (
+          <Anchor
+            icon={icons && <Stakeholder color="foreground-brand-default" />}
+            label="Assign roles"
+            href="#"
+          />
+        )}
+        {skeleton ? (
+          <Skeleton height={theme.text.medium.size} />
+        ) : (
+          <Anchor
+            icon={icons && <MapLocation color="foreground-brand-default" />}
+            label="Create location"
+            href="#"
+          />
+        )}
       </Box>
     </Box>
   );

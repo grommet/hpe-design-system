@@ -17,6 +17,7 @@ export const HPEGreenLakeBadge = () => (
         svgDraw: 1,
       }}
       duration={2.1}
+      delay={1}
     >
       <rect
         className="shrink"

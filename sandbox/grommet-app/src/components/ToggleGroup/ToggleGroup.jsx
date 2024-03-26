@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { ThemeContext as SCThemeContext } from 'styled-components';
-import { RadioButtonGroup, ThemeContext, Box, Text } from 'grommet';
+import { RadioButtonGroup, Box, Text } from 'grommet';
 import { useContext } from 'react';
+import { ThemeContext } from 'grommet/contexts/ThemeContext/ThemeContext';
 
 export const ToggleGroup = ({ options, value, setValue, ...rest }) => {
   const theme = useContext(SCThemeContext);
@@ -39,23 +40,23 @@ export const ToggleGroup = ({ options, value, setValue, ...rest }) => {
             <Box
               background={checked ? 'active-background' : undefined}
               pad={
-                typeof option.label === 'string'
-                  ? { ...theme.button.size.medium.toolbar.pad }
+                typeof option?.label === 'string'
+                  ? { ...theme?.button?.size?.medium?.toolbar?.pad }
                   : { horizontal: '9px', vertical: '9px' }
               }
-              border={option.id < options.length - 1 && { side: 'right' }}
+              border={option?.id < options?.length - 1 && { side: 'right' }}
               fill="horizontal"
               align="center"
             >
-              {typeof option.label === 'string' ? (
+              {typeof option?.label === 'string' ? (
                 <Text
-                  {...theme.button.default.font}
-                  {...theme.button.default.color}
+                  {...theme?.button?.default.font}
+                  {...theme?.button?.default.color}
                 >
-                  {option.label}
+                  {option?.label}
                 </Text>
               ) : (
-                option.label
+                option?.label
               )}
             </Box>
           );

@@ -12,12 +12,12 @@ for (let index = 0; index < 20; index += 1) {
 }
 
 const skeleton = {
-  animation: skeletonAnimation,
-  //   colors: {
-  //     dark: ['inherit', 'background-front', 'background-back'],
-  //     light: ['inherit', 'background-front', 'background-back'],
-  //   },
-  depth: 2,
+  // animation: skeletonAnimation,
+  colors: {
+    dark: ['inherit', 'background-front', 'background-back'],
+    light: ['inherit', 'background-front', 'background-back'],
+  },
+  depth: 3,
 };
 
 const cardAnimation = index => {
@@ -39,7 +39,7 @@ const useLoading = (timeout = 250) => {
     return () => clearTimeout(timer);
   });
 
-  return loading;
+  return loading ? skeletonAnimation : undefined;
 };
 
 export { cardAnimation, skeleton, tableAnimation, useLoading };

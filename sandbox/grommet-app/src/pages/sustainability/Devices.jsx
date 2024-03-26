@@ -17,8 +17,10 @@ import {
   DropButton,
   Menu,
 } from 'grommet';
-import { More, BladesVertical } from 'grommet-icons';
+import { More } from 'grommet-icons';
 import { useContext } from 'react';
+import { useLoading } from '../../utils/skeleton';
+import { Comfortable, Compact, Spacious } from '../../icons';
 
 const columns = [
   {
@@ -1315,12 +1317,14 @@ const DensityControl = () => {
   const [density, setDensity] = useState('comfortable');
   return (
     <Menu
-      icon={<BladesVertical />}
+      icon={<Compact />}
       tip="Change density"
       kind="toolbar"
       items={[
         {
           label: 'Compact',
+          icon: <Compact />,
+          justify: 'start',
           active: density === 'compact',
           onClick: () => {
             document
@@ -1335,8 +1339,9 @@ const DensityControl = () => {
         },
         {
           label: 'Comfortable',
+          icon: <Comfortable />,
+          justify: 'start',
           active: density === 'comfortable',
-
           onClick: () => {
             document
               .querySelector('#devices-table')
@@ -1352,6 +1357,8 @@ const DensityControl = () => {
         },
         {
           label: 'Spacious',
+          icon: <Spacious />,
+          justify: 'start',
           active: density === 'spacious',
           onClick: () => {
             document
@@ -1376,19 +1383,23 @@ DensityControl.propTypes = {
 };
 export const Devices = () => {
   const size = useContext(ResponsiveContext);
-
+  const skeleton = useLoading(1000);
   return (
     <Data
       data={data}
-      views={[
-        {
-          name: 'My devices',
-          properties: {
-            type: ['Compute'],
-            make: ['HPE'],
-          },
-        },
-      ]}
+      views={
+        !skeleton
+          ? [
+              {
+                name: 'My devices',
+                properties: {
+                  type: ['Compute'],
+                  make: ['HPE'],
+                },
+              },
+            ]
+          : undefined
+      }
       properties={{
         serialNumber: { filter: false },
         name: { filter: false },
@@ -1401,7 +1412,7 @@ export const Devices = () => {
         totalEnergy: { label: 'Total energy' },
       }}
     >
-      <Toolbar gap="medium">
+      <Toolbar gap="medium" skeleton={skeleton}>
         <Toolbar>
           <DataSearch placeholder="Search" />
           <DataSort drop />
@@ -1433,9 +1444,11 @@ export const Devices = () => {
           />
         ) : undefined}
       </Toolbar>
-      <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
+      <Box skeleton={skeleton}>
+        <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
+      </Box>
 
-      <Box overflow={{ horizontal: 'auto' }}>
+      <Box overflow={{ horizontal: 'auto' }} skeleton={skeleton}>
         <DataTable
           columns={columns}
           sortable
@@ -1445,9 +1458,10 @@ export const Devices = () => {
       </Box>
       <Pagination
         summary
-        stepOptions
+        stepOptions={!skeleton ? true : false}
         border="top"
         pad={{ vertical: 'xsmall' }}
+        skeleton={skeleton}
       />
     </Data>
   );

@@ -7,3 +7,4 @@ export * from './ContentPane';
 export * from './GlobalHeader';
 export * from './ToggleGroup';
 export * from './FloatingActionButton';
+export * from './SkeletonContext';

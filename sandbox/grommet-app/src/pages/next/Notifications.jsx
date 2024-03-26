@@ -10,6 +10,8 @@ import {
 } from 'grommet-icons';
 import { DashboardCard, NotificationMetric } from '../../components';
 import notifications from '../../mockData/notifications.json';
+import { useContext } from 'react';
+import { SkeletonContext } from '../../components';
 
 const statuses = {
   critical: {
@@ -47,8 +49,9 @@ const statuses = {
 };
 
 export const Notifications = () => {
+  const skeleton = useContext(SkeletonContext);
   return (
-    <DashboardCard title="Notifications" level={2}>
+    <DashboardCard title="Notifications" level={2} skeleton={false}>
       <Box gap="medium">
         <Box direction="row" gap="xsmall">
           <NotificationMetric status="critical" value={1} />
@@ -68,9 +71,14 @@ export const Notifications = () => {
             }}
           >
             {datum => (
-              <Box direction="row" justify="between" gap="medium">
+              <Box
+                direction="row"
+                justify="between"
+                gap="medium"
+                skeleton={skeleton}
+              >
                 <Box direction="row" gap="small">
-                  {statuses[datum.status].iconCompact}
+                  {!skeleton ? statuses[datum.status].iconCompact : undefined}
                   <Box flex={false}>
                     <Text weight={500} color="text-strong">
                       {datum.service}
@@ -79,9 +87,11 @@ export const Notifications = () => {
                   <Text truncate>{datum.message}</Text>
                 </Box>
                 <Box flex={false}>
-                  {Intl.DateTimeFormat(undefined, {
-                    timeStyle: 'short',
-                  }).format(new Date(datum.createdAt))}
+                  <Text>
+                    {Intl.DateTimeFormat(undefined, {
+                      timeStyle: 'short',
+                    }).format(new Date(datum.createdAt))}
+                  </Text>
                 </Box>
               </Box>
             )}
