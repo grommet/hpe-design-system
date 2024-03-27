@@ -135,6 +135,9 @@ const skeletonAnimation = keyframes`
   transform: translateX(100%);
 }
 `;
+
+const themeModeTransition = `background 1000ms ${primitives.motion.easing.simple.default}`;
+
 const buildTheme = tokens => {
   const [light, dark, elevationLight] = tokens;
   return deepMerge(hpe, {
@@ -381,6 +384,26 @@ const buildTheme = tokens => {
               `,
       },
     },
+    box: {
+      extend: css`
+        transition: ${themeModeTransition};
+      `,
+    },
+    grommet: {
+      extend: css`
+        transition: ${themeModeTransition};
+      `,
+    },
+    anchor: {
+      extend: css`
+        text-decoration: underline transparent;
+        &:hover {
+          text-decoration: underline;
+        }
+        transition: text-decoration ${primitives.motion.duration.short[3]}
+          ${primitives.motion.easing.simple.default};
+      `,
+    },
     button: {
       secondary: {
         border: {
@@ -406,10 +429,11 @@ const buildTheme = tokens => {
           background: 'background-front',
         },
       },
+      extend: `transition: background-color ${primitives.motion.duration.medium[2]} ${primitives.motion.easing.simple.default};`,
     },
     card: {
       container: {
-        extend: `transition: border ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.decelerate}, box-shadow ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.default};`,
+        extend: `transition: border ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.decelerate}, box-shadow ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.default}, ${themeModeTransition};`,
         elevation: 'small',
       },
       hover: {

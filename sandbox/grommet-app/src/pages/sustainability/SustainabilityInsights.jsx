@@ -38,7 +38,7 @@ const CarbonEmissions = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'small' }} flex={false}>
+      <Box gap="medium" pad={{ top: 'small' }} flex={false} width="100%">
         <Metric value={132000} unit="MTCO2e" />
         <Collapsible open={open}>
           <Box gap="medium">
@@ -105,7 +105,7 @@ const EnergyConsumption = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'medium' }} flex={false}>
+      <Box gap="medium" pad={{ top: 'medium' }} flex={false} width="100%">
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
@@ -172,7 +172,7 @@ const EnergyCost = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'medium' }} flex={false}>
+      <Box gap="medium" pad={{ top: 'medium' }} flex={false} width="100%">
         <Metric
           value={48750}
           unit="USD"
@@ -228,7 +228,7 @@ const EnergyCost = () => {
 
 export const SustainabilityInsights = () => {
   const [open, setOpen] = useState(true);
-  const skeleton = useLoading(750);
+  const skeleton = useLoading(1000);
   return (
     <DisplayContext.Provider value={{ open }}>
       <SkeletonContext.Provider value={skeleton}>
