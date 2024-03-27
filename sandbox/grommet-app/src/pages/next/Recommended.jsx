@@ -15,7 +15,7 @@ export const Recommended = ({ inline }) => {
       <Box gap="medium" skeleton={skeleton}>
         <DashboardCard
           title="Machine Learning"
-          icon={<Robot size="xxlarge" />}
+          icon={<Robot size="xlarge" />}
           subtitle="Bring DevOps features to the machine learning lifecycle."
           level={3}
           inline={inline}
@@ -23,7 +23,7 @@ export const Recommended = ({ inline }) => {
         />
         <DashboardCard
           title="Backup & Recovery"
-          icon={<History size="xxlarge" />}
+          icon={<History size="xlarge" />}
           subtitle="Data protection as a service that’s secure & reliable."
           level={3}
           inline={inline}
@@ -31,7 +31,7 @@ export const Recommended = ({ inline }) => {
         />
         <DashboardCard
           title="Data Fabric"
-          icon={<Tree size="xxlarge" />}
+          icon={<Tree size="xlarge" />}
           subtitle="Accelerate configuring, monitoring, and managing storage fabrics."
           level={3}
           inline={inline}
