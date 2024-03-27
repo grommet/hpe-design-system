@@ -467,6 +467,8 @@ const buildTheme = tokens => {
       extend: css`
         position: relative;
         overflow: hidden;
+        border-radius: 2em;
+        background: #dfdfdf;
         &::before {
           content: '';
           position: absolute;
@@ -474,26 +476,43 @@ const buildTheme = tokens => {
           left: 0;
           bottom: 0;
           right: 0;
+          // subtle version
+          // background-image: linear-gradient(
+          //   120deg,
+          //   hsl(0deg 0% 97%) 0%,
+          //   hsl(344deg 0% 97%) 16%,
+          //   hsl(344deg 0% 97%) 23%,
+          //   hsl(344deg 0% 98%) 29%,
+          //   hsl(344deg 0% 98%) 34%,
+          //   hsl(344deg 0% 98%) 39%,
+          //   hsl(344deg 0% 98%) 43%,
+          //   hsl(344deg 0% 98%) 48%,
+          //   hsl(344deg 0% 98%) 52%,
+          //   hsl(344deg 0% 98%) 57%,
+          //   hsl(344deg 0% 98%) 61%,
+          //   hsl(344deg 0% 98%) 66%,
+          //   hsl(344deg 0% 97%) 71%,
+          //   hsl(344deg 0% 97%) 77%,
+          //   hsl(344deg 0% 97%) 84%,
+          //   hsl(0deg 0% 97%) 100%
+          // );
+          // grey isn't from palette
           background-image: linear-gradient(
-            120deg,
-            hsl(0deg 0% 97%) 0%,
-            hsl(344deg 0% 97%) 16%,
-            hsl(344deg 0% 97%) 23%,
-            hsl(344deg 0% 98%) 29%,
-            hsl(344deg 0% 98%) 34%,
-            hsl(344deg 0% 98%) 39%,
-            hsl(344deg 0% 98%) 43%,
-            hsl(344deg 0% 98%) 48%,
-            hsl(344deg 0% 98%) 52%,
-            hsl(344deg 0% 98%) 57%,
-            hsl(344deg 0% 98%) 61%,
-            hsl(344deg 0% 98%) 66%,
-            hsl(344deg 0% 97%) 71%,
-            hsl(344deg 0% 97%) 77%,
-            hsl(344deg 0% 97%) 84%,
-            hsl(0deg 0% 97%) 100%
+            -75deg,
+            hsl(0deg 0% 87%) 0%,
+            hsl(344deg 0% 88%) 18%,
+            hsl(344deg 0% 90%) 26%,
+            hsl(0deg 0% 91%) 33%,
+            hsl(344deg 0% 91%) 39%,
+            hsl(344deg 0% 91%) 44%,
+            hsl(0deg 0% 91%) 50%,
+            hsl(344deg 0% 89%) 56%,
+            hsl(344deg 0% 87%) 61%,
+            hsl(0deg 0% 85%) 67%,
+            hsl(344deg 0% 86%) 74%,
+            hsl(344deg 0% 87%) 82%,
+            hsl(0deg 0% 87%) 100%
           );
-
           transform: translateX(-100%);
 
           animation-name: ${skeletonAnimation};
