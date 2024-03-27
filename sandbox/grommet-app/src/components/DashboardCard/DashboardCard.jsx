@@ -44,10 +44,7 @@ export const DashboardCard = ({
         elevation: 'none',
         round: 'none',
       }
-    : {
-        // TO DO -- this is just to demo hover state
-        onClick: !skeleton ? () => {} : undefined,
-      };
+    : {};
 
   const skeletonProps = skeleton
     ? {
@@ -56,7 +53,13 @@ export const DashboardCard = ({
     : {};
 
   return (
-    <Card {...inlineProps} {...skeletonProps} {...rest}>
+    <Card
+      {...inlineProps}
+      // this is just to demo hover state
+      {...(!inline ? { onClick: () => {} } : {})}
+      {...skeletonProps}
+      {...rest}
+    >
       <CardHeader align="start" {...inlineProps}>
         <Box direction="row" gap="small" align="start">
           {icon && (

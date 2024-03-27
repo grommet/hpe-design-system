@@ -238,7 +238,16 @@ export const SustainabilityInsights = () => {
             date: { label: 'Date range' },
           }}
         >
-          <Toolbar align="end" skeleton={skeleton ? { depth: 1 } : undefined}>
+          <Toolbar
+            align="end"
+            skeleton={
+              skeleton
+                ? {
+                    depth: 1,
+                  }
+                : undefined
+            }
+          >
             {!skeleton ? (
               <DataFilters updateOn="change">
                 <DataFilter

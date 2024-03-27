@@ -127,6 +127,14 @@ const standardDrop = keyframes`
   }
 `;
 
+const skeletonAnimation = keyframes`
+0% {
+  transform: translateX(-100%);
+}
+100% {
+  transform: translateX(100%);
+}
+`;
 const buildTheme = tokens => {
   const [light, dark, elevationLight] = tokens;
   return deepMerge(hpe, {
@@ -454,6 +462,47 @@ const buildTheme = tokens => {
       info: {
         background: 'background-status-info',
       },
+    },
+    skeleton: {
+      extend: css`
+        position: relative;
+        overflow: hidden;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-image: linear-gradient(
+            120deg,
+            hsl(0deg 0% 97%) 0%,
+            hsl(344deg 0% 97%) 16%,
+            hsl(344deg 0% 97%) 23%,
+            hsl(344deg 0% 98%) 29%,
+            hsl(344deg 0% 98%) 34%,
+            hsl(344deg 0% 98%) 39%,
+            hsl(344deg 0% 98%) 43%,
+            hsl(344deg 0% 98%) 48%,
+            hsl(344deg 0% 98%) 52%,
+            hsl(344deg 0% 98%) 57%,
+            hsl(344deg 0% 98%) 61%,
+            hsl(344deg 0% 98%) 66%,
+            hsl(344deg 0% 97%) 71%,
+            hsl(344deg 0% 97%) 77%,
+            hsl(344deg 0% 97%) 84%,
+            hsl(0deg 0% 97%) 100%
+          );
+
+          transform: translateX(-100%);
+
+          animation-name: ${skeletonAnimation};
+          animation-duration: ${primitives.motion.duration.long[4]};
+          animation-timing-function: ${primitives.motion.easing.simple.default};
+          animation-direction: normal;
+          animation-iteration-count: infinite;
+        }
+      `,
     },
     table: {
       extend: css`
