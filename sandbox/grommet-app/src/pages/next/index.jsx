@@ -33,7 +33,8 @@ const Divider = () => <Box border={{ side: 'bottom', color: 'primary' }} />;
 function Index() {
   const size = useContext(ResponsiveContext);
   const getStartedLoading = useLoading(250);
-  const insightsLoading = useLoading(2000);
+  // const insightsLoading = useLoading(2000);
+  const insightsLoading = true;
   const sidePanelLoading = useLoading(250);
   return (
     <Page pad={{ top: 'large', bottom: 'xlarge' }}>
