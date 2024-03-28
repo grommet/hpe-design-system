@@ -136,7 +136,7 @@ const skeletonAnimation = keyframes`
 }
 `;
 
-const themeModeTransition = `background 1000ms ${primitives.motion.easing.simple.default}`;
+const themeModeTransition = `background ${primitives.motion.duration[375]} ${primitives.motion.easing.simple.inOut}`;
 
 const buildTheme = tokens => {
   const [light, dark, elevationLight] = tokens;
@@ -492,7 +492,7 @@ const buildTheme = tokens => {
         position: relative;
         overflow: hidden;
         border-radius: 2em;
-        background: ${props => (props.theme.dark ? '#262626' : '')};
+        background: ${props => (props.theme.dark ? '#262626' : '#F1F1F1')};
         &::before {
           content: '';
           position: absolute;
@@ -558,28 +558,24 @@ const buildTheme = tokens => {
           );`
               : `background-image: linear-gradient(
                 120deg,
-                hsl(0deg 0% 97%) 0%,
-                hsl(344deg 0% 97%) 16%,
-                hsl(344deg 0% 97%) 23%,
-                hsl(344deg 0% 98%) 29%,
-                hsl(344deg 0% 98%) 34%,
-                hsl(344deg 0% 98%) 39%,
-                hsl(344deg 0% 98%) 43%,
-                hsl(344deg 0% 98%) 48%,
-                hsl(344deg 0% 98%) 52%,
-                hsl(344deg 0% 98%) 57%,
-                hsl(344deg 0% 98%) 61%,
-                hsl(344deg 0% 98%) 66%,
-                hsl(344deg 0% 97%) 71%,
-                hsl(344deg 0% 97%) 77%,
-                hsl(344deg 0% 97%) 84%,
-                hsl(0deg 0% 97%) 100%
+                hsl(0deg 0% 95%) 0%,
+                hsl(344deg 0% 95%) 8%,
+                hsl(344deg 0% 95%) 17%,
+                hsl(0deg 0% 96%) 25%,
+                hsl(344deg 0% 96%) 33%,
+                hsl(344deg 0% 96%) 42%,
+                hsl(0deg 0% 96%) 50%,
+                hsl(344deg 0% 96%) 58%,
+                hsl(344deg 0% 96%) 67%,
+                hsl(0deg 0% 96%) 75%,
+                hsl(344deg 0% 95%) 83%,
+                hsl(344deg 0% 95%) 92%,
+                hsl(0deg 0% 95%) 100%
               );`}
           transform: translateX(-100%);
 
           animation-name: ${skeletonAnimation};
-          // animation-duration: ${primitives.motion.duration.long[4]};
-          animation-duration: 1.5s;
+          animation-duration: ${primitives.motion.duration.long[1750]};
           animation-timing-function: ${primitives.motion.easing.simple.default};
           animation-direction: normal;
           animation-iteration-count: infinite;

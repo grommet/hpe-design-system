@@ -1464,6 +1464,10 @@
           "$value": [0.2, 0.0, 0, 1],
           "$type": "cubicBezier"
         },
+        "inOut": {
+          "$value": [0.42, 0, 0.58, 1],
+          "$type": "cubicBezier"
+        },
         "decelerate": {
           "$value": [0, 0, 0, 1],
           "$type": "cubicBezier"
@@ -1477,6 +1481,14 @@
       }
     },
     "duration": {
+      "375": {
+        "$value": "375ms",
+        "$type": "duration"
+      },
+      "1750": {
+        "$value": "1750ms",
+        "$type": "duration"
+      },
       "short": {
         "1": {
           "$value": "100ms",
