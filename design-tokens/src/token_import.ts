@@ -118,6 +118,8 @@ function variableResolvedTypeFromToken(token: Token) {
       return undefined;
     case 'duration':
       return undefined;
+    case 'gradient':
+      return undefined;
     default:
       throw new Error(`Invalid token $type: ${token.$type}`);
   }

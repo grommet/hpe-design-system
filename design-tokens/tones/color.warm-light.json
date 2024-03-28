@@ -343,6 +343,12 @@
           }
         }
       }
+    },
+    "skeleton": {
+      "background": {
+        "$type": "color",
+        "$value": "#F1F1F1"
+      }
     }
   }
 }

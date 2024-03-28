@@ -256,6 +256,75 @@ elevationFiles.forEach(file => {
   }).buildAllPlatforms();
 });
 
+const gradientFiles = fs
+  .readdirSync(TOKENS_DIR)
+  .map(file =>
+    file.includes('gradient') ? `${TOKENS_DIR}/${file}` : undefined,
+  )
+  .filter(file => file);
+
+gradientFiles.forEach(file => {
+  const [theme, mode] = getThemeAndMode(file);
+  StyleDictionary.extend({
+    source: ['dist/primitives.base.json', `tokens/color.${mode}.json`, file],
+    platforms: {
+      js: {
+        // includes JS transformGroup + gradient
+        transforms: [
+          'attribute/cti',
+          'name/cti/pascal',
+          'size/rem',
+          'color/hex',
+          'gradient/css',
+        ],
+        buildPath: 'dist/json/',
+        files: [
+          {
+            destination: `gradient.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.json`,
+            format: 'json/nested',
+            filter: {
+              attributes: {
+                category: 'gradient',
+              },
+            },
+          },
+        ],
+      },
+      css: {
+        // includes css transformGroup + shadow
+        transforms: [
+          'attribute/cti',
+          'name/cti/kebab',
+          'time/seconds',
+          'content/icon',
+          'size/rem',
+          'color/css',
+          'gradient/css',
+        ],
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: `gradient-${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.css`,
+            format: 'css/variables',
+            filter: {
+              attributes: {
+                category: 'gradient',
+              },
+            },
+            // options: {
+            //   outputReferences: true,
+            // },
+          },
+        ],
+      },
+    },
+  }).buildAllPlatforms();
+});
+
 StyleDictionary.extend({
   source: ['dist/primitives.base.json'],
   platforms: {
@@ -372,9 +441,14 @@ fs.writeFileSync(
     .map(file => {
       const fileName = file.replace(JS_DIR, '.');
       const [theme, mode] = getThemeAndMode(fileName);
+      // eslint-disable-next-line no-nested-ternary
       const exportName = file.includes('elevation')
         ? `${camelCase(
             `elevation-${camelCase(`${theme ? `${theme}-` : ''}${mode}`)}`,
+          )}`
+        : file.includes('gradient')
+        ? `${camelCase(
+            `gradient-${camelCase(`${theme ? `${theme}-` : ''}${mode}`)}`,
           )}`
         : camelCase(`${theme ? `${theme}-` : ''}${mode}`);
       return `export { default as ${exportName} } from '${fileName}';\n`;

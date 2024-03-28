@@ -8,6 +8,10 @@ import {
   small,
   warmLight,
   warmDark,
+  gradientLight,
+  gradientDark,
+  gradientWarmLight,
+  gradientWarmDark,
   elevationLight,
   primitives,
 } from 'design-tokens';
@@ -139,7 +143,7 @@ const skeletonAnimation = keyframes`
 const themeModeTransition = `background ${primitives.motion.duration[375]} ${primitives.motion.easing.simple.inOut}`;
 
 const buildTheme = tokens => {
-  const [light, dark, elevationLight] = tokens;
+  const [light, dark, elevationLight, lightGradient, darkGradient] = tokens;
   return deepMerge(hpe, {
     global: {
       ...dimensions,
@@ -512,7 +516,10 @@ const buildTheme = tokens => {
         position: relative;
         overflow: hidden;
         border-radius: 2em;
-        background: ${props => (props.theme.dark ? '#262626' : '#F1F1F1')};
+        background: ${props =>
+          props.theme.dark
+            ? dark.color?.skeleton?.background
+            : light.color?.skeleton?.background};
         &::before {
           content: '';
           position: absolute;
@@ -520,80 +527,14 @@ const buildTheme = tokens => {
           left: 0;
           bottom: 0;
           right: 0;
-          // subtle version
-          // background-image: linear-gradient(
-          //   120deg,
-          //   hsl(0deg 0% 97%) 0%,
-          //   hsl(344deg 0% 97%) 16%,
-          //   hsl(344deg 0% 97%) 23%,
-          //   hsl(344deg 0% 98%) 29%,
-          //   hsl(344deg 0% 98%) 34%,
-          //   hsl(344deg 0% 98%) 39%,
-          //   hsl(344deg 0% 98%) 43%,
-          //   hsl(344deg 0% 98%) 48%,
-          //   hsl(344deg 0% 98%) 52%,
-          //   hsl(344deg 0% 98%) 57%,
-          //   hsl(344deg 0% 98%) 61%,
-          //   hsl(344deg 0% 98%) 66%,
-          //   hsl(344deg 0% 97%) 71%,
-          //   hsl(344deg 0% 97%) 77%,
-          //   hsl(344deg 0% 97%) 84%,
-          //   hsl(0deg 0% 97%) 100%
-          // );
-
-          // grey isn't from palette
-          // background-image: linear-gradient(
-          //   -75deg,
-          //   hsl(0deg 0% 87%) 0%,
-          //   hsl(344deg 0% 88%) 18%,
-          //   hsl(344deg 0% 90%) 26%,
-          //   hsl(0deg 0% 91%) 33%,
-          //   hsl(344deg 0% 91%) 39%,
-          //   hsl(344deg 0% 91%) 44%,
-          //   hsl(0deg 0% 91%) 50%,
-          //   hsl(344deg 0% 89%) 56%,
-          //   hsl(344deg 0% 87%) 61%,
-          //   hsl(0deg 0% 85%) 67%,
-          //   hsl(344deg 0% 86%) 74%,
-          //   hsl(344deg 0% 87%) 82%,
-          //   hsl(0deg 0% 87%) 100%
-          // );
-          ${props =>
-            props.theme.dark
-              ? `background-image: linear-gradient(
+          background-image: linear-gradient(
             120deg,
-            hsl(0deg 0% 15%) 0%,
-            hsl(344deg 0% 16%) 8%,
-            hsl(344deg 0% 16%) 17%,
-            hsl(0deg 0% 17%) 25%,
-            hsl(344deg 0% 17%) 33%,
-            hsl(344deg 0% 17%) 42%,
-            hsl(0deg 0% 18%) 50%,
-            hsl(344deg 0% 17%) 58%,
-            hsl(344deg 0% 17%) 67%,
-            hsl(0deg 0% 17%) 75%,
-            hsl(344deg 0% 16%) 83%,
-            hsl(344deg 0% 16%) 92%,
-            hsl(0deg 0% 15%) 100%
-          );`
-              : `background-image: linear-gradient(
-                120deg,
-                hsl(0deg 0% 95%) 0%,
-                hsl(344deg 0% 95%) 8%,
-                hsl(344deg 0% 95%) 17%,
-                hsl(0deg 0% 96%) 25%,
-                hsl(344deg 0% 96%) 33%,
-                hsl(344deg 0% 96%) 42%,
-                hsl(0deg 0% 96%) 50%,
-                hsl(344deg 0% 96%) 58%,
-                hsl(344deg 0% 96%) 67%,
-                hsl(0deg 0% 96%) 75%,
-                hsl(344deg 0% 95%) 83%,
-                hsl(344deg 0% 95%) 92%,
-                hsl(0deg 0% 95%) 100%
-              );`}
+            ${props =>
+              props.theme.dark
+                ? darkGradient.gradient.skeleton
+                : lightGradient.gradient.skeleton}
+          );
           transform: translateX(-100%);
-
           animation-name: ${skeletonAnimation};
           animation-duration: ${primitives.motion.duration[1750]};
           animation-timing-function: ${primitives.motion.easing.simple.default};
@@ -633,5 +574,17 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme([light, dark, elevationLight]);
-export const warm = buildTheme([warmLight, warmDark, elevationLight]);
+export const current = buildTheme([
+  light,
+  dark,
+  elevationLight,
+  gradientLight,
+  gradientDark,
+]);
+export const warm = buildTheme([
+  warmLight,
+  warmDark,
+  elevationLight,
+  gradientWarmLight,
+  gradientWarmDark,
+]);

@@ -18,8 +18,10 @@ async function main() {
   const tokensFiles = fs
     .readdirSync(TOKENS_DIR)
     .map((file: string) =>
-      // Figma doesn't support elevation/shadow tokens yet, so don't try to sync
-      !file.includes('elevation') ? `${TOKENS_DIR}/${file}` : '',
+      // Figma doesn't support elevation/shadow/gradient tokens yet, so don't try to sync
+      !file.includes('elevation') && !file.includes('gradient')
+        ? `${TOKENS_DIR}/${file}`
+        : '',
     )
     .filter(file => file);
 
