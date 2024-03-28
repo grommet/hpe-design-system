@@ -82,11 +82,13 @@ export const DashboardCard = ({
               <ShareRounded
                 a11yTitle={`Go to ${title}`}
                 color="foreground-brand-default"
+                data-icon={!inline ? 'dashboard' : ''}
               />
             ) : (
               <LinkNext
                 a11yTitle={`Go to ${title}`}
                 color="foreground-brand-default"
+                data-icon={!inline ? 'dashboard' : ''}
               />
             )}
           </Box>
