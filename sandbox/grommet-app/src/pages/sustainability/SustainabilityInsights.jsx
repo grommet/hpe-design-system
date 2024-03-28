@@ -228,7 +228,7 @@ const EnergyCost = () => {
 
 export const SustainabilityInsights = () => {
   const [open, setOpen] = useState(true);
-  const skeleton = useLoading(1000);
+  const skeleton = useLoading(2000);
   return (
     <DisplayContext.Provider value={{ open }}>
       <SkeletonContext.Provider value={skeleton}>

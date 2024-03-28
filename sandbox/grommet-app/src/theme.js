@@ -492,7 +492,7 @@ const buildTheme = tokens => {
         position: relative;
         overflow: hidden;
         border-radius: 2em;
-        // background: #dfdfdf;
+        background: ${props => (props.theme.dark ? '#262626' : '')};
         &::before {
           content: '';
           position: absolute;
@@ -501,25 +501,26 @@ const buildTheme = tokens => {
           bottom: 0;
           right: 0;
           // subtle version
-          background-image: linear-gradient(
-            120deg,
-            hsl(0deg 0% 97%) 0%,
-            hsl(344deg 0% 97%) 16%,
-            hsl(344deg 0% 97%) 23%,
-            hsl(344deg 0% 98%) 29%,
-            hsl(344deg 0% 98%) 34%,
-            hsl(344deg 0% 98%) 39%,
-            hsl(344deg 0% 98%) 43%,
-            hsl(344deg 0% 98%) 48%,
-            hsl(344deg 0% 98%) 52%,
-            hsl(344deg 0% 98%) 57%,
-            hsl(344deg 0% 98%) 61%,
-            hsl(344deg 0% 98%) 66%,
-            hsl(344deg 0% 97%) 71%,
-            hsl(344deg 0% 97%) 77%,
-            hsl(344deg 0% 97%) 84%,
-            hsl(0deg 0% 97%) 100%
-          );
+          // background-image: linear-gradient(
+          //   120deg,
+          //   hsl(0deg 0% 97%) 0%,
+          //   hsl(344deg 0% 97%) 16%,
+          //   hsl(344deg 0% 97%) 23%,
+          //   hsl(344deg 0% 98%) 29%,
+          //   hsl(344deg 0% 98%) 34%,
+          //   hsl(344deg 0% 98%) 39%,
+          //   hsl(344deg 0% 98%) 43%,
+          //   hsl(344deg 0% 98%) 48%,
+          //   hsl(344deg 0% 98%) 52%,
+          //   hsl(344deg 0% 98%) 57%,
+          //   hsl(344deg 0% 98%) 61%,
+          //   hsl(344deg 0% 98%) 66%,
+          //   hsl(344deg 0% 97%) 71%,
+          //   hsl(344deg 0% 97%) 77%,
+          //   hsl(344deg 0% 97%) 84%,
+          //   hsl(0deg 0% 97%) 100%
+          // );
+
           // grey isn't from palette
           // background-image: linear-gradient(
           //   -75deg,
@@ -537,10 +538,48 @@ const buildTheme = tokens => {
           //   hsl(344deg 0% 87%) 82%,
           //   hsl(0deg 0% 87%) 100%
           // );
+          ${props =>
+            props.theme.dark
+              ? `background-image: linear-gradient(
+            120deg,
+            hsl(0deg 0% 15%) 0%,
+            hsl(344deg 0% 16%) 8%,
+            hsl(344deg 0% 16%) 17%,
+            hsl(0deg 0% 17%) 25%,
+            hsl(344deg 0% 17%) 33%,
+            hsl(344deg 0% 17%) 42%,
+            hsl(0deg 0% 18%) 50%,
+            hsl(344deg 0% 17%) 58%,
+            hsl(344deg 0% 17%) 67%,
+            hsl(0deg 0% 17%) 75%,
+            hsl(344deg 0% 16%) 83%,
+            hsl(344deg 0% 16%) 92%,
+            hsl(0deg 0% 15%) 100%
+          );`
+              : `background-image: linear-gradient(
+                120deg,
+                hsl(0deg 0% 97%) 0%,
+                hsl(344deg 0% 97%) 16%,
+                hsl(344deg 0% 97%) 23%,
+                hsl(344deg 0% 98%) 29%,
+                hsl(344deg 0% 98%) 34%,
+                hsl(344deg 0% 98%) 39%,
+                hsl(344deg 0% 98%) 43%,
+                hsl(344deg 0% 98%) 48%,
+                hsl(344deg 0% 98%) 52%,
+                hsl(344deg 0% 98%) 57%,
+                hsl(344deg 0% 98%) 61%,
+                hsl(344deg 0% 98%) 66%,
+                hsl(344deg 0% 97%) 71%,
+                hsl(344deg 0% 97%) 77%,
+                hsl(344deg 0% 97%) 84%,
+                hsl(0deg 0% 97%) 100%
+              );`}
           transform: translateX(-100%);
 
           animation-name: ${skeletonAnimation};
-          animation-duration: ${primitives.motion.duration.long[4]};
+          // animation-duration: ${primitives.motion.duration.long[4]};
+          animation-duration: 1.5s;
           animation-timing-function: ${primitives.motion.easing.simple.default};
           animation-direction: normal;
           animation-iteration-count: infinite;
