@@ -433,7 +433,27 @@ const buildTheme = tokens => {
     },
     card: {
       container: {
-        extend: `transition: border ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.decelerate}, box-shadow ${primitives.motion.duration.short[3]} ${primitives.motion.easing.simple.default}, ${themeModeTransition};`,
+        extend: css`
+          transition: border ${primitives.motion.duration.short[3]}
+              ${primitives.motion.easing.simple.decelerate},
+            box-shadow ${primitives.motion.duration.short[3]}
+              ${primitives.motion.easing.simple.default},
+            ${themeModeTransition};
+
+          svg[data-icon='dashboard'] {
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: opacity ${primitives.motion.duration[240]}
+                ${primitives.motion.easing.simple.in},
+              transform ${primitives.motion.duration[240]}
+                ${primitives.motion.easing.simple.in};
+          }
+
+          &:hover svg[data-icon='dashboard'] {
+            transform: translateX(0%);
+            opacity: 1;
+          }
+        `,
         elevation: 'small',
       },
       hover: {
@@ -575,7 +595,7 @@ const buildTheme = tokens => {
           transform: translateX(-100%);
 
           animation-name: ${skeletonAnimation};
-          animation-duration: ${primitives.motion.duration.long[1750]};
+          animation-duration: ${primitives.motion.duration[1750]};
           animation-timing-function: ${primitives.motion.easing.simple.default};
           animation-direction: normal;
           animation-iteration-count: infinite;

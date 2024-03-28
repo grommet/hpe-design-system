@@ -1464,6 +1464,10 @@
           "$value": [0.2, 0.0, 0, 1],
           "$type": "cubicBezier"
         },
+        "in": {
+          "$value": [0, 0, 0.58, 1],
+          "$type": "cubicBezier"
+        },
         "inOut": {
           "$value": [0.42, 0, 0.58, 1],
           "$type": "cubicBezier"
@@ -1481,6 +1485,10 @@
       }
     },
     "duration": {
+      "240": {
+        "$value": "240ms",
+        "$type": "duration"
+      },
       "375": {
         "$value": "375ms",
         "$type": "duration"
