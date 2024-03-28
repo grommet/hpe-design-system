@@ -34,7 +34,10 @@ export const RecentServices = () => {
         </Box>
       }
     >
-      <Box skeleton={skeleton ? skeletonAnimation : undefined}>
+      <Box
+        skeleton={skeleton ? skeletonAnimation : undefined}
+        animation={!skeleton ? 'fadeIn' : undefined}
+      >
         {cards ? (
           <Grid columns="small" gap="medium">
             {recentServices.map(service => (

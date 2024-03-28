@@ -52,6 +52,7 @@ export const DashboardCard = ({
       }
     : {};
 
+  const animation = !skeleton ? 'fadeIn' : undefined;
   return (
     <Card
       {...inlineProps}
@@ -60,7 +61,7 @@ export const DashboardCard = ({
       {...skeletonProps}
       {...rest}
     >
-      <CardHeader align="start" {...inlineProps}>
+      <CardHeader align="start" animation={animation} {...inlineProps}>
         <Box direction="row" gap="small" align="start">
           {icon && (
             <Box flex={false}>
@@ -98,6 +99,7 @@ export const DashboardCard = ({
         <CardBody
           pad={{ horizontal: 'medium', bottom: !footer ? 'medium' : undefined }}
           {...inlineProps}
+          animation={animation}
         >
           {children}
         </CardBody>
@@ -106,6 +108,7 @@ export const DashboardCard = ({
         <CardFooter
           pad={{ horizontal: 'medium', bottom: 'medium', top: 'medium' }}
           {...inlineProps}
+          animation={animation}
         >
           {skeleton ? <Skeleton height="xxsmall" /> : footer}
         </CardFooter>

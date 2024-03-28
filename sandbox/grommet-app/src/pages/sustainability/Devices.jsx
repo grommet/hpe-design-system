@@ -1411,6 +1411,7 @@ export const Devices = () => {
         model: { label: 'Model' },
         totalEnergy: { label: 'Total energy' },
       }}
+      animation={!skeleton ? 'fadeIn' : undefined}
     >
       <Toolbar gap="medium" skeleton={skeleton}>
         <Toolbar>

@@ -27,6 +27,7 @@ const skeletonProps = { elevation: 'none' };
 const CarbonEmissions = () => {
   const { open } = useContext(DisplayContext);
   const skeleton = useContext(SkeletonContext);
+  const animation = !skeleton ? 'fadeIn' : undefined;
   return (
     <Card
       title="Carbon emissions"
@@ -38,7 +39,13 @@ const CarbonEmissions = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'small' }} flex={false} width="100%">
+      <Box
+        gap="medium"
+        pad={{ top: 'small' }}
+        flex={false}
+        width="100%"
+        animation={animation}
+      >
         <Metric value={132000} unit="MTCO2e" />
         <Collapsible open={open}>
           <Box gap="medium">
@@ -94,6 +101,7 @@ const CarbonEmissions = () => {
 const EnergyConsumption = () => {
   const { open } = useContext(DisplayContext);
   const skeleton = useContext(SkeletonContext);
+  const animation = !skeleton ? 'fadeIn' : undefined;
   return (
     <Card
       title="Energy consumption"
@@ -105,7 +113,13 @@ const EnergyConsumption = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'medium' }} flex={false} width="100%">
+      <Box
+        gap="medium"
+        pad={{ top: 'medium' }}
+        flex={false}
+        width="100%"
+        animation={animation}
+      >
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
@@ -161,6 +175,7 @@ const EnergyConsumption = () => {
 const EnergyCost = () => {
   const { open } = useContext(DisplayContext);
   const skeleton = useContext(SkeletonContext);
+  const animation = !skeleton ? 'fadeIn' : undefined;
   return (
     <Card
       title="Energy cost"
@@ -172,7 +187,13 @@ const EnergyCost = () => {
       }}
       {...(skeleton ? skeletonProps : {})}
     >
-      <Box gap="medium" pad={{ top: 'medium' }} flex={false} width="100%">
+      <Box
+        gap="medium"
+        pad={{ top: 'medium' }}
+        flex={false}
+        width="100%"
+        animation={animation}
+      >
         <Metric
           value={48750}
           unit="USD"
