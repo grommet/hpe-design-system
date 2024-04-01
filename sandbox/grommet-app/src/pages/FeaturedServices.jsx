@@ -4,6 +4,7 @@ import services from '../mockData/services.json';
 import { Card } from '../components';
 import { LinkNext } from 'grommet-icons';
 import ContentPane from '../components/ContentPane';
+import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
 const TabContent = ({ data, ...rest }) => (
   <Grid columns="small" gap="medium" pad={{ vertical: 'medium' }} {...rest}>
@@ -27,12 +28,13 @@ TabContent.propTypes = {
 export const FeaturedServices = () => {
   let categories = services.services.map(service => service.category);
   categories = [...new Set(categories)].sort();
-
+  const skeleton = useLoading(350);
   return (
     <ContentPane
       heading="Featured services"
       level={2}
       actions={<Anchor href="#" label="View catalog" />}
+      skeleton={skeleton ? skeletonAnimation : undefined}
     >
       <Tabs justify="start">
         <Tab title="Recommended">

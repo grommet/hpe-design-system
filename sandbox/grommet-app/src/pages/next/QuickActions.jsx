@@ -9,12 +9,12 @@ import {
   UserAdd,
 } from 'grommet-icons';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
 import { ThemeContext } from 'styled-components';
+import { useLoading } from '../../utils/skeleton';
 
 export const QuickActions = ({ edit = true, icons }) => {
   const theme = useContext(ThemeContext);
-  const skeleton = useContext(SkeletonContext);
+  const skeleton = useLoading(200);
   return (
     <Box gap="medium">
       <Box direction="row" align="center" justify="between">
@@ -30,7 +30,7 @@ export const QuickActions = ({ edit = true, icons }) => {
           />
         )}
       </Box>
-      <Box gap="small">
+      <Box gap="small" animation={!skeleton ? 'fadeIn' : undefined}>
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (

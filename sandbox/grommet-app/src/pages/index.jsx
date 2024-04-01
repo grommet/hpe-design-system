@@ -20,7 +20,7 @@ function Home() {
           gap={size === 'medium' ? 'large' : 'xlarge'}
         >
           <Box gap="large">
-            <GetStarted />
+            <GetStarted heading />
             <RecentServices />
             <FeaturedServices />
           </Box>
