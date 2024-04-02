@@ -710,7 +710,7 @@ export const templates = [
       require a user's attention. Status indicators provide peace-of-mind 
       when all is well or call attention to items when a user needs to take 
       action`,
-    relatedContent: ['Notification', 'Toast notifications', 'Stack'],
+    relatedContent: ['Notification', 'Toast notifications'],
     sections: ['What makes up a status indicator', 'Icons and Shapes'],
     tags: [
       'displaying status',
@@ -829,7 +829,6 @@ export const templates = [
       'Status indicator',
       'Inline notifications',
       'Global banner notifications',
-      'Stack',
     ],
     tags: [
       'feedback',
