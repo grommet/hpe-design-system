@@ -62,10 +62,10 @@ export const RecentServices = () => {
             {datum => (
               <Grid
                 columns={['flex', 'flex', 'flex', 'auto']}
-                align="center"
+                align={skeleton ? 'start' : 'center'}
                 gap="small"
               >
-                <Box>
+                <Box skeleton>
                   <Text weight={500} color="text-strong">
                     {datum.name}
                   </Text>
@@ -84,7 +84,7 @@ export const RecentServices = () => {
                   </Text>
                 </Box>
                 {skeleton ? (
-                  <Skeleton height="100%" width="xsmall" />
+                  <Skeleton fill="vertical" width="xsmall" />
                 ) : (
                   <Link to={datum.href}>
                     <Button

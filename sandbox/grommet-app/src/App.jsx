@@ -38,7 +38,6 @@ const App = () => {
     else localStorage.setItem('backgroundBack', 'false');
   }, [backgroundBack]);
 
-  const loading = useLoading(6000);
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
   const [activeTheme, setActiveTheme] = useState('Current theme');
   const theme = useMemo(
@@ -46,7 +45,9 @@ const App = () => {
     [activeTheme],
   );
 
-  const [workspace, setWorkspace] = useState('Acme Next');
+  const [workspace, setWorkspace] = useState('Acme Production');
+  const loading = useLoading(6000);
+
   return (
     <Grommet
       theme={theme}

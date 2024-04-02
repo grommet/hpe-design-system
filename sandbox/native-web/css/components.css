@@ -84,7 +84,6 @@ button.active {
 .card {
   background-color: var(--color-background-front);
   border-radius: var(--radius-large);
-  /* TO DO use token */
   box-shadow: var(--elevation-small);
   padding: var(--spacing-medium);
   transition: box-shadow 0.25s ease-in;
