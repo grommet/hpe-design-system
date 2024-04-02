@@ -17,7 +17,7 @@
       "description": "Manage campus, branch, SD-WAN & data center networks with AI, automation & security.",
       "subscription": {
         "name": "Aruba NetInsight 90 Day Eval Subscription",
-        "expiration": "2024-01-31T10:00:00.0000Z"
+        "expiration": "2024-01-31T10:00:00.000Z"
       }
     },
     {
@@ -31,7 +31,7 @@
       "description": "Data protection as a service that’s effortless, efficient, and secure.",
       "subscription": {
         "name": "Backup and Recovery 90 Day Eval Subscription",
-        "expiration": "2024-04-31T10:00:00.0000Z"
+        "expiration": "2024-04-30T10:00:00.000Z"
       }
     },
     {
@@ -40,7 +40,7 @@
       "description": "Simple self-service storage for any workload with AI-driven cloud management.",
       "subscription": {
         "name": "Block Storage 90 Day Eval Subscription",
-        "expiration": "2024-05-15T10:00:00.0000Z"
+        "expiration": "2024-05-15T10:00:00.000Z"
       }
     },
     {
