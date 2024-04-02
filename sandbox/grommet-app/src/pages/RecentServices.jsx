@@ -65,7 +65,7 @@ export const RecentServices = () => {
                 align={skeleton ? 'start' : 'center'}
                 gap="small"
               >
-                <Box skeleton>
+                <Box>
                   <Text weight={500} color="text-strong">
                     {datum.name}
                   </Text>
