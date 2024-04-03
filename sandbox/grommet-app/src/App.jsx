@@ -13,6 +13,7 @@ import { useLoading } from './utils/skeleton';
 import './app.css';
 
 export const BackgroundContext = createContext({});
+export const WorkspaceContext = createContext({});
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(
@@ -46,6 +47,8 @@ const App = () => {
   );
 
   const [workspace, setWorkspace] = useState('Acme Production');
+  const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
+
   const loading = useLoading(6000);
 
   return (
@@ -75,34 +78,36 @@ const App = () => {
           </Box>
         ) : (
           <BackgroundContext.Provider value={contextValue}>
-            <GlobalHeader
-              darkMode={darkMode}
-              setDarkMode={setDarkMode}
-              setActiveTheme={setActiveTheme}
-              activeTheme={activeTheme}
-              backgroundBack={backgroundBack}
-              setBackgroundBack={setBackgroundBack}
-              workspace={workspace}
-              setWorkspace={setWorkspace}
-            />
-            <BrowserRouter>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    workspace === 'Acme Production' ? (
-                      <Home />
-                    ) : (
-                      <NextDashboard />
-                    )
-                  }
-                />
-                <Route path="/sustainability" element={<Sustainability />} />
-              </Routes>
-            </BrowserRouter>
-            {window.location.pathname === '/next' ? (
-              <FloatingActionButton label="Ask HPE" />
-            ) : undefined}
+            <WorkspaceContext.Provider value={workspaceContextValue}>
+              <GlobalHeader
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+                setActiveTheme={setActiveTheme}
+                activeTheme={activeTheme}
+                backgroundBack={backgroundBack}
+                setBackgroundBack={setBackgroundBack}
+                workspace={workspace}
+                setWorkspace={setWorkspace}
+              />
+              <BrowserRouter>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      workspace === 'Acme Production' ? (
+                        <Home />
+                      ) : (
+                        <NextDashboard />
+                      )
+                    }
+                  />
+                  <Route path="/sustainability" element={<Sustainability />} />
+                </Routes>
+              </BrowserRouter>
+              {window.location.pathname === '/next' ? (
+                <FloatingActionButton label="Ask HPE" />
+              ) : undefined}
+            </WorkspaceContext.Provider>
           </BackgroundContext.Provider>
         )
       ) : (

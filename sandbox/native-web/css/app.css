@@ -3,7 +3,7 @@
   /* line-height: 1.5; */
   font-weight: 400;
   color-scheme: light dark;
-  background-color: var(--color-background-back);
+  background-color: var(--color-background-default);
   color: var(--color-text-default);
 
   font-synthesis: none;
@@ -34,7 +34,7 @@ body {
 
 .outer {
   grid-template-columns: 1fr var(--content-medium);
-  gap: var(--spacing-large);
+  gap: var(--spacing-xlarge);
 }
 
 .flex-flex {
@@ -58,14 +58,14 @@ body {
 
 .globalHeader {
   background: var(--color-background-front);
-  border-radius: 0 0 var(--spacing-medium) var(--spacing-medium);
-  box-shadow: 0px 2px 4px #0000001f;
+  border-bottom: 1px solid var(--color-border-weak);
+  /* box-shadow: 0px 2px 4px #0000001f; */
   flex-direction: row;
   justify-content: space-between;
   padding-block: var(--spacing-small);
   padding-inline: var(--spacing-medium);
-  max-width: 1536px;
-  margin: auto;
+  /* max-width: 1536px; */
+  /* margin: auto; */
   width: 100%;
   align-items: center;
 }

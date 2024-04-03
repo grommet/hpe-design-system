@@ -172,12 +172,22 @@ h3 {
   width: 24px;
   height: 24px;
 }
+.icon-xxlarge {
+  display: flex;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
 .icon.primary > path {
   stroke: var(--color-primary);
   stroke-width: 2px;
 }
 .icon.foreground-brand-default > path {
   stroke: var(--color-foreground-brand-default);
+  stroke-width: 2px;
+}
+.icon.foreground-purple-10 > path {
+  stroke: var(--color-purple-10);
   stroke-width: 2px;
 }
 .icon.foreground-status-warning > path {
