@@ -1,7 +1,7 @@
 export const QuickActions = ({ actions }) => `<div class="gap-medium">
 <div class="row align-center justify-between">
   <h2>Quick actions</h2>
-  ${actions}
+  ${actions || ''}
 </div>
 <div class="gap-small">
   <a href="#">Add devices</a>

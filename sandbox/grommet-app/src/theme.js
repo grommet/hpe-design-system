@@ -399,14 +399,14 @@ const buildTheme = tokens => {
       `,
     },
     anchor: {
-      extend: css`
-        text-decoration: underline transparent;
-        &:hover {
-          text-decoration: underline;
-        }
-        transition: text-decoration ${primitives.motion.duration.short[3]}
-          ${primitives.motion.easing.simple.default};
-      `,
+      // extend: css`
+      //   text-decoration: underline transparent;
+      //   &:hover {
+      //     text-decoration: underline;
+      //   }
+      //   transition: text-decoration ${primitives.motion.duration.short[3]}
+      //     ${primitives.motion.easing.simple.default};
+      // `,
     },
     button: {
       secondary: {

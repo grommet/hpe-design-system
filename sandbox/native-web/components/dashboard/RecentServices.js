@@ -9,7 +9,7 @@ const dates = [
 ];
 
 export const RecentServices = () => `
-<div class="contentPane gap-medium">
+<div class="gap-medium">
     <div class="row justify-between">
         <h2>Recent services</h2>
         <a>My services</a>

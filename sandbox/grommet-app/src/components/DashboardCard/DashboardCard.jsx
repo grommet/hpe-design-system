@@ -13,6 +13,7 @@ import {
 import { LinkNext, ShareRounded } from 'grommet-icons';
 import { useContext } from 'react';
 import { SkeletonContext } from '../SkeletonContext';
+import { WorkspaceContext } from '../../App';
 
 export const DashboardCard = ({
   icon,
@@ -37,6 +38,7 @@ export const DashboardCard = ({
   //     6: heading.level[2],
   //   };
   const skeleton = useContext(SkeletonContext);
+  const { workspace } = useContext(WorkspaceContext);
   const inlineProps = inline
     ? {
         background: undefined,
@@ -83,13 +85,17 @@ export const DashboardCard = ({
               <ShareRounded
                 a11yTitle={`Go to ${title}`}
                 color="foreground-brand-default"
-                data-icon={!inline ? 'dashboard' : ''}
+                data-icon={
+                  !inline && workspace === 'Acme Next' ? 'dashboard' : ''
+                }
               />
             ) : (
               <LinkNext
                 a11yTitle={`Go to ${title}`}
                 color="foreground-brand-default"
-                data-icon={!inline ? 'dashboard' : ''}
+                data-icon={
+                  !inline && workspace === 'Acme Next' ? 'dashboard' : ''
+                }
               />
             )}
           </Box>

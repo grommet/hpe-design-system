@@ -14,18 +14,18 @@ import './css/utilities.css';
 import { toggleThemeMode, toggleTheme, toggleDrop } from './utils';
 import {
   DashboardCard,
-  PageHeader,
+  // PageHeader,
   QuickActions,
-  DeviceSummary,
-  BillingSummary,
-  SustainabilityOverview,
+  // DeviceSummary,
+  // BillingSummary,
+  // SustainabilityOverview,
   RecentServices,
-  Recommended,
+  // Recommended,
   Learn,
-  UserOverview,
-  Notifications,
-  ExpiringSubscriptions,
-  MonthlyCharges,
+  // UserOverview,
+  // Notifications,
+  // ExpiringSubscriptions,
+  // MonthlyCharges,
 } from './components';
 import { AppsRounded, UserAdd, HPEGreenLakeBadge } from './icons';
 import { User } from './icons/User';
@@ -68,54 +68,38 @@ document.querySelector('#app').innerHTML = `
         <div class="grid outer">
           <div class="column">
             <div class="gap-medium">
-              ${PageHeader({
-                title: 'Home',
-                actions: '<button>Customize</button>',
-              })}
+              <div class="row justify-between align-center">
+              <h2>Get started</h2>
+              <a>Dismiss</a>
+            </div>
               <div class="grid flex-flex">
                 ${DashboardCard({
                   title: 'Find services',
                   subtitle: 'Discover and launch services from our catalog.',
-                  icon: `<div class="border-xsmall border-default radius-medium 
-                  pad-small background-brand-weak">${AppsRounded({
+                  icon: `<div>${AppsRounded({
                     color: 'foreground-brand-default',
-                    size: 'xlarge',
+                    size: 'xxlarge',
                   })}</div>`,
                 })}
                 ${DashboardCard({
                   title: 'Manage workspace',
                   subtitle: 'Set up this workspace, users, access and more.',
-                  icon: `<div class="border-xsmall border-default radius-medium 
-                  pad-small background-brand-weak">${UserAdd({
-                    color: 'foreground-brand-default',
-                    size: 'xlarge',
+                  icon: `<div>${UserAdd({
+                    color: 'foreground-purple-10',
+                    size: 'xxlarge',
                   })}</div>`,
                 })}
               </div>
             </div>
-            <div class="grid columns-medium">
-              ${BillingSummary()}
-              ${DeviceSummary()}
-              ${SustainabilityOverview()}
-            </div>
             ${RecentServices()}
-            <div class="grid medium-flex">
-              ${UserOverview()}
-              ${Notifications()}
-            </div>
-            <div class="grid flex-flex">
-              ${MonthlyCharges()}
-              ${ExpiringSubscriptions()}
+            <div class="row justify-between align-center">
+              <h2>Featured services</h2>
+              <a>View catalog</a>
             </div>
           </div>
           <div class="column">
-            <div class="contentPane pad-large">
-              ${QuickActions({
-                actions: '<button class="subtle">Edit</button>',
-              })}
-              <hr />
-              ${Recommended}
-              <hr />
+            <div class="gap-large">
+              ${QuickActions({})}
               ${Learn}
             </div>        
           </div>

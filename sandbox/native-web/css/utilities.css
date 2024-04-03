@@ -80,6 +80,9 @@
 .gap-medium {
   gap: var(--spacing-medium);
 }
+.gap-large {
+  gap: var(--spacing-large);
+}
 
 /* Justify */
 .justify-between {

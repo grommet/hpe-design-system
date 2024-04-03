@@ -92,6 +92,10 @@
     {
       "title": "HPE GreenLake Developer Portal",
       "subtitle": "Integrate apps and services."
+    },
+    {
+      "title": "Test Drive Services",
+      "subtitle": "Take a hands-on, guided tour of HPE GreenLake cloud services in a live production environment."
     }
   ],
   "notifications": [
