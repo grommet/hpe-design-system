@@ -41,7 +41,7 @@ export const GetStarted = ({ kind, heading }) => {
           subtitle="Discover and launch services from our catalog."
           icon={
             !skeleton ? (
-              <Box background={{ dark: true }} {...kindStyles.container}>
+              <Box {...kindStyles.container}>
                 <AppsRounded
                   size="xxlarge"
                   color="primary"
