@@ -1284,12 +1284,12 @@ export const components = [
       'State v.s. Status',
       'Notification Systems',
       'Toast Notification',
-      'Global Banner Notification',
+      'Global notifications',
     ],
     relatedContent: [
       'Status indicator',
       'Toast notifications',
-      'Global banner notifications',
+      'Global notifications',
       'Inline notifications',
     ],
     tags: [

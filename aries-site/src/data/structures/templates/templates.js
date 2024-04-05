@@ -784,7 +784,7 @@ export const templates = [
       'Notification',
       'Toast notifications',
       'Status indicator',
-      'Global banner notifications',
+      'Global notifications',
     ],
     tags: [
       'inline',
@@ -828,7 +828,7 @@ export const templates = [
       'Notification',
       'Status indicator',
       'Inline notifications',
-      'Global banner notifications',
+      'Global notifications',
     ],
     tags: [
       'feedback',
@@ -943,10 +943,10 @@ export const templates = [
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {
-    name: 'Global banner notifications',
+    name: 'Global notifications',
     available: true,
     cardOrder: 10,
-    description: `Global banner notifications are system generated alerts that
+    description: `Global notifications are system generated alerts that
     attract user's attention to system conditions and updates.`,
     preview: {
       image: {
@@ -955,11 +955,11 @@ export const templates = [
           // eslint-disable-next-line max-len
           dark: '/templateImages/template-preview-banner-notification-invert.svg',
         },
-        alt: 'Banner notification under HPE Global Application header.',
+        alt: 'Global notifications under HPE Global Application header.',
         fit: 'contain',
       },
     },
-    seoDescription: `Global Banner Notifications are system generated alerts
+    seoDescription: `Global notifications are system generated alerts
      that attract user's attention to system conditions and updates.`,
     sections: [
       'Guidance',

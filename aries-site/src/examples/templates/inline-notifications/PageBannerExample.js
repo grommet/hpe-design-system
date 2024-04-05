@@ -36,8 +36,8 @@ export const PageBannerExample = () => {
           <Notification
             flex={false}
             status="critical"
-            message={`Support for CentOS v7.5 ended on 04/04/021. One or 
-          more applications require updates to a later version.`}
+            message={`Support for CentOS v7.5 ended on 04/04/021.
+            One or more applications require updates to a later version.`}
             // onClick is used for Design System site demonstration only.
             // in production, onClick should be replaced with an href that
             // changes the route and sets the active tab.
