@@ -50,14 +50,13 @@ For low-severity notifications that do not require user action or user attention
   <BannerNotificationDiagram />
 </Example>
 
-| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
-| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span>         |
-| **2** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |    --                                                                                                                    |
-| **3** | **Anchors (optional)**       | Used to direct users to additional detail or related content | Optional                                           | --                                                                                                                       |
-| **4** | **Close button**             | Dismisses the notification                                   | Optional                                            | Critical notifications should not be dismissible.                                                                      |
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                          |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                             |
+| **3** | **Anchors (optional)**       | Used to direct users to additional detail or related content |                  Optional                   | --                                                                                                             |
+| **4** | **Close button**             | Dismisses the notification                                   |                  Optional                   | Critical notifications should not be dismissible.                                                              |
 
-                                                            
 ## Best practices
 
 - Since Global notifications take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
@@ -71,8 +70,8 @@ For low-severity notifications that do not require user action or user attention
 
 ### Format
 
-- Only show one Global notification at a time.
-- Global Notifications should stay within the 192 character limit.
+- Only show one global notification at a time.
+- Global notifications should stay within the 192 character limit.
 - Long text is not truncated but instead will wrap on smaller screen sizes.
 - Anchors are left-aligned and will wrap alongisde the text.
 - Use only two or fewer anchors.
@@ -163,7 +162,7 @@ One possible use case is a **session timeout**. A warning status should be used 
     bestPractice={{
       type: 'do',
       message:
-        'Global notifications should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two links. Also, low-severity notifications should be dismissible.',
+        'Global notifications should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.',
     }}
     height={{ min: 'small' }}
     pad="large"

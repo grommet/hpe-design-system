@@ -16,7 +16,7 @@ export const ToastPreview = ({ card, message, title }) => {
         pad={{ horizontal: 'small', vertical: 'xsmall' }}
         background={{ color: 'background-front' }}
       >
-        <Box direction="row" gap="xsmall">
+        <Box direction="row" gap="xsmall" flex>
           <StatusGoodSmall
             color="status-ok"
             height="medium"
