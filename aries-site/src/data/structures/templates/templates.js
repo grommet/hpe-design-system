@@ -829,7 +829,6 @@ export const templates = [
       'Status indicator',
       'Inline notifications',
       'Global notifications',
-      'Stack',
     ],
     tags: [
       'feedback',
