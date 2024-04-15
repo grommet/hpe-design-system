@@ -6,25 +6,25 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.4.4",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.4",
     "aries-core": "*",
-    "next": "13.4.4",
+    "next": "14.1.4",
     "react-ga": "^2.7.0",
-    "react-syntax-highlighter": "^15.4.4",
-    "remark-gfm": "^3.0.1"
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^4.0.0"
   },
   "scripts": {
     "build": "yarn build-search && next build",
-    "export": "yarn build && next export",
+    "export": "yarn build",
     "postexport": "node next.postexport.js",
     "start": "yarn build-search && next",
-    "start-server": "yarn build && yarn next start -p 3030",
+    "start-server": "yarn build && yarn next -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
-    "test:ci": "start-server-and-test 'yarn next start -p 3030' 3030 'testcafe chrome:headless'",
-    "test:applitools": "start-server-and-test 'yarn next start -p 3030' 3030 'testcafe chrome:headless src/applitools/'",
+    "test:ci": "start-server-and-test 'yarn next -p 3030' 3030 'testcafe chrome:headless'",
+    "test:applitools": "start-server-and-test 'yarn next -p 3030' 3030 'testcafe chrome:headless src/applitools/'",
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
@@ -32,13 +32,13 @@
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
-    "@testing-library/testcafe": "^5.0.0",
-    "axe-core": "^4.6.1",
+    "@testing-library/testcafe": "^5.0.1",
+    "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
-    "babel-plugin-styled-components": "^1.10.6",
-    "next-transpile-modules": "^10.0.0",
-    "start-server-and-test": "^1.10.8",
-    "testcafe": "^2.1.0",
-    "testcafe-react-selectors": "^5.0.2"
+    "babel-plugin-styled-components": "^2.1.4",
+    "next-transpile-modules": "^10.0.1",
+    "start-server-and-test": "^2.0.3",
+    "testcafe": "^3.5.0",
+    "testcafe-react-selectors": "^5.0.3"
   }
 }
