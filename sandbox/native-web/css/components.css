@@ -23,7 +23,7 @@ div {
   flex-direction: column;
   align-items: stretch;
 }
-
+/*  */
 /* Button */
 button {
   --button-backgroundColor: transparent;
@@ -82,16 +82,17 @@ button.active {
 
 /* Card */
 .card {
+  --card-elevation: var(--elevation-small);
   background-color: var(--color-background-front);
   border-radius: var(--radius-large);
-  box-shadow: var(--elevation-small);
+  box-shadow: var(--card-elevation);
   padding: var(--spacing-medium);
   transition: box-shadow var(--motion-duration-short-3)
     var(--motion-easing-simple-default);
 }
 
 .card.interactive:hover {
-  box-shadow: var(--elevation-medium);
+  --card-elevation: var(--elevation-medium);
   cursor: pointer;
 }
 
