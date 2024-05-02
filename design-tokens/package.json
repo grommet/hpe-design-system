@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "type": "module",
   "main": "dist/js/index.js",
+  "exports": {
+    ".": "./dist/js/index.js",
+    "./tree": "./dist/tree/index.js"
+  },
   "scripts": {
     "prettier:check": "prettier --check src/",
     "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
     "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/sync_figma_to_tokens.ts",
     "build-style-dictionary": "node src/build-style-dictionary.js",
-    "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary",
+    "build-token-tree": "node src/build-token-tree.js",
+    "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary && yarn build-token-tree",
     "test": "jest"
   },
   "dependencies": {
