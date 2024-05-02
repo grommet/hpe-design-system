@@ -29,7 +29,8 @@
     "aries-core",
     "aries-site",
     "design-tokens",
-    "sandbox/*"
+    "sandbox/*",
+    "design-tokens-manager"
   ],
   "dependencies": {
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
