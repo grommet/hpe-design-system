@@ -13,14 +13,13 @@ export const TableView = (
     }) => {
 
   return (<>
-    <Box overflow="auto" height="100%">
+    <Box overflow={{ horizontal: 'auto' }} height="100%">
       <DataTable
         columns={tableColumns}
         select={select}
         onSelect={setSelect}
         sortable
         onSort={onSort}
-      // pin
       />
     </Box>
     <Pagination
