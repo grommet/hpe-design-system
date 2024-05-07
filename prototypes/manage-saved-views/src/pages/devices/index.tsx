@@ -138,7 +138,7 @@ const Devices = () => {
   }
 
   return (
-    <Page>
+    <Page pad={{ bottom: 'xlarge' }}>
       <PageContent>
         <PageHeader
           title="Devices"
