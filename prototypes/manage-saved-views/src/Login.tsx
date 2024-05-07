@@ -7,7 +7,6 @@ import {
   PageContent,
   PageHeader,
 } from 'grommet';
-import PropTypes from 'prop-types';
 
 export const Login = ({ setAuthenticated }) => {
   return (
@@ -44,8 +43,4 @@ export const Login = ({ setAuthenticated }) => {
       </PageContent>
     </Page>
   );
-};
-
-Login.propTypes = {
-  setAuthenticated: PropTypes.func,
 };
