@@ -14,9 +14,9 @@ export const ContentPane = ({
   actions?: React.ReactNode;
   children: React.ReactNode;
   contain: boolean;
-  heading: string;
-  level: 1 | 2 | 3 | 4 | 5 | 6;
-  skeleton: boolean;
+  heading?: string;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  skeleton?: boolean;
 }) => {
   return (
     <Box
@@ -26,10 +26,10 @@ export const ContentPane = ({
       round={contain}
       {...rest}
     >
-      <Header>
+      {heading && <Header>
         <Heading level={level} margin="none">{heading}</Heading>
         {actions}
-      </Header>
+      </Header>}
       <Box skeleton={skeleton ? skeletonAnimation : undefined}>
         {children}
       </Box>
