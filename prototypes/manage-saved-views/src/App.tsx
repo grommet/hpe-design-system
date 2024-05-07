@@ -18,6 +18,8 @@ function App() {
     return () => clearTimeout(timer);
   }, [themeMode]);
 
+  console.log('router', router);
+
   return (
     <Grommet
       theme={hpe}
