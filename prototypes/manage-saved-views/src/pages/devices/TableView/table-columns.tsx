@@ -1,10 +1,11 @@
-import { Tag } from 'grommet';
+import { Box, Tag } from 'grommet';
 
 const tableColumns = [
   {
     property: 'serial_number',
     header: 'Serial number',
     primary: true,
+    pin: true,
   },
   {
     property: 'device_type',
@@ -39,16 +40,21 @@ const tableColumns = [
     property: 'tags',
     header: 'Tags',
     render: (datum: { tags: { name: string, value: string }[] }) =>
-      datum.tags.map(tag =>
-        <Tag
-          key={`${tag.name}${tag.value}`}
-          name={tag.name}
-          value={tag.value}
-          size='xsmall'
-          alignSelf='start'
-        />
-      ),
+      <Box direction='row' gap='xsmall' width={{ min: 'small', max: 'medium' }}>
+        {
+          datum.tags.map(tag =>
+            <Tag
+              key={`${tag.name}${tag.value}`}
+              name={tag.name}
+              value={tag.value}
+              size='xsmall'
+              alignSelf='start'
+              flex={false}
+            />
+          )}
+      </Box>,
     sortable: false,
+    size: 'xsmall'
   }
 ];
 

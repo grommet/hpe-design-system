@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, Pagination, SortType, View } from 'grommet';
+import { Box, DataTable, Pagination, SortType, View } from 'grommet';
 import { tableColumns } from './table-columns';
 
 export const TableView = (
@@ -12,24 +12,26 @@ export const TableView = (
       view: View
     }) => {
 
-  return (
-    <>
+  return (<>
+    <Box overflow="auto">
       <DataTable
         columns={tableColumns}
         select={select}
         onSelect={setSelect}
         sortable
         onSort={onSort}
+        pin
       />
-      <Pagination
-        summary
-        stepOptions
-        step={view.step}
-        border="top"
-        pad={{ left: 'small', vertical: 'xsmall' }}
-        numberItems={total}
-      />
-    </>
+    </Box>
+    <Pagination
+      summary
+      stepOptions
+      step={view.step}
+      border="top"
+      pad={{ left: 'small', vertical: 'xsmall' }}
+      numberItems={total}
+    />
+  </>
   );
 }
 
