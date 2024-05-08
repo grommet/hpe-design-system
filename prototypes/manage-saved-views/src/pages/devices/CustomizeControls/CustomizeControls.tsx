@@ -16,7 +16,7 @@ export const CustomizeControls = (
     setView: (view: View) => void,
     views: View[],
     setViews: (views: View[]) => void,
-    visualization: string,
+    visualization: string | string[],
     setVisualization: (visualization: string | string[]) => void
   }) => {
   return (

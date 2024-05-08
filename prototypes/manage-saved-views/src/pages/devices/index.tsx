@@ -6,14 +6,12 @@ import {
   DataFilters,
   DataSearch,
   DataSummary,
-  DataTableColumns,
   DateInput,
   Menu,
   Page,
   PageContent,
   PageHeader,
   SortType,
-  ToggleGroup,
   Toolbar,
   View
 } from 'grommet';
@@ -21,16 +19,14 @@ import { filter } from 'grommet/components/Data/filter';
 import { Link } from 'react-router-dom';
 import { ContentPane, ReverseAnchor } from '../../components/index.ts';
 import { CustomizeControls } from './CustomizeControls';
+import { FindControls } from './FindControls';
 import { TableView } from './TableView/index.ts';
-import { columnOptions } from './TableView/table-columns.tsx';
-import { ManageDataView } from './ManageDataView';
 import {
   defaultData,
   defaultProperties,
   defaultView,
   defaultViews,
-  defaultVisualization,
-  visualizationOptions
+  defaultVisualization
 } from './devicesDefaults.tsx';
 
 const totalItems = defaultData.length;
@@ -96,34 +92,12 @@ const Devices = () => {
             <Toolbar fill gap="medium">
               <Box>
                 <Toolbar>
-                  <DataSearch />
-                  <DataFilters layer>
-                    <DataFilter property="location_name" />
-                    <DataFilter property="device_type" />
-                    <DataFilter property="tier" />
-                    <DataFilter property="expiration_date">
-                      <DateInput
-                        format="mm/dd/yyyy-mm/dd/yyyy"
-                        value={dateRange}
-                        onChange={({ value }) => {
-                          const [start, end] = Array.isArray(value) ?
-                            value.map((date) => new Date(date)) :
-                            [new Date(value), new Date(value)];
-                          setDateRange(value);
-                          setView({
-                            ...view,
-                            properties: {
-                              ...view.properties,
-                              expiration_date: {
-                                min: start?.getTime(),
-                                max: end?.getTime()
-                              }
-                            }
-                          });
-                        }}
-                      />
-                    </DataFilter>
-                  </DataFilters>
+                  <FindControls
+                    dateRange={dateRange}
+                    setDateRange={setDateRange}
+                    view={view}
+                    setView={setView}
+                  />
                 </Toolbar>
                 <DataSummary />
               </Box>
