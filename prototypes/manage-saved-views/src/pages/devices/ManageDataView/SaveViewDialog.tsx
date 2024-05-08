@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -33,7 +33,8 @@ export const SaveViewDialog = (
     setViews: (nextViews: View[]) => void
   }) => {
   const [formValue, setFormValue] = useState(defaultFormValue);
-  // const inputRef = useRef<HTMLInputElement>();
+  const [busy, setBusy] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   return (
     <Layer position='center'>
@@ -53,12 +54,20 @@ export const SaveViewDialog = (
           }}
           onSubmit={() => {
             const newView = { ...view, name: formValue.viewName, custom: true };
+            setBusy(true);
             setSelected(newView);
             setView(newView);
             setViews([...views, newView]);
-            onClose();
-            setShow(false);
-            setFormValue(defaultFormValue);
+            setTimeout(() => {
+              setBusy(false);
+              setSuccess(true);
+            }, 250);
+            setTimeout(() => {
+              onClose();
+              setShow(false);
+              setFormValue(defaultFormValue);
+              setSuccess(false);
+            }, 1000);
           }}>
           <Box gap="medium">
             <FormField
@@ -66,9 +75,7 @@ export const SaveViewDialog = (
               htmlFor="viewName"
               name="viewName"
             >
-              <TextInput
-                // ref={inputRef} 
-                id="viewName" name="viewName" />
+              <TextInput id="viewName" name="viewName" />
             </FormField>
             <Footer justify='end' gap="xsmall">
               <Button
@@ -79,6 +86,8 @@ export const SaveViewDialog = (
                 type="submit"
                 label='Save'
                 primary
+                busy={busy}
+                success={success}
               />
             </Footer>
           </Box>
