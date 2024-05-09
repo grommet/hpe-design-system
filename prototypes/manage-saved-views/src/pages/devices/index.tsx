@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import {
   Box,
   Data,
@@ -41,6 +42,8 @@ const Devices = () => {
       JSON.parse(localStorage.getItem('views')) :
       defaultViews
   );
+  let [searchParams, setSearchParams] = useSearchParams();
+  const exp = searchParams.get('exp');
 
   // Set views to local storage
   useEffect(() => {

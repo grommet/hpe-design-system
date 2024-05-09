@@ -102,10 +102,6 @@ export const ManageDataView = (
     }
   }, [view]);
 
-  // useEffect(() => {
-  //   console.log('current view', view);
-  // }, [view]);
-
   const handleClose = () => {
     setOpen(false);
     selectViewRef.current?.focus();
