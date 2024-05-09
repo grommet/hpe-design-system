@@ -1393,6 +1393,25 @@ export const components = [
     ],
   },
   {
+    name: 'Selector',
+    category: 'Controls',
+    description: 'Selector TBD',
+
+    preview: {
+      image: {
+        src: {
+          light: '/components-preview-spinner.svg',
+          dark: '/components-preview-spinner-invert.svg',
+        },
+        alt: '',
+      },
+    },
+    seoDescription: '',
+    relatedContent: ['RadioButtonGroup', 'CheckBoxGroup'],
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'Spinner',
     category: 'Visualizations',
     description:
