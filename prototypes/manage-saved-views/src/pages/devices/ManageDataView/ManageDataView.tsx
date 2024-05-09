@@ -41,14 +41,6 @@ export const ManageDataView = (
   const [updateForm, setUpdateForm] = useState({ name: lastView.name });
   const selectViewRef = useRef<HTMLSelectElement>();
 
-  // Load views from local storage
-  // useEffect(() => {
-  //   const storedViews = localStorage.getItem('views');
-  //   if (storedViews) {
-  //     setViews(JSON.parse(storedViews));
-  //   }
-  // }, []);
-
   // Construct available options based on views
   useEffect(() => {
     const nextOptions = [];
@@ -110,9 +102,9 @@ export const ManageDataView = (
     }
   }, [view]);
 
-  useEffect(() => {
-    console.log('current view', view);
-  }, [view]);
+  // useEffect(() => {
+  //   console.log('current view', view);
+  // }, [view]);
 
   const handleClose = () => {
     setOpen(false);

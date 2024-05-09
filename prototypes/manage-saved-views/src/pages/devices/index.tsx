@@ -1,12 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Data,
-  DataFilter,
-  DataFilters,
-  DataSearch,
   DataSummary,
-  DateInput,
   Menu,
   Page,
   PageContent,
@@ -40,7 +36,16 @@ const Devices = () => {
   const [visualization, setVisualization] = useState<string | string[]>(defaultVisualization);
   const [dateRange, setDateRange] = useState<string | string[]>([]);
   const [view, setView] = useState<View>(defaultView);
-  const [views, setViews] = useState<View[]>(defaultViews);
+  const [views, setViews] = useState<View[]>(
+    localStorage.getItem('views') ?
+      JSON.parse(localStorage.getItem('views')) :
+      defaultViews
+  );
+
+  // Set views to local storage
+  useEffect(() => {
+    localStorage.setItem('views', JSON.stringify(views));
+  }, [views]);
 
   const handleAction = ({ action, items }: { action: string, items: string[] }) => {
     const result = items.map((item) => data.find((datum) => datum.serial_number === item));
