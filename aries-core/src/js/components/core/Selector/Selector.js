@@ -1,17 +1,11 @@
-import React, {
-  forwardRef,
-  useContext,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext } from 'react';
 import { Box, Button, Keyboard } from 'grommet';
 import { SelectorGroupContext } from './SelectorGroup';
+import { SelectorHeader } from './SelectorHeader';
 
-const Selector = ({ value, selected, onClick, focusableIndex, children }) => {
+const Selector = ({ value, children, title, icon, description }) => {
   const { selectedValue, multiple, onSelect, setSelectedValue } =
     useContext(SelectorGroupContext);
-  //   const buttonRefs = useRef([]);
 
   // Handle click event
   const handleClick = () => {
@@ -20,56 +14,41 @@ const Selector = ({ value, selected, onClick, focusableIndex, children }) => {
     } else {
       const newValue = value === selectedValue ? null : value;
       setSelectedValue(newValue);
-      onSelect && onSelect(newValue);
+      if (onSelect) onSelect(newValue);
     }
   };
 
-  selected = value === selectedValue;
-
-  console.log('', selected, value);
-
-  //   const onNext = (e) => {
-  //     // prevent page scroll
-  //     e.preventDefault();
-  //     const nextIndex =
-  //       focusableIndex + 1 <= options.length - 1 ? focusableIndex + 1 : 0;
-  //     setFocusableIndex(nextIndex);
-  //     buttonRefs.current[nextIndex].focus();
-  //   };
-
-  //   const onPrevious = (e) => {
-  //     // prevent page scroll
-  //     e.preventDefault();
-  //     const nextIndex =
-  //       focusableIndex - 1 >= 0 ? focusableIndex - 1 : options.length - 1;
-  //     setFocusableIndex(nextIndex);
-  //     buttonRefs.current[nextIndex].focus();
-  //   };
+  const selected = value === selectedValue;
 
   return (
-    <Keyboard
-    //   onUp={onPrevious}
-    //   onDown={onNext}
-    //   onLeft={onPrevious}
-    //   onRight={onNext}
+    <Box
+      // behave as button in DOM, but leverage Box styles
+      as={Button}
+      align="stretch"
+      overflow="hidden"
+      round="xsmall"
+      // tabIndex={selected ? '0' : '-1'}
+      aria-pressed={selected}
+      onClick={handleClick}
     >
-      <Button
-        // tabIndex={selected ? '0' : '-1'}
-        aria-pressed={selected}
-        onClick={handleClick}
+      <Box
+        border={{
+          color: selected ? 'brand' : 'border',
+        }}
+        overflow="hidden"
+        round="xsmall"
+        fill
       >
-        <Box
-          border={{
-            color: selected ? 'brand' : 'border',
-          }}
-          overflow="hidden"
-          round="xsmall"
-          fill
-        >
-          {children}
-        </Box>
-      </Button>
-    </Keyboard>
+        <SelectorHeader
+          title={title}
+          icon={icon}
+          description={description}
+          selected={selected}
+        />
+        {/* TO DO full width background? */}
+        <Box pad="small">{children}</Box>
+      </Box>
+    </Box>
   );
 };
 
