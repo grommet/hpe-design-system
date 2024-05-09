@@ -6,7 +6,7 @@ import React, {
   forwardRef,
   useMemo,
 } from 'react';
-import { Box } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
@@ -52,26 +52,11 @@ const SelectorGroup = forwardRef(
       ],
     );
 
-    const handleToggle = value => {
-      setSelectedValue(value);
-    };
-
-    // Clone children and pass props to each Toggle component
-    const clonedChildren = React.Children.map(children, child => {
-      if (React.isValidElement(child)) {
-        return cloneElement(child, {
-          selected: child.props.value === selectedValue,
-          onClick: () => setSelectedValue(child.props.value),
-          focusableIndex: focusableIndex,
-        });
-      }
-      return child;
-    });
-
     return (
       <SelectorGroupContext.Provider value={contextValue}>
-        {/* // should we include grid here? */}
-        <div role="group">{clonedChildren}</div>
+        <Grid>
+          <div role="group">{children}</div>
+        </Grid>
       </SelectorGroupContext.Provider>
     );
   },

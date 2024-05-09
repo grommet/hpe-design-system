@@ -16,7 +16,7 @@ const Selector = ({ value, selected, onClick, focusableIndex, children }) => {
   // Handle click event
   const handleClick = () => {
     if (multiple) {
-      // add logic
+      // Implement logic for multiple selection
     } else {
       const newValue = value === selectedValue ? null : value;
       setSelectedValue(newValue);
@@ -24,26 +24,27 @@ const Selector = ({ value, selected, onClick, focusableIndex, children }) => {
     }
   };
 
-  console.log('',focusableIndex);
+  selected = value === selectedValue;
 
+  console.log('', selected, value);
 
-//   const onNext = (e) => {
-//     // prevent page scroll
-//     e.preventDefault();
-//     const nextIndex =
-//       focusableIndex + 1 <= options.length - 1 ? focusableIndex + 1 : 0;
-//     setFocusableIndex(nextIndex);
-//     buttonRefs.current[nextIndex].focus();
-//   };
+  //   const onNext = (e) => {
+  //     // prevent page scroll
+  //     e.preventDefault();
+  //     const nextIndex =
+  //       focusableIndex + 1 <= options.length - 1 ? focusableIndex + 1 : 0;
+  //     setFocusableIndex(nextIndex);
+  //     buttonRefs.current[nextIndex].focus();
+  //   };
 
-//   const onPrevious = (e) => {
-//     // prevent page scroll
-//     e.preventDefault();
-//     const nextIndex =
-//       focusableIndex - 1 >= 0 ? focusableIndex - 1 : options.length - 1;
-//     setFocusableIndex(nextIndex);
-//     buttonRefs.current[nextIndex].focus();
-//   };
+  //   const onPrevious = (e) => {
+  //     // prevent page scroll
+  //     e.preventDefault();
+  //     const nextIndex =
+  //       focusableIndex - 1 >= 0 ? focusableIndex - 1 : options.length - 1;
+  //     setFocusableIndex(nextIndex);
+  //     buttonRefs.current[nextIndex].focus();
+  //   };
 
   return (
     <Keyboard
