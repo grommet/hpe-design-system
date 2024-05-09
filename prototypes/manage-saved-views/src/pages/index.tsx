@@ -13,7 +13,7 @@ const Home = () => {
             <Button as={Link} to="/devices">
               <Card pad={{ horizontal: 'medium', vertical: 'medium' }}>
                 <Box direction='row' gap="medium" justify='between'>
-                  <Heading level={2} margin="none" size='small'>Experience A</Heading>
+                  <Heading level={2} margin="none" size='small'>Experience XCR</Heading>
                   <LinkNext color='#f66162' />
                 </Box>
               </Card>
@@ -21,7 +21,7 @@ const Home = () => {
             <Button as={Link} to="/devices-b">
               <Card pad={{ horizontal: 'medium', vertical: 'medium' }}>
                 <Box direction='row' gap="medium" justify='between'>
-                  <Heading level={2} margin="none" size="small">Experience B</Heading>
+                  <Heading level={2} margin="none" size="small">Experience PWK</Heading>
                   <LinkNext color='#f66162' />
                 </Box>
               </Card>
