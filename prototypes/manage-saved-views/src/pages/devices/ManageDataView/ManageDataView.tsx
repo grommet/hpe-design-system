@@ -144,6 +144,10 @@ export const ManageDataView = (
     setOpen(false);
   }
 
+  useEffect(() => {
+    console.log('view', view);
+  }, [view]);
+
   return (
     <>
       <FormField

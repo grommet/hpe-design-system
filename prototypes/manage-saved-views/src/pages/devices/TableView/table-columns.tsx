@@ -62,6 +62,7 @@ const columnOptions = tableColumns.map((column, index) => ({
   label: column.header,
   property: column.property,
   pinned: index === 0,
+  disabled: index === 0,
 }));
 
 export { tableColumns, columnOptions };
