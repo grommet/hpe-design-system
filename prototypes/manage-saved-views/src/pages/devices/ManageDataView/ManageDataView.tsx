@@ -2,13 +2,16 @@ import { useRef, useEffect, useState } from 'react';
 import { Box, FormField, Select, Text, View } from 'grommet';
 import { CircleInformation } from 'grommet-icons';
 import { Option } from './Option';
+import { ManageViewsLayer } from './ManageViewsLayer';
 import { SaveViewDialog } from './SaveViewDialog';
 import { UpdateViewDialog } from './UpdateViewDialog';
 import { DeleteViewDialog } from './DeleteViewDialog';
+import { experiences } from '../..';
 
 const SAVE_NEW_VIEW_LABEL = 'Save as';
 const UPDATE_VIEW_LABEL = 'Update';
 const DELETE_VIEW_LABEL = 'Delete';
+const MANAGE_VIEWS_LABEL = 'Manage views';
 const SET_AS_DEFAULT_LABEL = 'Set as default';
 const REMOVE_DEFAULT_LABEL = 'Clear default';
 
@@ -19,12 +22,14 @@ const messages = {
 
 export const ManageDataView = (
   {
+    exp,
     view,
     setView,
     views,
     setViews
   }:
     {
+      exp: string,
       view: View,
       setView: (nextView: View) => void,
       views: View[],
@@ -33,6 +38,7 @@ export const ManageDataView = (
 ) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(view);
+  const [manageViews, setManageViews] = useState(false);
   const [saveViewDialog, setSaveViewDialog] = useState(false);
   const [updateViewDialog, setUpdateViewDialog] = useState(false);
   const [deleteViewDialog, setDeleteViewDialog] = useState(false);
@@ -47,6 +53,7 @@ export const ManageDataView = (
     const createView = { name: SAVE_NEW_VIEW_LABEL }
     const updateView = { name: UPDATE_VIEW_LABEL }
     const deleteView = { name: DELETE_VIEW_LABEL }
+    const manageViews = { name: MANAGE_VIEWS_LABEL }
     const setAsDefault = { name: SET_AS_DEFAULT_LABEL }
     const removeDefault = { name: REMOVE_DEFAULT_LABEL }
     const customViews = views.filter((view) => view.custom);
@@ -54,29 +61,36 @@ export const ManageDataView = (
     customViews.sort((a, b) => a.name.localeCompare(b.name));
     if (customViews.length > 0) {
       customViews.forEach((view) => delete view.label);
-      customViews[0].label = 'Custom';
+      customViews[0].label = 'Custom views';
     }
 
     const predefinedViews = views.filter((view) => !view.custom);
     if (predefinedViews.length > 0) {
-      predefinedViews[0].label = 'Predefined';
+      predefinedViews[0].label = 'Preset views';
     }
 
     nextOptions.push(createView);
 
-    if (customViews.length > 0 && lastView.name) {
-      if (view.name) {
-        const defaultAction = view.default ? removeDefault : setAsDefault;
-        defaultAction.label = `${lastView.name} actions`;
-        nextOptions.push(defaultAction);
-      } else {
-        updateView.label = `${lastView.name} actions`;
+    if (exp === experiences.a.name) {
+      if (customViews.length > 0 && lastView.name) {
+        if (view.name) {
+          const defaultAction = view.default ? removeDefault : setAsDefault;
+          defaultAction.label = `${lastView.name} actions`;
+          nextOptions.push(defaultAction);
+        } else {
+          updateView.label = `${lastView.name} actions`;
+        }
+        nextOptions.push(updateView);
       }
-      nextOptions.push(updateView);
+      if (customViews.length > 0 && view.custom && view.name) {
+        nextOptions.push(deleteView);
+      }
+    } else if (exp === experiences.b.name) {
+      if (customViews.length > 0) {
+        nextOptions.push(manageViews);
+      }
     }
-    if (customViews.length > 0 && view.custom && view.name) {
-      nextOptions.push(deleteView);
-    }
+
     if (predefinedViews.length > 0) {
       nextOptions.push(...predefinedViews);
     }
@@ -104,6 +118,7 @@ export const ManageDataView = (
 
   const handleClose = () => {
     setOpen(false);
+    setManageViews(false);
     selectViewRef.current?.focus();
   }
 
@@ -111,7 +126,10 @@ export const ManageDataView = (
     if (option.name === SAVE_NEW_VIEW_LABEL) {
       setSelected({});
       setSaveViewDialog(true);
-    } else if (option.name === UPDATE_VIEW_LABEL) {
+    } else if (option.name === MANAGE_VIEWS_LABEL) {
+      setManageViews(true);
+    }
+    else if (option.name === UPDATE_VIEW_LABEL) {
       setUpdateForm({ ...view, name: lastView.name });
       setSelected({});
       setUpdateViewDialog(true);
@@ -144,10 +162,6 @@ export const ManageDataView = (
     setOpen(false);
   }
 
-  useEffect(() => {
-    console.log('view', view);
-  }, [view]);
-
   return (
     <>
       <FormField
@@ -176,6 +190,7 @@ export const ManageDataView = (
           }}
         </Select>
       </FormField>
+      {manageViews && <ManageViewsLayer onClose={handleClose} views={views} setViews={setViews} />}
       {saveViewDialog &&
         <SaveViewDialog
           onClose={handleClose}

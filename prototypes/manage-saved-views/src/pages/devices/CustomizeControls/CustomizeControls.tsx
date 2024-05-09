@@ -5,6 +5,7 @@ import { columnOptions } from '../TableView/table-columns';
 
 export const CustomizeControls = (
   {
+    exp,
     view,
     setView,
     views,
@@ -12,6 +13,7 @@ export const CustomizeControls = (
     visualization,
     setVisualization
   }: {
+    exp: string,
     view: View,
     setView: (view: View) => void,
     views: View[],
@@ -22,6 +24,7 @@ export const CustomizeControls = (
   return (
     <>
       <ManageDataView
+        exp={exp}
         view={view}
         views={views}
         setView={setView}

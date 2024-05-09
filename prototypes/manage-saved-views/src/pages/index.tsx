@@ -3,7 +3,7 @@ import { Card, Box, Button, Grid, Heading, Page, PageContent, PageHeader } from 
 import { LinkNext } from 'grommet-icons';
 import { ContentPane } from '../components';
 
-const experiences = {
+export const experiences = {
   a: { name: 'XCR' },
   b: { name: 'PWK' }
 };

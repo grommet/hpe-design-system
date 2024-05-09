@@ -111,6 +111,7 @@ const Devices = () => {
               </Box>
               <Toolbar>
                 <CustomizeControls
+                  exp={exp}
                   view={view}
                   setView={onView}
                   views={views}
