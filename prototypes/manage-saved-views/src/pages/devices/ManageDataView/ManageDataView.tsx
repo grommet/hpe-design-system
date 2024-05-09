@@ -190,7 +190,15 @@ export const ManageDataView = (
           }}
         </Select>
       </FormField>
-      {manageViews && <ManageViewsLayer onClose={handleClose} views={views} setViews={setViews} />}
+      {manageViews && <ManageViewsLayer
+        onClose={handleClose}
+        lastView={lastView}
+        setSelected={setSelected}
+        view={view}
+        setView={setView}
+        views={views}
+        setViews={setViews}
+      />}
       {saveViewDialog &&
         <SaveViewDialog
           onClose={handleClose}

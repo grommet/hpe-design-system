@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Button, Form, FormField, Heading, Layer, Paragraph, TextInput, Footer, View } from 'grommet';
+import { Box, Button, Form, FormField, Heading, Layer, Paragraph, Text, TextInput, Footer, View } from 'grommet';
 
 export const UpdateViewDialog = (
   {
@@ -29,7 +29,7 @@ export const UpdateViewDialog = (
     <Layer position='center'>
       <Box pad='medium' width={{ min: 'medium', max: 'large' }}>
         <Heading level={2} margin='none'>Update "{lastView.name}"</Heading>
-        <Paragraph>Apply the current sort, search, and filter settings to "{lastView.name}".</Paragraph>
+        <Paragraph>Name and apply the current sort, search, and filter settings to <Text color="text-strong" weight={500}>{lastView.name}</Text>.</Paragraph>
         <Form
           value={formValue}
           onChange={(nextValue) => {
