@@ -123,20 +123,26 @@ export const ManageDataView = (
     else if (option.name === DELETE_VIEW_LABEL) {
       setSelected({});
       setDeleteViewDialog(true);
-    } else if (option.name === SET_AS_DEFAULT_LABEL || option.name === REMOVE_DEFAULT_LABEL) {
+    } else if (option.name === SET_AS_DEFAULT_LABEL) {
       const nextViews = views.map((v) => {
-        if (v.name === view.name && option.name === SET_AS_DEFAULT_LABEL) {
-          console.log('setting default', v);
-          setView({ ...v, default: true });
-          return { ...v, default: true };
+        if (v.name === view.name) {
+          v.default = true;
+        } else {
+          delete v.default;
         }
-        delete v.default;
-        setView(v);
         return v;
-      }
-      );
+      });
       setViews(nextViews);
-    } else {
+    } else if (option.name === REMOVE_DEFAULT_LABEL) {
+      const nextViews = views.map((v) => {
+        if (v.name === view.name) {
+          v.default = false;
+        }
+        return v;
+      });
+      setViews(nextViews);
+    }
+    else {
       setSelected(option);
       setView(option);
     }

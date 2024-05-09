@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -54,20 +54,21 @@ export const SaveViewDialog = (
           }}
           onSubmit={() => {
             const newView = { ...view, name: formValue.viewName, custom: true };
+            delete newView.default;
             setBusy(true);
             setSelected(newView);
             setView(newView);
             setViews([...views, newView]);
+            onClose();
             setTimeout(() => {
               setBusy(false);
               setSuccess(true);
-            }, 250);
+            }, 500);
             setTimeout(() => {
-              onClose();
               setShow(false);
               setFormValue(defaultFormValue);
               setSuccess(false);
-            }, 1000);
+            }, 1500);
           }}>
           <Box gap="medium">
             <FormField
