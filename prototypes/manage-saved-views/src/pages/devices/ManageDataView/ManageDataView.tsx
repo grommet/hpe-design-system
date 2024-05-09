@@ -41,6 +41,14 @@ export const ManageDataView = (
   const [updateForm, setUpdateForm] = useState({ name: lastView.name });
   const selectViewRef = useRef<HTMLSelectElement>();
 
+  // Load views from local storage
+  // useEffect(() => {
+  //   const storedViews = localStorage.getItem('views');
+  //   if (storedViews) {
+  //     setViews(JSON.parse(storedViews));
+  //   }
+  // }, []);
+
   // Construct available options based on views
   useEffect(() => {
     const nextOptions = [];
@@ -63,6 +71,7 @@ export const ManageDataView = (
     }
 
     nextOptions.push(createView);
+
     if (customViews.length > 0 && lastView.name) {
       if (view.name) {
         const defaultAction = view.default ? removeDefault : setAsDefault;
@@ -74,7 +83,6 @@ export const ManageDataView = (
       nextOptions.push(updateView);
     }
     if (customViews.length > 0 && view.custom && view.name) {
-      // nextOptions.push(setAsDefault);
       nextOptions.push(deleteView);
     }
     if (predefinedViews.length > 0) {
@@ -121,7 +129,6 @@ export const ManageDataView = (
       setUpdateViewDialog(true);
     }
     else if (option.name === DELETE_VIEW_LABEL) {
-      setSelected({});
       setDeleteViewDialog(true);
     } else if (option.name === SET_AS_DEFAULT_LABEL) {
       const nextViews = views.map((v) => {
@@ -205,7 +212,9 @@ export const ManageDataView = (
         onClose={handleClose}
         setSelected={setSelected}
         setShow={setDeleteViewDialog}
+        setLastView={setLastView}
         view={view}
+        setView={setView}
         views={views}
         setViews={setViews}
       />}

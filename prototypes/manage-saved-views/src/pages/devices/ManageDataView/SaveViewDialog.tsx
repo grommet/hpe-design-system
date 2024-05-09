@@ -54,21 +54,24 @@ export const SaveViewDialog = (
           }}
           onSubmit={() => {
             const newView = { ...view, name: formValue.viewName, custom: true };
+            // May be cloning a view object which is set as default. Need to remove.
             delete newView.default;
             setBusy(true);
             setSelected(newView);
             setView(newView);
             setViews([...views, newView]);
-            onClose();
             setTimeout(() => {
               setBusy(false);
               setSuccess(true);
             }, 500);
             setTimeout(() => {
-              setShow(false);
-              setFormValue(defaultFormValue);
               setSuccess(false);
             }, 1500);
+            setTimeout(() => {
+              onClose();
+              setShow(false);
+              setFormValue(defaultFormValue);
+            }, 1600);
           }}>
           <Box gap="medium">
             <FormField

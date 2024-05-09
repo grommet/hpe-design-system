@@ -1,3 +1,4 @@
+import { de } from '@faker-js/faker';
 import { Box, Button, Heading, Layer, Paragraph, Footer, View } from 'grommet';
 
 export const DeleteViewDialog = (
@@ -5,14 +6,18 @@ export const DeleteViewDialog = (
     onClose,
     setSelected,
     setShow,
+    setLastView,
     view,
+    setView,
     views,
     setViews
   }: {
     onClose: () => void,
     setSelected: (nextView: View) => void,
     setShow: (nextValue: boolean) => void,
+    setLastView: (nextView: View) => void,
     view: View,
+    setView: (nextView: View) => void,
     views: View[],
     setViews: (nextViews: View[]) => void
   }) => {
@@ -37,8 +42,13 @@ export const DeleteViewDialog = (
               primary
               onClick={() => {
                 const nextViews = views.filter((v) => v.name !== view.name);
+                const nextView = { ...view };
+                delete nextView.name;
+                delete nextView.default;
+                delete nextView.custom;
                 setViews(nextViews);
-                setSelected({});
+                setLastView(nextView);
+                setView(nextView);
                 onClose();
                 setShow(false);
               }}
