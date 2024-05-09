@@ -1,75 +1,38 @@
-import React, {
-  forwardRef,
-  useContext,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext } from 'react';
 import { Box, Button, Keyboard } from 'grommet';
 import { SelectorGroupContext } from './SelectorGroup';
+import { SelectorHeader } from './SelectorHeader';
 
-const Selector = ({ value, selected, onClick, focusableIndex, children }) => {
-  const { selectedValue, multiple, onSelect, setSelectedValue } =
+const Selector = ({ value, children, title, icon, description }) => {
+  const { selectedValue, handleSelector, multiple } =
     useContext(SelectorGroupContext);
-  //   const buttonRefs = useRef([]);
 
-  // Handle click event
-  const handleClick = () => {
-    if (multiple) {
-      // Implement logic for multiple selection
-    } else {
-      const newValue = value === selectedValue ? null : value;
-      setSelectedValue(newValue);
-      onSelect && onSelect(newValue);
-    }
+  const handleClick = event => {
+    handleSelector(value);
   };
 
-  selected = value === selectedValue;
-
-  console.log('', selected, value);
-
-  //   const onNext = (e) => {
-  //     // prevent page scroll
-  //     e.preventDefault();
-  //     const nextIndex =
-  //       focusableIndex + 1 <= options.length - 1 ? focusableIndex + 1 : 0;
-  //     setFocusableIndex(nextIndex);
-  //     buttonRefs.current[nextIndex].focus();
-  //   };
-
-  //   const onPrevious = (e) => {
-  //     // prevent page scroll
-  //     e.preventDefault();
-  //     const nextIndex =
-  //       focusableIndex - 1 >= 0 ? focusableIndex - 1 : options.length - 1;
-  //     setFocusableIndex(nextIndex);
-  //     buttonRefs.current[nextIndex].focus();
-  //   };
-
   return (
-    <Keyboard
-    //   onUp={onPrevious}
-    //   onDown={onNext}
-    //   onLeft={onPrevious}
-    //   onRight={onNext}
+    <Button
+      aria-pressed={selectedValue === value}
+      onClick={handleClick}
     >
-      <Button
-        // tabIndex={selected ? '0' : '-1'}
-        aria-pressed={selected}
-        onClick={handleClick}
+      <Box
+        border={{
+          color: selectedValue === value ? 'brand' : 'border',
+        }}
+        overflow="hidden"
+        round="xsmall"
+        fill
       >
-        <Box
-          border={{
-            color: selected ? 'brand' : 'border',
-          }}
-          overflow="hidden"
-          round="xsmall"
-          fill
-        >
-          {children}
-        </Box>
-      </Button>
-    </Keyboard>
+        <SelectorHeader
+          title={title}
+          icon={icon}
+          description={description}
+          selected={selectedValue}
+        />
+        <Box pad="small">{children}</Box>
+      </Box>
+    </Button>
   );
 };
 

@@ -1,52 +1,84 @@
 import React, {
-  cloneElement,
   useState,
   useCallback,
   Children,
   forwardRef,
   useMemo,
 } from 'react';
-import { Box, Grid } from 'grommet';
+import { Grid } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
-const SelectorGroup = forwardRef(
-  ({ children, defaultValue, multiple, onSelect, value, ...rest }) => {
-    const [selectedValue, setSelectedValue] = useState(null);
+const useControlled = ({ prop, defaultProp, onChange = () => {} }) => {
+  const [uncontrolledProp, setUncontrolledProp] = useState(defaultProp);
+  const controlled = prop !== undefined;
+  const value = controlled ? prop : uncontrolledProp;
+  const handleChange = useCallback(onChange, [onChange]);
 
-    const getFocusableIndex = useCallback(() => {
-      let defaultIndex = 0;
-      if (value?.length) {
-        // set earliest button that's part of value to active
-        // assume that value might not be ordered the same as options
-        defaultIndex = value.indexOf(
-          value.find(option => selectedValue === option),
-        );
+  const setValue = useCallback(
+    event => {
+      // only update internal value in uncontrolled cases
+      if (!controlled) {
+        setUncontrolledProp(event.value);
       }
-      return defaultIndex;
-    }, [value, selectedValue]);
+      handleChange(event);
+    },
+    [controlled, setUncontrolledProp, handleChange],
+  );
 
-    // Compute the focusable index
-    const focusableIndex = useMemo(
-      () => getFocusableIndex(),
-      [selectedValue, getFocusableIndex],
-    );
+  return [value, setValue];
+};
 
+const SelectorGroup = forwardRef(
+  ({
+    children,
+    defaultValue,
+    multiple,
+    onSelect,
+    value: valueProp,
+    ...rest
+  }) => {
+    const [selectedValue = multiple ? [] : '', setSelectedValue] =
+      useControlled({
+        prop: valueProp,
+        defaultProp: defaultValue,
+        onChange: onSelect,
+      });
+    const totalChildren = Children.count(children);
+
+    const handleSelector = option => {
+      if (!multiple) {
+        console.log('?????',option);
+        // Single selection
+        setSelectedValue(option);
+      } else {
+        // Multiple selection
+        setSelectedValue(prevSelected => {
+          const isSelected = prevSelected.includes(option);
+          if (isSelected) {
+            return prevSelected.filter(item => item !== option);
+          } else {
+            return [...prevSelected, option];
+          }
+        });
+      }
+    };
     // Create the context value
     const contextValue = useMemo(
       () => ({
         multiple,
         defaultValue,
         onSelect,
-        value,
+        valueProp,
         selectedValue,
         setSelectedValue,
+        handleSelector,
       }),
       [
         multiple,
         defaultValue,
         onSelect,
-        value,
+        valueProp,
         selectedValue,
         setSelectedValue,
       ],
@@ -54,8 +86,16 @@ const SelectorGroup = forwardRef(
 
     return (
       <SelectorGroupContext.Provider value={contextValue}>
-        <Grid>
-          <div role="group">{children}</div>
+        <Grid
+          columns={{
+            count: Math.min(4, totalChildren),
+            size: ['auto', 'medium'],
+          }}
+          gap="small"
+          role="group"
+          {...rest}
+        >
+          {children}
         </Grid>
       </SelectorGroupContext.Provider>
     );

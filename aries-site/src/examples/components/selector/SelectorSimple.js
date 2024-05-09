@@ -1,11 +1,33 @@
 import React from 'react';
 
 import { Box, Grid, Text } from 'grommet';
+import { User } from 'grommet-icons';
 import {
   SelectorContainer,
   SelectorGroup,
   Selector,
 } from 'aries-core/src/js/components/core/Selector';
+
+const data = [
+  {
+    value: 'option 1',
+    title: 'Option 1',
+    description: 'This is a description.',
+    icon: <User height="medium" />,
+  },
+  {
+    value: 'option 2',
+    title: 'Option 2',
+    description: 'This is a description.',
+    icon: <User height="medium" />,
+  },
+  {
+    value: 'option 3',
+    title: 'Option 3',
+    description: 'This is a description.',
+    icon: <User height="medium" />,
+  },
+];
 
 export const SimpleSelector = () => (
   // Uncomment <Grommet> lines when using outside of storybook
@@ -13,9 +35,19 @@ export const SimpleSelector = () => (
   <Box pad="large" gap="large">
     {/* you will still pass multiple, value, onSelect here */}
     <SelectorGroup>
-      <Selector value="option1">Option 1</Selector>
-      <Selector value="option2">Option 2</Selector>
-      <Selector value="option3">Option 3</Selector>
+      {data.map(datum => (
+        <Selector
+          value={datum.value}
+          // TO DO can we build in height?
+          icon={datum.icon}
+          title={datum.title}
+          description={datum.description}
+        >
+          <Box border={{ style: 'dashed' }} fill>
+            Children
+          </Box>
+        </Selector>
+      ))}
       {/* <SelectorContainer value='24' title="Require service assignments">
           <Box pad="small" flex>
             <Text size="large">24</Text>
