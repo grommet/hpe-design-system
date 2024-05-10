@@ -76,8 +76,8 @@ const Devices = () => {
   }
 
   return (
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent>
+    <Page fill pad={{ bottom: 'xlarge' }}>
+      <PageContent flex>
         <PageHeader
           title="Devices"
           parent={<ReverseAnchor as={Link} to="/" label="Home" />}
@@ -88,6 +88,7 @@ const Devices = () => {
           level={2}
           contain
           skeleton={false}
+          flex={false}
         >
           <Data
             data={data}

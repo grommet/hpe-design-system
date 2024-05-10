@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Header, Heading } from 'grommet';
+import { Box, Header, Heading, BoxProps } from 'grommet';
 import { skeleton as skeletonAnimation } from '../utils/animation';
 
 export const ContentPane = ({
@@ -17,7 +17,7 @@ export const ContentPane = ({
   heading?: string;
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   skeleton?: boolean;
-}) => {
+} & BoxProps) => {
   return (
     <Box
       background={contain ? 'background-front' : undefined}
