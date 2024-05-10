@@ -35,7 +35,14 @@ export const CustomizeControls = (
         defaultValue={defaultVisualization}
         options={visualizationOptions}
         value={visualization}
-        onToggle={({ value }) => setVisualization(value || '')}
+        onToggle={({ value }) => {
+          if (value === 'map') {
+            const nextView = { ...view };
+            delete nextView.step
+            setView({ ...nextView });
+          }
+          setVisualization(value || '');
+        }}
       />
       {visualization === 'table' &&
         <DataTableColumns

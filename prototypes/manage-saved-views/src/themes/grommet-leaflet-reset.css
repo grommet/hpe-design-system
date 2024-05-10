@@ -1,0 +1,43 @@
+/* remove leaflet styling from popup to allow Grommet theme to drive */
+/* thinking we might want to host this somewhere for people to import similar to leaflet's css */
+/* source code for leaflet css: https://github.com/Leaflet/Leaflet/blob/main/dist/leaflet.css */
+.leaflet-container {
+	font-family: "Metric", Arial, Helvetica, sans-serif;
+    z-index: 19;
+}
+.leaflet-container a {
+    color: initial;
+    font-size: initial;
+}
+.leaflet-popup-content-wrapper {
+    background-color: transparent;
+    padding: 0px;
+    box-shadow: none;
+}
+.leaflet-popup-content {
+    padding: 0px;
+    margin: 0px;
+}
+.leaflet-popup-content p {
+    margin: 0;
+}
+.leaflet-popup-tip-container {
+    width: 0px;
+    height: 0px;
+}
+.leaflet-popup-tip {
+    width: 0px;
+    height: 0px;
+    padding: 0px;
+    box-shadow: none;
+}
+/* Ensure these are less than base theme for Drop and Layer z-index */
+.leaflet-pane {
+    z-index: 90;
+}
+.leaflet-control {
+    z-index: 91;
+}
+.leaflet-bottom {
+    z-index: 91;
+}

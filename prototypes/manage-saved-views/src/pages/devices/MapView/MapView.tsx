@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Box } from 'grommet';
+import { useContext, useRef } from 'react';
+import { Box, DataContext } from 'grommet';
 import {
   Controls,
   Map,
@@ -7,16 +7,21 @@ import {
   MarkerCluster
 } from 'grommet-leaflet';
 import { hpeMap } from '../../../themes/hpeMap';
+import '../../../themes/grommet-leaflet-reset.css';
 
 export const MapView = () => {
   const containerRef = useRef();
   const mapContainerRef = useRef();
+  const { data } = useContext(DataContext);
+  console.log(data);
 
-  const locations = [
-    [0, 0],
-    [10, -10],
-    [-10, -10],
-  ];
+  const devicesWithLocation = data.filter(
+    device => device.geo.location.coordinates[0] !== null,
+  );
+
+  const locations = devicesWithLocation.map(
+    device => device.geo.location.coordinates,
+  );
 
   return (
     <Box
@@ -24,6 +29,7 @@ export const MapView = () => {
       flex="grow"
       background="background-contrast"
       height="medium"
+      // height={{ min: 'medium' }}
       round="small"
       overflow="hidden"
     >
@@ -34,8 +40,8 @@ export const MapView = () => {
       >
         <Controls locations={locations} />
         <MarkerCluster>
-          {locations.map((location, index) => (
-            <Marker key={index} position={location} />
+          {devicesWithLocation.map((device) => (
+            <Marker key={device.serial_number} position={device.geo.location.coordinates} />
           ))}
         </MarkerCluster>
       </Map>
