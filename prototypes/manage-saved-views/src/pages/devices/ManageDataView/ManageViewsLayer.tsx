@@ -63,7 +63,27 @@ export const ManageViewsLayer = (
                     },
                     {
                       label: datum.default ? 'Remove default' : 'Set as default',
-                      onClick: () => { }
+                      onClick: () => {
+                        if (datum.default) {
+                          const nextViews = views.map((v) => {
+                            if (v.name === view.name) {
+                              v.default = false;
+                            }
+                            return v;
+                          });
+                          setViews(nextViews);
+                        } else {
+                          const nextViews = views.map((v) => {
+                            if (v.name === view.name) {
+                              v.default = true;
+                            } else {
+                              delete v.default;
+                            }
+                            return v;
+                          });
+                          setViews(nextViews);
+                        }
+                      }
                     },
                     {
                       label: 'Rename',
