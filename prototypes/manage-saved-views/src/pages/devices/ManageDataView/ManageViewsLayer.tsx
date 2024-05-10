@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Button, Header, Heading, Layer, List, Menu, Paragraph, Text, View } from 'grommet';
 import { Close, More } from 'grommet-icons';
 import { UpdateViewDialog } from './UpdateViewDialog';
-import { vi } from '@faker-js/faker';
+import { DeleteViewDialog } from './DeleteViewDialog';
 
 export const ManageViewsLayer = (
   {
@@ -25,6 +25,7 @@ export const ManageViewsLayer = (
 ) => {
   const [activeItem, setActiveItem] = useState<View>({});
   const [updateViewDialog, setUpdateViewDialog] = useState(false);
+  const [deleteViewDialog, setDeleteViewDialog] = useState(false);
 
   const presetViews = views.filter((view) => !view.custom);
   const customViews = views.filter((view) => view.custom);
@@ -66,11 +67,17 @@ export const ManageViewsLayer = (
                     },
                     {
                       label: 'Rename',
-                      onClick: () => { }
+                      onClick: () => {
+                        setActiveItem(datum);
+                        setUpdateViewDialog(true);
+                      }
                     },
                     {
                       label: 'Delete',
-                      onClick: () => { }
+                      onClick: () => {
+                        setActiveItem(datum);
+                        setDeleteViewDialog(true);
+                      }
                     }
                   ]}
                 />}
@@ -90,6 +97,17 @@ export const ManageViewsLayer = (
         views={views}
         setViews={setViews}
       />}
+      {deleteViewDialog && <DeleteViewDialog
+        onClose={() => setDeleteViewDialog(false)}
+        setSelected={setSelected}
+        setShow={setDeleteViewDialog}
+        setLastView={setView}
+        view={activeItem}
+        setView={setView}
+        views={views}
+        setViews={setViews}
+      />
+      }
     </Layer >
   );
 }

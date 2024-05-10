@@ -1,5 +1,13 @@
-import { de } from '@faker-js/faker';
-import { Box, Button, Heading, Layer, Paragraph, Footer, View } from 'grommet';
+import {
+  Box,
+  Button,
+  Heading,
+  Layer,
+  Paragraph,
+  Footer,
+  Text,
+  View
+} from 'grommet';
 
 export const DeleteViewDialog = (
   {
@@ -27,7 +35,7 @@ export const DeleteViewDialog = (
       <Box pad='medium' width={{ min: 'medium', max: 'large' }}>
         <Heading level={2} margin='none'>Delete "{view.name}"</Heading>
         <Box gap="small">
-          <Paragraph>Delete the "{view.name}" view?</Paragraph>
+          <Paragraph>Delete the <Text color="text-strong" weight={500}>{view.name}</Text> view?</Paragraph>
           <Footer justify='end' gap="xsmall">
             <Button
               label='Cancel'
