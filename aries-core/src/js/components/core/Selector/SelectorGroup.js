@@ -1,75 +1,99 @@
-import React, {
-  useState,
-  useCallback,
-  Children,
-  forwardRef,
-  useMemo,
-} from 'react';
+import React, { useState, useCallback, Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from 'grommet';
+import { Grid, ThemeContext } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
-const SelectorGroup = forwardRef(
-  ({ children, defaultValue, multiple, onSelect, value, ...rest }) => {
-    // TO DO rename to "selected", "setSelected"? or "value", "setValue"
-    const [selectedValue, setSelectedValue] = useState(null);
+const useControlled = ({ prop, defaultProp, onChange = () => {} }) => {
+  const [uncontrolledProp, setUncontrolledProp] = useState(defaultProp);
+  const controlled = prop !== undefined;
+  const value = controlled ? prop : uncontrolledProp;
+  const handleChange = useCallback(onChange, [onChange]);
 
-    const totalChildren = Children.count(children);
-
-    const getFocusableIndex = useCallback(() => {
-      let defaultIndex = 0;
-      if (value?.length) {
-        // set earliest button that's part of value to active
-        // assume that value might not be ordered the same as options
-        defaultIndex = value.indexOf(
-          value.find(option => selectedValue === option),
-        );
+  const setValue = useCallback(
+    event => {
+      // only update internal value in uncontrolled cases
+      if (!controlled) {
+        setUncontrolledProp(event.value);
       }
-      return defaultIndex;
-    }, [value, selectedValue]);
+      handleChange(event);
+    },
+    [controlled, setUncontrolledProp, handleChange],
+  );
 
-    // Compute the focusable index
-    const focusableIndex = useMemo(
-      () => getFocusableIndex(),
-      [selectedValue, getFocusableIndex],
-    );
+  return [value, setValue];
+};
 
-    const handleToggle = (event, option) => {
+const SelectorGroup = ({
+  children,
+  defaultValue,
+  multiple,
+  onSelect,
+  value,
+  ...rest
+}) => {
+  const [selectedValue = multiple ? [] : '', setSelectedValue] = useControlled({
+    prop: value,
+    defaultProp: defaultValue,
+    onChange: onSelect,
+  });
+
+  const totalChildren = Children.count(children);
+
+  const handleToggle = useCallback(
+    (event, option) => {
       const adjustedEvent = event;
       let nextValue;
       if (!multiple) {
-        nextValue = option;
+        nextValue = option === selectedValue ? '' : option;
       } else {
-        nextValue = value.includes(option)
-          ? value.filter(item => item !== option)
-          : [...value, option];
+        nextValue = selectedValue.includes(option)
+          ? selectedValue.filter(item => item !== option)
+          : [...selectedValue, option];
       }
       adjustedEvent.value = nextValue;
-      setValue(adjustedEvent);
-    };
+      setSelectedValue(adjustedEvent);
+    },
+    [multiple, selectedValue, setSelectedValue],
+  );
 
-    // Create the context value
-    const contextValue = useMemo(
-      () => ({
-        multiple,
-        defaultValue,
-        onSelect,
-        value,
-        selectedValue,
-        setSelectedValue,
-      }),
-      [
-        multiple,
-        defaultValue,
-        onSelect,
-        value,
-        selectedValue,
-        setSelectedValue,
-      ],
-    );
+  const contextValue = useMemo(
+    () => ({
+      multiple,
+      defaultValue,
+      onSelect,
+      value,
+      selectedValue,
+      setSelectedValue,
+      handleToggle,
+    }),
+    [
+      multiple,
+      defaultValue,
+      onSelect,
+      value,
+      selectedValue,
+      setSelectedValue,
+      handleToggle,
+    ],
+  );
 
-    return (
+  return (
+    <ThemeContext.Extend
+      // theme overrides to remove excess padding
+      value={{
+        checkBox: { pad: 'none' },
+        radioButton: {
+          hover: {
+            background: 'none',
+          },
+          container: {
+            extend: '',
+          },
+          extend: '',
+        },
+      }}
+    >
       <SelectorGroupContext.Provider value={contextValue}>
         <Grid
           columns={{
@@ -83,12 +107,15 @@ const SelectorGroup = forwardRef(
           {children}
         </Grid>
       </SelectorGroupContext.Provider>
-    );
-  },
-);
+    </ThemeContext.Extend>
+  );
+};
 
-SelectorGroup.PropTypes = {
-  children: PropTypes.element,
+SelectorGroup.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),

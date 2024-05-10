@@ -1,42 +1,44 @@
 import React, { useContext } from 'react';
-import { Box, Button, Keyboard } from 'grommet';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Box, Button } from 'grommet';
 import { SelectorGroupContext } from './SelectorGroup';
 import { SelectorHeader } from './SelectorHeader';
 
-const Selector = ({ value, children, title, icon, description }) => {
-  const { selectedValue, multiple, onSelect, setSelectedValue } =
-    useContext(SelectorGroupContext);
+// Use box-shadow to increase selected border-width without needing
+// to calculate updated pad and avoid layout shift
+const StyledBox = styled(Box)`
+  ${props =>
+    props.selected &&
+    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['green!']};`}
+`;
 
-  // Handle click event
-  const handleClick = () => {
-    if (multiple) {
-      // Implement logic for multiple selection
-    } else {
-      const newValue = value === selectedValue ? null : value;
-      setSelectedValue(newValue);
-      if (onSelect) onSelect(newValue);
-    }
-  };
+// match focus indicator rounding to container
+const StyledButton = styled(Button)`
+  border-radius: ${props => props.theme.global.edgeSize.xsmall};
+`;
 
-  const selected = value === selectedValue;
+const Selector = ({ value, children, title, icon, description, ...rest }) => {
+  const { selectedValue, handleToggle } = useContext(SelectorGroupContext);
+
+  const selected = Array.isArray(selectedValue)
+    ? selectedValue.includes(value)
+    : value === selectedValue;
 
   return (
-    <Box
-      // behave as button in DOM, but leverage Box styles
-      as={Button}
-      align="stretch"
-      overflow="hidden"
-      round="xsmall"
+    <StyledButton
       // tabIndex={selected ? '0' : '-1'}
       aria-pressed={selected}
-      onClick={handleClick}
+      onClick={e => handleToggle(e, value)}
+      {...rest} // TO DO where should rest go?
     >
-      <Box
+      <StyledBox
         border={{
           color: selected ? 'brand' : 'border',
         }}
         overflow="hidden"
         round="xsmall"
+        selected={selected}
         fill
       >
         <SelectorHeader
@@ -46,10 +48,23 @@ const Selector = ({ value, children, title, icon, description }) => {
           selected={selected}
         />
         {/* TO DO full width background? */}
-        <Box pad="small">{children}</Box>
-      </Box>
-    </Box>
+        {children && (
+          <Box pad={{ horizontal: 'small', bottom: 'small' }}>{children}</Box>
+        )}
+      </StyledBox>
+    </StyledButton>
   );
+};
+
+Selector.propTypes = {
+  value: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
+  icon: PropTypes.element,
+  description: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export { Selector };
