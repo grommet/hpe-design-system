@@ -13,6 +13,7 @@
     "@types/node": "^20.12.9",
     "grommet": "^2.37.0",
     "grommet-icons": "^4.12.1",
+    "grommet-leaflet": "^0.2.1",
     "grommet-theme-hpe": "^5.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

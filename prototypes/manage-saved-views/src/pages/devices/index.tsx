@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   Box,
   Data,
@@ -14,10 +14,11 @@ import {
 } from 'grommet';
 import { filter } from 'grommet/components/Data/filter';
 import { Link } from 'react-router-dom';
-import { ContentPane, ReverseAnchor } from '../../components/index.ts';
+import { ContentPane, ReverseAnchor } from '../../components';
 import { CustomizeControls } from './CustomizeControls';
 import { FindControls } from './FindControls';
-import { TableView } from './TableView/index.ts';
+import { MapView } from './MapView';
+import { TableView } from './TableView';
 import {
   defaultData,
   defaultProperties,
@@ -134,7 +135,18 @@ const Devices = () => {
                 dropAlign={{ top: 'bottom', right: 'right' }}
               />
             </Toolbar>
-            {visualization === 'table' && <TableView onSort={onSort} select={selected} setSelect={setSelected} total={filteredTotal} view={view} />}
+            {visualization === 'table' &&
+              <TableView
+                onSort={onSort}
+                select={selected}
+                setSelect={setSelected}
+                total={filteredTotal}
+                view={view}
+              />
+            }
+            {visualization === 'map' &&
+              <MapView />
+            }
           </Data>
         </ContentPane>
       </PageContent>

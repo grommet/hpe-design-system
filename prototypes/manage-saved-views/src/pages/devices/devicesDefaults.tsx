@@ -39,7 +39,7 @@ const visualizationOptions = [
   },
 ];
 
-const defaultVisualization = 'table';
+const defaultVisualization = 'map';
 
 const defaultProperties = {
   serial_number: { label: 'Serial number', filter: false },
