@@ -143,17 +143,17 @@ const ListItem = (
     view: View
   }) => {
   return (
-    <Box direction="row" align="center" gap="medium">
+    <Box direction="row" align="center" gap="medium" height={{ min: '36px' }}>
       <Box direction="row" justify='between' flex="grow">
         <Text color="text-strong" weight={500} margin="none">{view.name}</Text>
         <Text margin="none">{view.default && 'Default'}</Text>
       </Box>
-      <Menu
+      {view.custom && <Menu
         a11yTitle={`Manage ${view.name} options`}
         dropAlign={{ top: 'bottom', right: 'right' }}
         icon={<More aria-hidden="true" />}
         items={menuItems}
-      />
+      />}
     </Box>
   );
 }
