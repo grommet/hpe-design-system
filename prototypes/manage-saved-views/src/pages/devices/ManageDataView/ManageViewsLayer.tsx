@@ -66,7 +66,7 @@ export const ManageViewsLayer = (
                       onClick: () => {
                         if (datum.default) {
                           const nextViews = views.map((v) => {
-                            if (v.name === view.name) {
+                            if (v.name === datum.name) {
                               v.default = false;
                             }
                             return v;
@@ -74,7 +74,7 @@ export const ManageViewsLayer = (
                           setViews(nextViews);
                         } else {
                           const nextViews = views.map((v) => {
-                            if (v.name === view.name) {
+                            if (v.name === datum.name) {
                               v.default = true;
                             } else {
                               delete v.default;
