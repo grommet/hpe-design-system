@@ -15,95 +15,104 @@ import {
   DataSummary,
   PageHeader,
 } from 'grommet';
-import { StatusCriticalSmall, StatusWarningSmall, Power } from 'grommet-icons';
+import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
-import MOCK_DATA from '../../../data/mockData/serverhealth.json';
+
+const buildQuery = view => {
+  const query = {};
+  const properties = view?.properties || [];
+  Object.keys(properties).forEach(property => {
+    switch (property) {
+      case 'success':
+        if (properties.success.length === 1) {
+          query[property] = properties.success[0] === 'Successful';
+        }
+        break;
+      case 'rocket':
+        query.rocket = {
+          $in: properties.rocket,
+        };
+        break;
+      default:
+        query[property] = properties[property];
+    }
+  });
+  if (view?.search) query.$text = { $search: view.search };
+  return query;
+};
+
+const fetchLaunches = async view => {
+  const query = buildQuery(view);
+  const sort = {
+    [view?.sort?.property || 'name']: view?.sort?.direction || 'asc',
+  };
+
+  const body = {
+    options: {
+      populate: [
+        {
+          path: 'rocket',
+          select: { name: 1 },
+        },
+      ],
+      sort,
+      select: ['name', 'success', 'failures'],
+      limit: view?.step || 10,
+      page: view?.page || 1,
+    },
+    query,
+  };
+  return fetch('https://api.spacexdata.com/v4/launches/query', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  }).then(response => response.json());
+};
+
+const fetchRockets = async () => {
+  const body = {
+    options: {
+      sort: { name: 'asc' },
+      select: ['name', 'id'],
+    },
+  };
+  return fetch('https://api.spacexdata.com/v4/rockets/query', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  }).then(response => response.json());
+};
 
 const columns = [
   {
-    property: 'id',
-    header: 'ID',
+    property: 'name',
+    header: 'Name',
+    size: 'small',
+    primary: true,
   },
   {
-    property: 'displayName',
-    header: 'Name',
+    property: 'rocket.name',
+    header: 'Rocket',
+    size: 'xsmall',
+    sortable: false,
+  },
+  {
+    property: 'success',
+    header: 'Success',
+    size: 'xsmall',
+    sortable: false,
+    render: datum => {
+      if (datum.success === false) {
+        return 'Failed';
+      }
+      return 'Successful';
+    },
   },
 ];
-
-const VALUE_MAP = {
-  'hardware.health.summary.critical': {
-    property: 'hardware.health.summary',
-    value: 'Critical',
-  },
-  'hardware.health.summary.warning': {
-    property: 'hardware.health.summary',
-    value: 'Warning',
-  },
-  'hardware.powerState.off': {
-    property: 'hardware.powerState',
-    value: 'Off',
-  },
-};
-
-const QuickFilters = ({ counts }) => {
-  const { onView, view } = useContext(DataContext);
-
-  return (
-    <SelectorGroup
-      multiple
-      // TO DO should clicking "clear filters" clear this out?
-      onSelect={({ value }) => {
-        let nextView = { ...view };
-        const nextProperties = {};
-        // manipulate value to view object
-        if (Array.isArray(value)) {
-          value.forEach(v => {
-            nextProperties[VALUE_MAP[v].property] = VALUE_MAP[v].value;
-          });
-          nextView = {
-            ...nextView,
-            properties: nextProperties,
-          };
-        } else {
-          if (value)
-            nextProperties[VALUE_MAP[value].property] = VALUE_MAP[value].value;
-          nextView = {
-            ...nextView,
-            properties: nextProperties,
-          };
-        }
-        onView(nextView);
-      }}
-    >
-      <Selector
-        icon={<StatusCriticalSmall color="status-critical" height="medium" />}
-        title="Health critical"
-        value="hardware.health.summary.critical"
-        description={counts['hardware.health.summary.critical']}
-      />
-      <Selector
-        icon={<StatusWarningSmall color="status-warning" height="medium" />}
-        title="Health warning"
-        value="hardware.health.summary.warning"
-        description={counts['hardware.health.summary.warning']}
-      />
-      <Selector
-        icon={<Power height="medium" />}
-        title="Power state off"
-        value="hardware.powerState.off"
-        description={counts['hardware.powerState.off']}
-      />
-    </SelectorGroup>
-  );
-};
-
-QuickFilters.propTypes = {
-  counts: PropTypes.shape({
-    'hardware.health.summary.critical': PropTypes.number,
-    'hardware.health.summary.warning': PropTypes.number,
-    'hardware.powerState.off': PropTypes.number,
-  }),
-};
 
 const defaultView = {
   search: '',
@@ -111,55 +120,111 @@ const defaultView = {
   step: 10,
 };
 
-export const QuickFilter = () => {
-  const [data, setData] = useState([]);
-  const [view, setView] = useState(defaultView);
-  const counts = React.useMemo(
-    () => ({
-      'hardware.health.summary.warning': 0,
-      'hardware.health.summary.critical': 0,
-      'hardware.powerState.off': 0,
-    }),
-    [],
+const VALUE_MAP = {
+  'success.successful': {
+    property: 'success',
+    value: 'Successful',
+  },
+  'success.failed': {
+    property: 'success',
+    value: 'Failed',
+  },
+};
+
+const QuickFilters = ({ value: selectedValue, setValue }) => {
+  const { onView, view } = useContext(DataContext);
+
+  return (
+    <SelectorGroup
+      // TO DO should clicking "clear filters" clear this out?
+      value={selectedValue}
+      onSelect={({ value }) => {
+        let nextView = { ...view };
+        const nextProperties = {};
+        // manipulate value to view object
+        if (value)
+          nextProperties[VALUE_MAP[value].property] = [VALUE_MAP[value].value];
+        nextView = {
+          ...nextView,
+          // reset search/page when filter applied
+          search: '',
+          page: 1,
+          properties: nextProperties,
+        };
+
+        onView(nextView);
+        setValue(value);
+      }}
+    >
+      <Selector
+        icon={<StatusCriticalSmall color="status-critical" height="medium" />}
+        title="Failed launches"
+        value="success.failed"
+      />
+      <Selector
+        icon={<StatusGoodSmall color="status-ok" height="medium" />}
+        title="Successful launches"
+        value="success.successful"
+      />
+    </SelectorGroup>
   );
+};
+
+QuickFilters.propTypes = {
+  value: PropTypes.string,
+  setValue: PropTypes.func,
+};
+
+export const QuickFilter = () => {
+  const [total, setTotal] = useState(0);
+  const [result, setResult] = useState({ data: [] });
+  const [rockets, setRockets] = useState([]);
+  const [view, setView] = useState(defaultView);
+  const [quickFilter, setQuickFilter] = useState('');
 
   useEffect(() => {
-    // simulate API call
-    console.log('fetch data', view);
-    setData([...MOCK_DATA].slice(0, defaultView.step));
-  }, [view]);
+    fetchRockets().then(response =>
+      setRockets(
+        response.docs.map(({ name, id }) => ({ value: id, label: name })),
+      ),
+    );
+  }, []);
 
   useEffect(() => {
-    // simulate API call to get quick filter counts
-    MOCK_DATA.forEach(datum => {
-      if (datum.hardware?.health?.summary === 'Critical')
-        counts['hardware.health.summary.critical'] += 1;
-      else if (datum.hardware?.health?.summary === 'Warning')
-        counts['hardware.health.summary.warning'] += 1;
-      if (datum.hardware?.powerState === 'Off')
-        counts['hardware.powerState.off'] += 1;
+    if (!('properties' in view)) {
+      setQuickFilter('');
+    }
+    fetchLaunches(view).then(response => {
+      setResult({
+        data: response.docs,
+        filteredTotal: response.totalDocs,
+        page: response.page,
+      });
+      // The REST API doesn't return the unfiltered total in responses.
+      // Since the first request likely has no filtering, we'll likely use
+      // response.totalDocs the first time and prevTotal thereafter.
+      setTotal(prevTotal => Math.max(prevTotal, response.totalDocs));
     });
-  }, [counts]);
+  }, [view]);
 
   return (
     <Page>
       <PageContent>
-        <PageHeader title="Devices" subtitle="Manage your devices." />
+        <PageHeader title="Launches" subtitle="Manage recent launches." />
         <Data
-          data={data}
-          gap="medium"
+          properties={{
+            rocket: { label: 'Rocket', options: rockets },
+            success: { label: 'Success', options: ['Successful', 'Failed'] },
+          }}
+          data={result.data}
+          total={total}
+          filteredTotal={result.filteredTotal}
           defaultView={defaultView}
           view={view}
-          onView={nextView => setView(nextView)}
-          total={MOCK_DATA.length}
-          filteredTotal={MOCK_DATA.length}
-          properties={{
-            'hardware.model': { label: 'Model' },
-            'hardware.health.summary': { label: 'Health summary' },
-            'hardware.powerState': { label: 'Power state' },
-          }}
+          onView={setView}
+          gap="medium"
         >
-          <QuickFilters counts={counts} />
+          <QuickFilters value={quickFilter} setValue={setQuickFilter} />
           <Box>
             <Toolbar>
               <DataSearch />
@@ -169,6 +234,7 @@ export const QuickFilter = () => {
               </Box>
             </Toolbar>
             <DataSummary />
+            {/* eslint-disable-next-line grommet/datatable-aria-describedby */}
             <DataTable columns={columns} />
             <Pagination
               summary
