@@ -1397,7 +1397,7 @@ export const components = [
     name: 'Selector',
     category: 'Controls',
     description:
-      'A selection control for use cases where the option should have high visual prominence.',
+      'A selection control for use cases where the options should have high visual prominence.',
     preview: {
       image: {
         src: {
