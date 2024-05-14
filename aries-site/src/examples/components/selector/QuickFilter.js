@@ -1,3 +1,4 @@
+/* eslint-disable grommet/datatable-aria-describedby */
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,6 +15,8 @@ import {
   DataFilters,
   DataSummary,
   PageHeader,
+  Text,
+  Paragraph,
 } from 'grommet';
 import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
@@ -56,7 +59,7 @@ const fetchLaunches = async view => {
         },
       ],
       sort,
-      select: ['name', 'success', 'failures'],
+      select: ['name', 'failures', 'success', 'date_utc', 'cores', 'links'],
       limit: view?.step || 10,
       page: view?.page || 1,
     },
@@ -87,29 +90,79 @@ const fetchRockets = async () => {
   }).then(response => response.json());
 };
 
+const formatData = data =>
+  data?.map(datum => ({
+    ...datum,
+    rocket: datum.rocket.name,
+    success: datum.success ? 'Successful' : 'Failed',
+    failures: datum.failures?.map(({ reason }) => reason),
+    failureTime: Math.max(datum.failures?.[0]?.time || 0, 0),
+    failureAltitude: datum.failures?.[0]?.altitude || 0,
+    cores: datum.cores.length,
+  }));
+
 const columns = [
   {
     property: 'name',
     header: 'Name',
-    size: 'small',
     primary: true,
   },
   {
-    property: 'rocket.name',
+    property: 'rocket',
     header: 'Rocket',
-    size: 'xsmall',
-    sortable: false,
+  },
+  {
+    property: 'cores',
+    header: 'Cores',
+    align: 'end',
   },
   {
     property: 'success',
     header: 'Success',
-    size: 'xsmall',
+    render: datum => {
+      const icon =
+        datum.success === 'Failed' ? (
+          <StatusCriticalSmall color="status-critical" height="medium" />
+        ) : (
+          <StatusGoodSmall color="status-ok" height="medium" />
+        );
+
+      return (
+        <Box direction="row" align="center" gap="xsmall">
+          {icon}
+          <Text>{datum.success}</Text>
+        </Box>
+      );
+    },
+  },
+  {
+    property: 'date_utc',
+    header: 'Date',
+    render: datum =>
+      Intl.DateTimeFormat(undefined, {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric',
+      }).format(new Date(datum.date_utc)),
+  },
+  {
+    property: 'failureAltitude',
+    header: 'Failure altitude',
+    align: 'end',
+  },
+  {
+    property: 'failures',
+    header: 'Reason for failure',
     sortable: false,
     render: datum => {
-      if (datum.success === false) {
-        return 'Failed';
+      if (datum.failures.length) {
+        return datum.failures?.map(reason => (
+          <Paragraph key={reason} margin="none" maxLines={2}>
+            {reason}
+          </Paragraph>
+        ));
       }
-      return 'Successful';
+      return '--';
     },
   },
 ];
@@ -131,12 +184,11 @@ const VALUE_MAP = {
   },
 };
 
-const QuickFilters = ({ value: selectedValue, setValue }) => {
+const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
   const { onView, view } = useContext(DataContext);
 
   return (
     <SelectorGroup
-      // TO DO should clicking "clear filters" clear this out?
       value={selectedValue}
       onSelect={({ value }) => {
         let nextView = { ...view };
@@ -160,11 +212,13 @@ const QuickFilters = ({ value: selectedValue, setValue }) => {
         icon={<StatusCriticalSmall color="status-critical" height="medium" />}
         title="Failed launches"
         value="success.failed"
+        description={<Text size="xlarge">{counts?.failed}</Text>}
       />
       <Selector
         icon={<StatusGoodSmall color="status-ok" height="medium" />}
         title="Successful launches"
         value="success.successful"
+        description={<Text size="xlarge">{counts?.successful}</Text>}
       />
     </SelectorGroup>
   );
@@ -173,6 +227,10 @@ const QuickFilters = ({ value: selectedValue, setValue }) => {
 QuickFilters.propTypes = {
   value: PropTypes.string,
   setValue: PropTypes.func,
+  counts: PropTypes.shape({
+    failed: PropTypes.number,
+    successful: PropTypes.number,
+  }),
 };
 
 export const QuickFilter = () => {
@@ -181,6 +239,8 @@ export const QuickFilter = () => {
   const [rockets, setRockets] = useState([]);
   const [view, setView] = useState(defaultView);
   const [quickFilter, setQuickFilter] = useState('');
+  const [failed, setFailed] = useState();
+  const [successful, setSuccessful] = useState();
 
   useEffect(() => {
     fetchRockets().then(response =>
@@ -196,7 +256,7 @@ export const QuickFilter = () => {
     }
     fetchLaunches(view).then(response => {
       setResult({
-        data: response.docs,
+        data: formatData(response.docs),
         filteredTotal: response.totalDocs,
         page: response.page,
       });
@@ -207,10 +267,34 @@ export const QuickFilter = () => {
     });
   }, [view]);
 
+  // get counts for successful and failed launches
+  useEffect(() => {
+    fetchLaunches({
+      step: total,
+      properties: {
+        success: [false],
+      },
+    }).then(response => {
+      setFailed(response.docs.length);
+    });
+    fetchLaunches({
+      step: total,
+      properties: {
+        success: ['Successful'],
+      },
+    }).then(response => {
+      setSuccessful(response.docs.length);
+    });
+  }, [total]);
+
   return (
     <Page>
       <PageContent>
-        <PageHeader title="Launches" subtitle="Manage recent launches." />
+        <PageHeader
+          title="Launches"
+          subtitle="Manage recent launches."
+          pad={{ top: 'none', bottom: 'medium' }}
+        />
         <Data
           properties={{
             rocket: { label: 'Rocket', options: rockets },
@@ -224,7 +308,11 @@ export const QuickFilter = () => {
           onView={setView}
           gap="medium"
         >
-          <QuickFilters value={quickFilter} setValue={setQuickFilter} />
+          <QuickFilters
+            value={quickFilter}
+            setValue={setQuickFilter}
+            counts={{ failed, successful }}
+          />
           <Box>
             <Toolbar>
               <DataSearch />
@@ -234,8 +322,13 @@ export const QuickFilter = () => {
               </Box>
             </Toolbar>
             <DataSummary />
-            {/* eslint-disable-next-line grommet/datatable-aria-describedby */}
-            <DataTable columns={columns} />
+            <Box overflow="auto">
+              <DataTable
+                alignSelf="start"
+                columns={columns}
+                verticalAlign={{ body: 'top' }}
+              />
+            </Box>
             <Pagination
               summary
               stepOptions

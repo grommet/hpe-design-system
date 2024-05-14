@@ -27,10 +27,9 @@ const Selector = ({ value, children, title, icon, description, ...rest }) => {
 
   return (
     <StyledButton
-      // tabIndex={selected ? '0' : '-1'}
       aria-pressed={selected}
       onClick={e => handleToggle(e, value)}
-      {...rest} // TO DO where should rest go?
+      {...rest}
     >
       <StyledBox
         border={{
@@ -47,7 +46,6 @@ const Selector = ({ value, children, title, icon, description, ...rest }) => {
           description={description}
           selected={selected}
         />
-        {/* TO DO full width background? */}
         {children && (
           <Box pad={{ horizontal: 'small', bottom: 'small' }}>{children}</Box>
         )}
@@ -59,11 +57,12 @@ const Selector = ({ value, children, title, icon, description, ...rest }) => {
 Selector.propTypes = {
   value: PropTypes.string,
   children: PropTypes.oneOfType([
+    PropTypes.string,
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
   icon: PropTypes.element,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   title: PropTypes.string,
 };
 
