@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Anchor, PageHeader } from 'grommet';
+import { Anchor, PageHeader, Notification } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Status, SubsectionText } from '../../components';
@@ -11,27 +11,30 @@ export const DocsPageHeader = ({ title, topic, render }) => {
   const parent = topic && getPageDetails(topic);
 
   return (
-    <PageHeader
-      title={render || title}
-      parent={
-        page.parentPage ? (
-          <Link href={nameToPath(page.parentPage)} passHref legacyBehavior>
-            <Anchor label={parent.name} icon={<Previous />} />
-          </Link>
-        ) : (
-          <Link href={`/${topic.toLowerCase()}`} passHref legacyBehavior>
-            <Anchor
-              icon={parent.icon('small', parent.color)}
-              label={parent.name}
-            />
-          </Link>
-        )
-      }
-      subtitle={<SubsectionText>{page.description}</SubsectionText>}
-      margin={{ bottom: 'small' }}
-    >
-      {page.status && <Status status={page.status} />}
-    </PageHeader>
+    <>
+      <PageHeader
+        title={render || title}
+        parent={
+          page.parentPage ? (
+            <Link href={nameToPath(page.parentPage)} passHref legacyBehavior>
+              <Anchor label={parent.name} icon={<Previous />} />
+            </Link>
+          ) : (
+            <Link href={`/${topic.toLowerCase()}`} passHref legacyBehavior>
+              <Anchor
+                icon={parent.icon('small', parent.color)}
+                label={parent.name}
+              />
+            </Link>
+          )
+        }
+        subtitle={<SubsectionText>{page.description}</SubsectionText>}
+        margin={{ bottom: 'small' }}
+      >
+        {page.status && <Status status={page.status} />}
+      </PageHeader>
+      {page.notification && <Notification {...page.notification} />}
+    </>
   );
 };
 

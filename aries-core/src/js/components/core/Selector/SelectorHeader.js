@@ -19,7 +19,11 @@ const SelectorHeader = ({ icon, description, title, selected }) => (
       {icon}
       <Box>
         {title && <Text weight={500}>{title}</Text>}
-        {description && <Text>{description}</Text>}
+        {typeof description === 'string' ? (
+          <Text>{description}</Text>
+        ) : (
+          description
+        )}
       </Box>
     </Box>
     <SelectorIndicator selected={selected} />
@@ -33,7 +37,7 @@ SelectorIndicator.propTypes = {
 SelectorHeader.propTypes = {
   icon: PropTypes.element,
   title: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   selected: PropTypes.bool,
 };
 

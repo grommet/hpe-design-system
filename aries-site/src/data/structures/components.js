@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { ShareRounded } from 'grommet-icons';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -1395,8 +1396,8 @@ export const components = [
   {
     name: 'Selector',
     category: 'Controls',
-    description: 'Selector TBD',
-
+    description:
+      'A selection control for use cases where the option should have high visual prominence.',
     preview: {
       image: {
         src: {
@@ -1406,8 +1407,29 @@ export const components = [
         alt: '',
       },
     },
-    seoDescription: '',
-    relatedContent: ['RadioButtonGroup', 'CheckBoxGroup'],
+    seoDescription:
+      'A selection control for use cases where the option should have high visual prominence.',
+    relatedContent: [
+      'RadioButtonGroup',
+      'CheckBoxGroup',
+      'Select',
+      'SelectMultiple',
+    ],
+    notification: {
+      message:
+        'Selector is available as a code template that can be copy and pasted into your repository, but it is not published in Grommet.',
+      status: 'info',
+      actions: [
+        {
+          label: 'See source code',
+          icon: <ShareRounded />,
+          href: 'https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector',
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          reverse: true,
+        },
+      ],
+    },
     sections: [],
     tags: [],
   },
