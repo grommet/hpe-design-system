@@ -189,6 +189,7 @@ const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
 
   return (
     <SelectorGroup
+      a11yTitle="Launches quick filters"
       value={selectedValue}
       onSelect={({ value }) => {
         let nextView = { ...view };
