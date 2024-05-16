@@ -108,7 +108,7 @@ export const SupportSelector = () => {
           <Box gap="large">
             <Box gap="small">
               <Text>Services</Text>
-              <SelectorGroup>
+              <SelectorGroup a11yTitle="Select service products">
                 {services.map(datum => (
                   <Selector value={datum.value} title={datum.title} />
                 ))}
@@ -116,7 +116,7 @@ export const SupportSelector = () => {
             </Box>
             <Box gap="small">
               <Text>Devices</Text>
-              <SelectorGroup>
+              <SelectorGroup multiple a11yTitle="Select devices products">
                 {devices.map(datum => (
                   <Selector
                     value={datum.value}
