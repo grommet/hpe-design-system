@@ -96,7 +96,3 @@ export const SimpleSelector = () => {
     </Box>
   );
 };
-
-export default {
-  title: 'Controls/SelectorGroup/SimpleSelector',
-};
