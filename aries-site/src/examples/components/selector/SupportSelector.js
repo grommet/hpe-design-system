@@ -108,7 +108,7 @@ export const SupportSelector = () => {
           <Box gap="large">
             <Box gap="small">
               <Text>Services</Text>
-              <SelectorGroup a11yTitle="Select service products">
+              <SelectorGroup rows="xsmall" a11yTitle="Select service products">
                 {services.map(datum => (
                   <Selector value={datum.value} title={datum.title} />
                 ))}
@@ -116,7 +116,11 @@ export const SupportSelector = () => {
             </Box>
             <Box gap="small">
               <Text>Devices</Text>
-              <SelectorGroup multiple a11yTitle="Select devices products">
+              <SelectorGroup
+                rows="small" // should we have a row default ?
+                multiple
+                a11yTitle="Select devices products"
+              >
                 {devices.map(datum => (
                   <Selector
                     value={datum.value}
