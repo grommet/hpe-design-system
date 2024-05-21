@@ -104,10 +104,10 @@ const SelectorGroup = ({
       <SelectorGroupContext.Provider value={contextValue}>
         <Grid
           columns={
-            size !== 'small' && size !== 'xsmall'
+            !['xsmall', 'small'].includes(size)
               ? {
                   count: Math.min(4, totalChildren),
-                  size: ['auto', 'medium'],
+                  size: ['small', 'medium'],
                 }
               : '100%'
           }

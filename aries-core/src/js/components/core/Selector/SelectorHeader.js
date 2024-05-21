@@ -14,7 +14,7 @@ const SelectorIndicator = ({ selected }) => {
 };
 
 const SelectorHeader = ({ icon, description, title, selected }) => (
-  <Box align="start" direction="row" pad="small">
+  <Box align="start" direction="row" pad="small" gap="small">
     <Box direction="row" gap="small" flex wrap>
       {icon}
       <Box>
