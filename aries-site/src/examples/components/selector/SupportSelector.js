@@ -44,7 +44,7 @@ const devices = [
     value: 'aruba',
     title: 'Aruba AP-635 WiFi 6E',
     description: <Text size="xlarge">18</Text>,
-    icon: <Iteration height="medium" />,
+    icon: <Iteration aria-hidden height="medium" />,
   },
   {
     value: 'green lake portal',
