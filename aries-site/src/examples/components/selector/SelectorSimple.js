@@ -1,98 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Box, Text } from 'grommet';
-import { User } from 'grommet-icons';
+import { Iteration } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
 
 const data = [
   {
     value: 'option 1',
-    title: 'Option 1',
-    description: 'This is a description.',
-    icon: <User height="medium" />,
+    title: 'Aruba AP-635 Wifi 6E',
+    description: '36 devices',
+    icon: <Iteration height="medium" />,
   },
   {
     value: 'option 2',
-    title: 'Option 2',
-    description: 'This is a description.',
-    icon: <User height="medium" />,
+    title: 'Aruba 6100 48G 4SFP+ Switch',
+    description: '34 devices',
+    icon: <Iteration height="medium" />,
   },
   {
     value: 'option 3',
-    title: 'Option 3',
-    description: 'This is a description.',
-    icon: <User height="medium" />,
+    title: 'Aruba 9240 Gateway 4xSFP28',
+    description: '6 devices',
+    icon: <Iteration height="medium" />,
   },
 ];
 export const SimpleSelector = () => {
-  const [selected, setSelected] = useState();
   return (
-    <Box pad="large" gap="large">
-      <Text>uncontrolled configurable</Text>
-      <SelectorGroup>
-        {data.map(datum => (
-          <Selector
-            value={datum.value}
-            icon={datum.icon}
-            title={datum.title}
-            description={datum.description}
-          />
-        ))}
-      </SelectorGroup>
-      <Text>uncontrolled configurable with children</Text>
-      <SelectorGroup>
-        {data.map(datum => (
-          <Selector
-            value={datum.value}
-            icon={datum.icon}
-            title={datum.title}
-            description={datum.description}
-          >
-            <Box border={{ style: 'dashed' }} fill>
-              Children
-            </Box>
-          </Selector>
-        ))}
-      </SelectorGroup>
-      <Text>controlled</Text>
-      <SelectorGroup
-        defaultValue="option 2"
-        value={selected}
-        onSelect={e => setSelected(e.value)}
-      >
-        {data.map(datum => (
-          <Selector
-            value={datum.value}
-            icon={datum.icon}
-            title={datum.title}
-            description={datum.description}
-          >
-            <Box border={{ style: 'dashed' }} fill>
-              Children
-            </Box>
-          </Selector>
-        ))}
-      </SelectorGroup>
-      <Text>multiple</Text>
-      <SelectorGroup multiple>
-        {data.map(datum => (
-          <Selector
-            value={datum.value}
-            icon={datum.icon}
-            title={datum.title}
-            description={datum.description}
-          >
-            <Box border={{ style: 'dashed' }} fill>
-              Children
-            </Box>
-          </Selector>
-        ))}
-      </SelectorGroup>
-      <SelectorGroup multiple>
-        <Selector value="option4">Option 1</Selector>
-        <Selector value="option5">Option 2</Selector>
-        <Selector value="option6">Option 3</Selector>
-      </SelectorGroup>
-    </Box>
+    <SelectorGroup multiple>
+      {data.map(datum => (
+        <Selector
+          key={datum.value}
+          title={datum.title}
+          description={datum.description}
+          icon={datum.icon}
+          value={datum.value}
+        />
+      ))}
+    </SelectorGroup>
   );
 };

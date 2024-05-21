@@ -13,14 +13,14 @@ const services = [
     value: 'green lake portal',
     title: 'HPE GreenLake Portal',
   },
-  {
-    value: 'block storage',
-    title: 'Block Storage',
-  },
-  {
-    value: 'complete care',
-    title: 'HPE Complete Care',
-  },
+  // {
+  //   value: 'block storage',
+  //   title: 'Block Storage',
+  // },
+  // {
+  //   value: 'complete care',
+  //   title: 'HPE Complete Care',
+  // },
 ];
 
 const devices = [
@@ -82,10 +82,7 @@ export const SupportSelector = () => {
             </Box>
             <Box gap="small">
               <Text>Devices</Text>
-              <SelectorGroup
-                multiple
-                a11yTitle="Select devices products"
-              >
+              <SelectorGroup multiple a11yTitle="Select devices products">
                 {devices.map(datum => (
                   <Selector
                     value={datum.value}
