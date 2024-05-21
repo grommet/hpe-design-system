@@ -1422,7 +1422,7 @@ export const components = [
       actions: [
         {
           label: 'See source code',
-          icon: <ShareRounded />,
+          icon: <ShareRounded aria-hidden />,
           href: 'https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector',
           target: '_blank',
           rel: 'noopener noreferrer',
