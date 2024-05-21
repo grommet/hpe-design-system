@@ -1,6 +1,12 @@
-import React, { useState, useCallback, Children, useMemo } from 'react';
+import React, {
+  useState,
+  useContext,
+  useCallback,
+  Children,
+  useMemo,
+} from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ThemeContext } from 'grommet';
+import { Grid, ThemeContext, ResponsiveContext } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
@@ -32,6 +38,7 @@ const SelectorGroup = ({
   value,
   ...rest
 }) => {
+  const size = useContext(ResponsiveContext);
   const [selectedValue = multiple ? [] : '', setSelectedValue] = useControlled({
     prop: value,
     defaultProp: defaultValue,
@@ -96,10 +103,14 @@ const SelectorGroup = ({
     >
       <SelectorGroupContext.Provider value={contextValue}>
         <Grid
-          columns={{
-            count: Math.min(4, totalChildren),
-            size: ['auto', 'medium'],
-          }}
+          columns={
+            size !== 'small' && size !== 'xsmall'
+              ? {
+                  count: Math.min(4, totalChildren),
+                  size: ['auto', 'medium'],
+                }
+              : '100%'
+          }
           gap="small"
           role="group"
           {...rest}

@@ -21,22 +21,6 @@ const services = [
     value: 'complete care',
     title: 'HPE Complete Care',
   },
-  {
-    value: 'storage management',
-    title: 'Storage Management',
-  },
-  {
-    value: 'greenlake backup',
-    title: 'HPE GreenLake for Backup & Recovery',
-  },
-  {
-    value: 'compute ops',
-    title: 'Compute Ops Management',
-  },
-  {
-    value: 'containers as a service',
-    title: 'Containers as a Service',
-  },
 ];
 
 const devices = [
@@ -70,24 +54,6 @@ const devices = [
     description: <Text size="xlarge">18</Text>,
     icon: <Iteration height="medium" />,
   },
-  {
-    value: 'greenlake backup',
-    title: 'Aruba AP-585EX',
-    description: <Text size="xlarge">18</Text>,
-    icon: <Iteration height="medium" />,
-  },
-  {
-    value: 'compute ops',
-    title: 'HPE Apollo 2000 Gen 10 Plus',
-    description: <Text size="xlarge">18</Text>,
-    icon: <Iteration height="medium" />,
-  },
-  {
-    value: 'containers as a service',
-    title: 'HPE Apollo 2000 Gen 10 Plus',
-    description: <Text size="xlarge">18</Text>,
-    icon: <Iteration height="medium" />,
-  },
 ];
 export const SupportSelector = () => {
   return (
@@ -108,7 +74,7 @@ export const SupportSelector = () => {
           <Box gap="large">
             <Box gap="small">
               <Text>Services</Text>
-              <SelectorGroup rows="xsmall" a11yTitle="Select service products">
+              <SelectorGroup a11yTitle="Select service products">
                 {services.map(datum => (
                   <Selector value={datum.value} title={datum.title} />
                 ))}
@@ -117,7 +83,6 @@ export const SupportSelector = () => {
             <Box gap="small">
               <Text>Devices</Text>
               <SelectorGroup
-                rows="small" // should we have a row default ?
                 multiple
                 a11yTitle="Select devices products"
               >
