@@ -27,7 +27,7 @@ const devices = [
   {
     value: 'aruba',
     title: 'Aruba AP-635 WiFi 6E',
-    description: <Text size="xlarge">18</Text>,
+    description: <Text size="xlarge">22</Text>,
     icon: <Iteration aria-hidden height="medium" />,
   },
   {
@@ -39,19 +39,19 @@ const devices = [
   {
     value: 'block storage',
     title: 'Aruba AP-635 WiFi 6E',
-    description: <Text size="xlarge">18</Text>,
+    description: <Text size="xlarge">26</Text>,
     icon: <Iteration height="medium" />,
   },
   {
     value: 'complete care',
     title: 'Aruba AP-635 WiFi 6E',
-    description: <Text size="xlarge">18</Text>,
+    description: <Text size="xlarge">32</Text>,
     icon: <Iteration height="medium" />,
   },
   {
     value: 'storage management',
     title: 'Aruba Mobility Controller Virtual',
-    description: <Text size="xlarge">18</Text>,
+    description: <Text size="xlarge">6</Text>,
     icon: <Iteration height="medium" />,
   },
 ];
