@@ -20,7 +20,6 @@ const SelectorIndicator = ({ selected }) => {
       tabIndex={-1}
       checked={selected}
       onChange={() => {}}
-      y
       aria-hidden="true"
     />
   );
