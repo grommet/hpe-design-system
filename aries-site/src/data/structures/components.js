@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { ShareRounded } from 'grommet-icons';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -1415,21 +1414,6 @@ export const components = [
       'Select',
       'SelectMultiple',
     ],
-    notification: {
-      message:
-        'Selector is available as a code template that can be copy and pasted into your repository, but it is not published in Grommet.',
-      status: 'info',
-      actions: [
-        {
-          label: 'See source code',
-          icon: <ShareRounded aria-hidden />,
-          href: 'https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector',
-          target: '_blank',
-          rel: 'noopener noreferrer',
-          reverse: true,
-        },
-      ],
-    },
     sections: [],
     tags: [],
   },
