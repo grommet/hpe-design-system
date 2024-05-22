@@ -6,10 +6,12 @@ import { SelectorGroupContext } from './SelectorGroup';
 const SelectorIndicator = ({ selected }) => {
   const { multiple } = useContext(SelectorGroupContext);
 
+  // addded aria-hidden so the RadioButton and CheckBox do not get read out 
+  // on screen reader they are only used as a visual indication
   return multiple ? (
-    <CheckBox tabIndex={-1} checked={selected} readOnly />
+    <CheckBox tabIndex={-1} checked={selected} readOnly aria-hidden="true" />
   ) : (
-    <RadioButton tabIndex={-1} checked={selected} readOnly />
+    <RadioButton tabIndex={-1} checked={selected} readOnly aria-hidden="true"  />
   );
 };
 
