@@ -23,9 +23,9 @@ const SelectorIndicator = ({ selected }) => {
     >
       {selected &&
         (multiple ? (
-          <Checkmark size="small" />
+          <Checkmark aria-label="selected" size="small" />
         ) : (
-          <StatusGoodSmall size="small" color="brand" />
+          <StatusGoodSmall aria-label="selected" size="small" color="brand" />
         ))}
     </Box>
   );
