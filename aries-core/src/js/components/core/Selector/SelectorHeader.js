@@ -33,7 +33,7 @@ const SelectorIndicator = ({ selected }) => {
 
 const SelectorHeader = ({ icon, plain, description, title, selected }) => (
   <Box align="start" direction="row" pad="small" gap="small">
-    <Box direction="row" gap="small" flex wrap>
+    <Box direction="row" gap="small" flex>
       {icon}
       <Box>
         {title && <Text weight={500}>{title}</Text>}
