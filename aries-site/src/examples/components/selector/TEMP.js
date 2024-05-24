@@ -93,7 +93,7 @@ export const TEMP = () => {
         <Selector value="option5">Option 2</Selector>
         <Selector value="option6">Option 3</Selector>
       </SelectorGroup>
-      <Text>Plain</Text>
+      <Text>Without indicator</Text>
       <SelectorGroup multiple>
         {data.map(datum => (
           <Selector
@@ -101,7 +101,7 @@ export const TEMP = () => {
             icon={datum.icon}
             title={datum.title}
             description={datum.description}
-            plain
+            indicator={false}
           >
             <Box border={{ style: 'dashed' }} fill>
               Children
@@ -110,9 +110,15 @@ export const TEMP = () => {
         ))}
       </SelectorGroup>
       <SelectorGroup>
-        <Selector plain value="option4">Option 1</Selector>
-        <Selector plain value="option5">Option 2</Selector>
-        <Selector plain value="option6">Option 3</Selector>
+        <Selector indicator={false} value="option4">
+          Option 1
+        </Selector>
+        <Selector indicator={false} value="option5">
+          Option 2
+        </Selector>
+        <Selector indicator={false} value="option6">
+          Option 3
+        </Selector>
       </SelectorGroup>
     </Box>
   );

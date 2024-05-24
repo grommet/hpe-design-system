@@ -107,7 +107,7 @@ const SelectorGroup = ({
             !['xsmall', 'small'].includes(size)
               ? {
                   count: Math.min(4, totalChildren),
-                  size: ['small', 'auto'],
+                  size: ['small', 'medium'],
                 }
               : '100%'
           }

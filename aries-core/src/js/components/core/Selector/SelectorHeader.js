@@ -14,7 +14,7 @@ const SelectorIndicator = ({ selected }) => {
         color: selected ? 'brand' : 'border',
         size: 'xsmall',
       }}
-      round={!multiple ? 'full' : undefined}
+      round={!multiple ? 'full' : 'xxsmall'}
       height="24px"
       width="24px"
       justify="center"
@@ -31,7 +31,7 @@ const SelectorIndicator = ({ selected }) => {
   );
 };
 
-const SelectorHeader = ({ icon, plain, description, title, selected }) => (
+const SelectorHeader = ({ icon, indicator, description, title, selected }) => (
   <Box align="start" direction="row" pad="small" gap="small">
     <Box direction="row" gap="small" flex>
       {icon}
@@ -44,7 +44,7 @@ const SelectorHeader = ({ icon, plain, description, title, selected }) => (
         )}
       </Box>
     </Box>
-    {!plain && <SelectorIndicator selected={selected} />}
+    {indicator && <SelectorIndicator selected={selected} />}
   </Box>
 );
 
@@ -54,10 +54,14 @@ SelectorIndicator.propTypes = {
 
 SelectorHeader.propTypes = {
   icon: PropTypes.element,
-  plain: PropTypes.bool,
+  indicator: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   selected: PropTypes.bool,
+};
+
+SelectorHeader.defaultProps = {
+  indicator: true,
 };
 
 export { SelectorHeader };
