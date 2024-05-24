@@ -21,6 +21,7 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  ToggleGroupPreview,
   DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
@@ -1742,6 +1743,20 @@ export const components = [
     },
     seoDescription:
       'A wrapper component to enable turn-key presentation and management of data collections.',
+    sections: [],
+    relatedContent: [],
+  },
+  {
+    name: 'ToggleGroup',
+    available: true,
+    category: 'Controls',
+    description:
+      'A collection of related buttons capable of being switched between two states: on or off.',
+    preview: {
+      component: () => <ToggleGroupPreview />,
+    },
+    seoDescription:
+      'A collection of related buttons capable of being switched between two states: on or off.',
     sections: [],
     relatedContent: [],
   },
