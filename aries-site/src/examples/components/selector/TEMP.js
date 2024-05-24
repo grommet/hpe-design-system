@@ -93,6 +93,27 @@ export const TEMP = () => {
         <Selector value="option5">Option 2</Selector>
         <Selector value="option6">Option 3</Selector>
       </SelectorGroup>
+      <Text>Plain</Text>
+      <SelectorGroup multiple>
+        {data.map(datum => (
+          <Selector
+            value={datum.value}
+            icon={datum.icon}
+            title={datum.title}
+            description={datum.description}
+            plain
+          >
+            <Box border={{ style: 'dashed' }} fill>
+              Children
+            </Box>
+          </Selector>
+        ))}
+      </SelectorGroup>
+      <SelectorGroup>
+        <Selector plain value="option4">Option 1</Selector>
+        <Selector plain value="option5">Option 2</Selector>
+        <Selector plain value="option6">Option 3</Selector>
+      </SelectorGroup>
     </Box>
   );
 };

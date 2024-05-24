@@ -18,7 +18,15 @@ const StyledButton = styled(Button)`
   border-radius: ${props => props.theme.global.edgeSize.xsmall};
 `;
 
-const Selector = ({ value, children, title, icon, description, ...rest }) => {
+const Selector = ({
+  value,
+  children,
+  title,
+  icon,
+  plain,
+  description,
+  ...rest
+}) => {
   const { selectedValue, handleToggle } = useContext(SelectorGroupContext);
 
   const selected = Array.isArray(selectedValue)
@@ -41,6 +49,7 @@ const Selector = ({ value, children, title, icon, description, ...rest }) => {
         fill
       >
         <SelectorHeader
+          plain={plain}
           title={title}
           icon={icon}
           description={description}
@@ -62,6 +71,7 @@ Selector.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   icon: PropTypes.element,
+  plain: PropTypes.bool,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   title: PropTypes.string,
 };
