@@ -1,32 +1,37 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CheckBox, RadioButton, Text } from 'grommet';
+import { Box, Text } from 'grommet';
+import { Checkmark, StatusGoodSmall } from 'grommet-icons';
 import { SelectorGroupContext } from './SelectorGroup';
 
 const SelectorIndicator = ({ selected }) => {
   const { multiple } = useContext(SelectorGroupContext);
 
-  // addded aria-hidden so the RadioButton and CheckBox do not get read out
-  // on screen reader they are only used as a visual indication
-  return multiple ? (
-    <CheckBox
-      tabIndex={-1}
-      checked={selected}
-      onChange={() => {}}
-      aria-hidden="true"
-    />
-  ) : (
-    <RadioButton
-      tabIndex={-1}
-      checked={selected}
-      onChange={() => {}}
-      y
-      aria-hidden="true"
-    />
+  return (
+    <Box
+      pad="xsmall"
+      border={{
+        color: selected ? 'brand' : 'border',
+        size: 'xsmall',
+      }}
+      round={!multiple ? 'full' : undefined}
+      height="24px"
+      width="24px"
+      justify="center"
+      align="center"
+      background={selected && multiple ? 'brand' : undefined}
+    >
+      {selected &&
+        (multiple ? (
+          <Checkmark size="small" />
+        ) : (
+          <StatusGoodSmall size="small" color="brand" />
+        ))}
+    </Box>
   );
 };
 
-const SelectorHeader = ({ icon, description, title, selected }) => (
+const SelectorHeader = ({ icon, plain, description, title, selected }) => (
   <Box align="start" direction="row" pad="small" gap="small">
     <Box direction="row" gap="small" flex wrap>
       {icon}
@@ -39,7 +44,7 @@ const SelectorHeader = ({ icon, description, title, selected }) => (
         )}
       </Box>
     </Box>
-    <SelectorIndicator selected={selected} />
+    {!plain && <SelectorIndicator selected={selected} />}
   </Box>
 );
 
@@ -49,6 +54,7 @@ SelectorIndicator.propTypes = {
 
 SelectorHeader.propTypes = {
   icon: PropTypes.element,
+  plain: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   selected: PropTypes.bool,
