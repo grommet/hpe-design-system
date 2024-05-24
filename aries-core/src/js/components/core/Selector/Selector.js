@@ -23,7 +23,7 @@ const Selector = ({
   children,
   title,
   icon,
-  plain,
+  indicator,
   description,
   ...rest
 }) => {
@@ -49,7 +49,7 @@ const Selector = ({
         fill
       >
         <SelectorHeader
-          plain={plain}
+          indicator={indicator}
           title={title}
           icon={icon}
           description={description}
@@ -71,7 +71,7 @@ Selector.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   icon: PropTypes.element,
-  plain: PropTypes.bool,
+  indicator: PropTypes.bool,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   title: PropTypes.string,
 };
