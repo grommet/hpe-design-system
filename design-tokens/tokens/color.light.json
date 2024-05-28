@@ -645,7 +645,7 @@
     "skeleton": {
       "background": {
         "$type": "color",
-        "$value": "#F1F1F1",
+        "$value": "#f1f1f1",
         "$description": "",
         "$extensions": {
           "com.figma": {

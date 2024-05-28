@@ -5,7 +5,11 @@
   "main": "dist/js/index.js",
   "exports": {
     ".": "./dist/js/index.js",
-    "./tree": "./dist/tree/index.js"
+    "./tree": "./dist/tree/index.js",
+    "./dist/css/*.css": {
+      "import": "./dist/css/*.css",
+      "require": "./dist/css/*.css"
+    }
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
