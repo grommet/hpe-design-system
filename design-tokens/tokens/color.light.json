@@ -2,7 +2,7 @@
   "color": {
     "brand": {
       "$type": "color",
-      "$value": "{color.purple.20}",
+      "$value": "{color.green.30}",
       "$description": "",
       "$extensions": {
         "com.figma": {
