@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ThemeContext, ResponsiveContext } from 'grommet';
+import { Grid, ResponsiveContext } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
@@ -86,39 +86,23 @@ const SelectorGroup = ({
   );
 
   return (
-    <ThemeContext.Extend
-      // theme overrides to remove excess padding
-      value={{
-        checkBox: { pad: 'none' },
-        radioButton: {
-          hover: {
-            background: 'none',
-          },
-          container: {
-            extend: '',
-          },
-          extend: '',
-        },
-      }}
-    >
-      <SelectorGroupContext.Provider value={contextValue}>
-        <Grid
-          columns={
-            !['xsmall', 'small'].includes(size)
-              ? {
-                  count: Math.min(4, totalChildren),
-                  size: ['small', 'medium'],
-                }
-              : '100%'
-          }
-          gap="small"
-          role="group"
-          {...rest}
-        >
-          {children}
-        </Grid>
-      </SelectorGroupContext.Provider>
-    </ThemeContext.Extend>
+    <SelectorGroupContext.Provider value={contextValue}>
+      <Grid
+        columns={
+          !['xsmall', 'small'].includes(size)
+            ? {
+                count: Math.min(4, totalChildren),
+                size: ['small', 'medium'],
+              }
+            : '100%'
+        }
+        gap="small"
+        role="group"
+        {...rest}
+      >
+        {children}
+      </Grid>
+    </SelectorGroupContext.Provider>
   );
 };
 
