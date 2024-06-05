@@ -1751,12 +1751,12 @@ export const components = [
     available: true,
     category: 'Controls',
     description:
-      'A collection of related buttons capable of being switched between two states: on or off.',
+      'A group of buttons that enable the user alternate between similar visual views such as DataTable, Chart List, Grid and Map to see the same content.',
     preview: {
       component: () => <ToggleGroupPreview />,
     },
     seoDescription:
-      'A collection of related buttons capable of being switched between two states: on or off.',
+      'A group of buttons that enable the user alternate between similar visual views such as DataTable, Chart List, Grid and Map to see the same content.',
     sections: [],
     relatedContent: [],
   },
