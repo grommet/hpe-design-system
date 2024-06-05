@@ -1,7 +1,36 @@
-Use case examples (generate a shortlist of common use cases for this component and a one sentence description of why it applies to this use case). Code examples will be created as a separate scope of work.
-Anatomy
-Follow table format. Coded diagram will be separate scope.
-Types (this should capture that it can be single or multiple selection)
-Accessibility
-Keyboard behavior (tab to group, use arrow keys within group)
+## Use Cases
+
+### Filtering
+- **Ma**p: Used to provide user with a map view of a datatable or list.
+- **List**: Used to provide user with a list view of a chart or map.
+- **Chart**: Used to provide user with a chart view a datatable or list.
+- **DataTable**: Used to provide user with a DataTable view of a chart or map.
+
+
+## Anatomy
+| Label | Region           | Purpose           |                  Required                   | Notes             |
+| ----- | ---------------- | ----------------- | :-----------------------------------------: | ----------------- |
+| **1** | **Container** | Organizes children, how they appear and spaced. | Required |        --         |
+| **2** | **Label** | Describes what the button will do when selected. | Optional |        --         |
+| **3** | **Icon** | Used to visually represent text label with or without label.  | Optional |       a11yTitle required       |
+
+
+## Types 
+
+Togglegroup can be used in multiple ways:
+
+**Single Option:** Used only when toggling between a single view. For example, toggling between a Chart and DataTable.
+
+**Multiple Options:** Used to select more than one option. For example, selecting mutliple styles like bold and italic within a TextEditor.
+
+
+## Accessibility
+
 In icon-only cases, ensure each icon has a clear a11yTitle.
+
+| Key | Interaction           | 
+| ----- | ---------------- |
+| **Tab** | Focuses on first toggle button. |
+| **Left/Right Arrows** | Moves to other available buttons. |
+| **Space/Return** | Selects button with focus. |
+
