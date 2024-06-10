@@ -208,6 +208,7 @@ const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
         onView(nextView);
         setValue(value);
       }}
+      columns="1/3"
     >
       <Selector
         icon={<StatusCriticalSmall color="status-critical" height="medium" />}

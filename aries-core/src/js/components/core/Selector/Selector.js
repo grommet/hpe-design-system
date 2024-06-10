@@ -15,7 +15,7 @@ const StyledBox = styled(Box)`
 
 // match focus indicator rounding to container
 const StyledButton = styled(Button)`
-  border-radius: ${props => props.theme.global.edgeSize.xsmall};
+  border-radius: ${props => props.theme.global.edgeSize[props.round]};
 `;
 
 const Selector = ({
@@ -25,6 +25,8 @@ const Selector = ({
   icon,
   indicator,
   description,
+  round = 'xsmall',
+  pad = 'small',
   ...rest
 }) => {
   const { selectedValue, handleToggle } = useContext(SelectorGroupContext);
@@ -40,24 +42,25 @@ const Selector = ({
       {...rest}
     >
       <StyledBox
+        fill
+        overflow="hidden"
+        pad={pad}
+        round={round}
+        selected={selected}
         border={{
           color: selected ? 'brand' : 'border',
         }}
-        overflow="hidden"
-        round="xsmall"
-        selected={selected}
-        fill
       >
-        <SelectorHeader
-          indicator={indicator}
-          title={title}
-          icon={icon}
-          description={description}
-          selected={selected}
-        />
-        {children && (
-          <Box pad={{ horizontal: 'small', bottom: 'small' }}>{children}</Box>
+        {(indicator !== false || title || description || icon) && (
+          <SelectorHeader
+            indicator={indicator}
+            title={title}
+            icon={icon}
+            description={description}
+            selected={selected}
+          />
         )}
+        {children}
       </StyledBox>
     </StyledButton>
   );
@@ -71,9 +74,11 @@ Selector.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   icon: PropTypes.element,
-  indicator: PropTypes.bool,
+  indicator: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   title: PropTypes.string,
+  round: PropTypes.string,
+  pad: PropTypes.string,
 };
 
 export { Selector };
