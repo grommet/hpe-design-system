@@ -1,11 +1,11 @@
-import 'design-tokens/dist/css/colors-light.css';
-import 'design-tokens/dist/css/colors-dark.css';
-import 'design-tokens/dist/css/colors-warm-light.css';
-import 'design-tokens/dist/css/colors-warm-dark.css';
-import 'design-tokens/dist/css/elevation-light.css';
-import 'design-tokens/dist/css/dimensions-large.css';
-import 'design-tokens/dist/css/dimensions-small.css';
-import 'design-tokens/dist/css/motion.css';
+import 'design-tokens/dist/css/base.css';
+import 'design-tokens/dist/css/color.light.css';
+import 'design-tokens/dist/css/color.dark.css';
+import 'design-tokens/dist/css/components.css';
+// import 'design-tokens/dist/css/color.warm-light.css';
+// import 'design-tokens/dist/css/color.warm-dark.css';
+import 'design-tokens/dist/css/dimension.large.css';
+// import 'design-tokens/dist/css/dimension.small.css'; // TO DO fix media
 import './css/fonts.css';
 import './css/components.css';
 import './css/app.css';
@@ -72,6 +72,8 @@ document.querySelector('#app').innerHTML = `
               <h2>Get started</h2>
               <a>Dismiss</a>
             </div>
+              <button class="default" style="align-self: start;">Launch</button>
+              <button class="primary" style="align-self: start;">Launch</button>
               <div class="grid flex-flex">
                 ${DashboardCard({
                   title: 'Find services',

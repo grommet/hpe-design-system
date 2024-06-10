@@ -23,7 +23,7 @@ fs.readdirSync(TOKENS_DIR).forEach(file => {
   const mode = file.split('.')[1];
   const raw = fs.readFileSync(`${TOKENS_DIR}/${file}`);
   const parsed = JSON.parse(raw);
-  const flat = flattenObject(parsed, '-');
+  const flat = flattenObject(parsed, '.');
   if (!(mode in tree)) tree[mode] = {};
   tree[mode] = { ...tree[mode], ...flat };
 });
@@ -33,22 +33,37 @@ Object.keys(tree).forEach(mode => {
     // if it's a reference, add it to the "usedBy" for the referenced token
     const value = tree[mode][key].$value;
     if (/^{.*}$/.test(value)) {
-      const token = value.slice(1, -1).split('.').join('-');
-      const referenceMode = tree[mode][token] ? mode : 'base';
-      // if this is the first reference, create `usedBy`
-      // is it within this mode?
-      if (!('usedBy' in tree[referenceMode][token])) {
-        tree[referenceMode][token].usedBy = [
-          {
-            name: key,
-            mode,
-          },
-        ];
-      } else
-        tree[referenceMode][token].usedBy.push({
-          name: key,
-          mode,
-        });
+      const token = value.slice(1, -1);
+      // when mode is "default", it's a component token
+      // for color tokens, add it to the used by for "light" and "dark" modes
+      // for dimension tokens, addit to the used by for "large" and "small"
+      const referenceModes = [];
+      if (mode === 'default') {
+        if (tree[mode][key].$type === 'color')
+          referenceModes.push(...['light', 'dark']);
+        else if (tree[mode][key].$type === 'number')
+          referenceModes.push(...['large', 'small']);
+      } else {
+        referenceModes.push(tree[mode][token] ? mode : 'base');
+      }
+      referenceModes.forEach(referenceMode => {
+        // if this is the first reference, create `usedBy`
+        // is it within this mode?
+        if (tree[referenceMode][token]) {
+          if (!('usedBy' in tree[referenceMode][token])) {
+            tree[referenceMode][token].usedBy = [
+              {
+                name: key,
+                mode,
+              },
+            ];
+          } else
+            tree[referenceMode][token].usedBy.push({
+              name: key,
+              mode,
+            });
+        }
+      });
     }
   });
 });
