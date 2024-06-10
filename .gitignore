@@ -30,3 +30,4 @@ yarn-error.log*
 report*
 .DS_Store
 .native-web
+.tailwind-app

@@ -14,12 +14,12 @@ import {
   DropButton,
 } from 'grommet';
 import { Down, User } from 'grommet-icons';
-import { primitives } from 'design-tokens';
+import { base } from 'design-tokens';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 
 const StyledDown = styled(Down)`
-  transition: all ${primitives.motion.duration.short[3]}
-    ${primitives.motion.easing.simple.decelerate};
+  transition: all ${base.motion.duration.short[3]}
+    ${base.motion.easing.simple.decelerate};
   transform: ${props => (props.open ? 'rotate(180deg)' : 'rotate(0deg)')};
   transform-origin: center;
 `;

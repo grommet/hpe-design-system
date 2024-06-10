@@ -2,14 +2,18 @@
   "name": "design-tokens",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/js/index.js",
+  "main": "dist/esm/index.js",
   "exports": {
-    ".": "./dist/js/index.js",
-    "./tree": "./dist/tree/index.js",
+    ".": "./dist/esm/index.js",
     "./dist/css/*.css": {
       "import": "./dist/css/*.css",
       "require": "./dist/css/*.css"
-    }
+    },
+    "./dist/tailwind/*.js": {
+      "import": "./dist/tailwind/*.js",
+      "require": "./dist/tailwind/*.js"
+    },
+    "./tree": "./dist/tree/index.js"
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
@@ -23,6 +27,7 @@
   "dependencies": {
     "axios": "^1.6.0",
     "dotenv": "^16.3.1",
+    "sd-tailwindcss-transformer": "^1.4.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },

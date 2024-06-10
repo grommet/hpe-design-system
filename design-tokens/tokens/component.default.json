@@ -1,0 +1,278 @@
+{
+  "button": {
+    "medium": {
+      "default": {
+        "enabled": {
+          "paddingX": { "$type": "number", "$value": 18 },
+          "paddingY": { "$type": "number", "$value": 4 },
+          "borderRadius": { "$type": "string", "$value": "2em" },
+          "borderWidth": { "$type": "number", "$value": 2 },
+          "minHeight": { "$type": "number", "$value": 36 }
+        },
+        "disabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        },
+        "hover": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        },
+        "selected": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        }
+      },
+      "primary": {
+        "enabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        },
+        "disabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        },
+        "hover": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        },
+        "selected": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          }
+        }
+      }
+    },
+    "default": {
+      "enabled": {
+        "background": { "$type": "color", "$value": "#FFF" },
+        "foregroundColor": { "$type": "color", "$value": "#333" },
+        "borderColor": { "$type": "color", "$value": "transparent" }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "hover": {
+        "background": {
+          "$type": "color",
+          "$value": "#0000000A"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "selected": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      }
+    },
+    "primary": {
+      "enabled": {
+        "background": {
+          "$type": "color",
+          "$value": "green"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "hover": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "selected": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      }
+    }
+  }
+}

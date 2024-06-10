@@ -26,16 +26,16 @@ div {
 /*  */
 /* Button */
 button {
-  --button-backgroundColor: transparent;
-  --button-borderWidth: 0px;
-  --button-borderColor: var(--button-backgroundColor);
+  --button-backgroundColor: var(--button-default-enabled-background);
+  --button-borderWidth: var(--button-medium-default-enabled-border-width);
+  --button-borderColor: var(--button-default-enabled-border-color);
   --button-lineHeight: 24px;
-  --button-label-color: var(--color-text-strong);
+  --button-label-color: var(--button-default-enabled-foreground-color);
   --button-label-fontWeight: 600;
   --button-label-fontSize: 19px;
-  --button-borderRadius: 2rem;
-  --button-paddingVertical: calc(6px - var(--button-borderWidth));
-  --button-paddingHorizontal: calc(18px - var(--button-borderWidth));
+  --button-borderRadius: var(--button-medium-default-enabled-border-radius);
+  --button-paddingVertical: var(--button-medium-default-enabled-padding-y);
+  --button-paddingHorizontal: var(--button-medium-default-enabled-padding-x);
 
   border-radius: var(--button-borderRadius);
   background-color: var(--button-backgroundColor);
@@ -49,16 +49,36 @@ button {
   cursor: pointer;
 }
 button:hover {
-  --button-backgroundColor: var(--color-background-contrast);
+  --button-backgroundColor: var(--button-default-hover-background);
+  --button-borderWidth: var(--button-medium-default-hover-border-width);
+  /* --button-borderColor: var(--button-default-hover-border-color); */
+  --button-label-color: var(--button-default-hover-foreground-color);
+  --button-borderRadius: var(--button-medium-default-hover-border-radius);
+  --button-paddingVertical: var(--button-medium-default-hover-padding-y);
+  --button-paddingHorizontal: var(--button-medium-default-hover-padding-x);
+}
+button:disabled {
+  --button-backgroundColor: var(--button-default-disabled-background);
+  --button-borderWidth: var(--button-medium-default-disabled-border-width);
+  /* --button-borderColor: var(--button-default-disabled-border-color); */
+  --button-label-color: var(--button-default-disabled-foreground-color);
+  --button-borderRadius: var(--button-medium-default-disabled-border-radius);
+  --button-paddingVertical: var(--button-medium-default-disabled-padding-y);
+  --button-paddingHorizontal: var(--button-medium-default-disabled-padding-x);
 }
 /* button:focus, */
 button:focus-visible {
   outline: 2px solid var(--color-focus);
 }
 button.primary {
-  --button-backgroundColor: var(--color-brand);
-  --button-label-color: var(--color-foreground-selected);
-  --button-label-fontWeight: bold;
+  --button-primary-enabled-background: var(--color-background-primary-default);
+  --button-backgroundColor: var(--button-primary-enabled-background);
+  --button-borderWidth: var(--button-medium-primary-enabled-border-width);
+  /* --button-borderColor: var(--button-primary-enabled-border-color); */
+  --button-label-color: var(--button-primary-enabled-foreground-color);
+  --button-borderRadius: var(--button-medium-primary-enabled-border-radius);
+  --button-paddingVertical: var(--button-medium-primary-enabled-padding-y);
+  --button-paddingHorizontal: var(--button-medium-primary-enabled-padding-x);
 }
 button.secondary {
   --button-borderColor: var(--color-button-secondary-border-default);

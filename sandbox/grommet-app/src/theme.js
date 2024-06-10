@@ -8,12 +8,7 @@ import {
   small,
   warmLight,
   warmDark,
-  gradientLight,
-  gradientDark,
-  gradientWarmLight,
-  gradientWarmDark,
-  elevationLight,
-  primitives,
+  base,
 } from 'design-tokens';
 
 const dimensions = {
@@ -140,10 +135,10 @@ const skeletonAnimation = keyframes`
 }
 `;
 
-const themeModeTransition = `background ${primitives.motion.duration[375]} ${primitives.motion.easing.simple.inOut}`;
+const themeModeTransition = `background ${base.motion.duration[375]} ${base.motion.easing.simple.inOut}`;
 
 const buildTheme = tokens => {
-  const [light, dark, elevationLight, lightGradient, darkGradient] = tokens;
+  const [light, dark] = tokens;
   return deepMerge(hpe, {
     global: {
       ...dimensions,
@@ -366,24 +361,22 @@ const buildTheme = tokens => {
       },
       elevation: {
         light: {
-          small: elevationLight.elevation.small,
-          medium: elevationLight.elevation.medium,
-          large: elevationLight.elevation.large,
+          small: `${light.elevation.small.offsetX} ${light.elevation.small.offsetY} ${light.elevation.small.blur} ${light.elevation.small.color}`,
+          medium: `${light.elevation.medium.offsetX} ${light.elevation.medium.offsetY} ${light.elevation.medium.blur} ${light.elevation.medium.color}`,
+          large: `${light.elevation.large.offsetX} ${light.elevation.large.offsetY} ${light.elevation.large.blur} ${light.elevation.large.color}`,
         },
       },
       drop: {
         extend: ({ animate }) =>
           animate === 'select'
             ? css`
-                animation: ${dropKeyFrames}
-                  ${primitives.motion.duration.short[3]}
+                animation: ${dropKeyFrames} ${base.motion.duration.short[3]}
                   cubic-bezier(0, 0, 0.58, 1) forwards;
                 animation-delay: 0.01s;
               `
             : css`
-                animation: ${standardDrop}
-                  ${primitives.motion.duration.medium[1]}
-                  ${primitives.motion.easing.emphasized.decelerate} forwards;
+                animation: ${standardDrop} ${base.motion.duration.medium[1]}
+                  ${base.motion.easing.emphasized.decelerate} forwards;
                 animation-delay: 0.01s;
               `,
       },
@@ -404,8 +397,8 @@ const buildTheme = tokens => {
       //   &:hover {
       //     text-decoration: underline;
       //   }
-      //   transition: text-decoration ${primitives.motion.duration.short[3]}
-      //     ${primitives.motion.easing.simple.default};
+      //   transition: text-decoration ${base.motion.duration.short[3]}
+      //     ${base.motion.easing.simple.default};
       // `,
     },
     button: {
@@ -433,24 +426,24 @@ const buildTheme = tokens => {
           background: 'background-front',
         },
       },
-      extend: `transition: background-color ${primitives.motion.duration.medium[2]} ${primitives.motion.easing.simple.default};`,
+      extend: `transition: background-color ${base.motion.duration.medium[2]} ${base.motion.easing.simple.default};`,
     },
     card: {
       container: {
         extend: css`
-          transition: border ${primitives.motion.duration.short[3]}
-              ${primitives.motion.easing.simple.decelerate},
-            box-shadow ${primitives.motion.duration.short[3]}
-              ${primitives.motion.easing.simple.default},
+          transition: border ${base.motion.duration.short[3]}
+              ${base.motion.easing.simple.decelerate},
+            box-shadow ${base.motion.duration.short[3]}
+              ${base.motion.easing.simple.default},
             ${themeModeTransition};
 
           svg[data-icon='dashboard'] {
             transform: translateX(-100%);
             opacity: 0;
-            transition: opacity ${primitives.motion.duration[240]}
-                ${primitives.motion.easing.simple.in},
-              transform ${primitives.motion.duration[240]}
-                ${primitives.motion.easing.simple.in};
+            transition: opacity ${base.motion.duration[240]}
+                ${base.motion.easing.simple.in},
+              transform ${base.motion.duration[240]}
+                ${base.motion.easing.simple.in};
           }
 
           &:hover svg[data-icon='dashboard'] {
@@ -486,8 +479,8 @@ const buildTheme = tokens => {
           border: 1px solid ${
             theme.global.colors.border[theme.dark ? 'dark' : 'light']
           };
-          transition: all ${primitives.motion.duration.short[3]} ${
-            primitives.motion.easing.simple.decelerate
+          transition: all ${base.motion.duration.short[3]} ${
+            base.motion.easing.simple.decelerate
           };
        `,
         },
@@ -531,13 +524,13 @@ const buildTheme = tokens => {
             120deg,
             ${props =>
               props.theme.dark
-                ? darkGradient.gradient.skeleton
-                : lightGradient.gradient.skeleton}
+                ? dark.gradient.skeleton
+                : light.gradient.skeleton}
           );
           transform: translateX(-100%);
           animation-name: ${skeletonAnimation};
-          animation-duration: ${primitives.motion.duration[1750]};
-          animation-timing-function: ${primitives.motion.easing.simple.default};
+          animation-duration: ${base.motion.duration[1750]};
+          animation-timing-function: ${base.motion.easing.simple.default};
           animation-direction: normal;
           animation-iteration-count: infinite;
         }
@@ -547,8 +540,8 @@ const buildTheme = tokens => {
       extend: css`
         tbody th,
         tbody td {
-          transition: padding-block ${primitives.motion.duration.medium[2]}
-            ${primitives.motion.easing.simple.decelerate};
+          transition: padding-block ${base.motion.duration.medium[2]}
+            ${base.motion.easing.simple.decelerate};
         }
 
         &.compact tbody th,
@@ -568,23 +561,11 @@ const buildTheme = tokens => {
     },
     tab: {
       extend: `
-        transition: border ${primitives.motion.duration.short[1]} ${primitives.motion.easing.simple.default};
+        transition: border ${base.motion.duration.short[1]} ${base.motion.easing.simple.default};
       `,
     },
   });
 };
 
-export const current = buildTheme([
-  light,
-  dark,
-  elevationLight,
-  gradientLight,
-  gradientDark,
-]);
-export const warm = buildTheme([
-  warmLight,
-  warmDark,
-  elevationLight,
-  gradientWarmLight,
-  gradientWarmDark,
-]);
+export const current = buildTheme([light, dark]);
+export const warm = buildTheme([warmLight, warmDark]);

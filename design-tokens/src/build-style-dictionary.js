@@ -1,6 +1,50 @@
 /* eslint-disable max-len */
 import StyleDictionary from 'style-dictionary-utils';
 import * as fs from 'fs';
+// import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
+
+// TO DO how to keep "camelCase" for things like minHeight
+// right now automatic transforms put a kebab (min-height)
+
+// TO DO getting "property collision" from typography files
+// StyleDictionary.extend(
+//   makeSdTailwindConfig({
+//     type: 'all',
+//     isVariables: true,
+//     source: ['tokens-alpha/**/*.json'],
+//     buildPath: 'dist/tailwind/',
+//     // prefix: 'hpe', // TO DO should this be in the token files themselves?
+//   }),
+// ).buildAllPlatforms();
+
+// js transform group + custom from style-dictionary-utils
+StyleDictionary.registerTransformGroup({
+  name: 'js/w3c',
+  transforms: [
+    'attribute/cti',
+    'name/cti/pascal',
+    'size/rem',
+    'color/hex',
+    'cubicBezier/css', // TO DO revisit if we want to apply this or not (seems odd to have CSS here)
+  ],
+});
+
+// css transform group + custom from style-dictionary-utils
+StyleDictionary.registerTransformGroup({
+  name: 'css/w3c',
+  transforms: [
+    'attribute/cti',
+    'name/cti/kebab',
+    'time/seconds',
+    'content/icon',
+    'size/rem',
+    'color/css',
+    'cubicBezier/css',
+    'shadow/css',
+    'color/hex',
+    'gradient/css',
+  ],
+});
 
 const getThemeAndMode = file => {
   const parts = file.split('.');
@@ -26,10 +70,11 @@ StyleDictionary.registerFormat({
       outputReferences,
     });
     const dataTheme = theme ? `[data-theme=${theme}]` : '';
+    // TO DO "mode" is fairly coupled with concept of "dark" right now
+    // just confirm this would be able to expand to concepts like "high-contrast"
     const dataMode = mode ? `[data-mode=${mode}]` : '';
     return `${StyleDictionary.formatHelpers.fileHeader({
       file,
-      // eslint-disable-next-line max-len
     })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
 ${
   dataMode
@@ -44,57 +89,134 @@ ${
 StyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
   formatter({ dictionary, file, options }) {
-    const { outputReferences } = options;
+    const { outputReferences, mediaQuery } = options;
+    let output = `:root {\n${StyleDictionary.formatHelpers.formattedVariables({
+      format: 'css',
+      dictionary,
+      outputReferences,
+    })}\n}`;
+    if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
+
     return `${StyleDictionary.formatHelpers.fileHeader({
       file,
-      // TO DO how to dynamically get the breakpoint value
-      // eslint-disable-next-line max-len
-    })}@media (max-width: 768px) { \n:root {\n${StyleDictionary.formatHelpers.formattedVariables(
-      {
-        format: 'css',
-        dictionary,
-        outputReferences,
-      },
-    )}\n}\n}\n`;
+    })}${output}`;
   },
 });
 
 const TOKENS_DIR = 'tokens';
-const colorFiles = fs
+const ESM_DIR = 'dist/esm/';
+const JSON_DIR = 'dist/json/';
+const CSS_DIR = 'dist/css/';
+
+let esm = '';
+
+StyleDictionary.extend({
+  // from dist because it contains the "px" version
+  source: [
+    'dist/primitives.base.json',
+    // `${TOKENS_DIR}/color.light.json`, TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
+    `${TOKENS_DIR}/component.default.json`,
+  ],
+  platforms: {
+    js: {
+      transformGroup: 'js/w3c',
+      buildPath: ESM_DIR,
+      files: [
+        {
+          destination: 'base.js',
+          format: 'javascript/esm',
+        },
+      ],
+    },
+    json: {
+      transformGroup: 'js/w3c',
+      buildPath: JSON_DIR,
+      files: [
+        {
+          destination: 'base.json',
+          format: 'json/nested',
+        },
+      ],
+    },
+    css: {
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
+      files: [
+        {
+          destination: 'base.css',
+          format: 'css/variables',
+          options: {
+            outputReferences: true,
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+esm += "export { default as base } from './base';\n";
+
+const colorModeFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
-const primitiveColors = fs.readFileSync('dist/primitives.base.json');
-const rawPrimitives = JSON.parse(primitiveColors);
-const primitiveColorNames = Object.keys(rawPrimitives.color);
-colorFiles.forEach(file => {
-  const [theme, mode] = getThemeAndMode(file);
+const primitives = fs.readFileSync('dist/primitives.base.json');
+const rawPrimitives = JSON.parse(primitives);
+const primitiveColorNames = Object.keys(rawPrimitives.base.color);
 
+const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
+
+colorModeFiles.forEach(file => {
+  const [theme, mode] = getThemeAndMode(file);
   StyleDictionary.extend({
-    source: ['dist/primitives.base.json', file],
+    source: [
+      'dist/primitives.base.json',
+      file,
+      `${TOKENS_DIR}/elevation.${mode}.json`,
+      `${TOKENS_DIR}/gradient.${mode}.json`,
+    ],
     platforms: {
       js: {
-        transformGroup: 'js',
-        buildPath: 'dist/json/',
+        transformGroup: 'js/w3c',
+        buildPath: ESM_DIR,
         files: [
           {
-            destination: `colors.${
+            destination: `color.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.js`,
+            format: 'javascript/esm',
+            filter: token =>
+              (token.attributes.category === 'color' &&
+                !primitiveColorNames.includes(token.attributes.type)) ||
+              token.attributes.category === 'elevation' ||
+              token.attributes.category === 'gradient',
+          },
+        ],
+      },
+      json: {
+        transformGroup: 'js/w3c',
+        buildPath: JSON_DIR,
+        files: [
+          {
+            destination: `color.${
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.json`,
             format: 'json/nested',
             filter: token =>
-              token.attributes.category === 'color' &&
-              !primitiveColorNames.includes(token.attributes.type),
+              (token.attributes.category === 'color' &&
+                !primitiveColorNames.includes(token.attributes.type)) ||
+              token.attributes.category === 'elevation' ||
+              token.attributes.category === 'gradient',
           },
         ],
       },
       css: {
-        transformGroup: 'css',
-        buildPath: 'dist/css/',
+        transformGroup: 'css/w3c',
+        buildPath: CSS_DIR,
         files: [
           {
-            destination: `colors-${
+            destination: `color.${
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.css`,
             format: 'css/variables-themed',
@@ -103,357 +225,138 @@ colorFiles.forEach(file => {
               mode: mode === 'dark' ? 'dark' : undefined,
               theme,
             },
-            filter: {
-              attributes: {
-                category: 'color',
-              },
-            },
+            // TO DO revisit should "light" mode be part of base.css?
+            filter: token =>
+              (token.attributes.category === 'color' &&
+                !primitiveColorNames.includes(token.attributes.type)) ||
+              token.attributes.category === 'elevation' ||
+              token.attributes.category === 'gradient',
           },
         ],
       },
     },
   }).buildAllPlatforms();
+
+  esm += `export { default as ${camelCase(
+    `${theme ? `${theme}-` : ''}${mode}`,
+  )} } from './color.${theme ? `${theme}-${mode}` : `${mode || ''}`}';\n`;
 });
 
-const dimensions = ['dimension', 'content', 'spacing', 'border', 'radius'];
+const dimensions = ['content', 'spacing', 'border', 'radius', 'text'];
 
-// small
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/dimension.small.json'],
-  platforms: {
-    js: {
-      transformGroup: 'js',
-      buildPath: 'dist/json/',
-      files: [
-        {
-          destination: 'dimension.small.json',
-          format: 'json/nested',
-          filter: token =>
-            ['content', 'spacing', 'border', 'radius'].includes(
-              token.attributes.category,
-            ),
-        },
-      ],
-    },
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'dimensions-small.css',
-          format: 'css/variables-breakpoints',
-          options: {
-            outputReferences: true,
-          },
-          filter: token => dimensions.includes(token.attributes.category),
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-// large
-StyleDictionary.extend({
-  source: ['dist/primitives.base.json', 'tokens/dimension.large.json'],
-  platforms: {
-    js: {
-      transformGroup: 'js',
-      buildPath: 'dist/json/',
-      files: [
-        {
-          destination: 'dimension.large.json',
-          format: 'json/nested',
-          filter: token =>
-            ['content', 'spacing', 'border', 'radius'].includes(
-              token.attributes.category,
-            ),
-        },
-      ],
-    },
-    css: {
-      transformGroup: 'css',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'dimensions-large.css',
-          format: 'css/variables',
-          options: {
-            outputReferences: true,
-          },
-          filter: token => dimensions.includes(token.attributes.category),
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-const elevationFiles = fs
+const dimensionFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file =>
-    file.includes('elevation') ? `${TOKENS_DIR}/${file}` : undefined,
+    file.includes('dimension') ? `${TOKENS_DIR}/${file}` : undefined,
   )
   .filter(file => file);
 
-elevationFiles.forEach(file => {
-  const [theme, mode] = getThemeAndMode(file);
+dimensionFiles.forEach(file => {
+  const res = getThemeAndMode(file);
+  const mode = res[1];
   StyleDictionary.extend({
-    source: ['dist/primitives.base.json', `tokens/color.${mode}.json`, file],
+    source: [
+      'dist/primitives.base.json',
+      `dist/typography.${mode}.json`, // dist folder has "rem"
+      `${TOKENS_DIR}/dimension.${mode}.json`,
+    ],
     platforms: {
       js: {
-        // includes JS transformGroup + shadow
-        transforms: [
-          'attribute/cti',
-          'name/cti/pascal',
-          'size/rem',
-          'color/hex',
-          'shadow/css',
-        ],
-        buildPath: 'dist/json/',
+        transformGroup: 'js/w3c',
+        buildPath: ESM_DIR,
         files: [
           {
-            destination: `elevation.${
-              theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.json`,
+            destination: `dimension.${mode}.js`,
+            format: 'javascript/esm',
+            filter: token => dimensions.includes(token.attributes.category),
+          },
+        ],
+      },
+      json: {
+        transformGroup: 'js/w3c',
+        buildPath: JSON_DIR,
+        files: [
+          {
+            destination: `dimension.${mode}.js`,
             format: 'json/nested',
-            filter: {
-              attributes: {
-                category: 'elevation',
-              },
-            },
+            filter: token => dimensions.includes(token.attributes.category),
           },
         ],
       },
       css: {
-        // includes css transformGroup + shadow
-        transforms: [
-          'attribute/cti',
-          'name/cti/kebab',
-          'time/seconds',
-          'content/icon',
-          'size/rem',
-          'color/css',
-          'shadow/css',
-        ],
-        buildPath: 'dist/css/',
+        transformGroup: 'css',
+        buildPath: CSS_DIR,
         files: [
           {
-            destination: `elevation-${
-              theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.css`,
-            format: 'css/variables',
-            filter: {
-              attributes: {
-                category: 'elevation',
-              },
+            destination: `dimension.${mode}.css`,
+            format: 'css/variables-breakpoints',
+            options: {
+              outputReferences: true,
+              mediaQuery:
+                rawPrimitives.base.breakpoint?.[mode] &&
+                !['large', 'xlarge'].includes(mode) &&
+                `max-width: ${rawPrimitives.base.breakpoint[mode].$value}`,
             },
-            // options: {
-            //   outputReferences: true,
-            // },
+            filter: token => dimensions.includes(token.attributes.category),
           },
         ],
       },
     },
   }).buildAllPlatforms();
-});
-
-const gradientFiles = fs
-  .readdirSync(TOKENS_DIR)
-  .map(file =>
-    file.includes('gradient') ? `${TOKENS_DIR}/${file}` : undefined,
-  )
-  .filter(file => file);
-
-gradientFiles.forEach(file => {
-  const [theme, mode] = getThemeAndMode(file);
-  StyleDictionary.extend({
-    source: ['dist/primitives.base.json', `tokens/color.${mode}.json`, file],
-    platforms: {
-      js: {
-        // includes JS transformGroup + gradient
-        transforms: [
-          'attribute/cti',
-          'name/cti/pascal',
-          'size/rem',
-          'color/hex',
-          'gradient/css',
-        ],
-        buildPath: 'dist/json/',
-        files: [
-          {
-            destination: `gradient.${
-              theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.json`,
-            format: 'json/nested',
-            filter: {
-              attributes: {
-                category: 'gradient',
-              },
-            },
-          },
-        ],
-      },
-      css: {
-        // includes css transformGroup + shadow
-        transforms: [
-          'attribute/cti',
-          'name/cti/kebab',
-          'time/seconds',
-          'content/icon',
-          'size/rem',
-          'color/css',
-          'gradient/css',
-        ],
-        buildPath: 'dist/css/',
-        files: [
-          {
-            destination: `gradient-${
-              theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.css`,
-            format: 'css/variables',
-            filter: {
-              attributes: {
-                category: 'gradient',
-              },
-            },
-            // options: {
-            //   outputReferences: true,
-            // },
-          },
-        ],
-      },
-    },
-  }).buildAllPlatforms();
+  esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
 StyleDictionary.extend({
-  source: ['dist/primitives.base.json'],
+  source: [
+    // from dist because it contains the "px" version
+    'dist/primitives.base.json', // TO DO, need to sift out "base"
+    `${TOKENS_DIR}/color.light.json`, // TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
+    'dist/component.default.json',
+  ],
   platforms: {
     js: {
-      // includes JS transformGroup + shadow
-      transforms: [
-        'attribute/cti',
-        'name/cti/pascal',
-        'size/rem',
-        'color/hex',
-        'cubicBezier/css',
-      ],
-      buildPath: 'dist/json/',
+      transformGroup: 'js/w3c',
+      buildPath: ESM_DIR,
       files: [
         {
-          destination: 'primitives.base.json',
+          destination: 'components.js',
+          format: 'javascript/esm',
+          filter: token =>
+            !['static', 'base', 'color'].includes(token.attributes.category),
+        },
+      ],
+    },
+    json: {
+      transformGroup: 'js/w3c',
+      buildPath: JSON_DIR,
+      files: [
+        {
+          destination: 'components.json',
           format: 'json/nested',
+          filter: token =>
+            !['static', 'base', 'color'].includes(token.attributes.category),
         },
       ],
     },
     css: {
-      // includes CSS transformGroup + cubic-bezier
-      transforms: [
-        'attribute/cti',
-        'name/cti/kebab',
-        'time/seconds',
-        'content/icon',
-        'size/rem',
-        'color/css',
-        'cubicBezier/css',
-      ],
-      buildPath: 'dist/css/',
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
       files: [
         {
-          destination: 'motion.css',
+          destination: 'components.css',
           format: 'css/variables',
-          filter: {
-            attributes: {
-              category: 'motion',
-            },
+          filter: token =>
+            !['static', 'base', 'color'].includes(token.attributes.category),
+          options: {
+            outputReferences: true,
           },
         },
       ],
     },
   },
 }).buildAllPlatforms();
+esm += "export { default as components } from './components';\n";
 
-// StyleDictionary.extend({
-//   source: ['tokens/animation.base.json'],
-//   platforms: {
-//     js: {
-//       // includes JS transformGroup + shadow
-//       transforms: [
-//         'attribute/cti',
-//         'name/cti/pascal',
-//         'size/rem',
-//         'color/hex',
-//         'cubicBezier/css',
-//       ],
-//       buildPath: 'dist/json/',
-//       files: [
-//         {
-//           destination: 'animation.base.json',
-//           format: 'json/nested',
-//         },
-//       ],
-//     },
-//     css: {
-//       // includes css transformGroup + shadow
-//       // includes css transformGroup + shadow
-//       transforms: [
-//         'attribute/cti',
-//         'name/cti/kebab',
-//         'time/seconds',
-//         'content/icon',
-//         'size/rem',
-//         'color/css',
-//         'cubicBezier/css',
-//       ],
-//       buildPath: 'dist/css/',
-//       files: [
-//         {
-//           destination: 'animation-base.css',
-//           format: 'css/variables',
-//         },
-//       ],
-//     },
-//   },
-// }).buildAllPlatforms();
+fs.writeFileSync(`./${ESM_DIR}index.js`, esm);
 
-console.log('✅ CSS and JSON files have been generated.');
-
-const JSON_DIR = 'dist/json';
-const jsonFiles = fs.readdirSync(JSON_DIR).map(file => `${JSON_DIR}/${file}`);
-const JS_DIR = 'dist/js';
-fs.mkdirSync(`./${JS_DIR}`);
-jsonFiles.forEach(file => {
-  const raw = fs.readFileSync(file);
-  const parsed = JSON.parse(raw);
-  let formattedName = file.replace(JSON_DIR, '');
-  formattedName = formattedName.replace('json', 'js');
-  fs.writeFileSync(
-    `./dist/js${formattedName}`,
-    `export default ${JSON.stringify(parsed, null, 2)}`,
-  );
-});
-
-const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
-
-const jsFiles = fs.readdirSync(JS_DIR).map(file => `${JS_DIR}/${file}`);
-fs.writeFileSync(
-  './dist/js/index.js',
-  `${jsFiles
-    .map(file => {
-      const fileName = file.replace(JS_DIR, '.');
-      const [theme, mode] = getThemeAndMode(fileName);
-      // eslint-disable-next-line no-nested-ternary
-      const exportName = file.includes('elevation')
-        ? `${camelCase(
-            `elevation-${camelCase(`${theme ? `${theme}-` : ''}${mode}`)}`,
-          )}`
-        : file.includes('gradient')
-        ? `${camelCase(
-            `gradient-${camelCase(`${theme ? `${theme}-` : ''}${mode}`)}`,
-          )}`
-        : camelCase(`${theme ? `${theme}-` : ''}${mode}`);
-      return `export { default as ${exportName} } from '${fileName}';\n`;
-    })
-    .join('')}export { default as primitives } from './primitives.base.js';\n`,
-);
-
-console.log('✅ Javascript files have been generated.');
+console.log('✅ CSS, Javascript, and JSON files have been generated.');
