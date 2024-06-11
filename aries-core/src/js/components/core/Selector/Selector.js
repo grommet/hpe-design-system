@@ -39,6 +39,7 @@ const Selector = ({
     <StyledButton
       aria-pressed={selected}
       onClick={e => handleToggle(e, value)}
+      round={round}
       {...rest}
     >
       <StyledBox
