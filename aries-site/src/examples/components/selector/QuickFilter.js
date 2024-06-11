@@ -17,6 +17,7 @@ import {
   PageHeader,
   Text,
   Paragraph,
+  ResponsiveContext,
 } from 'grommet';
 import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
@@ -186,6 +187,7 @@ const VALUE_MAP = {
 
 const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
   const { onView, view } = useContext(DataContext);
+  const size = useContext(ResponsiveContext);
 
   return (
     <SelectorGroup
@@ -208,7 +210,7 @@ const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
         onView(nextView);
         setValue(value);
       }}
-      columns="1/3"
+      columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
     >
       <Selector
         icon={<StatusCriticalSmall color="status-critical" height="medium" />}

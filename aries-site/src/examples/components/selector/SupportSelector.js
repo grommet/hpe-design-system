@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Box, PageContent, Text, Heading, Page, TextInput } from 'grommet';
+import {
+  Box,
+  PageContent,
+  Text,
+  Heading,
+  Page,
+  TextInput,
+  ResponsiveContext,
+} from 'grommet';
 import { Iteration, Search as SearchIcon } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
 
@@ -56,6 +64,7 @@ const devices = [
   },
 ];
 export const SupportSelector = () => {
+  const size = useContext(ResponsiveContext);
   return (
     <Page>
       <PageContent>
@@ -74,7 +83,10 @@ export const SupportSelector = () => {
           <Box gap="large">
             <Box gap="small">
               <Text>Services</Text>
-              <SelectorGroup a11yTitle="Select service products" columns="1/3">
+              <SelectorGroup
+                a11yTitle="Select service products"
+                columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
+              >
                 {services.map(datum => (
                   <Selector
                     key={datum.value}
@@ -89,7 +101,7 @@ export const SupportSelector = () => {
               <SelectorGroup
                 multiple
                 a11yTitle="Select devices products"
-                columns="1/3"
+                columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
               >
                 {devices.map(datum => (
                   <Selector
