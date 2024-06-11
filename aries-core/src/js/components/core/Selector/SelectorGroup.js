@@ -1,12 +1,6 @@
-import React, {
-  useState,
-  useContext,
-  useCallback,
-  Children,
-  useMemo,
-} from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 export const SelectorGroupContext = React.createContext({});
 
@@ -33,19 +27,17 @@ const useControlled = ({ prop, defaultProp, onChange = () => {} }) => {
 const SelectorGroup = ({
   children,
   defaultValue,
+  layout = 'grid',
   multiple,
   onSelect,
   value,
   ...rest
 }) => {
-  const size = useContext(ResponsiveContext);
   const [selectedValue = multiple ? [] : '', setSelectedValue] = useControlled({
     prop: value,
     defaultProp: defaultValue,
     onChange: onSelect,
   });
-
-  const totalChildren = Children.count(children);
 
   const handleToggle = useCallback(
     (event, option) => {
@@ -87,21 +79,24 @@ const SelectorGroup = ({
 
   return (
     <SelectorGroupContext.Provider value={contextValue}>
-      <Grid
-        columns={
-          !['xsmall', 'small'].includes(size)
-            ? {
-                count: Math.min(4, totalChildren),
-                size: ['small', 'medium'],
-              }
-            : '100%'
-        }
-        gap="small"
-        role="group"
-        {...rest}
-      >
-        {children}
-      </Grid>
+      {layout === 'grid' && (
+        <Grid
+          columns={{
+            count: 'fit',
+            size: ['small', 'flex'],
+          }}
+          gap="small"
+          role="group"
+          {...rest}
+        >
+          {children}
+        </Grid>
+      )}
+      {layout === 'fit' && (
+        <Box role="group" direction="row" gap="xsmall" wrap {...rest}>
+          {children}
+        </Box>
+      )}
     </SelectorGroupContext.Provider>
   );
 };
@@ -121,6 +116,7 @@ SelectorGroup.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
+  layout: PropTypes.oneOf(['grid', 'fit']),
 };
 
 export { SelectorGroup };
