@@ -8,6 +8,7 @@ import {
   TEMP,
 } from '../../examples';
 
+{/* Let's move this under templates instead of components */}
 <Notification
   message="Selector is available as a code template that can be copy and pasted into your repository, but it is not published in Grommet."
   status="info"
@@ -21,6 +22,7 @@ import {
       reverse: true,
     },
   ]}
+  alignSelf="start"
 />
 
 <Example
@@ -71,6 +73,6 @@ import {
 
 This is just for testing/review.
 
-<Example code="" height={{ min: 'small' }}>
+<Example code="" height={{ min: 'small' }} width="100%">
   <TEMP />
 </Example>

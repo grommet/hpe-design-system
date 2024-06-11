@@ -6,7 +6,7 @@ import { SelectorGroup, Selector } from 'aries-core';
 const data = [
   {
     value: 'option 1',
-    title: 'Aruba AP-635 Wifi 6E',
+    title: 'Aruba AP-635 Wifi 6E Access Point',
     description: '36 devices',
     icon: <Iteration height="medium" />,
   },
