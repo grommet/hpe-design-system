@@ -1751,7 +1751,7 @@ export const components = [
     available: true,
     category: 'Controls',
     description:
-      'A group of buttons that enable the user alternate between similar visual views such as DataTable, Chart List, Grid and Map to see the same content.',
+      'A group of related buttons that enable the user to to toggle on or off.',
     preview: {
       component: () => <ToggleGroupPreview />,
     },
