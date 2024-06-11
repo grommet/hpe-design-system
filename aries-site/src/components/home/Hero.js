@@ -12,7 +12,7 @@ const moveAnimation = css`
     100% {
       y: ${Number(props.y) + Number(props.offset)}px;
     }
-  `} 1s ${props => props.moveStart || 0}s 1 forwards
+  `} 1s ${props => props.movestart || 0}s 1 forwards
 `;
 
 const popAnimation = css`
@@ -23,7 +23,7 @@ const popAnimation = css`
     to {
       opacity: 1;
     }
-  `} 0s ${props => props.popStart || 0}s 1 forwards`;
+  `} 0s ${props => props.popstart || 0}s 1 forwards`;
 
 const roundAnimation = css`
   ${keyframes`
@@ -33,7 +33,7 @@ const roundAnimation = css`
     100% {
       rx: 14.439px;
     }
-  `} 3s ${props => props.roundStart}s 1 forwards
+  `} 3s ${props => props.roundstart}s 1 forwards
 `;
 
 const fadeAnimation = css`
@@ -44,7 +44,7 @@ const fadeAnimation = css`
     100% {
       opacity: 1;
     }
-  `} 2s ${props => props.fadeStart || 0}s 1 forwards`;
+  `} 2s ${props => props.fadestart || 0}s 1 forwards`;
 
 const StyledLines = styled.g`
   opacity: 0;
@@ -102,7 +102,7 @@ export const Hero = props => {
       >
         <StyledLines
           stroke={normalizeColor('status-unknown', theme, darkMode.value)}
-          fadeStart={sequence(11)}
+          fadesstart={sequence(11)}
         >
           <path d="M587 385.724H649.076" />
           <path d="M680.725 385.724H708.314" />
@@ -114,7 +114,7 @@ export const Hero = props => {
         </StyledLines>
         <StyledLines
           stroke={normalizeColor('status-unknown', theme, darkMode.value)}
-          fadeStart={sequence(11)}
+          fadestart={sequence(11)}
         >
           <path d="M2 2.72432H64.0756" />
           <path d="M95.7246 2.72432H123.314" />
@@ -132,9 +132,9 @@ export const Hero = props => {
           rx="6"
           fill={purple}
           offset={142}
-          popStart={sequence(0)}
-          moveStart={sequence(2)}
-          roundStart={sequence(ROUND_STEP)}
+          popstart={sequence(0)}
+          movestart={sequence(2)}
+          roundstart={sequence(ROUND_STEP)}
         />
         <MovingRect
           x="125"
@@ -144,9 +144,9 @@ export const Hero = props => {
           rx="6"
           fill={normalizeColor('orange!', theme, darkMode.value)}
           offset={-142}
-          popStart={sequence(1)}
-          moveStart={sequence(2)}
-          roundStart={sequence(ROUND_STEP)}
+          popstart={sequence(1)}
+          movestart={sequence(2)}
+          roundstart={sequence(ROUND_STEP)}
         />
         <PoppingRect
           x="289.78"
@@ -156,28 +156,28 @@ export const Hero = props => {
           rx="21.6585"
           stroke={normalizeColor('blue!', theme, darkMode.value)}
           strokeWidth="14.439"
-          popStart={sequence(3)}
+          popstart={sequence(3)}
         />
         <StyledCircle
           cx="417"
           cy="269.5"
           r="12"
           fill={purple}
-          popStart={sequence(4)}
+          popstart={sequence(4)}
         />
         <StyledCircle
           cx="453"
           cy="269.5"
           r="12"
           fill={purple}
-          popStart={sequence(5)}
+          popstart={sequence(5)}
         />
         <StyledCircle
           cx="489"
           cy="269.5"
           r="12"
           fill={purple}
-          popStart={sequence(6)}
+          popstart={sequence(6)}
         />
         <PoppingRoundRect
           opacity="0"
@@ -187,8 +187,8 @@ export const Hero = props => {
           height="121"
           rx="6"
           fill={normalizeColor('blue', theme, false)}
-          popStart={sequence(7)}
-          roundStart={sequence(ROUND_STEP)}
+          popstart={sequence(7)}
+          roundstart={sequence(ROUND_STEP)}
         />
         <PoppingRoundRect
           opacity="0"
@@ -198,8 +198,8 @@ export const Hero = props => {
           height="115"
           rx="6"
           fill="#FFD63E"
-          popStart={sequence(8)}
-          roundStart={sequence(ROUND_STEP)}
+          popstart={sequence(8)}
+          roundstart={sequence(ROUND_STEP)}
         />
         <PoppingRoundRect
           opacity="0"
@@ -209,12 +209,12 @@ export const Hero = props => {
           height="115"
           rx="6"
           fill={normalizeColor('green', theme, false)}
-          popStart={sequence(9)}
-          roundStart={sequence(ROUND_STEP)}
+          popstart={sequence(9)}
+          roundstart={sequence(ROUND_STEP)}
         />
         <StyledType
           fill={normalizeColor('text', theme, darkMode.value)}
-          popStart={sequence(10)}
+          popstart={sequence(10)}
         >
           {/* eslint-disable-next-line max-len */}
           <path d="M549.623 271.426H515.188L466.057 399.973H499.441L508.47 375.059H555.292L564.53 399.973H598.754L549.623 271.426ZM518.758 347.423L531.986 311.204L545.213 347.423H518.758Z" />
