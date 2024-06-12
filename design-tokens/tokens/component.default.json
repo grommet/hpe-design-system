@@ -1064,7 +1064,7 @@
             },
             "fontWeight": {
               "$type": "number",
-              "$value": "{base.font.weight.regular}",
+              "$value": "{base.font.weight.medium}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

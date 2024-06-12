@@ -292,7 +292,7 @@ input {
   border-radius: var(--test-input-field-container-medium-border-radius);
   border: var(--border-xsmall) solid var(--color-border-default);
   font-family: inherit;
-  color: var(--test-input-text-valueText-color);
+  color: var(--test-input-text-value-text-color);
   font-weight: var(--test-input-field-container-medium-value-text-font-weight);
   font-size: var(--test-input-field-container-medium-value-text-font-size);
   line-height: var(--test-input-field-container-medium-value-text-line-height);
