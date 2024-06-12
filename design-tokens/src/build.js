@@ -12,17 +12,25 @@ const numberToDimension = (primitives, component, unit = 'px') => {
       if (key === '$value') {
         let obj = primitives;
 
-        // TO DO make this block less brittle
+        // convert numbers to "px" (for non-typography dimension tokens)
+        // or "rem" (for font size and line height)
+        // should not convert font weight
         if (
-          (typeof value === 'number' &&
-            (keyPath.includes('dimension') || component === true)) ||
-          keyPath.includes('breakpoint') ||
-          (keyPath.includes('font') && keyPath.includes('size'))
+          typeof value === 'number' &&
+          !keyPath.includes('fontWeight') &&
+          !keyPath.includes('weight') &&
+          (keyPath.includes('breakpoint') ||
+            keyPath.includes('dimension') ||
+            component === true ||
+            keyPath.includes('font'))
         ) {
           keyPath.pop(); // remove $value
           const fontToken =
             unit === 'rem' ||
-            (keyPath.includes('font') && keyPath.includes('size'));
+            keyPath.includes('fontSize') ||
+            keyPath.includes('lineHeight') ||
+            (keyPath.includes('font') && keyPath.includes('size')) ||
+            keyPath.includes('height');
           while (obj && keyPath.length) obj = obj[keyPath.shift()];
 
           if (fontToken) obj.$value /= 16;

@@ -4,10 +4,21 @@
       "default": {
         "enabled": {
           "paddingX": { "$type": "number", "$value": 18 },
-          "paddingY": { "$type": "number", "$value": 4 },
-          "borderRadius": { "$type": "string", "$value": "2em" },
-          "borderWidth": { "$type": "number", "$value": 2 },
-          "minHeight": { "$type": "number", "$value": 36 }
+          "paddingY": { "$type": "number", "$value": "{base.dimension.100}" },
+          "borderRadius": { "$type": "number", "$value": 1000 },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{static.border.small}"
+          },
+          "minHeight": { "$type": "number", "$value": "{base.dimension.900}" },
+          "fontSize": {
+            "$type": "number",
+            "$value": 19
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{static.font.height.medium}"
+          }
         },
         "disabled": {
           "paddingX": {
@@ -29,6 +40,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         },
         "hover": {
@@ -51,6 +70,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         },
         "selected": {
@@ -73,6 +100,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         }
       },
@@ -97,6 +132,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         },
         "disabled": {
@@ -119,6 +162,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         },
         "hover": {
@@ -141,6 +192,14 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         },
         "selected": {
@@ -163,15 +222,270 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        }
+      },
+      "secondary": {
+        "enabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "disabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "hover": {
+          "paddingX": {
+            "$type": "number",
+            "$value": 17
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": 3
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": 3
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "selected": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        }
+      },
+      "toolbar": {
+        "enabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": 6
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": 6
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": 1
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "disabled": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "hover": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
+          }
+        },
+        "selected": {
+          "paddingX": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingX}"
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.paddingY}"
+          },
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderRadius}"
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{button.medium.toolbar.enabled.borderWidth}"
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.minHeight}"
+          },
+          "fontSize": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.fontSize}"
+          },
+          "lineHeight": {
+            "$type": "number",
+            "$value": "{button.medium.default.enabled.lineHeight}"
           }
         }
       }
     },
     "default": {
       "enabled": {
-        "background": { "$type": "color", "$value": "#FFF" },
-        "foregroundColor": { "$type": "color", "$value": "#333" },
-        "borderColor": { "$type": "color", "$value": "transparent" }
+        "background": { "$type": "color", "$value": "#00000000" },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{color.text.strong}"
+        },
+        "borderColor": { "$type": "color", "$value": "#00000000" }
       },
       "disabled": {
         "background": {
@@ -190,7 +504,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "#0000000A"
+          "$value": "{color.background.hover}"
         },
         "foregroundColor": {
           "$type": "color",
@@ -220,11 +534,11 @@
       "enabled": {
         "background": {
           "$type": "color",
-          "$value": "green"
+          "$value": "{color.background.primary.default}"
         },
         "foregroundColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.foregroundColor}"
+          "$value": "{color.text.onPrimary}"
         },
         "borderColor": {
           "$type": "color",
@@ -272,6 +586,633 @@
           "$type": "color",
           "$value": "{button.default.enabled.borderColor}"
         }
+      }
+    },
+    "secondary": {
+      "enabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{color.background.primary.default}"
+        }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "hover": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      },
+      "selected": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.borderColor}"
+        }
+      }
+    },
+    "toolbar": {
+      "enabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.default.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.default.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{color.border.default}"
+        }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.borderColor}"
+        }
+      },
+      "hover": {
+        "background": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.background}"
+        },
+        "foregroundColor": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.foregroundColor}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{button.toolbar.enabled.borderColor}"
+        }
+      }
+    }
+  },
+  "test": {
+    "input": {
+      "fieldContainer": {
+        "default": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "hover": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "focus": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "validation": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.validation.critical}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "disabled": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.disabled}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.disabled}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "readOnly": {
+          "backgroundColor": {
+            "$type": "color",
+            "$value": "{color.background.back}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "medium": {
+          "borderRadius": {
+            "$type": "number",
+            "$value": "{static.radius.xsmall}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderWidth": {
+            "$type": "number",
+            "$value": "{static.border.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "paddingX": {
+            "$type": "number",
+            "$value": "{static.spacing.small}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "paddingY": {
+            "$type": "number",
+            "$value": "{static.spacing.xsmall}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "gapX": {
+            "$type": "number",
+            "$value": "{static.spacing.large}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "minHeight": {
+            "$type": "number",
+            "$value": "{base.dimension.900}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "label": {
+            "fontSize": {
+              "$type": "number",
+              "$value": "{static.font.size.xsmall}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "lineHeight": {
+              "$type": "number",
+              "$value": "{static.font.height.xsmall}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{base.font.weight.medium}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          },
+          "helpText": {
+            "fontSize": {
+              "$type": "number",
+              "$value": "{static.font.size.xsmall}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "lineHeight": {
+              "$type": "number",
+              "$value": "{static.font.height.xsmall}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{base.font.weight.regular}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          },
+          "placeholder": {
+            "fontSize": {
+              "$type": "number",
+              "$value": "{static.font.size.medium}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "lineHeight": {
+              "$type": "number",
+              "$value": "{static.font.height.medium}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{base.font.weight.regular}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          },
+          "valueText": {
+            "fontSize": {
+              "$type": "number",
+              "$value": "{static.font.size.medium}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "lineHeight": {
+              "$type": "number",
+              "$value": "{static.font.height.medium}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{base.font.weight.regular}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "text": {
+        "valueText": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "label": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "helpText": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.strong}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "info": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "description": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "error": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "disabled": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.disabled}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "placeholder": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.text.weak}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "td": {
+      "paddingX": { "$type": "number", "$value": "{spacing.small}" },
+      "paddingY": { "$type": "number", "$value": "{spacing.xsmall}" },
+      "fontSize": { "$type": "number", "$value": "{static.font.size.medium}" },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{static.font.height.medium}"
+      }
+    },
+    "th": {
+      "paddingX": { "$type": "number", "$value": "{test.td.paddingX}" },
+      "paddingY": { "$type": "number", "$value": "{test.td.paddingY}" },
+      "fontSize": { "$type": "number", "$value": "{test.td.fontSize}" },
+      "lineHeight": { "$type": "number", "$value": "{test.td.lineHeight}" },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{base.font.weight.medium}"
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.text.strong}"
       }
     }
   }
