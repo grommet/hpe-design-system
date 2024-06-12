@@ -15,7 +15,7 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "{base.color.black.opacity4}",
+        "$value": "{color.background.contrast}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -186,7 +186,7 @@
         },
         "weak": {
           "$type": "color",
-          "$value": "{base.color.green.110}",
+          "$value": "{base.color.green.100}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -834,38 +834,6 @@
             }
           }
         }
-      }
-    }
-  },
-  "elevation": {
-    "small": {
-      "$type": "shadow",
-      "$value": {
-        "color": "#0000000A",
-        "offsetX": "0px",
-        "offsetY": "{base.dimension.300}",
-        "blur": "{base.dimension.100}",
-        "spread": "0px"
-      }
-    },
-    "medium": {
-      "$type": "shadow",
-      "$value": {
-        "color": "#0000000A",
-        "offsetX": "0px",
-        "offsetY": "{base.dimension.150}",
-        "blur": "{base.dimension.300}",
-        "spread": "0px"
-      }
-    },
-    "large": {
-      "$type": "shadow",
-      "$value": {
-        "color": "#0000000A",
-        "offsetX": "0px",
-        "offsetY": "{base.dimension.300}",
-        "blur": "{base.dimension.600}",
-        "spread": "0px"
       }
     }
   }
