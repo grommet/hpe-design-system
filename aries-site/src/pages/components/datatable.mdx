@@ -100,6 +100,8 @@ potential outliers or records which the user is unaware need attention or action
   allowing users to browse records effortlessly.
 - Consider adding column data types such as status indicators or meters
   which call attention to records needing attention.
+- In these scanning situations, correctly right aligning numerical data and date type columns aid with enhancing data readability, improves user experience, and supports efficient data analysis in comparison scenarios.
+
 
 <ExampleImagePreview
   label="Using infinite scroll with tables"
@@ -129,7 +131,7 @@ user's preferred analytical tool.
 
 ### Setting the width of a DataTable
 
-- Use the correct set of columns, prioritizing frequently used ones. Don't add more columns just because the data is there, as this will clutter the data table.
+- Use the correct set of columns to position the primary identifier or frequently used columns on the left. Don't add more columns just because the data is there, as this will clutter the data table.
 - To support readability, make tables only as wide as they need to be and no wider. If the content does not need a large width, prevent the table from stretching.
 - Limit the whitespace on individual columns by using size for data table columns.
 - When the data table has the potential to be wider than the screen:
@@ -137,7 +139,8 @@ user's preferred analytical tool.
   - Use horizontal scrolling within the data table, as opposed to scrolling at the level of the entire page
 - When the data table has the potential to be narrower than its layout context:
   - Align it horizontally with the rest of its layout context. Typically, this is aligned to the start of the content as opposed to stretched.
-  - Align any header above the table, including heading, search, filter, actions, in the same way. This keeps an actions menu or button in the context of the data table and prevents them from being orphaned. However, don't force the header above the data table to align its width to the data table, as that might compress the contents of the header too much.
+- Align the data collection toolbar above the table, including left aligned View Controls. This controls are used to effect the view; search, filtering, sorting, manage views and the view toggle fuctionality. Right align the related data collection actions, these controls are apply to the contents of the table.
+- This keeps an actions menu or exposed action buttons in the context of the data table and prevents them from being orphaned. However, don't force the header above the data table to align its width to the data table, as that might compress the contents of the header too much.
 
 ### Setting the height of a DataTable
 
@@ -145,6 +148,29 @@ user's preferred analytical tool.
 - If it is expected a user will want to navigate to a specific portion of the data, pagination should be used. Generally, it is recommended that each page of data table results be limited to 20 records. For more information on pagination, read [Pagination guidance](/components/pagination#when-to-use-pagination).
 - Do not restrict the height of a data table if the page has available space. This may introduce unnecessary scrolling.
 - If the height of a Table needs to be restricted, set `overflow=“auto”` on its parent Box to allow the user to scroll through the data.
+
+### Right alignment of numerical data
+
+**Numerical Data**
+- Properly aligned numerical data and dates enhance the **clarity and readability** of the information presented in tables, making it easier for users to quickly comprehend the data. 
+- Aligning data consistently ensures that users can easily compare values across rows and columns, **reducing cognitive load** and improving the overall user experience.
+- **Comparison use cases** often involve analyzing numerical data and dates side by side. Proper alignment ensures that users can accurately compare and draw insights from the data without confusion.
+- Aligned data aids in **identifying patterns and trends** in the data, which is particularly important for data analysis and decision-making processes since we read numerical data from right to left.
+
+**When not too right align numerical data columns**
+- A common expection is primary identifier columns that contain object or entity ID numbers, in most instances those data types should not be right aligned.
+- ID strings are not read by users in the typical right to left manner as quantities.
+- Right aligning ID numbers that can contain a mix of alpha-numeric chars or different char lengths will decrease readability. 
+
+**Column header alignment:** Column header labels for right-aligned data columns should also be right aligned, or center-aligned at a minimum.
+
+### Displaying date and time data
+
+- Improved sorting and readability when displaying full dates and times in a tabular layout by adding leading zero within both the date and time stamps. 
+- It is important to display the data using a consistent format for the full column of date and time data.
+- Not recommend to mix actual and relative formats
+- When dates are zero-padded, they can be sorted correctly in chronological order, maintaining the logical sequence. This is crucial for comparison use cases where users may want to analyze data over time.
+- Avoiding misinterpretation: Without zero padding, dates might be misinterpreted due to inconsistency especially when the day or month values are single digits. For example, "1/5/2023" could be read as January 5th or May 1st, causing confusion during data comparison.
 
 ### Wrapping and truncating
 
