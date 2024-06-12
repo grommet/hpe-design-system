@@ -1,32 +1,24 @@
 ## Use Cases
 
-**Single select** - Allows a user to choose one option from a set of alike buttons.
+**Toggling Views** - Typically used in a data collection toolbar to allow the user to swtich between different data presentations such as map, list, chart and datatable.
 
-**Multi-select** - Allows a user to toggle on or off multipe options within a group of alike buttons at the same time.
+**Rich Text Editor** - Allows the user to select one or more options of related items like bold, underline and italic.
 
 
 ## Anatomy
+
 | Label | Region           | Purpose           |                  Required                   | Notes             |
 | ----- | ---------------- | ----------------- | :-----------------------------------------: | ----------------- |
 | **1** | **Container** | Organizes children, how they appear and spaced. | Required |        --         |
-| **2** | **Label** | Describes what the button will do when selected. | Optional |        --         |
-| **3** | **Icon** | Used to visually represent text label with or without label.  | Optional |       a11yTitle required       |
+| **2** | **Label** | Describes what the button will do when selected. | Optional |        If no label is shown, icon is required.        |
+| **3** | **Icon** | Used to visually represent text label with or without label.  | Optional |       a11yTitle required. If no icon is shown, label is required      |
 
 
 ## Types
 
-### Single select
+**Single select** - Allows a user to toggle on or off one option from a set of alike buttons.
 
-**Icon Only** - Styled toggle button to switch between mutual items like light and dark mode.
-
-**Label and Icon** - Styled toggle button with a label and icon to switch between mutual items like lock and unlocked.
-
-**Filtering** - Used to select a single choice from a range of options like map, list, chart and datatable.
-
-
-### Multi-select
-
-**Multiple Options:** Used to select more than one option at the same time. For example selecting mutliple styles like bold and italic within a TextEditor or setting an alarm clock for multiple days of the week.
+**Multi-select** - Allows a user to toggle on or off multiple options within a group of alike buttons at the same time.
 
 
 ## Accessibility
