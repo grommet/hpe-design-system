@@ -32,6 +32,12 @@ body {
   container: pageSection / inline-size;
 }
 
+.sandbox {
+  border: 1px dashed var(--color-border-default);
+  border-radius: var(--radius-small);
+  padding: var(--spacing-medium);
+}
+
 .outer {
   grid-template-columns: 1fr var(--content-medium);
   gap: var(--spacing-xlarge);

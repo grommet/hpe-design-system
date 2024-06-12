@@ -112,11 +112,7 @@ let esm = '';
 
 StyleDictionary.extend({
   // from dist because it contains the "px" version
-  source: [
-    'dist/primitives.base.json',
-    // `${TOKENS_DIR}/color.light.json`, TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
-    `${TOKENS_DIR}/component.default.json`,
-  ],
+  source: ['dist/primitives.base.json'],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -308,9 +304,10 @@ dimensionFiles.forEach(file => {
 
 StyleDictionary.extend({
   source: [
-    // from dist because it contains the "px" version
-    'dist/primitives.base.json', // TO DO, need to sift out "base"
+    // from dist because it contains the "px"/"rem" version
+    'dist/primitives.base.json',
     `${TOKENS_DIR}/color.light.json`, // TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
+    `${TOKENS_DIR}/dimension.large.json`, // TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
     'dist/component.default.json',
   ],
   platforms: {
@@ -355,6 +352,7 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
 esm += "export { default as components } from './components';\n";
 
 fs.writeFileSync(`./${ESM_DIR}index.js`, esm);

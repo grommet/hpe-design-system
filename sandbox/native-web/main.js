@@ -5,30 +5,42 @@ import 'design-tokens/dist/css/components.css';
 // import 'design-tokens/dist/css/color.warm-light.css';
 // import 'design-tokens/dist/css/color.warm-dark.css';
 import 'design-tokens/dist/css/dimension.large.css';
-// import 'design-tokens/dist/css/dimension.small.css'; // TO DO fix media
+import 'design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
 import './css/components.css';
 import './css/app.css';
 import './css/utilities.css';
 
 import { toggleThemeMode, toggleTheme, toggleDrop } from './utils';
-import {
-  DashboardCard,
-  // PageHeader,
-  QuickActions,
-  // DeviceSummary,
-  // BillingSummary,
-  // SustainabilityOverview,
-  RecentServices,
-  // Recommended,
-  Learn,
-  // UserOverview,
-  // Notifications,
-  // ExpiringSubscriptions,
-  // MonthlyCharges,
-} from './components';
+import // DashboardCard,
+// PageHeader,
+// QuickActions,
+// DeviceSummary,
+// BillingSummary,
+// SustainabilityOverview,
+// RecentServices,
+// Recommended,
+// Learn,
+// UserOverview,
+// Notifications,
+// ExpiringSubscriptions,
+// MonthlyCharges,
+'./components';
 import { AppsRounded, UserAdd, HPEGreenLakeBadge } from './icons';
 import { User } from './icons/User';
+
+const Button = ({ label, kind = 'default' }) => `
+  <button class="${kind}">${label}</button>`;
+
+const FormField = ({ label, help, placeholder }) => `
+    <div>
+        ${label ? `<label>${label}</label>` : ''}
+        ${help ? `<span class="help">${help}</span>` : ''}
+        <input class="${
+          label || help ? 'margin-top' : ''
+        }" type="text" placeholder="${placeholder}" />
+    </div>
+`;
 
 document.querySelector('#app').innerHTML = `
   <div class="globalHeader">
@@ -64,49 +76,41 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div class="page">
     <div class="pageContent">
-      <div class="container">
-        <div class="grid outer">
-          <div class="column">
-            <div class="gap-medium">
-              <div class="row justify-between align-center">
-              <h2>Get started</h2>
-              <a>Dismiss</a>
-            </div>
-              <button class="default" style="align-self: start;">Launch</button>
-              <button class="primary" style="align-self: start;">Launch</button>
-              <div class="grid flex-flex">
-                ${DashboardCard({
-                  title: 'Find services',
-                  subtitle: 'Discover and launch services from our catalog.',
-                  icon: `<div>${AppsRounded({
-                    color: 'foreground-brand-default',
-                    size: 'xxlarge',
-                  })}</div>`,
-                })}
-                ${DashboardCard({
-                  title: 'Manage workspace',
-                  subtitle: 'Set up this workspace, users, access and more.',
-                  icon: `<div>${UserAdd({
-                    color: 'foreground-purple-10',
-                    size: 'xxlarge',
-                  })}</div>`,
-                })}
-              </div>
-            </div>
-            ${RecentServices()}
-            <div class="row justify-between align-center">
-              <h2>Featured services</h2>
-              <a>View catalog</a>
-            </div>
-          </div>
-          <div class="column">
-            <div class="gap-large">
-              ${QuickActions({})}
-              ${Learn}
-            </div>        
-          </div>
+      <div class="sandbox gap-medium align-start">
+        <h2>Component testing</h2>
+        <div class="row gap-small">
+          ${Button({ label: 'Default' })}
+          ${Button({ label: 'Secondary', kind: 'secondary' })}
+          ${Button({ label: 'Primary', kind: 'primary' })}
+          ${Button({ label: 'Toolbar', kind: 'toolbar' })}
         </div>
-      </div>
+        ${FormField({
+          label: 'My label',
+          help: 'This is some help text.',
+          placeholder: 'Placeholder',
+        })}
+        ${FormField({
+          placeholder: 'Placeholder',
+        })}
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+          </tr>
+          <tr>
+            <td>Taylor</td>
+            <td>USA</td>
+          </tr>
+          <tr>
+            <td>Oliver</td>
+            <td>Ireland</td>
+          </tr>
+          <tr>
+            <td>Joelle</td>
+            <td>USA</td>
+          </tr>
+        </table>
+      </div> 
     </div>
   </div> 
 `;
