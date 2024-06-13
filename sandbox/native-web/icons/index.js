@@ -9,3 +9,4 @@ export * from './StatusWarningSmall';
 export * from './Sun';
 export * from './UserAdd';
 export * from './HPEGreenLakeBadge';
+export * from './Checkmark';

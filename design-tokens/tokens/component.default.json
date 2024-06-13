@@ -2706,6 +2706,148 @@
     }
   },
   "test": {
+    "checkbox": {
+      "medium": {
+        "height": {
+          "$type": "number",
+          "$value": "{base.dimension.600}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "width": {
+          "$type": "number",
+          "$value": "{base.dimension.600}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{static.spacing.small}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderWidth": {
+          "$type": "number",
+          "$value": "{border.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderRadius": {
+          "$type": "number",
+          "$value": "{static.radius.xxsmall}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "enabled": {
+        "background": {
+          "$type": "number",
+          "$value": "#00000000",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderColor": {
+          "$type": "number",
+          "$value": "{color.border.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "hover": {
+        "background": {
+          "$type": "number",
+          "$value": "{test.checkbox.enabled.background}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderColor": {
+          "$type": "number",
+          "$value": "{color.border.strong}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "checked": {
+        "background": {
+          "$type": "number",
+          "$value": "{color.background.selected.strong}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderColor": {
+          "$type": "number",
+          "$value": "{test.checkbox.enabled.borderColor}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      }
+    },
     "input": {
       "fieldContainer": {
         "default": {

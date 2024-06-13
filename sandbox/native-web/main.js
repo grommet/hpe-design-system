@@ -9,7 +9,12 @@ import './css/components.css';
 import './css/app.css';
 import './css/utilities.css';
 
-import { toggleThemeMode, toggleTheme, toggleDrop } from './utils';
+import {
+  toggleThemeMode,
+  toggleTheme,
+  toggleDrop,
+  toggleCheckbox,
+} from './utils';
 import // DashboardCard,
 // PageHeader,
 // QuickActions,
@@ -24,20 +29,40 @@ import // DashboardCard,
 // ExpiringSubscriptions,
 // MonthlyCharges,
 './components';
-import { HPEGreenLakeBadge } from './icons';
+import { HPEGreenLakeBadge, Checkmark } from './icons';
 import { User } from './icons/User';
 
 const Button = ({ label, kind = 'default', icon }) => `
   <button class="${kind}">${label}${icon || ''}</button>`;
 
-const FormField = ({ label, help, placeholder }) => `
+const FormField = ({ label, help, placeholder, input }) => {
+  let content = `<input class="${
+    label || help ? 'margin-top' : ''
+  }" type="text" placeholder="${placeholder}" />`;
+
+  if (input)
+    content = `<div class="field-container ${
+      label || help ? 'margin-top' : ''
+    }">${input}</div>`;
+
+  return `
     <div>
         ${label ? `<label>${label}</label>` : ''}
         ${help ? `<span class="help">${help}</span>` : ''}
-        <input class="${
-          label || help ? 'margin-top' : ''
-        }" type="text" placeholder="${placeholder}" />
+        ${content}
     </div>
+`;
+};
+
+const CheckBox = ({ label, id }) => `
+  <div class="checkbox-container">
+    <input type="checkbox" aria-hidden="true" tabindex="-1">
+    <button id="${id}" role="checkbox" aria-checked="false">${Checkmark({
+  size: 'medium',
+  color: 'stroke-icon-onPrimary',
+})}</button>
+    <label>${label}</label>
+  </div>
 `;
 
 document.querySelector('#app').innerHTML = `
@@ -102,6 +127,14 @@ document.querySelector('#app').innerHTML = `
         ${FormField({
           placeholder: 'Placeholder',
         })}
+        ${FormField({
+          label: 'FormField label',
+          input: CheckBox({
+            label: 'Checkbox in FormField',
+            id: 'formfield-checkbox',
+          }),
+        })}
+        ${CheckBox({ label: 'Standalone checkbox', id: 'standalone-checkbox' })}
         <table>
           <tr>
             <th>Name</th>
@@ -133,3 +166,6 @@ toggleDrop(
   document.querySelector('#userDrop'),
   document.querySelector('#userDropContent'),
 );
+
+toggleCheckbox(document.querySelector('#formfield-checkbox'));
+toggleCheckbox(document.querySelector('#standalone-checkbox'));

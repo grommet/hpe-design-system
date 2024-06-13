@@ -55,3 +55,21 @@ export const toggleDrop = (dropButton, dropContent) => {
 
   document?.addEventListener('click', e => handleDocumentClick(e));
 };
+
+export const toggleCheckbox = checkbox => {
+  const handleChange = () => {
+    if (checkbox.getAttribute('aria-checked') === 'false') {
+      checkbox.setAttribute('aria-checked', 'true');
+    } else {
+      checkbox.setAttribute('aria-checked', 'false');
+    }
+  };
+
+  const handleClick = e => {
+    if (e.target === checkbox || checkbox.contains(e.target)) {
+      handleChange();
+    }
+  };
+
+  document?.addEventListener('click', e => handleClick(e));
+};
