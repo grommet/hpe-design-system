@@ -3,8 +3,8 @@
   /* line-height: 1.5; */
   font-weight: 400;
   color-scheme: light dark;
-  background-color: var(--color-background-default);
-  color: var(--color-text-default);
+  background-color: var(--hpe-color-background-default);
+  color: var(--hpe-color-text-default);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,43 +33,43 @@ body {
 }
 
 .sandbox {
-  border: 1px dashed var(--color-border-default);
-  border-radius: var(--radius-small);
-  padding: var(--spacing-medium);
+  border: 1px dashed var(--hpe-color-border-default);
+  border-radius: var(--hpe-radius-small);
+  padding: var(--hpe-spacing-medium);
 }
 
 .outer {
-  grid-template-columns: 1fr var(--content-medium);
-  gap: var(--spacing-xlarge);
+  grid-template-columns: 1fr var(--hpe-content-medium);
+  gap: var(--hpe-spacing-xlarge);
 }
 
 .flex-flex {
   grid-template-columns: 1fr 1fr;
 }
 .medium-flex {
-  grid-template-columns: var(--content-medium) 1fr;
+  grid-template-columns: var(--hpe-content-medium) 1fr;
 }
 .columns-medium {
   /* TO DO revisit */
   grid-template-columns: repeat(auto-fill, minmax(min(288px, 100%), 1fr));
 }
 .column {
-  gap: var(--spacing-large);
+  gap: var(--hpe-spacing-large);
 }
 .contentPane {
-  background: var(--color-background-front);
-  padding: var(--spacing-medium);
-  border-radius: var(--radius-xlarge);
+  background: var(--hpe-color-background-front);
+  padding: var(--hpe-spacing-medium);
+  border-radius: var(--hpe-radius-xlarge);
 }
 
 .globalHeader {
-  background: var(--color-background-front);
-  border-bottom: 1px solid var(--color-border-weak);
+  background: var(--hpe-color-background-front);
+  border-bottom: 1px solid var(--hpe-color-border-weak);
   /* box-shadow: 0px 2px 4px #0000001f; */
   flex-direction: row;
   justify-content: space-between;
-  padding-block: var(--spacing-small);
-  padding-inline: var(--spacing-medium);
+  padding-block: var(--hpe-spacing-small);
+  padding-inline: var(--hpe-spacing-medium);
   /* max-width: 1536px; */
   /* margin: auto; */
   width: 100%;
@@ -86,9 +86,9 @@ body {
 hr {
   width: 100%;
   border: none;
-  height: var(--border-xsmall);
-  background: var(--color-brand);
-  margin-block: var(--spacing-large);
+  height: var(--hpe-border-xsmall);
+  background: var(--hpe-color-brand);
+  margin-block: var(--hpe-spacing-large);
 }
 
 path.color-chart-qualitative-30 {
