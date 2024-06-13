@@ -2771,7 +2771,7 @@
       },
       "enabled": {
         "background": {
-          "$type": "number",
+          "$type": "color",
           "$value": "#00000000",
           "$description": "",
           "$extensions": {
@@ -2783,7 +2783,7 @@
           }
         },
         "borderColor": {
-          "$type": "number",
+          "$type": "color",
           "$value": "{color.border.default}",
           "$description": "",
           "$extensions": {
@@ -2797,7 +2797,7 @@
       },
       "hover": {
         "background": {
-          "$type": "number",
+          "$type": "color",
           "$value": "{test.checkbox.enabled.background}",
           "$description": "",
           "$extensions": {
@@ -2809,7 +2809,7 @@
           }
         },
         "borderColor": {
-          "$type": "number",
+          "$type": "color",
           "$value": "{color.border.strong}",
           "$description": "",
           "$extensions": {
@@ -2823,7 +2823,7 @@
       },
       "checked": {
         "background": {
-          "$type": "number",
+          "$type": "color",
           "$value": "{color.background.selected.strong}",
           "$description": "",
           "$extensions": {
@@ -2835,7 +2835,7 @@
           }
         },
         "borderColor": {
-          "$type": "number",
+          "$type": "color",
           "$value": "{test.checkbox.enabled.borderColor}",
           "$description": "",
           "$extensions": {
