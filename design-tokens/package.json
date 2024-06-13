@@ -5,6 +5,7 @@
   "main": "dist/esm/index.js",
   "exports": {
     ".": "./dist/esm/index.js",
+    "./esm-unresolved": "./dist/esm-unresolved/index.js",
     "./dist/css/*.css": {
       "import": "./dist/css/*.css",
       "require": "./dist/css/*.css"

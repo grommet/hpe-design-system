@@ -6,6 +6,7 @@ import tokens from 'design-tokens/tree';
 import { Github, Moon, Sun } from 'grommet-icons';
 import { Visualizer } from './routes/Visualizer';
 import { Builder } from './routes/Builder';
+import { Docs } from './routes/Docs';
 
 const tokensArr = [];
 Object.keys(tokens).forEach(mode => {
@@ -42,10 +43,11 @@ function App() {
         >
           <Button as={Link} to="/">
             <Text weight={500} color="text-strong">
-              Design Token Visualizer
+              Design Token Manager
             </Text>
           </Button>
           <Box direction="row" gap="xsmall">
+            <Button as={Link} to="/visualizer" label="Token Visualizer" />
             <Button as={Link} to="/builder" label="Token builder" />
             <Button
               icon={<Github />}
@@ -62,8 +64,9 @@ function App() {
           </Box>
         </Header>
         <Routes>
-          <Route path="/" element={<Visualizer />} />
+          <Route path="/" element={<Docs />} />
           <Route path="/builder" element={<Builder />} />
+          <Route path="/visualizer" element={<Visualizer />} />
         </Routes>
       </BrowserRouter>
     </Grommet>
