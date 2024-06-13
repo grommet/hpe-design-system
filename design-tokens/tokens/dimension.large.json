@@ -270,7 +270,7 @@
     },
     "default": {
       "$type": "number",
-      "$value": "{static.border.default}",
+      "$value": "{static.border.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
