@@ -107,6 +107,7 @@ const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
 const JSON_DIR = 'dist/json/';
 const CSS_DIR = 'dist/css/';
+const PREFIX = 'hpe';
 
 let esm = '';
 
@@ -117,6 +118,7 @@ StyleDictionary.extend({
     js: {
       transformGroup: 'js/w3c',
       buildPath: ESM_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'base.js',
@@ -127,6 +129,7 @@ StyleDictionary.extend({
     json: {
       transformGroup: 'js/w3c',
       buildPath: JSON_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'base.json',
@@ -137,6 +140,7 @@ StyleDictionary.extend({
     css: {
       transformGroup: 'css/w3c',
       buildPath: CSS_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'base.css',
@@ -176,6 +180,7 @@ colorModeFiles.forEach(file => {
       js: {
         transformGroup: 'js/w3c',
         buildPath: ESM_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `color.${
@@ -193,6 +198,7 @@ colorModeFiles.forEach(file => {
       json: {
         transformGroup: 'js/w3c',
         buildPath: JSON_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `color.${
@@ -210,6 +216,7 @@ colorModeFiles.forEach(file => {
       css: {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `color.${
@@ -267,6 +274,7 @@ dimensionFiles.forEach(file => {
       js: {
         transformGroup: 'js/w3c',
         buildPath: ESM_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `dimension.${mode}.js`,
@@ -278,6 +286,7 @@ dimensionFiles.forEach(file => {
       json: {
         transformGroup: 'js/w3c',
         buildPath: JSON_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `dimension.${mode}.js`,
@@ -289,6 +298,7 @@ dimensionFiles.forEach(file => {
       css: {
         transformGroup: 'css',
         buildPath: CSS_DIR,
+        prefix: PREFIX,
         files: [
           {
             destination: `dimension.${mode}.css`,
@@ -333,6 +343,7 @@ StyleDictionary.extend({
     js: {
       transformGroup: 'js/w3c',
       buildPath: ESM_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'components.js',
@@ -344,6 +355,7 @@ StyleDictionary.extend({
     json: {
       transformGroup: 'js/w3c',
       buildPath: JSON_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'components.json',
@@ -355,6 +367,7 @@ StyleDictionary.extend({
     css: {
       transformGroup: 'css/w3c',
       buildPath: CSS_DIR,
+      prefix: PREFIX,
       files: [
         {
           destination: 'components.css',
