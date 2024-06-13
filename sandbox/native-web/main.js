@@ -2,8 +2,6 @@ import 'design-tokens/dist/css/base.css';
 import 'design-tokens/dist/css/color.light.css';
 import 'design-tokens/dist/css/color.dark.css';
 import 'design-tokens/dist/css/components.css';
-// import 'design-tokens/dist/css/color.warm-light.css';
-// import 'design-tokens/dist/css/color.warm-dark.css';
 import 'design-tokens/dist/css/dimension.large.css';
 import 'design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
@@ -26,7 +24,7 @@ import // DashboardCard,
 // ExpiringSubscriptions,
 // MonthlyCharges,
 './components';
-import { AppsRounded, UserAdd, HPEGreenLakeBadge } from './icons';
+import { HPEGreenLakeBadge } from './icons';
 import { User } from './icons/User';
 
 const Button = ({ label, kind = 'default' }) => `
@@ -80,7 +78,14 @@ document.querySelector('#app').innerHTML = `
         <h2>Component testing</h2>
         <div class="row gap-small">
           ${Button({ label: 'Default' })}
-          ${Button({ label: 'Secondary', kind: 'secondary' })}
+          ${Button({
+            label: 'Secondary hover border color',
+            kind: 'secondary',
+          })}
+          ${Button({
+            label: 'Secondary box-shadow approach',
+            kind: 'secondary box-shadow',
+          })}
           ${Button({ label: 'Primary', kind: 'primary' })}
           ${Button({ label: 'Toolbar', kind: 'toolbar' })}
         </div>

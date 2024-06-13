@@ -478,6 +478,132 @@
         }
       }
     },
+    "mediumTest": {
+      "default": {
+        "paddingX": { "$type": "number", "$value": 18 },
+        "paddingY": { "$type": "number", "$value": "{base.dimension.100}" },
+        "borderRadius": { "$type": "number", "$value": 1000 },
+        "borderWidth": {
+          "$type": "number",
+          "$value": "{static.border.small}"
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{static.spacing.small}"
+        },
+        "minHeight": { "$type": "number", "$value": "{base.dimension.900}" },
+        "fontSize": {
+          "$type": "number",
+          "$value": 19
+        },
+        "lineHeight": {
+          "$type": "number",
+          "$value": "{static.font.height.medium}"
+        }
+      },
+      "primary": {
+        "paddingX": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.paddingX}"
+        },
+        "paddingY": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.paddingY}"
+        },
+        "borderRadius": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.borderRadius}"
+        },
+        "borderWidth": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.borderWidth}"
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.gapX}"
+        },
+        "minHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.minHeight}"
+        },
+        "fontSize": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.fontSize}"
+        },
+        "lineHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.lineHeight}"
+        }
+      },
+      "secondary": {
+        "paddingX": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.paddingX}"
+        },
+        "paddingY": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.paddingY}"
+        },
+        "borderRadius": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.borderRadius}"
+        },
+        "borderWidth": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.borderWidth}"
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.gapX}"
+        },
+        "minHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.minHeight}"
+        },
+        "fontSize": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.fontSize}"
+        },
+        "lineHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.lineHeight}"
+        }
+      },
+      "toolbar": {
+        "paddingX": {
+          "$type": "number",
+          "$value": 6
+        },
+        "paddingY": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.paddingY}"
+        },
+        "borderRadius": {
+          "$type": "number",
+          "$value": 6
+        },
+        "borderWidth": {
+          "$type": "number",
+          "$value": 1
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.gapX}"
+        },
+        "minHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.minHeight}"
+        },
+        "fontSize": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.fontSize}"
+        },
+        "lineHeight": {
+          "$type": "number",
+          "$value": "{button.mediumTest.default.lineHeight}"
+        }
+      }
+    },
     "default": {
       "enabled": {
         "background": { "$type": "color", "$value": "#00000000" },
@@ -628,7 +754,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.borderColor}"
+          "$value": "{base.color.green.700}"
         }
       },
       "selected": {
@@ -877,7 +1003,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{static.spacing.small}",
+            "$value": 11,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -889,7 +1015,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{static.spacing.xsmall}",
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1193,26 +1319,85 @@
       }
     },
     "td": {
-      "paddingX": { "$type": "number", "$value": "{spacing.small}" },
-      "paddingY": { "$type": "number", "$value": "{spacing.xsmall}" },
+      "borderBottomWidth": {
+        "$type": "number",
+        "$value": "{static.border.xsmall}"
+      },
+      "paddingX": { "$type": "number", "$value": "{static.spacing.small}" },
+      "paddingTop": { "$type": "number", "$value": "{static.spacing.xsmall}" },
+      "paddingBottom": { "$type": "number", "$value": 5 },
       "fontSize": { "$type": "number", "$value": "{static.font.size.medium}" },
       "lineHeight": {
         "$type": "number",
         "$value": "{static.font.height.medium}"
+      },
+      "enabled": {
+        "color": {
+          "$type": "color",
+          "$value": "{color.text.strong}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "#00000000"
+        }
+      },
+      "hover": {
+        "color": {
+          "$type": "color",
+          "$value": "{test.td.enabled.color}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{test.td.enabled.borderColor}"
+        }
+      },
+      "disabled": {
+        "color": {
+          "$type": "color",
+          "$value": "{test.td.enabled.color}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{test.td.enabled.borderColor}"
+        }
       }
     },
     "th": {
+      "borderBottomWidth": {
+        "$type": "number",
+        "$value": "{test.td.borderBottomWidth}"
+      },
       "paddingX": { "$type": "number", "$value": "{test.td.paddingX}" },
-      "paddingY": { "$type": "number", "$value": "{test.td.paddingY}" },
+      "paddingTop": { "$type": "number", "$value": "{test.td.paddingTop}" },
+      "paddingBottom": {
+        "$type": "number",
+        "$value": "{test.td.paddingBottom}"
+      },
       "fontSize": { "$type": "number", "$value": "{test.td.fontSize}" },
       "lineHeight": { "$type": "number", "$value": "{test.td.lineHeight}" },
       "fontWeight": {
         "$type": "number",
         "$value": "{base.font.weight.medium}"
       },
-      "color": {
-        "$type": "color",
-        "$value": "{color.text.strong}"
+      "enabled": {
+        "color": {
+          "$type": "color",
+          "$value": "{test.td.enabled.color}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{color.border.default}"
+        }
+      },
+      "hover": {
+        "color": {
+          "$type": "color",
+          "$value": "{test.td.hover.color}"
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{test.td.hover.borderColor}"
+        }
       }
     }
   }
