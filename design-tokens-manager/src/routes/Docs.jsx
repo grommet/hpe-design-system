@@ -204,6 +204,19 @@ const Docs = () => {
                   {
                     property: 'token',
                     header: 'Token',
+                    render: datum => (
+                      <Box direction="row">
+                        <Box
+                          background="background-contrast"
+                          pad="xsmall"
+                          round="xsmall"
+                          style={{ fontFamily: 'Menlo' }}
+                        >
+                          <Text size="xsmall">{datum.token}</Text>
+                        </Box>
+                        {/* <Button icon={<Copy />} size="small" /> */}
+                      </Box>
+                    ),
                     //   size: 'small',
                   },
                   {
