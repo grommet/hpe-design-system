@@ -58,7 +58,6 @@ const TextPreview = ({ datum }) => <Text size={datum.value}>Hello world</Text>;
 const flattenObject = (obj, delimiter = '.', prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
     const pre = prefix.length ? `${prefix}${delimiter}` : '';
-    if (obj[k] === 'TBD') console.log('hello');
     if (
       typeof obj[k] === 'object' &&
       obj[k] !== null &&
@@ -81,27 +80,28 @@ const Nav = ({ tokens: obj, active, setActive }) =>
         active={active === key}
         onClick={() => setActive(key)}
       />
-      {!('$value' in obj[key]) ? (
+      {/* the first level in is going to be "hpe", and we want to skip that for nav*/}
+      {!('$value' in obj[key].hpe) ? (
         <Box pad={{ horizontal: 'small' }}>
-          {Object.keys(obj[key]).map(j => (
+          {Object.keys(obj[key].hpe).map(j => (
             <>
               <Button
                 key={j}
                 label={j}
                 align="start"
                 justify="start"
-                active={active === `${key}.${j}`}
-                onClick={() => setActive(`${key}.${j}`)}
+                active={active === `${key}.hpe.${j}`}
+                onClick={() => setActive(`${key}.hpe.${j}`)}
               />
-              {key === 'base' && typeof obj[key][j] === 'object' ? (
+              {key === 'base' && typeof obj[key].hpe[j] === 'object' ? (
                 <Box pad={{ horizontal: 'small' }}>
-                  {Object.keys(obj[key][j]).map(k => (
+                  {Object.keys(obj[key].hpe[j]).map(k => (
                     <Button
                       key={k}
                       label={k}
                       align="start"
-                      active={active === `${key}.${j}.${k}`}
-                      onClick={() => setActive(`${key}.${j}.${k}`)}
+                      active={active === `${key}.hpe.${j}.${k}`}
+                      onClick={() => setActive(`${key}.hpe.${j}.${k}`)}
                     />
                   ))}
                 </Box>
@@ -114,7 +114,7 @@ const Nav = ({ tokens: obj, active, setActive }) =>
   ));
 
 const Docs = () => {
-  const [active, setActive] = useState(`base.${Object.keys(tokens.base)[0]}`);
+  const [active, setActive] = useState(`base.hpe`);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -127,22 +127,42 @@ const Docs = () => {
     keyPath.forEach(key => {
       res = res[key];
     });
+
     let resRaw = rawTokens;
-    keyPath.forEach(key => {
+    let rawKeyPath = `${active}`.split('.');
+    // remove extra 'hpe' which rawTokens won't have
+    const index = rawKeyPath.indexOf('hpe');
+    if (index > -1) {
+      // only splice array when item is found
+      rawKeyPath.splice(index, 1);
+    }
+    rawKeyPath.forEach(key => {
       resRaw = resRaw[key];
     });
-    const flat = flattenObject(res, '.', `hpe.${prefix}`);
-    const flatRaw = flattenObject(resRaw, '.', `hpe.${prefix}`);
+    const flat =
+      typeof res === 'object' ? flattenObject(res, '.', `${prefix}`) : res;
+    const flatRaw = flattenObject(resRaw, '.', `${prefix}`);
 
-    const nextData = Object.keys(flat).map(key => {
-      return {
-        id: key,
-        token: key,
-        type: flatRaw[key]?.$type,
-        description: flatRaw[key]?.$description,
-        value: flat[key],
-      };
-    });
+    const nextData =
+      typeof flat === 'object'
+        ? Object.keys(flat).map(key => {
+            return {
+              id: key,
+              token: key,
+              type: flatRaw[key]?.$type,
+              description: flatRaw[key]?.$description,
+              value: flat[key],
+            };
+          })
+        : [
+            {
+              id: active,
+              token: active,
+              // type: flatRaw[key]?.$type,
+              // description: flatRaw[key]?.$description,
+              value: flat[active.split('.')[active.length - 1]],
+            },
+          ];
     setData(nextData);
   }, [active]);
 
@@ -164,77 +184,80 @@ const Docs = () => {
                 <DataSearch />
               </Toolbar>
               <DataSummary />
-              <DataTable
-                columns={[
-                  {
-                    property: 'id',
-                    header: 'Preview',
-                    render: datum => {
-                      if (datum.type === 'color')
-                        return <ColorPreview datum={datum} />;
-                      if (datum.token.includes('spacing'))
-                        return <DimensionPreview datum={datum} />;
-                      if (
-                        datum.token.includes('content') ||
-                        datum.token.includes('dimension')
-                      )
-                        return <DimensionPreview datum={datum} />;
-                      if (
-                        datum.token.includes('radius') ||
-                        datum.token.includes('borderRadius')
-                      )
-                        return <RadiusPreview datum={datum} />;
-                      if (datum.token.includes('border'))
-                        return <BorderPreview datum={datum} />;
-                      if (
-                        datum.token.includes('weight') ||
-                        datum.token.includes('fontWeight')
-                      )
-                        return <WeightPreview datum={datum} />;
-                      if (
-                        (datum.token.includes('font') &&
-                          datum.token.includes('size')) ||
-                        datum.token.includes('fontSize')
-                      )
-                        return <TextPreview datum={datum} />;
-                      else return '--';
+              <Box overflow={{ horizontal: 'auto' }}>
+                <DataTable
+                  columns={[
+                    {
+                      property: 'id',
+                      header: 'Preview',
+                      render: datum => {
+                        if (datum.type === 'color')
+                          return <ColorPreview datum={datum} />;
+
+                        if (
+                          datum.token.includes('content') ||
+                          datum.token.includes('dimension') ||
+                          datum.token.includes('spacing') ||
+                          datum.token.includes('gap')
+                        )
+                          return <DimensionPreview datum={datum} />;
+                        if (
+                          datum.token.includes('radius') ||
+                          datum.token.includes('borderRadius')
+                        )
+                          return <RadiusPreview datum={datum} />;
+                        if (datum.token.includes('border'))
+                          return <BorderPreview datum={datum} />;
+                        if (
+                          datum.token.includes('weight') ||
+                          datum.token.includes('fontWeight')
+                        )
+                          return <WeightPreview datum={datum} />;
+                        if (
+                          (datum.token.includes('font') &&
+                            datum.token.includes('size')) ||
+                          datum.token.includes('fontSize')
+                        )
+                          return <TextPreview datum={datum} />;
+                        else return '--';
+                      },
+                      size: 'auto',
                     },
-                    size: 'auto',
-                  },
-                  {
-                    property: 'token',
-                    header: 'Token',
-                    render: datum => (
-                      <Box direction="row">
-                        <Box
-                          background="background-contrast"
-                          pad="xsmall"
-                          round="xsmall"
-                          style={{ fontFamily: 'Menlo' }}
-                        >
-                          <Text size="xsmall">{datum.token}</Text>
+                    {
+                      property: 'token',
+                      header: 'Token',
+                      render: datum => (
+                        <Box direction="row">
+                          <Box
+                            background="background-contrast"
+                            pad="xsmall"
+                            round="xsmall"
+                            style={{ fontFamily: 'Menlo' }}
+                          >
+                            <Text size="xsmall">{datum.token}</Text>
+                          </Box>
+                          {/* <Button icon={<Copy />} size="small" /> */}
                         </Box>
-                        {/* <Button icon={<Copy />} size="small" /> */}
-                      </Box>
-                    ),
-                    //   size: 'small',
-                  },
-                  {
-                    property: 'description',
-                    header: 'Description',
-                    size: 'medium',
-                    render: datum => (
-                      <Text>
-                        {datum.description ? datum.description : '--'}
-                      </Text>
-                    ),
-                  },
-                  {
-                    property: 'value',
-                    header: 'Output value',
-                  },
-                ]}
-              />
+                      ),
+                      //   size: 'small',
+                    },
+                    {
+                      property: 'description',
+                      header: 'Description',
+                      size: 'medium',
+                      render: datum => (
+                        <Text>
+                          {datum.description ? datum.description : '--'}
+                        </Text>
+                      ),
+                    },
+                    {
+                      property: 'value',
+                      header: 'Output value',
+                    },
+                  ]}
+                />
+              </Box>
             </Data>
           </Box>
         </PageContent>
