@@ -217,6 +217,56 @@ button.active {
   --button-backgroundColor: var(--color-background-active);
 }
 
+/* Checkbox */
+.checkbox-container {
+  flex-direction: row;
+  align-items: start;
+  position: relative;
+  gap: var(--test-checkbox-medium-gap-x);
+}
+
+button[role='checkbox'] {
+  --width: var(--test-checkbox-medium-width);
+  --height: var(--test-checkbox-medium-height);
+  --checkbox-borderRadius: var(--test-checkbox-medium-border-radius);
+  --checkbox-background: var(--test-checkbox-enabled-background);
+  --checkbox-borderColor: var(--test-checkbox-enabled-border-color);
+  --checkbox--borderWidth: var(--test-checkbox-medium-border-width);
+
+  align-items: center;
+  justify-content: center;
+  width: var(--width);
+  height: var(--height);
+  border: var(--checkbox--borderWidth) solid var(--checkbox-borderColor);
+  padding: unset;
+  border-radius: var(--checkbox-borderRadius);
+  background: var(--checkbox-background);
+}
+
+button[role='checkbox'][aria-checked='true'] {
+  --checkbox-background: var(--test-checkbox-checked-background);
+  --checkbox-borderColor: var(--test-checkbox-checked-border-color);
+}
+
+button[role='checkbox'][aria-checked='false']:hover {
+  --checkbox-background: var(--test-checkbox-hover-background);
+  --checkbox-borderColor: var(--test-checkbox-hover-border-color);
+}
+
+.checkbox-container input {
+  transform: translateX(-100%);
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  margin: 0px;
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox-container label {
+  font-size: 18px;
+  line-height: 24px;
+}
 /* Card */
 .card {
   --card-elevation: var(--elevation-small);
@@ -394,6 +444,19 @@ span.help {
   line-height: var(--test-input-field-container-medium-help-text-line-height);
 }
 
+.field-container {
+  padding-block: var(--test-input-field-container-medium-padding-y);
+  padding-inline: var(--test-input-field-container-medium-padding-x);
+  border-radius: var(--test-input-field-container-medium-border-radius);
+  border: var(--border-xsmall) solid var(--color-border-default);
+  font-family: inherit;
+  color: var(--test-input-text-value-text-color);
+  font-weight: var(--test-input-field-container-medium-value-text-font-weight);
+  font-size: var(--test-input-field-container-medium-value-text-font-size);
+  line-height: var(--test-input-field-container-medium-value-text-line-height);
+  background: transparent;
+}
+
 input {
   padding-block: var(--test-input-field-container-medium-padding-y);
   padding-inline: var(--test-input-field-container-medium-padding-x);
@@ -406,7 +469,8 @@ input {
   line-height: var(--test-input-field-container-medium-value-text-line-height);
   background: transparent;
 }
-input.margin-top {
+input.margin-top,
+.field-container.margin-top {
   margin-top: var(--spacing-xsmall);
 }
 input::placeholder {
