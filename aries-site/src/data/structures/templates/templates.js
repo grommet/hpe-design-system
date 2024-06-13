@@ -6,6 +6,7 @@ import {
   FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
+  SelectorPreview,
 } from '../../../examples/cardPreviews';
 
 export const templates = [
@@ -221,6 +222,27 @@ export const templates = [
       'data refinement',
       'sorting criteria',
     ],
+  },
+  {
+    name: 'Selector',
+    available: true,
+    cardOrder: 4,
+    description:
+      'A selection control for use cases where the options should have high visual prominence.',
+    preview: {
+      component: () => <SelectorPreview />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'A selection control for use cases where the option should have high visual prominence.',
+    relatedContent: [
+      'RadioButtonGroup',
+      'CheckBoxGroup',
+      'Select',
+      'SelectMultiple',
+    ],
+    sections: [],
+    tags: [],
   },
   {
     name: 'User feedback collection',

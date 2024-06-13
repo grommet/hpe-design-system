@@ -46,7 +46,6 @@ export * from './tag';
 export * from './textarea';
 export * from './textinput';
 export * from './tip';
-export * from './selector';
 export * from './sidebar';
 export * from './spinner';
 export * from './video';

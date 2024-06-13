@@ -1393,31 +1393,6 @@ export const components = [
     ],
   },
   {
-    name: 'Selector',
-    category: 'Controls',
-    description:
-      'A selection control for use cases where the options should have high visual prominence.',
-    preview: {
-      image: {
-        src: {
-          light: '/components-preview-spinner.svg',
-          dark: '/components-preview-spinner-invert.svg',
-        },
-        alt: '',
-      },
-    },
-    seoDescription:
-      'A selection control for use cases where the option should have high visual prominence.',
-    relatedContent: [
-      'RadioButtonGroup',
-      'CheckBoxGroup',
-      'Select',
-      'SelectMultiple',
-    ],
-    sections: [],
-    tags: [],
-  },
-  {
     name: 'Spinner',
     category: 'Visualizations',
     description:
