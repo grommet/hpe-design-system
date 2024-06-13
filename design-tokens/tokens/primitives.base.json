@@ -1538,18 +1538,6 @@
             "codeSyntax": {}
           }
         }
-      },
-      "default": {
-        "$type": "number",
-        "$value": "{base.dimension.25}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "content": {

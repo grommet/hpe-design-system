@@ -238,7 +238,14 @@ colorModeFiles.forEach(file => {
   )} } from './color.${theme ? `${theme}-${mode}` : `${mode || ''}`}';\n`;
 });
 
-const dimensions = ['content', 'spacing', 'border', 'radius', 'text'];
+const dimensions = [
+  'content',
+  'spacing',
+  'border',
+  'radius',
+  'text',
+  'heading',
+];
 
 const dimensionFiles = fs
   .readdirSync(TOKENS_DIR)
