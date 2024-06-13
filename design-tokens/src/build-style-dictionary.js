@@ -302,6 +302,18 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
+// TO DO make dynamic
+const exclude = [
+  'static',
+  'base',
+  'color',
+  'TBD',
+  'spacing',
+  'radius',
+  'border',
+  'content',
+];
+
 StyleDictionary.extend({
   source: [
     // from dist because it contains the "px"/"rem" version
@@ -318,8 +330,7 @@ StyleDictionary.extend({
         {
           destination: 'components.js',
           format: 'javascript/esm',
-          filter: token =>
-            !['static', 'base', 'color'].includes(token.attributes.category),
+          filter: token => !exclude.includes(token.attributes.category),
         },
       ],
     },
@@ -330,8 +341,7 @@ StyleDictionary.extend({
         {
           destination: 'components.json',
           format: 'json/nested',
-          filter: token =>
-            !['static', 'base', 'color'].includes(token.attributes.category),
+          filter: token => !exclude.includes(token.attributes.category),
         },
       ],
     },
@@ -342,8 +352,7 @@ StyleDictionary.extend({
         {
           destination: 'components.css',
           format: 'css/variables',
-          filter: token =>
-            !['static', 'base', 'color'].includes(token.attributes.category),
+          filter: token => !exclude.includes(token.attributes.category),
           options: {
             outputReferences: true,
           },
