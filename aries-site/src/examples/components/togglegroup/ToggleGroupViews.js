@@ -17,7 +17,7 @@ import { Table, List as ListIcon } from 'grommet-icons';
 const columns = [
   {
     property: 'name',
-    header: <Text>Name with extra</Text>,
+    header: <Text>Name</Text>,
     primary: true,
   },
   {
