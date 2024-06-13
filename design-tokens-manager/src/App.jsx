@@ -51,7 +51,7 @@ function App() {
             <Button as={Link} to="/builder" label="Token builder" />
             <Button
               icon={<Github />}
-              href="https://github.com/grommet/hpe-design-system/tree/design-tokens/design-tokens/tokens"
+              href="https://github.com/grommet/hpe-design-system/tree/design-tokens-alpha/design-tokens/tokens"
               target="_blank"
               rel="noopener noreferrer"
               tip="View tokens in Github"
