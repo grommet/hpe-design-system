@@ -27,8 +27,8 @@ import // DashboardCard,
 import { HPEGreenLakeBadge } from './icons';
 import { User } from './icons/User';
 
-const Button = ({ label, kind = 'default' }) => `
-  <button class="${kind}">${label}</button>`;
+const Button = ({ label, kind = 'default', icon }) => `
+  <button class="${kind}">${label}${icon || ''}</button>`;
 
 const FormField = ({ label, help, placeholder }) => `
     <div>
@@ -76,7 +76,7 @@ document.querySelector('#app').innerHTML = `
     <div class="pageContent">
       <div class="sandbox gap-medium align-start">
         <h2>Component testing</h2>
-        <div class="row gap-small">
+        <div class="row gap-small wrap">
           ${Button({ label: 'Default' })}
           ${Button({
             label: 'Secondary hover border color',
@@ -87,6 +87,11 @@ document.querySelector('#app').innerHTML = `
             kind: 'secondary box-shadow',
           })}
           ${Button({ label: 'Primary', kind: 'primary' })}
+          ${Button({
+            label: 'Primary with icon',
+            kind: 'primary',
+            icon: User({ color: 'stroke-icon-onPrimary', size: 'medium' }),
+          })}
           ${Button({ label: 'Toolbar', kind: 'toolbar' })}
         </div>
         ${FormField({

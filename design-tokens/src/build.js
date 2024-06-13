@@ -22,7 +22,9 @@ const numberToDimension = (primitives, component, unit = 'px') => {
           (keyPath.includes('breakpoint') ||
             keyPath.includes('dimension') ||
             component === true ||
-            keyPath.includes('font'))
+            keyPath.includes('font') ||
+            keyPath.includes('fontSize') ||
+            keyPath.includes('lineHeight'))
         ) {
           keyPath.pop(); // remove $value
           const fontToken =
