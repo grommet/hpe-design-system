@@ -1005,7 +1005,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{static.border.default}",
+            "$value": "{border.default}",
             "$description": "",
             "$extensions": {
               "com.figma": {
