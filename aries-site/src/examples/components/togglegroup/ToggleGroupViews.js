@@ -1,32 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  Box,
   Data,
   DataFilters,
-  DataFilter,
   DataSearch,
   DataSummary,
   DataTable,
-  List,
+  Pagination,
   Toolbar,
   ToggleGroup,
-  Text,
 } from 'grommet';
-import { Table, List as ListIcon } from 'grommet-icons';
+import { Apps, Table, List as ListIcon } from 'grommet-icons';
+import { columns, fetchLaunches, formatData } from './utils';
+import { CardView } from './CardView';
+import { ListView } from './ListView';
 
-const columns = [
-  {
-    property: 'name',
-    header: <Text>Name</Text>,
-    primary: true,
-  },
-  {
-    property: 'location',
-    header: 'Location',
-  },
-];
-
-const options = [
+const toggleOptions = [
   {
     icon: <ListIcon a11yTitle="List view" />,
     value: 'list',
@@ -35,97 +23,63 @@ const options = [
     icon: <Table a11yTitle="Map view" />,
     value: 'table',
   },
-];
-
-const DATA = [
   {
-    name: 'Alan',
-    location: '',
-    date: '',
-    percent: 0,
-    paid: 0,
-  },
-  {
-    name: 'Bryan',
-    location: 'Fort Collins',
-    date: '2018-06-10',
-    percent: 30,
-    paid: 1234,
-  },
-  {
-    name: 'Chris',
-    location: 'Palo Alto',
-    date: '2018-06-09',
-    percent: 40,
-    paid: 2345,
-  },
-  {
-    name: 'Eric',
-    location: 'Palo Alto',
-    date: '2018-06-11',
-    percent: 80,
-    paid: 3456,
-  },
-  {
-    name: 'Doug',
-    location: 'Fort Collins',
-    date: '2018-06-10',
-    percent: 60,
-    paid: 1234,
-  },
-  {
-    name: 'Jet',
-    location: 'Palo Alto',
-    date: '2018-06-09',
-    percent: 40,
-    paid: 3456,
-  },
-  {
-    name: 'Michael',
-    location: 'Boise',
-    date: '2018-06-11',
-    percent: 50,
-    paid: 1234,
-  },
-  {
-    name: 'Tracy',
-    location: 'San Francisco',
-    date: '2018-06-10',
-    percent: 10,
-    paid: 2345,
+    icon: <Apps a11yTitle="Card view" />,
+    value: 'card',
   },
 ];
 
 export const ToggleGroupViews = () => {
-  const [value, setValue] = useState('list');
-  console.log(value);
+  const [result, setResult] = useState({ data: [] });
+  // fetch launch data
+  useEffect(() => {
+    fetchLaunches('https://api.spacexdata.com/v4/launches/query').then(
+      response => {
+        setResult({
+          data: formatData(response.docs),
+        });
+      },
+    );
+  }, []);
+  const [value, setValue] = useState('table');
   return (
-    <Box pad="large" width="large">
-      <Data data={DATA}>
-        <Toolbar>
-          <DataSearch />
-          <DataFilters layer>
-            <DataFilter property="location" />
-          </DataFilters>
-          <ToggleGroup
-            onToggle={e => {
-              if (e.value.length) setValue(e.value);
-            }}
-            value={value}
-            options={options}
-          />
-        </Toolbar>
-        <DataSummary />
-        {value === 'list' ? (
-          <List primaryKey="name" secondaryKey="location" />
-        ) : (
-          <DataTable
-            aria-describedby="name"
-            columns={columns}
-            alignSelf="start"
-          />
-        )}
-      </Data>
-    </Box>
+    <Data
+      data={result.data}
+      properties={{
+        name: { filter: false },
+        rocket: { label: 'Rocket' },
+        cores: { label: 'Cores' },
+        date_utc: { label: 'Date' },
+        success: { label: 'Success' },
+        failureAltitude: { label: 'Failure altitude' },
+      }}
+      views={[
+        {
+          name: 'My rockets',
+          properties: {
+            rocket: ['Falcon 9'],
+          },
+        },
+      ]}
+    >
+      <Toolbar>
+        <DataSearch />
+        <DataFilters layer />
+        <ToggleGroup
+          onToggle={e => {
+            if (e.value.length) setValue(e.value);
+          }}
+          value={value}
+          options={toggleOptions}
+        />
+      </Toolbar>
+      <DataSummary />
+      {value === 'table' && (
+        <DataTable aria-describedby="spaceX" columns={columns} />
+      )}
+      {value === 'card' && <CardView />}
+      {value === 'list' && <ListView />}
+      <Pagination summary border="top" pad="xsmall" />
+    </Data>
   );
 };
