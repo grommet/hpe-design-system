@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Text, Diagram, Stack, ThemeContext } from 'grommet';
+import { Box, Grid, Text, Diagram, Stack } from 'grommet';
 import { Map, List, Table } from 'grommet-icons';
 import { Annotation } from '../../../layouts';
 
@@ -38,7 +38,8 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xsmall', 'small', 'xsmall']}
+    // These arent the best, t-shirt sizes didnt really work
+    columns={['80px', '120px', '80px']}
     gap={{ row: 'medium' }}
     justify="center"
     {...rest}
@@ -46,14 +47,11 @@ const AnatomyGrid = ({ ...rest }) => (
 );
 
 const AnatomyBox = ({ label, id, icon, ...rest }) => {
-  const theme = useContext(ThemeContext);
-
   return (
     <Box
       id={id}
-      pad="xsmall"
       fill="horizontal"
-      height={theme.global.edgeSize.medium}
+      pad="xsmall"
       justify="center"
       align="center"
       gap="xsmall"
@@ -61,7 +59,9 @@ const AnatomyBox = ({ label, id, icon, ...rest }) => {
       {...rest}
     >
       {icon}
-      <Text>{label}</Text>
+      <Text color="text-strong" weight={600}>
+        {label}
+      </Text>
     </Box>
   );
 };
@@ -71,7 +71,7 @@ export const ToggleGroupAnatomy = () => (
     <Box direction="row-responsive" gap="medium">
       <AnatomyGrid>
         <AnatomyBox
-          round={{ corner: 'left', size: 'xxsmall' }}
+          round={{ corner: 'left', size: 'xsmall' }}
           border
           icon={<Map />}
           label="Map"
@@ -84,7 +84,7 @@ export const ToggleGroupAnatomy = () => (
           label="DataTable"
         />
         <AnatomyBox
-          round={{ corner: 'right', size: 'xxsmall' }}
+          round={{ corner: 'right', size: 'xsmall' }}
           label="List"
           icon={<List />}
           id="list"
