@@ -5,6 +5,7 @@ import { Table, List, MapLocation } from 'grommet-icons';
 export const ToggleGroupPreview = () => (
   <Box align="center" justify="center">
     <ToggleGroup
+      tabIndex={-1}
       options={[
         {
           icon: <Table />,
