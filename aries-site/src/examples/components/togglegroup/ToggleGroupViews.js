@@ -20,7 +20,7 @@ const toggleOptions = [
     value: 'list',
   },
   {
-    icon: <Table a11yTitle="Map view" />,
+    icon: <Table a11yTitle="Table view" />,
     value: 'table',
   },
   {
