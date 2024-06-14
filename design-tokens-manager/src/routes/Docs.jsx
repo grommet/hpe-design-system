@@ -186,6 +186,7 @@ const Docs = () => {
               <DataSummary />
               <Box overflow={{ horizontal: 'auto' }}>
                 <DataTable
+                  verticalAlign="top"
                   columns={[
                     {
                       property: 'id',
