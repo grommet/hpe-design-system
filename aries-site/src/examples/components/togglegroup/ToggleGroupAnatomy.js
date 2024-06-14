@@ -38,10 +38,7 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={{
-      count: 3,
-      size: 'xsmall',
-    }}
+    columns={['xsmall', 'small', 'xsmall']}
     gap={{ row: 'medium' }}
     justify="center"
     {...rest}
@@ -54,13 +51,12 @@ const AnatomyBox = ({ label, id, icon, ...rest }) => {
   return (
     <Box
       id={id}
-      pad="small"
+      pad="xsmall"
       fill="horizontal"
       height={theme.global.edgeSize.medium}
-      border
       justify="center"
       align="center"
-      gap="small"
+      gap="xsmall"
       direction="row"
       {...rest}
     >
@@ -76,16 +72,23 @@ export const ToggleGroupAnatomy = () => (
       <AnatomyGrid>
         <AnatomyBox
           round={{ corner: 'left', size: 'xxsmall' }}
+          border
           icon={<Map />}
           label="Map"
           id="map"
         />
-        <AnatomyBox id="table" icon={<Table />} label="DataTable" />
+        <AnatomyBox
+          border="horizontal"
+          id="table"
+          icon={<Table />}
+          label="DataTable"
+        />
         <AnatomyBox
           round={{ corner: 'right', size: 'xxsmall' }}
           label="List"
           icon={<List />}
           id="list"
+          border
         />
         <Annotation id={1} target="1" />
         <Annotation id={2} target="2" />
