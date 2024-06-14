@@ -79,7 +79,7 @@ export const ToggleGroupViews = () => {
       )}
       {value === 'card' && <CardView />}
       {value === 'list' && <ListView />}
-      <Pagination summary border="top" pad="xsmall" />
+      <Pagination summary stepOptions border="top" pad="xsmall" />
     </Data>
   );
 };
