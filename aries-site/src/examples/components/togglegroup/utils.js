@@ -41,6 +41,7 @@ export const fetchLaunches = async (url, view) => {
       ],
       sort,
       select: ['name', 'failures', 'success', 'date_utc', 'cores', 'links'],
+      limit: 200,
       page: view?.page || 1,
     },
     query,
