@@ -4,11 +4,14 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -16,11 +19,14 @@
       "hover": {
         "$type": "color",
         "$value": "{color.background.contrast}",
-        "$description": "",
+        "$description": "Standard hover state color",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -28,11 +34,14 @@
       "active": {
         "$type": "color",
         "$value": "{color.background.hover}",
-        "$description": "",
+        "$description": "Standard active state color",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -40,11 +49,14 @@
       "disabled": {
         "$type": "color",
         "$value": "{TBD}",
-        "$description": "",
+        "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -52,11 +64,14 @@
       "back": {
         "$type": "color",
         "$value": "{base.color.grey.50}",
-        "$description": "",
+        "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -64,11 +79,14 @@
       "front": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -76,11 +94,14 @@
       "raised": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Elevation level 2. Used for raised components, that can sit on top of both background.back or background.front. Example: cards.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -88,11 +109,14 @@
       "floating": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -104,7 +128,10 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -117,7 +144,10 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -129,7 +159,10 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -141,7 +174,10 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -153,7 +189,10 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -165,7 +204,10 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -175,11 +217,14 @@
         "strong": {
           "$type": "color",
           "$value": "{base.color.green.600}",
-          "$description": "",
+          "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -187,11 +232,14 @@
         "weak": {
           "$type": "color",
           "$value": "{base.color.green.100}",
-          "$description": "",
+          "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -201,11 +249,14 @@
         "default": {
           "$type": "color",
           "$value": "{base.color.green.600}",
-          "$description": "",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -213,11 +264,14 @@
         "hover": {
           "$type": "color",
           "$value": "{TBD}",
-          "$description": "",
+          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
               "codeSyntax": {}
             }
           }
@@ -228,11 +282,13 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.black.opacity72}",
-        "$description": "",
+        "$description": "Stronger border color for added emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -240,11 +296,13 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.black.opacity36}",
-        "$description": "",
+        "$description": "Default border colour",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -252,11 +310,13 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "",
+        "$description": "Weaker border color for reduced emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -264,11 +324,13 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "",
+        "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -276,11 +338,13 @@
       "selected": {
         "$type": "color",
         "$value": "{base.color.green.600}",
-        "$description": "",
+        "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -290,11 +354,13 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.grey.800}",
-        "$description": "",
+        "$description": "Default text color that is accessible on standard background colors",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -302,11 +368,13 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.grey.1000}",
-        "$description": "",
+        "$description": "Stronger text color for added prominence",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -314,11 +382,13 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.grey.700}",
-        "$description": "",
+        "$description": "Weaker text color for reduced emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -330,7 +400,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -338,11 +410,13 @@
       "disabled": {
         "$type": "color",
         "$value": "{TBD}",
-        "$description": "",
+        "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -354,7 +428,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -366,7 +442,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -378,7 +456,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -390,7 +470,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -402,7 +484,9 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -410,11 +494,13 @@
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -422,11 +508,13 @@
       "brand": {
         "$type": "color",
         "$value": "{base.color.green.600}",
-        "$description": "",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "TEXT_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -436,11 +524,15 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.grey.800}",
-        "$description": "",
+        "$description": "Default icon colour that is accessible on standard background colours",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -448,11 +540,15 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.grey.1000}",
-        "$description": "",
+        "$description": "Stronger icon color for added prominence",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -460,11 +556,15 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.grey.700}",
-        "$description": "",
+        "$description": "Weaker icon color for reduced emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -476,7 +576,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -484,11 +588,15 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity36}",
-        "$description": "",
+        "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -500,7 +608,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -512,7 +624,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -524,7 +640,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -536,7 +656,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -548,7 +672,11 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -556,11 +684,15 @@
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "",
+        "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -568,11 +700,15 @@
       "brand": {
         "$type": "color",
         "$value": "{base.color.green.600}",
-        "$description": "",
+        "$description": "Brand color for icons.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "STROKE_COLOR",
+              "SHAPE_FILL",
+              "FRAME_FILL"
+            ],
             "codeSyntax": {}
           }
         }
@@ -582,11 +718,13 @@
       "green": {
         "$type": "color",
         "$value": "{base.color.green.400}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -594,11 +732,13 @@
       "purple": {
         "$type": "color",
         "$value": "{base.color.purple.500}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -606,11 +746,13 @@
       "turquoise": {
         "$type": "color",
         "$value": "{base.color.turquoise.200}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -618,11 +760,13 @@
       "blue": {
         "$type": "color",
         "$value": "{base.color.blue.400}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -630,11 +774,13 @@
       "red": {
         "$type": "color",
         "$value": "{base.color.red.500}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -642,11 +788,13 @@
       "orange": {
         "$type": "color",
         "$value": "{base.color.orange.400}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -654,11 +802,13 @@
       "yellow": {
         "$type": "color",
         "$value": "{base.color.yellow.200}",
-        "$description": "",
+        "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": [
+              "ALL_SCOPES"
+            ],
             "codeSyntax": {}
           }
         }
@@ -673,7 +823,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -685,7 +837,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -697,7 +851,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -709,7 +865,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -721,7 +879,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -733,7 +893,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -745,7 +907,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -757,7 +921,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -769,7 +935,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -781,7 +949,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -793,7 +963,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -805,7 +977,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -817,7 +991,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
@@ -829,7 +1005,9 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
+              "scopes": [
+                "ALL_SCOPES"
+              ],
               "codeSyntax": {}
             }
           }
