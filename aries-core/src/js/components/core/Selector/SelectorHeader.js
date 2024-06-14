@@ -26,13 +26,6 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
       {...rest}
     >
       {selected && (
-        // need to talk with Lucas
-        // I think we discussed making this a checkmark for both
-        // (multiple ? (
-        //   <Checkmark aria-label="selected" size="small" />
-        // ) : (
-        //  <StatusGoodSmall aria-label="selected" size="small" color="brand" />
-        // ))}
         <Checkmark aria-label="selected" size="small" />
       )}
     </Box>
