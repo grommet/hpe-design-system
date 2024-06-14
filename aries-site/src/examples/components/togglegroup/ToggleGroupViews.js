@@ -75,7 +75,7 @@ export const ToggleGroupViews = () => {
       </Toolbar>
       <DataSummary />
       {value === 'table' && (
-        <DataTable aria-describedby="spaceX" columns={columns} />
+        <DataTable aria-describedby="spaceX" columns={columns} verticalAlign={{ body: 'top' }} />
       )}
       {value === 'card' && <CardView />}
       {value === 'list' && <ListView />}
