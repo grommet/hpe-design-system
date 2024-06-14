@@ -16,12 +16,12 @@ import { ListView } from './ListView';
 
 const toggleOptions = [
   {
-    icon: <ListIcon a11yTitle="List view" />,
-    value: 'list',
-  },
-  {
     icon: <Table a11yTitle="Table view" />,
     value: 'table',
+  },
+  {
+    icon: <ListIcon a11yTitle="List view" />,
+    value: 'list',
   },
   {
     icon: <Apps a11yTitle="Card view" />,
@@ -53,14 +53,6 @@ export const ToggleGroupViews = () => {
         success: { label: 'Success' },
         failureAltitude: { label: 'Failure altitude' },
       }}
-      views={[
-        {
-          name: 'My rockets',
-          properties: {
-            rocket: ['Falcon 9'],
-          },
-        },
-      ]}
     >
       <Toolbar>
         <DataSearch />
@@ -75,7 +67,11 @@ export const ToggleGroupViews = () => {
       </Toolbar>
       <DataSummary />
       {value === 'table' && (
-        <DataTable aria-describedby="spaceX" columns={columns} verticalAlign={{ body: 'top' }} />
+        <DataTable
+          aria-describedby="spaceX"
+          columns={columns}
+          verticalAlign={{ body: 'top' }}
+        />
       )}
       {value === 'card' && <CardView />}
       {value === 'list' && <ListView />}
