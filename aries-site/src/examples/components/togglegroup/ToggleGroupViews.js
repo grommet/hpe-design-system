@@ -68,7 +68,7 @@ export const ToggleGroupViews = () => {
       <DataSummary />
       {value === 'table' && (
         <DataTable
-          aria-describedby="spaceX"
+          aria-describedby="spaceX-rocket-launches"
           columns={columns}
           verticalAlign={{ body: 'top' }}
         />
