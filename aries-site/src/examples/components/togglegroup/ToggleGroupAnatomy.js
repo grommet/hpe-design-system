@@ -46,7 +46,7 @@ const AnatomyGrid = ({ ...rest }) => (
   />
 );
 
-const AnatomyBox = ({ label, id, icon, ...rest }) => {
+const AnatomyBox = ({ id, children, ...rest }) => {
   return (
     <Box
       id={id}
@@ -58,50 +58,54 @@ const AnatomyBox = ({ label, id, icon, ...rest }) => {
       direction="row"
       {...rest}
     >
-      {icon}
-      <Text color="text-strong" weight={600}>
-        {label}
-      </Text>
+      {children}
     </Box>
   );
 };
 
-export const ToggleGroupAnatomy = () => (
-  <Stack margin={{ bottom: 'medium' }}>
-    <Box direction="row-responsive" gap="medium">
-      <AnatomyGrid>
-        <AnatomyBox
-          round={{ corner: 'left', size: 'xsmall' }}
-          border
-          icon={<Map />}
-          label="Map"
-          id="map"
-        />
-        <AnatomyBox
-          border="horizontal"
-          id="table"
-          icon={<Table />}
-          label="DataTable"
-        />
-        <AnatomyBox
-          round={{ corner: 'right', size: 'xsmall' }}
-          label="List"
-          icon={<List />}
-          id="list"
-          border
-        />
-        <Annotation id={1} target="1" />
-        <Annotation id={2} target="2" />
-        <Annotation id={3} target="3" />
-      </AnatomyGrid>
-    </Box>
-    <Diagram connections={connections} />
-  </Stack>
-);
+export const ToggleGroupAnatomy = () => {
+  return (
+    <Stack margin={{ bottom: 'medium' }}>
+      <Box direction="row-responsive" gap="medium">
+        <AnatomyGrid>
+          <AnatomyBox
+            round={{ corner: 'left', size: 'xsmall' }}
+            border
+            icon={<Map />}
+            label="Map"
+            id="map"
+          >
+            <Map />
+            <Text color="text-strong" weight={600}>
+              Map
+            </Text>
+          </AnatomyBox>
+          <AnatomyBox border="horizontal">
+            <Table />
+            <Text id="table" color="text-strong" weight={600}>
+              DataTable
+            </Text>
+          </AnatomyBox>
+          <AnatomyBox round={{ corner: 'right', size: 'xsmall' }} border>
+            <List id="list" />
+            <Text color="text-strong" weight={600}>
+              List
+            </Text>
+          </AnatomyBox>
+          <Annotation id={1} target="1" />
+          <Annotation id={2} target="2" margin={{ left: 'medium' }} />
+          <Annotation id={3} target="3" margin={{ right: '32px' }} />
+        </AnatomyGrid>
+      </Box>
+      <Diagram connections={connections} />
+    </Stack>
+  );
+};
 
 AnatomyBox.propTypes = {
   background: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   icon: PropTypes.element,
+  children: PropTypes.element,
 };
