@@ -5,6 +5,7 @@ import {
   DataSearch,
   DataSummary,
   DataTable,
+  Heading,
   Pagination,
   Toolbar,
   ToggleGroup,
@@ -43,39 +44,42 @@ export const ToggleGroupViews = () => {
   }, []);
   const [value, setValue] = useState('table');
   return (
-    <Data
-      data={result.data}
-      properties={{
-        name: { filter: false },
-        rocket: { label: 'Rocket' },
-        cores: { label: 'Cores' },
-        date_utc: { label: 'Date' },
-        success: { label: 'Success' },
-        failureAltitude: { label: 'Failure altitude' },
-      }}
-    >
-      <Toolbar>
-        <DataSearch />
-        <DataFilters layer />
-        <ToggleGroup
-          onToggle={e => {
-            if (e.value.length) setValue(e.value);
-          }}
-          value={value}
-          options={toggleOptions}
-        />
-      </Toolbar>
-      <DataSummary />
-      {value === 'table' && (
-        <DataTable
-          aria-describedby="spaceX-rocket-launches"
-          columns={columns}
-          verticalAlign={{ body: 'top' }}
-        />
-      )}
-      {value === 'card' && <CardView />}
-      {value === 'list' && <ListView />}
-      <Pagination summary stepOptions border="top" pad="xsmall" />
-    </Data>
+    <>
+      <Heading id="spaceX-rocket-launches">Space X Launch Data</Heading>
+      <Data
+        data={result.data}
+        properties={{
+          name: { filter: false },
+          rocket: { label: 'Rocket' },
+          cores: { label: 'Cores' },
+          date_utc: { label: 'Date' },
+          success: { label: 'Success' },
+          failureAltitude: { label: 'Failure altitude' },
+        }}
+      >
+        <Toolbar>
+          <DataSearch />
+          <DataFilters layer />
+          <ToggleGroup
+            onToggle={e => {
+              if (e.value.length) setValue(e.value);
+            }}
+            value={value}
+            options={toggleOptions}
+          />
+        </Toolbar>
+        <DataSummary />
+        {value === 'table' && (
+          <DataTable
+            aria-describedby="spaceX-rocket-launches"
+            columns={columns}
+            verticalAlign={{ body: 'top' }}
+          />
+        )}
+        {value === 'card' && <CardView />}
+        {value === 'list' && <ListView />}
+        <Pagination summary stepOptions border="top" pad="xsmall" />
+      </Data>
+    </>
   );
 };
