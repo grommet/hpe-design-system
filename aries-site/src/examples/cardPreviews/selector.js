@@ -16,7 +16,7 @@ export const SelectorPreview = () => (
   <SelectorGroup
     tabIndex={-1}
     a11yTitle="Select service products"
-    layout='fit'
+    layout='grid'
   >
     {services.map(datum => (
       <Selector key={datum.value} value={datum.value} title={datum.title} />
