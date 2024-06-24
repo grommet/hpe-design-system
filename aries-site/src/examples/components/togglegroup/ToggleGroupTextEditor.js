@@ -6,14 +6,17 @@ const options = [
   {
     icon: <Bold a11yTitle="Bold" />,
     value: 'bold',
+    tip: 'Bold',
   },
   {
     icon: <Italic a11yTitle="Italic" />,
     value: 'italic',
+    tip: 'Italic',
   },
   {
     icon: <Underline a11yTitle="Underline" />,
     value: 'underline',
+    tip: 'Underline',
   },
 ];
 
