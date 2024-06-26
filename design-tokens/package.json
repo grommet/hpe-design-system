@@ -23,6 +23,7 @@
     "build-style-dictionary": "node src/build-style-dictionary.js",
     "build-token-tree": "node src/build-token-tree.js",
     "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary && yarn build-token-tree",
+    "release-stable": "node src/release-stable.js",
     "test": "jest"
   },
   "dependencies": {
@@ -36,6 +37,9 @@
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.5",
     "jest": "^29.6.2",
+    "fs-extra": "^11.2.0",
+    "simple-git": "^3.24.0",
+    "del": "^6.1.1",
     "prettier": "3.0.0",
     "style-dictionary": "^3.9.2",
     "style-dictionary-utils": "^2.0.7",
