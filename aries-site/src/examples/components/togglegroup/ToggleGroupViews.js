@@ -19,14 +19,17 @@ const toggleOptions = [
   {
     icon: <Table a11yTitle="Table view" />,
     value: 'table',
+    tip: 'Table',
   },
   {
     icon: <ListIcon a11yTitle="List view" />,
     value: 'list',
+    tip: 'List',
   },
   {
     icon: <Apps a11yTitle="Card view" />,
     value: 'card',
+    tip: 'Card',
   },
 ];
 
