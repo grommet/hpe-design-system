@@ -225,6 +225,20 @@
           "codeSyntax": {}
         }
       }
+    },
+    "full": {
+      "$type": "number",
+      "$value": "{base.dimension.76800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "border": {
